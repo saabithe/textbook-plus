@@ -35,13 +35,13 @@ export default async function SubjectPage({ params }: Props) {
       <main className="flex-1">
         <section className="mx-auto max-w-4xl px-6 py-14">
           {/* Subject header */}
-          <div className="mb-12 flex items-center gap-5">
+          <div className="mb-10 flex items-center gap-4 sm:mb-12 sm:gap-5">
             <div
-              className="flex h-16 w-16 items-center justify-center rounded-2xl"
+              className="flex h-12 w-12 items-center justify-center rounded-xl sm:h-16 sm:w-16 sm:rounded-2xl"
               style={{ backgroundColor: subject.colorLight }}
             >
               <Icon
-                className="h-8 w-8"
+                className="h-6 w-6 sm:h-8 sm:w-8"
                 style={{ color: subject.color }}
                 strokeWidth={1.8}
               />

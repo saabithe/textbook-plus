@@ -13,7 +13,7 @@ export function SubjectCard({ subject }: SubjectCardProps) {
     <Link
       href={`/subjects/${subject.slug}`}
       className={cn(
-        "group flex flex-col items-start gap-5 rounded-2xl border border-border/60 bg-card p-7",
+        "group flex flex-col items-start gap-4 rounded-2xl border border-border/60 bg-card p-5 sm:gap-5 sm:p-7",
         "transition-all duration-300 ease-out",
         "hover:-translate-y-1 hover:shadow-[0_8px_30px_-12px_var(--card-shadow)]",
         "hover:border-[var(--card-border)]"
@@ -27,7 +27,7 @@ export function SubjectCard({ subject }: SubjectCardProps) {
     >
       {/* Icon */}
       <div
-        className="flex h-14 w-14 items-center justify-center rounded-2xl transition-all duration-300 group-hover:scale-110"
+        className="flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 sm:h-14 sm:w-14 sm:rounded-2xl"
         style={{ backgroundColor: subject.colorLight }}
       >
         <Icon

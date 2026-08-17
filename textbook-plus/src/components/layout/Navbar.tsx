@@ -21,13 +21,13 @@ export function Navbar() {
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-foreground transition-transform duration-200 group-hover:scale-105">
             <BookOpen className="h-5 w-5 text-background" strokeWidth={2.5} />
           </div>
-          <span className="text-lg font-bold tracking-tight">
+          <span className="text-lg font-bold tracking-tight hidden sm:inline">
             Textbook++
           </span>
         </Link>
 
         {/* Nav Links — Center */}
-        <nav className="flex items-center gap-1">
+        <nav className="flex items-center gap-0.5 sm:gap-1">
           {navLinks.map((link) => {
             const isActive =
               link.href === "/"
@@ -39,14 +39,14 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-150",
+                  "flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors duration-150 sm:gap-2 sm:px-4",
                   isActive
                     ? "bg-muted text-foreground"
                     : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
                 )}
               >
                 <Icon className="h-4 w-4" />
-                {link.label}
+                <span className="hidden sm:inline">{link.label}</span>
               </Link>
             );
           })}

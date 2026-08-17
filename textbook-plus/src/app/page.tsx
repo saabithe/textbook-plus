@@ -13,7 +13,7 @@ export default function HomePage() {
             <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
               Choose a subject
             </h1>
-            <p className="mt-3 text-lg text-muted-foreground">
+            <p className="mt-3 text-base text-muted-foreground sm:text-lg">
               Pick up where you left off, or start something new.
             </p>
           </div>
