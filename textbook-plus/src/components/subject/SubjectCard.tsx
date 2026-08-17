@@ -13,7 +13,7 @@ export function SubjectCard({ subject }: SubjectCardProps) {
     <Link
       href={`/subjects/${subject.slug}`}
       className={cn(
-        "group relative flex flex-col items-start gap-5 rounded-2xl border border-border/60 bg-card p-7",
+        "group flex flex-col items-start gap-5 rounded-2xl border border-border/60 bg-card p-7",
         "transition-all duration-300 ease-out",
         "hover:-translate-y-1 hover:shadow-[0_8px_30px_-12px_var(--card-shadow)]",
         "hover:border-[var(--card-border)]"
@@ -25,12 +25,6 @@ export function SubjectCard({ subject }: SubjectCardProps) {
         } as React.CSSProperties
       }
     >
-      {/* Accent bar on top */}
-      <div
-        className="absolute inset-x-0 top-0 h-1 rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{ backgroundColor: subject.color }}
-      />
-
       {/* Icon */}
       <div
         className="flex h-14 w-14 items-center justify-center rounded-2xl transition-all duration-300 group-hover:scale-110"
