@@ -15,12 +15,12 @@ All run from `textbook-plus/`:
 
 ```bash
 npm install          # install deps
-npm run dev          # dev server (port 3000) — requires --webpack flag (see below)
-npm run build        # production build
+npm run dev          # dev server (port 3000) — uses --webpack (Windows SWC fix)
+npm run build        # production build (no --webpack needed on Vercel/Linux)
 npm run lint         # eslint (next core-web-vitals + typescript)
 ```
 
-**Critical**: `dev` and `build` scripts use `--webpack` flag. If you recreate package.json scripts, preserve this flag.
+**Note**: `dev` uses `--webpack` flag (Windows SWC binary workaround). `build` does NOT — Vercel/Linux doesn't need it.
 
 No test framework is configured. No typecheck script exists (TypeScript errors surface via `npm run build`).
 
@@ -42,7 +42,7 @@ No test framework is configured. No typecheck script exists (TypeScript errors s
 
 ## Content & Data Model
 
-6 subjects, 94 chapters total. When adding chapters or subjects:
+6 subjects, 75 chapters total. When adding chapters or subjects:
 1. Update `src/data/subjects.ts` (array + `getSubjectBySlug` helper)
 2. Update `src/data/chapters.ts` (add to the `chapters` record)
 3. Subject colors: add CSS vars in both `:root` and `.dark` in `globals.css`
