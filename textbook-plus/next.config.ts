@@ -1,15 +1,36 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
+import rehypeMathjax from "rehype-mathjax";
 import rehypeSlug from "rehype-slug";
 import rehypeSlugStrip from "./rehype-slug-strip.mjs";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const mathjaxPlugin: any = rehypeMathjax;
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeSlug, rehypeSlugStrip, rehypeKatex],
+    rehypePlugins: [
+      rehypeSlug,
+      rehypeSlugStrip,
+      [
+        mathjaxPlugin,
+        {
+          tex: {
+            displayMath: [["$$", "$$"]],
+            inlineMath: [["$", "$"]],
+            packages: ["base", "ams"],
+          },
+          svg: {
+            scale: 1,
+            minScale: 0.5,
+            fontCache: "local",
+          },
+        },
+      ],
+    ],
   },
 });
 

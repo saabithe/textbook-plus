@@ -33,13 +33,13 @@ No test framework is configured. No typecheck script exists (TypeScript errors s
 - **TypeScript strict mode** with `@/*` path alias → `./src/*`
 - **Font**: Plus Jakarta Sans loaded via `next/font/google`, stored as `--font-sans` CSS variable
 - **Lucide React** for icons
-- **MDX** with `@next/mdx`, `remark-math`, `rehype-katex` for KaTeX-rendered math formulas
+- **MDX** with `@next/mdx`, `remark-math`, `rehype-mathjax` for SVG-rendered math formulas (server-side, no client JS)
 
 ## Key Architecture Decisions
 
 - Subject and chapter data is **hardcoded** in `src/data/subjects.ts` and `src/data/chapters.ts` — no database yet
 - Subject colors are CSS custom properties (`--subject-{name}` and `--subject-{name}-light`) defined in `globals.css` `:root` and `.dark` blocks
-- Content lives in `src/content/{subject-slug}/{chapter-slug}/page.mdx` — MDX files with KaTeX math
+- Content lives in `src/content/{subject-slug}/{chapter-slug}/page.mdx` — MDX files with MathJax math
 - Content registry is `src/lib/content.ts` — maps slugs to MDX components and section headings
 - Chapter pages have **Learning** and **Practice** tabs (Practice is placeholder UI for now)
 - Components follow the shadcn pattern: placed in `src/components/{category}/`

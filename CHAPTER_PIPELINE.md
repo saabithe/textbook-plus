@@ -4,6 +4,41 @@
 
 ---
 
+## Execution Approach
+
+Each chapter follows a **step-by-step, brick-by-brick** workflow with user approval at every decision point.
+
+### Workflow
+
+1. **Show output of each step** before moving to the next
+2. **User approves** via MCQ modal (clickable options) before proceeding
+3. **No step is skipped** — every step must complete and be approved
+4. **Content quality is the priority** — completeness and accuracy to NCERT source over speed
+5. **Perfection standard** — no mistakes, no matter how long it takes. Full pipeline redo from Step 1 if needed.
+
+### Decision Points (MCQ Modals)
+
+At each step, the AI presents the output and asks the user to choose:
+
+| Step | Decision |
+|------|----------|
+| Step 2 | Extraction complete — proceed to verification? |
+| Step 2a | Verification done — gaps filled? proceed? |
+| Steps 3-6 | Analysis complete — proceed to content creation? |
+| Step 7-12 | Content layers done — proceed to output? |
+| Step 13 | Output files ready — proceed to registration? |
+| Step 18 | Build passes — commit + push? |
+
+### Content Rules (Non-Negotiable)
+
+- **NCERT source is truth** — every formula, definition, example must come from the extraction file. Never invent.
+- **Body text in page.mdx** — expand all sections with full explanations, not just component placeholders
+- **Examples included** — all NCERT worked examples with complete solutions
+- **Supplementary content** — non-NCERT examples kept as "Supplementary Example" (user decides per chapter)
+- **Verify against PDF** — Step 2a is mandatory. Compare extraction line-by-line against pymupdf output.
+
+---
+
 ## Source of Truth
 
 Every chapter starts with a **complete extraction** (Step 2). The extracted markdown file becomes the single source of truth for all subsequent steps. Never go back to the PDF — everything you need is in the extraction.
@@ -18,11 +53,38 @@ This file is **permanent** — it stays in the repo as the reference. Content tr
 
 ## Content Rules
 
-- **No long paragraphs.** Default to bullet points. Use paragraphs only when the concept genuinely requires flowing text (e.g., explaining a narrative process, a story-like explanation). Even then, keep under 3 sentences.
-- **No filler words.** Cut "simply", "just", "basically", "obviously", "of course", "it is important to note that".
-- **No jargon without context.** Every technical term gets a one-line definition on first use.
+### NCERT Fidelity
+
+- **Definitions + laws = verbatim.** Copy NCERT's exact phrasing. Add bold/Markdown formatting for readability, but do not change words.
+- **Everything else = faithful rewrite.** Explanations, examples context, notes can be reworded for clarity — but no information lost.
+- **Formulas = exact.** Every variable, subscript, superscript, vector notation must match NCERT precisely.
+
+### Paragraph Removal
+
+- **No paragraphs.** Convert all body text to asterisk bullet points (`*`). One fact per bullet.
+- **Filler removal applies to ALL sections.** Cut: "simply", "just", "basically", "obviously", "of course", "it is important to note that", "we know that", "as we know".
+- **When removing fillers, preserve the fact.** Every takeaway, data point, concept must survive — only the fluff goes.
+- **After bullet breakdown:** Add a `KeyPoint` component only if the section has a core insight worth highlighting.
+
+### Component Rules
+
+| Content Type | Component | Format |
+|-------------|-----------|--------|
+| **Definitions** | `Callout(important)` + bullet breakdown | Verbatim NCERT in callout, then `*` bullets below |
+| **Laws/Statements** | `Callout(important)` | Verbatim NCERT law statement |
+| **Derivations** | `Expandable` (collapsed) | Full step-by-step, formulas in MathJax |
+| **Examples** | `Example` | Full NCERT solution, unmodified |
+| **Try These** | `Expandable` (collapsed) | Question text, click to reveal |
+| **NCERT Notes/Remarks** | `Callout(note)` | Blue callout, labeled 'Note' |
+| **Key Insights** | `KeyPoint` | Added after bullet breakdown if insight exists |
+| **Comparisons** | `Comparison` | Side-by-side, two items |
+| **Supplementary Examples** | `Example` with "Supplementary" label | Non-NCERT extras, user decides per chapter |
+
+### Scannability
+
 - **Scannable > readable.** A student should be able to skim and get 80% of the value.
 - **Every section answers:** "What does the student need to know?" and nothing else.
+- **No jargon without context.** Every technical term gets a one-line definition on first use.
 
 ---
 
@@ -191,7 +253,11 @@ Foundation → Bridge → Actual Content
 - **Bridge**: How the new concept connects to what they know
 - **Content**: The actual concept, explained clearly
 
-- Keep it concise. No hand-holding. No filler.
+- **Definitions + laws**: Verbatim NCERT in `Callout(important)`, then bullet breakdown below
+- **Body text**: All paragraphs → asterisk bullet points (`*`), one fact per bullet
+- **Fillers removed**: "simply", "just", "basically", "obviously" — cut from all sections
+- **After bullets**: Add `KeyPoint` only if the section has a core insight
+- **Derivations**: Full step-by-step in `Expandable` (collapsed) — MathJax formulas
 - Goal: shortest path from "I don't know" to "I get it"
 
 ### Step 8: Content Transformation
@@ -274,6 +340,9 @@ src/content/{subject-slug}/{chapter-slug}/
 ├── questions.json        ← Practice questions (MCQ + short answer)
 └── flashcards.json       ← Revision flashcards
 ```
+
+- **Math formulas**: KaTeX currently. Pending migration to MathJax (`rehype-mathjax`) for 99% LaTeX coverage — see `Pending/plan_MATHJAX_0001.md`
+- **MDX components**: Import only what you use. Register in `src/mdx-components.tsx` if new.
 
 ---
 
@@ -509,6 +578,15 @@ src/
 
 > **⚠️ Hallucinated content**
 > Every formula, definition, and example must come from the extraction file. Never invent.
+
+> **⚠️ Paragraphs left in page.mdx**
+> All body text must be asterisk bullet points (`*`). No paragraphs. One fact per bullet.
+
+> **⚠️ NCERT definitions rewritten**
+> Definitions and laws must be verbatim from NCERT (with bold formatting). Only explanations can be reworded.
+
+> **⚠️ Fillers left in content**
+> Cut all filler words from every section: "simply", "just", "basically", "obviously", "of course". Preserve the fact, remove the fluff.
 
 > **⚠️ Skipping the audit step**
 > Always compare generated content against the extraction file before registering.

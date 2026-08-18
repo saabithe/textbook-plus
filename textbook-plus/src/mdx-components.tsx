@@ -1,5 +1,4 @@
 import type { MDXComponents } from "mdx/types";
-import "katex/dist/katex.min.css";
 import { Callout } from "@/components/mdx/Callout";
 import { KeyPoint } from "@/components/mdx/KeyPoint";
 import { Formula } from "@/components/mdx/Formula";
