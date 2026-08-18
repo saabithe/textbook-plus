@@ -120,7 +120,7 @@ export function ChapterLayout({
           {/* Desktop sidebar */}
           {hasSidebar && (
             <aside className="hidden lg:block w-60 shrink-0">
-              <div className="sticky top-24">
+              <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto">
                 <Sidebar sections={sections} subjectColor={subjectColor} />
               </div>
             </aside>
