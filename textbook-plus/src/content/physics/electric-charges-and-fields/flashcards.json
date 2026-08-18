@@ -1,127 +1,29 @@
-[
-  {
-    "id": "fc1",
-    "front": "What is charge quantisation?",
-    "back": "q = ne. Electric charge exists only in integral multiples of elementary charge e = 1.6 × 10⁻¹⁹ C."
-  },
-  {
-    "id": "fc2",
-    "front": "What is Coulomb's Law?",
-    "back": "F = k|q₁q₂|/r² where k ≈ 9 × 10⁹ N·m²/C². Force is along the line joining the charges."
-  },
-  {
-    "id": "fc3",
-    "front": "What is the unit of electric field?",
-    "back": "N/C or V/m. E = F/q."
-  },
-  {
-    "id": "fc4",
-    "front": "What is an electric dipole?",
-    "back": "Pair of equal and opposite charges +q and −q separated by distance 2a."
-  },
-  {
-    "id": "fc5",
-    "front": "Dipole moment formula",
-    "back": "p = q × 2a. Directed from −q to +q. SI unit: C·m."
-  },
-  {
-    "id": "fc6",
-    "front": "Torque on dipole in uniform field",
-    "back": "τ = p × E. Maximum when θ = 90°. Minimum (zero) when θ = 0°."
-  },
-  {
-    "id": "fc7",
-    "front": "Torque on dipole when p ⊥ E vs p ∥ E",
-    "back": "τ ⊥ E: τ = pE (maximum)\nτ ∥ E: τ = 0 (minimum)"
-  },
-  {
-    "id": "fc8",
-    "front": "How does dipole field fall with distance?",
-    "back": "As 1/r³. Falls faster than point charge field (1/r²)."
-  },
-  {
-    "id": "fc9",
-    "front": "Gauss's Law formula",
-    "back": "∮E·dA = q_enclosed/ε₀. Total flux = enclosed charge ÷ ε₀."
-  },
-  {
-    "id": "fc10",
-    "front": "Electric flux formula",
-    "back": "Φ = EAcosθ. Maximum when field ⊥ surface (θ = 0°)."
-  },
-  {
-    "id": "fc11",
-    "front": "Field inside uniformly charged spherical shell",
-    "back": "Zero. By Gauss's Law: Gaussian surface inside encloses no charge."
-  },
-  {
-    "id": "fc12",
-    "front": "E due to infinite plane sheet of charge",
-    "back": "E = σ/(2ε₀). Independent of distance from sheet."
-  },
-  {
-    "id": "fc13",
-    "front": "E due to uniformly charged thin wire at distance r",
-    "back": "E = λ/(2πε₀r). Falls as 1/r."
-  },
-  {
-    "id": "fc14",
-    "front": "Why do electric field lines never cross?",
-    "back": "Field at any point has a unique direction. Crossing lines would imply two directions — physically impossible."
-  },
-  {
-    "id": "fc15",
-    "front": "SI unit of electric flux",
-    "back": "N·m²/C or V·m."
-  },
-  {
-    "id": "fc16",
-    "front": "Conductor vs insulator",
-    "back": "Conductors: free charge carriers → charges flow.\nInsulators: no free carriers → charges don't flow."
-  },
-  {
-    "id": "fc17",
-    "front": "What is induction?",
-    "back": "Charging by redistribution of charges without contact. A nearby charged object causes charge separation."
-  },
-  {
-    "id": "fc18",
-    "front": "Superposition principle for electrostatics",
-    "back": "Net force on a charge = vector sum of forces due to all other charges individually."
-  },
-  {
-    "id": "fc19",
-    "front": "Dipole in non-uniform field",
-    "back": "Experiences BOTH torque AND net force (unlike uniform field where net force = 0)."
-  },
-  {
-    "id": "fc20",
-    "front": "Relative strength of electric vs gravitational force",
-    "back": "Electric force is ~10³⁹ times stronger than gravity between proton and electron."
-  },
-  {
-    "id": "fc21",
-    "front": "Properties of charge — conservation",
-    "back": "Total charge of an isolated system remains constant. Charge can transfer but total is conserved."
-  },
-  {
-    "id": "fc22",
-    "front": "Properties of charge — additivity",
-    "back": "Total charge of system = algebraic sum of individual charges. Q = q₁ + q₂ + ..."
-  },
-  {
-    "id": "fc23",
-    "front": "Why does a neutral conductor get attracted to a charged object?",
-    "back": "Charged object induces opposite charge on the near side. Non-uniform field exerts net attractive force."
-  },
-  {
-    "id": "fc24",
-    "front": "Electric field due to spherical shell — outside",
-    "back": "E = q/(4πε₀r²). Same as point charge at centre."
-  },
-  {
-    "id": "fc25",
-    "front": "Force between two charges when distance is doubled",
-    "back": "Force becomes one-fourth (1/4) of original value. F ∝ 1/r²."
-  }
+﻿[
+  {"id":"ch1-fc01","front":"What is an electric charge?","back":"A fundamental property of matter. Two kinds exist: positive and negative. Like charges repel, unlike charges attract."},
+  {"id":"ch1-fc02","front":"Convention for positive/negative charge (Franklin)","back":"Glass rod rubbed with silk = positive. Plastic rod rubbed with fur = negative."},
+  {"id":"ch1-fc03","front":"Quantisation of charge formula","back":"q = ne, where n is an integer and e = 1.602 x 10^-19 C (elementary charge)."},
+  {"id":"ch1-fc04","front":"Conservation of charge","back":"Total charge of an isolated system is always conserved. Charge can be transferred but not created or destroyed."},
+  {"id":"ch1-fc05","front":"Conductor vs Insulator","back":"Conductors: charges free to move (metals, human body). Insulators: charges not free to move (glass, rubber, plastic)."},
+  {"id":"ch1-fc06","front":"Coulomb's Law (scalar form)","back":"F = k|q1*q2|/r^2, where k = 1/(4*pi*epsilon_0) approx 9 x 10^9 Nm^2C^-2."},
+  {"id":"ch1-fc07","front":"Coulomb's Law (vector form)","back":"F_21 = (1/4*pi*epsilon_0)(q1*q2/r^2_21) * r_hat_21. Force along line joining charges."},
+  {"id":"ch1-fc08","front":"Value of permittivity of free space (epsilon_0)","back":"epsilon_0 = 8.854 x 10^-12 C^2N^-1m^-2."},
+  {"id":"ch1-fc09","front":"Principle of superposition","back":"Force on any charge = vector sum of individual forces due to all other charges. Individual forces are unaffected by presence of others."},
+  {"id":"ch1-fc10","front":"Electric field definition","back":"E = lim(q->0) F/q. Force per unit positive test charge at a point. Independent of test charge."},
+  {"id":"ch1-fc11","front":"Electric field due to point charge","back":"E = (1/4*pi*epsilon_0)(q/r^2). Radially outward for +q, inward for -q."},
+  {"id":"ch1-fc12","front":"Force on charge in electric field","back":"F = qE. A charge q in field E experiences force qE."},
+  {"id":"ch1-fc13","front":"Properties of electric field lines (4 rules)","back":"(1) Start at + charges, end at - charges. (2) Continuous, no breaks. (3) Never cross. (4) No closed loops in electrostatics."},
+  {"id":"ch1-fc14","front":"Electric flux formula","back":"dPhi = E . dS = E*dS*cos(theta). Units: Nm^2C^-1 or V.m."},
+  {"id":"ch1-fc15","front":"Dipole moment formula","back":"p = q x 2a. Vector from -q to +q with magnitude = charge times separation."},
+  {"id":"ch1-fc16","front":"Dipole field on axis (r >> a)","back":"E = (1/4*pi*epsilon_0)(2p/r^3). Falls off as 1/r^3."},
+  {"id":"ch1-fc17","front":"Dipole field on equatorial plane (r >> a)","back":"E = -(1/4*pi*epsilon_0)(p/r^3). Half the axial magnitude, opposite direction."},
+  {"id":"ch1-fc18","front":"Torque on dipole in uniform field","back":"tau = p x E. Aligns dipole with field. Zero when p is parallel to E."},
+  {"id":"ch1-fc19","front":"Surface charge density (sigma)","back":"sigma = dQ/dS. Charge per unit area. Units: C/m^2."},
+  {"id":"ch1-fc20","front":"Linear charge density (lambda)","back":"lambda = dQ/dl. Charge per unit length. Units: C/m."},
+  {"id":"ch1-fc21","front":"Volume charge density (rho)","back":"rho = dQ/dV. Charge per unit volume. Units: C/m^3."},
+  {"id":"ch1-fc22","front":"Gauss's Law","back":"Closed surface integral of E.dA = q_enclosed/epsilon_0. Total flux through closed surface = enclosed charge / epsilon_0."},
+  {"id":"ch1-fc23","front":"E due to infinite wire (linear density lambda)","back":"E = lambda/(2*pi*epsilon_0*r). Radial, falls as 1/r."},
+  {"id":"ch1-fc24","front":"E due to infinite plane sheet (surface density sigma)","back":"E = sigma/(2*epsilon_0). Uniform, independent of distance."},
+  {"id":"ch1-fc25","front":"E inside and outside a charged spherical shell","back":"Outside (r > R): E = q/(4*pi*epsilon_0*r^2) (as if charge at centre). Inside (r < R): E = 0."},
+  {"id":"ch1-fc26","front":"1 Coulomb is defined as:","back":"1 C is the charge that, placed 1 m from another identical charge in vacuum, experiences a force of 9 x 10^9 N."},
+  {"id":"ch1-fc27","front":"Ratio of electric to gravitational force (e-p)","back":"F_e/F_G approx 10^39. Electric forces are enormously stronger than gravitational forces."}
 ]

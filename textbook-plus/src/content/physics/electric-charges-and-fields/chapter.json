@@ -1,362 +1,156 @@
 [
-  {
-    "id": "heading-1",
-    "type": "heading",
-    "props": { "level": 1 },
-    "content": [{ "type": "text", "text": "Electric Charges and Fields", "styles": {} }]
-  },
-  {
-    "id": "divider-1",
-    "type": "divider",
-    "props": {}
-  },
-  {
-    "id": "heading-1-1",
-    "type": "heading",
-    "props": { "level": 2 },
-    "content": [{ "type": "text", "text": "1.1 Electric Charge", "styles": {} }]
-  },
-  {
-    "id": "para-1",
-    "type": "paragraph",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "All of us have the experience of seeing a spark or hearing a crackle when we take off our synthetic clothes or sweater, particularly in dry weather.", "styles": {} }
-    ]
-  },
-  {
-    "id": "para-2",
-    "type": "paragraph",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "Another common example of electric discharge is the lightning that we see in the sky during thunderstorms.", "styles": {} }
-    ]
-  },
-  {
-    "id": "callout-1",
-    "type": "callout",
-    "props": { "calloutType": "important" },
-    "content": [
-      { "type": "text", "text": "Electrostatics deals with the study of forces, fields and potentials arising from static charges. Static means anything that does not move or change with time.", "styles": { "bold": true } }
-    ]
-  },
-  {
-    "id": "para-3",
-    "type": "paragraph",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "Historically, the credit of discovery of the fact that amber rubbed with wool or silk cloth attracts light objects goes to Thales of Miletus, Greece, around 600 BC.", "styles": {} }
-    ]
-  },
-  {
-    "id": "callout-2",
-    "type": "callout",
-    "props": { "calloutType": "important" },
-    "content": [
-      { "type": "text", "text": "There are two kinds of electrification: (i) like charges repel and (ii) unlike charges attract each other. The property which differentiates the two kinds of charges is called the polarity of charge.", "styles": { "bold": true } }
-    ]
-  },
-  {
-    "id": "callout-3",
-    "type": "callout",
-    "props": { "calloutType": "important" },
-    "content": [
-      { "type": "text", "text": "The charges were named as positive and negative by Benjamin Franklin. By convention, the charge on glass rod rubbed with silk is positive; that on plastic rod rubbed with fur is negative.", "styles": { "bold": true } }
-    ]
-  },
-  {
-    "id": "divider-2",
-    "type": "divider",
-    "props": {}
-  },
-  {
-    "id": "heading-1-2",
-    "type": "heading",
-    "props": { "level": 2 },
-    "content": [{ "type": "text", "text": "1.2 Conductors and Insulators", "styles": {} }]
-  },
-  {
-    "id": "para-4",
-    "type": "paragraph",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "Conductors: charges flow freely through them. Metals (copper, aluminium, silver), human and animal bodies, earth.", "styles": { "bold": true } }
-    ]
-  },
-  {
-    "id": "para-5",
-    "type": "paragraph",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "Insulators: charges do not flow. Glass, rubber, plastic, wood, porcelain, nylon.", "styles": { "bold": true } }
-    ]
-  },
-  {
-    "id": "comparison-1",
-    "type": "comparison",
-    "props": { "leftTitle": "Conductors", "rightTitle": "Insulators" },
-    "content": [
-      { "type": "text", "text": "Free charge carriers\nCharge flows easily\nMetals, electrolytes, earth\nUsed in wiring, circuits", "styles": {} }
-    ]
-  },
-  {
-    "id": "divider-3",
-    "type": "divider",
-    "props": {}
-  },
-  {
-    "id": "heading-1-4",
-    "type": "heading",
-    "props": { "level": 2 },
-    "content": [{ "type": "text", "text": "1.4 Basic Properties of Electric Charges", "styles": {} }]
-  },
-  {
-    "id": "heading-quant",
-    "type": "heading",
-    "props": { "level": 3 },
-    "content": [{ "type": "text", "text": "Quantisation", "styles": {} }]
-  },
-  {
-    "id": "para-quant",
-    "type": "paragraph",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "Charge exists in discrete packets, not continuous.", "styles": {} }
-    ]
-  },
-  {
-    "id": "math-1",
-    "type": "mathBlock",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "q = ne", "styles": {} }
-    ]
-  },
-  {
-    "id": "para-n",
-    "type": "paragraph",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "n = integer (0, ±1, ±2, …)", "styles": {} },
-      { "type": "text", "text": "  e = 1.602192 × 10⁻¹⁹ C (magnitude of electron/proton charge)", "styles": {} }
-    ]
-  },
-  {
-    "id": "callout-note-1",
-    "type": "callout",
-    "props": { "calloutType": "note" },
-    "content": [
-      { "type": "text", "text": "At the macroscopic level (e.g., 1 μC contains ~10¹³ electronic charges), quantisation has no practical consequence. At the microscopic level (tens or hundreds of e), quantisation cannot be ignored.", "styles": {} }
-    ]
-  },
-  {
-    "id": "heading-1-5",
-    "type": "heading",
-    "props": { "level": 2 },
-    "content": [{ "type": "text", "text": "1.5 Coulomb's Law", "styles": {} }]
-  },
-  {
-    "id": "callout-coulomb",
-    "type": "callout",
-    "props": { "calloutType": "important" },
-    "content": [
-      { "type": "text", "text": "Coulomb measured the force between two point charges and found that it varied inversely as the square of the distance between the charges and was directly proportional to the product of the magnitude of the two charges.", "styles": { "bold": true } }
-    ]
-  },
-  {
-    "id": "math-coulomb",
-    "type": "mathBlock",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "F = k \\frac{|q_1 q_2|}{r^2}", "styles": {} }
-    ]
-  },
-  {
-    "id": "math-coulomb-vector",
-    "type": "mathBlock",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "\\vec{F}_{21} = \\frac{1}{4\\pi\\varepsilon_0} \\frac{q_1 q_2}{r_{21}^2} \\hat{r}_{21}", "styles": {} }
-    ]
-  },
-  {
-    "id": "expandable-coulomb",
-    "type": "expandable",
-    "props": { "title": "How Coulomb discovered his law" },
-    "content": [
-      { "type": "text", "text": "Coulomb used a torsion balance to measure force between charged metallic spheres. The charges were unknown initially. His clever method: put a charged sphere in contact with an identical uncharged sphere — by symmetry, each gets q/2. Repeat to get q/4, etc.", "styles": {} }
-    ]
-  },
-  {
-    "id": "keypoint-coulomb",
-    "type": "keyPoint",
-    "props": { "title": "Remember" },
-    "content": [
-      { "type": "text", "text": "Coulomb's Law: F = k|q₁q₂|/r². Like gravity, it's an inverse-square law — but unlike gravity, it can be attractive or repulsive.", "styles": {} }
-    ]
-  },
-  {
-    "id": "callout-didyouknow",
-    "type": "callout",
-    "props": { "calloutType": "didyouknow" },
-    "content": [
-      { "type": "text", "text": "The ratio of electric force to gravitational force between a proton and an electron is approximately 10³⁹. Electric force is vastly stronger.", "styles": {} }
-    ]
-  },
-  {
-    "id": "divider-4",
-    "type": "divider",
-    "props": {}
-  },
-  {
-    "id": "heading-1-7",
-    "type": "heading",
-    "props": { "level": 2 },
-    "content": [{ "type": "text", "text": "1.7 Electric Field", "styles": {} }]
-  },
-  {
-    "id": "para-field",
-    "type": "paragraph",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "Action at a distance is hard to conceptualise. We introduce an intermediary — the field. A charge creates a field around it. Another charge placed in that field experiences a force.", "styles": {} }
-    ]
-  },
-  {
-    "id": "math-field",
-    "type": "mathBlock",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "\\vec{E} = \\frac{1}{4\\pi\\varepsilon_0} \\frac{Q}{r^2} \\hat{r}", "styles": {} }
-    ]
-  },
-  {
-    "id": "math-force",
-    "type": "mathBlock",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "\\vec{F} = q\\vec{E}", "styles": {} }
-    ]
-  },
-  {
-    "id": "expandable-field",
-    "type": "expandable",
-    "props": { "title": "Important remarks about electric field" },
-    "content": [
-      { "type": "text", "text": "(i) The source charge Q must remain at its original location. The test charge q should be negligibly small so it doesn't disturb Q.\n\n(ii) E⃗ is independent of the test charge q — it depends only on the source charge and position.\n\n(iii) For positive source charge, E⃗ points radially outward. For negative, radially inward.", "styles": {} }
-    ]
-  },
-  {
-    "id": "divider-5",
-    "type": "divider",
-    "props": {}
-  },
-  {
-    "id": "heading-1-13",
-    "type": "heading",
-    "props": { "level": 2 },
-    "content": [{ "type": "text", "text": "1.13 Gauss's Law", "styles": {} }]
-  },
-  {
-    "id": "callout-gauss",
-    "type": "callout",
-    "props": { "calloutType": "important" },
-    "content": [
-      { "type": "text", "text": "The total electric flux through any closed surface is equal to 1/ε₀ times the net charge enclosed by the surface.", "styles": { "bold": true } }
-    ]
-  },
-  {
-    "id": "math-gauss",
-    "type": "mathBlock",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "\\oint \\vec{E} \\cdot d\\vec{A} = \\frac{q}{\\varepsilon_0}", "styles": {} }
-    ]
-  },
-  {
-    "id": "keypoint-gauss",
-    "type": "keyPoint",
-    "props": { "title": "Key exam point" },
-    "content": [
-      { "type": "text", "text": "Gauss's Law: ∮ E⃗ · dA⃗ = q/ε₀. The power is in choosing the right Gaussian surface — symmetry is everything.", "styles": {} }
-    ]
-  },
-  {
-    "id": "divider-6",
-    "type": "divider",
-    "props": {}
-  },
-  {
-    "id": "heading-examples",
-    "type": "heading",
-    "props": { "level": 2 },
-    "content": [{ "type": "text", "text": "Examples", "styles": {} }]
-  },
-  {
-    "id": "example-1",
-    "type": "example",
-    "props": { "title": "Example 1.1 — Time to Accumulate 1 Coulomb" },
-    "content": [
-      { "type": "text", "text": "If 10⁹ electrons move out of a body every second, how much time is required to get 1 C on the other body?\n\nCharge per second: 1.6 × 10⁻¹⁹ × 10⁹ = 1.6 × 10⁻¹⁰ C/s\nTime = 1 C ÷ (1.6 × 10⁻¹⁰ C/s) = 6.25 × 10⁹ s ≈ 198 years", "styles": {} }
-    ]
-  },
-  {
-    "id": "callout-example-note",
-    "type": "callout",
-    "props": { "calloutType": "note" },
-    "content": [
-      { "type": "text", "text": "One coulomb is a very large unit. A 1 cm³ piece of copper contains about 2.5 × 10²⁴ electrons.", "styles": {} }
-    ]
-  },
-  {
-    "id": "example-2",
-    "type": "example",
-    "props": { "title": "Example 1.2 — Charge in a Cup of Water" },
-    "content": [
-      { "type": "text", "text": "How much positive and negative charge in 250 g of water?\n\nMolecules = (250/18) × 6.02 × 10²³. Each molecule has 10 electrons + 10 protons.\nTotal charge = (250/18) × 6.02 × 10²³ × 10 × 1.6 × 10⁻¹⁹ = 1.34 × 10⁷ C", "styles": {} }
-    ]
-  },
-  {
-    "id": "divider-7",
-    "type": "divider",
-    "props": {}
-  },
-  {
-    "id": "heading-summary",
-    "type": "heading",
-    "props": { "level": 2 },
-    "content": [{ "type": "text", "text": "Summary", "styles": {} }]
-  },
-  {
-    "id": "summary-1",
-    "type": "bulletListItem",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "Electric and magnetic forces determine the properties of atoms, molecules and bulk matter.", "styles": {} }
-    ]
-  },
-  {
-    "id": "summary-2",
-    "type": "bulletListItem",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "Two types of charges: positive and negative. Like charges repel, unlike attract.", "styles": {} }
-    ]
-  },
-  {
-    "id": "summary-3",
-    "type": "bulletListItem",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "Coulomb's Law: F = k|q₁q₂|/r², k ≈ 9 × 10⁹ N·m²/C².", "styles": {} }
-    ]
-  },
-  {
-    "id": "summary-4",
-    "type": "bulletListItem",
-    "props": {},
-    "content": [
-      { "type": "text", "text": "Gauss's Law: ∮ E⃗ · dA⃗ = q/ε₀. Based on inverse-square law.", "styles": {} }
-    ]
-  }
+  {"id":"h-1","type":"heading","props":{"level":1},"content":[{"type":"text","text":"Electric Charges and Fields","styles":{}}]},
+  {"id":"h-1-1","type":"heading","props":{"level":2},"content":[{"type":"text","text":"1.1 Introduction","styles":{}}]},
+  {"id":"co-1-1","type":"callout","props":{"calloutType":"important"},"content":[{"type":"text","text":"Electrostatics deals with the study of forces, fields and potentials arising from static charges.","styles":{"bold":true}}]},
+  {"id":"p-1-1a","type":"paragraph","props":{},"content":[{"type":"text","text":"All of us have the experience of seeing a spark or hearing a crackle when we take off our synthetic clothes or sweater, particularly in dry weather. Another common example of electric discharge is the lightning that we see in the sky during thunderstorms.","styles":{}}]},
+  {"id":"p-1-1b","type":"paragraph","props":{},"content":[{"type":"text","text":"The reason for these experiences is discharge of electric charges through our body, which were accumulated due to rubbing of insulating surfaces. This is due to generation of static electricity. Static means anything that does not move or change with time.","styles":{}}]},
+  {"id":"kp-1-1","type":"keyPoint","props":{"title":"Key Insight"},"content":[{"type":"text","text":"Electric force is all pervasive — it encompasses almost every field associated with our life. Forces that hold molecules together, atoms in a solid, adhesive forces, surface tension — all are basically electrical in nature.","styles":{}}]},
+  {"id":"d-1-1","type":"divider","props":{}},
+  {"id":"h-1-2","type":"heading","props":{"level":2},"content":[{"type":"text","text":"1.2 Electric Charge","styles":{}}]},
+  {"id":"p-1-2a","type":"paragraph","props":{},"content":[{"type":"text","text":"Historically the credit of discovery of the fact that amber rubbed with wool or silk cloth attracts light objects goes to Thales of Miletus, Greece, around 600 BC. The name electricity is coined from the Greek word elektron meaning amber.","styles":{}}]},
+  {"id":"p-1-2b","type":"paragraph","props":{},"content":[{"type":"text","text":"If two glass rods rubbed with wool or silk cloth are brought close to each other, they repel each other. The two strands of wool also repel each other. However, the glass rod and wool attracted each other. Similarly, two plastic rods rubbed with cat's fur repelled each other but attracted the fur.","styles":{}}]},
+  {"id":"co-1-2","type":"callout","props":{"calloutType":"important"},"content":[{"type":"text","text":"There are only two kinds of electric charge. Like charges repel and unlike charges attract each other. The property which differentiates the two kinds is called the polarity of charge.","styles":{"bold":true}}]},
+  {"id":"p-1-2c","type":"paragraph","props":{},"content":[{"type":"text","text":"The charges were named positive and negative by Benjamin Franklin. By convention, the charge on glass rod rubbed with silk is positive; that on plastic rod rubbed with fur is negative.","styles":{}}]},
+  {"id":"p-1-2d","type":"paragraph","props":{},"content":[{"type":"text","text":"A simple apparatus to detect charge on a body is the gold-leaf electroscope. It consists of a vertical metal rod housed in a box, with two thin gold leaves attached to its bottom end. When a charged object touches the metal knob, charge flows to the leaves and they diverge.","styles":{}}]},
+  {"id":"kp-1-2","type":"keyPoint","props":{"title":"Key Insight"},"content":[{"type":"text","text":"In solids, some electrons are less tightly bound and are transferred from one body to another. A body is charged positively by losing electrons and negatively by gaining electrons. No new charge is created in the process of rubbing.","styles":{}}]},
+  {"id":"d-1-2","type":"divider","props":{}},
+  {"id":"h-1-3","type":"heading","props":{"level":2},"content":[{"type":"text","text":"1.3 Conductors and Insulators","styles":{}}]},
+  {"id":"p-1-3a","type":"paragraph","props":{},"content":[{"type":"text","text":"Some substances readily allow passage of electricity through them, others do not. Those which allow electricity to pass through easily are called conductors. They have charges (electrons) comparatively free to move. Metals, human and animal bodies and earth are conductors.","styles":{}}]},
+  {"id":"p-1-3b","type":"paragraph","props":{},"content":[{"type":"text","text":"Most non-metals like glass, porcelain, plastic, nylon, wood offer high resistance to electricity. They are called insulators. When charge is transferred to a conductor, it distributes over the entire surface. On an insulator, it stays at the same place.","styles":{}}]},
+  {"id":"cmp-1-3","type":"comparison","props":{"leftTitle":"Conductors","rightTitle":"Insulators"},"content":[{"type":"text","text":"Free charge carriers\nCharge flows easily\nMetals, human bodies, earth\nCharge distributes over entire surface\nUsed in wiring and circuits\n\nBound charges\nCharge does not flow easily\nGlass, porcelain, plastic, nylon\nCharge stays at point of contact\nUsed for insulation and protection","styles":{}}]},
+  {"id":"co-note-1-3","type":"callout","props":{"calloutType":"note"},"content":[{"type":"text","text":"There is a third category called semiconductors, which offer resistance intermediate between conductors and insulators.","styles":{}}]},
+  {"id":"d-1-3","type":"divider","props":{}},
+  {"id":"h-1-4","type":"heading","props":{"level":2},"content":[{"type":"text","text":"1.4 Basic Properties of Electric Charges","styles":{}}]},
+  {"id":"h-1-4-1","type":"heading","props":{"level":3},"content":[{"type":"text","text":"1.4.1 Additivity of Charges","styles":{}}]},
+  {"id":"p-1-4-1","type":"paragraph","props":{},"content":[{"type":"text","text":"If a system contains two point charges q₁ and q₂, the total charge is obtained by adding algebraically. Charges add up like real numbers or scalars. If a system contains n charges, the total is q₁ + q₂ + ... + qₙ.","styles":{}}]},
+  {"id":"h-1-4-2","type":"heading","props":{"level":3},"content":[{"type":"text","text":"1.4.2 Charge is Conserved","styles":{}}]},
+  {"id":"p-1-4-2","type":"paragraph","props":{},"content":[{"type":"text","text":"When bodies are charged by rubbing, there is transfer of electrons; no new charges are created or destroyed. Within an isolated system, charges may redistribute but total charge is always conserved.","styles":{}}]},
+  {"id":"co-1-4-2","type":"callout","props":{"calloutType":"important"},"content":[{"type":"text","text":"Conservation of charge: It is not possible to create or destroy net charge carried by any isolated system. A neutron turns into a proton and an electron — total charge is zero before and after.","styles":{"bold":true}}]},
+  {"id":"h-1-4-3","type":"heading","props":{"level":3},"content":[{"type":"text","text":"1.4.3 Quantisation of Charge","styles":{}}]},
+  {"id":"p-1-4-3a","type":"paragraph","props":{},"content":[{"type":"text","text":"Experimentally it is established that all free charges are integral multiples of a basic unit of charge denoted by e. Thus charge q on a body is always:","styles":{}}]},
+  {"id":"m-1-4-3","type":"mathBlock","props":{},"content":[{"type":"text","text":"q = ne","styles":{}}]},
+  {"id":"p-1-4-3b","type":"paragraph","props":{},"content":[{"type":"text","text":"where n is any integer. The basic unit of charge is the charge an electron or proton carries. In SI units:","styles":{}}]},
+  {"id":"m-e","type":"mathBlock","props":{},"content":[{"type":"text","text":"e = 1.602192 \\times 10^{-19} \\text{ C}","styles":{}}]},
+  {"id":"p-1-4-3c","type":"paragraph","props":{},"content":[{"type":"text","text":"There are about 6 × 10¹⁸ electrons in 1 C. In electrostatics, we use smaller units like 1 μC = 10⁻⁶ C or 1 mC = 10⁻³ C.","styles":{}}]},
+  {"id":"kp-1-4","type":"keyPoint","props":{"title":"Key Exam Point"},"content":[{"type":"text","text":"Three basic properties of electric charge: (1) Quantisation — q = ne, (2) Additivity — total charge is algebraic sum, (3) Conservation — total charge of isolated system is constant.","styles":{}}]},
+  {"id":"d-1-4","type":"divider","props":{}},
+  {"id":"h-1-5","type":"heading","props":{"level":2},"content":[{"type":"text","text":"1.5 Coulomb's Law","styles":{}}]},
+  {"id":"p-1-5a","type":"paragraph","props":{},"content":[{"type":"text","text":"Coulomb's law is a quantitative statement about the force between two point charges. When the linear size of charged bodies are much smaller than the distance separating them, they are treated as point charges.","styles":{}}]},
+  {"id":"p-1-5b","type":"paragraph","props":{},"content":[{"type":"text","text":"Coulomb measured the force and found it varied inversely as the square of the distance and was directly proportional to the product of the magnitudes of the two charges:","styles":{}}]},
+  {"id":"m-coulomb-s","type":"mathBlock","props":{},"content":[{"type":"text","text":"F = k \\frac{|q_1 q_2|}{r^2}","styles":{}}]},
+  {"id":"p-1-5c","type":"paragraph","props":{},"content":[{"type":"text","text":"The constant k is usually written as k = 1/(4πε₀), so:","styles":{}}]},
+  {"id":"m-coulomb","type":"mathBlock","props":{},"content":[{"type":"text","text":"F = \\frac{1}{4\\pi\\varepsilon_0} \\frac{q_1 q_2}{r^2}","styles":{}}]},
+  {"id":"p-1-5d","type":"paragraph","props":{},"content":[{"type":"text","text":"where ε₀ is the permittivity of free space:","styles":{}}]},
+  {"id":"m-eps","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\varepsilon_0 = 8.854 \\times 10^{-12} \\text{ C}^2 \\text{N}^{-1}\\text{m}^{-2}","styles":{}}]},
+  {"id":"p-1-5e","type":"paragraph","props":{},"content":[{"type":"text","text":"In SI units, k ≈ 9 × 10⁹ N m² C⁻². 1 C is the charge that when placed at 1 m from another 1 C charge in vacuum experiences a force of 9 × 10⁹ N.","styles":{}}]},
+  {"id":"ex-coulomb","type":"expandable","props":{"title":"Vector form of Coulomb's Law"},"content":[{"type":"text","text":"Let position vectors of q₁ and q₂ be r⃗₁ and r⃗₂. The vector from 1 to 2 is r⃗₂₁ = r⃗₂ − r⃗₁. The unit vector is r̂₂₁ = r⃗₂₁/r₂₁.\n\nF⃗₂₁ = (1/4πε₀)(q₁q₂/r²₂₁) r̂₂₁\n\nThis is valid for any sign of q₁ and q₂. If same sign → repulsion along r̂₂₁. If opposite → attraction along −r̂₂₁.\n\nBy Newton's third law: F⃗₁₂ = −F⃗₂₁","styles":{}}]},
+  {"id":"kp-1-5","type":"keyPoint","props":{"title":"Key Exam Point"},"content":[{"type":"text","text":"Coulomb's law obeys Newton's third law. The force on q₁ due to q₂ is equal and opposite to the force on q₂ due to q₁. Valid for both like and unlike charges.","styles":{}}]},
+  {"id":"d-1-5","type":"divider","props":{}},
+  {"id":"h-1-6","type":"heading","props":{"level":2},"content":[{"type":"text","text":"1.6 Forces between Multiple Charges","styles":{}}]},
+  {"id":"co-1-6","type":"callout","props":{"calloutType":"important"},"content":[{"type":"text","text":"Principle of Superposition: The force on any charge due to a number of other charges is the vector sum of all the forces on that charge due to the other charges, taken one at a time. Individual forces are unaffected by the presence of other charges.","styles":{"bold":true}}]},
+  {"id":"m-1-6","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\vec{F}_1 = \\sum_{i=2}^{n} \\frac{1}{4\\pi\\varepsilon_0} \\frac{q_1 q_i}{r_{1i}^2} \\hat{r}_{1i}","styles":{}}]},
+  {"id":"p-1-6","type":"paragraph","props":{},"content":[{"type":"text","text":"The vector sum is obtained by the parallelogram law. All of electrostatics is basically a consequence of Coulomb's law and the superposition principle.","styles":{}}]},
+  {"id":"d-1-6","type":"divider","props":{}},
+  {"id":"h-1-7","type":"heading","props":{"level":2},"content":[{"type":"text","text":"1.7 Electric Field","styles":{}}]},
+  {"id":"p-1-7a","type":"paragraph","props":{},"content":[{"type":"text","text":"Consider a point charge Q in vacuum. The charge Q produces an electric field everywhere in the surrounding. When another charge q is brought at point P, the field acts on it and produces a force.","styles":{}}]},
+  {"id":"m-1-7a","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\vec{E}(\\vec{r}) = \\frac{1}{4\\pi\\varepsilon_0} \\frac{Q}{r^2} \\hat{r}","styles":{}}]},
+  {"id":"p-1-7b","type":"paragraph","props":{},"content":[{"type":"text","text":"The force on a charge q in an electric field:","styles":{}}]},
+  {"id":"m-1-7b","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\vec{F}(\\vec{r}) = q\\vec{E}(\\vec{r})","styles":{}}]},
+  {"id":"kp-1-7","type":"keyPoint","props":{"title":"Key Insight"},"content":[{"type":"text","text":"The electric field due to a charge Q is independent of the test charge q. It is a characteristic of the system of charges. For positive charge, field is radially outwards; for negative, radially inwards.","styles":{}}]},
+  {"id":"h-1-7-1","type":"heading","props":{"level":3},"content":[{"type":"text","text":"1.7.1 Electric Field due to a System of Charges","styles":{}}]},
+  {"id":"m-1-7-1","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\vec{E}(\\vec{r}) = \\sum_{i=1}^{n} \\frac{1}{4\\pi\\varepsilon_0} \\frac{q_i}{r_{iP}^2} \\hat{r}_{iP}","styles":{}}]},
+  {"id":"h-1-7-2","type":"heading","props":{"level":3},"content":[{"type":"text","text":"1.7.2 Physical Significance of Electric Field","styles":{}}]},
+  {"id":"p-1-7-2a","type":"paragraph","props":{},"content":[{"type":"text","text":"The true significance of the electric field emerges beyond electrostatics. The greatest speed with which a signal can go from one point to another is c, the speed of light. The effect of any motion of q₁ on q₂ cannot arise instantaneously.","styles":{}}]},
+  {"id":"p-1-7-2b","type":"paragraph","props":{},"content":[{"type":"text","text":"The accelerated motion of charge q₁ produces electromagnetic waves, which propagate with speed c, reach q₂ and cause a force. The notion of field elegantly accounts for the time delay. The concept was first introduced by Faraday.","styles":{}}]},
+  {"id":"d-1-7","type":"divider","props":{}},
+  {"id":"h-1-8","type":"heading","props":{"level":2},"content":[{"type":"text","text":"1.8 Electric Field Lines","styles":{}}]},
+  {"id":"p-1-8a","type":"paragraph","props":{},"content":[{"type":"text","text":"An electric field line is a curve drawn so that the tangent at each point is in the direction of the net field at that point. The magnitude of the field is represented by the density of field lines — strong near the charge, weak far from it.","styles":{}}]},
+  {"id":"co-1-8","type":"callout","props":{"calloutType":"important"},"content":[{"type":"text","text":"Properties of electric field lines: (i) Start from positive charges and end at negative charges. (ii) Continuous curves without breaks in charge-free regions. (iii) Two field lines can never cross. (iv) Electrostatic field lines do not form closed loops.","styles":{"bold":true}}]},
+  {"id":"p-1-8b","type":"paragraph","props":{},"content":[{"type":"text","text":"The picture of field lines was invented by Faraday. Faraday called them lines of force. The more appropriate term is field lines.","styles":{}}]},
+  {"id":"d-1-8","type":"divider","props":{}},
+  {"id":"h-1-9","type":"heading","props":{"level":2},"content":[{"type":"text","text":"1.9 Electric Flux","styles":{}}]},
+  {"id":"p-1-9a","type":"paragraph","props":{},"content":[{"type":"text","text":"Consider flow of a liquid with velocity v⃗ through a small flat surface dS normal to the flow. The rate of flow v dS represents the flux. For electric field, we define an analogous quantity called electric flux.","styles":{}}]},
+  {"id":"p-1-9b","type":"paragraph","props":{},"content":[{"type":"text","text":"An area element should be treated as a vector along its normal. For a closed surface, the vector is in the direction of the outward normal.","styles":{}}]},
+  {"id":"m-1-9","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\Delta\\Phi = \\vec{E} \\cdot d\\vec{S} = E \\, dS \\cos\\theta","styles":{}}]},
+  {"id":"p-1-9c","type":"paragraph","props":{},"content":[{"type":"text","text":"The total flux through surface S:","styles":{}}]},
+  {"id":"m-1-9b","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\Phi = \\oint \\vec{E} \\cdot d\\vec{S}","styles":{}}]},
+  {"id":"p-1-9d","type":"paragraph","props":{},"content":[{"type":"text","text":"The unit of electric flux is N C⁻¹ m². The angle θ is between E⃗ and dS⃗. When θ = 90°, field lines are parallel to the area and do not cross it.","styles":{}}]},
+  {"id":"d-1-9","type":"divider","props":{}},
+  {"id":"h-1-10","type":"heading","props":{"level":2},"content":[{"type":"text","text":"1.10 Electric Dipole","styles":{}}]},
+  {"id":"p-1-10a","type":"paragraph","props":{},"content":[{"type":"text","text":"An electric dipole is a pair of equal and opposite point charges q and −q, separated by distance 2a. The direction from −q to q is the dipole direction. The total charge is zero, but the fields do not exactly cancel.","styles":{}}]},
+  {"id":"h-1-10-1","type":"heading","props":{"level":3},"content":[{"type":"text","text":"1.10.1 The Field of an Electric Dipole","styles":{}}]},
+  {"id":"ex-dipole","type":"expandable","props":{"title":"Dipole field derivation (axial and equatorial)"},"content":[{"type":"text","text":"For points on the axis (r >> a):\nE⃗ = (1/4πε₀)(2p⃗/r³)\n\nFor points on the equatorial plane (r >> a):\nE⃗ = −(1/4πε₀)(p⃗/r³)\n\nThe dipole field falls as 1/r³, unlike 1/r² for a point charge.","styles":{}}]},
+  {"id":"m-dipole","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\vec{p} = q \\times 2a \\, \\hat{p}","styles":{}}]},
+  {"id":"p-1-10b","type":"paragraph","props":{},"content":[{"type":"text","text":"The dipole moment vector p⃗ has magnitude q × 2a and direction from −q to q. The field depends on the product qa, not q and a separately.","styles":{}}]},
+  {"id":"h-1-10-2","type":"heading","props":{"level":3},"content":[{"type":"text","text":"1.10.2 Physical Significance of Dipoles","styles":{}}]},
+  {"id":"p-1-10-2","type":"paragraph","props":{},"content":[{"type":"text","text":"In most molecules, centres of positive and negative charges coincide (dipole moment = 0). CO₂ and CH₄ are of this type. They develop a dipole moment when an electric field is applied.","styles":{}}]},
+  {"id":"co-1-10","type":"callout","props":{"calloutType":"note"},"content":[{"type":"text","text":"Polar molecules have a permanent electric dipole moment even without an external field, because the centres of positive and negative charges do not coincide. Water (H₂O) is a common example.","styles":{}}]},
+  {"id":"d-1-10","type":"divider","props":{}},
+  {"id":"h-1-11","type":"heading","props":{"level":2},"content":[{"type":"text","text":"1.11 Dipole in a Uniform External Field","styles":{}}]},
+  {"id":"p-1-11a","type":"paragraph","props":{},"content":[{"type":"text","text":"Consider a permanent dipole p⃗ in uniform external field E⃗. Forces qE⃗ and −qE⃗ act at different points, resulting in a torque. Net force is zero since E⃗ is uniform.","styles":{}}]},
+  {"id":"m-1-11","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\vec{\\tau} = \\vec{p} \\times \\vec{E}","styles":{}}]},
+  {"id":"co-1-11","type":"callout","props":{"calloutType":"important"},"content":[{"type":"text","text":"Torque τ⃗ = p⃗ × E⃗ tends to align the dipole with the field. When p⃗ is aligned with E⃗, torque is zero.","styles":{"bold":true}}]},
+  {"id":"p-1-11b","type":"paragraph","props":{},"content":[{"type":"text","text":"If the field is not uniform, net force is non-zero. A comb run through dry hair attracts paper — the charged comb polarises the paper, and the non-uniform field makes the induced dipole experience a net force.","styles":{}}]},
+  {"id":"d-1-11","type":"divider","props":{}},
+  {"id":"h-1-12","type":"heading","props":{"level":2},"content":[{"type":"text","text":"1.12 Continuous Charge Distribution","styles":{}}]},
+  {"id":"p-1-12a","type":"paragraph","props":{},"content":[{"type":"text","text":"For many purposes, it is impractical to work with discrete charges. We define charge densities for continuous distributions:","styles":{}}]},
+  {"id":"m-sigma","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\sigma = \\frac{\\Delta Q}{\\Delta S} \\quad (\\text{surface charge density, C/m}^2)","styles":{}}]},
+  {"id":"m-lambda","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\lambda = \\frac{\\Delta Q}{\\Delta l} \\quad (\\text{linear charge density, C/m})","styles":{}}]},
+  {"id":"m-rho","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\rho = \\frac{\\Delta Q}{\\Delta V} \\quad (\\text{volume charge density, C/m}^3)","styles":{}}]},
+  {"id":"p-1-12b","type":"paragraph","props":{},"content":[{"type":"text","text":"The field due to a continuous charge distribution:","styles":{}}]},
+  {"id":"m-1-12","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\vec{E} \\cong \\sum_{\\text{all } V} \\frac{1}{4\\pi\\varepsilon_0} \\frac{\\rho \\Delta V}{r'^2} \\hat{r}'","styles":{}}]},
+  {"id":"d-1-12","type":"divider","props":{}},
+  {"id":"h-1-13","type":"heading","props":{"level":2},"content":[{"type":"text","text":"1.13 Gauss's Law","styles":{}}]},
+  {"id":"p-1-13a","type":"paragraph","props":{},"content":[{"type":"text","text":"As a simple application of electric flux, consider the total flux through a sphere of radius r enclosing a point charge q at its centre.","styles":{}}]},
+  {"id":"ex-gauss","type":"expandable","props":{"title":"Derivation of Gauss's Law from Coulomb's Law"},"content":[{"type":"text","text":"Flux through area element ΔS on sphere of radius r:\nΔΦ = E ΔS = (q/4πε₀r²) ΔS\n\nTotal flux through the sphere:\nΦ = Σ (q/4πε₀r²) ΔS = (q/4πε₀r²) × 4πr² = q/ε₀\n\nThis is a special case of Gauss's Law: total electric flux through any closed surface = q_enclosed/ε₀.","styles":{}}]},
+  {"id":"m-gauss","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\oint \\vec{E} \\cdot d\\vec{A} = \\frac{q}{\\varepsilon_0}","styles":{}}]},
+  {"id":"co-1-13","type":"callout","props":{"calloutType":"important"},"content":[{"type":"text","text":"Gauss's Law: The total electric flux through a closed surface is zero if no charge is enclosed. The term q includes sum of all charges enclosed by the surface.","styles":{"bold":true}}]},
+  {"id":"kp-1-13","type":"keyPoint","props":{"title":"Key Exam Point"},"content":[{"type":"text","text":"Gauss's law is true for any closed surface. The electric field on the left side is due to ALL charges (inside and outside), but q on the right side represents only the total charge inside S.","styles":{}}]},
+  {"id":"d-1-13","type":"divider","props":{}},
+  {"id":"h-1-14","type":"heading","props":{"level":2},"content":[{"type":"text","text":"1.14 Applications of Gauss's Law","styles":{}}]},
+  {"id":"h-1-14-1","type":"heading","props":{"level":3},"content":[{"type":"text","text":"1.14.1 Infinitely Long Straight Uniformly Charged Wire","styles":{}}]},
+  {"id":"p-1-14-1","type":"paragraph","props":{},"content":[{"type":"text","text":"Consider an infinitely long thin wire with uniform linear charge density λ. The electric field is everywhere radial and depends only on the distance r:","styles":{}}]},
+  {"id":"m-wire","type":"mathBlock","props":{},"content":[{"type":"text","text":"E = \\frac{\\lambda}{2\\pi\\varepsilon_0 r}","styles":{}}]},
+  {"id":"h-1-14-2","type":"heading","props":{"level":3},"content":[{"type":"text","text":"1.14.2 Uniformly Charged Infinite Plane Sheet","styles":{}}]},
+  {"id":"p-1-14-2","type":"paragraph","props":{},"content":[{"type":"text","text":"Let σ be the uniform surface charge density. By symmetry, the field is uniform and parallel to the normal:","styles":{}}]},
+  {"id":"m-sheet","type":"mathBlock","props":{},"content":[{"type":"text","text":"E = \\frac{\\sigma}{2\\varepsilon_0}","styles":{}}]},
+  {"id":"p-1-14-2b","type":"paragraph","props":{},"content":[{"type":"text","text":"The field is directed away from the plate if σ > 0 and toward it if σ < 0. The field is independent of distance from the sheet.","styles":{}}]},
+  {"id":"h-1-14-3","type":"heading","props":{"level":3},"content":[{"type":"text","text":"1.14.3 Uniformly Charged Thin Spherical Shell","styles":{}}]},
+  {"id":"ex-shell","type":"expandable","props":{"title":"Spherical shell field — outside and inside derivation"},"content":[{"type":"text","text":"Let σ be uniform surface charge density of shell radius R.\n\nOutside (r > R):\nGaussian surface: sphere of radius r\nE × 4πr² = σ × 4πR² / ε₀ = q / ε₀\nE = q/(4πε₀r²)\nSame as if all charge concentrated at centre.\n\nInside (r < R):\nGaussian surface encloses no charge\nE × 4πr² = 0\nE = 0","styles":{}}]},
+  {"id":"m-shell-out","type":"mathBlock","props":{},"content":[{"type":"text","text":"\\vec{E} = \\frac{q}{4\\pi\\varepsilon_0 r^2} \\hat{r} \\quad (r > R)","styles":{}}]},
+  {"id":"m-shell-in","type":"mathBlock","props":{},"content":[{"type":"text","text":"E = 0 \\quad (r < R)","styles":{}}]},
+  {"id":"kp-1-14","type":"keyPoint","props":{"title":"Key Exam Point"},"content":[{"type":"text","text":"For points outside a uniformly charged spherical shell, the field is as if all charge is at the centre. Inside the shell, E = 0 at all points.","styles":{}}]},
+  {"id":"d-1-14","type":"divider","props":{}},
+  {"id":"h-ex","type":"heading","props":{"level":2},"content":[{"type":"text","text":"Worked Examples","styles":{}}]},
+  {"id":"ex-1-1","type":"example","props":{"title":"Example 1.1 — Time to Accumulate 1 Coulomb"},"content":[{"type":"text","text":"If 10⁹ electrons move out of a body every second, how much time to get 1 C?\n\nCharge per second = 1.6 × 10⁻¹⁹ × 10⁹ = 1.6 × 10⁻¹⁰ C\nTime = 1 C ÷ 1.6 × 10⁻¹⁰ C/s = 6.25 × 10⁹ s ≈ 198 years\n\nOne coulomb is a very large unit.","styles":{}}]},
+  {"id":"ex-1-2","type":"example","props":{"title":"Example 1.2 — Charge in a Cup of Water"},"content":[{"type":"text","text":"Mass = 250 g, molecular mass = 18 g. Molecules = (250/18) × 6.02 × 10²³. Each has 10 electrons + 10 protons.\nTotal charge = (250/18) × 6.02 × 10²³ × 10 × 1.6 × 10⁻¹⁹ = 1.34 × 10⁷ C","styles":{}}]},
+  {"id":"ex-1-3","type":"example","props":{"title":"Example 1.3 — Electric vs Gravitational Force Ratio"},"content":[{"type":"text","text":"(i) Electron-proton: Fe/FG = e²/(4πε₀Gm_pm_e) = 2.4 × 10³⁹\n(ii) Two protons: Fe/FG = e²/(4πε₀Gm²_p) = 1.3 × 10³⁶\n\nElectrical forces are enormously stronger than gravitational forces.","styles":{}}]},
+  {"id":"ex-1-4","type":"example","props":{"title":"Example 1.4 — Charge Sharing and Coulomb's Law"},"content":[{"type":"text","text":"Charged spheres A and B touched by uncharged C and D. Distance halved.\nF' = k(q/2)(q'/2)/(r/2)² = kqq'/r² = F\n\nThe force remains unaltered.","styles":{}}]},
+  {"id":"ex-1-5","type":"example","props":{"title":"Example 1.5 — Force at Centroid of Equilateral Triangle"},"content":[{"type":"text","text":"Three charges q at vertices, charge Q at centroid.\nBy symmetry, the three forces sum to zero.\nTotal force on Q = 0","styles":{}}]},
+  {"id":"ex-1-7","type":"example","props":{"title":"Example 1.7 — Electron and Proton in Electric Field"},"content":[{"type":"text","text":"Electron falls 1.5 cm in E = 2.0 × 10⁴ N/C.\nt_e = √(2hm_e/eE) = 2.9 × 10⁻⁹ s\nt_p = √(2hm_p/eE) = 1.3 × 10⁻⁷ s\n\nHeavier particle takes greater time. Contrasts with gravity where time is mass-independent.","styles":{}}]},
+  {"id":"ex-1-8","type":"example","props":{"title":"Example 1.8 — Electric Field at Three Points"},"content":[{"type":"text","text":"Two charges ±10⁻⁸ C at 0.1 m apart.\nE_A = 7.2 × 10⁴ N/C (right)\nE_B = 3.2 × 10⁴ N/C (left)\nE_C = 9 × 10³ N/C (right)","styles":{}}]},
+  {"id":"ex-1-10","type":"example","props":{"title":"Example 1.10 — Flux through a Cube"},"content":[{"type":"text","text":"E_x = αx^(1/2), α = 800, cube side 0.1 m.\nΦ = αa^(5/2)(√2 − 1) = 1.05 N·m²/C\nq = Φε₀ = 9.27 × 10⁻¹² C","styles":{}}]},
+  {"id":"ex-1-12","type":"example","props":{"title":"Example 1.12 — Atom Model (Gauss's Law)"},"content":[{"type":"text","text":"Nucleus Ze, uniform negative charge to radius R.\nr < R: E = (1/4πε₀)(Ze/r²)(1 − r³/R³)\nr > R: E = 0 (atom is neutral)","styles":{}}]},
+  {"id":"d-ex","type":"divider","props":{}},
+  {"id":"h-sum","type":"heading","props":{"level":2},"content":[{"type":"text","text":"Summary","styles":{}}]},
+  {"id":"sum-1","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Electric and magnetic forces determine the properties of atoms, molecules and bulk matter.","styles":{}}]},
+  {"id":"sum-2","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Two types of charges: like charges repel, unlike attract. Glass rod rubbed with silk is positive; plastic rod rubbed with fur is negative.","styles":{}}]},
+  {"id":"sum-3","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Conductors allow charge movement; insulators do not. In metals, mobile charges are electrons; in electrolytes, both ions are mobile.","styles":{}}]},
+  {"id":"sum-4","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Three basic properties: quantisation (q = ne), additivity (algebraic sum), conservation (constant for isolated system).","styles":{}}]},
+  {"id":"sum-5","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Coulomb's Law: F = (1/4πε₀)(q₁q₂/r²). k ≈ 9 × 10⁹ N·m²·C⁻², ε₀ = 8.854 × 10⁻¹².","styles":{}}]},
+  {"id":"sum-6","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Superposition: Force on any charge is vector sum of forces due to all other charges.","styles":{}}]},
+  {"id":"sum-7","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Electric field E⃗ = F⃗/q. Point charge: E = q/(4πε₀r²). Independent of test charge.","styles":{}}]},
+  {"id":"sum-8","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Field lines: start at positive, end at negative, never cross, no closed loops in electrostatics.","styles":{}}]},
+  {"id":"sum-9","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Dipole: pair of ±q separated by 2a. p⃗ = q × 2a. Field falls as 1/r³ at large distances.","styles":{}}]},
+  {"id":"sum-10","type":"bulletListItem","props":{},"content":[{"type":"text","text":"In uniform E⃗, dipole experiences torque τ⃗ = p⃗ × E⃗, no net force.","styles":{}}]},
+  {"id":"sum-11","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Flux: ΔΦ = E⃗ · dS⃗. For closed surface, outward normal is positive by convention.","styles":{}}]},
+  {"id":"sum-12","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Gauss's Law: Φ = q/ε₀. Applications: wire (E = λ/2πε₀r), sheet (E = σ/2ε₀), shell (E = q/4πε₀r² outside, 0 inside).","styles":{}}]},
+  {"id":"d-sum","type":"divider","props":{}},
+  {"id":"h-pond","type":"heading","props":{"level":2},"content":[{"type":"text","text":"Points to Ponder","styles":{}}]},
+  {"id":"pond-1","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Protons are held inside the nucleus by the strong force (range ~10⁻¹⁴ m). Electrons are kept outside by quantum mechanics.","styles":{}}]},
+  {"id":"pond-2","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Coulomb force and gravity follow inverse-square law, but gravity is always attractive while Coulomb can be both — allowing cancellation.","styles":{}}]},
+  {"id":"pond-3","type":"bulletListItem","props":{},"content":[{"type":"text","text":"The large value of k arises because 1C is defined in terms of magnetic forces, which are generally much weaker than electric forces.","styles":{}}]},
+  {"id":"pond-4","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Charge is invariant under rotation AND for frames in relative motion — not true for every scalar.","styles":{}}]},
+  {"id":"pond-5","type":"bulletListItem","props":{},"content":[{"type":"text","text":"Superposition says force on one charge due to another is unaffected by other charges — no multi-body forces.","styles":{}}]},
+  {"id":"pond-6","type":"bulletListItem","props":{},"content":[{"type":"text","text":"For charge configurations with total charge zero, the field is not zero but falls faster than 1/r². A dipole is the simplest example.","styles":{}}]}
 ]

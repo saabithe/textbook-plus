@@ -1,152 +1,27 @@
-[
-  {
-    "id": "fc1",
-    "front": "What is electrostatic potential energy difference?",
-    "back": "ΔU = U_P - U_R = W_RP. The work done by an external force in moving charge q from R to P without acceleration."
-  },
-  {
-    "id": "fc2",
-    "front": "What is electrostatic potential at a point?",
-    "back": "V = W/q. Work done per unit positive charge by external force in bringing it from infinity to that point."
-  },
-  {
-    "id": "fc3",
-    "front": "Potential due to a point charge formula",
-    "back": "V = Q/(4πε₀r). Falls as 1/r. For Q > 0, V > 0. For Q < 0, V < 0."
-  },
-  {
-    "id": "fc4",
-    "front": "Potential due to a dipole formula",
-    "back": "V = p·r̂/(4πε₀r²) = p cos θ/(4πε₀r²). Falls as 1/r². Valid for r >> a."
-  },
-  {
-    "id": "fc5",
-    "front": "Potential on dipole axis vs equatorial plane",
-    "back": "Axis: V = ±p/(4πε₀r²)\nEquatorial: V = 0"
-  },
-  {
-    "id": "fc6",
-    "front": "Superposition principle for potential",
-    "back": "V = Σ Vᵢ = (1/4πε₀) Σ qᵢ/rᵢ. Potential is scalar — simple algebraic sum."
-  },
-  {
-    "id": "fc7",
-    "front": "What is an equipotential surface?",
-    "back": "A surface where potential is constant at all points. No work is done moving a charge along it."
-  },
-  {
-    "id": "fc8",
-    "front": "Relation between E and equipotential surfaces",
-    "back": "E is always perpendicular (normal) to the equipotential surface at every point."
-  },
-  {
-    "id": "fc9",
-    "front": "E = -∂V/∂l — what does it mean?",
-    "back": "Electric field equals the negative gradient of potential. E points in direction of steepest decrease of V."
-  },
-  {
-    "id": "fc10",
-    "front": "PE of two-charge system formula",
-    "back": "U = q₁q₂/(4πε₀r₁₂). Positive for like charges, negative for unlike charges."
-  },
-  {
-    "id": "fc11",
-    "front": "PE of dipole in uniform field formula",
-    "back": "U(θ) = -pE cos θ. Minimum at θ = 0° (aligned). Maximum at θ = 180° (anti-aligned)."
-  },
-  {
-    "id": "fc12",
-    "front": "What is 1 electron volt (eV)?",
-    "back": "1 eV = 1.6 × 10⁻¹⁹ J. Energy gained by electron accelerated through 1 V potential difference."
-  },
-  {
-    "id": "fc13",
-    "front": "6 properties of conductors in electrostatic equilibrium",
-    "back": "1. E = 0 inside\n2. E normal to surface\n3. No excess charge inside\n4. V constant throughout\n5. E = (σ/ε₀)n̂ at surface\n6. Electrostatic shielding"
-  },
-  {
-    "id": "fc14",
-    "front": "What is electrostatic shielding?",
-    "back": "A cavity inside a conductor is shielded from outside electric influences. E = 0 inside the cavity regardless of external fields."
-  },
-  {
-    "id": "fc15",
-    "front": "What are dielectrics?",
-    "back": "Non-conducting substances with no (or negligible) free charge carriers. They develop polarisation in external field."
-  },
-  {
-    "id": "fc16",
-    "front": "What is polarisation (P)?",
-    "back": "Dipole moment per unit volume. P = ε₀χₑE for linear isotropic dielectrics. χₑ = electric susceptibility."
-  },
-  {
-    "id": "fc17",
-    "front": "What is a capacitor?",
-    "back": "A system of two conductors separated by an insulator. Stores charge and energy."
-  },
-  {
-    "id": "fc18",
-    "front": "Capacitance formula",
-    "back": "C = Q/V. Depends only on geometry (shape, size, separation). SI unit: farad (1 F = 1 C/V)."
-  },
-  {
-    "id": "fc19",
-    "front": "Capacitance of parallel plate capacitor (vacuum)",
-    "back": "C = ε₀A/d. A = area of each plate, d = separation."
-  },
-  {
-    "id": "fc20",
-    "front": "Effect of dielectric on capacitance",
-    "back": "C = KC₀ where K > 1 is dielectric constant. Capacitance increases by factor K."
-  },
-  {
-    "id": "fc21",
-    "front": "What is dielectric strength?",
-    "back": "Maximum electric field a dielectric can withstand without breakdown. For air: ≈ 3 × 10⁶ V/m."
-  },
-  {
-    "id": "fc22",
-    "front": "Capacitors in series formula",
-    "back": "1/C = 1/C₁ + 1/C₂ + 1/C₃ + ... Total capacitance is less than smallest individual."
-  },
-  {
-    "id": "fc23",
-    "front": "Capacitors in parallel formula",
-    "back": "C = C₁ + C₂ + C₃ + ... Total capacitance is the sum."
-  },
-  {
-    "id": "fc24",
-    "front": "Energy stored in a capacitor (3 forms)",
-    "back": "U = ½QV = ½CV² = Q²/(2C)"
-  },
-  {
-    "id": "fc25",
-    "front": "Energy density of electric field formula",
-    "back": "u = ½ε₀E². Energy per unit volume. General result for any charge configuration."
-  },
-  {
-    "id": "fc26",
-    "front": "Potential of uniformly charged spherical shell (surface)",
-    "back": "V = q/(4πε₀R). Same as point charge at centre. Inside: V = constant = q/(4πε₀R)."
-  },
-  {
-    "id": "fc27",
-    "front": "Electric field at surface of charged conductor",
-    "back": "E = (σ/ε₀)n̂. σ = surface charge density, n̂ = outward normal."
-  },
-  {
-    "id": "fc28",
-    "front": "Potential energy of charge in external field",
-    "back": "U = qV(r). V(r) is external potential, not potential due to the charge itself."
-  },
-  {
-    "id": "fc29",
-    "front": "Why is 1 F enormous?",
-    "back": "For C = 1 F with d = 1 cm, plate area A = Cd/ε₀ ≈ 30 km². Practical units: μF, nF, pF."
-  },
-  {
-    "id": "fc30",
-    "front": "How does dipole potential differ from point charge potential?",
-    "back": "Point charge: V ∝ 1/r, depends only on r.\nDipole: V ∝ 1/r², depends on r and angle θ."
-  }
+﻿[
+  {"id":"ch2-fc01","front":"Electrostatic potential definition","back":"Work done per unit positive charge by an external agency in bringing it from infinity to a point. V = W/q."},
+  {"id":"ch2-fc02","front":"Potential due to point charge","back":"V = Q/(4*pi*epsilon_0*r). Scalar, falls as 1/r."},
+  {"id":"ch2-fc03","front":"Potential due to dipole (r >> a)","back":"V = (1/4*pi*epsilon_0)(p*cos(theta)/r^2). Falls as 1/r^2, depends on angle."},
+  {"id":"ch2-fc04","front":"Potential on dipole axis (r >> a)","back":"V = +p/(4*pi*epsilon_0*r^2) at theta=0; V = -p/(4*pi*epsilon_0*r^2) at theta=pi."},
+  {"id":"ch2-fc05","front":"Potential on equatorial plane","back":"V = 0. Potentials from +q and -q cancel exactly."},
+  {"id":"ch2-fc06","front":"Relation between E and V","back":"E = -dV/dl. Field points in direction of steepest potential decrease. Magnitude = rate of change of V per unit distance normal to equipotential."},
+  {"id":"ch2-fc07","front":"Potential energy of two charges","back":"U = (1/4*pi*epsilon_0)(q1*q2/r12). Positive for like charges (repulsive), negative for unlike (attractive)."},
+  {"id":"ch2-fc08","front":"Potential energy of dipole in uniform field","back":"U = -pE*cos(theta). Minimum when aligned (theta=0), maximum when anti-aligned (theta=pi)."},
+  {"id":"ch2-fc09","front":"Work to assemble a system of 3 charges","back":"U = (1/4*pi*epsilon_0)(q1*q2/r12 + q1*q3/r13 + q2*q3/r23)."},
+  {"id":"ch2-fc10","front":"Properties of conductor in equilibrium (6)","back":"(1) E=0 inside. (2) E normal to surface. (3) No excess charge inside. (4) V constant throughout. (5) E_surface = sigma/epsilon_0. (6) Cavity shielded."},
+  {"id":"ch2-fc11","front":"E at surface of charged conductor","back":"E = (sigma/epsilon_0) * n_hat. Derived using pillbox Gaussian surface."},
+  {"id":"ch2-fc12","front":"Electrostatic shielding","back":"E = 0 inside any charge-free cavity of a conductor, regardless of cavity shape or external fields. Used to protect instruments."},
+  {"id":"ch2-fc13","front":"Capacitance definition","back":"C = Q/V. Depends only on geometry and dielectric. Unit: Farad (1 F = 1 C/V)."},
+  {"id":"ch2-fc14","front":"Parallel plate capacitor (vacuum)","back":"C_0 = epsilon_0*A/d."},
+  {"id":"ch2-fc15","front":"Parallel plate capacitor (with dielectric K)","back":"C = K*C_0 = K*epsilon_0*A/d. Capacitance increases by factor K."},
+  {"id":"ch2-fc16","front":"Dielectric constant K","back":"K = epsilon/epsilon_0 > 1. Ratio of capacitance with dielectric to capacitance with vacuum."},
+  {"id":"ch2-fc17","front":"Capacitors in series","back":"1/C = 1/C_1 + 1/C_2 + ... Equivalent capacitance < smallest individual."},
+  {"id":"ch2-fc18","front":"Capacitors in parallel","back":"C = C_1 + C_2 + ... Equivalent capacitance > largest individual."},
+  {"id":"ch2-fc19","front":"Energy stored in capacitor (3 forms)","back":"U = (1/2)QV = (1/2)CV^2 = Q^2/(2C)."},
+  {"id":"ch2-fc20","front":"Energy density of electric field","back":"u = (1/2)*epsilon_0*E^2. Energy per unit volume. General result for any charge configuration."},
+  {"id":"ch2-fc21","front":"Dielectric polarisation (P)","back":"P = epsilon_0*chi_e*E. Dipole moment per unit volume. chi_e = electric susceptibility."},
+  {"id":"ch2-fc22","front":"1 electron volt (eV)","back":"1 eV = 1.6 x 10^-19 J. Kinetic energy gained by electron through 1 V potential difference."},
+  {"id":"ch2-fc23","front":"Potential due to spherical shell (outside)","back":"V = q/(4*pi*epsilon_0*r) for r >= R. Same as point charge at centre."},
+  {"id":"ch2-fc24","front":"Potential inside spherical shell","back":"V = q/(4*pi*epsilon_0*R). Constant everywhere inside (since E = 0 inside)."},
+  {"id":"ch2-fc25","front":"Equipotential surface of point charge","back":"Concentric spheres centred at the charge. E is everywhere normal to these surfaces."}
 ]
