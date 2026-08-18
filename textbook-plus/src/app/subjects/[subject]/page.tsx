@@ -33,7 +33,7 @@ export default async function SubjectPage({ params }: Props) {
     <>
       <Navbar />
       <main className="flex-1">
-        <section className="mx-auto max-w-4xl px-6 py-14">
+        <section className="mx-auto max-w-6xl px-6 py-14">
           {/* Subject header */}
           <div className="mb-10 flex items-center gap-4 sm:mb-12 sm:gap-5">
             <div

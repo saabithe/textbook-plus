@@ -24,7 +24,7 @@ export function ChapterLayout({
   const { prev, next } = getAdjacentChapters(chapter);
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-10">
+    <div className="mx-auto max-w-6xl px-6 py-10">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-1.5 text-sm text-muted-foreground mb-8">
         <Link
@@ -67,7 +67,7 @@ export function ChapterLayout({
       </header>
 
       {/* Content */}
-      <article className="max-w-3xl">
+      <article className="mx-auto max-w-3xl">
         {children}
 
         <ChapterNav prev={prev} next={next} subjectColor={subjectColor} />
