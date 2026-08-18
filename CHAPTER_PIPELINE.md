@@ -4,6 +4,18 @@
 
 ---
 
+## Source of Truth
+
+Every chapter starts with a **complete extraction** (Step 2). The extracted markdown file becomes the single source of truth for all subsequent steps. Never go back to the PDF — everything you need is in the extraction.
+
+```
+Developer_Deliveries/Chapters/{Subject}/{chapter-slug}-extracted.md
+```
+
+This file is **permanent** — it stays in the repo as the reference. Content transformations (Steps 7–12) read from this file, not the PDF.
+
+---
+
 ## Content Rules
 
 - **No long paragraphs.** Default to bullet points. Use paragraphs only when the concept genuinely requires flowing text (e.g., explaining a narrative process, a story-like explanation). Even then, keep under 3 sentences.
@@ -18,11 +30,12 @@
 
 ```mermaid
 graph TD
-    A["1. Input — NCERT PDF"] --> B["2. Extract — text, formulas, tables, diagrams"]
-    B --> C["3. Structure — chapter → topics → subtopics"]
-    C --> D["4. Decompose — knowledge units (concepts, definitions, formulas, etc.)"]
-    D --> E["5. Map to Source — match each unit to original PDF"]
-    E --> F["6. Audit — completeness check against PDF"]
+    A["1. Input — NCERT PDF"] --> B["2. Extract — COMPLETE exhaustive extraction → .md file"]
+    B --> B2["2a. Verify — compare extraction against PDF, fill gaps"]
+    B2 --> C["3. Structure — chapter → topics → subtopics (from extraction)"]
+    C --> D["4. Decompose — knowledge units (from extraction)"]
+    D --> E["5. Map to Source — match each unit to extraction file + line refs"]
+    E --> F["6. Audit — completeness check against extraction"]
     F --> G["7. Understanding Layer — foundation → bridge → content"]
     G --> H["8. Transform — tables, flowcharts, cards, comparisons"]
     H --> I["9. Exam Layer — definitions, formulas, PYQs, important concepts"]
@@ -48,11 +61,12 @@ graph TD
 | Step | Action | Output |
 |------|--------|--------|
 | 1 | NCERT PDF provided | Source file |
-| 2 | Extract all content from PDF | Raw text + data |
-| 3 | Reconstruct chapter hierarchy | Topic tree |
-| 4 | Break into knowledge units | Unit list |
-| 5 | Map each unit to source location | Source traceability |
-| 6 | Check completeness vs PDF | Gap report |
+| **2** | **Complete exhaustive extraction → markdown** | **`{chapter-slug}-extracted.md` (source of truth)** |
+| **2a** | **Verify extraction against PDF** | **Gap-filled extraction** |
+| 3 | Reconstruct chapter hierarchy (from extraction) | Topic tree |
+| 4 | Break into knowledge units (from extraction) | Unit list |
+| 5 | Map each unit to extraction file + line refs | Source traceability |
+| 6 | Check completeness vs extraction | Gap report |
 | 7 | Build understanding layer by layer | Explanation flow |
 | 8 | Convert to interactive formats | Tables, cards, diagrams |
 | 9 | Add exam-relevant content | Formulas, PYQs, patterns |
@@ -76,26 +90,61 @@ graph TD
 - Source must be the actual textbook (not summaries or third-party notes)
 - If multiple editions exist, use the rationalised/latest version
 
-### Step 2: Extract
+### Step 2: Complete Exhaustive Extraction
 
-- Text: all paragraphs, headings, subheadings
-- Formulas: inline and display math
-- Tables: data tables, comparison tables
-- Diagrams: labeled figures, circuit diagrams, graphs
-- Examples: worked problems, activities, in-text questions
-- Exercises: back-of-chapter questions
-- Captions: figure/table labels
+> This is the most critical step. Everything downstream depends on it.
+
+Extract **everything** from the NCERT PDF into a single markdown file:
+
+```
+Developer_Deliveries/Chapters/{Subject}/{chapter-slug}-extracted.md
+```
+
+**What to extract (leave nothing out):**
+
+| Category | What to capture | Format in extraction |
+|----------|----------------|---------------------|
+| **Headings** | All section/subsection headings with NCERT numbering | `## X.Y Title` |
+| **Body text** | Every paragraph, word-for-word where possible | Plain text under headings |
+| **Formulas** | All inline and display math | `$...$` and `$$...$$` (KaTeX) |
+| **Derivations** | Complete step-by-step derivation text | Numbered steps with formulas |
+| **Examples** | All worked examples (Example X.X) with full solutions | `### Example X.X — Title` + full solution |
+| **Tables** | All data/comparison tables | Markdown tables |
+| **Figures** | Describe every figure (what it shows, labels, axes) | `**Figure X.X:** Description` |
+| **In-text questions** | "Try These", "Think and Discuss", margin activities | `> **Try These:** Question text` |
+| **Back-of-chapter exercises** | ALL exercise questions, verbatim | `### Exercises` + numbered list |
+| **Points to Ponder** | Complete text | `## Points to Ponder` |
+| **Summary** | Chapter summary section | `## Summary` |
+| **Key terms** | Bold/defined terms in the text | `**term**: definition` |
+| **Activities** | Any hands-on activities described | `### Activity` blocks |
+| **Notes/Remarks** | NCERT sidebar notes, warnings | `> **Note:** text` |
+
+**Rules:**
+- Preserve NCERT's exact wording for definitions, formulas, and examples
+- Preserve section numbering (1.1, 1.2, etc.)
+- For figures: describe in detail (labels, arrows, axes, what's shown) — we can't embed images, but the description must be complete enough to recreate them
+- For formulas: use KaTeX syntax, preserve all subscripts/superscripts/vectors
+- Include page numbers from the PDF as comments: `<!-- p.17 -->`
+
+### Step 2a: Verify Extraction
+
+- Compare extracted file against PDF, section by section
+- Check: any skipped paragraphs? Missing formulas? Incomplete examples?
+- Check: exercise questions — are all present, verbatim?
+- Check: figures — are all described?
+- Fill any gaps before proceeding
+- **This step is mandatory.** Do not skip.
 
 ### Step 3: Structure
 
-- Reconstruct hierarchy:
+- Reconstruct hierarchy **from the extraction file** (not the PDF):
   - Chapter → Topics → Subtopics → Concepts → Details
 - Match NCERT's own section numbering (e.g., 1.1, 1.2, 1.3)
-- Preserve section titles exactly as they appear
+- Preserve section titles exactly as they appear in extraction
 
 ### Step 4: Decompose
 
-- Break into knowledge units:
+- Break into knowledge units **from the extraction file**:
 
 | Unit Type | What it captures |
 |-----------|-----------------|
@@ -115,13 +164,14 @@ graph TD
 
 ### Step 5: Map to Source
 
-- Every knowledge unit → page/section in original PDF
+- Every knowledge unit → section + line reference **in the extraction file**
+- Format: `(see extraction file, Section X.Y, ~line N)`
 - Ensures nothing is invented
 - Makes verification possible
 
 ### Step 6: Audit (Completeness Check)
 
-- Compare generated units against PDF
+- Compare generated units against **extraction file**
 - Flag:
   - Missing sections
   - Poorly represented concepts
@@ -210,7 +260,7 @@ Full Content → Detailed Notes → Revision Notes → One-Page Revision → Las
 |----------|-----------|
 | Completeness | All NCERT content covered |
 | Accuracy | No factual errors |
-| Source alignment | Matches PDF exactly |
+| Source alignment | Matches extraction file exactly |
 | Exam relevance | High-yield content included |
 | No hallucinations | Nothing invented |
 
@@ -458,10 +508,10 @@ src/
 > `topicCount` in `chapters.ts` should match the number of `##` sections in your MDX file.
 
 > **⚠️ Hallucinated content**
-> Every formula, definition, and example must come from the NCERT PDF. Never invent.
+> Every formula, definition, and example must come from the extraction file. Never invent.
 
 > **⚠️ Skipping the audit step**
-> Always compare generated content against the source PDF before registering.
+> Always compare generated content against the extraction file before registering.
 
 > **💡 Test with dev server**
 > Run `npm run dev` and navigate to `/chapter/{slug}` to preview before building.
