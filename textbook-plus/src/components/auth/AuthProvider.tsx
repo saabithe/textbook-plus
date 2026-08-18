@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import type { User } from "@supabase/supabase-js";
-import { createClient } from "@/lib/supabase/client";
+import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 
 interface AuthContextValue {
   user: User | null;
@@ -13,16 +13,37 @@ interface AuthContextValue {
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
+// No-op supabase client used when Supabase isn't configured
+const noopSupabase = new Proxy({} as ReturnType<typeof createClient>, {
+  get(_target, prop) {
+    if (prop === "auth") {
+      return {
+        getUser: async () => ({ data: { user: null }, error: null }),
+        signInAnonymously: async () => ({ data: { user: null }, error: new Error("Supabase not configured") }),
+        onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),
+        updateUser: async () => ({ data: {}, error: new Error("Supabase not configured") }),
+        signOut: async () => ({ error: null }),
+      };
+    }
+    return () => ({ data: null, error: new Error("Supabase not configured") });
+  },
+});
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [supabase] = useState(() => createClient());
+  const configured = isSupabaseConfigured();
+  const [supabase] = useState(() => (configured ? createClient() : noopSupabase));
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!configured) {
+      setLoading(false);
+      return;
+    }
+
     let cancelled = false;
 
     async function init() {
-      // Check existing session
       const { data: { user: existing } } = await supabase.auth.getUser();
       if (!cancelled && existing) {
         setUser(existing);
@@ -30,7 +51,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         return;
       }
 
-      // No session — sign in anonymously
       const { data: { user: anon }, error } = await supabase.auth.signInAnonymously();
       if (!cancelled) {
         setUser(anon ?? null);
@@ -41,7 +61,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     init();
 
-    // Listen for auth changes (token refresh, sign-in, sign-out)
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (_event, session) => {
         if (!cancelled) {
@@ -54,7 +73,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       cancelled = true;
       subscription.unsubscribe();
     };
-  }, [supabase]);
+  }, [supabase, configured]);
 
   const isAnonymous = user?.app_metadata?.provider === "anonymous";
 
