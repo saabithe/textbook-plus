@@ -89,8 +89,8 @@
   --subject-chemistry-light: #DCFCE7;
   --subject-mathematics: #F97316;
   --subject-mathematics-light: #FFF7ED;
-  --subject-biology: #10B981;
-  --subject-biology-light: #D1FAE5;
+  --subject-biology: #14B8A6;
+  --subject-biology-light: #CCFBF1;
   --subject-english: #A855F7;
   --subject-english-light: #F3E8FF;
   --subject-arabic: #F43F5E;
@@ -137,8 +137,8 @@
   --subject-chemistry-light: oklch(0.25 0.05 150);
   --subject-mathematics: #FB923C;
   --subject-mathematics-light: oklch(0.25 0.05 50);
-  --subject-biology: #34D399;
-  --subject-biology-light: oklch(0.25 0.05 160);
+  --subject-biology: #2DD4BF;
+  --subject-biology-light: oklch(0.25 0.05 175);
   --subject-english: #C084FC;
   --subject-english-light: oklch(0.25 0.05 300);
   --subject-arabic: #FB7185;
