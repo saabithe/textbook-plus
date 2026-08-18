@@ -17,7 +17,6 @@ export function QuestionCard({ question, index, subjectColor }: QuestionCardProp
 
   const isMCQ = question.type === "mcq";
   const correctIndex = isMCQ ? (question.answer as number) : null;
-  const isCorrect = isMCQ && selected === correctIndex;
 
   function handleSelect(idx: number) {
     if (revealed) return;

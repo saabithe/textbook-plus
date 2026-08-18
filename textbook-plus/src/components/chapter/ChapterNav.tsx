@@ -6,10 +6,9 @@ import type { Chapter } from "@/data/chapters";
 interface ChapterNavProps {
   prev: Chapter | null;
   next: Chapter | null;
-  subjectColor: string;
 }
 
-export function ChapterNav({ prev, next, subjectColor }: ChapterNavProps) {
+export function ChapterNav({ prev, next }: ChapterNavProps) {
   return (
     <nav className="flex items-center justify-between gap-4 pt-12 mt-12 border-t border-border/40">
       {prev ? (

@@ -2,7 +2,6 @@
 
 import { useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight, RotateCcw } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { FlashcardCard } from "./FlashcardCard";
 import { FlashcardProgress } from "./FlashcardProgress";
 import type { Flashcard } from "@/types/chapter";
@@ -10,7 +9,7 @@ import type { Flashcard } from "@/types/chapter";
 interface FlashcardDeckProps {
   cards: Flashcard[];
   subjectColor: string;
-  onProgressUpdate?: (known: number, unknown: number) => void;
+  onProgressUpdate?: (known: string[], unknown: string[]) => void;
 }
 
 export function FlashcardDeck({ cards, subjectColor, onProgressUpdate }: FlashcardDeckProps) {
@@ -22,28 +21,30 @@ export function FlashcardDeck({ cards, subjectColor, onProgressUpdate }: Flashca
 
   const notify = useCallback(
     (k: Set<string>, u: Set<string>) => {
-      onProgressUpdate?.(k.size, u.size);
+      onProgressUpdate?.([...k], [...u]);
     },
     [onProgressUpdate]
   );
 
   function handleKnown() {
-    const next = new Set(knownIds);
-    next.add(card.id);
-    setKnownIds(next);
-    unknownIds.delete(card.id);
-    setUnknownIds(new Set(unknownIds));
-    notify(next, unknownIds);
+    const nextKnown = new Set(knownIds);
+    nextKnown.add(card.id);
+    const nextUnknown = new Set(unknownIds);
+    nextUnknown.delete(card.id);
+    setKnownIds(nextKnown);
+    setUnknownIds(nextUnknown);
+    notify(nextKnown, nextUnknown);
     goNext();
   }
 
   function handleUnknown() {
-    const next = new Set(unknownIds);
-    next.add(card.id);
-    setUnknownIds(next);
-    knownIds.delete(card.id);
-    setKnownIds(new Set(knownIds));
-    notify(knownIds, next);
+    const nextUnknown = new Set(unknownIds);
+    nextUnknown.add(card.id);
+    const nextKnown = new Set(knownIds);
+    nextKnown.delete(card.id);
+    setUnknownIds(nextUnknown);
+    setKnownIds(nextKnown);
+    notify(nextKnown, nextUnknown);
     goNext();
   }
 

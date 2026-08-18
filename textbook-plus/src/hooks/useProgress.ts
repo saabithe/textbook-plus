@@ -106,7 +106,7 @@ export function useProgress(subjectSlug: string) {
   );
 
   const updateFlashcardProgress = useCallback(
-    (chapterSlug: string, known: number, unknown: number) => {
+    (chapterSlug: string, known: string[], unknown: string[]) => {
       setPractice((prev) => {
         const chapterState = prev[chapterSlug] ?? {
           questionsRevealed: [],
@@ -117,8 +117,8 @@ export function useProgress(subjectSlug: string) {
           ...prev,
           [chapterSlug]: {
             ...chapterState,
-            flashcardsKnown: Array.from({ length: known }, (_, i) => `known-${i}`),
-            flashcardsUnknown: Array.from({ length: unknown }, (_, i) => `unknown-${i}`),
+            flashcardsKnown: known,
+            flashcardsUnknown: unknown,
           },
         };
         savePractice(subjectSlug, next);

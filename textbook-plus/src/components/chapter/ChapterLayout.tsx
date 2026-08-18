@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ChevronRight, CheckCircle2, Circle, Brain, Layers, BookOpen, HelpCircle } from "lucide-react";
+import { ChevronRight, CheckCircle2, Circle, Brain, Layers } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Sidebar } from "./Sidebar";
 import { MobileSidebar } from "./MobileSidebar";
@@ -112,7 +112,6 @@ export function ChapterLayout({
       <ChapterTabs
         activeTab={activeTab}
         onTabChange={setActiveTab}
-        subjectColor={subjectColor}
       />
 
       {/* Two-column layout (Learning tab) */}
@@ -131,7 +130,7 @@ export function ChapterLayout({
           <article className="min-w-0 flex-1 max-w-3xl mx-auto">
             {children}
 
-            <ChapterNav prev={prev} next={next} subjectColor={subjectColor} />
+          <ChapterNav prev={prev} next={next} />
           </article>
         </div>
       ) : (
@@ -139,10 +138,11 @@ export function ChapterLayout({
         <div className="mx-auto max-w-3xl">
           <PracticeTabContent
             chapterSlug={chapter.slug}
+            subjectSlug={subjectSlug}
             subjectColor={subjectColor}
           />
 
-          <ChapterNav prev={prev} next={next} subjectColor={subjectColor} />
+          <ChapterNav prev={prev} next={next} />
         </div>
       )}
     </div>
@@ -151,16 +151,19 @@ export function ChapterLayout({
 
 function PracticeTabContent({
   chapterSlug,
+  subjectSlug,
   subjectColor,
 }: {
   chapterSlug: string;
+  subjectSlug: string;
   subjectColor: string;
 }) {
-  const [subTab, setSubTab] = useState<"questions" | "flashcards">("questions");
-  const questions = getQuestionsForChapter(chapterSlug);
-  const flashcards = getFlashcardsForChapter(chapterSlug);
+  const { updateFlashcardProgress } = useProgress(subjectSlug);
   const hasQ = hasQuestions(chapterSlug);
   const hasFC = hasFlashcards(chapterSlug);
+  const [subTab, setSubTab] = useState<"questions" | "flashcards">(hasQ ? "questions" : "flashcards");
+  const questions = getQuestionsForChapter(chapterSlug);
+  const flashcards = getFlashcardsForChapter(chapterSlug);
 
   if (!hasQ && !hasFC) {
     return (
@@ -207,7 +210,11 @@ function PracticeTabContent({
         <PracticeSession questions={questions} subjectColor={subjectColor} />
       )}
       {subTab === "flashcards" && hasFC && (
-        <FlashcardDeck cards={flashcards} subjectColor={subjectColor} />
+        <FlashcardDeck
+          cards={flashcards}
+          subjectColor={subjectColor}
+          onProgressUpdate={(known, unknown) => updateFlashcardProgress(chapterSlug, known, unknown)}
+        />
       )}
       {subTab === "questions" && !hasQ && (
         <div className="text-center py-12 text-muted-foreground">

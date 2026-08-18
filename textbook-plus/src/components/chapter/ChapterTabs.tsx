@@ -1,13 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { BookOpen, Dumbbell, Brain, FileText, Layers, HelpCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ChapterTabsProps {
   activeTab: string;
   onTabChange: (tab: string) => void;
-  subjectColor: string;
 }
 
 const tabs = [
@@ -15,7 +13,7 @@ const tabs = [
   { id: "practice", label: "Practice", icon: Dumbbell },
 ];
 
-export function ChapterTabs({ activeTab, onTabChange, subjectColor }: ChapterTabsProps) {
+export function ChapterTabs({ activeTab, onTabChange }: ChapterTabsProps) {
   return (
     <div className="flex items-center gap-1 rounded-xl border border-border/60 bg-muted/30 p-1 mb-8">
       {tabs.map((tab) => {

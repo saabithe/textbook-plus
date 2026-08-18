@@ -2,8 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Search, X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Search } from "lucide-react";
 import { useSearch } from "@/hooks/useSearch";
 
 interface SearchModalProps {
@@ -25,14 +24,6 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        if (open) {
-          onClose();
-        } else {
-          onClose(); // parent toggles
-        }
-      }
       if (e.key === "Escape" && open) {
         onClose();
       }

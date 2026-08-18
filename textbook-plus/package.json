@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "node scripts/generate-sw.js && next build --webpack",
+    "build": "node scripts/generate-content-map.js && node scripts/generate-sw.js && next build --webpack",
+    "prebuild": "node scripts/generate-content-map.js",
     "start": "next start",
     "lint": "eslint"
   },
@@ -32,7 +33,6 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.1",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "unist-util-visit": "^5.1.0"
+    "typescript": "^5"
   }
 }

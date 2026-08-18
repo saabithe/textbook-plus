@@ -27,12 +27,12 @@ At each step, the AI presents the output and asks the user to choose:
 | Steps 3-6 | Analysis complete — proceed to content creation? |
 | Step 7-12 | Content layers done — proceed to output? |
 | Step 13 | Output files ready — proceed to registration? |
-| Step 18 | Build passes — commit + push? |
+| Step 17 | Build passes — commit + push? |
 
 ### Content Rules (Non-Negotiable)
 
 - **NCERT source is truth** — every formula, definition, example must come from the extraction file. Never invent.
-- **Body text in page.mdx** — expand all sections with full explanations, not just component placeholders
+- **Body text in chapter.json** — expand all sections with full explanations, not just component placeholders
 - **Examples included** — all NCERT worked examples with complete solutions
 - **Supplementary content** — non-NCERT examples kept as "Supplementary Example" (user decides per chapter)
 - **Verify against PDF** — Step 2a is mandatory. Compare extraction line-by-line against pymupdf output.
@@ -64,21 +64,21 @@ This file is **permanent** — it stays in the repo as the reference. Content tr
 - **No paragraphs.** Convert all body text to asterisk bullet points (`*`). One fact per bullet.
 - **Filler removal applies to ALL sections.** Cut: "simply", "just", "basically", "obviously", "of course", "it is important to note that", "we know that", "as we know".
 - **When removing fillers, preserve the fact.** Every takeaway, data point, concept must survive — only the fluff goes.
-- **After bullet breakdown:** Add a `KeyPoint` component only if the section has a core insight worth highlighting.
+- **After bullet breakdown:** Add a `keyPoint` block only if the section has a core insight worth highlighting.
 
 ### Component Rules
 
-| Content Type | Component | Format |
-|-------------|-----------|--------|
-| **Definitions** | `Callout(important)` + bullet breakdown | Verbatim NCERT in callout, then `*` bullets below |
-| **Laws/Statements** | `Callout(important)` | Verbatim NCERT law statement |
-| **Derivations** | `Expandable` (collapsed) | Full step-by-step, formulas in MathJax |
-| **Examples** | `Example` | Full NCERT solution, unmodified |
-| **Try These** | `Expandable` (collapsed) | Question text, click to reveal |
-| **NCERT Notes/Remarks** | `Callout(note)` | Blue callout, labeled 'Note' |
-| **Key Insights** | `KeyPoint` | Added after bullet breakdown if insight exists |
-| **Comparisons** | `Comparison` | Side-by-side, two items |
-| **Supplementary Examples** | `Example` with "Supplementary" label | Non-NCERT extras, user decides per chapter |
+| Content Type | BlockNote Block | Format |
+|-------------|-----------------|--------|
+| **Definitions** | `callout` (important) + bullet breakdown | Verbatim NCERT in callout, then `*` bullets below |
+| **Laws/Statements** | `callout` (important) | Verbatim NCERT law statement |
+| **Derivations** | `expandable` (collapsed) | Full step-by-step, formulas in KaTeX |
+| **Examples** | `example` | Full NCERT solution, unmodified |
+| **Try These** | `expandable` (collapsed) | Question text, click to reveal |
+| **NCERT Notes/Remarks** | `callout` (note) | Blue callout, labeled 'Note' |
+| **Key Insights** | `keyPoint` | Added after bullet breakdown if insight exists |
+| **Comparisons** | `comparison` | Side-by-side, two items |
+| **Supplementary Examples** | `example` with "Supplementary" label | Non-NCERT extras, user decides per chapter |
 
 ### Scannability
 
@@ -104,16 +104,15 @@ graph TD
     I --> J["10. Learning Layer — questions, recall, practice, mistakes"]
     J --> K["11. Revision Layer — full → summary → one-page → last-minute"]
     K --> L["12. Validate — completeness, accuracy, no hallucinations"]
-    L --> M["13. Output Files — page.mdx + questions.json + flashcards.json"]
+    L --> M["13. Output Files — chapter.json + questions.json + flashcards.json"]
     M --> N["14. Verify Subject — src/data/subjects.ts"]
     N --> O["15. Register Chapter — src/data/chapters.ts"]
-    O --> P["16. Create MDX File — src/content/{subject}/{chapter}/page.mdx"]
-    P --> Q["17. Register in Content Registry — src/lib/content.ts"]
-    Q --> R["18. Build & Verify — npm run build"]
-    R --> S{"Pass?"}
-    S -->|Yes| T["Push to GitHub"]
-    S -->|No| U["Fix → re-run step 18"]
-    U --> R
+    O --> P["16. Add Sections — src/lib/blocknote/content-loader.ts"]
+    P --> Q["17. Build & Verify — npm run build (auto-discovers chapter.json)"]
+    Q --> R{"Pass?"}
+    R -->|Yes| S["Push to GitHub"]
+    R -->|No| T["Fix → re-run step 17"]
+    T --> Q
 ```
 
 ---
@@ -135,12 +134,11 @@ graph TD
 | 10 | Add practice and recall content | Questions, recall prompts |
 | 11 | Generate revision views | 5-level summary hierarchy |
 | 12 | Final validation | Accuracy + completeness |
-| 13 | Output content files | `page.mdx`, `questions.json`, `flashcards.json` |
+| 13 | Output content files | `chapter.json`, `questions.json`, `flashcards.json` |
 | 14 | Verify subject exists in code | Subject confirmed |
 | 15 | Add chapter to data file | `chapters.ts` entry |
-| 16 | Create MDX file with content | `page.mdx` |
-| 17 | Register in content registry | `content.ts` entries |
-| 18 | Build and verify | 0 errors, chapter live |
+| 16 | Add section IDs to content-loader | `content-loader.ts` entry |
+| 17 | Build and verify | 0 errors, chapter live (auto-discovered) |
 
 ---
 
@@ -253,11 +251,11 @@ Foundation → Bridge → Actual Content
 - **Bridge**: How the new concept connects to what they know
 - **Content**: The actual concept, explained clearly
 
-- **Definitions + laws**: Verbatim NCERT in `Callout(important)`, then bullet breakdown below
+- **Definitions + laws**: Verbatim NCERT in `callout` (important), then bullet breakdown below
 - **Body text**: All paragraphs → asterisk bullet points (`*`), one fact per bullet
 - **Fillers removed**: "simply", "just", "basically", "obviously" — cut from all sections
-- **After bullets**: Add `KeyPoint` only if the section has a core insight
-- **Derivations**: Full step-by-step in `Expandable` (collapsed) — MathJax formulas
+- **After bullets**: Add `keyPoint` only if the section has a core insight
+- **Derivations**: Full step-by-step in `expandable` (collapsed) — KaTeX formulas
 - Goal: shortest path from "I don't know" to "I get it"
 
 ### Step 8: Content Transformation
@@ -336,17 +334,18 @@ Full Content → Detailed Notes → Revision Notes → One-Page Revision → Las
 
 ```
 src/content/{subject-slug}/{chapter-slug}/
-├── page.mdx              ← Learning content (MDX)
-├── questions.json        ← Practice questions (MCQ + short answer)
-└── flashcards.json       ← Revision flashcards
+├── chapter.json        ← Learning content (BlockNote JSON block array)
+├── questions.json      ← Practice questions (MCQ + short answer)
+└── flashcards.json     ← Revision flashcards
 ```
 
-- **Math formulas**: KaTeX currently. Pending migration to MathJax (`rehype-mathjax`) for 99% LaTeX coverage — see `Pending/plan_MATHJAX_0001.md`
-- **MDX components**: Import only what you use. Register in `src/mdx-components.tsx` if new.
+- **chapter.json** contains a BlockNote block array — custom blocks (`callout`, `expandable`, `keyPoint`, `example`, `comparison`) plus standard blocks (paragraphs, headings, lists) and inline/block math via KaTeX
+- **Math formulas**: KaTeX syntax via `@blocknote/math-block` (`$inline$` and `$$block$$`)
+- **No manual registration needed** — `scripts/generate-content-map.js` auto-discovers `chapter.json` files at build time
 
 ---
 
-## Technical Registration (Steps 14–18)
+## Technical Registration (Steps 14–17)
 
 ### Step 14: Verify Subject
 
@@ -391,43 +390,11 @@ src/content/{subject-slug}/{chapter-slug}/
 | English | `en` |
 | Arabic | `ar` |
 
-### Step 16: Create MDX File
+### Step 16: Add Sections to Content Loader
 
-- Path: `src/content/{subject-slug}/{chapter-slug}/page.mdx`
-- Import only the MDX components you use:
+- Open `src/lib/blocknote/content-loader.ts`
+- Add entry to `SECTIONS_MAP`:
 
-```mdx
-import { Callout } from "@/components/mdx/Callout";
-import { KeyPoint } from "@/components/mdx/KeyPoint";
-import { Formula } from "@/components/mdx/Formula";
-import { Example } from "@/components/mdx/Example";
-import { Expandable } from "@/components/mdx/Expandable";
-import { Diagram } from "@/components/mdx/Diagram";
-import { Comparison } from "@/components/mdx/Comparison";
-```
-
-- Use `## X.Y Title` format for sections (becomes sidebar + scroll-spy)
-- Math: `$inline$` or `$$display$$` (KaTeX syntax)
-- Style: bullet points > paragraphs, short chunks, MDX components for key info
-
-### Step 17: Register in Content Registry
-
-- Open `src/lib/content.ts`
-- Add 3 things:
-
-**17a. Import the MDX file:**
-```typescript
-import PhysicsCommunication from "@/content/physics/communication-systems/page.mdx";
-```
-
-**17b. Add to MDX_MAP:**
-```typescript
-const MDX_MAP: Record<string, ComponentType> = {
-  "communication-systems": PhysicsCommunication as ComponentType,
-};
-```
-
-**17c. Add to SECTIONS_MAP:**
 ```typescript
 const SECTIONS_MAP: Record<string, ChapterSection[]> = {
   "communication-systems": [
@@ -437,31 +404,19 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
 };
 ```
 
-**17d. Add to QUESTIONS_MAP (if questions.json exists):**
-```typescript
-import PhysicsCommunicationQuestions from "@/content/physics/communication-systems/questions.json";
-
-const QUESTIONS_MAP: Record<string, Question[]> = {
-  "communication-systems": PhysicsCommunicationQuestions as Question[],
-};
-```
-
-**17e. Add to FLASHCARDS_MAP (if flashcards.json exists):**
-```typescript
-import PhysicsCommunicationFlashcards from "@/content/physics/communication-systems/flashcards.json";
-
-const FLASHCARDS_MAP: Record<string, Flashcard[]> = {
-  "communication-systems": PhysicsCommunicationFlashcards as Flashcard[],
-};
-```
-
 - `SECTIONS_MAP` id = heading anchor (lowercased, hyphenated from `##` heading)
+- This is the **only manual step** — `chapter.json` is auto-discovered by `scripts/generate-content-map.js`
 
-### Step 18: Build & Verify
+### Step 17: Build & Verify
 
 ```bash
 npm run build
 ```
+
+The build script runs `generate-content-map.js` automatically (via `prebuild`), which:
+1. Scans `src/content/{subject}/{chapter}/chapter.json`
+2. Generates `src/lib/blocknote/content-map.ts` with explicit webpack imports
+3. `content-loader.ts` imports `AUTO_BLOCKS_MAP` from the generated file
 
 - Check output for:
   - `✓ Compiled successfully`
@@ -469,23 +424,30 @@ npm run build
   - No TypeScript errors
 
 - If errors:
-  - `Module not found` → check import path in `content.ts`
+  - `Module not found` → check `chapter.json` path matches folder structure
   - `TS error` → check type annotations
   - Chapter not in route list → check `chapters.ts` entry
+  - Chapter not rendering → check `SECTIONS_MAP` entry in `content-loader.ts`
 
 ---
 
-## MDX Components Reference
+## BlockNote Components Reference
 
-| Component | Props | Use case |
-|-----------|-------|----------|
-| `Callout` | `type?`: `"note"` \| `"important"` \| `"warning"` \| `"didyouknow"`, `title?`, `children` | Highlight important info |
-| `KeyPoint` | `title?` (default: "Key Takeaway"), `children` | Core concept / takeaway |
-| `Formula` | `title?`, `children` (KaTeX math) | Display equations |
-| `Example` | `title?` (default: "Example"), `children` | Worked examples / problems |
-| `Expandable` | `title` (required), `children` | Collapsible content |
-| `Diagram` | `title?`, `children` | Diagrams / images / figures |
-| `Comparison` | `leftTitle?`, `rightTitle?`, `left`, `right` | Side-by-side comparison |
+Custom blocks are defined in `src/components/blocks/` and registered in `src/lib/blocknote/schema.ts`.
+
+| Block | Props | Use case |
+|-------|-------|----------|
+| `callout` | `calloutType`: `"note"` \| `"important"` \| `"warning"` \| `"didyouknow"` (default: `"note"`) | Highlight important info |
+| `keyPoint` | — | Core concept / takeaway |
+| `mathBlock` | — | Display equations (KaTeX) |
+| `example` | `title?` (default: "Example") | Worked examples / problems |
+| `expandable` | — | Collapsible content (derivations, try these) |
+| `comparison` | `leftTitle?`, `rightTitle?` | Side-by-side comparison |
+
+### Inline Math
+
+- KaTeX inline: `$formula$` — rendered via `@blocknote/math-block`
+- KaTeX display: `$$formula$$` — rendered as block math
 
 ### Callout types
 
@@ -543,18 +505,26 @@ npm run build
 ```
 src/
 ├── content/{subject-slug}/{chapter-slug}/
-│   ├── page.mdx              ← Learning content
-│   ├── questions.json        ← Practice questions
-│   └── flashcards.json       ← Revision flashcards
+│   ├── chapter.json        ← Learning content (BlockNote JSON block array)
+│   ├── questions.json      ← Practice questions
+│   └── flashcards.json     ← Revision flashcards
 ├── data/
-│   ├── subjects.ts           ← Subject definitions
-│   └── chapters.ts           ← Chapter definitions
+│   ├── subjects.ts         ← Subject definitions
+│   └── chapters.ts         ← Chapter definitions
 ├── lib/
-│   └── content.ts            ← MDX_MAP + SECTIONS_MAP + QUESTIONS_MAP + FLASHCARDS_MAP
-├── components/mdx/           ← MDX components (Callout, KeyPoint, Formula, etc.)
-├── components/practice/      ← QuestionCard, PracticeSession, DifficultyFilter
-├── components/flashcard/     ← FlashcardCard, FlashcardDeck, FlashcardProgress
-└── types/chapter.ts          ← ChapterSection, Question, Flashcard types
+│   ├── blocknote/
+│   │   ├── schema.ts       ← Custom block definitions (callout, expandable, keyPoint, example, comparison, math)
+│   │   ├── content-loader.ts  ← SECTIONS_MAP + loadChapterBlocks + hasBlockNoteContent
+│   │   └── content-map.ts  ← AUTO-GENERATED by scripts/generate-content-map.js (do not edit)
+│   └── content.ts          ← QUESTIONS_MAP + FLASHCARDS_MAP
+├── components/
+│   ├── blocks/             ← BlockNote custom block components (CalloutBlock, ExpandableBlock, etc.)
+│   ├── practice/           ← QuestionCard, PracticeSession, DifficultyFilter
+│   └── flashcard/          ← FlashcardCard, FlashcardDeck, FlashcardProgress
+└── types/chapter.ts        ← ChapterSection, Question, Flashcard types
+
+scripts/
+└── generate-content-map.js ← Scans content/ for chapter.json → generates content-map.ts
 ```
 
 ---
@@ -562,24 +532,24 @@ src/
 ## Common Mistakes
 
 > **⚠️ Slug mismatch**
-> Slug in `chapters.ts` must match folder name in `src/content/` and key in `content.ts`.
+> Slug in `chapters.ts` must match folder name in `src/content/` and key in `SECTIONS_MAP`.
 > Wrong: `"communication_systems"` vs `"communication-systems"`
 
 > **⚠️ Section id not matching heading**
 > `id` in `SECTIONS_MAP` must match auto-generated anchor from `##` heading.
 > `## 1.3 Coulomb's Law` → id: `coulombs-law` (not `"1.3-coulombs-law"`)
 
-> **⚠️ Missing import in MDX file**
-> If you use `<Callout>` in MDX but don't import it, build fails.
-> Add: `import { Callout } from "@/components/mdx/Callout";`
+> **⚠️ chapter.json not in correct path**
+> Must be at `src/content/{subject-slug}/{chapter-slug}/chapter.json`.
+> The auto-discovery script only finds files at this exact path.
 
 > **⚠️ topicCount mismatch**
-> `topicCount` in `chapters.ts` should match the number of `##` sections in your MDX file.
+> `topicCount` in `chapters.ts` should match the number of `##` sections in your chapter content.
 
 > **⚠️ Hallucinated content**
 > Every formula, definition, and example must come from the extraction file. Never invent.
 
-> **⚠️ Paragraphs left in page.mdx**
+> **⚠️ Paragraphs left in chapter.json**
 > All body text must be asterisk bullet points (`*`). No paragraphs. One fact per bullet.
 
 > **⚠️ NCERT definitions rewritten**
@@ -590,6 +560,9 @@ src/
 
 > **⚠️ Skipping the audit step**
 > Always compare generated content against the extraction file before registering.
+
+> **⚠️ Missing SECTIONS_MAP entry**
+> `chapter.json` is auto-discovered, but section IDs must be manually added to `SECTIONS_MAP` in `content-loader.ts`. Without it, the sidebar/scroll-spy won't work.
 
 > **💡 Test with dev server**
 > Run `npm run dev` and navigate to `/chapter/{slug}` to preview before building.
