@@ -2,81 +2,573 @@ import { Callout } from "@/components/mdx/Callout";
 import { KeyPoint } from "@/components/mdx/KeyPoint";
 import { Formula } from "@/components/mdx/Formula";
 import { Example } from "@/components/mdx/Example";
+import { Expandable } from "@/components/mdx/Expandable";
+import { Comparison } from "@/components/mdx/Comparison";
+
+---
+
+# Electric Charges and Fields
+
+---
 
 ## 1.1 Electric Charge
 
-Electric charge is a fundamental property of matter. Just as mass is a property that determines the gravitational force between objects, electric charge determines the electromagnetic force between particles. Every object contains an enormous number of atoms, each consisting of a nucleus (containing protons and neutrons) surrounded by electrons.
+**Foundation:** All matter is made of atoms — nucleus (protons + neutrons) surrounded by electrons. Protons carry positive charge, electrons carry negative charge.
 
-There are two types of electric charges: positive (+) and negative (−). Protons carry positive charge, while electrons carry negative charge. Neutrons, as their name suggests, are electrically neutral. The charge of a single proton is $+1.6 \times 10^{-19}$ C, and the charge of a single electron is $-1.6 \times 10^{-19}$ C.
+**Bridge:** Just as mass determines gravitational interaction, charge determines electromagnetic interaction.
 
-<KeyPoint>
-Like charges repel, unlike charges attract. The force between charges is governed by Coulomb's Law.
-</KeyPoint>
+- Two types: **positive (+)** and **negative (−)**
+- Glass rod rubbed with silk → positive (electrons transfer from glass to silk)
+- Ebonite rod rubbed with fur → negative (electrons transfer from fur to ebonite)
+- Like charges repel, unlike charges attract
 
-## 1.2 Conduction and Induction
-
-Charges can be transferred from one body to another through direct contact (conduction) or through the influence of a nearby charged body (induction). In conduction, a charged body touches a neutral body and shares some of its charge. In induction, a charged body is brought near a neutral body, causing redistribution of charges without direct contact.
-
-<Callout type="important">
-A glass rod rubbed with silk becomes positively charged, while an ebonite rod rubbed with fur becomes negatively charged. This was one of the earliest observations of electric charge by Benjamin Franklin.
+<Callout type="note">
+Charge is a scalar quantity. It can be positive, negative, or zero. The SI unit of charge is the **coulomb (C)**.
 </Callout>
 
-When a charged body is brought near an uncharged conductor, the free electrons in the conductor move towards or away from the charged body, depending on whether the body is positive or negative. This redistribution of charge is called electrostatic induction.
+<Callout type="didyouknow">
+Benjamin Franklin introduced the convention of positive and negative charges. The actual direction of electron flow was discovered later — electrons move from negative to positive, opposite to the conventional current direction.
+</Callout>
 
-## 1.3 Coulomb's Law
+---
 
-Coulomb's Law describes the force between two point charges. The magnitude of the electrostatic force between two point charges is directly proportional to the product of the magnitudes of the charges and inversely proportional to the square of the distance between them.
+## 1.2 Conductors and Insulators
 
-<Formula title="Coulomb's Law">
+- **Conductors**: charges flow freely through them
+  - Metals (copper, aluminium, silver)
+  - Electrolytes (salt water, acids)
+  - In metals: mobile charges are **electrons**
+  - In electrolytes: both **positive and negative ions** are mobile
+- **Insulators**: charges do not flow
+  - Glass, rubber, plastic, wood
+- **Semiconductors**: intermediate conductivity
+  - Silicon, germanium
+  - Conductivity can be controlled (basis of electronics)
+
+<Comparison
+  leftTitle="Conductors"
+  left={[
+    "Free charge carriers",
+    "Charge flows easily",
+    "Metals, electrolytes",
+    "Used in wiring, circuits"
+  ]}
+  rightTitle="Insulators"
+  right={[
+    "No free charge carriers",
+    "Charge does not flow",
+    "Glass, rubber, plastic",
+    "Used for coating, safety"
+  ]}
+/>
+
+---
+
+## 1.3 Charging by Induction
+
+**Process — step by step:**
+
+1. Bring a charged body (e.g., positive rod) near a neutral conductor
+2. Free electrons in conductor move toward the rod (attracted)
+3. Near side of conductor becomes **negative**, far side becomes **positive**
+4. If conductor is **grounded**, far-side charge flows to earth
+5. Remove ground first, then remove the inducing body
+6. Conductor retains the opposite charge — **permanently charged**
+
+<Callout type="important">
+In induction, no charge is transferred by contact. The charged body induces redistribution of charges in the neutral conductor.
+</Callout>
+
+---
+
+## 1.4 Basic Properties of Electric Charges
+
+### Quantisation
+
+- Charge exists in discrete packets, not continuous
+
+<Formula>$$q = ne$$</Formula>
+
+- $n$ = integer (0, ±1, ±2, ...)
+- $e = 1.6 \times 10^{-19}$ C (magnitude of electron/proton charge)
+- For macroscopic objects, $n$ is enormous → quantisation can be ignored
+
+### Additivity
+
+- Total charge = algebraic sum of all individual charges
+
+<Formula>$$q_{\text{total}} = q_1 + q_2 + q_3 + ...$$</Formula>
+
+- Signs matter: $+5\mu\text{C} + (-3\mu\text{C}) = +2\mu\text{C}$
+
+### Conservation
+
+- Total charge of an **isolated system** is constant
+- Charge can transfer between bodies but is never created or destroyed
+- Rubbing two bodies: charges appear on both, but net charge stays zero
+
+<Callout type="important">
+These three — quantisation, additivity, conservation — are the fundamental properties of electric charge.
+</Callout>
+
+---
+
+## 1.5 Coulomb's Law
+
+**Foundation:** Like gravitational force, electrostatic force follows the inverse-square law.
+
+**Bridge:** But unlike gravity (always attractive), electric force can be attractive or repulsive — allowing cancellation and complex behaviour.
+
+- Force between two point charges:
+  - Directly proportional to product of charges ($q_1 q_2$)
+  - Inversely proportional to square of distance ($r^2$)
+  - Acts along the line joining the charges
+
+<Formula title="Coulomb's Law (scalar form)">
 $$F = k \frac{|q_1 \cdot q_2|}{r^2}$$
 </Formula>
 
-where $k$ is Coulomb's constant ($k \approx 8.99 \times 10^9 \text{ N·m}^2/\text{C}^2$), $q_1$ and $q_2$ are the magnitudes of the two charges, and $r$ is the distance between them. The force acts along the line joining the two charges.
-
-<Example title="Example 1">
-Two point charges of $+2\,\mu\text{C}$ and $-3\,\mu\text{C}$ are placed $0.5$ m apart. Calculate the force between them.
-
-$$F = \frac{(8.99 \times 10^9) \times (2 \times 10^{-6} \times 3 \times 10^{-6})}{(0.5)^2}$$
-
-$$F = \frac{8.99 \times 10^9 \times 6 \times 10^{-12}}{0.25}$$
-
-$$F = 0.216 \text{ N (attractive force)}$$
-</Example>
-
-## 1.4 Electric Field
-
-The electric field is a vector field that describes the force that would be exerted on a positive test charge at any point in space. The electric field $\mathbf{E}$ at a point is defined as the force per unit charge experienced by a small positive test charge placed at that point.
-
-<Formula title="Electric Field">
-$$\mathbf{E} = \frac{\mathbf{F}}{q} = k \frac{Q}{r^2}$$
+<Formula title="Coulomb's Law (vector form)">
+$$\vec{F}_{21} = k \frac{q_1 q_2}{r_{21}^2} \hat{r}_{21}$$
 </Formula>
 
-The electric field due to a point charge $Q$ at a distance $r$ is directed radially outward from $Q$ if $Q$ is positive, and radially inward if $Q$ is negative. The SI unit of electric field is N/C or V/m.
+- $\hat{r}_{21}$ = unit vector from $q_1$ to $q_2$
+- $k = \frac{1}{4\pi\varepsilon_0} \approx 9 \times 10^9$ N·m²/C²
+- $\varepsilon_0 = 8.854 \times 10^{-12}$ C²/(N·m²) — permittivity of free space
 
-<Callout type="note">
-Electric field lines never cross each other. They start from positive charges and end at negative charges. The density of field lines represents the strength of the field.
+<KeyPoint title="Remember">
+Coulomb's Law: $F = k|q_1q_2|/r^2$. Like gravity, it's an inverse-square law — but unlike gravity, it can be attractive **or** repulsive.
+</KeyPoint>
+
+<Callout type="didyouknow">
+The ratio of electric force to gravitational force between a proton and an electron is approximately $10^{39}$. Electric force is vastly stronger.
 </Callout>
 
-## 1.5 Electric Flux
+---
 
-Electric flux is a measure of the number of electric field lines passing through a given surface. For a uniform electric field $\mathbf{E}$ and a flat surface of area $A$, the electric flux is defined as the dot product of the electric field vector and the area vector.
+## 1.6 Forces between Multiple Charges
+
+**Superposition Principle:**
+
+- Force on any charge = vector sum of forces due to all other charges individually
+- Each pair follows Coulomb's Law independently
+- No "three-body" or "four-body" forces exist
+
+<Formula title="Superposition">
+$$\vec{F}_1 = \vec{F}_{12} + \vec{F}_{13} + ... + \vec{F}_{1n}$$
+</Formula>
+
+---
+
+## 1.7 Electric Field
+
+**Foundation:** Action at a distance is hard to conceptualise. We introduce an intermediary — the field.
+
+**Bridge:** A charge creates a field around it. Another charge placed in that field experiences a force. The field "carries" the force.
+
+- Electric field at a point = force per unit positive test charge
+
+<Formula title="Electric Field">
+$$\vec{E} = \frac{\vec{F}}{q}$$
+</Formula>
+
+- Field due to a point charge $Q$:
+
+<Formula>
+$$E = \frac{1}{4\pi\varepsilon_0} \frac{|Q|}{r^2}$$
+</Formula>
+
+- Direction: radially outward ($Q > 0$), radially inward ($Q < 0$)
+- SI unit: N/C or V/m
+- Field due to a system of charges: apply superposition to individual fields
+
+<Callout type="note">
+Electric field is a **vector field** — it has magnitude and direction at every point in space. It satisfies the superposition principle.
+</Callout>
+
+---
+
+## 1.8 Electric Field Lines
+
+- Imaginary curves where the tangent at any point gives the direction of $\vec{E}$
+- Properties:
+
+| # | Property |
+|---|----------|
+| 1 | Continuous curves, no breaks |
+| 2 | Two field lines **never cross** (field at a point has unique direction) |
+| 3 | Start from positive charges, end at negative charges |
+| 4 | Closeness = field strength (crowded near strong field, sparse near weak) |
+| 5 | In uniform field: parallel, equally spaced straight lines |
+| 6 | Cannot form closed loops in electrostatics |
+
+<Callout type="warning">
+If field lines crossed, the field at the intersection would have two different directions simultaneously — physically impossible.
+</Callout>
+
+---
+
+## 1.9 Electric Flux
+
+**Foundation:** Flux measures how much "field" passes through a surface.
+
+**Bridge:** Think of rain falling on a window. More rain passes through when the window faces the rain directly (θ = 0°) than when it's tilted.
 
 <Formula title="Electric Flux">
-$$\Phi = \mathbf{E} \cdot \mathbf{A} = EA\cos\theta$$
+$$\Phi = \vec{E} \cdot \vec{A} = EA\cos\theta$$
 </Formula>
 
-where $\theta$ is the angle between the electric field and the normal to the surface. The SI unit of electric flux is $\text{N·m}^2/\text{C}$ or $\text{V·m}$. When the surface is perpendicular to the field ($\theta = 0°$), the flux is maximum. When the surface is parallel to the field ($\theta = 90°$), the flux is zero.
+- $\theta$ = angle between $\vec{E}$ and the normal to the surface
+- SI unit: V·m or N·m²/C
+- $\theta = 0°$: flux maximum (surface ⊥ field)
+- $\theta = 90°$: flux zero (surface ∥ field)
+- For closed surfaces: outward normal is positive by convention
 
-## 1.6 Gauss's Law
+<Expandable title="Derivation — flux through a sphere enclosing a point charge">
+For a point charge $q$ at the centre of a sphere of radius $r$:
 
-Gauss's Law relates the total electric flux through a closed surface to the total charge enclosed by that surface. It states that the net electric flux through any closed surface is equal to the enclosed charge divided by the permittivity of free space.
+- Field at every point on sphere: $E = \frac{q}{4\pi\varepsilon_0 r^2}$ (radial)
+- Area element $dA$ is also radial → $E \parallel dA$ everywhere
+- Total flux: $\Phi = E \times 4\pi r^2 = \frac{q}{4\pi\varepsilon_0 r^2} \times 4\pi r^2 = \frac{q}{\varepsilon_0}$
+
+This is Gauss's Law — the flux depends only on enclosed charge, not on the radius.
+</Expandable>
+
+---
+
+## 1.10 Electric Dipole
+
+**Foundation:** Most charge distributions have net zero charge but still produce fields (e.g., molecules). The dipole is the simplest such system.
+
+**Bridge:** Two equal and opposite charges don't cancel completely at finite distances — their fields partially survive, creating a distinctive $1/r^3$ pattern.
+
+### Definition
+
+- Pair of equal and opposite charges $+q$ and $-q$, separated by distance $2a$
+- Dipole moment:
+
+<Formula title="Dipole Moment">
+$$\vec{p} = q \times 2a\,\hat{p}$$
+</Formula>
+
+- Direction: from $-q$ to $+q$
+- SI unit: C·m
+
+### Field on the axis (r >> a)
+
+<Formula>
+$$E_{\text{axis}} = \frac{1}{4\pi\varepsilon_0} \frac{2p}{r^3}$$
+</Formula>
+
+### Field on the equatorial plane (r >> a)
+
+<Formula>
+$$E_{\text{equatorial}} = -\frac{1}{4\pi\varepsilon_0} \frac{p}{r^3}$$
+</Formula>
+
+<Callout type="important">
+Dipole field falls as $1/r^3$, not $1/r^2$. This is because the two charges partially cancel at large distances.
+</Callout>
+
+### Exact expressions (not just r >> a)
+
+<Expandable title="Full derivation — dipole field on axis">
+Point $P$ at distance $r$ from centre, on the side of $+q$:
+
+- Field due to $+q$: $E_+ = \frac{q}{4\pi\varepsilon_0(r-a)^2}$ (away from dipole)
+- Field due to $-q$: $E_- = \frac{q}{4\pi\varepsilon_0(r+a)^2}$ (toward dipole)
+- Net field: $E = E_+ - E_- = \frac{q}{4\pi\varepsilon_0}\left[\frac{1}{(r-a)^2} - \frac{1}{(r+a)^2}\right]$
+- Simplify: $E = \frac{q}{4\pi\varepsilon_0} \frac{4ar}{(r^2-a^2)^2}$
+- For $r >> a$: $E \approx \frac{1}{4\pi\varepsilon_0} \frac{2qa \times 2}{r^3} = \frac{1}{4\pi\varepsilon_0} \frac{2p}{r^3}$
+</Expandable>
+
+<Expandable title="Full derivation — dipole field on equatorial plane">
+Point $Q$ at distance $r$ from centre, on the perpendicular bisector:
+
+- Magnitudes: $E_+ = E_- = \frac{q}{4\pi\varepsilon_0(r^2+a^2)}$
+- Components perpendicular to dipole axis cancel
+- Components along dipole axis add: $E = 2E_+\cos\theta = 2E_+\frac{a}{\sqrt{r^2+a^2}}$
+- For $r >> a$: $E \approx \frac{1}{4\pi\varepsilon_0} \frac{p}{r^3}$ (opposite to $\vec{p}$)
+</Expandable>
+
+### Physical significance of dipoles
+
+- Most molecules: centres of + and − charges coincide → zero dipole moment
+- **Polar molecules** (H₂O, HCl): permanent dipole moment
+- **Non-polar molecules** (CO₂, CH₄): induced dipole moment in external field
+
+### Point dipole
+
+- Idealised limit: $2a \to 0$, $q \to \infty$, but $p = q \times 2a$ is finite
+- For point dipole, $1/r^3$ expressions are exact for any $r$
+
+---
+
+## 1.11 Dipole in a Uniform External Field
+
+- Net force on dipole in **uniform** field = **zero** (equal and opposite forces cancel)
+- But forces act at different points → **torque**
+
+<Formula title="Torque on a Dipole">
+$$\vec{\tau} = \vec{p} \times \vec{E}$$
+</Formula>
+
+- Magnitude: $\tau = pE\sin\theta$
+- $\theta = 0°$: $\vec{p} \parallel \vec{E}$, torque = 0 (stable equilibrium)
+- $\theta = 180°$: $\vec{p}$ antiparallel to $\vec{E}$, torque = 0 (unstable equilibrium)
+
+<Expandable title="Derivation — torque on a dipole">
+- Force on $+q$: $\vec{F}_+ = q\vec{E}$ (along $\vec{E}$)
+- Force on $-q$: $\vec{F}_- = -q\vec{E}$ (opposite to $\vec{E}$)
+- Net force: $\vec{F}_{\text{net}} = q\vec{E} - q\vec{E} = 0$
+- Torque about centre: each force contributes $qE \times a\sin\theta$
+- Total torque: $\tau = 2qaE\sin\theta = pE\sin\theta$
+- Vector form: $\vec{\tau} = \vec{p} \times \vec{E}$
+</Expandable>
+
+<Callout type="note">
+In a **non-uniform** field, the dipole experiences a **net force** in addition to torque. Example: a charged comb attracts neutral paper by polarising it and exerting force in its non-uniform field.
+</Callout>
+
+---
+
+## 1.12 Continuous Charge Distribution
+
+- For large distributions, use charge density instead of individual charges
+
+| Type | Symbol | Definition | Unit |
+|------|--------|------------|------|
+| Linear | $\lambda$ | $\Delta Q / \Delta l$ | C/m |
+| Surface | $\sigma$ | $\Delta Q / \Delta S$ | C/m² |
+| Volume | $\rho$ | $\Delta Q / \Delta V$ | C/m³ |
+
+- Field from continuous distribution:
+
+<Formula>
+$$\vec{E} = \frac{1}{4\pi\varepsilon_0} \int \frac{\rho \, dV}{r'^2} \hat{r}'$$
+</Formula>
+
+- In practice, choose a Gaussian surface with symmetry to avoid integration
+
+---
+
+## 1.13 Gauss's Law
 
 <Formula title="Gauss's Law">
-$$\oint \mathbf{E} \cdot d\mathbf{A} = \frac{Q_{\text{enclosed}}}{\varepsilon_0}$$
+$$\oint \vec{E} \cdot d\vec{A} = \frac{q}{\varepsilon_0}$$
 </Formula>
 
-where $\varepsilon_0$ (permittivity of free space) $\approx 8.854 \times 10^{-12} \text{ C}^2/(\text{N·m}^2)$. Gauss's Law is particularly useful for calculating electric fields of symmetric charge distributions such as spheres, cylinders, and infinite planes.
+- $q$ = total charge **enclosed** by the surface $S$
+- The surface $S$ is called the **Gaussian surface**
 
-<KeyPoint>
-Gauss's Law is equivalent to Coulomb's Law but is often simpler to apply for symmetric charge distributions. The choice of Gaussian surface is critical to simplifying the calculation.
+### Key points
+
+1. True for **any** closed surface, regardless of shape or size
+2. $q$ = sum of all charges **inside** the surface
+3. $\vec{E}$ on the left side is due to **all** charges (inside + outside); $q$ on the right is only enclosed charges
+4. Gaussian surface must not pass through **discrete charges** (field undefined at point charges)
+5. Useful for calculating $\vec{E}$ when charge distribution has **symmetry**
+6. Based on the inverse-square law — any violation of Gauss's Law indicates departure from $1/r^2$
+
+<KeyPoint title="Key exam point">
+Gauss's Law: $\oint \vec{E} \cdot d\vec{A} = q/\varepsilon_0$. The power is in choosing the right Gaussian surface — symmetry is everything.
 </KeyPoint>
+
+<Callout type="important">
+Gauss's Law is equivalent to Coulomb's Law but far more powerful for symmetric charge distributions. The choice of Gaussian surface is critical.
+</Callout>
+
+---
+
+## 1.14 Applications of Gauss's Law
+
+### Infinite straight wire (linear charge density λ)
+
+<Expandable title="Derivation — field of an infinite wire">
+- Symmetry: field is radial, depends only on $r$
+- Gaussian surface: coaxial cylinder of radius $r$, length $l$
+- Flux through two ends = 0 (field ⊥ to end normals)
+- Flux through curved surface: $E \times 2\pi rl$
+- Enclosed charge: $\lambda l$
+- Gauss's Law: $E \times 2\pi rl = \frac{\lambda l}{\varepsilon_0}$
+</Expandable>
+
+<Formula title="Field of an Infinite Wire">
+$$E = \frac{\lambda}{2\pi\varepsilon_0 r}$$
+</Formula>
+
+- Direction: radial (outward if $\lambda > 0$, inward if $\lambda < 0$)
+- Depends on $r$ (not on position along wire)
+
+### Infinite plane sheet (surface charge density σ)
+
+<Expandable title="Derivation — field of an infinite plane sheet">
+- Symmetry: field is perpendicular to sheet, same on both sides
+- Gaussian surface: rectangular parallelepiped with faces parallel to sheet
+- Flux through sides = 0 (field ⊥ to side normals)
+- Flux through two faces: $2EA$
+- Enclosed charge: $\sigma A$
+- Gauss's Law: $2EA = \frac{\sigma A}{\varepsilon_0}$
+</Expandable>
+
+<Formula title="Field of an Infinite Plane Sheet">
+$$E = \frac{\sigma}{2\varepsilon_0}$$
+</Formula>
+
+- Direction: perpendicular to sheet, outward on either side
+- **Independent of distance** from the sheet
+
+### Thin spherical shell (radius R, total charge q)
+
+<Expandable title="Derivation — field of a spherical shell">
+**Outside (r ≥ R):**
+- Gaussian surface: sphere of radius $r$ concentric with shell
+- By spherical symmetry, $E$ is constant and radial on this surface
+- Flux: $E \times 4\pi r^2$
+- Enclosed charge: $q$
+- Gauss's Law: $E \times 4\pi r^2 = \frac{q}{\varepsilon_0}$
+
+**Inside (r < R):**
+- Same Gaussian surface, but it encloses **no charge**
+- $E \times 4\pi r^2 = 0$ → $E = 0$
+</Expandable>
+
+<Formula title="Field of a Spherical Shell">
+$$E = \begin{cases} \frac{1}{4\pi\varepsilon_0}\frac{q}{r^2} & r \geq R \\ 0 & r < R \end{cases}$$
+</Formula>
+
+- Outside: field as if all charge concentrated at centre
+- Inside: field = **zero**
+- Same result applies to solid sphere of uniform volume charge density
+
+<Callout type="important">
+The field inside a uniformly charged spherical shell is zero. This confirms the $1/r^2$ dependence in Coulomb's Law.
+</Callout>
+
+---
+
+## Examples
+
+<Example title="Example 1 — Coulomb's Law">
+Two point charges of $+2\,\mu\text{C}$ and $-3\,\mu\text{C}$ are placed $0.5$ m apart.
+
+$$F = \frac{(9 \times 10^9) \times (2 \times 10^{-6} \times 3 \times 10^{-6})}{(0.5)^2} = 0.216 \text{ N (attractive)}$$
+</Example>
+
+<Example title="Example 2 — Electric Flux through a Cube">
+$E_x = \alpha x^{1/2}$, $\alpha = 800$ N/C·m$^{1/2}$. Cube of side $a = 0.1$ m.
+
+- Left face ($x = a$): $E_L = \alpha a^{1/2}$
+- Right face ($x = 2a$): $E_R = \alpha(2a)^{1/2}$
+- Net flux: $\Phi = \alpha a^{5/2}(\sqrt{2} - 1) = 1.05$ N·m²/C
+- Charge inside: $q = \varepsilon_0 \Phi = 9.27 \times 10^{-12}$ C
+</Example>
+
+<Example title="Example 3 — Flux through a Cylinder">
+$E = 200\hat{i}$ N/C for $x > 0$, $E = -200\hat{i}$ for $x < 0$. Cylinder: length 20 cm, radius 5 cm, centred at origin.
+
+- Each flat face: $\Phi = 200 \times \pi(0.05)^2 = 1.57$ N·m²/C
+- Side: $\Phi = 0$ (field ⊥ to surface)
+- Net flux: $\Phi = 3.14$ N·m²/C
+- Charge inside: $q = 2.78 \times 10^{-11}$ C
+</Example>
+
+<Example title="Example 4 — Atom Model (Gauss's Law)">
+Positive nucleus ($Ze$) at centre, uniform negative charge density $-Ze$ up to radius $R$.
+
+**Inside (r < R):**
+
+$$E(r) = \frac{Zer}{4\pi\varepsilon_0 R^3}$$
+
+**Outside (r > R):** $E = 0$ (atom is neutral, total enclosed charge = 0)
+</Example>
+
+<Example title="Example 5 — Torque on a Dipole">
+Dipole moment $p = 10^{-29}$ C·m in field $E = 10^5$ N/C at angle $30°$.
+
+$$\tau = pE\sin\theta = 10^{-29} \times 10^5 \times \sin 30° = 5 \times 10^{-25} \text{ N·m}$$
+
+At $\theta = 90°$ (maximum): $\tau = 10^{-24}$ N·m. At $\theta = 0°$ or $180°$: $\tau = 0$ (equilibrium).
+</Example>
+
+<Example title="Example 6 — Force on Dipole in Non-Uniform Field">
+Dipole $p = 10^{-29}$ C·m in field $E = (10^5 + 10^7 x)$ N/C.
+
+$$F = p \frac{dE}{dx} = 10^{-29} \times 10^7 = 10^{-22} \text{ N}$$
+
+The dipole accelerates toward the stronger-field region.
+</Example>
+
+<Example title="Example 7 — Infinite Line Charge (Gauss's Law)">
+Line charge density $\lambda = 5 \times 10^{-7}$ C/m. Find $E$ at $r = 0.1$ m.
+
+$$E = \frac{\lambda}{2\pi\varepsilon_0 r} = \frac{5 \times 10^{-7}}{2\pi \times 8.854 \times 10^{-12} \times 0.1} = 8.99 \times 10^4 \text{ N/C}$$
+</Example>
+
+<Example title="Example 8 — Uniformly Charged Spherical Shell">
+Shell: radius $R = 0.1$ m, total charge $q = 10^{-8}$ C.
+
+**Outside ($r = 0.2$ m):**
+
+$$E = \frac{q}{4\pi\varepsilon_0 r^2} = \frac{10^{-8} \times 9 \times 10^9}{(0.2)^2} = 2250 \text{ N/C}$$
+
+**Inside ($r = 0.05$ m):** $E = 0$.
+</Example>
+
+---
+
+## Common Mistakes
+
+<KeyPoint title="Dipole moment direction">
+Dipole moment is directed from **−q to +q** (not +q to −q). This is a common exam error.
+</KeyPoint>
+
+<KeyPoint title="Gauss's Law — E on the left vs q on the right">
+The $\vec{E}$ in Gauss's Law is due to **all** charges (inside + outside). But $q$ on the right side is **only** the enclosed charge. Students often confuse these.
+</KeyPoint>
+
+<KeyPoint title="Flux through a closed surface with no enclosed charge">
+If no charge is enclosed, $\Phi = 0$. This does **not** mean $\vec{E} = 0$ everywhere on the surface — only that the net flux is zero (field lines entering = field lines leaving).
+</KeyPoint>
+
+<KeyPoint title="Induction vs conduction">
+In induction, no charge is transferred by contact. The charged body only causes redistribution. In conduction, charge physically flows from one body to another.
+</KeyPoint>
+
+<KeyPoint title="Superposition is vector addition">
+Forces are vectors. Always resolve into components before adding. Common mistake: adding magnitudes directly when forces are at angles.
+</KeyPoint>
+
+<KeyPoint title="Field inside a conductor in electrostatic equilibrium">
+$E = 0$ inside a conductor in electrostatic equilibrium. If $E$ were nonzero, charges would move — contradicting equilibrium.
+</KeyPoint>
+
+---
+
+## Summary
+
+1. Two types of charge: positive and negative. Like charges repel, unlike attract.
+2. Conductors allow charge flow; insulators do not.
+3. Three properties: quantisation ($q = ne$), additivity, conservation.
+4. Coulomb's Law: $F = k|q_1q_2|/r^2$, $k \approx 9 \times 10^9$ N·m²/C².
+5. Superposition Principle: force on any charge = vector sum of individual forces.
+6. Electric field: $\vec{E} = \vec{F}/q$. Due to point charge: $E = Q/(4\pi\varepsilon_0 r^2)$.
+7. Field lines: continuous, never cross, start from +, end at −.
+8. Electric flux: $\Phi = EA\cos\theta$. Unit: V·m.
+9. Dipole moment: $p = q \times 2a$. Field falls as $1/r^3$.
+10. Torque on dipole: $\vec{\tau} = \vec{p} \times \vec{E}$.
+11. Continuous distributions: $\lambda = \Delta Q/\Delta l$, $\sigma = \Delta Q/\Delta S$, $\rho = \Delta Q/\Delta V$.
+12. Gauss's Law: $\Phi = q/\varepsilon_0$.
+13. Applications: infinite wire ($E = \lambda/2\pi\varepsilon_0 r$), plane sheet ($E = \sigma/2\varepsilon_0$), spherical shell ($E = 0$ inside, $q/4\pi\varepsilon_0 r^2$ outside).
+
+---
+
+## Points to Ponder
+
+1. Protons in the nucleus are held together by the **strong nuclear force** (range $\sim 10^{-14}$ m) — much stronger than electromagnetic repulsion.
+2. Gravity is always attractive, but Coulomb force can be attractive or repulsive — allowing cancellation. This is why gravity dominates at large scales despite being weaker.
+3. The unit of charge (1 C) is very large for electric effects because it's defined via magnetic forces (which are generally weaker).
+4. Charge is not only a scalar under rotation but also **invariant under frame change** — unlike kinetic energy.
+5. Quantisation of charge is a fundamental law of nature; there is no analogous quantisation of mass.
+6. Superposition is not just vector addition — it says forces between pairs are unaffected by other charges.
+7. The field due to a charge configuration with total charge zero is not zero, but falls faster than $1/r^2$ at large distances.

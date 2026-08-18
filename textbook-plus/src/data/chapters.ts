@@ -9,7 +9,7 @@ export interface Chapter {
 
 export const chapters: Record<string, Chapter[]> = {
   physics: [
-    { id: "ph-01", subjectSlug: "physics", number: 1, title: "Electric Charges and Fields", slug: "electric-charges-and-fields", topicCount: 6 },
+    { id: "ph-01", subjectSlug: "physics", number: 1, title: "Electric Charges and Fields", slug: "electric-charges-and-fields", topicCount: 18 },
     { id: "ph-02", subjectSlug: "physics", number: 2, title: "Electrostatic Potential and Capacitance", slug: "electrostatic-potential-and-capacitance", topicCount: 7 },
     { id: "ph-03", subjectSlug: "physics", number: 3, title: "Current Electricity", slug: "current-electricity", topicCount: 6 },
     { id: "ph-04", subjectSlug: "physics", number: 4, title: "Moving Charges and Magnetism", slug: "moving-charges-and-magnetism", topicCount: 5 },

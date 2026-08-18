@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Sun, Moon, Home, BarChart3, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/layout/ThemeProvider";
+import { useFontSize } from "@/hooks/useFontSize";
 import { SearchModal } from "@/components/search/SearchModal";
 
 const navLinks = [
@@ -17,6 +18,7 @@ const navLinks = [
 export function Navbar() {
   const pathname = usePathname();
   const { theme, toggle } = useTheme();
+  const { decrease, increase, canDecrease, canIncrease } = useFontSize();
   const [searchOpen, setSearchOpen] = useState(false);
 
   return (
@@ -77,6 +79,27 @@ export function Navbar() {
                 Ctrl K
               </kbd>
             </button>
+
+            {/* Font Size */}
+            <div className="hidden sm:flex items-center gap-0.5 rounded-lg border border-border/60 bg-muted/50">
+              <button
+                onClick={decrease}
+                disabled={!canDecrease}
+                className="flex h-9 w-9 items-center justify-center text-sm font-bold text-muted-foreground transition-all duration-200 hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed"
+                aria-label="Decrease font size"
+              >
+                A-
+              </button>
+              <div className="h-4 w-px bg-border/60" />
+              <button
+                onClick={increase}
+                disabled={!canIncrease}
+                className="flex h-9 w-9 items-center justify-center text-sm font-bold text-muted-foreground transition-all duration-200 hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed"
+                aria-label="Increase font size"
+              >
+                A+
+              </button>
+            </div>
 
             {/* Theme Toggle */}
             <button

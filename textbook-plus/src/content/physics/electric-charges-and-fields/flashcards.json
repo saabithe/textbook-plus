@@ -1,77 +1,127 @@
 [
   {
     "id": "fc1",
-    "front": "What is electric charge?",
-    "back": "A fundamental property of matter that determines the electromagnetic force between particles. Comes in two types: positive (+) and negative (−)."
+    "front": "What is charge quantisation?",
+    "back": "q = ne. Electric charge exists only in integral multiples of elementary charge e = 1.6 × 10⁻¹⁹ C."
   },
   {
     "id": "fc2",
-    "front": "What is the charge of a proton vs. an electron?",
-    "back": "Proton: +1.6 × 10⁻¹⁹ C\nElectron: −1.6 × 10⁻¹⁹ C"
+    "front": "What is Coulomb's Law?",
+    "back": "F = k|q₁q₂|/r² where k ≈ 9 × 10⁹ N·m²/C². Force is along the line joining the charges."
   },
   {
     "id": "fc3",
-    "front": "What happens when a glass rod is rubbed with silk?",
-    "back": "Electrons transfer from glass to silk. The glass rod loses electrons and becomes positively charged."
+    "front": "What is the unit of electric field?",
+    "back": "N/C or V/m. E = F/q."
   },
   {
     "id": "fc4",
-    "front": "What is the difference between conduction and induction?",
-    "back": "Conduction: charge transfer by direct contact.\nInduction: charge redistribution without contact, caused by a nearby charged body."
+    "front": "What is an electric dipole?",
+    "back": "Pair of equal and opposite charges +q and −q separated by distance 2a."
   },
   {
     "id": "fc5",
-    "front": "State Coulomb's Law (formula)",
-    "back": "F = k |q₁ · q₂| / r²\nwhere k ≈ 8.99 × 10⁹ N·m²/C²"
+    "front": "Dipole moment formula",
+    "back": "p = q × 2a. Directed from −q to +q. SI unit: C·m."
   },
   {
     "id": "fc6",
-    "front": "What is the SI unit of electric field?",
-    "back": "N/C (Newtons per Coulomb) or equivalently V/m (Volts per metre)."
+    "front": "Torque on dipole in uniform field",
+    "back": "τ = p × E. Maximum when θ = 90°. Minimum (zero) when θ = 0°."
   },
   {
     "id": "fc7",
-    "front": "What does an electric field represent?",
-    "back": "The force per unit charge experienced by a small positive test charge placed at that point in space."
+    "front": "Torque on dipole when p ⊥ E vs p ∥ E",
+    "back": "τ ⊥ E: τ = pE (maximum)\nτ ∥ E: τ = 0 (minimum)"
   },
   {
     "id": "fc8",
-    "front": "What is electric flux?",
-    "back": "A measure of the number of electric field lines passing through a surface.\nΦ = E · A = EA cos θ"
+    "front": "How does dipole field fall with distance?",
+    "back": "As 1/r³. Falls faster than point charge field (1/r²)."
   },
   {
     "id": "fc9",
-    "front": "When is electric flux through a surface zero?",
-    "back": "When the surface is parallel to the electric field (θ = 90° between E and the normal to the surface, so cos 90° = 0)."
+    "front": "Gauss's Law formula",
+    "back": "∮E·dA = q_enclosed/ε₀. Total flux = enclosed charge ÷ ε₀."
   },
   {
     "id": "fc10",
-    "front": "State Gauss's Law (formula)",
-    "back": "∮ E · dA = Q_enclosed / ε₀\nThe net electric flux through any closed surface equals the enclosed charge divided by the permittivity of free space."
+    "front": "Electric flux formula",
+    "back": "Φ = EAcosθ. Maximum when field ⊥ surface (θ = 0°)."
   },
   {
     "id": "fc11",
-    "front": "What is the value of ε₀ (permittivity of free space)?",
-    "back": "ε₀ ≈ 8.854 × 10⁻¹² C²/(N·m²)"
+    "front": "Field inside uniformly charged spherical shell",
+    "back": "Zero. By Gauss's Law: Gaussian surface inside encloses no charge."
   },
   {
     "id": "fc12",
-    "front": "Why don't electric field lines cross each other?",
-    "back": "If they crossed, the field at the intersection point would have two directions simultaneously, which is physically impossible."
+    "front": "E due to infinite plane sheet of charge",
+    "back": "E = σ/(2ε₀). Independent of distance from sheet."
   },
   {
     "id": "fc13",
-    "front": "What is the direction of the electric field due to a positive point charge?",
-    "back": "Radially outward from the charge (for positive) and radially inward (for negative)."
+    "front": "E due to uniformly charged thin wire at distance r",
+    "back": "E = λ/(2πε₀r). Falls as 1/r."
   },
   {
     "id": "fc14",
-    "front": "Can Gauss's Law be used for any charge distribution?",
-    "back": "It always holds, but it's only useful for calculating E when the charge distribution has symmetry (spherical, cylindrical, or planar)."
+    "front": "Why do electric field lines never cross?",
+    "back": "Field at any point has a unique direction. Crossing lines would imply two directions — physically impossible."
   },
   {
     "id": "fc15",
-    "front": "What is electrostatic induction?",
-    "back": "When a charged body is brought near a neutral conductor, free electrons in the conductor move towards or away from the charged body, causing charge redistribution without direct contact."
+    "front": "SI unit of electric flux",
+    "back": "N·m²/C or V·m."
+  },
+  {
+    "id": "fc16",
+    "front": "Conductor vs insulator",
+    "back": "Conductors: free charge carriers → charges flow.\nInsulators: no free carriers → charges don't flow."
+  },
+  {
+    "id": "fc17",
+    "front": "What is induction?",
+    "back": "Charging by redistribution of charges without contact. A nearby charged object causes charge separation."
+  },
+  {
+    "id": "fc18",
+    "front": "Superposition principle for electrostatics",
+    "back": "Net force on a charge = vector sum of forces due to all other charges individually."
+  },
+  {
+    "id": "fc19",
+    "front": "Dipole in non-uniform field",
+    "back": "Experiences BOTH torque AND net force (unlike uniform field where net force = 0)."
+  },
+  {
+    "id": "fc20",
+    "front": "Relative strength of electric vs gravitational force",
+    "back": "Electric force is ~10³⁹ times stronger than gravity between proton and electron."
+  },
+  {
+    "id": "fc21",
+    "front": "Properties of charge — conservation",
+    "back": "Total charge of an isolated system remains constant. Charge can transfer but total is conserved."
+  },
+  {
+    "id": "fc22",
+    "front": "Properties of charge — additivity",
+    "back": "Total charge of system = algebraic sum of individual charges. Q = q₁ + q₂ + ..."
+  },
+  {
+    "id": "fc23",
+    "front": "Why does a neutral conductor get attracted to a charged object?",
+    "back": "Charged object induces opposite charge on the near side. Non-uniform field exerts net attractive force."
+  },
+  {
+    "id": "fc24",
+    "front": "Electric field due to spherical shell — outside",
+    "back": "E = q/(4πε₀r²). Same as point charge at centre."
+  },
+  {
+    "id": "fc25",
+    "front": "Force between two charges when distance is doubled",
+    "back": "Force becomes one-fourth (1/4) of original value. F ∝ 1/r²."
   }
 ]

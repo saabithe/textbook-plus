@@ -1,8 +1,22 @@
 import type { MDXComponents } from "mdx/types";
 import "katex/dist/katex.min.css";
+import { Callout } from "@/components/mdx/Callout";
+import { KeyPoint } from "@/components/mdx/KeyPoint";
+import { Formula } from "@/components/mdx/Formula";
+import { Expandable } from "@/components/mdx/Expandable";
+import { Example } from "@/components/mdx/Example";
+import { Diagram } from "@/components/mdx/Diagram";
+import { Comparison } from "@/components/mdx/Comparison";
 
 export function useMDXComponents(): MDXComponents {
   return {
+    Callout,
+    KeyPoint,
+    Formula,
+    Expandable,
+    Example,
+    Diagram,
+    Comparison,
     h1: ({ children }) => (
       <h1 className="text-3xl font-bold tracking-tight mt-8 mb-4">{children}</h1>
     ),

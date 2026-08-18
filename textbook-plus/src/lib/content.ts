@@ -12,11 +12,23 @@ const MDX_MAP: Record<string, ComponentType> = {
 const SECTIONS_MAP: Record<string, ChapterSection[]> = {
   "electric-charges-and-fields": [
     { id: "electric-charge", title: "1.1 Electric Charge" },
-    { id: "conduction-and-induction", title: "1.2 Conduction and Induction" },
-    { id: "coulombs-law", title: "1.3 Coulomb's Law" },
-    { id: "electric-field", title: "1.4 Electric Field" },
-    { id: "electric-flux", title: "1.5 Electric Flux" },
-    { id: "gauss-law", title: "1.6 Gauss's Law" },
+    { id: "conductors-and-insulators", title: "1.2 Conductors and Insulators" },
+    { id: "charging-by-induction", title: "1.3 Charging by Induction" },
+    { id: "basic-properties-of-electric-charges", title: "1.4 Basic Properties of Electric Charges" },
+    { id: "coulombs-law", title: "1.5 Coulomb's Law" },
+    { id: "forces-between-multiple-charges", title: "1.6 Forces between Multiple Charges" },
+    { id: "electric-field", title: "1.7 Electric Field" },
+    { id: "electric-field-lines", title: "1.8 Electric Field Lines" },
+    { id: "electric-flux", title: "1.9 Electric Flux" },
+    { id: "electric-dipole", title: "1.10 Electric Dipole" },
+    { id: "dipole-in-a-uniform-external-field", title: "1.11 Dipole in a Uniform External Field" },
+    { id: "continuous-charge-distribution", title: "1.12 Continuous Charge Distribution" },
+    { id: "gausss-law", title: "1.13 Gauss's Law" },
+    { id: "applications-of-gausss-law", title: "1.14 Applications of Gauss's Law" },
+    { id: "examples", title: "Examples" },
+    { id: "common-mistakes", title: "Common Mistakes" },
+    { id: "summary", title: "Summary" },
+    { id: "points-to-ponder", title: "Points to Ponder" },
   ],
 };
 

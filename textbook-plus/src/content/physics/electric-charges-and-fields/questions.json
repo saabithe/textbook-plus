@@ -3,186 +3,290 @@
     "id": "q1",
     "type": "mcq",
     "difficulty": "easy",
-    "question": "What are the two types of electric charges?",
-    "options": [
-      "Positive and neutral",
-      "Positive and negative",
-      "Negative and neutral",
-      "Strong and weak"
-    ],
+    "question": "When a glass rod is rubbed with silk, the glass rod becomes:",
+    "options": ["Negatively charged", "Positively charged", "Neutral", "Unpredictable"],
     "answer": 1,
-    "explanation": "Electric charge comes in two types: positive (+) and negative (−). Protons carry positive charge, electrons carry negative charge, and neutrons are neutral."
+    "explanation": "Electrons transfer from glass to silk. The glass rod loses electrons and becomes positively charged."
   },
   {
     "id": "q2",
     "type": "mcq",
     "difficulty": "easy",
-    "question": "What is the charge of a single proton?",
-    "options": [
-      "−1.6 × 10⁻¹⁹ C",
-      "0 C",
-      "+1.6 × 10⁻¹⁹ C",
-      "+3.2 × 10⁻¹⁹ C"
-    ],
+    "question": "Which of the following is a conductor?",
+    "options": ["Glass", "Rubber", "Copper", "Plastic"],
     "answer": 2,
-    "explanation": "A single proton carries a charge of +1.6 × 10⁻¹⁹ C. This is the elementary positive charge."
+    "explanation": "Copper is a metal with free electrons that allow charge to flow."
   },
   {
     "id": "q3",
     "type": "mcq",
     "difficulty": "easy",
-    "question": "A glass rod rubbed with silk becomes:",
-    "options": [
-      "Negatively charged",
-      "Positively charged",
-      "Neutral",
-      "Unpredictable"
-    ],
+    "question": "Charging without direct contact is called:",
+    "options": ["Conduction", "Induction", "Friction", "Grounding"],
     "answer": 1,
-    "explanation": "When a glass rod is rubbed with silk, electrons transfer from the glass to the silk. The glass rod loses electrons and becomes positively charged."
+    "explanation": "Induction redistributes charges in a neutral conductor without physical contact."
   },
   {
     "id": "q4",
     "type": "mcq",
     "difficulty": "easy",
-    "question": "Like charges ____ and unlike charges ____.",
-    "options": [
-      "attract, repel",
-      "repel, attract",
-      "repel, repel",
-      "attract, attract"
-    ],
+    "question": "The elementary charge e equals:",
+    "options": ["1.6 × 10⁻¹⁸ C", "1.6 × 10⁻¹⁹ C", "3.2 × 10⁻¹⁹ C", "9.1 × 10⁻³¹ C"],
     "answer": 1,
-    "explanation": "Like charges (same type) repel each other, while unlike charges (opposite types) attract each other."
+    "explanation": "e = 1.6 × 10⁻¹⁹ C — magnitude of charge on proton or electron."
   },
   {
     "id": "q5",
     "type": "mcq",
-    "difficulty": "medium",
-    "question": "In electrostatic induction:",
-    "options": [
-      "Charges are transferred by direct contact",
-      "A charged body redistributes charges in a nearby neutral conductor without contact",
-      "Only positive charges move",
-      "The neutral body becomes permanently charged"
-    ],
+    "difficulty": "easy",
+    "question": "Like charges ___ and unlike charges ___.",
+    "options": ["attract, repel", "repel, attract", "repel, repel", "attract, attract"],
     "answer": 1,
-    "explanation": "In electrostatic induction, a charged body brought near a neutral conductor causes redistribution of free charges without any direct contact."
+    "explanation": "Like charges repel, unlike charges attract."
   },
   {
     "id": "q6",
     "type": "mcq",
     "difficulty": "medium",
-    "question": "Coulomb's Law states that the force between two point charges is:",
-    "options": [
-      "Directly proportional to the square of the distance",
-      "Inversely proportional to the product of charges",
-      "Directly proportional to the product of charges and inversely proportional to the square of distance",
-      "Independent of the distance"
-    ],
-    "answer": 2,
-    "explanation": "F = k|q₁·q₂|/r². The force is directly proportional to the product of the charges and inversely proportional to the square of the distance between them."
+    "question": "The value of Coulomb's constant k is approximately:",
+    "options": ["6.67 × 10⁻¹¹", "8.99 × 10⁹", "9 × 10⁹", "Both b and c"],
+    "answer": 3,
+    "explanation": "k ≈ 8.99 × 10⁹ N·m²/C², often rounded to 9 × 10⁹."
   },
   {
     "id": "q7",
     "type": "mcq",
     "difficulty": "medium",
-    "question": "The value of Coulomb's constant k is approximately:",
+    "question": "Coulomb's Law states that force between two point charges is:",
     "options": [
-      "6.67 × 10⁻¹¹ N·m²/C²",
-      "8.99 × 10⁹ N·m²/C²",
-      "9 × 10⁹ N·m²/C²",
-      "Both b and c"
+      "Directly proportional to square of distance",
+      "Inversely proportional to product of charges",
+      "Directly proportional to product of charges and inversely proportional to square of distance",
+      "Independent of distance"
     ],
-    "answer": 3,
-    "explanation": "k ≈ 8.99 × 10⁹ N·m²/C², often rounded to 9 × 10⁹ N·m²/C² for calculations."
+    "answer": 2,
+    "explanation": "F = k|q₁q₂|/r²."
   },
   {
     "id": "q8",
     "type": "mcq",
     "difficulty": "medium",
     "question": "The SI unit of electric field is:",
-    "options": [
-      "Coulomb (C)",
-      "Newton (N)",
-      "N/C or V/m",
-      "V·m"
-    ],
+    "options": ["Coulomb", "Newton", "N/C or V/m", "V·m"],
     "answer": 2,
-    "explanation": "Electric field E = F/q, so its unit is N/C. Since 1 V/m = 1 N/C, both are equivalent SI units."
+    "explanation": "E = F/q, so unit is N/C. Since 1 V/m = 1 N/C, both are equivalent."
   },
   {
     "id": "q9",
     "type": "mcq",
-    "difficulty": "hard",
-    "question": "Electric flux through a surface is maximum when:",
+    "difficulty": "medium",
+    "question": "Electric field lines start from and end at:",
     "options": [
-      "The surface is parallel to the field (θ = 90°)",
-      "The surface is perpendicular to the field (θ = 0°)",
-      "The surface is at 45° to the field",
-      "The surface is a sphere"
+      "Negative → positive",
+      "Positive → negative",
+      "Any charges in any direction",
+      "They form closed loops"
     ],
     "answer": 1,
-    "explanation": "Φ = EA cos θ. When θ = 0°, cos θ = 1 (maximum). The surface is perpendicular to the field, so the maximum number of field lines pass through it."
+    "explanation": "Electrostatic field lines start from positive charges and end at negative charges."
   },
   {
     "id": "q10",
     "type": "mcq",
-    "difficulty": "hard",
-    "question": "Electric flux through a closed surface depends on:",
+    "difficulty": "medium",
+    "question": "Why do two electric field lines never cross?",
     "options": [
-      "The shape of the surface",
-      "The total charge enclosed by the surface",
-      "The distance of charges from the surface",
-      "The electric field at every point outside"
+      "They are parallel by definition",
+      "The field at a point has a unique direction",
+      "They repel each other",
+      "Coulomb's law prevents it"
     ],
     "answer": 1,
-    "explanation": "By Gauss's Law, Φ = Q_enclosed/ε₀. The flux through a closed surface depends only on the net charge enclosed, not on the shape or size of the surface."
+    "explanation": "If they crossed, the field at the intersection would have two directions — physically impossible."
   },
   {
     "id": "q11",
     "type": "mcq",
-    "difficulty": "hard",
-    "question": "A Gaussian surface encloses charges of +2μC, −3μC, and +5μC. The net flux is:",
+    "difficulty": "medium",
+    "question": "Electric flux through a surface is maximum when:",
     "options": [
-      "Proportional to +4μC",
-      "Proportional to +10μC",
-      "Proportional to −1μC",
-      "Zero"
+      "Surface is parallel to field (θ = 90°)",
+      "Surface is perpendicular to field (θ = 0°)",
+      "Surface is at 45° to field",
+      "Surface is a sphere"
     ],
-    "answer": 0,
-    "explanation": "Q_enclosed = +2 − 3 + 5 = +4μC. By Gauss's Law, Φ = Q_enclosed/ε₀, so flux is proportional to +4μC."
+    "answer": 1,
+    "explanation": "Φ = EAcosθ. When θ = 0°, cosθ = 1 (maximum)."
   },
   {
     "id": "q12",
-    "type": "short",
-    "difficulty": "easy",
-    "question": "State Coulomb's Law in words.",
-    "answer": "The electrostatic force between two point charges is directly proportional to the product of the magnitudes of the charges and inversely proportional to the square of the distance between them. The force acts along the line joining the two charges.",
-    "explanation": "This is the fundamental law governing electrostatic interactions between charges."
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Dipole moment vector p is directed from:",
+    "options": ["+q to −q", "−q to +q", "Centre to +q", "Centre to −q"],
+    "answer": 1,
+    "explanation": "By convention, dipole moment is directed from −q to +q."
   },
   {
     "id": "q13",
-    "type": "short",
-    "difficulty": "medium",
-    "question": "Distinguish between conduction and induction with one example each.",
-    "answer": "Conduction: Charge transfer by direct contact. Example — touching a charged rod to a neutral sphere transfers charge. Induction: Charge redistribution without contact. Example — bringing a charged rod near (but not touching) a neutral conductor causes charge separation.",
-    "explanation": "Conduction requires physical contact; induction only requires proximity."
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Dipole field at large distances falls as:",
+    "options": ["1/r", "1/r²", "1/r³", "1/r⁴"],
+    "answer": 2,
+    "explanation": "Dipole field falls as 1/r³ because the two charges partially cancel."
   },
   {
     "id": "q14",
-    "type": "short",
-    "difficulty": "medium",
-    "question": "Why are electric field lines perpendicular to the surface of a conductor in electrostatic equilibrium?",
-    "answer": "If the field had a component along the surface, free electrons would move along the surface, contradicting the condition of equilibrium (no net current). Hence, the field must be purely perpendicular.",
-    "explanation": "This is a consequence of the equilibrium condition — no net movement of charge inside or along the surface of a conductor."
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Torque on a dipole in uniform field E is:",
+    "options": ["τ = p · E", "τ = p × E", "τ = qE", "τ = 0"],
+    "answer": 1,
+    "explanation": "τ = p × E. The torque tends to align the dipole with the field."
   },
   {
     "id": "q15",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Electric flux through a closed surface depends on:",
+    "options": [
+      "Shape of the surface",
+      "Total charge enclosed",
+      "Distance of charges from the surface",
+      "Electric field outside"
+    ],
+    "answer": 1,
+    "explanation": "By Gauss's Law, Φ = Q_enclosed/ε₀."
+  },
+  {
+    "id": "q16",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Gaussian surface must not pass through:",
+    "options": ["Continuous charge distribution", "Discrete charges", "Any charged surface", "Insulators"],
+    "answer": 1,
+    "explanation": "Electric field is not well defined at the location of discrete charges."
+  },
+  {
+    "id": "q17",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Field inside a uniformly charged spherical shell is:",
+    "options": ["kq/r²", "kq/R²", "Zero", "Infinite"],
+    "answer": 2,
+    "explanation": "By Gauss's Law, E = 0 inside a uniformly charged spherical shell."
+  },
+  {
+    "id": "q18",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Field due to an infinite plane sheet of charge is:",
+    "options": ["Dependent on distance", "σ/ε₀", "σ/2ε₀", "λ/2πε₀r"],
+    "answer": 2,
+    "explanation": "E = σ/2ε₀, independent of distance."
+  },
+  {
+    "id": "q19",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The ratio of electric force to gravitational force between a proton and electron is approximately:",
+    "options": ["10¹⁰", "10²⁰", "10³⁹", "10⁴⁵"],
+    "answer": 2,
+    "explanation": "Fe/Fg ≈ 10³⁹ — electric force is vastly stronger."
+  },
+  {
+    "id": "q20",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "In a non-uniform electric field, a dipole experiences:",
+    "options": [
+      "Only torque",
+      "Only net force",
+      "Both torque and net force",
+      "Neither torque nor force"
+    ],
+    "answer": 2,
+    "explanation": "In a non-uniform field, the dipole experiences both torque and a net force."
+  },
+  {
+    "id": "q21",
+    "type": "short",
+    "difficulty": "easy",
+    "question": "State the three basic properties of electric charges.",
+    "answer": "1. Quantisation: q = ne\n2. Additivity: total charge = algebraic sum\n3. Conservation: isolated system charge is constant",
+    "explanation": "These three properties define how charge behaves."
+  },
+  {
+    "id": "q22",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "State Coulomb's Law in words and give the formula.",
+    "answer": "Force between two point charges is directly proportional to product of charges and inversely proportional to square of distance.\nF = k|q₁q₂|/r², k ≈ 9 × 10⁹ N·m²/C²",
+    "explanation": "Fundamental law of electrostatics."
+  },
+  {
+    "id": "q23",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Distinguish between conductors and insulators with two examples each.",
+    "answer": "Conductors: allow charge flow. Examples: copper, aluminium.\nInsulators: do not allow charge flow. Examples: glass, rubber.",
+    "explanation": "Difference is in free charge carriers."
+  },
+  {
+    "id": "q24",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "What is an electric dipole? Define its dipole moment.",
+    "answer": "Pair of equal and opposite charges +q and −q separated by 2a.\nDipole moment p = q × 2a, directed from −q to +q. Unit: C·m.",
+    "explanation": "Characterises strength and orientation of dipole."
+  },
+  {
+    "id": "q25",
     "type": "short",
     "difficulty": "hard",
-    "question": "Two charges +q and −3q are placed at a distance d apart. Where should a third charge be placed so that it is in equilibrium?",
-    "answer": "The third charge should be placed on the line joining the two charges, at a distance d/2 from +q (on the side away from −3q). At this point, the forces from both charges are equal and opposite.",
-    "explanation": "For equilibrium, the net force on the third charge must be zero. The point must be outside the charges, closer to the smaller magnitude charge (+q), which is at d/2 from +q on the extension of the line."
+    "question": "State Gauss's Law and explain its significance.",
+    "answer": "Φ = ∮E·dA = q/ε₀\nTotal flux through closed surface = enclosed charge / ε₀.\nSignificance: simplifies E calculation for symmetric charge distributions.",
+    "explanation": "Equivalent to Coulomb's Law but more powerful for symmetric situations."
+  },
+  {
+    "id": "q26",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Write expressions for E due to: (a) infinite wire, (b) infinite plane sheet, (c) spherical shell (outside).",
+    "answer": "(a) E = λ/(2πε₀r) — depends on r\n(b) E = σ/(2ε₀) — independent of distance\n(c) E = q/(4πε₀r²) — as if charge at centre",
+    "explanation": "All three follow from Gauss's Law with appropriate Gaussian surfaces."
+  },
+  {
+    "id": "q27",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "A Gaussian surface encloses charges of +2μC, −3μC, and +5μC. What is the net flux?",
+    "answer": "Q_enclosed = +2 − 3 + 5 = +4μC\nΦ = 4 × 10⁻⁶ / 8.854 × 10⁻¹² = 4.52 × 10⁵ N·m²/C",
+    "explanation": "Flux depends only on net enclosed charge."
+  },
+  {
+    "id": "q28",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Why does a charged comb attract pieces of neutral paper?",
+    "answer": "The charged comb polarises the neutral paper (induces a dipole). The non-uniform field of the comb exerts a net force on the induced dipole, attracting the paper.",
+    "explanation": "Demonstrates dipole in non-uniform field."
+  },
+  {
+    "id": "q29",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Explain why the field inside a uniformly charged spherical shell is zero.",
+    "answer": "By Gauss's Law, choose a spherical Gaussian surface inside the shell. It encloses no charge. Therefore Φ = 0, which means E = 0 at all points inside.",
+    "explanation": "Direct consequence of Gauss's Law."
+  },
+  {
+    "id": "q30",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "What are the properties of electric field lines? State any four.",
+    "answer": "1. Continuous curves without breaks\n2. Never cross each other\n3. Start from + charges, end at − charges\n4. Closeness indicates field strength",
+    "explanation": "Properties follow from the definition and uniqueness of field direction."
   }
 ]

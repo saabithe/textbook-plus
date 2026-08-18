@@ -2,12 +2,14 @@ import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import rehypeSlug from "rehype-slug";
+import rehypeSlugStrip from "./rehype-slug-strip.mjs";
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [rehypeSlug, rehypeSlugStrip, rehypeKatex],
   },
 });
 
