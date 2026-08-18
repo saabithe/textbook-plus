@@ -1,0 +1,393 @@
+[
+  {
+    "id": "q1",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Electrostatic force between two stationary charges is:",
+    "options": ["A conservative force", "A non-conservative force", "Always attractive", "Always repulsive"],
+    "answer": 0,
+    "explanation": "Coulomb force has inverse-square dependence on distance and is conservative — work done is path-independent."
+  },
+  {
+    "id": "q2",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The electrostatic potential at a point is defined as:",
+    "options": ["Force per unit charge", "Work done per unit charge from infinity to that point", "Energy per unit volume", "Charge per unit area"],
+    "answer": 1,
+    "explanation": "V = work done by external force in bringing a unit positive charge from infinity to that point."
+  },
+  {
+    "id": "q3",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The potential due to a point charge Q at distance r is:",
+    "options": ["V = Qr/(4πε₀)", "V = Q/(4πε₀r)", "V = Q/(4πε₀r²)", "V = Q²/(4πε₀r)"],
+    "answer": 1,
+    "explanation": "V = Q/(4πε₀r). Potential falls off as 1/r for a point charge."
+  },
+  {
+    "id": "q4",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The potential due to a dipole falls off as:",
+    "options": ["1/r", "1/r²", "1/r³", "1/r⁴"],
+    "answer": 1,
+    "explanation": "Dipole potential V ∝ 1/r², compared to 1/r for a point charge."
+  },
+  {
+    "id": "q5",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "An equipotential surface is one where:",
+    "options": ["Electric field is maximum", "Potential is constant at all points", "Charge is zero", "Electric field is zero"],
+    "answer": 1,
+    "explanation": "By definition, an equipotential surface has constant potential at every point on it."
+  },
+  {
+    "id": "q6",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The SI unit of capacitance is:",
+    "options": ["Coulomb", "Volt", "Farad", "Henry"],
+    "answer": 2,
+    "explanation": "1 F = 1 C/V. Named after Michael Faraday."
+  },
+  {
+    "id": "q7",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The relation between electric field and potential is:",
+    "options": ["E = dV/dl", "E = -dV/dl", "V = -dE/dl", "E = V × l"],
+    "answer": 1,
+    "explanation": "E = -∂V/∂l. The negative sign indicates E points in the direction of steepest decrease of potential."
+  },
+  {
+    "id": "q8",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Inside a conductor in electrostatic equilibrium:",
+    "options": ["Electric field is maximum", "Electric field is zero", "Potential is zero", "Charge resides throughout the volume"],
+    "answer": 1,
+    "explanation": "Free charges redistribute until E = 0 everywhere inside the conductor."
+  },
+  {
+    "id": "q9",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The capacitance of a parallel plate capacitor depends on:",
+    "options": ["Charge on plates", "Potential difference", "Area of plates and separation", "All of the above"],
+    "answer": 2,
+    "explanation": "C = ε₀A/d — depends only on geometry (area and separation), not on Q or V."
+  },
+  {
+    "id": "q10",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "When a dielectric is inserted into a capacitor (battery disconnected), the capacitance:",
+    "options": ["Decreases", "Increases by factor K", "Remains unchanged", "Becomes zero"],
+    "answer": 1,
+    "explanation": "C = KC₀ where K > 1. The dielectric increases capacitance by factor K."
+  },
+  {
+    "id": "q11",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "For capacitors in series, the total capacitance is:",
+    "options": ["C = C₁ + C₂ + ...", "1/C = 1/C₁ + 1/C₂ + ...", "C = C₁ × C₂ / (C₁ + C₂)", "C = √(C₁ × C₂)"],
+    "answer": 1,
+    "explanation": "Series: 1/C = 1/C₁ + 1/C₂ + ... The total capacitance is less than the smallest individual capacitance."
+  },
+  {
+    "id": "q12",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "For capacitors in parallel, the total capacitance is:",
+    "options": ["1/C = 1/C₁ + 1/C₂ + ...", "C = C₁ + C₂ + ...", "C = C₁ × C₂", "C = (C₁ + C₂)/2"],
+    "answer": 1,
+    "explanation": "Parallel: C = C₁ + C₂ + ... The total capacitance is the sum of individual capacitances."
+  },
+  {
+    "id": "q13",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The energy stored in a capacitor can be written as:",
+    "options": ["U = QV", "U = ½QV", "U = 2QV", "U = Q²V"],
+    "answer": 1,
+    "explanation": "U = ½QV = ½CV² = Q²/(2C). The factor ½ arises from integration during charging."
+  },
+  {
+    "id": "q14",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The potential energy of a dipole in a uniform electric field is:",
+    "options": ["U = pE cos θ", "U = -pE cos θ", "U = pE sin θ", "U = -pE sin θ"],
+    "answer": 1,
+    "explanation": "U(θ) = -pE cos θ. Minimum when dipole is aligned with field (θ = 0), maximum when anti-aligned (θ = π)."
+  },
+  {
+    "id": "q15",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The energy density of an electric field is:",
+    "options": ["u = ½ε₀E", "u = ε₀E²", "u = ½ε₀E²", "u = ½ε₀E³"],
+    "answer": 2,
+    "explanation": "u = ½ε₀E². Energy stored per unit volume in the electric field."
+  },
+  {
+    "id": "q16",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The electric susceptibility χₑ is related to dielectric constant K by:",
+    "options": ["K = 1 + χₑ", "K = 1 - χₑ", "K = χₑ²", "K = 1/χₑ"],
+    "answer": 0,
+    "explanation": "K = 1 + χₑ. For linear isotropic dielectrics, polarisation P = ε₀χₑE."
+  },
+  {
+    "id": "q17",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "At the surface of a charged conductor, the electric field is:",
+    "options": ["Zero", "Normal to the surface with magnitude σ/ε₀", "Tangential to the surface", "Uniform throughout"],
+    "answer": 1,
+    "explanation": "E = (σ/ε₀)n̂. The field is normal to the surface, derived using Gauss's law with a pill box surface."
+  },
+  {
+    "id": "q18",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "1 electron volt (eV) equals:",
+    "options": ["1.6 × 10⁻¹⁹ J", "1.6 × 10⁻¹⁸ J", "9.1 × 10⁻³¹ J", "6.63 × 10⁻³⁴ J"],
+    "answer": 0,
+    "explanation": "1 eV = 1.6 × 10⁻¹⁹ J. Energy gained by an electron accelerated through 1 volt."
+  },
+  {
+    "id": "q19",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The dielectric strength of air is approximately:",
+    "options": ["3 × 10⁴ V/m", "3 × 10⁶ V/m", "3 × 10⁸ V/m", "3 × 10¹⁰ V/m"],
+    "answer": 1,
+    "explanation": "Air breaks down at about 3 × 10⁶ V/m. Above this, the insulating property fails."
+  },
+  {
+    "id": "q20",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "A dielectric develops polarisation in an external field because:",
+    "options": ["Free charges move through it", "Dipoles align or are induced", "It becomes conducting", "Charges are created"],
+    "answer": 1,
+    "explanation": "External field either induces dipoles (non-polar molecules) or aligns existing dipoles (polar molecules)."
+  },
+  {
+    "id": "q21",
+    "type": "short",
+    "difficulty": "easy",
+    "question": "Two charges 5 × 10⁻⁸ C and -3 × 10⁻⁸ C are located 16 cm apart. At what point on the line joining the two charges is the electric potential zero?",
+    "answer": "Let the zero-potential point be at distance x from the positive charge (between the charges):\n5×10⁻⁸/x = 3×10⁻⁸/(0.16-x)\n5(0.16-x) = 3x\n0.8 - 5x = 3x\nx = 0.1 m = 10 cm from the positive charge\nAlso on the extended line beyond the negative charge at 40 cm from the positive charge.",
+    "explanation": "Set potentials equal and opposite. Two solutions: one between charges, one outside."
+  },
+  {
+    "id": "q22",
+    "type": "short",
+    "difficulty": "easy",
+    "question": "Calculate the potential at a point 9 cm from a charge of 4 × 10⁻⁷ C.",
+    "answer": "V = (9 × 10⁹)(4 × 10⁻⁷)/0.09\n= 36 × 10²/0.09\n= 4 × 10⁴ V = 40,000 V",
+    "explanation": "Direct application of V = Q/(4πε₀r) with 1/(4πε₀) = 9 × 10⁹."
+  },
+  {
+    "id": "q23",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "A parallel plate capacitor has area A = 1 m² and separation d = 1 mm. Calculate its capacitance with vacuum between plates.",
+    "answer": "C = ε₀A/d\n= (8.854 × 10⁻¹²)(1)/(10⁻³)\n= 8.854 × 10⁻⁹ F\n≈ 8.85 nF",
+    "explanation": "C = ε₀A/d for parallel plate capacitor with vacuum."
+  },
+  {
+    "id": "q24",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "A 900 pF capacitor is charged by a 100 V battery. How much energy is stored?",
+    "answer": "U = ½CV²\n= ½(900 × 10⁻¹²)(100)²\n= ½(900 × 10⁻¹²)(10⁴)\n= 4.5 × 10⁻⁶ J = 4.5 μJ",
+    "explanation": "U = ½CV² is the standard formula for energy stored in a capacitor."
+  },
+  {
+    "id": "q25",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Three capacitors of 2 μF, 3 μF, and 4 μF are connected in parallel. What is the total capacitance?",
+    "answer": "C = C₁ + C₂ + C₃\n= 2 + 3 + 4\n= 9 μF",
+    "explanation": "For parallel combination, capacitances simply add."
+  },
+  {
+    "id": "q26",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Three 9 pF capacitors are connected in series. What is the total capacitance?",
+    "answer": "1/C = 1/9 + 1/9 + 1/9 = 3/9 = 1/3\nC = 3 pF",
+    "explanation": "For identical capacitors in series, C_total = C/n."
+  },
+  {
+    "id": "q27",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "A dipole with p = 10⁻²⁹ C m is placed in a uniform field E = 10⁶ V/m. Calculate the maximum torque and the work done to rotate it from 0° to 60°.",
+    "answer": "Maximum torque: τ = pE = 10⁻²⁹ × 10⁶ = 10⁻²³ N·m\nWork done: W = pE(cos θ₁ - cos θ₂)\n= 10⁻²⁹ × 10⁶ × (cos 0° - cos 60°)\n= 10⁻²³ × (1 - 0.5)\n= 5 × 10⁻²⁴ J",
+    "explanation": "τ = p × E for torque. W = pE(cos θ₁ - cos θ₂) for work done by external torque."
+  },
+  {
+    "id": "q28",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "A parallel plate capacitor with air between plates has C₀ = 8 pF. If the separation is halved and a dielectric (K = 6) is inserted, what is the new capacitance?",
+    "answer": "C₀ = ε₀A/d = 8 pF\nNew: d' = d/2, K = 6\nC = Kε₀A/d' = Kε₀A/(d/2) = 2Kε₀A/d\n= 2K × C₀ = 2 × 6 × 8 = 96 pF",
+    "explanation": "Halving distance doubles C₀. Dielectric multiplies by K. Total: 2K × C₀."
+  },
+  {
+    "id": "q29",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "A 600 pF capacitor is charged by 200 V, then disconnected and connected to another uncharged 600 pF capacitor. How much energy is lost?",
+    "answer": "Initial energy: U₁ = ½CV² = ½(600×10⁻¹²)(200)² = 1.2 × 10⁻⁵ J\nAfter connecting: charge distributes equally (same C)\nV' = V/2 = 100 V\nFinal energy: U₂ = ½(2C)(V')² = ½(1200×10⁻¹²)(100)² = 6 × 10⁻⁶ J\nEnergy lost = U₁ - U₂ = 6 × 10⁻⁶ J = 6 μJ (half the initial energy)",
+    "explanation": "When identical capacitors share charge, half the energy is lost as heat and radiation."
+  },
+  {
+    "id": "q30",
+    "type": "short",
+    "difficulty": "easy",
+    "question": "What is the potential at the surface of a uniformly charged spherical shell of radius R and total charge q?",
+    "answer": "V = q/(4πε₀R)\n\nThis is the same as the potential due to a point charge q at the centre.",
+    "explanation": "Outside a spherical shell, the field is as if all charge is at the centre. At the surface, r = R."
+  },
+  {
+    "id": "q31",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of the following is TRUE for a conductor in electrostatic equilibrium?",
+    "options": ["E ≠ 0 inside", "Potential varies across surface", "Charge resides only on surface", "Electric field is tangential at surface"],
+    "answer": 2,
+    "explanation": "Excess charge resides only on the surface of a conductor in electrostatic equilibrium."
+  },
+  {
+    "id": "q32",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The work done in moving a charge along an equipotential surface is:",
+    "options": ["Maximum", "Minimum (zero)", "Depends on path", "Infinite"],
+    "answer": 1,
+    "explanation": "No work is done moving along an equipotential surface since potential difference is zero."
+  },
+  {
+    "id": "q33",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "A spherical conductor of radius 12 cm has charge 1.6 × 10⁻⁷ C. Find the electric field (a) inside, (b) just outside, (c) at 18 cm from centre.",
+    "answer": "(a) Inside: E = 0 (conductor)\n(b) Just outside: E = q/(4πε₀r²)\n= (9×10⁹)(1.6×10⁻⁷)/(0.12)²\n= 1.0 × 10⁵ N/C\n(c) At r = 18 cm:\nE = (9×10⁹)(1.6×10⁻⁷)/(0.18)²\n= 4.44 × 10⁴ N/C",
+    "explanation": "Inside a conductor E = 0. Outside, it behaves as if all charge is at the centre."
+  },
+  {
+    "id": "q34",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "A 12 pF capacitor is connected to a 50 V battery. What is the energy stored?",
+    "answer": "U = ½CV²\n= ½(12 × 10⁻¹²)(50)²\n= ½(12 × 10⁻¹²)(2500)\n= 1.5 × 10⁻⁸ J = 15 nJ",
+    "explanation": "Direct application of U = ½CV²."
+  },
+  {
+    "id": "q35",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The electric field inside the cavity of a conductor (with no charges inside) is:",
+    "options": ["Infinite", "Non-zero", "Zero", "Depends on cavity shape"],
+    "answer": 2,
+    "explanation": "Electrostatic shielding: E = 0 inside a cavity of a conductor regardless of shape or external fields."
+  },
+  {
+    "id": "ncert-2.1",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Two charges 3 × 10⁻⁸ C and -2 × 10⁻⁸ C are located 15 cm apart. At what point on the line joining the two charges is the electric potential zero?",
+    "answer": "Taking origin at positive charge:\nBetween charges: 3/x = 2/(15-x) → x = 9 cm\nBeyond negative charge: 3/x = 2/(x-15) → x = 45 cm\nZero potential at 9 cm and 45 cm from positive charge.",
+    "explanation": "Set potentials equal and opposite. Two solutions exist."
+  },
+  {
+    "id": "ncert-2.2",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "A regular hexagon of side 10 cm has a charge 5 μC at each vertex. Calculate the potential at the centre.",
+    "answer": "Distance from each vertex to centre = 10 cm = 0.1 m\nV = 6 × kq/r = 6 × (9×10⁹)(5×10⁻⁶)/0.1\n= 6 × 4.5 × 10⁵ = 2.7 × 10⁶ V",
+    "explanation": "Superposition: V = Σ kqᵢ/rᵢ. All 6 charges are equidistant from centre."
+  },
+  {
+    "id": "ncert-2.3",
+    "type": "short",
+    "difficulty": "easy",
+    "question": "Two charges 2 μC and -2 μC are placed at points A and B 6 cm apart. Identify an equipotential surface of the system.",
+    "answer": "The perpendicular bisector of AB is an equipotential surface with V = 0.\nAt any point on this surface, the distances to A and B are equal, so potentials cancel: V = k(2μC)/r + k(-2μC)/r = 0.",
+    "explanation": "For equal and opposite charges, the perpendicular bisector is the zero-potential surface."
+  },
+  {
+    "id": "ncert-2.4",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "A spherical conductor of radius 12 cm has charge 1.6 × 10⁻⁷ C. What is the electric field (a) inside, (b) just outside, (c) at 18 cm from centre?",
+    "answer": "(a) E = 0 (inside conductor)\n(b) E = kq/r² = (9×10⁹)(1.6×10⁻⁷)/(0.12)² = 1.0 × 10⁵ N/C\nc) E = (9×10⁹)(1.6×10⁻⁷)/(0.18)² = 4.44 × 10⁴ N/C",
+    "explanation": "Inside conductor E = 0. Outside, behaves as point charge at centre."
+  },
+  {
+    "id": "ncert-2.5",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "A parallel plate capacitor with air has C = 8 pF. What is the capacitance if distance is halved and filled with dielectric K = 6?",
+    "answer": "C₀ = ε₀A/d = 8 pF\nC = Kε₀A/(d/2) = 2K × C₀ = 2 × 6 × 8 = 96 pF",
+    "explanation": "Halving distance doubles capacitance. Dielectric multiplies by K."
+  },
+  {
+    "id": "ncert-2.6",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Three 9 pF capacitors are connected in series. (a) Total capacitance? (b) PD across each if connected to 120 V?",
+    "answer": "(a) 1/C = 1/9 + 1/9 + 1/9 = 3/9 → C = 3 pF\n(b) Each has same charge Q = CV = 3×10⁻¹² × 120 = 3.6 × 10⁻¹⁰ C\nV₁ = Q/C₁ = 3.6×10⁻¹⁰/9×10⁻¹² = 40 V each",
+    "explanation": "Series: 1/C = Σ 1/Cᵢ. Same charge on each, voltages add to 120 V."
+  },
+  {
+    "id": "ncert-2.7",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Three capacitors of 2 pF, 3 pF, 4 pF are in parallel. (a) Total capacitance? (b) Charge on each with 100 V supply?",
+    "answer": "(a) C = 2 + 3 + 4 = 9 pF\n(b) Q₁ = 2×10⁻¹² × 100 = 2×10⁻¹⁰ C\nQ₂ = 3×10⁻¹² × 100 = 3×10⁻¹⁰ C\nQ₃ = 4×10⁻¹² × 100 = 4×10⁻¹⁰ C",
+    "explanation": "Parallel: C = Σ Cᵢ. Same voltage across each, charges add."
+  },
+  {
+    "id": "ncert-2.8",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "A parallel plate capacitor has A = 6 × 10⁻³ m² and d = 3 mm. Calculate capacitance and charge on each plate with 100 V supply.",
+    "answer": "C = ε₀A/d = (8.854×10⁻¹²)(6×10⁻³)/(3×10⁻³)\n= 1.77 × 10⁻¹¹ F ≈ 17.7 pF\nQ = CV = 1.77×10⁻¹¹ × 100 = 1.77 × 10⁻⁹ C ≈ 1.77 nC",
+    "explanation": "C = ε₀A/d, then Q = CV."
+  },
+  {
+    "id": "ncert-2.9",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "In the capacitor of Exercise 2.8, a 3 mm mica sheet (K = 6) is inserted. What happens (a) with battery connected, (b) after battery disconnected?",
+    "answer": "(a) Battery connected → V constant:\nC = KC₀ = 6 × 17.7 = 106.2 pF\nQ = CV = 106.2 × 100 = 1.062 × 10⁻⁸ C\n(charge increases)\n\n(b) Battery disconnected → Q constant:\nC = KC₀ = 106.2 pF\nV = Q/C = 1.77×10⁻⁹/106.2×10⁻¹² = 16.67 V\n(voltage decreases)",
+    "explanation": "With battery: V fixed, C increases, Q increases. Without battery: Q fixed, C increases, V decreases."
+  },
+  {
+    "id": "ncert-2.10",
+    "type": "short",
+    "difficulty": "easy",
+    "question": "A 12 pF capacitor is connected to a 50 V battery. How much energy is stored?",
+    "answer": "U = ½CV² = ½(12×10⁻¹²)(50)²\n= ½(12×10⁻¹²)(2500)\n= 1.5 × 10⁻⁸ J = 15 nJ",
+    "explanation": "Direct application of U = ½CV²."
+  },
+  {
+    "id": "ncert-2.11",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "A 600 pF capacitor is charged by 200 V, then disconnected and connected to another uncharged 600 pF capacitor. How much energy is lost?",
+    "answer": "Initial: U₁ = ½CV² = ½(600×10⁻¹²)(200)² = 1.2 × 10⁻⁵ J\nAfter sharing: Q distributes equally (same C)\nV' = Q/(2C) = V/2 = 100 V\nFinal: U₂ = ½(2C)(V')² = ½(1200×10⁻¹²)(100)² = 6 × 10⁻⁶ J\nEnergy lost = 6 × 10⁻⁶ J = half the initial energy",
+    "explanation": "When identical capacitors share charge, half the energy is lost as heat and electromagnetic radiation."
+  }
+]

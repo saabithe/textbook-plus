@@ -5,8 +5,13 @@ import PhysicsElectricCharges from "@/content/physics/electric-charges-and-field
 import PhysicsElectricChargesQuestions from "@/content/physics/electric-charges-and-fields/questions.json";
 import PhysicsElectricChargesFlashcards from "@/content/physics/electric-charges-and-fields/flashcards.json";
 
+import PhysicsElectrostaticPotential from "@/content/physics/electrostatic-potential-and-capacitance/page.mdx";
+import PhysicsElectrostaticPotentialQuestions from "@/content/physics/electrostatic-potential-and-capacitance/questions.json";
+import PhysicsElectrostaticPotentialFlashcards from "@/content/physics/electrostatic-potential-and-capacitance/flashcards.json";
+
 const MDX_MAP: Record<string, ComponentType> = {
   "electric-charges-and-fields": PhysicsElectricCharges as ComponentType,
+  "electrostatic-potential-and-capacitance": PhysicsElectrostaticPotential as ComponentType,
 };
 
 const SECTIONS_MAP: Record<string, ChapterSection[]> = {
@@ -30,14 +35,37 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "summary", title: "Summary" },
     { id: "points-to-ponder", title: "Points to Ponder" },
   ],
+  "electrostatic-potential-and-capacitance": [
+    { id: "introduction", title: "2.1 Introduction" },
+    { id: "electrostatic-potential", title: "2.2 Electrostatic Potential" },
+    { id: "potential-due-to-a-point-charge", title: "2.3 Potential Due to a Point Charge" },
+    { id: "potential-due-to-an-electric-dipole", title: "2.4 Potential Due to an Electric Dipole" },
+    { id: "potential-due-to-a-system-of-charges", title: "2.5 Potential Due to a System of Charges" },
+    { id: "equipotential-surfaces", title: "2.6 Equipotential Surfaces" },
+    { id: "relation-between-field-and-potential", title: "2.6.1 Relation between Field and Potential" },
+    { id: "potential-energy-of-a-system-of-charges", title: "2.7 Potential Energy of a System of Charges" },
+    { id: "potential-energy-in-an-external-field", title: "2.8 Potential Energy in an External Field" },
+    { id: "electrostatics-of-conductors", title: "2.9 Electrostatics of Conductors" },
+    { id: "dielectrics-and-polarisation", title: "2.10 Dielectrics and Polarisation" },
+    { id: "capacitors-and-capacitance", title: "2.11 Capacitors and Capacitance" },
+    { id: "the-parallel-plate-capacitor", title: "2.12 The Parallel Plate Capacitor" },
+    { id: "effect-of-dielectric-on-capacitance", title: "2.13 Effect of Dielectric on Capacitance" },
+    { id: "combination-of-capacitors", title: "2.14 Combination of Capacitors" },
+    { id: "energy-stored-in-a-capacitor", title: "2.15 Energy Stored in a Capacitor" },
+    { id: "worked-examples", title: "Worked Examples" },
+    { id: "summary", title: "Summary" },
+    { id: "points-to-ponder", title: "Points to Ponder" },
+  ],
 };
 
 const QUESTIONS_MAP: Record<string, Question[]> = {
   "electric-charges-and-fields": PhysicsElectricChargesQuestions as Question[],
+  "electrostatic-potential-and-capacitance": PhysicsElectrostaticPotentialQuestions as Question[],
 };
 
 const FLASHCARDS_MAP: Record<string, Flashcard[]> = {
   "electric-charges-and-fields": PhysicsElectricChargesFlashcards as Flashcard[],
+  "electrostatic-potential-and-capacitance": PhysicsElectrostaticPotentialFlashcards as Flashcard[],
 };
 
 export function getMDXComponent(slug: string): ComponentType | null {
