@@ -1,9 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, CheckCircle2, Circle } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Sidebar } from "./Sidebar";
+import { MobileSidebar } from "./MobileSidebar";
 import { ChapterNav } from "./ChapterNav";
 import { getAdjacentChapters } from "@/data/chapters";
+import { getSectionsForChapter } from "@/lib/content";
+import { useProgress } from "@/hooks/useProgress";
 import type { Chapter } from "@/data/chapters";
 
 interface ChapterLayoutProps {
@@ -22,6 +27,10 @@ export function ChapterLayout({
   children,
 }: ChapterLayoutProps) {
   const { prev, next } = getAdjacentChapters(chapter);
+  const sections = getSectionsForChapter(chapter.slug);
+  const hasSidebar = sections.length > 0;
+  const { isCompleted, toggle } = useProgress(subjectSlug);
+  const completed = isCompleted(chapter.slug);
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
@@ -47,7 +56,7 @@ export function ChapterLayout({
       </nav>
 
       {/* Chapter Header */}
-      <header className="mb-10">
+      <header className="mb-10 flex items-start justify-between gap-4">
         <div className="space-y-2">
           <div className="flex items-center gap-3">
             <span
@@ -64,14 +73,54 @@ export function ChapterLayout({
             {chapter.topicCount} topics
           </p>
         </div>
+        <div className="flex items-center gap-2 shrink-0">
+          {/* Mark complete button */}
+          <button
+            onClick={() => toggle(chapter.slug)}
+            className={cn(
+              "flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-all duration-200",
+              completed
+                ? "border-green-500/30 bg-green-500/10 text-green-600 dark:text-green-400"
+                : "border-border/60 bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
+            )}
+          >
+            {completed ? (
+              <CheckCircle2 className="h-4 w-4" />
+            ) : (
+              <Circle className="h-4 w-4" />
+            )}
+            <span className="hidden sm:inline">
+              {completed ? "Completed" : "Mark complete"}
+            </span>
+          </button>
+          {hasSidebar && (
+            <MobileSidebar
+              sections={sections}
+              subjectColor={subjectColor}
+              chapterTitle={chapter.title}
+            />
+          )}
+        </div>
       </header>
 
-      {/* Content */}
-      <article className="mx-auto max-w-3xl">
-        {children}
+      {/* Two-column layout */}
+      <div className="flex gap-12">
+        {/* Desktop sidebar */}
+        {hasSidebar && (
+          <aside className="hidden lg:block w-60 shrink-0">
+            <div className="sticky top-24">
+              <Sidebar sections={sections} subjectColor={subjectColor} />
+            </div>
+          </aside>
+        )}
 
-        <ChapterNav prev={prev} next={next} subjectColor={subjectColor} />
-      </article>
+        {/* Content */}
+        <article className="min-w-0 flex-1 max-w-3xl">
+          {children}
+
+          <ChapterNav prev={prev} next={next} subjectColor={subjectColor} />
+        </article>
+      </div>
     </div>
   );
 }
