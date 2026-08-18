@@ -2,14 +2,16 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ChevronRight, CheckCircle2, Circle } from "lucide-react";
+import { ChevronRight, CheckCircle2, Circle, Brain, Layers, BookOpen, HelpCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Sidebar } from "./Sidebar";
 import { MobileSidebar } from "./MobileSidebar";
 import { ChapterNav } from "./ChapterNav";
 import { ChapterTabs, PracticePlaceholder } from "./ChapterTabs";
+import { PracticeSession } from "@/components/practice/PracticeSession";
+import { FlashcardDeck } from "@/components/flashcard/FlashcardDeck";
 import { getAdjacentChapters } from "@/data/chapters";
-import { getSectionsForChapter } from "@/lib/content";
+import { getSectionsForChapter, getQuestionsForChapter, getFlashcardsForChapter, hasQuestions, hasFlashcards } from "@/lib/content";
 import { useProgress } from "@/hooks/useProgress";
 import type { Chapter } from "@/data/chapters";
 
@@ -135,9 +137,86 @@ export function ChapterLayout({
       ) : (
         /* Practice tab */
         <div className="max-w-3xl">
-          <PracticePlaceholder subjectColor={subjectColor} />
+          <PracticeTabContent
+            chapterSlug={chapter.slug}
+            subjectColor={subjectColor}
+          />
 
           <ChapterNav prev={prev} next={next} subjectColor={subjectColor} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function PracticeTabContent({
+  chapterSlug,
+  subjectColor,
+}: {
+  chapterSlug: string;
+  subjectColor: string;
+}) {
+  const [subTab, setSubTab] = useState<"questions" | "flashcards">("questions");
+  const questions = getQuestionsForChapter(chapterSlug);
+  const flashcards = getFlashcardsForChapter(chapterSlug);
+  const hasQ = hasQuestions(chapterSlug);
+  const hasFC = hasFlashcards(chapterSlug);
+
+  if (!hasQ && !hasFC) {
+    return (
+      <div className="py-12">
+        <PracticePlaceholder subjectColor={subjectColor} />
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-6">
+      {/* Sub-tabs: Questions / Flashcards */}
+      {(hasQ && hasFC) && (
+        <div className="flex items-center gap-1 rounded-xl border border-border/60 bg-muted/30 p-1">
+          <button
+            onClick={() => setSubTab("questions")}
+            className={cn(
+              "flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 flex-1 justify-center",
+              subTab === "questions"
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            )}
+          >
+            <Brain className="h-4 w-4" />
+            Questions ({questions.length})
+          </button>
+          <button
+            onClick={() => setSubTab("flashcards")}
+            className={cn(
+              "flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 flex-1 justify-center",
+              subTab === "flashcards"
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            )}
+          >
+            <Layers className="h-4 w-4" />
+            Flashcards ({flashcards.length})
+          </button>
+        </div>
+      )}
+
+      {/* Content */}
+      {subTab === "questions" && hasQ && (
+        <PracticeSession questions={questions} subjectColor={subjectColor} />
+      )}
+      {subTab === "flashcards" && hasFC && (
+        <FlashcardDeck cards={flashcards} subjectColor={subjectColor} />
+      )}
+      {subTab === "questions" && !hasQ && (
+        <div className="text-center py-12 text-muted-foreground">
+          No questions available yet for this chapter.
+        </div>
+      )}
+      {subTab === "flashcards" && !hasFC && (
+        <div className="text-center py-12 text-muted-foreground">
+          No flashcards available yet for this chapter.
         </div>
       )}
     </div>

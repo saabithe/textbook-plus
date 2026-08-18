@@ -2,12 +2,40 @@
 
 import { useState, useCallback, useEffect } from "react";
 
+interface ChapterPracticeState {
+  questionsRevealed: string[];
+  flashcardsKnown: string[];
+  flashcardsUnknown: string[];
+}
+
 function getStorageKey(subjectSlug: string) {
   return `progress:${subjectSlug}`;
 }
 
+function getPracticeKey(subjectSlug: string) {
+  return `practice:${subjectSlug}`;
+}
+
+function loadPractice(subjectSlug: string): Record<string, ChapterPracticeState> {
+  try {
+    const stored = localStorage.getItem(getPracticeKey(subjectSlug));
+    return stored ? JSON.parse(stored) : {};
+  } catch {
+    return {};
+  }
+}
+
+function savePractice(subjectSlug: string, data: Record<string, ChapterPracticeState>) {
+  try {
+    localStorage.setItem(getPracticeKey(subjectSlug), JSON.stringify(data));
+  } catch {
+    // ignore
+  }
+}
+
 export function useProgress(subjectSlug: string) {
   const [completed, setCompleted] = useState<string[]>([]);
+  const [practice, setPractice] = useState<Record<string, ChapterPracticeState>>({});
 
   useEffect(() => {
     try {
@@ -16,6 +44,7 @@ export function useProgress(subjectSlug: string) {
     } catch {
       // ignore
     }
+    setPractice(loadPractice(subjectSlug));
   }, [subjectSlug]);
 
   const toggle = useCallback(
@@ -40,7 +69,73 @@ export function useProgress(subjectSlug: string) {
     [completed]
   );
 
-  return { completed, toggle, isCompleted };
+  const markQuestionRevealed = useCallback(
+    (chapterSlug: string, questionId: string) => {
+      setPractice((prev) => {
+        const chapterState = prev[chapterSlug] ?? {
+          questionsRevealed: [],
+          flashcardsKnown: [],
+          flashcardsUnknown: [],
+        };
+        if (chapterState.questionsRevealed.includes(questionId)) return prev;
+        const next = {
+          ...prev,
+          [chapterSlug]: {
+            ...chapterState,
+            questionsRevealed: [...chapterState.questionsRevealed, questionId],
+          },
+        };
+        savePractice(subjectSlug, next);
+        return next;
+      });
+    },
+    [subjectSlug]
+  );
+
+  const getChapterPractice = useCallback(
+    (chapterSlug: string): ChapterPracticeState => {
+      return (
+        practice[chapterSlug] ?? {
+          questionsRevealed: [],
+          flashcardsKnown: [],
+          flashcardsUnknown: [],
+        }
+      );
+    },
+    [practice]
+  );
+
+  const updateFlashcardProgress = useCallback(
+    (chapterSlug: string, known: number, unknown: number) => {
+      setPractice((prev) => {
+        const chapterState = prev[chapterSlug] ?? {
+          questionsRevealed: [],
+          flashcardsKnown: [],
+          flashcardsUnknown: [],
+        };
+        const next = {
+          ...prev,
+          [chapterSlug]: {
+            ...chapterState,
+            flashcardsKnown: Array.from({ length: known }, (_, i) => `known-${i}`),
+            flashcardsUnknown: Array.from({ length: unknown }, (_, i) => `unknown-${i}`),
+          },
+        };
+        savePractice(subjectSlug, next);
+        return next;
+      });
+    },
+    [subjectSlug]
+  );
+
+  return {
+    completed,
+    toggle,
+    isCompleted,
+    markQuestionRevealed,
+    getChapterPractice,
+    updateFlashcardProgress,
+  };
 }
 
 export function getAllProgress(): Record<string, string[]> {
@@ -51,6 +146,22 @@ export function getAllProgress(): Record<string, string[]> {
       if (key?.startsWith("progress:")) {
         const subjectSlug = key.replace("progress:", "");
         result[subjectSlug] = JSON.parse(localStorage.getItem(key) ?? "[]");
+      }
+    }
+  } catch {
+    // ignore
+  }
+  return result;
+}
+
+export function getAllPracticeProgress(): Record<string, Record<string, ChapterPracticeState>> {
+  const result: Record<string, Record<string, ChapterPracticeState>> = {};
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key?.startsWith("practice:")) {
+        const subjectSlug = key.replace("practice:", "");
+        result[subjectSlug] = JSON.parse(localStorage.getItem(key) ?? "{}");
       }
     }
   } catch {

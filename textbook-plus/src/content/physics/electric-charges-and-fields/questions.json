@@ -1,0 +1,188 @@
+[
+  {
+    "id": "q1",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What are the two types of electric charges?",
+    "options": [
+      "Positive and neutral",
+      "Positive and negative",
+      "Negative and neutral",
+      "Strong and weak"
+    ],
+    "answer": 1,
+    "explanation": "Electric charge comes in two types: positive (+) and negative (−). Protons carry positive charge, electrons carry negative charge, and neutrons are neutral."
+  },
+  {
+    "id": "q2",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What is the charge of a single proton?",
+    "options": [
+      "−1.6 × 10⁻¹⁹ C",
+      "0 C",
+      "+1.6 × 10⁻¹⁹ C",
+      "+3.2 × 10⁻¹⁹ C"
+    ],
+    "answer": 2,
+    "explanation": "A single proton carries a charge of +1.6 × 10⁻¹⁹ C. This is the elementary positive charge."
+  },
+  {
+    "id": "q3",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "A glass rod rubbed with silk becomes:",
+    "options": [
+      "Negatively charged",
+      "Positively charged",
+      "Neutral",
+      "Unpredictable"
+    ],
+    "answer": 1,
+    "explanation": "When a glass rod is rubbed with silk, electrons transfer from the glass to the silk. The glass rod loses electrons and becomes positively charged."
+  },
+  {
+    "id": "q4",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Like charges ____ and unlike charges ____.",
+    "options": [
+      "attract, repel",
+      "repel, attract",
+      "repel, repel",
+      "attract, attract"
+    ],
+    "answer": 1,
+    "explanation": "Like charges (same type) repel each other, while unlike charges (opposite types) attract each other."
+  },
+  {
+    "id": "q5",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In electrostatic induction:",
+    "options": [
+      "Charges are transferred by direct contact",
+      "A charged body redistributes charges in a nearby neutral conductor without contact",
+      "Only positive charges move",
+      "The neutral body becomes permanently charged"
+    ],
+    "answer": 1,
+    "explanation": "In electrostatic induction, a charged body brought near a neutral conductor causes redistribution of free charges without any direct contact."
+  },
+  {
+    "id": "q6",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Coulomb's Law states that the force between two point charges is:",
+    "options": [
+      "Directly proportional to the square of the distance",
+      "Inversely proportional to the product of charges",
+      "Directly proportional to the product of charges and inversely proportional to the square of distance",
+      "Independent of the distance"
+    ],
+    "answer": 2,
+    "explanation": "F = k|q₁·q₂|/r². The force is directly proportional to the product of the charges and inversely proportional to the square of the distance between them."
+  },
+  {
+    "id": "q7",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The value of Coulomb's constant k is approximately:",
+    "options": [
+      "6.67 × 10⁻¹¹ N·m²/C²",
+      "8.99 × 10⁹ N·m²/C²",
+      "9 × 10⁹ N·m²/C²",
+      "Both b and c"
+    ],
+    "answer": 3,
+    "explanation": "k ≈ 8.99 × 10⁹ N·m²/C², often rounded to 9 × 10⁹ N·m²/C² for calculations."
+  },
+  {
+    "id": "q8",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The SI unit of electric field is:",
+    "options": [
+      "Coulomb (C)",
+      "Newton (N)",
+      "N/C or V/m",
+      "V·m"
+    ],
+    "answer": 2,
+    "explanation": "Electric field E = F/q, so its unit is N/C. Since 1 V/m = 1 N/C, both are equivalent SI units."
+  },
+  {
+    "id": "q9",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Electric flux through a surface is maximum when:",
+    "options": [
+      "The surface is parallel to the field (θ = 90°)",
+      "The surface is perpendicular to the field (θ = 0°)",
+      "The surface is at 45° to the field",
+      "The surface is a sphere"
+    ],
+    "answer": 1,
+    "explanation": "Φ = EA cos θ. When θ = 0°, cos θ = 1 (maximum). The surface is perpendicular to the field, so the maximum number of field lines pass through it."
+  },
+  {
+    "id": "q10",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Electric flux through a closed surface depends on:",
+    "options": [
+      "The shape of the surface",
+      "The total charge enclosed by the surface",
+      "The distance of charges from the surface",
+      "The electric field at every point outside"
+    ],
+    "answer": 1,
+    "explanation": "By Gauss's Law, Φ = Q_enclosed/ε₀. The flux through a closed surface depends only on the net charge enclosed, not on the shape or size of the surface."
+  },
+  {
+    "id": "q11",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "A Gaussian surface encloses charges of +2μC, −3μC, and +5μC. The net flux is:",
+    "options": [
+      "Proportional to +4μC",
+      "Proportional to +10μC",
+      "Proportional to −1μC",
+      "Zero"
+    ],
+    "answer": 0,
+    "explanation": "Q_enclosed = +2 − 3 + 5 = +4μC. By Gauss's Law, Φ = Q_enclosed/ε₀, so flux is proportional to +4μC."
+  },
+  {
+    "id": "q12",
+    "type": "short",
+    "difficulty": "easy",
+    "question": "State Coulomb's Law in words.",
+    "answer": "The electrostatic force between two point charges is directly proportional to the product of the magnitudes of the charges and inversely proportional to the square of the distance between them. The force acts along the line joining the two charges.",
+    "explanation": "This is the fundamental law governing electrostatic interactions between charges."
+  },
+  {
+    "id": "q13",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Distinguish between conduction and induction with one example each.",
+    "answer": "Conduction: Charge transfer by direct contact. Example — touching a charged rod to a neutral sphere transfers charge. Induction: Charge redistribution without contact. Example — bringing a charged rod near (but not touching) a neutral conductor causes charge separation.",
+    "explanation": "Conduction requires physical contact; induction only requires proximity."
+  },
+  {
+    "id": "q14",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Why are electric field lines perpendicular to the surface of a conductor in electrostatic equilibrium?",
+    "answer": "If the field had a component along the surface, free electrons would move along the surface, contradicting the condition of equilibrium (no net current). Hence, the field must be purely perpendicular.",
+    "explanation": "This is a consequence of the equilibrium condition — no net movement of charge inside or along the surface of a conductor."
+  },
+  {
+    "id": "q15",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Two charges +q and −3q are placed at a distance d apart. Where should a third charge be placed so that it is in equilibrium?",
+    "answer": "The third charge should be placed on the line joining the two charges, at a distance d/2 from +q (on the side away from −3q). At this point, the forces from both charges are equal and opposite.",
+    "explanation": "For equilibrium, the net force on the third charge must be zero. The point must be outside the charges, closer to the smaller magnitude charge (+q), which is at d/2 from +q on the extension of the line."
+  }
+]

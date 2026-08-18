@@ -1,0 +1,77 @@
+[
+  {
+    "id": "fc1",
+    "front": "What is electric charge?",
+    "back": "A fundamental property of matter that determines the electromagnetic force between particles. Comes in two types: positive (+) and negative (−)."
+  },
+  {
+    "id": "fc2",
+    "front": "What is the charge of a proton vs. an electron?",
+    "back": "Proton: +1.6 × 10⁻¹⁹ C\nElectron: −1.6 × 10⁻¹⁹ C"
+  },
+  {
+    "id": "fc3",
+    "front": "What happens when a glass rod is rubbed with silk?",
+    "back": "Electrons transfer from glass to silk. The glass rod loses electrons and becomes positively charged."
+  },
+  {
+    "id": "fc4",
+    "front": "What is the difference between conduction and induction?",
+    "back": "Conduction: charge transfer by direct contact.\nInduction: charge redistribution without contact, caused by a nearby charged body."
+  },
+  {
+    "id": "fc5",
+    "front": "State Coulomb's Law (formula)",
+    "back": "F = k |q₁ · q₂| / r²\nwhere k ≈ 8.99 × 10⁹ N·m²/C²"
+  },
+  {
+    "id": "fc6",
+    "front": "What is the SI unit of electric field?",
+    "back": "N/C (Newtons per Coulomb) or equivalently V/m (Volts per metre)."
+  },
+  {
+    "id": "fc7",
+    "front": "What does an electric field represent?",
+    "back": "The force per unit charge experienced by a small positive test charge placed at that point in space."
+  },
+  {
+    "id": "fc8",
+    "front": "What is electric flux?",
+    "back": "A measure of the number of electric field lines passing through a surface.\nΦ = E · A = EA cos θ"
+  },
+  {
+    "id": "fc9",
+    "front": "When is electric flux through a surface zero?",
+    "back": "When the surface is parallel to the electric field (θ = 90° between E and the normal to the surface, so cos 90° = 0)."
+  },
+  {
+    "id": "fc10",
+    "front": "State Gauss's Law (formula)",
+    "back": "∮ E · dA = Q_enclosed / ε₀\nThe net electric flux through any closed surface equals the enclosed charge divided by the permittivity of free space."
+  },
+  {
+    "id": "fc11",
+    "front": "What is the value of ε₀ (permittivity of free space)?",
+    "back": "ε₀ ≈ 8.854 × 10⁻¹² C²/(N·m²)"
+  },
+  {
+    "id": "fc12",
+    "front": "Why don't electric field lines cross each other?",
+    "back": "If they crossed, the field at the intersection point would have two directions simultaneously, which is physically impossible."
+  },
+  {
+    "id": "fc13",
+    "front": "What is the direction of the electric field due to a positive point charge?",
+    "back": "Radially outward from the charge (for positive) and radially inward (for negative)."
+  },
+  {
+    "id": "fc14",
+    "front": "Can Gauss's Law be used for any charge distribution?",
+    "back": "It always holds, but it's only useful for calculating E when the charge distribution has symmetry (spherical, cylindrical, or planar)."
+  },
+  {
+    "id": "fc15",
+    "front": "What is electrostatic induction?",
+    "back": "When a charged body is brought near a neutral conductor, free electrons in the conductor move towards or away from the charged body, causing charge redistribution without direct contact."
+  }
+]

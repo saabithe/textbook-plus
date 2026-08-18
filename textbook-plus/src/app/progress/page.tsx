@@ -1,18 +1,24 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Brain, Layers } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { SubjectProgress } from "@/components/progress/SubjectProgress";
 import { subjects } from "@/data/subjects";
 import { chapters } from "@/data/chapters";
-import { getAllProgress } from "@/hooks/useProgress";
+import { getAllProgress, getAllPracticeProgress } from "@/hooks/useProgress";
+import { getQuestionsForChapter, getFlashcardsForChapter } from "@/lib/content";
 
 export default function ProgressPage() {
   const [allProgress, setAllProgress] = useState<Record<string, string[]>>({});
+  const [practiceProgress, setPracticeProgress] = useState<
+    Record<string, Record<string, { questionsRevealed: string[]; flashcardsKnown: string[]; flashcardsUnknown: string[] }>>
+  >({});
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setAllProgress(getAllProgress());
+    setPracticeProgress(getAllPracticeProgress());
     setMounted(true);
   }, []);
 
@@ -27,6 +33,21 @@ export default function ProgressPage() {
   );
   const overallPct =
     totalChapters > 0 ? Math.round((totalCompleted / totalChapters) * 100) : 0;
+
+  // Calculate practice stats
+  let totalQuestionsRevealed = 0;
+  let totalFlashcardsKnown = 0;
+  let totalFlashcardsAvailable = 0;
+  for (const subject of subjects) {
+    const subjectChaps = chapters[subject.slug] ?? [];
+    for (const ch of subjectChaps) {
+      const qs = getQuestionsForChapter(ch.slug);
+      const fcs = getFlashcardsForChapter(ch.slug);
+      totalQuestionsRevealed += qs.length > 0 ? (practiceProgress[subject.slug]?.[ch.slug]?.questionsRevealed?.length ?? 0) : 0;
+      totalFlashcardsKnown += fcs.length > 0 ? (practiceProgress[subject.slug]?.[ch.slug]?.flashcardsKnown?.length ?? 0) : 0;
+      totalFlashcardsAvailable += fcs.length;
+    }
+  }
 
   return (
     <>
@@ -61,6 +82,34 @@ export default function ProgressPage() {
                     : "Start marking chapters as complete to track your progress."}
                 </p>
               </div>
+            </div>
+          )}
+
+          {/* Practice stats */}
+          {mounted && (totalQuestionsRevealed > 0 || totalFlashcardsKnown > 0) && (
+            <div className="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {totalQuestionsRevealed > 0 && (
+                <div className="rounded-xl border border-border/60 bg-card p-5 flex items-center gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+                    <Brain className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold">{totalQuestionsRevealed}</p>
+                    <p className="text-sm text-muted-foreground">questions reviewed</p>
+                  </div>
+                </div>
+              )}
+              {totalFlashcardsKnown > 0 && (
+                <div className="rounded-xl border border-border/60 bg-card p-5 flex items-center gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-500/10">
+                    <Layers className="h-5 w-5 text-green-600 dark:text-green-400" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold">{totalFlashcardsKnown}/{totalFlashcardsAvailable}</p>
+                    <p className="text-sm text-muted-foreground">flashcards known</p>
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
