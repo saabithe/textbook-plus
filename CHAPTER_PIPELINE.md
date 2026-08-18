@@ -4,6 +4,16 @@
 
 ---
 
+## Content Rules
+
+- **No long paragraphs.** Default to bullet points. Use paragraphs only when the concept genuinely requires flowing text (e.g., explaining a narrative process, a story-like explanation). Even then, keep under 3 sentences.
+- **No filler words.** Cut "simply", "just", "basically", "obviously", "of course", "it is important to note that".
+- **No jargon without context.** Every technical term gets a one-line definition on first use.
+- **Scannable > readable.** A student should be able to skim and get 80% of the value.
+- **Every section answers:** "What does the student need to know?" and nothing else.
+
+---
+
 ## Flow
 
 ```mermaid
