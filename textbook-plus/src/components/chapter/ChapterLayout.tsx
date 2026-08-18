@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { ChevronRight, CheckCircle2, Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Sidebar } from "./Sidebar";
 import { MobileSidebar } from "./MobileSidebar";
 import { ChapterNav } from "./ChapterNav";
+import { ChapterTabs, PracticePlaceholder } from "./ChapterTabs";
 import { getAdjacentChapters } from "@/data/chapters";
 import { getSectionsForChapter } from "@/lib/content";
 import { useProgress } from "@/hooks/useProgress";
@@ -31,6 +33,7 @@ export function ChapterLayout({
   const hasSidebar = sections.length > 0;
   const { isCompleted, toggle } = useProgress(subjectSlug);
   const completed = isCompleted(chapter.slug);
+  const [activeTab, setActiveTab] = useState("learning");
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
@@ -56,7 +59,7 @@ export function ChapterLayout({
       </nav>
 
       {/* Chapter Header */}
-      <header className="mb-10 flex items-start justify-between gap-4">
+      <header className="mb-6 flex items-start justify-between gap-4">
         <div className="space-y-2">
           <div className="flex items-center gap-3">
             <span
@@ -93,7 +96,7 @@ export function ChapterLayout({
               {completed ? "Completed" : "Mark complete"}
             </span>
           </button>
-          {hasSidebar && (
+          {hasSidebar && activeTab === "learning" && (
             <MobileSidebar
               sections={sections}
               subjectColor={subjectColor}
@@ -103,24 +106,40 @@ export function ChapterLayout({
         </div>
       </header>
 
-      {/* Two-column layout */}
-      <div className="flex gap-12">
-        {/* Desktop sidebar */}
-        {hasSidebar && (
-          <aside className="hidden lg:block w-60 shrink-0">
-            <div className="sticky top-24">
-              <Sidebar sections={sections} subjectColor={subjectColor} />
-            </div>
-          </aside>
-        )}
+      {/* Learning / Practice Tabs */}
+      <ChapterTabs
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+        subjectColor={subjectColor}
+      />
 
-        {/* Content */}
-        <article className="min-w-0 flex-1 max-w-3xl">
-          {children}
+      {/* Two-column layout (Learning tab) */}
+      {activeTab === "learning" ? (
+        <div className="flex gap-12">
+          {/* Desktop sidebar */}
+          {hasSidebar && (
+            <aside className="hidden lg:block w-60 shrink-0">
+              <div className="sticky top-24">
+                <Sidebar sections={sections} subjectColor={subjectColor} />
+              </div>
+            </aside>
+          )}
+
+          {/* Content */}
+          <article className="min-w-0 flex-1 max-w-3xl">
+            {children}
+
+            <ChapterNav prev={prev} next={next} subjectColor={subjectColor} />
+          </article>
+        </div>
+      ) : (
+        /* Practice tab */
+        <div className="max-w-3xl">
+          <PracticePlaceholder subjectColor={subjectColor} />
 
           <ChapterNav prev={prev} next={next} subjectColor={subjectColor} />
-        </article>
-      </div>
+        </div>
+      )}
     </div>
   );
 }
