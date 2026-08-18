@@ -128,7 +128,7 @@ export function ChapterLayout({
           )}
 
           {/* Content */}
-          <article className="min-w-0 flex-1 max-w-3xl">
+          <article className="min-w-0 flex-1 max-w-3xl mx-auto">
             {children}
 
             <ChapterNav prev={prev} next={next} subjectColor={subjectColor} />
@@ -136,7 +136,7 @@ export function ChapterLayout({
         </div>
       ) : (
         /* Practice tab */
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-3xl">
           <PracticeTabContent
             chapterSlug={chapter.slug}
             subjectColor={subjectColor}
