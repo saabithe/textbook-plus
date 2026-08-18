@@ -16,11 +16,11 @@ All run from `textbook-plus/`:
 ```bash
 npm install          # install deps
 npm run dev          # dev server (port 3000) — uses --webpack (Windows SWC fix)
-npm run build        # production build (no --webpack needed on Vercel/Linux)
+npm run build        # production build (uses --webpack)
 npm run lint         # eslint (next core-web-vitals + typescript)
 ```
 
-**Note**: `dev` uses `--webpack` flag (Windows SWC binary workaround). `build` does NOT — Vercel/Linux doesn't need it.
+**Note**: `dev` and `build` both use `--webpack` flag (Windows SWC binary workaround). Vercel/Linux also needs it since Turbopack native bindings aren't available on all platforms.
 
 No test framework is configured. No typecheck script exists (TypeScript errors surface via `npm run build`).
 

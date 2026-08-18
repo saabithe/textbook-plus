@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { BookOpen, Sun, Moon, Home, BarChart3 } from "lucide-react";
+import { Sun, Moon, Home, BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -18,9 +19,14 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-foreground transition-transform duration-200 group-hover:scale-105">
-            <BookOpen className="h-5 w-5 text-background" strokeWidth={2.5} />
-          </div>
+          <Image
+            src="/icon.svg"
+            alt="Textbook++"
+            width={36}
+            height={36}
+            className="rounded-xl transition-transform duration-200 group-hover:scale-105"
+            priority
+          />
           <span className="text-lg font-bold tracking-tight hidden sm:inline">
             Textbook++
           </span>
