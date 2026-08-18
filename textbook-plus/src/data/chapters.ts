@@ -108,3 +108,23 @@ export function getChapterBySlug(
 ): Chapter | undefined {
   return chapters[subjectSlug]?.find((c) => c.slug === chapterSlug);
 }
+
+export function getAllChapters(): Chapter[] {
+  return Object.values(chapters).flat();
+}
+
+export function getChapterBySlugFromAll(slug: string): Chapter | undefined {
+  return getAllChapters().find((c) => c.slug === slug);
+}
+
+export function getAdjacentChapters(chapter: Chapter): {
+  prev: Chapter | null;
+  next: Chapter | null;
+} {
+  const subjectChapters = getChaptersBySubject(chapter.subjectSlug);
+  const index = subjectChapters.findIndex((c) => c.id === chapter.id);
+  return {
+    prev: index > 0 ? subjectChapters[index - 1] : null,
+    next: index < subjectChapters.length - 1 ? subjectChapters[index + 1] : null,
+  };
+}
