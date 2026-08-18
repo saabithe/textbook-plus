@@ -66,3 +66,7 @@ When adding MDX content:
 - Chapter pages: two-column layout (sidebar + content) on desktop, sheet sidebar on mobile
 - Scrollbar is hidden globally via CSS
 - All pages align to `max-w-6xl` (matching navbar width)
+
+## Git Rules
+
+- **Never auto-push.** Always wait for explicit user approval before pushing to GitHub. Commits can be made, but `git push` only when the user says "push", "go", or explicitly approves.
