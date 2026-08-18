@@ -229,3 +229,42 @@
 .prose-custom em {
   @apply italic;
 }
+
+/* KaTeX formula spacing */
+.katex-display {
+  margin: 1.5rem 0;
+}
+
+.katex-display > .katex {
+  padding: 0.5rem 0;
+}
+
+.katex {
+  font-size: 1.1em;
+}
+
+.katex .mord {
+  margin-right: 0.15em;
+}
+
+.katex .mbin,
+.katex .mrel {
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+.katex .mopen,
+.katex .mclose {
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+}
+
+/* Hide scrollbar */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}

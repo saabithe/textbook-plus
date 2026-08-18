@@ -23,7 +23,7 @@ export function useMDXComponents(): MDXComponents {
       </h3>
     ),
     p: ({ children }) => (
-      <p className="text-base leading-relaxed text-muted-foreground mb-4">
+      <p className="text-base leading-relaxed text-muted-foreground mb-5">
         {children}
       </p>
     ),
