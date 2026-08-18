@@ -149,7 +149,7 @@ Coulomb measured the force between two point charges and found that it varied in
 </Callout>
 
 <Formula title="Coulomb's Law (scalar form)">
-$$F = k \frac{|q_1 \cdot q_2|}{r^2}$$
+$$F = k \frac{|q_1 q_2|}{r^2}$$
 </Formula>
 
 <Formula title="Coulomb's Law (vector form)">
@@ -193,7 +193,7 @@ The ratio of electric force to gravitational force between a proton and an elect
 $$\vec{F}_1 = \vec{F}_{12} + \vec{F}_{13} + \ldots + \vec{F}_{1n} = \sum_{i=2}^{n} \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_i}{r_{1i}^2} \hat{r}_{1i}$$
 </Formula>
 
-* All of electrostatics is basically a consequence of Coulomb's law and the superposition principle.
+* All of electrostatics is a consequence of Coulomb's law and the superposition principle.
 
 ---
 
@@ -274,7 +274,7 @@ If field lines crossed, the field at the intersection would have two different d
 ## 1.9 Electric Flux
 
 * Flux measures how much "field" passes through a surface.
-* Think of rain falling on a window. More rain passes through when the window faces the rain directly ($\theta = 0°$) than when it's tilted.
+* Think of rain falling on a window. More rain passes through when the window faces the rain directly ($\theta = 0^\circ$) than when it's tilted.
 
 <Expandable title="Liquid flow analogy">
 Consider liquid flowing with velocity $\vec{v}$ through a small flat surface $dS$ normal to the flow. Volume crossing per unit time = $v \, dS$ — this is the flux of liquid. If the surface is tilted at angle $\theta$ to the flow, the projected area is $dS\cos\theta$, so flux = $v \, dS \cos\theta$. Electric flux is analogous — but there's no actual flow of physical quantity.
@@ -292,8 +292,8 @@ $$\Delta\Phi = \vec{E} \cdot d\vec{S} = E \, dS \cos\theta$$
 
 * $\theta$ = angle between $\vec{E}$ and the outward normal to the surface
 * SI unit: V·m or N·m²/C
-* $\theta = 0°$: flux maximum (surface ⊥ field)
-* $\theta = 90°$: flux zero (surface ∥ field)
+* $\theta = 0^\circ$: flux maximum (surface ⊥ field)
+* $\theta = 90^\circ$: flux zero (surface ∥ field)
 
 <Expandable title="Derivation — flux through a sphere enclosing a point charge">
 For a point charge $q$ at the centre of a sphere of radius $r$:
@@ -316,7 +316,7 @@ This is Gauss's Law — the flux depends only on enclosed charge, not on the rad
 
 * Pair of equal and opposite charges $+q$ and $-q$, separated by distance $2a$
 * The total charge is zero, but the fields don't exactly cancel at finite distances
-* At $r >> 2a$, the fields nearly cancel → field falls faster than $1/r^2$
+* At $r \gg 2a$, the fields nearly cancel → field falls faster than $1/r^2$
 
 <Formula title="Dipole Moment">
 $$\vec{p} = q \times 2a\,\hat{p}$$
@@ -325,13 +325,13 @@ $$\vec{p} = q \times 2a\,\hat{p}$$
 * Direction: from $-q$ to $+q$
 * SI unit: C·m
 
-### Field on the axis ($r >> a$)
+### Field on the axis ($r \gg a$)
 
 <Formula>
 $$\vec{E}_{\text{axis}} = \frac{1}{4\pi\varepsilon_0} \frac{2\vec{p}}{r^3}$$
 </Formula>
 
-### Field on the equatorial plane ($r >> a$)
+### Field on the equatorial plane ($r \gg a$)
 
 <Formula>
 $$\vec{E}_{\text{equatorial}} = -\frac{1}{4\pi\varepsilon_0} \frac{\vec{p}}{r^3}$$
@@ -341,7 +341,7 @@ $$\vec{E}_{\text{equatorial}} = -\frac{1}{4\pi\varepsilon_0} \frac{\vec{p}}{r^3}
 Dipole field falls as $1/r^3$, not $1/r^2$. This is because the two charges partially cancel at large distances. The magnitude and direction depend not only on $r$ but also on the angle between $\vec{r}$ and $\vec{p}$.
 </Callout>
 
-### Exact expressions (not just $r >> a$)
+### Exact expressions (not limited to $r \gg a$)
 
 <Expandable title="Full derivation — dipole field on axis">
 Point $P$ at distance $r$ from centre, on the side of $+q$:
@@ -350,7 +350,7 @@ Point $P$ at distance $r$ from centre, on the side of $+q$:
 * Field due to $-q$: $E_- = \frac{q}{4\pi\varepsilon_0(r+a)^2}$ (toward dipole)
 * Net field: $E = E_+ - E_- = \frac{q}{4\pi\varepsilon_0}\left[\frac{1}{(r-a)^2} - \frac{1}{(r+a)^2}\right]$
 * Simplify: $E = \frac{q}{4\pi\varepsilon_0} \frac{4ar}{(r^2-a^2)^2}$
-* For $r >> a$: $E \approx \frac{1}{4\pi\varepsilon_0} \frac{2p}{r^3}$
+* For $r \gg a$: $E \approx \frac{1}{4\pi\varepsilon_0} \frac{2p}{r^3}$
 </Expandable>
 
 <Expandable title="Full derivation — dipole field on equatorial plane">
@@ -359,7 +359,7 @@ Point $Q$ at distance $r$ from centre, on the perpendicular bisector:
 * Magnitudes: $E_+ = E_- = \frac{q}{4\pi\varepsilon_0(r^2+a^2)}$
 * Components perpendicular to dipole axis cancel
 * Components along dipole axis add: $E = 2E_+\cos\theta = 2E_+\frac{a}{\sqrt{r^2+a^2}}$
-* For $r >> a$: $E \approx \frac{1}{4\pi\varepsilon_0} \frac{p}{r^3}$ (opposite to $\vec{p}$)
+* For $r \gg a$: $E \approx \frac{1}{4\pi\varepsilon_0} \frac{p}{r^3}$ (opposite to $\vec{p}$)
 </Expandable>
 
 ### Physical significance of dipoles
@@ -385,8 +385,8 @@ $$\vec{\tau} = \vec{p} \times \vec{E}$$
 </Formula>
 
 * Magnitude: $\tau = pE\sin\theta$
-* $\theta = 0°$: $\vec{p} \parallel \vec{E}$, torque = 0 (stable equilibrium)
-* $\theta = 180°$: $\vec{p}$ antiparallel to $\vec{E}$, torque = 0 (unstable equilibrium)
+* $\theta = 0^\circ$: $\vec{p} \parallel \vec{E}$, torque = 0 (stable equilibrium)
+* $\theta = 180^\circ$: $\vec{p}$ antiparallel to $\vec{E}$, torque = 0 (unstable equilibrium)
 
 <Expandable title="Derivation — torque on a dipole">
 * Force on $+q$: $\vec{F}_+ = q\vec{E}$ (along $\vec{E}$)
@@ -398,7 +398,7 @@ $$\vec{\tau} = \vec{p} \times \vec{E}$$
 </Expandable>
 
 <Expandable title="Non-uniform field — net force on dipole">
-In a **non-uniform** field, the dipole experiences a **net force** in addition to torque. When $\vec{p} \parallel \vec{E}$, force is in direction of increasing field. When $\vec{p}$ antiparallel to $\vec{E}$, force is in direction of decreasing field.
+In a **non-uniform** field, the dipole experiences a **net force** in addition to torque. When $\vec{p} \parallel \vec{E}$, force is in direction of increasing field. When $\vec{p}$ is antiparallel to $\vec{E}$, force is in direction of decreasing field.
 
 **Common example:** A charged comb attracts neutral paper. The comb polarises the paper (induces dipole moment). The non-uniform field of the comb exerts a net force on the induced dipole, attracting the paper.
 </Expandable>
@@ -432,7 +432,9 @@ $$\vec{E} = \frac{1}{4\pi\varepsilon_0} \int \frac{\rho \, dV}{r'^2} \hat{r}'$$
 ## 1.13 Gauss's Law
 
 <Callout type="important">
-The total electric flux through any closed surface is equal to $\frac{1}{\varepsilon_0}$ times the net charge enclosed by the surface: $$\oint \vec{E} \cdot d\vec{A} = \frac{q}{\varepsilon_0}$$
+The total electric flux through any closed surface is equal to $\frac{1}{\varepsilon_0}$ times the net charge enclosed by the surface:
+
+$$\oint \vec{E} \cdot d\vec{A} = \frac{q}{\varepsilon_0}$$
 </Callout>
 
 * $q$ = total charge **enclosed** by the surface $S$
@@ -615,7 +617,7 @@ Two point charges $q_1 = +10^{-8}$ C and $q_2 = -10^{-8}$ C are placed $0.1$ m a
 
 * **Point A** (midpoint between charges): Both $E_1$ and $E_2$ point right → $E_A = 7.2 \times 10^4$ N/C (right)
 * **Point B** (0.15 m from $q_2$): $E_1$ left, $E_2$ right → $E_B = 3.2 \times 10^4$ N/C (left)
-* **Point C** (on perpendicular bisector): Both fields at $60°$ → $E_C = 9 \times 10^3$ N/C (right)
+* **Point C** (on perpendicular bisector): Both fields at $60^\circ$ → $E_C = 9 \times 10^3$ N/C (right)
 </Example>
 
 <Example title="Example 1.9 — Dipole Field on Axis and Equatorial Plane">
@@ -666,11 +668,11 @@ At $r = R$: both cases give $E = 0$.
 </Example>
 
 <Example title="Supplementary Example — Torque on a Dipole">
-Dipole moment $p = 10^{-29}$ C·m in field $E = 10^5$ N/C at angle $30°$.
+Dipole moment $p = 10^{-29}$ C·m in field $E = 10^5$ N/C at angle $30^\circ$.
 
-$$\tau = pE\sin\theta = 10^{-29} \times 10^5 \times \sin 30° = 5 \times 10^{-25} \text{ N·m}$$
+$$\tau = pE\sin\theta = 10^{-29} \times 10^5 \times \sin 30^\circ = 5 \times 10^{-25} \text{ N·m}$$
 
-At $\theta = 90°$ (maximum): $\tau = 10^{-24}$ N·m. At $\theta = 0°$ or $180°$: $\tau = 0$ (equilibrium).
+At $\theta = 90^\circ$ (maximum): $\tau = 10^{-24}$ N·m. At $\theta = 0^\circ$ or $180^\circ$: $\tau = 0$ (equilibrium).
 </Example>
 
 <Example title="Supplementary Example — Force on Dipole in Non-Uniform Field">

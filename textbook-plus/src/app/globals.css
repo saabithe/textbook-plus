@@ -231,20 +231,29 @@
   @apply italic;
 }
 
-/* MathJax SVG formula spacing */
-mjx-container {
-  margin: 1.5rem 0;
-  overflow-x: auto;
-  overflow-y: hidden;
+/* KaTeX formula spacing + readability overrides */
+@import "katex/dist/katex.min.css";
+
+.katex-display {
+  margin: 2rem 0;
+  line-height: 2.0;
 }
 
-mjx-container[display="true"] {
-  margin: 1.5rem 0;
-  text-align: center;
+.katex-display > .katex {
+  font-size: 1.25em;
 }
 
-mjx-container svg {
-  max-width: 100%;
+.katex .mbin {
+  padding: 0 0.15em;
+}
+
+.katex .mrel {
+  padding: 0 0.15em;
+}
+
+.katex .mopen,
+.katex .mclose {
+  padding: 0 0.05em;
 }
 
 /* Hide scrollbar */

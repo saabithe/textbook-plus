@@ -1,12 +1,9 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 import remarkMath from "remark-math";
-import rehypeMathjax from "rehype-mathjax";
+import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
 import rehypeSlugStrip from "./rehype-slug-strip.mjs";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const mathjaxPlugin: any = rehypeMathjax;
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
@@ -15,21 +12,7 @@ const withMDX = createMDX({
     rehypePlugins: [
       rehypeSlug,
       rehypeSlugStrip,
-      [
-        mathjaxPlugin,
-        {
-          tex: {
-            displayMath: [["$$", "$$"]],
-            inlineMath: [["$", "$"]],
-            packages: ["base", "ams"],
-          },
-          svg: {
-            scale: 1,
-            minScale: 0.5,
-            fontCache: "local",
-          },
-        },
-      ],
+      [rehypeKatex, { strict: false }],
     ],
   },
 });
