@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { getChapterBySlugFromAll, getAllChapters } from "@/data/chapters";
 import { getSubjectBySlug } from "@/data/subjects";
 import { ChapterLayout } from "@/components/chapter/ChapterLayout";
-import { MDXContent } from "./mdx-content";
+import { BlockNoteContent } from "./blocknote-content";
 
 export function generateStaticParams() {
   return getAllChapters().map((ch) => ({ slug: ch.slug }));
@@ -44,7 +44,7 @@ export default async function ChapterPage({
           subjectSlug={subject.slug}
           subjectColor={subject.color}
         >
-          <MDXContent slug={slug} />
+          <BlockNoteContent slug={slug} />
         </ChapterLayout>
       </main>
     </>

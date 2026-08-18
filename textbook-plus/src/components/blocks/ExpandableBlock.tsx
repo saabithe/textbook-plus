@@ -1,15 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { createReactBlockSpec } from "@blocknote/react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
-interface ExpandableProps {
+function ExpandableContent({
+  title,
+  contentRef,
+}: {
   title: string;
-  children: React.ReactNode;
-}
-
-export function Expandable({ title, children }: ExpandableProps) {
+  contentRef: (node: HTMLElement | null) => void;
+}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -28,9 +30,25 @@ export function Expandable({ title, children }: ExpandableProps) {
       </button>
       {open && (
         <div className="border-t border-border/40 px-5 py-4 text-sm leading-relaxed text-muted-foreground">
-          {children}
+          <div ref={contentRef} />
         </div>
       )}
     </div>
   );
 }
+
+export const ExpandableBlock = createReactBlockSpec(
+  {
+    type: "expandable",
+    propSchema: {
+      title: { default: "Click to expand" },
+    },
+    content: "inline",
+  },
+  {
+    render: (props) => {
+      const title = (props.block.props as { title: string }).title;
+      return <ExpandableContent title={title} contentRef={props.contentRef} />;
+    },
+  }
+);

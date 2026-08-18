@@ -1,0 +1,655 @@
+[
+  {
+    "id": "heading-1",
+    "type": "heading",
+    "props": { "level": 1 },
+    "content": [{ "type": "text", "text": "Electrostatic Potential and Capacitance", "styles": {} }]
+  },
+  {
+    "id": "divider-1",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-1",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "2.1 Introduction", "styles": {} }]
+  },
+  {
+    "id": "para-2-1",
+    "type": "paragraph",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "In the previous chapter, we studied electric forces, fields and potentials arising from static charges. We now introduce two new quantities: electrostatic potential and capacitance. The notion of potential energy is familiar from mechanics — here we extend it to electric fields.", "styles": {} }
+    ]
+  },
+  {
+    "id": "callout-conservative",
+    "type": "callout",
+    "props": { "calloutType": "important" },
+    "content": [
+      { "type": "text", "text": "The electrostatic force is conservative. Work done by or against it is path-independent — it depends only on the initial and final positions.", "styles": { "bold": true } }
+    ]
+  },
+  {
+    "id": "divider-2",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-2",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "2.2 Electrostatic Potential", "styles": {} }]
+  },
+  {
+    "id": "para-2-2",
+    "type": "paragraph",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "The electrostatic potential energy difference between two points R and P is the work done by an external force in moving a charge q from R to P without acceleration.", "styles": {} }
+    ]
+  },
+  {
+    "id": "math-potential-energy",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "\\Delta U = U_P - U_R = W_{RP}", "styles": {} }
+    ]
+  },
+  {
+    "id": "para-2-2b",
+    "type": "paragraph",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "The electrostatic potential V at a point is the potential energy per unit charge:", "styles": {} }
+    ]
+  },
+  {
+    "id": "math-potential",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "V(\\vec{r}) = \\frac{U(\\vec{r})}{q}", "styles": {} }
+    ]
+  },
+  {
+    "id": "callout-unit",
+    "type": "callout",
+    "props": { "calloutType": "note" },
+    "content": [
+      { "type": "text", "text": "SI unit of potential: volt (V) = joule/coulomb. 1 V = 1 J C⁻¹. Potential is a scalar quantity.", "styles": {} }
+    ]
+  },
+  {
+    "id": "divider-3",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-3",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "2.3 Potential Due to a Point Charge", "styles": {} }]
+  },
+  {
+    "id": "para-2-3",
+    "type": "paragraph",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "The potential due to a point charge Q at distance r (taking V = 0 at infinity):", "styles": {} }
+    ]
+  },
+  {
+    "id": "math-point-charge",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "V = \\frac{1}{4\\pi\\varepsilon_0} \\frac{Q}{r}", "styles": {} }
+    ]
+  },
+  {
+    "id": "expandable-point-charge",
+    "type": "expandable",
+    "props": { "title": "Derivation — potential due to a point charge" },
+    "content": [
+      { "type": "text", "text": "Work done in bringing a unit positive charge from infinity to point P at distance r from Q:\n\nW = ∫∞^r F⃗ · dr⃗ = ∫∞^r (Q/(4πε₀r²)) dr = Q/(4πε₀r)\n\nThis work equals the potential V at P.", "styles": {} }
+    ]
+  },
+  {
+    "id": "callout-point-charge",
+    "type": "callout",
+    "props": { "calloutType": "important" },
+    "content": [
+      { "type": "text", "text": "For Q > 0, V > 0 (potential decreases as we move away). For Q < 0, V < 0 (potential increases as we move away).", "styles": { "bold": true } }
+    ]
+  },
+  {
+    "id": "divider-4",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-4",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "2.4 Potential Due to an Electric Dipole", "styles": {} }]
+  },
+  {
+    "id": "para-2-4",
+    "type": "paragraph",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "For a dipole with moment p⃗, at distance r ≫ a (where 2a is the separation):", "styles": {} }
+    ]
+  },
+  {
+    "id": "math-dipole",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "V = \\frac{1}{4\\pi\\varepsilon_0} \\frac{\\vec{p} \\cdot \\hat{r}}{r^2} = \\frac{p \\cos\\theta}{4\\pi\\varepsilon_0 r^2}", "styles": {} }
+    ]
+  },
+  {
+    "id": "callout-dipole",
+    "type": "callout",
+    "props": { "calloutType": "important" },
+    "content": [
+      { "type": "text", "text": "Dipole potential falls as 1/r² (not 1/r as for a point charge). On the equatorial plane (θ = 90°), V = 0.", "styles": { "bold": true } }
+    ]
+  },
+  {
+    "id": "keypoint-dipole",
+    "type": "keyPoint",
+    "props": { "title": "Key difference: field vs potential" },
+    "content": [
+      { "type": "text", "text": "Dipole field falls as 1/r³. Dipole potential falls as 1/r². Both are steeper than the point-charge counterparts (1/r² and 1/r respectively).", "styles": {} }
+    ]
+  },
+  {
+    "id": "divider-5",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-5",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "2.5 Potential Due to a System of Charges", "styles": {} }]
+  },
+  {
+    "id": "math-superposition",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "V = \\frac{1}{4\\pi\\varepsilon_0} \\sum_{i=1}^{n} \\frac{q_i}{r_i}", "styles": {} }
+    ]
+  },
+  {
+    "id": "callout-superposition",
+    "type": "callout",
+    "props": { "calloutType": "note" },
+    "content": [
+      { "type": "text", "text": "Potential is a scalar — we simply add contributions algebraically. No vector decomposition needed (unlike electric field).", "styles": {} }
+    ]
+  },
+  {
+    "id": "divider-6",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-6",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "2.6 Equipotential Surfaces", "styles": {} }]
+  },
+  {
+    "id": "para-2-6",
+    "type": "paragraph",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "A surface with the same potential at every point is called an equipotential surface. No work is done in moving a charge along an equipotential surface.", "styles": {} }
+    ]
+  },
+  {
+    "id": "keypoint-equipotential",
+    "type": "keyPoint",
+    "props": { "title": "Properties of equipotential surfaces" },
+    "content": [
+      { "type": "text", "text": "1. Electric field is always perpendicular to equipotential surfaces.\n2. Work done in moving a charge on an equipotential surface is zero.\n3. Equipotential surfaces never cross each other.\n4. For a point charge, equipotential surfaces are concentric spheres.", "styles": {} }
+    ]
+  },
+  {
+    "id": "divider-7",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-6-1",
+    "type": "heading",
+    "props": { "level": 3 },
+    "content": [{ "type": "text", "text": "2.6.1 Relation between Field and Potential", "styles": {} }]
+  },
+  {
+    "id": "math-relation",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "E_x = -\\frac{\\partial V}{\\partial x}, \\quad E_y = -\\frac{\\partial V}{\\partial y}, \\quad E_z = -\\frac{\\partial V}{\\partial z}", "styles": {} }
+    ]
+  },
+  {
+    "id": "math-gradient",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "\\vec{E} = -\\nabla V = -\\text{grad}\\, V", "styles": {} }
+    ]
+  },
+  {
+    "id": "callout-gradient",
+    "type": "callout",
+    "props": { "calloutType": "important" },
+    "content": [
+      { "type": "text", "text": "The negative sign indicates that the electric field points from higher potential to lower potential. The gradient operation gives both magnitude and direction of the field.", "styles": { "bold": true } }
+    ]
+  },
+  {
+    "id": "expandable-gradient",
+    "type": "expandable",
+    "props": { "title": "Derivation — E = -dV/dr for a point charge" },
+    "content": [
+      { "type": "text", "text": "V = Q/(4πε₀r)\n\nE = -dV/dr = -d/dr [Q/(4πε₀r)] = Q/(4πε₀r²)\n\nThe negative sign ensures E points away from positive charge (decreasing V).", "styles": {} }
+    ]
+  },
+  {
+    "id": "divider-8",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-7",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "2.7 Potential Energy of a System of Charges", "styles": {} }]
+  },
+  {
+    "id": "math-pe-two",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "U = \\frac{1}{4\\pi\\varepsilon_0} \\frac{q_1 q_2}{r_{12}}", "styles": {} }
+    ]
+  },
+  {
+    "id": "para-2-7",
+    "type": "paragraph",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "For a system of n charges, the total potential energy is the sum over all pairs:", "styles": {} }
+    ]
+  },
+  {
+    "id": "math-pe-system",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "U = \\frac{1}{4\\pi\\varepsilon_0} \\sum_{i<j} \\frac{q_i q_j}{r_{ij}}", "styles": {} }
+    ]
+  },
+  {
+    "id": "callout-pe",
+    "type": "callout",
+    "props": { "calloutType": "note" },
+    "content": [
+      { "type": "text", "text": "The work done by an external agent in assembling the system equals the potential energy of the system. This is the work done against the electrostatic forces.", "styles": {} }
+    ]
+  },
+  {
+    "id": "divider-9",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-9",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "2.9 Electrostatics of Conductors", "styles": {} }]
+  },
+  {
+    "id": "keypoint-conductors",
+    "type": "keyPoint",
+    "props": { "title": "Key properties of conductors in electrostatic equilibrium" },
+    "content": [
+      { "type": "text", "text": "1. The interior electric field is zero.\n2. The entire conductor is at the same potential.\n3. Any net charge resides on the surface.\n4. The electric field just outside is perpendicular to the surface.\n5. The surface charge density is maximum at sharp points.", "styles": {} }
+    ]
+  },
+  {
+    "id": "callout-shielding",
+    "type": "callout",
+    "props": { "calloutType": "important" },
+    "content": [
+      { "type": "text", "text": "Electrostatic shielding: the interior of a hollow conductor is shielded from external electric fields. This is the principle behind Faraday cages.", "styles": { "bold": true } }
+    ]
+  },
+  {
+    "id": "divider-10",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-10",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "2.10 Dielectrics and Polarisation", "styles": {} }]
+  },
+  {
+    "id": "para-2-10",
+    "type": "paragraph",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "Dielectrics are insulating materials. When placed in an external electric field, the positive and negative charges within atoms/molecules shift slightly — this is called polarisation. The dielectric develops an internal field that opposes the external field.", "styles": {} }
+    ]
+  },
+  {
+    "id": "callout-dielectric",
+    "type": "callout",
+    "props": { "calloutType": "important" },
+    "content": [
+      { "type": "text", "text": "In a polar dielectric (e.g., H₂O), molecules have permanent dipole moments. In a non-polar dielectric (e.g., N₂), dipoles are induced by the external field.", "styles": { "bold": true } }
+    ]
+  },
+  {
+    "id": "divider-11",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-11",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "2.11 Capacitors and Capacitance", "styles": {} }]
+  },
+  {
+    "id": "para-2-11",
+    "type": "paragraph",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "A capacitor is a system of two conductors separated by an insulator. It stores charge and energy.", "styles": {} }
+    ]
+  },
+  {
+    "id": "math-capacitance",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "C = \\frac{Q}{V}", "styles": {} }
+    ]
+  },
+  {
+    "id": "callout-capacitance",
+    "type": "callout",
+    "props": { "calloutType": "note" },
+    "content": [
+      { "type": "text", "text": "Capacitance depends only on geometry (size, shape, separation) and the dielectric material — not on the charge or voltage. SI unit: farad (F) = C/V.", "styles": {} }
+    ]
+  },
+  {
+    "id": "divider-12",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-12",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "2.12 The Parallel Plate Capacitor", "styles": {} }]
+  },
+  {
+    "id": "math-parallel-plate",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "C = \\frac{\\varepsilon_0 A}{d}", "styles": {} }
+    ]
+  },
+  {
+    "id": "para-2-12",
+    "type": "paragraph",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "A = area of each plate, d = separation between plates. The field between the plates is uniform: E = σ/ε₀ = V/d.", "styles": {} }
+    ]
+  },
+  {
+    "id": "expandable-parallel-plate",
+    "type": "expandable",
+    "props": { "title": "Derivation — capacitance of a parallel plate capacitor" },
+    "content": [
+      { "type": "text", "text": "Electric field between plates: E = σ/ε₀ = Q/(ε₀A)\nPotential difference: V = Ed = Qd/(ε₀A)\nCapacitance: C = Q/V = ε₀A/d", "styles": {} }
+    ]
+  },
+  {
+    "id": "divider-13",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-13",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "2.13 Effect of Dielectric on Capacitance", "styles": {} }]
+  },
+  {
+    "id": "math-dielectric",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "C' = K C_0 = \\frac{K \\varepsilon_0 A}{d}", "styles": {} }
+    ]
+  },
+  {
+    "id": "callout-dielectric-effect",
+    "type": "callout",
+    "props": { "calloutType": "important" },
+    "content": [
+      { "type": "text", "text": "Inserting a dielectric of dielectric constant K increases the capacitance by a factor of K. For vacuum, K = 1. For all materials, K > 1.", "styles": { "bold": true } }
+    ]
+  },
+  {
+    "id": "divider-14",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-14",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "2.14 Combination of Capacitors", "styles": {} }]
+  },
+  {
+    "id": "heading-series",
+    "type": "heading",
+    "props": { "level": 3 },
+    "content": [{ "type": "text", "text": "Series Combination", "styles": {} }]
+  },
+  {
+    "id": "math-series",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "\\frac{1}{C_{\\text{eq}}} = \\frac{1}{C_1} + \\frac{1}{C_2} + \\frac{1}{C_3} + \\ldots", "styles": {} }
+    ]
+  },
+  {
+    "id": "heading-parallel",
+    "type": "heading",
+    "props": { "level": 3 },
+    "content": [{ "type": "text", "text": "Parallel Combination", "styles": {} }]
+  },
+  {
+    "id": "math-parallel",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "C_{\\text{eq}} = C_1 + C_2 + C_3 + \\ldots", "styles": {} }
+    ]
+  },
+  {
+    "id": "comparison-series-parallel",
+    "type": "comparison",
+    "props": { "leftTitle": "Series", "rightTitle": "Parallel" },
+    "content": [
+      { "type": "text", "text": "Same charge on each capacitor\nVoltage divides: V = V₁ + V₂ + ...\n1/Ceq = 1/C₁ + 1/C₂ + ...\nEquivalent capacitance < smallest individual", "styles": {} }
+    ]
+  },
+  {
+    "id": "divider-15",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-2-15",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "2.15 Energy Stored in a Capacitor", "styles": {} }]
+  },
+  {
+    "id": "math-energy",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "U = \\frac{1}{2}CV^2 = \\frac{1}{2}\\frac{Q^2}{C} = \\frac{1}{2}QV", "styles": {} }
+    ]
+  },
+  {
+    "id": "math-energy-density",
+    "type": "mathBlock",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "u = \\frac{1}{2}\\varepsilon_0 E^2", "styles": {} }
+    ]
+  },
+  {
+    "id": "callout-energy",
+    "type": "callout",
+    "props": { "calloutType": "important" },
+    "content": [
+      { "type": "text", "text": "Energy is stored in the electric field between the plates, not in the plates themselves. Energy density = energy per unit volume = ½ε₀E².", "styles": { "bold": true } }
+    ]
+  },
+  {
+    "id": "expandable-energy-derivation",
+    "type": "expandable",
+    "props": { "title": "Derivation — energy stored in a capacitor" },
+    "content": [
+      { "type": "text", "text": "Work done in moving charge dq when charge on capacitor is q:\ndW = V dq = (q/C) dq\n\nTotal work: W = ∫₀^Q (q/C) dq = Q²/(2C) = ½CV² = ½QV\n\nThis work is stored as potential energy in the capacitor.", "styles": {} }
+    ]
+  },
+  {
+    "id": "divider-16",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-examples",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "Worked Examples", "styles": {} }]
+  },
+  {
+    "id": "example-1",
+    "type": "example",
+    "props": { "title": "Example 2.1 — Potential Due to Two Charges" },
+    "content": [
+      { "type": "text", "text": "Two charges q₁ = +4 μC and q₂ = -4 μC are placed at points A(0, 0, 0) and B(0, 0, 0.2) m. Find the potential at point P(0, 0, 0.1) m.\n\nV = (1/4πε₀)[q₁/r₁ + q₂/r₂] = 9×10⁹ [4×10⁻⁶/0.1 + (-4×10⁻⁶)/0.1] = 0\n\nThe potentials cancel because the charges are equal and opposite, and P is equidistant from both.", "styles": {} }
+    ]
+  },
+  {
+    "id": "example-2",
+    "type": "example",
+    "props": { "title": "Example 2.2 — Capacitance with Dielectric" },
+    "content": [
+      { "type": "text", "text": "A parallel plate capacitor has capacitance C₀ = 10 μF. A dielectric slab of K = 5 is inserted between the plates while the battery remains connected.\n\nNew capacitance: C' = KC₀ = 5 × 10 = 50 μF\nSince V is constant (battery connected), Q' = C'V = 5Q₀\nThe charge increases five-fold.", "styles": {} }
+    ]
+  },
+  {
+    "id": "divider-17",
+    "type": "divider",
+    "props": {}
+  },
+  {
+    "id": "heading-summary",
+    "type": "heading",
+    "props": { "level": 2 },
+    "content": [{ "type": "text", "text": "Summary", "styles": {} }]
+  },
+  {
+    "id": "summary-1",
+    "type": "bulletListItem",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "Electrostatic potential V = U/q. Scalar quantity. Unit: volt (V).", "styles": {} }
+    ]
+  },
+  {
+    "id": "summary-2",
+    "type": "bulletListItem",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "Potential due to point charge: V = Q/(4πε₀r). Due to dipole: V = p cos θ/(4πε₀r²).", "styles": {} }
+    ]
+  },
+  {
+    "id": "summary-3",
+    "type": "bulletListItem",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "E⃗ = -∇V (field is negative gradient of potential).", "styles": {} }
+    ]
+  },
+  {
+    "id": "summary-4",
+    "type": "bulletListItem",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "Equipotential surfaces: V = constant everywhere on surface. E⃗ ⊥ to surface. No work done moving charge on surface.", "styles": {} }
+    ]
+  },
+  {
+    "id": "summary-5",
+    "type": "bulletListItem",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "Capacitance C = Q/V. Depends on geometry only. Parallel plate: C = ε₀A/d.", "styles": {} }
+    ]
+  },
+  {
+    "id": "summary-6",
+    "type": "bulletListItem",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "Dielectric increases capacitance by factor K: C' = KC₀.", "styles": {} }
+    ]
+  },
+  {
+    "id": "summary-7",
+    "type": "bulletListItem",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "Energy stored: U = ½CV² = ½Q²/C = ½QV. Energy density: u = ½ε₀E².", "styles": {} }
+    ]
+  },
+  {
+    "id": "summary-8",
+    "type": "bulletListItem",
+    "props": {},
+    "content": [
+      { "type": "text", "text": "Series: 1/Ceq = Σ(1/Cᵢ). Parallel: Ceq = ΣCᵢ.", "styles": {} }
+    ]
+  }
+]

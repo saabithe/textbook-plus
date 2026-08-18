@@ -158,7 +158,7 @@
   }
 }
 
-/* MDX content typography */
+/* Chapter content typography */
 .prose-custom {
   @apply max-w-none text-base leading-relaxed;
 }
@@ -229,31 +229,6 @@
 
 .prose-custom em {
   @apply italic;
-}
-
-/* KaTeX formula spacing + readability overrides */
-@import "katex/dist/katex.min.css";
-
-.katex-display {
-  margin: 2rem 0;
-  line-height: 2.0;
-}
-
-.katex-display > .katex {
-  font-size: 1.25em;
-}
-
-.katex .mbin {
-  padding: 0 0.15em;
-}
-
-.katex .mrel {
-  padding: 0 0.15em;
-}
-
-.katex .mopen,
-.katex .mclose {
-  padding: 0 0.05em;
 }
 
 /* Hide scrollbar */

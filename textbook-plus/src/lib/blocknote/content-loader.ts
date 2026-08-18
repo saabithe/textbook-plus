@@ -1,10 +1,16 @@
-import type { ChapterSection, Question, Flashcard } from "@/types/chapter";
+import type { Block } from "@blocknote/core";
+import type { ChapterSection } from "@/types/chapter";
 
-import PhysicsElectricChargesQuestions from "@/content/physics/electric-charges-and-fields/questions.json";
-import PhysicsElectricChargesFlashcards from "@/content/physics/electric-charges-and-fields/flashcards.json";
-
-import PhysicsElectrostaticPotentialQuestions from "@/content/physics/electrostatic-potential-and-capacitance/questions.json";
-import PhysicsElectrostaticPotentialFlashcards from "@/content/physics/electrostatic-potential-and-capacitance/flashcards.json";
+const BLOCKS_MAP: Record<string, { subject: string; loader: () => Promise<unknown> }> = {
+  "electric-charges-and-fields": {
+    subject: "physics",
+    loader: () => import("@/content/physics/electric-charges-and-fields/chapter.json"),
+  },
+  "electrostatic-potential-and-capacitance": {
+    subject: "physics",
+    loader: () => import("@/content/physics/electrostatic-potential-and-capacitance/chapter.json"),
+  },
+};
 
 const SECTIONS_MAP: Record<string, ChapterSection[]> = {
   "electric-charges-and-fields": [
@@ -50,32 +56,21 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
   ],
 };
 
-const QUESTIONS_MAP: Record<string, Question[]> = {
-  "electric-charges-and-fields": PhysicsElectricChargesQuestions as Question[],
-  "electrostatic-potential-and-capacitance": PhysicsElectrostaticPotentialQuestions as Question[],
-};
+export async function loadChapterBlocks(slug: string): Promise<Block[] | null> {
+  const entry = BLOCKS_MAP[slug];
+  if (!entry) return null;
+  try {
+    const mod = await entry.loader();
+    return (mod as { default: Block[] }).default;
+  } catch {
+    return null;
+  }
+}
 
-const FLASHCARDS_MAP: Record<string, Flashcard[]> = {
-  "electric-charges-and-fields": PhysicsElectricChargesFlashcards as Flashcard[],
-  "electrostatic-potential-and-capacitance": PhysicsElectrostaticPotentialFlashcards as Flashcard[],
-};
-
-export function getSectionsForChapter(slug: string): ChapterSection[] {
+export function getSectionsForBlockNoteChapter(slug: string): ChapterSection[] {
   return SECTIONS_MAP[slug] ?? [];
 }
 
-export function getQuestionsForChapter(slug: string): Question[] {
-  return QUESTIONS_MAP[slug] ?? [];
-}
-
-export function getFlashcardsForChapter(slug: string): Flashcard[] {
-  return FLASHCARDS_MAP[slug] ?? [];
-}
-
-export function hasQuestions(slug: string): boolean {
-  return slug in QUESTIONS_MAP;
-}
-
-export function hasFlashcards(slug: string): boolean {
-  return slug in FLASHCARDS_MAP;
+export function hasBlockNoteContent(slug: string): boolean {
+  return slug in BLOCKS_MAP;
 }
