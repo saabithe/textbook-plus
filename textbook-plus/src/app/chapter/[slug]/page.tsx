@@ -3,6 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { getChapterBySlugFromAll, getAllChapters } from "@/data/chapters";
 import { getSubjectBySlug } from "@/data/subjects";
 import { ChapterLayout } from "@/components/chapter/ChapterLayout";
+import { MDXContent } from "./mdx-content";
 
 export function generateStaticParams() {
   return getAllChapters().map((ch) => ({ slug: ch.slug }));
@@ -33,14 +34,6 @@ export default async function ChapterPage({
   const subject = getSubjectBySlug(chapter.subjectSlug);
   if (!subject) notFound();
 
-  let MDXContent: React.ComponentType | null = null;
-  try {
-    const mod = await import(`@/content/${slug}/page.mdx`);
-    MDXContent = mod.default;
-  } catch {
-    MDXContent = null;
-  }
-
   return (
     <>
       <Navbar />
@@ -50,8 +43,9 @@ export default async function ChapterPage({
           subjectName={subject.name}
           subjectSlug={subject.slug}
           subjectColor={subject.color}
-          MDXContent={MDXContent}
-        />
+        >
+          <MDXContent slug={slug} />
+        </ChapterLayout>
       </main>
     </>
   );

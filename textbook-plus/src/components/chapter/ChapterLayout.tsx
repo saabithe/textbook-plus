@@ -11,7 +11,7 @@ interface ChapterLayoutProps {
   subjectName: string;
   subjectSlug: string;
   subjectColor: string;
-  MDXContent: React.ComponentType | null;
+  children: React.ReactNode;
 }
 
 export function ChapterLayout({
@@ -19,7 +19,7 @@ export function ChapterLayout({
   subjectName,
   subjectSlug,
   subjectColor,
-  MDXContent,
+  children,
 }: ChapterLayoutProps) {
   const { prev, next } = getAdjacentChapters(chapter);
 
@@ -68,20 +68,7 @@ export function ChapterLayout({
 
       {/* Content */}
       <article className="max-w-3xl">
-        {MDXContent ? (
-          <div className="prose-custom">
-            <MDXContent />
-          </div>
-        ) : (
-          <div className="rounded-xl border border-dashed border-border/60 bg-muted/20 px-8 py-16 text-center">
-            <p className="text-lg font-medium text-muted-foreground">
-              Content coming soon
-            </p>
-            <p className="text-sm text-muted-foreground/70 mt-1">
-              This chapter is being prepared.
-            </p>
-          </div>
-        )}
+        {children}
 
         <ChapterNav prev={prev} next={next} subjectColor={subjectColor} />
       </article>
