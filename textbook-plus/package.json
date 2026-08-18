@@ -4,20 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "node scripts/generate-content-map.js && node scripts/generate-sw.js && next build --webpack",
-    "prebuild": "node scripts/generate-content-map.js",
+    "build": "node scripts/generate-sw.js && next build --webpack",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
-    "@blocknote/core": "^0.54.0",
-    "@blocknote/mantine": "^0.54.0",
-    "@blocknote/math-block": "^0.54.0",
-    "@blocknote/react": "^0.54.0",
     "@supabase/ssr": "^0.12.4",
+    "@types/katex": "^0.16.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "katex": "^0.18.4",
     "lucide-react": "^1.31.0",
     "next": "16.3.1",
     "react": "19.2.8",

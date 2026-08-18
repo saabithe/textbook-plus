@@ -69,3 +69,9 @@ export function hasQuestions(slug: string): boolean {
 export function hasFlashcards(slug: string): boolean {
   return slug in FLASHCARDS_MAP;
 }
+
+const CONTENT_SLUGS = new Set(Object.keys(QUESTIONS_MAP));
+
+export function hasChapterContent(slug: string): boolean {
+  return CONTENT_SLUGS.has(slug);
+}

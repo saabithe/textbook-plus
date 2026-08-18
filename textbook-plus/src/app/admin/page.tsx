@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { chapters } from "@/data/chapters";
 import { subjects } from "@/data/subjects";
-import { hasBlockNoteContent } from "@/lib/blocknote/content-loader";
+import { hasChapterContent } from "@/lib/content";
 
 export default function AdminPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-2">Content Admin</h1>
       <p className="text-muted-foreground mb-8">
-        Manage chapter content. Chapters with BlockNote content are marked below.
+        Manage chapter content. Chapters with content are marked below.
       </p>
 
       <div className="space-y-8">
@@ -21,7 +21,7 @@ export default function AdminPage() {
               </h2>
               <div className="grid gap-2">
                 {subjectChapters.map((ch) => {
-                  const hasBN = hasBlockNoteContent(ch.slug);
+                  const hasContent = hasChapterContent(ch.slug);
                   return (
                     <div
                       key={ch.id}
@@ -32,9 +32,9 @@ export default function AdminPage() {
                           {ch.number}
                         </span>
                         <span className="text-sm font-medium">{ch.title}</span>
-                        {hasBN && (
+                        {hasContent && (
                           <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-primary/10 text-primary">
-                            BlockNote
+                            Content
                           </span>
                         )}
                       </div>
