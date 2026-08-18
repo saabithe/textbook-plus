@@ -15,6 +15,7 @@ This file tracks ALL user preferences, design decisions, and customization choic
 | Speed preference | Quality over speed — slow is okay | Aug 2026 |
 | Decision workflow | Agent asks before every change via clickable MCQ modals | Aug 2026 |
 | Approval style | Controlled — ask, wait for user choice, then implement | Aug 2026 |
+| Git push | Only after user approval — never auto-push | Aug 2026 |
 | Stop mid-task | Auto-save to `Pending/[name]_NNNN.md` (0001, 0002, ...) — agent does this without asking | Aug 2026 |
 | Continue task | User says "continue [name]_NNNN.md" — agent reads it and resumes. Delete file when done. | Aug 2026 |
 | Pending folder | Gitignored — lives locally only, not on GitHub | Aug 2026 |
