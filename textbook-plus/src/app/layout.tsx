@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { ServiceWorkerRegistration } from "@/components/layout/ServiceWorkerRegistration";
+import { UpdateBanner } from "@/components/layout/UpdateBanner";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col font-sans">
         <ThemeProvider>
           <ServiceWorkerRegistration />
+          <UpdateBanner />
           {children}
         </ThemeProvider>
       </body>

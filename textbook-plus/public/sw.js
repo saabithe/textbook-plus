@@ -10,6 +10,7 @@ const PRECACHE_URLS = [
   "/icon.svg",
   "/icon-192.png",
   "/icon-512.png",
+  "/_offline",
 ];
 
 self.addEventListener("install", (event) => {
@@ -35,6 +36,26 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
+  const url = new URL(event.request.url);
+
+  // Next.js hashed assets — cache-first (immutable)
+  if (url.pathname.startsWith("/_next/static/")) {
+    event.respondWith(
+      caches.match(event.request).then((cached) => {
+        if (cached) return cached;
+        return fetch(event.request).then((response) => {
+          if (response && response.status === 200) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          }
+          return response;
+        });
+      })
+    );
+    return;
+  }
+
+  // Everything else — stale-while-revalidate
   event.respondWith(
     caches.match(event.request).then((cached) => {
       const fetched = fetch(event.request)
