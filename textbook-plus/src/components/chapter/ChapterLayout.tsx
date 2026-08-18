@@ -2,11 +2,7 @@
 
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { Sidebar } from "./Sidebar";
-import { MobileSidebar } from "./MobileSidebar";
-import { ChapterContent } from "./ChapterContent";
 import { ChapterNav } from "./ChapterNav";
-import { getChapterContent } from "@/data/sample-chapter";
 import { getAdjacentChapters } from "@/data/chapters";
 import type { Chapter } from "@/data/chapters";
 
@@ -15,13 +11,17 @@ interface ChapterLayoutProps {
   subjectName: string;
   subjectSlug: string;
   subjectColor: string;
+  MDXContent: React.ComponentType | null;
 }
 
-export function ChapterLayout({ chapter, subjectName, subjectSlug, subjectColor }: ChapterLayoutProps) {
-  const content = getChapterContent(chapter.slug);
+export function ChapterLayout({
+  chapter,
+  subjectName,
+  subjectSlug,
+  subjectColor,
+  MDXContent,
+}: ChapterLayoutProps) {
   const { prev, next } = getAdjacentChapters(chapter);
-
-  const sections = content?.sections ?? [];
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-10">
@@ -47,7 +47,7 @@ export function ChapterLayout({ chapter, subjectName, subjectSlug, subjectColor 
       </nav>
 
       {/* Chapter Header */}
-      <header className="mb-10 flex items-start justify-between gap-4">
+      <header className="mb-10">
         <div className="space-y-2">
           <div className="flex items-center gap-3">
             <span
@@ -64,40 +64,27 @@ export function ChapterLayout({ chapter, subjectName, subjectSlug, subjectColor 
             {chapter.topicCount} topics
           </p>
         </div>
-        <MobileSidebar
-          sections={sections}
-          subjectColor={subjectColor}
-          chapterTitle={chapter.title}
-        />
       </header>
 
-      {/* Two-column layout */}
-      <div className="flex gap-12">
-        {/* Desktop sidebar */}
-        <aside className="hidden lg:block w-64 shrink-0">
-          <div className="sticky top-24">
-            <Sidebar sections={sections} subjectColor={subjectColor} />
+      {/* Content */}
+      <article className="max-w-3xl">
+        {MDXContent ? (
+          <div className="prose-custom">
+            <MDXContent />
           </div>
-        </aside>
+        ) : (
+          <div className="rounded-xl border border-dashed border-border/60 bg-muted/20 px-8 py-16 text-center">
+            <p className="text-lg font-medium text-muted-foreground">
+              Content coming soon
+            </p>
+            <p className="text-sm text-muted-foreground/70 mt-1">
+              This chapter is being prepared.
+            </p>
+          </div>
+        )}
 
-        {/* Content */}
-        <article className="min-w-0 flex-1 max-w-3xl">
-          {sections.length > 0 ? (
-            <ChapterContent sections={sections} />
-          ) : (
-            <div className="rounded-xl border border-dashed border-border/60 bg-muted/20 px-8 py-16 text-center">
-              <p className="text-lg font-medium text-muted-foreground">
-                Content coming soon
-              </p>
-              <p className="text-sm text-muted-foreground/70 mt-1">
-                This chapter is being prepared.
-              </p>
-            </div>
-          )}
-
-          <ChapterNav prev={prev} next={next} subjectColor={subjectColor} />
-        </article>
-      </div>
+        <ChapterNav prev={prev} next={next} subjectColor={subjectColor} />
+      </article>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import type { ChapterSection, ContentBlock } from "@/data/sample-chapter";
+import type { ChapterSection, ContentBlock } from "@/types/chapter";
 import { Callout } from "./Callout";
 import { KeyPoint } from "./KeyPoint";
 import { FormulaBlock } from "./FormulaBlock";

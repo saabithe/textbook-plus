@@ -1,0 +1,82 @@
+import { Callout } from "@/components/mdx/Callout";
+import { KeyPoint } from "@/components/mdx/KeyPoint";
+import { Formula } from "@/components/mdx/Formula";
+import { Example } from "@/components/mdx/Example";
+
+## 1.1 Electric Charge
+
+Electric charge is a fundamental property of matter. Just as mass is a property that determines the gravitational force between objects, electric charge determines the electromagnetic force between particles. Every object contains an enormous number of atoms, each consisting of a nucleus (containing protons and neutrons) surrounded by electrons.
+
+There are two types of electric charges: positive (+) and negative (−). Protons carry positive charge, while electrons carry negative charge. Neutrons, as their name suggests, are electrically neutral. The charge of a single proton is $+1.6 \times 10^{-19}$ C, and the charge of a single electron is $-1.6 \times 10^{-19}$ C.
+
+<KeyPoint>
+Like charges repel, unlike charges attract. The force between charges is governed by Coulomb's Law.
+</KeyPoint>
+
+## 1.2 Conduction and Induction
+
+Charges can be transferred from one body to another through direct contact (conduction) or through the influence of a nearby charged body (induction). In conduction, a charged body touches a neutral body and shares some of its charge. In induction, a charged body is brought near a neutral body, causing redistribution of charges without direct contact.
+
+<Callout type="important">
+A glass rod rubbed with silk becomes positively charged, while an ebonite rod rubbed with fur becomes negatively charged. This was one of the earliest observations of electric charge by Benjamin Franklin.
+</Callout>
+
+When a charged body is brought near an uncharged conductor, the free electrons in the conductor move towards or away from the charged body, depending on whether the body is positive or negative. This redistribution of charge is called electrostatic induction.
+
+## 1.3 Coulomb's Law
+
+Coulomb's Law describes the force between two point charges. The magnitude of the electrostatic force between two point charges is directly proportional to the product of the magnitudes of the charges and inversely proportional to the square of the distance between them.
+
+<Formula title="Coulomb's Law">
+$$F = k \frac{|q_1 \cdot q_2|}{r^2}$$
+</Formula>
+
+where $k$ is Coulomb's constant ($k \approx 8.99 \times 10^9 \text{ N·m}^2/\text{C}^2$), $q_1$ and $q_2$ are the magnitudes of the two charges, and $r$ is the distance between them. The force acts along the line joining the two charges.
+
+<Example title="Example 1">
+Two point charges of $+2\,\mu\text{C}$ and $-3\,\mu\text{C}$ are placed $0.5$ m apart. Calculate the force between them.
+
+$$F = \frac{(8.99 \times 10^9) \times (2 \times 10^{-6} \times 3 \times 10^{-6})}{(0.5)^2}$$
+
+$$F = \frac{8.99 \times 10^9 \times 6 \times 10^{-12}}{0.25}$$
+
+$$F = 0.216 \text{ N (attractive force)}$$
+</Example>
+
+## 1.4 Electric Field
+
+The electric field is a vector field that describes the force that would be exerted on a positive test charge at any point in space. The electric field $\mathbf{E}$ at a point is defined as the force per unit charge experienced by a small positive test charge placed at that point.
+
+<Formula title="Electric Field">
+$$\mathbf{E} = \frac{\mathbf{F}}{q} = k \frac{Q}{r^2}$$
+</Formula>
+
+The electric field due to a point charge $Q$ at a distance $r$ is directed radially outward from $Q$ if $Q$ is positive, and radially inward if $Q$ is negative. The SI unit of electric field is N/C or V/m.
+
+<Callout type="note">
+Electric field lines never cross each other. They start from positive charges and end at negative charges. The density of field lines represents the strength of the field.
+</Callout>
+
+## 1.5 Electric Flux
+
+Electric flux is a measure of the number of electric field lines passing through a given surface. For a uniform electric field $\mathbf{E}$ and a flat surface of area $A$, the electric flux is defined as the dot product of the electric field vector and the area vector.
+
+<Formula title="Electric Flux">
+$$\Phi = \mathbf{E} \cdot \mathbf{A} = EA\cos\theta$$
+</Formula>
+
+where $\theta$ is the angle between the electric field and the normal to the surface. The SI unit of electric flux is $\text{N·m}^2/\text{C}$ or $\text{V·m}$. When the surface is perpendicular to the field ($\theta = 0°$), the flux is maximum. When the surface is parallel to the field ($\theta = 90°$), the flux is zero.
+
+## 1.6 Gauss's Law
+
+Gauss's Law relates the total electric flux through a closed surface to the total charge enclosed by that surface. It states that the net electric flux through any closed surface is equal to the enclosed charge divided by the permittivity of free space.
+
+<Formula title="Gauss's Law">
+$$\oint \mathbf{E} \cdot d\mathbf{A} = \frac{Q_{\text{enclosed}}}{\varepsilon_0}$$
+</Formula>
+
+where $\varepsilon_0$ (permittivity of free space) $\approx 8.854 \times 10^{-12} \text{ C}^2/(\text{N·m}^2)$. Gauss's Law is particularly useful for calculating electric fields of symmetric charge distributions such as spheres, cylinders, and infinite planes.
+
+<KeyPoint>
+Gauss's Law is equivalent to Coulomb's Law but is often simpler to apply for symmetric charge distributions. The choice of Gaussian surface is critical to simplifying the calculation.
+</KeyPoint>

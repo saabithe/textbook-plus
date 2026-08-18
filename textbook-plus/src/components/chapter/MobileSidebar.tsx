@@ -8,7 +8,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Sidebar } from "./Sidebar";
-import type { ChapterSection } from "@/data/sample-chapter";
+import type { ChapterSection } from "@/types/chapter";
 
 interface MobileSidebarProps {
   sections: ChapterSection[];

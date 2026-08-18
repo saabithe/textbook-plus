@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
-import type { ChapterSection } from "@/data/sample-chapter";
+import type { ChapterSection } from "@/types/chapter";
 
 interface SidebarProps {
   sections: ChapterSection[];
