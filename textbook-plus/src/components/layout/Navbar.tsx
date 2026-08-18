@@ -3,11 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { Sun, Moon, Home, BarChart3, Search } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { Sun, Moon, Home, BarChart3, Search, Cloud, CloudOff, Loader2, LogIn, LogOut, User, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import { useFontSize } from "@/hooks/useFontSize";
+import { useSync } from "@/components/auth/SyncProvider";
+import { useAuth } from "@/components/auth/AuthProvider";
 import { SearchModal } from "@/components/search/SearchModal";
 
 const navLinks = [
@@ -17,9 +19,13 @@ const navLinks = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const { theme, toggle } = useTheme();
   const { decrease, increase, canDecrease, canIncrease } = useFontSize();
+  const { status } = useSync();
+  const { user, isAnonymous, supabase } = useAuth();
   const [searchOpen, setSearchOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -31,6 +37,19 @@ export function Navbar() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
+
+  // Close menu on outside click
+  useEffect(() => {
+    if (!menuOpen) return;
+    function handleClick() { setMenuOpen(false); }
+    window.addEventListener("click", handleClick);
+    return () => window.removeEventListener("click", handleClick);
+  }, [menuOpen]);
+
+  async function handleSignOut() {
+    await supabase.auth.signOut();
+    router.push("/");
+  }
 
   return (
     <>
@@ -111,6 +130,76 @@ export function Navbar() {
                 A+
               </button>
             </div>
+
+            {/* Sync Status */}
+            <div
+              className={cn(
+                "flex h-9 w-9 items-center justify-center rounded-lg border border-border/60 bg-muted/50 transition-all duration-200",
+                status === "syncing" && "text-blue-500",
+                status === "error" && "text-amber-500",
+                status === "idle" && "text-muted-foreground",
+                status === "offline" && "text-muted-foreground"
+              )}
+              title={
+                status === "syncing"
+                  ? "Syncing progress..."
+                  : status === "error"
+                  ? "Sync failed — will retry"
+                  : status === "offline"
+                  ? "Offline — changes saved locally"
+                  : "Progress synced"
+              }
+            >
+              {status === "syncing" ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : status === "error" ? (
+                <CloudOff className="h-4 w-4" />
+              ) : (
+                <Cloud className="h-4 w-4" />
+              )}
+            </div>
+
+            {/* Auth Menu */}
+            {isAnonymous || !user ? (
+              <Link
+                href="/login"
+                className="flex h-9 items-center gap-1.5 rounded-lg border border-border/60 bg-muted/50 px-3 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground"
+              >
+                <LogIn className="h-4 w-4" />
+                <span className="hidden sm:inline">Sign In</span>
+              </Link>
+            ) : (
+              <div className="relative">
+                <button
+                  onClick={(e) => { e.stopPropagation(); setMenuOpen((prev) => !prev); }}
+                  className="flex h-9 items-center gap-1.5 rounded-lg border border-border/60 bg-muted/50 px-3 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground"
+                >
+                  <User className="h-4 w-4" />
+                  <span className="hidden sm:inline max-w-[100px] truncate">{user.email}</span>
+                </button>
+                {menuOpen && (
+                  <div className="absolute right-0 top-full mt-1 w-48 rounded-xl border border-border/60 bg-card p-1 shadow-lg z-50">
+                    <div className="px-3 py-2 text-xs text-muted-foreground truncate border-b border-border/40 mb-1">
+                      {user.email}
+                    </div>
+                    <Link
+                      href="/account"
+                      className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                    >
+                      <Settings className="h-4 w-4" />
+                      Account
+                    </Link>
+                    <button
+                      onClick={handleSignOut}
+                      className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                    >
+                      <LogOut className="h-4 w-4" />
+                      Sign Out
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Theme Toggle */}
             <button

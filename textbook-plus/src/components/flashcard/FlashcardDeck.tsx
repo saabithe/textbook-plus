@@ -9,13 +9,15 @@ import type { Flashcard } from "@/types/chapter";
 interface FlashcardDeckProps {
   cards: Flashcard[];
   subjectColor: string;
+  initialKnown?: string[];
+  initialUnknown?: string[];
   onProgressUpdate?: (known: string[], unknown: string[]) => void;
 }
 
-export function FlashcardDeck({ cards, subjectColor, onProgressUpdate }: FlashcardDeckProps) {
+export function FlashcardDeck({ cards, subjectColor, initialKnown = [], initialUnknown = [], onProgressUpdate }: FlashcardDeckProps) {
   const [current, setCurrent] = useState(0);
-  const [knownIds, setKnownIds] = useState<Set<string>>(new Set());
-  const [unknownIds, setUnknownIds] = useState<Set<string>>(new Set());
+  const [knownIds, setKnownIds] = useState<Set<string>>(() => new Set(initialKnown));
+  const [unknownIds, setUnknownIds] = useState<Set<string>>(() => new Set(initialUnknown));
 
   const card = cards[current];
 

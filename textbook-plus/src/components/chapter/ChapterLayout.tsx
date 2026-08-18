@@ -158,12 +158,13 @@ function PracticeTabContent({
   subjectSlug: string;
   subjectColor: string;
 }) {
-  const { updateFlashcardProgress } = useProgress(subjectSlug);
+  const { getChapterPractice, updateFlashcardProgress, markQuestionRevealed } = useProgress(subjectSlug);
   const hasQ = hasQuestions(chapterSlug);
   const hasFC = hasFlashcards(chapterSlug);
   const [subTab, setSubTab] = useState<"questions" | "flashcards">(hasQ ? "questions" : "flashcards");
   const questions = getQuestionsForChapter(chapterSlug);
   const flashcards = getFlashcardsForChapter(chapterSlug);
+  const practice = getChapterPractice(chapterSlug);
 
   if (!hasQ && !hasFC) {
     return (
@@ -207,12 +208,19 @@ function PracticeTabContent({
 
       {/* Content */}
       {subTab === "questions" && hasQ && (
-        <PracticeSession questions={questions} subjectColor={subjectColor} />
+        <PracticeSession
+          questions={questions}
+          subjectColor={subjectColor}
+          revealedIds={practice.questionsRevealed}
+          onQuestionRevealed={(id) => markQuestionRevealed(chapterSlug, id)}
+        />
       )}
       {subTab === "flashcards" && hasFC && (
         <FlashcardDeck
           cards={flashcards}
           subjectColor={subjectColor}
+          initialKnown={practice.flashcardsKnown}
+          initialUnknown={practice.flashcardsUnknown}
           onProgressUpdate={(known, unknown) => updateFlashcardProgress(chapterSlug, known, unknown)}
         />
       )}

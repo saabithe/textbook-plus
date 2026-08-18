@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Eye, EyeOff, CheckCircle2, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Question } from "@/types/chapter";
@@ -9,11 +9,19 @@ interface QuestionCardProps {
   question: Question;
   index: number;
   subjectColor: string;
+  isRevealed?: boolean;
+  onReveal?: () => void;
 }
 
-export function QuestionCard({ question, index, subjectColor }: QuestionCardProps) {
+export function QuestionCard({ question, index, subjectColor, isRevealed = false, onReveal }: QuestionCardProps) {
   const [selected, setSelected] = useState<number | null>(null);
-  const [revealed, setRevealed] = useState(false);
+  const [revealed, setRevealed] = useState(isRevealed);
+
+  // Sync when navigating to a different question that was already revealed
+  useEffect(() => {
+    setRevealed(isRevealed);
+    setSelected(null);
+  }, [question.id, isRevealed]);
 
   const isMCQ = question.type === "mcq";
   const correctIndex = isMCQ ? (question.answer as number) : null;
@@ -25,6 +33,7 @@ export function QuestionCard({ question, index, subjectColor }: QuestionCardProp
 
   function handleReveal() {
     setRevealed(true);
+    onReveal?.();
   }
 
   function handleReset() {

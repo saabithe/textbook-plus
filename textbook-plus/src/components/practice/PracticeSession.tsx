@@ -10,11 +10,13 @@ import type { Question } from "@/types/chapter";
 interface PracticeSessionProps {
   questions: Question[];
   subjectColor: string;
+  revealedIds?: string[];
+  onQuestionRevealed?: (questionId: string) => void;
 }
 
 type Difficulty = "all" | "easy" | "medium" | "hard";
 
-export function PracticeSession({ questions, subjectColor }: PracticeSessionProps) {
+export function PracticeSession({ questions, subjectColor, revealedIds = [], onQuestionRevealed }: PracticeSessionProps) {
   const [difficulty, setDifficulty] = useState<Difficulty>("all");
   const [current, setCurrent] = useState(0);
   const [showList, setShowList] = useState(false);
@@ -139,6 +141,8 @@ export function PracticeSession({ questions, subjectColor }: PracticeSessionProp
           question={question}
           index={current + 1}
           subjectColor={subjectColor}
+          isRevealed={revealedIds.includes(question.id)}
+          onReveal={() => onQuestionRevealed?.(question.id)}
         />
       )}
 

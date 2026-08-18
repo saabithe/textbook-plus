@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
+import { AuthProvider } from "@/components/auth/AuthProvider";
+import { SyncProvider } from "@/components/auth/SyncProvider";
+import { MigrateBanner } from "@/components/auth/MigrateBanner";
+import { ErrorBoundary } from "@/components/auth/ErrorBoundary";
 import { ServiceWorkerRegistration } from "@/components/layout/ServiceWorkerRegistration";
 import { UpdateBanner } from "@/components/layout/UpdateBanner";
 import "./globals.css";
@@ -59,9 +63,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full flex flex-col font-sans">
         <ThemeProvider>
-          <ServiceWorkerRegistration />
-          <UpdateBanner />
-          {children}
+          <AuthProvider>
+            <SyncProvider>
+              <MigrateBanner />
+              <ServiceWorkerRegistration />
+              <UpdateBanner />
+              <ErrorBoundary>
+                {children}
+              </ErrorBoundary>
+            </SyncProvider>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

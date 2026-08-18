@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import { useSync } from "@/components/auth/SyncProvider";
 
 interface ChapterPracticeState {
   questionsRevealed: string[];
@@ -8,44 +9,42 @@ interface ChapterPracticeState {
   flashcardsUnknown: string[];
 }
 
-function getStorageKey(subjectSlug: string) {
-  return `progress:${subjectSlug}`;
-}
+export type { ChapterPracticeState };
 
-function getPracticeKey(subjectSlug: string) {
-  return `practice:${subjectSlug}`;
-}
+// ── localStorage helpers (offline fallback, always kept in sync) ──
 
-function loadPractice(subjectSlug: string): Record<string, ChapterPracticeState> {
+function lsProgressKey(s: string) { return `progress:${s}`; }
+function lsPracticeKey(s: string) { return `practice:${s}`; }
+
+function readLsProgress(subjectSlug: string): string[] {
   try {
-    const stored = localStorage.getItem(getPracticeKey(subjectSlug));
-    return stored ? JSON.parse(stored) : {};
-  } catch {
-    return {};
-  }
+    const raw = localStorage.getItem(lsProgressKey(subjectSlug));
+    return raw ? JSON.parse(raw) : [];
+  } catch { return []; }
 }
 
-function savePractice(subjectSlug: string, data: Record<string, ChapterPracticeState>) {
+function readLsPractice(subjectSlug: string): Record<string, ChapterPracticeState> {
   try {
-    localStorage.setItem(getPracticeKey(subjectSlug), JSON.stringify(data));
-  } catch {
-    // ignore
-  }
+    const raw = localStorage.getItem(lsPracticeKey(subjectSlug));
+    return raw ? JSON.parse(raw) : {};
+  } catch { return {}; }
 }
+
+// ── Hook ──────────────────────────────────────────────────────────
 
 export function useProgress(subjectSlug: string) {
+  const sync = useSync();
   const [completed, setCompleted] = useState<string[]>([]);
   const [practice, setPractice] = useState<Record<string, ChapterPracticeState>>({});
 
+  // Load on mount — prefer sync (cloud) data, fall back to localStorage
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(getStorageKey(subjectSlug));
-      if (stored) setCompleted(JSON.parse(stored));
-    } catch {
-      // ignore
-    }
-    setPractice(loadPractice(subjectSlug));
-  }, [subjectSlug]);
+    const cloudProgress = sync.loadProgress(subjectSlug);
+    const cloudPractice = sync.loadPractice(subjectSlug);
+
+    setCompleted(cloudProgress !== null ? cloudProgress : readLsProgress(subjectSlug));
+    setPractice(cloudPractice !== null ? cloudPractice : readLsPractice(subjectSlug));
+  }, [subjectSlug, sync]);
 
   const toggle = useCallback(
     (chapterSlug: string) => {
@@ -53,15 +52,11 @@ export function useProgress(subjectSlug: string) {
         const next = prev.includes(chapterSlug)
           ? prev.filter((s) => s !== chapterSlug)
           : [...prev, chapterSlug];
-        try {
-          localStorage.setItem(getStorageKey(subjectSlug), JSON.stringify(next));
-        } catch {
-          // ignore
-        }
+        sync.saveProgress(subjectSlug, next);
         return next;
       });
     },
-    [subjectSlug]
+    [subjectSlug, sync]
   );
 
   const isCompleted = useCallback(
@@ -85,11 +80,11 @@ export function useProgress(subjectSlug: string) {
             questionsRevealed: [...chapterState.questionsRevealed, questionId],
           },
         };
-        savePractice(subjectSlug, next);
+        sync.savePractice(subjectSlug, next);
         return next;
       });
     },
-    [subjectSlug]
+    [subjectSlug, sync]
   );
 
   const getChapterPractice = useCallback(
@@ -108,24 +103,19 @@ export function useProgress(subjectSlug: string) {
   const updateFlashcardProgress = useCallback(
     (chapterSlug: string, known: string[], unknown: string[]) => {
       setPractice((prev) => {
-        const chapterState = prev[chapterSlug] ?? {
-          questionsRevealed: [],
-          flashcardsKnown: [],
-          flashcardsUnknown: [],
-        };
         const next = {
           ...prev,
           [chapterSlug]: {
-            ...chapterState,
+            questionsRevealed: prev[chapterSlug]?.questionsRevealed ?? [],
             flashcardsKnown: known,
             flashcardsUnknown: unknown,
           },
         };
-        savePractice(subjectSlug, next);
+        sync.savePractice(subjectSlug, next);
         return next;
       });
     },
-    [subjectSlug]
+    [subjectSlug, sync]
   );
 
   return {
@@ -137,6 +127,8 @@ export function useProgress(subjectSlug: string) {
     updateFlashcardProgress,
   };
 }
+
+// ── Standalone utilities (for progress page) ────────────────────
 
 export function getAllProgress(): Record<string, string[]> {
   const result: Record<string, string[]> = {};
