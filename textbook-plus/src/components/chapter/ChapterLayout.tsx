@@ -37,6 +37,7 @@ export function ChapterLayout({
   const completed = isCompleted(chapter.slug);
   const [activeTab, setActiveTab] = useState("learning");
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const showPractice = subjectSlug !== "english" && subjectSlug !== "arabic";
 
   // Restore sidebar state from localStorage
   useEffect(() => {
@@ -128,6 +129,7 @@ export function ChapterLayout({
       <ChapterTabs
         activeTab={activeTab}
         onTabChange={setActiveTab}
+        showPractice={showPractice}
       />
 
       {/* Two-column layout (Learning tab) */}

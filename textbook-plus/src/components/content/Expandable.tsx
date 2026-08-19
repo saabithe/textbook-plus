@@ -28,7 +28,7 @@ export function Expandable({ title, id, children }: ExpandableProps) {
         <span className="text-sm font-semibold">{title}</span>
       </button>
       {open && (
-        <div className="px-5 py-4 text-sm leading-relaxed text-muted-foreground border-t border-border/40">
+        <div className="px-5 py-4 text-[0.95rem] leading-[1.75] text-foreground/85 border-t border-border/40">
           {children}
         </div>
       )}

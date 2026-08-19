@@ -161,35 +161,35 @@
 
 /* Chapter content typography */
 .prose-custom {
-  @apply max-w-none text-base leading-relaxed;
+  @apply max-w-none text-[1.0625rem] leading-[1.75];
 }
 
 .prose-custom h1 {
-  @apply text-3xl font-bold tracking-tight mt-12 mb-4 text-foreground;
+  @apply text-3xl font-bold tracking-tight mt-14 mb-5 text-foreground;
 }
 
 .prose-custom h2 {
-  @apply text-2xl font-bold tracking-tight mt-12 mb-4 scroll-mt-24 text-foreground;
+  @apply text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground;
 }
 
 .prose-custom h3 {
-  @apply text-lg font-semibold mt-8 mb-3 scroll-mt-24 text-foreground;
+  @apply text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground;
 }
 
 .prose-custom p {
-  @apply mb-4 text-muted-foreground leading-relaxed;
+  @apply mb-5 text-foreground/90 leading-[1.75];
 }
 
 .prose-custom ul {
-  @apply list-disc pl-6 space-y-1.5 mb-5 text-muted-foreground;
+  @apply list-disc pl-6 space-y-2 mb-6 text-foreground/90;
 }
 
 .prose-custom ol {
-  @apply list-decimal pl-6 space-y-1.5 mb-5 text-muted-foreground;
+  @apply list-decimal pl-6 space-y-2 mb-6 text-foreground/90;
 }
 
 .prose-custom li {
-  @apply leading-relaxed;
+  @apply leading-[1.75];
 }
 
 .prose-custom li > ul,
@@ -198,7 +198,7 @@
 }
 
 .prose-custom blockquote {
-  @apply border-l-4 border-primary/30 pl-4 py-1 my-4 text-muted-foreground italic;
+  @apply border-l-4 border-primary/30 pl-4 py-1 my-5 text-foreground/80 italic;
 }
 
 .prose-custom table {

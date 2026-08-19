@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 interface ChapterTabsProps {
   activeTab: string;
   onTabChange: (tab: string) => void;
+  showPractice?: boolean;
 }
 
 const tabs = [
@@ -13,10 +14,11 @@ const tabs = [
   { id: "practice", label: "Practice", icon: Dumbbell },
 ];
 
-export function ChapterTabs({ activeTab, onTabChange }: ChapterTabsProps) {
+export function ChapterTabs({ activeTab, onTabChange, showPractice = true }: ChapterTabsProps) {
+  const filteredTabs = showPractice ? tabs : [tabs[0]];
   return (
     <div className="flex items-center gap-1 rounded-xl border border-border/60 bg-muted/30 p-1 mb-8">
-      {tabs.map((tab) => {
+      {filteredTabs.map((tab) => {
         const Icon = tab.icon;
         const active = activeTab === tab.id;
         return (

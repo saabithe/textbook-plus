@@ -52,7 +52,7 @@ export function Callout({ type = "note", title, children }: CalloutProps) {
           {title ?? v.label}
         </span>
       </div>
-      <div className="text-sm leading-relaxed text-muted-foreground">
+      <div className="text-[0.95rem] leading-[1.75] text-foreground/85">
         {children}
       </div>
     </div>

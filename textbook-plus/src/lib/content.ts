@@ -6,13 +6,19 @@ import ch2Flashcards from "@/content/physics/electrostatic-potential-and-capacit
 
 const SECTIONS_MAP: Record<string, ChapterSection[]> = {
   "horegallu": [
+    { id: "author", title: "Author" },
     { id: "introduction", title: "Introduction" },
-    { id: "the-horegallu", title: "The Horegallu" },
-    { id: "grandfathers-wisdom", title: "Grandfather's Wisdom" },
-    { id: "ratna", title: "Ratna — A Human Horegallu" },
-    { id: "deeper-message", title: "The Deeper Message" },
+    { id: "summary", title: "Summary" },
+    { id: "character-sketch-ratna", title: "Character Sketch: Ratna" },
+    { id: "character-sketch-grandfather", title: "Character Sketch: Grandfather" },
+    {
+      id: "symbolism-themes", title: "Symbolism & Themes", children: [
+        { id: "the-burden", title: "The Symbolism of Burden" },
+        { id: "power-of-listening", title: "The Power of Listening" },
+        { id: "human-horegallus", title: "Human Horegallus" },
+      ],
+    },
     { id: "key-takeaway", title: "Key Takeaway" },
-    { id: "author-context", title: "Author Context" },
   ],
   "electric-charges-and-fields": [
     { id: "h-1-1", title: "1.1 Introduction" },
