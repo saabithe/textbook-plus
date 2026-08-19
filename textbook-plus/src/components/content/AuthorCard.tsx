@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 interface AuthorCardProps {
   name: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 }
 
@@ -18,9 +18,11 @@ export function AuthorCard({ name, children, className }: AuthorCardProps) {
         Author
       </p>
       <h3 className="text-xl font-bold text-foreground mb-2">{name}</h3>
-      <div className="text-[0.95rem] leading-[1.75] text-foreground/85">
-        {children}
-      </div>
+      {children && (
+        <div className="text-[0.95rem] leading-[1.75] text-foreground/85">
+          {children}
+        </div>
+      )}
     </div>
   );
 }
