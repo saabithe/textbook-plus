@@ -3,6 +3,7 @@
 
 // === Existing components ===
 export { Callout } from "./Callout";
+export { CollapsibleSection } from "./CollapsibleSection";
 export { Example } from "./Example";
 export { KeyPoint } from "./KeyPoint";
 export { Comparison } from "./Comparison";

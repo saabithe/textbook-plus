@@ -10,6 +10,7 @@ import { CharacterComparison } from "@/components/content/CharacterComparison";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
 import { Highlight } from "@/components/content/Highlight";
+import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 
 const QA_ITEMS = [
   {
@@ -121,6 +122,261 @@ const QA_ITEMS = [
         walked out <strong>arm in arm</strong>, already champions to each other
         regardless of the judges&rsquo; verdict.
       </>
+    ),
+  },
+];
+
+const DISCOURSES = [
+  {
+    id: "character-sketch-antonio",
+    title: "Character Sketch: Antonio Cruz",
+    content: (
+      <CharacterSketch name="Antonio Cruz">
+        <p>
+          <Highlight color="blue">Antonio</Highlight> was a{" "}
+          <strong>seventeen-year-old</strong> Puerto Rican from the Lower East
+          Side of Manhattan. He was{" "}
+          <Highlight color="yellow">fair, lean, and lanky</Highlight>, with
+          long hair that was always falling over his eyes.
+        </p>
+        <p>
+          A <strong>natural fighter</strong>, Antonio relied on his{" "}
+          <strong>reach advantage</strong> and left hand. His left jab was
+          described as &ldquo;a piston pumping jabs one right after another
+          with seeming ease.&rdquo; His greatest strength was{" "}
+          <Highlight color="green">discipline</Highlight> &mdash; he fought with
+          strategy and never lost sight of the bigger picture.
+        </p>
+        <p>
+          On the eve of the fight, Antonio stood on his rooftop and resolved
+          to knock Felix out &ldquo;early and quick&rdquo; &mdash; not out of
+          cruelty, but to <strong>spare his friend prolonged hurt</strong>.
+          He cut negative thinking by doing &ldquo;speedy fancy dance
+          steps&rdquo; and fell asleep mentally preparing.
+        </p>
+        <p>
+          Antonio exemplifies the idea that{" "}
+          <Highlight color="pink">true friendship</Highlight> and{" "}
+          <strong>fierce competition</strong> can coexist. He fought with
+          everything he had, and loved his amigo brother for the same reason.
+        </p>
+      </CharacterSketch>
+    ),
+  },
+  {
+    id: "character-sketch-felix",
+    title: "Character Sketch: Felix Vargas",
+    content: (
+      <CharacterSketch name="Felix Vargas">
+        <p>
+          <Highlight color="green">Felix</Highlight> was also a{" "}
+          <strong>seventeen-year-old</strong> Puerto Rican from the same
+          building on the Lower East Side. He was{" "}
+          <Highlight color="yellow">dark, short, and husky</Highlight>, with
+          his black hair worn in a natural Afro style.
+        </p>
+        <p>
+          Felix was a <strong>powerful inside fighter</strong>. He needed to
+          get in close &mdash; only by coming in close could he achieve the
+          dreamed-of knockout. He &ldquo;bored in&rdquo; relentlessly,
+          bobbed and weaved, and &ldquo;rushed like a bull&rdquo; with
+          devastating rights and lefts. His{" "}
+          <strong>dynamite-packed fists</strong> kept even the longer-armed
+          Antonio wary.
+        </p>
+        <p>
+          On the eve of the fight, Felix went to see{" "}
+          <em>The Champion</em> (Kirk Douglas) to keep Antonio&rsquo;s face
+          away from his fists, but it only stirred him up. He walked dark
+          streets and went to bed. He told Antonio: &ldquo;It&rsquo;s cooler if
+          we split right here. After the fight, we can get it together again
+          like nothing ever happened.&rdquo;
+        </p>
+        <p>
+          Felix embodied{" "}
+          <Highlight color="pink">raw emotional power</Highlight> &mdash;
+          fierce in battle yet tender in friendship, &ldquo;not ashamed to hug
+          each other tightly.&rdquo;
+        </p>
+      </CharacterSketch>
+    ),
+  },
+  {
+    id: "character-comparison",
+    title: "Character Comparison: Antonio & Felix",
+    content: (
+      <CharacterComparison
+        characters={["Antonio Cruz", "Felix Vargas"]}
+        rows={[
+          {
+            label: "Appearance",
+            values: [
+              <p key="a-app">Fair, lean, and lanky. Hair always falling over his eyes.</p>,
+              <p key="f-app">Dark, short, and husky. Black hair in a natural Afro style.</p>,
+            ],
+          },
+          {
+            label: "Weight",
+            values: [
+              <p key="a-wt">133 pounds</p>,
+              <p key="f-wt">134 pounds</p>,
+            ],
+          },
+          {
+            label: "Fighting style",
+            values: [
+              <p key="a-style">Long-range fighter. Relied on reach and a piston-like left jab.</p>,
+              <p key="f-style">Inside fighter. Relied on power, close range, and relentless aggression.</p>,
+            ],
+          },
+          {
+            label: "Strength",
+            values: [
+              <p key="a-str">Reach, speed, strategy. &ldquo;His left hand was like a piston.&rdquo;</p>,
+              <p key="f-str">Power, determination. &ldquo;Dynamite stored in his fists.&rdquo;</p>,
+            ],
+          },
+          {
+            label: "Eve of fight",
+            values: [
+              <p key="a-eve">Stood on his rooftop. Resolved to knock Felix out early to spare him hurt.</p>,
+              <p key="f-eve">Watched a movie, walked dark streets, went to bed. Stirred up and restless.</p>,
+            ],
+          },
+          {
+            label: "Round 1",
+            values: [
+              <p key="a-r1">Kept distance with jab. Sent two lefts to Felix&rsquo;s head, setting his ear ringing.</p>,
+              <p key="f-r1">Bored in relentlessly. Trapped Antonio on the ropes with punishing rights and lefts.</p>,
+            ],
+          },
+          {
+            label: "Round 2",
+            values: [
+              <p key="a-r2">Hurt badly &mdash; caught on the chin, legs turned to jelly. Head cleared; landed a hard left to Felix&rsquo;s nose.</p>,
+              <p key="f-r2">Rushed &ldquo;like a bull.&rdquo; Threw wild punches. Caught a hard left on the bridge of his nose.</p>,
+            ],
+          },
+          {
+            label: "Round 3",
+            values: [
+              <p key="a-r3">Came out fast this time, charging across the ring. Neither gave an inch.</p>,
+              <p key="f-r3">Tapped gloves, attacked anew. Toe to toe. Past hearing the bell.</p>,
+            ],
+          },
+          {
+            label: "Philosophy",
+            values: [
+              <p key="a-phil">&ldquo;No pulling punches. We go all the way.&rdquo;</p>,
+              <p key="f-phil">&ldquo;In the ring, it&rsquo;s got to be like we never met.&rdquo;</p>,
+            ],
+          },
+          {
+            label: "Shared trait",
+            values: [
+              <p key="a-shared" className="font-semibold">Both were true champions &mdash; they knew that friendship survived competition, and walked out arm in arm.</p>,
+              <p key="f-shared" className="font-semibold">Both were true champions &mdash; they knew that friendship survived competition, and walked out arm in arm.</p>,
+            ],
+          },
+        ]}
+      />
+    ),
+  },
+  {
+    id: "themes",
+    title: "Themes",
+    content: (
+      <>
+        <Callout type="important">
+          <p>
+            <em>Amigo Brothers</em> explores the{" "}
+            <Highlight color="yellow">tension between friendship and ambition</Highlight>{" "}
+            &mdash; and the courage required to put your{" "}
+            <strong>whole self</strong> into competition against someone you
+            love, knowing the relationship must survive beyond the ring.
+          </p>
+        </Callout>
+
+        <h3
+          id="friendship-vs-ambition"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Friendship vs. Ambition
+        </h3>
+        <p>
+          Both Antonio and Felix want the same thing &mdash; the{" "}
+          <Highlight color="yellow">lightweight championship</Highlight> &mdash;
+          but only one can have it. The story does not frame this as a tragedy
+          but as a{" "}
+          <strong>test of maturity</strong>: both recognize that fighting fair
+          and giving everything is the{" "}
+          <Highlight color="green">highest form of respect</Highlight> they can
+          offer each other.
+        </p>
+
+        <h3
+          id="the-rising-wall"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          The Rising Wall
+        </h3>
+        <p>
+          Even while joking together, the boys &ldquo;sensed a{" "}
+          <Highlight color="pink">wall</Highlight> rising between them.&rdquo;
+          This wall is not physical but{" "}
+          <strong>psychological</strong> &mdash; the inevitable emotional
+          distance that comes when two people who love each other must become{" "}
+          <Highlight color="yellow">opponents</Highlight>. It mirrors the theme
+          explored in Robert Frost&rsquo;s <em>Mending Wall</em>: walls arise
+          between people, sometimes necessary, sometimes not.
+        </p>
+
+        <h3
+          id="brotherhood-above-victory"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Brotherhood Above Victory
+        </h3>
+        <p>
+          The story&rsquo;s ending is its moral centre. Before the announcer can
+          name the winner, the two{" "}
+          <Highlight color="green">amigos leave together</Highlight> &mdash; arm
+          in arm. The decision never matters.{" "}
+          <strong>No matter what the result, they would always be champions to
+          each other.</strong>
+        </p>
+
+        <h3
+          id="courage-and-sportsmanship"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Courage and Sportsmanship
+        </h3>
+        <p>
+          The referee&rsquo;s words &ldquo;May the best man win&rdquo; capture
+          the story&rsquo;s ethic. Neither boy <strong>pulls punches</strong>,
+          holds back, or resents the other. To fight with{" "}
+          <Highlight color="yellow">complete honesty</Highlight> is the truest
+          act of sportsmanship &mdash; and the deepest expression of mutual
+          respect.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "key-takeaway",
+    title: "Key Takeaway",
+    content: (
+      <KeyPoint title="Key Takeaway">
+        <em>Amigo Brothers</em> teaches that{" "}
+        <strong>competition need not destroy friendship</strong>. When two
+        people give everything they have &mdash; and still walk out arm in
+        arm &mdash; it proves that{" "}
+        <Highlight color="yellow">brotherhood</Highlight> is stronger than
+        any victory or defeat. The true champion is not the one who wins the
+        belt, but the one who{" "}
+        <Highlight color="green">preserves the relationship</Highlight>.
+      </KeyPoint>
     ),
   },
 ];
@@ -301,268 +557,14 @@ export default function AmigoBrothersPage() {
 
       {/* ======================== CREATIONS TAB ======================== */}
       {activeTab === "creations" && (
-        <div className="animate-fade-in">
-          {/* Character Sketch: Antonio Cruz */}
-          <h2
-            id="character-sketch-antonio"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Character Sketch:{" "}
-            <Highlight color="blue">Antonio Cruz</Highlight>
-          </h2>
-          <CharacterSketch name="Antonio Cruz">
-            <p>
-              <Highlight color="blue">Antonio</Highlight> was a{" "}
-              <strong>seventeen-year-old</strong> Puerto Rican from the Lower East
-              Side of Manhattan. He was{" "}
-              <Highlight color="yellow">fair, lean, and lanky</Highlight>, with
-              long hair that was always falling over his eyes.
-            </p>
-            <p>
-              A <strong>natural fighter</strong>, Antonio relied on his{" "}
-              <strong>reach advantage</strong> and left hand. His left jab was
-              described as &ldquo;a piston pumping jabs one right after another
-              with seeming ease.&rdquo; His greatest strength was{" "}
-              <Highlight color="green">discipline</Highlight> &mdash; he fought with
-              strategy and never lost sight of the bigger picture.
-            </p>
-            <p>
-              On the eve of the fight, Antonio stood on his rooftop and resolved
-              to knock Felix out &ldquo;early and quick&rdquo; &mdash; not out of
-              cruelty, but to <strong>spare his friend prolonged hurt</strong>.
-              He cut negative thinking by doing &ldquo;speedy fancy dance
-              steps&rdquo; and fell asleep mentally preparing.
-            </p>
-            <p>
-              Antonio exemplifies the idea that{" "}
-              <Highlight color="pink">true friendship</Highlight> and{" "}
-              <strong>fierce competition</strong> can coexist. He fought with
-              everything he had, and loved his amigo brother for the same reason.
-            </p>
-          </CharacterSketch>
-
-          {/* Character Sketch: Felix Vargas */}
-          <h2
-            id="character-sketch-felix"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Character Sketch:{" "}
-            <Highlight color="green">Felix Vargas</Highlight>
-          </h2>
-          <CharacterSketch name="Felix Vargas">
-            <p>
-              <Highlight color="green">Felix</Highlight> was also a{" "}
-              <strong>seventeen-year-old</strong> Puerto Rican from the same
-              building on the Lower East Side. He was{" "}
-              <Highlight color="yellow">dark, short, and husky</Highlight>, with
-              his black hair worn in a natural Afro style.
-            </p>
-            <p>
-              Felix was a <strong>powerful inside fighter</strong>. He needed to
-              get in close &mdash; only by coming in close could he achieve the
-              dreamed-of knockout. He &ldquo;bored in&rdquo; relentlessly,
-              bobbed and weaved, and &ldquo;rushed like a bull&rdquo; with
-              devastating rights and lefts. His{" "}
-              <strong>dynamite-packed fists</strong> kept even the longer-armed
-              Antonio wary.
-            </p>
-            <p>
-              On the eve of the fight, Felix went to see{" "}
-              <em>The Champion</em> (Kirk Douglas) to keep Antonio&rsquo;s face
-              away from his fists, but it only stirred him up. He walked dark
-              streets and went to bed. He told Antonio: &ldquo;It&rsquo;s cooler if
-              we split right here. After the fight, we can get it together again
-              like nothing ever happened.&rdquo;
-            </p>
-            <p>
-              Felix embodied{" "}
-              <Highlight color="pink">raw emotional power</Highlight> &mdash;
-              fierce in battle yet tender in friendship, &ldquo;not ashamed to hug
-              each other tightly.&rdquo;
-            </p>
-          </CharacterSketch>
-
-          {/* Character Comparison */}
-          <h2
-            id="character-comparison"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Character Comparison:{" "}
-            <Highlight color="blue">Antonio</Highlight> &amp;{" "}
-            <Highlight color="green">Felix</Highlight>
-          </h2>
-          <CharacterComparison
-            characters={["Antonio Cruz", "Felix Vargas"]}
-            rows={[
-              {
-                label: "Appearance",
-                values: [
-                  <p key="a-app">Fair, lean, and lanky. Hair always falling over his eyes.</p>,
-                  <p key="f-app">Dark, short, and husky. Black hair in a natural Afro style.</p>,
-                ],
-              },
-              {
-                label: "Weight",
-                values: [
-                  <p key="a-wt">133 pounds</p>,
-                  <p key="f-wt">134 pounds</p>,
-                ],
-              },
-              {
-                label: "Fighting style",
-                values: [
-                  <p key="a-style">Long-range fighter. Relied on reach and a piston-like left jab.</p>,
-                  <p key="f-style">Inside fighter. Relied on power, close range, and relentless aggression.</p>,
-                ],
-              },
-              {
-                label: "Strength",
-                values: [
-                  <p key="a-str">Reach, speed, strategy. &ldquo;His left hand was like a piston.&rdquo;</p>,
-                  <p key="f-str">Power, determination. &ldquo;Dynamite stored in his fists.&rdquo;</p>,
-                ],
-              },
-              {
-                label: "Eve of fight",
-                values: [
-                  <p key="a-eve">Stood on his rooftop. Resolved to knock Felix out early to spare him hurt.</p>,
-                  <p key="f-eve">Watched a movie, walked dark streets, went to bed. Stirred up and restless.</p>,
-                ],
-              },
-              {
-                label: "Round 1",
-                values: [
-                  <p key="a-r1">Kept distance with jab. Sent two lefts to Felix&rsquo;s head, setting his ear ringing.</p>,
-                  <p key="f-r1">Bored in relentlessly. Trapped Antonio on the ropes with punishing rights and lefts.</p>,
-                ],
-              },
-              {
-                label: "Round 2",
-                values: [
-                  <p key="a-r2">Hurt badly &mdash; caught on the chin, legs turned to jelly. Head cleared; landed a hard left to Felix&rsquo;s nose.</p>,
-                  <p key="f-r2">Rushed &ldquo;like a bull.&rdquo; Threw wild punches. Caught a hard left on the bridge of his nose.</p>,
-                ],
-              },
-              {
-                label: "Round 3",
-                values: [
-                  <p key="a-r3">Came out fast this time, charging across the ring. Neither gave an inch.</p>,
-                  <p key="f-r3">Tapped gloves, attacked anew. Toe to toe. Past hearing the bell.</p>,
-                ],
-              },
-              {
-                label: "Philosophy",
-                values: [
-                  <p key="a-phil">&ldquo;No pulling punches. We go all the way.&rdquo;</p>,
-                  <p key="f-phil">&ldquo;In the ring, it&rsquo;s got to be like we never met.&rdquo;</p>,
-                ],
-              },
-              {
-                label: "Shared trait",
-                values: [
-                  <p key="a-shared" className="font-semibold">Both were true champions &mdash; they knew that friendship survived competition, and walked out arm in arm.</p>,
-                  <p key="f-shared" className="font-semibold">Both were true champions &mdash; they knew that friendship survived competition, and walked out arm in arm.</p>,
-                ],
-              },
-            ]}
-          />
-
-          {/* Themes */}
-          <h2
-            id="themes"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Themes
-          </h2>
-
-          <Callout type="important">
-            <p>
-              <em>Amigo Brothers</em> explores the{" "}
-              <Highlight color="yellow">tension between friendship and ambition</Highlight>{" "}
-              &mdash; and the courage required to put your{" "}
-              <strong>whole self</strong> into competition against someone you
-              love, knowing the relationship must survive beyond the ring.
-            </p>
-          </Callout>
-
-          <h3
-            id="friendship-vs-ambition"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            Friendship vs. Ambition
-          </h3>
-          <p>
-            Both Antonio and Felix want the same thing &mdash; the{" "}
-            <Highlight color="yellow">lightweight championship</Highlight> &mdash;
-            but only one can have it. The story does not frame this as a tragedy
-            but as a{" "}
-            <strong>test of maturity</strong>: both recognize that fighting fair
-            and giving everything is the{" "}
-            <Highlight color="green">highest form of respect</Highlight> they can
-            offer each other.
-          </p>
-
-          <h3
-            id="the-rising-wall"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            The Rising Wall
-          </h3>
-          <p>
-            Even while joking together, the boys &ldquo;sensed a{" "}
-            <Highlight color="pink">wall</Highlight> rising between them.&rdquo;
-            This wall is not physical but{" "}
-            <strong>psychological</strong> &mdash; the inevitable emotional
-            distance that comes when two people who love each other must become{" "}
-            <Highlight color="yellow">opponents</Highlight>. It mirrors the theme
-            explored in Robert Frost&rsquo;s <em>Mending Wall</em>: walls arise
-            between people, sometimes necessary, sometimes not.
-          </p>
-
-          <h3
-            id="brotherhood-above-victory"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            Brotherhood Above Victory
-          </h3>
-          <p>
-            The story&rsquo;s ending is its moral centre. Before the announcer can
-            name the winner, the two{" "}
-            <Highlight color="green">amigos leave together</Highlight> &mdash; arm
-            in arm. The decision never matters.{" "}
-            <strong>No matter what the result, they would always be champions to
-            each other.</strong>
-          </p>
-
-          <h3
-            id="courage-and-sportsmanship"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            Courage and Sportsmanship
-          </h3>
-          <p>
-            The referee&rsquo;s words &ldquo;May the best man win&rdquo; capture
-            the story&rsquo;s ethic. Neither boy <strong>pulls punches</strong>,
-            holds back, or resents the other. To fight with{" "}
-            <Highlight color="yellow">complete honesty</Highlight> is the truest
-            act of sportsmanship &mdash; and the deepest expression of mutual
-            respect.
-          </p>
-
-          {/* Key Takeaway */}
-          <KeyPoint title="Key Takeaway">
-            <em>Amigo Brothers</em> teaches that{" "}
-            <strong>competition need not destroy friendship</strong>. When two
-            people give everything they have &mdash; and still walk out arm in
-            arm &mdash; it proves that{" "}
-            <Highlight color="yellow">brotherhood</Highlight> is stronger than
-            any victory or defeat. The true champion is not the one who wins the
-            belt, but the one who{" "}
-            <Highlight color="green">preserves the relationship</Highlight>.
-          </KeyPoint>
-
-          {/* Read & Respond */}
-          <div id="read-and-respond-section" className="mt-10">
+        <div className="animate-fade-in space-y-4">
+          {DISCOURSES.map((section) => (
+            <CollapsibleSection key={section.id} id={section.id} title={section.title}>
+              {section.content}
+            </CollapsibleSection>
+          ))}
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
             <ReadRespond items={QA_ITEMS} />
           </div>
         </div>

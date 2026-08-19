@@ -11,6 +11,7 @@ import { CharacterComparison } from "@/components/content/CharacterComparison";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
 import { Highlight } from "@/components/content/Highlight";
+import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 
 const QA_ITEMS = [
   {
@@ -122,6 +123,286 @@ const QA_ITEMS = [
         <Highlight color="pink">lighten their burdens</Highlight> and regain
         strength.
       </>
+    ),
+  },
+];
+
+const DISCOURSES = [
+  {
+    id: "character-sketch-ratna",
+    title: (
+      <>
+        Character Sketch: <Highlight color="blue">Ratna</Highlight>
+      </>
+    ),
+    content: (
+      <CharacterSketch name="Ratna">
+        <p>
+          <Highlight color="blue">Ratna</Highlight> is a character in the
+          anecdote &lsquo;Horegallu&rsquo; written by Sudha Murty. She is a{" "}
+          <strong>senior clerk</strong> who had been working in the company for
+          nearly <strong>twenty-five years</strong>. She went about her{" "}
+          <em>repetitive, mundane work</em> with an{" "}
+          <Highlight color="pink">infectious cheerfulness</Highlight>.
+        </p>
+        <p>
+          Every day during the{" "}
+          <Highlight color="yellow">lunch hour</Highlight>, she would sit with
+          some person in one of the rooms and have <strong>long chats</strong>.
+          When the author asked what they talked about, Ratna simply said,{" "}
+          <em>&ldquo;They share their troubles with me.&rdquo;</em>
+        </p>
+        <p>
+          Ratna could not <strong>solve all their problems</strong>, but she just{" "}
+          <Highlight color="yellow">listened</Highlight>. She considered sharing
+          their conversations a sin, as they <strong>trusted her</strong> with
+          their secrets. She never betrayed that confidence.
+        </p>
+        <p>
+          She believed that{" "}
+          <em>
+            &ldquo;God had given her two ears so that she could listen with{" "}
+            <strong>sympathy</strong> and{" "}
+            <strong>without passing any judgement</strong>.&rdquo;
+          </em>{" "}
+          When a person finds an outlet for his worries, it relieves{" "}
+          <Highlight color="pink">half his burden</Highlight>.
+        </p>
+        <p>
+          People could <strong>open their minds</strong> before her and find
+          relief. Soon after sharing their problems with her, they would gather
+          the strength to <strong>move on with their journey</strong>. She acted
+          as a <Highlight color="yellow">horegallu</Highlight> &mdash; a place
+          where weary travellers could lay down their weight and rest.
+        </p>
+      </CharacterSketch>
+    ),
+  },
+  {
+    id: "character-sketch-grandfather",
+    title: (
+      <>
+        Character Sketch: <Highlight color="green">Grandfather</Highlight>
+      </>
+    ),
+    content: (
+      <CharacterSketch name="Grandfather">
+        <p>
+          The author&rsquo;s{" "}
+          <Highlight color="green">grandfather</Highlight> was a{" "}
+          <strong>retired school teacher</strong>. He would spend{" "}
+          <strong>hours every day</strong> sitting under the{" "}
+          <Highlight color="blue">banyan tree</Highlight> and talking to those
+          resting near the horegallu.
+        </p>
+        <p>
+          Most of the travellers were{" "}
+          <strong>villagers taking a break from their work</strong> in the fields
+          nearby. They had to walk <strong>long distances</strong> each day,
+          carrying <strong>heavy burdens</strong> on their heads. Tired out by
+          the heat, they would drink the cool water, wash their faces, and chat
+          with grandfather about their daily lives and worries.
+        </p>
+        <p>
+          Grandfather could only <strong>listen</strong> to them, but just talking
+          to him seemed to <strong>refresh them</strong> for the journey. After
+          some time, they would pick up their burdens with some ease and go on
+          their way.
+        </p>
+        <p>
+          He explained to the author that a{" "}
+          <Highlight color="yellow">horegallu</Highlight> is{" "}
+          <strong>essential in any journey</strong>. Everyone carries their
+          burdens according to their situations and capacities, but every once in
+          a while they need to <strong>stop, put down that burden, and rest</strong>. Only then
+          can they be refreshed enough to pick up the load once more.
+        </p>
+        <p>
+          <Highlight color="green">Grandfather</Highlight> acted as a{" "}
+          <Highlight color="yellow">human horegallu</Highlight> &mdash; through
+          his <strong>patient listening</strong>, he helped the villagers{" "}
+          <Highlight color="pink">regain their strength</Highlight> and carry on
+          with their lives. He did this not for money or recognition, but because
+          these <strong>acts of kindness</strong> gave him joy.
+        </p>
+      </CharacterSketch>
+    ),
+  },
+  {
+    id: "character-comparison",
+    title: (
+      <>
+        Character Comparison:{" "}
+        <Highlight color="green">Grandfather</Highlight> &amp;{" "}
+        <Highlight color="blue">Ratna</Highlight>
+      </>
+    ),
+    content: (
+      <CharacterComparison
+        characters={["Grandfather", "Ratna"]}
+        rows={[
+          {
+            label: "Role",
+            values: [
+              <p key="g-role">Retired school teacher</p>,
+              <p key="r-role">Senior clerk (25 years in the company)</p>,
+            ],
+          },
+          {
+            label: "Setting",
+            values: [
+              <p key="g-set">Village, under the banyan tree near the horegallu</p>,
+              <p key="r-set">Office, during lunch breaks in one of the rooms</p>,
+            ],
+          },
+          {
+            label: "Who they helped",
+            values: [
+              <p key="g-who">Villagers carrying heavy loads from the fields</p>,
+              <p key="r-who">Co-workers carrying worries and stress</p>,
+            ],
+          },
+          {
+            label: "How they listened",
+            values: [
+              <p key="g-how">Sat under the tree and chatted with travellers; mostly listened to their daily concerns</p>,
+              <p key="r-how">Sat with one person each lunch hour; mostly listened to their problems without trying to solve them</p>,
+            ],
+          },
+          {
+            label: "Philosophy",
+            values: [
+              <p key="g-phil">&ldquo;A horegallu is essential in any journey. We all carry our burdens according to our situations and capacities. But every once in a while, we need to stop, put down that burden and rest.&rdquo;</p>,
+              <p key="r-phil">&ldquo;God has given me two ears to listen to others. I hear them out with sympathy and without any judgement. When a person finds an outlet for his worries, it relieves half his burden.&rdquo;</p>,
+            ],
+          },
+          {
+            label: "Confidentiality",
+            values: [
+              <p key="g-conf">Villagers naturally trusted him as a respected elder; their conversations stayed private</p>,
+              <p key="r-conf">&ldquo;Not even in my dreams. I consider that to be the worst kind of betrayal.&rdquo; She never disclosed what was shared in confidence</p>,
+            ],
+          },
+          {
+            label: "Effect on others",
+            values: [
+              <p key="g-eff">Travellers felt refreshed and picked up their burdens with ease</p>,
+              <p key="r-eff">Colleagues found relief and gathered strength to carry on with their journey</p>,
+            ],
+          },
+          {
+            label: "Motivation",
+            values: [
+              <p key="g-mot">No money or recognition; these acts of kindness gave him joy</p>,
+              <p key="r-mot">No reward sought; simply listened and provided a safe outlet for worries</p>,
+            ],
+          },
+          {
+            label: "Shared trait",
+            values: [
+              <p key="g-shared" className="font-semibold">Both were human horegallus &mdash; good listeners who provided empathy and helped people regain their strength through patient listening</p>,
+              <p key="r-shared" className="font-semibold">Both were human horegallus &mdash; good listeners who provided empathy and helped people regain their strength through patient listening</p>,
+            ],
+          },
+        ]}
+      />
+    ),
+  },
+  {
+    id: "symbolism-themes",
+    title: <>Symbolism &amp; Themes</>,
+    content: (
+      <>
+        <Callout type="important">
+          <p>
+            The <em>horegallu</em> is not just a physical stone bench. It is a{" "}
+            <strong>metaphor</strong> for{" "}
+            <Highlight color="yellow">empathy</Highlight>,{" "}
+            <Highlight color="pink">support</Highlight>, and the{" "}
+            <strong>power of listening</strong> in human relationships.
+          </p>
+        </Callout>
+
+        <h3
+          id="the-burden"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          The Symbolism of &lsquo;Burden&rsquo;
+        </h3>
+        <p>
+          The word &lsquo;<Highlight color="pink">burden</Highlight>&rsquo; is used
+          both literally and symbolically. The villagers literally carry{" "}
+          <strong>heavy loads</strong> on their heads, but the word also represents
+          the <strong>emotional and psychological worries</strong> that people carry
+          through life. The horegallu offers a place to set down both kinds of
+          burden.
+        </p>
+
+        <h3
+          id="power-of-listening"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          The Power of Listening
+        </h3>
+        <p>
+          Both <Highlight color="green">grandfather</Highlight> and{" "}
+          <Highlight color="blue">Ratna</Highlight> are{" "}
+          <strong>good listeners</strong>. Neither tries to solve problems or offer
+          advice &mdash; they simply listen with{" "}
+          <strong>sympathy</strong> and{" "}
+          <strong>without judgement</strong>. The story shows that{" "}
+          <Highlight color="yellow">listening itself</Highlight> is a powerful form
+          of social service. It provides{" "}
+          <Highlight color="pink">psychological relief</Highlight> and creates{" "}
+          <strong>healthy minds</strong>.
+        </p>
+
+        <h3
+          id="human-horegallus"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Human Horegallus
+        </h3>
+        <p>
+          The story draws a parallel between{" "}
+          <Highlight color="green">grandfather</Highlight> and{" "}
+          <Highlight color="blue">Ratna</Highlight>. Both acted as &lsquo;
+          <Highlight color="yellow">human horegallus</Highlight>&rsquo; &mdash;
+          offering <strong>empathy</strong> and{" "}
+          <strong>patience</strong> without expecting any reward. The author
+          concludes that the world needs many more such{" "}
+          <strong>people who listen with compassion</strong>.
+        </p>
+
+        <Expandable title="Infectious Cheerfulness">
+          <p>
+            The expression &lsquo;<Highlight color="pink">infectious
+            cheerfulness</Highlight>&rsquo; describes{" "}
+            <Highlight color="blue">Ratna&rsquo;s</Highlight>{" "}
+            <strong>positive attitude</strong> that naturally affected everyone
+            around her. Even though her work was repetitive and mundane, she
+            approached it with joy &mdash; and that joy spread to the people who came to
+            her for support.
+          </p>
+        </Expandable>
+      </>
+    ),
+  },
+  {
+    id: "key-takeaway",
+    title: <>Key Takeaway</>,
+    content: (
+      <KeyPoint title="Key Takeaway">
+        The <Highlight color="yellow">horegallu</Highlight> is a{" "}
+        <strong>metaphor for empathy and support</strong> in human
+        relationships. Everyone carries burdens, and sometimes they just need{" "}
+        <strong>someone to listen</strong>. Good listeners &mdash; like the
+        author&rsquo;s grandfather and Ratna &mdash; act as{" "}
+        <Highlight color="green">human horegallus</Highlight>, providing the{" "}
+        <Highlight color="pink">psychological relief</Highlight> and{" "}
+        <strong>emotional support</strong> that people need to regain their
+        strength and carry on with their journey.
+      </KeyPoint>
     ),
   },
 ];
@@ -283,279 +564,14 @@ export default function HoregalluPage() {
 
       {/* ======================== CREATIONS TAB ======================== */}
       {activeTab === "creations" && (
-        <div className="animate-fade-in">
-          {/* Character Sketch: Ratna */}
-          <h2
-            id="character-sketch-ratna"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Character Sketch:{" "}
-            <Highlight color="blue">Ratna</Highlight>
-          </h2>
-          <CharacterSketch name="Ratna">
-            <p>
-              <Highlight color="blue">Ratna</Highlight> is a character in the
-              anecdote &lsquo;Horegallu&rsquo; written by Sudha Murty. She is a{" "}
-              <strong>senior clerk</strong> who had been working in the company for
-              nearly <strong>twenty-five years</strong>. She went about her{" "}
-              <em>repetitive, mundane work</em> with an{" "}
-              <Highlight color="pink">infectious cheerfulness</Highlight>.
-            </p>
-            <p>
-              Every day during the{" "}
-              <Highlight color="yellow">lunch hour</Highlight>, she would sit with
-              some person in one of the rooms and have <strong>long chats</strong>.
-              When the author asked what they talked about, Ratna simply said,{" "}
-              <em>&ldquo;They share their troubles with me.&rdquo;</em>
-            </p>
-            <p>
-              Ratna could not <strong>solve all their problems</strong>, but she just{" "}
-              <Highlight color="yellow">listened</Highlight>. She considered sharing
-              their conversations a sin, as they <strong>trusted her</strong> with
-              their secrets. She never betrayed that confidence.
-            </p>
-            <p>
-              She believed that{" "}
-              <em>
-                &ldquo;God had given her two ears so that she could listen with{" "}
-                <strong>sympathy</strong> and{" "}
-                <strong>without passing any judgement</strong>.&rdquo;
-              </em>{" "}
-              When a person finds an outlet for his worries, it relieves{" "}
-              <Highlight color="pink">half his burden</Highlight>.
-            </p>
-            <p>
-              People could <strong>open their minds</strong> before her and find
-              relief. Soon after sharing their problems with her, they would gather
-              the strength to <strong>move on with their journey</strong>. She acted
-              as a <Highlight color="yellow">horegallu</Highlight> &mdash; a place
-              where weary travellers could lay down their weight and rest.
-            </p>
-          </CharacterSketch>
-
-          {/* Character Sketch: Grandfather */}
-          <h2
-            id="character-sketch-grandfather"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Character Sketch:{" "}
-            <Highlight color="green">Grandfather</Highlight>
-          </h2>
-          <CharacterSketch name="Grandfather">
-            <p>
-              The author&rsquo;s{" "}
-              <Highlight color="green">grandfather</Highlight> was a{" "}
-              <strong>retired school teacher</strong>. He would spend{" "}
-              <strong>hours every day</strong> sitting under the{" "}
-              <Highlight color="blue">banyan tree</Highlight> and talking to those
-              resting near the horegallu.
-            </p>
-            <p>
-              Most of the travellers were{" "}
-              <strong>villagers taking a break from their work</strong> in the fields
-              nearby. They had to walk <strong>long distances</strong> each day,
-              carrying <strong>heavy burdens</strong> on their heads. Tired out by
-              the heat, they would drink the cool water, wash their faces, and chat
-              with grandfather about their daily lives and worries.
-            </p>
-            <p>
-              Grandfather could only <strong>listen</strong> to them, but just talking
-              to him seemed to <strong>refresh them</strong> for the journey. After
-              some time, they would pick up their burdens with some ease and go on
-              their way.
-            </p>
-            <p>
-              He explained to the author that a{" "}
-              <Highlight color="yellow">horegallu</Highlight> is{" "}
-              <strong>essential in any journey</strong>. Everyone carries their
-              burdens according to their situations and capacities, but every once in
-              a while they need to <strong>stop, put down that burden, and rest</strong>. Only then
-              can they be refreshed enough to pick up the load once more.
-            </p>
-            <p>
-              <Highlight color="green">Grandfather</Highlight> acted as a{" "}
-              <Highlight color="yellow">human horegallu</Highlight> &mdash; through
-              his <strong>patient listening</strong>, he helped the villagers{" "}
-              <Highlight color="pink">regain their strength</Highlight> and carry on
-              with their lives. He did this not for money or recognition, but because
-              these <strong>acts of kindness</strong> gave him joy.
-            </p>
-          </CharacterSketch>
-
-          {/* Character Comparison */}
-          <h2
-            id="character-comparison"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Character Comparison:{" "}
-            <Highlight color="green">Grandfather</Highlight> &amp;{" "}
-            <Highlight color="blue">Ratna</Highlight>
-          </h2>
-          <CharacterComparison
-            characters={["Grandfather", "Ratna"]}
-            rows={[
-              {
-                label: "Role",
-                values: [
-                  <p key="g-role">Retired school teacher</p>,
-                  <p key="r-role">Senior clerk (25 years in the company)</p>,
-                ],
-              },
-              {
-                label: "Setting",
-                values: [
-                  <p key="g-set">Village, under the banyan tree near the horegallu</p>,
-                  <p key="r-set">Office, during lunch breaks in one of the rooms</p>,
-                ],
-              },
-              {
-                label: "Who they helped",
-                values: [
-                  <p key="g-who">Villagers carrying heavy loads from the fields</p>,
-                  <p key="r-who">Co-workers carrying worries and stress</p>,
-                ],
-              },
-              {
-                label: "How they listened",
-                values: [
-                  <p key="g-how">Sat under the tree and chatted with travellers; mostly listened to their daily concerns</p>,
-                  <p key="r-how">Sat with one person each lunch hour; mostly listened to their problems without trying to solve them</p>,
-                ],
-              },
-              {
-                label: "Philosophy",
-                values: [
-                  <p key="g-phil">&ldquo;A horegallu is essential in any journey. We all carry our burdens according to our situations and capacities. But every once in a while, we need to stop, put down that burden and rest.&rdquo;</p>,
-                  <p key="r-phil">&ldquo;God has given me two ears to listen to others. I hear them out with sympathy and without any judgement. When a person finds an outlet for his worries, it relieves half his burden.&rdquo;</p>,
-                ],
-              },
-              {
-                label: "Confidentiality",
-                values: [
-                  <p key="g-conf">Villagers naturally trusted him as a respected elder; their conversations stayed private</p>,
-                  <p key="r-conf">&ldquo;Not even in my dreams. I consider that to be the worst kind of betrayal.&rdquo; She never disclosed what was shared in confidence</p>,
-                ],
-              },
-              {
-                label: "Effect on others",
-                values: [
-                  <p key="g-eff">Travellers felt refreshed and picked up their burdens with ease</p>,
-                  <p key="r-eff">Colleagues found relief and gathered strength to carry on with their journey</p>,
-                ],
-              },
-              {
-                label: "Motivation",
-                values: [
-                  <p key="g-mot">No money or recognition; these acts of kindness gave him joy</p>,
-                  <p key="r-mot">No reward sought; simply listened and provided a safe outlet for worries</p>,
-                ],
-              },
-              {
-                label: "Shared trait",
-                values: [
-                  <p key="g-shared" className="font-semibold">Both were human horegallus &mdash; good listeners who provided empathy and helped people regain their strength through patient listening</p>,
-                  <p key="r-shared" className="font-semibold">Both were human horegallus &mdash; good listeners who provided empathy and helped people regain their strength through patient listening</p>,
-                ],
-              },
-            ]}
-          />
-
-          {/* Symbolism & Themes */}
-          <h2
-            id="symbolism-themes"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Symbolism &amp; Themes
-          </h2>
-
-          <Callout type="important">
-            <p>
-              The <em>horegallu</em> is not just a physical stone bench. It is a{" "}
-              <strong>metaphor</strong> for{" "}
-              <Highlight color="yellow">empathy</Highlight>,{" "}
-              <Highlight color="pink">support</Highlight>, and the{" "}
-              <strong>power of listening</strong> in human relationships.
-            </p>
-          </Callout>
-
-          <h3
-            id="the-burden"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            The Symbolism of &lsquo;Burden&rsquo;
-          </h3>
-          <p>
-            The word &lsquo;<Highlight color="pink">burden</Highlight>&rsquo; is used
-            both literally and symbolically. The villagers literally carry{" "}
-            <strong>heavy loads</strong> on their heads, but the word also represents
-            the <strong>emotional and psychological worries</strong> that people carry
-            through life. The horegallu offers a place to set down both kinds of
-            burden.
-          </p>
-
-          <h3
-            id="power-of-listening"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            The Power of Listening
-          </h3>
-          <p>
-            Both <Highlight color="green">grandfather</Highlight> and{" "}
-            <Highlight color="blue">Ratna</Highlight> are{" "}
-            <strong>good listeners</strong>. Neither tries to solve problems or offer
-            advice &mdash; they simply listen with{" "}
-            <strong>sympathy</strong> and{" "}
-            <strong>without judgement</strong>. The story shows that{" "}
-            <Highlight color="yellow">listening itself</Highlight> is a powerful form
-            of social service. It provides{" "}
-            <Highlight color="pink">psychological relief</Highlight> and creates{" "}
-            <strong>healthy minds</strong>.
-          </p>
-
-          <h3
-            id="human-horegallus"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            Human Horegallus
-          </h3>
-          <p>
-            The story draws a parallel between{" "}
-            <Highlight color="green">grandfather</Highlight> and{" "}
-            <Highlight color="blue">Ratna</Highlight>. Both acted as &lsquo;
-            <Highlight color="yellow">human horegallus</Highlight>&rsquo; &mdash;
-            offering <strong>empathy</strong> and{" "}
-            <strong>patience</strong> without expecting any reward. The author
-            concludes that the world needs many more such{" "}
-            <strong>people who listen with compassion</strong>.
-          </p>
-
-          <Expandable title="Infectious Cheerfulness">
-            <p>
-              The expression &lsquo;<Highlight color="pink">infectious
-              cheerfulness</Highlight>&rsquo; describes{" "}
-              <Highlight color="blue">Ratna&rsquo;s</Highlight>{" "}
-              <strong>positive attitude</strong> that naturally affected everyone
-              around her. Even though her work was repetitive and mundane, she
-              approached it with joy &mdash; and that joy spread to the people who came to
-              her for support.
-            </p>
-          </Expandable>
-
-          {/* Key Takeaway */}
-          <KeyPoint title="Key Takeaway">
-            The <Highlight color="yellow">horegallu</Highlight> is a{" "}
-            <strong>metaphor for empathy and support</strong> in human
-            relationships. Everyone carries burdens, and sometimes they just need{" "}
-            <strong>someone to listen</strong>. Good listeners &mdash; like the
-            author&rsquo;s grandfather and Ratna &mdash; act as{" "}
-            <Highlight color="green">human horegallus</Highlight>, providing the{" "}
-            <Highlight color="pink">psychological relief</Highlight> and{" "}
-            <strong>emotional support</strong> that people need to regain their
-            strength and carry on with their journey.
-          </KeyPoint>
-
-          {/* Read & Respond */}
-          <div id="read-and-respond-section" className="mt-10">
+        <div className="animate-fade-in space-y-4">
+          {DISCOURSES.map((section) => (
+            <CollapsibleSection key={section.id} id={section.id} title={section.title}>
+              {section.content}
+            </CollapsibleSection>
+          ))}
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
             <ReadRespond items={QA_ITEMS} />
           </div>
         </div>

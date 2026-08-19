@@ -7,6 +7,7 @@ import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
 import { Highlight } from "@/components/content/Highlight";
+import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 
 const QA_ITEMS = [
   {
@@ -68,6 +69,206 @@ const QA_ITEMS = [
         asks not to be taken (by death) until her children are grown and
         self-sufficient, because without her they would be lost.
       </>
+    ),
+  },
+];
+
+const DISCOURSES = [
+  {
+    id: "the-poem",
+    title: "The Poem",
+    content: (
+      <div className="my-6 px-6 py-5 rounded-2xl border border-border/50 bg-card">
+        <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] italic">
+          I am the pillars of the house;<br />
+          The keystone of the arch am I.<br />
+          Take me away, and roof and wall<br />
+          Would fall to ruin me utterly.
+        </p>
+        <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] italic mt-4">
+          I am the fire upon the hearth,<br />
+          I am the light of the good sun,<br />
+          I am the heat that warms the earth,<br />
+          Which else were colder than a stone.
+        </p>
+        <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] italic mt-4">
+          At me the children warm their hands;<br />
+          I am their light of love alive.<br />
+          Without me cold the hearthstone stands,<br />
+          Nor could the precious children thrive.
+        </p>
+        <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] italic mt-4">
+          I am the twist that holds together<br />
+          The children in its sacred ring,<br />
+          Their knot of love, from whose close tether<br />
+          No lost child goes a-wandering.
+        </p>
+        <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] italic mt-4">
+          I am the house from floor to roof,<br />
+          I deck the walls, the board I spread;<br />
+          I spin the curtains, warp and woof,<br />
+          And shake the down to be their bed.
+        </p>
+        <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] italic mt-4">
+          I am their wall against all danger,<br />
+          Their door against the wind and snow,<br />
+          Thou whom a woman laid in a manger,<br />
+          Take me not till the children grow!
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: "poetic-devices",
+    title: "Poetic Devices",
+    content: (
+      <>
+        <h3
+          id="device-metaphor"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Metaphor
+        </h3>
+        <p>
+          The poem is built entirely on{" "}
+          <Highlight color="yellow">metaphor</Highlight>. The mother is
+          compared to structural elements (pillars, keystone, house, wall,
+          door), natural forces (fire, sun, heat), and domestic objects
+          (twist, knot, curtains, bed). Each metaphor reinforces her{" "}
+          <strong>indispensability</strong>.
+        </p>
+
+        <h3
+          id="device-anaphora"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Anaphora
+        </h3>
+        <p>
+          The repetition of{" "}
+          <Highlight color="blue">&ldquo;I am&rdquo;</Highlight> at the
+          beginning of lines creates a{" "}
+          <strong>litany-like rhythm</strong>, emphasizing the mother&rsquo;s
+          all-encompassing presence. She is everything, everywhere, all at
+          once.
+        </p>
+
+        <h3
+          id="device-rhyme"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Rhyme Scheme
+        </h3>
+        <p>
+          Each stanza follows an{" "}
+          <Highlight color="green">ABAB rhyme scheme</Highlight>{" "}
+          (house/utterly, hearth/stone, hands/thrive, together/tether, etc.).
+          This regular structure mirrors the{" "}
+          <strong>order and stability</strong> the mother provides.
+        </p>
+
+        <h3
+          id="device-allusion"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Biblical Allusion
+        </h3>
+        <p>
+          The final stanza&rsquo;s{" "}
+          <Highlight color="pink">&ldquo;Thou whom a woman laid in a
+          manger&rdquo;</Highlight> alludes to the{" "}
+          <strong>Virgin Mary and the birth of Christ</strong>. By invoking
+          this image, the poet elevates motherhood to a sacred, divine act
+          &mdash; and makes the plea all the more powerful.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "appreciation",
+    title: "Poem Appreciation",
+    content: (
+      <>
+        <h3
+          id="app-introduction"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          1. Introduction
+        </h3>
+        <p>
+          <em>Any Woman</em> is a lyric poem by{" "}
+          <Highlight color="yellow">Katharine Tynan</Highlight> (1859&ndash;1931),
+          an Irish-born writer. The poem is a first-person declaration by a
+          mother who describes her indispensable role in the family through a
+          series of powerful metaphors. The tone is{" "}
+          <strong>assertive yet tender</strong>, building to a desperate prayer.
+        </p>
+
+        <h3
+          id="app-summary-theme"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          2. Summary and Theme
+        </h3>
+        <p>
+          The poem presents a mother as the{" "}
+          <Highlight color="blue">foundation, warmth, light, and protection</Highlight>{" "}
+          of the family. She is the pillars that hold the house, the fire that
+          warms it, the twist that binds the children, and the wall against
+          danger. The central theme is the{" "}
+          <strong>all-encompassing, irreplaceable nature of motherhood</strong>{" "}
+          &mdash; without her, everything collapses.
+        </p>
+
+        <h3
+          id="app-devices"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          3. Poetic Devices and Style
+        </h3>
+        <p>
+          The poem uses an <Highlight color="green">ABAB rhyme scheme</Highlight>{" "}
+          across six quatrains. <Highlight color="yellow">Metaphor</Highlight>{" "}
+          is the dominant device: the mother is compared to pillars, fire, sun,
+          twist, house, wall, and door. <strong>Anaphora</strong> (&ldquo;I
+          am&rdquo;) creates a litany-like rhythm. A{" "}
+          <Highlight color="pink">biblical allusion</Highlight> in the final
+          stanza elevates motherhood to the sacred. The style is{" "}
+          <strong>simple, direct, and emotionally powerful</strong>.
+        </p>
+
+        <h3
+          id="app-critical"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          4. Critical Comment
+        </h3>
+        <p>
+          What makes <em>Any Woman</em> powerful is its{" "}
+          <Highlight color="yellow">accumulation</Highlight>. Each stanza adds
+          another layer of the mother&rsquo;s role &mdash; structural, thermal,
+          emotional, domestic, protective &mdash; until the final plea feels
+          earned and inevitable. The poem resonates beyond its Victorian
+          context: every family depends on someone who{" "}
+          <strong>holds everything together</strong>, often invisibly.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "key-takeaway",
+    title: "Key Takeaway",
+    content: (
+      <KeyPoint title="Key Takeaway">
+        A mother is the{" "}
+        <Highlight color="yellow">pillar, fire, light, wall, and house</Highlight>{" "}
+        of the family. The poem&rsquo;s accumulating metaphors show that
+        without her, everything collapses. The final prayer &mdash;{" "}
+        <em>&ldquo;Take me not till the children grow!&rdquo;</em> &mdash;
+        captures the{" "}
+        <Highlight color="green">desperation and selflessness</Highlight> of
+        motherhood.
+      </KeyPoint>
     ),
   },
 ];
@@ -219,207 +420,14 @@ export default function AnyWomanPage() {
 
       {/* ======================== CREATIONS TAB ======================== */}
       {activeTab === "creations" && (
-        <div className="animate-fade-in">
-          {/* The Poem */}
-          <h2
-            id="the-poem"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            The Poem
-          </h2>
-
-          <div className="my-6 px-6 py-5 rounded-2xl border border-border/50 bg-card">
-            <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] italic">
-              I am the pillars of the house;<br />
-              The keystone of the arch am I.<br />
-              Take me away, and roof and wall<br />
-              Would fall to ruin me utterly.
-            </p>
-            <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] italic mt-4">
-              I am the fire upon the hearth,<br />
-              I am the light of the good sun,<br />
-              I am the heat that warms the earth,<br />
-              Which else were colder than a stone.
-            </p>
-            <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] italic mt-4">
-              At me the children warm their hands;<br />
-              I am their light of love alive.<br />
-              Without me cold the hearthstone stands,<br />
-              Nor could the precious children thrive.
-            </p>
-            <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] italic mt-4">
-              I am the twist that holds together<br />
-              The children in its sacred ring,<br />
-              Their knot of love, from whose close tether<br />
-              No lost child goes a-wandering.
-            </p>
-            <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] italic mt-4">
-              I am the house from floor to roof,<br />
-              I deck the walls, the board I spread;<br />
-              I spin the curtains, warp and woof,<br />
-              And shake the down to be their bed.
-            </p>
-            <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] italic mt-4">
-              I am their wall against all danger,<br />
-              Their door against the wind and snow,<br />
-              Thou whom a woman laid in a manger,<br />
-              Take me not till the children grow!
-            </p>
-          </div>
-
-          {/* Poetic Devices */}
-          <h2
-            id="poetic-devices"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Poetic Devices
-          </h2>
-
-          <h3
-            id="device-metaphor"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            Metaphor
-          </h3>
-          <p>
-            The poem is built entirely on{" "}
-            <Highlight color="yellow">metaphor</Highlight>. The mother is
-            compared to structural elements (pillars, keystone, house, wall,
-            door), natural forces (fire, sun, heat), and domestic objects
-            (twist, knot, curtains, bed). Each metaphor reinforces her{" "}
-            <strong>indispensability</strong>.
-          </p>
-
-          <h3
-            id="device-anaphora"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            Anaphora
-          </h3>
-          <p>
-            The repetition of{" "}
-            <Highlight color="blue">&ldquo;I am&rdquo;</Highlight> at the
-            beginning of lines creates a{" "}
-            <strong>litany-like rhythm</strong>, emphasizing the mother&rsquo;s
-            all-encompassing presence. She is everything, everywhere, all at
-            once.
-          </p>
-
-          <h3
-            id="device-rhyme"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            Rhyme Scheme
-          </h3>
-          <p>
-            Each stanza follows an{" "}
-            <Highlight color="green">ABAB rhyme scheme</Highlight>{" "}
-            (house/utterly, hearth/stone, hands/thrive, together/tether, etc.).
-            This regular structure mirrors the{" "}
-            <strong>order and stability</strong> the mother provides.
-          </p>
-
-          <h3
-            id="device-allusion"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            Biblical Allusion
-          </h3>
-          <p>
-            The final stanza&rsquo;s{" "}
-            <Highlight color="pink">&ldquo;Thou whom a woman laid in a
-            manger&rdquo;</Highlight> alludes to the{" "}
-            <strong>Virgin Mary and the birth of Christ</strong>. By invoking
-            this image, the poet elevates motherhood to a sacred, divine act
-            &mdash; and makes the plea all the more powerful.
-          </p>
-
-          {/* Poem Appreciation */}
-          <h2
-            id="appreciation"
-            className="text-2xl font bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Poem Appreciation
-          </h2>
-
-          <h3
-            id="app-introduction"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            1. Introduction
-          </h3>
-          <p>
-            <em>Any Woman</em> is a lyric poem by{" "}
-            <Highlight color="yellow">Katharine Tynan</Highlight> (1859&ndash;1931),
-            an Irish-born writer. The poem is a first-person declaration by a
-            mother who describes her indispensable role in the family through a
-            series of powerful metaphors. The tone is{" "}
-            <strong>assertive yet tender</strong>, building to a desperate prayer.
-          </p>
-
-          <h3
-            id="app-summary-theme"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            2. Summary and Theme
-          </h3>
-          <p>
-            The poem presents a mother as the{" "}
-            <Highlight color="blue">foundation, warmth, light, and protection</Highlight>{" "}
-            of the family. She is the pillars that hold the house, the fire that
-            warms it, the twist that binds the children, and the wall against
-            danger. The central theme is the{" "}
-            <strong>all-encompassing, irreplaceable nature of motherhood</strong>{" "}
-            &mdash; without her, everything collapses.
-          </p>
-
-          <h3
-            id="app-devices"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            3. Poetic Devices and Style
-          </h3>
-          <p>
-            The poem uses an <Highlight color="green">ABAB rhyme scheme</Highlight>{" "}
-            across six quatrains. <Highlight color="yellow">Metaphor</Highlight>{" "}
-            is the dominant device: the mother is compared to pillars, fire, sun,
-            twist, house, wall, and door. <strong>Anaphora</strong> (&ldquo;I
-            am&rdquo;) creates a litany-like rhythm. A{" "}
-            <Highlight color="pink">biblical allusion</Highlight> in the final
-            stanza elevates motherhood to the sacred. The style is{" "}
-            <strong>simple, direct, and emotionally powerful</strong>.
-          </p>
-
-          <h3
-            id="app-critical"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            4. Critical Comment
-          </h3>
-          <p>
-            What makes <em>Any Woman</em> powerful is its{" "}
-            <Highlight color="yellow">accumulation</Highlight>. Each stanza adds
-            another layer of the mother&rsquo;s role &mdash; structural, thermal,
-            emotional, domestic, protective &mdash; until the final plea feels
-            earned and inevitable. The poem resonates beyond its Victorian
-            context: every family depends on someone who{" "}
-            <strong>holds everything together</strong>, often invisibly.
-          </p>
-
-          {/* Key Takeaway */}
-          <KeyPoint title="Key Takeaway">
-            A mother is the{" "}
-            <Highlight color="yellow">pillar, fire, light, wall, and house</Highlight>{" "}
-            of the family. The poem&rsquo;s accumulating metaphors show that
-            without her, everything collapses. The final prayer &mdash;{" "}
-            <em>&ldquo;Take me not till the children grow!&rdquo;</em> &mdash;
-            captures the{" "}
-            <Highlight color="green">desperation and selflessness</Highlight> of
-            motherhood.
-          </KeyPoint>
-
-          {/* Read & Respond */}
-          <div id="read-and-respond-section" className="mt-10">
+        <div className="animate-fade-in space-y-4">
+          {DISCOURSES.map((section) => (
+            <CollapsibleSection key={section.id} id={section.id} title={section.title}>
+              {section.content}
+            </CollapsibleSection>
+          ))}
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
             <ReadRespond items={QA_ITEMS} />
           </div>
         </div>

@@ -125,46 +125,49 @@ export function ChapterLayout({
         </div>
       </header>
 
-      {/* Learning / Practice Tabs */}
-      <ChapterTabs
-        activeTab={activeTab}
-        onTabChange={setActiveTab}
-        showPractice={showPractice}
-      />
+      {/* Learning / Practice Tabs — hidden for English/Arabic (they use Read/Discourses) */}
+      {showPractice && (
+        <ChapterTabs
+          activeTab={activeTab}
+          onTabChange={setActiveTab}
+          showPractice={showPractice}
+        />
+      )}
 
       {/* Two-column layout (Learning tab) */}
       {activeTab === "learning" ? (
-        <div className="flex gap-12 relative">
+        <div className="relative flex gap-12">
           {/* Desktop sidebar */}
-          {hasSidebar && sidebarOpen && (
-            <aside className="hidden lg:block w-60 shrink-0">
-              <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto">
+          {hasSidebar && (
+            <aside
+              className="hidden lg:block shrink-0 overflow-x-clip transition-[width] duration-300 ease-in-out"
+              style={{ width: sidebarOpen ? "15rem" : "0" }}
+            >
+              <div className="sticky top-24 max-h-[calc(100vh-8rem)] w-60 overflow-y-auto">
                 <Sidebar sections={sections} subjectColor={subjectColor} />
               </div>
             </aside>
           )}
 
+          {/* Sidebar toggle */}
+          {hasSidebar && (
+            <button
+              onClick={() => setSidebarOpen((prev) => !prev)}
+              className="hidden lg:flex absolute top-1/2 left-0 -translate-y-1/2 z-30 h-8 w-6 items-center justify-center rounded-r-lg border border-l-0 border-border/60 bg-background/80 backdrop-blur-sm text-muted-foreground transition-colors duration-200 hover:bg-muted hover:text-foreground"
+              style={{ left: sidebarOpen ? "15rem" : "0" }}
+              title={sidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
+              aria-label={sidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
+            >
+              {sidebarOpen ? (
+                <ChevronLeft className="h-3.5 w-3.5" />
+              ) : (
+                <ChevronRight className="h-3.5 w-3.5" />
+              )}
+            </button>
+          )}
+
           {/* Content */}
           <article className="min-w-0 flex-1 max-w-3xl mx-auto">
-            {/* Sidebar toggle */}
-            {hasSidebar && (
-              <button
-                onClick={() => setSidebarOpen((prev) => !prev)}
-                className={cn(
-                  "hidden lg:flex fixed top-1/2 -translate-y-1/2 z-30 h-8 w-5 items-center justify-center rounded-r-lg border border-l-0 border-border/60 bg-background/80 backdrop-blur-sm text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground",
-                  sidebarOpen ? "left-[calc(50%-12rem+1.5rem)]" : "left-6"
-                )}
-                title={sidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
-                aria-label={sidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
-              >
-                {sidebarOpen ? (
-                  <ChevronLeft className="h-3.5 w-3.5" />
-                ) : (
-                  <ChevronRight className="h-3.5 w-3.5" />
-                )}
-              </button>
-            )}
-
             {children}
 
             <ChapterNav prev={prev} next={next} />

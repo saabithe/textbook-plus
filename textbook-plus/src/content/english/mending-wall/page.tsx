@@ -9,6 +9,8 @@ import { ContentTabs } from "@/components/content/ContentTabs";
 import { Highlight } from "@/components/content/Highlight";
 import { Expandable } from "@/components/content/Expandable";
 import { Comparison } from "@/components/content/Comparison";
+import { ReadRespond } from "@/components/content/ReadRespond";
+import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 
 const POEM_LINES = [
   "Something there is that doesn’t love a wall,",
@@ -60,6 +62,373 @@ const POEM_LINES = [
   "He will not go behind his father’s saying,",
   "And he likes having thought of it so well",
   "He says again, ‘Good fences make good neighbors.’",
+];
+
+const READ_RESPOND = [
+  {
+    question: "",
+    answer: <></>,
+  },
+];
+
+const DISCOURSES = [
+  {
+    id: "wall-debate",
+    title: "The Wall Debate",
+    content: (
+      <>
+        <Comparison
+          columns={[
+            {
+              title: "The Poet",
+              children: (
+                <div className="space-y-3">
+                  <p>
+                    <Highlight color="yellow">Doubts the need</Highlight> of the
+                    wall. Sees it as unnecessary.
+                  </p>
+                  <p>
+                    They have <strong>no cattle</strong> &mdash; only apple trees and
+                    pine trees that would never cross the land.
+                  </p>
+                  <p>
+                    <strong>Questioning</strong> and open-minded. Willing to challenge
+                    tradition.
+                  </p>
+                  <p>
+                    <em>
+                      &ldquo;My apple trees will never get across / And eat the cones
+                      under his pines.&rdquo;
+                    </em>
+                  </p>
+                </div>
+              ),
+            },
+            {
+              title: "The Neighbour",
+              children: (
+                <div className="space-y-3">
+                  <p>
+                    <Highlight color="green">Firmly believes</Highlight> walls are
+                    necessary for a healthy relationship.
+                  </p>
+                  <p>
+                    <em>&ldquo;Good fences make good neighbours.&rdquo;</em> Walls
+                    prevent conflict and maintain boundaries.
+                  </p>
+                  <p>
+                    <strong>Traditional</strong> and steadfast. Holds firm to inherited
+                    beliefs.
+                  </p>
+                  <p>
+                    <em>&ldquo;Good fences make good neighbours.&rdquo;</em>
+                  </p>
+                </div>
+              ),
+            },
+          ]}
+        />
+      </>
+    ),
+  },
+  {
+    id: "poetic-devices",
+    title: "Poetic Devices",
+    content: (
+      <>
+        <Expandable title="Personification" id="device-personification">
+          <p>
+            <strong>Personification</strong> is giving human qualities to non-living
+            things.
+          </p>
+          <p className="mt-2">
+            <em>
+              &ldquo;Something there is that doesn&rsquo;t love a wall, / That sends
+              the frozen-ground-swell under it.&rdquo;
+            </em>
+          </p>
+          <p className="mt-2">
+            An unnamed <Highlight color="yellow">natural force</Highlight> is given
+            human emotions &mdash; it &ldquo;doesn&rsquo;t love&rdquo; the wall and
+            actively works to destroy it. The force is never identified, adding
+            mystery.
+          </p>
+        </Expandable>
+
+        <Expandable title="Simile" id="device-simile">
+          <p>
+            A <strong>simile</strong> is a comparison between two unlike things
+            using &ldquo;like&rdquo; or &ldquo;as.&rdquo;
+          </p>
+          <p className="mt-2">
+            <em>
+              &ldquo;Bringing a stone grasped firmly by the top / In each hand, like
+              an old-stone savage armed.&rdquo;
+            </em>
+          </p>
+          <p className="mt-2">
+            The neighbour is compared to a{" "}
+            <Highlight color="pink">primitive warrior</Highlight>, suggesting he
+            clings to ancient traditions without questioning them.
+          </p>
+        </Expandable>
+
+        <Expandable title="Metaphor" id="device-metaphor">
+          <p>
+            A <strong>metaphor</strong> is a direct comparison without using
+            &ldquo;like&rdquo; or &ldquo;as.&rdquo;
+          </p>
+          <p className="mt-2">
+            <em>&ldquo;He is all pine and I am apple orchard.&rdquo;</em>
+          </p>
+          <p className="mt-2">
+            The men are equated with their properties &mdash; the neighbour is
+            &ldquo;all pine&rdquo; and the poet is &ldquo;apple orchard.&rdquo; The{" "}
+            <Highlight color="yellow">wall itself</Highlight> is a extended metaphor
+            for all human-made barriers &mdash; social, emotional, and
+            psychological.
+          </p>
+        </Expandable>
+
+        <Expandable title="Irony" id="device-irony">
+          <p>
+            <strong>Irony</strong> is when the outcome is opposite to what is
+            expected.
+          </p>
+          <p className="mt-2">
+            The <Highlight color="blue">speaker who questions the wall</Highlight>{" "}
+            is the one who initiates its repair each spring:{" "}
+            <em>&ldquo;I let my neighbour know beyond the hill.&rdquo;</em> He could
+            simply let the gaps stand, but instead he calls his neighbour out and
+            walks the line.
+          </p>
+        </Expandable>
+
+        <Expandable title="Apostrophe" id="device-apostrophe">
+          <p>
+            <strong>Apostrophe</strong> is when the poet speaks to an absent person
+            or inanimate object.
+          </p>
+          <p className="mt-2">
+            <em>
+              &ldquo;Stay where you are until our backs are turned!&rdquo;
+            </em>
+          </p>
+          <p className="mt-2">
+            The poet addresses the{" "}
+            <Highlight color="blue">stones</Highlight> in the wall, telling them to
+            stay in place &mdash; even though stones cannot listen or obey.
+          </p>
+        </Expandable>
+
+        <Expandable title="Epigram" id="device-epigram">
+          <p>
+            An <strong>epigram</strong> is a witty, memorable saying that expresses
+            a truth in a clever way.
+          </p>
+          <p className="mt-2">
+            <em>&ldquo;Good fences make good neighbours.&rdquo;</em>
+          </p>
+          <p className="mt-2">
+            This <Highlight color="pink">refrain</Highlight> is repeated throughout
+            the poem. It encapsulates the neighbour&rsquo;s entire philosophy in one
+            memorable line.
+          </p>
+        </Expandable>
+
+        <Expandable title="Enjambment" id="device-enjambment">
+          <p>
+            <strong>Enjambment</strong> is when a sentence continues beyond the
+            end of a line without a pause.
+          </p>
+          <p className="mt-2">
+            <em>
+              &ldquo;And he likes having thought of it so well / He says again,
+              &lsquo;Good fences make good neighbours.&rsquo;&rdquo;
+            </em>
+          </p>
+          <p className="mt-2">
+            The thought flows across the line break, creating a{" "}
+            <Highlight color="yellow">conversational rhythm</Highlight> that mirrors
+            natural speech.
+          </p>
+        </Expandable>
+
+        <Expandable title="Assonance" id="device-assonance">
+          <p>
+            <strong>Assonance</strong> is the repetition of vowel sounds in nearby
+            words.
+          </p>
+          <p className="mt-2">
+            <em>
+              &ldquo;To please the yelping dogs. The gaps I mean.&rdquo;
+            </em>
+          </p>
+          <p className="mt-2">
+            The repeated <Highlight color="blue">/iː/</Highlight> sound in
+            &ldquo;please,&rdquo; &ldquo;yelping,&rdquo; and &ldquo;gaps I
+            mean&rdquo; creates a subtle musical effect.
+          </p>
+        </Expandable>
+
+        <Expandable title="Symbolism" id="device-symbolism">
+          <p>
+            <strong>Symbolism</strong> is when an object represents a deeper
+            meaning.
+          </p>
+          <p className="mt-2">
+            The <Highlight color="yellow">stone wall</Highlight> symbolizes all
+            human-made barriers &mdash; between neighbours, communities, and nations.
+            The <Highlight color="green">frozen-ground-swell</Highlight> (frost)
+            symbolizes natural forces that resist human separation. The{" "}
+            <strong>apple and pine trees</strong> symbolize difference without
+            conflict.
+          </p>
+        </Expandable>
+
+        <Expandable title="Blank Verse" id="device-blank-verse">
+          <p>
+            <strong>Blank verse</strong> is unrhymed iambic pentameter &mdash; five
+            stressed beats per line without a rhyme scheme.
+          </p>
+          <p className="mt-2">
+            The poem&rsquo;s 45 lines of blank verse create a{" "}
+            <Highlight color="yellow">conversational rhythm</Highlight> suited to
+            the walking pace of two men along a wall. The opening line&rsquo;s
+            trochaic inversion disrupts the iambic pattern, enacting the very force
+            that disrupts the wall.
+          </p>
+        </Expandable>
+      </>
+    ),
+  },
+  {
+    id: "theme",
+    title: "Theme",
+    content: (
+      <>
+        <Callout type="important">
+          <p>
+            The poem calls for{" "}
+            <Highlight color="green">breaking down man-made walls</Highlight> and
+            building a better world where{" "}
+            <strong>brotherhood and harmony</strong> are upheld in places of
+            conflict and separation.
+          </p>
+        </Callout>
+        <p>
+          Nature itself does not like separation &mdash; the wall breaks every spring
+          without human intervention. Yet the neighbour insists on rebuilding it,
+          showing how <strong>human tradition</strong> can conflict with{" "}
+          <Highlight color="yellow">natural order</Highlight>.
+        </p>
+        <p>
+          The poem ultimately questions whether <strong>walls</strong> (physical or
+          psychological) are truly necessary when there is{" "}
+          <em>no real threat of encroachment</em>. As a whole, the poem calls for
+          breaking down man-made walls and building a better world where brotherhood
+          and harmony are upheld in places of conflict and separation.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "appreciation",
+    title: "Poem Appreciation",
+    content: (
+      <div className="rounded-2xl border border-border/50 bg-muted/20 p-6 my-6 space-y-4 text-[0.95rem] leading-[1.75] text-foreground/85">
+        <p className="font-semibold text-foreground">1. Introduction</p>
+        <p>
+          <Highlight color="yellow">Mending Wall</Highlight> is a celebrated poem
+          by <strong>Robert Frost</strong>, first published in his 1914 collection{" "}
+          <em>North of Boston</em>. The poem has a{" "}
+          <Highlight color="blue">reflective and conversational</Highlight> tone,
+          as the poet narrates a simple rural encounter that raises profound
+          questions about human relationships and the boundaries we construct.
+        </p>
+
+        <p className="font-semibold text-foreground mt-4">2. Summary and Theme (Gist)</p>
+        <p>
+          The poem describes two New England neighbours who meet each spring to
+          repair the stone wall between their properties. While the{" "}
+          <Highlight color="blue">poet</Highlight> questions the need for the
+          wall &mdash; arguing they have no cattle, only apple trees and pine trees
+          that would never cross &mdash; his{" "}
+          <Highlight color="green">neighbour</Highlight> firmly believes in the old
+          saying, <em>&ldquo;Good fences make good neighbours.&rdquo;</em>
+        </p>
+        <p>
+          The <strong>central idea</strong> is that{" "}
+          <Highlight color="yellow">nature does not like separation</Highlight>.
+          The wall breaks every spring without human intervention, yet the
+          neighbour insists on rebuilding it. The poem calls for{" "}
+          <strong>breaking down man-made walls</strong> and building a world
+          where brotherhood and harmony are upheld.
+        </p>
+
+        <p className="font-semibold text-foreground mt-4">3. Poetic Devices and Style</p>
+        <p>
+          The poem is written in{" "}
+          <Highlight color="blue">blank verse</Highlight> &mdash; unrhymed iambic
+          pentameter &mdash; which gives it a natural, conversational rhythm suited
+          to the walking pace of two men along a wall. There is no regular rhyme
+          scheme, but the repetition of the line{" "}
+          <em>&ldquo;Good fences make good neighbours&rdquo;</em> acts as a{" "}
+          <Highlight color="pink">refrain</Highlight>.
+        </p>
+        <p>
+          Frost employs <Highlight color="yellow">personification</Highlight>{" "}
+          when he says &ldquo;Something there is that doesn&rsquo;t love a
+          wall&rdquo; &mdash; giving human emotions to an unnamed natural force.
+          The <Highlight color="pink">simile</Highlight> &ldquo;like an old-stone
+          savage armed&rdquo; paints the neighbour as a primitive figure clinging
+          to inherited beliefs. The <Highlight color="blue">metaphor</Highlight>{" "}
+          of the wall itself represents all the social, emotional, and
+          psychological barriers that humans construct.{" "}
+          <Highlight color="green">Apostrophe</Highlight> appears when the poet
+          speaks to the stones: &ldquo;Stay where you are until our backs are
+          turned!&rdquo; The poem is rich in{" "}
+          <strong>visual imagery</strong> &mdash; boulders shaped like loaves and
+          balls, fingers worn rough with handling stones, and a neighbour moving
+          &ldquo;in darkness&rdquo; among the trees.
+        </p>
+
+        <p className="font-semibold text-foreground mt-4">4. Critical Comment / Personal Opinion</p>
+        <p>
+          What makes <em>Mending Wall</em> truly powerful is its{" "}
+          <strong>ambiguity</strong>. Frost does not declare a winner in the
+          debate. The speaker questions the wall, yet he is the one who initiates
+          its repair each spring &mdash; a deeply{" "}
+          <Highlight color="green">ironic</Highlight> position. The neighbour
+          clings to his father&rsquo;s saying without examining it, yet his
+          insistence on boundaries has its own wisdom.
+        </p>
+        <p>
+          The <Highlight color="pink">epigram</Highlight> &ldquo;Good fences make
+          good neighbours&rdquo; has become one of the most quoted lines in
+          American poetry. It captures a universal truth &mdash; that boundaries
+          can both <strong>divide and connect</strong>. The poem remains relevant
+          today as we continue to debate walls &mdash; between nations, communities,
+          and individuals. It is a masterful reminder that the walls we build say
+          as much about us as the people we build them against.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: "key-takeaway",
+    title: "Key Takeaway",
+    content: (
+      <KeyPoint title="Key Takeaway">
+        <Highlight color="yellow">Mending Wall</Highlight> explores the tension
+        between <strong>tradition and reason</strong>. While the neighbour clings
+        to the old saying &ldquo;Good fences make good neighbours,&rdquo; the poet
+        questions whether walls are necessary when there is no real threat. The
+        poem calls for <strong>breaking down barriers</strong> and building{" "}
+        <Highlight color="green">harmony and brotherhood</Highlight>.
+      </KeyPoint>
+    ),
+  },
 ];
 
 export default function MendingWallPage() {
@@ -251,362 +620,16 @@ export default function MendingWallPage() {
 
       {/* ======================== CREATIONS TAB ======================== */}
       {activeTab === "creations" && (
-        <div className="animate-fade-in">
-          {/* The Wall Debate */}
-          <h2
-            id="wall-debate"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            The Wall Debate
-          </h2>
-          <Comparison
-            columns={[
-              {
-                title: "The Poet",
-                children: (
-                  <div className="space-y-3">
-                    <p>
-                      <Highlight color="yellow">Doubts the need</Highlight> of the
-                      wall. Sees it as unnecessary.
-                    </p>
-                    <p>
-                      They have <strong>no cattle</strong> &mdash; only apple trees and
-                      pine trees that would never cross the land.
-                    </p>
-                    <p>
-                      <strong>Questioning</strong> and open-minded. Willing to challenge
-                      tradition.
-                    </p>
-                    <p>
-                      <em>
-                        &ldquo;My apple trees will never get across / And eat the cones
-                        under his pines.&rdquo;
-                      </em>
-                    </p>
-                  </div>
-                ),
-              },
-              {
-                title: "The Neighbour",
-                children: (
-                  <div className="space-y-3">
-                    <p>
-                      <Highlight color="green">Firmly believes</Highlight> walls are
-                      necessary for a healthy relationship.
-                    </p>
-                    <p>
-                      <em>&ldquo;Good fences make good neighbours.&rdquo;</em> Walls
-                      prevent conflict and maintain boundaries.
-                    </p>
-                    <p>
-                      <strong>Traditional</strong> and steadfast. Holds firm to inherited
-                      beliefs.
-                    </p>
-                    <p>
-                      <em>&ldquo;Good fences make good neighbours.&rdquo;</em>
-                    </p>
-                  </div>
-                ),
-              },
-            ]}
-          />
-
-          {/* Poetic Devices */}
-          <h2
-            id="poetic-devices"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Poetic Devices
-          </h2>
-
-          <Expandable title="Personification" id="device-personification">
-            <p>
-              <strong>Personification</strong> is giving human qualities to non-living
-              things.
-            </p>
-            <p className="mt-2">
-              <em>
-                &ldquo;Something there is that doesn&rsquo;t love a wall, / That sends
-                the frozen-ground-swell under it.&rdquo;
-              </em>
-            </p>
-            <p className="mt-2">
-              An unnamed <Highlight color="yellow">natural force</Highlight> is given
-              human emotions &mdash; it &ldquo;doesn&rsquo;t love&rdquo; the wall and
-              actively works to destroy it. The force is never identified, adding
-              mystery.
-            </p>
-          </Expandable>
-
-          <Expandable title="Simile" id="device-simile">
-            <p>
-              A <strong>simile</strong> is a comparison between two unlike things
-              using &ldquo;like&rdquo; or &ldquo;as.&rdquo;
-            </p>
-            <p className="mt-2">
-              <em>
-                &ldquo;Bringing a stone grasped firmly by the top / In each hand, like
-                an old-stone savage armed.&rdquo;
-              </em>
-            </p>
-            <p className="mt-2">
-              The neighbour is compared to a{" "}
-              <Highlight color="pink">primitive warrior</Highlight>, suggesting he
-              clings to ancient traditions without questioning them.
-            </p>
-          </Expandable>
-
-          <Expandable title="Metaphor" id="device-metaphor">
-            <p>
-              A <strong>metaphor</strong> is a direct comparison without using
-              &ldquo;like&rdquo; or &ldquo;as.&rdquo;
-            </p>
-            <p className="mt-2">
-              <em>&ldquo;He is all pine and I am apple orchard.&rdquo;</em>
-            </p>
-            <p className="mt-2">
-              The men are equated with their properties &mdash; the neighbour is
-              &ldquo;all pine&rdquo; and the poet is &ldquo;apple orchard.&rdquo; The{" "}
-              <Highlight color="yellow">wall itself</Highlight> is a extended metaphor
-              for all human-made barriers &mdash; social, emotional, and
-              psychological.
-            </p>
-          </Expandable>
-
-          <Expandable title="Irony" id="device-irony">
-            <p>
-              <strong>Irony</strong> is when the outcome is opposite to what is
-              expected.
-            </p>
-            <p className="mt-2">
-              The <Highlight color="blue">speaker who questions the wall</Highlight>{" "}
-              is the one who initiates its repair each spring:{" "}
-              <em>&ldquo;I let my neighbour know beyond the hill.&rdquo;</em> He could
-              simply let the gaps stand, but instead he calls his neighbour out and
-              walks the line.
-            </p>
-          </Expandable>
-
-          <Expandable title="Apostrophe" id="device-apostrophe">
-            <p>
-              <strong>Apostrophe</strong> is when the poet speaks to an absent person
-              or inanimate object.
-            </p>
-            <p className="mt-2">
-              <em>
-                &ldquo;Stay where you are until our backs are turned!&rdquo;
-              </em>
-            </p>
-            <p className="mt-2">
-              The poet addresses the{" "}
-              <Highlight color="blue">stones</Highlight> in the wall, telling them to
-              stay in place &mdash; even though stones cannot listen or obey.
-            </p>
-          </Expandable>
-
-          <Expandable title="Epigram" id="device-epigram">
-            <p>
-              An <strong>epigram</strong> is a witty, memorable saying that expresses
-              a truth in a clever way.
-            </p>
-            <p className="mt-2">
-              <em>&ldquo;Good fences make good neighbours.&rdquo;</em>
-            </p>
-            <p className="mt-2">
-              This <Highlight color="pink">refrain</Highlight> is repeated throughout
-              the poem. It encapsulates the neighbour&rsquo;s entire philosophy in one
-              memorable line.
-            </p>
-          </Expandable>
-
-          <Expandable title="Enjambment" id="device-enjambment">
-            <p>
-              <strong>Enjambment</strong> is when a sentence continues beyond the
-              end of a line without a pause.
-            </p>
-            <p className="mt-2">
-              <em>
-                &ldquo;And he likes having thought of it so well / He says again,
-                &lsquo;Good fences make good neighbours.&rsquo;&rdquo;
-              </em>
-            </p>
-            <p className="mt-2">
-              The thought flows across the line break, creating a{" "}
-              <Highlight color="yellow">conversational rhythm</Highlight> that mirrors
-              natural speech.
-            </p>
-          </Expandable>
-
-          <Expandable title="Assonance" id="device-assonance">
-            <p>
-              <strong>Assonance</strong> is the repetition of vowel sounds in nearby
-              words.
-            </p>
-            <p className="mt-2">
-              <em>
-                &ldquo;To please the yelping dogs. The gaps I mean.&rdquo;
-              </em>
-            </p>
-            <p className="mt-2">
-              The repeated <Highlight color="blue">/iː/</Highlight> sound in
-              &ldquo;please,&rdquo; &ldquo;yelping,&rdquo; and &ldquo;gaps I
-              mean&rdquo; creates a subtle musical effect.
-            </p>
-          </Expandable>
-
-          <Expandable title="Symbolism" id="device-symbolism">
-            <p>
-              <strong>Symbolism</strong> is when an object represents a deeper
-              meaning.
-            </p>
-            <p className="mt-2">
-              The <Highlight color="yellow">stone wall</Highlight> symbolizes all
-              human-made barriers &mdash; between neighbours, communities, and nations.
-              The <Highlight color="green">frozen-ground-swell</Highlight> (frost)
-              symbolizes natural forces that resist human separation. The{" "}
-              <strong>apple and pine trees</strong> symbolize difference without
-              conflict.
-            </p>
-          </Expandable>
-
-          <Expandable title="Blank Verse" id="device-blank-verse">
-            <p>
-              <strong>Blank verse</strong> is unrhymed iambic pentameter &mdash; five
-              stressed beats per line without a rhyme scheme.
-            </p>
-            <p className="mt-2">
-              The poem&rsquo;s 45 lines of blank verse create a{" "}
-              <Highlight color="yellow">conversational rhythm</Highlight> suited to
-              the walking pace of two men along a wall. The opening line&rsquo;s
-              trochaic inversion disrupts the iambic pattern, enacting the very force
-              that disrupts the wall.
-            </p>
-          </Expandable>
-
-          {/* Theme */}
-          <h2
-            id="theme"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Theme
-          </h2>
-          <Callout type="important">
-            <p>
-              The poem calls for{" "}
-              <Highlight color="green">breaking down man-made walls</Highlight> and
-              building a better world where{" "}
-              <strong>brotherhood and harmony</strong> are upheld in places of
-              conflict and separation.
-            </p>
-          </Callout>
-          <p>
-            Nature itself does not like separation &mdash; the wall breaks every spring
-            without human intervention. Yet the neighbour insists on rebuilding it,
-            showing how <strong>human tradition</strong> can conflict with{" "}
-            <Highlight color="yellow">natural order</Highlight>.
-          </p>
-          <p>
-            The poem ultimately questions whether <strong>walls</strong> (physical or
-            psychological) are truly necessary when there is{" "}
-            <em>no real threat of encroachment</em>. As a whole, the poem calls for
-            breaking down man-made walls and building a better world where brotherhood
-            and harmony are upheld in places of conflict and separation.
-          </p>
-
-          {/* Poem Appreciation */}
-          <h2
-            id="appreciation"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Poem Appreciation
-          </h2>
-          <div className="rounded-2xl border border-border/50 bg-muted/20 p-6 my-6 space-y-4 text-[0.95rem] leading-[1.75] text-foreground/85">
-            <p className="font-semibold text-foreground">1. Introduction</p>
-            <p>
-              <Highlight color="yellow">Mending Wall</Highlight> is a celebrated poem
-              by <strong>Robert Frost</strong>, first published in his 1914 collection{" "}
-              <em>North of Boston</em>. The poem has a{" "}
-              <Highlight color="blue">reflective and conversational</Highlight> tone,
-              as the poet narrates a simple rural encounter that raises profound
-              questions about human relationships and the boundaries we construct.
-            </p>
-
-            <p className="font-semibold text-foreground mt-4">2. Summary and Theme (Gist)</p>
-            <p>
-              The poem describes two New England neighbours who meet each spring to
-              repair the stone wall between their properties. While the{" "}
-              <Highlight color="blue">poet</Highlight> questions the need for the
-              wall &mdash; arguing they have no cattle, only apple trees and pine trees
-              that would never cross &mdash; his{" "}
-              <Highlight color="green">neighbour</Highlight> firmly believes in the old
-              saying, <em>&ldquo;Good fences make good neighbours.&rdquo;</em>
-            </p>
-            <p>
-              The <strong>central idea</strong> is that{" "}
-              <Highlight color="yellow">nature does not like separation</Highlight>.
-              The wall breaks every spring without human intervention, yet the
-              neighbour insists on rebuilding it. The poem calls for{" "}
-              <strong>breaking down man-made walls</strong> and building a world
-              where brotherhood and harmony are upheld.
-            </p>
-
-            <p className="font-semibold text-foreground mt-4">3. Poetic Devices and Style</p>
-            <p>
-              The poem is written in{" "}
-              <Highlight color="blue">blank verse</Highlight> &mdash; unrhymed iambic
-              pentameter &mdash; which gives it a natural, conversational rhythm suited
-              to the walking pace of two men along a wall. There is no regular rhyme
-              scheme, but the repetition of the line{" "}
-              <em>&ldquo;Good fences make good neighbours&rdquo;</em> acts as a{" "}
-              <Highlight color="pink">refrain</Highlight>.
-            </p>
-            <p>
-              Frost employs <Highlight color="yellow">personification</Highlight>{" "}
-              when he says &ldquo;Something there is that doesn&rsquo;t love a
-              wall&rdquo; &mdash; giving human emotions to an unnamed natural force.
-              The <Highlight color="pink">simile</Highlight> &ldquo;like an old-stone
-              savage armed&rdquo; paints the neighbour as a primitive figure clinging
-              to inherited beliefs. The <Highlight color="blue">metaphor</Highlight>{" "}
-              of the wall itself represents all the social, emotional, and
-              psychological barriers that humans construct.{" "}
-              <Highlight color="green">Apostrophe</Highlight> appears when the poet
-              speaks to the stones: &ldquo;Stay where you are until our backs are
-              turned!&rdquo; The poem is rich in{" "}
-              <strong>visual imagery</strong> &mdash; boulders shaped like loaves and
-              balls, fingers worn rough with handling stones, and a neighbour moving
-              &ldquo;in darkness&rdquo; among the trees.
-            </p>
-
-            <p className="font-semibold text-foreground mt-4">4. Critical Comment / Personal Opinion</p>
-            <p>
-              What makes <em>Mending Wall</em> truly powerful is its{" "}
-              <strong>ambiguity</strong>. Frost does not declare a winner in the
-              debate. The speaker questions the wall, yet he is the one who initiates
-              its repair each spring &mdash; a deeply{" "}
-              <Highlight color="green">ironic</Highlight> position. The neighbour
-              clings to his father&rsquo;s saying without examining it, yet his
-              insistence on boundaries has its own wisdom.
-            </p>
-            <p>
-              The <Highlight color="pink">epigram</Highlight> &ldquo;Good fences make
-              good neighbours&rdquo; has become one of the most quoted lines in
-              American poetry. It captures a universal truth &mdash; that boundaries
-              can both <strong>divide and connect</strong>. The poem remains relevant
-              today as we continue to debate walls &mdash; between nations, communities,
-              and individuals. It is a masterful reminder that the walls we build say
-              as much about us as the people we build them against.
-            </p>
+        <div className="animate-fade-in space-y-4">
+          {DISCOURSES.map((section) => (
+            <CollapsibleSection key={section.id} id={section.id} title={section.title}>
+              {section.content}
+            </CollapsibleSection>
+          ))}
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={READ_RESPOND} />
           </div>
-
-          {/* Key Takeaway */}
-          <KeyPoint title="Key Takeaway">
-            <Highlight color="yellow">Mending Wall</Highlight> explores the tension
-            between <strong>tradition and reason</strong>. While the neighbour clings
-            to the old saying &ldquo;Good fences make good neighbours,&rdquo; the poet
-            questions whether walls are necessary when there is no real threat. The
-            poem calls for <strong>breaking down barriers</strong> and building{" "}
-            <Highlight color="green">harmony and brotherhood</Highlight>.
-          </KeyPoint>
         </div>
       )}
     </div>

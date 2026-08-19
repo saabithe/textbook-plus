@@ -10,8 +10,8 @@ interface ContentTabsProps {
 }
 
 const tabs = [
-  { id: "summary", label: "Summary", icon: BookOpen },
-  { id: "creations", label: "Creations", icon: Sparkles },
+  { id: "summary", label: "Read", icon: BookOpen },
+  { id: "creations", label: "Discourses", icon: Sparkles },
 ];
 
 export function ContentTabs({ activeTab, onTabChange, className }: ContentTabsProps) {

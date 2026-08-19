@@ -10,8 +10,9 @@ import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
 import { Highlight } from "@/components/content/Highlight";
+import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 
-const QA_ITEMS = [
+const READ_RESPOND = [
   {
     question: "Why are women compared to matchboxes?",
     answer: (
@@ -190,6 +191,235 @@ const QA_ITEMS = [
   },
 ];
 
+const DISCOURSES = [
+  {
+    id: "character-sketch-nomita",
+    title: (
+      <>
+        Character Sketch:{" "}
+        <Highlight color="blue">Nomita</Highlight>
+      </>
+    ),
+    content: (
+      <CharacterSketch name="Nomita">
+        <p>
+          <Highlight color="blue">Nomita</Highlight> is a young wife in a
+          wealthy Bengali joint family. To the outside world she is{" "}
+          <strong>&ldquo;a queen&rdquo;</strong> &mdash; married into a
+          high-minded, large-hearted household. But behind closed doors,
+          her reality is very different.
+        </p>
+        <p>
+          She is trapped in a{" "}
+          <Highlight color="pink">three-storey joint family</Highlight>{" "}
+          where every action is observed. The sisters-in-law pinch her
+          with sharp words. Her husband Ajit{" "}
+          <strong>censors her letters</strong>, mocks her mother, and
+          insults her origins. Yet she must smile through it all:{" "}
+          <em>&ldquo;Her voice must not tremble.&rdquo;</em>
+        </p>
+        <p>
+          Nomita&rsquo;s inner fire is{" "}
+          <Highlight color="yellow">volcanic</Highlight>. When pushed to
+          the limit, she grabs Ajit&rsquo;s matchbox and sets her own
+          sari ablaze &mdash; a momentary, terrifying act of rebellion
+          that frightens Ajit and reveals the depth of her suppressed
+          rage.
+        </p>
+        <p>
+          Yet she is not reckless. She immediately calms down, returns to
+          the family, lies about the burnt anchol, and sits peeling
+          potatoes while secretly planning to send her mother money.
+          She embodies the matchbox metaphor:{" "}
+          <strong>enough gunpowder to set a hundred Lankas aflame,
+          but she never flares up</strong>.
+        </p>
+      </CharacterSketch>
+    ),
+  },
+  {
+    id: "character-sketch-ajit",
+    title: (
+      <>
+        Character Sketch:{" "}
+        <Highlight color="green">Ajit</Highlight>
+      </>
+    ),
+    content: (
+      <CharacterSketch name="Ajit">
+        <p>
+          <Highlight color="green">Ajit</Highlight> is Nomita&rsquo;s
+          husband. He is the embodiment of{" "}
+          <Highlight color="pink">patriarchal control</Highlight> &mdash;
+          possessive, dismissive, and deeply insecure.
+        </p>
+        <p>
+          His defining habit is opening and reading Nomita&rsquo;s
+          letters. He gained the letter-box key through the gaps of the
+          joint family. When confronted, he first tries to{" "}
+          <strong>laugh it away</strong>, then <strong>scolds her</strong>.
+          He doesn&rsquo;t fear her anger &mdash; he fears a{" "}
+          <strong>row</strong>.
+        </p>
+        <p>
+          Ajit&rsquo;s contempt for Nomita&rsquo;s mother is open and
+          cruel: &ldquo;Why bother to read that? I&rsquo;ll go and fill
+          out a money-order form.&rdquo; When pushed further, he picks
+          up the{" "}
+          <Highlight color="yellow">poisoned knife</Highlight>: &ldquo;A
+          dung-picker&rsquo;s daughter becomes a queen.&rdquo;
+        </p>
+        <p>
+          Yet when Nomita sets her sari on fire, Ajit is{" "}
+          <strong>terrified</strong>. He sees a fire in her face he
+          doesn&rsquo;t have the courage to put out. He tries to speak
+          normally, pouring water on the situation: &ldquo;You lose all
+          common sense when you get angry, don&rsquo;t you?&rdquo; His
+          &ldquo;high-mindedness&rdquo; is a{" "}
+          <Highlight color="blue">mask</Highlight> &mdash; and the
+          narrator implies he knows it.
+        </p>
+      </CharacterSketch>
+    ),
+  },
+  {
+    id: "character-sketch-mother",
+    title: (
+      <>
+        Character Sketch:{" "}
+        <Highlight color="yellow">Nomita&rsquo;s Mother</Highlight>
+      </>
+    ),
+    content: (
+      <CharacterSketch name="Nomita's Mother">
+        <p>
+          Nomita&rsquo;s mother is an{" "}
+          <Highlight color="green">indigent widow</Highlight> without
+          husband or son. She consigned her daughter to a wealthy
+          family&rsquo;s house &ldquo;on the strength of looks
+          alone&rdquo; &mdash; and has never stopped taking credit for it.
+        </p>
+        <p>
+          Her letters are a{" "}
+          <Highlight color="yellow">standard litany of complaints</Highlight>:
+          the ceiling is cracked, rain water falls through in ceaseless
+          streams, misfortune upon misfortune. She calls Nomita{" "}
+          <strong>&ldquo;a queen&rdquo;</strong> and Ajit{" "}
+          <strong>&ldquo;high-minded, large-hearted&rdquo;</strong> &mdash;
+          knowing these words will wound.
+        </p>
+        <p>
+          She is both{" "}
+          <Highlight color="pink">dependent and manipulative</Highlight>.
+          Her complaints are genuine &mdash; she is truly poor &mdash;
+          but the way she delivers them (the sarcasm about
+          &ldquo;queen&rdquo; and &ldquo;high-mindedness&rdquo;) shows
+          she knows how to extract money through guilt. Nomita
+          simultaneously loves and resents her.
+        </p>
+      </CharacterSketch>
+    ),
+  },
+  {
+    id: "symbolism-themes",
+    title: "Symbolism & Themes",
+    content: (
+      <>
+        <Callout type="important">
+          <p>
+            The <Highlight color="yellow">matchbox</Highlight> is the
+            story&rsquo;s central symbol: women have enough{" "}
+            <strong>gunpowder</strong> to set a hundred Lankas aflame,
+            yet they sit meek and innocent. The story asks: what happens
+            when the match is finally struck?
+          </p>
+        </Callout>
+
+        <h3
+          id="matchbox-symbol"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          The Matchbox
+        </h3>
+        <p>
+          The matchbox represents{" "}
+          <Highlight color="yellow">women&rsquo;s suppressed power</Highlight>.
+          It contains the potential for destruction &mdash; gunpowder,
+          fire, rebellion &mdash; but is kept &ldquo;meek and
+          innocent&rdquo; in kitchens, pantries, and bedrooms. Nomita
+          grabs the matchbox and strikes the match, but the fire is{" "}
+          <strong>quickly extinguished</strong>. The men know women won&rsquo;t
+          burn their own shells &mdash; that&rsquo;s why they leave them
+          scattered carelessly.
+        </p>
+
+        <h3
+          id="the-letter"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          The Letter
+        </h3>
+        <p>
+          The letter is a symbol of{" "}
+          <Highlight color="pink">male control over communication</Highlight>.
+          Ajit opens, reads, and sometimes discards Nomita&rsquo;s
+          correspondence. The letter-box key is his tool of surveillance.
+          Nomita&rsquo;s private world &mdash; her relationship with her
+          mother &mdash; is under his control.
+        </p>
+
+        <h3
+          id="forest-of-people"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Forest of People
+        </h3>
+        <p>
+          The expression{" "}
+          <Highlight color="green">&ldquo;forest of people&rdquo;</Highlight>{" "}
+          captures the overwhelming density of the joint family. Nomita
+          looks around and sees the hurly-burly on either side. There is{" "}
+          <strong>no privacy</strong>, no space for genuine emotion. Every
+          smile is a performance. Her voice must not tremble.
+        </p>
+
+        <h3
+          id="burning-sari"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          The Burning Sari
+        </h3>
+        <p>
+          When Nomita{" "}
+          <Highlight color="yellow">sets her sari on fire</Highlight>, it is
+          the matchbox&rsquo;s gunpowder finally ignited. But the fire is{" "}
+          <strong>momentary</strong> &mdash; Ajit puts it out, and Nomita
+          returns to peeling potatoes. The act reveals the depth of her
+          suppressed rage, but also its{" "}
+          <strong>futility</strong>: the system absorbs even the most
+          dramatic rebellion.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "key-takeaway",
+    title: "Key Takeaway",
+    content: (
+      <KeyPoint title="Key Takeaway">
+        <em>Matchbox</em> reveals the{" "}
+        <Highlight color="yellow">quiet fury</Highlight> of women who
+        endure patriarchal control with composure. They have the
+        gunpowder to burn everything down, but they{" "}
+        <strong>never flare up and burn away the mask</strong> of
+        men&rsquo;s high-mindedness. The men know this &mdash; and that
+        is why they leave matchboxes scattered carelessly, without
+        fear, in their pockets.
+      </KeyPoint>
+    ),
+  },
+];
+
 export default function MatchboxPage() {
   const [activeTab, setActiveTab] = useState("summary");
 
@@ -352,227 +582,15 @@ export default function MatchboxPage() {
 
       {/* ======================== CREATIONS TAB ======================== */}
       {activeTab === "creations" && (
-        <div className="animate-fade-in">
-          {/* Character Sketch: Nomita */}
-          <h2
-            id="character-sketch-nomita"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Character Sketch:{" "}
-            <Highlight color="blue">Nomita</Highlight>
-          </h2>
-          <CharacterSketch name="Nomita">
-            <p>
-              <Highlight color="blue">Nomita</Highlight> is a young wife in a
-              wealthy Bengali joint family. To the outside world she is{" "}
-              <strong>&ldquo;a queen&rdquo;</strong> &mdash; married into a
-              high-minded, large-hearted household. But behind closed doors,
-              her reality is very different.
-            </p>
-            <p>
-              She is trapped in a{" "}
-              <Highlight color="pink">three-storey joint family</Highlight>{" "}
-              where every action is observed. The sisters-in-law pinch her
-              with sharp words. Her husband Ajit{" "}
-              <strong>censors her letters</strong>, mocks her mother, and
-              insults her origins. Yet she must smile through it all:{" "}
-              <em>&ldquo;Her voice must not tremble.&rdquo;</em>
-            </p>
-            <p>
-              Nomita&rsquo;s inner fire is{" "}
-              <Highlight color="yellow">volcanic</Highlight>. When pushed to
-              the limit, she grabs Ajit&rsquo;s matchbox and sets her own
-              sari ablaze &mdash; a momentary, terrifying act of rebellion
-              that frightens Ajit and reveals the depth of her suppressed
-              rage.
-            </p>
-            <p>
-              Yet she is not reckless. She immediately calms down, returns to
-              the family, lies about the burnt anchol, and sits peeling
-              potatoes while secretly planning to send her mother money.
-              She embodies the matchbox metaphor:{" "}
-              <strong>enough gunpowder to set a hundred Lankas aflame,
-              but she never flares up</strong>.
-            </p>
-          </CharacterSketch>
-
-          {/* Character Sketch: Ajit */}
-          <h2
-            id="character-sketch-ajit"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Character Sketch:{" "}
-            <Highlight color="green">Ajit</Highlight>
-          </h2>
-          <CharacterSketch name="Ajit">
-            <p>
-              <Highlight color="green">Ajit</Highlight> is Nomita&rsquo;s
-              husband. He is the embodiment of{" "}
-              <Highlight color="pink">patriarchal control</Highlight> &mdash;
-              possessive, dismissive, and deeply insecure.
-            </p>
-            <p>
-              His defining habit is opening and reading Nomita&rsquo;s
-              letters. He gained the letter-box key through the gaps of the
-              joint family. When confronted, he first tries to{" "}
-              <strong>laugh it away</strong>, then <strong>scolds her</strong>.
-              He doesn&rsquo;t fear her anger &mdash; he fears a{" "}
-              <strong>row</strong>.
-            </p>
-            <p>
-              Ajit&rsquo;s contempt for Nomita&rsquo;s mother is open and
-              cruel: &ldquo;Why bother to read that? I&rsquo;ll go and fill
-              out a money-order form.&rdquo; When pushed further, he picks
-              up the{" "}
-              <Highlight color="yellow">poisoned knife</Highlight>: &ldquo;A
-              dung-picker&rsquo;s daughter becomes a queen.&rdquo;
-            </p>
-            <p>
-              Yet when Nomita sets her sari on fire, Ajit is{" "}
-              <strong>terrified</strong>. He sees a fire in her face he
-              doesn&rsquo;t have the courage to put out. He tries to speak
-              normally, pouring water on the situation: &ldquo;You lose all
-              common sense when you get angry, don&rsquo;t you?&rdquo; His
-              &ldquo;high-mindedness&rdquo; is a{" "}
-              <Highlight color="blue">mask</Highlight> &mdash; and the
-              narrator implies he knows it.
-            </p>
-          </CharacterSketch>
-
-          {/* Character Sketch: Mother */}
-          <h2
-            id="character-sketch-mother"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Character Sketch:{" "}
-            <Highlight color="yellow">Nomita&rsquo;s Mother</Highlight>
-          </h2>
-          <CharacterSketch name="Nomita's Mother">
-            <p>
-              Nomita&rsquo;s mother is an{" "}
-              <Highlight color="green">indigent widow</Highlight> without
-              husband or son. She consigned her daughter to a wealthy
-              family&rsquo;s house &ldquo;on the strength of looks
-              alone&rdquo; &mdash; and has never stopped taking credit for it.
-            </p>
-            <p>
-              Her letters are a{" "}
-              <Highlight color="yellow">standard litany of complaints</Highlight>:
-              the ceiling is cracked, rain water falls through in ceaseless
-              streams, misfortune upon misfortune. She calls Nomita{" "}
-              <strong>&ldquo;a queen&rdquo;</strong> and Ajit{" "}
-              <strong>&ldquo;high-minded, large-hearted&rdquo;</strong> &mdash;
-              knowing these words will wound.
-            </p>
-            <p>
-              She is both{" "}
-              <Highlight color="pink">dependent and manipulative</Highlight>.
-              Her complaints are genuine &mdash; she is truly poor &mdash;
-              but the way she delivers them (the sarcasm about
-              &ldquo;queen&rdquo; and &ldquo;high-mindedness&rdquo;) shows
-              she knows how to extract money through guilt. Nomita
-              simultaneously loves and resents her.
-            </p>
-          </CharacterSketch>
-
-          {/* Symbolism & Themes */}
-          <h2
-            id="symbolism-themes"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Symbolism &amp; Themes
-          </h2>
-
-          <Callout type="important">
-            <p>
-              The <Highlight color="yellow">matchbox</Highlight> is the
-              story&rsquo;s central symbol: women have enough{" "}
-              <strong>gunpowder</strong> to set a hundred Lankas aflame,
-              yet they sit meek and innocent. The story asks: what happens
-              when the match is finally struck?
-            </p>
-          </Callout>
-
-          <h3
-            id="matchbox-symbol"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            The Matchbox
-          </h3>
-          <p>
-            The matchbox represents{" "}
-            <Highlight color="yellow">women&rsquo;s suppressed power</Highlight>.
-            It contains the potential for destruction &mdash; gunpowder,
-            fire, rebellion &mdash; but is kept &ldquo;meek and
-            innocent&rdquo; in kitchens, pantries, and bedrooms. Nomita
-            grabs the matchbox and strikes the match, but the fire is{" "}
-            <strong>quickly extinguished</strong>. The men know women won&rsquo;t
-            burn their own shells &mdash; that&rsquo;s why they leave them
-            scattered carelessly.
-          </p>
-
-          <h3
-            id="the-letter"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            The Letter
-          </h3>
-          <p>
-            The letter is a symbol of{" "}
-            <Highlight color="pink">male control over communication</Highlight>.
-            Ajit opens, reads, and sometimes discards Nomita&rsquo;s
-            correspondence. The letter-box key is his tool of surveillance.
-            Nomita&rsquo;s private world &mdash; her relationship with her
-            mother &mdash; is under his control.
-          </p>
-
-          <h3
-            id="forest-of-people"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            Forest of People
-          </h3>
-          <p>
-            The expression{" "}
-            <Highlight color="green">&ldquo;forest of people&rdquo;</Highlight>{" "}
-            captures the overwhelming density of the joint family. Nomita
-            looks around and sees the hurly-burly on either side. There is{" "}
-            <strong>no privacy</strong>, no space for genuine emotion. Every
-            smile is a performance. Her voice must not tremble.
-          </p>
-
-          <h3
-            id="burning-sari"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            The Burning Sari
-          </h3>
-          <p>
-            When Nomita{" "}
-            <Highlight color="yellow">sets her sari on fire</Highlight>, it is
-            the matchbox&rsquo;s gunpowder finally ignited. But the fire is{" "}
-            <strong>momentary</strong> &mdash; Ajit puts it out, and Nomita
-            returns to peeling potatoes. The act reveals the depth of her
-            suppressed rage, but also its{" "}
-            <strong>futility</strong>: the system absorbs even the most
-            dramatic rebellion.
-          </p>
-
-          {/* Key Takeaway */}
-          <KeyPoint title="Key Takeaway">
-            <em>Matchbox</em> reveals the{" "}
-            <Highlight color="yellow">quiet fury</Highlight> of women who
-            endure patriarchal control with composure. They have the
-            gunpowder to burn everything down, but they{" "}
-            <strong>never flare up and burn away the mask</strong> of
-            men&rsquo;s high-mindedness. The men know this &mdash; and that
-            is why they leave matchboxes scattered carelessly, without
-            fear, in their pockets.
-          </KeyPoint>
-
-          {/* Read & Respond */}
-          <div id="read-and-respond-section" className="mt-10">
-            <ReadRespond items={QA_ITEMS} />
+        <div className="animate-fade-in space-y-4">
+          {DISCOURSES.map((section) => (
+            <CollapsibleSection key={section.id} id={section.id} title={section.title}>
+              {section.content}
+            </CollapsibleSection>
+          ))}
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={READ_RESPOND} />
           </div>
         </div>
       )}

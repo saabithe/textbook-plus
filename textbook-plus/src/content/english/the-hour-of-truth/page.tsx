@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { KeyPoint } from "@/components/content/KeyPoint";
@@ -7,6 +7,7 @@ import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
 import { Highlight } from "@/components/content/Highlight";
+import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 
 const THEMES = [
   {
@@ -139,31 +140,91 @@ const CHARACTER_COMPARISON = [
 const READ_RESPOND = [
   {
     question: "Why does Robert Baldwin refuse the $100,000 bribe?",
-    answer: "Robert refuses because his conscience won\u2019t allow him to lie. He says those three words \u2014 \u201cI don\u2019t remember\u201d \u2014 would choke him. His entire identity is built on being honourable, and accepting the bribe would mean everything he\u2019s believed about himself was a lie. He\u2019d rather go to his grave clean than live with the knowledge that he\u2019d been bought.",
+    answer: "Robert refuses because his conscience won’t allow him to lie. He says those three words — “I don’t remember” — would choke him. His entire identity is built on being honourable, and accepting the bribe would mean everything he’s believed about himself was a lie. He’d rather go to his grave clean than live with the knowledge that he’d been bought.",
   },
   {
     question: "How does John justify his father accepting the bribe?",
-    answer: "John argues that nobody lost any money, so it\u2019s just a technicality. He says Gresham hasn\u2019t done anything really wrong and that punishing him would be unfair. He also points out practical benefits: Gresham would start business again, offer Robert a partnership, and the $100,000 would help the family since Robert is unemployed.",
+    answer: "John argues that nobody lost any money, so it’s just a technicality. He says Gresham hasn’t done anything really wrong and that punishing him would be unfair. He also points out practical benefits: Gresham would start business again, offer Robert a partnership, and the $100,000 would help the family since Robert is unemployed.",
   },
   {
-    question: "What role does the family\u2019s son being named after Gresham play?",
-    answer: "Martha uses the name as emotional leverage, reminding Robert that Gresham was their son\u2019s godfather. She says it would be sad if the name \u201cJohn Gresham\u201d came to grief through Robert\u2019s testimony. This adds personal significance to the legal case, making it about family honour as well as money.",
+    question: "What role does the family’s son being named after Gresham play?",
+    answer: "Martha uses the name as emotional leverage, reminding Robert that Gresham was their son’s godfather. She says it would be sad if the name “John Gresham” came to grief through Robert’s testimony. This adds personal significance to the legal case, making it about family honour as well as money.",
   },
   {
     question: "Why does Robert call his family liars and hypocrites?",
-    answer: "Robert sees through their self-serving arguments. They all know taking the money is wrong, but they avoid saying so directly. When Robert asks them directly whether they want him to take it, they remain silent. He calls them shams and hypocrites because they\u2019re pretending to have reasons when really they just want the money.",
+    answer: "Robert sees through their self-serving arguments. They all know taking the money is wrong, but they avoid saying so directly. When Robert asks them directly whether they want him to take it, they remain silent. He calls them shams and hypocrites because they’re pretending to have reasons when really they just want the money.",
   },
   {
-    question: "What is the significance of Gresham\u2019s confession?",
-    answer: "Gresham confesses rather than face Robert\u2019s testimony, which proves two things: that Robert\u2019s integrity was real and not just stubbornness, and that even Gresham recognised the power of truth. Marshall says Gresham paid Robert the supreme compliment by confessing, and the Third National Bank offers Robert a position because of his demonstrated character.",
+    question: "What is the significance of Gresham’s confession?",
+    answer: "Gresham confesses rather than face Robert’s testimony, which proves two things: that Robert’s integrity was real and not just stubbornness, and that even Gresham recognised the power of truth. Marshall says Gresham paid Robert the supreme compliment by confessing, and the Third National Bank offers Robert a position because of his demonstrated character.",
   },
   {
     question: "How does the play explore the corrupting influence of money?",
-    answer: "Every character except Robert is influenced by the $100,000. John sees it as practical, Martha sees it as necessary for the family, and Evie sees it as harmless. The play shows how money can make people rationalise dishonesty, turning a clear moral issue into a grey area. Only Robert\u2019s lifelong habit of integrity resists the temptation.",
+    answer: "Every character except Robert is influenced by the $100,000. John sees it as practical, Martha sees it as necessary for the family, and Evie sees it as harmless. The play shows how money can make people rationalise dishonesty, turning a clear moral issue into a grey area. Only Robert’s lifelong habit of integrity resists the temptation.",
   },
   {
-    question: "What is the irony of Robert\u2019s final position?",
-    answer: "Robert is offered a position at the Third National Bank because of his integrity, which is exactly what the money could have bought him through Gresham. The irony is that by refusing the dishonest path, Robert gets a better outcome than if he\u2019d accepted \u2014 he gets both the job and his self-respect, while the family who pressured him ends up ashamed.",
+    question: "What is the irony of Robert’s final position?",
+    answer: "Robert is offered a position at the Third National Bank because of his integrity, which is exactly what the money could have bought him through Gresham. The irony is that by refusing the dishonest path, Robert gets a better outcome than if he’d accepted — he gets both the job and his self-respect, while the family who pressured him ends up ashamed.",
+  },
+];
+
+const DISCOURSES = [
+  ...CHARACTER_SKETCHES.map((cs) => ({
+    id: `character-sketch-${cs.id}`,
+    title: <>Character Sketch: {cs.name}</>,
+    content: (
+      <>
+        <p className="text-sm text-muted-foreground mb-4">{cs.role}</p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {cs.traits.map((t) => (
+            <span key={t} className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">{t}</span>
+          ))}
+        </div>
+        {cs.description}
+      </>
+    ),
+  })),
+  {
+    id: "character-comparison",
+    title: "Character Comparison",
+    content: (
+      <div className="space-y-4">
+        {CHARACTER_COMPARISON.map((row) => (
+          <div key={row.aspect} className="border border-border/60 rounded-xl p-4">
+            <h3 className="font-semibold text-sm mb-3 text-primary">{row.aspect}</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[0.95rem] text-foreground/85">
+              <div><span className="font-medium text-foreground">Robert:</span> {row.robert}</div>
+              <div><span className="font-medium text-foreground">John:</span> {row.john}</div>
+              <div><span className="font-medium text-foreground">Martha:</span> {row.martha}</div>
+              <div><span className="font-medium text-foreground">Evie:</span> {row.evie}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    ),
+  },
+  {
+    id: "themes",
+    title: "Themes",
+    content: (
+      <div className="space-y-8">
+        {THEMES.map((theme) => (
+          <div key={theme.id} id={theme.id}>
+            <h3 className="text-lg font-bold mb-3">{theme.title}</h3>
+            {theme.content}
+          </div>
+        ))}
+      </div>
+    ),
+  },
+  {
+    id: "key-takeaway",
+    title: "Key Takeaway",
+    content: (
+      <KeyPoint>
+        True integrity is revealed not in comfort, but when it costs you everything &mdash; Robert Baldwin&apos;s refusal to compromise proves that a clean conscience is worth more than any amount of money.
+      </KeyPoint>
+    ),
   },
 ];
 
@@ -179,7 +240,7 @@ export default function TheHourOfTruthPage() {
         <div className="animate-fade-in">
           <div id="author">
             <AuthorCard name="Percival Wilde">
-              American playwright (1887\u20131953) known for his plays and detective stories. Famous works include Brothers, Little Shot, and First is Last. The Hour of Truth is from <em>A Question of Morality and Other Plays</em> \u2014 a striking psychological study on the corrupting influence of money.
+              American playwright (1887–1953) known for his plays and detective stories. Famous works include Brothers, Little Shot, and First is Last. The Hour of Truth is from <em>A Question of Morality and Other Plays</em> — a striking psychological study on the corrupting influence of money.
             </AuthorCard>
           </div>
 
@@ -322,61 +383,14 @@ export default function TheHourOfTruthPage() {
 
       {/* ======================== CREATIONS TAB ======================== */}
       {activeTab === "creations" && (
-        <div className="animate-fade-in">
-          {CHARACTER_SKETCHES.map((cs) => (
-            <div key={cs.id} id={`character-sketch-${cs.id}`} className="scroll-mt-24">
-              <h2 className="text-2xl font-bold tracking-tight mt-14 mb-5 text-foreground">
-                Character Sketch: {cs.name}
-              </h2>
-              <p className="text-sm text-muted-foreground mb-4">{cs.role}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {cs.traits.map((t) => (
-                  <span key={t} className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">{t}</span>
-                ))}
-              </div>
-              {cs.description}
-            </div>
+        <div className="animate-fade-in space-y-4">
+          {DISCOURSES.map((section) => (
+            <CollapsibleSection key={section.id} id={section.id} title={section.title}>
+              {section.content}
+            </CollapsibleSection>
           ))}
-
-          <h2 id="character-comparison" className="text-2xl font-bold tracking-tight mt-14 mb-6 scroll-mt-24 text-foreground">
-            Character Comparison
-          </h2>
-          <div className="space-y-4">
-            {CHARACTER_COMPARISON.map((row) => (
-              <div key={row.aspect} className="border border-border/60 rounded-xl p-4">
-                <h3 className="font-semibold text-sm mb-3 text-primary">{row.aspect}</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[0.95rem] text-foreground/85">
-                  <div><span className="font-medium text-foreground">Robert:</span> {row.robert}</div>
-                  <div><span className="font-medium text-foreground">John:</span> {row.john}</div>
-                  <div><span className="font-medium text-foreground">Martha:</span> {row.martha}</div>
-                  <div><span className="font-medium text-foreground">Evie:</span> {row.evie}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <h2 id="themes" className="text-2xl font-bold tracking-tight mt-14 mb-6 scroll-mt-24 text-foreground">
-            Themes
-          </h2>
-          <div className="space-y-8">
-            {THEMES.map((theme) => (
-              <div key={theme.id} id={theme.id}>
-                <h3 className="text-lg font-bold mb-3">{theme.title}</h3>
-                {theme.content}
-              </div>
-            ))}
-          </div>
-
-          <div id="key-takeaway" className="scroll-mt-24 mt-14">
-            <KeyPoint>
-              True integrity is revealed not in comfort, but when it costs you everything &mdash; Robert Baldwin&apos;s refusal to compromise proves that a clean conscience is worth more than any amount of money.
-            </KeyPoint>
-          </div>
-
-          <div id="read-and-respond" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-4 text-foreground">
-              Read &amp; Respond
-            </h2>
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
             <ReadRespond items={READ_RESPOND} />
           </div>
         </div>

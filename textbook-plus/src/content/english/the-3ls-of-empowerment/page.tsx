@@ -9,6 +9,7 @@ import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
 import { Highlight } from "@/components/content/Highlight";
+import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 
 const QA_ITEMS = [
   {
@@ -48,6 +49,167 @@ const QA_ITEMS = [
         independence. &ldquo;Equal pay for equal work&rdquo; must become the
         norm.
       </>
+    ),
+  },
+];
+
+const DISCOURSES = [
+  {
+    id: "the-three-ls",
+    title: (
+      <>
+        The <Highlight color="yellow">3 Ls</Highlight> of Empowerment
+      </>
+    ),
+    content: (
+      <>
+        <Callout type="important">
+          <p>
+            Lagarde&rsquo;s central argument: women&rsquo;s economic empowerment
+            rests on three pillars &mdash;{" "}
+            <Highlight color="blue">Learning</Highlight>,{" "}
+            <Highlight color="green">Labour</Highlight>, and{" "}
+            <Highlight color="yellow">Leadership</Highlight>. Together, they
+            open the door to a world where all women meet their potential
+            without impediment or prejudice.
+          </p>
+        </Callout>
+
+        <h3
+          id="learning"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Learning
+        </h3>
+        <p>
+          Education is the{" "}
+          <Highlight color="blue">foundation</Highlight> upon which any change
+          is built. Learning helps women to help themselves and break the
+          shackles of exclusion. An African adage captures the idea:{" "}
+          <em>&ldquo;If you educate a boy, you train a man. If you educate a
+          girl, you train a village.&rdquo;</em>
+        </p>
+
+        <h3
+          id="labour"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Labour
+        </h3>
+        <p>
+          Labour facilitates women to flourish and achieve their true potential.
+          But women earn only{" "}
+          <Highlight color="pink">three-quarters</Highlight> as much as men,
+          even with the same education in the same occupation. Lagarde calls
+          for &ldquo;equal pay for equal work&rdquo; and outlines practical
+          steps: change property and inheritance laws, provide greater access
+          to credit, and ensure policies that encourage education and health
+          care.
+        </p>
+
+        <h3
+          id="leadership"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Leadership
+        </h3>
+        <p>
+          Women lead through{" "}
+          <Highlight color="green">consensus-building, inclusion, compassion</Highlight>,
+          and a focus on long-term sustainability. Yet they sometimes lack the
+          confidence to match their competence. Lagarde urges women to{" "}
+          <strong>&ldquo;dare the difference&rdquo;</strong> &mdash; step
+          outside comfort zones, take risks, and reset the narrative in their
+          favour.
+        </p>
+
+        <Expandable title="Key Statistics">
+          <ul className="space-y-2 text-foreground/90 text-[0.95rem] leading-[1.75]">
+            <li>
+              Women represent <strong>half the world&rsquo;s population</strong>{" "}
+              but contribute far less than 50 per cent of economic activity.
+            </li>
+            <li>
+              Globally, women earn only{" "}
+              <Highlight color="yellow">three-quarters</Highlight> as much as
+              men with the same education and in the same occupation.
+            </li>
+            <li>
+              Eliminating gender gaps in economic participation can bring an{" "}
+              <strong>increase in per capita income</strong>.
+            </li>
+          </ul>
+        </Expandable>
+      </>
+    ),
+  },
+  {
+    id: "themes",
+    title: "Themes",
+    content: (
+      <>
+        <h3
+          id="economic-inequality"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Economic Inequality
+        </h3>
+        <p>
+          The speech exposes the{" "}
+          <Highlight color="pink">persistent gap</Highlight> between men and
+          women in the workplace. Despite equal education, women are trapped in{" "}
+          <strong>low-paying, low-status, low-security jobs</strong>. Lagarde
+          frames this not as a women&rsquo;s issue alone but as an economic
+          crisis: per capita income suffers when half the population is denied
+          equal opportunity.
+        </p>
+
+        <h3
+          id="confidence-gap"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          The Confidence Gap
+        </h3>
+        <p>
+          Lagarde acknowledges that women sometimes{" "}
+          <Highlight color="yellow">lack the confidence</Highlight> to match
+          their competence. The solution is twofold: women must &ldquo;dare the
+          difference&rdquo; and step outside comfort zones, while society must
+          remove the{" "}
+          <Highlight color="blue">barriers</Highlight> &mdash; whether
+          providing primary education in villages or executive positions in
+          business.
+        </p>
+
+        <h3
+          id="dare-the-difference"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Dare the Difference
+        </h3>
+        <p>
+          The speech&rsquo;s closing call to action:{" "}
+          <strong>&ldquo;If we dare the difference, the difference will
+          deliver.&rdquo;</strong> Empowerment requires both individual courage
+          &mdash; taking risks, stepping outside comfort zones &mdash; and
+          systemic change &mdash; laws, policies, and cultural shifts.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "key-takeaway",
+    title: "Key Takeaway",
+    content: (
+      <KeyPoint title="Key Takeaway">
+        Women&rsquo;s empowerment rests on{" "}
+        <Highlight color="yellow">Learning, Labour, and Leadership</Highlight>{" "}
+        &mdash; the 3 Ls. Education is the foundation, economic participation
+        is the pathway, and leadership is the goal. Creating a world where
+        all women meet their potential without impediment or prejudice is
+        not just a moral imperative &mdash;{" "}
+        <strong>the world will reap the benefits</strong>.
+      </KeyPoint>
     ),
   },
 ];
@@ -210,161 +372,14 @@ export default function The3LsOfEmpowermentPage() {
 
       {/* ======================== CREATIONS TAB ======================== */}
       {activeTab === "creations" && (
-        <div className="animate-fade-in">
-          {/* The 3 Ls */}
-          <h2
-            id="the-three-ls"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            The <Highlight color="yellow">3 Ls</Highlight> of Empowerment
-          </h2>
-
-          <Callout type="important">
-            <p>
-              Lagarde&rsquo;s central argument: women&rsquo;s economic empowerment
-              rests on three pillars &mdash;{" "}
-              <Highlight color="blue">Learning</Highlight>,{" "}
-              <Highlight color="green">Labour</Highlight>, and{" "}
-              <Highlight color="yellow">Leadership</Highlight>. Together, they
-              open the door to a world where all women meet their potential
-              without impediment or prejudice.
-            </p>
-          </Callout>
-
-          <h3
-            id="learning"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            Learning
-          </h3>
-          <p>
-            Education is the{" "}
-            <Highlight color="blue">foundation</Highlight> upon which any change
-            is built. Learning helps women to help themselves and break the
-            shackles of exclusion. An African adage captures the idea:{" "}
-            <em>&ldquo;If you educate a boy, you train a man. If you educate a
-            girl, you train a village.&rdquo;</em>
-          </p>
-
-          <h3
-            id="labour"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            Labour
-          </h3>
-          <p>
-            Labour facilitates women to flourish and achieve their true potential.
-            But women earn only{" "}
-            <Highlight color="pink">three-quarters</Highlight> as much as men,
-            even with the same education in the same occupation. Lagarde calls
-            for &ldquo;equal pay for equal work&rdquo; and outlines practical
-            steps: change property and inheritance laws, provide greater access
-            to credit, and ensure policies that encourage education and health
-            care.
-          </p>
-
-          <h3
-            id="leadership"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            Leadership
-          </h3>
-          <p>
-            Women lead through{" "}
-            <Highlight color="green">consensus-building, inclusion, compassion</Highlight>,
-            and a focus on long-term sustainability. Yet they sometimes lack the
-            confidence to match their competence. Lagarde urges women to{" "}
-            <strong>&ldquo;dare the difference&rdquo;</strong> &mdash; step
-            outside comfort zones, take risks, and reset the narrative in their
-            favour.
-          </p>
-
-          <Expandable title="Key Statistics">
-            <ul className="space-y-2 text-foreground/90 text-[0.95rem] leading-[1.75]">
-              <li>
-                Women represent <strong>half the world&rsquo;s population</strong>{" "}
-                but contribute far less than 50 per cent of economic activity.
-              </li>
-              <li>
-                Globally, women earn only{" "}
-                <Highlight color="yellow">three-quarters</Highlight> as much as
-                men with the same education and in the same occupation.
-              </li>
-              <li>
-                Eliminating gender gaps in economic participation can bring an{" "}
-                <strong>increase in per capita income</strong>.
-              </li>
-            </ul>
-          </Expandable>
-
-          {/* Themes */}
-          <h2
-            id="themes"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Themes
-          </h2>
-
-          <h3
-            id="economic-inequality"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            Economic Inequality
-          </h3>
-          <p>
-            The speech exposes the{" "}
-            <Highlight color="pink">persistent gap</Highlight> between men and
-            women in the workplace. Despite equal education, women are trapped in{" "}
-            <strong>low-paying, low-status, low-security jobs</strong>. Lagarde
-            frames this not as a women&rsquo;s issue alone but as an economic
-            crisis: per capita income suffers when half the population is denied
-            equal opportunity.
-          </p>
-
-          <h3
-            id="confidence-gap"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            The Confidence Gap
-          </h3>
-          <p>
-            Lagarde acknowledges that women sometimes{" "}
-            <Highlight color="yellow">lack the confidence</Highlight> to match
-            their competence. The solution is twofold: women must &ldquo;dare the
-            difference&rdquo; and step outside comfort zones, while society must
-            remove the{" "}
-            <Highlight color="blue">barriers</Highlight> &mdash; whether
-            providing primary education in villages or executive positions in
-            business.
-          </p>
-
-          <h3
-            id="dare-the-difference"
-            className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-          >
-            Dare the Difference
-          </h3>
-          <p>
-            The speech&rsquo;s closing call to action:{" "}
-            <strong>&ldquo;If we dare the difference, the difference will
-            deliver.&rdquo;</strong> Empowerment requires both individual courage
-            &mdash; taking risks, stepping outside comfort zones &mdash; and
-            systemic change &mdash; laws, policies, and cultural shifts.
-          </p>
-
-          {/* Key Takeaway */}
-          <KeyPoint title="Key Takeaway">
-            Women&rsquo;s empowerment rests on{" "}
-            <Highlight color="yellow">Learning, Labour, and Leadership</Highlight>{" "}
-            &mdash; the 3 Ls. Education is the foundation, economic participation
-            is the pathway, and leadership is the goal. Creating a world where
-            all women meet their potential without impediment or prejudice is
-            not just a moral imperative &mdash;{" "}
-            <strong>the world will reap the benefits</strong>.
-          </KeyPoint>
-
-          {/* Read & Respond */}
-          <div id="read-and-respond-section" className="mt-10">
+        <div className="animate-fade-in space-y-4">
+          {DISCOURSES.map((section) => (
+            <CollapsibleSection key={section.id} id={section.id} title={section.title}>
+              {section.content}
+            </CollapsibleSection>
+          ))}
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
             <ReadRespond items={QA_ITEMS} />
           </div>
         </div>
