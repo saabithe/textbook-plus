@@ -46,6 +46,24 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "appreciation", title: "Poem Appreciation" },
     { id: "key-takeaway", title: "Key Takeaway" },
   ],
+  "amigo-brothers": [
+    { id: "author", title: "Author" },
+    { id: "introduction", title: "Introduction" },
+    { id: "summary", title: "Summary" },
+    { id: "character-sketch-antonio", title: "Character Sketch: Antonio Cruz" },
+    { id: "character-sketch-felix", title: "Character Sketch: Felix Vargas" },
+    { id: "character-comparison", title: "Character Comparison" },
+    {
+      id: "themes", title: "Themes", children: [
+        { id: "friendship-vs-ambition", title: "Friendship vs. Ambition" },
+        { id: "the-rising-wall", title: "The Rising Wall" },
+        { id: "brotherhood-above-victory", title: "Brotherhood Above Victory" },
+        { id: "courage-and-sportsmanship", title: "Courage and Sportsmanship" },
+      ],
+    },
+    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "read-and-respond", title: "Read & Respond" },
+  ],
   "electric-charges-and-fields": [
     { id: "h-1-1", title: "1.1 Introduction" },
     { id: "h-1-2", title: "1.2 Electric Charge" },

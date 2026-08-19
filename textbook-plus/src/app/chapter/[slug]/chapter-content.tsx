@@ -7,6 +7,7 @@ const chapterComponents: Record<string, React.ComponentType> = {
   "electrostatic-potential-and-capacitance": dynamic(() => import("@/content/physics/electrostatic-potential-and-capacitance/page")) as React.ComponentType,
   "horegallu": dynamic(() => import("@/content/english/horegallu/page")) as React.ComponentType,
   "mending-wall": dynamic(() => import("@/content/english/mending-wall/page")) as React.ComponentType,
+  "amigo-brothers": dynamic(() => import("@/content/english/amigo-brothers/page")) as React.ComponentType,
 };
 
 export function ChapterContent({ slug }: { slug: string }) {
