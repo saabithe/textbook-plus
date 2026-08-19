@@ -11,6 +11,7 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "summary", title: "Summary" },
     { id: "character-sketch-ratna", title: "Character Sketch: Ratna" },
     { id: "character-sketch-grandfather", title: "Character Sketch: Grandfather" },
+    { id: "character-comparison", title: "Character Comparison" },
     {
       id: "symbolism-themes", title: "Symbolism & Themes", children: [
         { id: "the-burden", title: "The Symbolism of Burden" },

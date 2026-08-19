@@ -25,7 +25,7 @@ export function Comparison({ columns }: ComparisonProps) {
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
               {col.title}
             </p>
-            <div className="text-sm leading-relaxed text-muted-foreground">
+            <div className="text-[0.95rem] leading-[1.75] text-foreground/85">
               {col.children}
             </div>
           </div>

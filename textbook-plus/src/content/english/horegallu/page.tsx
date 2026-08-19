@@ -5,6 +5,8 @@ import { Expandable } from "@/components/content/Expandable";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { AuthorCard } from "@/components/content/AuthorCard";
 import { CharacterSketch } from "@/components/content/CharacterSketch";
+import { SummaryLevels } from "@/components/content/SummaryLevels";
+import { CharacterComparison } from "@/components/content/CharacterComparison";
 
 export default function HoregalluPage() {
   return (
@@ -40,61 +42,129 @@ export default function HoregalluPage() {
         &lsquo;horegallu&rsquo; under the tree.
       </p>
 
-      {/* === Summary === */}
+      {/* === Summary (3-level slider) === */}
       <h2 id="summary" className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground">
         Summary
       </h2>
-      <ul className="space-y-2 mb-6 text-foreground/90 text-[1.0625rem] leading-[1.75]">
-        <li>
-          &lsquo;Horegallu&rsquo; is a motivational story written by Sudha Murty. It
-          tells us the importance of taking rest in the middle of our journey
-          or sharing our problems with others.
-        </li>
-        <li>
-          It is a short and simple anecdote that shows Sudha Murty&rsquo;s
-          nostalgia for her childhood in a little village with a huge banyan
-          tree in the middle.
-        </li>
-        <li>
-          Under the banyan tree there was a horegallu &mdash; a large flat stone
-          placed over two vertical ones, on which anyone could sit and rest,
-          chat with fellow travellers, and drink cool water from earthen pots
-          kept nearby.
-        </li>
-        <li>
-          The author&rsquo;s grandfather, a retired school teacher, would spend
-          hours near the horegallu chatting with travellers. He could only
-          listen, but simply talking to him seemed to re-energise them for the
-          road ahead.
-        </li>
-        <li>
-          Grandfather told the author that a horegallu is essential in any
-          journey. Everyone bears their burdens according to their capacities,
-          but every once in a while they need to stop, lay down their burden,
-          and rest &mdash; only then can they be refreshed enough to pick up the
-          load once more.
-        </li>
-        <li>
-          Later in life the author met Ratna, a cheerful colleague in Mumbai,
-          who reminded her of her grandfather. Ratna spent her lunch breaks
-          listening to the troubles of her co-workers.
-        </li>
-        <li>
-          Ratna said: &ldquo;God has given me two ears to listen to others. I hear
-          them out with sympathy and without any judgement. When a person in
-          trouble finds an outlet for his worries, it relieves half his
-          burden.&rdquo;
-        </li>
-        <li>
-          Both the grandfather and Ratna acted as human horegallus &mdash; they
-          listened with empathy and helped others regain the strength to carry
-          on.
-        </li>
-        <li>
-          The story encourages us to be someone&rsquo;s horegallu: a person who
-          listens with compassion and creates healthy minds.
-        </li>
-      </ul>
+      <SummaryLevels
+        quick={
+          <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            <li>
+              &lsquo;Horegallu&rsquo; is a motivational story by Sudha Murty about the
+              importance of taking rest and sharing our problems with others.
+            </li>
+            <li>
+              A horegallu literally means &ldquo;a stone that can bear weight&rdquo; &mdash; a
+              resting place for weary travellers.
+            </li>
+            <li>
+              In any journey, everyone needs to stop, put down their burden,
+              and rest before they can continue.
+            </li>
+            <li>
+              The author&rsquo;s grandfather and her colleague Ratna both acted as
+              human horegallus &mdash; good listeners who helped people regain their
+              strength.
+            </li>
+          </ul>
+        }
+        standard={
+          <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            <li>
+              &lsquo;Horegallu&rsquo; is a motivational story written by Sudha Murty. It
+              tells us the importance of taking rest in the middle of our
+              journey or sharing our problems with others.
+            </li>
+            <li>
+              It is a short and simple anecdote that shows Sudha Murty&rsquo;s
+              nostalgia for her childhood in a little village with a huge banyan
+              tree in the middle.
+            </li>
+            <li>
+              Under the banyan tree there was a horegallu &mdash; a large flat stone
+              placed over two vertical ones, on which anyone could sit and rest,
+              chat with fellow travellers, and drink cool water from earthen
+              pots kept nearby.
+            </li>
+            <li>
+              The author&rsquo;s grandfather, a retired school teacher, would spend
+              hours near the horegallu chatting with travellers. He could only
+              listen, but simply talking to him seemed to re-energise them for
+              the road ahead.
+            </li>
+            <li>
+              Grandfather told the author that a horegallu is essential in any
+              journey. Everyone bears their burdens according to their
+              capacities, but every once in a while they need to stop, lay down
+              their burden, and rest.
+            </li>
+            <li>
+              Later in life the author met Ratna, a cheerful colleague in Mumbai,
+              who reminded her of her grandfather. Ratna spent her lunch breaks
+              listening to the troubles of her co-workers. &ldquo;God has given me
+              two ears to listen without judgement.&rdquo;
+            </li>
+            <li>
+              Both grandfather and Ratna acted as human horegallus &mdash; they
+              listened with empathy and helped others regain the strength to
+              carry on.
+            </li>
+          </ul>
+        }
+        detailed={
+          <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            <li>
+              &lsquo;Horegallu&rsquo; is a motivational story written by Sudha Murty. It
+              tells us the importance of taking rest in the middle of our
+              journey or sharing our problems with others.
+            </li>
+            <li>
+              It is a short and simple anecdote that shows Sudha Murty&rsquo;s
+              nostalgia for her childhood in a little village with a huge banyan
+              tree in the middle.
+            </li>
+            <li>
+              Under the banyan tree there was a horegallu &mdash; a large flat stone
+              placed over two vertical ones, on which anyone could sit and rest,
+              chat with fellow travellers, and drink cool water from earthen
+              pots kept nearby.
+            </li>
+            <li>
+              The author&rsquo;s grandfather, a retired school teacher, would spend
+              hours near the horegallu chatting with travellers. He could only
+              listen, but simply talking to him seemed to re-energise them for
+              the road ahead.
+            </li>
+            <li>
+              Grandfather told the author that a horegallu is essential in any
+              journey. Everyone bears their burdens according to their
+              capacities, but every once in a while they need to stop, lay down
+              their burden, and rest &mdash; only then can they be refreshed enough to
+              pick up the load once more.
+            </li>
+            <li>
+              Later in life the author met Ratna, a cheerful colleague in Mumbai,
+              who reminded her of her grandfather. Ratna spent her lunch breaks
+              listening to the troubles of her co-workers.
+            </li>
+            <li>
+              Ratna said: &ldquo;God has given me two ears to listen to others. I
+              hear them out with sympathy and without any judgement. When a
+              person in trouble finds an outlet for his worries, it relieves
+              half his burden.&rdquo;
+            </li>
+            <li>
+              Both the grandfather and Ratna acted as human horegallus &mdash; they
+              listened with empathy and helped others regain the strength to
+              carry on.
+            </li>
+            <li>
+              The story encourages us to be someone&rsquo;s horegallu: a person who
+              listens with compassion and creates healthy minds.
+            </li>
+          </ul>
+        }
+      />
 
       {/* === Character Sketch: Ratna === */}
       <h2 id="character-sketch-ratna" className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground">
@@ -167,6 +237,79 @@ export default function HoregalluPage() {
           acts of kindness gave him joy.
         </p>
       </CharacterSketch>
+
+      {/* === Character Comparison === */}
+      <h2 id="character-comparison" className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground">
+        Character Comparison: Grandfather &amp; Ratna
+      </h2>
+      <CharacterComparison
+        characters={["Grandfather", "Ratna"]}
+        rows={[
+          {
+            label: "Role",
+            values: [
+              <p key="g-role">Retired school teacher</p>,
+              <p key="r-role">Senior clerk (25 years in the company)</p>,
+            ],
+          },
+          {
+            label: "Setting",
+            values: [
+              <p key="g-set">Village, under the banyan tree near the horegallu</p>,
+              <p key="r-set">Office, during lunch breaks in one of the rooms</p>,
+            ],
+          },
+          {
+            label: "Who they helped",
+            values: [
+              <p key="g-who">Villagers carrying heavy loads from the fields</p>,
+              <p key="r-who">Co-workers carrying worries and stress</p>,
+            ],
+          },
+          {
+            label: "How they listened",
+            values: [
+              <p key="g-how">Sat under the tree and chatted with travellers; mostly listened to their daily concerns</p>,
+              <p key="r-how">Sat with one person each lunch hour; mostly listened to their problems without trying to solve them</p>,
+            ],
+          },
+          {
+            label: "Philosophy",
+            values: [
+              <p key="g-phil">&ldquo;A horegallu is essential in any journey. We all carry our burdens according to our situations and capacities. But every once in a while, we need to stop, put down that burden and rest.&rdquo;</p>,
+              <p key="r-phil">&ldquo;God has given me two ears to listen to others. I hear them out with sympathy and without any judgement. When a person finds an outlet for his worries, it relieves half his burden.&rdquo;</p>,
+            ],
+          },
+          {
+            label: "Confidentiality",
+            values: [
+              <p key="g-conf">Villagers naturally trusted him as a respected elder; their conversations stayed private</p>,
+              <p key="r-conf">&ldquo;Not even in my dreams. I consider that to be the worst kind of betrayal.&rdquo; She never disclosed what was shared in confidence</p>,
+            ],
+          },
+          {
+            label: "Effect on others",
+            values: [
+              <p key="g-eff">Travellers felt refreshed and picked up their burdens with ease</p>,
+              <p key="r-eff">Colleagues found relief and gathered strength to carry on with their journey</p>,
+            ],
+          },
+          {
+            label: "Motivation",
+            values: [
+              <p key="g-mot">No money or recognition; these acts of kindness gave him joy</p>,
+              <p key="r-mot">No reward sought; simply listened and provided a safe outlet for worries</p>,
+            ],
+          },
+          {
+            label: "Shared trait",
+            values: [
+              <p key="g-shared" className="font-semibold">Both were human horegallus &mdash; good listeners who provided empathy and helped people regain their strength through patient listening</p>,
+              <p key="r-shared" className="font-semibold">Both were human horegallus &mdash; good listeners who provided empathy and helped people regain their strength through patient listening</p>,
+            ],
+          },
+        ]}
+      />
 
       {/* === Symbolism & Themes === */}
       <h2 id="symbolism-themes" className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground">
