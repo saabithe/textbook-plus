@@ -414,15 +414,95 @@ export default function ElectricChargesChapter() {
         <p>Mass = 250 g, molecular mass = 18 g. Molecules = (250/18) × 6.02 × 10²³. Each has 10 electrons + 10 protons.</p>
         <p>Total charge = (250/18) × 6.02 × 10²³ × 10 × 1.6 × 10⁻¹⁹ = 1.34 × 10⁷ C</p>
       </Example>
-      <Example title="Example 1.3 — Electric vs Gravitational Force Ratio">
-        <p>(i) Electron-proton: Fe/FG = e²/(4πε₀Gm_pm_e) = 2.4 × 10³⁹</p>
-        <p>(ii) Two protons: Fe/FG = e²/(4πε₀Gm²_p) = 1.3 × 10³⁶</p>
-        <p>Electrical forces are enormously stronger than gravitational forces.</p>
+      <Example title="Example 1.3 — Coulomb's Law vs Gravitational Force">
+        <p>
+          Coulomb's law for electrostatic force between two point charges and Newton's law
+          for gravitational force between two stationary point masses, both have inverse-square
+          dependence on the distance between the charges and masses respectively.
+        </p>
+        <p>
+          <strong>(a) Compare the strength of these forces by determining the ratio of their
+          magnitudes (i) for an electron and a proton and (ii) for two protons.</strong>
+        </p>
+        <p><strong>(b) Estimate the accelerations of electron and proton due to the electrical
+          force of their mutual attraction when they are 1 Å (= 10⁻¹⁰ m) apart?</strong></p>
+        <p className="text-sm text-muted-foreground">(mₚ = 1.67 × 10⁻²⁷ kg, mₑ = 9.11 × 10⁻³¹ kg)</p>
+
+        <p className="mt-4"><strong>Solution</strong></p>
+        <p><strong>(a)(i)</strong> The electric force between an electron and a proton at a distance r apart is:</p>
+        <FormulaBlock latex="F_e = -\frac{e^2}{4\pi\varepsilon_0 \, r^2}" />
+        <p>where the negative sign indicates that the force is attractive. The corresponding
+          gravitational force (always attractive) is:</p>
+        <FormulaBlock latex="F_G = \frac{G \, m_p \, m_e}{r^2}" />
+        <p>The ratio of their magnitudes is:</p>
+        <FormulaBlock latex="\frac{F_e}{F_G} = \frac{e^2}{4\pi\varepsilon_0 \, G \, m_p \, m_e} \approx 2.4 \times 10^{39}" important />
+        <p>where mₚ and mₑ are the masses of a proton and an electron respectively.</p>
+
+        <p><strong>(a)(ii)</strong> On similar lines, the ratio of the magnitudes of electric force to the
+          gravitational force between two protons at a distance r apart is:</p>
+        <FormulaBlock latex="\frac{F_e}{F_G} = \frac{e^2}{4\pi\varepsilon_0 \, G \, m_p^2} \approx 1.3 \times 10^{36}" important />
+        <p>
+          However, it may be mentioned here that the signs of the two forces are different. For
+          two protons, the gravitational force is attractive in nature and the Coulomb force is
+          repulsive. The actual values of these forces between two protons inside a nucleus
+          (distance between two protons is ~ 10⁻¹⁵ m inside a nucleus) are Fₑ ~ 230 N,
+          whereas, F<sub>G</sub> ~ 1.9 × 10⁻³⁴ N.
+        </p>
+        <p>
+          The (dimensionless) ratio of the two forces shows that electrical forces are enormously
+          stronger than the gravitational forces.
+        </p>
+
+        <p><strong>(b)</strong> The electric force F exerted by a proton on an electron is same in magnitude to
+          the force exerted by an electron on a proton; however, the masses of an electron and
+          a proton are different. Thus, the magnitude of force is:</p>
+        <FormulaBlock latex="|F| = \frac{1}{4\pi\varepsilon_0} \frac{e^2}{r^2} = 8.987 \times 10^9 \times \frac{(1.6 \times 10^{-19})^2}{(10^{-10})^2} = 2.3 \times 10^{-8} \text{ N}" important />
+        <p>Using Newton's second law of motion, F = ma, the acceleration that an electron will
+          undergo is:</p>
+        <FormulaBlock latex="a = \frac{2.3 \times 10^{-8}}{9.11 \times 10^{-31}} = 2.5 \times 10^{22} \text{ m/s}^2" />
+        <p>
+          Comparing this with the value of acceleration due to gravity, we can conclude that the
+          effect of gravitational field is negligible on the motion of electron and it undergoes
+          very large accelerations under the action of Coulomb force due to a proton.
+        </p>
+        <p>The value for acceleration of the proton is:</p>
+        <FormulaBlock latex="a = \frac{2.3 \times 10^{-8}}{1.67 \times 10^{-27}} = 1.4 \times 10^{19} \text{ m/s}^2" />
       </Example>
+
       <Example title="Example 1.4 — Charge Sharing and Coulomb's Law">
-        <p>Charged spheres A and B touched by uncharged C and D. Distance halved.</p>
-        <FormulaBlock latex="F&apos; = k\frac{(q/2)(q&apos;/2)}{(r/2)^2} = \frac{kqq&apos;}{r^2} = F" />
-        <p>The force remains unaltered.</p>
+        <p>
+          A charged metallic sphere A is suspended by a nylon thread. Another charged metallic
+          sphere B held by an insulating handle is brought close to A such that the distance
+          between their centres is 10 cm, as shown in Fig. 1.4(a). The resulting repulsion of A
+          is noted (for example, by shining a beam of light and measuring the deflection of its
+          shadow on a screen). Spheres A and B are touched by uncharged spheres C and D
+          respectively, as shown in Fig. 1.4(b). C and D are then removed and B is brought
+          closer to A to a distance of 5.0 cm between their centres, as shown in Fig. 1.4(c).
+          What is the expected repulsion of A on the basis of Coulomb's law?
+        </p>
+        <p className="text-sm text-muted-foreground">
+          Spheres A and C and spheres B and D have identical sizes. Ignore the sizes of A and B
+          in comparison to the separation between their centres.
+        </p>
+
+        <p className="mt-4"><strong>Solution</strong></p>
+        <p>
+          Let the original charge on sphere A be q and that on B be q'. At a distance r between
+          their centres, the magnitude of the electrostatic force on each is given by:
+        </p>
+        <FormulaBlock latex="F = \frac{1}{4\pi\varepsilon_0} \frac{qq'}{r^2}" />
+        <p>neglecting the sizes of spheres A and B in comparison to r.</p>
+        <p>
+          When an identical but uncharged sphere C touches A, the charges redistribute on A
+          and C and, by symmetry, each sphere carries a charge q/2. Similarly, after D touches B,
+          the redistributed charge on each is q'/2.
+        </p>
+        <p>
+          Now, if the separation between A and B is halved, the magnitude of the electrostatic
+          force on each is:
+        </p>
+        <FormulaBlock latex="F' = \frac{1}{4\pi\varepsilon_0} \frac{(q/2)(q'/2)}{(r/2)^2} = \frac{1}{4\pi\varepsilon_0} \frac{qq'/4}{r^2/4} = \frac{1}{4\pi\varepsilon_0} \frac{qq'}{r^2} = F" important />
+        <p>Thus the electrostatic force on A, due to B, remains unaltered.</p>
       </Example>
       <Example title="Example 1.5 — Force at Centroid of Equilateral Triangle">
         <p>Three charges q at vertices, charge Q at centroid.</p>
