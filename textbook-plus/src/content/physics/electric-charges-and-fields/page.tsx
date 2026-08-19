@@ -5,6 +5,7 @@ import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
+import { Stepper } from "@/components/content/Stepper";
 
 export default function ElectricChargesChapter() {
   return (
@@ -13,23 +14,40 @@ export default function ElectricChargesChapter() {
       <Callout type="important">
         Electrostatics deals with the study of forces, fields and potentials arising from static charges.
       </Callout>
-      <p><strong>Cause of these phenomena:</strong></p>
-      <ul>
-        <li>Rubbing insulating surfaces transfers electrons.</li>
-        <li>Surfaces become charged (positive or negative).</li>
-        <li>Charges accumulate until they find a path to discharge.</li>
-        <li>Discharge produces spark, shock, or light.</li>
-      </ul>
+      <Stepper
+        steps={[
+          { label: "Rub insulating surfaces together" },
+          { label: "Electrons transfer from one surface to the other", description: "One surface loses electrons (+ve), the other gains (−ve)." },
+          { label: "Both surfaces become charged" },
+          { label: "Charges accumulate until a discharge path exists" },
+          { label: "Discharge produces spark, shock, or light" },
+        ]}
+      />
 
       <h2 id="h-1-2">1.2 Electric Charge</h2>
       <p><strong>Fundamental Observations:</strong></p>
-      <ul>
-        <li>Glass rod rubbed with silk/wool → <strong>repel each other</strong></li>
-        <li>Plastic rod rubbed with fur → <strong>repel each other</strong></li>
-        <li>Glass rod vs wool/silk → <strong>attract</strong></li>
-        <li>Plastic rod vs glass rod → <strong>attract</strong></li>
-      </ul>
-      <p><strong>Conclusion:</strong> Two kinds of charges exist.</p>
+      <Comparison
+        columns={[
+          {
+            title: "Repel",
+            children: (
+              <ul>
+                <li>Glass rod + silk/wool (both rubbed)</li>
+                <li>Plastic rod + fur (both rubbed)</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Attract",
+            children: (
+              <ul>
+                <li>Glass rod + wool/silk (unrubbed)</li>
+                <li>Plastic rod + glass rod</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
       <Callout type="important">
         There are only two kinds of electric charge. Like charges repel and unlike charges attract each other. The property which differentiates the two kinds is called the polarity of charge.
       </Callout>
@@ -135,12 +153,6 @@ export default function ElectricChargesChapter() {
           },
         ]}
       />
-
-      <KeyPoint title="Key Exam Point">
-        Three basic properties of electric charge: (1) Quantisation — q = ne, (2) Additivity —
-        total charge is algebraic sum, (3) Conservation — total charge of isolated system is
-        constant.
-      </KeyPoint>
 
       <h2 id="h-1-5">1.5 Coulomb&apos;s Law</h2>
       <Callout type="important">
