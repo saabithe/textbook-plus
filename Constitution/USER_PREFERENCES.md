@@ -22,6 +22,7 @@ This file tracks ALL user preferences, design decisions, and customization choic
 | Developer Deliveries | User provides assets/content here — gitignored | Aug 2026 |
 | USER_PREFERENCES.md | All decisions stored here — nothing lost | Aug 2026 |
 | Content source | NCERT textbooks (PDF → Markdown pipeline) | Aug 2026 |
+| Todo management | Create todo at start, mark each task completed as done, clear all todos when entire job is finished | Aug 2026 |
 
 ## 2. Subjects
 

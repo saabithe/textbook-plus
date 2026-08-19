@@ -51,6 +51,23 @@ This file is **permanent** — it stays in the repo as the reference. Content tr
 
 ---
 
+## Per-Subject Pipelines
+
+Each subject has its own pipeline file with **dynamic steps** tailored to its content type. The master pipeline above defines shared steps; subject files add subject-specific rules, component suggestions, and validation criteria.
+
+| Subject | Chapters | Pipeline File | Key Components |
+|---------|----------|---------------|----------------|
+| Physics | 14 | `PIPELINE_PHYSICS.md` | FormulaCard, ProcessCard, FlowDiagram, MetricCard |
+| Chemistry | 10 | `PIPELINE_CHEMISTRY.md` | FlowDiagram, CycleDiagram, TableCard, ConceptCard |
+| Mathematics | 13 | `PIPELINE_MATHEMATICS.md` | FormulaCard, Stepper, GuidedStepper, ProblemSolution |
+| Biology | 13 | `PIPELINE_BIOLOGY.md` | TreeDiagram, CycleDiagram, Timeline, ConceptCard |
+| English | 14 | `PIPELINE_ENGLISH.md` | Comparison, Checklist, PerspectiveCard, MistakeCard |
+| Arabic | 12 | `PIPELINE_ARABIC.md` | Same as English + RTL layout support |
+
+**Rule:** Each subject pipeline is self-contained. Follow the subject-specific file when working on chapters in that subject.
+
+---
+
 ## Content Rules
 
 ### NCERT Fidelity
@@ -260,18 +277,105 @@ Foundation → Bridge → Actual Content
 
 ### Step 8: Content Transformation
 
-- Convert suitable information into interactive formats:
+- Convert suitable information into interactive formats for enhanced learning.
+- Use the **decision framework** below to select the best format for each content unit.
+- **Content-first principle:** Transformation only adds value if it improves scannability, recall, or comprehension. Don't transform for the sake of it.
 
-| Input | Output Format |
-|-------|--------------|
-| Data with structure | Tables |
-| Step-by-step processes | Flowcharts / process maps |
-| Two items to compare | Comparison cards |
-| Key equations | Formula cards |
-| Visual concepts | Diagram descriptions |
-| Cause-effect chains | Flow diagrams |
-| Classification systems | Concept cards |
-| Term definitions | Q&A pairs |
+#### When to Use Each Format
+
+| Input | Output Format | When to Use |
+|-------|--------------|-------------|
+| Data with structure | Tables | Multi-column data, numerical relationships, organising scattered facts |
+| Step-by-step processes | Stepper components | Numbered sequential processes, cause→effect→action chains |
+| Two items to compare | Comparison cards | Exactly 2 items, side-by-side diff, vacuum vs medium, like vs unlike |
+| Key equations | Formula cards | Prominent constant display, memorisation focus, equations needing visual emphasis |
+| Visual concepts | Diagram descriptions | Spatial relationships, complex diagrams, text-only SVG alternative |
+| Cause-effect chains | Flow diagrams | Reaction mechanisms, multi-stage processes, before→after tracing |
+| Classification systems | Concept cards | 3+ categories, hierarchical grouping, more than 2 items |
+| Term definitions | Q&A pairs | Self-testing format, flashcard conversion, quick recall practice |
+| Timelines / chronological data | Interactive timelines | Historical sequences, version tracking, event relationships |
+| Hierarchies / levels | Tree diagrams | Multi-level classifications, dependency graphs, family trees |
+| Pros and cons | Pros–cons cards | Decision support, trade-off analysis, weighing options |
+| Multiple options | Decision matrices | Scored comparisons, weighted criteria, quantitative selection |
+| Numerical KPIs | Metric cards / KPI dashboards | Single value emphasis, progress tracking, number visualisation |
+| Trends over time | Line charts / trend visuals | Time-series data, pattern detection, change over time |
+| Categories and proportions | Bar charts / donut charts | Part-whole relationships, distribution comparison, percentage breakdown |
+| Geographic information | Maps | Spatial data, location-based concepts, geography matters |
+| Relationships between entities | Network diagrams | Connection maps, hub-and-spoke, entity relationship focus |
+| Cycles / recurring processes | Circular process diagrams | Repetitive cycles, seasonal patterns, loop visual aids |
+| Sequences / stages | Stepper components | Sequential progression, numbered multi-step, 1.1 Introduction style |
+| Before-and-after states | Before/after comparison | Transformation examples, state changes, contrast is educational |
+| Problems and solutions | Problem–solution cards | Worked examples, self-testing, problem-solving practice is goal |
+| Questions with multiple answers | Interactive quizzes | Knowledge checks, immediate feedback, assessment is the goal |
+| Rules / conditions | Decision trees | Conditional logic, if→then hierarchies, branching paths |
+| Important facts | Fact cards | Single-sentence takeaways, quick reference, density matters |
+| Examples and non-examples | Example cards | Contrast pairs, boundary conditions, clear examples clarify concepts |
+| Vocabulary / terminology | Flashcards | Active recall, term→definition practice, spaced repetition |
+| Checklists / action items | Interactive checklists | Task completion, prerequisite tracking, step-by-step completion |
+| Risks and mitigations | Risk matrix | Uncertainty mapping, probability×impact, risk analysis educational |
+| Goals and milestones | Roadmaps | Long-term progression, version roadmap, timeline visualisation |
+| Roles and responsibilities | RACI / responsibility matrix | Accountability mapping, task assignment, group work involved |
+| Features and capabilities | Feature comparison grid | Product/feature analysis, matrix comparison natural |
+| Requirements and criteria | Requirements matrix | Specification tracking, criteria comparison needed |
+| User journeys | Journey maps | Experience sequencing, touchpoint analysis, user flow matters |
+| Events and triggers | Event-flow diagrams | Trigger→reaction chains, event sequencing key |
+| Systems and components | Architecture diagrams | System breakdown, component relationships, system understanding |
+| Inputs and outputs | I/O diagrams | Flow boundaries, system edges, boundary analysis |
+| Scenarios / possible outcomes | Scenario cards | What-if analysis, multiple pathways, exploring variations |
+| Frequently asked questions | Expandable FAQ | Q&A collection, collapsible sections, many minor questions |
+| Long-form information | Tabs / accordion sections | Multi-section content, content hierarchy has >2 levels |
+| Ranked information | Sortable ranking table | Ordered lists, ranking by metric matters |
+| Status-based information | Status board / Kanban | Status tracking, work-in-progress, active management |
+| Nested information | Expandable tree | Deeply nested content, tree structure reveals hierarchy |
+| Key takeaways | Summary cards | Condensed insights, quick review, synthesis is the goal |
+| Learning content | Interactive study cards / flashcards | Active recall, spaced repetition, study system is the goal |
+| Uncertain / conflicting info | Evidence comparison cards | Source comparison, balanced presentation, controversies exist |
+| Decision-making criteria | Weighted scoring matrix | Quantitative decision help, trade-offs have numbers |
+| Multiple perspectives | Perspective cards | Side-by-side viewpoints, controversy has positions |
+| Common mistakes | Mistake → correction cards | Error prevention, learning from errors, anti-patterns educational |
+| Instructions with checkpoints | Guided stepper | Numbered checkpoints, progress tracking, checkpoint adherence |
+| Cause → intervention → outcome | Logic model / causal flow | Intervention logic, program theory, program evaluation |
+
+#### Decision Framework
+
+For any content unit, apply this priority:
+
+```
+1. Has 2 items to compare?        → Comparison Card (highest priority)
+2. Has key equation + constants?  → Formula Card
+3. Is a sequential process?       → Stepper
+4. Is a definition to memorise?   → Fact Card / Flashcard
+5. Is a classification of 3+?     → Concept Card / Tree
+6. Is a problem with solution?    → Problem–Solution Card
+7. Is a timeline/sequence?        → Stepper or Timeline
+8. Is a risk/decision analysis?   → Decision Matrix / Risk Matrix
+9. Is a cycle/process loop?       → Circular Process Diagram
+10. Is a system/component map?    → Architecture Diagram
+```
+
+#### Efficiency Principles
+
+- **Content-first:** Transformation only if it adds interpretive value
+- **Density with depth:** Compress information without losing semantic content
+- **Context-preserving:** Every transformation retains the original meaning
+- **Progressive disclosure:** Start simple, reveal detail on interaction
+- **No orphan content:** Every transformed piece connects back to learning objectives
+
+#### Component Architecture
+
+All transformation types have corresponding React components in `src/components/content/`. Components are organised by category:
+
+```
+src/components/content/
+├── (existing) Callout, Example, KeyPoint, Comparison, Expandable,
+│              Formula, FormulaCard, ProblemSolution, Stepper
+├── data/      TableCard, Checklist, SortableTable, Kanban
+├── process/   ProcessCard, FlowDiagram, CycleDiagram, Timeline
+├── concept/   ConceptCard, FactCard, TreeDiagram, NetworkDiagram
+├── decision/  DecisionTree, RiskMatrix, ScenarioCard, PerspectiveCard
+├── study/     Flashcard, MistakeCard, GuidedStepper, MetricCard
+└── system/    ArchitectureCard, IODiagram, EventFlow, RoadmapCard
+```
 
 ### Step 9: Exam Layer
 

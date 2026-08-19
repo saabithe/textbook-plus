@@ -5,9 +5,10 @@
 The Next.js app lives in `textbook-plus/`, **not** the repo root. Run all commands from `textbook-plus/`.
 
 Root-level docs:
-- `PRD.md` — full product spec, database schema, content pipeline, site map
-- `USER_PREFERENCES.md` — design decisions (colors, layout, naming, typography)
+- `Constitution/PRD.md` — full product spec, database schema, content pipeline, site map
+- `Constitution/USER_PREFERENCES.md` — design decisions (colors, layout, naming, typography)
 - `CHAPTER_PIPELINE.md` — 17-step content pipeline (NCERT PDF → live chapter). Content format is JSX `page.tsx` files with custom React components.
+- `Pipeline/PIPELINE_{SUBJECT}.md` — per-subject pipelines with dynamic steps, component suggestions, and subject-specific rules. Each file is self-contained.
 - `Developer_Deliveries/` — user-provided assets and content (gitignored). Contains chapter name references, source images, Physics textbook PDFs in `Chapters/Physics Textbooks/`.
 - `Pending/` — saved work-in-progress plans for future sessions. Files follow `plan_NNNN.md`. When user says "continue plan_NNNN.md", resume and delete when done.
 
@@ -50,12 +51,24 @@ src/content/{subject-slug}/{chapter-slug}/
 ```
 
 **Custom content components** (in `src/components/content/`):
-- `Callout` — highlighted callouts (types: `important`, `note`, `warning`, `didyouknow`)
-- `Expandable` — collapsible sections
-- `KeyPoint` — key insight cards
-- `Example` — worked examples
-- `Comparison` — side-by-side comparison tables
-- `Formula` / `FormulaBlock` — KaTeX math rendering (client-side)
+
+*Core (9):* Callout, Example, KeyPoint, Comparison, Expandable, Formula/FormulaBlock, FormulaCard, ProblemSolution, Stepper
+
+*Data (4):* TableCard, Checklist, SortableTable, Kanban
+
+*Process (4):* ProcessCard, FlowDiagram, CycleDiagram, Timeline
+
+*Concept (4):* FactCard, ConceptCard, TreeDiagram, NetworkDiagram
+
+*Decision (4):* DecisionTree, RiskMatrix, ScenarioCard, PerspectiveCard
+
+*Study (3):* MetricCard, MistakeCard, GuidedStepper
+
+*System (4):* ArchitectureCard, IODiagram, EventFlow, RoadmapCard
+
+*Subject-specific (not in barrel export):* AuthorCard, CharacterSketch, CharacterComparison, ContentTabs, SummaryLevels, ReadRespond, Highlight
+
+**Barrel export** (`src/components/content/index.ts`) — exports all 30 transformation components. Subject-specific components are imported directly.
 
 **Content registry** (`src/lib/content.ts`):
 - `SECTIONS_MAP` — manually maintained section IDs + titles per chapter (for sidebar/ToC)
@@ -66,6 +79,7 @@ src/content/{subject-slug}/{chapter-slug}/
 **Content routing** (`src/app/chapter/[slug]/chapter-content.tsx`):
 - Maps slug → dynamic `import()` of the chapter's `page.tsx`
 - Only chapters with content are registered; others show "Content coming soon..."
+- Content wrapped in `<div className="prose-custom">` for typography
 
 **Adding content for a new chapter:**
 1. Create `src/content/{subject-slug}/{chapter-slug}/page.tsx` (React component using content primitives)
@@ -74,6 +88,11 @@ src/content/{subject-slug}/{chapter-slug}/
 4. Import questions/flashcards in `src/lib/content.ts` and add to their maps
 5. Register the chapter in `chapter-content.tsx` dynamic import map
 
+**Transformation registry** (`src/lib/transformations.ts`):
+- Maps 24 content types → components with `whenToUse` guidance
+- `selectTransformation(contentTypes)` — auto-selects best component
+- `getTransformationsFor(contentType)` — returns all matching components
+
 ## Data Model
 
 - **6 subjects, 76 chapters** total (Physics 14, Chemistry 10, Mathematics 13, Biology 13, English 14, Arabic 12)
@@ -81,7 +100,7 @@ src/content/{subject-slug}/{chapter-slug}/
 - Subject colors: CSS custom properties (`--subject-{name}` / `--subject-{name}-light`) in `globals.css` `:root` and `.dark`
 - Chapter data source of truth: `Developer_Deliveries/Chapter names.md`
 
-**Currently only 2 chapters have full content** (Physics Ch1 + Ch2): `page.tsx`, `questions.json`, `flashcards.json`. All other 74 chapters show placeholder UI.
+**Currently 4 chapters have content:** Physics Ch1 + Ch2, English (Horegallu + Mending Wall). All other 72 chapters show placeholder UI.
 
 ## Supabase (Auth + Cloud Sync)
 
@@ -116,6 +135,17 @@ src/content/{subject-slug}/{chapter-slug}/
 - `cn()` utility from `src/lib/utils.ts` (clsx + tailwind-merge)
 - All pages align to `max-w-6xl` (matching navbar width)
 - Nav: Home `/`, Progress `/progress`, Search `Ctrl+K`
+- Chapter content uses `.prose-custom` class for typography (defined in `globals.css`)
+
+## Todo Rule
+
+When starting any multi-step task:
+1. Create a `todowrite` list at the start
+2. Mark each task `in_progress` as you begin it, then `completed` when done
+3. Mark tasks `cancelled` if they become unnecessary
+4. **Clear all todos** (all `completed`/`cancelled`) once the entire job is finished — the list should be empty when work is done
+
+This is mandatory — never leave stale todos behind.
 
 ## Git Rules
 
