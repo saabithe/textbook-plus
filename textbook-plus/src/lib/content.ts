@@ -16,7 +16,12 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
         { id: "h-1-4-3", title: "1.4.3 Quantisation of Charge" },
       ],
     },
-    { id: "h-1-5", title: "1.5 Coulomb's Law" },
+    {
+      id: "h-1-5", title: "1.5 Coulomb's Law", children: [
+        { id: "h-1-5-1", title: "1.5.1 Scalar Form" },
+        { id: "h-1-5-2", title: "1.5.2 Force in a Medium" },
+      ],
+    },
     { id: "h-1-6", title: "1.6 Forces between Multiple Charges" },
     {
       id: "h-1-7", title: "1.7 Electric Field", children: [

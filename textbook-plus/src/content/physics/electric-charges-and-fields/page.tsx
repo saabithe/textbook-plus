@@ -142,33 +142,66 @@ export default function ElectricChargesChapter() {
       <p>
         Coulomb&apos;s law is a quantitative statement about the force between two point charges.
         When the linear size of charged bodies are much smaller than the distance separating them,
-        they are treated as point charges.
+        they are treated as point charges. The force varies inversely as the square of the distance
+        and directly as the product of the magnitudes of the two charges.
       </p>
+
+      <h3 id="h-1-5-1">1.5.1 Scalar Form</h3>
       <p>
-        Coulomb measured the force and found it varied inversely as the square of the distance and
-        was directly proportional to the product of the magnitudes of the two charges:
+        If two point charges q₁ and q₂ are separated by a distance r in vacuum, the magnitude of
+        the force between them is:
       </p>
       <FormulaBlock latex="F = k \frac{|q_1 q_2|}{r^2}" />
-      <p>The constant k is usually written as k = 1/(4πε₀), so:</p>
+      <p>The constant k is written as k = 1/(4πε₀), so:</p>
       <FormulaBlock latex="F = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r^2}" />
       <p>where ε₀ is the permittivity of free space:</p>
       <FormulaBlock latex="\varepsilon_0 = 8.854 \times 10^{-12} \text{ C}^2 \text{N}^{-1}\text{m}^{-2}" />
-      <p>
-        In SI units, k ≈ 9 × 10⁹ N m² C⁻². 1 C is the charge that when placed at 1 m from
-        another 1 C charge in vacuum experiences a force of 9 × 10⁹ N.
-      </p>
-      <Expandable title="Vector form of Coulomb's Law">
-        <p>Let position vectors of q₁ and q₂ be r⃗₁ and r⃗₂. The vector from 1 to 2 is r⃗₂₁ = r⃗₂ − r⃗₁. The unit vector is r̂₂₁ = r⃗₂₁/r₂₁.</p>
+      <ul>
+        <li>In SI units, k ≈ 9 × 10⁹ N m² C⁻².</li>
+        <li>1 C is the charge that when placed at 1 m from another 1 C charge in vacuum experiences a force of 9 × 10⁹ N.</li>
+        <li>Valid for both like charges (repulsion) and unlike charges (attraction).</li>
+        <li>Valid down to subatomic level (r ~ 10⁻¹⁰ m).</li>
+      </ul>
+
+      <Expandable title="Vector form of Coulomb&apos;s Law">
+        <p>Let the position vectors of charges q₁ and q₂ be r⃗₁ and r⃗₂. The vector from 1 to 2 is r⃗₂₁ = r⃗₂ − r⃗₁. The unit vector is r̂₂₁ = r⃗₂₁/r₂₁.</p>
         <FormulaBlock latex="\vec{F}_{21} = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r_{21}^2} \hat{r}_{21}" />
-        <p>
-          This is valid for any sign of q₁ and q₂. If same sign → repulsion along r̂₂₁. If
-          opposite → attraction along −r̂₂₁.
-        </p>
-        <p>By Newton&apos;s third law: F⃗₁₂ = −F⃗₂₁</p>
+        <ul>
+          <li>If q₁ and q₂ have same sign: F⃗₂₁ is along r̂₂₁ (repulsion).</li>
+          <li>If q₁ and q₂ have opposite signs: F⃗₂₁ is along −r̂₂₁ (attraction).</li>
+          <li>By Newton&apos;s third law: F⃗₁₂ = −F⃗₂₁.</li>
+        </ul>
       </Expandable>
+
+      <h3 id="h-1-5-2">1.5.2 Force in a Medium</h3>
+      <p>
+        When charges are placed in a medium instead of vacuum, the force between them decreases.
+        The reduction depends on the relative permittivity (dielectric constant) K of the medium.
+      </p>
+      <FormulaBlock latex="F_{\text{medium}} = \frac{F_{\text{vacuum}}}{K}" />
+      <FormulaBlock latex="K = \frac{\varepsilon}{\varepsilon_0}" />
+      <FormulaBlock latex="\varepsilon = \varepsilon_0 K" />
+      <ul>
+        <li>K is the relative permittivity (dielectric constant) of the medium.</li>
+        <li>K = 1 for vacuum, K &gt; 1 for all other media.</li>
+        <li>ε is the permittivity of the medium.</li>
+        <li>Force is always reduced in a medium compared to vacuum.</li>
+      </ul>
+
+      <Expandable title="Derivation: Force in a Medium">
+        <p><strong>In vacuum:</strong></p>
+        <FormulaBlock latex="F = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r^2}" />
+        <p><strong>In a medium:</strong></p>
+        <FormulaBlock latex="F&apos; = \frac{1}{4\pi\varepsilon} \frac{q_1 q_2}{r^2}" />
+        <p>Since the permittivity of the medium is ε = ε₀K:</p>
+        <FormulaBlock latex="F&apos; = \frac{1}{4\pi\varepsilon_0 K} \frac{q_1 q_2}{r^2}" />
+        <p>Factor out 1/K:</p>
+        <FormulaBlock latex="F&apos; = \frac{1}{K} \times \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r^2} = \frac{F}{K}" />
+        <p>The force in a medium is the vacuum force divided by the relative permittivity.</p>
+      </Expandable>
+
       <KeyPoint title="Key Exam Point">
-        Coulomb&apos;s law obeys Newton&apos;s third law. The force on q₁ due to q₂ is equal and
-        opposite to the force on q₂ due to q₁. Valid for both like and unlike charges.
+        Coulomb&apos;s law: F = (1/4πε₀)(q₁q₂/r²). In a medium, force decreases by factor K: F&apos; = F/K. Larger K means weaker force — this is why dielectrics reduce electrostatic forces.
       </KeyPoint>
 
       <h2 id="h-1-6">1.6 Forces between Multiple Charges</h2>

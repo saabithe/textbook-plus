@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ChevronRight, CheckCircle2, Circle, Brain, Layers } from "lucide-react";
+import { ChevronRight, ChevronLeft, CheckCircle2, Circle, Brain, Layers } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Sidebar } from "./Sidebar";
 import { MobileSidebar } from "./MobileSidebar";
@@ -36,6 +36,22 @@ export function ChapterLayout({
   const { isCompleted, toggle } = useProgress(subjectSlug);
   const completed = isCompleted(chapter.slug);
   const [activeTab, setActiveTab] = useState("learning");
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  // Restore sidebar state from localStorage
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("sidebar-open");
+      if (stored !== null) setSidebarOpen(stored === "true");
+    } catch {}
+  }, []);
+
+  // Persist sidebar state
+  useEffect(() => {
+    try {
+      localStorage.setItem("sidebar-open", String(sidebarOpen));
+    } catch {}
+  }, [sidebarOpen]);
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
@@ -116,9 +132,9 @@ export function ChapterLayout({
 
       {/* Two-column layout (Learning tab) */}
       {activeTab === "learning" ? (
-        <div className="flex gap-12">
+        <div className="flex gap-12 relative">
           {/* Desktop sidebar */}
-          {hasSidebar && (
+          {hasSidebar && sidebarOpen && (
             <aside className="hidden lg:block w-60 shrink-0">
               <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto">
                 <Sidebar sections={sections} subjectColor={subjectColor} />
@@ -128,9 +144,28 @@ export function ChapterLayout({
 
           {/* Content */}
           <article className="min-w-0 flex-1 max-w-3xl mx-auto">
+            {/* Sidebar toggle */}
+            {hasSidebar && (
+              <button
+                onClick={() => setSidebarOpen((prev) => !prev)}
+                className={cn(
+                  "hidden lg:flex fixed top-1/2 -translate-y-1/2 z-30 h-8 w-5 items-center justify-center rounded-r-lg border border-l-0 border-border/60 bg-background/80 backdrop-blur-sm text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground",
+                  sidebarOpen ? "left-[calc(50%-12rem+1.5rem)]" : "left-6"
+                )}
+                title={sidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
+                aria-label={sidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
+              >
+                {sidebarOpen ? (
+                  <ChevronLeft className="h-3.5 w-3.5" />
+                ) : (
+                  <ChevronRight className="h-3.5 w-3.5" />
+                )}
+              </button>
+            )}
+
             {children}
 
-          <ChapterNav prev={prev} next={next} />
+            <ChapterNav prev={prev} next={next} />
           </article>
         </div>
       ) : (
