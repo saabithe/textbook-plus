@@ -12,7 +12,7 @@ import { Expandable } from "@/components/content/Expandable";
 import { Comparison } from "@/components/content/Comparison";
 
 const POEM_LINES = [
-  "Something there is that doesn\u2019t love a wall,",
+  "Something there is that doesn’t love a wall,",
   "That sends a frozen-ground-swell under it,",
   "And spills the upper boulders in the sun;",
   "And makes gaps even two can pass abreast.",
@@ -32,7 +32,7 @@ const POEM_LINES = [
   "To each the boulders that have fallen to each.",
   "And some are loaves and some so nearly balls",
   "We have to use a spell to make them balance:",
-  "\u2018Stay where you are until our backs are turned!\u2019",
+  "‘Stay where you are until our backs are turned!’",
   "We wear our fingers rough with handling them.",
   "",
   "Oh, just another kind of out-door game,",
@@ -41,26 +41,26 @@ const POEM_LINES = [
   "He is all pine and I am apple orchard.",
   "My apple trees will never get across",
   "And eat the cones under his pines, I tell him.",
-  "He only says, \u2018Good fences make good neighbors.\u2019",
+  "He only says, ‘Good fences make good neighbors.’",
   "",
   "Spring is the mischief in me, and I wonder",
   "If I could put a notion in his head:",
-  "\u2018Why do they make good neighbors? Isn\u2019t it",
+  "‘Why do they make good neighbors? Isn’t it",
   "Where there are cows? But here there are no cows.",
-  "Before I built a wall I\u2019d ask to know",
+  "Before I built a wall I’d ask to know",
   "What I was walling in or walling out,",
   "And to whom I was like to give offense.",
-  "Something there is that doesn\u2019t love a wall,",
-  "That wants it down.\u2019 I could say \u2018Elves\u2019 to him,",
-  "But it\u2019s not elves exactly, and I\u2019d rather",
+  "Something there is that doesn’t love a wall,",
+  "That wants it down.’ I could say ‘Elves’ to him,",
+  "But it’s not elves exactly, and I’d rather",
   "He said it for himself. I see him there",
   "Bringing a stone grasped firmly by the top",
   "In each hand, like an old-stone savage armed.",
   "He moves in darkness as it seems to me,",
   "Not of woods only and the shade of trees.",
-  "He will not go behind his father\u2019s saying,",
+  "He will not go behind his father’s saying,",
   "And he likes having thought of it so well",
-  "He says again, \u2018Good fences make good neighbors.\u2019",
+  "He says again, ‘Good fences make good neighbors.’",
 ];
 
 const QA_ITEMS = [
@@ -91,25 +91,25 @@ const QA_ITEMS = [
     answer: (
       <>
         The wall breaks every spring, but <strong>no one knows who is breaking it</strong>.
-        Some natural force \u2014 perhaps the ground shifting, frost, or animals \u2014 causes
+        Some natural force — perhaps the ground shifting, frost, or animals — causes
         the stones to fall. The poet finds the gaps and informs his neighbour so they
         can repair it together.
       </>
     ),
   },
   {
-    question: "What is the poet\u2019s view about the wall?",
+    question: "What is the poet’s view about the wall?",
     answer: (
       <>
         The poet <Highlight color="yellow">doubts the need</Highlight> of the wall
         between their properties. He argues they have no cattle that would cross
-        boundaries \u2014 only <strong>apple trees and pine trees</strong> that would
+        boundaries — only <strong>apple trees and pine trees</strong> that would
         never &ldquo;come across and eat the cones under his pines.&rdquo;
       </>
     ),
   },
   {
-    question: "What is the neighbour\u2019s view on walls?",
+    question: "What is the neighbour’s view on walls?",
     answer: (
       <>
         The neighbour firmly believes that{" "}
@@ -120,10 +120,10 @@ const QA_ITEMS = [
     ),
   },
   {
-    question: "What does the refrain \u201cGood fences make good neighbours\u201d mean?",
+    question: "What does the refrain “Good fences make good neighbours” mean?",
     answer: (
       <>
-        It is an <Highlight color="pink">epigram</Highlight> \u2014 a witty, memorable
+        It is an <Highlight color="pink">epigram</Highlight> — a witty, memorable
         saying. In the neighbour&rsquo;s view, physical boundaries{" "}
         <strong>prevent conflict</strong> and help maintain a respectful relationship
         between neighbours.
@@ -156,7 +156,7 @@ const QA_ITEMS = [
           frozen-ground-swell under it.&rdquo;
         </em>{" "}
         Here, an unnamed <Highlight color="yellow">natural force</Highlight> is given
-        human emotions \u2014 it &ldquo;doesn&rsquo;t love&rdquo; the wall and actively
+        human emotions — it &ldquo;doesn&rsquo;t love&rdquo; the wall and actively
         works to destroy it.
       </>
     ),
@@ -173,7 +173,7 @@ const QA_ITEMS = [
     ),
   },
   {
-    question: "Why doesn\u2019t the poet think a wall is necessary between them?",
+    question: "Why doesn’t the poet think a wall is necessary between them?",
     answer: (
       <>
         The poet argues that they have <strong>no cattle</strong> that might cross
