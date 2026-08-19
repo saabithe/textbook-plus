@@ -10,5 +10,9 @@ const chapterComponents: Record<string, React.ComponentType> = {
 export function ChapterContent({ slug }: { slug: string }) {
   const Component = chapterComponents[slug];
   if (!Component) return <div className="text-muted-foreground py-12 text-center">Content coming soon...</div>;
-  return <Component />;
+  return (
+    <div className="prose-custom">
+      <Component />
+    </div>
+  );
 }
