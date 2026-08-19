@@ -128,6 +128,26 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "key-takeaway", title: "Key Takeaway" },
     { id: "read-and-respond", title: "Read & Respond" },
   ],
+  "the-hour-of-truth": [
+    { id: "author", title: "Author" },
+    { id: "introduction", title: "Introduction" },
+    { id: "summary", title: "Summary" },
+    { id: "character-sketch-robert", title: "Character Sketch: Robert Baldwin" },
+    { id: "character-sketch-john", title: "Character Sketch: John Baldwin" },
+    { id: "character-sketch-martha", title: "Character Sketch: Martha Baldwin" },
+    { id: "character-sketch-evie", title: "Character Sketch: Evie Baldwin" },
+    { id: "character-comparison", title: "Character Comparison" },
+    {
+      id: "themes", title: "Themes", children: [
+        { id: "truth-vs-loyalty", title: "Truth vs. Loyalty" },
+        { id: "price-of-integrity", title: "The Price of Integrity" },
+        { id: "family-pressure", title: "Family Pressure and Moral Weakness" },
+        { id: "nature-of-justice", title: "The Nature of Justice" },
+      ],
+    },
+    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "read-and-respond", title: "Read & Respond" },
+  ],
   "electric-charges-and-fields": [
     { id: "h-1-1", title: "1.1 Introduction" },
     { id: "h-1-2", title: "1.2 Electric Charge" },

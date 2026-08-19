@@ -11,6 +11,7 @@ const chapterComponents: Record<string, React.ComponentType> = {
   "the-3ls-of-empowerment": dynamic(() => import("@/content/english/the-3ls-of-empowerment/page")) as React.ComponentType,
   "any-woman": dynamic(() => import("@/content/english/any-woman/page")) as React.ComponentType,
   "matchbox": dynamic(() => import("@/content/english/matchbox/page")) as React.ComponentType,
+  "the-hour-of-truth": dynamic(() => import("@/content/english/the-hour-of-truth/page")) as React.ComponentType,
 };
 
 export function ChapterContent({ slug }: { slug: string }) {
