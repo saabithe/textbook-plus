@@ -4,6 +4,7 @@ import { KeyPoint } from "@/components/content/KeyPoint";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { FormulaBlock } from "@/components/content/Formula";
+import { ProblemSolution } from "@/components/content/ProblemSolution";
 
 export default function ElectricChargesChapter() {
   return (
@@ -212,9 +213,46 @@ export default function ElectricChargesChapter() {
       </Callout>
       <FormulaBlock latex="\vec{F}_1 = \sum_{i=2}^{n} \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_i}{r_{1i}^2} \hat{r}_{1i}" important />
       <p>
-        The vector sum is obtained by the parallelogram law. All of electrostatics is basically a
-        consequence of Coulomb&apos;s law and the superposition principle.
+        The vector sum is obtained by the parallelogram law. Each individual force is calculated
+        using Coulomb&apos;s law, then added vectorially.
       </p>
+
+      <ProblemSolution problemNumber="1.6.1">
+        <ProblemSolution.Problem>
+          <p>
+            Three equal charges +q are placed at the vertices of an equilateral triangle of side a.
+            Find the magnitude and direction of the force on any one of the charges.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Consider the charge at vertex A. It experiences two forces:
+          </p>
+          <ul>
+            <li>F₁ due to the charge at B, directed along BA (away from B)</li>
+            <li>F₂ due to the charge at C, directed along CA (away from C)</li>
+          </ul>
+          <p>Both forces have the same magnitude:</p>
+          <FormulaBlock latex="F_1 = F_2 = \frac{1}{4\pi\varepsilon_0} \frac{q^2}{a^2}" />
+          <p>
+            The angle between F₁ and F₂ is 60° (since the triangle is equilateral).
+            Using the parallelogram law:
+          </p>
+          <FormulaBlock latex="F_{\text{net}} = \sqrt{F_1^2 + F_2^2 + 2F_1 F_2 \cos 60°}" />
+          <p>Since F₁ = F₂ = F and cos 60° = ½:</p>
+          <FormulaBlock latex="F_{\text{net}} = \sqrt{F^2 + F^2 + 2F^2 \cdot \frac{1}{2}} = \sqrt{3F^2} = \sqrt{3} \, F" important />
+          <FormulaBlock latex="F_{\text{net}} = \frac{\sqrt{3}}{4\pi\varepsilon_0} \frac{q^2}{a^2}" important />
+          <p>
+            The direction is along the angle bisector of the 60° angle, pointing away from the
+            opposite side (i.e., radially outward from the centre of the triangle).
+          </p>
+        </ProblemSolution.Solution>
+      </ProblemSolution>
+
+      <KeyPoint>
+        All of electrostatics is basically a consequence of Coulomb&apos;s law and the superposition
+        principle.
+      </KeyPoint>
 
       <h2 id="h-1-7">1.7 Electric Field</h2>
       <p>
