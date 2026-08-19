@@ -1,0 +1,172 @@
+# PIPELINE_ENGLISH.md
+
+> Kerala Board Class 12 English — 14 chapters. Text-heavy, analysis-focused, literary components.
+
+---
+
+## Subject Info
+
+| Property | Value |
+|----------|-------|
+| Subject | English |
+| Slug | `english` |
+| Chapters | 14 |
+| Color | `--subject-english` (orange) |
+| Content type | Literature, grammar, vocabulary, literary analysis, speeches, poems, stories |
+| Practice types | MCQs, comprehension, grammar exercises, flashcards |
+
+---
+
+## Chapter List
+
+| # | Chapter | Slug | Type | Status |
+|---|---------|------|------|--------|
+| 1 | The 3Ls of Empowerment | `the-3ls-of-empowerment` | Speech | 🔲 Pending |
+| 2 | Any Woman | `any-woman` | Poem | 🔲 Pending |
+| 3 | Matchbox | `matchbox` | Story | 🔲 Pending |
+| 4 | Horegallu | `horegallu` | Essay | 🔲 Pending |
+| 5 | Mending Wall | `mending-wall` | Poem | 🔲 Pending |
+| 6 | Amigo Brothers | `amigo-brothers` | Story | 🔲 Pending |
+| 7 | The Hour of Truth | `the-hour-of-truth` | Play | 🔲 Pending |
+| 8 | A Three Wheel Solution | `a-three-wheel-solution` | Interview | 🔲 Pending |
+| 9 | Dhyan Chand | `dhyan-chand` | Autobiography | 🔲 Pending |
+| 10 | Stammer | `stammer` | Poem | 🔲 Pending |
+| 11 | When a Sapling is Planted | `when-a-sapling-is-planted` | Speech | 🔲 Pending |
+| 12 | Rice | `rice` | Poem | 🔲 Pending |
+| 13 | Dangers of Drug Abuse | `dangers-of-drug-abuse` | Essay | 🔲 Pending |
+| 14 | Post Early for Christmas | `post-early-for-christmas` | Play | 🔲 Pending |
+
+---
+
+## Pipeline Steps (Dynamic — 12 steps)
+
+English gets **12 steps** — no formulas/derivations, heavier on text analysis and literary comparison.
+
+### Shared Steps (Steps 1–6)
+
+Same as master pipeline: Input → Extract → Verify → Structure → Decompose → Map Source → Audit.
+
+### English Content Steps (Steps 7–12)
+
+| Step | Name | Description | Component Suggestions |
+|------|------|-------------|----------------------|
+| 7 | Understanding Layer | Foundation → bridge → content | Callout, KeyPoint, FactCard |
+| 8 | Transform | Convert to interactive formats | **Comparison**, **PerspectiveCard**, **Timeline**, Checklist |
+| 9 | Exam Layer | Literary devices, themes, important quotes | **MistakeCard**, TableCard, MetricCard |
+| 10 | Learning Layer | Questions, vocabulary, grammar | GuidedStepper, ConceptCard, FactCard |
+| 11 | Revision Layer | Full → summary → one-page → last-minute | Expandable, Checklist |
+| 12 | Validate | Completeness, accuracy, no hallucinations | — |
+
+### Registration Steps (Steps 13–17)
+
+Same as master pipeline: Output Files → Verify Subject → Register Chapter → Add Sections → Build & Verify.
+
+---
+
+## English-Specific Rules
+
+### Literary Analysis
+- Use `Comparison` for character analysis (2 characters side-by-side)
+- Use `PerspectiveCard` for themes with multiple interpretations
+- Use `Timeline` for plot events in chronological order
+- Use `ConceptCard` for literary devices (metaphor, simile, etc.)
+
+### Poetry
+- Use `KeyPoint` for key themes and imagery
+- Use `Comparison` for contrasting stanzas or interpretations
+- Use `FactCard` for poet background and context
+- Use `Expandable` for line-by-line analysis (collapsed)
+
+### Grammar & Vocabulary
+- Use `TableCard` for grammar rules (e.g., tense comparisons)
+- Use `MistakeCard` for common errors
+- Use `Checklist` for grammar checklists
+- Use `FactCard` for vocabulary definitions
+
+### Speeches & Essays
+- Use `ProcessCard` for argument structure
+- Use `PerspectiveCard` for multiple viewpoints
+- Use `MetricCard` for key statistics cited
+- Use `Timeline` for historical context
+
+---
+
+## Component Priority (English)
+
+| Priority | Components | Why |
+|----------|-----------|-----|
+| **Must-have** | Comparison, PerspectiveCard, FactCard | Every chapter has analysis + vocabulary |
+| **High** | Timeline, TableCard, MistakeCard | Plot, grammar rules, errors |
+| **Medium** | Checklist, ConceptCard, MetricCard | Grammar checks, devices, statistics |
+| **Low** | GuidedStepper, Expandable, ProcessCard | Revision aids, analysis depth |
+
+---
+
+## Example Chapter Reference
+
+*No completed chapters yet. First chapter to be processed will serve as the reference.*
+
+---
+
+## Poem Appreciation Format (Kerala Board)
+
+Every poem chapter MUST include a Poem Appreciation section in the Creations tab, following this exact structure:
+
+### 1. Introduction
+- State the title of the poem and the name of the poet
+- Give a brief background or general tone (e.g., melancholic, reflective, inspiring, appreciative of nature)
+
+### 2. Summary and Theme (Gist)
+- Write a short summary explaining what the poem is about
+- Clearly state the central idea or core message the poet wishes to convey
+
+### 3. Poetic Devices and Style
+- Discuss the rhyme scheme (free verse, abcb, abab, blank verse, etc.) and rhythm
+- Highlight key figures of speech (Alliteration, Metaphor, Personification, Simile, Imagery, etc.) and explain their effect
+- Mention any striking use of visual or auditory images
+
+### 4. Critical Comment / Personal Opinion
+- Conclude with personal perspective or overall impression
+- Explain why the poem is powerful, beautiful, or relevant
+
+### Example (Mending Wall — Robert Frost)
+
+> **1. Introduction**
+> "Mending Wall" is a celebrated poem by Robert Frost, first published in his 1914 collection *North of Boston*. The poem has a reflective and conversational tone...
+>
+> **2. Summary and Theme (Gist)**
+> The poem describes two New England neighbours who meet each spring to repair the stone wall between their properties... The central idea is that nature does not like separation...
+>
+> **3. Poetic Devices and Style**
+> The poem is written in blank verse — unrhymed iambic pentameter... Frost employs personification, simile, metaphor, apostrophe...
+>
+> **4. Critical Comment / Personal Opinion**
+> What makes "Mending Wall" truly powerful is its ambiguity... The epigram "Good fences make good neighbours" has become one of the most quoted lines in American poetry...
+
+---
+
+## Practice Rules (English)
+
+### Questions (`questions.json`)
+- **MCQs**: Comprehension, literary devices, grammar
+- **Short answer**: Theme analysis, character questions
+- **Grammar exercises**: Fill in blanks, correct errors
+- Mix: 50% MCQs, 30% short answer, 20% grammar
+
+### Flashcards (`flashcards.json`)
+- **Front**: Vocabulary word / literary device / character name
+- **Back**: Definition / example from text / significance
+- **Tags**: `vocabulary`, `literary-device`, `character`, `theme`, `grammar`
+
+---
+
+## Content Density Targets
+
+| Content Type | Target per Section |
+|-------------|-------------------|
+| Comparisons | 1 per section (characters, themes, stanzas) |
+| Perspectives | 1 per major theme |
+| Timelines | 1 per narrative chapter |
+| FactCards | 3–5 per section (vocabulary, terms) |
+| KeyPoints | 1 per section (core insight only) |
+| Callouts | 1 per key quote or definition |
