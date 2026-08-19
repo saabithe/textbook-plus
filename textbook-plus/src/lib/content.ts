@@ -64,6 +64,70 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "key-takeaway", title: "Key Takeaway" },
     { id: "read-and-respond", title: "Read & Respond" },
   ],
+  "the-3ls-of-empowerment": [
+    { id: "author", title: "Author" },
+    { id: "introduction", title: "Introduction" },
+    { id: "summary", title: "Summary" },
+    {
+      id: "the-three-ls", title: "The 3 Ls", children: [
+        { id: "learning", title: "Learning" },
+        { id: "labour", title: "Labour" },
+        { id: "leadership", title: "Leadership" },
+      ],
+    },
+    {
+      id: "themes", title: "Themes", children: [
+        { id: "economic-inequality", title: "Economic Inequality" },
+        { id: "confidence-gap", title: "The Confidence Gap" },
+        { id: "dare-the-difference", title: "Dare the Difference" },
+      ],
+    },
+    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "read-and-respond", title: "Read & Respond" },
+  ],
+  "any-woman": [
+    { id: "author", title: "Author" },
+    { id: "introduction", title: "Introduction" },
+    { id: "summary", title: "Summary" },
+    { id: "the-poem", title: "The Poem" },
+    {
+      id: "poetic-devices", title: "Poetic Devices", children: [
+        { id: "device-metaphor", title: "Metaphor" },
+        { id: "device-anaphora", title: "Anaphora" },
+        { id: "device-rhyme", title: "Rhyme Scheme" },
+        { id: "device-allusion", title: "Biblical Allusion" },
+      ],
+    },
+    {
+      id: "appreciation", title: "Poem Appreciation", children: [
+        { id: "app-introduction", title: "Introduction" },
+        { id: "app-summary-theme", title: "Summary and Theme" },
+        { id: "app-devices", title: "Poetic Devices and Style" },
+        { id: "app-critical", title: "Critical Comment" },
+      ],
+    },
+    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "read-and-respond", title: "Read & Respond" },
+  ],
+  "matchbox": [
+    { id: "author", title: "Author" },
+    { id: "introduction", title: "Introduction" },
+    { id: "summary", title: "Summary" },
+    { id: "character-sketch-nomita", title: "Character Sketch: Nomita" },
+    { id: "character-sketch-ajit", title: "Character Sketch: Ajit" },
+    { id: "character-sketch-mother", title: "Character Sketch: Nomita's Mother" },
+    { id: "character-comparison", title: "Character Comparison" },
+    {
+      id: "symbolism-themes", title: "Symbolism & Themes", children: [
+        { id: "matchbox-symbol", title: "The Matchbox" },
+        { id: "the-letter", title: "The Letter" },
+        { id: "forest-of-people", title: "Forest of People" },
+        { id: "burning-sari", title: "The Burning Sari" },
+      ],
+    },
+    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "read-and-respond", title: "Read & Respond" },
+  ],
   "electric-charges-and-fields": [
     { id: "h-1-1", title: "1.1 Introduction" },
     { id: "h-1-2", title: "1.2 Electric Charge" },

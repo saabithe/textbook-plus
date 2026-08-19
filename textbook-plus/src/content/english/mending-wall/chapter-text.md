@@ -1,9 +1,49 @@
-# Mending Wall — Chapter Text Backup
+# Mending Wall
 
-> **File purpose**: Backup and reference for content creation
+## MENDING WALL
 
-## Source Material (User-Provided — Kerala Board Textbook)
+### Robert Frost
 
+Let’s begin:
+²
+Read the words of Albert Einstein.
+“Compassionate people are genius in the art of living, more necessary
+to the dignity, security, and joy of humanity than the discoverers of
+knowledge. Large parts of the world are faced with starvation, while
+others are living in abundance.
+A human being is a part of the whole called by us universe, a part
+limited in time and space. He experiences himself, his thoughts and
+feelings as something separated from the rest, a kind of optical
+delusion of his consciousness. This delusion is a kind of prison for
+us, restricting us to our personal desires and to affection for a few
+persons nearest to us. Our task must be to free ourselves from this
+prison by widening our circle of compassion to embrace all living
+creatures and the whole of nature in its beauty.”
+Albert Einstein
+²
+What are the roles of the following in protecting and
+ensuring the rights of people?
+a) Individuals
+b) Political parties
+c) Non-governmental organizations (NGOs)
+d) Governments
+²
+Imagine that your school has decided to form an
+organization to extend assistance to the society. In its
+first meeting you present your opinions about the
+functioning of the organisation. Suggest a few dos and
+don’ts for the benefit of the organization, and for the
+betterment of society.
+
+Fraternity and tolerance are the twin virtues of harmonious living.
+But, do we cherish these qualities in our daily life? What should be
+our attitude to our neighbours? Need we accept their ideas as well in
+order to maintain good relationship with them?
+Read the poem given below and find out how Robert Frost provides
+food for thought.
+MENDING WALL
+Robert Frost
+I. Read and enjoy:
 Something there is that doesn't love a wall,
 That sends a frozen-ground-swell under it
 And spills the upper boulders in the sun,
@@ -24,6 +64,7 @@ And some are loaves and some so nearly balls
 We have to use a spell to make them balance:
 "Stay where you are until our backs are turned!"
 We wear our fingers rough with handling them.
+
 Oh, just another kind of outdoor game,
 One on a side. It comes to little more:
 There where it is we do not need the wall:
@@ -49,19 +90,58 @@ Not of woods only and the shade of trees.
 He will not go behind his father's saying,
 And he likes having thought of it so well
 He says again, 'Good fences make good neighbours.'
+About the Author
+Robert Frost (1874 -1963), is an American poet well-known for his poems
+that are colloquial in style. His poems begin in delight and end in wisdom.
+In 1924, he received his first of four Pulitzer Prizes for his book New
+Hampshire. He won his other Pulitzers for Collected Poems (1931), Further
+Range (1937) and A Witness Tree (1943). ‘Stopping by the woods on a
+snowy evening’ and ‘Road not Taken’ are two among his famous poems.
+Glossary:
+something there is that
+doesn’t love a wall
+:
+there is something in nature that seems to dislike
+walls
+frozen-ground-swell
+:
+tremor that shakes the wall
+spill
+:
+let fall
+yelping
+:
+barking
+boulder
+:
+massive rocks
+spell
+:
+a magic influence
+loaves
+:
+(here) stones that look like loaves of bread
+'elves'
+:
+spirits
 
-## Poetic Devices
+---
 
-- **Personification** (lines 25-26): "My apple trees will never come across / And eat the cones under his pines, I tell him."
-- **Apostrophe** (line 19): "Stay where you are until our backs are turned" — poet speaking to an imaginary person or object.
-- **Epigram**: The refrain "Good fences make good neighbours" — a funny/witty saying.
+## About the Author
 
-## Theme
+Robert Frost (1874 -1963), is an American poet well-known for his poems
+that are colloquial in style. His poems begin in delight and end in wisdom.
+In 1924, he received his first of four Pulitzer Prizes for his book New
+Hampshire. He won his other Pulitzers for Collected Poems (1931), Further
+Range (1937) and A Witness Tree (1943). ‘Stopping by the woods on a
+snowy evening’ and ‘Road not Taken’ are two among his famous poems.
 
-As a whole, the poem calls for breaking down man-made walls and building a better world where brotherhood and harmony are upheld in places of conflict and separation.
+---
 
-## Poem Structure
+## Read and Respond
 
-- 45 lines
-- Conversational tone
-- Clear language with deep meaning
+1. What does the speaker's neighbour say about walls?
+2. According to the speaker, why is the wall unnecessary?
+3. What is the significance of the phrase "Good fences make good neighbours"?
+4. How does the poem explore the tension between tradition and modernity?
+5. What does the speaker mean by "Something there is that doesn't love a wall"?
