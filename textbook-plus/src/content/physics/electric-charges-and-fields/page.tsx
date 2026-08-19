@@ -65,40 +65,73 @@ export default function ElectricChargesChapter() {
       </Callout>
 
       <h2 id="h-1-4">1.4 Basic Properties of Electric Charges</h2>
-      <h3 id="h-1-4-1">1.4.1 Additivity of Charges</h3>
-      <p>
-        If a system contains two point charges q₁ and q₂, the total charge is obtained by adding
-        algebraically. Charges add up like real numbers or scalars. If a system contains n charges,
-        the total is q₁ + q₂ + ... + qₙ.
-      </p>
+      <p>Electric charge has three fundamental properties that govern all electrostatic behaviour.</p>
 
-      <h3 id="h-1-4-2">1.4.2 Charge is Conserved</h3>
-      <p>
-        When bodies are charged by rubbing, there is transfer of electrons; no new charges are
-        created or destroyed. Within an isolated system, charges may redistribute but total charge
-        is always conserved.
-      </p>
+      <h3 id="h-1-4-1">1.4.1 Additivity of Charges</h3>
+      <p>Total charge of a system is the algebraic sum of individual charges.</p>
+      <ul>
+        <li>Charges are scalars — they add like real numbers, not vectors.</li>
+        <li>Sign matters: +ve for positive charge, −ve for negative.</li>
+        <li>Formula: q<sub>total</sub> = q₁ + q₂ + ... + qₙ</li>
+      </ul>
+      <Example title="Additivity of Charges">
+        <p>Five charges in a system: +1, +2, −3, +4, −5 (in some unit).</p>
+        <FormulaBlock latex="q_{\text{total}} = (+1) + (+2) + (-3) + (+4) + (-5) = -1" />
+      </Example>
+
+      <h3 id="h-1-4-2">1.4.2 Conservation of Charge</h3>
+      <p>Net charge of an isolated system remains constant, regardless of internal redistribution.</p>
+      <ul>
+        <li>Charging by rubbing transfers electrons — no charge is created or destroyed.</li>
+        <li>Conservation of charge has been established experimentally.</li>
+      </ul>
       <Callout type="important">
-        Conservation of charge: It is not possible to create or destroy net charge carried by any
-        isolated system. A neutron turns into a proton and an electron — total charge is zero
-        before and after.
+        Conservation of charge: A neutron turns into a proton and an electron. Total charge is zero before and after — equal and opposite charges created simultaneously.
       </Callout>
 
       <h3 id="h-1-4-3">1.4.3 Quantisation of Charge</h3>
-      <p>
-        Experimentally it is established that all free charges are integral multiples of a basic
-        unit of charge denoted by e. Thus charge q on a body is always:
-      </p>
-      <FormulaBlock latex="q = ne" />
-      <p>
-        where n is any integer. The basic unit of charge is the charge an electron or proton
-        carries. In SI units:
-      </p>
-      <FormulaBlock latex="e = 1.602192 \times 10^{-19} \text{ C}" />
-      <p>
-        There are about 6 × 10¹⁸ electrons in 1 C. In electrostatics, we use smaller units like
-        1 μC = 10⁻⁶ C or 1 mC = 10⁻³ C.
-      </p>
+      <p>All observable charges are integral multiples of a fundamental unit charge e.</p>
+      <FormulaBlock latex="q = ne \quad \text{where } n \in \mathbb{Z}" />
+      <FormulaBlock latex="e = 1.602 \times 10^{-19} \text{ C}" />
+      <ul>
+        <li>Electron carries −e, proton carries +e.</li>
+        <li>SI unit: 1 C = charge flowing at 1 A for 1 s.</li>
+        <li>~6 × 10¹⁸ electrons per coulomb.</li>
+        <li>Practical units: 1 μC = 10⁻⁶ C, 1 mC = 10⁻³ C.</li>
+      </ul>
+
+      <Comparison
+        columns={[
+          {
+            title: "Quantisation",
+            children: (
+              <ul>
+                <li><FormulaBlock latex="q = ne" /></li>
+                <li>Every charge is an integral multiple of e</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Additivity",
+            children: (
+              <ul>
+                <li><FormulaBlock latex="q_{\text{total}} = \sum q_i" /></li>
+                <li>Charges add algebraically with proper signs</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Conservation",
+            children: (
+              <ul>
+                <li><FormulaBlock latex="\Delta q_{\text{isolated}} = 0" /></li>
+                <li>Net charge of an isolated system never changes</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+
       <KeyPoint title="Key Exam Point">
         Three basic properties of electric charge: (1) Quantisation — q = ne, (2) Additivity —
         total charge is algebraic sum, (3) Conservation — total charge of isolated system is
