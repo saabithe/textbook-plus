@@ -42,6 +42,9 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
         { id: "h-1-14-3", title: "1.14.3 Uniformly Charged Thin Spherical Shell" },
       ],
     },
+    { id: "h-1-examples", title: "Worked Examples" },
+    { id: "h-1-summary", title: "Summary" },
+    { id: "h-1-ponder", title: "Points to Ponder" },
   ],
   "electrostatic-potential-and-capacitance": [
     { id: "h-2-1", title: "2.1 Introduction" },

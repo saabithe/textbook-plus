@@ -19,9 +19,6 @@ export default function ElectricChargesChapter() {
         <li>Charges accumulate until they find a path to discharge.</li>
         <li>Discharge produces spark, shock, or light.</li>
       </ul>
-      <Callout type="note">
-        <strong>Static Electricity:</strong> Charges that do not move freely.
-      </Callout>
 
       <h2 id="h-1-2">1.2 Electric Charge</h2>
       <p><strong>Fundamental Observations:</strong></p>
@@ -34,9 +31,6 @@ export default function ElectricChargesChapter() {
       <p><strong>Conclusion:</strong> Two kinds of charges exist.</p>
       <Callout type="important">
         There are only two kinds of electric charge. Like charges repel and unlike charges attract each other. The property which differentiates the two kinds is called the polarity of charge.
-      </Callout>
-      <Callout type="note">
-        Like charges repel. Unlike charges attract.
       </Callout>
 
       <h2 id="h-1-3">1.3 Conductors and Insulators</h2>
@@ -343,7 +337,7 @@ export default function ElectricChargesChapter() {
         the centre. Inside the shell, E = 0 at all points.
       </KeyPoint>
 
-      <h2>Worked Examples</h2>
+      <h2 id="h-1-examples">Worked Examples</h2>
       <Example title="Example 1.1 — Time to Accumulate 1 Coulomb">
         <p>If 10⁹ electrons move out of a body every second, how much time to get 1 C?</p>
         <p>Charge per second = 1.6 × 10⁻¹⁹ × 10⁹ = 1.6 × 10⁻¹⁰ C</p>
@@ -392,7 +386,7 @@ export default function ElectricChargesChapter() {
         <p>r &gt; R: E = 0 (atom is neutral)</p>
       </Example>
 
-      <h2>Summary</h2>
+      <h2 id="h-1-summary">Summary</h2>
       <ul>
         <li>Electric and magnetic forces determine the properties of atoms, molecules and bulk matter.</li>
         <li>Two types of charges: like charges repel, unlike attract. Glass rod rubbed with silk is positive; plastic rod rubbed with fur is negative.</li>
@@ -408,7 +402,7 @@ export default function ElectricChargesChapter() {
         <li>Gauss&apos;s Law: Φ = q/ε₀. Applications: wire (E = λ/2πε₀r), sheet (E = σ/2ε₀), shell (E = q/4πε₀r² outside, 0 inside).</li>
       </ul>
 
-      <h2>Points to Ponder</h2>
+      <h2 id="h-1-ponder">Points to Ponder</h2>
       <ul>
         <li>Protons are held inside the nucleus by the strong force (range ~10⁻¹⁴ m). Electrons are kept outside by quantum mechanics.</li>
         <li>Coulomb force and gravity follow inverse-square law, but gravity is always attractive while Coulomb can be both — allowing cancellation.</li>
