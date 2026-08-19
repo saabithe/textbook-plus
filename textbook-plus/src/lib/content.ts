@@ -5,6 +5,15 @@ import ch2Questions from "@/content/physics/electrostatic-potential-and-capacita
 import ch2Flashcards from "@/content/physics/electrostatic-potential-and-capacitance/flashcards.json";
 
 const SECTIONS_MAP: Record<string, ChapterSection[]> = {
+  "horegallu": [
+    { id: "introduction", title: "Introduction" },
+    { id: "the-horegallu", title: "The Horegallu" },
+    { id: "grandfathers-wisdom", title: "Grandfather's Wisdom" },
+    { id: "ratna", title: "Ratna — A Human Horegallu" },
+    { id: "deeper-message", title: "The Deeper Message" },
+    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "author-context", title: "Author Context" },
+  ],
   "electric-charges-and-fields": [
     { id: "h-1-1", title: "1.1 Introduction" },
     { id: "h-1-2", title: "1.2 Electric Charge" },
@@ -103,5 +112,5 @@ export function hasFlashcards(slug: string): boolean {
 const CONTENT_SLUGS = new Set(Object.keys(QUESTIONS_MAP));
 
 export function hasChapterContent(slug: string): boolean {
-  return CONTENT_SLUGS.has(slug);
+  return CONTENT_SLUGS.has(slug) || slug in SECTIONS_MAP;
 }

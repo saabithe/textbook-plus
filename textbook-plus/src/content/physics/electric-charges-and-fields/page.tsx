@@ -468,7 +468,7 @@ export default function ElectricChargesChapter() {
       </Example>
       <Example title="Example 1.3 — Coulomb's Law vs Gravitational Force">
         <p>
-          Coulomb's law for electrostatic force between two point charges and Newton's law
+          Coulomb&apos;s law for electrostatic force between two point charges and Newton&apos;s law
           for gravitational force between two stationary point masses, both have inverse-square
           dependence on the distance between the charges and masses respectively.
         </p>
@@ -509,7 +509,7 @@ export default function ElectricChargesChapter() {
           the force exerted by an electron on a proton; however, the masses of an electron and
           a proton are different. Thus, the magnitude of force is:</p>
         <FormulaBlock latex="|F| = \frac{1}{4\pi\varepsilon_0} \frac{e^2}{r^2} = 8.987 \times 10^9 \times \frac{(1.6 \times 10^{-19})^2}{(10^{-10})^2} = 2.3 \times 10^{-8} \text{ N}" important />
-        <p>Using Newton's second law of motion, F = ma, the acceleration that an electron will
+        <p>Using Newton&apos;s second law of motion, F = ma, the acceleration that an electron will
           undergo is:</p>
         <FormulaBlock latex="a = \frac{2.3 \times 10^{-8}}{9.11 \times 10^{-31}} = 2.5 \times 10^{22} \text{ m/s}^2" />
         <p>
@@ -530,7 +530,7 @@ export default function ElectricChargesChapter() {
           shadow on a screen). Spheres A and B are touched by uncharged spheres C and D
           respectively, as shown in Fig. 1.4(b). C and D are then removed and B is brought
           closer to A to a distance of 5.0 cm between their centres, as shown in Fig. 1.4(c).
-          What is the expected repulsion of A on the basis of Coulomb's law?
+          What is the expected repulsion of A on the basis of Coulomb&apos;s law?
         </p>
         <p className="text-sm text-muted-foreground">
           Spheres A and C and spheres B and D have identical sizes. Ignore the sizes of A and B
@@ -539,7 +539,7 @@ export default function ElectricChargesChapter() {
 
         <p className="mt-4"><strong>Solution</strong></p>
         <p>
-          Let the original charge on sphere A be q and that on B be q'. At a distance r between
+          Let the original charge on sphere A be q and that on B be q&apos;. At a distance r between
           their centres, the magnitude of the electrostatic force on each is given by:
         </p>
         <FormulaBlock latex="F = \frac{1}{4\pi\varepsilon_0} \frac{qq'}{r^2}" />
@@ -547,7 +547,7 @@ export default function ElectricChargesChapter() {
         <p>
           When an identical but uncharged sphere C touches A, the charges redistribute on A
           and C and, by symmetry, each sphere carries a charge q/2. Similarly, after D touches B,
-          the redistributed charge on each is q'/2.
+          the redistributed charge on each is q&apos;/2.
         </p>
         <p>
           Now, if the separation between A and B is halved, the magnitude of the electrostatic
