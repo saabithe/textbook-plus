@@ -6,21 +6,22 @@ import { cn } from "@/lib/utils";
 
 interface ExpandableProps {
   title: string;
+  id?: string;
   children: React.ReactNode;
 }
 
-export function Expandable({ title, children }: ExpandableProps) {
+export function Expandable({ title, id, children }: ExpandableProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="my-6 rounded-xl border border-border/60 overflow-hidden">
+    <div id={id} className="my-6 rounded-xl border border-border/60 overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 w-full px-5 py-3 text-left bg-muted/20 hover:bg-muted/40 transition-colors"
+        className="flex items-center gap-2 w-full px-5 py-3 text-left bg-muted/40 hover:bg-muted/60 transition-colors"
       >
         <ChevronRight
           className={cn(
-            "h-4 w-4 text-muted-foreground transition-transform duration-200",
+            "h-4 w-4 text-foreground transition-transform duration-200",
             open && "rotate-90"
           )}
         />

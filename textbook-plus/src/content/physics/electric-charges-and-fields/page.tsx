@@ -68,38 +68,41 @@ export default function ElectricChargesChapter() {
       <h2 id="h-1-4">1.4 Basic Properties of Electric Charges</h2>
       <p>Electric charge has three fundamental properties that govern all electrostatic behaviour.</p>
 
-      <h3 id="h-1-4-1">1.4.1 Additivity of Charges</h3>
-      <p>Total charge of a system is the algebraic sum of individual charges.</p>
-      <ul>
-        <li>Charges are scalars — they add like real numbers, not vectors.</li>
-        <li>Sign matters: +ve for positive charge, −ve for negative.</li>
-        <li>Formula: q<sub>total</sub> = q₁ + q₂ + ... + qₙ</li>
-      </ul>
-      <Example title="Additivity of Charges">
-        <p>Five charges in a system: +1, +2, −3, +4, −5 (in some unit).</p>
-        <FormulaBlock latex="q_{\text{total}} = (+1) + (+2) + (-3) + (+4) + (-5) = -1" />
-      </Example>
+      <Expandable id="h-1-4-1" title="1.4.1 Additivity of Charges">
+        <p>Total charge of a system is the algebraic sum of individual charges.</p>
+        <ul>
+          <li>Charges are scalars — they add like real numbers, not vectors.</li>
+          <li>Sign matters: +ve for positive charge, −ve for negative.</li>
+          <li>Formula: q<sub>total</sub> = q₁ + q₂ + ... + qₙ</li>
+        </ul>
+        <Example title="Additivity of Charges">
+          <p>Five charges in a system: +1, +2, −3, +4, −5 (in some unit).</p>
+          <FormulaBlock latex="q_{\text{total}} = (+1) + (+2) + (-3) + (+4) + (-5) = -1" />
+        </Example>
+      </Expandable>
 
-      <h3 id="h-1-4-2">1.4.2 Conservation of Charge</h3>
-      <p>Net charge of an isolated system remains constant, regardless of internal redistribution.</p>
-      <ul>
-        <li>Charging by rubbing transfers electrons — no charge is created or destroyed.</li>
-        <li>Conservation of charge has been established experimentally.</li>
-      </ul>
-      <Callout type="important">
-        Conservation of charge: A neutron turns into a proton and an electron. Total charge is zero before and after — equal and opposite charges created simultaneously.
-      </Callout>
+      <Expandable id="h-1-4-2" title="1.4.2 Conservation of Charge">
+        <p>Net charge of an isolated system remains constant, regardless of internal redistribution.</p>
+        <ul>
+          <li>Charging by rubbing transfers electrons — no charge is created or destroyed.</li>
+          <li>Conservation of charge has been established experimentally.</li>
+        </ul>
+        <Callout type="important">
+          Conservation of charge: A neutron turns into a proton and an electron. Total charge is zero before and after — equal and opposite charges created simultaneously.
+        </Callout>
+      </Expandable>
 
-      <h3 id="h-1-4-3">1.4.3 Quantisation of Charge</h3>
-      <p>All observable charges are integral multiples of a fundamental unit charge e.</p>
-      <FormulaBlock latex="q = ne \quad \text{where } n \in \mathbb{Z}" important />
-      <FormulaBlock latex="e = 1.602 \times 10^{-19} \text{ C}" important />
-      <ul>
-        <li>Electron carries −e, proton carries +e.</li>
-        <li>SI unit: 1 C = charge flowing at 1 A for 1 s.</li>
-        <li>~6 × 10¹⁸ electrons per coulomb.</li>
-        <li>Practical units: 1 μC = 10⁻⁶ C, 1 mC = 10⁻³ C.</li>
-      </ul>
+      <Expandable id="h-1-4-3" title="1.4.3 Quantisation of Charge">
+        <p>All observable charges are integral multiples of a fundamental unit charge e.</p>
+        <FormulaBlock latex="q = ne \quad \text{where } n \in \mathbb{Z}" important />
+        <FormulaBlock latex="e = 1.602 \times 10^{-19} \text{ C}" important />
+        <ul>
+          <li>Electron carries −e, proton carries +e.</li>
+          <li>SI unit: 1 C = charge flowing at 1 A for 1 s.</li>
+          <li>~6 × 10¹⁸ electrons per coulomb.</li>
+          <li>Practical units: 1 μC = 10⁻⁶ C, 1 mC = 10⁻³ C.</li>
+        </ul>
+      </Expandable>
 
       <Comparison
         columns={[
@@ -140,12 +143,11 @@ export default function ElectricChargesChapter() {
       </KeyPoint>
 
       <h2 id="h-1-5">1.5 Coulomb&apos;s Law</h2>
-      <p>
-        Coulomb&apos;s law is a quantitative statement about the force between two point charges.
-        When the linear size of charged bodies are much smaller than the distance separating them,
-        they are treated as point charges. The force varies inversely as the square of the distance
-        and directly as the product of the magnitudes of the two charges.
-      </p>
+      <Callout type="important">
+        Coulomb&apos;s Law: The electrostatic force between two point charges is directly proportional
+        to the product of the magnitudes of the two charges and inversely proportional to the
+        square of the distance between them. The force acts along the line joining the two charges.
+      </Callout>
 
       <h3 id="h-1-5-1">1.5.1 Scalar Form</h3>
       <p>
@@ -201,10 +203,6 @@ export default function ElectricChargesChapter() {
         <p>The force in a medium is the vacuum force divided by the relative permittivity.</p>
       </Expandable>
 
-      <KeyPoint title="Key Exam Point">
-        Coulomb&apos;s law: F = (1/4πε₀)(q₁q₂/r²). In a medium, force decreases by factor K: F&apos; = F/K. Larger K means weaker force — this is why dielectrics reduce electrostatic forces.
-      </KeyPoint>
-
       <h2 id="h-1-6">1.6 Forces between Multiple Charges</h2>
       <Callout type="important">
         Principle of Superposition: The force on any charge due to a number of other charges is
@@ -217,42 +215,39 @@ export default function ElectricChargesChapter() {
         using Coulomb&apos;s law, then added vectorially.
       </p>
 
-      <ProblemSolution problemNumber="1.6.1">
-        <ProblemSolution.Problem>
-          <p>
-            Three equal charges +q are placed at the vertices of an equilateral triangle of side a.
-            Find the magnitude and direction of the force on any one of the charges.
-          </p>
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>
-            Consider the charge at vertex A. It experiences two forces:
-          </p>
-          <ul>
-            <li>F₁ due to the charge at B, directed along BA (away from B)</li>
-            <li>F₂ due to the charge at C, directed along CA (away from C)</li>
-          </ul>
-          <p>Both forces have the same magnitude:</p>
-          <FormulaBlock latex="F_1 = F_2 = \frac{1}{4\pi\varepsilon_0} \frac{q^2}{a^2}" />
-          <p>
-            The angle between F₁ and F₂ is 60° (since the triangle is equilateral).
-            Using the parallelogram law:
-          </p>
-          <FormulaBlock latex="F_{\text{net}} = \sqrt{F_1^2 + F_2^2 + 2F_1 F_2 \cos 60°}" />
-          <p>Since F₁ = F₂ = F and cos 60° = ½:</p>
-          <FormulaBlock latex="F_{\text{net}} = \sqrt{F^2 + F^2 + 2F^2 \cdot \frac{1}{2}} = \sqrt{3F^2} = \sqrt{3} \, F" important />
-          <FormulaBlock latex="F_{\text{net}} = \frac{\sqrt{3}}{4\pi\varepsilon_0} \frac{q^2}{a^2}" important />
-          <p>
-            The direction is along the angle bisector of the 60° angle, pointing away from the
-            opposite side (i.e., radially outward from the centre of the triangle).
-          </p>
-        </ProblemSolution.Solution>
-      </ProblemSolution>
-
-      <KeyPoint>
-        All of electrostatics is basically a consequence of Coulomb&apos;s law and the superposition
-        principle.
-      </KeyPoint>
+      <Expandable title="Problem 1.6.1 — Equilateral Triangle Charges">
+        <ProblemSolution problemNumber="1.6.1">
+          <ProblemSolution.Problem>
+            <p>
+              Three equal charges +q are placed at the vertices of an equilateral triangle of side a.
+              Find the magnitude and direction of the force on any one of the charges.
+            </p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p>
+              Consider the charge at vertex A. It experiences two forces:
+            </p>
+            <ul>
+              <li>F₁ due to the charge at B, directed along BA (away from B)</li>
+              <li>F₂ due to the charge at C, directed along CA (away from C)</li>
+            </ul>
+            <p>Both forces have the same magnitude:</p>
+            <FormulaBlock latex="F_1 = F_2 = \frac{1}{4\pi\varepsilon_0} \frac{q^2}{a^2}" />
+            <p>
+              The angle between F₁ and F₂ is 60° (since the triangle is equilateral).
+              Using the parallelogram law:
+            </p>
+            <FormulaBlock latex="F_{\text{net}} = \sqrt{F_1^2 + F_2^2 + 2F_1 F_2 \cos 60°}" />
+            <p>Since F₁ = F₂ = F and cos 60° = ½:</p>
+            <FormulaBlock latex="F_{\text{net}} = \sqrt{F^2 + F^2 + 2F^2 \cdot \frac{1}{2}} = \sqrt{3F^2} = \sqrt{3} \, F" important />
+            <FormulaBlock latex="F_{\text{net}} = \frac{\sqrt{3}}{4\pi\varepsilon_0} \frac{q^2}{a^2}" important />
+            <p>
+              The direction is along the angle bisector of the 60° angle, pointing away from the
+              opposite side (i.e., radially outward from the centre of the triangle).
+            </p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
 
       <h2 id="h-1-7">1.7 Electric Field</h2>
       <p>
