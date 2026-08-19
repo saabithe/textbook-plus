@@ -6,7 +6,6 @@ import { KeyPoint } from "@/components/content/KeyPoint";
 import { AuthorCard } from "@/components/content/AuthorCard";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
-import { ReadRespond } from "@/components/content/ReadRespond";
 import { Highlight } from "@/components/content/Highlight";
 import { Expandable } from "@/components/content/Expandable";
 import { Comparison } from "@/components/content/Comparison";
@@ -63,128 +62,6 @@ const POEM_LINES = [
   "He says again, ‘Good fences make good neighbors.’",
 ];
 
-const QA_ITEMS = [
-  {
-    question: "What is the central theme of Mending Wall?",
-    answer: (
-      <>
-        The central theme is that{" "}
-        <Highlight color="yellow">nature does not like separation</Highlight>.
-        The poem explores whether walls are necessary between neighbours and
-        calls for <strong>breaking down man-made barriers</strong> to build a world
-        of brotherhood and harmony.
-      </>
-    ),
-  },
-  {
-    question: "Who are the two characters in the poem?",
-    answer: (
-      <>
-        The two characters are the <Highlight color="blue">poet (narrator)</Highlight> and
-        his <Highlight color="green">neighbour</Highlight>. They are neighbours
-        who share a stone wall between their properties.
-      </>
-    ),
-  },
-  {
-    question: "Why does the wall break every spring?",
-    answer: (
-      <>
-        The wall breaks every spring, but <strong>no one knows who is breaking it</strong>.
-        Some natural force — perhaps the ground shifting, frost, or animals — causes
-        the stones to fall. The poet finds the gaps and informs his neighbour so they
-        can repair it together.
-      </>
-    ),
-  },
-  {
-    question: "What is the poet’s view about the wall?",
-    answer: (
-      <>
-        The poet <Highlight color="yellow">doubts the need</Highlight> of the wall
-        between their properties. He argues they have no cattle that would cross
-        boundaries — only <strong>apple trees and pine trees</strong> that would
-        never &ldquo;come across and eat the cones under his pines.&rdquo;
-      </>
-    ),
-  },
-  {
-    question: "What is the neighbour’s view on walls?",
-    answer: (
-      <>
-        The neighbour firmly believes that{" "}
-        <Highlight color="green">walls are necessary</Highlight>. He always says,{" "}
-        <em>&ldquo;Good fences make good neighbours,&rdquo;</em> meaning a wall is
-        crucial to maintain a healthy relationship.
-      </>
-    ),
-  },
-  {
-    question: "What does the refrain “Good fences make good neighbours” mean?",
-    answer: (
-      <>
-        It is an <Highlight color="pink">epigram</Highlight> — a witty, memorable
-        saying. In the neighbour&rsquo;s view, physical boundaries{" "}
-        <strong>prevent conflict</strong> and help maintain a respectful relationship
-        between neighbours.
-      </>
-    ),
-  },
-  {
-    question: "What poetic devices are used in the poem?",
-    answer: (
-      <>
-        The poem uses <Highlight color="yellow">personification</Highlight> (giving
-        human qualities to inanimate things),{" "}
-        <Highlight color="blue">simile</Highlight> (comparing the neighbour to &ldquo;an
-        old-stone savage armed&rdquo;),{" "}
-        <Highlight color="pink">metaphor</Highlight> (the wall as a symbol of human
-        barriers), <strong>irony</strong> (the speaker questions the wall but repairs
-        it), <Highlight color="green">apostrophe</Highlight> (speaking to the
-        stones), and <strong>epigram</strong> (&ldquo;Good fences make good
-        neighbours&rdquo;).
-      </>
-    ),
-  },
-  {
-    question: "Give an example of personification from the poem.",
-    answer: (
-      <>
-        In lines 1\u20134:{" "}
-        <em>
-          &ldquo;Something there is that doesn&rsquo;t love a wall, / That sends the
-          frozen-ground-swell under it.&rdquo;
-        </em>{" "}
-        Here, an unnamed <Highlight color="yellow">natural force</Highlight> is given
-        human emotions — it &ldquo;doesn&rsquo;t love&rdquo; the wall and actively
-        works to destroy it.
-      </>
-    ),
-  },
-  {
-    question: "What does the poem call for at the end?",
-    answer: (
-      <>
-        The poem calls for{" "}
-        <Highlight color="green">breaking down man-made walls</Highlight> and
-        building a better world where <strong>brotherhood and harmony</strong> are
-        upheld in places of conflict and separation.
-      </>
-    ),
-  },
-  {
-    question: "Why doesn’t the poet think a wall is necessary between them?",
-    answer: (
-      <>
-        The poet argues that they have <strong>no cattle</strong> that might cross
-        boundaries. They only have{" "}
-        <Highlight color="blue">apple trees and pine trees</Highlight>, and these
-        would never cross the land. Therefore, the wall serves no practical purpose.
-      </>
-    ),
-  },
-];
-
 export default function MendingWallPage() {
   const [activeTab, setActiveTab] = useState("summary");
 
@@ -197,18 +74,7 @@ export default function MendingWallPage() {
         <div className="animate-fade-in">
           {/* Author */}
           <div id="author">
-            <AuthorCard name="Robert Frost">
-              <p>
-                <strong>Robert Frost</strong> (1874\u20131963) was a famous American
-                poet known for his realistic depictions of{" "}
-                <Highlight color="blue">rural New England</Highlight> life. He
-                received four{" "}
-                <Highlight color="yellow">Pulitzer Prizes</Highlight> for Poetry and
-                is celebrated for his accessible language and deep philosophical
-                themes. Mending Wall first appeared in his 1914 collection{" "}
-                <em>North of Boston</em>.
-              </p>
-            </AuthorCard>
+            <AuthorCard name="Robert Frost" />
           </div>
 
           {/* Introduction */}
@@ -750,11 +616,6 @@ export default function MendingWallPage() {
             poem calls for <strong>breaking down barriers</strong> and building{" "}
             <Highlight color="green">harmony and brotherhood</Highlight>.
           </KeyPoint>
-
-          {/* Read & Respond */}
-          <div id="read-and-respond-section" className="mt-10">
-            <ReadRespond items={QA_ITEMS} />
-          </div>
         </div>
       )}
     </div>

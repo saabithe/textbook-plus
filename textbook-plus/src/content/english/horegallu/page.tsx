@@ -101,7 +101,7 @@ const QA_ITEMS = [
     ),
   },
   {
-    question: "What is Ratna's simplistic outlook?",
+    question: "What is Ratna&apos;s simplistic outlook?",
     answer: (
       <>
         Ratna believes that{" "}
@@ -138,19 +138,7 @@ export default function HoregalluPage() {
         <div className="animate-fade-in">
           {/* Author */}
           <div id="author">
-            <AuthorCard name="Sudha Murty">
-              <p>
-                <strong>Sudha Murty</strong> (born 1950) is an Indian{" "}
-                <strong>educator</strong>, <strong>author</strong>, and{" "}
-                <strong>philanthropist</strong>. She is the chairperson of the{" "}
-                <Highlight color="blue">Infosys Foundation</Highlight> and is known
-                for her simple, accessible writing style that draws from{" "}
-                <em>real-life experiences</em> and Indian culture. Her works often
-                explore themes of <strong>kindness</strong>,{" "}
-                <strong>empathy</strong>, and the value of{" "}
-                <strong>human connections</strong>.
-              </p>
-            </AuthorCard>
+            <AuthorCard name="Sudha Murty" />
           </div>
 
           {/* Introduction */}
