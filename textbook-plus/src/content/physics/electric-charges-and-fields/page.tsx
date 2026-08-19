@@ -8,7 +8,7 @@ import { FormulaBlock } from "@/components/content/Formula";
 export default function ElectricChargesChapter() {
   return (
     <>
-      <h2>1.1 Introduction</h2>
+      <h2 id="h-1-1">1.1 Introduction</h2>
       <Callout type="important">
         Electrostatics deals with the study of forces, fields and potentials arising from static charges.
       </Callout>
@@ -23,7 +23,7 @@ export default function ElectricChargesChapter() {
         <strong>Static Electricity:</strong> Charges that do not move freely.
       </Callout>
 
-      <h2>1.2 Electric Charge</h2>
+      <h2 id="h-1-2">1.2 Electric Charge</h2>
       <p><strong>Fundamental Observations:</strong></p>
       <ul>
         <li>Glass rod rubbed with silk/wool → <strong>repel each other</strong></li>
@@ -39,7 +39,7 @@ export default function ElectricChargesChapter() {
         Like charges repel. Unlike charges attract.
       </Callout>
 
-      <h2>1.3 Conductors and Insulators</h2>
+      <h2 id="h-1-3">1.3 Conductors and Insulators</h2>
       <Comparison
         columns={[
           {
@@ -70,15 +70,15 @@ export default function ElectricChargesChapter() {
         <strong>🔄 Semiconductors:</strong> Third category → properties intermediate between conductors and insulators. Conductivity can be controlled (basis of modern electronics).
       </Callout>
 
-      <h2>1.4 Basic Properties of Electric Charges</h2>
-      <h3>1.4.1 Additivity of Charges</h3>
+      <h2 id="h-1-4">1.4 Basic Properties of Electric Charges</h2>
+      <h3 id="h-1-4-1">1.4.1 Additivity of Charges</h3>
       <p>
         If a system contains two point charges q₁ and q₂, the total charge is obtained by adding
         algebraically. Charges add up like real numbers or scalars. If a system contains n charges,
         the total is q₁ + q₂ + ... + qₙ.
       </p>
 
-      <h3>1.4.2 Charge is Conserved</h3>
+      <h3 id="h-1-4-2">1.4.2 Charge is Conserved</h3>
       <p>
         When bodies are charged by rubbing, there is transfer of electrons; no new charges are
         created or destroyed. Within an isolated system, charges may redistribute but total charge
@@ -90,7 +90,7 @@ export default function ElectricChargesChapter() {
         before and after.
       </Callout>
 
-      <h3>1.4.3 Quantisation of Charge</h3>
+      <h3 id="h-1-4-3">1.4.3 Quantisation of Charge</h3>
       <p>
         Experimentally it is established that all free charges are integral multiples of a basic
         unit of charge denoted by e. Thus charge q on a body is always:
@@ -111,7 +111,7 @@ export default function ElectricChargesChapter() {
         constant.
       </KeyPoint>
 
-      <h2>1.5 Coulomb&apos;s Law</h2>
+      <h2 id="h-1-5">1.5 Coulomb&apos;s Law</h2>
       <p>
         Coulomb&apos;s law is a quantitative statement about the force between two point charges.
         When the linear size of charged bodies are much smaller than the distance separating them,
@@ -144,7 +144,7 @@ export default function ElectricChargesChapter() {
         opposite to the force on q₂ due to q₁. Valid for both like and unlike charges.
       </KeyPoint>
 
-      <h2>1.6 Forces between Multiple Charges</h2>
+      <h2 id="h-1-6">1.6 Forces between Multiple Charges</h2>
       <Callout type="important">
         Principle of Superposition: The force on any charge due to a number of other charges is
         the vector sum of all the forces on that charge due to the other charges, taken one at a
@@ -156,7 +156,7 @@ export default function ElectricChargesChapter() {
         consequence of Coulomb&apos;s law and the superposition principle.
       </p>
 
-      <h2>1.7 Electric Field</h2>
+      <h2 id="h-1-7">1.7 Electric Field</h2>
       <p>
         Consider a point charge Q in vacuum. The charge Q produces an electric field everywhere in
         the surrounding. When another charge q is brought at point P, the field acts on it and
@@ -171,10 +171,10 @@ export default function ElectricChargesChapter() {
         for negative, radially inwards.
       </KeyPoint>
 
-      <h3>1.7.1 Electric Field due to a System of Charges</h3>
+      <h3 id="h-1-7-1">1.7.1 Electric Field due to a System of Charges</h3>
       <FormulaBlock latex="\vec{E}(\vec{r}) = \sum_{i=1}^{n} \frac{1}{4\pi\varepsilon_0} \frac{q_i}{r_{iP}^2} \hat{r}_{iP}" />
 
-      <h3>1.7.2 Physical Significance of Electric Field</h3>
+      <h3 id="h-1-7-2">1.7.2 Physical Significance of Electric Field</h3>
       <p>
         The true significance of the electric field emerges beyond electrostatics. The greatest
         speed with which a signal can go from one point to another is c, the speed of light. The
@@ -186,7 +186,7 @@ export default function ElectricChargesChapter() {
         delay. The concept was first introduced by Faraday.
       </p>
 
-      <h2>1.8 Electric Field Lines</h2>
+      <h2 id="h-1-8">1.8 Electric Field Lines</h2>
       <p>
         An electric field line is a curve drawn so that the tangent at each point is in the
         direction of the net field at that point. The magnitude of the field is represented by the
@@ -202,7 +202,7 @@ export default function ElectricChargesChapter() {
         more appropriate term is field lines.
       </p>
 
-      <h2>1.9 Electric Flux</h2>
+      <h2 id="h-1-9">1.9 Electric Flux</h2>
       <p>
         Consider flow of a liquid with velocity v⃗ through a small flat surface dS normal to the
         flow. The rate of flow v dS represents the flux. For electric field, we define an analogous
@@ -220,13 +220,13 @@ export default function ElectricChargesChapter() {
         field lines are parallel to the area and do not cross it.
       </p>
 
-      <h2>1.10 Electric Dipole</h2>
+      <h2 id="h-1-10">1.10 Electric Dipole</h2>
       <p>
         An electric dipole is a pair of equal and opposite point charges q and −q, separated by
         distance 2a. The direction from −q to q is the dipole direction. The total charge is zero,
         but the fields do not exactly cancel.
       </p>
-      <h3>1.10.1 The Field of an Electric Dipole</h3>
+      <h3 id="h-1-10-1">1.10.1 The Field of an Electric Dipole</h3>
       <Expandable title="Dipole field derivation (axial and equatorial)">
         <p>For points on the axis (r ≫ a):</p>
         <FormulaBlock latex="\vec{E} = \frac{1}{4\pi\varepsilon_0} \frac{2\vec{p}}{r^3}" />
@@ -239,7 +239,7 @@ export default function ElectricChargesChapter() {
         The dipole moment vector p⃗ has magnitude q × 2a and direction from −q to q. The field
         depends on the product qa, not q and a separately.
       </p>
-      <h3>1.10.2 Physical Significance of Dipoles</h3>
+      <h3 id="h-1-10-2">1.10.2 Physical Significance of Dipoles</h3>
       <p>
         In most molecules, centres of positive and negative charges coincide (dipole moment = 0).
         CO₂ and CH₄ are of this type. They develop a dipole moment when an electric field is
@@ -251,7 +251,7 @@ export default function ElectricChargesChapter() {
         common example.
       </Callout>
 
-      <h2>1.11 Dipole in a Uniform External Field</h2>
+      <h2 id="h-1-11">1.11 Dipole in a Uniform External Field</h2>
       <p>
         Consider a permanent dipole p⃗ in uniform external field E⃗. Forces qE⃗ and −qE⃗ act at
         different points, resulting in a torque. Net force is zero since E⃗ is uniform.
@@ -267,7 +267,7 @@ export default function ElectricChargesChapter() {
         dipole experience a net force.
       </p>
 
-      <h2>1.12 Continuous Charge Distribution</h2>
+      <h2 id="h-1-12">1.12 Continuous Charge Distribution</h2>
       <p>
         For many purposes, it is impractical to work with discrete charges. We define charge
         densities for continuous distributions:
@@ -278,7 +278,7 @@ export default function ElectricChargesChapter() {
       <p>The field due to a continuous charge distribution:</p>
       <FormulaBlock latex="\vec{E} \cong \sum \frac{1}{4\pi\varepsilon_0} \frac{\rho \Delta V}{r&apos;^2} \hat{r}&apos;" />
 
-      <h2>1.13 Gauss&apos;s Law</h2>
+      <h2 id="h-1-13">1.13 Gauss&apos;s Law</h2>
       <p>
         As a simple application of electric flux, consider the total flux through a sphere of
         radius r enclosing a point charge q at its centre.
@@ -304,15 +304,15 @@ export default function ElectricChargesChapter() {
         charge inside S.
       </KeyPoint>
 
-      <h2>1.14 Applications of Gauss&apos;s Law</h2>
-      <h3>1.14.1 Infinitely Long Straight Uniformly Charged Wire</h3>
+      <h2 id="h-1-14">1.14 Applications of Gauss&apos;s Law</h2>
+      <h3 id="h-1-14-1">1.14.1 Infinitely Long Straight Uniformly Charged Wire</h3>
       <p>
         Consider an infinitely long thin wire with uniform linear charge density λ. The electric
         field is everywhere radial and depends only on the distance r:
       </p>
       <FormulaBlock latex="E = \frac{\lambda}{2\pi\varepsilon_0 r}" />
 
-      <h3>1.14.2 Uniformly Charged Infinite Plane Sheet</h3>
+      <h3 id="h-1-14-2">1.14.2 Uniformly Charged Infinite Plane Sheet</h3>
       <p>
         Let σ be the uniform surface charge density. By symmetry, the field is uniform and parallel
         to the normal:
@@ -323,7 +323,7 @@ export default function ElectricChargesChapter() {
         is independent of distance from the sheet.
       </p>
 
-      <h3>1.14.3 Uniformly Charged Thin Spherical Shell</h3>
+      <h3 id="h-1-14-3">1.14.3 Uniformly Charged Thin Spherical Shell</h3>
       <Expandable title="Spherical shell field — outside and inside derivation">
         <p>Let σ be uniform surface charge density of shell radius R.</p>
         <p><strong>Outside (r &gt; R):</strong></p>

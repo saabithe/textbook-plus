@@ -9,17 +9,39 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-1-1", title: "1.1 Introduction" },
     { id: "h-1-2", title: "1.2 Electric Charge" },
     { id: "h-1-3", title: "1.3 Conductors and Insulators" },
-    { id: "h-1-4", title: "1.4 Basic Properties of Electric Charges" },
+    {
+      id: "h-1-4", title: "1.4 Basic Properties of Electric Charges", children: [
+        { id: "h-1-4-1", title: "1.4.1 Additivity of Charges" },
+        { id: "h-1-4-2", title: "1.4.2 Charge is Conserved" },
+        { id: "h-1-4-3", title: "1.4.3 Quantisation of Charge" },
+      ],
+    },
     { id: "h-1-5", title: "1.5 Coulomb's Law" },
     { id: "h-1-6", title: "1.6 Forces between Multiple Charges" },
-    { id: "h-1-7", title: "1.7 Electric Field" },
+    {
+      id: "h-1-7", title: "1.7 Electric Field", children: [
+        { id: "h-1-7-1", title: "1.7.1 Electric Field due to a System of Charges" },
+        { id: "h-1-7-2", title: "1.7.2 Physical Significance of Electric Field" },
+      ],
+    },
     { id: "h-1-8", title: "1.8 Electric Field Lines" },
     { id: "h-1-9", title: "1.9 Electric Flux" },
-    { id: "h-1-10", title: "1.10 Electric Dipole" },
+    {
+      id: "h-1-10", title: "1.10 Electric Dipole", children: [
+        { id: "h-1-10-1", title: "1.10.1 The Field of an Electric Dipole" },
+        { id: "h-1-10-2", title: "1.10.2 Physical Significance of Dipoles" },
+      ],
+    },
     { id: "h-1-11", title: "1.11 Dipole in a Uniform External Field" },
     { id: "h-1-12", title: "1.12 Continuous Charge Distribution" },
     { id: "h-1-13", title: "1.13 Gauss's Law" },
-    { id: "h-1-14", title: "1.14 Applications of Gauss's Law" },
+    {
+      id: "h-1-14", title: "1.14 Applications of Gauss's Law", children: [
+        { id: "h-1-14-1", title: "1.14.1 Infinitely Long Straight Uniformly Charged Wire" },
+        { id: "h-1-14-2", title: "1.14.2 Uniformly Charged Infinite Plane Sheet" },
+        { id: "h-1-14-3", title: "1.14.3 Uniformly Charged Thin Spherical Shell" },
+      ],
+    },
   ],
   "electrostatic-potential-and-capacitance": [
     { id: "h-2-1", title: "2.1 Introduction" },

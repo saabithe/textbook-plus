@@ -9,9 +9,20 @@ interface SidebarProps {
   subjectColor: string;
 }
 
+function flattenSectionIds(sections: ChapterSection[]): string[] {
+  const ids: string[] = [];
+  for (const section of sections) {
+    ids.push(section.id);
+    if (section.children) {
+      ids.push(...flattenSectionIds(section.children));
+    }
+  }
+  return ids;
+}
+
 export function Sidebar({ sections, subjectColor }: SidebarProps) {
-  const ids = sections.map((s) => s.id);
-  const activeId = useScrollSpy(ids);
+  const allIds = flattenSectionIds(sections);
+  const activeId = useScrollSpy(allIds);
 
   function scrollTo(id: string) {
     const el = document.getElementById(id);
@@ -20,18 +31,21 @@ export function Sidebar({ sections, subjectColor }: SidebarProps) {
     }
   }
 
-  return (
-    <nav className="space-y-1">
-      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 px-3">
-        On this page
-      </p>
-      {sections.map((section) => (
+  function renderSection(section: ChapterSection, depth = 0) {
+    const isActive = activeId === section.id;
+    const hasChildren = section.children && section.children.length > 0;
+    const isParentActive = hasChildren && section.children!.some(
+      (child) => child.id === activeId
+    );
+
+    return (
+      <div key={section.id}>
         <button
-          key={section.id}
           onClick={() => scrollTo(section.id)}
           className={cn(
             "w-full text-left rounded-lg px-3 py-2 text-sm transition-colors duration-150",
-            activeId === section.id
+            depth > 0 && "pl-6",
+            isActive || (depth === 0 && isParentActive)
               ? "bg-muted font-medium text-foreground"
               : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
           )}
@@ -39,13 +53,27 @@ export function Sidebar({ sections, subjectColor }: SidebarProps) {
           <span
             className={cn(
               "mr-2 inline-block h-1.5 w-1.5 rounded-full transition-colors duration-150",
-              activeId === section.id ? "opacity-100" : "opacity-0"
+              isActive ? "opacity-100" : "opacity-0"
             )}
             style={{ backgroundColor: subjectColor }}
           />
           {section.title}
         </button>
-      ))}
+        {hasChildren && (
+          <div className="ml-2">
+            {section.children!.map((child) => renderSection(child, depth + 1))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <nav className="space-y-1">
+      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 px-3">
+        On this page
+      </p>
+      {sections.map((section) => renderSection(section))}
     </nav>
   );
 }

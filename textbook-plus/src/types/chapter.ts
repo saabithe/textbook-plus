@@ -1,6 +1,7 @@
 export interface ChapterSection {
   id: string;
   title: string;
+  children?: ChapterSection[];
 }
 
 export interface Question {
