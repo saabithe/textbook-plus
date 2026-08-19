@@ -1,5 +1,6 @@
 "use client";
 
+import { Callout } from "@/components/content/Callout";
 import { Expandable } from "@/components/content/Expandable";
 import { KeyPoint } from "@/components/content/KeyPoint";
 
@@ -11,16 +12,16 @@ export default function HoregalluPage() {
         Introduction
       </h2>
       <p>
-        &ldquo;Horegallu&rdquo; is a motivational story written by Sudha Murty, a famous
-        Indian writer and philanthropist. The story is a short, simple anecdote
-        that carries a deep message about the importance of taking rest in the
-        middle of our journey and sharing our problems with others.
+        Hot summer days remind the author of her childhood in a little village.
+        There was a large banyan tree right in the middle of the village, and she
+        would spend many hours playing under it during her holidays. The tree was
+        like a massive umbrella with its branches providing much needed shade and
+        succour.
       </p>
       <p>
-        The narrative is also a nostalgic reflection of the author&rsquo;s childhood
-        days in a small village. Hot summer days remind her of a huge banyan
-        tree that stood in the middle of the village, providing shade like an
-        umbrella for everyone who gathered beneath it.
+        Travellers spent some time sitting under it and catching their breath
+        before going on their way. To make them comfortable, there was a
+        &lsquo;horegallu&rsquo; under the tree.
       </p>
 
       {/* === Section 2: The Horegallu === */}
@@ -28,96 +29,166 @@ export default function HoregalluPage() {
         The Horegallu
       </h2>
       <p>
-        Under the banyan tree there was a <em>horegallu</em>. The word literally
-        means &ldquo;a stone that can bear weight.&rdquo; It was a large, flat stone placed
-        horizontally over two vertical ones. Travellers and villagers would rest
-        on it, sit down, chat, exchange news, and drink cool water from earthen
-        pots kept nearby before continuing their journey.
+        Horegallu literally means a stone that can bear weight. It was a large
+        flat stone placed horizontally over two vertical ones, thus making a
+        stone bench on which anyone could sit and rest a while, chat with a
+        fellow traveller and exchange news of the road. Cool water would be kept
+        in earthen pots near the bench and people could quench their thirst
+        before starting their journeys again. Similar simple arrangements can
+        be found in villages all over the country.
       </p>
-      <p>
-        This horegallu held special memories for the author. It was
-        inseparably linked to her grandfather, a retired school teacher who
-        would spend hours sitting near the stone, chatting with the travellers
-        who rested under the banyan tree.
-      </p>
+
+      <Callout type="note">
+        <p>
+          The word <em>horegallu</em> combines two Kannada words: <em>hore</em>
+          (load/burden) and <em>gallu</em> (stone) — literally &ldquo;a stone that
+          bears the load.&rdquo;
+        </p>
+      </Callout>
 
       {/* === Section 3: Grandfather's Wisdom === */}
       <h2 id="grandfathers-wisdom" className="text-2xl font-bold tracking-tight mt-12 mb-4 scroll-mt-24 text-foreground">
         Grandfather&rsquo;s Wisdom
       </h2>
       <p>
-        The majority of those who stopped at the horegallu were villagers
-        enjoying a break from working in the neighbouring fields. Their topic
-        of discussion was always their daily lives and concerns. Grandfather
-        could only listen, yet simply talking to him seemed to re-energise them
-        for the road ahead. They would eventually pick up their burdens with
-        ease and continue on their path.
+        The horegallu in the village held special memories for the author as it
+        was inextricably linked with her grandfather. He was a retired
+        schoolteacher and would spend hours every day, sitting under the banyan
+        tree and talking to those resting there. When the author would get tired
+        of playing, she would sit next to him and observe the people he was
+        speaking to and listen to their conversations.
       </p>
       <p>
-        When the author was tired of playing, she would sit next to Grandfather
-        and listen to his conversations. Grandfather once explained to her that
-        a horegallu is vital in any journey. Everyone bears their burdens in
-        accordance with their circumstances and abilities, but every now and
-        then they need to take a break, lay down their burdens, and rest.
-        Only then will they be able to resume their responsibilities. The
-        horegallu offers that chance — it aids in the recovery of people&rsquo;s
-        strength.
+        Most of them were villagers taking a break from their work in the fields
+        nearby. They had to walk long distances each day, carrying heavy burdens
+        on their heads. Tired out by the heat, they would drink the cool water,
+        wash their faces with it and chat with grandfather. Their conversation
+        would be about their daily lives and worries.
       </p>
+      <Expandable title="What the villagers said">
+        <p>
+          &ldquo;Masterji, this summer has been so hot. I have never seen such dry
+          weather.&rdquo;
+        </p>
+        <p>
+          &ldquo;Masterji, it is getting difficult for me to carry these large loads
+          on my head. Thank God for this horegallu. I wish my son would help,
+          but he only wants to go to the city.&rdquo;
+        </p>
+        <p>
+          They spoke about the difficulties they lived with. Grandfather could
+          only listen to them but just talking to him seemed to refresh them for
+          the journey. After some time, they would pick up their burdens with
+          some ease and go on their way.
+        </p>
+      </Expandable>
+      <p>
+        The horegallu was an important feature in their lives and as a child the
+        author would often not understand why they blessed it so often for being
+        there. After all, it was only a stone bench. It was her grandfather who
+        told her:
+      </p>
+      <Callout type="important">
+        <p>
+          &ldquo;Child, a horegallu is essential in any journey. We all carry our
+          burdens according to our situations and capacities. But every once in a
+          while, we need to stop, put down that burden and rest. Only then can we
+          be refreshed enough to pick up the load once more. The horegallu gives
+          everyone that opportunity to do so. It helps people regain their
+          strength.&rdquo;
+        </p>
+      </Callout>
 
       {/* === Section 4: Ratna — A Human Horegallu === */}
       <h2 id="ratna" className="text-2xl font-bold tracking-tight mt-12 mb-4 scroll-mt-24 text-foreground">
         Ratna &mdash; A Human Horegallu
       </h2>
       <p>
-        Later in life, the author went to work in Mumbai. There she came across
-        a colleague named Ratna, who reminded her of her grandfather and the
-        horegallu. Ratna was a cheerful woman who shared the troubles of her
-        co-workers and spread relief into everyone&rsquo;s lives.
+        Later on in life, the author got to see something that reminded her of
+        that stone bench once again. She was working in Bombay (now Mumbai). One
+        of her colleagues, Ratna, was a senior clerk, middle-aged and always
+        smiling. She had done her graduation and been working in the company for
+        nearly twenty-five years. She went about her repetitive, mundane work
+        with an infectious cheerfulness.
       </p>
       <p>
-        During lunch breaks, Ratna would sit with any of the workers and listen
-        to their problems. She knew she could not solve all their problems, but
-        she just listened. According to Ratna, a person can be relieved from
-        the burdens of life when they find an outlet for those sorrows. She
-        added that God had given her two ears so that she could listen with
-        sympathy and without passing any judgement.
+        Every day, during the lunch hour, she would sit with some person in one
+        of the rooms, and they would have long chats. The author would often
+        wonder what they talked about. One day, she finally asked:
       </p>
+      <Expandable title="The conversation with Ratna">
+        <p>
+          &ldquo;Ratna, what do you talk with each person for the whole lunch
+          hour?&rdquo;
+        </p>
+        <p>
+          Ratna smiled and said simply, &ldquo;They share their troubles with
+          me.&rdquo;
+        </p>
+        <p>
+          &ldquo;But how can you solve the troubles of so many people? Do you always
+          have an answer for them?&rdquo;
+        </p>
+        <p>&ldquo;No, I only listen.&rdquo;</p>
+        <p>
+          &ldquo;And that is enough? That solves the problem?&rdquo; The author was young
+          and incredulous at such a simplistic outlook. But Ratna answered with
+          the same patience and affection that she must have used with all her
+          colleagues:
+        </p>
+        <p>
+          &ldquo;I am not a trained counsellor or an intellectual. No one can solve
+          your problem. You have to do it yourself.&rdquo;
+        </p>
+        <p>&ldquo;Then how do you help them by listening to them?&rdquo;</p>
+        <p>
+          &ldquo;God has given me two ears to listen to others. I hear them out with
+          sympathy and without any judgement. When a person in trouble or under a
+          lot of strain finds an outlet for his worries, it relieves half his
+          burden.&rdquo;
+        </p>
+      </Expandable>
       <p>
-        People could open their minds before her and find relief. She never
-        disclosed anything that was shared in confidence by her co-workers.
-        She considered sharing their conversations a sin, as they trusted her
-        with their secrets and she would never betray that trust. Soon after
-        sharing their problems with her, they would gather the strength to
-        move on with their journey.
+        The author thought for some time and asked, &ldquo;But don&rsquo;t you ever break
+        the confidence and tell others the secrets you hear, even by
+        mistake?&rdquo;
       </p>
+      <Callout type="important">
+        <p>
+          &ldquo;Not even in my dreams. I consider that to be the worst kind of
+          betrayal. I don&rsquo;t think there is a greater sin than betraying
+          someone&rsquo;s confidence. They tell me their worries because they know I
+          will never talk about it or gossip about it to another person. Only
+          when they know their words are secure with me, can they talk to me
+          freely. This way I relieve their burden for a short while till they are
+          ready to pick themselves up and carry on with their journey.&rdquo;
+        </p>
+      </Callout>
 
       {/* === Section 5: The Deeper Message === */}
       <h2 id="deeper-message" className="text-2xl font-bold tracking-tight mt-12 mb-4 scroll-mt-24 text-foreground">
         The Deeper Message
       </h2>
       <p>
-        According to the author, both her grandfather and Ratna were doing the
-        same thing. Without charging money, both of them were engaged in social
-        service. They acted as horegallus for others — helping people unload
-        their burdens without taking any reward. Both of them were good
-        listeners who created healthy minds.
+        Ratna&rsquo;s words uncannily echoed the grandfather&rsquo;s, sitting on the stone
+        bench under the banyan tree. Perhaps, in their own small ways, without
+        access to great wealth, both these people were doing tremendous social
+        service. No one thought of acknowledging their work or rewarding them
+        for it, but they continued to do so, as these acts of kindness gave
+        them joy.
       </p>
       <p>
-        The horegallu is not just a physical stone bench. It is a metaphor for
-        the support systems that are vital for maintaining mental health and
-        resilience. The story encourages the practice of empathy and
-        supportiveness in everyday life — to be someone&rsquo;s horegallu, a place
-        where they can rest, share their burdens, and find the strength to
-        continue.
+        If ever the author happens to pass a horegallu in a village, she
+        remembers them and wishes there were many more of them in this world.
       </p>
 
       {/* === Key Takeaway === */}
       <KeyPoint title="Key Takeaway">
-        Everyone carries burdens according to their circumstances, and
-        sometimes they just need someone to listen. Good listeners — like the
-        author&rsquo;s grandfather and Ratna — act as human horegallus, providing
-        the psychological relief and emotional support that people need to
-        regain their strength and carry on.
+        The horegallu is not just a stone bench. It is a metaphor for empathy
+        and support in human relationships. Good listeners — like the author&rsquo;s
+        grandfather and Ratna — act as human horegallus, providing the
+        psychological relief and emotional support that people need to regain
+        their strength and carry on with their journey.
       </KeyPoint>
 
       {/* === Author Context === */}
