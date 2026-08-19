@@ -116,7 +116,6 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "character-sketch-nomita", title: "Character Sketch: Nomita" },
     { id: "character-sketch-ajit", title: "Character Sketch: Ajit" },
     { id: "character-sketch-mother", title: "Character Sketch: Nomita's Mother" },
-    { id: "character-comparison", title: "Character Comparison" },
     {
       id: "symbolism-themes", title: "Symbolism & Themes", children: [
         { id: "matchbox-symbol", title: "The Matchbox" },

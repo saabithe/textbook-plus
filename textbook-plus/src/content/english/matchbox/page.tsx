@@ -6,7 +6,7 @@ import { KeyPoint } from "@/components/content/KeyPoint";
 import { AuthorCard } from "@/components/content/AuthorCard";
 import { CharacterSketch } from "@/components/content/CharacterSketch";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
-import { CharacterComparison } from "@/components/content/CharacterComparison";
+
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
 import { Highlight } from "@/components/content/Highlight";
@@ -495,77 +495,6 @@ export default function MatchboxPage() {
               simultaneously loves and resents her.
             </p>
           </CharacterSketch>
-
-          {/* Character Comparison */}
-          <h2
-            id="character-comparison"
-            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
-          >
-            Character Comparison:{" "}
-            <Highlight color="blue">Nomita</Highlight> &amp;{" "}
-            <Highlight color="green">Ajit</Highlight>
-          </h2>
-          <CharacterComparison
-            characters={["Nomita", "Ajit"]}
-            rows={[
-              {
-                label: "Role",
-                values: [
-                  <p key="n-role">Young wife in a wealthy joint family</p>,
-                  <p key="a-role">Husband; controls the letter-box key</p>,
-                ],
-              },
-              {
-                label: "Anger",
-                values: [
-                  <p key="n-anger">Suppressed, volcanic. &ldquo;Hisses like a snake.&rdquo; Sets her sari on fire.</p>,
-                  <p key="a-anger">Dismissive, then explosive. Laughs it away, then scolds and insults.</p>,
-                ],
-              },
-              {
-                label: "Treatment of letters",
-                values: [
-                  <p key="n-letters">Wants privacy. Forbade her mother from writing postcards. Plans to send money secretly.</p>,
-                  <p key="a-letters">Opens and reads her letters. Sometimes doesn&rsquo;t give them to her at all.</p>,
-                ],
-              },
-              {
-                label: "Attitude to mother-in-law",
-                values: [
-                  <p key="n-mother">Loves her mother but burns with shame at her begging. Can&rsquo;t write &ldquo;I can&rsquo;t do any more.&rdquo;</p>,
-                  <p key="a-mother">Derisive: &ldquo;Why bother? I&rsquo;ll fill out a money-order form.&rdquo; Calls her a dung-picker.</p>,
-                ],
-              },
-              {
-                label: "Fear",
-                values: [
-                  <p key="n-fear">Fears the &ldquo;forest of people&rdquo; &mdash; the joint family&rsquo;s judgment. Her voice must not tremble.</p>,
-                  <p key="a-fear">Doesn&rsquo;t fear Nomita&rsquo;s anger. Fears a row. Terrified when she sets fire to her sari.</p>,
-                ],
-              },
-              {
-                label: "Dignity",
-                values: [
-                  <p key="n-dignity">Preserves dignity through composure. Smiles through insults. Peels potatoes while planning secretly.</p>,
-                  <p key="a-dignity">His &ldquo;high-mindedness&rdquo; is a mask. The narrator implies he knows it.</p>,
-                ],
-              },
-              {
-                label: "Power",
-                values: [
-                  <p key="n-power">Has the matchbox &mdash; the gunpowder. But never flares up and burns the mask.</p>,
-                  <p key="a-power">Has the letter-box key. Controls communication. Leaves matchboxes scattered carelessly.</p>,
-                ],
-              },
-              {
-                label: "Shared trait",
-                values: [
-                  <p key="n-shared" className="font-semibold">Both are trapped by the joint family structure &mdash; she by its judgments, he by its expectations of masculinity.</p>,
-                  <p key="a-shared" className="font-semibold">Both are trapped by the joint family structure &mdash; she by its judgments, he by its expectations of masculinity.</p>,
-                ],
-              },
-            ]}
-          />
 
           {/* Symbolism & Themes */}
           <h2
