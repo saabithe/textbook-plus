@@ -115,106 +115,101 @@ export default function AnyWomanPage() {
             quick={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <em>Any Woman</em> by{" "}
-                  <Highlight color="yellow">Katharine Tynan</Highlight> is a poem
-                  about the{" "}
-                  <strong>central role of a mother</strong> in a family.
+                  Katharine Tynan&rsquo;s poem is a{" "}
+                  <Highlight color="yellow">mother&rsquo;s plea</Highlight> to God:
+                  let me live until my children are grown.
                 </li>
                 <li>
-                  She is the <Highlight color="blue">pillar, fire, light, and
-                  wall</Highlight> &mdash; without her the household collapses.
+                  She defines herself as everything the family depends on &mdash;{" "}
+                  <Highlight color="blue">light, warmth, shelter, and love</Highlight>.
                 </li>
                 <li>
-                  The poem ends with a{" "}
-                  <Highlight color="pink">plea to God</Highlight>: do not take me
-                  till the children grow.
+                  The mood shifts from quiet pride to{" "}
+                  <Highlight color="pink">urgent desperation</Highlight>, ending in
+                  prayer.
                 </li>
               </ul>
             }
             standard={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <em>Any Woman</em> by{" "}
-                  <Highlight color="yellow">Katharine Tynan</Highlight> is a short
-                  lyric poem in which a mother describes her{" "}
-                  <strong>indispensable role</strong> in the family.
+                  <strong>Stanza 1</strong>: She is the{" "}
+                  <Highlight color="blue">pillars and keystone</Highlight> of the house
+                  &mdash; the structural foundation. Without her, everything collapses.
                 </li>
                 <li>
-                  She calls herself the{" "}
-                  <Highlight color="blue">pillars and keystone</Highlight> of the
-                  house &mdash; remove her, and roof and wall fall to ruin.
+                  <strong>Stanza 2</strong>: She is the{" "}
+                  <Highlight color="green">fire, sun, and heat</Highlight> &mdash;
+                  the source of warmth. Without her, the house turns cold as stone.
                 </li>
                 <li>
-                  She is the <Highlight color="green">fire, sun, and heat</Highlight>{" "}
-                  that keep the household warm and alive. Without her the
-                  hearthstone stands cold and the children cannot thrive.
+                  <strong>Stanza 3</strong>: Her children warm their hands at her. She is
+                  their <Highlight color="yellow">light of love alive</Highlight>. Without
+                  her, the hearthstone is cold.
                 </li>
                 <li>
-                  She is the <Highlight color="pink">twist and knot of love</Highlight>{" "}
-                  that holds the children in a sacred ring, ensuring no lost child
-                  wanders.
+                  <strong>Stanza 4</strong>: She is the{" "}
+                  <strong>twist and knot of love</strong> holding the children in a sacred
+                  ring. No child strays from her close tether.
                 </li>
                 <li>
-                  She is the <strong>house from floor to roof</strong>, the wall
-                  against danger, the door against wind and snow.
+                  <strong>Stanza 5</strong>: She is the house itself &mdash; she decks the
+                  walls, spreads the board, spins the curtains, and{" "}
+                  <Highlight color="pink">shakes down their beds</Highlight>.
                 </li>
                 <li>
-                  The poem closes with a{" "}
-                  <Highlight color="yellow">desperate prayer</Highlight>: &ldquo;Take
-                  me not till the children grow!&rdquo;
+                  <strong>Stanza 6</strong>: She is the wall against danger and the door
+                  against snow. The final line is a prayer:{" "}
+                  <em>&ldquo;Take me not till the children grow!&rdquo;</em>
                 </li>
               </ul>
             }
             detailed={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <em>Any Woman</em> by{" "}
-                  <Highlight color="yellow">Katharine Tynan</Highlight> (1859&ndash;1931)
-                  is a lyric poem of six quatrains in which a mother declares her
-                 {" "}
-                  <strong>all-encompassing role</strong> in the family through a
-                  series of powerful metaphors.
+                  <strong>Theme</strong>: A mother&rsquo;s love is the{" "}
+                  <Highlight color="yellow">invisible structure</Highlight> holding a
+                  family together &mdash; without her, everything falls apart.
                 </li>
                 <li>
-                  <strong>Stanza 1</strong>: She is the{" "}
-                  <Highlight color="blue">pillars and keystone</Highlight> &mdash;
-                  the structural foundation. Remove her and the entire household
-                  collapses.
+                  <strong>Form &amp; rhyme</strong>: Six quatrains with a simple{" "}
+                  <Highlight color="blue">ABCB hymn-like rhyme</Highlight> scheme. The
+                  regular rhythm mirrors the steadiness of the mother&rsquo;s presence.
                 </li>
                 <li>
-                  <strong>Stanza 2</strong>: She is the{" "}
-                  <Highlight color="green">fire, sun, and heat</Highlight> &mdash;
-                  the source of warmth and life. Without her, everything turns cold
-                  as stone.
+                  <strong>Metaphor &mdash; woman as house</strong>: The entire poem is an{" "}
+                  <Highlight color="green">extended metaphor</Highlight>. She is the
+                  pillars, the fire, the knot, the house itself. Each stanza adds a new
+                  layer of identity.
                 </li>
                 <li>
-                  <strong>Stanza 3</strong>: The children warm their hands at her.
-                  She is their{" "}
-                  <Highlight color="pink">light of love alive</Highlight>. Without
-                  her, the hearthstone stands cold and the children cannot thrive.
+                  <strong>Metaphor &mdash; love as binding</strong>: &ldquo;Twist and knot
+                  of love&rdquo; in Stanza 4 evokes{" "}
+                  <Highlight color="pink">thread and weaving</Highlight> &mdash; love as
+                  something physically tied, holding children close.
                 </li>
                 <li>
-                  <strong>Stanza 4</strong>: She is the{" "}
-                  <strong>twist and knot of love</strong> that holds the children
-                  in a sacred ring. No lost child goes a-wandering from her close
-                  tether.
+                  <strong>Imagery clusters</strong>: Architectural (pillars, keystone,
+                  walls, house), elemental (fire, sun, heat, warmth), and protective (wall,
+                  door, ring of love).
                 </li>
                 <li>
-                  <strong>Stanza 5</strong>: She is the{" "}
-                  <Highlight color="yellow">house from floor to roof</Highlight> &mdash;
-                  she decks the walls, spreads the board, spins the curtains, and
-                  shakes the down for their bed.
+                  <strong>Tone</strong>: Shifts from{" "}
+                  <Highlight color="yellow">reverent declaration</Highlight> in the
+                  opening stanzas to urgent prayer by the close. The accumulation of
+                  metaphors builds emotional momentum toward the final plea.
                 </li>
                 <li>
-                  <strong>Stanza 6</strong>: She is the wall against all danger, the
-                  door against wind and snow. The final line is a prayer to Christ
-                  (&ldquo;Thou whom a woman laid in a manger&rdquo;):{" "}
+                  <strong>Key quote</strong>: &ldquo;Thou whom a woman laid in a
+                  manger&rdquo; &mdash; a direct appeal to Christ, linking this
+                  mother&rsquo;s sacrifice to Mary&rsquo;s.{" "}
                   <em>&ldquo;Take me not till the children grow!&rdquo;</em>
                 </li>
                 <li>
-                  The poem&rsquo;s power lies in its{" "}
-                  <strong>accumulation of metaphors</strong> &mdash; each stanza
-                  adds another layer, building to the desperate final plea.
+                  <strong>Critical comment</strong>: The poem&rsquo;s power lies in its{" "}
+                  <Highlight color="blue">relentless accumulation</Highlight> &mdash;
+                  each stanza adds one more irreplaceable role, making the final prayer
+                  feel earned and urgent rather than sentimental.
                 </li>
               </ul>
             }

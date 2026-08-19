@@ -198,42 +198,122 @@ export default function TheHourOfTruthPage() {
           <SummaryLevels
             quick={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
-                <li>Robert Baldwin is the only witness against his old friend and employer John Gresham, who committed bank fraud.</li>
-                <li>Gresham offers Baldwin $100,000 to lie on the stand and say &ldquo;I don&rsquo;t remember.&rdquo;</li>
-                <li>Baldwin&rsquo;s wife Martha, son John, and daughter Evie all pressure him to accept the money.</li>
-                <li>Gresham confesses rather than face Baldwin&rsquo;s testimony, proving the power of integrity.</li>
+                <li>
+                  Percival Wilde&rsquo;s one-act play about{" "}
+                  <Highlight color="yellow">Robert Baldwin</Highlight>, the only
+                  witness against his old friend John Gresham, who committed bank
+                  fraud.
+                </li>
+                <li>
+                  Gresham offers Baldwin{" "}
+                  <Highlight color="blue">$100,000</Highlight> to lie on the stand
+                  and say &ldquo;I don&rsquo;t remember.&rdquo;
+                </li>
+                <li>
+                  Baldwin&rsquo;s family &mdash; wife, son, and daughter &mdash; all
+                  pressure him to accept the money.
+                </li>
+                <li>
+                  Gresham confesses rather than face Baldwin&rsquo;s testimony,
+                  proving the power of{" "}
+                  <Highlight color="green">integrity</Highlight>.
+                </li>
               </ul>
             }
             standard={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
-                <li>The play is set on a hot Sunday afternoon at the Baldwin cottage, where the family anxiously awaits Robert&rsquo;s return.</li>
-                <li>Robert Baldwin has been summoned by John Gresham, his lifelong friend and employer, who has been arrested for bank fraud.</li>
-                <li>Gresham offered Robert $100,000 to say &ldquo;I don&rsquo;t remember&rdquo; on the stand, which would let him escape punishment.</li>
-                <li>Robert refused the bribe, telling Gresham he would testify truthfully the next day.</li>
-                <li>His son John argues that nobody lost money, so it&rsquo;s just a technicality and Gresham shouldn&rsquo;t be jailed.</li>
-                <li>Martha appeals to their son being named after Gresham, saying it would be sad if the name came to grief through Robert.</li>
-                <li>Evie cries and says Robert would be the only one wanting to punish Gresham.</li>
-                <li>In the end, Mr. Marshall arrives with news that Gresham confessed rather than face Robert&rsquo;s testimony, and offers Robert a bank position.</li>
+                <li>
+                  The play opens on a hot Sunday afternoon. The Baldwin family
+                  anxiously awaits Robert&rsquo;s return from meeting John Gresham,
+                  his lifelong friend and employer who has been arrested for bank
+                  fraud.
+                </li>
+                <li>
+                  Robert arrives and explains: Gresham asked him to forget key details
+                  on the stand &mdash; just say{" "}
+                  <Highlight color="yellow">&ldquo;I don&rsquo;t remember.&rdquo;</Highlight>{" "}
+                  &mdash; which would let Gresham escape punishment.
+                </li>
+                <li>
+                  Robert refused. He tells the family he turned down{" "}
+                  <Highlight color="blue">$100,000</Highlight>, saying those three
+                  words would choke him.
+                </li>
+                <li>
+                  His son John argues nobody lost money &mdash; it&rsquo;s just a
+                  technicality. Gresham shouldn&rsquo;t be jailed.
+                </li>
+                <li>
+                  Martha reminds Robert that Gresham was their son&rsquo;s{" "}
+                  <Highlight color="green">godfather</Highlight> &mdash; it would be
+                  sad if the name came to grief through him.
+                </li>
+                <li>
+                  Evie cries: Robert would be the only one wanting to punish Gresham.
+                </li>
+                <li>
+                  Robert calls his family{" "}
+                  <Highlight color="pink">liars and hypocrites</Highlight>, saying
+                  they&rsquo;ve seen their souls naked and they stink to heaven.
+                </li>
+                <li>
+                  Mr. Marshall arrives: Gresham confessed rather than face
+                  Baldwin&rsquo;s testimony. He offers Robert a bank position.
+                </li>
               </ul>
             }
             detailed={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
-                <li>The play opens with Martha and Evie nervously waiting for Robert Baldwin to return home from meeting John Gresham.</li>
-                <li>John, their son, smokes his pipe calmly, though the family is tense about what Gresham wanted.</li>
-                <li>Martha reveals she withdrew her money from the bank on her own initiative, against Robert&rsquo;s wishes, when she suspected trouble.</li>
-                <li>John mentions meeting the assistant cashier Donovan, who said nobody suspected anything until the crash.</li>
-                <li>Robert arrives and explains that Gresham asked him to forget key details on the stand, which would let Gresham escape.</li>
-                <li>Robert tells the family he refused the $100,000 bribe, saying those three words would choke him.</li>
-                <li>He explains that Gresham showed no surprise when refused, which pleased Robert as a compliment to his character.</li>
-                <li>John begins arguing that Gresham shouldn&rsquo;t be punished since nobody lost any money.</li>
-                <li>Martha reminds Robert that Gresham was their son&rsquo;s godfather, and it would be sad if the name came to grief through him.</li>
-                <li>Evie suggests that if Robert says nothing more, it amounts to sticking by his friend.</li>
-                <li>John points out the practical benefits: Gresham would start business again and offer Robert a partnership.</li>
-                <li>Martha adds that $100,000 would mean a great deal since Robert has been out of work.</li>
-                <li>Robert asks his family directly if they want him to take the money, and they avoid answering.</li>
-                <li>He calls them all liars and hypocrites, saying they&rsquo;ve seen their souls naked and they stink to heaven.</li>
-                <li>John admits he was afraid of what the family would say, and Robert confirms he refused for the same reason.</li>
-                <li>Mr. Marshall arrives and reveals Gresham confessed rather than face Robert&rsquo;s testimony, offering Robert a position at the Third National Bank.</li>
+                <li>
+                  <strong>Structure</strong>: One-act play, single setting (the
+                  Baldwin cottage). The{" "}
+                  <Highlight color="yellow">entire conflict unfolds in real
+                  time</Highlight> &mdash; no scene breaks, no time jumps.
+                </li>
+                <li>
+                  <strong>Moral pressure</strong>: Each family member pressures
+                  Robert differently:{" "}
+                  <Highlight color="blue">John</Highlight> (logic: nobody lost money),
+                  <strong> Martha</strong> (emotional: the godfather bond),{" "}
+                  <strong>Evie</strong> (guilt: you&rsquo;re the only one). They
+                  represent three forms of moral compromise.
+                </li>
+                <li>
+                  <strong>The bribe</strong>: $100,000 is not abstract. Robert has
+                  been out of work. The money is{" "}
+                  <Highlight color="green">real, immediate, life-changing</Highlight>.
+                  The temptation is not greed &mdash; it&rsquo;s survival.
+                </li>
+                <li>
+                  <strong>&ldquo;I don&rsquo;t remember&rdquo;</strong>: The three
+                  words Gresham wants are not a lie &mdash; they&rsquo;re the
+                  absence of truth. Robert sees this as{" "}
+                  <Highlight color="pink">worse than lying</Highlight>: it&rsquo;s
+                  erasure.
+                </li>
+                <li>
+                  <strong>Robert&rsquo;s speech</strong>: &ldquo;You&rsquo;ve all seen
+                  your souls naked, and they stink to heaven.&rdquo; The family has
+                  revealed their true characters &mdash; and Robert has seen them.
+                </li>
+                <li>
+                  <strong>Gresham&rsquo;s confession</strong>: Gresham confessed not
+                  out of guilt but because he knew Baldwin would never lie. Robert&rsquo;s
+                  integrity <Highlight color="yellow">changed the outcome</Highlight>{" "}
+                  without him testifying.
+                </li>
+                <li>
+                  <strong>Ending</strong>: Robert receives a job offer from Mr.
+                  Marshall &mdash; the reward for integrity is not money but{" "}
+                  <Highlight color="blue">trust and position</Highlight>.
+                </li>
+                <li>
+                  <strong>Overall theme</strong>: Integrity is revealed not in
+                  comfort but when it costs you everything. Robert Baldwin&rsquo;s
+                  refusal to compromise proves that a{" "}
+                  <Highlight color="green">clean conscience</Highlight> is worth
+                  more than any amount of money.
+                </li>
               </ul>
             }
           />

@@ -176,185 +176,122 @@ export default function AmigoBrothersPage() {
             quick={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <em>Amigo Brothers</em> by{" "}
-                  <Highlight color="yellow">Piri Thomas</Highlight> is a story
-                  about two best friends who must face each other in a boxing ring.
+                  Piri Thomas&rsquo;s story about two best friends who must face each
+                  other in a <Highlight color="yellow">boxing ring</Highlight>.
                 </li>
                 <li>
-                  <Highlight color="blue">Antonio</Highlight> and{" "}
-                  <Highlight color="green">Felix</Highlight>, both 17, grew up
-                  together on the <strong>Lower East Side</strong> and dreamed of
-                  becoming lightweight champion.
+                  Antonio and Felix grew up together on the Lower East Side, both
+                  dreaming of becoming{" "}
+                  <Highlight color="blue">lightweight champion</Highlight>.
                 </li>
                 <li>
-                  When told they must fight each other in the finals, a{" "}
-                  <Highlight color="pink">wall</Highlight> rose between them.
-                </li>
-                <li>
-                  Despite fierce competition in all three rounds, the story ends
-                  with the two walking out{" "}
-                  <strong>arm in arm</strong> &mdash; champions to each other.
+                  Despite fierce competition, the story ends with them walking out{" "}
+                  <Highlight color="green">arm in arm</Highlight> &mdash; champions to
+                  each other.
                 </li>
               </ul>
             }
             standard={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <em>Amigo Brothers</em> by{" "}
-                  <Highlight color="yellow">Piri Thomas</Highlight> tells the story
-                  of two teenage friends whose loyalty is tested by competition.
+                  <Highlight color="yellow">Antonio Cruz</Highlight> (fair, lean, long
+                  reach) and{" "}
+                  <Highlight color="blue">Felix Vargas</Highlight> (dark, short,
+                  powerful) are both 17, both from the Lower East Side, and trained
+                  together every morning.
                 </li>
                 <li>
-                  <Highlight color="blue">Antonio Cruz</Highlight> (fair, lean,
-                  long reach) and{" "}
-                  <Highlight color="green">Felix Vargas</Highlight> (dark, short,
-                  powerful) are both 17 and training to become lightweight champions
-                  of the world.
+                  They learned they must fight each other in the division finals. The
+                  winner goes to the{" "}
+                  <Highlight color="green">Golden Gloves Championship</Highlight>.
                 </li>
                 <li>
-                  Every morning they run along the{" "}
-                  <Highlight color="blue">East River Drive</Highlight>, work out
-                  together, and share a collection of Fight magazines and a scrapbook of
-                  ticket stubs and clippings.
+                  A wall rose between them. Both admitted &ldquo;pulling punches&rdquo;
+                  in their dreams &mdash; trying not to hurt each other.
                 </li>
                 <li>
-                  After a series of elimination bouts, they learn they must fight{" "}
-                  <strong>each other</strong> in the division finals. The winner
-                  will represent the Boys&rsquo; Club in the{" "}
-                  <Highlight color="yellow">Golden Gloves Championship Tournament</Highlight>.
+                  They agreed: in the ring, like two{" "}
+                  <Highlight color="yellow">strangers</Highlight> who want the same
+                  thing. They shook hands and separated until fight day.
                 </li>
                 <li>
-                  A <Highlight color="pink">wall</Highlight> begins rising between
-                  them. Felix admits he has been &ldquo;pulling punches&rdquo; in his
-                  dreams, trying not to hurt Antonio. Antonio says the same.
+                  On the eve of the fight, both prayed for a{" "}
+                  <strong>quick clean knockout</strong> &mdash; to spare the other
+                  hurt.
                 </li>
                 <li>
-                  They agree: in the ring it must be like they{" "}
-                  <strong>never met</strong>. They shake on it and agree not to see
-                  each other until fight day.
+                  At Tompkins Square Park, three brutal rounds were fought. Neither gave
+                  an inch. The crowd went silent.
                 </li>
                 <li>
-                  On the eve of the fight, both deal with anxiety differently.
-                  Both pray for victory via a <strong>quick clean knockout</strong>.
-                </li>
-                <li>
-                  At <Highlight color="blue">Tompkins Square Park</Highlight>, three
-                  brutal rounds are fought. Neither gives an inch. The crowd goes
-                  silent, then erupts when the two walk out{" "}
-                  <strong>arm in arm</strong>.
+                  The bell rang over and over. They were past hearing. Finally pried
+                  apart, they rushed toward each other and{" "}
+                  <Highlight color="pink">tightly embraced</Highlight>. They walked
+                  out arm in arm &mdash; the announcer found himself alone.
                 </li>
               </ul>
             }
             detailed={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <em>Amigo Brothers</em> by{" "}
-                  <Highlight color="yellow">Piri Thomas</Highlight> is a story about
-                  friendship, ambition, and the courage it takes to compete against
-                  someone you love.
+                  <strong>Setting as identity</strong>: The Lower East Side, the
+                  East River Drive, Tompkins Square Park &mdash; the{" "}
+                  <Highlight color="yellow">boxing world</Highlight> is their
+                  shared home and language. Competition is built into their
+                  environment.
                 </li>
                 <li>
-                  <Highlight color="blue">Antonio Cruz</Highlight> was fair, lean,
-                  and lanky, with hair always falling over his eyes.{" "}
-                  <Highlight color="green">Felix Vargas</Highlight> was dark, short,
-                  and husky, wearing his black hair in a natural Afro style. Both
-                  were 17, both Puerto Rican, both from the Lower East Side of
-                  Manhattan, and they had known each other since childhood &mdash;
-                  growing up in the same building.
+                  <strong>Physical contrast</strong>: Antonio is fair, lean, long
+                  reach; Felix is dark, short, powerful. The descriptions
+                  establish them as{" "}
+                  <Highlight color="blue">opposites who complete each other</Highlight>
+                  &mdash; and as evenly matched opponents.
                 </li>
                 <li>
-                  They felt themselves to be{" "}
-                  <Highlight color="yellow">brothers</Highlight> in every way that
-                  mattered. Their shared dream: to someday become the lightweight
-                  champion of the world.
+                  <strong>The wall</strong>: The metaphor of a wall rising between
+                  them echoes the division they must create to fight. But unlike
+                  Frost&rsquo;s wall, this one is{" "}
+                  <Highlight color="green">temporary and chosen</Highlight>.
                 </li>
                 <li>
-                  Every chance they got, they trained &mdash; at the Boys&rsquo; Club,
-                  at the gym, and at sunrise along the{" "}
-                  <Highlight color="blue">East River Drive</Highlight>. While other
-                  youngsters got into street negatives, they slept, ate, rapped, and
-                  dreamed positive. They had a collection of Fight magazines and a
-                  scrapbook of torn tickets and clippings.
+                  <strong>&ldquo;Pulling punches&rdquo;</strong>: Both admit to
+                  pulling punches in their dreams &mdash; even their subconscious
+                  minds refuse to hurt the other. This shows the depth of their
+                  friendship: it runs deeper than ambition.
                 </li>
                 <li>
-                  Then they learned they were to meet each other in the{" "}
-                  <strong>division finals</strong>, two weeks away &mdash; the winner
-                  to represent the Boys&rsquo; Club in the Golden Gloves. Even while
-                  joking, they sensed a{" "}
-                  <Highlight color="pink">wall</Highlight> rising between them.
+                  <strong>The agreement</strong>: &ldquo;In the ring, like two
+                  strangers&rdquo; &mdash; they must{" "}
+                  <Highlight color="yellow">suspend friendship</Highlight> to
+                  honour it. Paradoxically, being true friends means being fierce
+                  opponents.
                 </li>
                 <li>
-                  A week before the bout, Felix stopped their run and they finally
-                  spoke openly. Both admitted to lying awake at night, &ldquo;pulling
-                  punches&rdquo; on each other. They agreed: in the ring, like two
-                  heavy <strong>strangers</strong> that want the same thing &mdash;
-                  no pulling punches, go all the way. They shook hands and agreed not
-                  to see each other until fight day.
+                  <strong>Boxing as spectacle</strong>: The crowd, the
+                  announcer, the referee, the white T-shirts &mdash; the fight is
+                  a <Highlight color="pink">public ritual</Highlight>. But the
+                  real contest is private: can they survive being each
+                  other&rsquo;s enemy?
                 </li>
                 <li>
-                  On the eve of the fight, Antonio stood on his rooftop and resolved
-                  to knock Felix out &ldquo;early and quick&rdquo; &mdash; to spare
-                  him hurt. Felix watched <em>The Champion</em> (Kirk Douglas), saw
-                  himself blasting Antonio against the ropes, walked the dark streets,
-                  and went to bed. Both prayed for a{" "}
-                  <strong>quick clean knockout</strong> in the first round.
+                  <strong>The embrace</strong>: Rushing toward each other after
+                  three rounds of savagery &mdash; the crowd fears a fight to the
+                  death, but it&rsquo;s a{" "}
+                  <Highlight color="green">reunion</Highlight>. Their friendship
+                  has survived the ring.
                 </li>
                 <li>
-                  At <Highlight color="blue">Tompkins Square Park</Highlight>,
-                  escorted by fans in white T-shirts, they climbed into the ring to
-                  an explosion of cheers. The announcer introduced them: Felix 134
-                  pounds, Antonio 133 pounds. The referee gave instructions: no low
-                  blows, no back of the head, keep your heads up. &ldquo;Now shake
-                  hands and come out fighting.&rdquo;
+                  <strong>Final image</strong>: The announcer turns to point to
+                  the winner and finds himself{" "}
+                  <Highlight color="yellow">alone</Highlight>. The champions
+                  have already left arm in arm. The decision is irrelevant &mdash;
+                  their friendship has already won.
                 </li>
                 <li>
-                  <strong>Round 1:</strong> Felix came in fast, head low, half-hunched
-                  toward his right shoulder. Antonio&rsquo;s left was &ldquo;like a
-                  piston pumping jabs one right after another.&rdquo; Felix Bobbed
-                  and weaved, boring in &mdash; only close range could give him the
-                  knockout. He trapped Antonio on the ropes, poured rights and lefts to
-                  his midsection. Antonio slipped away, crashing two lefts to
-                  Felix&rsquo;s head, setting his right ear ringing.
-                </li>
-                <li>
-                  <strong>Round 2:</strong> Felix came off his stool &ldquo;like a
-                  bull.&rdquo; Antonio hurt him back with a blurring barrage. Felix
-                  feinted left, threw a right. Rights to the body, lefts to the head.
-                  Then a short right caught Antonio squarely on the chin. His legs
-                  turned to jelly, arms flailing. Felix threw wild punches from every
-                  direction. Antonio, groggy, bobbed and weaved, evading most blows.
-                  His head cleared. His left flashed out hard and straight, catching
-                  Felix on the bridge of the nose.
-                </li>
-                <li>
-                  <strong>Round 3 &mdash; the final round:</strong> It had been
-                  tic-tac-toe, pretty much even, and this round would decide the
-                  winner. This time, to everyone&rsquo;s surprise, Antonio charged
-                  across the ring first. Felix tapped his gloves and commenced his
-                  attack anew. Both pounded away. Neither gave an inch. Neither fell.
-                  They fought{" "}
-                  <Highlight color="yellow">toe to toe</Highlight>. The crowd went
-                  completely mute. The referee was stunned by their savagery.
-                </li>
-                <li>
-                  The bell rang over and over again. Felix and Antonio were past
-                  hearing. Their blows continued like{" "}
-                  <Highlight color="pink">hailstones</Highlight>. Finally the
-                  referee and trainers pried them apart. Cold water was poured over
-                  them to bring them back.
-                </li>
-                <li>
-                  They looked around and then rushed toward each other. The crowd
-                  gasped &mdash; was this a fight to the death? Fear gave way to{" "}
-                  <Highlight color="yellow">wave upon wave of cheering</Highlight>{" "}
-                  as the two amigos{" "}
-                  <strong>tightly embraced</strong>. No matter what the decision,
-                  they knew they would always be champions to each other.
-                </li>
-                <li>
-                  The announcer turned to point to the winner and found himself{" "}
-                  <strong>alone</strong>. Arm in arm, the champions had already left
-                  the ring.
+                  <strong>Overall theme</strong>: True friendship{" "}
+                  <Highlight color="blue">survives competition</Highlight>. The
+                  title itself is the theme &mdash; &ldquo;Amigo Brothers&rdquo;
+                  is what they are before, during, and after the fight.
                 </li>
               </ul>
             }

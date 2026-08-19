@@ -175,147 +175,105 @@ export default function HoregalluPage() {
             quick={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <Highlight color="yellow">&lsquo;Horegallu&rsquo;</Highlight> is a{" "}
-                  <strong>motivational story</strong> by Sudha Murty about the
-                  importance of <strong>taking rest</strong> and{" "}
-                  <strong>sharing our problems</strong> with others.
+                  Sudha Murty&rsquo;s story about the importance of{" "}
+                  <Highlight color="yellow">rest and sharing problems</Highlight> with
+                  others.
                 </li>
                 <li>
-                  A horegallu literally means{" "}
-                  <em>&ldquo;a stone that can bear weight&rdquo;</em> &mdash; a{" "}
-                  <strong>resting place</strong> for weary travellers.
+                  A horegallu is a stone resting place for weary travellers &mdash; the
+                  metaphor for{" "}
+                  <Highlight color="blue">human listening</Highlight>.
                 </li>
                 <li>
-                  In any journey, everyone needs to <strong>stop</strong>, put down
-                  their burden, and <strong>rest</strong> before they can continue.
-                </li>
-                <li>
-                  The author&rsquo;s{" "}
-                  <Highlight color="green">grandfather</Highlight> and her colleague{" "}
-                  <Highlight color="blue">Ratna</Highlight> both acted as{" "}
-                  <Highlight color="yellow">human horegallus</Highlight> &mdash;{" "}
-                  <strong>good listeners</strong> who helped people regain their
-                  strength.
+                  Her grandfather and colleague Ratna both acted as{" "}
+                  <Highlight color="green">human horegallus</Highlight> &mdash; good
+                  listeners who helped people regain strength.
                 </li>
               </ul>
             }
             standard={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  &lsquo;Horegallu&rsquo; is a{" "}
-                  <strong>motivational story</strong> written by Sudha Murty. It
-                  tells us the importance of <strong>taking rest</strong> in the
-                  middle of our journey or <strong>sharing our problems</strong> with
-                  others.
-                </li>
-                <li>
-                  It is a short and simple{" "}
-                  <Highlight color="blue">anecdote</Highlight> that shows Sudha
-                  Murty&rsquo;s <strong>nostalgia</strong> for her childhood in a
-                  little village with a huge banyan tree in the middle.
-                </li>
-                <li>
-                  Under the banyan tree there was a{" "}
-                  <Highlight color="yellow">horegallu</Highlight> &mdash; a{" "}
-                  <strong>large flat stone</strong> placed over two vertical ones, on
-                  which anyone could sit and rest, chat with fellow travellers, and
-                  drink cool water from earthen pots kept nearby.
+                  The essay opens with a village memory: under a banyan tree stood a{" "}
+                  <Highlight color="yellow">horegallu</Highlight> &mdash; a large flat
+                  stone where anyone could sit, rest, chat, and drink cool water.
                 </li>
                 <li>
                   The author&rsquo;s{" "}
-                  <Highlight color="green">grandfather</Highlight>, a{" "}
-                  <strong>retired school teacher</strong>, would spend hours near the
-                  horegallu chatting with travellers. He could only listen, but
-                  simply talking to him seemed to{" "}
-                  <Highlight color="pink">re-energise</Highlight> them for the road
-                  ahead.
+                  <Highlight color="blue">grandfather</Highlight>, a retired school
+                  teacher, would spend hours near the horegallu listening to
+                  travellers. Simply talking to him re-energised them.
                 </li>
                 <li>
-                  Grandfather told the author that a horegallu is{" "}
-                  <strong>essential in any journey</strong>. Everyone bears their
-                  burdens according to their capacities, but every once in a while
-                  they need to <strong>stop</strong>, lay down their burden, and{" "}
-                  <strong>rest</strong>.
+                  Grandfather&rsquo;s lesson: everyone bears burdens, but every once in
+                  a while they need to{" "}
+                  <Highlight color="green">stop, lay down the load, and rest</Highlight>.
                 </li>
                 <li>
-                  Later in life the author met{" "}
-                  <Highlight color="blue">Ratna</Highlight>, a{" "}
-                  <strong>cheerful colleague</strong> in Mumbai, who reminded her of
-                  her grandfather. Ratna spent her lunch breaks listening to the
-                  troubles of her co-workers.{" "}
-                  <em>&ldquo;God has given me two ears to listen without
-                  judgement.&rdquo;</em>
+                  Later, in Mumbai, the author meets{" "}
+                  <strong>Ratna</strong>, a cheerful colleague who spent her lunch
+                  breaks listening to co-workers&rsquo; troubles.
                 </li>
                 <li>
-                  Both grandfather and Ratna acted as{" "}
-                  <Highlight color="yellow">human horegallus</Highlight> &mdash; they{" "}
-                  <strong>listened with empathy</strong> and helped others regain the
-                  strength to carry on.
+                  Ratna&rsquo;s principle: &ldquo;God gave me two ears to listen
+                  without judgement. When a person finds an outlet, half his burden
+                  is relieved.&rdquo;
+                </li>
+                <li>
+                  Both grandfather and Ratna were{" "}
+                  <Highlight color="yellow">human horegallus</Highlight> &mdash;
+                  listeners who helped others carry on.
                 </li>
               </ul>
             }
             detailed={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  &lsquo;Horegallu&rsquo; is a{" "}
-                  <strong>motivational story</strong> written by Sudha Murty. It
-                  tells us the importance of <strong>taking rest</strong> in the
-                  middle of our journey or <strong>sharing our problems</strong> with
-                  others.
+                  <strong>Central metaphor</strong>: The horegallu (a stone that bears
+                  weight) becomes the essay&rsquo;s controlling image for{" "}
+                  <Highlight color="yellow">empathetic listening</Highlight>.
                 </li>
                 <li>
-                  It is a short and simple anecdote that shows Sudha Murty&rsquo;s{" "}
-                  <strong>nostalgia</strong> for her childhood in a little village
-                  with a huge banyan tree in the middle.
+                  <strong>Grandfather as character</strong>: He is the essay&rsquo;s
+                  emotional centre &mdash; a retired teacher who does not give advice.
+                  He simply listens. The simplicity of his role is the point:{" "}
+                  <Highlight color="blue">listening itself is the gift</Highlight>.
                 </li>
                 <li>
-                  Under the banyan tree there was a{" "}
-                  <Highlight color="yellow">horegallu</Highlight> &mdash; a{" "}
-                  <strong>large flat stone</strong> placed over two vertical ones, on
-                  which anyone could sit and rest, chat with fellow travellers, and
-                  drink cool water from earthen pots kept nearby.
+                  <strong>Banyan tree</strong>: Not just scenery &mdash; a banyan tree is
+                  a traditional place of refuge and community gathering. It reinforces
+                  the theme of{" "}
+                  <Highlight color="green">shelter and rest</Highlight>.
                 </li>
                 <li>
-                  The author&rsquo;s{" "}
-                  <Highlight color="green">grandfather</Highlight>, a retired school
-                  teacher, would spend hours near the horegallu chatting with
-                  travellers. He could only listen, but simply talking to him seemed
-                  to re-energise them for the road ahead.
+                  <strong>Ratna&rsquo;s quote</strong>: &ldquo;God has given me two ears
+                  to listen without judgement.&rdquo; This is the essay&rsquo;s{" "}
+                  <Highlight color="yellow">moral centre</Highlight> &mdash; listening
+                  is active, not passive.
                 </li>
                 <li>
-                  Grandfather told the author that a horegallu is essential in any
-                  journey. Everyone bears their burdens according to their
-                  capacities, but every once in a while they need to{" "}
-                  <strong>stop, lay down their burden, and rest</strong> &mdash; only
-                  then can they be refreshed enough to pick up the load once more.
+                  <strong>Structure</strong>: Village → city, past → present. The essay
+                  moves from childhood memory to adult life, showing the theme is not
+                  nostalgia but a{" "}
+                  <Highlight color="pink">living need</Highlight>.
                 </li>
                 <li>
-                  Later in life the author met{" "}
-                  <Highlight color="blue">Ratna</Highlight>, a cheerful colleague in
-                  Mumbai, who reminded her of her grandfather. Ratna spent her lunch
-                  breaks listening to the troubles of her co-workers.
+                  <strong>&ldquo;Load-pourers&rdquo;</strong>: The metaphor of
+                  people as load-pourers is repeated &mdash; everyone carries a burden,
+                  but they need someone to pour it out to. The verb suggests{" "}
+                  <strong>unburdening through speech</strong>.
                 </li>
                 <li>
-                  Ratna said:{" "}
-                  <em>
-                    &ldquo;God has given me two ears to listen to others. I hear them
-                    out with <strong>sympathy</strong> and{" "}
-                    <strong>without any judgement</strong>. When a person in trouble
-                    finds an outlet for his worries, it relieves half his
-                    burden.&rdquo;
-                  </em>
+                  <strong>Sudha Murty&rsquo;s tone</strong>: Personal, warm, anecdotal.
+                  The authority comes not from expertise but from{" "}
+                  <Highlight color="blue">lived experience</Highlight> &mdash;
+                  grandfather and Ratna are real people she knew.
                 </li>
                 <li>
-                  Both the grandfather and Ratna acted as{" "}
-                  <Highlight color="yellow">human horegallus</Highlight> &mdash; they{" "}
-                  <strong>listened with empathy</strong> and helped others regain the
-                  strength to carry on.
-                </li>
-                <li>
-                  The story encourages us to be{" "}
-                  <Highlight color="green">someone&rsquo;s horegallu</Highlight>: a
-                  person who <strong>listens with compassion</strong> and creates{" "}
-                  <strong>healthy minds</strong>.
+                  <strong>Overall theme</strong>: Listening is not passive. Being a
+                  horegallu &mdash; someone who listens with compassion &mdash; creates{" "}
+                  <Highlight color="green">healthy minds</Highlight> and lightens
+                  burdens. The story is a call to be someone&rsquo;s resting place.
                 </li>
               </ul>
             }

@@ -131,126 +131,117 @@ export default function MendingWallPage() {
             quick={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <Highlight color="yellow">Mending Wall</Highlight> is a poem by
-                  Robert Frost about two neighbours with different views on walls.
+                  Robert Frost&rsquo;s poem about two neighbours with opposing views
+                  on <Highlight color="yellow">walls</Highlight>.
                 </li>
                 <li>
-                  A <strong>stone wall</strong> separates their properties, and it
-                  breaks every spring for unknown reasons.
+                  Nature keeps breaking the wall &mdash; as if it{" "}
+                  <Highlight color="blue">resists separation</Highlight>.
                 </li>
                 <li>
-                  The <Highlight color="blue">poet</Highlight> doubts the need for
-                  the wall, but his{" "}
-                  <Highlight color="green">neighbour</Highlight> believes{" "}
-                  <em>&ldquo;Good fences make good neighbours.&rdquo;</em>
+                  The neighbour repeats &ldquo;Good fences make good
+                  neighbours&rdquo;; the poet questions whether the wall is needed
+                  at all.
                 </li>
                 <li>
-                  The poem calls for{" "}
-                  <strong>breaking down man-made barriers</strong> and building
-                  harmony.
+                  The mood is{" "}
+                  <Highlight color="green">reflective, playful, and quietly
+                  philosophical</Highlight>.
                 </li>
               </ul>
             }
             standard={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <Highlight color="yellow">Mending Wall</Highlight> is a poem by
-                  Robert Frost about the relationship of two neighbours.
+                  <strong>Opening</strong>: Spring arrives and the narrator finds gaps in
+                  the stone wall. Something{" "}
+                  <Highlight color="yellow">unnamed</Highlight> has disturbed it
+                  &mdash; no one has seen or heard it happen.
                 </li>
                 <li>
-                  The <strong>central theme</strong> is that nature does not like
-                  separation, but for a healthy relationship between neighbours, walls
-                  are sometimes considered necessary.
+                  The narrator walks the line with his neighbour, setting fallen
+                  boulders back in place. They wear their fingers rough doing the
+                  work.
                 </li>
                 <li>
-                  There is a <strong>stone wall</strong> between their properties. The
-                  wall is broken every spring without any known reason. No one has
-                  seen or heard the gaps being made.
+                  The narrator{" "}
+                  <Highlight color="blue">doubts the need</Highlight> for the wall:
+                  they have no cattle, only apple trees and pine trees that would
+                  never cross.
                 </li>
                 <li>
-                  The <Highlight color="blue">poet</Highlight> informs his{" "}
-                  <Highlight color="green">neighbour</Highlight> about the condition,
-                  and they repair the wall together &mdash; walking the line, setting
-                  fallen boulders, wearing their fingers rough.
+                  The neighbour ignores the argument. He repeats the epigram:{" "}
+                  <em>&ldquo;Good fences make good neighbours.&rdquo;</em>
                 </li>
                 <li>
-                  The poet <Highlight color="yellow">doubts the need</Highlight> of
-                  the wall. They have no cattle &mdash; only{" "}
-                  <strong>apple trees and pine trees</strong> that would never cross
-                  the land.
+                  The narrator moves in darkness behind his neighbour, picturing him as
+                  &ldquo;an{" "}
+                  <Highlight color="green">old-stone savage</Highlight> armed.&rdquo;
                 </li>
                 <li>
-                  The neighbour is not ready to accept the poet&rsquo;s opinion. He
-                  has a firm belief that a wall is crucial to maintain their
-                  relationship.
+                  The neighbour is{" "}
+                  <Highlight color="pink">unwilling to go behind</Highlight> his
+                  father&rsquo;s saying &mdash; he follows tradition without
+                  questioning it.
                 </li>
                 <li>
-                  He always says,{" "}
-                  <em>&ldquo;Good fences make good neighbours,&rdquo;</em> which is an{" "}
-                  <Highlight color="pink">epigram</Highlight> meaning walls are
-                  necessary.
-                </li>
-                <li>
-                  The poem calls for{" "}
-                  <strong>breaking down man-made walls</strong> and building a better
-                  world where brotherhood and harmony are upheld.
+                  The poem ends without resolution: the wall remains, and the two
+                  neighbours walk the line together.
                 </li>
               </ul>
             }
             detailed={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <Highlight color="yellow">Mending Wall</Highlight> is a poem by
-                  Robert Frost about the relationship of two neighbours.
+                  <strong>Form</strong>: Blank verse &mdash; unrhymed iambic
+                  pentameter. The regular rhythm mirrors the{" "}
+                  <Highlight color="yellow">conversational, meditative tone</Highlight>.
                 </li>
                 <li>
-                  The <strong>central theme</strong> is that nature does not like
-                  separation, but for a healthy relationship between neighbours, walls
-                  are sometimes considered necessary.
+                  <strong>Wall as symbol</strong>: The stone wall represents all
+                  barriers humans create &mdash; psychological, social, emotional.
+                  Nature keeps breaking it: the wall is{" "}
+                  <Highlight color="blue">anti-natural</Highlight>.
                 </li>
                 <li>
-                  There are two characters: the{" "}
-                  <Highlight color="blue">poet</Highlight> and his{" "}
-                  <Highlight color="green">neighbour</Highlight>.
+                  <strong>Mystery of the gaps</strong>: &ldquo;Something there is
+                  that doesn&rsquo;t love a wall.&rdquo; The unnamed force is left
+                  deliberately ambiguous &mdash; could be nature, could be the human
+                  spirit itself.
                 </li>
                 <li>
-                  There is a <strong>stone wall</strong> between their property. The
-                  wall is broken every spring. No one has seen or heard the gaps
-                  being made, but they find them there at spring mending-time.
+                  <strong>The apple-pine argument</strong>: The narrator argues
+                  logically: no cattle, no harm. But logic fails against{" "}
+                  <Highlight color="green">tradition and fear</Highlight>. The
+                  neighbour doesn&rsquo;t need a reason &mdash; the wall simply
+                  &ldquo;is.&rdquo;
                 </li>
                 <li>
-                  The poet lets his neighbour know, and they meet to walk the line and
-                  set the wall between them once again. Some boulders are loaves, some
-                  nearly balls &mdash; they use a &ldquo;spell&rdquo; to make them
-                  balance.
+                  <strong>Key quote</strong>: &ldquo;Good fences make good
+                  neighbours&rdquo; &mdash; an inherited saying. The narrator
+                  notes the neighbour repeats it like a spell. The{" "}
+                  <Highlight color="yellow">epigram</Highlight> is presented as
+                  unquestioned wisdom, but the poem questions it.
                 </li>
                 <li>
-                  The poet <Highlight color="yellow">doubts the need</Highlight> of
-                  the wall. They have no cattle &mdash; only apple trees and pine
-                  trees. He argues his apple trees will never cross to eat the cones
-                  under the neighbour&rsquo;s pines.
+                  <strong>Imagery</strong>: &ldquo;An old-stone savage
+                  armed&rdquo; &mdash; the neighbour becomes{" "}
+                  <Highlight color="pink">primitive, dark, pre-rational</Highlight>.
+                  He moves &ldquo;in darkness,&rdquo; a figure of unexamined
+                  tradition.
                 </li>
                 <li>
-                  The neighbour is not ready to accept the poet&rsquo;s opinion. He
-                  has a <strong>firm belief</strong> that there must be a wall because
-                  it is crucial to maintain their relationship.
+                  <strong>Ambiguity</strong>: Frost never resolves the debate. The
+                  poem is not simply pro-wall or anti-wall &mdash; it asks whether
+                  barriers are necessary or merely inherited. The{" "}
+                  <Highlight color="blue">tension is the meaning</Highlight>.
                 </li>
                 <li>
-                  He always says{" "}
-                  <em>&ldquo;Good fences make good neighbours.&rdquo;</em> The poet
-                  sees him as &ldquo;an old-stone savage armed,&rdquo; moving in
-                  darkness, unwilling to go behind his father&rsquo;s saying.
-                </li>
-                <li>
-                  The ideas of the poet and his neighbour are{" "}
-                  <Highlight color="pink">different</Highlight>. The poet argues there
-                  is no need of a wall; the neighbour argues there should be a wall.
-                </li>
-                <li>
-                  The poem calls for{" "}
-                  <strong>breaking down man-made walls</strong> and building a better
-                  world where <Highlight color="green">brotherhood and harmony</Highlight>{" "}
-                  are upheld in places of conflict and separation.
+                  <strong>Overall theme</strong>: Human separation may be
+                  unnecessary, but people cling to boundaries out of habit and
+                  fear. The poem is a gentle, witty{" "}
+                  <Highlight color="green">meditation on connection vs
+                  division</Highlight>.
                 </li>
               </ul>
             }

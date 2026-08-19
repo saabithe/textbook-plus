@@ -103,106 +103,104 @@ export default function The3LsOfEmpowermentPage() {
             quick={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  Christine Lagarde identifies{" "}
-                  <Highlight color="yellow">3 Ls</Highlight> of women&rsquo;s
-                  empowerment: <strong>Learning, Labour, and Leadership</strong>.
+                  Christine Lagarde&rsquo;s speech calls for empowering women through{" "}
+                  <Highlight color="yellow">3 Ls</Highlight>:{" "}
+                  <strong>Learning, Labour, and Leadership</strong>.
                 </li>
                 <li>
-                  Education is the <Highlight color="blue">foundation</Highlight>{" "}
-                  &mdash; it helps women break the shackles of exclusion.
+                  The core argument: closing the{" "}
+                  <Highlight color="blue">gender gap</Highlight> in education, work, and
+                  leadership benefits the entire world &mdash; not just women.
                 </li>
                 <li>
-                  Labour enables women to{" "}
-                  <Highlight color="green">flourish</Highlight> and achieve their
-                  true potential, but they earn only three-quarters as much as men.
-                </li>
-                <li>
-                  Leadership allows women to make decisions based on{" "}
-                  <strong>consensus, inclusion, and compassion</strong>.
+                  Closing call to action:{" "}
+                  <Highlight color="green">&ldquo;Dare the difference.&rdquo;</Highlight>
                 </li>
               </ul>
             }
             standard={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  Christine Lagarde&rsquo;s speech, delivered in 2014, calls for{" "}
-                  <Highlight color="yellow">empowering women</Highlight> through
-                  three pillars: Learning, Labour, and Leadership.
+                  Lagarde opens by noting that the 21st century requires{" "}
+                  <Highlight color="yellow">new thinking</Highlight> on the economic role
+                  of women &mdash; they are half the population but contribute far less than
+                  half of economic activity.
                 </li>
                 <li>
-                  <strong>Learning</strong>: Education is the foundation. An African
-                  adage captures it: &ldquo;If you educate a girl, you train a
-                  village.&rdquo; Learning helps women{" "}
-                  <Highlight color="pink">break the shackles of exclusion</Highlight>.
+                  <strong>Learning</strong>: Education is the foundation. An African adage
+                  captures it: &ldquo;If you educate a girl, you train a village.&rdquo;
+                  Learning helps women break free from systemic exclusion.
                 </li>
                 <li>
                   <strong>Labour</strong>: Women earn only{" "}
-                  <Highlight color="blue">three-quarters</Highlight> as much as men
-                  for the same work. Lagarde insists on &ldquo;equal pay for equal
-                  work&rdquo; and calls for changing laws on property, inheritance,
-                  credit, and health care.
+                  <Highlight color="blue">three-quarters</Highlight> of what men earn for
+                  the same work. Lagarde demands equal pay and calls for reforming property,
+                  inheritance, credit, and health care laws.
                 </li>
                 <li>
-                  <strong>Leadership</strong>: Women lead through{" "}
-                  <strong>consensus-building, inclusion, and compassion</strong>.
-                  They need to &ldquo;dare the difference&rdquo; &mdash; step
-                  outside comfort zones and reset the narrative.
+                  <strong>Leadership</strong>: Women make decisions through{" "}
+                  <Highlight color="green">consensus, inclusion, and compassion</Highlight>.
+                  But confidence often lags behind competence &mdash; they need to step
+                  outside comfort zones.
                 </li>
                 <li>
-                  Lagarde concludes: create a world where all women meet their
-                  potential without{" "}
-                  <Highlight color="green">impediment or prejudice</Highlight>, and
-                  the world will reap the benefits.
+                  Lagarde closes with a rallying cry: create a world where every woman
+                  reaches her full potential, and the world will{" "}
+                  <Highlight color="pink">reap the benefits</Highlight>.
                 </li>
               </ul>
             }
             detailed={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  Christine Lagarde, born in Paris in 1956, was the first woman
-                  Finance Minister of a G8 economy and head of the IMF. Her speech
-                  at the National Democratic Institute in 2014 outlines the{" "}
-                  <Highlight color="yellow">3 Ls</Highlight> of women&rsquo;s
-                  empowerment.
+                  <strong>Speaker authority</strong>: Lagarde was the first woman Finance
+                  Minister of a G8 economy and head of the IMF &mdash; her personal
+                  experience lends{" "}
+                  <Highlight color="yellow">credibility</Highlight> to the argument.
                 </li>
                 <li>
-                  The 21st century requires new thinking on the{" "}
-                  <strong>economic role of women</strong>. Women represent half the
-                  world&rsquo;s population but contribute far less than 50 per cent
-                  of economic activity. Per capita income{" "}
-                  <Highlight color="pink">lags significantly</Highlight> in
-                  countries that deny equal opportunity.
+                  <strong>Economic framing</strong>: The speech opens with a striking
+                  statistic &mdash; women are half the world&rsquo;s population but
+                  contribute far less than 50% of economic output. Per capita income{" "}
+                  <Highlight color="pink">lags</Highlight> in countries that deny equal
+                  opportunity.
                 </li>
                 <li>
-                  <Highlight color="blue">Learning</Highlight>: Education is the
-                  foundation. It helps women help themselves and break the shackles
-                  of exclusion. An African adage: &ldquo;If you educate a boy, you
-                  train a man. If you educate a girl, you train a village.&rdquo;
-                  This is most essential in the developing world.
+                  <strong>Rhetorical device &mdash; African adage</strong>: &ldquo;If you
+                  educate a boy, you train a man. If you educate a girl, you train a
+                  village.&rdquo; The parallel structure grounds the argument in{" "}
+                  <Highlight color="blue">universal wisdom</Highlight>, not just Western
+                  policy.
                 </li>
                 <li>
-                  <Highlight color="green">Labour</Highlight>: Labour facilitates
-                  women to flourish and achieve their true potential. But women earn
-                  only three-quarters as much as men with the same education in the
-                  same occupation. Lagarde insists on &ldquo;equal pay for equal
-                  work.&rdquo; Solutions: change property and inheritance laws,
-                  encourage education and health care policies, provide greater
-                  access to credit.
+                  <strong>Metaphor</strong>: &ldquo;Break the shackles of
+                  exclusion&rdquo; &mdash; education as liberation from chains. The
+                  metaphor frames lack of education as a form of{" "}
+                  <Highlight color="green">imprisonment</Highlight>.
                 </li>
                 <li>
-                  <Highlight color="yellow">Leadership</Highlight>: Women tend to
-                  do as good a job, if not better, when they lead &mdash; making
-                  decisions based on consensus-building, inclusion, compassion, and
-                  long-term sustainability. But women sometimes lack the confidence
-                  to match their competence. They need to &ldquo;dare the
-                  difference&rdquo; &mdash; take risks and step outside comfort
-                  zones.
+                  <strong>Statistical evidence</strong>: The three-quarters pay gap is a
+                  concrete, verifiable fact that anchors the emotional argument. Lagarde
+                  pairs it with specific reforms: property law, inheritance law, credit
+                  access.
                 </li>
                 <li>
-                  Lagarde&rsquo;s closing: create a world where all women meet their
-                  potential without impediment or prejudice.{" "}
-                  <strong>&ldquo;If we dare the difference, the difference will
-                  deliver.&rdquo;</strong>
+                  <strong>Confidence vs competence</strong>: Lagarde identifies a key
+                  paradox &mdash; women often perform as well as or better than men, yet
+                  lack the confidence to claim it. This reframes the problem as{" "}
+                  <Highlight color="yellow">systemic, not personal</Highlight>.
+                </li>
+                <li>
+                  <strong>Refrain &mdash; &ldquo;Dare the difference&rdquo;</strong>:
+                  Repeated at the close, it functions as both a challenge and a promise.
+                  The imperative mood makes it a{" "}
+                  <Highlight color="green">call to action</Highlight>, not just an
+                  observation.
+                </li>
+                <li>
+                  <strong>Overall theme</strong>: Gender equality is not charity &mdash; it
+                  is an economic imperative. The speech reframes empowerment as
+                  self-interest for the world, not just justice for women.
                 </li>
               </ul>
             }

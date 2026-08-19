@@ -233,137 +233,116 @@ export default function MatchboxPage() {
             quick={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <em>Matchbox</em> by{" "}
-                  <Highlight color="yellow">Ashapurna Debi</Highlight> is a story
-                  about a young wife, Nomita, whose husband Ajit{" "}
-                  <strong>opens and reads her letters</strong>.
+                  Ashapurna Debi&rsquo;s story about{" "}
+                  <Highlight color="yellow">Nomita</Highlight>, a young wife whose
+                  husband secretly reads her mother&rsquo;s letters.
                 </li>
                 <li>
-                  When she confronts him, he insults her mother. Nomita grabs
-                  his matchbox and{" "}
-                  <Highlight color="pink">sets her sari on fire</Highlight>.
+                  When she confronts him, he insults her mother. Nomita lights her sari
+                  on fire in a <Highlight color="pink">desperate act of protest</Highlight>.
                 </li>
                 <li>
-                  The story ends with the narrator comparing women to matchboxes
-                  &mdash; they have the gunpowder but{" "}
-                  <strong>never flare up</strong>.
+                  The story compares women to matchboxes &mdash; they have the
+                  gunpowder but{" "}
+                  <Highlight color="blue">never flare up</Highlight>.
                 </li>
               </ul>
             }
             standard={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <em>Matchbox</em> by{" "}
-                  <Highlight color="yellow">Ashapurna Debi</Highlight> is set in
-                  a three-storey joint family house on a Sunday morning.
+                  The story opens on a Sunday morning in a joint family house. Nomita
+                  discovers a crumpled{" "}
+                  <Highlight color="yellow">letter from her mother</Highlight> in
+                  Ajit&rsquo;s pocket &mdash; he opened it three days ago without
+                  telling her.
                 </li>
                 <li>
-                  <Highlight color="blue">Nomita</Highlight> discovers a
-                  crumpled letter from her mother in Ajit&rsquo;s pocket &mdash;
-                  he opened and read it three days ago without telling her.
+                  The letter reveals her mother&rsquo;s poverty: cracked ceiling, rain
+                  falling through. Ajit mocks: &ldquo;I&rsquo;ll go and fill out a
+                  money-order form.&rdquo;
                 </li>
                 <li>
-                  Ajit has the key to the letter-box and{" "}
-                  <Highlight color="pink">censors her correspondence</Highlight>.
-                  When she complains, he laughs it away, then scolds her.
+                  Nomita confronts Ajit. He pretends to forget, then deflects. She calls
+                  him a liar.
                 </li>
                 <li>
-                  The letter reveals her mother&rsquo;s hardships &mdash; cracked
-                  ceiling, rain falling through. Ajit mocks: &ldquo;I&rsquo;ll
-                  go and fill out a money-order form.&rdquo;
+                  Ajit insults her mother:{" "}
+                  <strong>&ldquo;dung-picker&rsquo;s daughter.&rdquo;</strong> Nomita
+                  grabs his matchbox, lights a match, and{" "}
+                  <Highlight color="green">sets her anchol on fire</Highlight>.
                 </li>
                 <li>
-                  Nomita confronts Ajit. He calls her mother a{" "}
-                  <strong>&ldquo;dung-picker&rsquo;s daughter&rdquo;</strong>.
-                  Nomita grabs his matchbox and{" "}
-                  <Highlight color="yellow">sets her sari on fire</Highlight>.
+                  Ajit slaps it out, terrified. He sees a{" "}
+                  <Highlight color="yellow">blazing fire</Highlight> in her face that
+                  he doesn&rsquo;t have the courage to confront.
                 </li>
                 <li>
-                  Ajit puts it out, terrified. Nomita returns to the family,
-                  smiling through the sisters-in-law&rsquo;s sharp words.
-                  She peels potatoes, secretly planning to send her mother
-                  money.
+                  Nomita returns to the family, smiling through the sisters-in-law&rsquo;s
+                  sharp words. She peels potatoes, secretly planning to send her
+                  mother money.
                 </li>
                 <li>
-                  The narrator concludes: women have the gunpowder to set
-                  off many fires, but they{" "}
-                  <strong>never flare up and burn away the mask</strong> of
-                  men&rsquo;s high-mindedness.
+                  The narrator concludes: women have the gunpowder but{" "}
+                  <strong>never flare up and burn away the mask</strong> of men&rsquo;s
+                  high-mindedness.
                 </li>
               </ul>
             }
             detailed={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <em>Matchbox</em> by{" "}
-                  <Highlight color="yellow">Ashapurna Debi</Highlight>, translated
-                  by Prasenjit Gupta, is a story about a young wife named{" "}
-                  <Highlight color="blue">Nomita</Highlight> in a wealthy
-                  Bengali joint family.
+                  <strong>Setting as power</strong>: The joint family house with its
+                  &ldquo;fifty-two hands&rdquo; is a{" "}
+                  <Highlight color="yellow">microcosm of patriarchal control</Highlight>.
+                  Ajit holds the letter-box key &mdash; he controls what Nomita reads
+                  and hears from her own family.
                 </li>
                 <li>
-                  On a Sunday morning, while giving clothes to the washerman,
-                  Nomita discovers a crumpled envelope in Ajit&rsquo;s pocket.
-                  It is a letter from her mother, arrived three days ago. Ajit
-                  opened it, read it, and never told her.
+                  <strong>Mother&rsquo;s letter</strong>: The mother is an indigent
+                  widow who traded her daughter&rsquo;s looks for security. Her
+                  complaints (cracked ceiling, rain) are{" "}
+                  <Highlight color="blue">real, not abstract</Highlight> &mdash;
+                  poverty is physical and immediate.
                 </li>
                 <li>
-                  Ajit has gained possession of the letter-box key through the
-                  gaps among the &ldquo;fifty-two hands&rdquo; of the joint
-                  family. He opens Nomita&rsquo;s letters first. The suspicion
-                  that he sometimes doesn&rsquo;t give them to her at all has
-                  taken deep root.
+                  <strong>Ajit&rsquo;s cruelty</strong>: He doesn&rsquo;t physically
+                  hit her. His weapon is{" "}
+                  <Highlight color="green">words</Highlight>: &ldquo;Why bother to
+                  read that?&rdquo; and &ldquo;dung-picker&rsquo;s daughter.&rdquo;
+                  The insult targets her origin, her mother, her identity.
                 </li>
                 <li>
-                  The letter is from Nomita&rsquo;s mother &mdash; an indigent
-                  widow who consigned her daughter to a wealthy family on the
-                  strength of looks alone. She complains of a cracked ceiling,
-                  rain water falling through, and takes credit for her match-making
-                  skill.
+                  <strong>The matchbox as symbol</strong>: Ajit&rsquo;s matchbox is
+                  his possession &mdash; she takes{" "}
+                  <Highlight color="pink">his own tool of control</Highlight> and
+                  turns it into her weapon. The irony is deliberate.
                 </li>
                 <li>
-                  Whenever Ajit sees a letter from her mother, he smiles
-                  derisively: &ldquo;Why bother to read that? I&rsquo;ll go and
-                  fill out a money-order form.&rdquo; Nomita&rsquo;s head hangs
-                  low with shame. Previously, out of anger, she forbade her
-                  mother from writing postcards.
+                  <strong>Nomita&rsquo;s fire</strong>: Setting her sari on fire is
+                  not suicide &mdash; it is protest. She burns what is precious (her
+                  anchol, her appearance) to show she has{" "}
+                  <strong>nothing left to lose</strong>.
                 </li>
                 <li>
-                  Ajit enters after his Sunday bath. Nomita roars: &ldquo;When
-                  did this letter arrive?&rdquo; Ajit pretends to forget, then
-                  deflects. Nomita hisses like a snake: &ldquo;Liar!&rdquo; He
-                  smiles an affected smile, then picks up the{" "}
-                  <Highlight color="pink">poisoned knife</Highlight>: &ldquo;A
-                  dung-picker&rsquo;s daughter becomes a queen.&rdquo;
+                  <strong>Aftermath</strong>: She returns to the family smiling. She
+                  lies about the burn. She peels potatoes. The domestic routine
+                  continues &mdash;{" "}
+                  <Highlight color="yellow">outwardly nothing has changed</Highlight>,
+                  but inside she has made a decision.
                 </li>
                 <li>
-                  Nomita grabs Ajit&rsquo;s matchbox, lights a matchstick, and
-                  touches it to her sari. The fine anchol flares up. Ajit
-                  slaps it out, terrified. He sees a fire burning in her face
-                  &mdash; bright, blazing red &mdash; that he doesn&rsquo;t
-                  have the courage to put out.
+                  <strong>Narrator&rsquo;s closing</strong>: Women have the
+                  gunpowder but never flare up. They don&rsquo;t burn their own
+                  colourful shells. Men know this &mdash; that&rsquo;s why they
+                  leave matchboxes scattered carelessly in pockets.
                 </li>
                 <li>
-                  Her niece Rini interrupts. Nomita calms, sorts clothes,
-                  returns to the family. Mejo-wife teases her about love-talk.
-                  Boro-wife notices the burnt anchol. Nomita lies: &ldquo;I used
-                  my anchol to lift a hot pot of water.&rdquo; Her voice must
-                  not tremble.
-                </li>
-                <li>
-                  She sits to peel potatoes, thinking how to secretly send her
-                  mother a few rupees. She can&rsquo;t write &ldquo;I can&rsquo;t
-                  do any more&rdquo; &mdash; because the whole village knows
-                  Nomita is a queen, her husband high-minded, large-hearted.
-                </li>
-                <li>
-                  The narrator concludes: women have the materials to set off
-                  many raging fires, but they{" "}
-                  <strong>never flare up and burn away the mask</strong> of
-                  men&rsquo;s high-mindedness. They don&rsquo;t burn their own
-                  colourful shells. The men know this too &mdash; that&rsquo;s
-                  why they leave them scattered carelessly, without fear, in
-                  pockets.
+                  <strong>Overall theme</strong>: The story exposes how{" "}
+                  <Highlight color="blue">quiet oppression</Highlight> works &mdash;
+                  through small cruelties, control of information, and social
+                  shame &mdash; and how women absorb and endure it rather than
+                  destroy the system that oppresses them.
                 </li>
               </ul>
             }

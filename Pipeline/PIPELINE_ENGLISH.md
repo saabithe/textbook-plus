@@ -108,6 +108,33 @@ Same as master pipeline: Output Files → Verify Subject → Register Chapter �
 
 ---
 
+## Summary Levels Rule
+
+Every chapter MUST include a `SummaryLevels` component with three **qualitatively different summaries** — not shorter/longer versions of the same text. Each level has its own role:
+
+| Level | Role | Format |
+|-------|------|--------|
+| **Quick** | **Gist** — what the text is + core idea in 2-4 bullets. For pre-read orientation & last-minute revision. | 2-4 short bullets |
+| **Standard** | **Walkthrough** — follows the text in order (speech arguments, story events, play scenes, stanza-by-stanza for poems). For comprehension. | 5-10 bullets, text order |
+| **Detailed** | **Analysis** — themes, evidence & quotes, devices, critical comment. For exam prep & appreciation. | 8-14 bullets with quotes/evidence |
+
+### Prose vs Poem Adaptation
+
+| Level | Prose (speech/story/essay/play) | Poem |
+|-------|-------------------------------|------|
+| **Quick** | Gist of subject + core idea | Gist of theme + mood |
+| **Standard** | Walkthrough following the text's structure (arguments in order, events chronologically, scene-by-scene) | Stanza-by-stanza walkthrough — what each stanza says |
+| **Detailed** | Analysis: themes, characters/motivations, evidence & quotes, significance, critical comment | Appreciation style: theme, rhyme scheme, poetic devices with quoted lines, imagery, critical comment |
+
+### Hard Rules
+
+- Each level is **rewritten from scratch for its role** — never derived by cutting or shortening another level
+- All three levels use **bullet points**
+- Quick is for a reader who hasn't read the text yet; Detailed is for a reader revising for exams
+- Use `Highlight` for key terms in Quick and Standard; use bold + quoted text in Detailed
+
+---
+
 ## Poem Appreciation Format (Kerala Board)
 
 Every poem chapter MUST include a Poem Appreciation section in the Creations tab, following this exact structure:
