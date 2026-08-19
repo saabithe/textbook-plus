@@ -91,8 +91,8 @@ export default function ElectricChargesChapter() {
 
       <h3 id="h-1-4-3">1.4.3 Quantisation of Charge</h3>
       <p>All observable charges are integral multiples of a fundamental unit charge e.</p>
-      <FormulaBlock latex="q = ne \quad \text{where } n \in \mathbb{Z}" />
-      <FormulaBlock latex="e = 1.602 \times 10^{-19} \text{ C}" />
+      <FormulaBlock latex="q = ne \quad \text{where } n \in \mathbb{Z}" important />
+      <FormulaBlock latex="e = 1.602 \times 10^{-19} \text{ C}" important />
       <ul>
         <li>Electron carries −e, proton carries +e.</li>
         <li>SI unit: 1 C = charge flowing at 1 A for 1 s.</li>
@@ -151,11 +151,11 @@ export default function ElectricChargesChapter() {
         If two point charges q₁ and q₂ are separated by a distance r in vacuum, the magnitude of
         the force between them is:
       </p>
-      <FormulaBlock latex="F = k \frac{|q_1 q_2|}{r^2}" />
+      <FormulaBlock latex="F = k \frac{|q_1 q_2|}{r^2}" important />
       <p>The constant k is written as k = 1/(4πε₀), so:</p>
-      <FormulaBlock latex="F = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r^2}" />
+      <FormulaBlock latex="F = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r^2}" important />
       <p>where ε₀ is the permittivity of free space:</p>
-      <FormulaBlock latex="\varepsilon_0 = 8.854 \times 10^{-12} \text{ C}^2 \text{N}^{-1}\text{m}^{-2}" />
+      <FormulaBlock latex="\varepsilon_0 = 8.854 \times 10^{-12} \text{ C}^2 \text{N}^{-1}\text{m}^{-2}" important />
       <ul>
         <li>In SI units, k ≈ 9 × 10⁹ N m² C⁻².</li>
         <li>1 C is the charge that when placed at 1 m from another 1 C charge in vacuum experiences a force of 9 × 10⁹ N.</li>
@@ -178,9 +178,9 @@ export default function ElectricChargesChapter() {
         When charges are placed in a medium instead of vacuum, the force between them decreases.
         The reduction depends on the relative permittivity (dielectric constant) K of the medium.
       </p>
-      <FormulaBlock latex="F_{\text{medium}} = \frac{F_{\text{vacuum}}}{K}" />
-      <FormulaBlock latex="K = \frac{\varepsilon}{\varepsilon_0}" />
-      <FormulaBlock latex="\varepsilon = \varepsilon_0 K" />
+      <FormulaBlock latex="F_{\text{medium}} = \frac{F_{\text{vacuum}}}{K}" important />
+      <FormulaBlock latex="K = \frac{\varepsilon}{\varepsilon_0}" important />
+      <FormulaBlock latex="\varepsilon = \varepsilon_0 K" important />
       <ul>
         <li>K is the relative permittivity (dielectric constant) of the medium.</li>
         <li>K = 1 for vacuum, K &gt; 1 for all other media.</li>
@@ -210,7 +210,7 @@ export default function ElectricChargesChapter() {
         the vector sum of all the forces on that charge due to the other charges, taken one at a
         time. Individual forces are unaffected by the presence of other charges.
       </Callout>
-      <FormulaBlock latex="\vec{F}_1 = \sum_{i=2}^{n} \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_i}{r_{1i}^2} \hat{r}_{1i}" />
+      <FormulaBlock latex="\vec{F}_1 = \sum_{i=2}^{n} \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_i}{r_{1i}^2} \hat{r}_{1i}" important />
       <p>
         The vector sum is obtained by the parallelogram law. All of electrostatics is basically a
         consequence of Coulomb&apos;s law and the superposition principle.
@@ -222,9 +222,9 @@ export default function ElectricChargesChapter() {
         the surrounding. When another charge q is brought at point P, the field acts on it and
         produces a force.
       </p>
-      <FormulaBlock latex="\vec{E}(\vec{r}) = \frac{1}{4\pi\varepsilon_0} \frac{Q}{r^2} \hat{r}" />
+      <FormulaBlock latex="\vec{E}(\vec{r}) = \frac{1}{4\pi\varepsilon_0} \frac{Q}{r^2} \hat{r}" important />
       <p>The force on a charge q in an electric field:</p>
-      <FormulaBlock latex="\vec{F}(\vec{r}) = q\vec{E}(\vec{r})" />
+      <FormulaBlock latex="\vec{F}(\vec{r}) = q\vec{E}(\vec{r})" important />
       <KeyPoint>
         The electric field due to a charge Q is independent of the test charge q. It is a
         characteristic of the system of charges. For positive charge, field is radially outwards;
@@ -272,9 +272,9 @@ export default function ElectricChargesChapter() {
         An area element should be treated as a vector along its normal. For a closed surface, the
         vector is in the direction of the outward normal.
       </p>
-      <FormulaBlock latex="\Delta\Phi = \vec{E} \cdot d\vec{S} = E \, dS \cos\theta" />
+      <FormulaBlock latex="\Delta\Phi = \vec{E} \cdot d\vec{S} = E \, dS \cos\theta" important />
       <p>The total flux through surface S:</p>
-      <FormulaBlock latex="\Phi = \oint \vec{E} \cdot d\vec{S}" />
+      <FormulaBlock latex="\Phi = \oint \vec{E} \cdot d\vec{S}" important />
       <p>
         The unit of electric flux is N C⁻¹ m². The angle θ is between E⃗ and dS⃗. When θ = 90°,
         field lines are parallel to the area and do not cross it.
@@ -294,7 +294,7 @@ export default function ElectricChargesChapter() {
         <FormulaBlock latex="\vec{E} = -\frac{1}{4\pi\varepsilon_0} \frac{\vec{p}}{r^3}" />
         <p>The dipole field falls as 1/r³, unlike 1/r² for a point charge.</p>
       </Expandable>
-      <FormulaBlock latex="\vec{p} = q \times 2a \, \hat{p}" />
+      <FormulaBlock latex="\vec{p} = q \times 2a \, \hat{p}" important />
       <p>
         The dipole moment vector p⃗ has magnitude q × 2a and direction from −q to q. The field
         depends on the product qa, not q and a separately.
@@ -316,7 +316,7 @@ export default function ElectricChargesChapter() {
         Consider a permanent dipole p⃗ in uniform external field E⃗. Forces qE⃗ and −qE⃗ act at
         different points, resulting in a torque. Net force is zero since E⃗ is uniform.
       </p>
-      <FormulaBlock latex="\vec{\tau} = \vec{p} \times \vec{E}" />
+      <FormulaBlock latex="\vec{\tau} = \vec{p} \times \vec{E}" important />
       <Callout type="important">
         Torque τ⃗ = p⃗ × E⃗ tends to align the dipole with the field. When p⃗ is aligned with
         E⃗, torque is zero.
@@ -332,9 +332,9 @@ export default function ElectricChargesChapter() {
         For many purposes, it is impractical to work with discrete charges. We define charge
         densities for continuous distributions:
       </p>
-      <FormulaBlock latex="\sigma = \frac{\Delta Q}{\Delta S} \quad (\text{surface charge density, C/m}^2)" />
-      <FormulaBlock latex="\lambda = \frac{\Delta Q}{\Delta l} \quad (\text{linear charge density, C/m})" />
-      <FormulaBlock latex="\rho = \frac{\Delta Q}{\Delta V} \quad (\text{volume charge density, C/m}^3)" />
+      <FormulaBlock latex="\sigma = \frac{\Delta Q}{\Delta S} \quad (\text{surface charge density, C/m}^2)" important />
+      <FormulaBlock latex="\lambda = \frac{\Delta Q}{\Delta l} \quad (\text{linear charge density, C/m})" important />
+      <FormulaBlock latex="\rho = \frac{\Delta Q}{\Delta V} \quad (\text{volume charge density, C/m}^3)" important />
       <p>The field due to a continuous charge distribution:</p>
       <FormulaBlock latex="\vec{E} \cong \sum \frac{1}{4\pi\varepsilon_0} \frac{\rho \Delta V}{r&apos;^2} \hat{r}&apos;" />
 
@@ -353,7 +353,7 @@ export default function ElectricChargesChapter() {
           = q_enclosed/ε₀.
         </p>
       </Expandable>
-      <FormulaBlock latex="\oint \vec{E} \cdot d\vec{A} = \frac{q}{\varepsilon_0}" />
+      <FormulaBlock latex="\oint \vec{E} \cdot d\vec{A} = \frac{q}{\varepsilon_0}" important />
       <Callout type="important">
         Gauss&apos;s Law: The total electric flux through a closed surface is zero if no charge is
         enclosed. The term q includes sum of all charges enclosed by the surface.
@@ -370,14 +370,14 @@ export default function ElectricChargesChapter() {
         Consider an infinitely long thin wire with uniform linear charge density λ. The electric
         field is everywhere radial and depends only on the distance r:
       </p>
-      <FormulaBlock latex="E = \frac{\lambda}{2\pi\varepsilon_0 r}" />
+      <FormulaBlock latex="E = \frac{\lambda}{2\pi\varepsilon_0 r}" important />
 
       <h3 id="h-1-14-2">1.14.2 Uniformly Charged Infinite Plane Sheet</h3>
       <p>
         Let σ be the uniform surface charge density. By symmetry, the field is uniform and parallel
         to the normal:
       </p>
-      <FormulaBlock latex="E = \frac{\sigma}{2\varepsilon_0}" />
+      <FormulaBlock latex="E = \frac{\sigma}{2\varepsilon_0}" important />
       <p>
         The field is directed away from the plate if σ &gt; 0 and toward it if σ &lt; 0. The field
         is independent of distance from the sheet.
@@ -396,8 +396,8 @@ export default function ElectricChargesChapter() {
         <FormulaBlock latex="E \times 4\pi r^2 = 0" />
         <FormulaBlock latex="E = 0" />
       </Expandable>
-      <FormulaBlock latex="\vec{E} = \frac{q}{4\pi\varepsilon_0 r^2} \hat{r} \quad (r > R)" />
-      <FormulaBlock latex="E = 0 \quad (r < R)" />
+      <FormulaBlock latex="\vec{E} = \frac{q}{4\pi\varepsilon_0 r^2} \hat{r} \quad (r > R)" important />
+      <FormulaBlock latex="E = 0 \quad (r < R)" important />
       <KeyPoint title="Key Exam Point">
         For points outside a uniformly charged spherical shell, the field is as if all charge is at
         the centre. Inside the shell, E = 0 at all points.
