@@ -13,13 +13,13 @@ import { Comparison } from "@/components/content/Comparison";
 
 const POEM_LINES = [
   "Something there is that doesn\u2019t love a wall,",
-  "That sends the frozen-ground-swell under it,",
+  "That sends a frozen-ground-swell under it,",
   "And spills the upper boulders in the sun;",
   "And makes gaps even two can pass abreast.",
   "",
   "The work of hunters is another thing:",
   "I have come after them and made repair",
-  "Where they have left not one stone on a stone,",
+  "Where they would have left not one stone on a stone,",
   "But they would have the rabbit out of hiding,",
   "To please the yelping dogs. The gaps I mean,",
   "No one has seen them made or heard them made,",
@@ -664,32 +664,65 @@ export default function MendingWallPage() {
             Poem Appreciation
           </h2>
           <div className="rounded-2xl border border-border/50 bg-muted/20 p-6 my-6 space-y-4 text-[0.95rem] leading-[1.75] text-foreground/85">
+            <p className="font-semibold text-foreground">1. Introduction</p>
             <p>
               <Highlight color="yellow">Mending Wall</Highlight> is a celebrated poem
               by <strong>Robert Frost</strong>, first published in his 1914 collection{" "}
-              <em>North of Boston</em>. It is written in{" "}
-              <Highlight color="blue">blank verse</Highlight> (unrhymed iambic
-              pentameter), which gives it a natural, conversational tone.
+              <em>North of Boston</em>. The poem has a{" "}
+              <Highlight color="blue">reflective and conversational</Highlight> tone,
+              as the poet narrates a simple rural encounter that raises profound
+              questions about human relationships and the boundaries we construct.
             </p>
+
+            <p className="font-semibold text-foreground mt-4">2. Summary and Theme (Gist)</p>
             <p>
               The poem describes two New England neighbours who meet each spring to
-              repair the stone wall between their properties. Through this simple
-              annual ritual, Frost explores the{" "}
-              <strong>deep tension between tradition and reason</strong>, between the
-              desire for connection and the habit of separation.
+              repair the stone wall between their properties. While the{" "}
+              <Highlight color="blue">poet</Highlight> questions the need for the
+              wall &mdash; arguing they have no cattle, only apple trees and pine trees
+              that would never cross &mdash; his{" "}
+              <Highlight color="green">neighbour</Highlight> firmly believes in the old
+              saying, <em>&ldquo;Good fences make good neighbours.&rdquo;</em>
             </p>
             <p>
-              The poet uses <Highlight color="yellow">personification</Highlight>{" "}
+              The <strong>central idea</strong> is that{" "}
+              <Highlight color="yellow">nature does not like separation</Highlight>.
+              The wall breaks every spring without human intervention, yet the
+              neighbour insists on rebuilding it. The poem calls for{" "}
+              <strong>breaking down man-made walls</strong> and building a world
+              where brotherhood and harmony are upheld.
+            </p>
+
+            <p className="font-semibold text-foreground mt-4">3. Poetic Devices and Style</p>
+            <p>
+              The poem is written in{" "}
+              <Highlight color="blue">blank verse</Highlight> &mdash; unrhymed iambic
+              pentameter &mdash; which gives it a natural, conversational rhythm suited
+              to the walking pace of two men along a wall. There is no regular rhyme
+              scheme, but the repetition of the line{" "}
+              <em>&ldquo;Good fences make good neighbours&rdquo;</em> acts as a{" "}
+              <Highlight color="pink">refrain</Highlight>.
+            </p>
+            <p>
+              Frost employs <Highlight color="yellow">personification</Highlight>{" "}
               when he says &ldquo;Something there is that doesn&rsquo;t love a
               wall&rdquo; &mdash; giving human emotions to an unnamed natural force.
               The <Highlight color="pink">simile</Highlight> &ldquo;like an old-stone
               savage armed&rdquo; paints the neighbour as a primitive figure clinging
               to inherited beliefs. The <Highlight color="blue">metaphor</Highlight>{" "}
               of the wall itself represents all the social, emotional, and
-              psychological barriers that humans construct.
+              psychological barriers that humans construct.{" "}
+              <Highlight color="green">Apostrophe</Highlight> appears when the poet
+              speaks to the stones: &ldquo;Stay where you are until our backs are
+              turned!&rdquo; The poem is rich in{" "}
+              <strong>visual imagery</strong> &mdash; boulders shaped like loaves and
+              balls, fingers worn rough with handling stones, and a neighbour moving
+              &ldquo;in darkness&rdquo; among the trees.
             </p>
+
+            <p className="font-semibold text-foreground mt-4">4. Critical Comment / Personal Opinion</p>
             <p>
-              The poem&rsquo;s greatest strength is its{" "}
+              What makes <em>Mending Wall</em> truly powerful is its{" "}
               <strong>ambiguity</strong>. Frost does not declare a winner in the
               debate. The speaker questions the wall, yet he is the one who initiates
               its repair each spring &mdash; a deeply{" "}
@@ -700,15 +733,11 @@ export default function MendingWallPage() {
             <p>
               The <Highlight color="pink">epigram</Highlight> &ldquo;Good fences make
               good neighbours&rdquo; has become one of the most quoted lines in
-              American poetry. It captures a universal truth about human relationships
-              &mdash; that boundaries can both divide and connect.
-            </p>
-            <p>
-              Overall, <em>Mending Wall</em> is a masterful poem that uses a simple
-              rural scene to ask profound questions about{" "}
-              <strong>community, tradition, and the walls we build</strong> between
-              ourselves and others. It calls for breaking down man-made barriers and
-              building a world of brotherhood and harmony.
+              American poetry. It captures a universal truth &mdash; that boundaries
+              can both <strong>divide and connect</strong>. The poem remains relevant
+              today as we continue to debate walls &mdash; between nations, communities,
+              and individuals. It is a masterful reminder that the walls we build say
+              as much about us as the people we build them against.
             </p>
           </div>
 

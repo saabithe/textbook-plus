@@ -2,30 +2,53 @@
 
 > **File purpose**: Backup and reference for content creation
 
-## Source Material (User-Provided)
+## Source Material (User-Provided — Kerala Board Textbook)
 
-1. Mending Wall is a poem written by the famous American poet Robert Frost.
-2. The poem tells about the relationship of two neighbours.
-3. The central theme of the poem is that nature doesn't like separation.
-4. But for a healthy relation between two neighbours walls are necessary between two neighbours.
-5. Good fences make good neighbours.
-6. There are two characters in this poem.
-7. There is stone wall between their property.
-8. The wall is broken without any reason.
-9. In every spring season, the poet finds the wall is broken.
-10. No one knows who is breaking the wall.
-11. The poet informs his neighbour about the condition of the wall.
-12. The poet and his neighbour repair the stone wall.
-13. The poet doubts the need of the wall between their property.
-14. According to him, they do need a wall because they have no cattle.
-15. They have only Apple trees and pine trees and they never cross the land.
-16. But the neighbour is not ready to accept poet's opinion.
-17. He has a firm belief that there must be a wall because it is crucial to maintain their relationship.
-18. He always says good fences make good neighbours.
-19. Which means in his opinion there should be a wall.
-20. Actually, the ideas of the poet and his neighbour are different.
-21. The poet argues that there is no need of a wall.
-22. The neighbour argues there should be a wall.
+Something there is that doesn't love a wall,
+That sends a frozen-ground-swell under it
+And spills the upper boulders in the sun,
+And makes gaps even two can pass abreast.
+The work of hunters is another thing:
+I have come after them and made repair
+Where they would have left not one stone on a stone,
+But they would have the rabbit out of hiding,
+To please the yelping dogs. The gaps I mean,
+No one has seen them made or heard them made,
+But at spring mending-time we find them there.
+I let my neighbour know beyond the hill;
+And on a day we meet to walk the line
+And set the wall between us once again.
+We keep the wall between us as we go.
+To each the boulders that have fallen to each.
+And some are loaves and some so nearly balls
+We have to use a spell to make them balance:
+"Stay where you are until our backs are turned!"
+We wear our fingers rough with handling them.
+Oh, just another kind of outdoor game,
+One on a side. It comes to little more:
+There where it is we do not need the wall:
+He is all pine and I am apple orchard.
+My apple trees will never get across
+And eat the cones under his pines, I tell him.
+He only says, "Good fences make good neighbours."
+Spring is the mischief in me, and I wonder
+If I could put a notion in his head:
+"Why do they make good neighbours? Isn't it
+Where there are cows? But here there are no cows.
+Before I built a wall I'd ask to know
+What I was walling in or walling out,
+And to whom I was like to give offence.
+Something there is that doesn't love a wall,
+That wants it down." I could say "Elves" to him,
+But it's not elves exactly, and I'd rather
+He said it for himself. I see him there,
+Bringing a stone grasped firmly by the top
+In each hand, like an old-stone savage armed.
+He moves in darkness as it seems to me,
+Not of woods only and the shade of trees.
+He will not go behind his father's saying,
+And he likes having thought of it so well
+He says again, 'Good fences make good neighbours.'
 
 ## Poetic Devices
 
