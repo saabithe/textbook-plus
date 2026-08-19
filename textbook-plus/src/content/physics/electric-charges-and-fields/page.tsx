@@ -6,6 +6,7 @@ import { Expandable } from "@/components/content/Expandable";
 import { FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
+import { FormulaCard } from "@/components/content/FormulaCard";
 
 export default function ElectricChargesChapter() {
   return (
@@ -25,7 +26,6 @@ export default function ElectricChargesChapter() {
       />
 
       <h2 id="h-1-2">1.2 Electric Charge</h2>
-      <p><strong>Fundamental Observations:</strong></p>
       <Comparison
         columns={[
           {
@@ -166,14 +166,12 @@ export default function ElectricChargesChapter() {
         If two point charges q₁ and q₂ are separated by a distance r in vacuum, the magnitude of
         the force between them is:
       </p>
-      <FormulaBlock latex="F = k \frac{|q_1 q_2|}{r^2}" important />
-      <p>The constant k is written as k = 1/(4πε₀), so:</p>
-      <FormulaBlock latex="F = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r^2}" important />
-      <p>where ε₀ is the permittivity of free space:</p>
-      <FormulaBlock latex="\varepsilon_0 = 8.854 \times 10^{-12} \text{ C}^2 \text{N}^{-1}\text{m}^{-2}" important />
+      <FormulaCard>
+        <FormulaBlock latex="F = k \frac{|q_1 q_2|}{r^2} = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r^2}" important />
+        <FormulaBlock latex="k \approx 9 \times 10^9 \text{ N·m}^2\text{·C}^{-2}" />
+        <FormulaBlock latex="\varepsilon_0 = 8.854 \times 10^{-12} \text{ C}^2\text{·N}^{-1}\text{·m}^{-2}" />
+      </FormulaCard>
       <ul>
-        <li>In SI units, k ≈ 9 × 10⁹ N m² C⁻².</li>
-        <li>1 C is the charge that when placed at 1 m from another 1 C charge in vacuum experiences a force of 9 × 10⁹ N.</li>
         <li>Valid for both like charges (repulsion) and unlike charges (attraction).</li>
         <li>Valid down to subatomic level (r ~ 10⁻¹⁰ m).</li>
       </ul>
@@ -193,15 +191,30 @@ export default function ElectricChargesChapter() {
         When charges are placed in a medium instead of vacuum, the force between them decreases.
         The reduction depends on the relative permittivity (dielectric constant) K of the medium.
       </p>
-      <FormulaBlock latex="F_{\text{medium}} = \frac{F_{\text{vacuum}}}{K}" important />
-      <FormulaBlock latex="K = \frac{\varepsilon}{\varepsilon_0}" important />
-      <FormulaBlock latex="\varepsilon = \varepsilon_0 K" important />
-      <ul>
-        <li>K is the relative permittivity (dielectric constant) of the medium.</li>
-        <li>K = 1 for vacuum, K &gt; 1 for all other media.</li>
-        <li>ε is the permittivity of the medium.</li>
-        <li>Force is always reduced in a medium compared to vacuum.</li>
-      </ul>
+      <Comparison
+        columns={[
+          {
+            title: "Vacuum",
+            children: (
+              <ul>
+                <li><FormulaBlock latex="F = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r^2}" /></li>
+                <li>ε₀ = permittivity of free space</li>
+                <li>K = 1</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Medium",
+            children: (
+              <ul>
+                <li><FormulaBlock latex="F&apos; = \frac{1}{4\pi\varepsilon} \frac{q_1 q_2}{r^2} = \frac{F}{K}" /></li>
+                <li>ε = ε₀K = permittivity of medium</li>
+                <li>K &gt; 1 for all media except vacuum</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
 
       <Expandable title="Derivation: Force in a Medium">
         <p><strong>In vacuum:</strong></p>
@@ -222,44 +235,38 @@ export default function ElectricChargesChapter() {
         time. Individual forces are unaffected by the presence of other charges.
       </Callout>
       <FormulaBlock latex="\vec{F}_1 = \sum_{i=2}^{n} \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_i}{r_{1i}^2} \hat{r}_{1i}" important />
-      <p>
-        The vector sum is obtained by the parallelogram law. Each individual force is calculated
-        using Coulomb&apos;s law, then added vectorially.
-      </p>
 
-      <Expandable title="Problem 1.6.1 — Equilateral Triangle Charges">
-        <ProblemSolution problemNumber="1.6.1">
-          <ProblemSolution.Problem>
-            <p>
-              Three equal charges +q are placed at the vertices of an equilateral triangle of side a.
-              Find the magnitude and direction of the force on any one of the charges.
-            </p>
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              Consider the charge at vertex A. It experiences two forces:
-            </p>
-            <ul>
-              <li>F₁ due to the charge at B, directed along BA (away from B)</li>
-              <li>F₂ due to the charge at C, directed along CA (away from C)</li>
-            </ul>
-            <p>Both forces have the same magnitude:</p>
-            <FormulaBlock latex="F_1 = F_2 = \frac{1}{4\pi\varepsilon_0} \frac{q^2}{a^2}" />
-            <p>
-              The angle between F₁ and F₂ is 60° (since the triangle is equilateral).
-              Using the parallelogram law:
-            </p>
-            <FormulaBlock latex="F_{\text{net}} = \sqrt{F_1^2 + F_2^2 + 2F_1 F_2 \cos 60°}" />
-            <p>Since F₁ = F₂ = F and cos 60° = ½:</p>
-            <FormulaBlock latex="F_{\text{net}} = \sqrt{F^2 + F^2 + 2F^2 \cdot \frac{1}{2}} = \sqrt{3F^2} = \sqrt{3} \, F" important />
-            <FormulaBlock latex="F_{\text{net}} = \frac{\sqrt{3}}{4\pi\varepsilon_0} \frac{q^2}{a^2}" important />
-            <p>
-              The direction is along the angle bisector of the 60° angle, pointing away from the
-              opposite side (i.e., radially outward from the centre of the triangle).
-            </p>
-          </ProblemSolution.Solution>
-        </ProblemSolution>
-      </Expandable>
+      <ProblemSolution problemNumber="1.6.1">
+        <ProblemSolution.Problem>
+          <p>
+            Three equal charges +q are placed at the vertices of an equilateral triangle of side a.
+            Find the magnitude and direction of the force on any one of the charges.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Consider the charge at vertex A. It experiences two forces:
+          </p>
+          <ul>
+            <li>F₁ due to the charge at B, directed along BA (away from B)</li>
+            <li>F₂ due to the charge at C, directed along CA (away from C)</li>
+          </ul>
+          <p>Both forces have the same magnitude:</p>
+          <FormulaBlock latex="F_1 = F_2 = \frac{1}{4\pi\varepsilon_0} \frac{q^2}{a^2}" />
+          <p>
+            The angle between F₁ and F₂ is 60° (since the triangle is equilateral).
+            Using the parallelogram law:
+          </p>
+          <FormulaBlock latex="F_{\text{net}} = \sqrt{F_1^2 + F_2^2 + 2F_1 F_2 \cos 60°}" />
+          <p>Since F₁ = F₂ = F and cos 60° = ½:</p>
+          <FormulaBlock latex="F_{\text{net}} = \sqrt{F^2 + F^2 + 2F^2 \cdot \frac{1}{2}} = \sqrt{3F^2} = \sqrt{3} \, F" important />
+          <FormulaBlock latex="F_{\text{net}} = \frac{\sqrt{3}}{4\pi\varepsilon_0} \frac{q^2}{a^2}" important />
+          <p>
+            The direction is along the angle bisector of the 60° angle, pointing away from the
+            opposite side (i.e., radially outward from the centre of the triangle).
+          </p>
+        </ProblemSolution.Solution>
+      </ProblemSolution>
 
       <h2 id="h-1-7">1.7 Electric Field</h2>
       <p>
