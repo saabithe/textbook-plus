@@ -20,6 +20,7 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
       ],
     },
     { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "read-and-respond", title: "Read & Respond" },
   ],
   "electric-charges-and-fields": [
     { id: "h-1-1", title: "1.1 Introduction" },
