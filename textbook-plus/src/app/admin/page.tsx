@@ -38,12 +38,20 @@ export default function AdminPage() {
                           </span>
                         )}
                       </div>
-                      <Link
-                        href={`/chapter/${ch.slug}`}
-                        className="text-xs font-medium px-3 py-1.5 rounded-md border border-border/60 hover:bg-muted/50 transition-colors"
-                      >
-                        View
-                      </Link>
+                      <div className="flex items-center gap-2">
+                        <Link
+                          href={`/admin/chapters/${ch.slug}`}
+                          className="text-xs font-medium px-3 py-1.5 rounded-md bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                        >
+                          Edit
+                        </Link>
+                        <Link
+                          href={`/chapter/${ch.slug}`}
+                          className="text-xs font-medium px-3 py-1.5 rounded-md border border-border/60 hover:bg-muted/50 transition-colors"
+                        >
+                          View
+                        </Link>
+                      </div>
                     </div>
                   );
                 })}
