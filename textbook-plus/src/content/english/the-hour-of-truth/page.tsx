@@ -433,11 +433,32 @@ export default function TheHourOfTruthPage() {
       {/* ======================== CREATIONS TAB ======================== */}
       {activeTab === "creations" && (
         <div className="animate-fade-in space-y-4">
-          {DISCOURSES.map((section) => (
-            <CollapsibleSection key={section.id} id={section.id} title={section.title}>
-              {section.content}
-            </CollapsibleSection>
-          ))}
+          {(() => {
+            const characters = DISCOURSES.filter((s) => s.id.startsWith("character-"));
+            const others = DISCOURSES.filter((s) => !s.id.startsWith("character-"));
+            return (
+              <>
+                {characters.length >= 2 && (
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2 mb-1">
+                    Characters
+                  </p>
+                )}
+                {characters.map((section) => (
+                  <CollapsibleSection key={section.id} id={section.id} title={section.title}>
+                    {section.content}
+                  </CollapsibleSection>
+                ))}
+                {characters.length >= 2 && others.length > 0 && (
+                  <hr className="border-border/40 my-2" />
+                )}
+                {others.map((section) => (
+                  <CollapsibleSection key={section.id} id={section.id} title={section.title}>
+                    {section.content}
+                  </CollapsibleSection>
+                ))}
+              </>
+            );
+          })()}
         </div>
       )}
     </div>
