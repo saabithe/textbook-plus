@@ -1,207 +1,61 @@
-114
-Textbook for Class XII - ENGLISH
-thinking, so that humanity stops threatening its life support
-system. We are called to assist the Earth to heal her wounds
-and in the process heal our own - indeed, to embrace the whole
-creation in all its diversity, beauty and wonder.
-Tips
-Concord: The subject in a sentence (especially in Present
-Tense) must agree with the verb in number. If the subject
-is singular, the verb it takes must also be singular.
-Similarly, if the subject is plural, the verb also is plural.
-We cannot use a singular verb with a plural subject or a
-plural verb with a singular subject. This subject-verb
-agreement is called concord.
-Eg: He/She works.  I/We/You/They work.
-r
-The Tourism Club of Middleton Public School, Calcutta, has
-decided to conduct a trip to the eco-tourism project at Thenmala.
-The secretary drafted a letter to be sent to the travel agent
-through a member of the executive committee of the club. Here
-is  the letter. It has got certain errors in it. Read the letter
-carefully and edit it.
-Dear Sir/ Madam,
-Sub : Enquiry regarding tourist spots at Thenmala.
-The students of the Tourism Club of our school has been
-planning to make a trip to Thenmala in the last week of
-September. In this regard, one of the executive committee
-members are being sent to your office to collect information
-about the place.
-I would be grateful if a travel info which gives the details
-of the places of attraction, accommodation facilities
-available, reliable hotels etc. are sent through him so that
-we can make the necessary arrangements in advance.
-Yours faithfully,
-Maneesha Varma
-Secretary, Tourism Club.
-Unit IV - Live and Let Live
-115
-Towards the close of her speech, Wangari Maathai nostalgically
-recalls the natural world which she inherited from her parents and
-which has come to devastation with the passage of time. We cannot
-but share the sentiments of the Nobel Laureate. Think of the condition
-of our state. What has happened to the vast stretches of water-logged
-paddy fields and the creatures living around us in comfort? Why are
-we not self-reliant in the production food materials? Read the poem
-and find out the way a poet looks at these issues.
-RICE
-II. Read and enjoy:
-Chemmanam Chacko
-  [Translated by Prof. K. Ayyappa Paniker]
-*athikira rice : a native variety of rice, popular in the central part of Kerala
-I
-I come home at the end of four years of research
-in North India, having earned a doctoral degree
-and generous praise for my work on making toys with husk;
-bored with eating chapaties day after day,
-I'm eager to eat a meal of athikira* rice.
-It will be the planting season when I get there,
-and my father—his handloom dhoti stained with yellow mud,
-excited about the waters of the Varanganal canal—
-will greet me from the fields below our house,
-amidst the shouts of ploughing with several oxen.
-The oxen will stop when they see me
-walking with my suitcase, and my father,
-without smiling the smile slowly forming on his lips,
-will call from the field: 'And when did you start from there?'
-My little brother, carrying the tender saplings
-to be planted in the field where the ploughing is done,
-will run when he sees me, and call out loud
-within earshot of the house: 'Mother, brother's arrived!'
-Walking cautiously along the dyke
-so as not to upset the baskets full of seed,
-I'll reach home in good time, at last,
-just as my mother drains the well-cooked rice.
-O train, will you run a little faster—
-let me get home quickly and eat my fill.
-116
-Textbook for Class XII - ENGLISH
-II
-The bus stops on the road across from the house.
-When I left this place, palm-thatched houses could be seen
-in the distance on the right--but now there's nothing,
-except for trees. How the place has changed!
-Rubber plants, twice my height,
-now stand in rows around me on the ridge
-where modan and vellaran* used to be sown,
-and confuse my path as I walk home.
-There's no bustle of men below,
-no shouts of ploughing; and when I look,
-the whole field is planted over with arecanut palms,
-and in the corner, along the canal, stand the dealwood trees.
-I enter the house. Beyond the southern wing,
-my father's watching them fix up the machine
-for making rubber sheets--how happy
-and contented the look on his face!
-My father says, with obvious pride:
-‘Son, we've stopped working on all the rice.
-It was quite inconvenient. The farmer gained nothing-
-only fools turn to rice-farming for gain.
-This is better money--what good times!
-The government gives rice to those who don't have paddy fields.’
-My little brother runs in to meet me--
-I, eager to have a full meal of athikira rice.
-He's carrying the rations for the whole household--
-He trips over something and scatters the wheat all over the yard.
-Above us, a 'ship of the sky' roars northwards,
-drowning my brother's loud cries--
-the Chief Minister's off like an arrow to the Centre
-to clamour for more grains, now flying high
-above the cash crops, now growing tall like the trees,
-since no one here promotes the farming of rice.
-Can we get some husk from the Centre, too,
-to make toys with it? I don't know.
-*modan and vellaran : varieties of paddy
-Unit IV - Live and Let Live
-117
-About the Author
-Prof. Chemmanam
-Chacko was born on
-March 7, 1926 in the
-village of Mulakulam in
-erstwhile Travancore. He
-has created a space for
-himself in Malayalam
-poetry. He is a master
-satirist who has fought many a battle with
-the system through his writings. The poet
-who has many literary works to his credit
-has always reacted to his surroundings with
-pungent verse.
-Glossary: 
-generous (adj)
-:
-kind/liberal
-husk (n)
-:
-outer shell
-stain (v)
-:
-to change colour
-cautiously (adv)
-:
-carefully
-dyke (n)
-:
-long thick wall built to stop water flooding onto a
-low area of land/an embankment
-ridge (n)
-:
-a long narrow raised area
-bustle (n)
-:
-hurried and energetic activity
-contented (adj)
-:
-satisfied
-obvious (adj)
-:
-clear
-trip over (v)
-:
-to stumble
-clamour for (v)
-:
-to ask for
-Read and respond
-1.
-Of all the memories of his homeland, the
-narrator thinks of “rice” first. What does
-this show?
-2.
-What are the memories of the narrator
-about the paddy cultivating season?
-3.
-The narrator wants the train to move a
-little faster. What does this tell us about
-his feeling for his native village?
-4.
-What changes in the native village does
-the narrator notice on his return?
-5.
-Rubber plants have taken the place of
-paddy. What does this imply?
-6.
-“Only fools turn to rice-farming for gain”.
-Why does the father say so?
-7.
-What does “ship of the sky” represent?
-8.
-“Can we get some husk from the Centre,
-too, to make toys with it?” Bring out the
-satire in these lines?
-Prof. (Dr)  K. Ayyappa
-Paniker, (1930-2006) was
-an influential Malayalam
-poet, literary critic,  an
-academic and a renowned
-scholar. He was one of the
-pioneers of modernism in
-Malayalam poetry and his seminal work
-Kurukshethram (1960) is considered a turning
-point. In an academic career which ran in
-consonance with his literary one, spanning
-four decades, he was a well-known teacher
-of English in various colleges and universities
-before retiring as the Director, Institute of
-English, University of Kerala.
+# When a Sapling is Planted
+
+## WHEN A SAPLING IS PLANTED
+
+### Wangari Maathai
+
+*(Nobel Peace Prize Acceptance Speech, Oslo, December 10, 2004)*
+
+Your Majesties, your Royal Highnesses, Honourable Members of the Norwegian Nobel Committee, Excellencies, friends, ladies and gentlemen,
+
+I stand before you with great joy and humility. I am the first African woman to receive this prestigious Nobel Peace Prize. I dedicate it to the founders of the Green Belt Movement, the women of Kenya, the women of Africa, the women of the world, and to the many who have worked tirelessly to advance democracy, peace, and sustainable development.
+
+Throughout Africa, women are the primary caretakers, holding significant responsibility for tilling the land and feeding their families. As a result, they are often the first to become aware of environmental damage as resources become scarce and they are incapable of sustaining their families.
+
+The women we worked with recounted that, unlike in the past, they were unable to meet their basic needs. This was due to the degradation of their immediate environment as well as the introduction of commercial farming, which replaced the growing of household food crops. But international trade controlled the price of the exports from these small-scale farmers, and a reasonable and just income could not be guaranteed. I came to understand that when the environment is destroyed, plundered or mismanaged, we undermine the quality of our life and that of future generations.
+
+Tree planting became a natural choice to address some of the initial basic needs identified by women. Also, tree planting is simple, attainable and guarantees quick, successful results within a reasonable amount of time. This sustains interest and commitment.
+
+Together, we have planted over 30 million trees that provide fuel, food, shelter, and income to support our children's education and household needs. The activity also creates employment and improves soil and watersheds.
+
+Initially, the work was difficult because they were unaware that a degraded environment leads to a scramble for scarce resources and may culminate in poverty and even conflict. They were also unaware of the injustices of international economic arrangements. Later, they became aware of the widespread destruction of the ecosystems, especially through deforestation, climatic instability, and contamination of the soil and waters — all contributed to excruciating poverty and subsequent riots.
+
+Although, initially, the Green Belt Movement's tree planting activities did not address issues of democracy and peace, it soon became clear that a responsible governance of the environment was impossible without democratic space. Therefore, the tree became a symbol for the democratic struggle in Kenya. Citizens were mobilized to challenge widespread abuse of power, corruption and environmental mismanagement.
+
+In time, the tree also became a symbol for peace and conflict resolution, especially during ethnic conflicts. Using trees as a symbol of peace is in keeping with a widespread African tradition. For example, the elders of the Kikuyu carried a staff from the thigi tree that, when placed between two disputing sides, caused them to stop fighting and seek reconciliation. Such practices are part of an extensive cultural heritage, which contribute both to the conservation of habitats and to cultures of peace.
+
+It is thirty years since we started this work. Activities that devastate the environment and societies continue unabated. Today we are faced with a challenge that calls for a shift in our thinking, so that humanity stops threatening its life-support system. We are called to assist the Earth to heal her wounds and in the process heal our own, indeed, to embrace the whole of creation in all its diversity, beauty and wonder. This will happen only if we see the need to revive our sense of belonging to a larger family of life with which we have shared our evolutionary process.
+
+There can be no peace without equitable development; and there can be no development without sustainable management of the environment in a democratic and peaceful space. This shift is an idea whose time has come.
+
+In the course of history, there comes a time when humanity is called to shift to a new level of consciousness, to reach a higher moral ground; a time when we have to shed our fears and give hope to each other. That time has now arrived.
+
+I call on world leaders to expand democratic space and build fair and just societies that allow the creativity and energy of their citizens to flourish.
+
+I would like to call on young people to commit themselves to activities that contribute toward achieving their long-term dreams. They have the energy and creativity to shape a sustainable future. To the young people, I say you are a gift to your communities and indeed, the world. You are our hope and our future.
+
+As I conclude, I reflect on my childhood experience when I would visit a stream next to our home to fetch water for my mother. I would drink water straight from the stream. Playing among the arrowroot leaves, I tried in vain to pick up strands of frogs' eggs, believing they were beads. But every time I put my little fingers under them, they would break. Later, I saw thousands of tadpoles: black, energetic and wriggling through the clear water against the background of the brown earth.
+
+This is the world I inherited from my parents.
+
+Today, over fifty years later, the stream has dried up, women walk long distances for water which is not always clean, and children will never know what they have lost.
+
+The challenge is to restore the home of the tadpoles and give back to our children a world of beauty and wonder.
+
+Thank you very much.
+
+---
+
+## About the Author
+
+Wangari Maathai is a Kenyan environmental and political activist. In the 1970s, Maathai founded the Green Belt Movement, an environmental non-governmental organization which focussed on the planting of trees, environmental conservation and women's rights. In 1986, she was awarded the Right Livelihood Award, and in 2004 she became the first African woman to receive the Nobel Prize for her contribution to sustainable development, democracy and peace. 'When a Sapling is Planted' is her Nobel Prize Acceptance Speech at Oslo, December 10, 2004.
+
+---
+
+## Read and Respond
+
+1. What is the role of bio-diversity in maintaining environmental balance?
+2. How does Wangari Maathai link tree planting to democracy?
+3. What is the symbolic significance of the tree in the speech?
+4. How does the speaker connect environmental degradation to poverty?
+5. What message does the speech convey to young people?

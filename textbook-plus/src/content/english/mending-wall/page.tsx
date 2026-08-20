@@ -500,117 +500,177 @@ export default function MendingWallPage() {
             quick={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  Robert Frost&rsquo;s poem about two neighbours with opposing views
-                  on <Highlight color="yellow">walls</Highlight>.
+                  <strong>Poet</strong>: Robert Frost. Form: Blank verse (unrhymed iambic
+                  pentameter). Two neighbours: narrator (questions walls) and neighbour
+                  (follows tradition).
                 </li>
                 <li>
-                  Nature keeps breaking the wall &mdash; as if it{" "}
-                  <Highlight color="blue">resists separation</Highlight>.
+                  <strong>Central mystery</strong>: &ldquo;Something there is that
+                  doesn&rsquo;t love a wall&rdquo; &mdash; something unnamed keeps
+                  breaking it. Frost never reveals what.
                 </li>
                 <li>
-                  The neighbour repeats &ldquo;Good fences make good
-                  neighbours&rdquo;; the poet questions whether the wall is needed
-                  at all.
+                  <strong>Key quote</strong>: &ldquo;Good fences make good
+                  neighbours&rdquo; &mdash; the neighbour&rsquo;s inherited saying, repeated
+                  without question.
                 </li>
                 <li>
-                  The mood is{" "}
-                  <Highlight color="green">reflective, playful, and quietly
-                  philosophical</Highlight>.
+                  <strong>Argument</strong>: The narrator asks what the wall is for &mdash;
+                  they have no cattle, only apple and pine trees. The neighbour ignores the
+                  logic.
+                </li>
+                <li>
+                  <strong>Imagery</strong>: &ldquo;An old-stone savage armed&rdquo; &mdash;
+                  the neighbour becomes{" "}
+                  <Highlight color="blue">primitive, pre-rational</Highlight>, moving
+                  &ldquo;in darkness.&rdquo;
+                </li>
+                <li>
+                  <strong>Theme</strong>: Tradition vs reason, connection vs division. The
+                  poem is a gentle, witty{" "}
+                  <Highlight color="green">meditation on unnecessary barriers</Highlight>.
                 </li>
               </ul>
             }
             standard={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <strong>Opening</strong>: Spring arrives and the narrator finds gaps in
-                  the stone wall. Something{" "}
-                  <Highlight color="yellow">unnamed</Highlight> has disturbed it
-                  &mdash; no one has seen or heard it happen.
+                  <strong>Opening (Stanza 1&ndash;2)</strong>: Spring arrives and the
+                  narrator finds gaps in the stone wall. Something{" "}
+                  <Highlight color="yellow">unnamed</Highlight> has disturbed it &mdash;
+                  no one has seen or heard it happen. He describes the damage: frozen
+                  ground swelling, stones tumbling, and his task of resetting them with
+                  his hands.
                 </li>
                 <li>
-                  The narrator walks the line with his neighbour, setting fallen
-                  boulders back in place. They wear their fingers rough doing the
-                  work.
+                  <strong>Walking the line (Stanza 3&ndash;4)</strong>: The narrator walks
+                  the wall line with his neighbour, setting fallen boulders back in place.
+                  They wear their fingers rough doing the work. The mood is companionable
+                  but quietly tense &mdash; they work side by side but see the wall
+                  differently.
                 </li>
                 <li>
-                  The narrator{" "}
-                  <Highlight color="blue">doubts the need</Highlight> for the wall:
-                  they have no cattle, only apple trees and pine trees that would
-                  never cross.
+                  <strong>The narrator&rsquo;s argument (Stanza 5&ndash;7)</strong>: The
+                  narrator{" "}
+                  <Highlight color="blue">doubts the need</Highlight> for the wall: they
+                  have no cattle &mdash; only apple trees and pine trees that would never
+                  cross into each other&rsquo;s land. He asks: &ldquo;Before I built a
+                  wall I&rsquo;d ask to know / What I was walling in or walling out.&rdquo;
+                  Logic says the wall is pointless.
                 </li>
                 <li>
-                  The neighbour ignores the argument. He repeats the epigram:{" "}
-                  <em>&ldquo;Good fences make good neighbours.&rdquo;</em>
+                  <strong>The neighbour&rsquo;s reply (Stanza 8&ndash;9)</strong>: The
+                  neighbour ignores the argument entirely. He moves steadily along the line,
+                  repeating the inherited epigram:{" "}
+                  <em>&ldquo;Good fences make good neighbours.&rdquo;</em> The narrator
+                  notes the neighbour says it like a spell &mdash; as if saying it often
+                  enough makes it true.
                 </li>
                 <li>
-                  The narrator moves in darkness behind his neighbour, picturing him as
-                  &ldquo;an{" "}
-                  <Highlight color="green">old-stone savage</Highlight> armed.&rdquo;
+                  <strong>The climb (Stanza 10&ndash;12)</strong>: The terrain changes as
+                  the wall rises and they climb. The landscape opens up &mdash; the wall
+                  stretches into darkness. The narrator moves behind his neighbour,
+                  picturing him as &ldquo;an{" "}
+                  <Highlight color="green">old-stone savage</Highlight> armed.&rdquo; The
+                  image is vivid: the neighbour becomes ancient, primitive, unknowable.
                 </li>
                 <li>
-                  The neighbour is{" "}
+                  <strong>Tradition vs reason (Stanza 13&ndash;15)</strong>: The narrator
+                  observes that the neighbour is{" "}
                   <Highlight color="pink">unwilling to go behind</Highlight> his
-                  father&rsquo;s saying &mdash; he follows tradition without
-                  questioning it.
+                  father&rsquo;s saying. He follows tradition without questioning it &mdash;
+                  not out of conviction but out of habit. The narrator pushes gently, but
+                  the neighbour won&rsquo;t engage.
                 </li>
                 <li>
-                  The poem ends without resolution: the wall remains, and the two
-                  neighbours walk the line together.
+                  <strong>Ending (Stanza 16&ndash;21)</strong>: The poem ends without
+                  resolution. The wall remains. The two neighbours walk the line together,
+                  and the spring darkness is &ldquo;at one in that it is both
+                  host to and protector of the mysterious force.&rdquo; The wall stands,
+                  but the question of whether it should stays open.
+                </li>
+                <li>
+                  <strong>Mood</strong>: Reflective, playful, quietly philosophical. Frost
+                  never resolves the debate &mdash; the{" "}
+                  <Highlight color="yellow">tension is the meaning</Highlight>.
                 </li>
               </ul>
             }
             detailed={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <strong>Form</strong>: Blank verse &mdash; unrhymed iambic
-                  pentameter. The regular rhythm mirrors the{" "}
+                  <strong>Form</strong>: Blank verse &mdash; unrhymed iambic pentameter.
+                  The regular rhythm mirrors the{" "}
                   <Highlight color="yellow">conversational, meditative tone</Highlight>.
+                  Frost makes the poem feel like a natural spoken narrative, but the
+                  underlying discipline gives it weight and structure. The lack of rhyme
+                  suits the open-ended, unresolved nature of the argument.
                 </li>
                 <li>
-                  <strong>Wall as symbol</strong>: The stone wall represents all
-                  barriers humans create &mdash; psychological, social, emotional.
-                  Nature keeps breaking it: the wall is{" "}
-                  <Highlight color="blue">anti-natural</Highlight>.
+                  <strong>Wall as symbol</strong>: The stone wall represents all barriers
+                  humans create &mdash; psychological, social, emotional, cultural. Nature
+                  keeps breaking it: the wall is{" "}
+                  <Highlight color="blue">anti-natural</Highlight>. Frost does not say
+                  walls are wrong; he says nature disagrees with them. The tension between
+                  human construction and natural dissolution runs throughout.
                 </li>
                 <li>
-                  <strong>Mystery of the gaps</strong>: &ldquo;Something there is
-                  that doesn&rsquo;t love a wall.&rdquo; The unnamed force is left
-                  deliberately ambiguous &mdash; could be nature, could be the human
-                  spirit itself.
+                  <strong>Mystery of the gaps</strong>: &ldquo;Something there is that
+                  doesn&rsquo;t love a wall.&rdquo; The unnamed force is left deliberately
+                  ambiguous &mdash; could be nature (freeze-thaw cycles), could be the human
+                  spirit itself, could be something spiritual or metaphysical. Frost refuses
+                  to name it, which makes the mystery more powerful. The mystery is the
+                  poem&rsquo;s engine &mdash; it drives the entire meditation.
                 </li>
                 <li>
-                  <strong>The apple-pine argument</strong>: The narrator argues
-                  logically: no cattle, no harm. But logic fails against{" "}
-                  <Highlight color="green">tradition and fear</Highlight>. The
-                  neighbour doesn&rsquo;t need a reason &mdash; the wall simply
-                  &ldquo;is.&rdquo;
+                  <strong>The apple-pine argument</strong>: The narrator argues logically:
+                  no cattle, no harm. His apple trees are on his side, the neighbour&rsquo;s
+                  pines are on his. They would never cross. But logic fails against{" "}
+                  <Highlight color="green">tradition and fear</Highlight>. The neighbour
+                  doesn&rsquo;t need a reason &mdash; the wall simply &ldquo;is.&rdquo;
+                  The narrator asks: &ldquo;Before I built a wall I&rsquo;d ask to know / What
+                  I was walling in or walling out, and to whom I was like to give
+                  offence.&rdquo; This is the poem&rsquo;s most direct statement of
+                  philosophical doubt.
                 </li>
                 <li>
                   <strong>Key quote</strong>: &ldquo;Good fences make good
-                  neighbours&rdquo; &mdash; an inherited saying. The narrator
-                  notes the neighbour repeats it like a spell. The{" "}
+                  neighbours&rdquo; &mdash; an inherited saying, not the
+                  neighbour&rsquo;s own thought. The narrator notes the neighbour repeats it
+                  like a spell. The{" "}
                   <Highlight color="yellow">epigram</Highlight> is presented as
-                  unquestioned wisdom, but the poem questions it.
+                  unquestioned wisdom, but the poem questions it relentlessly. The saying
+                  is old &mdash; it appears in proverbs worldwide &mdash; but old does not
+                  mean true.
                 </li>
                 <li>
-                  <strong>Imagery</strong>: &ldquo;An old-stone savage
-                  armed&rdquo; &mdash; the neighbour becomes{" "}
-                  <Highlight color="pink">primitive, dark, pre-rational</Highlight>.
-                  He moves &ldquo;in darkness,&rdquo; a figure of unexamined
-                  tradition.
+                  <strong>Imagery</strong>: &ldquo;An old-stone savage armed&rdquo; &mdash;
+                  the neighbour becomes{" "}
+                  <Highlight color="pink">primitive, dark, pre-rational</Highlight>. He
+                  moves &ldquo;in darkness,&rdquo; a figure of unexamined tradition. The
+                  word &ldquo;armed&rdquo; is ambiguous: armed with stones? armed with
+                  conviction? The image is comic and slightly ominous &mdash; Frost holds
+                  both tones at once.
                 </li>
                 <li>
-                  <strong>Ambiguity</strong>: Frost never resolves the debate. The
-                  poem is not simply pro-wall or anti-wall &mdash; it asks whether
-                  barriers are necessary or merely inherited. The{" "}
-                  <Highlight color="blue">tension is the meaning</Highlight>.
+                  <strong>Ambiguity</strong>: Frost never resolves the debate. The poem is
+                  not simply pro-wall or anti-wall &mdash; it asks whether barriers are
+                  necessary or merely inherited. The{" "}
+                  <Highlight color="blue">tension is the meaning</Highlight>. Frost
+                  presents two valid positions: the narrator&rsquo;s reason and the
+                  neighbour&rsquo;s tradition. Neither is wrong. The poem does not answer
+                  its own question &mdash; it lets the reader sit with the ambiguity.
                 </li>
                 <li>
-                  <strong>Overall theme</strong>: Human separation may be
-                  unnecessary, but people cling to boundaries out of habit and
-                  fear. The poem is a gentle, witty{" "}
-                  <Highlight color="green">meditation on connection vs
-                  division</Highlight>.
+                  <strong>Overall theme</strong>: Human separation may be unnecessary, but
+                  people cling to boundaries out of habit and fear. The poem is a gentle,
+                  witty{" "}
+                  <Highlight color="green">meditation on connection vs division</Highlight>.
+                  The wall is both real (a stone barrier) and metaphorical (every boundary
+                  humans build). The &ldquo;something&rdquo; that breaks the wall may be
+                  nature, or it may be the human desire to connect &mdash; the part of us
+                  that resists isolation. Frost&rsquo;s genius is that the poem works on
+                  both levels simultaneously.
                 </li>
               </ul>
             }

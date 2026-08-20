@@ -463,59 +463,74 @@ export default function MatchboxPage() {
             quick={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  Ashapurna Debi&rsquo;s story about{" "}
-                  <Highlight color="yellow">Nomita</Highlight>, a young wife whose
-                  husband secretly reads her mother&rsquo;s letters.
+                  <strong>Author</strong>: Ashapurna Debi. Characters:{" "}
+                  <Highlight color="yellow">Nomita</Highlight> (young wife),{" "}
+                  <Highlight color="blue">Ajit</Highlight> (husband), mother (indigent
+                  widow).
                 </li>
                 <li>
-                  When she confronts him, he insults her mother. Nomita lights her sari
-                  on fire in a <Highlight color="pink">desperate act of protest</Highlight>.
+                  <strong>Plot</strong>: Ajit intercepts his mother-in-law&rsquo;s letter,
+                  mocks her poverty, and insults her. Nomita grabs his matchbox and{" "}
+                  <Highlight color="green">lights her sari on fire</Highlight> in protest.
                 </li>
                 <li>
-                  The story compares women to matchboxes &mdash; they have the
-                  gunpowder but{" "}
-                  <Highlight color="blue">never flare up</Highlight>.
+                  <strong>Symbol</strong>: The matchbox &mdash; Ajit&rsquo;s own possession
+                  turned against him. Women have the gunpowder but{" "}
+                  <Highlight color="pink">never flare up</Highlight>.
+                </li>
+                <li>
+                  <strong>Key quotes</strong>: &ldquo;Dung-picker&rsquo;s daughter&rdquo;
+                  (Ajit&rsquo;s insult) and &ldquo;Women have the gunpowder but never flare
+                  up&rdquo; (narrator).
+                </li>
+                <li>
+                  <strong>Theme</strong>:{" "}
+                  <Highlight color="yellow">Quiet oppression</Highlight> works through small
+                  cruelties, control of information, and social shame &mdash; women absorb
+                  it rather than destroy the system.
                 </li>
               </ul>
             }
             standard={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  The story opens on a Sunday morning in a joint family house. Nomita
+                  <strong>Opening</strong>: Sunday morning in a joint family house. Nomita
                   discovers a crumpled{" "}
-                  <Highlight color="yellow">letter from her mother</Highlight> in
-                  Ajit&rsquo;s pocket &mdash; he opened it three days ago without
-                  telling her.
+                  <Highlight color="yellow">letter from her mother</Highlight> in Ajit&rsquo;s
+                  pocket &mdash; he opened it three days ago without telling her. The
+                  letter-box key is his: he controls what she reads and hears.
                 </li>
                 <li>
-                  The letter reveals her mother&rsquo;s poverty: cracked ceiling, rain
-                  falling through. Ajit mocks: &ldquo;I&rsquo;ll go and fill out a
-                  money-order form.&rdquo;
+                  <strong>The letter</strong>: Her mother writes of poverty: cracked ceiling,
+                  rain falling through. Ajit mocks: &ldquo;I&rsquo;ll go and fill out a
+                  money-order form.&rdquo; The poverty is{" "}
+                  <Highlight color="blue">physical and immediate</Highlight>, not abstract.
                 </li>
                 <li>
-                  Nomita confronts Ajit. He pretends to forget, then deflects. She calls
-                  him a liar.
+                  <strong>Confrontation</strong>: Nomita confronts Ajit. He pretends to
+                  forget, then deflects. She calls him a liar. Ajit insults her mother:{" "}
+                  <strong>&ldquo;dung-picker&rsquo;s daughter.&rdquo;</strong> The insult
+                  targets her origin, her mother, her identity.
                 </li>
                 <li>
-                  Ajit insults her mother:{" "}
-                  <strong>&ldquo;dung-picker&rsquo;s daughter.&rdquo;</strong> Nomita
-                  grabs his matchbox, lights a match, and{" "}
-                  <Highlight color="green">sets her anchol on fire</Highlight>.
+                  <strong>The fire</strong>: Nomita grabs Ajit&rsquo;s matchbox, lights a
+                  match, and{" "}
+                  <Highlight color="green">sets her anchol on fire</Highlight>. Ajit slaps
+                  it out, terrified. He sees a blazing fire in her face that he doesn&rsquo;t
+                  have the courage to confront.
                 </li>
                 <li>
-                  Ajit slaps it out, terrified. He sees a{" "}
-                  <Highlight color="yellow">blazing fire</Highlight> in her face that
-                  he doesn&rsquo;t have the courage to confront.
+                  <strong>Aftermath</strong>: Nomita returns to the family, smiling through
+                  the sisters-in-law&rsquo;s sharp words. She peels potatoes, secretly
+                  planning to send her mother money.{" "}
+                  <Highlight color="pink">Outwardly nothing has changed</Highlight>, but
+                  inside she has made a decision.
                 </li>
                 <li>
-                  Nomita returns to the family, smiling through the sisters-in-law&rsquo;s
-                  sharp words. She peels potatoes, secretly planning to send her
-                  mother money.
-                </li>
-                <li>
-                  The narrator concludes: women have the gunpowder but{" "}
-                  <strong>never flare up and burn away the mask</strong> of men&rsquo;s
-                  high-mindedness.
+                  <strong>Narrator&rsquo;s closing</strong>: Women have the gunpowder but
+                  never flare up and burn away the mask of men&rsquo;s high-mindedness. Men
+                  know this &mdash; that&rsquo;s why they leave matchboxes scattered
+                  carelessly in pockets.
                 </li>
               </ul>
             }
@@ -525,54 +540,80 @@ export default function MatchboxPage() {
                   <strong>Setting as power</strong>: The joint family house with its
                   &ldquo;fifty-two hands&rdquo; is a{" "}
                   <Highlight color="yellow">microcosm of patriarchal control</Highlight>.
-                  Ajit holds the letter-box key &mdash; he controls what Nomita reads
-                  and hears from her own family.
+                  Every space is shared, every action observed. Ajit holds the letter-box
+                  key &mdash; a small, ordinary object that gives him power over what Nomita
+                  reads and hears from her own family. The setting is not just backdrop; it
+                  is the mechanism of oppression.
                 </li>
                 <li>
-                  <strong>Mother&rsquo;s letter</strong>: The mother is an indigent
-                  widow who traded her daughter&rsquo;s looks for security. Her
-                  complaints (cracked ceiling, rain) are{" "}
-                  <Highlight color="blue">real, not abstract</Highlight> &mdash;
-                  poverty is physical and immediate.
+                  <strong>Mother&rsquo;s letter</strong>: The mother is an indigent widow who
+                  traded her daughter&rsquo;s looks for security. Her complaints &mdash;
+                  cracked ceiling, rain falling through &mdash; are{" "}
+                  <Highlight color="blue">real, not abstract</Highlight>. Poverty is
+                  physical: water dripping on the floor, a roof that cannot keep out the
+                  monsoon. The letter is a cry for help that Ajit intercepts and dismisses.
                 </li>
                 <li>
-                  <strong>Ajit&rsquo;s cruelty</strong>: He doesn&rsquo;t physically
-                  hit her. His weapon is{" "}
-                  <Highlight color="green">words</Highlight>: &ldquo;Why bother to
-                  read that?&rdquo; and &ldquo;dung-picker&rsquo;s daughter.&rdquo;
-                  The insult targets her origin, her mother, her identity.
+                  <strong>Ajit&rsquo;s cruelty</strong>: He doesn&rsquo;t physically hit her.
+                  His weapon is{" "}
+                  <Highlight color="green">words</Highlight>: &ldquo;Why bother to read
+                  that?&rdquo; and &ldquo;dung-picker&rsquo;s daughter.&rdquo; The insult
+                  targets her origin, her mother, her identity. Ajit&rsquo;s cruelty is
+                  quiet, casual, routine &mdash; which makes it more devastating than
+                  violence. He doesn&rsquo;t need to raise his hand; the social structure
+                  does the work for him.
                 </li>
                 <li>
-                  <strong>The matchbox as symbol</strong>: Ajit&rsquo;s matchbox is
-                  his possession &mdash; she takes{" "}
-                  <Highlight color="pink">his own tool of control</Highlight> and
-                  turns it into her weapon. The irony is deliberate.
+                  <strong>The matchbox as symbol</strong>: Ajit&rsquo;s matchbox is his
+                  possession &mdash; she takes{" "}
+                  <Highlight color="pink">his own tool of control</Highlight> and turns it
+                  into her weapon. The irony is deliberate: the instrument of his casual
+                  power (he lights cigarettes, candles, stove) becomes the instrument of her
+                  defiance. The matchbox represents both his carelessness and her buried
+                  rage.
                 </li>
                 <li>
-                  <strong>Nomita&rsquo;s fire</strong>: Setting her sari on fire is
-                  not suicide &mdash; it is protest. She burns what is precious (her
-                  anchol, her appearance) to show she has{" "}
-                  <strong>nothing left to lose</strong>.
+                  <strong>Nomita&rsquo;s fire</strong>: Setting her sari on fire is not
+                  suicide &mdash; it is protest. She burns what is precious (her anchol, her
+                  appearance, her social value) to show she has{" "}
+                  <strong>nothing left to lose</strong>. The fire is visible, undeniable,
+                  dangerous &mdash; everything that Nomita is not allowed to be. Ajit
+                  &ldquo;slaps it out&rdquo; because he is terrified not of her death, but
+                  of her anger made visible.
                 </li>
                 <li>
-                  <strong>Aftermath</strong>: She returns to the family smiling. She
-                  lies about the burn. She peels potatoes. The domestic routine
-                  continues &mdash;{" "}
-                  <Highlight color="yellow">outwardly nothing has changed</Highlight>,
-                  but inside she has made a decision.
+                  <strong>Aftermath</strong>: She returns to the family smiling. She lies
+                  about the burn. She peels potatoes. The domestic routine continues &mdash;{" "}
+                  <Highlight color="yellow">outwardly nothing has changed</Highlight>, but
+                  inside she has made a decision. The sisters-in-law&rsquo;s sharp words
+                  (Mejo-wife teases about love-talk, Boro-wife scolds about laziness) show
+                  that the oppression is not just from Ajit but from the entire structure.
+                  Nomita must smile through it all: &ldquo;Her voice must not tremble.&rdquo;
                 </li>
                 <li>
-                  <strong>Narrator&rsquo;s closing</strong>: Women have the
-                  gunpowder but never flare up. They don&rsquo;t burn their own
-                  colourful shells. Men know this &mdash; that&rsquo;s why they
-                  leave matchboxes scattered carelessly in pockets.
+                  <strong>The &ldquo;poisoned knife&rdquo;</strong>: Ajit&rsquo;s worst
+                  weapon is not the matchbox but his words. He calls her mother a
+                  &ldquo;dung-picker&rsquo;s daughter&rdquo; &mdash; a class insult that
+                  strikes at Nomita&rsquo;s identity. The narrator calls this a
+                  &ldquo;poisoned knife&rdquo; because it wounds silently and permanently.
+                  Words cannot be taken back; the scar remains.
+                </li>
+                <li>
+                  <strong>Narrator&rsquo;s closing</strong>: Women have the gunpowder but
+                  never flare up. They don&rsquo;t burn their own colourful shells. Men
+                  know this &mdash; that&rsquo;s why they leave matchboxes scattered
+                  carelessly in pockets. The closing is both observation and indictment: the
+                  system persists because women choose endurance over destruction, and men
+                  rely on that choice.
                 </li>
                 <li>
                   <strong>Overall theme</strong>: The story exposes how{" "}
                   <Highlight color="blue">quiet oppression</Highlight> works &mdash;
-                  through small cruelties, control of information, and social
-                  shame &mdash; and how women absorb and endure it rather than
-                  destroy the system that oppresses them.
+                  through small cruelties, control of information, and social shame &mdash;
+                  and how women absorb and endure it rather than destroy the system that
+                  oppresses them. The matchbox is the perfect symbol: full of potential
+                  fire, kept meek and innocent, scattered carelessly because the men know
+                  it will never be used.
                 </li>
               </ul>
             }

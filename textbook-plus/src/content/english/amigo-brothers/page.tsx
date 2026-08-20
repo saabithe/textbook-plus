@@ -432,122 +432,168 @@ export default function AmigoBrothersPage() {
             quick={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  Piri Thomas&rsquo;s story about two best friends who must face each
-                  other in a <Highlight color="yellow">boxing ring</Highlight>.
+                  <strong>Author</strong>: Piri Thomas. Genre: Short story. Setting: Lower
+                  East Side, New York City.
                 </li>
                 <li>
-                  Antonio and Felix grew up together on the Lower East Side, both
-                  dreaming of becoming{" "}
-                  <Highlight color="blue">lightweight champion</Highlight>.
+                  <strong>Characters</strong>:{" "}
+                  <Highlight color="yellow">Antonio Cruz</Highlight> (fair, lean, long
+                  reach) and{" "}
+                  <Highlight color="blue">Felix Vargas</Highlight> (dark, short, powerful)
+                  &mdash; both 17, best friends since childhood.
                 </li>
                 <li>
-                  Despite fierce competition, the story ends with them walking out{" "}
-                  <Highlight color="green">arm in arm</Highlight> &mdash; champions to
-                  each other.
+                  <strong>Conflict</strong>: Best friends must fight each other in the
+                  Golden Gloves division finals. Winner goes to Madison Square Garden.
+                </li>
+                <li>
+                  <strong>Key detail</strong>: Both prayed for a{" "}
+                  <strong>quick clean knockout</strong> &mdash; to spare the other hurt.
+                  Even their subconscious minds refused to hurt each other.
+                </li>
+                <li>
+                  <strong>Resolution</strong>: After three brutal rounds, they embrace and
+                  walk out arm in arm. The winner is never announced. Their friendship is
+                  the victory.
+                </li>
+                <li>
+                  <strong>Theme</strong>: True friendship{" "}
+                  <Highlight color="green">survives competition</Highlight>. The title
+                  itself is the theme &mdash; &ldquo;Amigo Brothers&rdquo; is what they
+                  are before, during, and after the fight.
                 </li>
               </ul>
             }
             standard={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
+                  <strong>Introduction</strong>:{" "}
                   <Highlight color="yellow">Antonio Cruz</Highlight> (fair, lean, long
                   reach) and{" "}
-                  <Highlight color="blue">Felix Vargas</Highlight> (dark, short,
-                  powerful) are both 17, both from the Lower East Side, and trained
-                  together every morning.
+                  <Highlight color="blue">Felix Vargas</Highlight> (dark, short, powerful)
+                  are both 17, both from the Lower East Side, and trained together every
+                  morning on the East River Drive. They are inseparable &mdash; sharing
+                  dreams of becoming lightweight champion.
                 </li>
                 <li>
-                  They learned they must fight each other in the division finals. The
-                  winner goes to the{" "}
-                  <Highlight color="green">Golden Gloves Championship</Highlight>.
+                  <strong>The news</strong>: They learned they must fight each other in the
+                  division finals. The winner goes to the{" "}
+                  <Highlight color="green">Golden Gloves Championship</Highlight> at
+                  Madison Square Garden. The dream they shared now requires one to
+                  destroy the other&rsquo;s chance.
                 </li>
                 <li>
-                  A wall rose between them. Both admitted &ldquo;pulling punches&rdquo;
-                  in their dreams &mdash; trying not to hurt each other.
+                  <strong>The wall</strong>: A wall rose between them &mdash; not physical,
+                  but emotional. Both admitted &ldquo;pulling punches&rdquo; in their
+                  dreams &mdash; trying not to hurt each other. Even their subconscious
+                  minds refused to wound the other. Their friendship was deeper than
+                  ambition.
                 </li>
                 <li>
-                  They agreed: in the ring, like two{" "}
+                  <strong>The agreement</strong>: They agreed: in the ring, like two{" "}
                   <Highlight color="yellow">strangers</Highlight> who want the same
-                  thing. They shook hands and separated until fight day.
+                  thing. They shook hands and separated until fight day &mdash; a
+                  self-imposed exile to preserve the friendship.
                 </li>
                 <li>
-                  On the eve of the fight, both prayed for a{" "}
-                  <strong>quick clean knockout</strong> &mdash; to spare the other
-                  hurt.
+                  <strong>Eve of the fight</strong>: On the eve of the fight, both prayed
+                  for a{" "}
+                  <Highlight color="blue">quick clean knockout</Highlight> &mdash; not to
+                  win, but to spare the other hurt. The paradox: they wanted to win, but
+                  not at the other&rsquo;s expense.
                 </li>
                 <li>
-                  At Tompkins Square Park, three brutal rounds were fought. Neither gave
-                  an inch. The crowd went silent.
+                  <strong>The fight</strong>: At Tompkins Square Park, three brutal rounds
+                  were fought. Neither gave an inch. The crowd went silent. Both fighters
+                  were battered, exhausted, but neither would fall.
                 </li>
                 <li>
-                  The bell rang over and over. They were past hearing. Finally pried
-                  apart, they rushed toward each other and{" "}
-                  <Highlight color="pink">tightly embraced</Highlight>. They walked
-                  out arm in arm &mdash; the announcer found himself alone.
+                  <strong>The embrace</strong>: The bell rang over and over. They were past
+                  hearing. Finally pried apart, they rushed toward each other and{" "}
+                  <Highlight color="pink">tightly embraced</Highlight>. They walked out
+                  arm in arm &mdash; the announcer found himself alone. The decision was
+                  irrelevant.
                 </li>
               </ul>
             }
             detailed={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <strong>Setting as identity</strong>: The Lower East Side, the
-                  East River Drive, Tompkins Square Park &mdash; the{" "}
-                  <Highlight color="yellow">boxing world</Highlight> is their
-                  shared home and language. Competition is built into their
-                  environment.
+                  <strong>Setting as identity</strong>: The Lower East Side, the East
+                  River Drive, Tompkins Square Park &mdash; the{" "}
+                  <Highlight color="yellow">boxing world</Highlight> is their shared
+                  home and language. Competition is built into their environment. They
+                  grew up in a neighbourhood where fighting was survival, and boxing was
+                  the noble version of that survival. The setting is not just background
+                  &mdash; it shapes who they are.
                 </li>
                 <li>
-                  <strong>Physical contrast</strong>: Antonio is fair, lean, long
-                  reach; Felix is dark, short, powerful. The descriptions
-                  establish them as{" "}
+                  <strong>Physical contrast</strong>: Antonio is fair, lean, long reach;
+                  Felix is dark, short, powerful. The descriptions establish them as{" "}
                   <Highlight color="blue">opposites who complete each other</Highlight>
-                  &mdash; and as evenly matched opponents.
+                  &mdash; and as evenly matched opponents. The contrast is deliberate:
+                  they are different enough to be interesting, equal enough to be
+                  dangerous. Neither has a clear advantage.
                 </li>
                 <li>
-                  <strong>The wall</strong>: The metaphor of a wall rising between
-                  them echoes the division they must create to fight. But unlike
-                  Frost&rsquo;s wall, this one is{" "}
-                  <Highlight color="green">temporary and chosen</Highlight>.
+                  <strong>The wall</strong>: The metaphor of a wall rising between them
+                  echoes the division they must create to fight. But unlike Frost&rsquo;s
+                  wall, this one is{" "}
+                  <Highlight color="green">temporary and chosen</Highlight>. They build it
+                  themselves to survive the fight &mdash; and they tear it down the moment
+                  it&rsquo;s over. The wall is a test: can they build it, live behind it,
+                  and then destroy it without permanent damage?
                 </li>
                 <li>
-                  <strong>&ldquo;Pulling punches&rdquo;</strong>: Both admit to
-                  pulling punches in their dreams &mdash; even their subconscious
-                  minds refuse to hurt the other. This shows the depth of their
-                  friendship: it runs deeper than ambition.
+                  <strong>&ldquo;Pulling punches&rdquo;</strong>: Both admit to pulling
+                  punches in their dreams &mdash; even their subconscious minds refuse to
+                  hurt the other. This is the story&rsquo;s most revealing detail. The
+                  friendship runs deeper than ambition. They can&rsquo;t even hurt each
+                  other in their sleep. The line tells us: this fight is a performance,
+                  not a war.
                 </li>
                 <li>
                   <strong>The agreement</strong>: &ldquo;In the ring, like two
                   strangers&rdquo; &mdash; they must{" "}
-                  <Highlight color="yellow">suspend friendship</Highlight> to
-                  honour it. Paradoxically, being true friends means being fierce
-                  opponents.
+                  <Highlight color="yellow">suspend friendship</Highlight> to honour it.
+                  Paradoxically, being true friends means being fierce opponents. If they
+                  held back, they would insult each other. The agreement is an act of
+                  respect: we will fight like we mean it, because we owe each other that.
                 </li>
                 <li>
-                  <strong>Boxing as spectacle</strong>: The crowd, the
-                  announcer, the referee, the white T-shirts &mdash; the fight is
-                  a <Highlight color="pink">public ritual</Highlight>. But the
-                  real contest is private: can they survive being each
-                  other&rsquo;s enemy?
+                  <strong>Boxing as spectacle</strong>: The crowd, the announcer, the
+                  referee, the white T-shirts &mdash; the fight is a{" "}
+                  <Highlight color="pink">public ritual</Highlight>. But the real contest
+                  is private: can they survive being each other&rsquo;s enemy? The public
+                  sees a boxing match. The reader sees two friends trying to preserve
+                  something fragile under impossible pressure.
                 </li>
                 <li>
-                  <strong>The embrace</strong>: Rushing toward each other after
-                  three rounds of savagery &mdash; the crowd fears a fight to the
-                  death, but it&rsquo;s a{" "}
-                  <Highlight color="green">reunion</Highlight>. Their friendship
-                  has survived the ring.
+                  <strong>The embrace</strong>: Rushing toward each other after three
+                  rounds of savagery &mdash; the crowd fears a fight to the death, but
+                  it&rsquo;s a{" "}
+                  <Highlight color="green">reunion</Highlight>. Their friendship has
+                  survived the ring. The embrace is the story&rsquo;s climax &mdash; not
+                  the fight itself. The fight was the test; the embrace is the result.
+                  They pass.
                 </li>
                 <li>
-                  <strong>Final image</strong>: The announcer turns to point to
-                  the winner and finds himself{" "}
-                  <Highlight color="yellow">alone</Highlight>. The champions
-                  have already left arm in arm. The decision is irrelevant &mdash;
-                  their friendship has already won.
+                  <strong>Final image</strong>: The announcer turns to point to the winner
+                  and finds himself{" "}
+                  <Highlight color="yellow">alone</Highlight>. The champions have already
+                  left arm in arm. The decision is irrelevant &mdash; their friendship
+                  has already won. The image is comic and profound: the official
+                  apparatus of competition (referee, announcer, judges) is meaningless
+                  compared to the human bond.
                 </li>
                 <li>
                   <strong>Overall theme</strong>: True friendship{" "}
-                  <Highlight color="blue">survives competition</Highlight>. The
-                  title itself is the theme &mdash; &ldquo;Amigo Brothers&rdquo;
-                  is what they are before, during, and after the fight.
+                  <Highlight color="blue">survives competition</Highlight>. The title
+                  itself is the theme &mdash; &ldquo;Amigo Brothers&rdquo; is what they
+                  are before, during, and after the fight. The story argues that real
+                  bonds cannot be broken by circumstance &mdash; even when circumstance
+                  demands they become enemies. The fight proves the friendship, rather
+                  than destroying it.
                 </li>
               </ul>
             }

@@ -4,8 +4,6 @@
 
 ### Ashapurna Debi
 
-MATCHBOX
-Ashapurna Debi
 I always compare women to
 matchboxes. Why? Because of the
 way matchboxes are - even though
@@ -54,21 +52,6 @@ its note on each of her mind's
 strings.
 Because this incident is not a
 casual oversight; it's deliberate.
-III. Read and reflect:
-“There are two ways of spreading light…
-To be the candle, or the mirror that reflects it.”
-Women should choose between being a candle or a mirror, and work
-for their own emancipation as well as for the generations to come.
-Read and respond
-1.
-Why
-are
-women
-compared
-to
-matchboxes?
-2.
-What makes Nomita furious?
 
 Ajit's nature is exactly like that.
 Somehow, he's gained possession
@@ -106,10 +89,7 @@ It's her standard speech—the good
 woman has once again placed on
 the record the news of her various
 hardships and complaints getting
-worse,
-misfortune
-upon
-misfortune, the ceiling of her room
+worse, misfortune upon misfortune, the ceiling of her room
 is cracked and the rain water falls
 through in ceaseless streams; if
 this is not immediately remedied,
@@ -128,11 +108,7 @@ strength of looks alone. But the
 good lady has never stopped taking
 credit, at the slightest opportunity,
 for her skill in the matter. And
-she's
-been
-finding
-such
-opportunities all along.
+she's been finding such opportunities all along.
 Whenever Ajit sees a new letter
 from Nomita's mother, he smiles
 derisively and says, "Why bother
@@ -144,20 +120,6 @@ some time ago, out of anger and
 grief, Nomita forbade her mother
 from writing to her on postcards.
 She thought that from then on she'd
-3.
-What is the suspicion in Nomita’s mind?
-4.
-What is called an “ugly habit”? Why?
-5.
-How does Ajit react when Nomita
-mentions about his “ugly habit”?
-6.
-What are the expectations of Nomita's
-mother?
-7.
-Comment on Ajit's attitude towards his
-mother-in -law.
-
 try to send her a little money,
 whatever she could pull together,
 in secret. So—this was what came
@@ -175,10 +137,7 @@ me."
 Right then, Ajit steps into the room
 after finishing his leisurely
 Sunday bath. Nomita's sharp
-indignation
-at
-the
-insult,
+indignation at the insult,
 simmering all this while, seems to
 want to dash itself violently against
 him. Nomita roars out, "When did
@@ -228,14 +187,6 @@ letters in secret?"
 man you are!"
 After this, it's not possible for Ajit
 to smile his fake smile any longer.
-8.
-What makes Nomita call Ajit a ‘liar’? Is
-her action justifiable? Why?
-9.
-Comment on the simile in
-“Nomita hisses like a snake.”
-10. How do you think Ajit would react if
-Nomita reads the letters addressed to him?
 
 Now, he too picks up the poisoned
 knife. He says, "Is that so! Those
@@ -273,8 +224,6 @@ hands and puts out the fire.
 And—to tell the truth, now he's a
 little afraid. He looks fearfully at
 Nomita's face. Sees a fire burning
-11. What is the “poisoned knife”?
-12. How does Nomita frighten Ajit?
 there, bright, blazing red.
 He doesn't have the courage to put
 out that fire by slapping it between
@@ -312,15 +261,13 @@ finally decided to come down from
 upstairs! Baba! There's no good or
 bad time for you, you find the
 smallest excuse to go into your
-13. What is the plight of Nomita in the family?
-
 room and get cozy with your
 husband. Does the love-talk never
 get old?"
 Nomita looks around once, to get a
 sense of the atmosphere. Sees the
-hurly-burly of the morning, sees
-the forest of people on either side.
+hurly-burly of the morning, sees the
+forest of people on either side.
 Her voice must not tremble. So she
 too smiles a small smile and says
 in an extremely soft voice, "Oh, it's
@@ -352,8 +299,6 @@ moment. The next instant, she
 folds the anchol back quickly and
 says, laughing, "Oh, don't remind
 me! It's exactly what you keep
-14. Comment on the expression 'forest of people'. What does it tell us about the structure of
-Indian joint families?
 warning me about. I didn't listen,
 and see what happened! I used my
 anchol to lift a hot pot of water off
@@ -388,11 +333,7 @@ kitchen, in the pantry, in the
 bedroom, here, there, anywhere.
 Quite without fear, they put them
 in their pockets.
-(Translated
-from
-Bengali
-by
-Prasenjit Gupta)
+(Translated from Bengali by Prasenjit Gupta)
 
 ---
 

@@ -4,18 +4,6 @@
 
 ### Sudha Murty
 
-HOREGALLU
-Sudha Murty
-IV. Read and reflect:
-“Backward, turn backward, O Time, in your flight,
-Make me a child again just for tonight!”
-Remembering the good old childhood days often fills our mind with
-freshness and vigour and revitalizes us enough to go forward with
-confidence.
-Read and respond
-1.
-What is a “horegallu”? What is its
-purpose?
 Hot summer days remind me of my
 childhood in a little village. There
 was a large banyan tree right in
@@ -30,8 +18,8 @@ under it and catching their breath
 before going on their way. To make
 them comfortable, there was a
 'horegallu' under the tree.
-Horegallu literally means ‘a stone
-that can bear weight.’ It was a
+Horegallu literally means 'a stone
+that can bear weight.' It was a
 large flat stone placed horizontally
 over two vertical ones, thus making
 a stone bench on which anyone
@@ -56,10 +44,6 @@ resting there. When I would get
 tired of playing, I would sit next to
 him and observe the people he was
 speaking to and listen to their
-2.
-What are the special memories the author
-associates with “horegallu”?
-
 conversations. Most of them were
 villagers taking a break from their
 work in the fields nearby. They had
@@ -92,39 +76,15 @@ I would often not understand why
 they blessed it so often for being
 there. After all, it was only a stone
 bench. It was my grandfather, who
-told me, ‘Child, a horegallu is
+told me, 'Child, a horegallu is
 essential in any journey. We all
-3.
-How does the grandfather refresh the
-travellers?
-4.
-Is “horegallu” essential in a journey?
-Why?
-5.
-“Horegallu”
-gives
-everyone
-the
-opportunity to regain their strength. What
-does the author try to indicate here?
-6.
-Bring out the symbolic significance of the
-word “burden”.
-7.
-Comment on the expression “infectious
-cheerfulness.”
-8.
-What does Ratna do during lunch hours?
 carry our burdens according to our
 situations and capacities. But every
 once in a while, we need to stop,
 put down that burden and rest.
 Only then can we be refreshed
 enough to pick up the load once
-more.
-The
-horegallu
-gives
+more. The horegallu gives
 everyone that opportunity to do so.
 It helps people regain their
 strength.'
@@ -151,14 +111,6 @@ person for the whole lunch hour?'
 Ratna smiled and said simply,
 'They share their troubles with
 me'.
-
-Glossary:
-succour (n)
-:
-support
-mundane (adj)
-:
-dull, ordinary
 'But how can you solve the troubles
 of so many people? Do you always
 have an answer for them?'
@@ -169,10 +121,10 @@ incredulous at such a simplistic
 outlook. But Ratna answered with
 the same patience and affection
 that she must have used with all
-my colleagues, ‘I am not a trained
+my colleagues, 'I am not a trained
 counsellor or an intellectual. No
 one can solve your problem. You
-have to do it yourself.’
+have to do it yourself.'
 'Then how do you help them by
 listening to them?'
 'God has given me two ears to
@@ -215,23 +167,6 @@ ever now I happen to pass a
 horegallu in a village, I remember
 them and wish there were many
 more of them in this world.
-9.
-What is Ratna’s simplistic outlook?
-10. The author wishes there were many more
-of  “horegallus” in the world. Comment.
-About the Author
-Sudha Murty was born in 1950 at Shiggaon in North Karnataka. An
-M.Tech in Computer Science, she teaches Computer Science to
-postgraduate students.  A prolific writer in English and Kannada, she has
-written novels, technical books, travelogues, collections of short stories
-and non-fiction pieces. ‘Horegallu’ is taken from The Old Man and His
-God: Discovering the Spirit of India, 2006, Penguin Books, New Delhi.
-incredulous (adj)
-:
-doubtful
-uncannily (adv)
-:
-strangely, mysteriously
 
 ---
 
@@ -241,7 +176,7 @@ Sudha Murty was born in 1950 at Shiggaon in North Karnataka. An
 M.Tech in Computer Science, she teaches Computer Science to
 postgraduate students.  A prolific writer in English and Kannada, she has
 written novels, technical books, travelogues, collections of short stories
-and non-fiction pieces. ‘Horegallu’ is taken from The Old Man and His
+and non-fiction pieces. 'Horegallu' is taken from The Old Man and His
 God: Discovering the Spirit of India, 2006, Penguin Books, New Delhi.
 
 ---

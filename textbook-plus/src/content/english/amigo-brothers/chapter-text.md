@@ -6,15 +6,7 @@
 
 Antonio Cruz and Felix Vargas
 were both seventeen years old.
-They
-were
-so
-together
-in
-friendship
-that
-they
-felt
+They were so together in friendship that they felt
 themselves to be brothers. They
 had known each other since
 childhood, growing up on the Lower
@@ -36,19 +28,7 @@ gym. Early morning sunrises would
 find them running along the East
 River Drive, wrapped in sweat
 shirts and short towels around
-The presence of a wall between orchards does ensure good relationship
-between neighbours. Is it the act of building the wall or acknowledging
-the neighbour’s request that really establishes the relationship?
-Do we really need walls? Shouldn’t we dare to go beyond the
-boundaries?
-Now, read on:
-AMIGO BROTHERS
-Piri Thomas
-their
-necks.
-While
-some
-youngsters were into street,
+their necks. While some youngsters were into street,
 negatives, Antonio and Felix slept,
 ate, rapped, and dreamt positive.
 Between them, they had a
@@ -71,15 +51,6 @@ together along the East River Drive.
 But even when joking with each
 other, they both sensed a wall
 rising between them.
-II. Read and reflect:
-Read and respond
-1.
-What is special about the friendship
-between Antonio and Felix?
-2.
-How did they work to achieve their dream?
-3.
-What was the wall rising between them?
 
 One morning, less than a week
 before their bout, they met as usual
@@ -155,12 +126,6 @@ dark, he peered over the ledge. He
 tried not to think of Felix, feeling
 he had succeeded in psyching his
 mind. But only in the ring would
-4.
-Felix decides to go to Aunt Lucy. Why?
-5.
-Compare the thoughts and feelings of
-amigo brothers on the eve of their fight?
-
 he really know. To spare Felix hurt,
 he would have to knock him out,
 early and quick.
@@ -184,11 +149,8 @@ his Aunt Lucy's apartment and
 went straight to bed.
 Antonio was passing some heavy
 time on his rooftop. How would the
-fight
-tomorrow
-affect
-his
-relationship with Felix? After all,
+fight tomorrow affect
+his relationship with Felix? After all,
 fighting was like any other
 profession. Friendship had nothing
 to do with it. But a gnawing doubt
@@ -235,19 +197,9 @@ Antonio tried to be cool. He turned
 slowly to meet Felix's eyes looking
 directly into his. Felix nodded his
 head and Antonio responded.
-Bong-bong-bong. The roar turned
-to
+Bong-bong-bong. The roar turned to
 stillness.
-"Ladies
-and
-Gentlemen," the announcer spoke
-6.
-Both Antonio and Felix wanted to win in
-the first round. What might be the reason?
-7.
-The amigo brothers were popular as
-boxers. How do you know?
-
+"Ladies and Gentlemen," the announcer spoke
 slowly. "Now is the moment we
 have all been waiting for--the main
 event between two fine young
@@ -295,13 +247,8 @@ piston pumping jabs one right after
 another with seeming ease. Felix
 bobbed and weaved and never
 stopped boring in. He knew that at
-long
-range
-he
-was
-at
-a
-disadvantage. Antonio had too
+long range he was
+at a disadvantage. Antonio had too
 much reach on him. Only by coming
 in close could Felix hope to achieve
 the dreamed-of knockout.
@@ -328,14 +275,6 @@ rights that only meant pain to Felix.
 Felix bobbed and weaved, bobbed
 and weaved, occasionally punching
 his two gloves together. Antonio
-8.
-Do you think that the amigo brothers
-fought fiercely in the first and second
-rounds? What makes you think so?
-9.
-Who, do you think, will win in the
-end?
-
 waited for the rush that was sure
 to come. Felix closed in and feinted
 with his left shoulder and threw a
@@ -345,12 +284,8 @@ head. Neither fighter was giving an
 inch. Suddenly, a short right
 caught Antonio squarely on the
 chin. His long legs turned to jelly
-and
-his
-arms
-flailed
-out
-desperately. Felix, grunting like a
+and his arms flailed
+out desperately. Felix, grunting like a
 bull, threw wild punches from
 every direction. Antonio, groggy,
 bobbed and weaved, evading most
@@ -408,59 +343,6 @@ water was poured over them to
 bring them back to their senses.
 They looked around and then
 rushed toward each other.
-
-About the Author
-Piri Thomas (1928 - 2011) was a writer and poet whose memoir Down
-These Mean Streets became a best-seller. While spending seven years in
-prison, Thomas reflected on the teachings of his mother and father, and
-realized that a person is not born a criminal. Consequently, he decided to
-use his street and prison know-how to reach at-risk youth, and to help
-them avoid a life of crime. Thomas travelled around the U.S., Central
-America and Europe, giving lectures and conducting workshops in
-colleges and universities.
-Glossary:
-amigo (Spanish)
-:
-friend
-wrap (v)
-:
-to cover
-rap (v)
-:
-to perform rap music
-flick (n)
-:
-movie
-barrage (n)
-:
-an overwhelming quantity of blows
-bout (n)
-:
-a boxing contest
-commence (v)
-:
-to start
-dispel (v)
-:
-to cause to vanish
-duck (v)
-:
-to bend suddenly
-husky (adj)
-:
-big and strong
-lanky (adj)
-:
-thin and bony
-pensively (adv)
-:
-thoughtfully
-pound (v)
-:
-to strike repeatedly with force
-surge (v)
-:
-to rise and fall (toss as in waves)
 A cry of alarm surged through
 Tompkins Square Park. Was this a
 fight to the death instead of a
@@ -480,9 +362,6 @@ The announcer turned to point to
 the winner and found himself
 alone. Arm in arm, the champions
 had already left the ring.
-r
-10. The amigo brothers rushed at each other after the final bout. Why? What
-does this tell us about their relationship?
 
 ---
 

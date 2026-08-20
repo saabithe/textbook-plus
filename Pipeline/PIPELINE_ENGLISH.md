@@ -1,6 +1,6 @@
 # PIPELINE_ENGLISH.md
 
-> Kerala Board Class 12 English — 14 chapters. Text-heavy, analysis-focused, literary components.
+> Kerala Board Class 12 English — 16 chapters. Text-heavy, analysis-focused, literary components.
 
 ---
 
@@ -10,7 +10,7 @@
 |----------|-------|
 | Subject | English |
 | Slug | `english` |
-| Chapters | 14 |
+| Chapters | 16 |
 | Color | `--subject-english` (orange) |
 | Content type | Literature, grammar, vocabulary, literary analysis, speeches, poems, stories |
 | Practice types | MCQs, comprehension, grammar exercises, flashcards |
@@ -29,12 +29,78 @@
 | 6 | Amigo Brothers | `amigo-brothers` | Story | 🔲 Pending |
 | 7 | The Hour of Truth | `the-hour-of-truth` | Play | 🔲 Pending |
 | 8 | A Three Wheel Solution | `a-three-wheel-solution` | Interview | 🔲 Pending |
-| 9 | Dhyan Chand | `dhyan-chand` | Autobiography | 🔲 Pending |
+| 9 | Didi | `dhyan-chand` | Life writing | 🔲 Pending |
 | 10 | Stammer | `stammer` | Poem | 🔲 Pending |
 | 11 | When a Sapling is Planted | `when-a-sapling-is-planted` | Speech | 🔲 Pending |
 | 12 | Rice | `rice` | Poem | 🔲 Pending |
 | 13 | Dangers of Drug Abuse | `dangers-of-drug-abuse` | Essay | 🔲 Pending |
 | 14 | Post Early for Christmas | `post-early-for-christmas` | Play | 🔲 Pending |
+| 15 | This Is Going to Hurt Just a Little Bit | `this-is-going-to-hurt` | Poem | 🔲 Pending |
+| 16 | Crime and Punishment | `crime-and-punishment` | Story | 🔲 Pending |
+
+---
+
+## Source of Truth: Chapter Text
+
+Each chapter has a `chapter-text.md` file at `src/content/english/{slug}/chapter-text.md`. This is the **single source of truth** for the chapter's text content — the cleaned, readable version of the textbook pages.
+
+### Structure
+
+```markdown
+# Chapter Title
+
+## CHAPTER TITLE (optional duplicate)
+
+### Author Name
+
+[Full text: story, poem, speech, essay, or play]
+
+---
+
+## About the Author
+
+[Biography paragraph]
+
+---
+
+## Read and Respond
+
+[Numbered questions from textbook]
+```
+
+### Rules
+
+- **No OCR artifacts**: No page numbers, no `Textbook for Class XII` headers, no `Unit III/IV/V` headers, no single-word-per-line breaks, no stray `r`/`m` glyphs
+- **No interleaved activities**: Activity sections, "Think and write", glossary entries, supplementary readings are NOT included
+- **No duplicate content**: If "About the Author" appears twice (bare + formatted), keep only the `##` formatted version
+- **Complete text**: Every paragraph/line of the core text must be preserved
+- **Play format**: Character names followed by colon, stage directions in brackets
+- **Poem format**: Preserved line breaks, stanza groupings with `###` subheadings
+
+### Status (as of cleanup)
+
+| # | Chapter | Slug | Lines | Status |
+|---|---------|------|-------|--------|
+| 1 | The 3Ls of Empowerment | `the-3ls-of-empowerment` | 37 | ✅ Clean |
+| 2 | Any Woman | `any-woman` | 51 | ✅ Clean |
+| 3 | Matchbox | `matchbox` | 369 | ✅ Clean |
+| 4 | Horegallu | `horegallu` | 195 | ✅ Clean |
+| 5 | Mending Wall | `mending-wall` | 73 | ✅ Clean |
+| 6 | Amigo Brothers | `amigo-brothers` | 391 | ✅ Clean |
+| 7 | The Hour of Truth | `the-hour-of-truth` | ~280 | ✅ Clean |
+| 8 | A Three Wheel Solution | `a-three-wheel-solution` | 80 | ✅ Clean |
+| 9 | Dhyan Chand | `dhyan-chand` | 77 | ⚠️ Content is "Didi" by Shaheen Mistri |
+| 10 | Stammer | `stammer` | 53 | ✅ Clean |
+| 11 | When a Sapling is Planted | `when-a-sapling-is-planted` | 61 | ✅ Clean |
+| 12 | Rice | `rice` | 106 | ✅ Clean |
+| 13 | Dangers of Drug Abuse | `dangers-of-drug-abuse` | 40 | ✅ Clean |
+| 14 | Post Early for Christmas | `post-early-for-christmas` | 414 | ✅ Clean |
+| 15 | This Is Going to Hurt Just a Little Bit | `this-is-going-to-hurt` | ~70 | ✅ Clean |
+| 16 | Crime and Punishment | `crime-and-punishment` | ~180 | ✅ Clean |
+
+### Known Issue
+
+**Chapter 9 (Didi / `dhyan-chand`)**: The chapter was previously misnamed "Dhyan Chand" in `src/data/chapters.ts`. Now correctly titled "Didi" (Life writing by Shaheen Mistri). The slug remains `dhyan-chand` for URL compatibility.
 
 ---
 

@@ -456,19 +456,33 @@ export default function HoregalluPage() {
             quick={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  Sudha Murty&rsquo;s story about the importance of{" "}
-                  <Highlight color="yellow">rest and sharing problems</Highlight> with
-                  others.
+                  <strong>Author</strong>: Sudha Murty. Genre: Personal essay. Central
+                  metaphor:{" "}
+                  <Highlight color="yellow">horegallu</Highlight> = stone resting place for
+                  weary travellers = human listener.
                 </li>
                 <li>
-                  A horegallu is a stone resting place for weary travellers &mdash; the
-                  metaphor for{" "}
-                  <Highlight color="blue">human listening</Highlight>.
+                  <strong>Characters</strong>: Grandfather (retired teacher, listener in the
+                  village), Ratna (colleague in Mumbai, listener at work).
                 </li>
                 <li>
-                  Her grandfather and colleague Ratna both acted as{" "}
-                  <Highlight color="green">human horegallus</Highlight> &mdash; good
-                  listeners who helped people regain strength.
+                  <strong>Key quote</strong>: &ldquo;God gave me two ears to listen without
+                  judgement. When a person finds an outlet, half his burden is
+                  relieved.&rdquo; (Ratna)
+                </li>
+                <li>
+                  <strong>Metaphor</strong>: &ldquo;Load-pourers&rdquo; &mdash; everyone
+                  carries a burden; they need someone to{" "}
+                  <Highlight color="blue">pour it out to</Highlight>.
+                </li>
+                <li>
+                  <strong>Theme</strong>: Listening is not passive. Being a horegallu &mdash;
+                  someone who listens with compassion &mdash; creates{" "}
+                  <Highlight color="green">healthy minds</Highlight> and lightens burdens.
+                </li>
+                <li>
+                  <strong>Structure</strong>: Village to city, past to present &mdash; the
+                  theme is not nostalgia but a living need.
                 </li>
               </ul>
             }
@@ -477,33 +491,45 @@ export default function HoregalluPage() {
                 <li>
                   The essay opens with a village memory: under a banyan tree stood a{" "}
                   <Highlight color="yellow">horegallu</Highlight> &mdash; a large flat
-                  stone where anyone could sit, rest, chat, and drink cool water.
+                  stone where anyone could sit, rest, chat, and drink cool water. The
+                  banyan tree is a traditional place of refuge, reinforcing the theme of{" "}
+                  <Highlight color="green">shelter and rest</Highlight>.
                 </li>
                 <li>
                   The author&rsquo;s{" "}
                   <Highlight color="blue">grandfather</Highlight>, a retired school
                   teacher, would spend hours near the horegallu listening to
-                  travellers. Simply talking to him re-energised them.
-                </li>
-                <li>
-                  Grandfather&rsquo;s lesson: everyone bears burdens, but every once in
-                  a while they need to{" "}
-                  <Highlight color="green">stop, lay down the load, and rest</Highlight>.
+                  travellers. He did not give advice &mdash; he simply listened. Simply
+                  talking to him re-energised them. Grandfather&rsquo;s lesson: everyone
+                  bears burdens, but every once in a while they need to stop, lay down
+                  the load, and rest.
                 </li>
                 <li>
                   Later, in Mumbai, the author meets{" "}
                   <strong>Ratna</strong>, a cheerful colleague who spent her lunch
-                  breaks listening to co-workers&rsquo; troubles.
-                </li>
-                <li>
-                  Ratna&rsquo;s principle: &ldquo;God gave me two ears to listen
-                  without judgement. When a person finds an outlet, half his burden
-                  is relieved.&rdquo;
+                  breaks listening to co-workers&rsquo; troubles. Ratna&rsquo;s
+                  principle: &ldquo;God gave me two ears to listen without judgement.
+                  When a person finds an outlet, half his burden is relieved.&rdquo;
+                  This is the essay&rsquo;s{" "}
+                  <Highlight color="yellow">moral centre</Highlight>.
                 </li>
                 <li>
                   Both grandfather and Ratna were{" "}
-                  <Highlight color="yellow">human horegallus</Highlight> &mdash;
-                  listeners who helped others carry on.
+                  <Highlight color="blue">human horegallus</Highlight> &mdash; listeners
+                  who helped others carry on. The essay moves from village to city, past
+                  to present, showing the theme is not nostalgia but a{" "}
+                  <Highlight color="pink">living need</Highlight>.
+                </li>
+                <li>
+                  The essay&rsquo;s central metaphor is carrying{" "}
+                  <Highlight color="green">burdens</Highlight>: everyone carries one, but
+                  they need someone to listen. The act of talking itself is healing.
+                </li>
+                <li>
+                  Sudha Murty&rsquo;s tone is personal, warm, and anecdotal. The
+                  authority comes not from expertise but from{" "}
+                  <Highlight color="yellow">lived experience</Highlight> &mdash;
+                  grandfather and Ratna are real people she knew, not fictional examples.
                 </li>
               </ul>
             }
@@ -512,49 +538,69 @@ export default function HoregalluPage() {
                 <li>
                   <strong>Central metaphor</strong>: The horegallu (a stone that bears
                   weight) becomes the essay&rsquo;s controlling image for{" "}
-                  <Highlight color="yellow">empathetic listening</Highlight>.
+                  <Highlight color="yellow">empathetic listening</Highlight>. A horegallu
+                  is a large, flat stone placed under a tree for travellers to rest. It
+                  does nothing &mdash; it simply bears weight. The metaphor says: sometimes
+                  the most useful thing you can do is be present and let someone lean on
+                  you.
                 </li>
                 <li>
                   <strong>Grandfather as character</strong>: He is the essay&rsquo;s
-                  emotional centre &mdash; a retired teacher who does not give advice.
-                  He simply listens. The simplicity of his role is the point:{" "}
-                  <Highlight color="blue">listening itself is the gift</Highlight>.
+                  emotional centre &mdash; a retired school teacher who does not give advice.
+                  He simply listens. People come to him with their problems, talk for hours,
+                  and leave feeling re-energised. The simplicity of his role is the point:{" "}
+                  <Highlight color="blue">listening itself is the gift</Highlight>. He does
+                  not solve their problems; he gives them the space to solve their own.
                 </li>
                 <li>
-                  <strong>Banyan tree</strong>: Not just scenery &mdash; a banyan tree is
-                  a traditional place of refuge and community gathering. It reinforces
-                  the theme of{" "}
-                  <Highlight color="green">shelter and rest</Highlight>.
+                  <strong>Banyan tree</strong>: Not just scenery &mdash; a banyan tree is a
+                  traditional place of refuge and community gathering in Indian villages.
+                  It provides shade, shelter, and a sense of continuity (banyan trees live
+                  for centuries). The tree reinforces the theme of{" "}
+                  <Highlight color="green">shelter and rest</Highlight> &mdash; both physical
+                  and emotional.
                 </li>
                 <li>
-                  <strong>Ratna&rsquo;s quote</strong>: &ldquo;God has given me two ears
-                  to listen without judgement.&rdquo; This is the essay&rsquo;s{" "}
-                  <Highlight color="yellow">moral centre</Highlight> &mdash; listening
-                  is active, not passive.
+                  <strong>Ratna&rsquo;s quote</strong>: &ldquo;God has given me two ears to
+                  listen without judgement. When a person finds an outlet, half his burden
+                  is relieved.&rdquo; This is the essay&rsquo;s{" "}
+                  <Highlight color="yellow">moral centre</Highlight>. The key phrase is
+                  &ldquo;without judgement&rdquo; &mdash; Ratna does not evaluate, advise,
+                  or criticise. She simply hears. The quote also introduces the idea that
+                  listening is active, not passive: it requires effort, patience, and
+                  empathy.
                 </li>
                 <li>
                   <strong>Structure</strong>: Village → city, past → present. The essay
-                  moves from childhood memory to adult life, showing the theme is not
-                  nostalgia but a{" "}
-                  <Highlight color="pink">living need</Highlight>.
+                  moves from childhood memory (grandfather in the village) to adult life
+                  (Ratna in Mumbai), showing the theme is not nostalgia but a{" "}
+                  <Highlight color="pink">living need</Highlight>. The structure argues that
+                  the need for horegallus is universal &mdash; it exists in every
+                  community, every workplace, every era.
                 </li>
                 <li>
-                  <strong>&ldquo;Load-pourers&rdquo;</strong>: The metaphor of
-                  people as load-pourers is repeated &mdash; everyone carries a burden,
-                  but they need someone to pour it out to. The verb suggests{" "}
-                  <strong>unburdening through speech</strong>.
+                  <strong>Carrying burdens</strong>: The essay&rsquo;s central metaphor is
+                  carrying burdens &mdash; everyone has one (grief, stress, loneliness,
+                  fear), but they need someone to listen. The act of talking itself is
+                  healing. The horegallu is the place where that rest happens.
                 </li>
                 <li>
-                  <strong>Sudha Murty&rsquo;s tone</strong>: Personal, warm, anecdotal.
+                  <strong>Sudha Murty&rsquo;s tone</strong>: Personal, warm, and anecdotal.
                   The authority comes not from expertise but from{" "}
-                  <Highlight color="blue">lived experience</Highlight> &mdash;
-                  grandfather and Ratna are real people she knew.
+                  <Highlight color="yellow">lived experience</Highlight> &mdash;
+                  grandfather and Ratna are real people she knew, not fictional examples.
+                  The essay does not argue or persuade; it simply tells stories and lets
+                  the reader draw conclusions. This restraint makes the message more
+                  powerful.
                 </li>
                 <li>
                   <strong>Overall theme</strong>: Listening is not passive. Being a
                   horegallu &mdash; someone who listens with compassion &mdash; creates{" "}
-                  <Highlight color="green">healthy minds</Highlight> and lightens
-                  burdens. The story is a call to be someone&rsquo;s resting place.
+                  <Highlight color="green">healthy minds</Highlight> and lightens burdens.
+                  The essay is a call to be someone&rsquo;s resting place. In a world that
+                  values advice and solutions, Murty argues that the greatest gift is
+                  simply being present &mdash; bearing weight without judgment, giving space
+                  without agenda.
                 </li>
               </ul>
             }

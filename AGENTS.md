@@ -48,7 +48,10 @@ src/content/{subject-slug}/{chapter-slug}/
   page.tsx           ← React component (learning content)
   questions.json     ← Question[] (MCQ + short answer)
   flashcards.json    ← Flashcard[] (flip cards)
+  chapter-text.md    ← Reference text (source of truth for content authoring)
 ```
+
+**English chapter-text.md**: Cleaned, readable version of the textbook pages. Located at `src/content/english/{slug}/chapter-text.md`. Contains the complete chapter text (story/poem/speech/play) + About the Author + Read and Respond questions. This is the single source of truth for authoring `page.tsx` content. No OCR artifacts, no interleaved activities, no supplementary readings.
 
 **Custom content components** (in `src/components/content/`):
 
@@ -95,12 +98,12 @@ src/content/{subject-slug}/{chapter-slug}/
 
 ## Data Model
 
-- **6 subjects, 76 chapters** total (Physics 14, Chemistry 10, Mathematics 13, Biology 13, English 14, Arabic 12)
+- **6 subjects, 78 chapters** total (Physics 14, Chemistry 10, Mathematics 13, Biology 13, English 16, Arabic 12)
 - Subject/chapter data hardcoded in `src/data/subjects.ts` and `src/data/chapters.ts`
 - Subject colors: CSS custom properties (`--subject-{name}` / `--subject-{name}-light`) in `globals.css` `:root` and `.dark`
 - Chapter data source of truth: `Developer_Deliveries/Chapter names.md`
 
-**Currently 4 chapters have content:** Physics Ch1 + Ch2, English (Horegallu + Mending Wall). All other 72 chapters show placeholder UI.
+**Currently 4 chapters have content:** Physics Ch1 + Ch2, English (Horegallu + Mending Wall). All other 74 chapters show placeholder UI.
 
 ## Supabase (Auth + Cloud Sync)
 
