@@ -211,68 +211,6 @@ const DISCOURSES = [
       </>
     ),
   },
-  {
-    id: "themes",
-    title: "Themes",
-    content: (
-      <>
-        <h3
-          id="artificial-vs-natural"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Artificial vs. Natural Pleasure
-        </h3>
-        <p>
-          Jones contrasts drug-induced pleasure with naturally attained
-          pleasures, which &ldquo;enlarge the sense of satisfaction and can be
-          repeated indefinitely.&rdquo; Drugs offer diminishing returns &mdash;
-          each dose requires more for less satisfaction. Natural pleasures{" "}
-          <Highlight color="green">grow stronger</Highlight> with repetition.
-        </p>
-        <h3
-          id="loss-of-agency"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Loss of Agency
-        </h3>
-        <p>
-          The addict loses the capacity to deal with life through{" "}
-          <Highlight color="yellow">perseverance and self-discipline</Highlight>.
-          The article argues that over-dependence on drugs makes people
-          incapable of facing challenges without chemical assistance &mdash;
-          a fundamental loss of human agency.
-        </p>
-        <h3
-          id="invisible-damage"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Invisible Damage
-        </h3>
-        <p>
-          Jones emphasizes that brain damage from drugs is{" "}
-          <Highlight color="pink">the most subtle, most often unrecognized,
-          and least understood</Highlight> consequence. Harmful side effects
-          are not immediately apparent, meaning users may do themselves great
-          harm before warning symptoms occur.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint title="Key Takeaway">
-        Drug abuse attacks the brain&rsquo;s{" "}
-        <Highlight color="yellow">chemically regulated controls</Highlight>{" "}
-        for sensations, moods, and thoughts. The result is diminishing
-        pleasure, sensory deprivation, personality changes, and ultimately
-        death. Jones&rsquo; article warns that the greatest danger is the{" "}
-        <strong>invisible, cumulative damage</strong> &mdash; harm that is
-        often unrecognized until it is too late.
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function DangersOfDrugAbusePage() {
@@ -452,6 +390,67 @@ export default function DangersOfDrugAbusePage() {
               </ul>
             }
           />
+
+          {/* Themes */}
+          <div id="themes">
+            <h3
+              id="artificial-vs-natural"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Artificial vs. Natural Pleasure
+            </h3>
+            <p>
+              Jones contrasts drug-induced pleasure with naturally attained
+              pleasures, which &ldquo;enlarge the sense of satisfaction and can be
+              repeated indefinitely.&rdquo; Drugs offer diminishing returns &mdash;
+              each dose requires more for less satisfaction. Natural pleasures{" "}
+              <Highlight color="green">grow stronger</Highlight> with repetition.
+            </p>
+            <h3
+              id="loss-of-agency"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Loss of Agency
+            </h3>
+            <p>
+              The addict loses the capacity to deal with life through{" "}
+              <Highlight color="yellow">perseverance and self-discipline</Highlight>.
+              The article argues that over-dependence on drugs makes people
+              incapable of facing challenges without chemical assistance &mdash;
+              a fundamental loss of human agency.
+            </p>
+            <h3
+              id="invisible-damage"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Invisible Damage
+            </h3>
+            <p>
+              Jones emphasizes that brain damage from drugs is{" "}
+              <Highlight color="pink">the most subtle, most often unrecognized,
+              and least understood</Highlight> consequence. Harmful side effects
+              are not immediately apparent, meaning users may do themselves great
+              harm before warning symptoms occur.
+            </p>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              Drug abuse attacks the brain&rsquo;s{" "}
+              <Highlight color="yellow">chemically regulated controls</Highlight>{" "}
+              for sensations, moods, and thoughts. The result is diminishing
+              pleasure, sensory deprivation, personality changes, and ultimately
+              death. Jones&rsquo; article warns that the greatest danger is the{" "}
+              <strong>invisible, cumulative damage</strong> &mdash; harm that is
+              often unrecognized until it is too late.
+            </KeyPoint>
+          </div>
+
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={QA_ITEMS} />
+          </div>
         </div>
       )}
 
@@ -463,10 +462,6 @@ export default function DangersOfDrugAbusePage() {
               {section.content}
             </CollapsibleSection>
           ))}
-          <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={QA_ITEMS} />
-          </div>
         </div>
       )}
     </div>

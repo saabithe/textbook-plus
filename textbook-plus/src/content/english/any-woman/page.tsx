@@ -255,22 +255,6 @@ const DISCOURSES = [
       </>
     ),
   },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint title="Key Takeaway">
-        A mother is the{" "}
-        <Highlight color="yellow">pillar, fire, light, wall, and house</Highlight>{" "}
-        of the family. The poem&rsquo;s accumulating metaphors show that
-        without her, everything collapses. The final prayer &mdash;{" "}
-        <em>&ldquo;Take me not till the children grow!&rdquo;</em> &mdash;
-        captures the{" "}
-        <Highlight color="green">desperation and selflessness</Highlight> of
-        motherhood.
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function AnyWomanPage() {
@@ -460,6 +444,25 @@ export default function AnyWomanPage() {
               </ul>
             }
           />
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              A mother is the{" "}
+              <Highlight color="yellow">pillar, fire, light, wall, and house</Highlight>{" "}
+              of the family. The poem&rsquo;s accumulating metaphors show that
+              without her, everything collapses. The final prayer &mdash;{" "}
+              <em>&ldquo;Take me not till the children grow!&rdquo;</em> &mdash;
+              captures the{" "}
+              <Highlight color="green">desperation and selflessness</Highlight> of
+              motherhood.
+            </KeyPoint>
+          </div>
+
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={QA_ITEMS} />
+          </div>
         </div>
       )}
 
@@ -471,10 +474,6 @@ export default function AnyWomanPage() {
               {section.content}
             </CollapsibleSection>
           ))}
-          <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={QA_ITEMS} />
-          </div>
         </div>
       )}
     </div>

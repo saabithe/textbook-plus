@@ -145,70 +145,6 @@ const DISCOURSES = [
       </>
     ),
   },
-  {
-    id: "themes",
-    title: "Themes",
-    content: (
-      <>
-        <h3
-          id="environmental-justice"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Environmental Justice
-        </h3>
-        <p>
-          Maathai argues that environmental degradation is not just an ecological
-          issue but a{" "}
-          <Highlight color="pink">justice issue</Highlight>. When the
-          environment is destroyed, the poorest suffer first &mdash; women who
-          till the land, families who depend on clean water, children who will
-          never know what they have lost.
-        </p>
-        <h3
-          id="collective-action"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Collective Action
-        </h3>
-        <p>
-          The speech emphasizes that change comes through{" "}
-          <Highlight color="yellow">collective effort</Highlight>. Over 30
-          million trees were planted not by one person but by communities
-          working together. Maathai calls on world leaders, young people, and
-          citizens to embrace their role in healing the Earth.
-        </p>
-        <h3
-          id="interconnectedness"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Interconnectedness
-        </h3>
-        <p>
-          Maathai draws a powerful connection: there can be no peace without
-          equitable development, and no development without sustainable
-          environmental management in a{" "}
-          <Highlight color="green">democratic and peaceful space</Highlight>.
-          Environment, democracy, peace, and development are inseparable.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint title="Key Takeaway">
-        Environmental conservation, democracy, and peace are{" "}
-        <Highlight color="yellow">inseparable</Highlight>. Wangari
-        Maathai&rsquo;s Nobel lecture shows that tree planting is not just
-        about ecology &mdash; it is about restoring dignity, empowering
-        communities, and building democratic societies. Her closing image
-        &mdash; the dried-up stream where tadpoles once swam &mdash; is a
-        call to restore &ldquo;the home of the tadpoles and give back to our
-        children a world of beauty and wonder.&rdquo;
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function WhenASaplingIsPlantedPage() {
@@ -396,6 +332,69 @@ export default function WhenASaplingIsPlantedPage() {
               </ul>
             }
           />
+
+          {/* Themes */}
+          <div id="themes">
+            <h3
+              id="environmental-justice"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Environmental Justice
+            </h3>
+            <p>
+              Maathai argues that environmental degradation is not just an ecological
+              issue but a{" "}
+              <Highlight color="pink">justice issue</Highlight>. When the
+              environment is destroyed, the poorest suffer first &mdash; women who
+              till the land, families who depend on clean water, children who will
+              never know what they have lost.
+            </p>
+            <h3
+              id="collective-action"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Collective Action
+            </h3>
+            <p>
+              The speech emphasizes that change comes through{" "}
+              <Highlight color="yellow">collective effort</Highlight>. Over 30
+              million trees were planted not by one person but by communities
+              working together. Maathai calls on world leaders, young people, and
+              citizens to embrace their role in healing the Earth.
+            </p>
+            <h3
+              id="interconnectedness"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Interconnectedness
+            </h3>
+            <p>
+              Maathai draws a powerful connection: there can be no peace without
+              equitable development, and no development without sustainable
+              environmental management in a{" "}
+              <Highlight color="green">democratic and peaceful space</Highlight>.
+              Environment, democracy, peace, and development are inseparable.
+            </p>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              Environmental conservation, democracy, and peace are{" "}
+              <Highlight color="yellow">inseparable</Highlight>. Wangari
+              Maathai&rsquo;s Nobel lecture shows that tree planting is not just
+              about ecology &mdash; it is about restoring dignity, empowering
+              communities, and building democratic societies. Her closing image
+              &mdash; the dried-up stream where tadpoles once swam &mdash; is a
+              call to restore &ldquo;the home of the tadpoles and give back to our
+              children a world of beauty and wonder.&rdquo;
+            </KeyPoint>
+          </div>
+
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={QA_ITEMS} />
+          </div>
         </div>
       )}
 
@@ -407,10 +406,6 @@ export default function WhenASaplingIsPlantedPage() {
               {section.content}
             </CollapsibleSection>
           ))}
-          <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={QA_ITEMS} />
-          </div>
         </div>
       )}
     </div>

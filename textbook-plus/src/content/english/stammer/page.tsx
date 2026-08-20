@@ -203,68 +203,6 @@ const DISCOURSES = [
       </>
     ),
   },
-  {
-    id: "themes",
-    title: "Themes",
-    content: (
-      <>
-        <h3
-          id="language-and-meaning"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Language and Meaning
-        </h3>
-        <p>
-          The poem questions whether stammer precedes or succeeds language, and
-          whether it is a dialect or a language itself. These questions suggest
-          that <Highlight color="blue">meaning is always imperfect</Highlight>{" "}
-          &mdash; all speech is a kind of stammer, struggling to bridge the gap
-          between thought and word.
-        </p>
-        <h3
-          id="imperfection-as-universal"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Imperfection as Universal
-        </h3>
-        <p>
-          The final stanza declares that God &ldquo;must have stammered&rdquo;
-          when creating man, which is why all human words carry different
-          meanings. This reframes imperfection as{" "}
-          <Highlight color="yellow">divine origin</Highlight> &mdash; the
-          diversity and ambiguity of language is not a flaw but a design.
-        </p>
-        <h3
-          id="poetry-itself"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Poetry as Stammer
-        </h3>
-        <p>
-          The poem&rsquo;s closing word &mdash; &ldquo;like poetry&rdquo; &mdash;
-          draws a startling parallel. Poetry, with its ambiguity, layered
-          meanings, and deliberate pauses, is itself a form of stammering. The
-          poem thus argues that{" "}
-          <Highlight color="green">all great expression</Highlight> embraces
-          imperfection.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint title="Key Takeaway">
-        Stammer is not a handicap but a{" "}
-        <Highlight color="yellow">mode of speech</Highlight> &mdash; the
-        natural silence between word and meaning. The poem argues that all
-        human language carries imperfection, that even God stammered when
-        creating man, and that poetry itself is a form of beautiful
-        stammering. Embracing imperfection is embracing our humanity.
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function StammerPage() {
@@ -437,6 +375,67 @@ export default function StammerPage() {
               </ul>
             }
           />
+
+          {/* Themes */}
+          <div id="themes">
+            <h3
+              id="language-and-meaning"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Language and Meaning
+            </h3>
+            <p>
+              The poem questions whether stammer precedes or succeeds language, and
+              whether it is a dialect or a language itself. These questions suggest
+              that <Highlight color="blue">meaning is always imperfect</Highlight>{" "}
+              &mdash; all speech is a kind of stammer, struggling to bridge the gap
+              between thought and word.
+            </p>
+            <h3
+              id="imperfection-as-universal"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Imperfection as Universal
+            </h3>
+            <p>
+              The final stanza declares that God &ldquo;must have stammered&rdquo;
+              when creating man, which is why all human words carry different
+              meanings. This reframes imperfection as{" "}
+              <Highlight color="yellow">divine origin</Highlight> &mdash; the
+              diversity and ambiguity of language is not a flaw but a design.
+            </p>
+            <h3
+              id="poetry-itself"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Poetry as Stammer
+            </h3>
+            <p>
+              The poem&rsquo;s closing word &mdash; &ldquo;like poetry&rdquo; &mdash;
+              draws a startling parallel. Poetry, with its ambiguity, layered
+              meanings, and deliberate pauses, is itself a form of stammering. The
+              poem thus argues that{" "}
+              <Highlight color="green">all great expression</Highlight> embraces
+              imperfection.
+            </p>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              Stammer is not a handicap but a{" "}
+              <Highlight color="yellow">mode of speech</Highlight> &mdash; the
+              natural silence between word and meaning. The poem argues that all
+              human language carries imperfection, that even God stammered when
+              creating man, and that poetry itself is a form of beautiful
+              stammering. Embracing imperfection is embracing our humanity.
+            </KeyPoint>
+          </div>
+
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={QA_ITEMS} />
+          </div>
         </div>
       )}
 
@@ -448,10 +447,6 @@ export default function StammerPage() {
               {section.content}
             </CollapsibleSection>
           ))}
-          <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={QA_ITEMS} />
-          </div>
         </div>
       )}
     </div>

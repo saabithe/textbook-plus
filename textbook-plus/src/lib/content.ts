@@ -6,30 +6,30 @@ import ch2Flashcards from "@/content/physics/electrostatic-potential-and-capacit
 
 const SECTIONS_MAP: Record<string, ChapterSection[]> = {
   "horegallu": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
-    { id: "character-sketch-ratna", title: "Character Sketch: Ratna" },
-    { id: "character-sketch-grandfather", title: "Character Sketch: Grandfather" },
-    { id: "character-comparison", title: "Character Comparison" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "character-sketch-ratna", title: "Character Sketch: Ratna", tab: "discourses" },
+    { id: "character-sketch-grandfather", title: "Character Sketch: Grandfather", tab: "discourses" },
+    { id: "character-comparison", title: "Character Comparison", tab: "discourses" },
     {
-      id: "symbolism-themes", title: "Symbolism & Themes", children: [
+      id: "symbolism-themes", title: "Symbolism & Themes", tab: "read", children: [
         { id: "the-burden", title: "The Symbolism of Burden" },
         { id: "power-of-listening", title: "The Power of Listening" },
         { id: "human-horegallus", title: "Human Horegallus" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
-    { id: "read-and-respond", title: "Read & Respond" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
+    { id: "read-and-respond", title: "Read & Respond", tab: "read" },
   ],
   "mending-wall": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "the-poem", title: "The Poem" },
-    { id: "summary", title: "Summary" },
-    { id: "wall-debate", title: "The Wall Debate" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "the-poem", title: "The Poem", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "wall-debate", title: "The Wall Debate", tab: "discourses" },
     {
-      id: "poetic-devices", title: "Poetic Devices", children: [
+      id: "poetic-devices", title: "Poetic Devices", tab: "discourses", children: [
         { id: "device-personification", title: "Personification" },
         { id: "device-simile", title: "Simile" },
         { id: "device-metaphor", title: "Metaphor" },
@@ -42,56 +42,56 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
         { id: "device-blank-verse", title: "Blank Verse" },
       ],
     },
-    { id: "theme", title: "Theme" },
-    { id: "appreciation", title: "Poem Appreciation" },
-    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "theme", title: "Theme", tab: "read" },
+    { id: "appreciation", title: "Poem Appreciation", tab: "discourses" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
   ],
   "amigo-brothers": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
-    { id: "character-sketch-antonio", title: "Character Sketch: Antonio Cruz" },
-    { id: "character-sketch-felix", title: "Character Sketch: Felix Vargas" },
-    { id: "character-comparison", title: "Character Comparison" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "character-sketch-antonio", title: "Character Sketch: Antonio Cruz", tab: "discourses" },
+    { id: "character-sketch-felix", title: "Character Sketch: Felix Vargas", tab: "discourses" },
+    { id: "character-comparison", title: "Character Comparison", tab: "discourses" },
     {
-      id: "themes", title: "Themes", children: [
+      id: "themes", title: "Themes", tab: "read", children: [
         { id: "friendship-vs-ambition", title: "Friendship vs. Ambition" },
         { id: "the-rising-wall", title: "The Rising Wall" },
         { id: "brotherhood-above-victory", title: "Brotherhood Above Victory" },
         { id: "courage-and-sportsmanship", title: "Courage and Sportsmanship" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
-    { id: "read-and-respond", title: "Read & Respond" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
+    { id: "read-and-respond", title: "Read & Respond", tab: "read" },
   ],
   "the-3ls-of-empowerment": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
     {
-      id: "the-three-ls", title: "The 3 Ls", children: [
+      id: "the-three-ls", title: "The 3 Ls", tab: "discourses", children: [
         { id: "learning", title: "Learning" },
         { id: "labour", title: "Labour" },
         { id: "leadership", title: "Leadership" },
       ],
     },
     {
-      id: "themes", title: "Themes", children: [
+      id: "themes", title: "Themes", tab: "read", children: [
         { id: "economic-inequality", title: "Economic Inequality" },
         { id: "confidence-gap", title: "The Confidence Gap" },
         { id: "dare-the-difference", title: "Dare the Difference" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
-    { id: "read-and-respond", title: "Read & Respond" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
+    { id: "read-and-respond", title: "Read & Respond", tab: "read" },
   ],
   "any-woman": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
-    { id: "the-poem", title: "The Poem" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "the-poem", title: "The Poem", tab: "read" },
     {
-      id: "poetic-devices", title: "Poetic Devices", children: [
+      id: "poetic-devices", title: "Poetic Devices", tab: "discourses", children: [
         { id: "device-metaphor", title: "Metaphor" },
         { id: "device-anaphora", title: "Anaphora" },
         { id: "device-rhyme", title: "Rhyme Scheme" },
@@ -99,235 +99,235 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
       ],
     },
     {
-      id: "appreciation", title: "Poem Appreciation", children: [
+      id: "appreciation", title: "Poem Appreciation", tab: "discourses", children: [
         { id: "app-introduction", title: "Introduction" },
         { id: "app-summary-theme", title: "Summary and Theme" },
         { id: "app-devices", title: "Poetic Devices and Style" },
         { id: "app-critical", title: "Critical Comment" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
-    { id: "read-and-respond", title: "Read & Respond" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
+    { id: "read-and-respond", title: "Read & Respond", tab: "read" },
   ],
   "matchbox": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
-    { id: "character-sketch-nomita", title: "Character Sketch: Nomita" },
-    { id: "character-sketch-ajit", title: "Character Sketch: Ajit" },
-    { id: "character-sketch-mother", title: "Character Sketch: Nomita's Mother" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "character-sketch-nomita", title: "Character Sketch: Nomita", tab: "discourses" },
+    { id: "character-sketch-ajit", title: "Character Sketch: Ajit", tab: "discourses" },
+    { id: "character-sketch-mother", title: "Character Sketch: Nomita's Mother", tab: "discourses" },
     {
-      id: "symbolism-themes", title: "Symbolism & Themes", children: [
+      id: "symbolism-themes", title: "Symbolism & Themes", tab: "read", children: [
         { id: "matchbox-symbol", title: "The Matchbox" },
         { id: "the-letter", title: "The Letter" },
         { id: "forest-of-people", title: "Forest of People" },
         { id: "burning-sari", title: "The Burning Sari" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
-    { id: "read-and-respond", title: "Read & Respond" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
+    { id: "read-and-respond", title: "Read & Respond", tab: "read" },
   ],
   "the-hour-of-truth": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
-    { id: "character-sketch-robert", title: "Character Sketch: Robert Baldwin" },
-    { id: "character-sketch-john", title: "Character Sketch: John Baldwin" },
-    { id: "character-sketch-martha", title: "Character Sketch: Martha Baldwin" },
-    { id: "character-sketch-evie", title: "Character Sketch: Evie Baldwin" },
-    { id: "character-comparison", title: "Character Comparison" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "character-sketch-robert", title: "Character Sketch: Robert Baldwin", tab: "discourses" },
+    { id: "character-sketch-john", title: "Character Sketch: John Baldwin", tab: "discourses" },
+    { id: "character-sketch-martha", title: "Character Sketch: Martha Baldwin", tab: "discourses" },
+    { id: "character-sketch-evie", title: "Character Sketch: Evie Baldwin", tab: "discourses" },
+    { id: "character-comparison", title: "Character Comparison", tab: "discourses" },
     {
-      id: "themes", title: "Themes", children: [
+      id: "themes", title: "Themes", tab: "read", children: [
         { id: "truth-vs-loyalty", title: "Truth vs. Loyalty" },
         { id: "price-of-integrity", title: "The Price of Integrity" },
         { id: "family-pressure", title: "Family Pressure and Moral Weakness" },
         { id: "nature-of-justice", title: "The Nature of Justice" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
-    { id: "read-and-respond", title: "Read & Respond" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
+    { id: "read-and-respond", title: "Read & Respond", tab: "read" },
   ],
   "a-three-wheel-solution": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
-    { id: "early-entrepreneurship", title: "Early Entrepreneurship" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "early-entrepreneurship", title: "Early Entrepreneurship", tab: "discourses" },
     {
-      id: "sammaan-model", title: "The SammaaN Model", children: [
+      id: "sammaan-model", title: "The SammaaN Model", tab: "discourses", children: [
         { id: "operation-model", title: "Operation Model" },
         { id: "revenue-model", title: "Revenue Model" },
       ],
     },
-    { id: "social-entrepreneurship", title: "Social Entrepreneurship" },
+    { id: "social-entrepreneurship", title: "Social Entrepreneurship", tab: "discourses" },
     {
-      id: "themes", title: "Themes", children: [
+      id: "themes", title: "Themes", tab: "read", children: [
         { id: "youth-empowerment", title: "Youth as Change-Makers" },
         { id: "dignity-of-labour", title: "Dignity of Labour" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
   ],
   "dhyan-chand": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
-    { id: "awakening", title: "Awakening to Inequity" },
-    { id: "the-beginning", title: "From Xavier's to the Slums" },
-    { id: "building-akanksha", title: "Building Akanksha" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "awakening", title: "Awakening to Inequity", tab: "discourses" },
+    { id: "the-beginning", title: "From Xavier's to the Slums", tab: "discourses" },
+    { id: "building-akanksha", title: "Building Akanksha", tab: "discourses" },
     {
-      id: "themes", title: "Themes", children: [
+      id: "themes", title: "Themes", tab: "read", children: [
         { id: "purpose-and-identity", title: "Purpose and Identity" },
         { id: "seeing-inequity", title: "Seeing Inequity" },
         { id: "small-beginnings", title: "Small Beginnings, Big Impact" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
   ],
   "stammer": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
-    { id: "the-poem", title: "The Poem" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "the-poem", title: "The Poem", tab: "read" },
     {
-      id: "poetic-devices", title: "Poetic Devices", children: [
+      id: "poetic-devices", title: "Poetic Devices", tab: "discourses", children: [
         { id: "device-metaphor", title: "Metaphor" },
         { id: "device-repetition", title: "Repetition" },
         { id: "device-parallelism", title: "Parallelism" },
       ],
     },
-    { id: "appreciation", title: "Poem Appreciation" },
+    { id: "appreciation", title: "Poem Appreciation", tab: "discourses" },
     {
-      id: "themes", title: "Themes", children: [
+      id: "themes", title: "Themes", tab: "read", children: [
         { id: "language-and-meaning", title: "Language and Meaning" },
         { id: "imperfection-as-universal", title: "Imperfection as Universal" },
         { id: "poetry-itself", title: "Poetry as Stammer" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
-    { id: "read-and-respond", title: "Read & Respond" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
+    { id: "read-and-respond", title: "Read & Respond", tab: "read" },
   ],
   "when-a-sapling-is-planted": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
-    { id: "green-belt-movement", title: "The Green Belt Movement" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "green-belt-movement", title: "The Green Belt Movement", tab: "discourses" },
     {
-      id: "environment-democracy-peace", title: "Environment, Democracy, and Peace", children: [
+      id: "environment-democracy-peace", title: "Environment, Democracy, and Peace", tab: "discourses", children: [
         { id: "environment-democracy", title: "Environment and Democracy" },
         { id: "trees-as-peace", title: "Trees as Peace Symbols" },
       ],
     },
     {
-      id: "themes", title: "Themes", children: [
+      id: "themes", title: "Themes", tab: "read", children: [
         { id: "environmental-justice", title: "Environmental Justice" },
         { id: "collective-action", title: "Collective Action" },
         { id: "interconnectedness", title: "Interconnectedness" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
-    { id: "read-and-respond", title: "Read & Respond" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
+    { id: "read-and-respond", title: "Read & Respond", tab: "read" },
   ],
   "rice": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
-    { id: "the-poem", title: "The Poem" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "the-poem", title: "The Poem", tab: "read" },
     {
-      id: "poetic-devices", title: "Poetic Devices", children: [
+      id: "poetic-devices", title: "Poetic Devices", tab: "discourses", children: [
         { id: "device-imagery", title: "Imagery" },
         { id: "device-satire", title: "Satire" },
         { id: "device-contrast", title: "Contrast" },
       ],
     },
-    { id: "appreciation", title: "Poem Appreciation" },
+    { id: "appreciation", title: "Poem Appreciation", tab: "discourses" },
     {
-      id: "themes", title: "Themes", children: [
+      id: "themes", title: "Themes", tab: "read", children: [
         { id: "loss-of-identity", title: "Loss of Agricultural Identity" },
         { id: "satire-on-governance", title: "Satire on Governance" },
         { id: "education-irrelevance", title: "Education and Irrelevance" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
-    { id: "read-and-respond", title: "Read & Respond" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
+    { id: "read-and-respond", title: "Read & Respond", tab: "read" },
   ],
   "dangers-of-drug-abuse": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
-    { id: "medicines-vs-sensual-drugs", title: "Medicines vs. Sensual Drugs" },
-    { id: "effects-on-the-brain", title: "Effects on the Brain" },
-    { id: "health-consequences", title: "Health Consequences" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "medicines-vs-sensual-drugs", title: "Medicines vs. Sensual Drugs", tab: "discourses" },
+    { id: "effects-on-the-brain", title: "Effects on the Brain", tab: "discourses" },
+    { id: "health-consequences", title: "Health Consequences", tab: "discourses" },
     {
-      id: "themes", title: "Themes", children: [
+      id: "themes", title: "Themes", tab: "read", children: [
         { id: "artificial-vs-natural", title: "Artificial vs. Natural Pleasure" },
         { id: "loss-of-agency", title: "Loss of Agency" },
         { id: "invisible-damage", title: "Invisible Damage" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
-    { id: "read-and-respond", title: "Read & Respond" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
+    { id: "read-and-respond", title: "Read & Respond", tab: "read" },
   ],
   "post-early-for-christmas": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
-    { id: "character-sketch-assistant", title: "Character Sketch: The Assistant" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "character-sketch-assistant", title: "Character Sketch: The Assistant", tab: "discourses" },
     {
-      id: "the-comedy-of-errors", title: "The Comedy of Errors", children: [
+      id: "the-comedy-of-errors", title: "The Comedy of Errors", tab: "discourses", children: [
         { id: "deaf-gentleman", title: "The Deaf Old Gentleman" },
         { id: "fussy-old-lady", title: "The Fussy Old Lady" },
         { id: "bertie", title: "Bertie and His Mother" },
       ],
     },
     {
-      id: "themes", title: "Themes", children: [
+      id: "themes", title: "Themes", tab: "read", children: [
         { id: "miscommunication", title: "Miscommunication" },
         { id: "panic-and-crowd", title: "Panic and Crowd Psychology" },
         { id: "everyday-absurdity", title: "Everyday Absurdity" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
-    { id: "read-and-respond", title: "Read & Respond" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
+    { id: "read-and-respond", title: "Read & Respond", tab: "read" },
   ],
   "this-is-going-to-hurt": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
-    { id: "the-poem", title: "The Poem" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "the-poem", title: "The Poem", tab: "read" },
     {
-      id: "poetic-devices", title: "Poetic Devices", children: [
+      id: "poetic-devices", title: "Poetic Devices", tab: "discourses", children: [
         { id: "device-hyperbole", title: "Hyperbole" },
         { id: "device-humor", title: "Humor and Wordplay" },
         { id: "device-vicious-circle", title: "The Vicious Circle" },
       ],
     },
-    { id: "appreciation", title: "Poem Appreciation" },
+    { id: "appreciation", title: "Poem Appreciation", tab: "discourses" },
     {
-      id: "themes", title: "Themes", children: [
+      id: "themes", title: "Themes", tab: "read", children: [
         { id: "universal-anxiety", title: "Universal Anxiety" },
         { id: "loss-of-control", title: "Loss of Control" },
         { id: "vicious-cycles", title: "Vicious Cycles" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
-    { id: "read-and-respond", title: "Read & Respond" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
+    { id: "read-and-respond", title: "Read & Respond", tab: "read" },
   ],
   "crime-and-punishment": [
-    { id: "author", title: "Author" },
-    { id: "introduction", title: "Introduction" },
-    { id: "summary", title: "Summary" },
-    { id: "character-sketch-teacher", title: "Character Sketch: The Teacher" },
-    { id: "character-sketch-boy", title: "Character Sketch: The Boy" },
-    { id: "character-comparison", title: "Character Comparison" },
+    { id: "author", title: "Author", tab: "read" },
+    { id: "introduction", title: "Introduction", tab: "read" },
+    { id: "summary", title: "Summary", tab: "read" },
+    { id: "character-sketch-teacher", title: "Character Sketch: The Teacher", tab: "discourses" },
+    { id: "character-sketch-boy", title: "Character Sketch: The Boy", tab: "discourses" },
+    { id: "character-comparison", title: "Character Comparison", tab: "discourses" },
     {
-      id: "themes", title: "Themes", children: [
+      id: "themes", title: "Themes", tab: "read", children: [
         { id: "power-reversal", title: "Power Reversal" },
         { id: "modern-parenting", title: "Modern Parenting" },
         { id: "education-system", title: "The Education System" },
       ],
     },
-    { id: "key-takeaway", title: "Key Takeaway" },
-    { id: "read-and-respond", title: "Read & Respond" },
+    { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
+    { id: "read-and-respond", title: "Read & Respond", tab: "read" },
   ],
   "electric-charges-and-fields": [
     { id: "h-1-1", title: "1.1 Introduction" },

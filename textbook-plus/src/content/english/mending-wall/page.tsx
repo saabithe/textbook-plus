@@ -303,36 +303,6 @@ const DISCOURSES = [
     ),
   },
   {
-    id: "theme",
-    title: "Theme",
-    content: (
-      <>
-        <Callout type="important">
-          <p>
-            The poem calls for{" "}
-            <Highlight color="green">breaking down man-made walls</Highlight> and
-            building a better world where{" "}
-            <strong>brotherhood and harmony</strong> are upheld in places of
-            conflict and separation.
-          </p>
-        </Callout>
-        <p>
-          Nature itself does not like separation &mdash; the wall breaks every spring
-          without human intervention. Yet the neighbour insists on rebuilding it,
-          showing how <strong>human tradition</strong> can conflict with{" "}
-          <Highlight color="yellow">natural order</Highlight>.
-        </p>
-        <p>
-          The poem ultimately questions whether <strong>walls</strong> (physical or
-          psychological) are truly necessary when there is{" "}
-          <em>no real threat of encroachment</em>. As a whole, the poem calls for
-          breaking down man-made walls and building a better world where brotherhood
-          and harmony are upheld in places of conflict and separation.
-        </p>
-      </>
-    ),
-  },
-  {
     id: "appreciation",
     title: "Poem Appreciation",
     content: (
@@ -413,20 +383,6 @@ const DISCOURSES = [
           as much about us as the people we build them against.
         </p>
       </div>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint title="Key Takeaway">
-        <Highlight color="yellow">Mending Wall</Highlight> explores the tension
-        between <strong>tradition and reason</strong>. While the neighbour clings
-        to the old saying &ldquo;Good fences make good neighbours,&rdquo; the poet
-        questions whether walls are necessary when there is no real threat. The
-        poem calls for <strong>breaking down barriers</strong> and building{" "}
-        <Highlight color="green">harmony and brotherhood</Highlight>.
-      </KeyPoint>
     ),
   },
 ];
@@ -675,6 +631,50 @@ export default function MendingWallPage() {
               </ul>
             }
           />
+
+          {/* Theme */}
+          <div id="theme">
+            <Callout type="important">
+              <p>
+                The poem calls for{" "}
+                <Highlight color="green">breaking down man-made walls</Highlight> and
+                building a better world where{" "}
+                <strong>brotherhood and harmony</strong> are upheld in places of
+                conflict and separation.
+              </p>
+            </Callout>
+            <p>
+              Nature itself does not like separation &mdash; the wall breaks every spring
+              without human intervention. Yet the neighbour insists on rebuilding it,
+              showing how <strong>human tradition</strong> can conflict with{" "}
+              <Highlight color="yellow">natural order</Highlight>.
+            </p>
+            <p>
+              The poem ultimately questions whether <strong>walls</strong> (physical or
+              psychological) are truly necessary when there is{" "}
+              <em>no real threat of encroachment</em>. As a whole, the poem calls for
+              breaking down man-made walls and building a better world where brotherhood
+              and harmony are upheld in places of conflict and separation.
+            </p>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              <Highlight color="yellow">Mending Wall</Highlight> explores the tension
+              between <strong>tradition and reason</strong>. While the neighbour clings
+              to the old saying &ldquo;Good fences make good neighbours,&rdquo; the poet
+              questions whether walls are necessary when there is no real threat. The
+              poem calls for <strong>breaking down barriers</strong> and building{" "}
+              <Highlight color="green">harmony and brotherhood</Highlight>.
+            </KeyPoint>
+          </div>
+
+          {/* Read & Respond */}
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={READ_RESPOND} />
+          </div>
         </div>
       )}
 
@@ -686,10 +686,6 @@ export default function MendingWallPage() {
               {section.content}
             </CollapsibleSection>
           ))}
-          <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={READ_RESPOND} />
-          </div>
         </div>
       )}
     </div>

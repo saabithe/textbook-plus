@@ -203,29 +203,6 @@ const DISCOURSES = [
       </div>
     ),
   },
-  {
-    id: "themes",
-    title: "Themes",
-    content: (
-      <div className="space-y-8">
-        {THEMES.map((theme) => (
-          <div key={theme.id} id={theme.id}>
-            <h3 className="text-lg font-bold mb-3">{theme.title}</h3>
-            {theme.content}
-          </div>
-        ))}
-      </div>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint>
-        True integrity is revealed not in comfort, but when it costs you everything &mdash; Robert Baldwin&apos;s refusal to compromise proves that a clean conscience is worth more than any amount of money.
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function TheHourOfTruthPage() {
@@ -426,6 +403,30 @@ export default function TheHourOfTruthPage() {
               </ul>
             }
           />
+
+          {/* Themes */}
+          <div id="themes">
+            <div className="space-y-8">
+              {THEMES.map((theme) => (
+                <div key={theme.id} id={theme.id}>
+                  <h3 className="text-lg font-bold mb-3">{theme.title}</h3>
+                  {theme.content}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint>
+              True integrity is revealed not in comfort, but when it costs you everything &mdash; Robert Baldwin&apos;s refusal to compromise proves that a clean conscience is worth more than any amount of money.
+            </KeyPoint>
+          </div>
+
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={READ_RESPOND} />
+          </div>
         </div>
       )}
 
@@ -437,10 +438,6 @@ export default function TheHourOfTruthPage() {
               {section.content}
             </CollapsibleSection>
           ))}
-          <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={READ_RESPOND} />
-          </div>
         </div>
       )}
     </div>

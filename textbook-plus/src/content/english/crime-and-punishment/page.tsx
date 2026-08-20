@@ -169,74 +169,6 @@ const DISCOURSES = [
       />
     ),
   },
-  {
-    id: "themes",
-    title: "Themes",
-    content: (
-      <>
-        <h3
-          id="power-reversal"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Power Reversal
-        </h3>
-        <p>
-          The story&rsquo;s central irony is the{" "}
-          <Highlight color="yellow">reversal of authority</Highlight>. The
-          teacher, who should be in charge, becomes the boy&rsquo;s servant.
-          The boy, who should be learning, becomes the teacher&rsquo;s
-          tormentor. The title &ldquo;Crime and Punishment&rdquo; inverts
-          expectations: the teacher&rsquo;s crime leads to his own punishment.
-        </p>
-        <h3
-          id="modern-parenting"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Modern Parenting
-        </h3>
-        <p>
-          The parents&rsquo; child psychology theories &mdash; never set up
-          &ldquo;contrariness or repression&rdquo; &mdash; have produced a
-          child who is{" "}
-          <Highlight color="pink">utterly unrestrained</Highlight>. The
-          story satirizes permissive parenting: the parents lecture the
-          teacher on theory while their &ldquo;little angel&rdquo; is
-          actually a tyrant.
-        </p>
-        <h3
-          id="education-system"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          The Education System
-        </h3>
-        <p>
-          The teacher teaches six hours at school and then three more with
-          this one child &mdash; for thirty rupees a month. He is{" "}
-          <Highlight color="blue">exhausted, underpaid, and powerless</Highlight>.
-          The story exposes the gap between educational theory (the
-          parents&rsquo; psychology) and classroom reality (a tyrannical
-          child and a desperate teacher).
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint title="Key Takeaway">
-        <em>Crime and Punishment</em> is a comic masterpiece about the{" "}
-        <Highlight color="yellow">reversal of power</Highlight>. The
-        teacher&rsquo;s single moment of violence becomes the boy&rsquo;s
-        permanent weapon. Narayan&rsquo;s genius lies in showing how the
-        &ldquo;punished&rdquo; child becomes the punisher, and how love,
-        guilt, and exhaustion conspire to make the teacher his own
-        prisoner. The story&rsquo;s final lie &mdash; protecting the boy
-        from his father &mdash; reveals an unexpected tenderness beneath
-        the comedy.
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function CrimeAndPunishmentPage() {
@@ -413,6 +345,73 @@ export default function CrimeAndPunishmentPage() {
               </ul>
             }
           />
+
+          {/* Themes */}
+          <div id="themes">
+            <h3
+              id="power-reversal"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Power Reversal
+            </h3>
+            <p>
+              The story&rsquo;s central irony is the{" "}
+              <Highlight color="yellow">reversal of authority</Highlight>. The
+              teacher, who should be in charge, becomes the boy&rsquo;s servant.
+              The boy, who should be learning, becomes the teacher&rsquo;s
+              tormentor. The title &ldquo;Crime and Punishment&rdquo; inverts
+              expectations: the teacher&rsquo;s crime leads to his own punishment.
+            </p>
+            <h3
+              id="modern-parenting"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Modern Parenting
+            </h3>
+            <p>
+              The parents&rsquo; child psychology theories &mdash; never set up
+              &ldquo;contrariness or repression&rdquo; &mdash; have produced a
+              child who is{" "}
+              <Highlight color="pink">utterly unrestrained</Highlight>. The
+              story satirizes permissive parenting: the parents lecture the
+              teacher on theory while their &ldquo;little angel&rdquo; is
+              actually a tyrant.
+            </p>
+            <h3
+              id="education-system"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              The Education System
+            </h3>
+            <p>
+              The teacher teaches six hours at school and then three more with
+              this one child &mdash; for thirty rupees a month. He is{" "}
+              <Highlight color="blue">exhausted, underpaid, and powerless</Highlight>.
+              The story exposes the gap between educational theory (the
+              parents&rsquo; psychology) and classroom reality (a tyrannical
+              child and a desperate teacher).
+            </p>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              <em>Crime and Punishment</em> is a comic masterpiece about the{" "}
+              <Highlight color="yellow">reversal of power</Highlight>. The
+              teacher&rsquo;s single moment of violence becomes the boy&rsquo;s
+              permanent weapon. Narayan&rsquo;s genius lies in showing how the
+              &ldquo;punished&rdquo; child becomes the punisher, and how love,
+              guilt, and exhaustion conspire to make the teacher his own
+              prisoner. The story&rsquo;s final lie &mdash; protecting the boy
+              from his father &mdash; reveals an unexpected tenderness beneath
+              the comedy.
+            </KeyPoint>
+          </div>
+
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={QA_ITEMS} />
+          </div>
         </div>
       )}
 
@@ -424,10 +423,6 @@ export default function CrimeAndPunishmentPage() {
               {section.content}
             </CollapsibleSection>
           ))}
-          <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={QA_ITEMS} />
-          </div>
         </div>
       )}
     </div>

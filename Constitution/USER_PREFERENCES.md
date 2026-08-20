@@ -116,6 +116,18 @@ This file tracks ALL user preferences, design decisions, and customization choic
 |------------|-------|------|
 | — | — | — |
 
+## 10. English Chapter Page Design
+
+| Preference | Value | Date |
+|------------|-------|------|
+| Tab layout | Two tabs: **Read** and **Discourses** (no Practice tab for English/Arabic) | Aug 2026 |
+| Default tab | Read (active on load) | Aug 2026 |
+| Read tab content | Author → Introduction → Summary → **Themes** → **Key Takeaway** → **Read & Respond** | Aug 2026 |
+| Discourses tab content | Character Sketches, Character Comparisons, Poetic Devices, Appreciation, genre-specific analysis | Aug 2026 |
+| AuthorCard behavior | Collapsible — name always visible, bio hidden behind chevron. Collapsed by default. No chevron if no bio. | Aug 2026 |
+| Sidebar behavior | Shows only sections for the active tab (Read or Discourses). Clicking a section scrolls to visible content. | Aug 2026 |
+| No auto-creating content | Always ask user via question tool before adding new Discourses sections | Aug 2026 |
+
 ---
 
 *This file is append-only. Previous decisions are never deleted, only updated with new values when explicitly changed by the user.*

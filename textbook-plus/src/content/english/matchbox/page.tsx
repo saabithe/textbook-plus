@@ -320,104 +320,6 @@ const DISCOURSES = [
       </CharacterSketch>
     ),
   },
-  {
-    id: "symbolism-themes",
-    title: "Symbolism & Themes",
-    content: (
-      <>
-        <Callout type="important">
-          <p>
-            The <Highlight color="yellow">matchbox</Highlight> is the
-            story&rsquo;s central symbol: women have enough{" "}
-            <strong>gunpowder</strong> to set a hundred Lankas aflame,
-            yet they sit meek and innocent. The story asks: what happens
-            when the match is finally struck?
-          </p>
-        </Callout>
-
-        <h3
-          id="matchbox-symbol"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          The Matchbox
-        </h3>
-        <p>
-          The matchbox represents{" "}
-          <Highlight color="yellow">women&rsquo;s suppressed power</Highlight>.
-          It contains the potential for destruction &mdash; gunpowder,
-          fire, rebellion &mdash; but is kept &ldquo;meek and
-          innocent&rdquo; in kitchens, pantries, and bedrooms. Nomita
-          grabs the matchbox and strikes the match, but the fire is{" "}
-          <strong>quickly extinguished</strong>. The men know women won&rsquo;t
-          burn their own shells &mdash; that&rsquo;s why they leave them
-          scattered carelessly.
-        </p>
-
-        <h3
-          id="the-letter"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          The Letter
-        </h3>
-        <p>
-          The letter is a symbol of{" "}
-          <Highlight color="pink">male control over communication</Highlight>.
-          Ajit opens, reads, and sometimes discards Nomita&rsquo;s
-          correspondence. The letter-box key is his tool of surveillance.
-          Nomita&rsquo;s private world &mdash; her relationship with her
-          mother &mdash; is under his control.
-        </p>
-
-        <h3
-          id="forest-of-people"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Forest of People
-        </h3>
-        <p>
-          The expression{" "}
-          <Highlight color="green">&ldquo;forest of people&rdquo;</Highlight>{" "}
-          captures the overwhelming density of the joint family. Nomita
-          looks around and sees the hurly-burly on either side. There is{" "}
-          <strong>no privacy</strong>, no space for genuine emotion. Every
-          smile is a performance. Her voice must not tremble.
-        </p>
-
-        <h3
-          id="burning-sari"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          The Burning Sari
-        </h3>
-        <p>
-          When Nomita{" "}
-          <Highlight color="yellow">sets her sari on fire</Highlight>, it is
-          the matchbox&rsquo;s gunpowder finally ignited. But the fire is{" "}
-          <strong>momentary</strong> &mdash; Ajit puts it out, and Nomita
-          returns to peeling potatoes. The act reveals the depth of her
-          suppressed rage, but also its{" "}
-          <strong>futility</strong>: the system absorbs even the most
-          dramatic rebellion.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint title="Key Takeaway">
-        <em>Matchbox</em> reveals the{" "}
-        <Highlight color="yellow">quiet fury</Highlight> of women who
-        endure patriarchal control with composure. They have the
-        gunpowder to burn everything down, but they{" "}
-        <strong>never flare up and burn away the mask</strong> of
-        men&rsquo;s high-mindedness. The men know this &mdash; and that
-        is why they leave matchboxes scattered carelessly, without
-        fear, in their pockets.
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function MatchboxPage() {
@@ -618,6 +520,104 @@ export default function MatchboxPage() {
               </ul>
             }
           />
+
+          {/* Themes */}
+          <div id="symbolism-themes">
+            <Callout type="important">
+              <p>
+                The <Highlight color="yellow">matchbox</Highlight> is the
+                story&rsquo;s central symbol: women have enough{" "}
+                <strong>gunpowder</strong> to set a hundred Lankas aflame,
+                yet they sit meek and innocent. The story asks: what happens
+                when the match is finally struck?
+              </p>
+            </Callout>
+
+            <h3
+              id="matchbox-symbol"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              The Matchbox
+            </h3>
+            <p>
+              The matchbox represents{" "}
+              <Highlight color="yellow">women&rsquo;s suppressed power</Highlight>.
+              It contains the potential for destruction &mdash; gunpowder,
+              fire, rebellion &mdash; but is kept &ldquo;meek and
+              innocent&rdquo; in kitchens, pantries, and bedrooms. Nomita
+              grabs the matchbox and strikes the match, but the fire is{" "}
+              <strong>quickly extinguished</strong>. The men know women won&rsquo;t
+              burn their own shells &mdash; that&rsquo;s why they leave them
+              scattered carelessly.
+            </p>
+
+            <h3
+              id="the-letter"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              The Letter
+            </h3>
+            <p>
+              The letter is a symbol of{" "}
+              <Highlight color="pink">male control over communication</Highlight>.
+              Ajit opens, reads, and sometimes discards Nomita&rsquo;s
+              correspondence. The letter-box key is his tool of surveillance.
+              Nomita&rsquo;s private world &mdash; her relationship with her
+              mother &mdash; is under his control.
+            </p>
+
+            <h3
+              id="forest-of-people"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Forest of People
+            </h3>
+            <p>
+              The expression{" "}
+              <Highlight color="green">&ldquo;forest of people&rdquo;</Highlight>{" "}
+              captures the overwhelming density of the joint family. Nomita
+              looks around and sees the hurly-burly on either side. There is{" "}
+              <strong>no privacy</strong>, no space for genuine emotion. Every
+              smile is a performance. Her voice must not tremble.
+            </p>
+
+            <h3
+              id="burning-sari"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              The Burning Sari
+            </h3>
+            <p>
+              When Nomita{" "}
+              <Highlight color="yellow">sets her sari on fire</Highlight>, it is
+              the matchbox&rsquo;s gunpowder finally ignited. But the fire is{" "}
+              <strong>momentary</strong> &mdash; Ajit puts it out, and Nomita
+              returns to peeling potatoes. The act reveals the depth of her
+              suppressed rage, but also its{" "}
+              <strong>futility</strong>: the system absorbs even the most
+              dramatic rebellion.
+            </p>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              <em>Matchbox</em> reveals the{" "}
+              <Highlight color="yellow">quiet fury</Highlight> of women who
+              endure patriarchal control with composure. They have the
+              gunpowder to burn everything down, but they{" "}
+              <strong>never flare up and burn away the mask</strong> of
+              men&rsquo;s high-mindedness. The men know this &mdash; and that
+              is why they leave matchboxes scattered carelessly, without
+              fear, in their pockets.
+            </KeyPoint>
+          </div>
+
+          {/* Read & Respond */}
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={READ_RESPOND} />
+          </div>
         </div>
       )}
 
@@ -629,10 +629,6 @@ export default function MatchboxPage() {
               {section.content}
             </CollapsibleSection>
           ))}
-          <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={READ_RESPOND} />
-          </div>
         </div>
       )}
     </div>

@@ -140,69 +140,6 @@ const DISCOURSES = [
       </>
     ),
   },
-  {
-    id: "themes",
-    title: "Themes",
-    content: (
-      <>
-        <h3
-          id="miscommunication"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Miscommunication
-        </h3>
-        <p>
-          The play is built on a chain of{" "}
-          <Highlight color="yellow">misunderstandings</Highlight>. The Deaf
-          Gentleman mishears, the Old Lady mistakes the post office, the
-          Farmer&rsquo;s bomb joke triggers panic, and the Tourist&rsquo;s
-          foreign accent adds to the confusion. Every character exists in
-          their own linguistic bubble.
-        </p>
-        <h3
-          id="panic-and-crowd"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Panic and Crowd Psychology
-        </h3>
-        <p>
-          The bomb scare demonstrates how quickly{" "}
-          <Highlight color="pink">collective fear</Highlight> escalates. One
-          person hears a tick, others agree, and suddenly everyone is hiding
-          under counters. The Policeman arrives to find them all cowering
-          &mdash; a satire on how easily rational people are swept into panic.
-        </p>
-        <h3
-          id="everyday-absurdity"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Everyday Absurdity
-        </h3>
-        <p>
-          The post office becomes a microcosm of human folly. Each character
-          arrives with a mundane purpose &mdash; stamps, parcels, a pension
-          &mdash; and the accumulated small absurdities build to a
-          catastrophic misunderstanding. The play suggests that ordinary life
-          is already absurd; we just need the right trigger to notice.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint title="Key Takeaway">
-        <em>Post Early for Christmas</em> is a comedy of escalating
-        misunderstandings. Through a deaf old gentleman, a confused old lady,
-        a mischievous child, and a ticking Swiss clock, R. H. Wood shows how{" "}
-        <Highlight color="yellow">ordinary people</Highlight> can be swept
-        into collective panic by the smallest trigger. The play&rsquo;s
-        gentle satire on miscommunication and crowd psychology remains as
-        relevant today as when it was written.
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function PostEarlyForChristmasPage() {
@@ -376,6 +313,68 @@ export default function PostEarlyForChristmasPage() {
               </ul>
             }
           />
+
+          {/* Themes */}
+          <div id="themes">
+            <h3
+              id="miscommunication"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Miscommunication
+            </h3>
+            <p>
+              The play is built on a chain of{" "}
+              <Highlight color="yellow">misunderstandings</Highlight>. The Deaf
+              Gentleman mishears, the Old Lady mistakes the post office, the
+              Farmer&rsquo;s bomb joke triggers panic, and the Tourist&rsquo;s
+              foreign accent adds to the confusion. Every character exists in
+              their own linguistic bubble.
+            </p>
+            <h3
+              id="panic-and-crowd"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Panic and Crowd Psychology
+            </h3>
+            <p>
+              The bomb scare demonstrates how quickly{" "}
+              <Highlight color="pink">collective fear</Highlight> escalates. One
+              person hears a tick, others agree, and suddenly everyone is hiding
+              under counters. The Policeman arrives to find them all cowering
+              &mdash; a satire on how easily rational people are swept into panic.
+            </p>
+            <h3
+              id="everyday-absurdity"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Everyday Absurdity
+            </h3>
+            <p>
+              The post office becomes a microcosm of human folly. Each character
+              arrives with a mundane purpose &mdash; stamps, parcels, a pension
+              &mdash; and the accumulated small absurdities build to a
+              catastrophic misunderstanding. The play suggests that ordinary life
+              is already absurd; we just need the right trigger to notice.
+            </p>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              <em>Post Early for Christmas</em> is a comedy of escalating
+              misunderstandings. Through a deaf old gentleman, a confused old lady,
+              a mischievous child, and a ticking Swiss clock, R. H. Wood shows how{" "}
+              <Highlight color="yellow">ordinary people</Highlight> can be swept
+              into collective panic by the smallest trigger. The play&rsquo;s
+              gentle satire on miscommunication and crowd psychology remains as
+              relevant today as when it was written.
+            </KeyPoint>
+          </div>
+
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={QA_ITEMS} />
+          </div>
         </div>
       )}
 
@@ -387,10 +386,6 @@ export default function PostEarlyForChristmasPage() {
               {section.content}
             </CollapsibleSection>
           ))}
-          <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={QA_ITEMS} />
-          </div>
         </div>
       )}
     </div>

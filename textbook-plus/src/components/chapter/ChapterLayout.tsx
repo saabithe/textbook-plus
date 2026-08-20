@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { ChevronRight, ChevronLeft, CheckCircle2, Circle, Brain, Layers } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -14,6 +14,17 @@ import { getAdjacentChapters } from "@/data/chapters";
 import { getSectionsForChapter, getQuestionsForChapter, getFlashcardsForChapter, hasQuestions, hasFlashcards } from "@/lib/content";
 import { useProgress } from "@/hooks/useProgress";
 import type { Chapter } from "@/data/chapters";
+import type { ChapterSection } from "@/types/chapter";
+
+function filterSectionsByTab(sections: ChapterSection[], tab: string): ChapterSection[] {
+  return sections
+    .filter((s) => !s.tab || s.tab === tab)
+    .map((s) =>
+      s.children
+        ? { ...s, children: filterSectionsByTab(s.children, tab) }
+        : s
+    );
+}
 
 interface ChapterLayoutProps {
   chapter: Chapter;
@@ -31,13 +42,28 @@ export function ChapterLayout({
   children,
 }: ChapterLayoutProps) {
   const { prev, next } = getAdjacentChapters(chapter);
-  const sections = getSectionsForChapter(chapter.slug);
-  const hasSidebar = sections.length > 0;
+  const allSections = getSectionsForChapter(chapter.slug);
+  const hasSidebar = allSections.length > 0;
   const { isCompleted, toggle } = useProgress(subjectSlug);
   const completed = isCompleted(chapter.slug);
   const [activeTab, setActiveTab] = useState("learning");
+  const [innerTab, setInnerTab] = useState("summary");
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const showPractice = subjectSlug !== "english" && subjectSlug !== "arabic";
+
+  const handleInnerTabChange = useCallback((e: Event) => {
+    const detail = (e as CustomEvent).detail;
+    if (detail?.tab) setInnerTab(detail.tab);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("content-tab-change", handleInnerTabChange);
+    return () => window.removeEventListener("content-tab-change", handleInnerTabChange);
+  }, [handleInnerTabChange]);
+
+  const sidebarSections = activeTab === "learning"
+    ? filterSectionsByTab(allSections, innerTab)
+    : [];
 
   // Restore sidebar state from localStorage
   useEffect(() => {
@@ -117,7 +143,7 @@ export function ChapterLayout({
           </button>
           {hasSidebar && activeTab === "learning" && (
             <MobileSidebar
-              sections={sections}
+              sections={sidebarSections}
               subjectColor={subjectColor}
               chapterTitle={chapter.title}
             />
@@ -144,7 +170,7 @@ export function ChapterLayout({
               style={{ width: sidebarOpen ? "15rem" : "0" }}
             >
               <div className="sticky top-24 max-h-[calc(100vh-8rem)] w-60 overflow-y-auto">
-                <Sidebar sections={sections} subjectColor={subjectColor} />
+                <Sidebar sections={sidebarSections} subjectColor={subjectColor} />
               </div>
             </aside>
           )}

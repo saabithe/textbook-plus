@@ -308,103 +308,6 @@ const DISCOURSES = [
       />
     ),
   },
-  {
-    id: "symbolism-themes",
-    title: <>Symbolism &amp; Themes</>,
-    content: (
-      <>
-        <Callout type="important">
-          <p>
-            The <em>horegallu</em> is not just a physical stone bench. It is a{" "}
-            <strong>metaphor</strong> for{" "}
-            <Highlight color="yellow">empathy</Highlight>,{" "}
-            <Highlight color="pink">support</Highlight>, and the{" "}
-            <strong>power of listening</strong> in human relationships.
-          </p>
-        </Callout>
-
-        <h3
-          id="the-burden"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          The Symbolism of &lsquo;Burden&rsquo;
-        </h3>
-        <p>
-          The word &lsquo;<Highlight color="pink">burden</Highlight>&rsquo; is used
-          both literally and symbolically. The villagers literally carry{" "}
-          <strong>heavy loads</strong> on their heads, but the word also represents
-          the <strong>emotional and psychological worries</strong> that people carry
-          through life. The horegallu offers a place to set down both kinds of
-          burden.
-        </p>
-
-        <h3
-          id="power-of-listening"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          The Power of Listening
-        </h3>
-        <p>
-          Both <Highlight color="green">grandfather</Highlight> and{" "}
-          <Highlight color="blue">Ratna</Highlight> are{" "}
-          <strong>good listeners</strong>. Neither tries to solve problems or offer
-          advice &mdash; they simply listen with{" "}
-          <strong>sympathy</strong> and{" "}
-          <strong>without judgement</strong>. The story shows that{" "}
-          <Highlight color="yellow">listening itself</Highlight> is a powerful form
-          of social service. It provides{" "}
-          <Highlight color="pink">psychological relief</Highlight> and creates{" "}
-          <strong>healthy minds</strong>.
-        </p>
-
-        <h3
-          id="human-horegallus"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Human Horegallus
-        </h3>
-        <p>
-          The story draws a parallel between{" "}
-          <Highlight color="green">grandfather</Highlight> and{" "}
-          <Highlight color="blue">Ratna</Highlight>. Both acted as &lsquo;
-          <Highlight color="yellow">human horegallus</Highlight>&rsquo; &mdash;
-          offering <strong>empathy</strong> and{" "}
-          <strong>patience</strong> without expecting any reward. The author
-          concludes that the world needs many more such{" "}
-          <strong>people who listen with compassion</strong>.
-        </p>
-
-        <Expandable title="Infectious Cheerfulness">
-          <p>
-            The expression &lsquo;<Highlight color="pink">infectious
-            cheerfulness</Highlight>&rsquo; describes{" "}
-            <Highlight color="blue">Ratna&rsquo;s</Highlight>{" "}
-            <strong>positive attitude</strong> that naturally affected everyone
-            around her. Even though her work was repetitive and mundane, she
-            approached it with joy &mdash; and that joy spread to the people who came to
-            her for support.
-          </p>
-        </Expandable>
-      </>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: <>Key Takeaway</>,
-    content: (
-      <KeyPoint title="Key Takeaway">
-        The <Highlight color="yellow">horegallu</Highlight> is a{" "}
-        <strong>metaphor for empathy and support</strong> in human
-        relationships. Everyone carries burdens, and sometimes they just need{" "}
-        <strong>someone to listen</strong>. Good listeners &mdash; like the
-        author&rsquo;s grandfather and Ratna &mdash; act as{" "}
-        <Highlight color="green">human horegallus</Highlight>, providing the{" "}
-        <Highlight color="pink">psychological relief</Highlight> and{" "}
-        <strong>emotional support</strong> that people need to regain their
-        strength and carry on with their journey.
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function HoregalluPage() {
@@ -605,6 +508,103 @@ export default function HoregalluPage() {
               </ul>
             }
           />
+
+          {/* Themes */}
+          <div id="symbolism-themes">
+            <Callout type="important">
+              <p>
+                The <em>horegallu</em> is not just a physical stone bench. It is a{" "}
+                <strong>metaphor</strong> for{" "}
+                <Highlight color="yellow">empathy</Highlight>,{" "}
+                <Highlight color="pink">support</Highlight>, and the{" "}
+                <strong>power of listening</strong> in human relationships.
+              </p>
+            </Callout>
+
+            <h3
+              id="the-burden"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              The Symbolism of &lsquo;Burden&rsquo;
+            </h3>
+            <p>
+              The word &lsquo;<Highlight color="pink">burden</Highlight>&rsquo; is used
+              both literally and symbolically. The villagers literally carry{" "}
+              <strong>heavy loads</strong> on their heads, but the word also represents
+              the <strong>emotional and psychological worries</strong> that people carry
+              through life. The horegallu offers a place to set down both kinds of
+              burden.
+            </p>
+
+            <h3
+              id="power-of-listening"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              The Power of Listening
+            </h3>
+            <p>
+              Both <Highlight color="green">grandfather</Highlight> and{" "}
+              <Highlight color="blue">Ratna</Highlight> are{" "}
+              <strong>good listeners</strong>. Neither tries to solve problems or offer
+              advice &mdash; they simply listen with{" "}
+              <strong>sympathy</strong> and{" "}
+              <strong>without judgement</strong>. The story shows that{" "}
+              <Highlight color="yellow">listening itself</Highlight> is a powerful form
+              of social service. It provides{" "}
+              <Highlight color="pink">psychological relief</Highlight> and creates{" "}
+              <strong>healthy minds</strong>.
+            </p>
+
+            <h3
+              id="human-horegallus"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Human Horegallus
+            </h3>
+            <p>
+              The story draws a parallel between{" "}
+              <Highlight color="green">grandfather</Highlight> and{" "}
+              <Highlight color="blue">Ratna</Highlight>. Both acted as &lsquo;
+              <Highlight color="yellow">human horegallus</Highlight>&rsquo; &mdash;
+              offering <strong>empathy</strong> and{" "}
+              <strong>patience</strong> without expecting any reward. The author
+              concludes that the world needs many more such{" "}
+              <strong>people who listen with compassion</strong>.
+            </p>
+
+            <Expandable title="Infectious Cheerfulness">
+              <p>
+                The expression &lsquo;<Highlight color="pink">infectious
+                cheerfulness</Highlight>&rsquo; describes{" "}
+                <Highlight color="blue">Ratna&rsquo;s</Highlight>{" "}
+                <strong>positive attitude</strong> that naturally affected everyone
+                around her. Even though her work was repetitive and mundane, she
+                approached it with joy &mdash; and that joy spread to the people who came to
+                her for support.
+              </p>
+            </Expandable>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              The <Highlight color="yellow">horegallu</Highlight> is a{" "}
+              <strong>metaphor for empathy and support</strong> in human
+              relationships. Everyone carries burdens, and sometimes they just need{" "}
+              <strong>someone to listen</strong>. Good listeners &mdash; like the
+              author&rsquo;s grandfather and Ratna &mdash; act as{" "}
+              <Highlight color="green">human horegallus</Highlight>, providing the{" "}
+              <Highlight color="pink">psychological relief</Highlight> and{" "}
+              <strong>emotional support</strong> that people need to regain their
+              strength and carry on with their journey.
+            </KeyPoint>
+          </div>
+
+          {/* Read & Respond */}
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={QA_ITEMS} />
+          </div>
         </div>
       )}
 
@@ -616,10 +616,6 @@ export default function HoregalluPage() {
               {section.content}
             </CollapsibleSection>
           ))}
-          <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={QA_ITEMS} />
-          </div>
         </div>
       )}
     </div>

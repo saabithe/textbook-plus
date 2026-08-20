@@ -1,6 +1,7 @@
 export interface ChapterSection {
   id: string;
   title: string;
+  tab?: "read" | "discourses";
   children?: ChapterSection[];
 }
 

@@ -203,7 +203,7 @@ Every chapter MUST include a `SummaryLevels` component with three **qualitativel
 
 ## Poem Appreciation Format (Kerala Board)
 
-Every poem chapter MUST include a Poem Appreciation section in the Creations tab, following this exact structure:
+Every poem chapter MUST include a Poem Appreciation section in the **Discourses** tab, following this exact structure:
 
 ### 1. Introduction
 - State the title of the poem and the name of the poet
@@ -235,6 +235,47 @@ Every poem chapter MUST include a Poem Appreciation section in the Creations tab
 >
 > **4. Critical Comment / Personal Opinion**
 > What makes "Mending Wall" truly powerful is its ambiguity... The epigram "Good fences make good neighbours" has become one of the most quoted lines in American poetry...
+
+---
+
+## English Chapter Page Tab Structure
+
+Every English chapter page.tsx uses a two-tab layout via `ContentTabs`:
+
+### Read Tab (default)
+
+Contains the core reading content, rendered directly (no CollapsibleSection wrapping):
+
+| Section | ID | Notes |
+|---------|-----|-------|
+| Author | `author` | `<AuthorCard>` — collapsible, name always visible |
+| Introduction | `introduction` | `<h2>` heading + paragraph(s) |
+| Summary | `summary` | `<SummaryLevels>` with Quick/Standard/Detailed |
+| Themes | `themes` or `symbolism-themes` | Raw JSX with `<h3>` sub-sections, `<Callout>`, `<Expandable>` |
+| Key Takeaway | `key-takeaway` | `<KeyPoint>` component |
+| Read & Respond | `read-and-respond-section` | `<ReadRespond>` with QA_ITEMS |
+
+### Discourses Tab
+
+Contains deeper analysis, rendered via `DISCOURSES` array → `CollapsibleSection` (collapsed by default):
+
+| Section Type | IDs | Notes |
+|-------------|-----|-------|
+| Character Sketches | `character-sketch-*` | `<CharacterSketch>` component |
+| Character Comparison | `character-comparison` | `<CharacterComparison>` component |
+| Poetic Devices | `poetic-devices` | `<Expandable>` blocks for each device |
+| Poem Appreciation | `appreciation` | Kerala Board 4-section format |
+| Genre Analysis | `the-three-ls`, `sammaan-model`, `green-belt-movement`, etc. | Varies by chapter |
+
+### Sidebar
+
+The sidebar (`SECTIONS_MAP` in `src/lib/content.ts`) lists ALL sections from both tabs, each tagged with `tab: "read"` or `tab: "discourses"`. `ChapterLayout` filters sections by the active tab using a `content-tab-change` custom event. Sidebar shows only sections visible in the current tab.
+
+### Adding New Sections
+
+- **Read tab sections**: Add directly in the `{activeTab === "summary" && (...)}` block, before ReadRespond
+- **Discourses tab sections**: Add to the `DISCOURSES` array (will render inside `<CollapsibleSection>`)
+- Always ask user via question tool before adding new Discourses sections
 
 ---
 

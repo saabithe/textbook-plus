@@ -143,75 +143,6 @@ const DISCOURSES = [
       </>
     ),
   },
-  {
-    id: "themes",
-    title: "Themes",
-    content: (
-      <>
-        <h3
-          id="economic-inequality"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Economic Inequality
-        </h3>
-        <p>
-          The speech exposes the{" "}
-          <Highlight color="pink">persistent gap</Highlight> between men and
-          women in the workplace. Despite equal education, women are trapped in{" "}
-          <strong>low-paying, low-status, low-security jobs</strong>. Lagarde
-          frames this not as a women&rsquo;s issue alone but as an economic
-          crisis: per capita income suffers when half the population is denied
-          equal opportunity.
-        </p>
-
-        <h3
-          id="confidence-gap"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          The Confidence Gap
-        </h3>
-        <p>
-          Lagarde acknowledges that women sometimes{" "}
-          <Highlight color="yellow">lack the confidence</Highlight> to match
-          their competence. The solution is twofold: women must &ldquo;dare the
-          difference&rdquo; and step outside comfort zones, while society must
-          remove the{" "}
-          <Highlight color="blue">barriers</Highlight> &mdash; whether
-          providing primary education in villages or executive positions in
-          business.
-        </p>
-
-        <h3
-          id="dare-the-difference"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Dare the Difference
-        </h3>
-        <p>
-          The speech&rsquo;s closing call to action:{" "}
-          <strong>&ldquo;If we dare the difference, the difference will
-          deliver.&rdquo;</strong> Empowerment requires both individual courage
-          &mdash; taking risks, stepping outside comfort zones &mdash; and
-          systemic change &mdash; laws, policies, and cultural shifts.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint title="Key Takeaway">
-        Women&rsquo;s empowerment rests on{" "}
-        <Highlight color="yellow">Learning, Labour, and Leadership</Highlight>{" "}
-        &mdash; the 3 Ls. Education is the foundation, economic participation
-        is the pathway, and leadership is the goal. Creating a world where
-        all women meet their potential without impediment or prejudice is
-        not just a moral imperative &mdash;{" "}
-        <strong>the world will reap the benefits</strong>.
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function The3LsOfEmpowermentPage() {
@@ -406,6 +337,74 @@ export default function The3LsOfEmpowermentPage() {
               </ul>
             }
           />
+
+          {/* Themes */}
+          <div id="themes">
+            <h3
+              id="economic-inequality"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Economic Inequality
+            </h3>
+            <p>
+              The speech exposes the{" "}
+              <Highlight color="pink">persistent gap</Highlight> between men and
+              women in the workplace. Despite equal education, women are trapped in{" "}
+              <strong>low-paying, low-status, low-security jobs</strong>. Lagarde
+              frames this not as a women&rsquo;s issue alone but as an economic
+              crisis: per capita income suffers when half the population is denied
+              equal opportunity.
+            </p>
+
+            <h3
+              id="confidence-gap"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              The Confidence Gap
+            </h3>
+            <p>
+              Lagarde acknowledges that women sometimes{" "}
+              <Highlight color="yellow">lack the confidence</Highlight> to match
+              their competence. The solution is twofold: women must &ldquo;dare the
+              difference&rdquo; and step outside comfort zones, while society must
+              remove the{" "}
+              <Highlight color="blue">barriers</Highlight> &mdash; whether
+              providing primary education in villages or executive positions in
+              business.
+            </p>
+
+            <h3
+              id="dare-the-difference"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Dare the Difference
+            </h3>
+            <p>
+              The speech&rsquo;s closing call to action:{" "}
+              <strong>&ldquo;If we dare the difference, the difference will
+              deliver.&rdquo;</strong> Empowerment requires both individual courage
+              &mdash; taking risks, stepping outside comfort zones &mdash; and
+              systemic change &mdash; laws, policies, and cultural shifts.
+            </p>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              Women&rsquo;s empowerment rests on{" "}
+              <Highlight color="yellow">Learning, Labour, and Leadership</Highlight>{" "}
+              &mdash; the 3 Ls. Education is the foundation, economic participation
+              is the pathway, and leadership is the goal. Creating a world where
+              all women meet their potential without impediment or prejudice is
+              not just a moral imperative &mdash;{" "}
+              <strong>the world will reap the benefits</strong>.
+            </KeyPoint>
+          </div>
+
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={QA_ITEMS} />
+          </div>
         </div>
       )}
 
@@ -417,10 +416,6 @@ export default function The3LsOfEmpowermentPage() {
               {section.content}
             </CollapsibleSection>
           ))}
-          <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={QA_ITEMS} />
-          </div>
         </div>
       )}
     </div>

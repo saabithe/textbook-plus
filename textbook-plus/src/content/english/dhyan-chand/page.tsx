@@ -93,72 +93,6 @@ const DISCOURSES = [
       </>
     ),
   },
-  {
-    id: "themes",
-    title: "Themes",
-    content: (
-      <>
-        <h3
-          id="purpose-and-identity"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Purpose and Identity
-        </h3>
-        <p>
-          Shaheen&rsquo;s story is fundamentally about finding{" "}
-          <Highlight color="yellow">purpose</Highlight>. From watching ants
-          as a child to the traffic-signal moment with three beggars, she
-          constantly sought meaning. India gave her that purpose &mdash; not
-          through wealth or comfort, but through the children who needed
-          her.
-        </p>
-        <h3
-          id="seeing-inequity"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Seeing Inequity
-        </h3>
-        <p>
-          Growing up in privilege across multiple countries gave Shaheen a
-          unique lens. She could see{" "}
-          <Highlight color="pink">disparity</Highlight> clearly because she
-          moved between worlds. The slums of Mumbai became &ldquo;the fabric
-          of the city&rdquo; &mdash; suddenly everywhere once she learned to
-          look.
-        </p>
-        <h3
-          id="small-beginnings"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Small Beginnings, Big Impact
-        </h3>
-        <p>
-          Akanksha began with{" "}
-          <Highlight color="green">15 children</Highlight> in a borrowed
-          room. Shaheen didn&rsquo;t have a grand plan &mdash; she just
-          wanted children to &ldquo;feel safe and leave the difficulties of
-          their lives behind.&rdquo; The program grew because it addressed a
-          real need, not because of a business strategy.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint title="Key Takeaway">
-        Finding purpose often begins with{" "}
-        <Highlight color="yellow">seeing what others overlook</Highlight>.
-        Shaheen Mistri&rsquo;s journey from a privileged childhood to
-        founding Akanksha shows that social change doesn&rsquo;t require
-        extraordinary resources &mdash; it requires the{" "}
-        <strong>courage to act on what you see</strong>. From 15 children in
-        a borrowed room, Akanksha grew to serve thousands, proving that
-        small, determined efforts can transform communities.
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function DhyanChandPage() {
@@ -345,6 +279,66 @@ export default function DhyanChandPage() {
               </ul>
             }
           />
+
+          {/* Themes */}
+          <div id="themes">
+            <h3
+              id="purpose-and-identity"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Purpose and Identity
+            </h3>
+            <p>
+              Shaheen&rsquo;s story is fundamentally about finding{" "}
+              <Highlight color="yellow">purpose</Highlight>. From watching ants
+              as a child to the traffic-signal moment with three beggars, she
+              constantly sought meaning. India gave her that purpose &mdash; not
+              through wealth or comfort, but through the children who needed
+              her.
+            </p>
+            <h3
+              id="seeing-inequity"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Seeing Inequity
+            </h3>
+            <p>
+              Growing up in privilege across multiple countries gave Shaheen a
+              unique lens. She could see{" "}
+              <Highlight color="pink">disparity</Highlight> clearly because she
+              moved between worlds. The slums of Mumbai became &ldquo;the fabric
+              of the city&rdquo; &mdash; suddenly everywhere once she learned to
+              look.
+            </p>
+            <h3
+              id="small-beginnings"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Small Beginnings, Big Impact
+            </h3>
+            <p>
+              Akanksha began with{" "}
+              <Highlight color="green">15 children</Highlight> in a borrowed
+              room. Shaheen didn&rsquo;t have a grand plan &mdash; she just
+              wanted children to &ldquo;feel safe and leave the difficulties of
+              their lives behind.&rdquo; The program grew because it addressed a
+              real need, not because of a business strategy.
+            </p>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              Finding purpose often begins with{" "}
+              <Highlight color="yellow">seeing what others overlook</Highlight>.
+              Shaheen Mistri&rsquo;s journey from a privileged childhood to
+              founding Akanksha shows that social change doesn&rsquo;t require
+              extraordinary resources &mdash; it requires the{" "}
+              <strong>courage to act on what you see</strong>. From 15 children in
+              a borrowed room, Akanksha grew to serve thousands, proving that
+              small, determined efforts can transform communities.
+            </KeyPoint>
+          </div>
         </div>
       )}
 

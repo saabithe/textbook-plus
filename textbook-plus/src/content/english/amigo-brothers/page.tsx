@@ -282,103 +282,6 @@ const DISCOURSES = [
       />
     ),
   },
-  {
-    id: "themes",
-    title: "Themes",
-    content: (
-      <>
-        <Callout type="important">
-          <p>
-            <em>Amigo Brothers</em> explores the{" "}
-            <Highlight color="yellow">tension between friendship and ambition</Highlight>{" "}
-            &mdash; and the courage required to put your{" "}
-            <strong>whole self</strong> into competition against someone you
-            love, knowing the relationship must survive beyond the ring.
-          </p>
-        </Callout>
-
-        <h3
-          id="friendship-vs-ambition"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Friendship vs. Ambition
-        </h3>
-        <p>
-          Both Antonio and Felix want the same thing &mdash; the{" "}
-          <Highlight color="yellow">lightweight championship</Highlight> &mdash;
-          but only one can have it. The story does not frame this as a tragedy
-          but as a{" "}
-          <strong>test of maturity</strong>: both recognize that fighting fair
-          and giving everything is the{" "}
-          <Highlight color="green">highest form of respect</Highlight> they can
-          offer each other.
-        </p>
-
-        <h3
-          id="the-rising-wall"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          The Rising Wall
-        </h3>
-        <p>
-          Even while joking together, the boys &ldquo;sensed a{" "}
-          <Highlight color="pink">wall</Highlight> rising between them.&rdquo;
-          This wall is not physical but{" "}
-          <strong>psychological</strong> &mdash; the inevitable emotional
-          distance that comes when two people who love each other must become{" "}
-          <Highlight color="yellow">opponents</Highlight>. It mirrors the theme
-          explored in Robert Frost&rsquo;s <em>Mending Wall</em>: walls arise
-          between people, sometimes necessary, sometimes not.
-        </p>
-
-        <h3
-          id="brotherhood-above-victory"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Brotherhood Above Victory
-        </h3>
-        <p>
-          The story&rsquo;s ending is its moral centre. Before the announcer can
-          name the winner, the two{" "}
-          <Highlight color="green">amigos leave together</Highlight> &mdash; arm
-          in arm. The decision never matters.{" "}
-          <strong>No matter what the result, they would always be champions to
-          each other.</strong>
-        </p>
-
-        <h3
-          id="courage-and-sportsmanship"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Courage and Sportsmanship
-        </h3>
-        <p>
-          The referee&rsquo;s words &ldquo;May the best man win&rdquo; capture
-          the story&rsquo;s ethic. Neither boy <strong>pulls punches</strong>,
-          holds back, or resents the other. To fight with{" "}
-          <Highlight color="yellow">complete honesty</Highlight> is the truest
-          act of sportsmanship &mdash; and the deepest expression of mutual
-          respect.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint title="Key Takeaway">
-        <em>Amigo Brothers</em> teaches that{" "}
-        <strong>competition need not destroy friendship</strong>. When two
-        people give everything they have &mdash; and still walk out arm in
-        arm &mdash; it proves that{" "}
-        <Highlight color="yellow">brotherhood</Highlight> is stronger than
-        any victory or defeat. The true champion is not the one who wins the
-        belt, but the one who{" "}
-        <Highlight color="green">preserves the relationship</Highlight>.
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function AmigoBrothersPage() {
@@ -598,6 +501,103 @@ export default function AmigoBrothersPage() {
               </ul>
             }
           />
+
+          {/* Themes */}
+          <div id="themes">
+            <Callout type="important">
+              <p>
+                <em>Amigo Brothers</em> explores the{" "}
+                <Highlight color="yellow">tension between friendship and ambition</Highlight>{" "}
+                &mdash; and the courage required to put your{" "}
+                <strong>whole self</strong> into competition against someone you
+                love, knowing the relationship must survive beyond the ring.
+              </p>
+            </Callout>
+
+            <h3
+              id="friendship-vs-ambition"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Friendship vs. Ambition
+            </h3>
+            <p>
+              Both Antonio and Felix want the same thing &mdash; the{" "}
+              <Highlight color="yellow">lightweight championship</Highlight> &mdash;
+              but only one can have it. The story does not frame this as a tragedy
+              but as a{" "}
+              <strong>test of maturity</strong>: both recognize that fighting fair
+              and giving everything is the{" "}
+              <Highlight color="green">highest form of respect</Highlight> they can
+              offer each other.
+            </p>
+
+            <h3
+              id="the-rising-wall"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              The Rising Wall
+            </h3>
+            <p>
+              Even while joking together, the boys &ldquo;sensed a{" "}
+              <Highlight color="pink">wall</Highlight> rising between them.&rdquo;
+              This wall is not physical but{" "}
+              <strong>psychological</strong> &mdash; the inevitable emotional
+              distance that comes when two people who love each other must become{" "}
+              <Highlight color="yellow">opponents</Highlight>. It mirrors the theme
+              explored in Robert Frost&rsquo;s <em>Mending Wall</em>: walls arise
+              between people, sometimes necessary, sometimes not.
+            </p>
+
+            <h3
+              id="brotherhood-above-victory"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Brotherhood Above Victory
+            </h3>
+            <p>
+              The story&rsquo;s ending is its moral centre. Before the announcer can
+              name the winner, the two{" "}
+              <Highlight color="green">amigos leave together</Highlight> &mdash; arm
+              in arm. The decision never matters.{" "}
+              <strong>No matter what the result, they would always be champions to
+              each other.</strong>
+            </p>
+
+            <h3
+              id="courage-and-sportsmanship"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Courage and Sportsmanship
+            </h3>
+            <p>
+              The referee&rsquo;s words &ldquo;May the best man win&rdquo; capture
+              the story&rsquo;s ethic. Neither boy <strong>pulls punches</strong>,
+              holds back, or resents the other. To fight with{" "}
+              <Highlight color="yellow">complete honesty</Highlight> is the truest
+              act of sportsmanship &mdash; and the deepest expression of mutual
+              respect.
+            </p>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              <em>Amigo Brothers</em> teaches that{" "}
+              <strong>competition need not destroy friendship</strong>. When two
+              people give everything they have &mdash; and still walk out arm in
+              arm &mdash; it proves that{" "}
+              <Highlight color="yellow">brotherhood</Highlight> is stronger than
+              any victory or defeat. The true champion is not the one who wins the
+              belt, but the one who{" "}
+              <Highlight color="green">preserves the relationship</Highlight>.
+            </KeyPoint>
+          </div>
+
+          {/* Read & Respond */}
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={QA_ITEMS} />
+          </div>
         </div>
       )}
 
@@ -609,10 +609,6 @@ export default function AmigoBrothersPage() {
               {section.content}
             </CollapsibleSection>
           ))}
-          <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={QA_ITEMS} />
-          </div>
         </div>
       )}
     </div>

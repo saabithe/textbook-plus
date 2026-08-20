@@ -69,12 +69,12 @@ src/content/{subject-slug}/{chapter-slug}/
 
 *System (4):* ArchitectureCard, IODiagram, EventFlow, RoadmapCard
 
-*Subject-specific (not in barrel export):* AuthorCard, CharacterSketch, CharacterComparison, ContentTabs, SummaryLevels, ReadRespond, Highlight
+*Subject-specific (not in barrel export):* AuthorCard (collapsible), CharacterSketch, CharacterComparison, ContentTabs, SummaryLevels, ReadRespond, Highlight, CollapsibleSection
 
 **Barrel export** (`src/components/content/index.ts`) — exports all 30 transformation components. Subject-specific components are imported directly.
 
 **Content registry** (`src/lib/content.ts`):
-- `SECTIONS_MAP` — manually maintained section IDs + titles per chapter (for sidebar/ToC)
+- `SECTIONS_MAP` — manually maintained section IDs + titles per chapter (for sidebar/ToC). Each section has an optional `tab?: "read" | "discourses"` property for sidebar filtering.
 - `QUESTIONS_MAP` / `FLASHCARDS_MAP` — manually imported JSON data
 - `hasQuestions()` / `hasFlashcards()` — check if chapter has practice data
 - `hasChapterContent()` — checks if chapter has any content
@@ -125,6 +125,8 @@ src/content/{subject-slug}/{chapter-slug}/
 - Sidebar: sticky, scrollable when sections overflow (`max-h-[calc(100vh-8rem)] overflow-y-auto`)
 - Chapter tabs: **Learning** (JSX content) and **Practice** (questions + flashcards)
 - Practice tab: real interactive UI when `hasQuestions(slug)` / `hasFlashcards(slug)` is true; placeholder otherwise
+- English chapter tabs: **Read** (author, intro, summary, themes, key takeaway, read & respond) and **Discourses** (character sketches, poetic devices, appreciation, genre analysis). No Practice tab for English/Arabic.
+- Sidebar is tab-aware: shows only sections matching the active Read/Discourses tab. Custom event `content-tab-change` communicates inner tab state to ChapterLayout.
 - Admin page at `/admin` — lists chapters, shows which have content
 - Search: `Ctrl+K` global search
 - Dark mode: toggle persists via localStorage, flash-prevention script in `layout.tsx`

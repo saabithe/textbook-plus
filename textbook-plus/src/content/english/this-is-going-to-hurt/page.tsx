@@ -223,69 +223,6 @@ const DISCOURSES = [
       </>
     ),
   },
-  {
-    id: "themes",
-    title: "Themes",
-    content: (
-      <>
-        <h3
-          id="universal-anxiety"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Universal Anxiety
-        </h3>
-        <p>
-          The poem captures a{" "}
-          <Highlight color="yellow">shared human experience</Highlight> &mdash;
-          the dread of sitting in a dentist&rsquo;s chair. By describing it
-          in extreme terms, Nash validates the reader&rsquo;s own fears while
-          simultaneously defusing them through humor.
-        </p>
-        <h3
-          id="loss-of-control"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Loss of Control
-        </h3>
-        <p>
-          The poet is entirely at the dentist&rsquo;s mercy. His mouth is
-          &ldquo;cluttered up&rdquo; with instruments he cannot see, operated
-          by a man who might &ldquo;get mixed up.&rdquo; The{" "}
-          <Highlight color="pink">powerlessness</Highlight> of the patient
-          &mdash; unable to see, speak, or defend himself &mdash; is the
-          poem&rsquo;s emotional core.
-        </p>
-        <h3
-          id="vicious-cycles"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Vicious Cycles
-        </h3>
-        <p>
-          The closing &ldquo;vicious circle&rdquo; extends beyond dentistry.
-          We maintain things to avoid maintaining them. We take medicine to
-          avoid taking medicine. The poem uses dental anxiety as a metaphor
-          for life&rsquo;s{" "}
-          <Highlight color="blue">self-defeating routines</Highlight>.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint title="Key Takeaway">
-        Nash transforms dental anxiety into comic poetry through{" "}
-        <Highlight color="yellow">hyperbole, wordplay, and escalating
-        imagery</Highlight>. The mouth becomes a construction site, the
-        dentist a bear with a crowbar, and the entire experience a
-        &ldquo;vicious circle&rdquo; &mdash; we keep our teeth healthy so
-        we won&rsquo;t have to visit the dentist. The poem reminds us that
-        humor is the best weapon against life&rsquo;s small torments.
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function ThisIsGoingToHurtPage() {
@@ -453,6 +390,68 @@ export default function ThisIsGoingToHurtPage() {
               </ul>
             }
           />
+
+          {/* Themes */}
+          <div id="themes">
+            <h3
+              id="universal-anxiety"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Universal Anxiety
+            </h3>
+            <p>
+              The poem captures a{" "}
+              <Highlight color="yellow">shared human experience</Highlight> &mdash;
+              the dread of sitting in a dentist&rsquo;s chair. By describing it
+              in extreme terms, Nash validates the reader&rsquo;s own fears while
+              simultaneously defusing them through humor.
+            </p>
+            <h3
+              id="loss-of-control"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Loss of Control
+            </h3>
+            <p>
+              The poet is entirely at the dentist&rsquo;s mercy. His mouth is
+              &ldquo;cluttered up&rdquo; with instruments he cannot see, operated
+              by a man who might &ldquo;get mixed up.&rdquo; The{" "}
+              <Highlight color="pink">powerlessness</Highlight> of the patient
+              &mdash; unable to see, speak, or defend himself &mdash; is the
+              poem&rsquo;s emotional core.
+            </p>
+            <h3
+              id="vicious-cycles"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Vicious Cycles
+            </h3>
+            <p>
+              The closing &ldquo;vicious circle&rdquo; extends beyond dentistry.
+              We maintain things to avoid maintaining them. We take medicine to
+              avoid taking medicine. The poem uses dental anxiety as a metaphor
+              for life&rsquo;s{" "}
+              <Highlight color="blue">self-defeating routines</Highlight>.
+            </p>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              Nash transforms dental anxiety into comic poetry through{" "}
+              <Highlight color="yellow">hyperbole, wordplay, and escalating
+              imagery</Highlight>. The mouth becomes a construction site, the
+              dentist a bear with a crowbar, and the entire experience a
+              &ldquo;vicious circle&rdquo; &mdash; we keep our teeth healthy so
+              we won&rsquo;t have to visit the dentist. The poem reminds us that
+              humor is the best weapon against life&rsquo;s small torments.
+            </KeyPoint>
+          </div>
+
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={QA_ITEMS} />
+          </div>
         </div>
       )}
 
@@ -464,10 +463,6 @@ export default function ThisIsGoingToHurtPage() {
               {section.content}
             </CollapsibleSection>
           ))}
-          <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={QA_ITEMS} />
-          </div>
         </div>
       )}
     </div>

@@ -298,71 +298,6 @@ const DISCOURSES = [
       </>
     ),
   },
-  {
-    id: "themes",
-    title: "Themes",
-    content: (
-      <>
-        <h3
-          id="loss-of-identity"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Loss of Agricultural Identity
-        </h3>
-        <p>
-          The poem mourns the displacement of rice farming by cash crops.
-          Rubber plants, arecanut palms, and dealwood trees have replaced
-          paddy fields. The community that once grew its own food now depends
-          on{" "}
-          <Highlight color="pink">government rations</Highlight> &mdash;
-          a loss of self-sufficiency and cultural identity.
-        </p>
-        <h3
-          id="satire-on-governance"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Satire on Governance
-        </h3>
-        <p>
-          The Chief Minister flying to the Centre to &ldquo;clamour for more
-          grains&rdquo; is a sharp critique of{" "}
-          <Highlight color="yellow">political dependency</Highlight>. The
-          government distributes rice to those without paddy fields &mdash;
-          but the real question is why paddy fields were abandoned in the
-          first place.
-        </p>
-        <h3
-          id="education-irrelevance"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Education and Irrelevance
-        </h3>
-        <p>
-          The narrator earned a doctoral degree for &ldquo;making toys with
-          husk&rdquo; &mdash; a skill now useless because rice is no longer
-          grown. The closing question &ldquo;Can we get some husk from the
-          Centre, too?&rdquo; is a bitter joke about{" "}
-          <Highlight color="blue">education disconnected from ground
-          reality</Highlight>.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint title="Key Takeaway">
-        <em>Rice</em> is a quiet elegy for a vanishing way of life. Through
-        the contrast between nostalgic memory and harsh reality, Chemmanam
-        Chacko exposes the cost of abandoning agriculture for cash crops.
-        The poem&rsquo;s final satirical question &mdash; about getting husk
-        from the Centre &mdash; captures the irony of a system that has
-        traded{" "}
-        <Highlight color="yellow">self-sufficiency for dependency</Highlight>.
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function RicePage() {
@@ -533,6 +468,70 @@ export default function RicePage() {
               </ul>
             }
           />
+
+          {/* Themes */}
+          <div id="themes">
+            <h3
+              id="loss-of-identity"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Loss of Agricultural Identity
+            </h3>
+            <p>
+              The poem mourns the displacement of rice farming by cash crops.
+              Rubber plants, arecanut palms, and dealwood trees have replaced
+              paddy fields. The community that once grew its own food now depends
+              on{" "}
+              <Highlight color="pink">government rations</Highlight> &mdash;
+              a loss of self-sufficiency and cultural identity.
+            </p>
+            <h3
+              id="satire-on-governance"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Satire on Governance
+            </h3>
+            <p>
+              The Chief Minister flying to the Centre to &ldquo;clamour for more
+              grains&rdquo; is a sharp critique of{" "}
+              <Highlight color="yellow">political dependency</Highlight>. The
+              government distributes rice to those without paddy fields &mdash;
+              but the real question is why paddy fields were abandoned in the
+              first place.
+            </p>
+            <h3
+              id="education-irrelevance"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Education and Irrelevance
+            </h3>
+            <p>
+              The narrator earned a doctoral degree for &ldquo;making toys with
+              husk&rdquo; &mdash; a skill now useless because rice is no longer
+              grown. The closing question &ldquo;Can we get some husk from the
+              Centre, too?&rdquo; is a bitter joke about{" "}
+              <Highlight color="blue">education disconnected from ground
+              reality</Highlight>.
+            </p>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              <em>Rice</em> is a quiet elegy for a vanishing way of life. Through
+              the contrast between nostalgic memory and harsh reality, Chemmanam
+              Chacko exposes the cost of abandoning agriculture for cash crops.
+              The poem&rsquo;s final satirical question &mdash; about getting husk
+              from the Centre &mdash; captures the irony of a system that has
+              traded{" "}
+              <Highlight color="yellow">self-sufficiency for dependency</Highlight>.
+            </KeyPoint>
+          </div>
+
+          <div id="read-and-respond-section" className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
+            <ReadRespond items={QA_ITEMS} />
+          </div>
         </div>
       )}
 
@@ -544,10 +543,6 @@ export default function RicePage() {
               {section.content}
             </CollapsibleSection>
           ))}
-          <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={QA_ITEMS} />
-          </div>
         </div>
       )}
     </div>

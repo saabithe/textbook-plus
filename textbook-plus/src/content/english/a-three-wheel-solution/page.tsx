@@ -98,56 +98,6 @@ const DISCOURSES = [
       </>
     ),
   },
-  {
-    id: "themes",
-    title: "Themes",
-    content: (
-      <>
-        <h3
-          id="youth-empowerment"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Youth as Change-Makers
-        </h3>
-        <p>
-          The interview demonstrates that age is not a barrier to impact. Irfan
-          started his first firm at 13 and conceived SammaaN at 17. His advice to
-          students: entrepreneurship is an important tool to tackle{" "}
-          <Highlight color="yellow">unemployment</Highlight> and young people
-          should think of it as a career.
-        </p>
-        <h3
-          id="dignity-of-labour"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Dignity of Labour
-        </h3>
-        <p>
-          SammaaN brought dignity and inclusion to people previously considered{" "}
-          <Highlight color="pink">menial labourers</Highlight>. By providing
-          uniforms, ID cards, insurance, and education, the organization
-          transformed how rickshaw pullers see themselves and how society sees
-          them.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "key-takeaway",
-    title: "Key Takeaway",
-    content: (
-      <KeyPoint title="Key Takeaway">
-        Social entrepreneurship turns{" "}
-        <Highlight color="yellow">observation into action</Highlight>. Irfan
-        Alam&rsquo;s journey from a thirsty teenager in a rickshaw to the founder
-        of SammaaN shows that identifying a problem at the grassroots &mdash;
-        and building a sustainable model around it &mdash; can{" "}
-        <strong>empower millions</strong> while remaining profitable. As he
-        says: &ldquo;If we aspire to live in a happier world, we must empower
-        those living on the margins of society.&rdquo;
-      </KeyPoint>
-    ),
-  },
 ];
 
 export default function AThreeWheelSolutionPage() {
@@ -330,6 +280,50 @@ export default function AThreeWheelSolutionPage() {
               </ul>
             }
           />
+
+          {/* Themes */}
+          <div id="themes">
+            <h3
+              id="youth-empowerment"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Youth as Change-Makers
+            </h3>
+            <p>
+              The interview demonstrates that age is not a barrier to impact. Irfan
+              started his first firm at 13 and conceived SammaaN at 17. His advice to
+              students: entrepreneurship is an important tool to tackle{" "}
+              <Highlight color="yellow">unemployment</Highlight> and young people
+              should think of it as a career.
+            </p>
+            <h3
+              id="dignity-of-labour"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Dignity of Labour
+            </h3>
+            <p>
+              SammaaN brought dignity and inclusion to people previously considered{" "}
+              <Highlight color="pink">menial labourers</Highlight>. By providing
+              uniforms, ID cards, insurance, and education, the organization
+              transformed how rickshaw pullers see themselves and how society sees
+              them.
+            </p>
+          </div>
+
+          {/* Key Takeaway */}
+          <div id="key-takeaway">
+            <KeyPoint title="Key Takeaway">
+              Social entrepreneurship turns{" "}
+              <Highlight color="yellow">observation into action</Highlight>. Irfan
+              Alam&rsquo;s journey from a thirsty teenager in a rickshaw to the founder
+              of SammaaN shows that identifying a problem at the grassroots &mdash;
+              and building a sustainable model around it &mdash; can{" "}
+              <strong>empower millions</strong> while remaining profitable. As he
+              says: &ldquo;If we aspire to live in a happier world, we must empower
+              those living on the margins of society.&rdquo;
+            </KeyPoint>
+          </div>
         </div>
       )}
 
