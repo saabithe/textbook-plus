@@ -249,7 +249,10 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
     }
 
     init();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+      readyRef.current = false;
+    };
   }, [user, supabase, authLoading]);
 
   // ── Load (from cache) ────────────────────────────────────────

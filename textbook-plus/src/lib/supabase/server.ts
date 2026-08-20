@@ -1,11 +1,8 @@
 import { createServerClient, parseCookieHeader } from "@supabase/ssr";
 import { cookies } from "next/headers";
+import { isSupabaseConfigured } from "@/lib/supabase/config";
 
-export function isSupabaseConfigured() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  return !!(url && key && !url.includes("your-project-id") && key !== "your-anon-key-here");
-}
+export { isSupabaseConfigured } from "@/lib/supabase/config";
 
 export async function createClient() {
   if (!isSupabaseConfigured()) {

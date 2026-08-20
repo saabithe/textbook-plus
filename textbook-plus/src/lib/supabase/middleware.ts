@@ -1,10 +1,9 @@
 import { createServerClient, parseCookieHeader } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 export async function updateSession(request: NextRequest) {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !key || url.includes("your-project-id") || key === "your-anon-key-here") {
+  if (!isSupabaseConfigured()) {
     return NextResponse.next();
   }
 
@@ -18,9 +17,12 @@ export async function updateSession(request: NextRequest) {
         getAll() {
           return parseCookieHeader(request.cookies.toString());
         },
-        setAll(cookiesToSet) {
+        setAll(cookiesToSet, headers) {
           cookiesToSet.forEach(({ name, value, options }) => {
             supabaseResponse.cookies.set(name, value, options);
+          });
+          Object.entries(headers).forEach(([key, value]) => {
+            supabaseResponse.headers.set(key, value);
           });
         },
       },
@@ -28,7 +30,7 @@ export async function updateSession(request: NextRequest) {
   );
 
   // Refresh session — keeps anon / email auth alive
-  await supabase.auth.getUser();
+  await supabase.auth.getClaims();
 
   return supabaseResponse;
 }

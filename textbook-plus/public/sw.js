@@ -1,4 +1,4 @@
-const CACHE_NAME = "textbook++-v1";
+const CACHE_NAME = "textbook++-v2";
 const PRECACHE_URLS = [
   "/",
   "/subjects/physics",
@@ -7,6 +7,37 @@ const PRECACHE_URLS = [
   "/subjects/biology",
   "/subjects/english",
   "/subjects/arabic",
+  "/class-11",
+  "/class-11/maths",
+  "/class-11/physics",
+  "/class-11/sets",
+  "/class-11/relations-and-functions",
+  "/class-11/trigonometric-functions",
+  "/class-11/complex-numbers-and-quadratic-equations",
+  "/class-11/linear-inequalities",
+  "/class-11/permutations-and-combinations",
+  "/class-11/binomial-theorem",
+  "/class-11/sequences-and-series",
+  "/class-11/straight-lines",
+  "/class-11/conic-sections",
+  "/class-11/introduction-to-three-dimensional-geometry",
+  "/class-11/limits-and-derivatives",
+  "/class-11/statistics",
+  "/class-11/probability",
+  "/class-11/units-and-measurements",
+  "/class-11/motion-in-a-straight-line",
+  "/class-11/motion-in-a-plane",
+  "/class-11/laws-of-motion",
+  "/class-11/work-energy-and-power",
+  "/class-11/system-of-particles-and-rotational-motion",
+  "/class-11/gravitation",
+  "/class-11/mechanical-properties-of-solids",
+  "/class-11/mechanical-properties-of-fluids",
+  "/class-11/thermal-properties-of-matter",
+  "/class-11/thermodynamics",
+  "/class-11/kinetic-theory",
+  "/class-11/oscillations",
+  "/class-11/waves",
   "/icon.svg",
   "/icon-192.png",
   "/icon-512.png",
@@ -55,20 +86,6 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Everything else — stale-while-revalidate
-  event.respondWith(
-    caches.match(event.request).then((cached) => {
-      const fetched = fetch(event.request)
-        .then((response) => {
-          if (response && response.status === 200) {
-            const clone = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-          }
-          return response;
-        })
-        .catch(() => cached);
-
-      return cached || fetched;
-    })
-  );
+  // Everything else — network only (no HTML caching)
+  event.respondWith(fetch(event.request));
 });

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { ChevronRight, Shield, Trash2 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { cn } from "@/lib/utils";
 
 export default function AccountPage() {
   const { user, supabase, isAnonymous } = useAuth();
@@ -223,8 +224,4 @@ export default function AccountPage() {
       </main>
     </>
   );
-}
-
-function cn(...classes: (string | boolean | undefined)[]) {
-  return classes.filter(Boolean).join(" ");
 }
