@@ -12,6 +12,15 @@ const chapterComponents: Record<string, React.ComponentType> = {
   "any-woman": dynamic(() => import("@/content/english/any-woman/page")) as React.ComponentType,
   "matchbox": dynamic(() => import("@/content/english/matchbox/page")) as React.ComponentType,
   "the-hour-of-truth": dynamic(() => import("@/content/english/the-hour-of-truth/page")) as React.ComponentType,
+  "a-three-wheel-solution": dynamic(() => import("@/content/english/a-three-wheel-solution/page")) as React.ComponentType,
+  "dhyan-chand": dynamic(() => import("@/content/english/dhyan-chand/page")) as React.ComponentType,
+  "stammer": dynamic(() => import("@/content/english/stammer/page")) as React.ComponentType,
+  "when-a-sapling-is-planted": dynamic(() => import("@/content/english/when-a-sapling-is-planted/page")) as React.ComponentType,
+  "rice": dynamic(() => import("@/content/english/rice/page")) as React.ComponentType,
+  "dangers-of-drug-abuse": dynamic(() => import("@/content/english/dangers-of-drug-abuse/page")) as React.ComponentType,
+  "post-early-for-christmas": dynamic(() => import("@/content/english/post-early-for-christmas/page")) as React.ComponentType,
+  "this-is-going-to-hurt": dynamic(() => import("@/content/english/this-is-going-to-hurt/page")) as React.ComponentType,
+  "crime-and-punishment": dynamic(() => import("@/content/english/crime-and-punishment/page")) as React.ComponentType,
 };
 
 export function ChapterContent({ slug }: { slug: string }) {

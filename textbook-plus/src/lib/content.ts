@@ -147,6 +147,188 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "key-takeaway", title: "Key Takeaway" },
     { id: "read-and-respond", title: "Read & Respond" },
   ],
+  "a-three-wheel-solution": [
+    { id: "author", title: "Author" },
+    { id: "introduction", title: "Introduction" },
+    { id: "summary", title: "Summary" },
+    { id: "early-entrepreneurship", title: "Early Entrepreneurship" },
+    {
+      id: "sammaan-model", title: "The SammaaN Model", children: [
+        { id: "operation-model", title: "Operation Model" },
+        { id: "revenue-model", title: "Revenue Model" },
+      ],
+    },
+    { id: "social-entrepreneurship", title: "Social Entrepreneurship" },
+    {
+      id: "themes", title: "Themes", children: [
+        { id: "youth-empowerment", title: "Youth as Change-Makers" },
+        { id: "dignity-of-labour", title: "Dignity of Labour" },
+      ],
+    },
+    { id: "key-takeaway", title: "Key Takeaway" },
+  ],
+  "dhyan-chand": [
+    { id: "author", title: "Author" },
+    { id: "introduction", title: "Introduction" },
+    { id: "summary", title: "Summary" },
+    { id: "awakening", title: "Awakening to Inequity" },
+    { id: "the-beginning", title: "From Xavier's to the Slums" },
+    { id: "building-akanksha", title: "Building Akanksha" },
+    {
+      id: "themes", title: "Themes", children: [
+        { id: "purpose-and-identity", title: "Purpose and Identity" },
+        { id: "seeing-inequity", title: "Seeing Inequity" },
+        { id: "small-beginnings", title: "Small Beginnings, Big Impact" },
+      ],
+    },
+    { id: "key-takeaway", title: "Key Takeaway" },
+  ],
+  "stammer": [
+    { id: "author", title: "Author" },
+    { id: "introduction", title: "Introduction" },
+    { id: "summary", title: "Summary" },
+    { id: "the-poem", title: "The Poem" },
+    {
+      id: "poetic-devices", title: "Poetic Devices", children: [
+        { id: "device-metaphor", title: "Metaphor" },
+        { id: "device-repetition", title: "Repetition" },
+        { id: "device-parallelism", title: "Parallelism" },
+      ],
+    },
+    { id: "appreciation", title: "Poem Appreciation" },
+    {
+      id: "themes", title: "Themes", children: [
+        { id: "language-and-meaning", title: "Language and Meaning" },
+        { id: "imperfection-as-universal", title: "Imperfection as Universal" },
+        { id: "poetry-itself", title: "Poetry as Stammer" },
+      ],
+    },
+    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "read-and-respond", title: "Read & Respond" },
+  ],
+  "when-a-sapling-is-planted": [
+    { id: "author", title: "Author" },
+    { id: "introduction", title: "Introduction" },
+    { id: "summary", title: "Summary" },
+    { id: "green-belt-movement", title: "The Green Belt Movement" },
+    {
+      id: "environment-democracy-peace", title: "Environment, Democracy, and Peace", children: [
+        { id: "environment-democracy", title: "Environment and Democracy" },
+        { id: "trees-as-peace", title: "Trees as Peace Symbols" },
+      ],
+    },
+    {
+      id: "themes", title: "Themes", children: [
+        { id: "environmental-justice", title: "Environmental Justice" },
+        { id: "collective-action", title: "Collective Action" },
+        { id: "interconnectedness", title: "Interconnectedness" },
+      ],
+    },
+    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "read-and-respond", title: "Read & Respond" },
+  ],
+  "rice": [
+    { id: "author", title: "Author" },
+    { id: "introduction", title: "Introduction" },
+    { id: "summary", title: "Summary" },
+    { id: "the-poem", title: "The Poem" },
+    {
+      id: "poetic-devices", title: "Poetic Devices", children: [
+        { id: "device-imagery", title: "Imagery" },
+        { id: "device-satire", title: "Satire" },
+        { id: "device-contrast", title: "Contrast" },
+      ],
+    },
+    { id: "appreciation", title: "Poem Appreciation" },
+    {
+      id: "themes", title: "Themes", children: [
+        { id: "loss-of-identity", title: "Loss of Agricultural Identity" },
+        { id: "satire-on-governance", title: "Satire on Governance" },
+        { id: "education-irrelevance", title: "Education and Irrelevance" },
+      ],
+    },
+    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "read-and-respond", title: "Read & Respond" },
+  ],
+  "dangers-of-drug-abuse": [
+    { id: "author", title: "Author" },
+    { id: "introduction", title: "Introduction" },
+    { id: "summary", title: "Summary" },
+    { id: "medicines-vs-sensual-drugs", title: "Medicines vs. Sensual Drugs" },
+    { id: "effects-on-the-brain", title: "Effects on the Brain" },
+    { id: "health-consequences", title: "Health Consequences" },
+    {
+      id: "themes", title: "Themes", children: [
+        { id: "artificial-vs-natural", title: "Artificial vs. Natural Pleasure" },
+        { id: "loss-of-agency", title: "Loss of Agency" },
+        { id: "invisible-damage", title: "Invisible Damage" },
+      ],
+    },
+    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "read-and-respond", title: "Read & Respond" },
+  ],
+  "post-early-for-christmas": [
+    { id: "author", title: "Author" },
+    { id: "introduction", title: "Introduction" },
+    { id: "summary", title: "Summary" },
+    { id: "character-sketch-assistant", title: "Character Sketch: The Assistant" },
+    {
+      id: "the-comedy-of-errors", title: "The Comedy of Errors", children: [
+        { id: "deaf-gentleman", title: "The Deaf Old Gentleman" },
+        { id: "fussy-old-lady", title: "The Fussy Old Lady" },
+        { id: "bertie", title: "Bertie and His Mother" },
+      ],
+    },
+    {
+      id: "themes", title: "Themes", children: [
+        { id: "miscommunication", title: "Miscommunication" },
+        { id: "panic-and-crowd", title: "Panic and Crowd Psychology" },
+        { id: "everyday-absurdity", title: "Everyday Absurdity" },
+      ],
+    },
+    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "read-and-respond", title: "Read & Respond" },
+  ],
+  "this-is-going-to-hurt": [
+    { id: "author", title: "Author" },
+    { id: "introduction", title: "Introduction" },
+    { id: "summary", title: "Summary" },
+    { id: "the-poem", title: "The Poem" },
+    {
+      id: "poetic-devices", title: "Poetic Devices", children: [
+        { id: "device-hyperbole", title: "Hyperbole" },
+        { id: "device-humor", title: "Humor and Wordplay" },
+        { id: "device-vicious-circle", title: "The Vicious Circle" },
+      ],
+    },
+    { id: "appreciation", title: "Poem Appreciation" },
+    {
+      id: "themes", title: "Themes", children: [
+        { id: "universal-anxiety", title: "Universal Anxiety" },
+        { id: "loss-of-control", title: "Loss of Control" },
+        { id: "vicious-cycles", title: "Vicious Cycles" },
+      ],
+    },
+    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "read-and-respond", title: "Read & Respond" },
+  ],
+  "crime-and-punishment": [
+    { id: "author", title: "Author" },
+    { id: "introduction", title: "Introduction" },
+    { id: "summary", title: "Summary" },
+    { id: "character-sketch-teacher", title: "Character Sketch: The Teacher" },
+    { id: "character-sketch-boy", title: "Character Sketch: The Boy" },
+    { id: "character-comparison", title: "Character Comparison" },
+    {
+      id: "themes", title: "Themes", children: [
+        { id: "power-reversal", title: "Power Reversal" },
+        { id: "modern-parenting", title: "Modern Parenting" },
+        { id: "education-system", title: "The Education System" },
+      ],
+    },
+    { id: "key-takeaway", title: "Key Takeaway" },
+    { id: "read-and-respond", title: "Read & Respond" },
+  ],
   "electric-charges-and-fields": [
     { id: "h-1-1", title: "1.1 Introduction" },
     { id: "h-1-2", title: "1.2 Electric Charge" },
