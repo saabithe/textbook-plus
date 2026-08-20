@@ -6,10 +6,11 @@ import { Navbar } from "@/components/layout/Navbar";
 import { SubjectProgress } from "@/components/progress/SubjectProgress";
 import { subjects } from "@/data/subjects";
 import { chapters } from "@/data/chapters";
-import { getAllProgress, getAllPracticeProgress } from "@/hooks/useProgress";
+import { useSync } from "@/components/auth/SyncProvider";
 import { getQuestionsForChapter, getFlashcardsForChapter } from "@/lib/content";
 
 export default function ProgressPage() {
+  const sync = useSync();
   const [allProgress, setAllProgress] = useState<Record<string, string[]>>({});
   const [practiceProgress, setPracticeProgress] = useState<
     Record<string, Record<string, { questionsRevealed: string[]; flashcardsKnown: string[]; flashcardsUnknown: string[] }>>
@@ -17,10 +18,10 @@ export default function ProgressPage() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setAllProgress(getAllProgress());
-    setPracticeProgress(getAllPracticeProgress());
+    setAllProgress(sync.getAllProgress());
+    setPracticeProgress(sync.getAllPracticeProgress());
     setMounted(true);
-  }, []);
+  }, [sync]);
 
   // Calculate overall stats
   const totalChapters = Object.values(chapters).reduce(

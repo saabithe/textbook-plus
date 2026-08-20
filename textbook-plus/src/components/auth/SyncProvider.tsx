@@ -24,6 +24,9 @@ interface SyncContextValue {
   saveProgress: (subjectSlug: string, slugs: string[]) => void;
   loadPractice: (subjectSlug: string) => Record<string, ChapterPracticeState> | null;
   savePractice: (subjectSlug: string, data: Record<string, ChapterPracticeState>) => void;
+  getAllProgress: () => Record<string, string[]>;
+  getAllPracticeProgress: () => Record<string, Record<string, ChapterPracticeState>>;
+  clearLocalData: () => void;
 }
 
 const SyncContext = createContext<SyncContextValue | null>(null);
@@ -335,8 +338,37 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
     [user, supabase]
   );
 
+  const getAllProgress = useCallback((): Record<string, string[]> => {
+    const result: Record<string, string[]> = {};
+    for (const [key, value] of progressCache) {
+      result[key] = value;
+    }
+    return result;
+  }, []);
+
+  const getAllPracticeProgress = useCallback((): Record<string, Record<string, ChapterPracticeState>> => {
+    const result: Record<string, Record<string, ChapterPracticeState>> = {};
+    for (const [key, value] of practiceCache) {
+      result[key] = value;
+    }
+    return result;
+  }, []);
+
+  const clearLocalData = useCallback(() => {
+    const keysToRemove: string[] = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && (key.startsWith("progress:") || key.startsWith("practice:"))) {
+        keysToRemove.push(key);
+      }
+    }
+    keysToRemove.forEach((key) => localStorage.removeItem(key));
+    progressCache.clear();
+    practiceCache.clear();
+  }, []);
+
   return (
-    <SyncContext.Provider value={{ status, loadProgress, saveProgress, loadPractice, savePractice }}>
+    <SyncContext.Provider value={{ status, loadProgress, saveProgress, loadPractice, savePractice, getAllProgress, getAllPracticeProgress, clearLocalData }}>
       {children}
     </SyncContext.Provider>
   );

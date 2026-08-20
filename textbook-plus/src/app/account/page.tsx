@@ -6,10 +6,12 @@ import { useRouter } from "next/navigation";
 import { ChevronRight, Shield, Trash2 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { useSync } from "@/components/auth/SyncProvider";
 import { cn } from "@/lib/utils";
 
 export default function AccountPage() {
   const { user, supabase, isAnonymous } = useAuth();
+  const sync = useSync();
   const router = useRouter();
 
   // Password change
@@ -106,6 +108,7 @@ export default function AccountPage() {
     }
 
     // Sign out — Supabase cascades user deletion via RLS
+    sync.clearLocalData();
     await supabase.auth.signOut();
     router.push("/");
   }
