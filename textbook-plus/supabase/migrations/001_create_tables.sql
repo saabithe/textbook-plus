@@ -1,6 +1,7 @@
 -- =============================================
 -- Textbook++ Database Schema
 -- Run this in Supabase SQL Editor → https://supabase.com/dashboard/project/_/sql/new
+-- Safe to re-run (uses IF NOT EXISTS / DROP IF EXISTS)
 -- =============================================
 
 -- ─── User Profiles ───────────────────────────
@@ -46,35 +47,38 @@ ALTER TABLE user_profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE user_progress ENABLE ROW LEVEL SECURITY;
 ALTER TABLE user_practice ENABLE ROW LEVEL SECURITY;
 
--- Users can read/write their own profile
+-- Drop and recreate all policies (idempotent)
+DROP POLICY IF EXISTS "Users manage own profile" ON user_profiles;
 CREATE POLICY "Users manage own profile" ON user_profiles
   FOR ALL USING (auth.uid() = id);
 
--- Users can read/write their own progress
+DROP POLICY IF EXISTS "Users manage own progress" ON user_progress;
 CREATE POLICY "Users manage own progress" ON user_progress
   FOR ALL USING (auth.uid() = user_id);
 
--- Users can read/write their own practice data
+DROP POLICY IF EXISTS "Users manage own practice" ON user_practice;
 CREATE POLICY "Users manage own practice" ON user_practice
   FOR ALL USING (auth.uid() = user_id);
 
--- Admins can read all user data
+DROP POLICY IF EXISTS "Admins read all profiles" ON user_profiles;
 CREATE POLICY "Admins read all profiles" ON user_profiles
   FOR SELECT USING (
     EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'admin')
   );
 
+DROP POLICY IF EXISTS "Admins read all progress" ON user_progress;
 CREATE POLICY "Admins read all progress" ON user_progress
   FOR SELECT USING (
     EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'admin')
   );
 
+DROP POLICY IF EXISTS "Admins read all practice" ON user_practice;
 CREATE POLICY "Admins read all practice" ON user_practice
   FOR SELECT USING (
     EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'admin')
   );
 
--- Admins can update user roles
+DROP POLICY IF EXISTS "Admins update roles" ON user_profiles;
 CREATE POLICY "Admins update roles" ON user_profiles
   FOR UPDATE USING (
     EXISTS (SELECT 1 FROM user_profiles WHERE id = auth.uid() AND role = 'admin')
@@ -95,7 +99,6 @@ EXCEPTION WHEN OTHERS THEN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
--- Drop trigger if it exists, then recreate
 DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
 CREATE TRIGGER on_auth_user_created
   AFTER INSERT ON auth.users
