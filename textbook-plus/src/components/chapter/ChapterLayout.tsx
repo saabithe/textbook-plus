@@ -1,29 +1,21 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { ChevronRight, ChevronLeft, CheckCircle2, Circle, Brain, Layers } from "lucide-react";
+import { ChevronRight, CheckCircle2, Circle, Brain, Layers } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Sidebar } from "./Sidebar";
-import { MobileSidebar } from "./MobileSidebar";
 import { ChapterNav } from "./ChapterNav";
 import { ChapterTabs, PracticePlaceholder } from "./ChapterTabs";
 import { PracticeSession } from "@/components/practice/PracticeSession";
 import { FlashcardDeck } from "@/components/flashcard/FlashcardDeck";
 import { getAdjacentChapters } from "@/data/chapters";
-import { getSectionsForChapter, getQuestionsForChapter, getFlashcardsForChapter, hasQuestions, hasFlashcards } from "@/lib/content";
+import { getQuestionsForChapter, getFlashcardsForChapter, hasQuestions, hasFlashcards } from "@/lib/content";
 import { useProgress } from "@/hooks/useProgress";
 import type { Chapter } from "@/data/chapters";
-import type { ChapterSection } from "@/types/chapter";
 
-function filterSectionsByTab(sections: ChapterSection[], tab: string): ChapterSection[] {
-  return sections
-    .filter((s) => !s.tab || s.tab === tab)
-    .map((s) =>
-      s.children
-        ? { ...s, children: filterSectionsByTab(s.children, tab) }
-        : s
-    );
+export interface Crumb {
+  label: string;
+  href?: string;
 }
 
 interface ChapterLayoutProps {
@@ -32,6 +24,10 @@ interface ChapterLayoutProps {
   subjectSlug: string;
   subjectColor: string;
   children: React.ReactNode;
+  breadcrumb?: Crumb[];
+  subtitle?: string;
+  contentKey?: string;
+  prevNext?: { prev?: Chapter | null; next?: Chapter | null };
 }
 
 export function ChapterLayout({
@@ -40,67 +36,40 @@ export function ChapterLayout({
   subjectSlug,
   subjectColor,
   children,
+  breadcrumb,
+  subtitle,
+  contentKey,
+  prevNext,
 }: ChapterLayoutProps) {
-  const { prev, next } = getAdjacentChapters(chapter);
-  const allSections = getSectionsForChapter(chapter.slug);
-  const hasSidebar = allSections.length > 0;
+  const adjacent = prevNext ?? getAdjacentChapters(chapter);
+  const registryKey = contentKey ?? chapter.slug;
   const { isCompleted, toggle } = useProgress(subjectSlug);
   const completed = isCompleted(chapter.slug);
   const [activeTab, setActiveTab] = useState("learning");
-  const [innerTab, setInnerTab] = useState("summary");
-  const [sidebarOpen, setSidebarOpen] = useState(true);
   const showPractice = subjectSlug !== "english" && subjectSlug !== "arabic";
 
-  const handleInnerTabChange = useCallback((e: Event) => {
-    const detail = (e as CustomEvent).detail;
-    if (detail?.tab) setInnerTab(detail.tab);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("content-tab-change", handleInnerTabChange);
-    return () => window.removeEventListener("content-tab-change", handleInnerTabChange);
-  }, [handleInnerTabChange]);
-
-  const sidebarSections = activeTab === "learning"
-    ? filterSectionsByTab(allSections, innerTab)
-    : [];
-
-  // Restore sidebar state from localStorage
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem("sidebar-open");
-      if (stored !== null) setSidebarOpen(stored === "true");
-    } catch {}
-  }, []);
-
-  // Persist sidebar state
-  useEffect(() => {
-    try {
-      localStorage.setItem("sidebar-open", String(sidebarOpen));
-    } catch {}
-  }, [sidebarOpen]);
+  const crumbs: Crumb[] = breadcrumb ?? [
+    { label: "Home", href: "/" },
+    { label: subjectName, href: `/subjects/${subjectSlug}` },
+    { label: chapter.title },
+  ];
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-1.5 text-sm text-muted-foreground mb-8">
-        <Link
-          href="/"
-          className="transition-colors hover:text-foreground"
-        >
-          Home
-        </Link>
-        <ChevronRight className="h-3.5 w-3.5" />
-        <Link
-          href={`/subjects/${subjectSlug}`}
-          className="transition-colors hover:text-foreground"
-        >
-          {subjectName}
-        </Link>
-        <ChevronRight className="h-3.5 w-3.5" />
-        <span className="text-foreground font-medium truncate">
-          {chapter.title}
-        </span>
+        {crumbs.map((crumb, i) => (
+          <span key={i} className="flex items-center gap-1.5 min-w-0">
+            {i > 0 && <ChevronRight className="h-3.5 w-3.5 shrink-0" />}
+            {crumb.href ? (
+              <Link href={crumb.href} className="transition-colors hover:text-foreground">
+                {crumb.label}
+              </Link>
+            ) : (
+              <span className="text-foreground font-medium truncate">{crumb.label}</span>
+            )}
+          </span>
+        ))}
       </nav>
 
       {/* Chapter Header */}
@@ -118,7 +87,7 @@ export function ChapterLayout({
             </h1>
           </div>
           <p className="text-sm text-muted-foreground ml-11">
-            {chapter.topicCount} topics
+            {subtitle ?? `${chapter.topicCount} topics`}
           </p>
         </div>
         <div className="flex items-center gap-2 shrink-0">
@@ -141,13 +110,6 @@ export function ChapterLayout({
               {completed ? "Completed" : "Mark complete"}
             </span>
           </button>
-          {hasSidebar && activeTab === "learning" && (
-            <MobileSidebar
-              sections={sidebarSections}
-              subjectColor={subjectColor}
-              chapterTitle={chapter.title}
-            />
-          )}
         </div>
       </header>
 
@@ -160,55 +122,24 @@ export function ChapterLayout({
         />
       )}
 
-      {/* Two-column layout (Learning tab) */}
+      {/* Content */}
       {activeTab === "learning" ? (
-        <div className="relative flex gap-12">
-          {/* Desktop sidebar */}
-          {hasSidebar && (
-            <aside
-              className="hidden lg:block shrink-0 overflow-x-clip transition-[width] duration-300 ease-in-out"
-              style={{ width: sidebarOpen ? "15rem" : "0" }}
-            >
-              <div className="sticky top-24 max-h-[calc(100vh-8rem)] w-60 overflow-y-auto">
-                <Sidebar sections={sidebarSections} subjectColor={subjectColor} />
-              </div>
-            </aside>
-          )}
+        <article className="max-w-3xl mx-auto">
+          {children}
 
-          {/* Sidebar toggle */}
-          {hasSidebar && (
-            <button
-              onClick={() => setSidebarOpen((prev) => !prev)}
-              className="hidden lg:flex absolute top-1/2 left-0 -translate-y-1/2 z-30 h-8 w-6 items-center justify-center rounded-r-lg border border-l-0 border-border/60 bg-background/80 backdrop-blur-sm text-muted-foreground transition-colors duration-200 hover:bg-muted hover:text-foreground"
-              style={{ left: sidebarOpen ? "15rem" : "0" }}
-              title={sidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
-              aria-label={sidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
-            >
-              {sidebarOpen ? (
-                <ChevronLeft className="h-3.5 w-3.5" />
-              ) : (
-                <ChevronRight className="h-3.5 w-3.5" />
-              )}
-            </button>
-          )}
-
-          {/* Content */}
-          <article className="min-w-0 flex-1 max-w-3xl mx-auto">
-            {children}
-
-            <ChapterNav prev={prev} next={next} />
-          </article>
-        </div>
+          <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} />
+        </article>
       ) : (
         /* Practice tab */
         <div className="mx-auto max-w-3xl">
           <PracticeTabContent
             chapterSlug={chapter.slug}
+            registryKey={registryKey}
             subjectSlug={subjectSlug}
             subjectColor={subjectColor}
           />
 
-          <ChapterNav prev={prev} next={next} />
+          <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} />
         </div>
       )}
     </div>
@@ -217,19 +148,21 @@ export function ChapterLayout({
 
 function PracticeTabContent({
   chapterSlug,
+  registryKey,
   subjectSlug,
   subjectColor,
 }: {
   chapterSlug: string;
+  registryKey: string;
   subjectSlug: string;
   subjectColor: string;
 }) {
   const { getChapterPractice, updateFlashcardProgress, markQuestionRevealed } = useProgress(subjectSlug);
-  const hasQ = hasQuestions(chapterSlug);
-  const hasFC = hasFlashcards(chapterSlug);
+  const hasQ = hasQuestions(registryKey);
+  const hasFC = hasFlashcards(registryKey);
   const [subTab, setSubTab] = useState<"questions" | "flashcards">(hasQ ? "questions" : "flashcards");
-  const questions = getQuestionsForChapter(chapterSlug);
-  const flashcards = getFlashcardsForChapter(chapterSlug);
+  const questions = getQuestionsForChapter(registryKey);
+  const flashcards = getFlashcardsForChapter(registryKey);
   const practice = getChapterPractice(chapterSlug);
 
   if (!hasQ && !hasFC) {

@@ -24,16 +24,6 @@ export function ChapterSkeleton() {
 
       {/* Content skeleton */}
       <div className="flex gap-12">
-        {/* Sidebar skeleton */}
-        <div className="hidden lg:block w-60 shrink-0">
-          <div className="space-y-2">
-            <div className="h-3 w-16 rounded bg-muted mb-3" />
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="h-9 rounded-lg bg-muted" />
-            ))}
-          </div>
-        </div>
-
         {/* Article skeleton */}
         <div className="min-w-0 flex-1 max-w-3xl space-y-6">
           <div className="h-7 w-48 rounded bg-muted" />

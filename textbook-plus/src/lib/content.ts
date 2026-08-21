@@ -392,6 +392,7 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-2-14", title: "2.14 Combination of Capacitors" },
     { id: "h-2-15", title: "2.15 Energy Stored in a Capacitor" },
   ],
+  "c11/maths/sets": [{ id: "prerequisites", title: "Prerequisites" }],
 };
 
 const QUESTIONS_MAP: Record<string, Question[]> = {
