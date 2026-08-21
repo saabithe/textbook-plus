@@ -37,28 +37,46 @@
 
 ---
 
-## Pipeline Steps (Dynamic — 14 steps)
+## Pipeline Steps (Dynamic — 16 steps)
 
-Mathematics gets **14 steps** — fewer diagram steps, more derivation and proof validation.
+Mathematics follows the **master 16-step pipeline** with subject-specific content rules, component suggestions, and practice ratios.
 
-### Shared Steps (Steps 1–6)
+### Analysis Phase (Steps 1–7)
 
-Same as master pipeline: Input → Extract → Verify → Structure → Decompose → Map Source → Audit.
+| Step | Name | Description | Input | Output |
+|------|------|-------------|-------|--------|
+| 1 | Input | Provide NCERT chapter PDF | PDF file | Source file |
+| 2 | Extract | Complete exhaustive extraction → markdown | PDF | `{slug}-extracted.md` |
+| 3 | Clean/Reformat | Tool + AI → clean markdown (ALL content preserved) | Extraction | Clean markdown |
+| 4 | Verify | Automated comparison against PDF | Extraction + PDF | Gap-filled extraction |
+| 5 | Structure | Reconstruct chapter hierarchy from extraction | Extraction | Topic tree |
+| 6 | Decompose + Map | Break into knowledge units + source traceability | Extraction | Unit list + refs |
+| 7 | Audit | Automated completeness check against extraction | Units + extraction | Gap report |
 
-### Mathematics Content Steps (Steps 7–12)
+**Step 1 note:** PDF location: TBD — create folder in `Developer_Deliveries/Chapters/`
+
+### Content Creation Phase (Steps 8–12)
 
 | Step | Name | Description | Component Suggestions |
 |------|------|-------------|----------------------|
-| 7 | Understanding Layer | Foundation → bridge → content | Callout, KeyPoint, FactCard |
-| 8 | Transform | Convert to interactive formats | **FormulaCard**, **Stepper**, **GuidedStepper**, TableCard |
-| 9 | Exam Layer | Definitions, formulas, important theorems | **FormulaBlock**, Example, Comparison |
-| 10 | Learning Layer | Questions, practice, problem-solving | **ProblemSolution**, **MistakeCard**, Stepper |
-| 11 | Revision Layer | Full → summary → one-page → last-minute | Expandable, Checklist |
-| 12 | Validate | Completeness, accuracy, no hallucinations | — |
+| 8 | Understanding | Auto-generate foundation → bridge → content | Callout, KeyPoint, FactCard |
+| 9 | Transform + Exam | Auto-suggest components, user approves | **FormulaCard**, **Stepper**, **GuidedStepper**, TableCard, FormulaBlock, Comparison |
+| 10 | Learning | Auto-generate practice content | **ProblemSolution**, **MistakeCard**, Stepper |
+| 11 | Revision | Generate 3 views (Full → Revision → Last-Minute) | Expandable, Checklist |
+| 12 | Validate | Automated accuracy + completeness check | — |
 
-### Registration Steps (Steps 13–17)
+**Step 9 component suggestions:** Mathematics chapters typically need FormulaCard (grouped formulas), Stepper (sequential proof steps), GuidedStepper (proofs with checkpoints), TableCard (method comparisons), FormulaBlock (important results), Comparison (side-by-side formula comparison). AI suggests per chapter, user approves.
 
-Same as master pipeline: Output Files → Verify Subject → Register Chapter → Add Sections → Build & Verify.
+**Step 10 notes:** Include step-by-step problem solutions, common algebraic/trigonometric errors, and proof-based questions. Mix is AI-decided per chapter based on content.
+
+### Output & Registration Phase (Steps 13–16)
+
+| Step | Name | Description |
+|------|------|-------------|
+| 13 | Output | Create `page.tsx` + optional `questions.json`, `flashcards.json` |
+| 14 | Verify Subject | Confirm `mathematics` exists in `src/data/subjects.ts` |
+| 15 | Register | Auto-register chapter + sections |
+| 16 | Build | `npm run build` — 0 errors, chapter live |
 
 ---
 
@@ -90,45 +108,23 @@ Same as master pipeline: Output Files → Verify Subject → Register Chapter �
 
 ---
 
-## Component Priority (Mathematics)
-
-| Priority | Components | Why |
-|----------|-----------|-----|
-| **Must-have** | FormulaCard, Stepper, ProblemSolution | Every chapter has formulas + solutions |
-| **High** | GuidedStepper, FormulaBlock, TableCard | Proofs, important results, comparisons |
-| **Medium** | Comparison, MistakeCard, Expandable | Comparisons, errors, long proofs |
-| **Low** | Checklist, ConceptCard, MetricCard | Revision aids, classification |
-
----
-
-## Example Chapter Reference
-
-*No completed chapters yet. First chapter to be processed will serve as the reference.*
-
----
-
 ## Practice Rules (Mathematics)
 
+Practice content is **dynamic** — AI decides per chapter, user approves.
+
 ### Questions (`questions.json`)
-- **Problem sets**: Full solutions with step-by-step working
-- **Proof questions**: Logical steps with reasons
-- **MCQs**: Quick formula/concept recall
-- Mix: 40% problems, 30% proofs, 30% MCQs
+- **Format:** 4 options (MCQs) or open-ended (problems/proofs)
+- **Question types:** Problem sets, proof questions, MCQs
+- **Mix:** AI decides per chapter based on content type and complexity
+- **Trigger:** AI suggests generating practice when content is substantial enough
 
 ### Flashcards (`flashcards.json`)
 - **Front**: Formula / theorem name / problem type
 - **Back**: Formula with conditions / proof outline / solution method
 - **Tags**: `formula`, `theorem`, `proof`, `technique`, `identity`
 
----
-
-## Content Density Targets
-
-| Content Type | Target per Section |
-|-------------|-------------------|
-| Formulas | 3–6 per section (grouped in FormulaCard) |
-| Worked examples | 1–2 per major section |
-| Proof steps | Full derivation for each theorem |
-| KeyPoints | 1 per section (core insight only) |
-| Callouts | 1 per theorem statement or definition |
-| Tables | 1 per method comparison |
+### Practice Generation
+- AI suggests adding practice content after learning content is complete
+- User approves whether to add practice for each chapter
+- Not every chapter needs practice — only when it genuinely helps learning
+- Keep file format (questions.json + flashcards.json) — migrate to Supabase when backend is activated

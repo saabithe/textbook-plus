@@ -21,8 +21,8 @@
 
 | # | Chapter | Slug | Status |
 |---|---------|------|--------|
-| 1 | Electric Charges and Fields | `electric-charges-and-fields` | ✅ Content (6/13 sections) |
-| 2 | Electrostatic Potential and Capacitance | `electrostatic-potential-and-capacitance` | 🔲 Pending |
+| 1 | Electric Charges and Fields | `electric-charges-and-fields` | ✅ Content |
+| 2 | Electrostatic Potential and Capacitance | `electrostatic-potential-and-capacitance` | ✅ Content |
 | 3 | Current Electricity | `current-electricity` | 🔲 Pending |
 | 4 | Moving Charges and Magnetism | `moving-charges-and-magnetism` | 🔲 Pending |
 | 5 | Magnetism and Matter | `magnetism-and-matter` | 🔲 Pending |
@@ -38,42 +38,48 @@
 
 ---
 
-## Pipeline Steps (Dynamic — 17 steps)
+## Pipeline Steps (Dynamic — 16 steps)
 
-Physics gets the **full 17-step pipeline** because of formula density and derivation complexity.
+Physics follows the **master 16-step pipeline** with subject-specific content rules, component suggestions, and practice ratios.
 
-### Shared Steps (Steps 1–6)
+### Analysis Phase (Steps 1–7)
 
 | Step | Name | Description | Input | Output |
 |------|------|-------------|-------|--------|
 | 1 | Input | Provide NCERT chapter PDF | PDF file | Source file |
 | 2 | Extract | Complete exhaustive extraction → markdown | PDF | `{slug}-extracted.md` |
-| 2a | Verify | Compare extraction against PDF, fill gaps | Extraction + PDF | Gap-filled extraction |
-| 3 | Structure | Reconstruct chapter hierarchy from extraction | Extraction | Topic tree |
-| 4 | Decompose | Break into knowledge units | Extraction | Unit list |
-| 5 | Map Source | Match each unit to extraction + line refs | Units + extraction | Source traceability |
-| 6 | Audit | Completeness check against extraction | Units + extraction | Gap report |
+| 3 | Clean/Reformat | Tool + AI → clean markdown (ALL content preserved) | Extraction | Clean markdown |
+| 4 | Verify | Automated comparison against PDF | Extraction + PDF | Gap-filled extraction |
+| 5 | Structure | Reconstruct chapter hierarchy from extraction | Extraction | Topic tree |
+| 6 | Decompose + Map | Break into knowledge units + source traceability | Extraction | Unit list + refs |
+| 7 | Audit | Automated completeness check against extraction | Units + extraction | Gap report |
 
-### Physics Content Steps (Steps 7–12)
+**Step 1 note:** PDFs located at `Developer_Deliveries/Chapters/Physics Textbooks/`
+
+**Step 5 note:** Maintain derivation flow structure — preserve the logical sequence of equations and explanations. Each derivation step must flow naturally to the next.
+
+### Content Creation Phase (Steps 8–12)
 
 | Step | Name | Description | Component Suggestions |
 |------|------|-------------|----------------------|
-| 7 | Understanding Layer | Build foundation → bridge → content | Callout, KeyPoint, Expandable |
-| 8 | Transform | Convert to interactive formats | **FormulaCard**, **ProcessCard**, **FlowDiagram**, Comparison, TableCard |
-| 9 | Exam Layer | Definitions, formulas, PYQs, important concepts | **FormulaBlock** (important), Example, MetricCard |
-| 10 | Learning Layer | Questions, recall, practice, mistakes | ProblemSolution, **MistakeCard**, GuidedStepper |
-| 11 | Revision Layer | Full → summary → one-page → last-minute | Expandable, Checklist, Timeline |
-| 12 | Validate | Completeness, accuracy, no hallucinations | — |
+| 8 | Understanding | Auto-generate foundation → bridge → content | Callout, KeyPoint, Expandable |
+| 9 | Transform + Exam | Auto-suggest components, user approves | **FormulaCard**, **FormulaBlock**, **ProcessCard**, **FlowDiagram**, Comparison, TableCard, ProblemSolution, MetricCard |
+| 10 | Learning | Auto-generate practice content | ProblemSolution, **MistakeCard**, GuidedStepper |
+| 11 | Revision | Generate 3 views (Full → Revision → Last-Minute) | Expandable, Checklist, Timeline |
+| 12 | Validate | Automated accuracy + completeness check | — |
 
-### Registration Steps (Steps 13–17)
+**Step 9 component suggestions:** Physics chapters typically need FormulaCard (grouped formulas), FormulaBlock (important formulas), ProcessCard (charge/current processes), FlowDiagram (cause-effect chains), Comparison (vacuum vs medium, AC vs DC), TableCard (material properties), ProblemSolution (numerical examples), MetricCard (constants). AI suggests per chapter, user approves.
+
+**Step 10 notes:** Include unit conversion practice, common numerical mistakes, and derivation-based questions. Mix is AI-decided per chapter based on content.
+
+### Output & Registration Phase (Steps 13–16)
 
 | Step | Name | Description |
 |------|------|-------------|
-| 13 | Output Files | Create `page.tsx`, `questions.json`, `flashcards.json` |
+| 13 | Output | Create `page.tsx` + optional `questions.json`, `flashcards.json` |
 | 14 | Verify Subject | Confirm `physics` exists in `src/data/subjects.ts` |
-| 15 | Register Chapter | Add entry to `src/data/chapters.ts` |
-| 16 | Add Sections | Add section IDs to `SECTIONS_MAP` in `src/lib/content.ts` |
-| 17 | Build & Verify | `npm run build` — 0 errors, chapter live |
+| 15 | Register | Auto-register chapter + sections |
+| 16 | Build | `npm run build` — 0 errors, chapter live |
 
 ---
 
@@ -91,6 +97,7 @@ Physics gets the **full 17-step pipeline** because of formula density and deriva
 - Each derivation step must show: equation → explanation → result
 - Use `Stepper` when derivation has 3+ clear sequential steps
 - Final result must be highlighted with `FormulaBlock` (important)
+- **Full expansion required** — do not shorten or summarize derivations. Every step must be understandable to anyone reading it. Expand fully, show all intermediate steps, explain each equation.
 
 ### Numerical Problems
 - Use `ProblemSolution` for all NCERT worked examples
@@ -109,53 +116,23 @@ Physics gets the **full 17-step pipeline** because of formula density and deriva
 
 ---
 
-## Component Priority (Physics)
-
-| Priority | Components | Why |
-|----------|-----------|-----|
-| **Must-have** | FormulaCard, FormulaBlock, ProblemSolution | Every chapter has formulas + numericals |
-| **High** | ProcessCard, FlowDiagram, Comparison, TableCard | Derivations, processes, comparisons |
-| **Medium** | Stepper, MetricCard, MistakeCard | Sequential steps, constants, errors |
-| **Low** | Checklist, Timeline, Expandable | Revision aids, less critical |
-
----
-
-## Example Chapter Reference
-
-**Electric Charges and Fields** (`src/content/physics/electric-charges-and-fields/page.tsx`)
-
-Already completed sections demonstrate the component patterns:
-- Section 1.1: Stepper (charging process)
-- Section 1.2: Comparison table (repel/attract)
-- Section 1.3: FlowDiagram (charge transfer), Example (NCERT)
-- Section 1.4: Expandable (properties), Comparison (Coulomb vs Gravitational)
-- Section 1.5: FormulaCard (Coulomb's Law), Comparison (vacuum vs medium)
-- Section 1.6: ProblemSolution (superposition), Expandable (derivation)
-
----
-
 ## Practice Rules (Physics)
 
+Practice content is **dynamic** — AI decides per chapter, user approves.
+
 ### Questions (`questions.json`)
-- **MCQs**: 4 options, 1 correct, explanation for each option
-- **Numerical problems**: Given → Formula → Solution → Answer with units
-- **Derivation questions**: Step-by-step with formula references
-- Mix: 60% MCQs, 30% numericals, 10% short answer
+- **Format:** 4 options, 1 correct, explanation for each option
+- **Question types:** MCQs, numerical problems, derivation questions, short answer
+- **Mix:** AI decides per chapter based on content type and complexity
+- **Trigger:** AI suggests generating practice when content is substantial enough
 
 ### Flashcards (`flashcards.json`)
 - **Front**: Formula name / concept / law statement
 - **Back**: Formula with variables defined / definition / key points
 - **Tags**: `formula`, `definition`, `law`, `derivation`, `numerical`
 
----
-
-## Content Density Targets
-
-| Content Type | Target per Section |
-|-------------|-------------------|
-| Formulas | 2–4 per section (grouped in FormulaCard) |
-| Examples | 1–2 NCERT worked examples per major section |
-| Comparisons | 1 per section where applicable |
-| KeyPoints | 1 per section (only if core insight exists) |
-| Callouts | 1 per definition/law statement |
-| Expandables | 1 per derivation or detailed process |
+### Practice Generation
+- AI suggests adding practice content after learning content is complete
+- User approves whether to add practice for each chapter
+- Not every chapter needs practice — only when it genuinely helps learning
+- Keep file format (questions.json + flashcards.json) — migrate to Supabase when backend is activated

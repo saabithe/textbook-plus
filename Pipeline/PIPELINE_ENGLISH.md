@@ -104,28 +104,46 @@ Each chapter has a `chapter-text.md` file at `src/content/english/{slug}/chapter
 
 ---
 
-## Pipeline Steps (Dynamic — 12 steps)
+## Pipeline Steps (Dynamic — 16 steps)
 
-English gets **12 steps** — no formulas/derivations, heavier on text analysis and literary comparison.
+English follows the **master 16-step pipeline** with subject-specific content rules, component suggestions, and practice ratios.
 
-### Shared Steps (Steps 1–6)
+### Analysis Phase (Steps 1–7)
 
-Same as master pipeline: Input → Extract → Verify → Structure → Decompose → Map Source → Audit.
+| Step | Name | Description | Input | Output |
+|------|------|-------------|-------|--------|
+| 1 | Input | Provide Kerala Board English textbook PDF | PDF file | Source file |
+| 2 | Extract | Complete exhaustive extraction → markdown | PDF | `{slug}-extracted.md` |
+| 3 | Clean/Reformat | Tool + AI → clean markdown (ALL content preserved) | Extraction | Clean markdown |
+| 4 | Verify | Automated comparison against PDF | Extraction + PDF | Gap-filled extraction |
+| 5 | Structure | Reconstruct chapter hierarchy from extraction | Extraction | Topic tree |
+| 6 | Decompose + Map | Break into knowledge units + source traceability | Extraction | Unit list + refs |
+| 7 | Audit | Automated completeness check against extraction | Units + extraction | Gap report |
 
-### English Content Steps (Steps 7–12)
+**Step 1 note:** PDFs located at `Developer_Deliveries/Chapters/English/`
+
+### Content Creation Phase (Steps 8–12)
 
 | Step | Name | Description | Component Suggestions |
 |------|------|-------------|----------------------|
-| 7 | Understanding Layer | Foundation → bridge → content | Callout, KeyPoint, FactCard |
-| 8 | Transform | Convert to interactive formats | **Comparison**, **PerspectiveCard**, **Timeline**, Checklist |
-| 9 | Exam Layer | Literary devices, themes, important quotes | **MistakeCard**, TableCard, MetricCard |
-| 10 | Learning Layer | Questions, vocabulary, grammar | GuidedStepper, ConceptCard, FactCard |
-| 11 | Revision Layer | Full → summary → one-page → last-minute | Expandable, Checklist |
-| 12 | Validate | Completeness, accuracy, no hallucinations | — |
+| 8 | Understanding | Auto-generate foundation → bridge → content | Callout, KeyPoint, FactCard |
+| 9 | Transform + Exam | Auto-suggest components, user approves | **Comparison**, **PerspectiveCard**, **Timeline**, Checklist, TableCard, MistakeCard |
+| 10 | Learning | Auto-generate practice content | GuidedStepper, ConceptCard, FactCard |
+| 11 | Revision | Generate 3 views (Full → Revision → Last-Minute) | Expandable, Checklist |
+| 12 | Validate | Automated accuracy + completeness check | — |
 
-### Registration Steps (Steps 13–17)
+**Step 9 component suggestions:** English chapters typically need Comparison (character analysis, contrasting stanzas), PerspectiveCard (themes with multiple interpretations), Timeline (plot events, historical context), Checklist (grammar checklists), TableCard (grammar rules), MistakeCard (common errors). AI suggests per chapter, user approves.
 
-Same as master pipeline: Output Files → Verify Subject → Register Chapter → Add Sections → Build & Verify.
+**Step 10 notes:** Include comprehension questions, literary device identification, grammar exercises, and vocabulary practice. Mix is AI-decided per chapter based on content.
+
+### Output & Registration Phase (Steps 13–16)
+
+| Step | Name | Description |
+|------|------|-------------|
+| 13 | Output | Create `page.tsx` + optional `questions.json`, `flashcards.json` |
+| 14 | Verify Subject | Confirm `english` exists in `src/data/subjects.ts` |
+| 15 | Register | Auto-register chapter + sections |
+| 16 | Build | `npm run build` — 0 errors, chapter live |
 
 ---
 
@@ -154,23 +172,6 @@ Same as master pipeline: Output Files → Verify Subject → Register Chapter �
 - Use `PerspectiveCard` for multiple viewpoints
 - Use `MetricCard` for key statistics cited
 - Use `Timeline` for historical context
-
----
-
-## Component Priority (English)
-
-| Priority | Components | Why |
-|----------|-----------|-----|
-| **Must-have** | Comparison, PerspectiveCard, FactCard | Every chapter has analysis + vocabulary |
-| **High** | Timeline, TableCard, MistakeCard | Plot, grammar rules, errors |
-| **Medium** | Checklist, ConceptCard, MetricCard | Grammar checks, devices, statistics |
-| **Low** | GuidedStepper, Expandable, ProcessCard | Revision aids, analysis depth |
-
----
-
-## Example Chapter Reference
-
-*No completed chapters yet. First chapter to be processed will serve as the reference.*
 
 ---
 
@@ -281,26 +282,21 @@ The sidebar (`SECTIONS_MAP` in `src/lib/content.ts`) lists ALL sections from bot
 
 ## Practice Rules (English)
 
+Practice content is **dynamic** — AI decides per chapter, user approves.
+
 ### Questions (`questions.json`)
-- **MCQs**: Comprehension, literary devices, grammar
-- **Short answer**: Theme analysis, character questions
-- **Grammar exercises**: Fill in blanks, correct errors
-- Mix: 50% MCQs, 30% short answer, 20% grammar
+- **Format:** 4 options (MCQs) or open-ended (short answer, grammar)
+- **Question types:** MCQs, comprehension, short answer, grammar exercises
+- **Mix:** AI decides per chapter based on content type and complexity
+- **Trigger:** AI suggests generating practice when content is substantial enough
 
 ### Flashcards (`flashcards.json`)
 - **Front**: Vocabulary word / literary device / character name
 - **Back**: Definition / example from text / significance
 - **Tags**: `vocabulary`, `literary-device`, `character`, `theme`, `grammar`
 
----
-
-## Content Density Targets
-
-| Content Type | Target per Section |
-|-------------|-------------------|
-| Comparisons | 1 per section (characters, themes, stanzas) |
-| Perspectives | 1 per major theme |
-| Timelines | 1 per narrative chapter |
-| FactCards | 3–5 per section (vocabulary, terms) |
-| KeyPoints | 1 per section (core insight only) |
-| Callouts | 1 per key quote or definition |
+### Practice Generation
+- AI suggests adding practice content after learning content is complete
+- User approves whether to add practice for each chapter
+- Not every chapter needs practice — only when it genuinely helps learning
+- Keep file format (questions.json + flashcards.json) — migrate to Supabase when backend is activated
