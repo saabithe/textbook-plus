@@ -11,40 +11,11 @@ export default function SetsChapter() {
   return (
     <>
       <h2 id="h-intro">1.1 Introduction</h2>
-      <blockquote>
-        &ldquo;In these days of conflict between ancient and modern studies; there must surely be
-        something to be said for a study which did not begin with Pythagoras and will not end with
-        Einstein; but is the oldest and the youngest.&rdquo; — G.H. Hardy
-      </blockquote>
-      <Callout type="didyouknow">
-        The theory of sets was developed by German mathematician <strong>Georg Cantor</strong>{" "}
-        (1845–1918). He first encountered sets while working on &ldquo;problems on trigonometric
-        series&rdquo;. Today, the concept of set is a fundamental part of almost every branch of
-        mathematics — sets are used to define relations and functions, and the study of geometry,
-        sequences and probability requires the knowledge of sets.
+      <Callout type="important" title="Definition: Set">
+        A <strong>set</strong> is a well-defined collection of objects.
       </Callout>
 
       <h2 id="h-1-2">1.2 Sets and their Representations</h2>
-      <p>
-        In everyday life we often speak of collections of objects of a particular kind — a pack of
-        cards, a crowd of people, a cricket team. In mathematics too we meet collections of natural
-        numbers, points, prime numbers, and so on. Examine these collections:
-      </p>
-      <ul>
-        <li>Odd natural numbers less than 10, i.e., 1, 3, 5, 7, 9</li>
-        <li>The rivers of India</li>
-        <li>The vowels in the English alphabet, namely, a, e, i, o, u</li>
-        <li>Various kinds of triangles</li>
-        <li>Prime factors of 210, namely, 2, 3, 5 and 7</li>
-        <li>The solution of the equation x² – 5x + 6 = 0, viz, 2 and 3</li>
-      </ul>
-      <Callout type="important" title="Definition: Set">
-        A <strong>set</strong> is a well-defined collection of objects — we can definitely decide
-        whether a given particular object belongs to the collection or not. For example, the river
-        Nile does <em>not</em> belong to the collection of rivers of India, while the Ganga does.
-        The collection of &ldquo;five most renowned mathematicians of the world&rdquo; is{" "}
-        <em>not</em> a set, because the criterion may vary from person to person.
-      </Callout>
       <p>We use the following standard symbols throughout mathematics:</p>
       <table>
         <thead>
@@ -108,7 +79,47 @@ export default function SetsChapter() {
         <strong>Roster form:</strong> the order of listing is immaterial — {"{1, 3, 7, 21, 2, 6, 14, 42}"} is the same set as above. An element is not generally repeated: the letters of &ldquo;SCHOOL&rdquo; form {"{S, C, H, O, L}"}. <strong>Set-builder form:</strong> read {"{x : P(x)}"} as &ldquo;the set of all x such that x has property P&rdquo; — braces stand for &ldquo;the set of all&rdquo;, the colon for &ldquo;such that&rdquo;.
       </Callout>
 
-      <ProblemSolution problemNumber="Example 1">
+      <Callout type="important" title="Tips: Converting Between Roster and Set-builder Forms">
+        <p className="font-semibold mb-1">Set-builder → Roster</p>
+        <ol>
+          <li>
+            <strong>Fix the universe first.</strong> The same condition gives different sets on different
+            universes: {"{x : x² = 4}"} over ℤ is {"{–2, 2}"}, but over ℕ it is just {"{2}"}.
+          </li>
+          <li>
+            <strong>Solve the condition.</strong> Treat P(x) like an equation or inequality and find every
+            element satisfying it: {"{x : x ∈ Z and –3 < x ≤ 2}"} → integers from –2 to 2.
+          </li>
+          <li>
+            <strong>List each element once</strong> inside braces: result = {"{–2, –1, 0, 1, 2}"}.
+          </li>
+        </ol>
+        <p className="font-semibold mb-1 mt-4">Roster → Set-builder</p>
+        <ol start={4}>
+          <li>
+            <strong>Hunt for one common property</strong> shared by all elements (and by nothing outside).
+            Look for patterns: multiples or powers ({'{'}2, 4, 8, 16...{" }"} → x = 2ⁿ), squares
+            ({'{'}1, 4, 9...{" }"} → x = n²), fraction patterns ({'{'}1/2, 2/3, 3/4...{" }"} → x = n/(n+1)),
+            digits-sum rules, divisors of a number, letters of a word.
+          </li>
+          <li>
+            <strong>Bound the variable.</strong> For finite sets, add limits so nothing extra slips in:
+            {"{x : x = n², n ∈ N and 1 ≤ n ≤ 6}"} — without &ldquo;n ≤ 6&rdquo; the description also covers 49, 64...
+          </li>
+          <li>
+            <strong>Verify by converting back.</strong> List elements from your builder form — you must get
+            exactly the original roster. This catches missing bounds and wrong properties instantly.
+          </li>
+        </ol>
+        <p className="mt-4">
+          <strong>Watch out:</strong> a finite set can have more than one correct set-builder description — e.g.,
+          {"{0}"} may be written as {"{x : x + 1 = 1, x ∈ Z}"} or simply {"{x : x = 0}"}. Any description that
+          captures exactly the same elements is valid.
+        </p>
+      </Callout>
+
+      <Expandable id="h-examples-1-2" title="Examples 1 to 5">
+        <ProblemSolution problemNumber="Example 1">
         <ProblemSolution.Problem>
           <p>Write the solution set of the equation x² + x – 2 = 0 in roster form.</p>
         </ProblemSolution.Problem>
@@ -133,9 +144,10 @@ export default function SetsChapter() {
           <p>Write the set A = {"{1, 4, 9, 16, 25, ...}"} in set-builder form.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex="A = \{x : x \text{ is the square of a natural number}\}" />
-          <p>Alternatively:</p>
-          <FormulaBlock latex="A = \{x : x = n^2, \text{ where } n \in \mathbb{N}\}" important />
+          <div className="flex flex-col items-center justify-center sm:flex-row sm:gap-8 [&>div]:my-3">
+            <FormulaBlock latex="A = \{x : x \text{ is the square of a natural number}\}" />
+            <FormulaBlock latex="A = \{x : x = n^2, \text{ where } n \in \mathbb{N}\}" important />
+          </div>
         </ProblemSolution.Solution>
       </ProblemSolution>
 
@@ -152,21 +164,56 @@ export default function SetsChapter() {
       <ProblemSolution problemNumber="Example 5">
         <ProblemSolution.Problem>
           <p>Match each roster-form set with the same set in set-builder form:</p>
-          <ul>
-            <li>(i) {"{P, R, I, N, C, A, L}"} — (a) {"{x : x is a positive integer and is a divisor of 18}"}</li>
-            <li>(ii) {"{0}"} — (b) {"{x : x is an integer and x² – 9 = 0}"}</li>
-            <li>(iii) {"{1, 2, 3, 6, 9, 18}"} — (c) {"{x : x is an integer and x + 1 = 1}"}</li>
-            <li>(iv) {"{3, –3}"} — (d) {"{x : x is a letter of the word PRINCIPAL}"}</li>
-          </ul>
+          <table>
+            <thead>
+              <tr>
+                <th>Column A — Roster form</th>
+                <th>Column B — Set-builder form</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>(i) {"{P, R, I, N, C, A, L}"}</td>
+                <td>(a) {"{x : x is a positive integer and is a divisor of 18}"}</td>
+              </tr>
+              <tr>
+                <td>(ii) {"{0}"}</td>
+                <td>(b) {"{x : x is an integer and x² – 9 = 0}"}</td>
+              </tr>
+              <tr>
+                <td>(iii) {"{1, 2, 3, 6, 9, 18}"}</td>
+                <td>(c) {"{x : x is an integer and x + 1 = 1}"}</td>
+              </tr>
+              <tr>
+                <td>(iv) {"{3, –3}"}</td>
+                <td>(d) {"{x : x is a letter of the word PRINCIPAL}"}</td>
+              </tr>
+            </tbody>
+          </table>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>
-            PRINCIPAL has 9 letters with P and I repeated, so (i) matches (d). Also (ii) matches
-            (c), since x + 1 = 1 implies x = 0. Since 1, 2, 3, 6, 9, 18 are all divisors of 18,
-            (iii) matches (a). Finally x² – 9 = 0 implies x = 3, –3, so (iv) matches (b).
-          </p>
+          <p>Checking each option of Column B against Column A:</p>
+          <ul>
+            <li>
+              <strong>(i) → (d):</strong> PRINCIPAL has 9 letters, with P and I repeated. So{" "}
+              {"{P, R, I, N, C, A, L}"} is exactly the set of letters of the word PRINCIPAL.
+            </li>
+            <li>
+              <strong>(ii) → (c):</strong> The equation x + 1 = 1 gives x = 0, whose solution set is
+              the singleton {"{0}"}.
+            </li>
+            <li>
+              <strong>(iii) → (a):</strong> Each of 1, 2, 3, 6, 9, 18 divides 18 exactly, so this is
+              the set of all positive divisors of 18.
+            </li>
+            <li>
+              <strong>(iv) → (b):</strong> x² – 9 = 0 gives (x – 3)(x + 3) = 0, i.e., x = 3 or x = –3,
+              whose solution set is {"{3, –3}"}.
+            </li>
+          </ul>
         </ProblemSolution.Solution>
       </ProblemSolution>
+      </Expandable>
 
       <Expandable id="h-ex-1-1" title="EXERCISE 1.1">
         <ol>
@@ -219,6 +266,40 @@ export default function SetsChapter() {
             <br />(iii) {"{M, A, T, H, E, I, C, S}"} — (c) {"{x : x is natural number and divisor of 6}"}
             <br />(iv) {"{1, 3, 5, 7, 9}"} — (d) {"{x : x is a letter of the word MATHEMATICS}"}
           </li>
+        </ol>
+      </Expandable>
+
+      <Expandable id="h-ex-1-1-key" title="Answer Key — Exercise 1.1">
+        <ol>
+          <li>
+            Sets: (i), (iv), (v), (vi), (vii), (viii). Not sets: (ii), (iii), (ix) —
+            &ldquo;most talented&rdquo;, &ldquo;best&rdquo; and &ldquo;most dangerous&rdquo; vary from person to person, so the collections are not well-defined.
+          </li>
+          <li>(i) 5 ∈ A&nbsp;&nbsp;(ii) 8 ∉ A&nbsp;&nbsp;(iii) 0 ∉ A&nbsp;&nbsp;(iv) 4 ∈ A&nbsp;&nbsp;(v) 2 ∈ A&nbsp;&nbsp;(vi) 10 ∉ A</li>
+          <li>
+            (i) A = {"{–3, –2, –1, 0, 1, 2, 3, 4, 5, 6}"}
+            <br />(ii) B = {"{1, 2, 3, 4, 5}"}
+            <br />(iii) C = {"{17, 26, 35, 44, 53, 62, 71, 80}"}
+            <br />(iv) D = {"{2, 3, 5}"}
+            <br />(v) E = {"{T, R, I, G, O, N, M, E, Y}"}
+            <br />(vi) F = {"{B, E, T, R}"}
+          </li>
+          <li>
+            (i) {"{x : x is a natural number and a multiple of 3, x < 15}"}
+            <br />(ii) {"{x : x = 2ⁿ, n ∈ N and 1 ≤ n ≤ 5}"}
+            <br />(iii) {"{x : x = 5ⁿ, n ∈ N and 1 ≤ n ≤ 4}"}
+            <br />(iv) {"{x : x is an even natural number}"}
+            <br />(v) {"{x : x = n², n ∈ N and 1 ≤ n ≤ 10}"}
+          </li>
+          <li>
+            (i) Infinite — cannot be listed: A = {"{1, 3, 5, ...}"}
+            <br />(ii) B = {"{0, 1, 2, 3, 4}"}
+            <br />(iii) C = {"{–2, –1, 0, 1, 2}"}
+            <br />(iv) D = {"{L, O, Y, A}"}
+            <br />(v) E = {"{February, April, June, September, November}"}
+            <br />(vi) F = {"{b, c, d, f, g, h, j}"}
+          </li>
+          <li>(i) ↔ (c)&nbsp;&nbsp;(ii) ↔ (a)&nbsp;&nbsp;(iii) ↔ (d)&nbsp;&nbsp;(iv) ↔ (b)</li>
         </ol>
       </Expandable>
 
@@ -394,6 +475,25 @@ export default function SetsChapter() {
             <br />A = {"{2, 4, 8, 12}"}, B = {"{1, 2, 3, 4}"}, C = {"{4, 8, 12, 14}"}, D = {"{3, 1, 4, 2}"},<br />
             E = {"{–1, 1}"}, F = {"{0, a}"}, G = {"{1, –1}"}, H = {"{0, 1}"}
           </li>
+        </ol>
+      </Expandable>
+
+      <Expandable id="h-ex-1-2-key" title="Answer Key — Exercise 1.2">
+        <ol>
+          <li>Null sets: (i), (iii) and (iv). (ii) is <em>not</em> null — 2 is an even prime, so that set is {"{2}"}.</li>
+          <li>(i) Finite&nbsp;&nbsp;(ii) Infinite&nbsp;&nbsp;(iii) Finite&nbsp;&nbsp;(iv) Infinite&nbsp;&nbsp;(v) Finite</li>
+          <li>(i) Infinite&nbsp;&nbsp;(ii) Finite — 26 letters&nbsp;&nbsp;(iii) Infinite&nbsp;&nbsp;(iv) Finite&nbsp;&nbsp;(v) Infinite</li>
+          <li>
+            (i) A = B (order does not matter)
+            <br />(ii) A ≠ B (12 ∈ A but 18 ∈ B and 12 ∉ B)
+            <br />(iii) A = B = {"{2, 4, 6, 8, 10}"}
+            <br />(iv) A ≠ B (15 ∈ B but 15 is not a multiple of 10; A is infinite, B begins {"{10, 20, 30, ...}"} as multiples of 5)
+          </li>
+          <li>
+            (i) Not equal: x² + 5x + 6 = 0 gives x = –2, –3 so B = {"{–2, –3}"} ≠ {"{2, 3}"}
+            <br />(ii) Equal: both are {"{F, O, L, W}"}
+          </li>
+          <li>Equal pairs: <strong>B = D</strong> (= {"{1, 2, 3, 4}"}) and <strong>E = G</strong> (= {"{–1, 1}"}).</li>
         </ol>
       </Expandable>
 
@@ -613,6 +713,36 @@ export default function SetsChapter() {
             <br />(i) {"{0, 1, 2, 3, 4, 5, 6}"}&nbsp;&nbsp;(ii) φ
             <br />(iii) {"{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}"}&nbsp;&nbsp;(iv) {"{1, 2, 3, 4, 5, 6, 7, 8}"}
           </li>
+        </ol>
+      </Expandable>
+
+      <Expandable id="h-ex-1-3-key" title="Answer Key — Exercise 1.3">
+        <ol>
+          <li>(i) ⊂&nbsp;&nbsp;(ii) ⊄&nbsp;&nbsp;(iii) ⊂&nbsp;&nbsp;(iv) ⊄&nbsp;&nbsp;(v) ⊄&nbsp;&nbsp;(vi) ⊂&nbsp;&nbsp;(vii) ⊂</li>
+          <li>
+            (i) False — {"{a, b}"} ⊂ {"{b, c, a}"}
+            <br />(ii) True
+            <br />(iii) False — 2 ∉ {"{1, 3, 5}"}
+            <br />(iv) True
+            <br />(v) False — {"{a}"} is a set, not an element; the correct statement is {"{a}"} ⊂ {"{a, b, c}"}
+            <br />(vi) True — {"{2, 4}"} ⊂ {"{1, 2, 3, 4, 6, 9, 12, 18, 36}"}
+          </li>
+          <li>Incorrect: (i), (v), (vii), (viii), (ix), (xi). (i): 3 ∉ A. (v): 1 is not a set. (vii): a set of three elements cannot be one element of A. (viii): 3 ∉ A. (ix): φ is not an element of A. (xi): φ ∉ A, so {"{φ}"} ⊄ A.</li>
+          <li>
+            (i) φ, {"{a}"}
+            <br />(ii) φ, {"{a}"}, {"{b}"}, {"{a, b}"}
+            <br />(iii) φ, {"{1}"}, {"{2}"}, {"{3}"}, {"{1, 2}"}, {"{1, 3}"}, {"{2, 3}"}, {"{1, 2, 3}"}
+            <br />(iv) φ only
+          </li>
+          <li>(i) (–4, 6]&nbsp;&nbsp;(ii) (–12, –10)&nbsp;&nbsp;(iii) [0, 7)&nbsp;&nbsp;(iv) [3, 4]</li>
+          <li>
+            (i) {"{x : x ∈ R and –3 < x < 0}"}
+            <br />(ii) {"{x : x ∈ R and 6 ≤ x ≤ 12}"}
+            <br />(iii) {"{x : x ∈ R and 6 < x ≤ 12}"}
+            <br />(iv) {"{x : x ∈ R and –23 ≤ x < 5}"}
+          </li>
+          <li>(i) The set of all triangles in the plane.&nbsp;&nbsp;(ii) The same — the set of all triangles in the plane.</li>
+          <li>Only (iii) {"{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}"} — it contains every element of A, B and C.</li>
         </ol>
       </Expandable>
 
@@ -863,6 +993,47 @@ export default function SetsChapter() {
         </ol>
       </Expandable>
 
+      <Expandable id="h-ex-1-4-key" title="Answer Key — Exercise 1.4">
+        <ol>
+          <li>
+            (i) X ∪ Y = {"{1, 2, 3, 5}"}
+            <br />(ii) A ∪ B = {"{a, b, c, e, i, o, u}"}
+            <br />(iii) A ∪ B = {"{1, 2, 3, 4, 5, 6, 9, 12, 15, ...}"}
+            <br />(iv) A = {"{2, 3, 4, 5, 6}"}, B = {"{7, 8, 9}"} so A ∪ B = {"{2, 3, 4, 5, 6, 7, 8, 9}"}
+            <br />(v) A ∪ B = {"{1, 2, 3}"}
+          </li>
+          <li>Yes, A ⊂ B; and A ∪ B = B = {"{a, b, c}"}.</li>
+          <li>A ∪ B = B.</li>
+          <li>
+            (i) {"{1, 2, 3, 4, 5, 6}"}&nbsp;&nbsp;(ii) {"{1, 2, 3, 4, 5, 6, 7, 8}"}&nbsp;&nbsp;(iii) {"{3, 4, 5, 6, 7, 8}"}
+            <br />(iv) {"{3, 4, 5, 6, 7, 8, 9, 10}"}&nbsp;&nbsp;(v) {"{1, 2, 3, 4, 5, 6, 7, 8}"}&nbsp;&nbsp;(vi) {"{1, 2, ..., 10}"}&nbsp;&nbsp;(vii) {"{3, 4, ..., 10}"}
+          </li>
+          <li>(i) X ∩ Y (of Q1 pairs): (i) {"{1, 3}"}&nbsp;&nbsp;(ii) {"{a}"}&nbsp;&nbsp;(iii) {"{3}"}&nbsp;&nbsp;(iv) {"{6}"}&nbsp;&nbsp;(v) φ</li>
+          <li>
+            (i) {"{7, 9, 11}"}&nbsp;&nbsp;(ii) {"{11, 13}"}&nbsp;&nbsp;(iii) φ&nbsp;&nbsp;(iv) {"{11}"}&nbsp;&nbsp;(v) φ
+            <br />(vi) {"{7, 9, 11}"}&nbsp;&nbsp;(vii) φ&nbsp;&nbsp;(viii) {"{7, 9, 11}"}&nbsp;&nbsp;(ix) {"{7, 9, 11}"}&nbsp;&nbsp;(x) {"{7, 9, 11, 15}"}
+          </li>
+          <li>
+            (i) B&nbsp;&nbsp;(ii) A&nbsp;&nbsp;(iii) D&nbsp;&nbsp;(iv) φ
+            <br />(v) B ∩ D = {"{2}"}&nbsp;&nbsp;(vi) C ∩ D = the odd primes {"{3, 5, 7, 11, 13, ...}"}
+          </li>
+          <li>Only (iii): even integers and odd integers are disjoint. (i) share 4; (ii) share e.</li>
+          <li>
+            (i) {"{3, 6, 9, 15, 18, 21}"}&nbsp;&nbsp;(ii) {"{3, 9, 15, 18, 21}"}&nbsp;&nbsp;(iii) {"{3, 6, 9, 12, 18, 21}"}&nbsp;&nbsp;(iv) {"{4, 8, 16, 20}"}
+            <br />(v) {"{2, 4, 8, 10, 14, 16}"}&nbsp;&nbsp;(vi) {"{5, 10, 20}"}&nbsp;&nbsp;(vii) {"{20}"}&nbsp;&nbsp;(viii) {"{4, 8, 12, 16}"}
+            <br />(ix) {"{2, 6, 10, 14}"}&nbsp;&nbsp;(x) {"{5, 10, 15}"}&nbsp;&nbsp;(xi) {"{2, 4, 6, 8, 12, 14, 16}"}&nbsp;&nbsp;(xii) {"{5, 15}"}
+          </li>
+          <li>(i) X – Y = {"{a, c}"}&nbsp;&nbsp;(ii) Y – X = {"{f, g}"}&nbsp;&nbsp;(iii) X ∩ Y = {"{b, d}"}</li>
+          <li>R – Q is the set of irrational numbers.</li>
+          <li>
+            (i) False — 3 belongs to both sets.
+            <br />(ii) False — a belongs to both sets.
+            <br />(iii) True — no common element.
+            <br />(iv) True — no common element.
+          </li>
+        </ol>
+      </Expandable>
+
       <h2 id="h-1-10">1.10 Complement of a Set</h2>
       <p>
         Let U be the universal set of all prime numbers and A the subset of primes that are{" "}
@@ -981,6 +1152,35 @@ export default function SetsChapter() {
         </ol>
       </Expandable>
 
+      <Expandable id="h-ex-1-5-key" title="Answer Key — Exercise 1.5">
+        <ol>
+          <li>
+            (i) A′ = {"{5, 6, 7, 8, 9}"}
+            <br />(ii) B′ = {"{1, 3, 5, 7, 9}"}
+            <br />(iii) (A ∪ C)′ = {"{7, 8, 9}"}
+            <br />(iv) (A ∪ B)′ = {"{5, 7, 9}"}
+            <br />(v) (A′)′ = {"{1, 2, 3, 4}"}
+            <br />(vi) (B – C)′ = {"{1, 3, 4, 5, 6, 7, 9}"}
+          </li>
+          <li>
+            (i) A′ = {"{d, e, f, g, h}"}
+            <br />(ii) B′ = {"{a, b, c, h}"}
+            <br />(iii) C′ = {"{b, d, f, h}"}
+            <br />(iv) D′ = {"{b, c, d, e}"}
+          </li>
+          <li>
+            (i) Odd naturals&nbsp;&nbsp;(ii) Even naturals&nbsp;&nbsp;(iii) Naturals that are not positive multiples of 3&nbsp;&nbsp;(iv) Naturals that are not prime
+            <br />(v) Naturals not divisible by both 3 and 5 (not divisible by 15)&nbsp;&nbsp;(vi) Naturals that are not perfect squares
+            <br />(vii) Naturals that are not perfect cubes&nbsp;&nbsp;(viii) Naturals other than 3&nbsp;&nbsp;(ix) Naturals other than 2
+            <br />(x) {"{x : x ∈ N and x < 7}"}&nbsp;&nbsp;(xi) {"{x : x ∈ N and 2x + 1 ≤ 10}"} = {"{1, 2, 3, 4}"}
+          </li>
+          <li>A ∪ B = {"{2, 3, 4, 5, 6, 7, 8}"}, so (A ∪ B)′ = {"{1, 9}"}; A′ = {"{1, 3, 5, 7, 9}"} and B′ = {"{1, 4, 6, 8, 9}"} give A′ ∩ B′ = {"{1, 9}"} — equal ✓. Similarly A ∩ B = {"{2}"}, (A ∩ B)′ = {"{1, 3, 4, 5, 6, 7, 8, 9}"} = A′ ∪ B′ — verified.</li>
+          <li>(i) and (ii) show the same picture: shade U excluding both circles. (iii) and (iv) show the same picture: shade everything except the overlap A ∩ B.</li>
+          <li>A′ is the set of all equilateral triangles (every angle 60°).</li>
+          <li>(i) U&nbsp;&nbsp;(ii) A&nbsp;&nbsp;(iii) φ&nbsp;&nbsp;(iv) A</li>
+        </ol>
+      </Expandable>
+
       <h2 id="h-misc">Miscellaneous Examples</h2>
 
       <ProblemSolution problemNumber="Example 23">
@@ -1071,6 +1271,28 @@ export default function SetsChapter() {
             Find sets A, B and C such that A ∩ B, B ∩ C and A ∩ C are non-empty sets and
             A ∩ B ∩ C = φ.
           </li>
+        </ol>
+      </Expandable>
+
+      <Expandable id="h-misc-exercise-key" title="Answer Key — Miscellaneous Exercise">
+        <ol>
+          <li>A = {"{2, 6}"}, so D = {"{6}"} ⊂ A ⊂ B ⊂ C.</li>
+          <li>
+            (i) False — take A = {"{1}"}, B = {"{{1}}"}: then x = 1 ∈ A and A ∈ B, but x ∉ B.
+            <br />(ii) False — take A = {"{1}"}, B = {"{1, 2}"}, C = {"{{1, 2}}, 3"}: A ⊂ B and B ∈ C but A ∉ C.
+            <br />(iii) True — every element of A is in B, and every element of B is in C.
+            <br />(iv) False — take A = {"{1}"}, B = {"{2, 3}"}, C = {"{1, 2}"}: A ⊄ B and B ⊄ C, yet A ⊂ C.
+            <br />(v) False — take A = {"{1, 2}"}, B = {"{2, 3}"}, x = 1: x ∈ A, A ⊄ B but x ∉ B.
+            <br />(vi) True — if x were in A then x would be in B (A ⊂ B), a contradiction; so x ∉ A.
+          </li>
+          <li>B = B ∩ (A ∪ B) = B ∩ (A ∪ C) = (B ∩ A) ∪ (B ∩ C) = (A ∩ C) ∪ (B ∩ C) = (A ∪ B) ∩ C = (A ∪ C) ∩ C = C. Hence B = C.</li>
+          <li>Chain of implications: if A ⊂ B then no element of A lies outside B, so A – B = φ. If A – B = φ then every element of A is in B, so A ∪ B = B. If A ∪ B = B then every element of the intersection A ∩ B is in A, so A ∩ B = A. Finally if A ∩ B = A then every element of A is in B, i.e., A ⊂ B. All four conditions are equivalent.</li>
+          <li>Let c ∈ C – B, so c ∈ C and c ∉ B. If c belonged to A, then A ⊂ B would force c ∈ B — contradiction. Hence c ∉ A, i.e., c ∈ C – A. Therefore C – B ⊂ C – A.</li>
+          <li>Every element of (A ∩ B) ∪ (A – B) is in A; conversely each a ∈ A either lies in B (then a ∈ A ∩ B) or not (then a ∈ A – B). So A = (A ∩ B) ∪ (A – B). For the second: a ∈ A ∪ (B – A) means a ∈ A or (a ∈ B and a ∉ A); in both cases a ∈ A ∪ B, and conversely any element of A ∪ B qualifies. So A ∪ (B – A) = A ∪ B.</li>
+          <li>(i) A ∪ (A ∩ B) = (A ∪ A) ∩ (A ∪ B) [distributive] = A ∩ (A ∪ B) = A [absorption]. (ii) A ∩ (A ∪ B) = (A ∩ A) ∪ (A ∩ B) = A ∪ (A ∩ B) = A by part (i).</li>
+          <li>No. Example: A = {"{1}"}, B = {"{1, 2}"}, C = {"{1, 3}"} — then A ∩ B = {"{1}"} = A ∩ C but B ≠ C.</li>
+          <li>A = A ∩ (A ∪ X) = A ∩ (B ∪ X) = (A ∩ B) ∪ (A ∩ X) = (A ∩ B) ∪ φ = A ∩ B, hence A ⊂ B. Similarly B = B ∩ (B ∪ X) = B ∩ (A ∪ X) = (B ∩ A) ∪ (B ∩ X) = A ∩ B, hence B ⊂ A. Therefore A = B.</li>
+          <li>Take A = {"{1, 2}"}, B = {"{2, 3}"}, C = {"{3, 1}"}: the pairwise intersections are {"{2}"}, {"{3}"}, {"{1}"} — all non-empty — while A ∩ B ∩ C = φ.</li>
         </ol>
       </Expandable>
 
