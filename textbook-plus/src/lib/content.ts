@@ -3,6 +3,8 @@ import ch1Questions from "@/content/physics/electric-charges-and-fields/question
 import ch1Flashcards from "@/content/physics/electric-charges-and-fields/flashcards.json";
 import ch2Questions from "@/content/physics/electrostatic-potential-and-capacitance/questions.json";
 import ch2Flashcards from "@/content/physics/electrostatic-potential-and-capacitance/flashcards.json";
+import setsQuestions from "@/content/maths/sets/questions.json";
+import setsFlashcards from "@/content/maths/sets/flashcards.json";
 
 const SECTIONS_MAP: Record<string, ChapterSection[]> = {
   "horegallu": [
@@ -392,16 +394,48 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-2-14", title: "2.14 Combination of Capacitors" },
     { id: "h-2-15", title: "2.15 Energy Stored in a Capacitor" },
   ],
+  "c11/maths/sets": [
+    { id: "h-intro", title: "1.1 Introduction" },
+    {
+      id: "h-1-2", title: "1.2 Sets and their Representations", children: [
+        { id: "h-1-2-1", title: "Methods of Representing a Set" },
+      ],
+    },
+    { id: "h-1-3", title: "1.3 The Empty Set" },
+    { id: "h-1-4", title: "1.4 Finite and Infinite Sets" },
+    { id: "h-1-5", title: "1.5 Equal Sets" },
+    {
+      id: "h-1-6", title: "1.6 Subsets", children: [
+        { id: "h-1-6-1", title: "1.6.1 Subsets of Set of Real Numbers" },
+        { id: "h-1-6-2", title: "1.6.2 Intervals as Subsets of R" },
+      ],
+    },
+    { id: "h-1-7", title: "1.7 Universal Set" },
+    { id: "h-1-8", title: "1.8 Venn Diagrams" },
+    {
+      id: "h-1-9", title: "1.9 Operations on Sets", children: [
+        { id: "h-1-9-1", title: "1.9.1 Union of Sets" },
+        { id: "h-1-9-2", title: "1.9.2 Intersection of Sets" },
+        { id: "h-1-9-3", title: "1.9.3 Difference of Sets" },
+      ],
+    },
+    { id: "h-1-10", title: "1.10 Complement of a Set" },
+    { id: "h-misc", title: "Miscellaneous Examples" },
+    { id: "h-summary", title: "Summary" },
+    { id: "h-history", title: "Historical Note" },
+  ],
 };
 
 const QUESTIONS_MAP: Record<string, Question[]> = {
   "electric-charges-and-fields": ch1Questions as Question[],
   "electrostatic-potential-and-capacitance": ch2Questions as Question[],
+  "c11/maths/sets": setsQuestions as Question[],
 };
 
 const FLASHCARDS_MAP: Record<string, Flashcard[]> = {
   "electric-charges-and-fields": ch1Flashcards as Flashcard[],
   "electrostatic-potential-and-capacitance": ch2Flashcards as Flashcard[],
+  "c11/maths/sets": setsFlashcards as Flashcard[],
 };
 
 export function getSectionsForChapter(slug: string): ChapterSection[] {
