@@ -401,9 +401,13 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
         { id: "h-1-2-1", title: "Methods of Representing a Set" },
       ],
     },
-    { id: "h-1-3", title: "1.3 The Empty Set" },
-    { id: "h-1-4", title: "1.4 Finite and Infinite Sets" },
-    { id: "h-1-5", title: "1.5 Equal Sets" },
+    {
+      id: "h-types", title: "Types of Sets", children: [
+        { id: "h-1-3", title: "1.3 The Empty Set" },
+        { id: "h-1-4", title: "1.4 Finite and Infinite Sets" },
+        { id: "h-1-5", title: "1.5 Equal Sets" },
+      ],
+    },
     {
       id: "h-1-6", title: "1.6 Subsets", children: [
         { id: "h-1-6-1", title: "1.6.1 Subsets of Set of Real Numbers" },
@@ -421,8 +425,6 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     },
     { id: "h-1-10", title: "1.10 Complement of a Set" },
     { id: "h-misc", title: "Miscellaneous Examples" },
-    { id: "h-summary", title: "Summary" },
-    { id: "h-history", title: "Historical Note" },
   ],
 };
 

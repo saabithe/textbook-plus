@@ -12,7 +12,8 @@ export default function SetsChapter() {
     <>
       <h2 id="h-intro">1.1 Introduction</h2>
       <Callout type="important" title="Definition: Set">
-        A <strong>set</strong> is a well-defined collection of objects.
+        A <strong>set</strong> is a well-defined collection of objects. The <strong>order</strong> in which
+        its elements are listed does <em>not</em> matter — {"{1, 2, 3}"} and {"{3, 2, 1}"} are the same set.
       </Callout>
 
       <h2 id="h-1-2">1.2 Sets and their Representations</h2>
@@ -76,7 +77,16 @@ export default function SetsChapter() {
         ]}
       />
       <Callout type="note">
-        <strong>Roster form:</strong> the order of listing is immaterial — {"{1, 3, 7, 21, 2, 6, 14, 42}"} is the same set as above. An element is not generally repeated: the letters of &ldquo;SCHOOL&rdquo; form {"{S, C, H, O, L}"}. <strong>Set-builder form:</strong> read {"{x : P(x)}"} as &ldquo;the set of all x such that x has property P&rdquo; — braces stand for &ldquo;the set of all&rdquo;, the colon for &ldquo;such that&rdquo;.
+        <p className="font-semibold mb-1">Roster form</p>
+        <ul>
+          <li>The order of listing is immaterial — {"{1, 3, 7, 21, 2, 6, 14, 42}"} is the same set as above.</li>
+          <li>An element is not generally repeated: the letters of &ldquo;SCHOOL&rdquo; form {"{S, C, H, O, L}"}.</li>
+        </ul>
+        <p className="font-semibold mb-1 mt-3">Set-builder form</p>
+        <ul>
+          <li>Read {"{x : P(x)}"} as &ldquo;the set of all x such that x has property P&rdquo;.</li>
+          <li>Braces stand for &ldquo;the set of all&rdquo;, the colon for &ldquo;such that&rdquo;.</li>
+        </ul>
       </Callout>
 
       <Callout type="important" title="Tips: Converting Between Roster and Set-builder Forms">
@@ -267,10 +277,9 @@ export default function SetsChapter() {
             <br />(iv) {"{1, 3, 5, 7, 9}"} — (d) {"{x : x is a letter of the word MATHEMATICS}"}
           </li>
         </ol>
-      </Expandable>
 
-      <Expandable id="h-ex-1-1-key" title="Answer Key — Exercise 1.1">
-        <ol>
+        <Expandable id="h-ex-1-1-key" title="Answer Key — Exercise 1.1">
+          <ol>
           <li>
             Sets: (i), (iv), (v), (vi), (vii), (viii). Not sets: (ii), (iii), (ix) —
             &ldquo;most talented&rdquo;, &ldquo;best&rdquo; and &ldquo;most dangerous&rdquo; vary from person to person, so the collections are not well-defined.
@@ -300,10 +309,17 @@ export default function SetsChapter() {
             <br />(vi) F = {"{b, c, d, f, g, h, j}"}
           </li>
           <li>(i) ↔ (c)&nbsp;&nbsp;(ii) ↔ (a)&nbsp;&nbsp;(iii) ↔ (d)&nbsp;&nbsp;(iv) ↔ (b)</li>
-        </ol>
+          </ol>
+        </Expandable>
       </Expandable>
 
-      <h2 id="h-1-3">1.3 The Empty Set</h2>
+      <h2 id="h-types">Types of Sets</h2>
+      <p>
+        Depending on the number and nature of their elements, sets are classified into the following
+        types — the empty set, finite and infinite sets, and equal sets.
+      </p>
+
+      <h3 id="h-1-3">1.3 The Empty Set</h3>
       <p>Consider the set A = {"{x : x is a student of Class XI presently studying in a school}"}. We can go to the school and count such students — so A contains a finite number of elements. Now consider B = {"{x : x is a student presently studying in both Classes X and XI}"}. A student cannot study simultaneously in both classes, so B contains no element at all.</p>
       <Callout type="important" title="Definition 1: Empty Set">
         A set which does not contain any element is called the <strong>empty set</strong>, the{" "}
@@ -317,16 +333,12 @@ export default function SetsChapter() {
         <li>D = {"{x : x² = 4, x is odd}"} is empty — no odd value satisfies x² = 4.</li>
       </ul>
 
-      <h2 id="h-1-4">1.4 Finite and Infinite Sets</h2>
-      <p>
-        Let A = {"{1, 2, 3, 4, 5}"}, B = {"{a, b, c, d, e, g}"} and C = the set of men living
-        presently in different parts of the world. A contains 5 elements and B contains 6; C also
-        contains some (big) natural number of elements. By the <strong>number of elements</strong>{" "}
-        of a set S we mean the number of distinct elements, denoted n(S).
-      </p>
+      <h3 id="h-1-4">1.4 Finite and Infinite Sets</h3>
       <Callout type="important" title="Definition 2: Finite and Infinite Sets">
         A set which is empty or consists of a definite number of elements is called{" "}
-        <strong>finite</strong>; otherwise the set is called <strong>infinite</strong>.
+        <strong>finite</strong>; otherwise the set is called <strong>infinite</strong>. By the{" "}
+        <strong>number of elements</strong> of a set S we mean the number of distinct elements,
+        denoted n(S).
       </Callout>
       <Comparison
         columns={[
@@ -336,7 +348,7 @@ export default function SetsChapter() {
               <ul>
                 <li>W = the days of the week</li>
                 <li>S = solutions of x² – 16 = 0</li>
-                <li>n(A) = 5, n(B) = 6 above</li>
+                <li>A = {"{1, 2, 3, 4, 5}"}, so n(A) = 5</li>
               </ul>
             ),
           },
@@ -361,7 +373,45 @@ export default function SetsChapter() {
         whose elements follow no particular pattern.
       </Callout>
 
-      <ProblemSolution problemNumber="Example 6">
+      <Callout type="important" title="Hard-Level Tips: Finite or Infinite?">
+        <ul>
+          <li>
+            <strong>Huge ≠ infinite.</strong> The set of all animals living on Earth, or every grain
+            of sand on a beach, is still <em>finite</em> — counting would end eventually.
+          </li>
+          <li>
+            <strong>Beware geometric freedom.</strong> Circles passing through the origin: one for
+            every choice of centre/radius → <em>infinite</em>. Lines parallel to the x-axis: one for
+            every y-intercept → <em>infinite</em>. &ldquo;Bounded picture&rdquo; does not mean finite set.
+          </li>
+          <li>
+            <strong>Bounded number sets can be infinite.</strong> Every fraction between 0 and 1 is
+            squeezed inside [0, 1], yet there are infinitely many of them. A bound limits size, not
+            count.
+          </li>
+          <li>
+            <strong>Equations vs inequalities.</strong> An equation like x⁵ – 3x + 1 = 0 has at most 5
+            real roots → <em>finite</em>. An inequality like x² &lt; 4 over ℝ gives a whole stretch of
+            reals → <em>infinite</em>.
+          </li>
+          <li>
+            <strong>Word/letter sets are always finite.</strong> Letters of any word, months of a
+            year, digits of π&rsquo;s decimal expansion written down in a book — finite.
+          </li>
+          <li>
+            <strong>Unbounded patterns are infinite.</strong> Primes, odd numbers, multiples of 7:
+            no largest element can ever exist.
+          </li>
+          <li>
+            <strong>Special cases:</strong> φ counts as finite (zero elements), and every singleton
+            {"{a}"} is finite. If n(S) exists as a natural number, S is finite — if no such number
+            can exist, S is infinite.
+          </li>
+        </ul>
+      </Callout>
+
+      <Expandable id="h-examples-1-4" title="Example 6">
+        <ProblemSolution problemNumber="Example 6">
         <ProblemSolution.Problem>
           <p>State which of the following sets are finite or infinite:</p>
           <ul>
@@ -382,8 +432,9 @@ export default function SetsChapter() {
           </ul>
         </ProblemSolution.Solution>
       </ProblemSolution>
+      </Expandable>
 
-      <h2 id="h-1-5">1.5 Equal Sets</h2>
+      <h3 id="h-1-5">1.5 Equal Sets</h3>
       <Callout type="important" title="Definition 3: Equal Sets">
         Two sets A and B are said to be <strong>equal</strong> if they have exactly the same
         elements, and we write A = B. Otherwise they are unequal, written A ≠ B.
@@ -396,7 +447,8 @@ export default function SetsChapter() {
         A set does not change if one or more elements are repeated: A = {"{1, 2, 3}"} and B = {"{2, 2, 1, 3, 3}"} are equal. That is why we never repeat elements while describing a set.
       </Callout>
 
-      <ProblemSolution problemNumber="Example 7">
+      <Expandable id="h-examples-1-5" title="Examples 7 and 8">
+        <ProblemSolution problemNumber="Example 7">
         <ProblemSolution.Problem>
           <p>Find the pairs of equal sets, if any, give reasons:</p>
           <ul>
@@ -408,11 +460,23 @@ export default function SetsChapter() {
           </ul>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
+          <p>Comparing each set with the others:</p>
+          <ul>
+            <li>
+              <strong>A vs B, C, D, E:</strong> 0 ∈ A, but 0 belongs to none of B, C, D, E. So A
+              differs from all of them.
+            </li>
+            <li>
+              <strong>B vs C, D, E:</strong> B = φ (no element is both &gt; 15 and &lt; 5), while none of
+              C, D, E is empty. So B differs from each.
+            </li>
+            <li>
+              <strong>C vs D:</strong> C = {"{5}"}, but D = {"{–5, 5}"} (x² = 25 gives x = ±5). Since –5 ∈ D but –5 ∉ C, C ≠ D.
+            </li>
+          </ul>
           <p>
-            Since 0 ∈ A but 0 belongs to none of B, C, D, E: A differs from each. B = φ while none
-            of the others are empty, so B differs from C, D, E. Also C = {"{5}"} but –5 ∈ D, hence
-            C ≠ D. Since E = {"{5}"}, we get <strong>C = E</strong>; and D = {"{–5, 5}"} ≠ E. The
-            only pair of equal sets is <strong>C and E</strong>.
+            Finally E = {"{5}"} — the positive integral root of x² – 2x – 15 = 0. Hence{" "}
+            <strong>C = E</strong>, and this is the only pair of equal sets.
           </p>
         </ProblemSolution.Solution>
       </ProblemSolution>
@@ -432,6 +496,7 @@ export default function SetsChapter() {
           </ul>
         </ProblemSolution.Solution>
       </ProblemSolution>
+      </Expandable>
 
       <Expandable id="h-ex-1-2" title="EXERCISE 1.2">
         <ol>
@@ -476,10 +541,9 @@ export default function SetsChapter() {
             E = {"{–1, 1}"}, F = {"{0, a}"}, G = {"{1, –1}"}, H = {"{0, 1}"}
           </li>
         </ol>
-      </Expandable>
 
-      <Expandable id="h-ex-1-2-key" title="Answer Key — Exercise 1.2">
-        <ol>
+        <Expandable id="h-ex-1-2-key" title="Answer Key — Exercise 1.2">
+          <ol>
           <li>Null sets: (i), (iii) and (iv). (ii) is <em>not</em> null — 2 is an even prime, so that set is {"{2}"}.</li>
           <li>(i) Finite&nbsp;&nbsp;(ii) Infinite&nbsp;&nbsp;(iii) Finite&nbsp;&nbsp;(iv) Infinite&nbsp;&nbsp;(v) Finite</li>
           <li>(i) Infinite&nbsp;&nbsp;(ii) Finite — 26 letters&nbsp;&nbsp;(iii) Infinite&nbsp;&nbsp;(iv) Finite&nbsp;&nbsp;(v) Infinite</li>
@@ -487,14 +551,17 @@ export default function SetsChapter() {
             (i) A = B (order does not matter)
             <br />(ii) A ≠ B (12 ∈ A but 18 ∈ B and 12 ∉ B)
             <br />(iii) A = B = {"{2, 4, 6, 8, 10}"}
-            <br />(iv) A ≠ B (15 ∈ B but 15 is not a multiple of 10; A is infinite, B begins {"{10, 20, 30, ...}"} as multiples of 5)
+            <br />(iv) A ≠ B:
+            <br />15 ∈ B but 15 is not a multiple of 10.
+            <br />Also A consists of multiples of 10 while B lists multiples of 5.
           </li>
           <li>
             (i) Not equal: x² + 5x + 6 = 0 gives x = –2, –3 so B = {"{–2, –3}"} ≠ {"{2, 3}"}
             <br />(ii) Equal: both are {"{F, O, L, W}"}
           </li>
           <li>Equal pairs: <strong>B = D</strong> (= {"{1, 2, 3, 4}"}) and <strong>E = G</strong> (= {"{–1, 1}"}).</li>
-        </ol>
+          </ol>
+        </Expandable>
       </Expandable>
 
       <h2 id="h-1-6">1.6 Subsets</h2>
@@ -530,7 +597,35 @@ export default function SetsChapter() {
         <strong>superset</strong> of A — e.g., {"{1, 2, 3}"} is a proper subset of {"{1, 2, 3, 4}"}. A set with exactly one element is a <strong>singleton set</strong>, e.g., {"{a}"}.
       </p>
 
-      <ProblemSolution problemNumber="Example 9">
+      <Callout type="important" title="How Many Subsets Does a Set Have?">
+        <p>
+          While forming a subset, every element gives you exactly two choices — include it or leave
+          it out. With n elements making independent choices, the counts are:
+        </p>
+        <FormulaBlock latex="\text{Number of subsets of an } n\text{-element set} = 2^n" important />
+        <FormulaBlock latex="\text{Number of proper subsets} = 2^n - 1" />
+        <p className="mb-1">(Proper subsets exclude the complete set itself; the count including φ.)</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Set</th>
+              <th>n</th>
+              <th>Subsets (2ⁿ)</th>
+              <th>Proper subsets (2ⁿ – 1)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>φ</td><td>0</td><td>1 (just φ itself)</td><td>0</td></tr>
+            <tr><td>{"{a}"}</td><td>1</td><td>2 — φ, {"{a}"}</td><td>1</td></tr>
+            <tr><td>{"{a, b}"}</td><td>2</td><td>4 — φ, {"{a}"}, {"{b}"}, {"{a, b}"}</td><td>3</td></tr>
+            <tr><td>{"{a, b, c}"}</td><td>3</td><td>8</td><td>7</td></tr>
+            <tr><td>{"{–1, 0, 1}"}</td><td>3</td><td>8 ✓ (matches Example 24)</td><td>7</td></tr>
+          </tbody>
+        </table>
+      </Callout>
+
+      <Expandable id="h-examples-1-6" title="Examples 9 to 11">
+        <ProblemSolution problemNumber="Example 9">
         <ProblemSolution.Problem>
           <p>
             Consider the sets φ, A = {"{1, 3}"}, B = {"{1, 5, 9}"}, C = {"{1, 3, 5, 7, 9}"}. Insert
@@ -581,6 +676,7 @@ export default function SetsChapter() {
           </Callout>
         </ProblemSolution.Solution>
       </ProblemSolution>
+      </Expandable>
 
       <h3 id="h-1-6-1">1.6.1 Subsets of set of real numbers</h3>
       <table>
@@ -714,10 +810,9 @@ export default function SetsChapter() {
             <br />(iii) {"{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}"}&nbsp;&nbsp;(iv) {"{1, 2, 3, 4, 5, 6, 7, 8}"}
           </li>
         </ol>
-      </Expandable>
 
-      <Expandable id="h-ex-1-3-key" title="Answer Key — Exercise 1.3">
-        <ol>
+        <Expandable id="h-ex-1-3-key" title="Answer Key — Exercise 1.3">
+          <ol>
           <li>(i) ⊂&nbsp;&nbsp;(ii) ⊄&nbsp;&nbsp;(iii) ⊂&nbsp;&nbsp;(iv) ⊄&nbsp;&nbsp;(v) ⊄&nbsp;&nbsp;(vi) ⊂&nbsp;&nbsp;(vii) ⊂</li>
           <li>
             (i) False — {"{a, b}"} ⊂ {"{b, c, a}"}
@@ -743,7 +838,8 @@ export default function SetsChapter() {
           </li>
           <li>(i) The set of all triangles in the plane.&nbsp;&nbsp;(ii) The same — the set of all triangles in the plane.</li>
           <li>Only (iii) {"{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}"} — it contains every element of A, B and C.</li>
-        </ol>
+          </ol>
+        </Expandable>
       </Expandable>
 
       <h2 id="h-1-8">1.8 Venn Diagrams</h2>
@@ -774,7 +870,8 @@ export default function SetsChapter() {
         taken only once. We write A ∪ B, read &lsquo;A union B&rsquo;.
       </p>
 
-      <ProblemSolution problemNumber="Example 12">
+      <Expandable id="h-examples-1-9-1" title="Examples 12 to 14">
+        <ProblemSolution problemNumber="Example 12">
         <ProblemSolution.Problem>
           <p>Let A = {"{2, 4, 6, 8}"} and B = {"{6, 8, 10, 12}"}. Find A ∪ B.</p>
         </ProblemSolution.Problem>
@@ -811,6 +908,7 @@ export default function SetsChapter() {
           </p>
         </ProblemSolution.Solution>
       </ProblemSolution>
+      </Expandable>
 
       <Callout type="important" title="Definition 5: Union">
         The union of two sets A and B is the set C of all those elements which are in A or in B
@@ -837,7 +935,8 @@ export default function SetsChapter() {
         (&lsquo;A intersection B&rsquo;).
       </p>
 
-      <ProblemSolution problemNumber="Example 15">
+      <Expandable id="h-examples-1-9-2" title="Examples 15 to 17">
+        <ProblemSolution problemNumber="Example 15">
         <ProblemSolution.Problem>
           <p>Consider the sets A and B of Example 12. Find A ∩ B.</p>
         </ProblemSolution.Problem>
@@ -869,6 +968,7 @@ export default function SetsChapter() {
           </p>
         </ProblemSolution.Solution>
       </ProblemSolution>
+      </Expandable>
 
       <Callout type="important" title="Definition 6: Intersection">
         The intersection of two sets A and B is the set of all those elements which belong to both
@@ -904,7 +1004,8 @@ export default function SetsChapter() {
         A but not to B.
       </p>
 
-      <ProblemSolution problemNumber="Example 18">
+      <Expandable id="h-examples-1-9-3" title="Examples 18 and 19">
+        <ProblemSolution problemNumber="Example 18">
         <ProblemSolution.Problem>
           <p>Let A = {"{1, 2, 3, 4, 5, 6}"}, B = {"{2, 4, 6, 8}"}. Find A – B and B – A.</p>
         </ProblemSolution.Problem>
@@ -924,6 +1025,7 @@ export default function SetsChapter() {
           <FormulaBlock latex="A - B = \{x : x \in A \;\text{and}\; x \notin B\}" important />
         </ProblemSolution.Solution>
       </ProblemSolution>
+      </Expandable>
 
       <Callout type="note" title="Fig 1.8">
         Two overlapping circles A and B inside U with the part of A outside B shaded — the
@@ -991,10 +1093,9 @@ export default function SetsChapter() {
             <br />(iv) {"{2, 6, 10}"} and {"{3, 7, 11}"} are disjoint sets.
           </li>
         </ol>
-      </Expandable>
 
-      <Expandable id="h-ex-1-4-key" title="Answer Key — Exercise 1.4">
-        <ol>
+        <Expandable id="h-ex-1-4-key" title="Answer Key — Exercise 1.4">
+          <ol>
           <li>
             (i) X ∪ Y = {"{1, 2, 3, 5}"}
             <br />(ii) A ∪ B = {"{a, b, c, e, i, o, u}"}
@@ -1031,7 +1132,8 @@ export default function SetsChapter() {
             <br />(iii) True — no common element.
             <br />(iv) True — no common element.
           </li>
-        </ol>
+          </ol>
+        </Expandable>
       </Expandable>
 
       <h2 id="h-1-10">1.10 Complement of a Set</h2>
@@ -1047,7 +1149,8 @@ export default function SetsChapter() {
       </Callout>
       <FormulaBlock latex="A' = \{x : x \in U \;\text{and}\; x \notin A\}, \qquad A' = U - A" important />
 
-      <ProblemSolution problemNumber="Example 20">
+      <Expandable id="h-examples-1-10" title="Examples 20 and 21">
+        <ProblemSolution problemNumber="Example 20">
         <ProblemSolution.Problem>
           <p>Let U = {"{1, 2, ..., 10}"} and A = {"{1, 3, 5, 7, 9}"}. Find A′.</p>
         </ProblemSolution.Problem>
@@ -1067,6 +1170,7 @@ export default function SetsChapter() {
           <p>Since A is the set of all girls, A′ is clearly the set of all boys in the class.</p>
         </ProblemSolution.Solution>
       </ProblemSolution>
+      </Expandable>
 
       <Callout type="note">
         If A ⊆ U, then A′ is also a subset of U. Moreover, taking the complement twice returns the
@@ -1074,7 +1178,8 @@ export default function SetsChapter() {
         <strong>(A′)′ = A</strong>.
       </Callout>
 
-      <ProblemSolution problemNumber="Example 22">
+      <Expandable id="h-examples-1-10-b" title="Example 22">
+        <ProblemSolution problemNumber="Example 22">
         <ProblemSolution.Problem>
           <p>
             Let U = {"{1, 2, 3, 4, 5, 6}"}, A = {"{2, 3}"} and B = {"{3, 4, 5}"}. Find A′, B′,
@@ -1089,6 +1194,7 @@ export default function SetsChapter() {
           <FormulaBlock latex="(A \cup B)' = A' \cap B', \qquad (A \cap B)' = A' \cup B'" important />
         </ProblemSolution.Solution>
       </ProblemSolution>
+      </Expandable>
 
       <Callout type="didyouknow" title="De Morgan's Laws">
         Named after the mathematician De Morgan: <em>the complement of the union of two sets is
@@ -1150,10 +1256,9 @@ export default function SetsChapter() {
             <br />(iii) A ∩ A′ = . . .&nbsp;&nbsp;(iv) U′ ∩ A = . . .
           </li>
         </ol>
-      </Expandable>
 
-      <Expandable id="h-ex-1-5-key" title="Answer Key — Exercise 1.5">
-        <ol>
+        <Expandable id="h-ex-1-5-key" title="Answer Key — Exercise 1.5">
+          <ol>
           <li>
             (i) A′ = {"{5, 6, 7, 8, 9}"}
             <br />(ii) B′ = {"{1, 3, 5, 7, 9}"}
@@ -1174,16 +1279,26 @@ export default function SetsChapter() {
             <br />(vii) Naturals that are not perfect cubes&nbsp;&nbsp;(viii) Naturals other than 3&nbsp;&nbsp;(ix) Naturals other than 2
             <br />(x) {"{x : x ∈ N and x < 7}"}&nbsp;&nbsp;(xi) {"{x : x ∈ N and 2x + 1 ≤ 10}"} = {"{1, 2, 3, 4}"}
           </li>
-          <li>A ∪ B = {"{2, 3, 4, 5, 6, 7, 8}"}, so (A ∪ B)′ = {"{1, 9}"}; A′ = {"{1, 3, 5, 7, 9}"} and B′ = {"{1, 4, 6, 8, 9}"} give A′ ∩ B′ = {"{1, 9}"} — equal ✓. Similarly A ∩ B = {"{2}"}, (A ∩ B)′ = {"{1, 3, 4, 5, 6, 7, 8, 9}"} = A′ ∪ B′ — verified.</li>
+          <li>
+            <strong>(i)</strong> A ∪ B = {"{2, 3, 4, 5, 6, 7, 8}"}, so (A ∪ B)′ = {"{1, 9}"}.
+            <br />A′ = {"{1, 3, 5, 7, 9}"} and B′ = {"{1, 4, 6, 8, 9}"}, so A′ ∩ B′ = {"{1, 9}"}.
+            <br />Both sides are equal — verified ✓
+            <br />
+            <strong>(ii)</strong> A ∩ B = {"{2}"}, so (A ∩ B)′ = {"{1, 3, 4, 5, 6, 7, 8, 9}"}.
+            <br />A′ ∪ B′ = {"{1, 3, 5, 7, 9}"} ∪ {"{1, 4, 6, 8, 9}"} = {"{1, 3, 4, 5, 6, 7, 8, 9}"}.
+            <br />Both sides are equal — verified ✓
+          </li>
           <li>(i) and (ii) show the same picture: shade U excluding both circles. (iii) and (iv) show the same picture: shade everything except the overlap A ∩ B.</li>
           <li>A′ is the set of all equilateral triangles (every angle 60°).</li>
           <li>(i) U&nbsp;&nbsp;(ii) A&nbsp;&nbsp;(iii) φ&nbsp;&nbsp;(iv) A</li>
-        </ol>
+          </ol>
+        </Expandable>
       </Expandable>
 
       <h2 id="h-misc">Miscellaneous Examples</h2>
 
-      <ProblemSolution problemNumber="Example 23">
+      <Expandable id="h-examples-misc" title="Examples 23 to 25">
+        <ProblemSolution problemNumber="Example 23">
         <ProblemSolution.Problem>
           <p>Show that the set of letters needed to spell &ldquo;CATARACT&rdquo; and the set of letters needed to spell &ldquo;TRACT&rdquo; are equal.</p>
         </ProblemSolution.Problem>
@@ -1220,13 +1335,25 @@ export default function SetsChapter() {
           <p>Show that A ∪ B = A ∩ B implies A = B.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
+          <p>First show A ⊂ B:</p>
+          <ol>
+            <li>Let a ∈ A (any arbitrary element).</li>
+            <li>Then a ∈ A ∪ B.</li>
+            <li>Since A ∪ B = A ∩ B, we get a ∈ A ∩ B.</li>
+            <li>So a ∈ B. Therefore every a ∈ A is also in B, i.e., A ⊂ B.</li>
+          </ol>
+          <p>Now show B ⊂ A the same way:</p>
+          <ol>
+            <li>Let b ∈ B.</li>
+            <li>Then b ∈ A ∪ B = A ∩ B.</li>
+            <li>So b ∈ A, giving B ⊂ A.</li>
+          </ol>
           <p>
-            Let a ∈ A. Then a ∈ A ∪ B. Since A ∪ B = A ∩ B, we get a ∈ A ∩ B, so a ∈ B. Therefore
-            A ⊂ B. Similarly, if b ∈ B then b ∈ A ∪ B = A ∩ B, so b ∈ A, giving B ⊂ A. Hence
-            A = B.
+            Since A ⊂ B and B ⊂ A, we conclude <strong>A = B</strong>.
           </p>
         </ProblemSolution.Solution>
       </ProblemSolution>
+      </Expandable>
 
       <Expandable id="h-misc-exercise" title="Miscellaneous Exercise on Chapter 1">
         <ol>
@@ -1272,10 +1399,9 @@ export default function SetsChapter() {
             A ∩ B ∩ C = φ.
           </li>
         </ol>
-      </Expandable>
 
-      <Expandable id="h-misc-exercise-key" title="Answer Key — Miscellaneous Exercise">
-        <ol>
+        <Expandable id="h-misc-exercise-key" title="Answer Key — Miscellaneous Exercise">
+          <ol>
           <li>A = {"{2, 6}"}, so D = {"{6}"} ⊂ A ⊂ B ⊂ C.</li>
           <li>
             (i) False — take A = {"{1}"}, B = {"{{1}}"}: then x = 1 ∈ A and A ∈ B, but x ∉ B.
@@ -1285,58 +1411,53 @@ export default function SetsChapter() {
             <br />(v) False — take A = {"{1, 2}"}, B = {"{2, 3}"}, x = 1: x ∈ A, A ⊄ B but x ∉ B.
             <br />(vi) True — if x were in A then x would be in B (A ⊂ B), a contradiction; so x ∉ A.
           </li>
-          <li>B = B ∩ (A ∪ B) = B ∩ (A ∪ C) = (B ∩ A) ∪ (B ∩ C) = (A ∩ C) ∪ (B ∩ C) = (A ∪ B) ∩ C = (A ∪ C) ∩ C = C. Hence B = C.</li>
-          <li>Chain of implications: if A ⊂ B then no element of A lies outside B, so A – B = φ. If A – B = φ then every element of A is in B, so A ∪ B = B. If A ∪ B = B then every element of the intersection A ∩ B is in A, so A ∩ B = A. Finally if A ∩ B = A then every element of A is in B, i.e., A ⊂ B. All four conditions are equivalent.</li>
+          <li>
+            Starting from B and applying the given conditions step by step:
+            <br />B = B ∩ (A ∪ B) &nbsp;<em>(absorption law)</em>
+            <br />&nbsp;&nbsp;= B ∩ (A ∪ C) &nbsp;<em>(given A ∪ B = A ∪ C)</em>
+            <br />&nbsp;&nbsp;= (B ∩ A) ∪ (B ∩ C) &nbsp;<em>(distributive law)</em>
+            <br />&nbsp;&nbsp;= (A ∩ C) ∪ (B ∩ C) &nbsp;<em>(given A ∩ B = A ∩ C)</em>
+            <br />&nbsp;&nbsp;= (A ∪ B) ∩ C &nbsp;<em>(distributive law, reversed)</em>
+            <br />&nbsp;&nbsp;= (A ∪ C) ∩ C &nbsp;<em>(given A ∪ B = A ∪ C)</em>
+            <br />&nbsp;&nbsp;= C.
+            <br />Hence <strong>B = C</strong>.
+          </li>
+          <li>
+            Prove the chain A ⊂ B ⇒ A – B = φ ⇒ A ∪ B = B ⇒ A ∩ B = A ⇒ A ⊂ B:
+            <br /><strong>A ⊂ B ⇒ A – B = φ:</strong> every element of A lies in B, so no element of A lies outside B.
+            <br /><strong>A – B = φ ⇒ A ∪ B = B:</strong> every element of A is already in B, so adjoining A adds nothing.
+            <br /><strong>A ∪ B = B ⇒ A ∩ B = A:</strong> every element of the intersection is in A, and it is certainly in B.
+            <br /><strong>A ∩ B = A ⇒ A ⊂ B:</strong> every element of A is then an element of A ∩ B, hence of B.
+            <br />All four conditions are equivalent.
+          </li>
           <li>Let c ∈ C – B, so c ∈ C and c ∉ B. If c belonged to A, then A ⊂ B would force c ∈ B — contradiction. Hence c ∉ A, i.e., c ∈ C – A. Therefore C – B ⊂ C – A.</li>
-          <li>Every element of (A ∩ B) ∪ (A – B) is in A; conversely each a ∈ A either lies in B (then a ∈ A ∩ B) or not (then a ∈ A – B). So A = (A ∩ B) ∪ (A – B). For the second: a ∈ A ∪ (B – A) means a ∈ A or (a ∈ B and a ∉ A); in both cases a ∈ A ∪ B, and conversely any element of A ∪ B qualifies. So A ∪ (B – A) = A ∪ B.</li>
+          <li>
+            <strong>A = (A ∩ B) ∪ (A – B):</strong>
+            <br />Every element of the union is in A (either from A ∩ B or from A – B).
+            <br />Conversely, each a ∈ A either lies in B (then a ∈ A ∩ B) or does not (then a ∈ A – B).
+            <br />So the two sides are equal.
+            <br />
+            <strong>A ∪ (B – A) = A ∪ B:</strong>
+            <br />a ∈ A ∪ (B – A) means a ∈ A, or (a ∈ B and a ∉ A); in both cases a ∈ A ∪ B.
+            <br />Conversely any element of A ∪ B clearly belongs to A ∪ (B – A).
+          </li>
           <li>(i) A ∪ (A ∩ B) = (A ∪ A) ∩ (A ∪ B) [distributive] = A ∩ (A ∪ B) = A [absorption]. (ii) A ∩ (A ∪ B) = (A ∩ A) ∪ (A ∩ B) = A ∪ (A ∩ B) = A by part (i).</li>
           <li>No. Example: A = {"{1}"}, B = {"{1, 2}"}, C = {"{1, 3}"} — then A ∩ B = {"{1}"} = A ∩ C but B ≠ C.</li>
-          <li>A = A ∩ (A ∪ X) = A ∩ (B ∪ X) = (A ∩ B) ∪ (A ∩ X) = (A ∩ B) ∪ φ = A ∩ B, hence A ⊂ B. Similarly B = B ∩ (B ∪ X) = B ∩ (A ∪ X) = (B ∩ A) ∪ (B ∩ X) = A ∩ B, hence B ⊂ A. Therefore A = B.</li>
+          <li>
+            <strong>Show A ⊂ B:</strong>
+            <br />A = A ∩ (A ∪ X) &nbsp;<em>(absorption)</em>
+            <br />&nbsp;&nbsp;= A ∩ (B ∪ X) &nbsp;<em>(given A ∪ X = B ∪ X)</em>
+            <br />&nbsp;&nbsp;= (A ∩ B) ∪ (A ∩ X) &nbsp;<em>(distributive)</em>
+            <br />&nbsp;&nbsp;= (A ∩ B) ∪ φ &nbsp;<em>(given A ∩ X = φ)</em>
+            <br />&nbsp;&nbsp;= A ∩ B, hence A ⊂ B.
+            <br />
+            <strong>Show B ⊂ A (identically):</strong>
+            <br />B = B ∩ (B ∪ X) = B ∩ (A ∪ X) = (B ∩ A) ∪ φ = A ∩ B, hence B ⊂ A.
+            <br />Therefore <strong>A = B</strong>.
+          </li>
           <li>Take A = {"{1, 2}"}, B = {"{2, 3}"}, C = {"{3, 1}"}: the pairwise intersections are {"{2}"}, {"{3}"}, {"{1}"} — all non-empty — while A ∩ B ∩ C = φ.</li>
-        </ol>
-      </Expandable>
-
-      <h2 id="h-summary">Summary</h2>
-      <ul>
-        <li>A set is a well-defined collection of objects.</li>
-        <li>A set which does not contain any element is called the empty set.</li>
-        <li>A set with a definite number of elements is finite; otherwise infinite.</li>
-        <li>Two sets are equal if they have exactly the same elements.</li>
-        <li>A is a subset of B if every element of A is also an element of B. Intervals are subsets of R.</li>
-        <li>The union of two sets is the set of elements in either set.</li>
-        <li>The intersection is the set of common elements; the difference A – B is the set of elements of A not in B.</li>
-        <li>The complement of A ⊆ U is the set of elements of U not in A.</li>
-        <li>For any two sets, (A ∪ B)′ = A′ ∩ B′ and (A ∩ B)′ = A′ ∪ B′.</li>
-      </ul>
-
-      <Expandable id="h-history" title="Historical Note">
-        <p>
-          The modern theory of sets originated largely with Georg Cantor (1845–1918). His papers on
-          set theory appeared between 1874 and 1897, arising from his study of trigonometric series
-          of the form a₁ sin x + a₂ sin 2x + a₃ sin 3x + ... In an 1874 paper he showed that the
-          real numbers cannot be put into one-to-one correspondence with the integers, and from
-          1879 onwards he published several papers on properties of abstract sets.
-        </p>
-        <p>
-          Cantor&apos;s work was well received by Richard Dedekind (1831–1916), but Kronecker
-          (1810–1893) castigated him for treating infinite sets like finite ones. Gottlob Frege
-          later presented set theory as principles of logic. Until then set theory rested on the
-          assumed existence of a set of all sets — until Bertrand Russell (1872–1970) showed in
-          1902 that this assumption leads to a contradiction, the famous{" "}
-          <strong>Russell&apos;s Paradox</strong>. Paul R. Halmos writes in{" "}
-          <em>Naïve Set Theory</em> that &ldquo;nothing contains everything&rdquo;.
-        </p>
-        <p>
-          Many paradoxes followed, prompting axiomatisations: Ernst Zermelo published the first in
-          1908; Abraham Fraenkel proposed another in 1922; John von Neumann introduced the axiom of
-          regularity in 1925; Paul Bernays gave a more satisfactory axiomatisation in 1937; and
-          Kurt Gödel modified these axioms in his 1940 monograph — known as Von Neumann–Bernays
-          (VNB) or Gödel–Bernays (GB) set theory.
-        </p>
-        <p>
-          Despite these difficulties, Cantor&apos;s set theory is used throughout present-day
-          mathematics — most concepts and results are expressed in set-theoretic language.
-        </p>
+          </ol>
+        </Expandable>
       </Expandable>
     </>
   );
