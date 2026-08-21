@@ -610,18 +610,22 @@ export default function AmigoBrothersPage() {
             return (
               <>
                 {characters.length >= 2 && (
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2 mb-1">
-                    Characters
-                  </p>
+                  <div className="rounded-xl border border-border/50 bg-card/30 p-4 mt-2 mb-4">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                      Characters
+                    </p>
+                    {characters.map((section) => (
+                      <CollapsibleSection key={section.id} id={section.id} title={section.title}>
+                        {section.content}
+                      </CollapsibleSection>
+                    ))}
+                  </div>
                 )}
-                {characters.map((section) => (
+                {characters.length < 2 && characters.map((section) => (
                   <CollapsibleSection key={section.id} id={section.id} title={section.title}>
                     {section.content}
                   </CollapsibleSection>
                 ))}
-                {characters.length >= 2 && others.length > 0 && (
-                  <hr className="border-border/40 my-2" />
-                )}
                 {others.map((section) => (
                   <CollapsibleSection key={section.id} id={section.id} title={section.title}>
                     {section.content}
