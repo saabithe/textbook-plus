@@ -406,6 +406,7 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
         { id: "h-1-3", title: "1.3 The Empty Set" },
         { id: "h-1-4", title: "1.4 Finite and Infinite Sets" },
         { id: "h-1-5", title: "1.5 Equal Sets" },
+        { id: "h-types-universal", title: "Universal Set" },
       ],
     },
     {
@@ -414,16 +415,15 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
         { id: "h-1-6-2", title: "1.6.2 Intervals as Subsets of R" },
       ],
     },
-    { id: "h-1-7", title: "1.7 Universal Set" },
-    { id: "h-1-8", title: "1.8 Venn Diagrams" },
+    { id: "h-1-7", title: "1.7 Venn Diagrams" },
     {
-      id: "h-1-9", title: "1.9 Operations on Sets", children: [
-        { id: "h-1-9-1", title: "1.9.1 Union of Sets" },
-        { id: "h-1-9-2", title: "1.9.2 Intersection of Sets" },
-        { id: "h-1-9-3", title: "1.9.3 Difference of Sets" },
+      id: "h-1-8", title: "1.8 Operations on Sets", children: [
+        { id: "h-1-8-1", title: "1.8.1 Union of Sets" },
+        { id: "h-1-8-2", title: "1.8.2 Intersection of Sets" },
+        { id: "h-1-8-3", title: "1.8.3 Difference of Sets" },
       ],
     },
-    { id: "h-1-10", title: "1.10 Complement of a Set" },
+    { id: "h-1-9", title: "1.9 Complement of a Set" },
     { id: "h-misc", title: "Miscellaneous Examples" },
   ],
 };

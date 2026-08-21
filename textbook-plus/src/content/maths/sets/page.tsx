@@ -6,6 +6,8 @@ import { FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
+import { NumberLine } from "@/components/content/maths/NumberLine";
+import { VennDiagram, ThreeSetVenn } from "@/components/content/maths/VennDiagram";
 
 export default function SetsChapter() {
   return (
@@ -498,6 +500,14 @@ export default function SetsChapter() {
       </ProblemSolution>
       </Expandable>
 
+      <h3 id="h-types-universal">Universal Set</h3>
+      <Callout type="important" title="Universal Set U">
+        The basic set relevant to a particular context is called the <strong>universal set</strong>,
+        usually denoted U; its subsets are denoted A, B, C, etc. While studying numbers we may take
+        ℕ as basic, with subsets like the primes or the evens; for triangles, it is all triangles in
+        the plane.
+      </Callout>
+
       <Expandable id="h-ex-1-2" title="EXERCISE 1.2">
         <ol>
           <li>
@@ -576,6 +586,7 @@ export default function SetsChapter() {
         Using the implication symbol ⇒:
       </Callout>
       <FormulaBlock latex="A \subset B \quad \text{if} \quad a \in A \Rightarrow a \in B" important />
+      <VennDiagram layout="subset" caption="B ⊂ A — every element of B lies inside A" />
       <p>
         If every element of B is also in A then B ⊂ A as well; in that case the two sets are the
         same, giving the important criterion:
@@ -733,16 +744,25 @@ export default function SetsChapter() {
         B = [–7, 9], then A ⊂ B. The set [0, ∞) defines the non-negative reals, (–∞, 0) the
         negative reals, and (–∞, ∞) all reals.
       </p>
-      <Callout type="note" title="Fig 1.1">
-        On the real number line, the various interval types — open, closed and semi-open, plus
-        rays like [0, ∞) and (–∞, 0) — appear as segments with hollow (excluded) or filled
-        (included) end points.
-      </Callout>
+      <p>On the real number line, taking a = –2 and b = 3:</p>
+      <div className="grid gap-x-8 sm:grid-cols-2">
+        <NumberLine min={-4} max={5} segments={[{ from: -2, to: 3, fromOpen: true, toOpen: true, label: "(a, b)" }]} />
+        <NumberLine min={-4} max={5} segments={[{ from: -2, to: 3, label: "[a, b]" }]} />
+        <NumberLine min={-4} max={5} segments={[{ from: -2, to: 3, toOpen: true, label: "[a, b)" }]} />
+        <NumberLine min={-4} max={5} segments={[{ from: -2, to: 3, fromOpen: true, label: "(a, b]" }]} />
+        <NumberLine min={-4} max={5} segments={[{ from: -2, label: "[a, ∞)" }]} />
+        <NumberLine min={-4} max={5} segments={[{ to: 3, label: "(–∞, b)" }]} />
+        <NumberLine min={-4} max={5} segments={[{ label: "ℝ = (–∞, ∞)" }]} />
+      </div>
+      <p>
+        Hollow dots mark excluded end points; filled dots mark included ones. These notations
+        designate subsets of the real numbers compactly: if A = (–3, 5) and B = [–7, 9], then
+        A ⊂ B. The set [0, ∞) defines the non-negative reals, (–∞, 0) the negative reals, and
+        (–∞, ∞) all reals.
+      </p>
       <KeyPoint>
         Every interval contains infinitely many points. Example: {"{x : x ∈ R, –5 < x ≤ 7}"} in
-        interval form is (–5, 7]; conversely [–3, 5) means {"{x : –3 ≤ x < 5}"}. The number{" "}
-        <strong>(b – a)</strong> is called the <strong>length</strong> of any of the intervals
-        (a, b), [a, b], [a, b) or (a, b].
+        interval form is (–5, 7]; conversely [–3, 5) means {"{x : –3 ≤ x < 5}"}.
       </KeyPoint>
 
       <h2 id="h-1-7">1.7 Universal Set</h2>
@@ -842,7 +862,7 @@ export default function SetsChapter() {
         </Expandable>
       </Expandable>
 
-      <h2 id="h-1-8">1.8 Venn Diagrams</h2>
+      <h2 id="h-1-7">1.7 Venn Diagrams</h2>
       <p>
         Most relationships between sets can be represented by diagrams known as{" "}
         <strong>Venn diagrams</strong>, named after the English logician John Venn (1834–1883).
@@ -850,21 +870,22 @@ export default function SetsChapter() {
         represented by the rectangle and its subsets by circles, with elements written inside their
         respective circles.
       </p>
-      <Callout type="note" title="Figs 1.2 and 1.3">
-        <strong>Illustration 1:</strong> U = {"{1, 2, 3, ..., 10}"} shown as a rectangle, with
-        circle A = {"{2, 4, 6, 8, 10}"} inside it. <strong>Illustration 2:</strong> the same U with
-        A = {"{2, 4, 6, 8, 10}"} and B = {"{4, 6}"} drawn inside A — showing B ⊂ A.
-      </Callout>
+      <VennDiagram
+        layout="subset"
+        elementsA={["2", "8", "10"]}
+        elementsB={["4", "6"]}
+        caption="U = {1, 2, ..., 10}; B = {4, 6} ⊂ A = {2, 4, 6, 8, 10}"
+      />
       <p>We will make extensive use of Venn diagrams for union, intersection and difference of sets.</p>
 
-      <h2 id="h-1-9">1.9 Operations on Sets</h2>
+      <h2 id="h-1-8">1.8 Operations on Sets</h2>
       <p>
         Just as addition performed on the pair 5 and 13 gives 18, there are operations which,
         performed on two sets, give rise to another set. Henceforth all our sets are subsets of
         some universal set.
       </p>
 
-      <h3 id="h-1-9-1">1.9.1 Union of sets</h3>
+      <h3 id="h-1-8-1">1.8.1 Union of sets</h3>
       <p>
         The union of A and B consists of all elements of A and all elements of B, common elements
         taken only once. We write A ∪ B, read &lsquo;A union B&rsquo;.
@@ -915,10 +936,7 @@ export default function SetsChapter() {
         (including those in both):
       </Callout>
       <FormulaBlock latex="A \cup B = \{x : x \in A \;\text{or}\; x \in B\}" important />
-      <Callout type="note" title="Fig 1.4">
-        Two overlapping circles A and B inside rectangle U, with the whole of both circles shaded —
-        the shaded portion represents A ∪ B.
-      </Callout>
+      <VennDiagram shade="union" caption="A ∪ B — the whole of both circles shaded" />
 
       <FormulaCard>
         <p className="font-semibold mb-2">Properties of Union</p>
@@ -929,7 +947,7 @@ export default function SetsChapter() {
         <FormulaBlock latex="U \cup A = U \quad \text{(Law of U)}" />
       </FormulaCard>
 
-      <h3 id="h-1-9-2">1.9.2 Intersection of sets</h3>
+      <h3 id="h-1-8-2">1.8.2 Intersection of sets</h3>
       <p>
         The intersection of A and B is the set of all elements common to both, written A ∩ B
         (&lsquo;A intersection B&rsquo;).
@@ -975,10 +993,10 @@ export default function SetsChapter() {
         A and B:
       </Callout>
       <FormulaBlock latex="A \cap B = \{x : x \in A \;\text{and}\; x \in B\}" important />
-      <Callout type="note" title="Figs 1.5 and 1.6">
-        Fig 1.5: two overlapping circles with only the lens-shaped overlap shaded (= A ∩ B). Fig
-        1.6: two separate non-overlapping circles — <strong>disjoint sets</strong>.
-      </Callout>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <VennDiagram shade="intersection" caption="A ∩ B — only the common region" />
+        <VennDiagram layout="disjoint" shade="union" caption="Disjoint sets — no overlap, A ∩ B = φ" />
+      </div>
       <Callout type="important" title="Disjoint Sets">
         If A ∩ B = φ then A and B are called disjoint sets. Example: A = {"{2, 4, 6, 8}"} and
         B = {"{1, 3, 5, 7}"} share no elements.
@@ -992,13 +1010,15 @@ export default function SetsChapter() {
         <FormulaBlock latex="A \cap A = A \quad \text{(Idempotent law)}" />
         <FormulaBlock latex="A \cap (B \cup C) = (A \cap B) \cup (A \cap C) \quad \text{(Distributive law — $\cap$ distributes over $\cup$)}" important />
       </FormulaCard>
-      <Callout type="note" title="Figs 1.7 (i) to (v)">
-        Five Venn diagrams verify the distributive law step by step: shading B ∪ C, then
-        A ∩ (B ∪ C); then A ∩ B and A ∩ C separately; finally their union — which matches the
-        second diagram exactly.
-      </Callout>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <ThreeSetVenn shade="a-cap-buc" caption="A ∩ (B ∪ C)" />
+        <ThreeSetVenn shade="acb-u-acc" caption="(A ∩ B) ∪ (A ∩ C)" />
+      </div>
+      <p className="text-center text-sm text-muted-foreground">
+        Both diagrams shade exactly the same region — the distributive law, verified visually.
+      </p>
 
-      <h3 id="h-1-9-3">1.9.3 Difference of sets</h3>
+      <h3 id="h-1-8-3">1.8.3 Difference of sets</h3>
       <p>
         The difference A – B (read &lsquo;A minus B&rsquo;) is the set of elements which belong to
         A but not to B.
@@ -1027,14 +1047,16 @@ export default function SetsChapter() {
       </ProblemSolution>
       </Expandable>
 
-      <Callout type="note" title="Fig 1.8">
-        Two overlapping circles A and B inside U with the part of A outside B shaded — the
-        difference A – B.
-      </Callout>
+      <VennDiagram shade="a-b" caption="A – B — the part of A outside B" />
       <Callout type="important" title="Remark">
         The sets A – B, A ∩ B and B – A are <strong>mutually disjoint</strong>: the intersection of
-        any two of them is the null set (see Fig 1.9, which shows the three separate regions).
+        any two of them is the null set.
       </Callout>
+      <div className="grid gap-4 sm:grid-cols-3">
+        <VennDiagram shade="a-b" caption="A – B" />
+        <VennDiagram shade="intersection" caption="A ∩ B" />
+        <VennDiagram shade="b-a" caption="B – A" />
+      </div>
 
       <Expandable id="h-ex-1-4" title="EXERCISE 1.4">
         <ol>
@@ -1136,7 +1158,7 @@ export default function SetsChapter() {
         </Expandable>
       </Expandable>
 
-      <h2 id="h-1-10">1.10 Complement of a Set</h2>
+      <h2 id="h-1-9">1.9 Complement of a Set</h2>
       <p>
         Let U be the universal set of all prime numbers and A the subset of primes that are{" "}
         <em>not</em> divisors of 42. Then 2, 3, 7 ∈ U but 2, 3, 7 ∉ A (each divides 42), and these
@@ -1201,10 +1223,14 @@ export default function SetsChapter() {
         the intersection of their complements, and the complement of the intersection of two sets
         is the union of their complements.</em>
       </Callout>
-      <Callout type="note" title="Fig 1.10">
-        Rectangle U with circle A inside; everything outside A but inside U is shaded — the
-        complement A′.
-      </Callout>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <VennDiagram shade="outside-both" caption="(A ∪ B)′" />
+        <VennDiagram shade="outside-both" caption="A′ ∩ B′" />
+      </div>
+      <p className="text-center text-sm text-muted-foreground">
+        Identical shading — De Morgan&apos;s law, seen at a glance.
+      </p>
+      <VennDiagram shade="outside-a" caption="A′ = U – A — everything outside A, inside U" />
 
       <FormulaCard>
         <p className="font-semibold mb-2">Properties of Complement Sets</p>
