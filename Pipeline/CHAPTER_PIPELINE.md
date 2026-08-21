@@ -82,6 +82,13 @@ Each subject has its own pipeline file with **dynamic steps** tailored to its co
 - **Short paragraphs allowed** (2-3 sentences max) — use sparingly, only when bullets would break flow.
 - **Filler removal is subject-dependent.** Science subjects: strict removal. Literature subjects: allow some for readability.
 
+### Line Rules (Don't Be Stingy)
+
+- **Never cram multiple facts into one long line/paragraph.** One idea per line, one per bullet, one per list item.
+- **Use new lines generously.** Break solutions, explanations and answers onto separate lines — each match, each step, each part (i)/(ii)/(iii) gets its own line.
+- **Lists over prose.** If an answer has 3+ parts, it must be a numbered/bulleted list, not a sentence joined with commas and "so... and... then...".
+- **Simple beats compact.** A longer, well-spaced breakdown always wins over a dense single-line summary.
+
 ### Scannability
 
 - **Balance scannable AND readable.** Subject-dependent:
