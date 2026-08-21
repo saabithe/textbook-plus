@@ -1,10 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
-const chapterComponents: Record<string, React.ComponentType> = {
-  "maths/sets": dynamic(() => import("@/content/maths/sets/page")) as React.ComponentType,
-};
+const chapterComponents: Record<string, React.ComponentType> = {};
 
 export function Class11ChapterContent({ subject, slug }: { subject: string; slug: string }) {
   const Component = chapterComponents[`${subject}/${slug}`];

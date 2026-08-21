@@ -47,7 +47,7 @@ export function getClass11SubjectBySlug(slug: string): Class11Subject | undefine
 
 export const class11Chapters: Record<string, Class11Chapter[]> = {
   maths: [
-    { id: "m11-01", subjectSlug: "maths", number: 1, title: "Sets", slug: "sets", topicCount: 1 },
+    { id: "m11-01", subjectSlug: "maths", number: 1, title: "Sets", slug: "sets", topicCount: 0 },
     { id: "m11-02", subjectSlug: "maths", number: 2, title: "Relations and Functions", slug: "relations-and-functions", topicCount: 0 },
     { id: "m11-03", subjectSlug: "maths", number: 3, title: "Trigonometric Functions", slug: "trigonometric-functions", topicCount: 0 },
     { id: "m11-04", subjectSlug: "maths", number: 4, title: "Complex Numbers and Quadratic Equations", slug: "complex-numbers-and-quadratic-equations", topicCount: 0 },
