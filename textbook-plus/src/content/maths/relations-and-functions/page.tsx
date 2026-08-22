@@ -18,10 +18,8 @@ export default function RelationsAndFunctionsChapter() {
     <>
       <h2 id="h-intro">2.1 Introduction</h2>
       <Callout type="important" title="The Idea">
-        A <strong>relation</strong> links objects from two sets as ordered pairs — e.g., &ldquo;m is
-        less than n&rdquo;, &ldquo;set A is a subset of set B&rdquo;. A{" "}
-        <strong>function</strong> is a special relation where every input gets exactly one output —
-        a mathematically precise correspondence between quantities.
+        A <strong>relation</strong> links objects from two sets as ordered pairs. A{" "}
+        <strong>function</strong> is a special relation where every input gets exactly one output.
       </Callout>
 
       <h2 id="h-2-2">2.2 Cartesian Products of Sets</h2>
@@ -60,26 +58,6 @@ export default function RelationsAndFunctionsChapter() {
           <strong>Triplets:</strong> A × A × A = {"{(a, b, c) : a, b, c ∈ A}"} — ordered triplets.
         </li>
       </ul>
-
-      <table>
-        <thead>
-          <tr>
-            <th>A \ B</th>
-            <th>b₁</th>
-            <th>b₂</th>
-            <th>b₃</th>
-            <th>b₄</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>a₁</td><td>(a₁, b₁)</td><td>(a₁, b₂)</td><td>(a₁, b₃)</td><td>(a₁, b₄)</td></tr>
-          <tr><td>a₂</td><td>(a₂, b₁)</td><td>(a₂, b₂)</td><td>(a₂, b₃)</td><td>(a₂, b₄)</td></tr>
-        </tbody>
-      </table>
-      <p className="text-sm text-muted-foreground mt-1">
-        A × B laid out as a grid: rows sweep A, columns sweep B — 2 × 4 = 8 pairs. If A, B ⊆ ℝ,
-        these pairs are points of the plane, and (a₁, b₂) ≠ (b₂, a₁).
-      </p>
 
       <SpeedTricks>
         <Callout type="tip" title="Count without listing">
@@ -258,16 +236,111 @@ export default function RelationsAndFunctionsChapter() {
           <strong>Codomain</strong> — the whole set B. Note: range ⊂ codomain.
         </li>
       </ul>
+      <Callout type="important" title="Three Ways to Represent a Relation">
+        <p className="font-semibold mb-1">1. Roster form</p>
+        <p>
+          List the ordered pairs: R = {"{(a, Ali), (b, Bhanu), (b, Binoy), (c, Chandra)}"}.
+        </p>
+        <p className="font-semibold mb-1 mt-3">2. Set-builder form</p>
+        <p>
+          State the common property: R = {"{(x, y) : x is the first letter of the name y}"}. Every
+          pair in the relation satisfies it; nothing outside does.
+        </p>
+        <p className="font-semibold mb-1 mt-3">3. Arrow diagram</p>
+        <p>
+          Draw A and B as ovals; one arrow per pair, from x to its image y — the picture above.
+          Algebraic forms carry the same information; the diagram makes it visible.
+        </p>
+      </Callout>
+
       <KeyPoint>
-        Representations mirror Chapter 1: roster form and set-builder form are algebraic; the arrow
-        diagram is visual. A relation from A to A is simply called a relation{" "}
-        <em>on</em> A.
+        A relation from A to A is simply called a relation <em>on</em> A.
       </KeyPoint>
+
+      <Stepper
+        steps={[
+          {
+            label: "Identify what you were given",
+            description:
+              "Single elements (a Sets question) or ordered pairs (a Relations question)? The answer shape differs.",
+          },
+          {
+            label: "Arrow diagram → write the pairs first",
+            description:
+              "Every arrow IS one ordered pair. Convert the picture to roster form on paper — now both sources look identical.",
+          },
+          {
+            label: "Scan firsts and seconds separately",
+            description:
+              "Cover the second coordinates: what do all firsts have in common? Then ask how each x produces its y.",
+          },
+          {
+            label: "Find ONE connecting rule",
+            description:
+              "Sets: one shared property of the elements. Relations: how x determines y — y = x + 1, y = x², 'x divides y', 'x is the square of y'.",
+          },
+          {
+            label: "Declare the domains",
+            description:
+              "Relations must end with 'x ∈ A, y ∈ B'; sets with 'x ∈ S'. Missing domains cost marks even when the rule is right.",
+          },
+          {
+            label: "Verify by re-listing",
+            description:
+              "Apply your rule to every allowed input — you must recover exactly the given pairs (or elements). Mismatch means wrong rule.",
+          },
+        ]}
+      />
 
       <Callout type="important" title="How Many Relations Can Exist?">
         Every subset of A × B is a relation. With n(A) = p and n(B) = q, n(A × B) = pq, so:
       </Callout>
       <FormulaBlock latex="\text{Total number of relations from } A \text{ to } B = 2^{pq}" important />
+
+      <Callout type="important" title="Counting Cheat Sheet — Don't Mix These Up">
+        <p className="mb-2">
+          Every counting formula so far, side by side. Take n(A) = p and n(B) = q; the example
+          column uses p = 2, q = 3.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>You are counting…</th>
+              <th>Formula</th>
+              <th>Example (p = 2, q = 3)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Elements of a set A</td><td>n(A)</td><td>2</td></tr>
+            <tr><td>Ordered pairs in A × B</td><td>pq</td><td>6</td></tr>
+            <tr><td>Subsets of A (size of P(A))</td><td>2<sup>p</sup></td><td>4</td></tr>
+            <tr><td>Proper subsets of A</td><td>2<sup>p</sup> – 1</td><td>3 — excludes A itself</td></tr>
+            <tr><td>Non-empty subsets of A</td><td>2<sup>p</sup> – 1</td><td>3 — excludes φ</td></tr>
+            <tr><td>Subsets of A × B</td><td>2<sup>pq</sup></td><td>64</td></tr>
+            <tr><td>Proper subsets of A × B</td><td>2<sup>pq</sup> – 1</td><td>63</td></tr>
+            <tr><td>Relations from A to B</td><td>2<sup>pq</sup></td><td>64 — same as subsets!</td></tr>
+            <tr><td>Functions from A to B (beyond syllabus)</td><td>q<sup>p</sup></td><td>9</td></tr>
+          </tbody>
+        </table>
+        <ul className="mt-3">
+          <li>
+            <strong>Ordered pairs ≠ powers of 2.</strong> pq is a plain product — count pairs by
+            multiplying, never by raising 2.
+          </li>
+          <li>
+            <strong>Subsets and relations share one formula.</strong> Every relation IS a subset of
+            A × B, so both are 2<sup>pq</sup>. The base is the number of pairs.
+          </li>
+          <li>
+            <strong>&ldquo;Proper&rdquo; always means minus one.</strong> It only ever excludes the
+            full set itself.
+          </li>
+          <li>
+            <strong>Functions break the pattern.</strong> Each of the p inputs independently picks
+            one of q images → q<sup>p</sup>, not 2<sup>pq</sup>.
+          </li>
+        </ul>
+      </Callout>
 
       <SpeedTricks>
         <Callout type="tip" title="Read domain/range by stripping">
