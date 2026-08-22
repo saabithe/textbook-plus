@@ -1,4 +1,4 @@
-import { AlertCircle, BookOpen, Lightbulb, AlertTriangle } from "lucide-react";
+import { AlertCircle, BookOpen, Lightbulb, AlertTriangle, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const variants = {
@@ -29,6 +29,13 @@ const variants = {
     bg: "bg-emerald-500/10",
     iconColor: "text-emerald-500",
     label: "Did You Know?",
+  },
+  tip: {
+    icon: Zap,
+    border: "border-l-amber-500",
+    bg: "bg-amber-500/10",
+    iconColor: "text-amber-600 dark:text-amber-400",
+    label: "Speed Trick",
   },
 } as const;
 

@@ -9,6 +9,7 @@ import { FormulaCard } from "@/components/content/FormulaCard";
 import { NumberLine } from "@/components/content/maths/NumberLine";
 import { VennDiagram, ThreeSetVenn } from "@/components/content/maths/VennDiagram";
 import { Highlight } from "@/components/content/Highlight";
+import { SpeedTricks } from "@/components/content/SpeedTricks";
 
 export default function SetsChapter() {
   return (
@@ -130,6 +131,21 @@ export default function SetsChapter() {
           captures exactly the same elements is valid.
         </p>
       </Callout>
+
+      <SpeedTricks>
+        <Callout type="tip" title="Pattern spotting → set-builder">
+          In a roster like {"{2, 4, 6, 8, ...}"}, find the constant jump d and the start a — here
+          a = 2, d = 2, so elements are 2n. Write {"{x : x = 2n, n ∈ N}"} instantly.
+        </Callout>
+        <Callout type="tip" title="Domain changes everything">
+          For {"{x : x² = 4}"}: over ℝ or ℤ the answer is {"{–2, 2}"}, but over ℕ it is just{" "}
+          <strong>{"{2}"}</strong>. Always check which set x belongs to before listing.
+        </Callout>
+        <Callout type="tip" title="Solve before you list">
+          Convert set-builder to roster by actually solving the condition. A condition with no
+          solution (like x &gt; 5 and x &lt; 3) is φ — don&apos;t hunt for elements that cannot exist.
+        </Callout>
+      </SpeedTricks>
 
       <Expandable id="h-examples-1-2" title="Examples 1 to 5">
         <ProblemSolution problemNumber="Example 1">
@@ -457,6 +473,22 @@ export default function SetsChapter() {
         A set does not change if one or more elements are repeated: A = {"{1, 2, 3}"} and B = {"{2, 2, 1, 3, 3}"} are equal. That is why we never repeat elements while describing a set.
       </Callout>
 
+      <SpeedTricks>
+        <Callout type="tip" title="No largest element ⇒ infinite">
+          Scan the set for a <em>biggest</em> element. Primes, multiples of 7, odd numbers — none
+          ever stop, so they are infinite. If a largest element exists and the list ends, it is
+          finite.
+        </Callout>
+        <Callout type="tip" title="n(S) counts distinct elements only">
+          Repeats collapse: B = {"{2, 2, 1, 3, 3}"} is really {"{1, 2, 3}"}, so n(B) = 3. Count
+          unique values, never repetitions.
+        </Callout>
+        <Callout type="tip" title="Equal sets? Convert to roster first">
+          Never compare two set-builder forms raw — turn each into a roster basket, then compare
+          contents. Recipes differ; baskets decide.
+        </Callout>
+      </SpeedTricks>
+
       <Expandable id="h-examples-1-5" title="Examples 7 and 8">
         <ProblemSolution problemNumber="Example 7">
         <ProblemSolution.Problem>
@@ -635,6 +667,22 @@ export default function SetsChapter() {
         </table>
       </Callout>
 
+      <SpeedTricks>
+        <Callout type="tip" title="The subset proof template">
+          To prove A ⊂ B: start &ldquo;Let x ∈ A&rdquo;, use what defines A, end at
+          &ldquo;∴ x ∈ B&rdquo;. Two lines. To <em>disprove</em>: one counterexample element in A
+          missing from B is enough — no full check.
+        </Callout>
+        <Callout type="tip" title="The 2ⁿ family">
+          Subsets: 2ⁿ. Proper subsets: 2ⁿ − 1. Non-empty subsets: 2ⁿ − 1. Power set of the power
+          set: |P(P(A))| = 2<sup>2ⁿ</sup> (beyond syllabus, but examiners love it).
+        </Callout>
+        <Callout type="tip" title="φ and A itself are always counted">
+          In any &ldquo;how many subsets&rdquo; MCQ, the two most-forgotten members are φ and the
+          set itself — both always present in P(A).
+        </Callout>
+      </SpeedTricks>
+
       <Expandable id="h-examples-1-6" title="Examples 9 to 11">
         <ProblemSolution problemNumber="Example 9">
         <ProblemSolution.Problem>
@@ -776,6 +824,18 @@ export default function SetsChapter() {
         The basic set relevant to a particular context is called the <strong>universal set</strong>
         , usually denoted U; its subsets are denoted A, B, C, etc.
       </Callout>
+
+      <SpeedTricks>
+        <Callout type="tip" title="Read the dots, not the words">
+          Filled dot = bracket <strong>[ ]</strong> (included). Hollow dot = parenthesis{" "}
+          <strong>( )</strong> (excluded). One glance at a number line tells you the interval
+          notation — no memorising.
+        </Callout>
+        <Callout type="tip" title="Merging overlapping intervals">
+          A ∪ B of overlapping intervals: keep the leftmost start and rightmost end. An endpoint
+          is included in the union if <em>any</em> piece includes it.
+        </Callout>
+      </SpeedTricks>
 
       <Expandable id="h-ex-1-3" title="EXERCISE 1.3">
         <ol>
@@ -1060,6 +1120,26 @@ export default function SetsChapter() {
         <VennDiagram shade="b-a" caption="B – A" />
       </div>
 
+      <SpeedTricks>
+        <Callout type="tip" title="Subset shortcut">
+          If B ⊂ A, then instantly A ∪ B = A and A ∩ B = B — no computation needed. Check for a
+          subset relationship before doing any element work.
+        </Callout>
+        <Callout type="tip" title="Inclusion–exclusion: the word-problem weapon">
+          <FormulaBlock latex="n(A \cup B) = n(A) + n(B) - n(A \cap B)" />
+          Three sets:
+          <FormulaBlock latex="n(A \cup B \cup C) = n(A)+n(B)+n(C) - n(A\cap B)-n(B\cap C)-n(A\cap C) + n(A\cap B\cap C)" />
+        </Callout>
+        <Callout type="tip" title="Fill the Venn center-out">
+          In word problems, start with the triple intersection, then pairwise regions, then
+          singles — you can never double-count this way.
+        </Callout>
+        <Callout type="tip" title="Symmetric difference (beyond syllabus)">
+          A △ B = (A – B) ∪ (B – A) = elements in exactly one of the two sets. Handy identity:
+          A △ B = (A ∪ B) – (A ∩ B).
+        </Callout>
+      </SpeedTricks>
+
       <Expandable id="h-ex-1-4" title="EXERCISE 1.4">
         <ol>
           <li>
@@ -1234,6 +1314,22 @@ export default function SetsChapter() {
         All these laws can be verified using Venn diagrams — shade each side separately and check
         the shaded regions match.
       </KeyPoint>
+
+      <SpeedTricks>
+        <Callout type="tip" title="Complement arithmetic">
+          &ldquo;Not A&rdquo; counts = total − A:{" "}
+          <FormulaBlock latex="n(A') = n(U) - n(A)" />
+          Also instantly: n(A ∪ B) = n(U) − n(A′ ∩ B′) — complement first, then flip back.
+        </Callout>
+        <Callout type="tip" title="Difference via complement (beyond syllabus)">
+          A – B = A ∩ B′. Turning subtraction into intersection lets you reuse all intersection
+          laws — this one identity solves half the difference problems.
+        </Callout>
+        <Callout type="tip" title="De Morgan memory hook">
+          Complement <em>flips the symbol</em>: ∪ becomes ∩ and vice versa, while each set gets a
+          prime: (A ∪ B)′ = A′ ∩ B′. Break the bar, change the sign.
+        </Callout>
+      </SpeedTricks>
 
       <Expandable id="h-ex-1-5" title="EXERCISE 1.5">
         <ol>
