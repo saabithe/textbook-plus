@@ -12,30 +12,13 @@ interface ArrowDiagramProps {
 }
 
 const ROW = 34;
-const TOP = 46;
 const LX = 80;
 const RX = 260;
-
-type Pt = { x: number; y: number };
-
-/** Intersection of segment p→q with ellipse (cx,cy,rx,ry).
- *  pick "exit" = farthest root from p; "enter" = nearest root beyond exit. */
-function clipToEllipse(p: Pt, q: Pt, cx: number, cy: number, rx: number, ry: number, mode: "exit" | "enter", minT = 0): Pt {
-  const ux = (p.x - cx) / rx;
-  const uy = (p.y - cy) / ry;
-  const dx = (q.x - p.x) / rx;
-  const dy = (q.y - p.y) / ry;
-  const a = dx * dx + dy * dy;
-  const b = 2 * (ux * dx + uy * dy);
-  const c0 = ux * ux + uy * uy - 1;
-  const disc = b * b - 4 * a * c0;
-  if (a === 0 || disc < 0) return mode === "exit" ? p : q;
-  const sq = Math.sqrt(disc);
-  const roots = [(-b - sq) / (2 * a), (-b + sq) / (2 * a)].filter((t) => t >= minT && t <= 1);
-  if (roots.length === 0) return mode === "exit" ? p : q;
-  const t = mode === "exit" ? Math.max(...roots) : Math.min(...roots);
-  return { x: p.x + t * (q.x - p.x), y: p.y + t * (q.y - p.y) };
-}
+const RX_R = 62;
+const DOT_L_X = LX - RX_R + 14;
+const TEXT_L_X = LX - RX_R + 24;
+const DOT_R_X = RX + RX_R - 14;
+const TEXT_R_X = RX + RX_R - 24;
 
 export function ArrowDiagram({
   leftLabel = "A",
@@ -47,12 +30,15 @@ export function ArrowDiagram({
 }: ArrowDiagramProps) {
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
   const markerId = `${uid}-arrowhead`;
-  const rows = Math.max(leftItems.length, rightItems.length);
-  const h = TOP + rows * ROW + 18;
-  const cy = h / 2;
-  const ryE = h / 2 - 12;
 
-  const yOf = (i: number, len: number) => TOP + i * ROW - ((rows * ROW - len * ROW) / 2) + 5;
+  const ryFor = (len: number) => Math.max(46, ((len - 1) * ROW) / 2 + 34);
+  const ryL = ryFor(leftItems.length);
+  const ryR = ryFor(rightItems.length);
+  const h = Math.max(ryL, ryR) * 2 + 20;
+  const cy = h / 2;
+
+  // Items of EACH set are centered within their OWN oval — no cross-column offset math.
+  const yItem = (i: number, len: number) => cy - ((len - 1) * ROW) / 2 + i * ROW;
 
   return (
     <figure className="my-4">
@@ -75,45 +61,58 @@ export function ArrowDiagram({
           </marker>
         </defs>
 
-        <ellipse cx={LX} cy={cy} rx={62} ry={ryE} fill="none" stroke="currentColor" strokeOpacity="0.6" strokeWidth="1.6" />
-        <ellipse cx={RX} cy={cy} rx={62} ry={ryE} fill="none" stroke="currentColor" strokeOpacity="0.6" strokeWidth="1.6" />
+        <ellipse cx={LX} cy={cy} rx={RX_R} ry={ryL} fill="none" stroke="currentColor" strokeOpacity="0.6" strokeWidth="1.6" />
+        <ellipse cx={RX} cy={cy} rx={RX_R} ry={ryR} fill="none" stroke="currentColor" strokeOpacity="0.6" strokeWidth="1.6" />
 
-        <text x={LX} y={24} textAnchor="middle" fontSize="14" fontStyle="italic" fontWeight="600" fill="currentColor">
+        {/* Set labels sit just inside each oval's top */}
+        <text x={LX} y={cy - ryL + 20} textAnchor="middle" fontSize="14" fontStyle="italic" fontWeight="600" fill="currentColor">
           {leftLabel}
         </text>
-        <text x={RX} y={24} textAnchor="middle" fontSize="14" fontStyle="italic" fontWeight="600" fill="currentColor">
+        <text x={RX} y={cy - ryR + 20} textAnchor="middle" fontSize="14" fontStyle="italic" fontWeight="600" fill="currentColor">
           {rightLabel}
         </text>
 
         {leftItems.map((item, i) => (
-          <text key={`l${i}`} x={70} y={yOf(i, leftItems.length)} textAnchor="end" fontSize="13" fill="currentColor">
-            {item}
-          </text>
+          <g key={`l${i}`}>
+            <circle cx={DOT_L_X} cy={yItem(i, leftItems.length)} r="2.6" fill="currentColor" />
+            <text
+              x={TEXT_L_X}
+              y={yItem(i, leftItems.length) + 4}
+              textAnchor="start"
+              fontSize="13"
+              fill="currentColor"
+            >
+              {item}
+            </text>
+          </g>
         ))}
         {rightItems.map((item, i) => (
-          <text key={`r${i}`} x={270} y={yOf(i, rightItems.length)} textAnchor="start" fontSize="13" fill="currentColor">
-            {item}
-          </text>
+          <g key={`r${i}`}>
+            <circle cx={DOT_R_X} cy={yItem(i, rightItems.length)} r="2.6" fill="currentColor" />
+            <text
+              x={TEXT_R_X}
+              y={yItem(i, rightItems.length) + 4}
+              textAnchor="end"
+              fontSize="13"
+              fill="currentColor"
+            >
+              {item}
+            </text>
+          </g>
         ))}
 
-        {arrows.map(([from, to], i) => {
-          const start: Pt = { x: 70, y: yOf(from, leftItems.length) };
-          const end: Pt = { x: 270, y: yOf(to, rightItems.length) };
-          const exitPt = clipToEllipse(start, end, LX, cy, 62, ryE, "exit");
-          const entryPt = clipToEllipse(start, end, RX, cy, 62, ryE, "enter");
-          return (
-            <line
-              key={`a${i}`}
-              x1={exitPt.x}
-              y1={exitPt.y}
-              x2={entryPt.x}
-              y2={entryPt.y}
-              stroke="var(--subject-mathematics)"
-              strokeWidth="1.6"
-              markerEnd={`url(#${markerId})`}
-            />
-          );
-        })}
+        {arrows.map(([from, to], i) => (
+          <line
+            key={`a${i}`}
+            x1={DOT_L_X + 4}
+            y1={yItem(from, leftItems.length)}
+            x2={DOT_R_X - 5}
+            y2={yItem(to, rightItems.length)}
+            stroke="var(--subject-mathematics)"
+            strokeWidth="1.6"
+            markerEnd={`url(#${markerId})`}
+          />
+        ))}
       </svg>
       {caption && (
         <figcaption className="mt-1 text-center text-xs text-muted-foreground">{caption}</figcaption>

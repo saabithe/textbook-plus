@@ -119,6 +119,7 @@ export function FunctionGraph({
           <>
             <line x1={PAD - 8} y1={gy(0)} x2={W - PAD + 8} y2={gy(0)} stroke={axisColor} strokeWidth="1.4" />
             <polygon points={`${W - PAD + 14},${gy(0)} ${W - PAD + 4},${gy(0) - 3.5} ${W - PAD + 4},${gy(0) + 3.5}`} fill={axisColor} />
+            <polygon points={`${PAD - 14},${gy(0)} ${PAD - 4},${gy(0) - 3.5} ${PAD - 4},${gy(0) + 3.5}`} fill={axisColor} />
             <text x={W - PAD + 6} y={gy(0) - 8} fontSize="12" fontStyle="italic" fill={axisColor}>
               x
             </text>
@@ -128,17 +129,12 @@ export function FunctionGraph({
           <>
             <line x1={gx(0)} y1={H - PAD + 8} x2={gx(0)} y2={PAD - 8} stroke={axisColor} strokeWidth="1.4" />
             <polygon points={`${gx(0)},${PAD - 14} ${gx(0) - 3.5},${PAD - 4} ${gx(0) + 3.5},${PAD - 4}`} fill={axisColor} />
+            <polygon points={`${gx(0)},${H - PAD + 14} ${gx(0) - 3.5},${H - PAD + 4} ${gx(0) + 3.5},${H - PAD + 4}`} fill={axisColor} />
             <text x={gx(0) + 10} y={PAD - 2} fontSize="12" fontStyle="italic" fill={axisColor}>
               y
             </text>
           </>
         )}
-        {showXAxis && showYAxis && (
-          <text x={gx(0) - 6} y={gy(0) + 13} textAnchor="end" fontSize="10" fill={axisColor}>
-            O
-          </text>
-        )}
-
         {segments.map((s, i) => {
           const d = s.pts.map(([px, py]) => `${px.toFixed(1)},${py.toFixed(1)}`).join(" ");
           let arrowHead: React.ReactNode = null;
@@ -169,14 +165,22 @@ export function FunctionGraph({
               {arrowHead}
             </g>
           );
-        })}
-
+        }        )}
         {points.map((pt, i) =>
           pt.filled === false ? (
             <circle key={`p${i}`} cx={gx(pt.x)} cy={gy(pt.y)} r="3.6" fill="var(--background)" stroke={defaultColor} strokeWidth="1.8" />
           ) : (
             <circle key={`p${i}`} cx={gx(pt.x)} cy={gy(pt.y)} r="3.4" fill={defaultColor} />
           )
+        )}
+
+        {showXAxis && showYAxis && (
+          <>
+            <rect x={gx(0) - 13} y={gy(0) + 3} width="11" height="12" fill="var(--background)" />
+            <text x={gx(0) - 4} y={gy(0) + 12} textAnchor="end" fontSize="10" fill={axisColor}>
+              O
+            </text>
+          </>
         )}
       </svg>
       {caption && (
