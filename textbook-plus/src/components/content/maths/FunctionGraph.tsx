@@ -4,6 +4,7 @@ interface Curve {
   to: number;
   color?: string;
   dashed?: boolean;
+  ray?: boolean;
 }
 
 interface Point {
@@ -43,11 +44,17 @@ export function FunctionGraph({
   const axisColor = "currentColor";
   const defaultColor = "var(--subject-mathematics)";
 
-  const polylines: { d: string; color: string; dashed?: boolean }[] = [];
+  interface Seg {
+    pts: [number, number][];
+    color: string;
+    dashed?: boolean;
+    ray?: boolean;
+  }
+  const segments: Seg[] = [];
 
   for (const c of curves) {
     const N = 160;
-    let seg: string[] = [];
+    let seg: [number, number][] = [];
     let lastY: number | null = null;
     for (let i = 0; i <= N; i++) {
       const x = c.from + ((c.to - c.from) * i) / N;
@@ -58,24 +65,26 @@ export function FunctionGraph({
         y = NaN;
       }
       const outOfRange = !isFinite(y) || y < yMin - (yMax - yMin) || y > yMax + (yMax - yMin);
-      const bigJump =
-        lastY !== null && Math.abs(y - lastY) > (yMax - yMin) * 0.7;
+      const bigJump = lastY !== null && Math.abs(y - lastY) > (yMax - yMin) * 0.7;
       if (outOfRange || bigJump) {
-        if (seg.length > 1) polylines.push({ d: seg.join(" "), color: c.color ?? defaultColor, dashed: c.dashed });
+        if (seg.length > 1) segments.push({ pts: seg, color: c.color ?? defaultColor, dashed: c.dashed, ray: c.ray });
         seg = [];
         lastY = isFinite(y) ? y : null;
         continue;
       }
-      seg.push(`${gx(x).toFixed(1)},${gy(y).toFixed(1)}`);
+      seg.push([gx(x), gy(y)]);
       lastY = y;
     }
-    if (seg.length > 1) polylines.push({ d: seg.join(" "), color: c.color ?? defaultColor, dashed: c.dashed });
+    if (seg.length > 1) segments.push({ pts: seg, color: c.color ?? defaultColor, dashed: c.dashed, ray: c.ray });
   }
 
   const xTicks: number[] = [];
   for (let v = Math.ceil(xMin); v <= Math.floor(xMax); v++) xTicks.push(v);
   const yTicks: number[] = [];
   for (let v = Math.ceil(yMin); v <= Math.floor(yMax); v++) yTicks.push(v);
+
+  const showXAxis = yMin <= 0 && yMax >= 0;
+  const showYAxis = xMin <= 0 && xMax >= 0;
 
   return (
     <figure className={className ?? "my-4"}>
@@ -106,33 +115,61 @@ export function FunctionGraph({
           )
         )}
 
-        <line x1={PAD - 8} y1={gy(0)} x2={W - PAD + 8} y2={gy(0)} stroke={axisColor} strokeWidth="1.4" />
-        <polygon points={`${W - PAD + 14},${gy(0)} ${W - PAD + 4},${gy(0) - 3.5} ${W - PAD + 4},${gy(0) + 3.5}`} fill={axisColor} />
-        <text x={W - PAD + 6} y={gy(0) - 8} fontSize="12" fontStyle="italic" fill={axisColor}>
-          x
-        </text>
+        {showXAxis && (
+          <>
+            <line x1={PAD - 8} y1={gy(0)} x2={W - PAD + 8} y2={gy(0)} stroke={axisColor} strokeWidth="1.4" />
+            <polygon points={`${W - PAD + 14},${gy(0)} ${W - PAD + 4},${gy(0) - 3.5} ${W - PAD + 4},${gy(0) + 3.5}`} fill={axisColor} />
+            <text x={W - PAD + 6} y={gy(0) - 8} fontSize="12" fontStyle="italic" fill={axisColor}>
+              x
+            </text>
+          </>
+        )}
+        {showYAxis && (
+          <>
+            <line x1={gx(0)} y1={H - PAD + 8} x2={gx(0)} y2={PAD - 8} stroke={axisColor} strokeWidth="1.4" />
+            <polygon points={`${gx(0)},${PAD - 14} ${gx(0) - 3.5},${PAD - 4} ${gx(0) + 3.5},${PAD - 4}`} fill={axisColor} />
+            <text x={gx(0) + 10} y={PAD - 2} fontSize="12" fontStyle="italic" fill={axisColor}>
+              y
+            </text>
+          </>
+        )}
+        {showXAxis && showYAxis && (
+          <text x={gx(0) - 6} y={gy(0) + 13} textAnchor="end" fontSize="10" fill={axisColor}>
+            O
+          </text>
+        )}
 
-        <line x1={gx(0)} y1={H - PAD + 8} x2={gx(0)} y2={PAD - 8} stroke={axisColor} strokeWidth="1.4" />
-        <polygon points={`${gx(0)},${PAD - 14} ${gx(0) - 3.5},${PAD - 4} ${gx(0) + 3.5},${PAD - 4}`} fill={axisColor} />
-        <text x={gx(0) + 10} y={PAD - 2} fontSize="12" fontStyle="italic" fill={axisColor}>
-          y
-        </text>
-        <text x={gx(0) - 6} y={gy(0) + 13} textAnchor="end" fontSize="10" fill={axisColor}>
-          O
-        </text>
-
-        {polylines.map((p, i) => (
-          <polyline
-            key={`c${i}`}
-            points={p.d}
-            fill="none"
-            stroke={p.color}
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeDasharray={p.dashed ? "5 4" : undefined}
-          />
-        ))}
+        {segments.map((s, i) => {
+          const d = s.pts.map(([px, py]) => `${px.toFixed(1)},${py.toFixed(1)}`).join(" ");
+          let arrowHead: React.ReactNode = null;
+          if (s.ray) {
+            const n = s.pts.length;
+            const [x2, y2] = s.pts[n - 1];
+            const [x1, y1] = s.pts[n - 2];
+            const ang = (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI;
+            arrowHead = (
+              <polygon
+                points="10,0 -2,-4.5 -2,4.5"
+                fill={s.color}
+                transform={`translate(${x2},${y2}) rotate(${ang})`}
+              />
+            );
+          }
+          return (
+            <g key={`c${i}`}>
+              <polyline
+                points={d}
+                fill="none"
+                stroke={s.color}
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeDasharray={s.dashed ? "5 4" : undefined}
+              />
+              {arrowHead}
+            </g>
+          );
+        })}
 
         {points.map((pt, i) =>
           pt.filled === false ? (

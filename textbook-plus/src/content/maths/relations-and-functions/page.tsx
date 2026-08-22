@@ -317,6 +317,21 @@ export default function RelationsAndFunctionsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>The relation is &ldquo;x is the square of y&rdquo;:</p>
+            <ArrowDiagram
+              leftLabel="P"
+              rightLabel="Q"
+              leftItems={["4", "9", "25"]}
+              rightItems={["–5", "–3", "–2", "–1", "1", "2", "3", "5"]}
+              arrows={[
+                [0, 5],
+                [1, 6],
+                [2, 7],
+                [2, 0],
+                [1, 1],
+                [0, 2],
+              ]}
+              caption="Fig 2.6 — each square pairs with both ± roots; –1 and 1 receive no arrows"
+            />
             <FormulaBlock latex="\text{(i)}\quad R = \{(x,y) : x = y^2,\; x \in P,\; y \in Q\}" />
             <FormulaBlock latex="\text{(ii)}\quad R = \{(9,3),(9,-3),(4,2),(4,-2),(25,5),(25,-5)\}" />
             <p>Domain = {"{4, 9, 25}"}; range = {"{–5, –3, –2, 2, 3, 5}"}; Q itself is the codomain.</p>
@@ -339,7 +354,21 @@ export default function RelationsAndFunctionsChapter() {
           <li>A = {"{1, 2, 3, ..., 14}"}. R from A to A by R = {"{(x, y) : 3x – y = 0, x, y ∈ A}"}. Write domain, codomain, range.</li>
           <li>R on N: {"{(x, y) : y = x + 5, x natural and x < 4}"}. Roster form; domain; range.</li>
           <li>A = {"{1, 2, 3, 5}"}, B = {"{4, 6, 9}"}; R = {"{(x, y) : difference between x and y is odd}"}. Roster form.</li>
-          <li>The arrow diagram shows a relation from P to Q where P = {"{5, 6, 7}"} maps to Q = {"{3, 4, 5}"} as y = x – 2. Write it in set-builder form and roster form. Find its domain and range.</li>
+          <li>
+            The arrow diagram shows a relation from P to Q where P = {"{5, 6, 7}"} maps to Q = {"{3, 4, 5}"} as y = x – 2. Write it in set-builder form and roster form. Find its domain and range.
+            <ArrowDiagram
+              leftLabel="P"
+              rightLabel="Q"
+              leftItems={["5", "6", "7"]}
+              rightItems={["3", "4", "5"]}
+              arrows={[
+                [0, 0],
+                [1, 1],
+                [2, 2],
+              ]}
+              caption="Exercise 2.2 Q4"
+            />
+          </li>
           <li>
             A = {"{1, 2, 3, 4, 6}"}; R on A: {"{(a, b) : b is exactly divisible by a}"}. Find
             <br />(i) roster form&nbsp;&nbsp;(ii) domain&nbsp;&nbsp;(iii) range
@@ -597,8 +626,8 @@ export default function RelationsAndFunctionsChapter() {
         <FunctionGraph curves={[{ fn: Math.abs, from: -5, to: 5 }]} caption="y = |x| — V-shaped" />
         <FunctionGraph
           curves={[
-            { fn: () => -1, from: -5, to: -0.001 },
-            { fn: () => 1, from: 0.001, to: 5 },
+            { fn: () => -1, from: -0.001, to: -5, ray: true },
+            { fn: () => 1, from: 0.001, to: 5, ray: true },
           ]}
           points={[
             { x: 0, y: -1, filled: false },
@@ -624,7 +653,7 @@ export default function RelationsAndFunctionsChapter() {
           </p>
         </div>
         <FunctionGraph
-          curves={[-3, -2, -1, 0, 1, 2].map((k) => ({ fn: () => k, from: k, to: k + 0.98 }))}
+          curves={[-3, -2, -1, 0, 1, 2].map((k) => ({ fn: () => k, from: k, to: k + 1 }))}
           points={[
             ...[-3, -2, -1, 0, 1, 2].map((k) => ({ x: k, y: k, filled: true })),
             ...[-2, -1, 0, 1, 2, 3].map((k) => ({ x: k, y: k - 1, filled: false })),

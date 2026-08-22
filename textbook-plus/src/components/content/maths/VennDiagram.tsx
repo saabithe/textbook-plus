@@ -57,6 +57,17 @@ const SUBSET_A_SLOTS: number[][] = [
   [170, 42],
 ];
 
+/** Base slots plus a spread column so counts beyond the base never stack duplicates. */
+function slotsFor(base: number[][], count: number): number[][] {
+  if (count <= base.length) return base.slice(0, count);
+  const extra = count - base.length;
+  const spread: number[][] = [];
+  for (let j = 0; j < extra; j++) {
+    spread.push([170, 58 + ((j + 0.5) * 96) / extra]);
+  }
+  return [...base, ...spread];
+}
+
 interface VennDiagramProps {
   layout?: "overlap" | "disjoint" | "subset";
   shade?: Shade;
@@ -157,6 +168,7 @@ export function VennDiagram({
 
   let elementNodes: React.ReactNode;
   if (layout === "subset") {
+    const subSlots = slotsFor(SUBSET_A_SLOTS, elementsA?.length ?? 0);
     elementNodes = (
       <>
         {(elementsB ?? []).map((e, i) => (
@@ -172,7 +184,7 @@ export function VennDiagram({
           </text>
         ))}
         {(elementsA ?? []).map((e, i) => {
-          const [sx, sy] = SUBSET_A_SLOTS[i % SUBSET_A_SLOTS.length];
+          const [sx, sy] = subSlots[i];
           return (
             <text key={`ea${i}`} x={sx} y={sy} textAnchor="middle" fontSize="13" fill={stroke}>
               {e}
@@ -182,10 +194,13 @@ export function VennDiagram({
       </>
     );
   } else {
+    const aSlots = slotsFor(SLOTS.aOnly, elementsA?.length ?? 0);
+    const bothSlots = slotsFor(SLOTS.both, elementsBoth?.length ?? 0);
+    const bSlots = slotsFor(SLOTS.bOnly, elementsB?.length ?? 0);
     elementNodes = (
       <>
         {(elementsA ?? []).map((e, i) => {
-          const [sx, sy] = SLOTS.aOnly[i % SLOTS.aOnly.length];
+          const [sx, sy] = aSlots[i];
           return (
             <text key={`ea${i}`} x={sx} y={sy} textAnchor="middle" fontSize="13" fill={stroke}>
               {e}
@@ -193,7 +208,7 @@ export function VennDiagram({
           );
         })}
         {(elementsBoth ?? []).map((e, i) => {
-          const [sx, sy] = SLOTS.both[i % SLOTS.both.length];
+          const [sx, sy] = bothSlots[i];
           return (
             <text key={`ebo${i}`} x={sx} y={sy} textAnchor="middle" fontSize="13" fill={stroke}>
               {e}
@@ -201,7 +216,7 @@ export function VennDiagram({
           );
         })}
         {(elementsB ?? []).map((e, i) => {
-          const [sx, sy] = SLOTS.bOnly[i % SLOTS.bOnly.length];
+          const [sx, sy] = bSlots[i];
           return (
             <text key={`eb${i}`} x={sx} y={sy} textAnchor="middle" fontSize="13" fill={stroke}>
               {e}
