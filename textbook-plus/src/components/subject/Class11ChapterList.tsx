@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { getClass11Chapters } from "@/data/class11";
+import { hasChapterContent } from "@/lib/content";
 
 interface Class11ChapterListProps {
   subjectSlug: string;
@@ -46,7 +47,9 @@ export function Class11ChapterList({ subjectSlug, subjectColor }: Class11Chapter
               {chapter.title}
             </span>
             <span className="text-xs text-muted-foreground/60">
-              Content coming soon
+              {hasChapterContent(`c11/${subjectSlug}/${chapter.slug}`)
+                ? "Explore the chapter"
+                : "Content coming soon"}
             </span>
           </div>
 

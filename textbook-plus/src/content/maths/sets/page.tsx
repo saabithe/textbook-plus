@@ -93,42 +93,51 @@ export default function SetsChapter() {
         </ul>
       </Callout>
 
-      <Callout type="important" title="Tips: Converting Between Roster and Set-builder Forms">
-        <p className="font-semibold mb-1">Set-builder → Roster</p>
+      <Callout type="important" title="Recipe 1: Set-builder → Roster">
         <ol>
           <li>
-            <strong>Fix the universe first.</strong> The same condition gives different sets on different
-            universes: {"{x : x² = 4}"} over ℤ is {"{–2, 2}"}, but over ℕ it is just {"{2}"}.
+            <strong>Check what x belongs to</strong> — ℕ, ℤ or ℝ?
           </li>
           <li>
-            <strong>Solve the condition.</strong> Treat P(x) like an equation or inequality and find every
-            element satisfying it: {"{x : x ∈ Z and –3 < x ≤ 2}"} → integers from –2 to 2.
+            <strong>Solve the condition</strong> like an equation or inequality.
           </li>
           <li>
-            <strong>List each element once</strong> inside braces: result = {"{–2, –1, 0, 1, 2}"}.
+            <strong>List every solution once</strong>, inside braces.
           </li>
         </ol>
-        <p className="font-semibold mb-1 mt-4">Roster → Set-builder</p>
-        <ol start={4}>
+        <p className="mt-3">
+          Worked example: {"{x : x ∈ Z and –3 < x ≤ 2}"}
+          <br />
+          Step 1: x is an integer. Step 2: integers satisfying it are –2, –1, 0, 1, 2.
+          <br />
+          Answer: <strong>{"{–2, –1, 0, 1, 2}"}</strong>.
+        </p>
+      </Callout>
+
+      <Callout type="important" title="Recipe 2: Roster → Set-builder">
+        <ol>
           <li>
-            <strong>Hunt for one common property</strong> shared by all elements (and by nothing outside).
-            Look for patterns: multiples or powers ({'{'}2, 4, 8, 16...{" }"} → x = 2ⁿ), squares
-            ({'{'}1, 4, 9...{" }"} → x = n²), fraction patterns ({'{'}1/2, 2/3, 3/4...{" }"} → x = n/(n+1)),
-            digits-sum rules, divisors of a number, letters of a word.
+            <strong>Spot the one common pattern</strong> — multiples, squares, powers, divisors,
+            letters…
           </li>
           <li>
-            <strong>Bound the variable.</strong> For finite sets, add limits so nothing extra slips in:
-            {"{x : x = n², n ∈ N and 1 ≤ n ≤ 6}"} — without &ldquo;n ≤ 6&rdquo; the description also covers 49, 64...
+            <strong>Add bounds</strong> so nothing extra slips in.
           </li>
           <li>
-            <strong>Verify by converting back.</strong> List elements from your builder form — you must get
-            exactly the original roster. This catches missing bounds and wrong properties instantly.
+            <strong>Convert back to check</strong> — you must land on the original roster.
           </li>
         </ol>
-        <p className="mt-4">
-          <strong>Watch out:</strong> a finite set can have more than one correct set-builder description — e.g.,
-          {"{0}"} may be written as {"{x : x + 1 = 1, x ∈ Z}"} or simply {"{x : x = 0}"}. Any description that
-          captures exactly the same elements is valid.
+        <p className="mt-3">
+          Worked example: {"{1, 4, 9, 16, 25, 36}"}
+          <br />
+          Step 1: all perfect squares → x = n². Step 2: bound it — n ∈ N and 1 ≤ n ≤ 6.
+          <br />
+          Answer: <strong>{"{x : x = n², n ∈ N and 1 ≤ n ≤ 6}"}</strong>. Step 3 check: listing
+          gives back exactly the original set ✓.
+        </p>
+        <p className="mt-2">
+          Many correct answers can exist — any description capturing exactly these elements is
+          valid.
         </p>
       </Callout>
 
@@ -812,18 +821,6 @@ export default function SetsChapter() {
         Every interval contains infinitely many points. Example: {"{x : x ∈ R, –5 < x ≤ 7}"} in
         interval form is (–5, 7]; conversely [–3, 5) means {"{x : –3 ≤ x < 5}"}.
       </KeyPoint>
-
-      <h2 id="h-1-7">1.7 Universal Set</h2>
-      <p>
-        In a particular context we deal with the elements and subsets of one basic set relevant to
-        that context. While studying the system of numbers we may take the naturals as basic, with
-        subsets like the primes or the evens. For the integers, the universal set could be ℚ or
-        even ℝ; in human population studies it is all the people in the world.
-      </p>
-      <Callout type="important" title="Universal Set U">
-        The basic set relevant to a particular context is called the <strong>universal set</strong>
-        , usually denoted U; its subsets are denoted A, B, C, etc.
-      </Callout>
 
       <SpeedTricks>
         <Callout type="tip" title="Read the dots, not the words">
