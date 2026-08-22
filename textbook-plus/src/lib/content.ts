@@ -5,6 +5,8 @@ import ch2Questions from "@/content/physics/electrostatic-potential-and-capacita
 import ch2Flashcards from "@/content/physics/electrostatic-potential-and-capacitance/flashcards.json";
 import setsQuestions from "@/content/maths/sets/questions.json";
 import setsFlashcards from "@/content/maths/sets/flashcards.json";
+import rfQuestions from "@/content/maths/relations-and-functions/questions.json";
+import rfFlashcards from "@/content/maths/relations-and-functions/flashcards.json";
 
 const SECTIONS_MAP: Record<string, ChapterSection[]> = {
   "horegallu": [
@@ -425,18 +427,36 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-1-9", title: "1.9 Complement of a Set" },
     { id: "h-misc", title: "Miscellaneous Examples" },
   ],
+  "c11/maths/relations-and-functions": [
+    { id: "h-intro", title: "2.1 Introduction" },
+    {
+      id: "h-2-2", title: "2.2 Cartesian Products of Sets", children: [
+        { id: "h-2-2-1", title: "Properties of Cartesian Products" },
+      ],
+    },
+    { id: "h-2-3", title: "2.3 Relations" },
+    {
+      id: "h-2-4", title: "2.4 Functions", children: [
+        { id: "h-2-4-1", title: "2.4.1 Some Functions and Their Graphs" },
+        { id: "h-2-4-2", title: "2.4.2 Algebra of Real Functions" },
+      ],
+    },
+    { id: "h-misc", title: "Miscellaneous Examples" },
+  ],
 };
 
 const QUESTIONS_MAP: Record<string, Question[]> = {
   "electric-charges-and-fields": ch1Questions as Question[],
   "electrostatic-potential-and-capacitance": ch2Questions as Question[],
   "c11/maths/sets": setsQuestions as Question[],
+  "c11/maths/relations-and-functions": rfQuestions as Question[],
 };
 
 const FLASHCARDS_MAP: Record<string, Flashcard[]> = {
   "electric-charges-and-fields": ch1Flashcards as Flashcard[],
   "electrostatic-potential-and-capacitance": ch2Flashcards as Flashcard[],
   "c11/maths/sets": setsFlashcards as Flashcard[],
+  "c11/maths/relations-and-functions": rfFlashcards as Flashcard[],
 };
 
 export function getSectionsForChapter(slug: string): ChapterSection[] {
