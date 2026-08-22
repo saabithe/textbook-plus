@@ -8,6 +8,7 @@ import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { NumberLine } from "@/components/content/maths/NumberLine";
 import { VennDiagram, ThreeSetVenn } from "@/components/content/maths/VennDiagram";
+import { Highlight } from "@/components/content/Highlight";
 
 export default function SetsChapter() {
   return (
@@ -322,7 +323,14 @@ export default function SetsChapter() {
       </p>
 
       <h3 id="h-1-3">1.3 The Empty Set</h3>
-      <p>Consider the set A = {"{x : x is a student of Class XI presently studying in a school}"}. We can go to the school and count such students — so A contains a finite number of elements. Now consider B = {"{x : x is a student presently studying in both Classes X and XI}"}. A student cannot study simultaneously in both classes, so B contains no element at all.</p>
+      <p>
+        Consider the set A = {"{x : x is a student of Class XI presently studying in a school}"}. We
+        can go to the school and count such students — so A contains a finite number of elements.
+      </p>
+      <p>
+        Now consider B = {"{x : x is a student presently studying in both Classes X and XI}"}. A
+        student cannot study simultaneously in both classes, so B contains no element at all.
+      </p>
       <Callout type="important" title="Definition 1: Empty Set">
         A set which does not contain any element is called the <strong>empty set</strong>, the{" "}
         <strong>null set</strong> or the <strong>void set</strong>. It is denoted by the symbol φ
@@ -500,14 +508,6 @@ export default function SetsChapter() {
       </ProblemSolution>
       </Expandable>
 
-      <h3 id="h-types-universal">Universal Set</h3>
-      <Callout type="important" title="Universal Set U">
-        The basic set relevant to a particular context is called the <strong>universal set</strong>,
-        usually denoted U; its subsets are denoted A, B, C, etc. While studying numbers we may take
-        ℕ as basic, with subsets like the primes or the evens; for triangles, it is all triangles in
-        the plane.
-      </Callout>
-
       <Expandable id="h-ex-1-2" title="EXERCISE 1.2">
         <ol>
           <li>
@@ -594,7 +594,7 @@ export default function SetsChapter() {
       <FormulaBlock latex="A \subset B \;\text{and}\; B \subset A \Leftrightarrow A = B" important />
       <KeyPoint>
         Every set A is a subset of itself (A ⊂ A). The empty set φ has no elements, so by
-        agreement φ is a subset of <em>every</em> set. If A is not a subset of B we write A ⊄ B.
+        agreement <Highlight>φ is a subset of every set</Highlight>. If A is not a subset of B we write A ⊄ B.
         &ldquo;⇔&rdquo; means a two-way implication — &ldquo;if and only if&rdquo; (iff).
       </KeyPoint>
       <ul>
@@ -842,7 +842,15 @@ export default function SetsChapter() {
             <br />(v) False — {"{a}"} is a set, not an element; the correct statement is {"{a}"} ⊂ {"{a, b, c}"}
             <br />(vi) True — {"{2, 4}"} ⊂ {"{1, 2, 3, 4, 6, 9, 12, 18, 36}"}
           </li>
-          <li>Incorrect: (i), (v), (vii), (viii), (ix), (xi). (i): 3 ∉ A. (v): 1 is not a set. (vii): a set of three elements cannot be one element of A. (viii): 3 ∉ A. (ix): φ is not an element of A. (xi): φ ∉ A, so {"{φ}"} ⊄ A.</li>
+          <li>
+            Incorrect: (i), (v), (vii), (viii), (ix), (xi).
+            <br />(i): 3 ∉ A.
+            <br />(v): 1 is not a set.
+            <br />(vii): a set of three elements cannot be one element of A.
+            <br />(viii): 3 ∉ A.
+            <br />(ix): φ is not an element of A.
+            <br />(xi): φ ∉ A, so {"{φ}"} ⊄ A.
+          </li>
           <li>
             (i) φ, {"{a}"}
             <br />(ii) φ, {"{a}"}, {"{b}"}, {"{a, b}"}
@@ -865,8 +873,7 @@ export default function SetsChapter() {
       <h2 id="h-1-7">1.7 Venn Diagrams</h2>
       <p>
         Most relationships between sets can be represented by diagrams known as{" "}
-        <strong>Venn diagrams</strong>, named after the English logician John Venn (1834–1883).
-        They consist of rectangles and closed curves — usually circles. The universal set is
+        <strong>Venn diagrams</strong>. They consist of rectangles and closed curves — usually circles. The universal set is
         represented by the rectangle and its subsets by circles, with elements written inside their
         respective circles.
       </p>
@@ -879,11 +886,6 @@ export default function SetsChapter() {
       <p>We will make extensive use of Venn diagrams for union, intersection and difference of sets.</p>
 
       <h2 id="h-1-8">1.8 Operations on Sets</h2>
-      <p>
-        Just as addition performed on the pair 5 and 13 gives 18, there are operations which,
-        performed on two sets, give rise to another set. Henceforth all our sets are subsets of
-        some universal set.
-      </p>
 
       <h3 id="h-1-8-1">1.8.1 Union of sets</h3>
       <p>
@@ -998,8 +1000,8 @@ export default function SetsChapter() {
         <VennDiagram layout="disjoint" shade="union" caption="Disjoint sets — no overlap, A ∩ B = φ" />
       </div>
       <Callout type="important" title="Disjoint Sets">
-        If A ∩ B = φ then A and B are called disjoint sets. Example: A = {"{2, 4, 6, 8}"} and
-        B = {"{1, 3, 5, 7}"} share no elements.
+        If <Highlight color="orange">A ∩ B = φ</Highlight> then A and B are called disjoint sets. Example:{" "}
+        A = {"{2, 4, 6, 8}"} and B = {"{1, 3, 5, 7}"} share no elements.
       </Callout>
 
       <FormulaCard>
@@ -1159,17 +1161,12 @@ export default function SetsChapter() {
       </Expandable>
 
       <h2 id="h-1-9">1.9 Complement of a Set</h2>
-      <p>
-        Let U be the universal set of all prime numbers and A the subset of primes that are{" "}
-        <em>not</em> divisors of 42. Then 2, 3, 7 ∈ U but 2, 3, 7 ∉ A (each divides 42), and these
-        are the only elements of U missing from A. The set {"{2, 3, 7}"} is called the{" "}
-        <strong>complement</strong> of A with respect to U, denoted A′.
-      </p>
       <Callout type="important" title="Definition 7: Complement">
         Let U be the universal set and A a subset of U. The complement of A is the set of all
         elements of U which are not elements of A, written A′. Thus:
       </Callout>
       <FormulaBlock latex="A' = \{x : x \in U \;\text{and}\; x \notin A\}, \qquad A' = U - A" important />
+      <VennDiagram shade="outside-a" caption="A′ = U – A — everything outside A, inside U" />
 
       <Expandable id="h-examples-1-10" title="Examples 20 and 21">
         <ProblemSolution problemNumber="Example 20">
@@ -1218,11 +1215,6 @@ export default function SetsChapter() {
       </ProblemSolution>
       </Expandable>
 
-      <Callout type="didyouknow" title="De Morgan's Laws">
-        Named after the mathematician De Morgan: <em>the complement of the union of two sets is
-        the intersection of their complements, and the complement of the intersection of two sets
-        is the union of their complements.</em>
-      </Callout>
       <div className="grid gap-4 sm:grid-cols-2">
         <VennDiagram shade="outside-both" caption="(A ∪ B)′" />
         <VennDiagram shade="outside-both" caption="A′ ∩ B′" />
@@ -1230,7 +1222,6 @@ export default function SetsChapter() {
       <p className="text-center text-sm text-muted-foreground">
         Identical shading — De Morgan&apos;s law, seen at a glance.
       </p>
-      <VennDiagram shade="outside-a" caption="A′ = U – A — everything outside A, inside U" />
 
       <FormulaCard>
         <p className="font-semibold mb-2">Properties of Complement Sets</p>

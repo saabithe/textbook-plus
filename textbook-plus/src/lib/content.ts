@@ -406,7 +406,6 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
         { id: "h-1-3", title: "1.3 The Empty Set" },
         { id: "h-1-4", title: "1.4 Finite and Infinite Sets" },
         { id: "h-1-5", title: "1.5 Equal Sets" },
-        { id: "h-types-universal", title: "Universal Set" },
       ],
     },
     {
