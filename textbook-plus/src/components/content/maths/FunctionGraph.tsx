@@ -176,8 +176,8 @@ export function FunctionGraph({
 
         {showXAxis && showYAxis && (
           <>
-            <rect x={gx(0) - 13} y={gy(0) + 3} width="11" height="12" fill="var(--background)" />
-            <text x={gx(0) - 4} y={gy(0) + 12} textAnchor="end" fontSize="10" fill={axisColor}>
+            <rect x={gx(0) - 16} y={gy(0) + 4} width="14" height="16" fill="var(--background)" />
+            <text x={gx(0) - 8} y={gy(0) + 18} textAnchor="end" fontSize="10" fill={axisColor}>
               O
             </text>
           </>
