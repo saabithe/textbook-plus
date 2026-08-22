@@ -97,6 +97,16 @@ Each subject has its own pipeline file with **dynamic steps** tailored to its co
 - **Every section answers:** "What does the student need to know?" and nothing else.
 - **No jargon without context.** Every technical term gets a one-line definition on first use.
 
+### Text Emphasis Rules
+
+Apply emphasis while transforming content — never ship flat walls of text:
+
+- **Bold** — key terms on first use, the core words of a definition, final answers in solutions, critical warnings ("must", "never")
+- *Italics* — emphasis/contrast within sentences (e.g., "finite" vs "infinite"), book/article titles, non-English terms
+- **Highlight** component — exam-critical phrases ONLY, sparingly (max 1–2 per section)
+- **Underline** — only when mirroring NCERT's own underlining
+- **Never bold/italicize whole paragraphs** — emphasis that is everywhere means nothing
+
 ### Component Rules
 
 | Content Type | JSX Component | Format |

@@ -1,6 +1,6 @@
 # PIPELINE_MATHEMATICS.md
 
-> NCERT Class 12 Mathematics — 13 chapters. Proof-heavy, step-by-step solutions, formula-intensive.
+> NCERT Class 11 + 12 Mathematics — 14 + 13 chapters. Proof-heavy, step-by-step solutions, formula-intensive.
 
 ---
 
@@ -10,14 +10,35 @@
 |----------|-------|
 | Subject | Mathematics |
 | Slug | `mathematics` |
-| Chapters | 13 |
-| Color | `--subject-mathematics` (purple) |
+| Chapters | 27 — 14 Class 11 + 13 Class 12 |
+| Color | `--subject-mathematics` (orange) |
 | Content type | Proofs, derivations, step-by-step solutions, formulas |
 | Practice types | Problem sets, proofs, flashcards |
 
 ---
 
-## Chapter List
+## Chapter List — Class 11
+
+| # | Chapter | Slug | Status |
+|---|---------|------|--------|
+| 1 | Sets | `sets` | ✅ Done |
+| 2 | Relations and Functions | `relations-and-functions` | 🔲 Pending |
+| 3 | Trigonometric Functions | `trigonometric-functions` | 🔲 Pending |
+| 4 | Complex Numbers and Quadratic Equations | `complex-numbers-and-quadratic-equations` | 🔲 Pending |
+| 5 | Linear Inequalities | `linear-inequalities` | 🔲 Pending |
+| 6 | Permutations and Combinations | `permutations-and-combinations` | 🔲 Pending |
+| 7 | Binomial Theorem | `binomial-theorem` | 🔲 Pending |
+| 8 | Sequences and Series | `sequences-and-series` | 🔲 Pending |
+| 9 | Straight Lines | `straight-lines` | 🔲 Pending |
+| 10 | Conic Sections | `conic-sections` | 🔲 Pending |
+| 11 | Introduction to Three Dimensional Geometry | `introduction-to-three-dimensional-geometry` | 🔲 Pending |
+| 12 | Limits and Derivatives | `limits-and-derivatives` | 🔲 Pending |
+| 13 | Statistics | `statistics` | 🔲 Pending |
+| 14 | Probability | `probability` | 🔲 Pending |
+
+---
+
+## Chapter List — Class 12
 
 | # | Chapter | Slug | Status |
 |---|---------|------|--------|
@@ -65,7 +86,7 @@ Mathematics follows the **master 16-step pipeline** with subject-specific conten
 | 11 | Revision | Generate 3 views (Full → Revision → Last-Minute) | Expandable, Checklist |
 | 12 | Validate | Automated accuracy + completeness check | — |
 
-**Step 9 component suggestions:** Mathematics chapters typically need FormulaCard (grouped formulas), Stepper (sequential proof steps), GuidedStepper (proofs with checkpoints), TableCard (method comparisons), FormulaBlock (important results), Comparison (side-by-side formula comparison). AI suggests per chapter, user approves.
+**Step 9 component suggestions:** Mathematics chapters typically need FormulaCard (grouped formulas), Stepper (sequential proof steps), GuidedStepper (proofs with checkpoints), TableCard (method comparisons), FormulaBlock (important results), Comparison (side-by-side formula comparison), plus maths visuals NumberLine / VennDiagram from `src/components/content/maths/` (see Content Rules below). AI suggests per chapter, user approves.
 
 **Step 10 notes:** Include step-by-step problem solutions, common algebraic/trigonometric errors, and proof-based questions. Mix is AI-decided per chapter based on content.
 
@@ -105,6 +126,39 @@ Mathematics follows the **master 16-step pipeline** with subject-specific conten
 - Use `TableCard` for comparing methods (e.g., integration techniques)
 - Use `Comparison` for side-by-side formula comparison (2 items)
 - Use `ConceptCard` for theorem families (e.g., continuity conditions)
+
+---
+
+## Content Rules (learned from Class 11 Sets)
+
+### Line Rules (Don't Be Stingy)
+- **Never cram everything into one long line/paragraph** — low readability, boring to study
+- **Go new line, bro** — one idea per line; every part (i)/(ii)/(iii), every solution step, every match gets its own line
+- **Lists over prose** — 3+ parts means a numbered/bulleted list, never a sentence joined with commas
+- Full spec lives in `CHAPTER_PIPELINE.md → Line Rules (Don't Be Stingy)`
+
+### Visuals First
+- **Never describe a figure in words** ("Fig 1.4 shows two circles...") — render the actual diagram
+- Reusable SVG components live in `src/components/content/maths/`: `NumberLine`, `VennDiagram` (+ `ThreeSetVenn`)
+- Import directly (subject-specific, not in barrel export); add new shared components there when a diagram type recurs
+- Side-by-side identical shadings prove identities visually (De Morgan, distributive law) — prefer over verbal proofs of set identities
+
+### Collapsing & Answer Keys
+- **Worked examples:** collapse ALL `ProblemSolution` examples of a section into ONE `Expandable` titled "Examples N to M" — definitions, formula cards and short notes stay visible outside the collapse
+- **Answer keys:** nest inside the exercise's own `Expandable` at the bottom (`<Expandable title="Answer Key — Exercise X.N">` as the last child), never as sibling expandables
+
+### Trims & Structure
+- **Cut NCERT throat-clearing paragraphs** — context/story intros reduce to a one-line definition callout with at most one compact example
+- **No Summary and no Historical Note sections** — page ends at the last exercise / Miscellaneous section; sidebar drops these entries from `SECTIONS_MAP`
+- **Structure freedom** — regroup/rename/renumber sections when pedagogically better (e.g., Universal Set under Types of Sets); `SECTIONS_MAP` ids and titles must mirror page headings exactly
+
+### Exam-Oriented Extras
+- **Hard-Level Tips Callout** near tricky definitions: bulleted edge cases that exams probe (huge ≠ infinite, bounded ≠ finite, equation vs inequality counts)
+- **Micro-extensions allowed** — small derived results beyond the textbook (e.g., 2ⁿ subsets count with mini table) when they clearly aid understanding
+
+### Text Emphasis Rules
+- **Bold** key terms on first use + final answers; *italics* for emphasis/contrast; `Highlight` component for exam-critical phrases only (max 1–2 per section)
+- Never bold/italicize whole paragraphs — full spec: `CHAPTER_PIPELINE.md → Text Emphasis Rules`
 
 ---
 

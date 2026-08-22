@@ -102,6 +102,13 @@ Chemistry follows the **master 16-step pipeline** with subject-specific content 
 
 ---
 
+## Text Emphasis Rules
+
+- **Bold** key terms on first use + final answers; *italics* for emphasis/contrast; `Highlight` component for exam-critical phrases only (max 1–2 per section)
+- Never bold/italicize whole paragraphs — full spec: `CHAPTER_PIPELINE.md → Text Emphasis Rules`
+
+---
+
 ## Practice Rules (Chemistry)
 
 Practice content is **dynamic** — AI decides per chapter, user approves.
