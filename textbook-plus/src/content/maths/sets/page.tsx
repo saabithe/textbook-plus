@@ -938,6 +938,7 @@ export default function SetsChapter() {
         layout="subset"
         elementsA={["2", "8", "10"]}
         elementsB={["4", "6"]}
+        elementsU={["1", "3", "5", "7", "9"]}
         caption="U = {1, 2, ..., 10}; B = {4, 6} ⊂ A = {2, 4, 6, 8, 10}"
       />
       <p>We will make extensive use of Venn diagrams for union, intersection and difference of sets.</p>

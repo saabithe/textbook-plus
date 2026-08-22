@@ -12,6 +12,8 @@ type Shade =
   | "outside-a"
   | "outside-both";
 
+const SHADE_OPACITY = 0.32;
+
 interface Geometry {
   ax: number;
   ay: number;
@@ -77,6 +79,7 @@ interface VennDiagramProps {
   elementsA?: string[];
   elementsBoth?: string[];
   elementsB?: string[];
+  elementsU?: string[];
   caption?: string;
 }
 
@@ -89,6 +92,7 @@ export function VennDiagram({
   elementsA,
   elementsBoth,
   elementsB,
+  elementsU,
   caption,
 }: VennDiagramProps) {
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
@@ -104,30 +108,36 @@ export function VennDiagram({
   const shadeFills: React.ReactNode[] = [];
 
   if (shade === "a" || shade === "union") {
-    shadeFills.push(<circle key="fa" cx={g.ax} cy={g.ay} r={g.ar} fill={fill} opacity="0.3" />);
+    shadeFills.push(<circle key="fa" cx={g.ax} cy={g.ay} r={g.ar} fill={fill} opacity={SHADE_OPACITY} />);
   }
   if (shade === "b" || shade === "union") {
-    shadeFills.push(<circle key="fb" cx={g.bx} cy={g.by} r={g.br} fill={fill} opacity="0.3" />);
+    if (shade === "union") {
+      shadeFills.push(
+        <circle key="fb" cx={g.bx} cy={g.by} r={g.br} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mOutA})`} />
+      );
+    } else {
+      shadeFills.push(<circle key="fb" cx={g.bx} cy={g.by} r={g.br} fill={fill} opacity={SHADE_OPACITY} />);
+    }
   }
   if (shade === "intersection") {
     shadeFills.push(
-      <circle key="fi" cx={g.ax} cy={g.ay} r={g.ar} fill={fill} opacity="0.35" mask={`url(#${mInB})`} />
+      <circle key="fi" cx={g.ax} cy={g.ay} r={g.ar} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mInB})`} />
     );
   }
   if (shade === "a-b") {
     shadeFills.push(
-      <circle key="fab" cx={g.ax} cy={g.ay} r={g.ar} fill={fill} opacity="0.35" mask={`url(#${mOutB})`} />
+      <circle key="fab" cx={g.ax} cy={g.ay} r={g.ar} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mOutB})`} />
     );
   }
   if (shade === "b-a") {
     shadeFills.push(
-      <circle key="fba" cx={g.bx} cy={g.by} r={g.br} fill={fill} opacity="0.35" mask={`url(#${mOutA})`} />
+      <circle key="fba" cx={g.bx} cy={g.by} r={g.br} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mOutA})`} />
     );
   }
   if (shade === "symdiff") {
     shadeFills.push(
-      <circle key="fs1" cx={g.ax} cy={g.ay} r={g.ar} fill={fill} opacity="0.35" mask={`url(#${mOutB})`} />,
-      <circle key="fs2" cx={g.bx} cy={g.by} r={g.br} fill={fill} opacity="0.35" mask={`url(#${mOutA})`} />
+      <circle key="fs1" cx={g.ax} cy={g.ay} r={g.ar} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mOutB})`} />,
+      <circle key="fs2" cx={g.bx} cy={g.by} r={g.br} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mOutA})`} />
     );
   }
   if (shade === "outside-a") {
@@ -223,6 +233,15 @@ export function VennDiagram({
             </text>
           );
         })}
+        {(elementsU ?? []).map((e, i) => {
+          const x = 20 + i * 30;
+          const y = 190;
+          return (
+            <text key={`eu${i}`} x={x} y={y} textAnchor="middle" fontSize="13" fill={stroke}>
+              {e}
+            </text>
+          );
+        })}
       </>
     );
   }
@@ -275,11 +294,12 @@ export function VennDiagram({
 interface ThreeSetVennProps {
   shade?: "none" | "a-cap-buc" | "acb-u-acc";
   caption?: string;
+  labelU?: string;
 }
 
 const T = { ax: 115, ay: 82, bx: 225, by: 82, cx: 170, cy: 148, r: 62 };
 
-export function ThreeSetVenn({ shade = "none", caption }: ThreeSetVennProps) {
+export function ThreeSetVenn({ shade = "none", caption, labelU = "U" }: ThreeSetVennProps) {
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
   const fill = "var(--subject-mathematics)";
   const stroke = "currentColor";
@@ -302,8 +322,16 @@ export function ThreeSetVenn({ shade = "none", caption }: ThreeSetVennProps) {
 
         {(shade === "a-cap-buc" || shade === "acb-u-acc") && (
           <>
-            <circle cx={T.ax} cy={T.ay} r={T.r} fill={fill} opacity="0.32" mask={`url(#${mInB})`} />
-            <circle cx={T.ax} cy={T.ay} r={T.r} fill={fill} opacity="0.32" mask={`url(#${mInC})`} />
+            <circle cx={T.ax} cy={T.ay} r={T.r} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mInB})`} />
+            <circle cx={T.ax} cy={T.ay} r={T.r} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mInC})`} />
+          </>
+        )}
+
+        <rect x="8" y="8" width="324" height="214" rx="10" fill="none" stroke={stroke} strokeOpacity="0.45" strokeWidth="1.5" />
+        {(shade === "a-cap-buc" || shade === "acb-u-acc") && (
+          <>
+            <circle cx={T.ax} cy={T.ay} r={T.r} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mInB})`} />
+            <circle cx={T.ax} cy={T.ay} r={T.r} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mInC})`} />
           </>
         )}
 
@@ -311,14 +339,17 @@ export function ThreeSetVenn({ shade = "none", caption }: ThreeSetVennProps) {
         <circle cx={T.bx} cy={T.by} r={T.r} fill="none" stroke={stroke} strokeOpacity="0.75" strokeWidth="1.8" />
         <circle cx={T.cx} cy={T.cy} r={T.r} fill="none" stroke={stroke} strokeOpacity="0.75" strokeWidth="1.8" />
 
-        <text x={78} y={40} fontSize="15" fontStyle="italic" fontWeight="600" fill={stroke}>
+        <text x={60} y={34} fontSize="15" fontStyle="italic" fontWeight="600" fill={stroke}>
           A
         </text>
-        <text x={262} y={40} fontSize="15" fontStyle="italic" fontWeight="600" fill={stroke}>
+        <text x={280} y={34} fontSize="15" fontStyle="italic" fontWeight="600" fill={stroke}>
           B
         </text>
         <text x={170} y={222} textAnchor="middle" fontSize="15" fontStyle="italic" fontWeight="600" fill={stroke}>
           C
+        </text>
+        <text x={322} y={28} textAnchor="end" fontSize="13" fontStyle="italic" fill={stroke} opacity="0.7">
+          {labelU}
         </text>
       </svg>
       {caption && (

@@ -355,7 +355,7 @@ export default function RelationsAndFunctionsChapter() {
           <li>R on N: {"{(x, y) : y = x + 5, x natural and x < 4}"}. Roster form; domain; range.</li>
           <li>A = {"{1, 2, 3, 5}"}, B = {"{4, 6, 9}"}; R = {"{(x, y) : difference between x and y is odd}"}. Roster form.</li>
           <li>
-            The arrow diagram shows a relation from P to Q where P = {"{5, 6, 7}"} maps to Q = {"{3, 4, 5}"} as y = x – 2. Write it in set-builder form and roster form. Find its domain and range.
+            The arrow diagram shows a relation from P to Q where P = {"{5, 6, 7}"} maps to Q = {"{3, 4, 5}"}. Write it in set-builder form and roster form. Find its domain and range.
             <ArrowDiagram
               leftLabel="P"
               rightLabel="Q"
@@ -535,7 +535,7 @@ export default function RelationsAndFunctionsChapter() {
         <FunctionGraph
           curves={[
             { fn: (x) => x * x, from: -2.4, to: 2.4 },
-            { fn: (x) => x * x * x / 8, from: -5, to: 5 },
+            { fn: (x) => x * x * x / 8, from: -3.4, to: 3.4 },
             { fn: (x) => x, from: -5, to: 5, dashed: true },
           ]}
           caption="y = x² (U-curve), y = x³/8 (S-curve); dashed y = x"
@@ -560,6 +560,7 @@ export default function RelationsAndFunctionsChapter() {
             <FunctionGraph
               curves={[{ fn: (x) => x * x, from: -4.6, to: 4.6 }]}
               xMin={-6} xMax={6} yMin={-2} yMax={22}
+              yStep={2}
               points={[
                 { x: -4, y: 16 }, { x: -3, y: 9 }, { x: -2, y: 4 }, { x: -1, y: 1 },
                 { x: 0, y: 0 }, { x: 1, y: 1 }, { x: 2, y: 4 }, { x: 3, y: 9 }, { x: 4, y: 16 },
@@ -575,7 +576,7 @@ export default function RelationsAndFunctionsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>f(0)=0, ±1 → ±1, ±2 → ±8, ±3 → ±27. The curve rises steeply through the origin:</p>
-            <FunctionGraph curves={[{ fn: (x) => (x * x * x) / 8, from: -5, to: 5 }]} caption="y = x³ (scaled to fit) — flat at origin, steep at ends" />
+            <FunctionGraph curves={[{ fn: (x) => (x * x * x) / 8, from: -3.4, to: 3.4 }]} caption="y = x³ (scaled to fit) — flat at origin, steep at ends" />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -658,6 +659,7 @@ export default function RelationsAndFunctionsChapter() {
             ...[-3, -2, -1, 0, 1, 2].map((k) => ({ x: k, y: k, filled: true })),
             ...[-2, -1, 0, 1, 2, 3].map((k) => ({ x: k, y: k - 1, filled: false })),
           ]}
+          xMin={-3.6} xMax={3.6} yMin={-3.6} yMax={3}
           caption="y = [x] — staircase"
         />
       </div>
@@ -755,7 +757,7 @@ export default function RelationsAndFunctionsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>f(0) = 10, f(–10) = 0 — a straight line of slope 1 cutting the y-axis at 10:</p>
-            <FunctionGraph curves={[{ fn: (x) => x + 10, from: -12, to: 8 }]} xMin={-15} xMax={10} yMin={-6} yMax={20} caption="y = x + 10 — a linear function mx + c with m = 1, c = 10" />
+            <FunctionGraph curves={[{ fn: (x) => x + 10, from: -12, to: 8 }]} xMin={-15} xMax={10} yMin={-6} yMax={20} xStep={5} yStep={5} caption="y = x + 10 — a linear function mx + c with m = 1, c = 10" />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -807,6 +809,7 @@ export default function RelationsAndFunctionsChapter() {
                 { fn: (x) => x + 1, from: 0.001, to: 5 },
               ]}
               points={[{ x: 0, y: 0, filled: true }, { x: 0, y: 1, filled: false }]}
+              yMax={6}
               caption="Piecewise graph — note the jump above the origin"
             />
           </ProblemSolution.Solution>
