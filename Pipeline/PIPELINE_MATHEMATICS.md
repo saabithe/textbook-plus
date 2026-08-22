@@ -156,6 +156,12 @@ Mathematics follows the **master 16-step pipeline** with subject-specific conten
 - **Hard-Level Tips Callout** near tricky definitions: bulleted edge cases that exams probe (huge ≠ infinite, bounded ≠ finite, equation vs inequality counts)
 - **Micro-extensions allowed** — small derived results beyond the textbook (e.g., 2ⁿ subsets count with mini table) when they clearly aid understanding
 
+### Speed Tricks (Differentiator)
+- Every major section ends with a `SpeedTricks` block (`src/components/content/SpeedTricks.tsx`) — amber dashed collapsible, visually distinct from content Expandables
+- Inside: 2–4 `Callout type="tip"` items — curated fast-solving tricks, mental models, and shortcuts; **tricks only, never restated theory**
+- Beyond-syllabus identities allowed but must be flagged "(beyond syllabus)" in the title
+- This is what separates us from textbook learners — curate intelligently, quality over quantity
+
 ### Text Emphasis Rules
 - **Bold** key terms on first use + final answers; *italics* for emphasis/contrast; `Highlight` component for exam-critical phrases only (max 1–2 per section)
 - Never bold/italicize whole paragraphs — full spec: `CHAPTER_PIPELINE.md → Text Emphasis Rules`
