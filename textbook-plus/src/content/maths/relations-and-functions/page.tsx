@@ -698,6 +698,25 @@ export default function RelationsAndFunctionsChapter() {
         </p>
       </div>
 
+      <Callout type="important" title="Domain Rules: The Only Two Restrictions">
+        <p className="font-semibold mb-1">Fractional / Rational type — f(x)/g(x)</p>
+        <FormulaBlock latex="g(x) \neq 0" important />
+        <p>
+          The denominator cannot equal zero — exclude every root of g from the domain.
+          Example: f(x) = 1/(x – 3) ⇒ x ≠ 3.
+        </p>
+        <p className="font-semibold mb-1 mt-4">Square root type — √f(x)</p>
+        <FormulaBlock latex="f(x) \ge 0" important />
+        <p>
+          Whatever sits under the root must never be negative. Example: f(x) = √(x – 1) ⇒
+          x – 1 ≥ 0 ⇒ domain [1, ∞).
+        </p>
+        <p className="mt-3">
+          Both at once? Apply both: f(x) = √(x)/(x – 2) needs x ≥ 0 <em>and</em> x ≠ 2 ⇒
+          domain [0, 2) ∪ (2, ∞).
+        </p>
+      </Callout>
+
       <div className="grid items-center gap-4 sm:grid-cols-2">
         <div>
           <p className="font-semibold">(v) Modulus function</p>
@@ -749,6 +768,41 @@ export default function RelationsAndFunctionsChapter() {
           caption="y = [x] — staircase"
         />
       </div>
+
+      <ProblemSolution problemNumber="Supplementary: Read a Graph">
+        <ProblemSolution.Problem>
+          <p>The figure shows the graph of a function f(x).</p>
+          <FunctionGraph
+            curves={[
+              { fn: (x) => x, from: -5, to: -0.001 },
+              { fn: () => 1, from: 0.001, to: 5 },
+            ]}
+            points={[
+              { x: -1, y: -1, filled: true },
+              { x: 0, y: 0, filled: false },
+              { x: 0, y: 1, filled: true },
+            ]}
+            caption="Left of 0: the line y = x climbing towards a hollow circle at the origin; from 0 onward: the constant height y = 1"
+          />
+          <p>(a) Write the domain and range of f(x).</p>
+          <p>(b) Find f(0) and f(&ndash;0.01).</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            <strong>(a)</strong> Every vertical line cuts the graph once, so every real x has an
+            image — domain = ℝ.
+            <br />
+            Range: for x &lt; 0 the outputs run along y = x, covering{" "}
+            <strong>(–∞, 0)</strong>; for x ≥ 0 the only output ever produced is{" "}
+            <strong>1</strong>. So range = (–∞, 0) ∪ {"{1}"} — note 0 itself never appears (hollow
+            dot).
+          </p>
+          <p>
+            <strong>(b)</strong> f(0) = 1 (the solid dot sits at (0, 1)). Since –0.01 &lt; 0, it
+            lies on the line y = x, so f(–0.01) = <strong>–0.01</strong>.
+          </p>
+        </ProblemSolution.Solution>
+      </ProblemSolution>
 
       <SpeedTricks>
         <Callout type="tip" title="Recognise graphs by silhouette">
