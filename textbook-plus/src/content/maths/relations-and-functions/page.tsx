@@ -490,18 +490,47 @@ export default function RelationsAndFunctionsChapter() {
         <li>&ldquo;map&rdquo; / &ldquo;mapping&rdquo; are synonyms for function.</li>
       </ul>
 
-      <Callout type="warning" title="The Only Two Ways a Relation Fails to Be a Function">
+      <p>
+        Read <strong>f : A → B</strong> piece by piece — it contains three facts: A is the{" "}
+        <strong>Domain</strong>, B is the <strong>Codomain</strong>, and the range equals{" "}
+        <strong>f(A)</strong>, the set of images actually produced.
+      </p>
+
+      <KeyPoint title="One-Line Memory Rule">
+        <strong>ONE input → EXACTLY ONE output.</strong> But{" "}
+        <strong>MANY inputs → SAME output is allowed</strong> — this case later gets its own name,
+        the <em>many-one</em> function.
+      </KeyPoint>
+
+      <Callout type="warning" title="Is This Relation a Function? Run the Checklist">
         <ol>
           <li>
-            <strong>An element of A has no image.</strong> In Example 7 above, 6 ∈ A has no arrow
-            leaving it — so that relation is not a function.
+            <strong>Look at the domain.</strong>
           </li>
           <li>
-            <strong>An element of A has more than one image.</strong> In Example 8, each square x
-            pairs with two values ±√x — two arrows leave — not a function.
+            <strong>Check that every domain element appears as an input</strong> — no element of A
+            may sit without an arrow (Example 7&apos;s 6 has none).
+          </li>
+          <li>
+            <strong>Check that each input has exactly one output</strong> — no two arrows may leave
+            the same element (Example 8&apos;s squares each reach ± roots).
           </li>
         </ol>
-        Everything else is allowed: many-to-one is fine (different inputs may share an output).
+        <p className="mt-2">
+          Both conditions pass → <strong>FUNCTION</strong>. Either fails →{" "}
+          <strong>NOT A FUNCTION</strong>.
+        </p>
+        <p className="font-semibold mt-3">⚠️ The classic confusion</p>
+        <p>
+          Students often believe &ldquo;a function cannot have two arrows going to the same
+          output&rdquo;. Wrong — this is perfectly valid:
+        </p>
+        <p className="font-semibold">1 → a&nbsp;&nbsp;&nbsp;2 → a ✓</p>
+        <p>What is prohibited is two arrows <em>leaving the same input</em>:</p>
+        <p className="font-semibold">1 → a&nbsp;&nbsp;&nbsp;1 → b ✗</p>
+        <p>
+          So remember: <strong>function restrictions are about inputs, not outputs.</strong>
+        </p>
       </Callout>
 
       <Expandable id="h-examples-2-4" title="Examples 10 to 12">
@@ -559,10 +588,6 @@ export default function RelationsAndFunctionsChapter() {
 
       <Callout type="important" title="Hard-Level Tips: Function Checks">
         <ul>
-          <li>
-            <strong>Repeated outputs are fine; repeated inputs are not.</strong>{" "}
-            {"{(2,1),(3,1)}"} is a function; {"{(2,1),(2,3)}"} never is.
-          </li>
           <li>
             <strong>Codomain ≠ range.</strong> Codomain is declared up front (all of B); range is
             discovered afterwards (actual images). Range ⊆ codomain always.
@@ -699,18 +724,28 @@ export default function RelationsAndFunctionsChapter() {
       </div>
 
       <Callout type="important" title="Domain Rules: The Only Two Restrictions">
-        <p className="font-semibold mb-1">Fractional / Rational type — f(x)/g(x)</p>
+        <p className="font-semibold mb-1">12. Fractional / Rational type — f(x)/g(x)</p>
         <FormulaBlock latex="g(x) \neq 0" important />
-        <p>
-          The denominator cannot equal zero — exclude every root of g from the domain.
-          Example: f(x) = 1/(x – 3) ⇒ x ≠ 3.
-        </p>
-        <p className="font-semibold mb-1 mt-4">Square root type — √f(x)</p>
+        <p>The denominator can never equal zero. Consider f(x) = 1/(x – 2):</p>
+        <ul>
+          <li>Can x = 2? No.</li>
+          <li>Because x – 2 = 0 would make the denominator zero.</li>
+          <li>Therefore x ≠ 2.</li>
+          <li>
+            Hence <strong>Domain(f) = ℝ – {"{2}"}</strong>, equivalently{" "}
+            <strong>{"{x ∈ R : x ≠ 2}"}</strong>.
+          </li>
+        </ul>
+        <p className="font-semibold mb-1 mt-4">13. Square-root type — √f(x)</p>
         <FormulaBlock latex="f(x) \ge 0" important />
-        <p>
-          Whatever sits under the root must never be negative. Example: f(x) = √(x – 1) ⇒
-          x – 1 ≥ 0 ⇒ domain [1, ∞).
-        </p>
+        <p>What sits under the root must never go negative. Consider f(x) = √(x – 3):</p>
+        <ul>
+          <li>For real-valued f, we need x – 3 ≥ 0.</li>
+          <li>Therefore x ≥ 3.</li>
+          <li>
+            Hence <strong>Domain(f) = [3, ∞)</strong>.
+          </li>
+        </ul>
         <p className="mt-3">
           Both at once? Apply both: f(x) = √(x)/(x – 2) needs x ≥ 0 <em>and</em> x ≠ 2 ⇒
           domain [0, 2) ∪ (2, ∞).
