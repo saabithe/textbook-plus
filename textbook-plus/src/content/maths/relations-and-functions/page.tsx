@@ -225,6 +225,15 @@ export default function RelationsAndFunctionsChapter() {
         A relation R from a non-empty set A to a non-empty set B is a <strong>subset of A × B</strong>.
         In each pair (x, y) ∈ R, y is called the image of x.
       </Callout>
+
+      <Callout type="note" title="Think of It Like This">
+        <strong>A × B = all possible connections</strong> between the two sets.
+        <br />
+        <strong>R = the connections we actually choose.</strong>
+        <br />
+        In our example, P × Q offers 15 pairs — the first-letter rule picks just 4. A relation is
+        simply a selection from the full menu of A × B.
+      </Callout>
       <ul>
         <li>
           <strong>Domain</strong> — set of all first elements of the pairs in R.
@@ -680,24 +689,32 @@ export default function RelationsAndFunctionsChapter() {
         </ProblemSolution>
       </Expandable>
 
+      <div>
+        <p className="font-semibold">(iv) Rational function</p>
+        <FormulaBlock latex="\frac{f(x)}{g(x)}, \quad g(x) \neq 0" />
+        <p>
+          A ratio of two polynomials. The reciprocal 1/x above is the classic example — its
+          domain simply excludes roots of g.
+        </p>
+      </div>
+
       <div className="grid items-center gap-4 sm:grid-cols-2">
-        <div>
-          <p className="font-semibold">(iv) Rational function</p>
-          <FormulaBlock latex="\frac{f(x)}{g(x)}, \quad g(x) \neq 0" />
-          <p>
-            A ratio of two polynomials. The reciprocal 1/x above is the classic example — its
-            domain simply excludes roots of g.
-          </p>
-        </div>
         <div>
           <p className="font-semibold">(v) Modulus function</p>
           <FormulaBlock latex="f(x) = |x| = \begin{cases} x, & x \ge 0 \\ -x, & x < 0 \end{cases}" />
           <p>Negative inputs flip sign; output is never negative — the V-shape.</p>
         </div>
+        <FunctionGraph curves={[{ fn: Math.abs, from: -5, to: 5 }]} caption="y = |x| — V-shaped" />
       </div>
 
-      <div className="grid items-start gap-4 sm:grid-cols-2">
-        <FunctionGraph curves={[{ fn: Math.abs, from: -5, to: 5 }]} caption="y = |x| — V-shaped" />
+      <div className="grid items-center gap-4 sm:grid-cols-2">
+        <div>
+          <p className="font-semibold">(vi) Signum function</p>
+          <p>
+            Reports only the sign of x. Domain R; range {"{–1, 0, 1}"}. Hollow dots show the rays do
+            not include x = 0; the origin carries the single filled point.
+          </p>
+        </div>
         <FunctionGraph
           curves={[
             { fn: () => -1, from: -0.001, to: -5, ray: true },
@@ -714,16 +731,12 @@ export default function RelationsAndFunctionsChapter() {
 
       <div className="grid items-center gap-4 sm:grid-cols-2">
         <div>
-          <p className="font-semibold">(vi) Signum function</p>
-          <p>
-            Reports only the sign of x. Domain R; range {"{–1, 0, 1}"}. Hollow dots show the rays do
-            not include x = 0; the origin carries the single filled point.
-          </p>
-          <p className="mt-3 font-semibold">(vii) Greatest integer function</p>
+          <p className="font-semibold">(vii) Greatest integer function</p>
           <FormulaBlock latex="f(x) = [x] = \text{greatest integer} \le x" />
           <p>
             [x] = –1 on [–1, 0), 0 on [0, 1), 1 on [1, 2), 2 on [2, 3)… Each step includes its left
-            end (filled dot) but not its right end (hollow dot).
+            end (filled dot) but not its right end (hollow dot). Domain R; range ℤ — the output is
+            always an integer, never anything in between.
           </p>
         </div>
         <FunctionGraph
