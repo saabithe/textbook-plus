@@ -1,6 +1,6 @@
 "use client";
 
-import { useId } from "react";
+import { Mafs, Coordinates, Plot, Point, Line, Text, Vector } from "mafs";
 import { cn } from "@/lib/utils";
 
 interface Curve {
@@ -12,7 +12,7 @@ interface Curve {
   ray?: boolean;
 }
 
-interface Point {
+interface GraphDot {
   x: number;
   y: number;
   filled?: boolean;
@@ -25,7 +25,7 @@ interface TickOverride {
 
 interface FunctionGraphProps {
   curves?: Curve[];
-  points?: Point[];
+  points?: GraphDot[];
   xMin?: number;
   xMax?: number;
   yMin?: number;
@@ -39,28 +39,17 @@ interface FunctionGraphProps {
   className?: string;
 }
 
-const W = 340;
-const H = 260;
-const PAD = 26;
-const AXIS_STROKE = 1.4;
-const GRID_OPACITY = 0.1;
-const CURVE_STROKE = 2.2;
-
 function pickStep(min: number, max: number, override?: number): number {
   if (override && override > 0) return override;
   const range = max - min;
   if (range <= 0) return 1;
-  const target = 12;
-  const magnitudes = [1, 2, 5, 10, 20, 50, 100];
+  const target = 10;
+  const magnitudes = [0.5, 1, 2, 5, 10, 20, 50, 100];
   let best = 1;
   for (const m of magnitudes) {
     if (range / m <= target) { best = m; break; }
   }
   return best;
-}
-
-function clamp(v: number, min: number, max: number): number {
-  return Math.max(min, Math.min(max, v));
 }
 
 function pickTicks(min: number, max: number, step: number): number[] {
@@ -89,46 +78,45 @@ export function FunctionGraph({
 }: FunctionGraphProps) {
   if (xMin >= xMax || yMin >= yMax) return null;
 
-  const xRange = xMax - xMin;
   const yRange = yMax - yMin;
-  const drawW = W - 2 * PAD;
-  const drawH = H - 2 * PAD;
-
-  const gx = (x: number) => PAD + ((x - xMin) / (xMax - xMin)) * (W - 2 * PAD);
-  const gy = (y: number) => H - PAD - ((y - yMin) / (yMax - yMin)) * (H - 2 * PAD);
-
-  const showXAxis = yMin <= 0 && yMax >= 0;
-  const showYAxis = xMin <= 0 && xMax >= 0;
-
-  const axisColor = "currentColor";
+  const xRange = xMax - xMin;
   const defaultColor = "var(--subject-mathematics)";
 
-  const computedXStep = pickStep(xMin, xMax, xStep);
-  const computedYStep = pickStep(yMin, yMax, yStep);
-  const xTicks: number[] = xTickOverrides ? xTickOverrides.map((o) => o.at) : pickTicks(xMin, xMax, computedXStep);
-  const yTicks: number[] = yTickOverrides ? yTickOverrides.map((o) => o.at) : pickTicks(yMin, yMax, computedYStep);
-  const labelFor = (axis: "x" | "y", t: number): string => {
+  const stepX = pickStep(xMin, xMax, xStep);
+  const stepY = pickStep(yMin, yMax, yStep);
+
+  const labelFor = (axis: "x" | "y", v: number): string => {
     const overrides = axis === "x" ? xTickOverrides : yTickOverrides;
     if (overrides) {
-      const hit = overrides.find((o) => Math.abs(o.at - t) < 1e-9);
+      const hit = overrides.find((o) => Math.abs(o.at - v) < 1e-9);
       if (hit) return hit.label;
     }
-    return String(t);
+    return String(Math.round(v * 100) / 100);
   };
 
-  interface Segment {
-    pts: [number, number][];
+  interface Seg {
+    t0: number;
+    t1: number;
     color: string;
     dashed?: boolean;
     ray?: boolean;
+    fn: (x: number) => number;
   }
-  const segments: { pts: [number, number][]; color: string; dashed?: boolean; ray?: boolean }[] = [];
+  const segments: Seg[] = [];
 
-  const N_SAMPLES = 200;
-
+  const N_SAMPLES = 240;
   for (const c of curves) {
-    let current: [number, number][] = [];
+    let t0: number | null = null;
+    let t1: number | null = null;
     let lastY: number | null = null;
+
+    const flush = () => {
+      if (t0 !== null && t1 !== null && t1 > t0) {
+        segments.push({ t0, t1, color: c.color ?? defaultColor, dashed: c.dashed, ray: c.ray, fn: c.fn });
+      }
+      t0 = null;
+      t1 = null;
+    };
 
     for (let i = 0; i <= N_SAMPLES; i++) {
       const x = c.from + ((c.to - c.from) * i) / N_SAMPLES;
@@ -144,153 +132,116 @@ export function FunctionGraph({
       const bigJump = lastY !== null && Math.abs(y - lastY) > yRange * 2;
 
       if (!inRange || bigJump) {
-        if (current.length > 1) {
-          segments.push({ pts: current, color: c.color ?? "var(--subject-mathematics)", dashed: c.dashed, ray: c.ray });
-        } else if (current.length === 1) {
-          segments.push({ pts: current, color: c.color ?? "var(--subject-mathematics)", dashed: c.dashed, ray: c.ray });
-        }
-        current = [];
+        flush();
         lastY = finite ? y : null;
         continue;
       }
 
-      current.push([gx(x), gy(y)]);
+      if (t0 === null) t0 = x;
+      t1 = x;
       lastY = y;
     }
-    if (current.length >= 1) {
-      segments.push({ pts: current, color: c.color ?? "var(--subject-mathematics)", dashed: c.dashed, ray: c.ray });
-    }
+    flush();
   }
 
   return (
-    <figure className={cn("my-4", className)}>
-      <svg
-        viewBox={`0 0 ${W} ${H}`}
-        className="mx-auto w-full max-w-[280px]"
-        role="img"
-        aria-label={caption ?? "Function graph"}
-        style={{ color: "var(--foreground)" }}
-      >
-        <defs>
-          <marker id={`arrowhead-${useId().replace(/[^a-zA-Z0-9]/g, "")}`} markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 z" fill="var(--subject-mathematics)" />
-          </marker>
-        </defs>
+    <figure className={cn("my-4 mx-auto w-full max-w-[320px]", className)}>
+      <div role="img" aria-label={caption ?? "Function graph"}>
+        <Mafs
+          height={260}
+          viewBox={{ x: [xMin, xMax], y: [yMin, yMax] }}
+          preserveAspectRatio={false}
+          pan={false}
+          zoom={false}
+        >
+          <Coordinates.Cartesian
+            xAxis={
+              xTickOverrides
+                ? { lines: false, labels: () => "" }
+                : { lines: stepX, labels: (v: number) => labelFor("x", v) }
+            }
+            yAxis={
+              yTickOverrides
+                ? { lines: false, labels: () => "" }
+                : { lines: stepY, labels: (v: number) => labelFor("y", v) }
+            }
+          />
 
-        <g stroke="currentColor" strokeOpacity={0.1} strokeWidth="1">
-          {yTicks.filter(t => t !== 0).map(t => (
-            <g key={`gy${t}`}>
-              <line x1={PAD} y1={gy(t)} x2={W - PAD} y2={gy(t)} />
-              <text x={PAD - 6} y={gy(t) + 4} textAnchor="end" fontSize="10" fill="currentColor" opacity="0.7">
-                {labelFor("y", t)}
-              </text>
+          {xTickOverrides?.map((o, i) => (
+            <g key={`xo${i}`}>
+              <Line.Segment point1={[o.at, yMin]} point2={[o.at, yMax]} color="var(--foreground)" opacity={0.12} weight={1} />
+              <Text x={o.at} y={yMin + 0.055 * yRange} attach="s" size={17} color="var(--foreground)" svgTextProps={{ opacity: 0.75 }}>
+                {o.label}
+              </Text>
             </g>
           ))}
-          {xTicks.filter(t => t !== 0).map(t => (
-            <g key={`gx${t}`}>
-              <line x1={gx(t)} y1={PAD} x2={gx(t)} y2={H - PAD} />
-              <text x={gx(t)} y={H - PAD + 14} textAnchor="middle" fontSize="10" fill="currentColor" opacity="0.7">
-                {labelFor("x", t)}
-              </text>
+          {yTickOverrides?.map((o, i) => (
+            <g key={`yo${i}`}>
+              <Line.Segment point1={[xMin, o.at]} point2={[xMax, o.at]} color="var(--foreground)" opacity={0.12} weight={1} />
+              <Text x={xMin + 0.045 * xRange} y={o.at} attach="e" size={17} color="var(--foreground)" svgTextProps={{ opacity: 0.75 }}>
+                {o.label}
+              </Text>
             </g>
           ))}
-        </g>
 
-        {vlines.length > 0 && (
-          <g>
-            {vlines.map((v, i) => (
-              <line
-                key={`vl${i}`}
-                x1={gx(v)}
-                y1={PAD}
-                x2={gx(v)}
-                y2={H - PAD}
-                stroke="currentColor"
-                strokeOpacity={0.3}
-                strokeWidth="1.1"
-                strokeDasharray="4 4"
-              />
-            ))}
-          </g>
-        )}
-
-        {showXAxis && (
-          <>
-            <line x1={PAD} y1={gy(0)} x2={W - PAD} y2={gy(0)} stroke="currentColor" strokeWidth={1.4} />
-            <polygon points={`${PAD - 10},${gy(0)} ${PAD - 2},${gy(0) - 3.5} ${PAD - 2},${gy(0) + 3.5}`} fill="currentColor" />
-            <polygon points={`${W - PAD + 10},${gy(0)} ${W - PAD - 2},${gy(0) - 3.5} ${W - PAD - 2},${gy(0) + 3.5}`} fill="currentColor" />
-            <text x={W - PAD + 8} y={gy(0) - 10} fontSize="12" fontStyle="italic" fill="currentColor">x</text>
-          </>
-        )}
-
-        {showYAxis && (
-          <>
-            <line x1={gx(0)} y1={PAD} x2={gx(0)} y2={H - PAD} stroke="currentColor" strokeWidth={1.4} />
-            <polygon points={`${gx(0)},${PAD - 10} ${gx(0) - 3.5},${PAD - 2} ${gx(0) + 3.5},${PAD - 2}`} fill="currentColor" />
-            <polygon points={`${gx(0)},${H - PAD + 10} ${gx(0) - 3.5},${H - PAD + 2} ${gx(0) + 3.5},${H - PAD + 2}`} fill="currentColor" />
-            <text x={gx(0) + 12} y={PAD - 2} fontSize="12" fontStyle="italic" fill="currentColor">y</text>
-          </>
-        )}
-
-        {segments.map((s, i) => {
-          const pts = s.pts;
-          const d = pts.map(([px, py]) => `${px.toFixed(1)},${py.toFixed(1)}`).join(" ");
-          let arrowHead = null;
-          if (s.ray && pts.length >= 2) {
-            const [x2, y2] = pts[pts.length - 1];
-            const [x1, y1] = pts[pts.length - 2];
-            const ang = (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI;
-            return (
-              <g key={`c${i}`}>
-                <polyline
-                  points={s.pts.map(([px, py]) => `${px.toFixed(1)},${py.toFixed(1)}`).join(" ")}
-                  fill="none"
-                  stroke={s.color}
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeDasharray={s.dashed ? "5 4" : undefined}
-                />
-                <polygon
-                  points="10,0 -2,-4.5 -2,4.5"
-                  fill="var(--subject-mathematics)"
-                  transform={`translate(${pts[pts.length - 1][0]},${pts[pts.length - 1][1]}) rotate(${((Math.atan2(
-                    pts[pts.length - 1][1] - pts[pts.length - 2][1],
-                    pts[pts.length - 1][0] - pts[pts.length - 2][0]
-                  ) * 180) / Math.PI).toFixed(1)})`}
-                />
-              </g>
-            );
-          }
-          return (
-            <polyline
-              key={`c${i}`}
-              points={pts.map(([px, py]) => `${px.toFixed(1)},${py.toFixed(1)}`).join(" ")}
-              fill="none"
-              stroke={s.color}
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeDasharray={s.dashed ? "5 4" : undefined}
+          {vlines.map((v, i) => (
+            <Line.Segment
+              key={`vl${i}`}
+              point1={[v, yMin]}
+              point2={[v, yMax]}
+              color="var(--foreground)"
+              opacity={0.32}
+              weight={1.2}
+              style="dashed"
             />
-          );
-        })}
+          ))}
 
-        {points.map((pt, i) =>
-          pt.filled === false ? (
-            <circle key={`p${i}`} cx={gx(pt.x)} cy={gy(pt.y)} r="3.6" fill="var(--background)" stroke="var(--subject-mathematics)" strokeWidth="1.8" />
-          ) : (
-            <circle key={`p${i}`} cx={gx(pt.x)} cy={gy(pt.y)} r="3.4" fill="var(--subject-mathematics)" />
-          )
-        )}
+          {segments.map((s, i) => (
+            <Plot.Parametric
+              key={`c${i}`}
+              domain={[s.t0, s.t1]}
+              xy={(x) => [x, s.fn(x)]}
+              color={s.color}
+              weight={2.4}
+              style={s.dashed ? "dashed" : "solid"}
+            />
+          ))}
 
-        {showXAxis && showYAxis && (
-          <g>
-            <rect x={gx(0) - 14} y={gy(0) + 3} width="12" height="14" fill="var(--background)" />
-            <text x={gx(0) - 4} y={gy(0) + 12} textAnchor="end" fontSize="10" fill="currentColor">O</text>
-          </g>
-        )}
-      </svg>
+          {curves.map((c, ci) => {
+            if (!c.ray) return null;
+            const d = (c.to - c.from) / N_SAMPLES / 8 || 0.01;
+            const xa = Math.max(c.to - d, c.to - (c.to - c.from) / N_SAMPLES);
+            const ya = c.fn(xa);
+            const yb = c.fn(c.to);
+            if (!isFinite(ya) || !isFinite(yb)) return null;
+            const len = Math.hypot(c.to - xa, yb - ya) || 1;
+            const k = 0.09 * xRange;
+            return (
+              <Vector
+                key={`ray${ci}`}
+                tail={[xa, ya]}
+                tip={[xa + ((c.to - xa) / len) * k, ya + ((yb - ya) / len) * k]}
+                color={c.color ?? defaultColor}
+                weight={2.4}
+              />
+            );
+          })}
+
+          {points.map((pt, i) =>
+            pt.filled === false ? (
+              <Point
+                key={`p${i}`}
+                x={pt.x}
+                y={pt.y}
+                color={defaultColor}
+                svgCircleProps={{ fill: "var(--background)", strokeWidth: 1.8 }}
+              />
+            ) : (
+              <Point key={`p${i}`} x={pt.x} y={pt.y} color={defaultColor} />
+            )
+          )}
+        </Mafs>
+      </div>
       {caption && (
         <figcaption className="mt-1 text-center text-xs text-muted-foreground">{caption}</figcaption>
       )}

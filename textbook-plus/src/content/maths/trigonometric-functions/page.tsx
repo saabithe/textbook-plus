@@ -52,11 +52,6 @@ export default function TrigonometricFunctionsChapter() {
         radians. In general, an arc of length l in a circle of radius r subtends angle θ where:
       </p>
       <FormulaBlock latex="\theta = \frac{l}{r} \qquad \text{or equivalently} \qquad l = r\,\theta" important />
-      <KeyPoint title="Radian ↔ Real Numbers">
-        Wrap the real number line around the unit circle: every real number lands on exactly one
-        radian measure and vice versa. Radian measures and real numbers are one and the same — that
-        is what makes sin, cos genuine functions of a real variable.
-      </KeyPoint>
 
       <p>
         <strong>Degree ↔ radian.</strong> One revolution is both 360° and 2π radians, so:
@@ -90,11 +85,6 @@ export default function TrigonometricFunctionsChapter() {
           </tr>
         </tbody>
       </table>
-
-      <KeyPoint title="Notational Convention">
-        θ° always means <em>degree measure</em> θ; a bare β means <em>radian measure</em> β — the
-        word &ldquo;radian&rdquo; is routinely omitted. So π means 180° and π/4 means 45°.
-      </KeyPoint>
 
       <Expandable id="h-examples-3-2" title="Examples 1 to 5">
         <ProblemSolution problemNumber="Example 1">

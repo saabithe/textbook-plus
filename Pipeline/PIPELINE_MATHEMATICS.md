@@ -139,6 +139,10 @@ Mathematics follows the **master 16-step pipeline** with subject-specific conten
 
 ### Visuals First
 - **Never describe a figure in words** ("Fig 1.4 shows two circles...") — render the actual diagram
+- **Mafs (`mafs` package) is the standard rendering engine for all coordinate-based maths visuals** — unit circles, function graphs, number lines, parametric curves. Write in math coordinates (`viewBox={{ x: [...], y: [...] }}`), never pixel math; use `Coordinates.Cartesian`, `Plot.Parametric`, `Vector`, `Point`, `Text attach=...`
+- Theme is wired globally: `.MafsView` vars in `globals.css` follow app light/dark with transparent background
+- Wrapped components keep stable props APIs so pages don't change: `FunctionGraph`, `UnitCircle` (in `src/components/content/maths/`)
+- Relational/set diagrams (ArrowDiagram, VennDiagram) stay bespoke SVG — they're graph layouts, not math plots
 - Reusable SVG components live in `src/components/content/maths/`: `NumberLine`, `VennDiagram` (+ `ThreeSetVenn`)
 - Import directly (subject-specific, not in barrel export); add new shared components there when a diagram type recurs
 - Side-by-side identical shadings prove identities visually (De Morgan, distributive law) — prefer over verbal proofs of set identities
@@ -162,9 +166,16 @@ Mathematics follows the **master 16-step pipeline** with subject-specific conten
 - Beyond-syllabus identities allowed but must be flagged "(beyond syllabus)" in the title
 - This is what separates us from textbook learners — curate intelligently, quality over quantity
 
+### Highlighting Rule
+- **`Highlight` component** (`@/components/content/Highlight`) on exam-critical phrases and key results inline — sparingly, max 1–2 per section
+- **Good maths targets:** subset/defining agreements ("φ is a subset of every set", "A ∩ B = φ ⇒ disjoint"), identity statements, domain exclusions, conditions attached to formulas
+- **Colors:** yellow (default), blue, green, pink, orange — pick ONE accent per chapter and stay consistent
+- **Bold ≠ Highlight:** `<strong>` for first-use terms and final answers; `Highlight` only where the eye must land during revision
+- Never highlight inside `FormulaBlock`/latex — highlight the surrounding prose condition instead
+
 ### Text Emphasis Rules
-- **Bold** key terms on first use + final answers; *italics* for emphasis/contrast; `Highlight` component for exam-critical phrases only (max 1–2 per section)
-- Never bold/italicize whole paragraphs — full spec: `CHAPTER_PIPELINE.md → Text Emphasis Rules`
+- **Bold** key terms on first use + final answers; *italics* for emphasis/contrast
+- Never bold/italicize whole paragraphs — full spec: `CHAPTER_PIPELINE.md → Text Emphasis Rules`; see Highlighting Rule above for the `Highlight` component
 
 ---
 
