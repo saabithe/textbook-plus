@@ -767,6 +767,31 @@ export default function TrigonometricFunctionsChapter() {
         />
         <FormulaBlock latex="\sin 2x = 2\sin x \cos x = \frac{2\tan x}{1 + \tan^2 x}" important />
         <FormulaBlock latex="\tan 2x = \frac{2\tan x}{1 - \tan^2 x}" important />
+        <Expandable title="Derivation — try it yourself before expanding">
+          <p>
+            Every formula here is just an addition formula with <strong>y = x</strong>. Cosine:
+          </p>
+          <FormulaBlock latex="\cos 2x = \cos(x + x) = \cos x\cos x - \sin x\sin x = \cos^2 x - \sin^2 x" />
+          <p>
+            Apply sin²x + cos²x = 1 once replacing sin²x, once replacing cos²x:
+          </p>
+          <FormulaBlock latex="\cos^2 x - (1 - \cos^2 x) = 2\cos^2 x - 1 \qquad\qquad (1-\sin^2 x) - \sin^2 x = 1 - 2\sin^2 x" />
+          <p>
+            For the tangent form, divide the numerator and denominator of (
+            cos²x − sin²x)/(sin²x + cos²x) = 1 by cos²x:
+          </p>
+          <FormulaBlock latex="1 = \frac{\cos^2 x - \sin^2 x}{\cos^2 x + \sin^2 x} = \frac{1 - \tan^2 x}{1 + \tan^2 x}" />
+          <p>Sine works identically:</p>
+          <FormulaBlock latex="\sin 2x = \sin x\cos x + \cos x\sin x = 2\sin x\cos x" />
+          <p>Divide it by sin²x + cos²x = 1 and cancel cos²x top and bottom:</p>
+          <FormulaBlock latex="\sin 2x = \frac{2\sin x\cos x}{\sin^2 x + \cos^2 x} = \frac{2\tan x}{1 + \tan^2 x}" />
+          <p>Tangent needs no extra step:</p>
+          <FormulaBlock latex="\tan 2x = \frac{\tan x + \tan x}{1 - \tan x\tan x} = \frac{2\tan x}{1 - \tan^2 x}" />
+          <p className="text-sm text-muted-foreground">
+            The divisions by cos x assume cos x ≠ 0 — the formulas hold wherever both sides are
+            defined.
+          </p>
+        </Expandable>
       </FormulaCard>
 
       <p>And iterating once more (writing 3x = 2x + x) gives the triple-angle family:</p>
@@ -775,6 +800,23 @@ export default function TrigonometricFunctionsChapter() {
         <FormulaBlock latex="\sin 3x = 3\sin x - 4\sin^3 x" important />
         <FormulaBlock latex="\cos 3x = 4\cos^3 x - 3\cos x" important />
         <FormulaBlock latex="\tan 3x = \frac{3\tan x - \tan^3 x}{1 - 3\tan^2 x}" important />
+        <Expandable title="Derivation — try it yourself before expanding">
+          <p>
+            Write <strong>3x = 2x + x</strong> and reuse the addition plus double-angle results.
+            Sine first:
+          </p>
+          <FormulaBlock latex="\sin 3x = \sin 2x\cos x + \cos 2x\sin x = 2\sin x\cos^2 x + (\cos^2 x - \sin^2 x)\sin x" />
+          <FormulaBlock latex="= 3\sin x\cos^2 x - \sin^3 x = 3\sin x(1 - \sin^2 x) - \sin^3 x = 3\sin x - 4\sin^3 x" />
+          <p>Cosine runs the same route:</p>
+          <FormulaBlock latex="\cos 3x = \cos 2x\cos x - \sin 2x\sin x = (\cos^2 x - \sin^2 x)\cos x - 2\sin^2 x\cos x" />
+          <FormulaBlock latex="= \cos^3 x - 3\cos x\sin^2 x = \cos x(1 - 4\sin^2 x) = \cos x\big(1 - 4(1-\cos^2 x)\big) = 4\cos^3 x - 3\cos x" />
+          <p>
+            Tangent: substitute tan 2x = 2tan x/(1 − tan²x) into tan(2x + x) and clear the nested
+            fraction:
+          </p>
+          <FormulaBlock latex="\tan 3x = \frac{\dfrac{2t}{1-t^2} + t}{1 - \dfrac{2t^2}{1-t^2}} \quad\text{where } t = \tan x" />
+          <FormulaBlock latex="= \frac{2t + t(1-t^2)}{(1-t^2) - 2t^2} = \frac{3t - t^3}{1 - 3t^2} = \frac{3\tan x - \tan^3 x}{1 - 3\tan^2 x}" />
+        </Expandable>
       </FormulaCard>
 
       <p>
