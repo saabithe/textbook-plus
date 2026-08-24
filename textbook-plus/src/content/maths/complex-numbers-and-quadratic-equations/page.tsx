@@ -57,6 +57,72 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
         </ProblemSolution>
       </Expandable>
 
+      <Expandable title="More Examples — Equality of Complex Numbers (Supplementary)">
+        <ProblemSolution problemNumber="Supplementary 1">
+          <ProblemSolution.Problem>
+            <p>
+              Find real x, y if (x + 3) + i(y − 2) = 5 + 4i.
+            </p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p>Equate Re and Im separately:</p>
+            <FormulaBlock latex="x+3 = 5 \;\Rightarrow\; x=2, \qquad y-2 = 4 \;\Rightarrow\; y=6" />
+            <p>
+              So <strong>(x, y) = (2, 6)</strong> — the real part matches the real part, the
+              imaginary part matches the imaginary part. Always split into two real equations.
+            </p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Supplementary 2">
+          <ProblemSolution.Problem>
+            <p>
+              Find real a, b if (a + b) + i(a − b) = 7 + i.
+            </p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <FormulaBlock latex="a+b = 7,\qquad a-b = 1" />
+            <p>Adding: 2a = 8 → <strong>a = 4</strong>; then b = 7 − a = <strong>b = 3</strong>.</p>
+            <p className="text-sm text-muted-foreground">
+              Two linear equations in two unknowns — solve simultaneously. This pattern appears
+              often when a complex equality hides a system inside.
+            </p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Supplementary 3">
+          <ProblemSolution.Problem>
+            <p>
+              Find real x, y if 2x + i(3y − 5) = 6 + i(−2).
+            </p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <FormulaBlock latex="2x = 6 \Rightarrow x=3, \qquad 3y-5=-2 \Rightarrow 3y=3 \Rightarrow y=1" />
+            <p>
+              Hence <strong>x = 3, y = 1</strong>. Check: LHS = 6 + i(−2) ✓.
+            </p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Supplementary 4">
+          <ProblemSolution.Problem>
+            <p>
+              If (x − iy)(3 + 5i) is purely real, what relation between x and y does that force?
+              (Treat as equality: Im = 0.)
+            </p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <FormulaBlock latex="(x-iy)(3+5i)=(3x+5y)+i(5x-3y)" />
+            <p>
+              Purely real ⇔ imaginary part = 0:
+              <FormulaBlock latex="5x-3y=0 \;\Rightarrow\; y=\frac53x" important />
+              This is the condition for the product to land on the real axis — useful in
+              locus problems later.
+            </p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <h2 id="h-4-3">4.3 Algebra of Complex Numbers</h2>
 
       <h3 id="h-4-3-1">4.3.1 Addition of two complex numbers</h3>
@@ -119,6 +185,105 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
         For negative powers, add multiples of 4 to make the exponent positive (e.g., i<sup>−35</sup> =
         i<sup>1</sup>).
       </KeyPoint>
+
+      <Expandable title="More Examples — Powers of i (Supplementary)">
+        <ProblemSolution problemNumber="Supplementary 5">
+          <ProblemSolution.Problem>
+            <p>Evaluate: (i) i<sup>27</sup> &nbsp; (ii) i<sup>48</sup> &nbsp; (iii) i<sup>115</sup></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <ul>
+              <li>
+                (i) 27 ÷ 4 = 6 rem 3 → i<sup>27</sup> = i³ = <strong>−i</strong>.
+              </li>
+              <li>
+                (ii) 48 ÷ 4 = 12 rem 0 → i<sup>48</sup> = <strong>1</strong>.
+              </li>
+              <li>
+                (iii) 115 ÷ 4 = 28 rem 3 → i<sup>115</sup> = i³ = <strong>−i</strong>.
+              </li>
+            </ul>
+            <FormulaBlock latex="i^{27}=-i,\; i^{48}=1,\; i^{115}=-i" />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Supplementary 6">
+          <ProblemSolution.Problem>
+            <p>
+              Evaluate: (i) i<sup>−29</sup> &nbsp; (ii) i<sup>−39</sup> &nbsp; (iii) 1/i<sup>13</sup>
+            </p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <ul>
+              <li>
+                (i) Add 32 (= 4·8): −29 + 32 = 3 → i<sup>−29</sup> = i³ = <strong>−i</strong>. Or
+                i<sup>−29</sup> = 1/i<sup>29</sup> = 1/i = −i.
+              </li>
+              <li>
+                (ii) −39 + 40 = 1 → i<sup>−39</sup> = i¹ = <strong>i</strong> (we already used this as
+                i<sup>−35</sup> = i).
+              </li>
+              <li>
+                (iii) 1/i<sup>13</sup> = i<sup>−13</sup>; −13 + 16 = 3 → i³ = <strong>−i</strong>.
+              </li>
+            </ul>
+            <FormulaBlock latex="i^{-29}=-i,\; i^{-39}=i,\; \frac1{i^{13}}=-i" />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Supplementary 7">
+          <ProblemSolution.Problem>
+            <p>
+              Show that i + i² + i³ + i⁴ = 0 and hence evaluate i + i² + ··· + i<sup>20</sup>.
+            </p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <FormulaBlock latex="i + i^2 + i^3 + i^4 = i -1 -i +1 =0" important />
+            <p>
+              The four-term block sums to 0, so any multiple of 4 is 0. 20 = 4·5 → sum = 5·0 ={" "}
+              <strong>0</strong>. For a non-multiple, e.g. i + ··· + i<sup>22</sup> = (5 blocks = 0) + i + i² ={" "}
+              <strong>i − 1</strong>.
+            </p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Supplementary 8">
+          <ProblemSolution.Problem>
+            <p>
+              Simplify: (i) i<sup>5</sup>·i<sup>8</sup> &nbsp; (ii) (i<sup>3</sup>)·(i<sup>17</sup>)/i<sup>9</sup> &nbsp; (iii) (2i)<sup>3</sup>
+            </p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <ul>
+              <li>
+                (i) i⁵ = i, i⁸ = 1 → product = <strong>i</strong>.
+              </li>
+              <li>
+                (ii) i³·i¹⁷ = i²⁰ = 1; 1 / i⁹: i⁹ = i → 1/i = −i, so result = <strong>−i</strong>. Or
+                exponents: 3+17−9=11 → i¹¹ = i³ = −i.
+              </li>
+              <li>
+                (iii) (2i)³ = 8·i³ = 8·(−i) = <strong>−8i</strong>. (Real factor cubes, i cycles separately.)
+              </li>
+            </ul>
+            <FormulaBlock latex="i^5i^8=i,\quad \frac{i^3i^{17}}{i^9}=-i,\quad (2i)^3=-8i" />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Supplementary 9">
+          <ProblemSolution.Problem>
+            <p>Find the least positive integer k such that (i<sup>k</sup> + i<sup>k+1</sup> + i<sup>k+2</sup> + i<sup>k+3</sup>) = 0 for all k.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p>
+              Factor i<sup>k</sup>(1 + i + i² + i³) = i<sup>k</sup>(1 + i −1 −i) = 0 — holds for{" "}
+              <strong>every k</strong>. Any 4 consecutive powers sum to 0; that is the cycle length in
+              action.
+            </p>
+            <FormulaBlock latex="i^k(1+i+i^2+i^3)=0\ \forall k" />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
 
       <h3 id="h-4-3-6">4.3.6 Square roots of a negative real number</h3>
       <Callout type="important" title="Convention">
