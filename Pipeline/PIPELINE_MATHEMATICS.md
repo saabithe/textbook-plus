@@ -24,7 +24,7 @@
 | 1 | Sets | `sets` | ✅ Done |
 | 2 | Relations and Functions | `relations-and-functions` | ✅ Done |
 | 3 | Trigonometric Functions | `trigonometric-functions` | ✅ Done |
-| 4 | Complex Numbers and Quadratic Equations | `complex-numbers-and-quadratic-equations` | 🔲 Pending |
+| 4 | Complex Numbers and Quadratic Equations | `complex-numbers-and-quadratic-equations` | ✅ Done |
 | 5 | Linear Inequalities | `linear-inequalities` | 🔲 Pending |
 | 6 | Permutations and Combinations | `permutations-and-combinations` | 🔲 Pending |
 | 7 | Binomial Theorem | `binomial-theorem` | 🔲 Pending |

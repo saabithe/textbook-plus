@@ -50,7 +50,7 @@ export const class11Chapters: Record<string, Class11Chapter[]> = {
     { id: "m11-01", subjectSlug: "maths", number: 1, title: "Sets", slug: "sets", topicCount: 10 },
     { id: "m11-02", subjectSlug: "maths", number: 2, title: "Relations and Functions", slug: "relations-and-functions", topicCount: 5 },
     { id: "m11-03", subjectSlug: "maths", number: 3, title: "Trigonometric Functions", slug: "trigonometric-functions", topicCount: 5 },
-    { id: "m11-04", subjectSlug: "maths", number: 4, title: "Complex Numbers and Quadratic Equations", slug: "complex-numbers-and-quadratic-equations", topicCount: 0 },
+    { id: "m11-04", subjectSlug: "maths", number: 4, title: "Complex Numbers and Quadratic Equations", slug: "complex-numbers-and-quadratic-equations", topicCount: 6 },
     { id: "m11-05", subjectSlug: "maths", number: 5, title: "Linear Inequalities", slug: "linear-inequalities", topicCount: 0 },
     { id: "m11-06", subjectSlug: "maths", number: 6, title: "Permutations and Combinations", slug: "permutations-and-combinations", topicCount: 0 },
     { id: "m11-07", subjectSlug: "maths", number: 7, title: "Binomial Theorem", slug: "binomial-theorem", topicCount: 0 },

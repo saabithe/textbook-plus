@@ -1,0 +1,16 @@
+[
+  {"id":"cn-fc01","front":"Complex number — definition","back":"a + ib, a,b∈ℝ. Re z = a, Im z = b. Equality: a+ib = c+id ⇔ a=c and b=d. Based on i²=−1."},
+  {"id":"cn-fc02","front":"i² and the i-cycle","back":"i²=−1, i³=−i, i⁴=1. General: i⁴ᵏ=1, i⁴ᵏ⁺¹=i, i⁴ᵏ⁺²=−1, i⁴ᵏ⁺³=−i. Divide exponent by 4; remainder decides."},
+  {"id":"cn-fc03","front":"Addition / subtraction","back":"(a+ib)+(c+id)=(a+c)+i(b+d). Subtraction: z₁−z₂=z₁+(−z₂). Closure, commutative, associative; identity 0, inverse −z."},
+  {"id":"cn-fc04","front":"Multiplication","back":"(a+ib)(c+id)=(ac−bd)+i(ad+bc). FOIL then i²→−1. Commutative, associative, distributive; identity 1."},
+  {"id":"cn-fc05","front":"Division trick","back":"Divide by rationalising: z₁/z₂ = z₁·(z̄₂/|z₂|²). Multiply top & bottom by conjugate of denominator → real denominator a²+b²."},
+  {"id":"cn-fc06","front":"Square root trap","back":"√−a = √a·i (a>0). √a·√b=√(ab) only if at most one of a,b negative. If both negative, keep as i·i = −1, don't merge under one root."},
+  {"id":"cn-fc07","front":"Identities that survive in ℂ","back":"(z₁±z₂)², (z₁±z₂)³, (z₁+z₂)(z₁−z₂)=z₁²−z₂² — same forms as ℝ. Prove with distributive + commutative laws."},
+  {"id":"cn-fc08","front":"Modulus |z|","back":"|a+ib|=√(a²+b²) ≥0, distance from origin in Argand plane. |z₁z₂|=|z₁||z₂|; |z₁/z₂|=|z₁|/|z₂|."},
+  {"id":"cn-fc09","front":"Conjugate z̄","back":"a+ib → a−ib. Reflection across real axis. z·z̄=|z|². Conjugate of product/quotient/sum = product/quotient/sum of conjugates."},
+  {"id":"cn-fc10","front":"Inverse z⁻¹","back":"For z≠0, z⁻¹ = z̄/|z|² = (a−ib)/(a²+b²). Example: 2−3i → (2+3i)/13. Quick: conjugate over modulus-squared."},
+  {"id":"cn-fc11","front":"Argand plane picture","back":"z=x+iy ↔ point P(x,y). Real axis = x-axis, Imag axis = y-axis. Fig 4.1: 2+4i→(2,4) etc. Modulus = OP distance."},
+  {"id":"cn-fc12","front":"Polar form","back":"z = r(cosθ + i sinθ), r=|z|, θ=arg z, x=r cosθ, y=r sinθ. z̄ = r(cosθ − i sinθ)=r(cos(−θ)+i sin(−θ))."},
+  {"id":"cn-fc13","front":"Conjugate×modulus link","back":"z·z̄ = |z|² and |x+iy|² = x²+y². Used to prove: if x+iy=(a+ib)/(a−ib) then x²+y²=1."},
+  {"id":"cn-fc14","front":"Power examples to remember","back":"(1−i)⁴=−4; (5−3i)³=−10−198i; i⁻³⁵=i. All via cycle or binomial expansion with i²=−1."}
+]

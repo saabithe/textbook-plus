@@ -1,0 +1,18 @@
+[
+  {"id":"cn-q01","type":"mcq","difficulty":"easy","question":"If 4x + i(3x − y) = 3 + i(−6) with x, y ∈ ℝ, then x =","options":["3/4","4/3","−6","33/4"],"answer":0,"explanation":"Equate Re: 4x=3 → x=3/4. Then 3x−y=−6 → y=33/4."},
+  {"id":"cn-q02","type":"mcq","difficulty":"easy","question":"For z = a + ib, Re z + Im z equals","options":["a + b","a − b","a/b","ab"],"answer":0,"explanation":"By definition Re z = a, Im z = b."},
+  {"id":"cn-q03","type":"mcq","difficulty":"easy","question":"(2 + 3i) + (−6 + 5i) =","options":["−4 + 8i","8 − 2i","4 + 8i","−4 − 2i"],"answer":0,"explanation":"(2−6) + i(3+5) = −4 + 8i."},
+  {"id":"cn-q04","type":"mcq","difficulty":"medium","question":"(3 + 5i)(2 + 6i) =","options":["−24 + 28i","24 + 28i","−24 − 28i","36 + 28i"],"answer":0,"explanation":"ac−bd = 6−30=−24; ad+bc = 18+10=28."},
+  {"id":"cn-q05","type":"mcq","difficulty":"medium","question":"(6 + 3i)/(2 − i) in a + ib is","options":["9/5 + 12/5 i","12/5 + 9/5 i","3/5 + 6/5 i","9/5 − 12/5 i"],"answer":0,"explanation":"Multiply by conjugate 2+i: (6+3i)(2+i)/5 = (9+12i)/5."},
+  {"id":"cn-q06","type":"mcq","difficulty":"easy","question":"i⁹ + i¹⁹ equals","options":["0","2i","−2i","1"],"answer":0,"explanation":"i⁹=i¹, i¹⁹=i³=−i → sum 0."},
+  {"id":"cn-q07","type":"mcq","difficulty":"medium","question":"i⁻³⁵ equals","options":["i","−i","1","−1"],"answer":0,"explanation":"Exponent mod 4: −35 ≡ 1 (mod 4) → i¹ = i. Or i⁴=1 so i⁻³⁵=i."},
+  {"id":"cn-q08","type":"mcq","difficulty":"medium","question":"√−1 · √−1 =","options":["−1","1","i","−i"],"answer":0,"explanation":"√−1 = i, so i·i = −1. The rule √a√b=√(ab) fails when both a,b<0."},
+  {"id":"cn-q09","type":"mcq","difficulty":"easy","question":"For z = 2 − 3i, its conjugate z̄ is","options":["2 + 3i","−2 + 3i","2 − 3i","−2 − 3i"],"answer":0,"explanation":"Flip sign of imaginary part: a−ib → a+ib? Here 2−3i → 2+3i."},
+  {"id":"cn-q10","type":"mcq","difficulty":"easy","question":"|3 + i| equals","options":["√10","√8","10","4"],"answer":0,"explanation":"√(9+1)=√10."},
+  {"id":"cn-q11","type":"mcq","difficulty":"medium","question":"Multiplicative inverse of 4 − 3i is","options":["(4+3i)/25","(4−3i)/25","(4+3i)/7","(−4+3i)/25"],"answer":0,"explanation":"z⁻¹ = z̄/|z|² = (4+3i)/(16+9)= (4+3i)/25."},
+  {"id":"cn-q12","type":"mcq","difficulty":"medium","question":"If z = x + iy and |z|=4, arg z=π/3, then x, y =","options":["2, 2√3","2√3, 2","1, √3","4, 0"],"answer":0,"explanation":"x=r cosθ=4·1/2=2, y=4·√3/2=2√3."},
+  {"id":"cn-q13","type":"short","difficulty":"medium","question":"Express (1 − i)⁴ in a + ib.","answer":"(1−i)² = −2i → ((1−i)²)² = (−2i)² = −4 = −4 + 0·i.","explanation":"Square twice; i²=−1 each step."},
+  {"id":"cn-q14","type":"short","difficulty":"medium","question":"If x + iy = (a+ib)/(a−ib), prove x²+y²=1.","answer":"|x+iy| = |a+ib|/|a−ib| =1 since |a+ib|=|a−ib|. So x²+y²=|x+iy|²=1.","explanation":"Modulus property |z₁/z₂|=|z₁|/|z₂| and |a+ib|=|a−ib|."},
+  {"id":"cn-q15","type":"short","difficulty":"hard","question":"Find real x, y if (x − iy)(3+5i) is the conjugate of −6 −24i.","answer":"(x−iy)(3+5i)=−6+24i. Expand: (3x+5y)+i(5x−3y)=−6+24i → solve 3x+5y=−6, 5x−3y=24 → x=3, y=−3.","explanation":"Equate real and imaginary parts after expansion; conjugate flips sign of Im."},
+  {"id":"cn-q16","type":"short","difficulty":"medium","question":"Show (a²+b²)(c²+d²) = (ac−bd)²+(ad+bc)² using complex modulus.","answer":"Take z₁=a+ib, z₂=c+id. Then |z₁z₂|=|z₁||z₂| → |z₁z₂|²=|z₁|²|z₂|². But z₁z₂=(ac−bd)+i(ad+bc) → its modulus squared is (ac−bd)²+(ad+bc)².","explanation":"Modulus multiplicative property is the identity in disguise."}
+]

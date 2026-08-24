@@ -447,6 +447,24 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-3-4", title: "3.4 Trigonometric Functions of Sum and Difference of Two Angles" },
     { id: "h-misc", title: "Miscellaneous Exercise on Chapter 3" },
   ],
+  "c11/maths/complex-numbers-and-quadratic-equations": [
+    { id: "h-intro", title: "4.1 Introduction" },
+    { id: "h-4-2", title: "4.2 Complex Numbers" },
+    {
+      id: "h-4-3", title: "4.3 Algebra of Complex Numbers", children: [
+        { id: "h-4-3-1", title: "4.3.1 Addition of two complex numbers" },
+        { id: "h-4-3-2", title: "4.3.2 Difference of two complex numbers" },
+        { id: "h-4-3-3", title: "4.3.3 Multiplication of two complex numbers" },
+        { id: "h-4-3-4", title: "4.3.4 Division of two complex numbers" },
+        { id: "h-4-3-5", title: "4.3.5 Power of i" },
+        { id: "h-4-3-6", title: "4.3.6 Square roots of a negative real number" },
+        { id: "h-4-3-7", title: "4.3.7 Identities" },
+      ],
+    },
+    { id: "h-4-4", title: "4.4 Modulus and Conjugate" },
+    { id: "h-4-5", title: "4.5 Argand Plane and Polar Representation" },
+    { id: "h-misc", title: "Miscellaneous Examples" },
+  ],
 };
 
 // Practice data is lazy-loaded per chapter so visiting one chapter doesn't
@@ -458,6 +476,7 @@ const QUESTION_KEYS = new Set([
   "c11/maths/sets",
   "c11/maths/relations-and-functions",
   "c11/maths/trigonometric-functions",
+  "c11/maths/complex-numbers-and-quadratic-equations",
 ]);
 
 const FLASHCARD_KEYS = new Set(QUESTION_KEYS);
@@ -473,6 +492,8 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
     import("@/content/maths/relations-and-functions/questions.json").then((m) => m.default as Question[]),
   "c11/maths/trigonometric-functions": () =>
     import("@/content/maths/trigonometric-functions/questions.json").then((m) => m.default as Question[]),
+  "c11/maths/complex-numbers-and-quadratic-equations": () =>
+    import("@/content/maths/complex-numbers-and-quadratic-equations/questions.json").then((m) => m.default as Question[]),
 };
 
 const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
@@ -486,6 +507,8 @@ const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
     import("@/content/maths/relations-and-functions/flashcards.json").then((m) => m.default as Flashcard[]),
   "c11/maths/trigonometric-functions": () =>
     import("@/content/maths/trigonometric-functions/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/maths/complex-numbers-and-quadratic-equations": () =>
+    import("@/content/maths/complex-numbers-and-quadratic-equations/flashcards.json").then((m) => m.default as Flashcard[]),
 };
 
 export function getSectionsForChapter(slug: string): ChapterSection[] {
