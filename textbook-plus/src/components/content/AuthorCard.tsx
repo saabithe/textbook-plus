@@ -32,6 +32,7 @@ export function AuthorCard({ name, children, className }: AuthorCardProps) {
           <button
             onClick={() => setExpanded((prev) => !prev)}
             className="shrink-0 rounded-lg p-2 text-muted-foreground hover:bg-muted/50 hover:text-foreground transition-colors"
+            aria-expanded={expanded}
             aria-label={expanded ? "Collapse author bio" : "Expand author bio"}
           >
             <ChevronDown

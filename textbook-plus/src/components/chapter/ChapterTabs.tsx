@@ -17,13 +17,15 @@ const tabs = [
 export function ChapterTabs({ activeTab, onTabChange, showPractice = true }: ChapterTabsProps) {
   const filteredTabs = showPractice ? tabs : [tabs[0]];
   return (
-    <div className="flex items-center gap-1 rounded-xl border border-border/60 bg-muted/30 p-1 mb-8">
+    <div role="tablist" aria-label="Chapter views" className="flex items-center gap-1 rounded-xl border border-border/60 bg-muted/30 p-1 mb-8">
       {filteredTabs.map((tab) => {
         const Icon = tab.icon;
         const active = activeTab === tab.id;
         return (
           <button
             key={tab.id}
+            role="tab"
+            aria-selected={active}
             onClick={() => onTabChange(tab.id)}
             className={cn(
               "flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 flex-1 justify-center",

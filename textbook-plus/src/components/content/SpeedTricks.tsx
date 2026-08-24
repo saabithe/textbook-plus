@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { ChevronRight, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -10,11 +10,14 @@ interface SpeedTricksProps {
 
 export function SpeedTricks({ children }: SpeedTricksProps) {
   const [open, setOpen] = useState(false);
+  const panelId = useId();
 
   return (
     <div className="my-6 overflow-hidden rounded-xl border border-dashed border-amber-500/50 bg-amber-500/5 shadow-[0_0_20px_-10px_rgba(245,158,11,0.4)]">
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={panelId}
         className="flex w-full items-center gap-2 px-5 py-3 text-left transition-colors hover:bg-amber-500/10"
       >
         <ChevronRight
@@ -32,7 +35,7 @@ export function SpeedTricks({ children }: SpeedTricksProps) {
         </span>
       </button>
       {open && (
-        <div className="border-t border-dashed border-amber-500/40 px-5 py-2">{children}</div>
+        <div id={panelId} className="border-t border-dashed border-amber-500/40 px-5 py-2">{children}</div>
       )}
     </div>
   );

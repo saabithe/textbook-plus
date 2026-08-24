@@ -18,9 +18,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme") as Theme | null;
+    let stored: Theme | null = null;
+    try {
+      stored = localStorage.getItem("theme") as Theme | null;
+    } catch {}
     const system = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    const initial = stored || system;
+    const initial = stored === "light" || stored === "dark" ? stored : system;
     setTheme(initial);
     document.documentElement.classList.toggle("dark", initial === "dark");
     setMounted(true);
@@ -29,7 +32,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   function toggle() {
     setTheme((prev) => {
       const next = prev === "light" ? "dark" : "light";
-      localStorage.setItem("theme", next);
+      try {
+        localStorage.setItem("theme", next);
+      } catch {}
       document.documentElement.classList.toggle("dark", next === "dark");
       return next;
     });

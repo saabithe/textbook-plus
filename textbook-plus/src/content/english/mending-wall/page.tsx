@@ -66,8 +66,58 @@ const POEM_LINES = [
 
 const READ_RESPOND = [
   {
-    question: "",
-    answer: <></>,
+    question: "What does the speaker&apos;s neighbour say about walls?",
+    answer: (
+      <>
+        The neighbour repeats his father&apos;s saying: <strong>&quot;Good fences make good neighbours.&quot;</strong> He
+        believes boundaries keep the relationship respectful and orderly, and he will not go behind his
+        father&apos;s words to question them.
+      </>
+    ),
+  },
+  {
+    question: "According to the speaker, why is the wall unnecessary?",
+    answer: (
+      <>
+        There is nothing to keep in or out — the speaker has an apple orchard and his neighbour has pines,
+        so their trees will never cross. He also notes that cows are the only thing walls ever contained
+        here. Nature itself conspires against the wall: frozen ground swells under it and topples boulders,
+        leaving gaps that &quot;even two can pass abreast&quot;.
+      </>
+    ),
+  },
+  {
+    question: 'What is the significance of the phrase "Good fences make good neighbours"?',
+    answer: (
+      <>
+        It is the proverb the poem tests. On one reading, boundaries prevent disputes and preserve
+        neighbourliness; on another — the speaker&apos;s ironic reading — endless fence-mending is a ritual that
+        keeps people apart rather than together. Frost leaves both readings standing, which is why the line
+        has become one of the most debated in American poetry.
+      </>
+    ),
+  },
+  {
+    question: "How does the poem explore the tension between tradition and modernity?",
+    answer: (
+      <>
+        The mending ritual itself is tradition: a spring custom inherited from past generations, defended by
+        the neighbour&apos;s father&apos;s saying. The speaker embodies a modern, questioning temper — he wants reasons,
+        asking what he is &quot;walling in or walling out&quot;. The poem stages the clash without resolving it: old
+        rituals give life shape, but unexamined tradition can become darkness, like the old-stone savage.
+      </>
+    ),
+  },
+  {
+    question: 'What does the speaker mean by "Something there is that doesn\'t love a wall"?',
+    answer: (
+      <>
+        He names an unnamed natural force — frost heave, gravity, time — that spills the boulders each
+        winter and makes gaps. But the phrase reaches beyond geology: it suggests that human nature itself
+        resists artificial barriers, that connection, not separation, is the default state of the world.
+        It is the speaker&apos;s poetic counter-argument to the neighbour&apos;s proverb.
+      </>
+    ),
   },
 ];
 

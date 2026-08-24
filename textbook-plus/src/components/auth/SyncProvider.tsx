@@ -76,12 +76,10 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
 
   // ── Flush offline queue ───────────────────────────────────────
   const flushQueue = useCallback(async () => {
-    if (writeQueue.length === 0) return;
-    const items = [...writeQueue];
-    writeQueue.length = 0;
-
-    for (const item of items) {
+    while (writeQueue.length > 0) {
+      const item = writeQueue[0];
       try {
+        let dbError: { message: string } | null = null;
         if (item.type === "progress") {
           const rows = item.slugs.map((ch) => ({
             user_id: item.userId,
@@ -90,9 +88,9 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
             completed: true,
           }));
           if (rows.length > 0) {
-            await supabase.from("user_progress").upsert(rows, {
+            ({ error: dbError } = await supabase.from("user_progress").upsert(rows, {
               onConflict: "user_id,subject_slug,chapter_slug",
-            });
+            }));
           }
         } else {
           const rows = Object.entries(item.data).map(([ch, state]) => ({
@@ -104,14 +102,16 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
             flashcards_unknown: state.flashcardsUnknown,
           }));
           if (rows.length > 0) {
-            await supabase.from("user_practice").upsert(rows, {
+            ({ error: dbError } = await supabase.from("user_practice").upsert(rows, {
               onConflict: "user_id,chapter_slug",
-            });
+            }));
           }
         }
+        if (dbError) throw new Error(dbError.message);
+        // Only remove after a fully successful upsert.
+        writeQueue.shift();
       } catch (err) {
         console.error("Queue flush error:", err);
-        writeQueue.unshift(item);
         setStatus("error");
         return;
       }

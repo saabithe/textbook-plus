@@ -84,8 +84,8 @@ export function SummaryLevels({ defaultLevel = "standard", quick, standard, deta
       >
         {/* Sliding thumb */}
         <div
-          className="absolute top-1 bottom-1 w-[calc(100%/3-4px)] rounded-full bg-background shadow-sm border border-border/40 transition-transform duration-200 ease-out pointer-events-none"
-          style={{ transform: `translateX(calc(${level} * (100% + 8px)))` }}
+          className="absolute top-1 bottom-1 w-[calc((100%-8px)/3)] rounded-full bg-background shadow-sm border border-border/40 transition-transform duration-200 ease-out pointer-events-none"
+          style={{ transform: `translateX(calc(${level} * 100%))` }}
         />
 
         {/* Segment labels */}

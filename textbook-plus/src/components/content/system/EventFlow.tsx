@@ -16,7 +16,7 @@ export function EventFlow({ title, events }: EventFlowProps) {
         {events.map((event, i) => (
           <div key={i} className="flex gap-3">
             <div className="flex flex-col items-center">
-              <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded bg-yellow-500/10 text-[10px] font-bold text-yellow-600">
+              <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded bg-yellow-500/10 text-[10px] font-bold text-yellow-700 dark:text-yellow-400">
                 ⚡
               </div>
               {i < events.length - 1 && (
@@ -24,7 +24,7 @@ export function EventFlow({ title, events }: EventFlowProps) {
               )}
             </div>
             <div className="pb-4 pt-0.5">
-              <p className="text-xs font-medium text-yellow-600">Trigger: {event.trigger}</p>
+              <p className="text-xs font-medium text-yellow-700 dark:text-yellow-400">Trigger: {event.trigger}</p>
               <p className="text-sm text-foreground mt-0.5">{event.action}</p>
             </div>
           </div>

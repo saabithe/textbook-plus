@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { RotateCcw } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Flashcard } from "@/types/chapter";
@@ -12,69 +12,80 @@ interface FlashcardCardProps {
   onUnknown: () => void;
 }
 
+function isTypingTarget(e: KeyboardEvent): boolean {
+  const t = e.target as HTMLElement | null;
+  if (!t) return false;
+  return (
+    t.tagName === "INPUT" ||
+    t.tagName === "TEXTAREA" ||
+    t.tagName === "SELECT" ||
+    t.isContentEditable
+  );
+}
+
 export function FlashcardCard({ card, subjectColor, onKnown, onUnknown }: FlashcardCardProps) {
   const [flipped, setFlipped] = useState(false);
 
-  const flip = useCallback(() => setFlipped((f) => !f), []);
-
+  // Rating shortcuts ("1"/"2") are global while a card is flipped,
+  // but must never fire while typing in a form field.
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
-      if (e.code === "Space") {
-        e.preventDefault();
-        flip();
-      }
-      if (flipped) {
-        if (e.key === "1") onUnknown();
-        if (e.key === "2") onKnown();
-      }
+      if (!flipped || isTypingTarget(e)) return;
+      if (e.key === "1") onUnknown();
+      if (e.key === "2") onKnown();
     }
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [flipped, flip, onKnown, onUnknown]);
+  }, [flipped, onKnown, onUnknown]);
 
   return (
     <div className="w-full max-w-lg mx-auto">
       {/* Card */}
-      <button
-        onClick={flip}
-        className={cn(
-          "relative w-full aspect-[3/2] rounded-2xl border border-border/60 cursor-pointer",
-          "transition-transform duration-500 [transform-style:preserve-3d]",
-          flipped && "[transform:rotateY(180deg)]"
-        )}
-        style={{ perspective: "1000px" }}
-      >
-        {/* Front */}
-        <div
+      <div style={{ perspective: "1000px" }}>
+        <button
+          onClick={() => setFlipped((f) => !f)}
+          aria-pressed={flipped}
+          aria-label={flipped ? "Show question" : "Reveal answer"}
           className={cn(
-            "absolute inset-0 flex flex-col items-center justify-center p-6 sm:p-8 rounded-2xl [backface-visibility:hidden]"
+            "relative w-full aspect-[3/2] rounded-2xl border border-border/60 cursor-pointer",
+            "transition-transform duration-500 [transform-style:preserve-3d]",
+            flipped && "[transform:rotateY(180deg)]"
           )}
-          style={{ backgroundColor: `${subjectColor}08` }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: subjectColor }}>
-            Question
-          </p>
-          <p className="text-base sm:text-lg font-medium text-center leading-relaxed">
-            {card.front}
-          </p>
-          <p className="text-xs text-muted-foreground mt-4">Click or press Space to flip</p>
-        </div>
+          {/* Front */}
+          <div
+            aria-hidden={flipped}
+            className={cn(
+              "absolute inset-0 flex flex-col items-center justify-center p-6 sm:p-8 rounded-2xl [backface-visibility:hidden]"
+            )}
+            style={{ backgroundColor: `${subjectColor}08` }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: subjectColor }}>
+              Question
+            </p>
+            <p className="text-base sm:text-lg font-medium text-center leading-relaxed">
+              {card.front}
+            </p>
+            <p className="text-xs text-muted-foreground mt-4">Click or press Space to flip</p>
+          </div>
 
-        {/* Back */}
-        <div
-          className={cn(
-            "absolute inset-0 flex flex-col items-center justify-center p-6 sm:p-8 rounded-2xl [backface-visibility:hidden] [transform:rotateY(180deg)]"
-          )}
-          style={{ backgroundColor: `${subjectColor}10` }}
-        >
-          <p className="text-xs font-semibold uppercase tracking-widest mb-4 text-green-600 dark:text-green-400">
-            Answer
-          </p>
-          <p className="text-base sm:text-lg font-medium text-center leading-relaxed whitespace-pre-line">
-            {card.back}
-          </p>
-        </div>
-      </button>
+          {/* Back */}
+          <div
+            aria-hidden={!flipped}
+            className={cn(
+              "absolute inset-0 flex flex-col items-center justify-center p-6 sm:p-8 rounded-2xl [backface-visibility:hidden] [transform:rotateY(180deg)]"
+            )}
+            style={{ backgroundColor: `${subjectColor}10` }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-widest mb-4 text-green-600 dark:text-green-400">
+              Answer
+            </p>
+            <p className="text-base sm:text-lg font-medium text-center leading-relaxed whitespace-pre-line">
+              {card.back}
+            </p>
+          </div>
+        </button>
+      </div>
 
       {/* Rating buttons */}
       {flipped && (

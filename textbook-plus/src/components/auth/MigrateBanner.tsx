@@ -14,14 +14,19 @@ export function MigrateBanner() {
   useEffect(() => {
     if (loading) return;
     if (!isAnonymous) return;
-    const wasDismissed = localStorage.getItem(DISMISS_KEY) === "true";
+    let wasDismissed = false;
+    try {
+      wasDismissed = localStorage.getItem(DISMISS_KEY) === "true";
+    } catch {}
     setDismissed(wasDismissed);
   }, [isAnonymous, loading]);
 
   if (loading || !isAnonymous || dismissed) return null;
 
   function handleDismiss() {
-    localStorage.setItem(DISMISS_KEY, "true");
+    try {
+      localStorage.setItem(DISMISS_KEY, "true");
+    } catch {}
     setDismissed(true);
   }
 

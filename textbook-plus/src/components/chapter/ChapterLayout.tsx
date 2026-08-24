@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronRight, CheckCircle2, Circle, Brain, Layers } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -12,6 +12,7 @@ import { getAdjacentChapters } from "@/data/chapters";
 import { getQuestionsForChapter, getFlashcardsForChapter, hasQuestions, hasFlashcards } from "@/lib/content";
 import { useProgress } from "@/hooks/useProgress";
 import type { Chapter } from "@/data/chapters";
+import type { Question, Flashcard } from "@/types/chapter";
 
 export interface Crumb {
   label: string;
@@ -77,7 +78,7 @@ export function ChapterLayout({
         <div className="space-y-2">
           <div className="flex items-center gap-3">
             <span
-              className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold text-white"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold text-white dark:text-background"
               style={{ backgroundColor: subjectColor }}
             >
               {chapter.number}
@@ -161,9 +162,24 @@ function PracticeTabContent({
   const hasQ = hasQuestions(registryKey);
   const hasFC = hasFlashcards(registryKey);
   const [subTab, setSubTab] = useState<"questions" | "flashcards">(hasQ ? "questions" : "flashcards");
-  const questions = getQuestionsForChapter(registryKey);
-  const flashcards = getFlashcardsForChapter(registryKey);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [flashcards, setFlashcards] = useState<Flashcard[]>([]);
   const practice = getChapterPractice(chapterSlug);
+
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all([getQuestionsForChapter(registryKey), getFlashcardsForChapter(registryKey)]).then(
+      ([qs, fcs]) => {
+        if (!cancelled) {
+          setQuestions(qs);
+          setFlashcards(fcs);
+        }
+      }
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [registryKey]);
 
   if (!hasQ && !hasFC) {
     return (

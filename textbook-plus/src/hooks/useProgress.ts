@@ -128,36 +128,3 @@ export function useProgress(subjectSlug: string) {
   };
 }
 
-// ── Standalone utilities (for progress page) ────────────────────
-
-export function getAllProgress(): Record<string, string[]> {
-  const result: Record<string, string[]> = {};
-  try {
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key?.startsWith("progress:")) {
-        const subjectSlug = key.replace("progress:", "");
-        result[subjectSlug] = JSON.parse(localStorage.getItem(key) ?? "[]");
-      }
-    }
-  } catch {
-    // ignore
-  }
-  return result;
-}
-
-export function getAllPracticeProgress(): Record<string, Record<string, ChapterPracticeState>> {
-  const result: Record<string, Record<string, ChapterPracticeState>> = {};
-  try {
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key?.startsWith("practice:")) {
-        const subjectSlug = key.replace("practice:", "");
-        result[subjectSlug] = JSON.parse(localStorage.getItem(key) ?? "{}");
-      }
-    }
-  } catch {
-    // ignore
-  }
-  return result;
-}

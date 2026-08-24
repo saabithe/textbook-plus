@@ -67,7 +67,7 @@ export const subjects: Subject[] = [
     icon: BookOpen,
     color: "var(--subject-english)",
     colorLight: "var(--subject-english-light)",
-    chapterCount: 14,
+    chapterCount: 16,
     description: "Flights of Freedom — Kerala Board SCERT",
   },
   {

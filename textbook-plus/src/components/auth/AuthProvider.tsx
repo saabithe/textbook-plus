@@ -14,18 +14,23 @@ interface AuthContextValue {
 const AuthContext = createContext<AuthContextValue | null>(null);
 
 // No-op supabase client used when Supabase isn't configured
+const notConfigured = () => new Error("Supabase not configured");
 const noopSupabase = new Proxy({} as ReturnType<typeof createClient>, {
   get(_target, prop) {
     if (prop === "auth") {
       return {
         getUser: async () => ({ data: { user: null }, error: null }),
-        signInAnonymously: async () => ({ data: { user: null }, error: new Error("Supabase not configured") }),
+        getSession: async () => ({ data: { session: null }, error: null }),
+        signInAnonymously: async () => ({ data: { user: null }, error: notConfigured() }),
+        signInWithPassword: async () => ({ data: { user: null, session: null }, error: notConfigured() }),
+        signUp: async () => ({ data: { user: null, session: null }, error: notConfigured() }),
+        resetPasswordForEmail: async () => ({ data: {}, error: notConfigured() }),
         onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),
-        updateUser: async () => ({ data: {}, error: new Error("Supabase not configured") }),
+        updateUser: async () => ({ data: { user: null }, error: notConfigured() }),
         signOut: async () => ({ error: null }),
       };
     }
-    return () => ({ data: null, error: new Error("Supabase not configured") });
+    return () => ({ data: null, error: notConfigured() });
   },
 });
 
@@ -44,10 +49,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     let cancelled = false;
 
     async function init() {
-      const { data: { user: existing } } = await supabase.auth.getUser();
-      if (!cancelled && existing) {
-        setUser(existing);
-        setLoading(false);
+      // Only mint a brand-new anonymous user when there is no session at all.
+      // If a session exists but getUser() fails (expired/revoked token),
+      // do NOT create a fresh anonymous identity — that would orphan the
+      // user's existing cloud progress rows.
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (!cancelled && session?.user) {
+        const { data: { user: verified }, error } = await supabase.auth.getUser();
+        if (!cancelled) {
+          setUser(verified ?? session.user ?? null);
+          setLoading(false);
+          if (error && !verified) {
+            console.error("Session verification failed:", error.message);
+          }
+        }
         return;
       }
 

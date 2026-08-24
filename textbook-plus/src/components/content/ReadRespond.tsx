@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -17,6 +17,7 @@ interface ReadRespondProps {
 
 export function ReadRespond({ title = "Textbook \"Read and Respond\" Questions & Answers", items, className }: ReadRespondProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const baseId = useId();
 
   return (
     <div id="read-and-respond" className={cn("my-6", className)}>
@@ -26,10 +27,13 @@ export function ReadRespond({ title = "Textbook \"Read and Respond\" Questions &
       <div className="rounded-2xl border border-border/50 overflow-hidden divide-y divide-border/40">
         {items.map((item, i) => {
           const open = openIndex === i;
+          const panelId = `${baseId}-panel-${i}`;
           return (
             <div key={i} className="bg-card">
               <button
                 onClick={() => setOpenIndex(open ? null : i)}
+                aria-expanded={open}
+                aria-controls={panelId}
                 className="flex items-center gap-3 w-full px-5 py-3.5 text-left hover:bg-muted/40 transition-colors"
               >
                 <ChevronRight
@@ -43,7 +47,7 @@ export function ReadRespond({ title = "Textbook \"Read and Respond\" Questions &
                 </span>
               </button>
               {open && (
-                <div className="px-5 pb-4 pl-12 text-[0.95rem] leading-[1.75] text-foreground/85 animate-fade-in">
+                <div id={panelId} className="px-5 pb-4 pl-12 text-[0.95rem] leading-[1.75] text-foreground/85 animate-fade-in">
                   <span className="font-semibold text-foreground">A{i + 1}.</span> {item.answer}
                 </div>
               )}

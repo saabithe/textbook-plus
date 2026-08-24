@@ -10,7 +10,7 @@ interface RoadmapCardProps {
 }
 
 const statusStyle: Record<string, string> = {
-  done: "bg-green-500 text-white",
+  done: "bg-green-700 text-white",
   current: "bg-primary text-primary-foreground",
   planned: "bg-muted text-muted-foreground border border-border/60",
 };

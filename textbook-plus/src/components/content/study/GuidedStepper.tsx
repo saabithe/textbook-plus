@@ -20,7 +20,11 @@ export function GuidedStepper({ title, steps }: GuidedStepperProps) {
   const toggle = (i: number) => {
     setCompleted(prev => {
       const next = new Set(prev);
-      next.has(i) ? next.delete(i) : next.add(i);
+      if (next.has(i)) {
+        next.delete(i);
+      } else {
+        next.add(i);
+      }
       return next;
     });
   };
@@ -37,7 +41,7 @@ export function GuidedStepper({ title, steps }: GuidedStepperProps) {
                 className={cn(
                   "flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold transition-colors",
                   completed.has(i)
-                    ? "bg-green-500 text-white"
+                    ? "bg-green-700 text-white"
                     : "bg-primary/10 text-primary"
                 )}
               >

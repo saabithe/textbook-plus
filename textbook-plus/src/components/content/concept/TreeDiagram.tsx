@@ -22,22 +22,34 @@ function TreeNodeComponent({ node, depth = 0, defaultExpanded = false }: { node:
 
   return (
     <div>
-      <div
-        className={cn(
-          "flex items-center gap-2 py-1.5 px-2 rounded-md hover:bg-muted/40 cursor-pointer text-sm",
-          depth === 0 && "font-medium text-foreground",
-          depth > 0 && "text-muted-foreground"
-        )}
-        style={{ paddingLeft: `${depth * 16 + 8}px` }}
-        onClick={() => hasChildren && setOpen(!open)}
-      >
-        {hasChildren ? (
-          open ? <ChevronDown className="h-3.5 w-3.5 shrink-0" /> : <ChevronRight className="h-3.5 w-3.5 shrink-0" />
-        ) : (
+      {hasChildren ? (
+        <button
+          type="button"
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          className={cn(
+            "flex w-full items-center gap-2 py-1.5 px-2 rounded-md text-left hover:bg-muted/40 cursor-pointer text-sm",
+            depth === 0 && "font-medium text-foreground",
+            depth > 0 && "text-muted-foreground"
+          )}
+          style={{ paddingLeft: `${depth * 16 + 8}px` }}
+        >
+          {open ? <ChevronDown className="h-3.5 w-3.5 shrink-0" /> : <ChevronRight className="h-3.5 w-3.5 shrink-0" />}
+          <span>{node.label}</span>
+        </button>
+      ) : (
+        <div
+          className={cn(
+            "flex items-center gap-2 py-1.5 px-2 rounded-md text-sm",
+            depth === 0 && "font-medium text-foreground",
+            depth > 0 && "text-muted-foreground"
+          )}
+          style={{ paddingLeft: `${depth * 16 + 8}px` }}
+        >
           <div className="w-3.5 h-3.5 shrink-0" />
-        )}
-        <span>{node.label}</span>
-      </div>
+          <span>{node.label}</span>
+        </div>
+      )}
       {hasChildren && open && (
         <div>
           {node.children!.map((child, i) => (

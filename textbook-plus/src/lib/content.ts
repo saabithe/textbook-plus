@@ -1,14 +1,4 @@
 import type { ChapterSection, Question, Flashcard } from "@/types/chapter";
-import ch1Questions from "@/content/physics/electric-charges-and-fields/questions.json";
-import ch1Flashcards from "@/content/physics/electric-charges-and-fields/flashcards.json";
-import ch2Questions from "@/content/physics/electrostatic-potential-and-capacitance/questions.json";
-import ch2Flashcards from "@/content/physics/electrostatic-potential-and-capacitance/flashcards.json";
-import setsQuestions from "@/content/maths/sets/questions.json";
-import setsFlashcards from "@/content/maths/sets/flashcards.json";
-import rfQuestions from "@/content/maths/relations-and-functions/questions.json";
-import rfFlashcards from "@/content/maths/relations-and-functions/flashcards.json";
-import tgQuestions from "@/content/maths/trigonometric-functions/questions.json";
-import tgFlashcards from "@/content/maths/trigonometric-functions/flashcards.json";
 
 const SECTIONS_MAP: Record<string, ChapterSection[]> = {
   "horegallu": [
@@ -459,43 +449,66 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
   ],
 };
 
-const QUESTIONS_MAP: Record<string, Question[]> = {
-  "electric-charges-and-fields": ch1Questions as Question[],
-  "electrostatic-potential-and-capacitance": ch2Questions as Question[],
-  "c11/maths/sets": setsQuestions as Question[],
-  "c11/maths/relations-and-functions": rfQuestions as Question[],
-  "c11/maths/trigonometric-functions": tgQuestions as Question[],
+// Practice data is lazy-loaded per chapter so visiting one chapter doesn't
+// download every chapter's questions/flashcards. Keys are static (sync
+// hasQuestions/hasFlashcards); data arrives via dynamic import.
+const QUESTION_KEYS = new Set([
+  "electric-charges-and-fields",
+  "electrostatic-potential-and-capacitance",
+  "c11/maths/sets",
+  "c11/maths/relations-and-functions",
+  "c11/maths/trigonometric-functions",
+]);
+
+const FLASHCARD_KEYS = new Set(QUESTION_KEYS);
+
+const questionLoaders: Record<string, () => Promise<Question[]>> = {
+  "electric-charges-and-fields": () =>
+    import("@/content/physics/electric-charges-and-fields/questions.json").then((m) => m.default as Question[]),
+  "electrostatic-potential-and-capacitance": () =>
+    import("@/content/physics/electrostatic-potential-and-capacitance/questions.json").then((m) => m.default as Question[]),
+  "c11/maths/sets": () =>
+    import("@/content/maths/sets/questions.json").then((m) => m.default as Question[]),
+  "c11/maths/relations-and-functions": () =>
+    import("@/content/maths/relations-and-functions/questions.json").then((m) => m.default as Question[]),
+  "c11/maths/trigonometric-functions": () =>
+    import("@/content/maths/trigonometric-functions/questions.json").then((m) => m.default as Question[]),
 };
 
-const FLASHCARDS_MAP: Record<string, Flashcard[]> = {
-  "electric-charges-and-fields": ch1Flashcards as Flashcard[],
-  "electrostatic-potential-and-capacitance": ch2Flashcards as Flashcard[],
-  "c11/maths/sets": setsFlashcards as Flashcard[],
-  "c11/maths/relations-and-functions": rfFlashcards as Flashcard[],
-  "c11/maths/trigonometric-functions": tgFlashcards as Flashcard[],
+const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
+  "electric-charges-and-fields": () =>
+    import("@/content/physics/electric-charges-and-fields/flashcards.json").then((m) => m.default as Flashcard[]),
+  "electrostatic-potential-and-capacitance": () =>
+    import("@/content/physics/electrostatic-potential-and-capacitance/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/maths/sets": () =>
+    import("@/content/maths/sets/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/maths/relations-and-functions": () =>
+    import("@/content/maths/relations-and-functions/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/maths/trigonometric-functions": () =>
+    import("@/content/maths/trigonometric-functions/flashcards.json").then((m) => m.default as Flashcard[]),
 };
 
 export function getSectionsForChapter(slug: string): ChapterSection[] {
   return SECTIONS_MAP[slug] ?? [];
 }
 
-export function getQuestionsForChapter(slug: string): Question[] {
-  return QUESTIONS_MAP[slug] ?? [];
+export async function getQuestionsForChapter(slug: string): Promise<Question[]> {
+  return questionLoaders[slug]?.() ?? [];
 }
 
-export function getFlashcardsForChapter(slug: string): Flashcard[] {
-  return FLASHCARDS_MAP[slug] ?? [];
+export async function getFlashcardsForChapter(slug: string): Promise<Flashcard[]> {
+  return flashcardLoaders[slug]?.() ?? [];
 }
 
 export function hasQuestions(slug: string): boolean {
-  return slug in QUESTIONS_MAP;
+  return QUESTION_KEYS.has(slug);
 }
 
 export function hasFlashcards(slug: string): boolean {
-  return slug in FLASHCARDS_MAP;
+  return FLASHCARD_KEYS.has(slug);
 }
 
-const CONTENT_SLUGS = new Set(Object.keys(QUESTIONS_MAP));
+const CONTENT_SLUGS = new Set(QUESTION_KEYS);
 
 export function hasChapterContent(slug: string): boolean {
   return CONTENT_SLUGS.has(slug) || slug in SECTIONS_MAP;

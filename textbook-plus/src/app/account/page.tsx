@@ -65,13 +65,17 @@ export default function AccountPage() {
     }
 
     setPwLoading(true);
-    const { error } = await supabase.auth.updateUser({ password: newPassword });
-    if (error) {
-      setPwError(error.message);
-    } else {
-      setPwSuccess(true);
-      setNewPassword("");
-      setConfirmPassword("");
+    try {
+      const { error } = await supabase.auth.updateUser({ password: newPassword });
+      if (error) {
+        setPwError(error.message);
+      } else {
+        setPwSuccess(true);
+        setNewPassword("");
+        setConfirmPassword("");
+      }
+    } catch {
+      setPwError("Something went wrong. Please try again.");
     }
     setPwLoading(false);
   }
@@ -86,31 +90,36 @@ export default function AccountPage() {
     setDeleteLoading(true);
     setDeleteError("");
 
-    // Delete user data first
-    const { error: dataErr } = await supabase
-      .from("user_progress")
-      .delete()
-      .eq("user_id", user.id);
-    if (dataErr) {
-      setDeleteError(dataErr.message);
-      setDeleteLoading(false);
-      return;
-    }
+    try {
+      // Delete user data first
+      const { error: dataErr } = await supabase
+        .from("user_progress")
+        .delete()
+        .eq("user_id", user.id);
+      if (dataErr) {
+        setDeleteError(dataErr.message);
+        setDeleteLoading(false);
+        return;
+      }
 
-    const { error: pracErr } = await supabase
-      .from("user_practice")
-      .delete()
-      .eq("user_id", user.id);
-    if (pracErr) {
-      setDeleteError(pracErr.message);
-      setDeleteLoading(false);
-      return;
-    }
+      const { error: pracErr } = await supabase
+        .from("user_practice")
+        .delete()
+        .eq("user_id", user.id);
+      if (pracErr) {
+        setDeleteError(pracErr.message);
+        setDeleteLoading(false);
+        return;
+      }
 
-    // Sign out — Supabase cascades user deletion via RLS
-    sync.clearLocalData();
-    await supabase.auth.signOut();
-    router.push("/");
+      // Sign out — Supabase cascades user deletion via RLS
+      sync.clearLocalData();
+      await supabase.auth.signOut();
+      router.push("/");
+    } catch {
+      setDeleteError("Something went wrong. Please try again.");
+      setDeleteLoading(false);
+    }
   }
 
   return (

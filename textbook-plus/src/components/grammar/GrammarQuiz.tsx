@@ -104,7 +104,7 @@ function QuizItem({ question: q, index }: { question: GrammarQuestion; index: nu
       )}
 
       {revealed && (
-        <div className={`flex items-start gap-2 text-sm mb-3 ${isCorrect ? "text-green-600" : "text-red-600"}`}>
+        <div className={`flex items-start gap-2 text-sm mb-3 ${isCorrect ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}>
           {isCorrect ? <Check className="h-4 w-4 mt-0.5 shrink-0" /> : <X className="h-4 w-4 mt-0.5 shrink-0" />}
           <span>{isCorrect ? "Correct!" : q.type === "mcq" ? `Incorrect — the answer is ${String.fromCharCode(65 + (q.answer as number))}.` : `Incorrect — the answer is "${q.answer}".`}</span>
         </div>

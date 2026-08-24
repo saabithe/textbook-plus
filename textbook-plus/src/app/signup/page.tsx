@@ -30,19 +30,24 @@ export default function SignupPage() {
 
     setLoading(true);
 
-    const { error: authError } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
-      },
-    });
+    try {
+      const { error: authError } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/auth/callback`,
+        },
+      });
 
-    if (authError) {
-      setError(authError.message);
-      setLoading(false);
-    } else {
-      setSuccess(true);
+      if (authError) {
+        setError(authError.message);
+        setLoading(false);
+      } else {
+        setSuccess(true);
+        setLoading(false);
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
       setLoading(false);
     }
   }

@@ -45,7 +45,7 @@ export function DifficultyFilter({
               className={cn(
                 "inline-flex h-5 min-w-5 items-center justify-center rounded-md px-1 text-[10px] font-bold",
                 isActive
-                  ? "bg-white/20 text-white"
+                  ? "bg-white/20 text-white dark:text-background"
                   : "bg-muted text-muted-foreground"
               )}
             >

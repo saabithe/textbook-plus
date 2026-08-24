@@ -21,13 +21,15 @@ export function ContentTabs({ activeTab, onTabChange, className }: ContentTabsPr
   }
 
   return (
-    <div className={cn("flex items-center gap-1 rounded-xl border border-border/60 bg-muted/30 p-1 mb-8", className)}>
+    <div role="tablist" aria-label="Content views" className={cn("flex items-center gap-1 rounded-xl border border-border/60 bg-muted/30 p-1 mb-8", className)}>
       {tabs.map((tab) => {
         const Icon = tab.icon;
         const active = activeTab === tab.id;
         return (
           <button
             key={tab.id}
+            role="tab"
+            aria-selected={active}
             onClick={() => handleChange(tab.id)}
             className={cn(
               "flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 flex-1 justify-center",

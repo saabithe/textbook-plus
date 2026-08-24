@@ -17,8 +17,8 @@ export function Comparison({ columns }: ComparisonProps) {
         <span className="text-sm font-medium text-muted-foreground">Comparison</span>
       </div>
       <div
-        className="grid divide-y sm:divide-y-0 sm:divide-x divide-border/40"
-        style={{ gridTemplateColumns: `repeat(${columns.length}, 1fr)` }}
+        className="grid grid-cols-1 divide-y sm:divide-y-0 sm:divide-x divide-border/40 sm:[grid-template-columns:repeat(var(--cols),minmax(0,1fr))]"
+        style={{ "--cols": String(columns.length) } as React.CSSProperties}
       >
         {columns.map((col, i) => (
           <div key={i} className="px-5 py-4">

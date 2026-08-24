@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -12,11 +12,14 @@ interface ExpandableProps {
 
 export function Expandable({ title, id, children }: ExpandableProps) {
   const [open, setOpen] = useState(false);
+  const panelId = useId();
 
   return (
     <div id={id} className="my-6 rounded-xl border border-border/60 overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={panelId}
         className="flex items-center gap-2 w-full px-5 py-3 text-left bg-muted/40 hover:bg-muted/60 transition-colors"
       >
         <ChevronRight
@@ -28,7 +31,7 @@ export function Expandable({ title, id, children }: ExpandableProps) {
         <span className="text-sm font-semibold">{title}</span>
       </button>
       {open && (
-        <div className="px-5 py-4 text-[0.95rem] leading-[1.75] text-foreground/85 border-t border-border/40">
+        <div id={panelId} className="px-5 py-4 text-[0.95rem] leading-[1.75] text-foreground/85 border-t border-border/40">
           {children}
         </div>
       )}

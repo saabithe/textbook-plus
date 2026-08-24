@@ -1,4 +1,4 @@
-const CACHE_NAME = "textbook++-v2";
+const CACHE_NAME = "textbook++-v3";
 const PRECACHE_URLS = [
   "/",
   "/subjects/physics",
@@ -45,8 +45,15 @@ const PRECACHE_URLS = [
 ];
 
 self.addEventListener("install", (event) => {
+  // Tolerant precache: one failing URL must not abort the whole install.
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS))
+    caches.open(CACHE_NAME).then((cache) =>
+      Promise.allSettled(
+        PRECACHE_URLS.map((url) =>
+          cache.add(new Request(url, { cache: "reload" }))
+        )
+      )
+    )
   );
   self.skipWaiting();
 });
@@ -64,10 +71,17 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
+self.addEventListener("message", (event) => {
+  if (event.data === "SKIP_WAITING" || event.data?.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
+});
+
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
   const url = new URL(event.request.url);
+  if (url.origin !== self.location.origin) return;
 
   // Next.js hashed assets — cache-first (immutable)
   if (url.pathname.startsWith("/_next/static/")) {
@@ -86,6 +100,27 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Everything else — network only (no HTML caching)
-  event.respondWith(fetch(event.request));
+  // Navigations — network-first with precache + offline fallback
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          if (response && response.status === 200) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          }
+          return response;
+        })
+        .catch(async () => {
+          const cached = await caches.match(event.request);
+          if (cached) return cached;
+          const offline = await caches.match("/_offline");
+          if (offline) return offline;
+          return new Response("Offline", { status: 503, headers: { "Content-Type": "text/plain" } });
+        })
+    );
+    return;
+  }
+
+  // Everything else — network only (no caching of API/user-specific responses)
 });

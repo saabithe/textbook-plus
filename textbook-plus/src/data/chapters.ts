@@ -104,13 +104,6 @@ export function getChaptersBySubject(subjectSlug: string): Chapter[] {
   return chapters[subjectSlug] ?? [];
 }
 
-export function getChapterBySlug(
-  subjectSlug: string,
-  chapterSlug: string
-): Chapter | undefined {
-  return chapters[subjectSlug]?.find((c) => c.slug === chapterSlug);
-}
-
 export function getAllChapters(): Chapter[] {
   return Object.values(chapters).flat();
 }

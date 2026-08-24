@@ -52,15 +52,6 @@ function pickStep(min: number, max: number, override?: number): number {
   return best;
 }
 
-function pickTicks(min: number, max: number, step: number): number[] {
-  const ticks: number[] = [];
-  const start = Math.ceil(min / step) * step;
-  for (let v = start; v <= max + 1e-9; v += step) {
-    ticks.push(Math.abs(v) < 1e-9 ? 0 : Math.round(v * 100) / 100);
-  }
-  return ticks;
-}
-
 export function FunctionGraph({
   curves = [],
   points = [],

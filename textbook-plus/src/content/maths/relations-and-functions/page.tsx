@@ -1,14 +1,10 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
-import { NumberLine } from "@/components/content/maths/NumberLine";
-import { VennDiagram, ThreeSetVenn } from "@/components/content/maths/VennDiagram";
-import { Highlight } from "@/components/content/Highlight";
 import { SpeedTricks } from "@/components/content/SpeedTricks";
 import { ArrowDiagram } from "@/components/content/maths/ArrowDiagram";
 import { FunctionGraph } from "@/components/content/maths/FunctionGraph";

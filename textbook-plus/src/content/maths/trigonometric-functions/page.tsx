@@ -339,13 +339,26 @@ export default function TrigonometricFunctionsChapter() {
 
       <h3 id="h-3-3-1">3.3.1 Sign of Trigonometric Functions</h3>
       <p>
-        Reflect P(a, b) across the x-axis: the point at angle −x is (a, −b). Reading coordinates:
+        Mark P(a, b) on the unit circle at angle x. Reflecting P across the x-axis keeps the
+        x-coordinate and negates the y-coordinate — so the reflected point sits at angle −x with
+        coordinates (a, −b):
       </p>
-      <FormulaBlock latex="\cos(-x) = \cos x \qquad\qquad \sin(-x) = -\sin x" important />
+      <FormulaBlock latex="P(x) = (a,\, b) \qquad\qquad P(-x) = (a,\, -b)" />
       <p>
-        cosine is <strong>even</strong>, sine is <strong>odd</strong>. Both satisfy −1 ≤ value ≤ 1
-        everywhere. Quadrant-wise signs follow from the signs of a and b:
+        Now read each function from the two points. Cosine reads the x-coordinate — and both
+        points share the same a. Therefore:
       </p>
+      <FormulaBlock latex="\cos(-x) = a = \cos x \quad\Longrightarrow\quad \boxed{\cos(-x) = \cos x}" important />
+      <p>
+        Sine reads the y-coordinate — and reflection flipped b to −b. But:
+      </p>
+      <FormulaBlock latex="\sin(-x) = -b = -\sin x \quad\Longrightarrow\quad \boxed{\sin(-x) = -\sin x}" important />
+      <KeyPoint title="Cosine Is Even, Sine Is Odd">
+        <strong>cos(−x) = cos x</strong> — cosine treats x and −x identically: it is an{" "}
+        <strong>even</strong> function. <strong>sin(−x) = −sin x</strong> — sine flips sign with
+        the angle: it is an <strong>odd</strong> function. Both satisfy −1 ≤ value ≤ 1 everywhere.
+      </KeyPoint>
+      <p>Quadrant-wise signs follow from the signs of a and b:</p>
       <table>
         <thead>
           <tr>
@@ -449,62 +462,76 @@ export default function TrigonometricFunctionsChapter() {
         </tbody>
       </table>
 
-      <p>Behaviour inside each quadrant (all six functions, monotone throughout):</p>
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>I quadrant</th>
-            <th>II quadrant</th>
-            <th>III quadrant</th>
-            <th>IV quadrant</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>sin</td>
-            <td>increases 0 → 1</td>
-            <td>decreases 1 → 0</td>
-            <td>decreases 0 → –1</td>
-            <td>increases –1 → 0</td>
-          </tr>
-          <tr>
-            <td>cos</td>
-            <td>decreases 1 → 0</td>
-            <td>decreases 0 → –1</td>
-            <td>increases –1 → 0</td>
-            <td>increases 0 → 1</td>
-          </tr>
-          <tr>
-            <td>tan</td>
-            <td>increases 0 → ∞</td>
-            <td>increases –∞ → 0</td>
-            <td>increases 0 → ∞</td>
-            <td>increases –∞ → 0</td>
-          </tr>
-          <tr>
-            <td>cot</td>
-            <td>decreases ∞ → 0</td>
-            <td>decreases 0 → –∞</td>
-            <td>decreases ∞ → 0</td>
-            <td>decreases 0 → –∞</td>
-          </tr>
-          <tr>
-            <td>sec</td>
-            <td>increases 1 → ∞</td>
-            <td>increases –∞ → –1</td>
-            <td>decreases –1 → –∞</td>
-            <td>decreases ∞ → 1</td>
-          </tr>
-          <tr>
-            <td>cosec</td>
-            <td>decreases ∞ → 1</td>
-            <td>increases 1 → ∞</td>
-            <td>increases –∞ → –1</td>
-            <td>decreases –1 → –∞</td>
-          </tr>
-        </tbody>
-      </table>
+      <p>Behaviour inside each quadrant — quadrant-wise signs follow from the signs of a and b:</p>
+      <div className="my-6 rounded-xl border border-border/60 overflow-hidden">
+        {/* ASTC mnemonic strip */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-border/40 bg-muted/30 border-b border-border/40">
+          {[
+            { q: "I", letter: "A", label: "All positive" },
+            { q: "II", letter: "S", label: "Sin (+ cosec)" },
+            { q: "III", letter: "T", label: "Tan (+ cot)" },
+            { q: "IV", letter: "C", label: "Cos (+ sec)" },
+          ].map((cell) => (
+            <div key={cell.q} className="flex items-center gap-3 px-4 py-3">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white">
+                {cell.letter}
+              </span>
+              <span className="min-w-0">
+                <span className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Quadrant {cell.q}
+                </span>
+                <span className="block text-sm font-medium truncate">{cell.label}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Sign matrix */}
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>I</th>
+              <th>II</th>
+              <th>III</th>
+              <th>IV</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { fn: "sin x", signs: ["+", "+", "–", "–"] },
+              { fn: "cos x", signs: ["+", "–", "–", "+"] },
+              { fn: "tan x", signs: ["+", "–", "+", "–"] },
+              { fn: "cosec x", signs: ["+", "+", "–", "–"] },
+              { fn: "sec x", signs: ["+", "–", "–", "+"] },
+              { fn: "cot x", signs: ["+", "–", "+", "–"] },
+            ].map((row, ri) => (
+              <tr key={row.fn} className={ri === 3 ? "border-t-2 border-t-border/60" : undefined}>
+                <td className="font-medium">{row.fn}</td>
+                {row.signs.map((s, qi) => (
+                  <td key={qi} className="text-center">
+                    <span
+                      className={
+                        s === "+"
+                          ? "inline-flex h-6 w-6 items-center justify-center rounded-md bg-green-500/15 text-sm font-bold text-green-700 dark:text-green-400"
+                          : "inline-flex h-6 w-6 items-center justify-center rounded-md bg-red-500/10 text-sm font-bold text-red-600 dark:text-red-400"
+                      }
+                    >
+                      {s}
+                    </span>
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <p className="px-5 py-3 text-sm text-muted-foreground border-t border-border/40">
+          Each reciprocal inherits the sign of its base function, so the whole table collapses to
+          three rows: <strong>sin-row (+ + – –)</strong>, <strong>cos-row (+ – – +)</strong>,{" "}
+          <strong>tan-row (+ – + –)</strong>.
+        </p>
+      </div>
       <KeyPoint title="Reading ∞ Correctly">
         &ldquo;tan x increases from 0 to ∞&rdquo; means tan x keeps growing and takes arbitrarily
         large values as x approaches π/2. The symbols ∞, –∞ describe behaviour — they are not

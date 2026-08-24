@@ -248,7 +248,7 @@ export function VennDiagram({
 
   return (
     <figure className="my-4">
-      <svg viewBox="0 0 340 210" className="mx-auto w-full max-w-sm" role="img" style={{ color: "var(--foreground)" }}>
+      <svg aria-label="Venn diagram" viewBox="0 0 340 210" className="mx-auto w-full max-w-sm" role="img" style={{ color: "var(--foreground)" }}>
         <defs>
           <mask id={mOutA}>
             <rect width="340" height="210" fill="white" />
@@ -305,10 +305,11 @@ export function ThreeSetVenn({ shade = "none", caption, labelU = "U" }: ThreeSet
   const stroke = "currentColor";
   const mInB = `${uid}-tinb`;
   const mInC = `${uid}-tinc`;
+  const mInBUc = `${uid}-tinbuc`;
 
   return (
     <figure className="my-4">
-      <svg viewBox="0 0 340 230" className="mx-auto w-full max-w-xs" role="img" style={{ color: "var(--foreground)" }}>
+      <svg aria-label="Venn diagram" viewBox="0 0 340 230" className="mx-auto w-full max-w-xs" role="img" style={{ color: "var(--foreground)" }}>
         <defs>
           <mask id={mInB}>
             <rect width="340" height="230" fill="black" />
@@ -318,22 +319,20 @@ export function ThreeSetVenn({ shade = "none", caption, labelU = "U" }: ThreeSet
             <rect width="340" height="230" fill="black" />
             <circle cx={T.cx} cy={T.cy} r={T.r} fill="white" />
           </mask>
+          {/* White inside B ∪ C so a single fill shades A∩(B∪C) uniformly */}
+          <mask id={mInBUc}>
+            <rect width="340" height="230" fill="black" />
+            <circle cx={T.bx} cy={T.by} r={T.r} fill="white" />
+            <circle cx={T.cx} cy={T.cy} r={T.r} fill="white" />
+          </mask>
         </defs>
 
+        {/* A∩(B∪C) ≡ (A∩B)∪(A∩C) — one uniform fill, no double-shaded lens */}
         {(shade === "a-cap-buc" || shade === "acb-u-acc") && (
-          <>
-            <circle cx={T.ax} cy={T.ay} r={T.r} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mInB})`} />
-            <circle cx={T.ax} cy={T.ay} r={T.r} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mInC})`} />
-          </>
+          <circle cx={T.ax} cy={T.ay} r={T.r} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mInBUc})`} />
         )}
 
         <rect x="8" y="8" width="324" height="214" rx="10" fill="none" stroke={stroke} strokeOpacity="0.45" strokeWidth="1.5" />
-        {(shade === "a-cap-buc" || shade === "acb-u-acc") && (
-          <>
-            <circle cx={T.ax} cy={T.ay} r={T.r} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mInB})`} />
-            <circle cx={T.ax} cy={T.ay} r={T.r} fill={fill} opacity={SHADE_OPACITY} mask={`url(#${mInC})`} />
-          </>
-        )}
 
         <circle cx={T.ax} cy={T.ay} r={T.r} fill="none" stroke={stroke} strokeOpacity="0.75" strokeWidth="1.8" />
         <circle cx={T.bx} cy={T.by} r={T.r} fill="none" stroke={stroke} strokeOpacity="0.75" strokeWidth="1.8" />

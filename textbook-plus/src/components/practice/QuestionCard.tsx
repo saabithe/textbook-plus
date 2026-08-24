@@ -111,9 +111,9 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
                   className={cn(
                     "inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-medium mt-0.5",
                     revealed && isCorrectOption
-                      ? "border-green-500 bg-green-500 text-white"
+                      ? "border-green-700 bg-green-700 text-white"
                       : revealed && isSelected && !isCorrectOption
-                      ? "border-red-500 bg-red-500 text-white"
+                      ? "border-red-600 bg-red-600 text-white"
                       : isSelected
                       ? "border-primary bg-primary text-primary-foreground"
                       : "border-border"

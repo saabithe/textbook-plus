@@ -31,7 +31,6 @@ export function Formula({ children, block = false }: FormulaProps) {
   return <span ref={ref} />;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function FormulaBlock({ latex, important = false }: { latex: string; important?: boolean }) {
   const ref = useRef<HTMLSpanElement>(null);
 

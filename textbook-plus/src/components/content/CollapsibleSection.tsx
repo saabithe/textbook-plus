@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -18,6 +18,7 @@ export function CollapsibleSection({
   children,
 }: CollapsibleSectionProps) {
   const [open, setOpen] = useState(defaultOpen);
+  const panelId = useId();
 
   return (
     <div
@@ -27,6 +28,8 @@ export function CollapsibleSection({
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
+        aria-expanded={open}
+        aria-controls={panelId}
         className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left text-foreground hover:bg-muted/30 transition-colors"
       >
         <span className="text-base font-bold tracking-tight">{title}</span>
@@ -38,7 +41,7 @@ export function CollapsibleSection({
         />
       </button>
       {open && (
-        <div className="px-5 pb-5 pt-1">
+        <div id={panelId} className="px-5 pb-5 pt-1">
           {children}
         </div>
       )}

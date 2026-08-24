@@ -9,7 +9,10 @@ export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
   const type = searchParams.get("type");
-  const next = searchParams.get("next") ?? "/";
+  const nextParam = searchParams.get("next") ?? "/";
+  // Only allow same-origin relative paths — prevents open redirects
+  const next =
+    nextParam.startsWith("/") && !nextParam.startsWith("//") ? nextParam : "/";
 
   if (code) {
     const supabase = await createClient();

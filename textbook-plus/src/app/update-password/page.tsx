@@ -40,12 +40,17 @@ export default function UpdatePasswordPage() {
     }
 
     setLoading(true);
-    const { error: authError } = await supabase.auth.updateUser({ password });
-    if (authError) {
-      setError(authError.message);
+    try {
+      const { error: authError } = await supabase.auth.updateUser({ password });
+      if (authError) {
+        setError(authError.message);
+        setLoading(false);
+      } else {
+        router.push("/account");
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
       setLoading(false);
-    } else {
-      router.push("/account");
     }
   }
 

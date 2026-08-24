@@ -15,7 +15,7 @@ export function MetricCard({ label, value, unit, trend, description }: MetricCar
         {unit && <span className="text-sm text-muted-foreground">{unit}</span>}
         {trend && (
           <span className={`text-xs font-medium ${
-            trend === "up" ? "text-green-600" : trend === "down" ? "text-red-600" : "text-muted-foreground"
+            trend === "up" ? "text-green-600 dark:text-green-400" : trend === "down" ? "text-red-600 dark:text-red-400" : "text-muted-foreground"
           }`}>
             {trend === "up" ? "↑" : trend === "down" ? "↓" : "—"}
           </span>

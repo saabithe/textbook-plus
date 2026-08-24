@@ -36,19 +36,32 @@ export default function ProgressPage() {
     totalChapters > 0 ? Math.round((totalCompleted / totalChapters) * 100) : 0;
 
   // Calculate practice stats
-  let totalQuestionsRevealed = 0;
-  let totalFlashcardsKnown = 0;
-  let totalFlashcardsAvailable = 0;
-  for (const subject of subjects) {
-    const subjectChaps = chapters[subject.slug] ?? [];
-    for (const ch of subjectChaps) {
-      const qs = getQuestionsForChapter(ch.slug);
-      const fcs = getFlashcardsForChapter(ch.slug);
-      totalQuestionsRevealed += qs.length > 0 ? (practiceProgress[subject.slug]?.[ch.slug]?.questionsRevealed?.length ?? 0) : 0;
-      totalFlashcardsKnown += fcs.length > 0 ? (practiceProgress[subject.slug]?.[ch.slug]?.flashcardsKnown?.length ?? 0) : 0;
-      totalFlashcardsAvailable += fcs.length;
-    }
-  }
+  const [practiceTotals, setPracticeTotals] = useState({ revealed: 0, known: 0, available: 0 });
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      let revealed = 0;
+      let known = 0;
+      let available = 0;
+      for (const subject of subjects) {
+        for (const ch of chapters[subject.slug] ?? []) {
+          const [qs, fcs] = await Promise.all([
+            getQuestionsForChapter(ch.slug),
+            getFlashcardsForChapter(ch.slug),
+          ]);
+          if (cancelled) return;
+          const pp = practiceProgress[subject.slug]?.[ch.slug];
+          revealed += qs.length > 0 ? (pp?.questionsRevealed?.length ?? 0) : 0;
+          known += fcs.length > 0 ? (pp?.flashcardsKnown?.length ?? 0) : 0;
+          available += fcs.length;
+        }
+      }
+      if (!cancelled) setPracticeTotals({ revealed, known, available });
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [practiceProgress]);
 
   return (
     <>
@@ -87,26 +100,26 @@ export default function ProgressPage() {
           )}
 
           {/* Practice stats */}
-          {mounted && (totalQuestionsRevealed > 0 || totalFlashcardsKnown > 0) && (
+          {mounted && (practiceTotals.revealed > 0 || practiceTotals.known > 0) && (
             <div className="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {totalQuestionsRevealed > 0 && (
+              {practiceTotals.revealed > 0 && (
                 <div className="rounded-xl border border-border/60 bg-card p-5 flex items-center gap-4">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
                     <Brain className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold">{totalQuestionsRevealed}</p>
+                    <p className="text-2xl font-bold">{practiceTotals.revealed}</p>
                     <p className="text-sm text-muted-foreground">questions reviewed</p>
                   </div>
                 </div>
               )}
-              {totalFlashcardsKnown > 0 && (
+              {practiceTotals.known > 0 && (
                 <div className="rounded-xl border border-border/60 bg-card p-5 flex items-center gap-4">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-500/10">
                     <Layers className="h-5 w-5 text-green-600 dark:text-green-400" />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold">{totalFlashcardsKnown}/{totalFlashcardsAvailable}</p>
+                    <p className="text-2xl font-bold">{practiceTotals.known}/{practiceTotals.available}</p>
                     <p className="text-sm text-muted-foreground">flashcards known</p>
                   </div>
                 </div>
