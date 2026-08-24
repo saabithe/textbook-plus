@@ -18,6 +18,11 @@ interface Point {
   filled?: boolean;
 }
 
+interface TickOverride {
+  at: number;
+  label: string;
+}
+
 interface FunctionGraphProps {
   curves?: Curve[];
   points?: Point[];
@@ -27,6 +32,9 @@ interface FunctionGraphProps {
   yMax?: number;
   xStep?: number;
   yStep?: number;
+  xTicks?: TickOverride[];
+  yTicks?: TickOverride[];
+  vlines?: number[];
   caption?: string;
   className?: string;
 }
@@ -73,6 +81,9 @@ export function FunctionGraph({
   yMax = 5,
   xStep,
   yStep,
+  xTicks: xTickOverrides,
+  yTicks: yTickOverrides,
+  vlines = [],
   caption,
   className,
 }: FunctionGraphProps) {
@@ -94,8 +105,16 @@ export function FunctionGraph({
 
   const computedXStep = pickStep(xMin, xMax, xStep);
   const computedYStep = pickStep(yMin, yMax, yStep);
-  const xTicks = pickTicks(xMin, xMax, computedXStep);
-  const yTicks = pickTicks(yMin, yMax, computedYStep);
+  const xTicks: number[] = xTickOverrides ? xTickOverrides.map((o) => o.at) : pickTicks(xMin, xMax, computedXStep);
+  const yTicks: number[] = yTickOverrides ? yTickOverrides.map((o) => o.at) : pickTicks(yMin, yMax, computedYStep);
+  const labelFor = (axis: "x" | "y", t: number): string => {
+    const overrides = axis === "x" ? xTickOverrides : yTickOverrides;
+    if (overrides) {
+      const hit = overrides.find((o) => Math.abs(o.at - t) < 1e-9);
+      if (hit) return hit.label;
+    }
+    return String(t);
+  };
 
   interface Segment {
     pts: [number, number][];
@@ -163,7 +182,7 @@ export function FunctionGraph({
             <g key={`gy${t}`}>
               <line x1={PAD} y1={gy(t)} x2={W - PAD} y2={gy(t)} />
               <text x={PAD - 6} y={gy(t) + 4} textAnchor="end" fontSize="10" fill="currentColor" opacity="0.7">
-                {t}
+                {labelFor("y", t)}
               </text>
             </g>
           ))}
@@ -171,11 +190,29 @@ export function FunctionGraph({
             <g key={`gx${t}`}>
               <line x1={gx(t)} y1={PAD} x2={gx(t)} y2={H - PAD} />
               <text x={gx(t)} y={H - PAD + 14} textAnchor="middle" fontSize="10" fill="currentColor" opacity="0.7">
-                {t}
+                {labelFor("x", t)}
               </text>
             </g>
           ))}
         </g>
+
+        {vlines.length > 0 && (
+          <g>
+            {vlines.map((v, i) => (
+              <line
+                key={`vl${i}`}
+                x1={gx(v)}
+                y1={PAD}
+                x2={gx(v)}
+                y2={H - PAD}
+                stroke="currentColor"
+                strokeOpacity={0.3}
+                strokeWidth="1.1"
+                strokeDasharray="4 4"
+              />
+            ))}
+          </g>
+        )}
 
         {showXAxis && (
           <>

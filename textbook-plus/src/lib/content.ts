@@ -7,6 +7,8 @@ import setsQuestions from "@/content/maths/sets/questions.json";
 import setsFlashcards from "@/content/maths/sets/flashcards.json";
 import rfQuestions from "@/content/maths/relations-and-functions/questions.json";
 import rfFlashcards from "@/content/maths/relations-and-functions/flashcards.json";
+import tgQuestions from "@/content/maths/trigonometric-functions/questions.json";
+import tgFlashcards from "@/content/maths/trigonometric-functions/flashcards.json";
 
 const SECTIONS_MAP: Record<string, ChapterSection[]> = {
   "horegallu": [
@@ -443,6 +445,18 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     },
     { id: "h-misc", title: "Miscellaneous Examples" },
   ],
+  "c11/maths/trigonometric-functions": [
+    { id: "h-intro", title: "3.1 Introduction" },
+    { id: "h-3-2", title: "3.2 Angles" },
+    {
+      id: "h-3-3", title: "3.3 Trigonometric Functions", children: [
+        { id: "h-3-3-1", title: "3.3.1 Sign of Trigonometric Functions" },
+        { id: "h-3-3-2", title: "3.3.2 Domain and Range of Trigonometric Functions" },
+      ],
+    },
+    { id: "h-3-4", title: "3.4 Trigonometric Functions of Sum and Difference of Two Angles" },
+    { id: "h-misc", title: "Miscellaneous Exercise on Chapter 3" },
+  ],
 };
 
 const QUESTIONS_MAP: Record<string, Question[]> = {
@@ -450,6 +464,7 @@ const QUESTIONS_MAP: Record<string, Question[]> = {
   "electrostatic-potential-and-capacitance": ch2Questions as Question[],
   "c11/maths/sets": setsQuestions as Question[],
   "c11/maths/relations-and-functions": rfQuestions as Question[],
+  "c11/maths/trigonometric-functions": tgQuestions as Question[],
 };
 
 const FLASHCARDS_MAP: Record<string, Flashcard[]> = {
@@ -457,6 +472,7 @@ const FLASHCARDS_MAP: Record<string, Flashcard[]> = {
   "electrostatic-potential-and-capacitance": ch2Flashcards as Flashcard[],
   "c11/maths/sets": setsFlashcards as Flashcard[],
   "c11/maths/relations-and-functions": rfFlashcards as Flashcard[],
+  "c11/maths/trigonometric-functions": tgFlashcards as Flashcard[],
 };
 
 export function getSectionsForChapter(slug: string): ChapterSection[] {
