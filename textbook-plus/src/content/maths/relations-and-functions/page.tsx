@@ -761,6 +761,24 @@ export default function RelationsAndFunctionsChapter() {
         <FunctionGraph curves={[{ fn: Math.abs, from: -5, to: 5 }]} caption="y = |x| — V-shaped" />
       </div>
 
+      <Callout type="important" title="Shifting the Modulus V — Four Standard Graphs">
+        <div className="grid gap-x-6 gap-y-0 sm:grid-cols-2">
+          <FunctionGraph curves={[{ fn: (x) => Math.abs(x + 1), from: -4, to: 4 }]} caption="(a) y = |x + 1| — shifted left" />
+          <FunctionGraph curves={[{ fn: (x) => Math.abs(x - 1), from: -4, to: 4 }]} caption="(b) y = |x − 1| — shifted right" />
+          <FunctionGraph curves={[{ fn: (x) => Math.abs(x) + 1, from: -4, to: 4 }]} caption="(c) y = |x| + 1 — lifted up" />
+          <FunctionGraph curves={[{ fn: (x) => Math.abs(x) - 1, from: -4, to: 4 }]} caption="(d) y = |x| − 1 — pushed down" />
+        </div>
+        <ul className="mt-3">
+          <li>
+            <strong>Inside</strong> the bars → <strong>horizontal</strong> shift, and it runs{" "}
+            <em>backwards</em>: x + 1 moves the graph <em>left</em>, x – 1 moves it <em>right</em>.
+          </li>
+          <li>
+            <strong>Outside</strong> the bars → <strong>vertical</strong> shift, direction as-is: + 1 lifts up, – 1 pushes down.
+          </li>
+        </ul>
+      </Callout>
+
       <div className="grid items-center gap-4 sm:grid-cols-2">
         <div>
           <p className="font-semibold">(vi) Signum function</p>
@@ -835,6 +853,76 @@ export default function RelationsAndFunctionsChapter() {
           <p>
             <strong>(b)</strong> f(0) = 1 (the solid dot sits at (0, 1)). Since –0.01 &lt; 0, it
             lies on the line y = x, so f(–0.01) = <strong>–0.01</strong>.
+          </p>
+        </ProblemSolution.Solution>
+      </ProblemSolution>
+
+      <ProblemSolution problemNumber="Supplementary: Semicircle Graph">
+        <ProblemSolution.Problem>
+          <p>The figure shows the graph of a function f(x) — a semi-circle centred at the origin.</p>
+          <FunctionGraph
+            curves={[{ fn: (x) => Math.sqrt(16 - x * x), from: -4, to: 4 }]}
+            points={[
+              { x: -4, y: 0, filled: true },
+              { x: 4, y: 0, filled: true },
+              { x: 0, y: 4, filled: true },
+            ]}
+            xMin={-5}
+            xMax={5}
+            yMin={-2}
+            yMax={6}
+            caption="Upper half of the circle x² + y² = 16 — from (−4, 0) up through (0, 4) down to (4, 0)"
+          />
+          <p>(a) Write the domain and range of f(x).</p>
+          <p>(b) Define the function f(x).</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            <strong>(a)</strong> The arc runs between the solid dots (–4, 0) and (4, 0), both
+            included ⇒ domain = <strong>[–4, 4]</strong>. Outputs climb from 0 up to the peak at
+            (0, 4) ⇒ range = <strong>[0, 4]</strong>.
+          </p>
+          <p>
+            <strong>(b)</strong> A full circle of radius 4 satisfies x² + y² = 16. The upper half
+            means y ≥ 0, so take the positive square root:
+          </p>
+          <FormulaBlock latex="f(x) = \sqrt{16 - x^2}, \quad -4 \le x \le 4" important />
+          <p>
+            Check the endpoints: √(16 – 16) = 0 ✓ at both ends, and f(0) = √16 = 4 ✓ at the top.
+            Note the domain restriction is exactly the square-root rule in action: 16 – x² ≥ 0 ⇔
+            |x| ≤ 4.
+          </p>
+        </ProblemSolution.Solution>
+      </ProblemSolution>
+
+      <ProblemSolution problemNumber="Supplementary: Rational Identity">
+        <ProblemSolution.Problem>
+          <p>Consider the real function f(x) = (x + 2)/(x – 2).</p>
+          <p>(a) Find the domain and range of the function.</p>
+          <p>(b) Prove that f(x) · f(–x) + f(0) = 0.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            <strong>(a)</strong> Denominator rule first: x – 2 ≠ 0 ⇒{" "}
+            <strong>domain = ℝ – {"{2}"}</strong>.
+            <br />
+            For the range, set y = (x + 2)/(x – 2) and solve back for x:
+          </p>
+          <FormulaBlock latex="y(x-2) = x+2 \;\Rightarrow\; x(y-1) = 2(y+1) \;\Rightarrow\; x = \frac{2(y+1)}{y-1}" />
+          <p>
+            This fails only when y – 1 = 0, i.e., y = 1 — and indeed (x + 2) = (x – 2) would force
+            2 = –2, impossible. Hence <strong>range = ℝ – {"{1}"}</strong>.
+          </p>
+          <p>
+            <strong>(b)</strong> Replace x by –x and simplify:
+          </p>
+          <FormulaBlock latex="f(-x) = \frac{-x+2}{-x-2} = \frac{x-2}{x+2}" />
+          <p>The two fractions are exact reciprocals:</p>
+          <FormulaBlock latex="f(x)\cdot f(-x) = \frac{x+2}{x-2}\cdot\frac{x-2}{x+2} = 1" />
+          <p>And f(0) = (0 + 2)/(0 – 2) = –1. Therefore:</p>
+          <FormulaBlock latex="f(x)\cdot f(-x) + f(0) = 1 + (-1) = 0" important />
+          <p>
+            The identity holds for every x in the domain (x ≠ ±2 keeps both fractions defined).
           </p>
         </ProblemSolution.Solution>
       </ProblemSolution>
