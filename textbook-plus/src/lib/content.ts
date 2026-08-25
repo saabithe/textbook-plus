@@ -462,7 +462,7 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
       ],
     },
     { id: "h-4-4", title: "4.4 Modulus and Conjugate" },
-    { id: "h-4-5", title: "4.5 Argand Plane and Polar Representation" },
+    { id: "h-4-5", title: "4.5 Argand Plane" },
     { id: "h-misc", title: "Miscellaneous Examples" },
   ],
 };

@@ -3,7 +3,6 @@ import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
 import { FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
-import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { SpeedTricks } from "@/components/content/SpeedTricks";
 import { UnitCircle } from "@/components/content/maths/UnitCircle";
@@ -722,19 +721,6 @@ export default function TrigonometricFunctionsChapter() {
         <FormulaBlock latex="\sin(x + y) = \sin x \cos y + \cos x \sin y" important />
         <FormulaBlock latex="\sin(x - y) = \sin x \cos y - \cos x \sin y" important />
       </FormulaCard>
-
-      <Expandable id="h-proof-cos-sum" title="Proof — cos(x+y) via congruent chords">
-        <Stepper
-          steps={[
-            { label: "On the unit circle mark P₁(cos x, sin x), P₂(cos(x+y), sin(x+y)), P₃(cos(–y), sin(–y)) = (cos y, –sin y) and P₄(1, 0)." },
-            { label: "Chords P₁P₃ and P₂P₄ subtend equal rotations at O, so triangles P₁OP₃ and P₂OP₄ are congruent — hence P₁P₃ = P₂P₄." },
-            { label: "Distance formula: P₁P₃² = (cos x – cos y)² + (sin x + sin y)² = 2 – 2(cos x cos y – sin x sin y)." },
-            { label: "Distance formula: P₂P₄² = (1 – cos(x+y))² + sin²(x+y) = 2 – 2 cos(x+y)." },
-            { label: "Equate the two: 2 – 2(cos x cos y – sin x sin y) = 2 – 2 cos(x+y), giving cos(x+y) = cos x cos y – sin x sin y." },
-            { label: "Replace y by –y (using even/odd facts) to obtain cos(x–y); replace x by π/2 and shift to build the sine family." },
-          ]}
-        />
-      </Expandable>
 
       <p>Substituting special angles produces the shifted-angle family:</p>
       <FormulaBlock

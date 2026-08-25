@@ -407,6 +407,53 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
           Key identity: <Highlight>z·z̄ = |z|²</Highlight> and <FormulaBlock latex="z^{-1}=\frac{\bar z}{|z|^2}=\frac{a-ib}{a^2+b^2}" />.
         </li>
       </ul>
+
+      <div className="my-6 rounded-xl border border-amber-500/30 bg-amber-500/[0.06] overflow-hidden">
+        <div className="px-4 py-2.5 bg-amber-500/10 border-b border-amber-500/20 flex items-center gap-2">
+          <span className="text-sm">⭐⭐⭐</span>
+          <span className="text-sm font-bold tracking-tight">Modulus as Distance — |z| = OP</span>
+          <span className="ml-auto text-xs font-medium px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300">Must-know</span>
+        </div>
+        <div className="px-4 py-4">
+          <p className="text-sm leading-relaxed">
+            Take <strong>z = a + ib</strong> represented by <strong>P(a, b)</strong>. Join P to the origin{" "}
+            <strong>O(0, 0)</strong>. You get a right triangle:
+          </p>
+          <ul className="text-sm mt-2 space-y-1">
+            <li>horizontal leg = |a|,</li>
+            <li>vertical leg = |b|,</li>
+            <li>hypotenuse = OP.</li>
+          </ul>
+          <div className="mt-3 grid gap-3 sm:grid-cols-[1.15fr_0.85fr] items-center">
+            <div>
+              <FormulaBlock latex="OP^2 = a^2 + b^2 \quad\text{(Pythagoras)}" />
+              <FormulaBlock latex="OP = \sqrt{a^2 + b^2}" />
+              <p className="text-sm mt-2">
+                But from §4.4, <FormulaBlock latex="|z| = \sqrt{a^2 + b^2}" />
+              </p>
+              <FormulaBlock latex="\boxed{|z| = OP}" important />
+              <p className="text-sm mt-2 flex items-start gap-2">
+                <span>🔥</span>
+                <span>
+                  <Highlight>Meaning:</Highlight> the <strong>modulus</strong> of a complex number is
+                  simply its <strong>distance from the origin</strong> in the Argand plane.
+                </span>
+              </p>
+            </div>
+            <ArgandDiagram
+              points={[{ x: 3, y: 4, label: "P(3,4)" }]}
+              xMin={-1}
+              xMax={5}
+              yMin={-1}
+              yMax={5}
+              caption="OP = |3+4i| = 5 — the 3-4-5 triangle. Dashed OP is the modulus."
+            />
+          </div>
+          <p className="text-xs text-muted-foreground mt-2">
+            Example: 3 + 4i ↔ P(3,4): OP² = 3²+4² = 25 → OP = 5 = |3+4i| ✓
+          </p>
+        </div>
+      </div>
       <FormulaCard>
         <p className="font-semibold mb-2">Properties (for any z₁, z₂)</p>
         <FormulaBlock latex="|z_1z_2|=|z_1||z_2|, \qquad \left|\frac{z_1}{z_2}\right|=\frac{|z_1|}{|z_2|}\;(z_2\neq0)" />
@@ -416,6 +463,38 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
         Conjugation reflects the Argand point across the <strong>real axis</strong> — (x, y) ↔ (x, −y).
         Modulus is the mirror-line distance to the origin.
       </KeyPoint>
+
+      <div className="my-6 rounded-xl border border-border/60 overflow-hidden">
+        <div className="grid sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/40">
+          <div className="px-4 py-4">
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+              Identity 1 — Real part
+            </p>
+            <p className="text-sm">Let z = a + ib. Then z̄ = a − ib.</p>
+            <FormulaBlock latex="z+\bar z=(a+ib)+(a-ib)=a+a+ib-ib=2a" />
+            <p className="text-sm">
+              Since a = Re(z),
+              <FormulaBlock latex="z+\bar z=2\operatorname{Re}z" />
+            </p>
+            <FormulaBlock latex="\boxed{\operatorname{Re}z=\frac{z+\bar z}{2}}" important />
+          </div>
+          <div className="px-4 py-4">
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+              Identity 2 — Imaginary part
+            </p>
+            <p className="text-sm">Same z, z̄:</p>
+            <FormulaBlock latex="z-\bar z=(a+ib)-(a-ib)=a+ib-a+ib=2ib" />
+            <p className="text-sm">
+              Since b = Im(z),
+              <FormulaBlock latex="z-\bar z=2i\,\operatorname{Im}z" />
+            </p>
+            <FormulaBlock latex="\boxed{\operatorname{Im}z=\frac{z-\bar z}{2i}}" important />
+          </div>
+        </div>
+        <div className="px-4 py-2.5 bg-muted/30 border-t border-border/40 text-xs text-muted-foreground">
+          Both follow directly from z̄ = a − ib — no extra memorisation: add for Re, subtract for Im.
+        </div>
+      </div>
 
       <Expandable title="Examples 5 and 6 — Modulus & Inverse in action">
         <ProblemSolution problemNumber="Example 5">
@@ -439,14 +518,15 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
             </ul>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <ul>
-              <li>
-                (i) Rationalise: (5+2i)/(1−2i)·(1+2i)/(1+2i) = (5+10i+2i−4)/(1+4) = (1+12i)/5 ={" "}
-                <strong>1/5 + (12/5)i</strong>??? Wait canonical NCERT answer is 1+? Check: (5+12i)/? Actually
-                (5+2i)(1+2i)/5 = (5+10i+2i+4i²)/5 = (1+12i)/5 → 1/5 +12/5 i.
-              </li>
-              <li>(ii) i<sup>−35</sup> = (i⁴)⁻⁸·i⁻³ = i (since i⁻³ = i). So i<sup>−35</sup> = i.</li>
-            </ul>
+            <p className="font-medium">(i)</p>
+            <FormulaBlock latex="\frac{5+2i}{1-2i}\cdot\frac{1+2i}{1+2i}=\frac{(5+2i)(1+2i)}{1+4}" />
+            <FormulaBlock latex="(5+2i)(1+2i)=5+10i+2i+4i^2=5+12i-4=1+12i" />
+            <FormulaBlock latex="=\frac{1+12i}{5}=\frac15+\frac{12}{5}i" important />
+            <p className="font-medium mt-3">(ii)</p>
+            <FormulaBlock latex="i^{-35}=(i^4)^{-8}\cdot i^{-3}=1\cdot i = i" />
+            <p>
+              Since i<sup>4</sup>=1 and i<sup>−3</sup>=i, so i<sup>−35</sup> = <strong>i = 0 + 1·i</strong>.
+            </p>
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -461,7 +541,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
         </Callout>
       </SpeedTricks>
 
-      <h2 id="h-4-5">4.5 Argand Plane and Polar Representation</h2>
+      <h2 id="h-4-5">4.5 Argand Plane</h2>
       <Callout type="important" title="The Complex Plane">
         Each ordered pair (x, y) ↔ the point P(x, y) in the XY-plane. The number{" "}
         <strong>z = x + iy ↔ P(x, y)</strong>. This plane is the <strong>Argand plane</strong> (complex
@@ -487,30 +567,6 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
         caption="Fig 4.1 — Six complex numbers as Argand points (NCERT p.84)"
       />
       <ArgandDiagram showConjugate={{ x: 3, y: 2 }} caption="Fig 4.3 — z and z̄ are mirror images across the real axis" />
-
-      <h3 id="h-polar">Polar (Trigonometric) Form</h3>
-      <Callout type="important" title="Definition: Polar Form">
-        Let P(x, y) have polar coordinates (r, θ): x = r cos θ, y = r sin θ. Then{" "}
-        <strong>z = r(cos θ + i sin θ)</strong> — the <strong>polar form</strong>, where{" "}
-        <strong>r = |z|</strong> and <strong>θ = arg z</strong> (argument).
-      </Callout>
-      <ul>
-        <li>r = √(x² + y²) ≥ 0; cos θ = x/r, sin θ = y/r — signs of x, y fix the quadrant of θ.</li>
-        <li>Conjugate in polar form: z̄ = r(cos θ − i sin θ) = r(cos(−θ) + i sin(−θ)).</li>
-      </ul>
-      <ArgandDiagram
-        showPolar={{ r: 4, theta: 0.7, label: "z = r(cosθ + i sinθ)" }}
-        xMin={-1}
-        xMax={5}
-        yMin={-1}
-        yMax={4}
-        caption="Polar form — P(r cosθ, r sinθ), r = |z|, θ measured from the positive real axis"
-      />
-      <KeyPoint title="Why Polar Matters">
-        Polar form separates <strong>size (r)</strong> from <strong>direction (θ)</strong>. Multiplication
-        then becomes: multiply moduli, add arguments — the geometry behind De Moivre&apos;s theorem (Class
-        12).
-      </KeyPoint>
 
       <h2 id="h-misc">Miscellaneous Examples</h2>
       <Expandable title="Examples 7 and 8 — Conjugate & Modulus tricks">
