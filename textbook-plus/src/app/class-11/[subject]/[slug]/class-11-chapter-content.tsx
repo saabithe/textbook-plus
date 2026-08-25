@@ -9,6 +9,7 @@ const chapterComponents: Record<string, React.ComponentType> = {
   "maths/complex-numbers-and-quadratic-equations": dynamic(
     () => import("@/content/maths/complex-numbers-and-quadratic-equations/page")
   ) as React.ComponentType,
+  "maths/linear-inequalities": dynamic(() => import("@/content/maths/linear-inequalities/page")) as React.ComponentType,
 };
 
 export function Class11ChapterContent({ subject, slug }: { subject: string; slug: string }) {
