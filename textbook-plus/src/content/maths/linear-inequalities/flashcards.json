@@ -1,0 +1,16 @@
+[
+  {"id":"li-fc01","front":"Inequality — definition","back":"Two real numbers or expressions related by <, >, ≤, ≥. Numerical: 3<5. Literal: x<5. Double: 3<5<7."},
+  {"id":"li-fc02","front":"Strict vs slack","back":"Strict: <, > . Slack: ≤, ≥ . Strict excludes endpoint; slack includes it."},
+  {"id":"li-fc03","front":"Linear in one vs two variables","back":"ax+b<0 (a≠0) → one variable. ax+by<c (a≠0,b≠0) → two variables. ax²… is quadratic, not linear."},
+  {"id":"li-fc04","front":"Solution & solution set","back":"Value making inequality true is a solution; set of all such values is solution set. For 30x<200, trial gives {0,1,2,3,4,5,6} for whole-number packets."},
+  {"id":"li-fc05","front":"Rule 1 — add/subtract","back":"Same number may be added/subtracted to both sides without changing sign."},
+  {"id":"li-fc06","front":"Rule 2 — multiply/divide","back":"By positive → sign stays. By negative → sign reverses (<→>, ≤→≥). Example: 3>2 but −3<−2."},
+  {"id":"li-fc07","front":"Interval notation","back":"(a,b) open, [a,b] closed, [a,b) , (a,b]. (−∞,2) means x<2. [8,∞) means x≥8."},
+  {"id":"li-fc08","front":"Number line picture","back":"x<a: open circle at a, line left. x≥a: dark circle at a, line right. Dark = included."},
+  {"id":"li-fc09","front":"Double inequality","back":"−8≤5x−3<7 → add 3: −5≤5x<10 → −1≤x<2 → [−1,2). Solve both sides together."},
+  {"id":"li-fc10","front":"System of inequalities","back":"Solve each separately, then intersect. Example: x<6 and x≥2 → 2≤x<6 = [2,6). Graph is overlapping bold segment."},
+  {"id":"li-fc11","front":"Word problem → inequality","back":"'at least 60' → ≥60, 'less than 40' → <40, 'at most 60' → ≤60. Translate English word to sign first."},
+  {"id":"li-fc12","front":"Temperature conversion","back":"C=5/9(F−32). If 30<C<35 → 54<F−32<63 →86<F<95."},
+  {"id":"li-fc13","front":"Acid mixture","back":"x L of 30% added to 600 L of 12%: (30x+7200)/(x+600) between 15% and 18% →120<x<300."},
+  {"id":"li-fc14","front":"Common pitfall","back":"Never forget to flip when dividing by negative. For −5x ≤ −40 → x≥8 (not x≤8)."}
+]

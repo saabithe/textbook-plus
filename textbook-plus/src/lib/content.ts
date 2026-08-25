@@ -465,6 +465,13 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-4-5", title: "4.5 Argand Plane" },
     { id: "h-misc", title: "Miscellaneous Examples" },
   ],
+  "c11/maths/linear-inequalities": [
+    { id: "h-intro", title: "5.1 Introduction" },
+    { id: "h-5-2", title: "5.2 Inequalities" },
+    { id: "h-5-3", title: "5.3 Algebraic Solutions in One Variable" },
+    { id: "h-misc", title: "Miscellaneous Examples & System of Inequalities" },
+    { id: "h-summary", title: "Summary (Revision Points)" },
+  ],
 };
 
 // Practice data is lazy-loaded per chapter so visiting one chapter doesn't
@@ -477,6 +484,7 @@ const QUESTION_KEYS = new Set([
   "c11/maths/relations-and-functions",
   "c11/maths/trigonometric-functions",
   "c11/maths/complex-numbers-and-quadratic-equations",
+  "c11/maths/linear-inequalities",
 ]);
 
 const FLASHCARD_KEYS = new Set(QUESTION_KEYS);
@@ -494,6 +502,8 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
     import("@/content/maths/trigonometric-functions/questions.json").then((m) => m.default as Question[]),
   "c11/maths/complex-numbers-and-quadratic-equations": () =>
     import("@/content/maths/complex-numbers-and-quadratic-equations/questions.json").then((m) => m.default as Question[]),
+  "c11/maths/linear-inequalities": () =>
+    import("@/content/maths/linear-inequalities/questions.json").then((m) => m.default as Question[]),
 };
 
 const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
@@ -509,6 +519,8 @@ const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
     import("@/content/maths/trigonometric-functions/flashcards.json").then((m) => m.default as Flashcard[]),
   "c11/maths/complex-numbers-and-quadratic-equations": () =>
     import("@/content/maths/complex-numbers-and-quadratic-equations/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/maths/linear-inequalities": () =>
+    import("@/content/maths/linear-inequalities/flashcards.json").then((m) => m.default as Flashcard[]),
 };
 
 export function getSectionsForChapter(slug: string): ChapterSection[] {
