@@ -1,0 +1,16 @@
+[
+  {"id":"pc-q01","type":"mcq","difficulty":"easy","question":"What is 5! equal to?","options":["60","100","120","720"],"answer":"120"},
+  {"id":"pc-q02","type":"mcq","difficulty":"easy","question":"The value of 0! is","options":["0","1","undefined","10"],"answer":"1"},
+  {"id":"pc-q03","type":"mcq","difficulty":"easy","question":"6P3 = ?","options":["120","720","360","20"],"answer":"120"},
+  {"id":"pc-q04","type":"mcq","difficulty":"easy","question":"How many 3-digit numbers can be formed from {1,2,3,4,5} without repetition?","options":["60","125","15","120"],"answer":"60"},
+  {"id":"pc-q05","type":"mcq","difficulty":"medium","question":"If 7!/5! = x, then x =","options":["42","72","21","49"],"answer":"42"},
+  {"id":"pc-q06","type":"mcq","difficulty":"medium","question":"The number of permutations of 7 objects taken 4 at a time is","options":["840","35","210","24"],"answer":"840"},
+  {"id":"pc-q07","type":"mcq","difficulty":"medium","question":"If nC2 = 15, then n =","options":["5","6","10","8"],"answer":"6"},
+  {"id":"pc-q08","type":"mcq","difficulty":"medium","question":"5C3 = ?","options":["10","20","60","5"],"answer":"10"},
+  {"id":"pc-q09","type":"mcq","difficulty":"hard","question":"How many words can be formed from INDEPENDENCE (12 letters, N×3, E×4, D×2)?","options":["1663200","4989600","831600","277200"],"answer":"1663200"},
+  {"id":"pc-q10","type":"mcq","difficulty":"hard","question":"A committee of 3 from 2 men and 3 women — number with exactly 1 man and 2 women is","options":["6","10","3","12"],"answer":"6"},
+  {"id":"pc-q11","type":"short","difficulty":"medium","question":"Evaluate: 7!/5! − 4!/3!","answer":"42 − 4 = 38"},
+  {"id":"pc-q12","type":"short","difficulty":"medium","question":"Find n if nP4 = 360.","answer":"n!/(n−4)! = 360 → n=6 (6×5×4×3=360)"},
+  {"id":"pc-q13","type":"short","difficulty":"medium","question":"How many 4-digit numbers can be formed from {1,2,3,4,5,6,7,8,9} with no repetition?","answer":"9P4 = 9×8×7×6 = 3024"},
+  {"id":"pc-q14","type":"short","difficulty":"hard","question":"In how many ways can the letters of MISSISSIPPI be arranged so that the 4 I's are NOT all together?","answer":"11!/(4!×4!×2!) − [8!×5!/(4!×4!×2!)] = 34650 − 2520 = 32130"}
+]

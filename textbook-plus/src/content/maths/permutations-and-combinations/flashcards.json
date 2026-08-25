@@ -1,0 +1,14 @@
+[
+  {"id":"pc-fc01","front":"Fundamental Principle of Counting","back":"If event 1 has m ways and event 2 has n ways (in order), total = m × n."},
+  {"id":"pc-fc02","front":"What is a permutation?","back":"An arrangement of objects in a definite order. Order matters."},
+  {"id":"pc-fc03","front":"nPr formula (no repetition)","back":"nPr = n!/(n−r)! where 0 ≤ r ≤ n."},
+  {"id":"pc-fc04","front":"nPr formula (with repetition)","back":"nPr = n^r (each of r positions has n choices)."},
+  {"id":"pc-fc05","front":"Factorial: n! = ?","back":"n! = 1 × 2 × 3 × ... × n, with 0! = 1. Also n! = n × (n−1)!."},
+  {"id":"pc-fc06","front":"What is a combination?","back":"A selection of objects where order does NOT matter."},
+  {"id":"pc-fc07","front":"nCr formula","back":"nCr = n! / [r! × (n−r)!], 0 ≤ r ≤ n."},
+  {"id":"pc-fc08","front":"Relationship: nPr and nCr","back":"nPr = nCr × r! (permutations = combinations × arrangements of each selection)."},
+  {"id":"pc-fc09","front":"Permutations with repeated objects","back":"n! / (p1! × p2! × ... × pk!) where p1, p2, ... are counts of each repeated kind."},
+  {"id":"pc-fc10","front":"Symmetry property of combinations","back":"nCr = nC(n−r): choosing r is the same as rejecting n−r."},
+  {"id":"pc-fc11","front":"Pascal's identity","back":"nCr + nCr+1 = n+1Cr+1"},
+  {"id":"pc-fc12","front":"How many 4-letter words from ROSE (no repetition)?","back":"4P4 = 4! = 24."}
+]

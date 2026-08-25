@@ -472,6 +472,16 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-misc", title: "Miscellaneous Examples & System of Inequalities" },
     { id: "h-summary", title: "Summary (Revision Points)" },
   ],
+  "c11/maths/permutations-and-combinations": [
+    { id: "h-intro", title: "6.1 Introduction" },
+    { id: "h-fpc", title: "6.2 Fundamental Principle of Counting" },
+    { id: "h-permutations", title: "6.3 Permutations" },
+    { id: "h-factorial", title: "6.3.2 Factorial Notation" },
+    { id: "h-npr", title: "6.3.3 Permutations of Distinct Objects (nPr)" },
+    { id: "h-repeated", title: "6.3.4 Permutations with Repeated Objects" },
+    { id: "h-combinations", title: "6.4 Combinations" },
+    { id: "h-summary", title: "Summary (Revision Points)" },
+  ],
 };
 
 // Practice data is lazy-loaded per chapter so visiting one chapter doesn't
@@ -485,6 +495,7 @@ const QUESTION_KEYS = new Set([
   "c11/maths/trigonometric-functions",
   "c11/maths/complex-numbers-and-quadratic-equations",
   "c11/maths/linear-inequalities",
+  "c11/maths/permutations-and-combinations",
 ]);
 
 const FLASHCARD_KEYS = new Set(QUESTION_KEYS);
@@ -504,6 +515,8 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
     import("@/content/maths/complex-numbers-and-quadratic-equations/questions.json").then((m) => m.default as Question[]),
   "c11/maths/linear-inequalities": () =>
     import("@/content/maths/linear-inequalities/questions.json").then((m) => m.default as Question[]),
+  "c11/maths/permutations-and-combinations": () =>
+    import("@/content/maths/permutations-and-combinations/questions.json").then((m) => m.default as Question[]),
 };
 
 const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
@@ -521,6 +534,8 @@ const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
     import("@/content/maths/complex-numbers-and-quadratic-equations/flashcards.json").then((m) => m.default as Flashcard[]),
   "c11/maths/linear-inequalities": () =>
     import("@/content/maths/linear-inequalities/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/maths/permutations-and-combinations": () =>
+    import("@/content/maths/permutations-and-combinations/flashcards.json").then((m) => m.default as Flashcard[]),
 };
 
 export function getSectionsForChapter(slug: string): ChapterSection[] {
