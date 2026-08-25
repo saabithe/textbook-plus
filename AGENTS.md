@@ -105,6 +105,59 @@ src/content/{subject-slug}/{chapter-slug}/
 
 **Currently 4 chapters have content:** Physics Ch1 + Ch2, English (Horegallu + Mending Wall). All other 74 chapters show placeholder UI.
 
+## Class 11 Maths — CRITICAL: Distinguish from Class 12
+
+**⚠ DO NOT CONFUSE the two systems.** They are completely separate catalogs with different chapter lists, different routing, and different data sources.
+
+| | Class 11 Maths | Class 12 Maths |
+|---|---|---|
+| **Chapter count** | 14 chapters | 13 chapters (in `src/data/chapters.ts`) |
+| **PDFs** | `Developer_Deliveries/Class 11/Maths/kemh101–kemh114.pdf` | None provided yet |
+| **Content files** | `src/content/maths/{slug}/` (shared dir with Class 12) | Same dirs — but use different slug registrations |
+| **Router** | `/class-11/maths/{slug}` → `class-11-chapter-content.tsx` | `/chapter/{slug}` → `chapter-content.tsx` |
+| **Registry keys** | `"c11/maths/{slug}"` in content.ts | Bare `"{slug}"` in content.ts |
+| **Router keys** | `"maths/{slug}"` in class-11-chapter-content.tsx | N/A (different router) |
+
+### Class 11 Maths Chapters (rationalized NCERT, 14 total)
+
+PDFs map 1:1 to `kemh1XX.pdf` by chapter number (no ch4/ch5 mismatch):
+
+| # | Chapter | Slug | PDF | Status |
+|---|---------|------|-----|--------|
+| 1 | Sets | `sets` | kemh101 | ✅ Done |
+| 2 | Relations and Functions | `relations-and-functions` | kemh102 | ✅ Done |
+| 3 | Trigonometric Functions | `trigonometric-functions` | kemh103 | ✅ Done |
+| 4 | Complex Numbers & Quadratic Equations | `complex-numbers-and-quadratic-equations` | kemh104 | ✅ Done |
+| 5 | Linear Inequalities | `linear-inequalities` | kemh105 | ✅ Done |
+| 6 | Permutations and Combinations | `permutations-and-combinations` | kemh106 | ❌ Remaining |
+| 7 | Binomial Theorem | `binomial-theorem` | kemh107 | ❌ Remaining |
+| 8 | Sequences and Series | `sequences-and-series` | kemh108 | ❌ Remaining |
+| 9 | Straight Lines | `straight-lines` | kemh109 | ❌ Remaining |
+| 10 | Conic Sections | `conic-sections` | kemh110 | ❌ Remaining |
+| 11 | Introduction to Three Dimensional Geometry | `introduction-to-three-dimensional-geometry` | kemh111 | ❌ Remaining |
+| 12 | Limits and Derivatives | `limits-and-derivatives` | kemh112 | ❌ Remaining |
+| 13 | Statistics | `statistics` | kemh113 | ❌ Remaining |
+| 14 | Probability | `probability` | kemh114 | ❌ Remaining |
+
+### Class 12 Maths Chapters (in `chapters.ts` — DO NOT use for Class 11 work)
+
+These are the Plus Two maths chapters listed in `src/data/chapters.ts`. They have **no PDFs provided** and **no content yet**. Do NOT treat these as Class 11 content:
+- Relations and Functions (different from Class 11 version)
+- Inverse Trigonometric Functions
+- Matrices
+- Determinants
+- Continuity and Differentiability
+- Application of Derivatives
+- Integrals
+- Application of Integrals
+- Differential Equations
+- Vector Algebra
+- Three Dimensional Geometry
+- Linear Programming
+- Probability (different from Class 11 version)
+
+**If the user asks to process "maths chapters", always clarify whether they mean Class 11 or Class 12.** The PDFs currently available are Class 11 only.
+
 ## Supabase (Auth + Cloud Sync)
 
 - **Auth**: Anonymous sign-in on first visit. Email/password signup, login, password reset.

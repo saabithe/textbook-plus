@@ -472,21 +472,6 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-misc", title: "Miscellaneous Examples & System of Inequalities" },
     { id: "h-summary", title: "Summary (Revision Points)" },
   ],
-  "c11/maths/inverse-trigonometric-functions": [
-    { id: "h-intro", title: "6.1 Introduction" },
-    { id: "h-6-2", title: "6.2 Basic Concepts" },
-    { id: "h-6-3", title: "6.3 Properties of Inverse Trigonometric Functions" },
-    { id: "h-misc", title: "Miscellaneous Exercise on Chapter 6" },
-    { id: "h-summary", title: "Summary (Revision Points)" },
-  ],
-  "c11/maths/matrices": [
-    { id: "h-intro", title: "3.1 Introduction" },
-    { id: "h-3-2", title: "3.2 Matrix Notation and Order" },
-    { id: "h-3-3", title: "3.3 Types of Matrices" },
-    { id: "h-3-4", title: "3.4 Matrix Operations" },
-    { id: "h-misc", title: "Miscellaneous Exercise on Chapter 3" },
-    { id: "h-summary", title: "Summary (Revision Points)" },
-  ],
 };
 
 // Practice data is lazy-loaded per chapter so visiting one chapter doesn't
@@ -500,8 +485,6 @@ const QUESTION_KEYS = new Set([
   "c11/maths/trigonometric-functions",
   "c11/maths/complex-numbers-and-quadratic-equations",
   "c11/maths/linear-inequalities",
-  "c11/maths/inverse-trigonometric-functions",
-  "c11/maths/matrices",
 ]);
 
 const FLASHCARD_KEYS = new Set(QUESTION_KEYS);
@@ -521,10 +504,6 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
     import("@/content/maths/complex-numbers-and-quadratic-equations/questions.json").then((m) => m.default as Question[]),
   "c11/maths/linear-inequalities": () =>
     import("@/content/maths/linear-inequalities/questions.json").then((m) => m.default as Question[]),
-  "c11/maths/inverse-trigonometric-functions": () =>
-    import("@/content/maths/inverse-trigonometric-functions/questions.json").then((m) => m.default as Question[]),
-  "c11/maths/matrices": () =>
-    import("@/content/maths/matrices/questions.json").then((m) => m.default as Question[]),
 };
 
 const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
@@ -542,10 +521,6 @@ const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
     import("@/content/maths/complex-numbers-and-quadratic-equations/flashcards.json").then((m) => m.default as Flashcard[]),
   "c11/maths/linear-inequalities": () =>
     import("@/content/maths/linear-inequalities/flashcards.json").then((m) => m.default as Flashcard[]),
-  "c11/maths/inverse-trigonometric-functions": () =>
-    import("@/content/maths/inverse-trigonometric-functions/flashcards.json").then((m) => m.default as Flashcard[]),
-  "c11/maths/matrices": () =>
-    import("@/content/maths/matrices/flashcards.json").then((m) => m.default as Flashcard[]),
 };
 
 export function getSectionsForChapter(slug: string): ChapterSection[] {
