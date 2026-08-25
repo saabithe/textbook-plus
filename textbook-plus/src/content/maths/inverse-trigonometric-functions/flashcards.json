@@ -1,0 +1,12 @@
+[
+  {"id":"itf-fc01","front":"Inverse trigonometric function — definition","back":"If sin y = x, then y = sin⁻¹x. The inverse function gives the angle whose trig ratio is known."},
+  {"id":"itf-fc02","front":"Principal value ranges","back":"sin⁻¹: [−π/2, π/2], cos⁻¹: [0, π], tan⁻¹: (−π/2, π/2), cot⁻¹: (0, π), sec⁻¹: [0, π/2)∪(π/2, π], csc⁻¹: [−π/2, 0)∪(0, π/2]."},
+  {"id":"itf-fc03","front":"Key identity","back":"sin⁻¹x + cos⁻¹x = π/2 for x ∈ [−1,1]. This is the most useful property."},
+  {"id":"itf-fc04","front":"Odd/even properties","back":"sin⁻¹(−x) = −sin⁻¹x (odd), cos⁻¹(−x) = π − cos⁻¹x (not simply even/odd), tan⁻¹(−x) = −tan⁻¹x (odd)."},
+  {"id":"itf-fc05","front":"tan⁻¹ addition formula","back":"tan⁻¹x + tan⁻¹y = tan⁻¹((x+y)/(1−xy)) for xy < 1. If xy > 1, add or subtract π based on signs."},
+  {"id":"itf-fc06","front":"Domain of sin⁻¹","back":"x ∈ [−1,1]. The sine function only outputs values in [−1,1], so the inverse accepts only these."},
+  {"id":"itf-fc07","front":"Domain of tan⁻¹","back":"x ∈ ℝ. The tangent function outputs all real numbers, so the inverse accepts all reals."},
+  {"id":"itf-fc08","front":"Composition example","back":"sin(tan⁻¹x) = x/√(1+x²). Use right triangle: opposite=x, adjacent=1, hypotenuse=√(1+x²)."},
+  {"id":"itf-fc09","front":"cos⁻¹(cos θ)","back":"If θ ∈ [0,π], cos⁻¹(cos θ) = θ. Otherwise, find the reference angle in [0,π] with same cosine."},
+  {"id":"itf-fc10","front":"Quick recall","back":"sin⁻¹(1/2)=π/6, sin⁻¹(−1/2)=−π/6, cos⁻¹(−1/2)=2π/3, tan⁻¹(1)=π/4, tan⁻¹(√3)=π/3"}
+]
