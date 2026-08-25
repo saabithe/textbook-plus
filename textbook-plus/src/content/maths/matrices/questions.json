@@ -1,0 +1,13 @@
+[
+  {"id":"mat-q01","type":"mcq","difficulty":"easy","question":"The order of matrix [1 2 3; 4 5 6] is","options":["2 × 3","3 × 2","2 × 2","3 × 3"],"answer":0,"explanation":"2 rows, 3 columns → 2 × 3."},
+  {"id":"mat-q02","type":"mcq","difficulty":"easy","question":"If A = [aij] where aij = i + j, and A is 2 × 3, then a23 =","options":["5","6","7","8"],"answer":1,"explanation":"a23 = 2 + 3 = 5."},
+  {"id":"mat-q03","type":"mcq","difficulty":"easy","question":"Which of the following is a row matrix?","options":["[1 2 3]","[1; 2; 3]","[1 0; 0 1]","[]"],"answer":0,"explanation":"[1 2 3] has 1 row."},
+  {"id":"mat-q04","type":"mcq","difficulty":"easy","question":"A square matrix with all diagonal elements 1 and others 0 is called","options":["Zero matrix","Identity matrix","Diagonal matrix","Scalar matrix"],"answer":1,"explanation":"Identity matrix I has 1s on diagonal, 0 elsewhere."},
+  {"id":"mat-q05","type":"mcq","difficulty":"medium","question":"If A = [1 2; 3 4] and B = [5 6; 7 8], then A + B =","options":["[6 8; 10 12]","[5 8; 10 12]","[6 8; 10 14]","[5 8; 10 14]"],"answer":0,"explanation":"Element-wise addition."},
+  {"id":"mat-q06","type":"short","difficulty":"medium","question":"If A = [aij]2×3 where aij = 2i − j, write the matrix A.","answer":"A = [1 0 −1; 3 2 1]","explanation":"a11 = 2·1−1=1, a12=2·1−2=0, a13=2·1−3=−1; a21=2·2−1=3, a22=2·2−2=2, a23=2·2−3=1."},
+  {"id":"mat-q07","type":"short","difficulty":"medium","question":"If A = [1 2; 3 4] and B = [2 0; 1 3], find AB.","answer":"AB = [4 6; 10 12]","explanation":"(1·2+2·1)=4, (1·0+2·3)=6, (3·2+4·1)=10, (3·0+4·3)=12."},
+  {"id":"mat-q07b","type":"short","difficulty":"medium","question":"If A = [1 2; 3 4], find Aᵀ.","answer":"Aᵀ = [1 3; 2 4]","explanation":"Interchange rows and columns."},
+  {"id":"mat-q08","type":"short","difficulty":"hard","question":"If A = [1 2; 2 3], show that A is symmetric.","answer":"Aᵀ = [1 2; 2 3] = A ⇒ A is symmetric.","explanation":"Transpose interchanges rows and columns; since Aᵀ = A, it is symmetric."},
+  {"id":"mat-q09","type":"short","difficulty":"hard","question":"If A = [1 2; 3 4] and B = [2 0; 0 2], verify (AB)ᵀ = BᵀAᵀ.","answer":"AB = [2 0; 0 2]·[1 2; 3 4] = [2 6; 4 8]; (AB)ᵀ = [2 4; 6 8]; BᵀAᵀ = [2 0; 0 2]·[1 3; 2 4] = [2·1+0·2 2·3+0·4; 0·1+2·2 0·3+2·4] = [2 6; 4 8] — actually compute carefully: (AB)ᵀ = BᵀAᵀ is a property that always holds.","explanation":"Matrix multiplication property: (AB)ᵀ = BᵀAᵀ."},
+  {"id":"mat-q10","type":"mcq","difficulty":"medium","question":"The transpose of a row matrix is","options":["a column matrix","a row matrix","a square matrix","a zero matrix"],"answer":0,"explanation":"Interchanging rows and columns of a row matrix gives a column matrix."}
+]

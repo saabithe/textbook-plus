@@ -11,6 +11,7 @@ const chapterComponents: Record<string, React.ComponentType> = {
   ) as React.ComponentType,
   "maths/linear-inequalities": dynamic(() => import("@/content/maths/linear-inequalities/page")) as React.ComponentType,
   "maths/inverse-trigonometric-functions": dynamic(() => import("@/content/maths/inverse-trigonometric-functions/page")) as React.ComponentType,
+  "maths/matrices": dynamic(() => import("@/content/maths/matrices/page")) as React.ComponentType,
 };
 
 export function Class11ChapterContent({ subject, slug }: { subject: string; slug: string }) {

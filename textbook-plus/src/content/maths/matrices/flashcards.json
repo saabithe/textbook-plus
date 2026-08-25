@@ -1,0 +1,12 @@
+[
+  {"id":"mat-fc01","front":"Matrix — definition","back":"A rectangular array of numbers arranged in rows and columns. Denoted by capital letters. Order m × n has m rows and n columns."},
+  {"id":"mat-fc02","front":"Matrix notation","back":"A = [aij] where aij is element in i-th row and j-th column. Order written as m × n."},
+  {"id":"mat-fc03","front":"Types of matrices","back":"Zero matrix: all elements 0. Identity matrix: 1s on diagonal, 0 elsewhere. Symmetric: Aᵀ = A. Skew-symmetric: Aᵀ = −A."},
+  {"id":"mat-fc04","front":"Matrix addition","back":"Defined if A and B have same order. Element-wise: (A + B)ij = aij + bij."},
+  {"id":"mat-fc05","front":"Scalar multiplication","back":"kA multiplies each element by k: (kA)ij = k · aij."},
+  {"id":"mat-fc06","front":"Matrix multiplication","back":"AB defined if A (m×n) and B (n×p). Result is m × p. (AB)ij = ∑k aik bkj. Note: AB ≠ BA in general."},
+  {"id":"mat-fc07","front":"Transpose of a matrix","back":"Aᵀ obtained by interchanging rows and columns. (Aᵀ)ij = aji. Properties: (Aᵀ)ᵀ = A, (kA)ᵀ = kAᵀ, (A+B)ᵀ = Aᵀ+Bᵀ, (AB)ᵀ = BᵀAᵀ."},
+  {"id":"mat-fc08","front":"Symmetric matrix","back":"Square matrix A where Aᵀ = A. Example: [1 2; 2 3]."},
+  {"id":"mat-fc09","front":"Skew-symmetric matrix","back":"Square matrix A where Aᵀ = −A. Diagonal elements must be 0. Example: [0 1; −1 0]."},
+  {"id":"mat-fc10","front":"Matrix properties quick","back":"Row matrix → column matrix on transpose. Identity: I·A = A·I = A. Distributive: A(B + C) = AB + AC."}
+]
