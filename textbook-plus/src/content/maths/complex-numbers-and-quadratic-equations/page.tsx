@@ -16,8 +16,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
       <Callout type="important" title="The Need">
         The equation <strong>x² + 1 = 0</strong> has <strong>no real solution</strong> — because x² = −1
         and the square of every real number is non-negative. We <strong>extend ℝ</strong> so that
-        x² = −1 becomes solvable, and thereby make <strong>ax² + bx + c = 0</strong> solvable even
-        when <strong>D = b² − 4ac &lt; 0</strong>.
+        x² = −1 becomes solvable.
       </Callout>
 
       <h2 id="h-4-2">4.2 Complex Numbers</h2>
@@ -131,14 +130,16 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
         <li>Again a complex number (closure).</li>
         <li>Example: (2 + 3i) + (−6 + 5i) = −4 + 8i.</li>
       </ul>
-      <FormulaCard>
-        <p className="font-semibold mb-2">Properties of Addition</p>
-        <FormulaBlock latex="z_1 + z_2 = z_2 + z_1 \quad\text{(commutative)}" />
-        <FormulaBlock latex="(z_1 + z_2) + z_3 = z_1 + (z_2 + z_3) \quad\text{(associative)}" />
-        <FormulaBlock latex="z + 0 = z \;\; \text{where } 0 = 0 + i0 \text{ (additive identity)}" />
-        <FormulaBlock latex="z + (-z) = 0 \;\; \text{where } -z = -a + i(-b) \text{ (additive inverse)}" />
-        <p className="text-sm text-muted-foreground">Closure: sum of two complex numbers is complex.</p>
-      </FormulaCard>
+      <Expandable title="Properties of Addition — hidden (click to expand)">
+        <FormulaCard>
+          <p className="font-semibold mb-2">Properties of Addition</p>
+          <FormulaBlock latex="z_1 + z_2 = z_2 + z_1 \quad\text{(commutative)}" />
+          <FormulaBlock latex="(z_1 + z_2) + z_3 = z_1 + (z_2 + z_3) \quad\text{(associative)}" />
+          <FormulaBlock latex="z + 0 = z \;\; \text{where } 0 = 0 + i0 \text{ (additive identity)}" />
+          <FormulaBlock latex="z + (-z) = 0 \;\; \text{where } -z = -a + i(-b) \text{ (additive inverse)}" />
+          <p className="text-sm text-muted-foreground">Closure: sum of two complex numbers is complex.</p>
+        </FormulaCard>
+      </Expandable>
 
       <h3 id="h-4-3-2">4.3.2 Difference of two complex numbers</h3>
       <FormulaBlock latex="z_1 - z_2 = z_1 + (-z_2)" />
@@ -150,27 +151,177 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
       <h3 id="h-4-3-3">4.3.3 Multiplication of two complex numbers</h3>
       <FormulaBlock latex="z_1 z_2 = (ac - bd) + i(ad + bc)" important />
       <p>Example: (3 + 5i)(2 + 6i) = (6 − 30) + i(18 + 10) = −24 + 28i.</p>
-      <FormulaCard>
-        <p className="font-semibold mb-2">Properties of Multiplication</p>
-        <FormulaBlock latex="z_1 z_2 = z_2 z_1 \quad\text{(commutative)}" />
-        <FormulaBlock latex="(z_1 z_2)z_3 = z_1(z_2 z_3) \quad\text{(associative)}" />
-        <FormulaBlock latex="z\cdot 1 = z \;\; \text{where } 1 = 1 + i0 \text{ (multiplicative identity)}" />
-        <FormulaBlock latex="(a+ib)\frac{a-ib}{a^2+b^2}=1 \;\; \text{(inverse exists for } z\neq 0\text{)}" />
-        <FormulaBlock latex="z_1(z_2+z_3)=z_1z_2+z_1z_3 \quad\text{(distributive)}" />
-      </FormulaCard>
+      <Expandable title="Properties of Multiplication — hidden (click to expand)">
+        <FormulaCard>
+          <p className="font-semibold mb-2">Properties of Multiplication</p>
+          <FormulaBlock latex="z_1 z_2 = z_2 z_1 \quad\text{(commutative)}" />
+          <FormulaBlock latex="(z_1 z_2)z_3 = z_1(z_2 z_3) \quad\text{(associative)}" />
+          <FormulaBlock latex="z\cdot 1 = z \;\; \text{where } 1 = 1 + i0 \text{ (multiplicative identity)}" />
+          <FormulaBlock latex="(a+ib)\frac{a-ib}{a^2+b^2}=1 \;\; \text{(inverse exists for } z\neq 0\text{)}" />
+          <FormulaBlock latex="z_1(z_2+z_3)=z_1z_2+z_1z_3 \quad\text{(distributive)}" />
+        </FormulaCard>
+      </Expandable>
 
       <h3 id="h-4-3-4">4.3.4 Division of two complex numbers</h3>
-      <FormulaBlock latex="\frac{z_1}{z_2}= z_1\cdot\frac1{z_2}\quad(z_2\neq 0), \qquad \frac1{a+ib}=\frac{a-ib}{a^2+b^2}" important />
+
+      <div className="my-4 rounded-xl border border-amber-500/30 bg-amber-500/[0.06] overflow-hidden">
+        <div className="px-4 py-2.5 bg-amber-500/10 border-b border-amber-500/20 flex items-center gap-2">
+          <span className="text-sm">⭐⭐⭐</span>
+          <span className="text-sm font-bold tracking-tight">Division of Complex Numbers</span>
+          <span className="ml-auto text-xs font-medium px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300">Must-know</span>
+        </div>
+        <div className="px-4 py-4 space-y-3">
+          <p className="text-sm">
+            Suppose we want to simplify <FormulaBlock latex="\frac{a+ib}{c+id}" />. The problem is that the
+            denominator is <strong>complex</strong>.
+          </p>
+          <p className="text-sm">
+            Our objective is to <strong>make the denominator real</strong>.
+          </p>
+          <p className="text-sm">
+            The trick: <Highlight>multiply numerator and denominator by the conjugate of the denominator</Highlight>.
+          </p>
+          <p className="text-sm">
+            The conjugate of <FormulaBlock latex="c+id" /> is <FormulaBlock latex="c-id" />. Therefore,
+          </p>
+          <FormulaBlock latex="\frac{a+ib}{c+id}\times\frac{c-id}{c-id}" important />
+          <p className="text-sm">
+            Since <FormulaBlock latex="\frac{c-id}{c-id}=1" />, the value doesn&apos;t change.
+          </p>
+          <p className="text-sm">Thus,</p>
+          <FormulaBlock latex="=\frac{(a+ib)(c-id)}{(c+id)(c-id)}=\frac{(ac+bd)+i(bc-ad)}{c^2+d^2}" important />
+          <p className="text-xs text-muted-foreground">
+            Denominator is now <strong>c²+d²</strong> — real. Split into real and imaginary parts and you are in{" "}
+            <strong>a+ib</strong> form.
+          </p>
+        </div>
+      </div>
+
       <ul>
-        <li>
-          Technique: <strong>rationalise</strong> — multiply numerator and denominator by the conjugate of
-          the denominator.
-        </li>
         <li>
           Example: (6 + 3i)/(2 − i) = (6+3i)(2+i)/(4+1) = (12 + 6i + 6i − 3)/5 = (9 + 12i)/5 = 9/5 +
           (12/5)i.
         </li>
       </ul>
+
+      <div className="my-6 rounded-xl border border-amber-500/30 bg-amber-500/[0.06] overflow-hidden">
+        <div className="px-4 py-2.5 bg-amber-500/10 border-b border-amber-500/20 flex items-center gap-2">
+          <span className="text-sm">⭐⭐⭐</span>
+          <span className="text-sm font-bold tracking-tight">Reciprocal of a Complex Number</span>
+          <span className="ml-auto text-xs font-medium px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300">Must-know</span>
+        </div>
+        <div className="px-4 py-4 space-y-3">
+          <p className="text-sm">
+            For <FormulaBlock latex="z=a+ib,\; z\neq0" />, we want <FormulaBlock latex="\frac1z" />.
+          </p>
+          <p className="text-sm">Multiply numerator and denominator by z̄:</p>
+          <FormulaBlock latex="\frac1z=\frac{\bar z}{z\bar z}" important />
+          <p className="text-sm">
+            But <FormulaBlock latex="z\bar z=|z|^2" />.
+          </p>
+          <p className="text-sm">Therefore,</p>
+          <FormulaBlock latex="\boxed{\frac1z=\frac{\bar z}{|z|^2}}" important />
+          <p className="text-sm">
+            Since <FormulaBlock latex="\bar z=a-ib" /> and <FormulaBlock latex="|z|^2=a^2+b^2" />, we get
+          </p>
+          <FormulaBlock latex="\boxed{\frac1{a+ib}=\frac{a-ib}{a^2+b^2}}" important />
+          <div className="rounded-lg border border-border/40 bg-card p-3">
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Example</p>
+            <p className="text-sm">
+              Find <FormulaBlock latex="\frac1{3+4i}" />.
+            </p>
+            <p className="text-sm">Using the formula:</p>
+            <FormulaBlock latex="\frac1{3+4i}=\frac{3-4i}{3^2+4^2}=\frac{3-4i}{25}" />
+            <FormulaBlock latex="=\frac{3}{25}-\frac{4}{25}i" important />
+          </div>
+        </div>
+      </div>
+
+      <Expandable title="Algebra in Action — Four Operations Step by Step">
+        <ProblemSolution problemNumber="A1 — Addition">
+          <ProblemSolution.Problem>
+            <p>
+              Simplify (5 + 2i) + (3 − 4i) and write in a + ib form.
+            </p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Group Re and Im", description: "(5+3) + i(2−4) — real with real, imaginary with imaginary" },
+                { label: "Add", description: "5+3 = 8,  2−4 = −2" },
+                { label: "Collect", description: "8 + i(−2) = 8 − 2i ✓" },
+              ]}
+            />
+            <FormulaBlock latex="(5+2i)+(3-4i)=8-2i" important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="A2 — Subtraction">
+          <ProblemSolution.Problem>
+            <p>Simplify (7 + 5i) − (2 + 8i).</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Add the negative", description: "(7+5i)+(−2−8i) — flip signs of the subtrahend" },
+                { label: "Group", description: "(7−2) + i(5−8)" },
+                { label: "Compute", description: "5 − 3i ✓ (subtraction is not commutative — order matters)" },
+              ]}
+            />
+            <FormulaBlock latex="(7+5i)-(2+8i)=5-3i" important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="A3 — Multiplication (FOIL)">
+          <ProblemSolution.Problem>
+            <p>Simplify (2 + 3i)(4 − i).</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "FOIL — multiply termwise", description: "2·4 + 2·(−i) + 3i·4 + 3i·(−i)" },
+                { label: "Expand", description: "8 −2i +12i −3i²" },
+                { label: "Fix i²", description: "i²=−1 → −3i² = −3(−1)=+3 → 8+3=11,  −2i+12i=10i" },
+                { label: "Collect", description: "11 + 10i ✓ — real part ac−bd, imaginary ad+bc" },
+              ]}
+            />
+            <FormulaBlock latex="(2+3i)(4-i)=11+10i" important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="A4 — Division (Rationalise)">
+          <ProblemSolution.Problem>
+            <p>Simplify (4 + 2i)/(3 − i) in a + ib form.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Conjugate of denominator", description: "3 − i → 3 + i" },
+                { label: "Multiply by 1", description: "(4+2i)/(3−i) × (3+i)/(3+i)" },
+                { label: "Numerator", description: "(4+2i)(3+i)=12+4i+6i+2i²=10+10i" },
+                { label: "Denominator", description: "(3−i)(3+i)=9+1=10 — now real" },
+                { label: "Split", description: "(10+10i)/10 = 1 + i ✓" },
+              ]}
+            />
+            <FormulaBlock latex="\frac{4+2i}{3-i}=1+i" important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="A5 — Mixed (uses all)">
+          <ProblemSolution.Problem>
+            <p>Simplify (1 + i)² + (2 − i)(1 + 3i) − (5 − i)/(1 + i).</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p className="text-sm">Work piece by piece, then combine:</p>
+            <FormulaBlock latex="(1+i)^2=1+2i+i^2=2i" />
+            <FormulaBlock latex="(2-i)(1+3i)=2+6i-i-3i^2=5+5i" />
+            <FormulaBlock latex="\frac{5-i}{1+i}=\frac{(5-i)(1-i)}{2}=\frac{4-6i}{2}=2-3i" />
+            <p>Now add/subtract:</p>
+            <FormulaBlock latex="2i+(5+5i)-(2-3i)=3+10i" important />
+            <p className="text-xs text-muted-foreground">Strategy: clear powers → products → quotients → finally addition/subtraction.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
 
       <h3 id="h-4-3-5">4.3.5 Power of i</h3>
       <FormulaCard>
@@ -454,11 +605,13 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
           </p>
         </div>
       </div>
-      <FormulaCard>
-        <p className="font-semibold mb-2">Properties (for any z₁, z₂)</p>
-        <FormulaBlock latex="|z_1z_2|=|z_1||z_2|, \qquad \left|\frac{z_1}{z_2}\right|=\frac{|z_1|}{|z_2|}\;(z_2\neq0)" />
-        <FormulaBlock latex="\overline{z_1z_2}=\bar z_1\bar z_2, \quad \overline{z_1\pm z_2}=\bar z_1\pm\bar z_2, \quad \overline{\left(\frac{z_1}{z_2}\right)}=\frac{\bar z_1}{\bar z_2}" />
-      </FormulaCard>
+      <Expandable title="Properties (modulus & conjugate) — hidden (click to expand)">
+        <FormulaCard>
+          <p className="font-semibold mb-2">Properties (for any z₁, z₂)</p>
+          <FormulaBlock latex="|z_1z_2|=|z_1||z_2|, \qquad \left|\frac{z_1}{z_2}\right|=\frac{|z_1|}{|z_2|}\;(z_2\neq0)" />
+          <FormulaBlock latex="\overline{z_1z_2}=\bar z_1\bar z_2, \quad \overline{z_1\pm z_2}=\bar z_1\pm\bar z_2, \quad \overline{\left(\frac{z_1}{z_2}\right)}=\frac{\bar z_1}{\bar z_2}" />
+        </FormulaCard>
+      </Expandable>
       <KeyPoint title="Conjugate as Mirror">
         Conjugation reflects the Argand point across the <strong>real axis</strong> — (x, y) ↔ (x, −y).
         Modulus is the mirror-line distance to the origin.
