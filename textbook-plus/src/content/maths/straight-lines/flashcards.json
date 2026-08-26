@@ -1,0 +1,16 @@
+[
+  {"id":"sl-fc01","front":"Slope formula from two points","back":"m = (y₂ − y₁)/(x₂ − x₁) = rise/run. Undefined when x₁ = x₂ (vertical line)."},
+  {"id":"sl-fc02","front":"Slope and inclination","back":"m = tan θ, where θ is the angle measured anti-clockwise from positive x-axis. θ ∈ [0°, 180°)."},
+  {"id":"sl-fc03","front":"Parallel lines condition","back":"Two non-vertical lines are parallel iff their slopes are equal: m₁ = m₂."},
+  {"id":"sl-fc04","front":"Perpendicular lines condition","back":"Two lines are perpendicular iff m₁ · m₂ = −1 (negative reciprocal)."},
+  {"id":"sl-fc05","front":"Angle between two lines","back":"tan θ = |(m₂ − m₁)/(1 + m₁m₂)|. Gives the acute angle. Denominator = 0 ⟹ θ = 90°."},
+  {"id":"sl-fc06","front":"Point-slope form","back":"y − y₁ = m(x − x₁). Use when you have a point and slope."},
+  {"id":"sl-fc07","front":"Two-point form","back":"y − y₁ = [(y₂−y₁)/(x₂−x₁)](x − x₁). Use when you have two points."},
+  {"id":"sl-fc08","front":"Slope-intercept form","back":"y = mx + c. Slope = m, y-intercept = c. Line crosses y-axis at (0, c)."},
+  {"id":"sl-fc09","front":"Intercept form","back":"x/a + y/b = 1. x-intercept = a, y-intercept = b. Both must be non-zero."},
+  {"id":"sl-fc10","front":"General form of a line","back":"Ax + By + C = 0. Every line can be written this way. Slope = −A/B (if B ≠ 0)."},
+  {"id":"sl-fc11","front":"Perpendicular distance from a point","back":"d = |Ax₁ + By₁ + C|/√(A² + B²). Line must be in general form Ax+By+C=0. Absolute value ensures d ≥ 0."},
+  {"id":"sl-fc12","front":"Distance between parallel lines","back":"For Ax+By+C₁=0 and Ax+By+C₂=0: d = |C₁−C₂|/√(A²+B²). Coefficients A, B must match."},
+  {"id":"sl-fc13","front":"Slope from general form","back":"From Ax + By + C = 0: slope m = −A/B. Quick: flip the x and y coefficients, negate."},
+  {"id":"sl-fc14","front":"Slope of horizontal vs vertical line","back":"Horizontal (y = c): slope = 0. Vertical (x = c): slope undefined (not ∞)."}
+]

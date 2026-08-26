@@ -1,0 +1,108 @@
+[
+  {
+    "id": "c11/maths/conic-sections/q1",
+    "chapterSlug": "conic-sections",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The equation of a circle with centre (2, −3) and radius 5 is:",
+    "options": ["(x−2)² + (y+3)² = 25", "(x+2)² + (y−3)² = 25", "(x−2)² + (y−3)² = 25", "(x+2)² + (y+3)² = 25"],
+    "answer": "(x−2)² + (y+3)² = 25",
+    "explanation": "Standard form: (x−h)² + (y−k)² = r². With h = 2, k = −3, r = 5: (x−2)² + (y+3)² = 25."
+  },
+  {
+    "id": "c11/maths/conic-sections/q2",
+    "chapterSlug": "conic-sections",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The focus of the parabola y² = 20x is:",
+    "options": ["(5, 0)", "(0, 5)", "(10, 0)", "(−5, 0)"],
+    "answer": "(5, 0)",
+    "explanation": "y² = 4ax with 4a = 20 → a = 5. Focus = (a, 0) = (5, 0)."
+  },
+  {
+    "id": "c11/maths/conic-sections/q3",
+    "chapterSlug": "conic-sections",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The eccentricity of the ellipse x²/25 + y²/16 = 1 is:",
+    "options": ["3/5", "4/5", "√7/5", "3/4"],
+    "answer": "3/5",
+    "explanation": "a² = 25, b² = 16, c² = 25−16 = 9, c = 3. e = c/a = 3/5."
+  },
+  {
+    "id": "c11/maths/conic-sections/q4",
+    "chapterSlug": "conic-sections",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "For the hyperbola x²/9 − y²/16 = 1, the length of the latus rectum is:",
+    "options": ["32/3", "16/3", "12", "8"],
+    "answer": "32/3",
+    "explanation": "a² = 9 → a = 3; b² = 16. LR = 2b²/a = 2(16)/3 = 32/3."
+  },
+  {
+    "id": "c11/maths/conic-sections/q5",
+    "chapterSlug": "conic-sections",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The eccentricity of a rectangular hyperbola is:",
+    "options": ["1", "√2", "2", "√3"],
+    "answer": "√2",
+    "explanation": "In a rectangular hyperbola a = b, so c² = a² + a² = 2a², c = a√2. e = c/a = √2."
+  },
+  {
+    "id": "c11/maths/conic-sections/q6",
+    "chapterSlug": "conic-sections",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "easy",
+    "question": "Find the centre and radius of the circle x² + y² − 6x + 4y − 12 = 0.",
+    "answer": "Centre (3, −2), radius = 5",
+    "explanation": "Comparing with x² + y² + 2gx + 2fy + c = 0: g = −3, f = 2, c = −12. Centre = (−g, −f) = (3, −2). r = √(9 + 4 + 12) = √25 = 5."
+  },
+  {
+    "id": "c11/maths/conic-sections/q7",
+    "chapterSlug": "conic-sections",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the equation of the parabola with focus (0, −5) and directrix y = 5.",
+    "answer": "x² = −20y",
+    "explanation": "Focus below directrix on y-axis → opens downward. a = 5. x² = −4ay = −20y."
+  },
+  {
+    "id": "c11/maths/conic-sections/q8",
+    "chapterSlug": "conic-sections",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the equation of the ellipse with foci (±4, 0) and major axis length 10.",
+    "answer": "x²/25 + y²/9 = 1",
+    "explanation": "Major axis = 2a = 10 → a = 5. c = 4. b² = a² − c² = 25 − 16 = 9. Equation: x²/25 + y²/9 = 1."
+  },
+  {
+    "id": "c11/maths/conic-sections/q9",
+    "chapterSlug": "conic-sections",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Find the eccentricity of the ellipse whose latus rectum is half the major axis.",
+    "answer": "e = 1/√2",
+    "explanation": "LR = 2b²/a = a/2 → b² = a²/4. c² = a² − b² = a² − a²/4 = 3a²/4. e² = 3/4. Wait: 2b²/a = a → b² = a²/2. c² = a²/2. e = 1/√2."
+  },
+  {
+    "id": "c11/maths/conic-sections/q10",
+    "chapterSlug": "conic-sections",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The eccentricity of an ellipse is 1/2 and the distance between its foci is 4. Find its latus rectum.",
+    "options": ["6", "4", "3", "8"],
+    "answer": "6",
+    "explanation": "2c = 4 → c = 2. e = c/a = 1/2 → a = 4. b² = a² − c² = 16 − 4 = 12. LR = 2b²/a = 24/4 = 6."
+  }
+]

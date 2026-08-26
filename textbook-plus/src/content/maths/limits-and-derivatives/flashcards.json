@@ -1,0 +1,72 @@
+[
+  {
+    "id": "c11/maths/limits-and-derivatives/fc1",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "front": "Definition of a limit: what does lim(x→a) f(x) = L mean?",
+    "back": "f(x) can be made arbitrarily close to L by taking x sufficiently close to a (but x ≠ a)."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/fc2",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "front": "Standard limit formula: lim(x→a) (xⁿ − aⁿ)/(x − a) = ?",
+    "back": "n · aⁿ⁻¹. For example, lim(x→2) (x³−8)/(x−2) = 3·2² = 12."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/fc3",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "front": "What is lim(x→0) sin x / x?",
+    "back": "1. One of the two fundamental trigonometric limits. x must be in radians."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/fc4",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "front": "What is lim(x→0) (1 − cos x) / x?",
+    "back": "0. The second fundamental trig limit. cos x approaches 1 faster than x approaches 0."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/fc5",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "front": "Definition of the derivative f'(a) from first principles",
+    "back": "f'(a) = lim(h→0) [f(a+h) − f(a)] / h. It gives the slope of the tangent at x = a."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/fc6",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "front": "Product rule: what is [f(x) · g(x)]'?",
+    "back": "f'(x) · g(x) + f(x) · g'(x). Derivative of first × second + first × derivative of second."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/fc7",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "front": "Quotient rule: what is [f(x)/g(x)]'?",
+    "back": "[f'(x)·g(x) − f(x)·g'(x)] / [g(x)]². Remember: 'low d-high minus high d-low, over low squared.'"
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/fc8",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "front": "Derivative of xⁿ (power rule)",
+    "back": "n · xⁿ⁻¹. For example, (x⁵)' = 5x⁴, and (x)' = 1."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/fc9",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "front": "Derivatives of sin x, cos x, and tan x",
+    "back": "(sin x)' = cos x; (cos x)' = −sin x; (tan x)' = sec²x."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/fc10",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "front": "Sandwich (Squeeze) Theorem — statement",
+    "back": "If g(x) ≤ f(x) ≤ h(x) near a, and lim g(x) = lim h(x) = L, then lim f(x) = L."
+  }
+]

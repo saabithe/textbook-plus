@@ -1,0 +1,12 @@
+[
+  {"id":"st-fc01","front":"What is the range of a dataset?","back":"R = L − S, where L is the largest value and S is the smallest value. Quick measure of spread but ignores intermediate values."},
+  {"id":"st-fc02","front":"Mean deviation about the mean (ungrouped)","back":"M.D.(x̄) = Σ|xᵢ − x̄|/n, where x̄ = mean and |xᵢ − x̄| = absolute deviations."},
+  {"id":"st-fc03","front":"Mean deviation about the mean (frequency)","back":"M.D.(x̄) = Σfᵢ|xᵢ − x̄|/N, where N = Σfᵢ is the total frequency."},
+  {"id":"st-fc04","front":"Why is variance preferred over mean deviation?","back":"Absolute values are not algebraically convenient (hard to differentiate). Squared deviations overcome this limitation."},
+  {"id":"st-fc05","front":"Formula for population variance (ungrouped)","back":"σ² = (1/N)Σ(xᵢ − x̄)². Always non-negative. σ = √(σ²) is the standard deviation."},
+  {"id":"st-fc06","front":"Step-deviation method: key formulas","back":"uᵢ = (xᵢ − a)/h. Mean: x̄ = a + h(Σfᵢuᵢ/N). Variance: σ² = h²[Σfᵢuᵢ²/N − (Σfᵢuᵢ/N)²]."},
+  {"id":"st-fc07","front":"Effect of shifting data by constant c","back":"Mean shifts by c. Variance, standard deviation, and mean deviation all remain unchanged."},
+  {"id":"st-fc08","front":"Effect of multiplying data by constant k","back":"Mean multiplied by k. Variance multiplied by k². Standard deviation multiplied by |k|."},
+  {"id":"st-fc09","front":"What is coefficient of variation (CV)?","back":"CV = (σ/x̄) × 100. A percentage measure of dispersion. Higher CV means greater relative spread."},
+  {"id":"st-fc10","front":"Standard deviation of identical data","back":"If all values are equal, σ = 0 (zero spread). Deviations from the mean are all zero."}
+]

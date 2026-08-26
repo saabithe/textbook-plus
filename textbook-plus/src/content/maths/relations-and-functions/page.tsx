@@ -6,6 +6,7 @@ import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { SpeedTricks } from "@/components/content/SpeedTricks";
+import { Highlight } from "@/components/content/Highlight";
 import { ArrowDiagram } from "@/components/content/maths/ArrowDiagram";
 import { FunctionGraph } from "@/components/content/maths/FunctionGraph";
 
@@ -88,7 +89,7 @@ export default function RelationsAndFunctionsChapter() {
           <ProblemSolution.Solution>
             <FormulaBlock latex="P \times Q = \{(a,r),(b,r),(c,r)\}, \qquad Q \times P = \{(r,a),(r,b),(r,c)\}" />
             <p>
-              Not equal — (a, r) ≠ (r, a). In general <strong>A × B ≠ B × A</strong>, though both
+              Not equal — (a, r) ≠ (r, a). In general <strong><Highlight>A × B ≠ B × A</Highlight></strong>, though both
               have the same number of elements here.
             </p>
           </ProblemSolution.Solution>
@@ -238,7 +239,7 @@ export default function RelationsAndFunctionsChapter() {
           <strong>Range</strong> — set of all second elements.
         </li>
         <li>
-          <strong>Codomain</strong> — the whole set B. Note: range ⊂ codomain.
+          <strong>Codomain</strong> — the whole set B. Note: <Highlight>range ⊂ codomain</Highlight>.
         </li>
       </ul>
       <Callout type="important" title="Three Ways to Represent a Relation">
@@ -477,7 +478,7 @@ export default function RelationsAndFunctionsChapter() {
       <h2 id="h-2-4">2.4 Functions</h2>
       <Callout type="important" title="Definition 5: Function">
         A relation f from set A to set B is a <strong>function</strong> if every element of A has{" "}
-        <strong>one and only one image</strong> in B. Equivalently: the domain of f is all of A,
+        <strong><Highlight>one and only one image</Highlight></strong> in B. Equivalently: the domain of f is all of A,
         and no two distinct ordered pairs of f share the same first element.
       </Callout>
       <FormulaBlock latex="f: A \rightarrow B, \qquad f(a) = b \;\;\text{means}\;\; (a, b) \in f" important />
@@ -493,7 +494,7 @@ export default function RelationsAndFunctionsChapter() {
       </p>
 
       <KeyPoint title="One-Line Memory Rule">
-        <strong>ONE input → EXACTLY ONE output.</strong> But{" "}
+        <strong><Highlight>ONE input → EXACTLY ONE output</Highlight>.</strong> But{" "}
         <strong>MANY inputs → SAME output is allowed</strong> — this case later gets its own name,
         the <em>many-one</em> function.
       </KeyPoint>

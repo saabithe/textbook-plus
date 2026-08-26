@@ -1,0 +1,16 @@
+[
+  {"id":"ss-fc01","front":"What is a sequence?","back":"An ordered list of numbers following a rule. Each number is a term, denoted a₁, a₂, a₃, …, aₙ."},
+  {"id":"ss-fc02","front":"What is a series?","back":"The sum of the terms of a sequence: a₁ + a₂ + ⋯ + aₙ = Σ(k=1 to n) aₖ."},
+  {"id":"ss-fc03","front":"nth term of a G.P.","back":"aₙ = arⁿ⁻¹, where a is the first term and r is the common ratio."},
+  {"id":"ss-fc04","front":"Sum of n terms of a G.P. (r ≠ 1)","back":"Sₙ = a(rⁿ − 1)/(r − 1)."},
+  {"id":"ss-fc05","front":"Sum of n terms when r = 1","back":"Sₙ = na (all terms are equal to a)."},
+  {"id":"ss-fc06","front":"Sum of infinite G.P. (|r| < 1)","back":"S∞ = a/(1 − r). Only converges when |r| < 1."},
+  {"id":"ss-fc07","front":"Geometric Mean of a and b","back":"G = √(ab). For n geometric means between a and b: r = (b/a)^(1/(n+1))."},
+  {"id":"ss-fc08","front":"A.M. ≥ G.M. inequality","back":"(a+b)/2 ≥ √(ab) for positive a, b. Equality holds iff a = b."},
+  {"id":"ss-fc09","front":"How to find a and b given A.M. and G.M.","back":"Set a+b = 2A and ab = G². Then (a−b)² = 4A² − 4G². Solve the system."},
+  {"id":"ss-fc10","front":"Fibonacci sequence rule","back":"a₁ = a₂ = 1, aₙ = aₙ₋₁ + aₙ₋₂ for n > 2. Sequence: 1, 1, 2, 3, 5, 8, 13, …"},
+  {"id":"ss-fc11","front":"Sum of 7 + 77 + 777 + ⋯ to n terms","back":"Sₙ = (7/9)[10(10ⁿ − 1)/9 − n]. Pattern: each term = 7/9 × (10ᵏ − 1)."},
+  {"id":"ss-fc12","front":"Key G.P. trap to avoid","back":"Always check if r = 1 before using Sₙ = a(rⁿ−1)/(r−1). If r = 1, the formula gives 0/0."},
+  {"id":"ss-fc13","front":"n geometric means between a and b creates how many total terms?","back":"n + 2 total terms. So r = (b/a)^(1/(n+1)), not (b/a)^(1/n)."},
+  {"id":"ss-fc14","front":"A sequence is a function whose domain is","back":"ℕ (the natural numbers), or a subset of ℕ."}
+]

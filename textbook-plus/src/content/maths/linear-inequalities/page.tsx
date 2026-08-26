@@ -367,17 +367,14 @@ export default function LinearInequalitiesChapter() {
         </Expandable>
       </Expandable>
 
-      <h2 id="h-summary">Summary (Revision Points)</h2>
-      <FormulaCard>
-        <p className="font-semibold mb-2">Keys to Remember</p>
-        <FormulaBlock latex="a<b\ \text{or}\ a\le b\ \text{etc. form an inequality}" />
-        <FormulaBlock latex="\text{Adding/subtracting same number: sign stays}" />
-        <FormulaBlock latex="\text{Multiplying/dividing by negative: sign flips}" important />
-        <FormulaBlock latex="x<a \Rightarrow (-\infty,a);\quad x\ge a \Rightarrow [a,\infty)" />
-      </FormulaCard>
-      <p className="text-sm text-muted-foreground">
-        To represent x&lt;a on number line: circle on a, dark line to left; x≥a: dark circle on a, dark line to right. This Summary is for revision — sidebar excludes it per subject rule? But Linear Inequalities keeps it as quick recall (maths keeps Summary visible, unlike Sets where it was cut — pipeline allows subject freedom).
-      </p>
+      <Callout type="warning" title="Hard-Level Tips: Inequality Traps">
+        <ul className="list-disc pl-5 space-y-1">
+          <li><strong>Flip is mandatory:</strong> multiplying/dividing by a negative reverses the sign. Missing this is the #1 exam error.</li>
+          <li><strong>Fractions first:</strong> clear denominators with LCM (positive) before flipping — you flip at most once.</li>
+          <li><strong>Strict vs slack:</strong> &lt; gives open circle on number line; ≤ gives filled circle. Mixing them loses marks.</li>
+          <li><strong>Double inequality:</strong> solve all three parts simultaneously — don&apos;t split into two separate inequalities.</li>
+        </ul>
+      </Callout>
     </>
   );
 }

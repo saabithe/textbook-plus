@@ -1,0 +1,12 @@
+[
+  {"id":"cs-fc01","front":"What are the four conic sections?","back":"Circle, ellipse, parabola, and hyperbola — obtained by intersecting a right circular cone with a plane at different angles."},
+  {"id":"cs-fc02","front":"Equation of a circle with centre (h, k) and radius r","back":"(x − h)² + (y − k)² = r². General form: x² + y² + 2gx + 2fy + c = 0 with centre (−g, −f) and radius √(g² + f² − c)."},
+  {"id":"cs-fc03","front":"Standard equation of a parabola opening right","back":"y² = 4ax. Focus = (a, 0), directrix x = −a, latus rectum = 4a."},
+  {"id":"cs-fc04","front":"The four standard forms of a parabola","back":"y² = 4ax (right), y² = −4ax (left), x² = 4ay (up), x² = −4ay (down). Latus rectum = 4a in all cases."},
+  {"id":"cs-fc05","front":"Key relation in an ellipse","back":"a² = b² + c² (or c² = a² − b²). Here a = semi-major axis, b = semi-minor axis, c = centre-to-focus distance. Eccentricity e = c/a, where 0 < e < 1."},
+  {"id":"cs-fc06","front":"Latus rectum of an ellipse","back":"LR = 2b²/a, where a is the semi-major axis and b is the semi-minor axis."},
+  {"id":"cs-fc07","front":"Key relation in a hyperbola","back":"c² = a² + b² (note the + sign, unlike the ellipse). Eccentricity e = c/a, where e > 1."},
+  {"id":"cs-fc08","front":"Latus rectum of a hyperbola","back":"LR = 2b²/a, where a is the semi-transverse axis and b is the semi-conjugate axis."},
+  {"id":"cs-fc09","front":"What is a rectangular (equilateral) hyperbola?","back":"A hyperbola where a = b. Its eccentricity is √2 and its asymptotes are perpendicular (y = ±x). Standard form: x² − y² = a²."},
+  {"id":"cs-fc10","front":"How does eccentricity distinguish conic sections?","back":"Circle: e = 0. Ellipse: 0 < e < 1. Parabola: e = 1. Hyperbola: e > 1."}
+]

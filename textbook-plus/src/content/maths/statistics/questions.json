@@ -1,0 +1,108 @@
+[
+  {
+    "id": "c11/maths/statistics/q1",
+    "chapterSlug": "statistics",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The range of the dataset 3, 7, 12, 25, 18, 40, 5 is:",
+    "options": ["37", "35", "43", "38"],
+    "answer": "37",
+    "explanation": "L = 40, S = 3. Range = 40 − 3 = 37."
+  },
+  {
+    "id": "c11/maths/statistics/q2",
+    "chapterSlug": "statistics",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "If every observation in a dataset is increased by 5, the mean deviation about the mean:",
+    "options": ["increases by 5", "decreases by 5", "remains the same", "doubles"],
+    "answer": "remains the same",
+    "explanation": "Shifting all values by a constant shifts the mean by the same constant. The deviations |xᵢ − x̄| remain unchanged."
+  },
+  {
+    "id": "c11/maths/statistics/q3",
+    "chapterSlug": "statistics",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The variance of the data 2, 4, 6, 8, 10 is:",
+    "options": ["4", "8", "6", "10"],
+    "answer": "8",
+    "explanation": "x̄ = 6. σ² = [(2−6)²+(4−6)²+0+(8−6)²+(10−6)²]/5 = (16+4+0+4+16)/5 = 40/5 = 8."
+  },
+  {
+    "id": "c11/maths/statistics/q4",
+    "chapterSlug": "statistics",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The standard deviation of a dataset is 10. If every observation is multiplied by 3, the new standard deviation is:",
+    "options": ["10", "30", "90", "100"],
+    "answer": "30",
+    "explanation": "When data is multiplied by k, σ becomes |k|σ. New σ = 3 × 10 = 30."
+  },
+  {
+    "id": "c11/maths/statistics/q5",
+    "chapterSlug": "statistics",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In the step-deviation method with class width h = 5 and assumed mean a = 25, if the midpoint of a class is 35, the value of uᵢ is:",
+    "options": ["2", "3", "5", "10"],
+    "answer": "2",
+    "explanation": "uᵢ = (xᵢ − a)/h = (35 − 25)/5 = 10/5 = 2."
+  },
+  {
+    "id": "c11/maths/statistics/q6",
+    "chapterSlug": "statistics",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "easy",
+    "question": "Find the mean deviation about the mean for: 5, 10, 15, 20, 25.",
+    "answer": "M.D.(x̄) = 6. x̄ = 15. |dᵢ|: 10, 5, 0, 5, 10. Sum = 30. M.D. = 30/5 = 6.",
+    "explanation": "x̄ = 15. Deviations: 10, 5, 0, 5, 10. Mean deviation = 30/5 = 6."
+  },
+  {
+    "id": "c11/maths/statistics/q7",
+    "chapterSlug": "statistics",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the variance of the first 10 even natural numbers: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20.",
+    "answer": "σ² = 33. x̄ = 11. Σ(xᵢ−11)² = 81+49+25+9+1+1+9+25+49+81 = 330. σ² = 330/10 = 33.",
+    "explanation": "x̄ = 110/10 = 11. Sum of squared deviations = 330. σ² = 33."
+  },
+  {
+    "id": "c11/maths/statistics/q8",
+    "chapterSlug": "statistics",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the standard deviation for: x: 10, 20, 30, 40 | f: 1, 2, 3, 4.",
+    "answer": "N = 10. x̄ = (10+40+90+160)/10 = 30. σ² = (400+200+0+400)/10 = 100. σ = 10.",
+    "explanation": "x̄ = 30. Σfᵢ(xᵢ−30)² = 1(400)+2(200)+3(0)+4(100) = 1000. σ² = 100. σ = 10."
+  },
+  {
+    "id": "c11/maths/statistics/q9",
+    "chapterSlug": "statistics",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "If the variance of a dataset is 25 and the mean is 20, the coefficient of variation is:",
+    "options": ["10%", "25%", "12.5%", "50%"],
+    "answer": "25%",
+    "explanation": "CV = (σ/x̄) × 100 = (5/20) × 100 = 25%. (σ = √25 = 5.)"
+  },
+  {
+    "id": "c11/maths/statistics/q10",
+    "chapterSlug": "statistics",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Using the step-deviation method, find the variance for: Class 0–10, 10–20, 20–30, 30–40 | f: 3, 5, 6, 4. Take a = 25, h = 10.",
+    "answer": "N = 18. uᵢ: −2, −1, 0, 1. Σfᵢuᵢ = −6−5+0+4 = −7. Σfᵢuᵢ² = 12+5+0+4 = 21. σ² = 100[21/18 − (−7/18)²] = 100[1.1667 − 0.1512] = 101.55.",
+    "explanation": "Using step-deviation: uᵢ = (xᵢ−25)/10 gives uᵢ = −2, −1, 0, 1. σ² = h²[Σfᵢuᵢ²/N − (Σfᵢuᵢ/N)²] = 100 × [21/18 − 49/324] = 100 × [378/324 − 49/324] = 100 × 329/324 ≈ 101.54."
+  }
+]

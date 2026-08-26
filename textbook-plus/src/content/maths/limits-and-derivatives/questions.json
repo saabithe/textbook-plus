@@ -1,0 +1,109 @@
+[
+  {
+    "id": "c11/maths/limits-and-derivatives/q1",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The value of lim(x→2) (x² − 4)/(x − 2) is:",
+    "options": ["0", "2", "4", "does not exist"],
+    "answer": "4",
+    "explanation": "Using special limit with n=2, a=2: 2·2¹ = 4. Or factor: (x−2)(x+2)/(x−2) = x+2 → 4."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/q2",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "lim(x→0) sin x / x equals:",
+    "options": ["0", "1", "∞", "does not exist"],
+    "answer": "1",
+    "explanation": "This is one of the two fundamental trigonometric limits. Valid when x is in radians."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/q3",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "lim(x→0) (1 − cos x) / x equals:",
+    "options": ["0", "1", "1/2", "∞"],
+    "answer": "0",
+    "explanation": "This is the second fundamental trig limit. Since cos x → 1 as x → 0, the numerator goes to 0 faster than x, giving 0."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/q4",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If f(x) = x², then f'(3) equals:",
+    "options": ["3", "6", "9", "12"],
+    "answer": "6",
+    "explanation": "f'(x) = 2x, so f'(3) = 6."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/q5",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The derivative of sin x with respect to x is:",
+    "options": ["−cos x", "cos x", "sin x", "−sin x"],
+    "answer": "cos x",
+    "explanation": "(sin x)' = cos x. One of the standard derivatives to memorize."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/q6",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "lim(x→0) sin 5x / 3x equals:",
+    "options": ["5/3", "3/5", "1", "5"],
+    "answer": "5/3",
+    "explanation": "sin 5x / 3x = (5/3) · (sin 5x / 5x) → (5/3) · 1 = 5/3."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/q7",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "lim(x→0) (1 − cos 3x) / x² equals:",
+    "options": ["0", "1/2", "3/2", "9/2"],
+    "answer": "9/2",
+    "explanation": "(1 − cos 3x)/x² = 9 · (1 − cos 3x)/(3x)² → 9 · (1/2) = 9/2."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/q8",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the derivative of f(x) = x³ · cos x using the product rule.",
+    "answer": "f'(x) = 3x² cos x − x³ sin x",
+    "explanation": "Product rule: f'g + fg' = (3x²)(cos x) + (x³)(−sin x) = 3x² cos x − x³ sin x."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/q9",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find lim(x→3) (x³ − 27)/(x − 3) using the standard limit.",
+    "answer": "27",
+    "explanation": "Special limit with n=3, a=3: 3 · 3² = 27."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/q10",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Find f'(x) from first principles if f(x) = x² + 3x.",
+    "answer": "f'(x) = 2x + 3",
+    "explanation": "[f(x+h) − f(x)]/h = [(x+h)² + 3(x+h) − x² − 3x]/h = [2xh + h² + 3h]/h = 2x + h + 3 → 2x + 3 as h → 0."
+  }
+]

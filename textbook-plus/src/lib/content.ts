@@ -470,7 +470,6 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-5-2", title: "5.2 Inequalities" },
     { id: "h-5-3", title: "5.3 Algebraic Solutions in One Variable" },
     { id: "h-misc", title: "Miscellaneous Examples & System of Inequalities" },
-    { id: "h-summary", title: "Summary (Revision Points)" },
   ],
   "c11/maths/permutations-and-combinations": [
     { id: "h-intro", title: "6.1 Introduction" },
@@ -480,7 +479,6 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-npr", title: "6.3.3 Permutations of Distinct Objects (nPr)" },
     { id: "h-repeated", title: "6.3.4 Permutations with Repeated Objects" },
     { id: "h-combinations", title: "6.4 Combinations" },
-    { id: "h-summary", title: "Summary (Revision Points)" },
   ],
   "c11/maths/binomial-theorem": [
     { id: "h-intro", title: "7.1 Introduction" },
@@ -488,7 +486,49 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-theorem", title: "7.2 Binomial Theorem" },
     { id: "h-special", title: "Special Cases" },
     { id: "h-coeff-sums", title: "Sum of Binomial Coefficients" },
-    { id: "h-summary", title: "Summary (Revision Points)" },
+  ],
+  "c11/maths/sequences-and-series": [
+    { id: "h-intro", title: "8.1 Introduction" },
+    { id: "h-sequences", title: "8.2 Sequences" },
+    { id: "h-series", title: "8.3 Series" },
+    { id: "h-gp", title: "8.4 Geometric Progression (G.P.)" },
+    { id: "h-gp-general", title: "General Term of a G.P." },
+    { id: "h-gp-sum", title: "Sum to n Terms of a G.P." },
+    { id: "h-sum-special", title: "Sum of Special Series" },
+    { id: "h-gm", title: "Geometric Mean (G.M.)" },
+    { id: "h-am-gm", title: "8.5 Relationship Between A.M. and G.M." },
+  ],
+  "c11/maths/straight-lines": [
+    { id: "h-intro", title: "9.1 Introduction" },
+    { id: "h-slope", title: "9.2 Slope of a Line" },
+    { id: "h-forms", title: "9.3 Various Forms of Equation of a Line" },
+    { id: "h-distance", title: "9.4 Distance of a Point from a Line" },
+  ],
+  "c11/maths/limits-and-derivatives": [
+    { id: "h-intro", title: "12.1 Introduction" },
+    { id: "h-limits", title: "Limits" },
+    { id: "h-trig-limits", title: "Limits of Trigonometric Functions" },
+    { id: "h-derivatives", title: "12.5 Derivatives" },
+  ],
+  "c11/maths/probability": [
+    { id: "h-intro", title: "14.1 Introduction" },
+    { id: "h-events", title: "14.1 Events" },
+    { id: "h-algebra", title: "14.1.3 Algebra of Events" },
+    { id: "h-axioms", title: "14.2 Axiomatic Approach" },
+    { id: "h-addition", title: "14.2.3 Addition Rule" },
+  ],
+  "c11/maths/introduction-to-three-dimensional-geometry": [
+    { id: "h-intro", title: "11.1 Introduction" },
+    { id: "h-axes", title: "11.2 Coordinate Axes and Coordinate Planes" },
+    { id: "h-coordinates", title: "11.3 Coordinates of a Point in Space" },
+    { id: "h-distance", title: "11.4 Distance between Two Points" },
+    { id: "h-misc", title: "Miscellaneous Examples" },
+  ],
+  "c11/maths/statistics": [
+    { id: "h-intro", title: "13.1 Introduction" },
+    { id: "h-range", title: "13.3 Range" },
+    { id: "h-mean-deviation", title: "13.4 Mean Deviation" },
+    { id: "h-variance", title: "13.5 Variance and Standard Deviation" },
   ],
 };
 
@@ -505,6 +545,12 @@ const QUESTION_KEYS = new Set([
   "c11/maths/linear-inequalities",
   "c11/maths/permutations-and-combinations",
   "c11/maths/binomial-theorem",
+  "c11/maths/sequences-and-series",
+  "c11/maths/straight-lines",
+  "c11/maths/limits-and-derivatives",
+  "c11/maths/probability",
+  "c11/maths/introduction-to-three-dimensional-geometry",
+  "c11/maths/statistics",
 ]);
 
 const FLASHCARD_KEYS = new Set(QUESTION_KEYS);
@@ -528,6 +574,16 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
     import("@/content/maths/permutations-and-combinations/questions.json").then((m) => m.default as Question[]),
   "c11/maths/binomial-theorem": () =>
     import("@/content/maths/binomial-theorem/questions.json").then((m) => m.default as Question[]),
+  "c11/maths/sequences-and-series": () =>
+    import("@/content/maths/sequences-and-series/questions.json").then((m) => m.default as Question[]),
+  "c11/maths/straight-lines": () =>
+    import("@/content/maths/straight-lines/questions.json").then((m) => m.default as Question[]),
+  "c11/maths/probability": () =>
+    import("@/content/maths/probability/questions.json").then((m) => m.default as Question[]),
+  "c11/maths/limits-and-derivatives": () =>
+    import("@/content/maths/limits-and-derivatives/questions.json").then((m) => m.default as Question[]),
+  "c11/maths/statistics": () =>
+    import("@/content/maths/statistics/questions.json").then((m) => m.default as Question[]),
 };
 
 const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
@@ -549,6 +605,16 @@ const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
     import("@/content/maths/permutations-and-combinations/flashcards.json").then((m) => m.default as Flashcard[]),
   "c11/maths/binomial-theorem": () =>
     import("@/content/maths/binomial-theorem/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/maths/sequences-and-series": () =>
+    import("@/content/maths/sequences-and-series/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/maths/straight-lines": () =>
+    import("@/content/maths/straight-lines/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/maths/introduction-to-three-dimensional-geometry": () =>
+    import("@/content/maths/introduction-to-three-dimensional-geometry/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/maths/limits-and-derivatives": () =>
+    import("@/content/maths/limits-and-derivatives/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/maths/statistics": () =>
+    import("@/content/maths/statistics/flashcards.json").then((m) => m.default as Flashcard[]),
 };
 
 export function getSectionsForChapter(slug: string): ChapterSection[] {

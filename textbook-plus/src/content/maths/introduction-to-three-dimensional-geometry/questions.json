@@ -1,0 +1,108 @@
+[
+  {
+    "id": "c11/maths/introduction-to-three-dimensional-geometry/q1",
+    "chapterSlug": "introduction-to-three-dimensional-geometry",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The point (−1, 3, −4) lies in which octant?",
+    "options": ["Octant I", "Octant II", "Octant VI", "Octant VIII"],
+    "answer": "Octant VI",
+    "explanation": "x = −1 (negative), y = 3 (positive), z = −4 (negative) → (−, +, −) = Octant VI."
+  },
+  {
+    "id": "c11/maths/introduction-to-three-dimensional-geometry/q2",
+    "chapterSlug": "introduction-to-three-dimensional-geometry",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "How many coordinate planes are formed by three mutually perpendicular axes?",
+    "options": ["2", "3", "4", "6"],
+    "answer": "3",
+    "explanation": "Each pair of axes forms a plane: XY-plane, YZ-plane, and ZX-plane — total 3 coordinate planes."
+  },
+  {
+    "id": "c11/maths/introduction-to-three-dimensional-geometry/q3",
+    "chapterSlug": "introduction-to-three-dimensional-geometry",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The distance between the points (1, −3, 4) and (−1, 3, 4) is:",
+    "options": ["√52", "2√10", "√40", "6"],
+    "answer": "2√10",
+    "explanation": "PQ = √((−1−1)²+(3+3)²+(4−4)²) = √(4+36+0) = √40 = 2√10."
+  },
+  {
+    "id": "c11/maths/introduction-to-three-dimensional-geometry/q4",
+    "chapterSlug": "introduction-to-three-dimensional-geometry",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The coordinates of the point which divides the segment joining (1, −2, 3) and (4, 1, −3) internally in the ratio 1 : 2 are:",
+    "options": ["(2, −1, 1)", "(3, −1, −1)", "(2, −1, −1)", "(1, 0, 3)"],
+    "answer": "(2, −1, 1)",
+    "explanation": "x = (1·4+2·1)/3 = 6/3 = 2, y = (1·1+2·(−2))/3 = −3/3 = −1, z = (1·(−3)+2·3)/3 = 3/3 = 1."
+  },
+  {
+    "id": "c11/maths/introduction-to-three-dimensional-geometry/q5",
+    "chapterSlug": "introduction-to-three-dimensional-geometry",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "A point on the z-axis has coordinates:",
+    "options": ["(a, 0, 0)", "(0, a, 0)", "(0, 0, a)", "(a, a, 0)"],
+    "answer": "(0, 0, a)",
+    "explanation": "On the z-axis, x = 0 and y = 0. Only the z-coordinate is non-zero: (0, 0, a)."
+  },
+  {
+    "id": "c11/maths/introduction-to-three-dimensional-geometry/q6",
+    "chapterSlug": "introduction-to-three-dimensional-geometry",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the distance of the point (−3, 4, −5) from the origin.",
+    "answer": "5√2",
+    "explanation": "OP = √(9+16+25) = √50 = 5√2."
+  },
+  {
+    "id": "c11/maths/introduction-to-three-dimensional-geometry/q7",
+    "chapterSlug": "introduction-to-three-dimensional-geometry",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the centroid of the triangle with vertices (3, −5, 4), (−1, 1, 2), and (−4, −1, −3).",
+    "answer": "(−2/3, −5/3, 1)",
+    "explanation": "G = ((3−1−4)/3, (−5+1−1)/3, (4+2−3)/3) = (−2/3, −5/3, 1)."
+  },
+  {
+    "id": "c11/maths/introduction-to-three-dimensional-geometry/q8",
+    "chapterSlug": "introduction-to-three-dimensional-geometry",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Show that the points A(1, 2, 3), B(−1, −2, −1), C(2, 3, −1) and D(4, 7, 3) are vertices of a parallelogram.",
+    "answer": "AB = CD = 6 and BC = DA = √34 → opposite sides equal → parallelogram.",
+    "explanation": "AB = √(4+16+16) = 6, CD = √(4+16+16) = 6, BC = √(9+25+0) = √34, DA = √(9+25+0) = √34. Both pairs of opposite sides are equal, so ABCD is a parallelogram."
+  },
+  {
+    "id": "c11/maths/introduction-to-three-dimensional-geometry/q9",
+    "chapterSlug": "introduction-to-three-dimensional-geometry",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The number of octants in 3D space is:",
+    "options": ["4", "6", "8", "12"],
+    "answer": "8",
+    "explanation": "Three coordinate planes divide space into 2³ = 8 octants, each identified by a unique combination of signs of x, y, z."
+  },
+  {
+    "id": "c11/maths/introduction-to-three-dimensional-geometry/q10",
+    "chapterSlug": "introduction-to-three-dimensional-geometry",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Find the point on the x-axis equidistant from (2, −3, 4) and (−1, 2, 3).",
+    "answer": "(5/2, 0, 0)",
+    "explanation": "Let point = (a, 0, 0). Distances: √((a−2)²+9+16) = √((a+1)²+4+9). Squaring: (a−2)²+25 = (a+1)²+13 → a²−4a+4+25 = a²+2a+1+13 → −6a = −15 → a = 5/2."
+  }
+]

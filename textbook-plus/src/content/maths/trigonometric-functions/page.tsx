@@ -1,4 +1,5 @@
 import { Callout } from "@/components/content/Callout";
+import { Highlight } from "@/components/content/Highlight";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
 import { FormulaBlock } from "@/components/content/Formula";
@@ -35,8 +36,8 @@ export default function TrigonometricFunctionsChapter() {
         An <strong>angle</strong> is the measure of rotation of a ray about its initial point. The
         original ray is the <strong>initial side</strong>, the final position is the{" "}
         <strong>terminal side</strong>, and the point of rotation is the{" "}
-        <strong>vertex</strong>. Anticlockwise rotation gives a <em>positive</em> angle; clockwise
-        gives a <em>negative</em> angle.
+        <strong>vertex</strong>. <Highlight>Anticlockwise rotation gives a <em>positive</em>{" "}
+        angle; clockwise gives a <em>negative</em> angle</Highlight>.
       </Callout>
 
       <p>
@@ -146,7 +147,7 @@ export default function TrigonometricFunctionsChapter() {
           common angles follows from π/6 steps — never recompute from scratch.
         </Callout>
         <Callout type="tip" title="Radians Rule Everything">
-          In l = rθ (and everywhere later in calculus), θ <strong>must be in radians</strong>.
+          In l = rθ (and everywhere later in calculus), θ <Highlight>must be in radians</Highlight>.
           See degrees? Convert first, every single time.
         </Callout>
         <Callout type="tip" title="Revolution Bridge">
@@ -414,8 +415,9 @@ export default function TrigonometricFunctionsChapter() {
         </tbody>
       </table>
       <p>
-        Each reciprocal inherits the sign of its base function, so the whole table collapses to
-        three rows: sin-row (+ + – –), cos-row (+ – – +), tan-row (+ – + –).
+        <Highlight>Each reciprocal inherits the sign of its base function</Highlight>, so the
+        whole table collapses to three rows: sin-row (+ + – –), cos-row (+ – – +), tan-row
+        (+ – + –).
       </p>
 
       <h3 id="h-3-3-2">3.3.2 Domain and Range of Trigonometric Functions</h3>
@@ -711,8 +713,8 @@ export default function TrigonometricFunctionsChapter() {
 
       <h2 id="h-3-4">3.4 Trigonometric Functions of Sum and Difference of Two Angles</h2>
       <p>
-        Two facts we already own: sin(–x) = –sin x and cos(–x) = cos x. From the unit circle, four
-        addition formulas generate everything else in this chapter.
+        Two facts we already own: sin(–x) = –sin x and cos(–x) = cos x. From the unit circle,
+        <Highlight>four addition formulas generate everything else in this chapter</Highlight>.
       </p>
       <FormulaCard>
         <p className="font-semibold mb-2">The Four Addition Formulas</p>
@@ -721,6 +723,28 @@ export default function TrigonometricFunctionsChapter() {
         <FormulaBlock latex="\sin(x + y) = \sin x \cos y + \cos x \sin y" important />
         <FormulaBlock latex="\sin(x - y) = \sin x \cos y - \cos x \sin y" important />
       </FormulaCard>
+      <Callout type="important" title="Hard-Level Tips">
+        <ul className="list-disc space-y-1 pl-5">
+          <li>
+            <strong>Sign discipline.</strong> For the sine pair the middle sign mirrors the
+            angle: sin(x + y) takes a plus, sin(x − y) takes a minus. Cosine does the opposite —
+            cos(x + y) is the formula that takes the minus. When in doubt, re-derive cos(x − y)
+            from cos(x + y) by substituting −y and using cos(−y) = cos y, sin(−y) = −sin y.
+          </li>
+          <li>
+            <strong>The tan(x + y) trap.</strong> The denominator 1 − tan x tan y vanishes when
+            x + y = π/2, so the formula is undefined exactly where exams love to place the
+            angles. If tan x tan y = 1, switch to the sine/cosine forms (or complementary
+            angles) instead of forcing the tangent formula.
+          </li>
+          <li>
+            <strong>π/2 swaps, π does not.</strong> In the shifted-angle family, shifts by π/2
+            (and 3π/2) force a sin ↔ cos swap, while shifts by π (and 2π) keep the same
+            function. Fix the function first, then read the sign off the quadrant of the
+            resulting angle.
+          </li>
+        </ul>
+      </Callout>
 
       <p>Substituting special angles produces the shifted-angle family:</p>
       <FormulaBlock

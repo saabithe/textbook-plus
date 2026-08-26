@@ -12,6 +12,14 @@ const chapterComponents: Record<string, React.ComponentType> = {
   "maths/linear-inequalities": dynamic(() => import("@/content/maths/linear-inequalities/page")) as React.ComponentType,
   "maths/permutations-and-combinations": dynamic(() => import("@/content/maths/permutations-and-combinations/page")) as React.ComponentType,
   "maths/binomial-theorem": dynamic(() => import("@/content/maths/binomial-theorem/page")) as React.ComponentType,
+  "maths/sequences-and-series": dynamic(() => import("@/content/maths/sequences-and-series/page")) as React.ComponentType,
+  "maths/straight-lines": dynamic(() => import("@/content/maths/straight-lines/page")) as React.ComponentType,
+  "maths/limits-and-derivatives": dynamic(() => import("@/content/maths/limits-and-derivatives/page")) as React.ComponentType,
+  "maths/probability": dynamic(() => import("@/content/maths/probability/page")) as React.ComponentType,
+  "maths/conic-sections": dynamic(() => import("@/content/maths/conic-sections/page")) as React.ComponentType,
+  "maths/introduction-to-three-dimensional-geometry": dynamic(
+    () => import("@/content/maths/introduction-to-three-dimensional-geometry/page")
+  ) as React.ComponentType,
 };
 
 export function Class11ChapterContent({ subject, slug }: { subject: string; slug: string }) {

@@ -1,0 +1,12 @@
+[
+  {"id":"3dg-fc01","front":"What is a coordinate system in 3D?","back":"Three mutually perpendicular lines (x-axis, y-axis, z-axis) meeting at the origin O, forming a right-handed rectangular coordinate system."},
+  {"id":"3dg-fc02","front":"How many coordinate planes are there?","back":"3: XY-plane (z=0), YZ-plane (x=0), ZX-plane (y=0). Each pair of axes forms one plane."},
+  {"id":"3dg-fc03","front":"How many octants in 3D space?","back":"8 octants, formed by the three coordinate planes. Each octant is identified by the signs of (x, y, z)."},
+  {"id":"3dg-fc04","front":"Signs for Octant I","back":"(+, +, +) — all coordinates positive. Octants I–IV have z > 0; V–VIII have z < 0."},
+  {"id":"3dg-fc05","front":"Distance formula in 3D","back":"PQ = √((x₂−x₁)² + (y₂−y₁) + (z₂−z₁)²) — extension of the 2D formula using Pythagorean theorem twice."},
+  {"id":"3dg-fc06","front":"Distance from origin to P(x, y, z)","back":"OP = √(x² + y² + z²)."},
+  {"id":"3dg-fc07","front":"Section formula (internal, ratio m:n)","back":"Point = ((mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n), (mz₂+nz₁)/(m+n))."},
+  {"id":"3dg-fc08","front":"Centroid of a triangle in 3D","back":"G = ((x₁+x₂+x₃)/3, (y₁+y₂+y₃)/3, (z₁+z₂+z₃)/3)."},
+  {"id":"3dg-fc09","front":"Point on x-axis, y-axis, z-axis","back":"x-axis: (a, 0, 0). y-axis: (0, b, 0). z-axis: (0, 0, c). Two coordinates are always zero."},
+  {"id":"3dg-fc10","front":"How to verify a parallelogram in 3D","back":"Check that both pairs of opposite sides are equal using the distance formula: AB = CD and BC = DA."}
+]

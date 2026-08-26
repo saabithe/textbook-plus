@@ -457,6 +457,15 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
         Never combine two negative radicands under one root. Keep them as i-times-positive: √−3·√−2 =
         (√3 i)(√2 i) = −√6, <em>not</em> √6.
       </Callout>
+      <Callout type="important" title="Hard-Level Tips">
+        <strong>1.</strong> When simplifying √a · √b where both a, b &lt; 0, always extract i first:
+        √(−a) · √(−b) = i√a · i√b = −√(ab). The sign flip is the #1 exam pitfall.<br />
+        <strong>2.</strong> For high powers of i, reduce the exponent mod 4 <em>before</em> expanding:
+        i<sup>999</sup> = i<sup>3</sup> = −i — never compute the full power.<br />
+        <strong>3.</strong> When proving |f(z)| = constant (e.g. Example 8), use the modulus shortcut
+        |z₁/z₂| = |z₁|/|z₂| and |z·z̄| = |z|² instead of expanding Re and Im separately —
+        it saves significant algebra.
+      </Callout>
 
       <h3 id="h-4-3-7">4.3.7 Identities</h3>
       <p>For all complex numbers z₁, z₂:</p>
