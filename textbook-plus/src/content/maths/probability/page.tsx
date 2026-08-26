@@ -465,6 +465,7 @@ export default function ProbabilityChapter() {
           <li>A number is selected at random from {"{"}1, 2, 3, &hellip;, 30{"}"}. Find P: (i) divisible by 3, (ii) divisible by 5, (iii) divisible by both 3 and 5.</li>
           <li>Find P(at least one head) in 4 tosses of a fair coin.</li>
           <li>One card is drawn from a well-shuffled pack of 52 cards. If each outcome is equally likely, calculate the probability that the card is a diamond.</li>
+          <li>Find the probability of getting 53 Fridays in a leap year.</li>
         </ol>
         <Expandable title="Answer Key — Exercise 14.2">
           <ol>
@@ -476,6 +477,7 @@ export default function ProbabilityChapter() {
             <li>(i) Div by 3: {"{"}3,6,9,&hellip;,30{"}"} = 10/30 = 1/3. (ii) Div by 5: {"{"}5,10,&hellip;,30{"}"} = 6/30 = 1/5. (iii) Div by both: {"{"}15,30{"}"} = 2/30 = 1/15.</li>
             <li>P(none) = (1/2)&#8308; = 1/16. P(at least one) = 1 − 1/16 = 15/16.</li>
             <li>Diamond cards = 13. P = 13/52 = 1/4.</li>
+            <li>A leap year has 366 days = 52 weeks + 2 days. The 2 extra days form one of 7 equally likely pairs: (Mon,Tue), (Tue,Wed), (Wed,Thu), (Thu,Fri), (Fri,Sat), (Sat,Sun), (Sun,Mon). Friday appears in (Thu,Fri) and (Fri,Sat). P = 2/7.</li>
           </ol>
         </Expandable>
       </Expandable>
