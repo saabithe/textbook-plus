@@ -138,29 +138,28 @@ export default function ProbabilityChapter() {
         If A and B are events (subsets of S), then:
       </Callout>
 
-      <FormulaCard>
-        <p className="font-semibold mb-2">Complement of A</p>
-        <FormulaBlock latex="A' = \{x \in S : x \notin A\}" />
-        <p className="text-sm text-muted-foreground mt-2">The event &quot;not A&quot; — occurs when A does not occur.</p>
-      </FormulaCard>
-
-      <FormulaCard>
-        <p className="font-semibold mb-2">A or B (Union)</p>
-        <FormulaBlock latex="A \cup B = \{x : x \in A \text{ or } x \in B\}" />
-        <p className="text-sm text-muted-foreground mt-2">Occurs when at least one of A, B occurs.</p>
-      </FormulaCard>
-
-      <FormulaCard>
-        <p className="font-semibold mb-2">A and B (Intersection)</p>
-        <FormulaBlock latex="A \cap B = \{x : x \in A \text{ and } x \in B\}" />
-        <p className="text-sm text-muted-foreground mt-2">Occurs when both A and B occur simultaneously.</p>
-      </FormulaCard>
-
-      <FormulaCard>
-        <p className="font-semibold mb-2">A but not B (Difference)</p>
-        <FormulaBlock latex="A - B = A \cap B' = \{x : x \in A \text{ and } x \notin B\}" />
-        <p className="text-sm text-muted-foreground mt-2">Occurs when A happens but B does not.</p>
-      </FormulaCard>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="rounded-lg border bg-card p-4 shadow-sm">
+          <p className="font-semibold mb-1">Complement of A</p>
+          <FormulaBlock latex="A' = \{x \in S : x \notin A\}" />
+          <p className="text-sm text-muted-foreground mt-1">&ldquo;Not A&rdquo; — occurs when A does not occur.</p>
+        </div>
+        <div className="rounded-lg border bg-card p-4 shadow-sm">
+          <p className="font-semibold mb-1">A or B (Union)</p>
+          <FormulaBlock latex="A \cup B = \{x : x \in A \text{ or } x \in B\}" />
+          <p className="text-sm text-muted-foreground mt-1">At least one of A, B occurs.</p>
+        </div>
+        <div className="rounded-lg border bg-card p-4 shadow-sm">
+          <p className="font-semibold mb-1">A and B (Intersection)</p>
+          <FormulaBlock latex="A \cap B = \{x : x \in A \text{ and } x \in B\}" />
+          <p className="text-sm text-muted-foreground mt-1">Both A and B occur simultaneously.</p>
+        </div>
+        <div className="rounded-lg border bg-card p-4 shadow-sm">
+          <p className="font-semibold mb-1">A but not B (Difference)</p>
+          <FormulaBlock latex="A - B = A \cap B' = \{x : x \in A \text{ and } x \notin B\}" />
+          <p className="text-sm text-muted-foreground mt-1">A happens but B does not.</p>
+        </div>
+      </div>
 
       <KeyPoint title="Important Properties">
         <ul className="list-disc pl-5 space-y-1">
