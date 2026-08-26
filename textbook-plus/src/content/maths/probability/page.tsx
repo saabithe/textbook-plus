@@ -435,6 +435,9 @@ export default function ProbabilityChapter() {
           <li>A die is rolled. Events: A = &quot;even number,&quot; B = &quot;number &ge; 4.&quot; Find P(A &cup; B).</li>
           <li>If P(A) = 0.3, P(B) = 0.5, and P(A &cap; B) = 0.2, find: (i) P(A &cup; B), (ii) P(A&apos;), (iii) P(A&apos; &cap; B).</li>
           <li>A bag contains 5 red and 3 blue balls. Two balls are drawn at random. Find P(both red).</li>
+          <li>Let A = {"{x : x is a prime number less than 11}"} and B = {"{x : x is an integer such that 2 &le; x &le; 8}"}. Write A and B in roster form. Find A &cup; B and A &cap; B.</li>
+          <li>Two unbiased dice are thrown. Let A = &quot;getting a prime number on both dice.&quot; Describe A in roster form and find P(A).</li>
+          <li>What is the probability of getting a subset of 3 elements from the power set of a set with 4 elements?</li>
         </ol>
         <Expandable title="Answer Key — Exercise 14.1">
           <ol>
@@ -445,6 +448,9 @@ export default function ProbabilityChapter() {
             <li>A = {"{"}2, 4, 6{"}"}, B = {"{"}4, 5, 6{"}"}. A &cup; B = {"{"}2, 4, 5, 6{"}"}. P = 4/6 = 2/3.</li>
             <li>(i) 0.3 + 0.5 − 0.2 = 0.6. (ii) 1 − 0.3 = 0.7. (iii) P(A&apos; &cap; B) = P(B) − P(A &cap; B) = 0.5 − 0.2 = 0.3.</li>
             <li>Total balls = 8. P(both red) = C(5,2)/C(8,2) = 10/28 = 5/14.</li>
+            <li>A = {"{"}2, 3, 5, 7{"}"} (primes &lt; 11). B = {"{"}2, 3, 4, 5, 6, 7, 8{"}"}. A &cup; B = {"{"}2, 3, 4, 5, 6, 7, 8{"}"}. A &cap; B = {"{"}2, 3, 5, 7{"}"}.</li>
+            <li>Prime numbers on a die: {"{"}2, 3, 5{"}"}. A = {"{"}(2,2), (2,3), (2,5), (3,2), (3,3), (3,5), (5,2), (5,3), (5,5){"}"}. |A| = 9. P(A) = 9/36 = 1/4.</li>
+            <li>A set with 4 elements has 2&#8308; = 16 subsets in its power set. Subsets of size 3: C(4,3) = 4. P = 4/16 = 1/4.</li>
           </ol>
         </Expandable>
       </Expandable>
@@ -458,6 +464,7 @@ export default function ProbabilityChapter() {
           <li>If P(A) = 0.4, P(B) = 0.35, and A, B are mutually exclusive, find P(A &cup; B).</li>
           <li>A number is selected at random from {"{"}1, 2, 3, &hellip;, 30{"}"}. Find P: (i) divisible by 3, (ii) divisible by 5, (iii) divisible by both 3 and 5.</li>
           <li>Find P(at least one head) in 4 tosses of a fair coin.</li>
+          <li>One card is drawn from a well-shuffled pack of 52 cards. If each outcome is equally likely, calculate the probability that the card is a diamond.</li>
         </ol>
         <Expandable title="Answer Key — Exercise 14.2">
           <ol>
@@ -468,6 +475,7 @@ export default function ProbabilityChapter() {
             <li>P(A &cup; B) = 0.4 + 0.35 = 0.75 (mutually exclusive).</li>
             <li>(i) Div by 3: {"{"}3,6,9,&hellip;,30{"}"} = 10/30 = 1/3. (ii) Div by 5: {"{"}5,10,&hellip;,30{"}"} = 6/30 = 1/5. (iii) Div by both: {"{"}15,30{"}"} = 2/30 = 1/15.</li>
             <li>P(none) = (1/2)&#8308; = 1/16. P(at least one) = 1 − 1/16 = 15/16.</li>
+            <li>Diamond cards = 13. P = 13/52 = 1/4.</li>
           </ol>
         </Expandable>
       </Expandable>
