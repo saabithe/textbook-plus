@@ -1,7 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
-import { FormulaBlock } from "@/components/content/Formula";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -20,8 +20,8 @@ export default function PermutationsAndCombinationsChapter() {
 
       <h2 id="h-fpc">6.2 Fundamental Principle of Counting</h2>
       <Callout type="important" title="The Core Idea">
-        If task A can be done in <strong>m</strong> ways, and task B can be done in <strong>n</strong> ways,
-        then doing <strong>A then B</strong> can be done in <strong>m × n</strong> ways.
+        If task A can be done in <Formula>m</Formula> ways, and task B can be done in <Formula>n</Formula> ways,
+        then doing <strong>A then B</strong> can be done in <Formula>m \times n</Formula> ways.
         This extends to any number of tasks: multiply all the ways together.
       </Callout>
 
@@ -36,7 +36,7 @@ export default function PermutationsAndCombinationsChapter() {
           <div className="rounded-md border border-emerald-500/30 bg-emerald-500/5 p-3">
             <p className="font-semibold text-emerald-600 dark:text-emerald-400 text-sm mb-2">Repetition Allowed</p>
             <FormulaBlock latex="n \times n \times \cdots \times n = n^r" />
-            <p className="text-xs text-muted-foreground mt-1">Each place has full n choices, independently.</p>
+            <p className="text-xs text-muted-foreground mt-1">Each place has full <Formula>n</Formula> choices, independently.</p>
             <p className="text-xs mt-2"><strong>Keywords:</strong> &ldquo;can be repeated&rdquo;, &ldquo;with replacement&rdquo;, digits of a lock, PIN codes</p>
           </div>
           <div className="rounded-md border border-amber-500/30 bg-amber-500/5 p-3">
@@ -60,14 +60,14 @@ export default function PermutationsAndCombinationsChapter() {
           </thead>
           <tbody>
             <tr className="border-b border-[var(--border)]/50">
-              <td className="p-2 font-semibold">First digit ≠ 0</td>
-              <td className="p-2">Count first position separately (n−1 choices), then fill rest</td>
-              <td className="p-2">3-digit from &#123;0-5&#125;, no repeat: <strong>5</strong> × 4 × 3 = 60</td>
+              <td className="p-2 font-semibold">First digit <Formula>\neq 0</Formula></td>
+              <td className="p-2">Count first position separately (<Formula>n-1</Formula> choices), then fill rest</td>
+              <td className="p-2">3-digit from &#123;0–5&#125;, no repeat: <strong>5</strong> × 4 × 3 = 60</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2 font-semibold">Must be even</td>
               <td className="p-2">Fill units place first (only even digits available), then fill rest</td>
-              <td className="p-2">3-digit even from &#123;1-6&#125;, no repeat: units=3, tens=5, hund=4 → <strong>60</strong></td>
+              <td className="p-2">3-digit even from &#123;1–6&#125;, no repeat: units=3, tens=5, hund=4 → <strong>60</strong></td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2 font-semibold">Must start with vowel</td>
@@ -77,12 +77,12 @@ export default function PermutationsAndCombinationsChapter() {
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2 font-semibold">Odd number</td>
               <td className="p-2">Units place: only odd digits. Fill that first, then rest</td>
-              <td className="p-2">3-digit odd from &#123;1-7&#125;, no repeat: units=4, tens=6, hund=5 → <strong>120</strong></td>
+              <td className="p-2">3-digit odd from &#123;1–7&#125;, no repeat: units=4, tens=6, hund=5 → <strong>120</strong></td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2 font-semibold">Digits in ascending order</td>
-              <td className="p-2">No constraint needed — just <strong>nCr</strong> (order is fixed)</td>
-              <td className="p-2">3 digits from &#123;1-9&#125; in ascending: 9C3 = <strong>84</strong></td>
+              <td className="p-2">No constraint needed — just <Formula>{`{^{n}C_{r}}`}</Formula> (order is fixed)</td>
+              <td className="p-2">3 digits from &#123;1–9&#125; in ascending: <Formula>{`{^{9}C_{3} = 84}`}</Formula></td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2 font-semibold">Digits divisible by 5</td>
@@ -92,22 +92,22 @@ export default function PermutationsAndCombinationsChapter() {
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2 font-semibold">Between two numbers</td>
               <td className="p-2">Count total in range, subtract those with 0 in first position</td>
-              <td className="p-2">3-digit from &#123;0-5&#125; between 100-500: 5×4×3 − 4×3 = <strong>48</strong></td>
+              <td className="p-2">3-digit from &#123;0–5&#125; between 100–500: 5×4×3 − 4×3 = <strong>48</strong></td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2 font-semibold">Objects together</td>
-              <td className="p-2">Bundle as 1 block. Arrange (block + rest). Multiply by k! inside</td>
-              <td className="p-2">3 vowels together in DAUGHTER: 6! × 3! = <strong>4320</strong></td>
+              <td className="p-2">Bundle as 1 block. Arrange (block + rest). Multiply by <Formula>k!</Formula> inside</td>
+              <td className="p-2">3 vowels together in DAUGHTER: <Formula>6! \times 3! = 4320</Formula></td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2 font-semibold">Objects apart (separation)</td>
-              <td className="p-2">Arrange non-restricted objects first (n!). Place restricted in gaps (n+1Pk)</td>
-              <td className="p-2">3 girls apart from 5 boys: 5! × 6P3 = <strong>14400</strong></td>
+              <td className="p-2">Arrange non-restricted first (<Formula>n!</Formula>). Place restricted in gaps (<Formula>{`{^{n+1}P_{k}}`}</Formula>)</td>
+              <td className="p-2">3 girls apart from 5 boys: <Formula>{`5! \times {^{6}P_{3}} = 14400`}</Formula></td>
             </tr>
             <tr>
               <td className="p-2 font-semibold">No two alike adjacent</td>
               <td className="p-2">Use gap method: arrange unrestricted, then insert restricted in gaps</td>
-              <td className="p-2">3 girls, 5 boys, no two girls together: 5! × 6P3 = <strong>14400</strong></td>
+              <td className="p-2">3 girls, 5 boys, no two girls together: <Formula>{`5! \times {^{6}P_{3}} = 14400`}</Formula></td>
             </tr>
           </tbody>
         </table>
@@ -158,7 +158,7 @@ export default function PermutationsAndCombinationsChapter() {
           Always fill the <strong>most restricted position first</strong>. If the units digit must be even, count that first (fewer choices), then fill remaining positions.
         </Callout>
         <Callout type="tip" title="Repetition = power">
-          If repetition is allowed, each of r places has n choices → n<sup>r</sup>. If not, it drops to nPr = n!/(n−r)!. <strong>Read the problem statement carefully</strong> — one word changes everything.
+          If repetition is allowed, each of <Formula>r</Formula> places has <Formula>n</Formula> choices → <Formula>n^r</Formula>. If not, it drops to <Formula>{`{^{n}P_{r}} = \\frac{n!}{(n-r)!}`}</Formula>. <strong>Read the problem statement carefully</strong> — one word changes everything.
         </Callout>
         <Callout type="tip" title="Leading zero trap">
           For numbers: always check if 0 can appear in the first position. If not, subtract those cases or count the first position separately.
@@ -181,18 +181,18 @@ export default function PermutationsAndCombinationsChapter() {
         <FormulaBlock latex="0! = 1,\quad n! = n \times (n-1)!" />
       </FormulaCard>
       <ul>
-        <li>1! = 1, 2! = 2, 3! = 6, 4! = 24, 5! = 120.</li>
-        <li>7! − 5! = 5040 − 120 = 4920 (not 2!).</li>
+        <li><Formula>1! = 1</Formula>, <Formula>2! = 2</Formula>, <Formula>3! = 6</Formula>, <Formula>4! = 24</Formula>, <Formula>5! = 120</Formula>.</li>
+        <li><Formula>7! - 5! = 5040 - 120 = 4920</Formula> (not <Formula>2!</Formula>).</li>
       </ul>
 
-      <h3 id="h-npr">6.3.1 &amp; 6.3.3 Permutations of Distinct Objects — nPr</h3>
+      <h3 id="h-npr">6.3.1 &amp; 6.3.3 Permutations of Distinct Objects — <Formula>{`{^{n}P_{r}}`}</Formula></h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Permutations (no repetition)</p>
         <FormulaBlock latex="^{n}P_{r} = \frac{n!}{(n-r)!}, \quad 0 \le r \le n" />
-        <p className="text-sm text-muted-foreground mt-2">r vacant places filled in n, n−1, n−2, …, n−r+1 ways.</p>
+        <p className="text-sm text-muted-foreground mt-2"><Formula>r</Formula> vacant places filled in <Formula>n, n-1, n-2, \ldots, n-r+1</Formula> ways.</p>
       </FormulaCard>
       <KeyPoint>
-        When repetition <strong>is</strong> allowed, each of the r places has n choices, so the number of permutations is <strong>n<sup>r</sup></strong>.
+        When repetition <strong>is</strong> allowed, each of the <Formula>r</Formula> places has <Formula>n</Formula> choices, so the number of permutations is <Formula>n^r</Formula>.
       </KeyPoint>
 
       <Expandable title="Examples 4 and 5 — nPr">
@@ -201,7 +201,7 @@ export default function PermutationsAndCombinationsChapter() {
             Find the number of 3-letter words from NUMBER (no repetition).
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            6P3 = 6!/(6−3)! = 6×5×4 = 120.
+            <Formula>{`{^{6}P_{3}} = \\frac{6!}{(6-3)!} = 6 \\times 5 \\times 4 = 120`}</Formula>.
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -210,7 +210,7 @@ export default function PermutationsAndCombinationsChapter() {
             How many ways can a Chairman and Vice-Chairman be chosen from 12 people (one person cannot hold both)?
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            12P2 = 12!/(12−2)! = 12×11 = 132.
+            <Formula>{`{^{12}P_{2}} = \\frac{12!}{(12-2)!} = 12 \\times 11 = 132`}</Formula>.
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -219,7 +219,7 @@ export default function PermutationsAndCombinationsChapter() {
       <FormulaCard>
         <p className="font-semibold mb-2">Division Principle</p>
         <FormulaBlock latex="\text{Permutations} = \frac{n!}{p_1!\, p_2!\, \cdots\, p_k!}" />
-        <p className="text-sm text-muted-foreground mt-2">Where p₁ objects are of one kind, p₂ of another, etc., and the rest are all different.</p>
+        <p className="text-sm text-muted-foreground mt-2">Where <Formula>p_1</Formula> objects are of one kind, <Formula>p_2</Formula> of another, etc., and the rest are all different.</p>
       </FormulaCard>
 
       <Expandable title="Examples 6 and 7 — Repeated Objects">
@@ -229,7 +229,7 @@ export default function PermutationsAndCombinationsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             9 letters: 4 A&apos;s, 2 L&apos;s, rest different.
-            Arrangements = 9!/(4!×2!) = 362880/48 = 7560.
+            <br />Arrangements = <Formula>{`\frac{9!}{4! \times 2!} = \frac{362880}{48} = 7560`}</Formula>.
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -238,7 +238,7 @@ export default function PermutationsAndCombinationsChapter() {
             How many numbers between 100 and 1000 can be formed from &#123;0,1,2,3,4,5&#125; with no repetition?
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            6P3 − 5P2 (subtract those starting with 0) = 120 − 20 = 100.
+            <Formula>{`{^{6}P_{3}} - {^{5}P_{2}}`}</Formula> (subtract those starting with 0) = <Formula>120 - 20 = 100</Formula>.
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -252,27 +252,27 @@ export default function PermutationsAndCombinationsChapter() {
             { label: "Multiply", description: "6! × 3! = 720 × 6 = 4320" },
           ]}
         />
-        <p>If vowels must <em>not</em> be together: 8! − 4320 = 40320 − 4320 = <strong>36000</strong>.</p>
+        <p>If vowels must <em>not</em> be together: <Formula>8! - 4320 = 40320 - 4320 = 36000</Formula>.</p>
       </Expandable>
 
       <SpeedTricks>
         <Callout type="tip" title="Together = bundle">
-          When k objects must be together, treat them as a single block. Arrange the block + remaining objects, then multiply by k! for internal arrangements.
+          When <Formula>k</Formula> objects must be together, treat them as a single block. Arrange the block + remaining objects, then multiply by <Formula>k!</Formula> for internal arrangements.
         </Callout>
         <Callout type="tip" title="Leading zero trap">
           Numbers from a digit set: always subtract those starting with 0. Count total arrangements, then subtract those with 0 in the first position.
         </Callout>
         <Callout type="tip" title="7! − 5! ≠ 2!">
-          Factorials don&apos;t subtract like algebra. 7! − 5! = 5040 − 120 = 4920, not 2!. Never factor out and cancel naively.
+          Factorials don&apos;t subtract like algebra. <Formula>7! - 5! = 5040 - 120 = 4920</Formula>, not <Formula>2!</Formula>. Never factor out and cancel naively.
         </Callout>
       </SpeedTricks>
 
       <Callout type="warning" title="Hard-Level Tips: Permutations Traps">
         <ul className="list-disc pl-5 space-y-1">
           <li><strong>Order matters vs not:</strong> If swapping two objects gives a &ldquo;different&rdquo; result, it&apos;s a permutation. If not, it&apos;s a combination.</li>
-          <li><strong>Repetition check:</strong> Read carefully — &ldquo;with repetition allowed&rdquo; changes the formula from nPr to nʳ.</li>
+          <li><strong>Repetition check:</strong> Read carefully — &ldquo;with repetition allowed&rdquo; changes the formula from <Formula>{`{^{n}P_{r}}`}</Formula> to <Formula>n^r</Formula>.</li>
           <li><strong>Duplicate objects:</strong> When objects repeat, divide by factorials of repeat counts. Missing this overcounts.</li>
-          <li><strong>Division principle:</strong> n!/(p₁! p₂! ⋯ pₖ!) — the denominator accounts for identical objects being indistinguishable.</li>
+          <li><strong>Division principle:</strong> <Formula>{`\frac{n!}{p_1!\, p_2!\, \cdots\, p_k!}`}</Formula> — the denominator accounts for identical objects being indistinguishable.</li>
         </ul>
       </Callout>
 
@@ -284,14 +284,14 @@ export default function PermutationsAndCombinationsChapter() {
       <FormulaCard>
         <p className="font-semibold mb-2">Combinations</p>
         <FormulaBlock latex="^{n}C_{r} = \frac{n!}{r!\,(n-r)!}, \quad 0 \le r \le n" />
-        <p className="text-sm text-muted-foreground mt-2">Relationship: nPr = nCr × r!</p>
+        <p className="text-sm text-muted-foreground mt-2">Relationship: <Formula>{`{^{n}P_{r}} = {^{n}C_{r}} \times r!`}</Formula></p>
       </FormulaCard>
       <KeyPoint>
-        <strong>nCr = nC(n−r)</strong> — selecting r objects is the same as rejecting n−r objects.
-        Also, nC0 = nCn = 1.
+        <Formula>{`{^{n}C_{r}} = {^{n}C_{n-r}}`}</Formula> — selecting <Formula>r</Formula> objects is the same as rejecting <Formula>n-r</Formula> objects.
+        Also, <Formula>{`{^{n}C_{0}} = {^{n}C_{n}} = 1`}</Formula>.
       </KeyPoint>
       <KeyPoint>
-        <strong>Pascal&apos;s identity:</strong> nCr + nCr+1 = n+1Cr+1
+        <strong>Pascal&apos;s identity:</strong> <Formula>{`{^{n}C_{r}} + {^{n}C_{r+1}} = {^{n+1}C_{r+1}}`}</Formula>
       </KeyPoint>
 
       <Expandable title="Examples 8 and 9 — Combinations">
@@ -301,8 +301,8 @@ export default function PermutationsAndCombinationsChapter() {
             How many committees? How many with exactly 1 man and 2 women?
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            Total = 5C3 = 10.
-            With 1 man and 2 women = 2C1 × 3C2 = 2 × 3 = 6.
+            Total = <Formula>{`{^{5}C_{3}} = 10`}</Formula>.
+            <br />With 1 man and 2 women = <Formula>{`{^{2}C_{1}} \times {^{3}C_{2}} = 2 \times 3 = 6`}</Formula>.
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -313,9 +313,9 @@ export default function PermutationsAndCombinationsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "(i) No girl", description: "7C5 = 21" },
-                { label: "(ii) At least 1 boy + 1 girl", description: "7C1×4C4 + 7C2×4C3 + 7C3×4C2 + 7C4×4C1 = 7+84+210+140 = 441" },
-                { label: "(iii) At least 3 girls", description: "4C3×7C2 + 4C4×7C1 = 84+7 = 91" },
+                { label: "(i) No girl", description: "{^7C_5} = 21" },
+                { label: "(ii) At least 1 boy + 1 girl", description: "{^7C_1}×{^4C_4} + {^7C_2}×{^4C_3} + {^7C_3}×{^4C_2} + {^7C_4}×{^4C_1} = 7+84+210+140 = 441" },
+                { label: "(iii) At least 3 girls", description: "{^4C_3}×{^7C_2} + {^4C_4}×{^7C_1} = 84+7 = 91" },
               ]}
             />
           </ProblemSolution.Solution>
@@ -323,25 +323,25 @@ export default function PermutationsAndCombinationsChapter() {
       </Expandable>
 
       <Expandable title="Example — Card Selection (52-card pack)">
-        <p>4 cards from 52: <strong>52C4 = 270725</strong>.</p>
+        <p>4 cards from 52: <Formula>{`{^{52}C_{4}} = 270725`}</Formula>.</p>
         <ul className="list-disc pl-5">
-          <li>Four of same suit: 4 × 13C4 = 4 × 715 = 2860.</li>
-          <li>One from each suit: 13C1 × 13C1 × 13C1 × 13C1 = 13⁴ = 28561.</li>
-          <li>Four face cards: 12C4 = 495.</li>
-          <li>2 red + 2 black: 26C2 × 26C2 = 325 × 325 = 105625.</li>
-          <li>All same colour: 26C4 + 26C4 = 2 × 14950 = 29900.</li>
+          <li>Four of same suit: <Formula>{`4 \times {^{13}C_4} = 4 \times 715 = 2860`}</Formula>.</li>
+          <li>One from each suit: <Formula>{`{^{13}C_1} \times {^{13}C_1} \times {^{13}C_1} \times {^{13}C_1} = 13^4 = 28561`}</Formula>.</li>
+          <li>Four face cards: <Formula>{`{^{12}C_4} = 495`}</Formula>.</li>
+          <li>2 red + 2 black: <Formula>{`{^{26}C_2} \times {^{26}C_2} = 325 \times 325 = 105625`}</Formula>.</li>
+          <li>All same colour: <Formula>{`{^{26}C_4} + {^{26}C_4} = 2 \times 14950 = 29900`}</Formula>.</li>
         </ul>
       </Expandable>
 
       <SpeedTricks>
         <Callout type="tip" title="Combination = divide by r!">
-          nPr counts ordered arrangements. If order doesn&apos;t matter, divide by r! to get nCr. Think: &ldquo;I counted each group r! times.&rdquo;
+          <Formula>{`{^{n}P_{r}}`}</Formula> counts ordered arrangements. If order doesn&apos;t matter, divide by <Formula>r!</Formula> to get <Formula>{`{^{n}C_{r}}`}</Formula>. Think: &ldquo;I counted each group <Formula>r!</Formula> times.&rdquo;
         </Callout>
         <Callout type="tip" title="nCr = nC(n−r) shortcut">
-          Use the smaller r for quicker calculation. 10C8 = 10C2 = 45, not 10!/(8!2!) computed longhand.
+          Use the smaller <Formula>r</Formula> for quicker calculation. <Formula>{`{^{10}C_8} = {^{10}C_2} = 45`}</Formula>, not <Formula>{`\frac{10!}{8!\,2!}`}</Formula> computed longhand.
         </Callout>
         <Callout type="tip" title="At least = complementary counting">
-          &ldquo;At least 1&rdquo; problems: compute 1 − P(none) or total − (cases with none). Often simpler than summing all positive cases.
+          &ldquo;At least 1&rdquo; problems: compute <Formula>{`1 - P(\\text{none})`}</Formula> or total − (cases with none). Often simpler than summing all positive cases.
         </Callout>
       </SpeedTricks>
 
@@ -354,10 +354,10 @@ export default function PermutationsAndCombinationsChapter() {
         </ol>
         <Expandable title="Answer Key — Miscellaneous Exercise">
           <ol>
-            <li>(a) 5³ = 125. (b) 5P3 = 60.</li>
-            <li>9!/(2!×2!×2!) = 45360.</li>
-            <li>5! × 6P3 = 120 × 120 = 14400.</li>
-            <li>(7−1)! = 6! = 720.</li>
+            <li>(a) <Formula>5^3 = 125</Formula>. (b) <Formula>{`{^{5}P_3} = 60`}</Formula>.</li>
+            <li><Formula>{`\frac{9!}{2! \times 2! \times 2!} = 45360`}</Formula>.</li>
+            <li><Formula>{`5! \times {^{6}P_3} = 120 \times 120 = 14400`}</Formula>.</li>
+            <li><Formula>(7-1)! = 6! = 720</Formula>.</li>
           </ol>
         </Expandable>
       </Expandable>
@@ -366,8 +366,8 @@ export default function PermutationsAndCombinationsChapter() {
         <ul className="list-disc pl-5 space-y-1">
           <li><strong>Committee vs selection:</strong> If the problem says &ldquo;committee,&rdquo; order doesn&apos;t matter → combination. If it says &ldquo;president + secretary,&rdquo; order matters → permutation.</li>
           <li><strong>At least 1:</strong> Use complementary counting — total minus (none of that type). Much faster than summing all positive cases.</li>
-          <li><strong>Pascal&apos;s identity:</strong> nCr + nCr+1 = n+1Cr+1 — useful for proving identities and simplifying sums.</li>
-          <li><strong>nC0 = nCn = 1:</strong> Choosing nothing or choosing everything — both have exactly one way.</li>
+          <li><strong>Pascal&apos;s identity:</strong> <Formula>{`{^{n}C_{r}} + {^{n}C_{r+1}} = {^{n+1}C_{r+1}}`}</Formula> — useful for proving identities and simplifying sums.</li>
+          <li><strong><Formula>{`{^{n}C_0} = {^{n}C_n} = 1`}</Formula>:</strong> Choosing nothing or choosing everything — both have exactly one way.</li>
         </ul>
       </Callout>
     </>
