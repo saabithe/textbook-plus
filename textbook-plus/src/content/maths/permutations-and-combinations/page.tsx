@@ -53,69 +53,70 @@ export default function PermutationsAndCombinationsChapter() {
         </div>
       </div>
 
-      <h3 id="h-fpc-variants">Variant Matrix — Common Problem Types</h3>
+      <h3 id="h-fpc-constraints">Constraint Solver — How to Handle Every Restriction</h3>
       <div className="my-4 rounded-lg border border-[var(--border)] bg-[var(--card)] p-4 overflow-x-auto">
         <table className="w-full text-sm border-collapse">
           <thead>
             <tr className="border-b border-[var(--border)]">
-              <th className="text-left p-2 font-semibold">Variant</th>
-              <th className="text-left p-2 font-semibold">Repetition?</th>
-              <th className="text-left p-2 font-semibold">Formula</th>
-              <th className="text-left p-2 font-semibold">Example</th>
+              <th className="text-left p-2 font-semibold">Constraint Type</th>
+              <th className="text-left p-2 font-semibold">How to Handle</th>
+              <th className="text-left p-2 font-semibold">Worked Example</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-[var(--border)]/50">
-              <td className="p-2">r-digit numbers from n digits</td>
-              <td className="p-2"><span className="text-emerald-500 font-semibold">Allowed</span></td>
-              <td className="p-2 font-mono text-xs">n<sup>r</sup></td>
-              <td className="p-2">4-digit PIN from {0-9}: 10<sup>4</sup> = 10000</td>
+              <td className="p-2 font-semibold">First digit ≠ 0</td>
+              <td className="p-2">Count first position separately (n−1 choices), then fill rest</td>
+              <td className="p-2">3-digit from &#123;0-5&#125;, no repeat: <strong>5</strong> × 4 × 3 = 60</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
-              <td className="p-2">r-digit numbers from n digits</td>
-              <td className="p-2"><span className="text-amber-500 font-semibold">Not allowed</span></td>
-              <td className="p-2 font-mono text-xs">nPr = n!/(n-r)!</td>
-              <td className="p-2">3-letter code from ROSE (distinct): 4P3 = 24</td>
+              <td className="p-2 font-semibold">Must be even</td>
+              <td className="p-2">Fill units place first (only even digits available), then fill rest</td>
+              <td className="p-2">3-digit even from &#123;1-6&#125;, no repeat: units=3, tens=5, hund=4 → <strong>60</strong></td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
-              <td className="p-2">r-letter words from n letters</td>
-              <td className="p-2"><span className="text-emerald-500 font-semibold">Allowed</span></td>
-              <td className="p-2 font-mono text-xs">n<sup>r</sup></td>
-              <td className="p-2">3-letter words from &#123;A,B,C&#125;: 3<sup>3</sup> = 27</td>
+              <td className="p-2 font-semibold">Must start with vowel</td>
+              <td className="p-2">First position: only vowels (2 or 3 choices). Rest: remaining letters</td>
+              <td className="p-2">4-letter from ROSE, starts with vowel: <strong>2</strong> × 3 × 2 × 1 = 12</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
-              <td className="p-2">r-letter words from n letters</td>
-              <td className="p-2"><span className="text-amber-500 font-semibold">Not allowed</span></td>
-              <td className="p-2 font-mono text-xs">nPr</td>
-              <td className="p-2">4-letter words from ROSE: 4P4 = 24</td>
+              <td className="p-2 font-semibold">Odd number</td>
+              <td className="p-2">Units place: only odd digits. Fill that first, then rest</td>
+              <td className="p-2">3-digit odd from &#123;1-7&#125;, no repeat: units=4, tens=6, hund=5 → <strong>120</strong></td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
-              <td className="p-2">Dress outfit (top + bottom + shoes)</td>
-              <td className="p-2"><span className="text-emerald-500 font-semibold">Allowed</span></td>
-              <td className="p-2 font-mono text-xs">n<sub>1</sub> × n<sub>2</sub> × n<sub>3</sub></td>
-              <td className="p-2">3 shirts × 2 pants × 4 shoes = 24</td>
+              <td className="p-2 font-semibold">Digits in ascending order</td>
+              <td className="p-2">No constraint needed — just <strong>nCr</strong> (order is fixed)</td>
+              <td className="p-2">3 digits from &#123;1-9&#125; in ascending: 9C3 = <strong>84</strong></td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
-              <td className="p-2">Digits with constraints (even, leading zero)</td>
-              <td className="p-2"><span className="text-emerald-500 font-semibold">Allowed</span></td>
-              <td className="p-2 font-mono text-xs">n<sup>r</sup> (with constraints per position)</td>
-              <td className="p-2">3-digit even from {1-5}: units=2 choices, tens=5, hundreds=5 → 50</td>
+              <td className="p-2 font-semibold">Digits divisible by 5</td>
+              <td className="p-2">Units must be 0 or 5. Split into two cases: (units=0) + (units=5)</td>
+              <td className="p-2">3-digit from &#123;0,1,2,5,8&#125;: units=0 → 4×3=12; units=5 → 3×2=6 → <strong>18</strong></td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2 font-semibold">Between two numbers</td>
+              <td className="p-2">Count total in range, subtract those with 0 in first position</td>
+              <td className="p-2">3-digit from &#123;0-5&#125; between 100-500: 5×4×3 − 4×3 = <strong>48</strong></td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2 font-semibold">Objects together</td>
+              <td className="p-2">Bundle as 1 block. Arrange (block + rest). Multiply by k! inside</td>
+              <td className="p-2">3 vowels together in DAUGHTER: 6! × 3! = <strong>4320</strong></td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2 font-semibold">Objects apart (separation)</td>
+              <td className="p-2">Arrange non-restricted objects first (n!). Place restricted in gaps (n+1Pk)</td>
+              <td className="p-2">3 girls apart from 5 boys: 5! × 6P3 = <strong>14400</strong></td>
             </tr>
             <tr>
-              <td className="p-2">Digits with constraints</td>
-              <td className="p-2"><span className="text-amber-500 font-semibold">Not allowed</span></td>
-              <td className="p-2 font-mono text-xs">nPr (with constraints per position)</td>
-              <td className="p-2">3-digit from {0-5}, no repeat, first≠0: 5×4×3 = 60</td>
+              <td className="p-2 font-semibold">No two alike adjacent</td>
+              <td className="p-2">Use gap method: arrange unrestricted, then insert restricted in gaps</td>
+              <td className="p-2">3 girls, 5 boys, no two girls together: 5! × 6P3 = <strong>14400</strong></td>
             </tr>
           </tbody>
         </table>
       </div>
-
-      <h3 id="h-fpc-constraints">Constraints Per Position — The Real Skill</h3>
-      <Callout type="important" title="Key Insight">
-        Most exam problems add <strong>constraints</strong> (even number, first digit ≠ 0, specific letter at start).
-        The trick: <Highlight>count choices for the most restricted position first</Highlight>, then move to less restricted positions.
-      </Callout>
 
       <Expandable title="Examples 1 to 3 — Fundamental Principle">
         <ProblemSolution problemNumber="Example 1">
