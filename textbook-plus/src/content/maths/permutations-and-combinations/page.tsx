@@ -12,11 +12,6 @@ export default function PermutationsAndCombinationsChapter() {
   return (
     <>
       <h2 id="h-intro">6.1 Introduction</h2>
-      <Callout type="note" title="Number Lock Problem">
-        A suitcase has a 4-wheel lock with digits 0–9. You remember only the first digit is 7.
-        How many 3-digit sequences must you check?
-        Listing them all is tedious — we need <strong>counting techniques</strong> that work without listing.
-      </Callout>
       <p>
         This chapter introduces the <Highlight>fundamental principle of counting</Highlight>,
         then builds up <strong>permutations</strong> (arrangements where order matters)
