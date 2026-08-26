@@ -207,19 +207,20 @@ export default function ProbabilityChapter() {
         </Callout>
       </SpeedTricks>
 
-      <h3 id="h-mutually-exclusive">14.1.4 Mutually Exclusive Events</h3>
-      <Callout type="important" title="Definition">
-        Two events A and B are <Highlight>mutually exclusive</Highlight> if they cannot occur simultaneously:
-        <FormulaBlock latex="A \cap B = \emptyset" />
-        <p>When A and B are mutually exclusive, A &cup; B is their combined event with no overlap.</p>
-      </Callout>
-
-      <h3 id="h-exhaustive">14.1.5 Exhaustive Events</h3>
-      <Callout type="important" title="Definition">
-        Events A&#8321;, A&#8322;, &hellip;, A&#8345; are <Highlight>exhaustive</Highlight> if their union covers the entire sample space:
-        <FormulaBlock latex="A_1 \cup A_2 \cup \cdots \cup A_n = S" />
-        <p>At least one of them must occur.</p>
-      </Callout>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="rounded-lg border bg-card p-4 shadow-sm">
+          <p className="font-semibold mb-1">14.1.4 Mutually Exclusive Events</p>
+          <p className="text-sm mb-1">Two events A and B are <Highlight>mutually exclusive</Highlight> if they cannot occur simultaneously:</p>
+          <FormulaBlock latex="A \cap B = \emptyset" />
+          <p className="text-sm text-muted-foreground mt-1">A &cup; B is their combined event with no overlap.</p>
+        </div>
+        <div className="rounded-lg border bg-card p-4 shadow-sm">
+          <p className="font-semibold mb-1">14.1.5 Exhaustive Events</p>
+          <p className="text-sm mb-1">Events A&#8321;, A&#8322;, &hellip;, A&#8345; are <Highlight>exhaustive</Highlight> if their union covers the entire sample space:</p>
+          <FormulaBlock latex="A_1 \cup A_2 \cup \cdots \cup A_n = S" />
+          <p className="text-sm text-muted-foreground mt-1">At least one of them must occur.</p>
+        </div>
+      </div>
 
       <KeyPoint title="Mutually Exclusive + Exhaustive">
         If events are <strong>both</strong> mutually exclusive and exhaustive, they partition the sample space into non-overlapping parts that cover everything. For example, when rolling a die: {"{"}1{"}"}, {"{"}2{"}"}, {"{"}3{"}"}, {"{"}4{"}"}, {"{"}5{"}"}, {"{"}6{"}"} are mutually exclusive and exhaustive.
