@@ -98,6 +98,30 @@ export default function ProbabilityChapter() {
             Exactly two heads: E = {"{"}HHT, HTH, THH{"}"}.
           </ProblemSolution.Solution>
         </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 4">
+          <ProblemSolution.Problem>
+            A coin is tossed and then a die is rolled only in case a head is shown on the coin. Find the sample space.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            If tail appears (T), the experiment stops — no die roll. If head appears (H), the die is rolled giving H1, H2, &hellip;, H6.
+            <br />
+            Sample space = {"{"}T, H1, H2, H3, H4, H5, H6{"}"}.
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 5">
+          <ProblemSolution.Problem>
+            An experiment consists of rolling a die and then tossing a coin once if the number on the die is even. If the number on the die is odd, the coin is tossed twice. Write the sample space for this experiment.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            Even die outcomes (2, 4, 6) &rarr; one coin toss: {"{"}2H, 2T, 4H, 4T, 6H, 6T{"}"}.
+            <br />
+            Odd die outcomes (1, 3, 5) &rarr; two coin tosses: {"{"}1HH, 1HT, 1TH, 1TT, 3HH, 3HT, 3TH, 3TT, 5HH, 5HT, 5TH, 5TT{"}"}.
+            <br />
+            Total |S| = 6 + 12 = 18 outcomes.
+          </ProblemSolution.Solution>
+        </ProblemSolution>
       </Expandable>
 
       <SpeedTricks>
@@ -463,6 +487,60 @@ export default function ProbabilityChapter() {
             <li>|S| = 36. Product = 6: {"{"}(1,6),(2,3),(3,2),(6,1){"}"} = 4 outcomes. P = 4/36 = 1/9.</li>
             <li>P(both aces) = P(1st ace) &times; P(2nd ace | 1st ace) = (4/52) &times; (3/51) = 12/2652 = 1/221.</li>
             <li>P(A &cap; B) = P(A) &times; P(B) = (3/5)(1/5) = 3/25.</li>
+          </ol>
+        </Expandable>
+      </Expandable>
+
+      <Expandable id="h-ex-14-misc" title="Miscellaneous Exercise on Chapter 14">
+        <ol>
+          <li>A box contains 10 red marbles, 20 blue marbles and 30 green marbles. 5 marbles are drawn from the box. What is the probability that (i) all will be blue? (ii) at least one will be green?</li>
+          <li>4 cards are drawn from a well-shuffled deck of 52 cards. What is the probability of obtaining 3 diamonds and one spade?</li>
+          <li>A die has two faces each with number &lsquo;1&rsquo;, three faces each with number &lsquo;2&rsquo; and one face with number &lsquo;3&rsquo;. If the die is rolled once, determine (i) P(2), (ii) P(1 or 3), (iii) P(not 3).</li>
+          <li>In a certain lottery 10,000 tickets are sold and ten equal prizes are awarded. What is the probability of not getting a prize if you buy (a) one ticket, (b) two tickets, (c) 10 tickets?</li>
+          <li>Out of 100 students, two sections of 40 and 60 are formed. If you and your friend are among the 100 students, what is the probability that (a) you both enter the same section? (b) you both enter different sections?</li>
+          <li>Three letters are dictated to three persons and an envelope is addressed to each of them. The letters are inserted into the envelopes at random so that each envelope contains exactly one letter. Find the probability that at least one letter is in its proper envelope.</li>
+          <li>A and B are two events such that P(A) = 0.54, P(B) = 0.69 and P(A &cap; B) = 0.35. Find (i) P(A &cup; B), (ii) P(A&apos; &cap; B&apos;), (iii) P(A &cap; B&apos;), (iv) P(B &cap; A&apos;).</li>
+          <li>From the employees of a company, 5 persons are selected to represent them in the managing committee. Particulars of five persons are as follows:
+            <table className="my-2">
+              <thead><tr><th>S. No.</th><th>Name</th><th>Sex</th><th>Age</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Harish</td><td>M</td><td>30</td></tr>
+                <tr><td>2</td><td>Rohan</td><td>M</td><td>33</td></tr>
+                <tr><td>3</td><td>Sheetal</td><td>F</td><td>46</td></tr>
+                <tr><td>4</td><td>Alis</td><td>F</td><td>28</td></tr>
+                <tr><td>5</td><td>Salim</td><td>M</td><td>41</td></tr>
+              </tbody>
+            </table>
+            A person is selected at random to act as a spokesperson. What is the probability that the spokesperson will be either male or over 35 years?</li>
+          <li>If 4-digit numbers greater than 5,000 are randomly formed from the digits 0, 1, 3, 5, and 7, what is the probability of forming a number divisible by 5 when (i) the digits are repeated? (ii) the repetition of digits is not allowed?</li>
+          <li>The number lock of a suitcase has 4 wheels, each labelled with ten digits (0 to 9). The lock opens with a sequence of four digits with no repeats. What is the probability of a person getting the right sequence to open the suitcase?</li>
+        </ol>
+        <Expandable title="Answer Key — Miscellaneous Exercise">
+          <ol>
+            <li>Total = C(60,5) = 5461512.
+              <br />(i) P(all blue) = C(20,5)/C(60,5) = 15504/5461512 &asymp; 0.00284.
+              <br />(ii) P(at least one green) = 1 &minus; P(no green) = 1 &minus; C(30,5)/C(60,5) = 1 &minus; 142506/5461512 &asymp; 0.9739.</li>
+            <li>Ways = C(13,3) &times; C(13,1) = 286 &times; 13 = 3718. Total = C(52,4) = 270725. P = 3718/270725 &asymp; 0.0137.</li>
+            <li>Die has 6 faces: two 1s, three 2s, one 3.
+              <br />(i) P(2) = 3/6 = 1/2.
+              <br />(ii) P(1 or 3) = (2+1)/6 = 3/6 = 1/2.
+              <br />(iii) P(not 3) = 1 &minus; 1/6 = 5/6.</li>
+            <li>(a) P(not with 1 ticket) = 9990/10000 = 999/1000.
+              <br />(b) P(not with 2) = (9990/10000) &times; (9989/9999) &asymp; 0.998.
+              <br />(c) P(not with 10) &asymp; 0.99 (product of 10 terms).</li>
+            <li>Total ways = C(100,2) = 4950.
+              <br />(a) Same section: [C(40,2) + C(60,2)]/4950 = (780+1770)/4950 = 2550/4950 = 17/33.
+              <br />(b) Different: 1 &minus; 17/33 = 16/33.</li>
+            <li>3 letters, 3 envelopes. D(3) = 2 derangements. P(all wrong) = 2/6 = 1/3. P(at least one correct) = 1 &minus; 1/3 = 2/3.</li>
+            <li>(i) 0.54 + 0.69 &minus; 0.35 = 0.88.
+              <br />(ii) 1 &minus; 0.88 = 0.12.
+              <br />(iii) 0.54 &minus; 0.35 = 0.19.
+              <br />(iv) 0.69 &minus; 0.35 = 0.34.</li>
+            <li>Males: Harish, Rohan, Salim (3). Over 35: Sheetal (46), Salim (41) (2). Male or over 35: Harish, Rohan, Sheetal, Salim = 4 persons. P = 4/5.</li>
+            <li>First digit must be 5 or 7.
+              <br />(i) Repeated: total = 2 &times; 5&#179; = 250. Divisible by 5 (last = 0 or 5): last=0 &rarr; 2&times;25=50; last=5 &rarr; 2&times;25=50. P = 100/250 = 2/5.
+              <br />(ii) No repeat: total = 2 &times; 4&times;3&times;2 = 48. Divisible by 5: last=0 &rarr; 2&times;6=12; last=5 &rarr; only when first=7 &rarr; 6. P = 18/48 = 3/8.</li>
+            <li>Total sequences = 10 &times; 9 &times; 8 &times; 7 = 5040. P = 1/5040.</li>
           </ol>
         </Expandable>
       </Expandable>
