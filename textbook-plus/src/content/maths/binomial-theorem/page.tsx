@@ -167,6 +167,49 @@ export default function BinomialTheoremChapter() {
         </ul>
       </Callout>
 
+      <Expandable id="h-exercise-7-1" title="Exercise 7.1">
+        <p><strong>Expand using binomial theorem:</strong></p>
+        <ol>
+          <li>(1 − 2x)⁵</li>
+          <li>(2/x − x/2)⁵</li>
+          <li>(2x − 3)⁶</li>
+          <li>(x/3 + 1/x)⁵</li>
+          <li>(x + 1/x)⁶</li>
+        </ol>
+        <p><strong>Using binomial theorem, evaluate:</strong></p>
+        <ol start={6}>
+          <li>(96)³</li>
+          <li>(102)⁵</li>
+          <li>(101)⁴</li>
+          <li>(99)⁵</li>
+        </ol>
+        <ol start={10}>
+          <li>Which is larger, (1.1)¹⁰⁰⁰⁰ or 1000?</li>
+          <li>Find (a + b)⁴ − (a − b)⁴. Hence, evaluate (√3 + √2)⁴ − (√3 − √2)⁴.</li>
+          <li>Find (x + 1)⁶ + (x − 1)⁶. Hence or otherwise evaluate (√2 + 1)⁶ + (√2 − 1)⁶.</li>
+          <li>Show that 9ⁿ⁺¹ − 8n − 9 is divisible by 64, whenever n is a positive integer.</li>
+          <li>Prove that Σ from r = 0 to n of 3ʳ · ⁿCᵣ = 4ⁿ.</li>
+        </ol>
+        <Expandable title="Answer Key — Exercise 7.1">
+          <ol>
+            <li>1 − 10x + 40x² − 80x³ + 80x⁴ − 32x⁵</li>
+            <li>32/x⁵ − 40/x³ + 20/x − 5x + 5x³/8 − x⁵/32</li>
+            <li>64x⁶ − 576x⁵ + 2160x⁴ − 4320x³ + 4860x² − 2916x + 729</li>
+            <li>x⁵/243 + 5x³/81 + 10x/27 + 10/(9x) + 5/(3x³) + 1/x⁵</li>
+            <li>x⁶ + 6x⁴ + 15x² + 20 + 15/x² + 6/x⁴ + 1/x⁶</li>
+            <li>(100 − 4)³ = 1000000 − 120000 + 4800 − 64 = <strong>884736</strong></li>
+            <li>(100 + 2)⁵ = 10000000000 + 1000000000 + 40000000 + 800000 + 8000 + 32 = <strong>11040808032</strong></li>
+            <li>(100 + 1)⁴ = 100000000 + 4000000 + 60000 + 400 + 1 = <strong>104060401</strong></li>
+            <li>(100 − 1)⁵ = 10000000000 − 500000000 + 10000000 − 100000 + 500 − 1 = <strong>9509900499</strong></li>
+            <li>(1.1)¹⁰⁰⁰⁰ = (1 + 0.1)¹⁰⁰⁰⁰ = 1 + 10000 × 0.1 + … = 1 + 1000 + (positive terms) &gt; 1000. Hence <strong>(1.1)¹⁰⁰⁰⁰ &gt; 1000</strong>.</li>
+            <li>(a+b)⁴ − (a−b)⁴ = 2(⁴C₁a³b + ⁴C₃ab³) = 8ab(a² + b²). For a = √3, b = √2: 8√6(3+2) = <strong>40√6</strong>.</li>
+            <li>(x+1)⁶ + (x−1)⁶ = 2(x⁶ + 15x⁴ + 15x² + 1). For x = √2: 2(8 + 60 + 30 + 1) = <strong>198</strong>.</li>
+            <li>Write 9ⁿ⁺¹ = (8+1)ⁿ⁺¹ = 1 + (n+1)·8 + 8²·k = 8n + 9 + 64k for some natural number k. Hence 9ⁿ⁺¹ − 8n − 9 = 64k, which is divisible by 64.</li>
+            <li>By binomial theorem, (1+3)ⁿ = Σ ⁿCᵣ · 1ⁿ⁻ʳ · 3ʳ = Σ 3ʳ · ⁿCᵣ. Hence Σ 3ʳ · ⁿCᵣ = 4ⁿ.</li>
+          </ol>
+        </Expandable>
+      </Expandable>
+
       <Expandable id="h-ex-7" title="Miscellaneous Exercise on Chapter 7">
         <ol>
           <li>Expand (1 − 2x)⁵ using the binomial theorem.</li>

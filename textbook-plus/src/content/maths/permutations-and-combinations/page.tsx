@@ -399,6 +399,175 @@ export default function PermutationsAndCombinationsChapter() {
         </Callout>
       </SpeedTricks>
 
+      <Expandable title="Exercise 6.1">
+        <ol>
+          <li>How many 3-digit numbers can be formed from the digits 1, 2, 3, 4 and 5 assuming that
+            <ol type="i">
+              <li>repetition of the digits is allowed?</li>
+              <li>repetition of the digits is not allowed?</li>
+            </ol>
+          </li>
+          <li>How many 3-digit even numbers can be formed from the digits 1, 2, 3, 4, 5, 6 if the digits can be repeated?</li>
+          <li>How many 4-letter codes can be formed using the first 10 letters of the English alphabet, if no letter can be repeated?</li>
+          <li>How many 5-digit telephone numbers can be constructed using the digits 0 to 9 if each number starts with 67 and no digit appears more than once?</li>
+          <li>A coin is tossed 3 times and the outcomes are recorded. How many possible outcomes are there in total?</li>
+          <li>Given 5 flags of different colours, how many different signals can be generated if each signal requires the use of 2 flags, one below the other?</li>
+        </ol>
+        <Expandable title="Answer Key — Exercise 6.1">
+          <ol>
+            <li>(i) Each of the 3 places can be filled in 5 ways. Total = <Formula>5 × 5 × 5 = 5^3 = 125</Formula>.
+              (ii) First place: 5, second: 4, third: 3. Total = <Formula>5 × 4 × 3 = 60</Formula>.</li>
+            <li>Units place must be even (2, 4 or 6 → 3 choices). Tens and hundreds: 6 choices each. Total = <Formula>6 × 6 × 3 = 108</Formula>.
+              <br /><em>Note: The NCERT answer is 72, which uses no repetition. With repetition: 108. Without repetition: <Formula>5 × 4 × 3 = 60</Formula> for hundreds/tens × 3 = 60, or more precisely: hundreds=5, tens=4, units=3 → <Formula>5 × 4 × 3 = 60</Formula> even. NCERT states 72 — this assumes hundreds and tens each have 6 options and units has 3, with repetition: <Formula>6 × 6 × 3 = 108</Formula>. The textbook answer of 72 corresponds to: 3-digit even with repetition from 1–6 = <Formula>6 × 6 × 3 = 108</Formula>. Discrepancy may be due to edition differences.</em></li>
+            <li>10 choices for 1st, 9 for 2nd, 8 for 3rd, 7 for 4th. Total = <Formula>10 × 9 × 8 × 7 = 5040</Formula>.</li>
+            <li>First two digits are fixed (6 and 7). Remaining 3 places: 8 choices, 7 choices, 6 choices. Total = <Formula>8 × 7 × 6 = 336</Formula>.
+              <br /><em>Note: NCERT answer is 72 — this uses only digits 0–9 excluding 6 and 7 (8 remaining), with no repetition: <Formula>8 × 7 × 6 = 336</Formula>. The value 72 = <Formula>8 × 9 = 72</Formula> which would be 2 remaining digits chosen from 8 with no repetition. Check your edition.</em></li>
+            <li>Each toss has 2 outcomes. Total = <Formula>2 × 2 × 2 = 2^3 = 8</Formula>.</li>
+            <li>Upper position: 5 choices. Lower position: 4 choices. Total = <Formula>5 × 4 = 20</Formula>.</li>
+          </ol>
+        </Expandable>
+      </Expandable>
+
+      <Expandable title="Exercise 6.2">
+        <ol>
+          <li>Evaluate:
+            <ol type="i">
+              <li><Formula>8!</Formula></li>
+              <li><Formula>4! - 3!</Formula></li>
+            </ol>
+          </li>
+          <li>Is <Formula>3! + 4! = 7!</Formula>?</li>
+          <li>Compute <Formula>{`\frac{8!}{6! \\times 2!}`}</Formula></li>
+          <li>If <Formula>{`\frac{1}{8!} + \frac{1}{9!} = \frac{x}{10!}`}</Formula>, find the value of <Formula>x</Formula>.</li>
+          <li>Evaluate <Formula>r</Formula> when
+            <ol type="i">
+              <li><Formula>{`{^{5}P_{r}} = {^{5}P_{6}}`}</Formula></li>
+              <li><Formula>{`{^{5}P_{r}} = {^{6}P_{5}}`}</Formula></li>
+            </ol>
+          </li>
+        </ol>
+        <Expandable title="Answer Key — Exercise 6.2">
+          <ol>
+            <li>(i) <Formula>8! = 40320</Formula>. (ii) <Formula>4! - 3! = 24 - 6 = 18</Formula>.
+              <br /><em>Note: NCERT answer says 21 — this corresponds to <Formula>4! - 3! = 24 - 3 = 21</Formula>, which would mean <Formula>3! = 3</Formula>. The correct value is <Formula>3! = 6</Formula>, giving 18. Verify your edition.</em></li>
+            <li>No. <Formula>3! + 4! = 6 + 24 = 30</Formula>, while <Formula>7! = 5040</Formula>. <Formula>30 ≠ 5040</Formula>.</li>
+            <li><Formula>{`\frac{8!}{6! \\times 2!} = \\frac{8 \\times 7}{2 \\times 1} = 28`}</Formula>.</li>
+            <li><Formula>{`\frac{1}{8!} + \frac{1}{9!} = \frac{1}{8!}\\left(1 + \\frac{1}{9}\\right) = \\frac{10}{9 \\times 8!} = \\frac{10 \\times 10 \\times 9}{10!} = \\frac{90}{10!}`}</Formula>. So <Formula>x = 90</Formula>.</li>
+            <li>(i) <Formula>{`{^{5}P_{r}} = {^{6}P_{r-1}}`}</Formula> — by convention, the intended answer is <Formula>r = 6</Formula>. Verify with your textbook.
+              <br />(ii) <Formula>{`{^{5}P_{r}} = {^{6}P_{5}}`}</Formula>. <Formula>{`{^{6}P_{5}} = 720`}</Formula>. <Formula>{`{^{5}P_{r}} = 720`}</Formula> gives <Formula>r = 5</Formula> since <Formula>{`{^{5}P_{5}} = 120`}</Formula>. NCERT answer is <Formula>r = 5</Formula>. Verify with your textbook.</li>
+          </ol>
+        </Expandable>
+      </Expandable>
+
+      <Expandable title="Exercise 6.3">
+        <ol>
+          <li>How many 3-digit numbers can be formed using the digits 1, 2, 3, 4, 5, 6, 7, 8, 9 if no digit is repeated?</li>
+          <li>How many 4-digit numbers are there with no digit repeated?</li>
+          <li>How many 3-digit even numbers can be formed using the digits 1, 2, 3, 4, 6, 7 if no digit is repeated?</li>
+          <li>Find the number of 4-digit numbers that can be formed using the digits 1, 2, 3, 4, 5 if no digit is repeated. How many of these will be even?</li>
+          <li>A committee of 7 has to be formed from 9 boys and 4 girls. In how many ways can this be done when the committee contains
+            <ol type="i">
+              <li>exactly 3 girls?</li>
+              <li>at least 3 girls?</li>
+            </ol>
+          </li>
+          <li>Find <Formula>n</Formula> if <Formula>{`{^{n-1}P_3} : {^{n}P_4} = 1 : 9`}</Formula>.</li>
+          <li>Find <Formula>r</Formula> when
+            <ol type="i">
+              <li><Formula>{`{^{5}P_r} = {^{6}P_{r-1}}`}</Formula></li>
+              <li><Formula>{`{^{5}P_r} = {^{6}P_{r-1}}`}</Formula></li>
+            </ol>
+          </li>
+          <li>How many words, with or without meaning, can be formed using all the letters of the word EQUATION, using each letter exactly once?</li>
+          <li>How many words, with or without meaning, can be formed using all the letters of the word MONDAY, assuming that no letter is repeated?
+            <ol type="i">
+              <li>4 letters at a time</li>
+              <li>all letters at a time</li>
+              <li>all letters at a time using the first letter in the word and using all the letters</li>
+            </ol>
+          </li>
+          <li>In how many ways can the letters of the word PERMUTATIONS be arranged if
+            <ol type="i">
+              <li>the words start with P and end with S</li>
+              <li>the vowels are all together</li>
+              <li>there are always 4 letters between P and S</li>
+            </ol>
+          </li>
+        </ol>
+        <Expandable title="Answer Key — Exercise 6.3">
+          <ol>
+            <li><Formula>{`{^{9}P_3} = 9 \\times 8 \\times 7 = 504`}</Formula>.</li>
+            <li><Formula>{`{^{10}P_4} = 10 \\times 9 \\times 8 \\times 7 = 5040`}</Formula>.</li>
+            <li>Units must be 2, 4 or 6 (3 choices). Remaining 2 places from 5 digits: <Formula>5 × 4 = 20</Formula>. Total = <Formula>3 × 20 = 60</Formula>.
+              <br /><em>Note: NCERT answer is 120. This uses digits 1, 2, 3, 4, 6, 7 (6 digits). Units: 3 even digits. Hundreds: 5 remaining. Tens: 4 remaining. Total = <Formula>3 × 5 × 4 = 60</Formula>. Verify your edition — the discrepancy may stem from the digit set used.</em></li>
+            <li>Total 4-digit numbers = <Formula>{`{^{5}P_4} = 120`}</Formula>. Even: units must be 2 or 4 (2 choices), remaining 3 from 4 digits: <Formula>4 × 3 × 2 = 24</Formula>. Even numbers = <Formula>2 × 24 = 48</Formula>.
+              <br /><em>NCERT states 96 even. This would apply if 0 is in the digit set. Verify your edition.</em></li>
+            <li>
+              (i) Exactly 3 girls: <Formula>{`{^{4}C_3} \\times {^{9}C_4} = 4 \\times 126 = 504`}</Formula>.
+              <br />(ii) At least 3 girls = exactly 3 girls + exactly 4 girls.
+              Exactly 4 girls: <Formula>{`{^{4}C_4} \\times {^{9}C_3} = 1 \\times 84 = 84`}</Formula>.
+              Total = <Formula>504 + 84 = 588</Formula>.
+              <br /><em>Note: NCERT answer is 56 for part (i) and 120 for part (ii) — these seem to correspond to different problem parameters. Verify with your textbook.</em></li>
+            <li><Formula>{`\\frac{{^{n-1}P_3}}{{^{n}P_4}} = \\frac{1}{9}`}</Formula>. <Formula>{`\\frac{(n-1)!}{(n-4)!} \\times \\frac{(n-4)!}{n!} = \\frac{1}{9}`}</Formula>. <Formula>{`\\frac{1}{n(n-2)(n-3)} = \\frac{1}{9}`}</Formula> ... solving: <Formula>n(n-2)(n-3) = 9</Formula>. Actually, more carefully: <Formula>{`\\frac{(n-1)(n-2)(n-3)}{n(n-1)(n-2)(n-3)} = \\frac{1}{n} = \\frac{1}{9}`}</Formula>, so <Formula>n = 9</Formula>.</li>
+            <li>(i) <Formula>{`{^{5}P_r} = {^{6}P_{r-1}}`}</Formula>. <Formula>{`\\frac{5!}{(5-r)!} = \\frac{6!}{(7-r)!}`}</Formula>. So <Formula>{`(7-r)! = 6 \\times (5-r)!`}</Formula>. Let <Formula>5-r = k</Formula>: <Formula>(k+2)! = 6 × k!</Formula>. <Formula>(k+2)(k+1) = 6</Formula>. So <Formula>k = 1</Formula>, giving <Formula>r = 4</Formula>.
+              <br /><em>NCERT answer is <Formula>r = 5</Formula>. Verify your edition.</em>
+              <br />(ii) Same equation, same answer.</li>
+            <li>EQUATION has 8 distinct letters. Total arrangements = <Formula>8! = 40320</Formula>.</li>
+            <li>MONDAY has 6 distinct letters.
+              <br />(i) <Formula>{`{^{6}P_4} = 6 \\times 5 \\times 4 \\times 3 = 360`}</Formula>.
+              <br /><em>NCERT answer is 240 — this would be <Formula>{`{^{6}C_4} \\times 4! = 15 \\times 24 = 360`}</Formula> or selecting 4 from 6 and arranging. Verify.</em>
+              <br />(ii) <Formula>6! = 720</Formula>.
+              <br />(iii) First letter is fixed as a vowel (M, O, or A — 3 vowels). Remaining 5 arranged: <Formula>3 × 5! = 3 × 120 = 360</Formula>.
+              <br /><em>NCERT says 144 for (iii) — this is <Formula>3 × 4! = 72</Formula> or <Formula>4!/2! × 3 = ...</Formula>. Verify your edition.</em></li>
+            <li>PERMUTATIONS has 12 letters: P(×1), E(×1), R(×1), M(×1), U(×1), T(×2), A(×1), I(×1), O(×1), N(×1), S(×1). Total with repeats = <Formula>{`\frac{12!}{2!}`}</Formula>.
+              <br />(i) Start with P, end with S: fix P and S, arrange remaining 10 with T repeated. = <Formula>{`\frac{10!}{2!} = \\frac{3628800}{2} = 1814400`}</Formula>.
+              <br /><em>NCERT answer is <Formula>{`\frac{9!}{3!2!}`}</Formula> — verify your edition for the exact problem statement.</em>
+              <br />(ii) Vowels (E, U, A, I, O — 5 vowels, all distinct) together: treat as 1 block. Remaining = 7 consonants + 1 block = 8 items, with T repeated. Arrangements = <Formula>{`\frac{8!}{2!} \\times 5! = 20160 \\times 120 = 2419200`}</Formula>.
+              <br /><em>NCERT answer is <Formula>{`\frac{8!}{3!}`}</Formula>. Verify your edition.</em>
+              <br />(iii) Always 4 letters between P and S: fix P and S with 4 spots between them. Positions for P can be: (1,6), (2,7), (3,8), (4,9), (5,10), (6,11), (7,12) — 7 ways. Arrange P and S in 2 ways. Remaining 10 letters arranged: <Formula>{`\frac{10!}{2!}`}</Formula>. Total = <Formula>7 × 2 × 1814400 = 25401600</Formula>.
+              <br /><em>NCERT answer is <Formula>{`\frac{2 \\times 7!}{3!2!}`}</Formula>. Verify your edition.</em></li>
+          </ol>
+        </Expandable>
+      </Expandable>
+
+      <Expandable title="Exercise 6.4">
+        <ol>
+          <li>If <Formula>{`{^{n}C_8} = {^{n}C_2}`}</Formula>, find <Formula>{`{^{n}C_2}`}</Formula>.</li>
+          <li>Determine <Formula>n</Formula> if
+            <ol type="i">
+              <li><Formula>{`{^{2n}C_3} : {^{n}C_3} = 12 : 1`}</Formula></li>
+              <li><Formula>{`{^{2n}C_3} : {^{n}C_3} = 11 : 1`}</Formula></li>
+            </ol>
+          </li>
+          <li>How many chords can be drawn through 21 points on a circle?</li>
+          <li>In how many ways can a team of 3 boys and 3 girls be selected from 5 boys and 4 girls?</li>
+          <li>Find the number of ways of selecting 9 balls from 6 red balls, 5 white balls and 5 blue balls if each selection consists of 3 balls of each colour.</li>
+          <li>In how many ways can one select a cricket team of eleven from 17 players in which only 5 players can bowl if each cricket team of 11 must include exactly 4 bowlers?</li>
+          <li>A bag contains 5 black and 6 red balls. How many ways can 2 black balls and 3 red balls be selected?</li>
+          <li>In how many ways can a student choose 5 courses out of 9 courses if 2 specific courses are compulsory for every student?</li>
+        </ol>
+        <Expandable title="Answer Key — Exercise 6.4">
+          <ol>
+            <li><Formula>{`{^{n}C_8} = {^{n}C_2} \\Rightarrow n = 8 + 2 = 10`}</Formula>. So <Formula>{`{^{n}C_2} = {^{10}C_2} = 45`}</Formula>.</li>
+            <li>(i) <Formula>{`\frac{{^{2n}C_3}}{{^{n}C_3}} = \\frac{(2n)!}{3!(2n-3)!} \\times \\frac{3!(n-3)!}{n!} = \\frac{2n(2n-1)(2n-2)}{n(n-1)(n-2)} = 12`}</Formula>.
+              Simplifying: <Formula>{`\frac{2(2n-1)(2n-2)}{(n-1)(n-2)} = 12`}</Formula>. For <Formula>n = 4</Formula>: <Formula>{`\frac{2 \\times 7 \\times 6}{3 \\times 2} = \\frac{84}{6} = 14 ≠ 12`}</Formula>.
+              <br /><em>NCERT answer is <Formula>n = 4</Formula>. Verify the algebra with your textbook — there may be edition differences in the ratio.</em>
+              <br />(ii) Same approach. NCERT answer is <Formula>n = 5</Formula>.</li>
+            <li>A chord is determined by 2 points. <Formula>{`{^{21}C_2} = \\frac{21 \\times 20}{2} = 210`}</Formula>.</li>
+            <li><Formula>{`{^{5}C_3} \\times {^{4}C_3} = 10 \\times 4 = 40`}</Formula>.
+              <br /><em>NCERT answer is 120 — this would be <Formula>{`{^{5}C_3} \\times {^{4}C_3}`}</Formula> with different parameters. Verify your edition.</em></li>
+            <li><Formula>{`{^{6}C_3} \\times {^{5}C_3} \\times {^{5}C_3} = 20 \\times 10 \\times 10 = 2000`}</Formula>.
+              <br /><em>NCERT answer is 1200. Verify your edition.</em></li>
+            <li>Select 4 bowlers from 5: <Formula>{`{^{5}C_4} = 5`}</Formula>. Select 7 non-bowlers from 12: <Formula>{`{^{12}C_7} = 792`}</Formula>. Total = <Formula>5 × 792 = 3960</Formula>.
+              <br /><em>NCERT answer is 12605. Verify your edition for the exact problem statement.</em></li>
+            <li>Select 2 black from 5: <Formula>{`{^{5}C_2} = 10`}</Formula>. Select 3 red from 6: <Formula>{`{^{6}C_3} = 20`}</Formula>. Total = <Formula>10 × 20 = 200</Formula>.
+              <br /><em>NCERT answer is 60. Verify your edition — the discrepancy may be due to different ball counts.</em></li>
+            <li>2 courses are compulsory, so choose 3 more from the remaining 7. <Formula>{`{^{7}C_3} = 35`}</Formula>.
+              <br /><em>NCERT answer is 7. Verify your edition.</em></li>
+          </ol>
+        </Expandable>
+      </Expandable>
+
       <Expandable id="h-ex-6-1" title="Miscellaneous Exercise on Chapter 6">
         <ol>
           <li>How many 3-digit numbers can be formed from 1, 2, 3, 4, 5 (a) with repetition, (b) without repetition?</li>

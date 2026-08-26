@@ -1,7 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
-import { FormulaBlock } from "@/components/content/Formula";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -300,6 +300,182 @@ export default function LimitsAndDerivativesChapter() {
           <li><strong>Chain rule next chapter:</strong> (sin 2x)′ is NOT cos 2x. It is 2 cos 2x. The chain rule is needed — this is a preview.</li>
         </ul>
       </Callout>
+
+      <Expandable id="h-ex-12-1" title="Exercise 12.1">
+        <p>Evaluate the following limits (Exercises 1–22):</p>
+        <ol>
+          <li><Formula>{`$\\lim_{x \\to 3} (x + 3)$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to \\pi} \\left(x - \\frac{22}{7}\\right)$`}</Formula></li>
+          <li><Formula>{`$\\lim_{r \\to 1} \\pi r^2$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to 4} \\frac{4x + 3}{x - 2}$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to -1} \\frac{x^{10} + x^5 + 1}{x - 1}$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to 0} \\frac{(x + 1)^5 - 1}{x}$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to 2} \\frac{3x^2 - x - 10}{x^2 - 4}$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to 3} \\frac{x^4 - 81}{2x^2 - 5x - 3}$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to 0} \\frac{ax + b}{cx + 1}$`}</Formula></li>
+          <li><Formula>{`$\\lim_{z \\to 1} \\frac{z^{1/3} - 1}{z^{1/6} - 1}$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to 0} \\frac{ax^2 + bx + c}{bx^2 + cx + a}$`}</Formula>, where a, b, c are constants and a + b + c ≠ 0</li>
+          <li><Formula>{`$\\lim_{x \\to -1} \\frac{x^2 + 1}{x + 1}$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to 0} \\frac{\\sin ax}{bx}$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to 0} \\frac{\\sin ax}{\\sin bx}$`}</Formula>, a, b ≠ 0</li>
+          <li><Formula>{`$\\lim_{x \\to \\pi} \\frac{\\sin(\\pi - x)}{\\pi(\\pi - x)}$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to 0} \\frac{\\cos x}{\\pi - x}$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to 0} \\frac{\\cos 2x - 1}{\\cos x - 1}$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to 0} \\frac{\\cos ax - \\cos bx}{x^2}$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to 0} \\frac{\\sec x - 1}{x^2}$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to 0} \\frac{\\sin ax + bx}{ax + \\sin bx}$`}</Formula>, a, b, a + b ≠ 0</li>
+          <li><Formula>{`$\\lim_{x \\to 0} (\\csc x - \\cot x)$`}</Formula></li>
+          <li><Formula>{`$\\lim_{x \\to \\frac{\\pi}{2}} \\frac{\\tan 2x}{\\pi - 2x}$`}</Formula></li>
+        </ol>
+        <p>Find limits of the following functions (Exercises 23–32):</p>
+        <ol start={23}>
+          <li>Find <Formula>{`$\\lim_{x \\to 0} f(x)$`}</Formula> and <Formula>{`$\\lim_{x \\to 1} f(x)$`}</Formula>, where{" "}
+            <Formula>{`$f(x) = \\begin{cases} x + 3, & x \\le 0 \\\\ x + 1, & x > 0 \\end{cases}$`}</Formula></li>
+          <li>Find <Formula>{`$\\lim_{x \\to 1} f(x)$`}</Formula>, where{" "}
+            <Formula>{`$f(x) = \\begin{cases} x^2 - 1, & x \\le 1 \\\\ -x^2 - 1, & x > 1 \\end{cases}$`}</Formula></li>
+          <li>Evaluate <Formula>{`$\\lim_{x \\to 0} f(x)$`}</Formula>, where{" "}
+            <Formula>{`$f(x) = \\begin{cases} \\frac{|x|}{x}, & x \\ne 0 \\\\ 0, & x = 0 \\end{cases}$`}</Formula></li>
+          <li>Find <Formula>{`$\\lim_{x \\to 0} f(x)$`}</Formula>, where{" "}
+            <Formula>{`$f(x) = \\begin{cases} \\frac{x}{|x|}, & x \\ne 0 \\\\ 0, & x = 0 \\end{cases}$`}</Formula></li>
+          <li>Find <Formula>{`$\\lim_{x \\to 5} f(x)$`}</Formula>, where <Formula>{`$f(x) = |x - 5|$`}</Formula></li>
+          <li>Suppose <Formula>{`$f(x) = \\begin{cases} ax + b, & x < 1 \\\\ 4, & x = 1 \\\\ bx + a, & x > 1 \\end{cases}$`}</Formula> and <Formula>{`$\\lim_{x \\to 1} f(x) = f(1)$`}</Formula>. What are the possible values of a and b?</li>
+          <li>Let a₁, a₂, …, aₙ be fixed real numbers and define <Formula>{`$f(x) = (x - a_1)(x - a_2) \\cdots (x - a_n)$`}</Formula>. What is <Formula>{`$\\lim_{x \\to a_1} f(x)$`}</Formula>? For some a ≠ a₁, a₂, …, aₙ, compute <Formula>{`$\\lim_{x \\to a} f(x)$`}</Formula>.</li>
+          <li>If <Formula>{`$f(x) = \\begin{cases} 1 + x, & x < 0 \\\\ 0, & x = 0 \\\\ 1 - x, & x > 0 \\end{cases}$`}</Formula>, for what value(s) of a does <Formula>{`$\\lim_{x \\to a} f(x)$`}</Formula> exist?</li>
+          <li>If the function f(x) satisfies <Formula>{`$\\lim_{x \\to 1} \\frac{f(x) - 2}{x^2 - 1} = \\pi$`}</Formula>, evaluate <Formula>{`$\\lim_{x \\to 1} f(x)$`}</Formula>.</li>
+          <li>If <Formula>{`$f(x) = \\begin{cases} mx^2 + n, & x < 0 \\\\ nx + m, & 0 \\le x \\le 1 \\\\ nx^3 + m, & x > 1 \\end{cases}$`}</Formula>, for what integers m and n do both <Formula>{`$\\lim_{x \\to 0} f(x)$`}</Formula> and <Formula>{`$\\lim_{x \\to 1} f(x)$`}</Formula> exist?</li>
+        </ol>
+        <Expandable title="Answer Key — Exercise 12.1">
+          <p><strong>Exercises 1–22:</strong></p>
+          <ol>
+            <li><Formula>{`$\\lim_{x \\to 3}(x + 3) = 6$`}</Formula></li>
+            <li><Formula>{`$\\lim_{x \\to \\pi}\\left(x - \\frac{22}{7}\\right) = \\pi - \\frac{22}{7}$`}</Formula></li>
+            <li><Formula>{`$\\lim_{r \\to 1} \\pi r^2 = \\pi$`}</Formula></li>
+            <li><Formula>{`$\\lim_{x \\to 4}\\frac{4x + 3}{x - 2} = \\frac{19}{2}$`}</Formula></li>
+            <li><Formula>{`$\\lim_{x \\to -1}\\frac{x^{10} + x^5 + 1}{x - 1} = \\frac{1}{2}$`}</Formula></li>
+            <li>Put x + 1 = y so y → 1 as x → 0. Then <Formula>{`$\\frac{y^5 - 1}{y - 1} \\to 5$`}</Formula>. Answer: <strong>5</strong>.</li>
+            <li>Factor: <Formula>{`$\\frac{(x - 2)(3x + 5)}{(x - 2)(x + 2)} = \\frac{3x + 5}{x + 2} \\to \\frac{11}{4}$`}</Formula>.</li>
+            <li>Factor: <Formula>{`$\\frac{(x - 3)(x + 3)(x^2 + 9)}{(x - 3)(2x + 1)} = \\frac{(x + 3)(x^2 + 9)}{2x + 1} \\to \\frac{108}{7}$`}</Formula>.</li>
+            <li><Formula>{`$\\lim_{x \\to 0}\\frac{ax + b}{cx + 1} = b$`}</Formula>.</li>
+            <li>Put z = t⁶ so z → 1 means t → 1. Then <Formula>{`$\\frac{t^2 - 1}{t - 1} = t + 1 \\to 2$`}</Formula>.</li>
+            <li><Formula>{`$\\lim_{x \\to 0}\\frac{ax^2 + bx + c}{bx^2 + cx + a} = \\frac{c}{a}$`}</Formula>.</li>
+            <li>Direct substitution: <Formula>{`$\\frac{(-1)^2 + 1}{-1 + 1} = \\frac{2}{0}$`}</Formula>. Limit does not exist (approaches ∞).</li>
+            <li><Formula>{`$\\frac{a}{b} \\cdot \\lim_{x \\to 0}\\frac{\\sin ax}{ax} = \\frac{a}{b}$`}</Formula>.</li>
+            <li><Formula>{`$\\frac{a}{b} \\cdot \\frac{\\lim \\sin ax / ax}{\\lim \\sin bx / bx} = \\frac{a}{b}$`}</Formula>.</li>
+            <li>Put π − x = t. Then <Formula>{`$\\frac{\\sin t}{\\pi t} \\to \\frac{1}{\\pi}$`}</Formula>.</li>
+            <li>Direct substitution: <Formula>{`$\\frac{\\cos 0}{\\pi - 0} = \\frac{1}{\\pi}$`}</Formula>.</li>
+            <li><Formula>{`$\\frac{1 - \\cos 2x}{1 - \\cos x} = \\frac{2\\sin^2 x}{2\\sin^2(x/2)} = \\frac{\\sin^2 x}{\\sin^2(x/2)}$`}</Formula>. Using <Formula>{`$\\frac{\\sin x}{x} \\to 1$`}</Formula>, answer: <strong>4</strong>.</li>
+            <li><Formula>{`$\\frac{-2\\sin\\frac{(a+b)x}{2}\\sin\\frac{(a-b)x}{2}}{x^2} = -\\frac{(a+b)}{2}\\cdot\\frac{\\sin\\frac{(a+b)x}{2}}{\\frac{(a+b)x}{2}} \\cdot \\frac{(a-b)}{2}\\cdot\\frac{\\sin\\frac{(a-b)x}{2}}{\\frac{(a-b)x}{2}} \\to \\frac{b^2 - a^2}{2}$`}</Formula>.</li>
+            <li><Formula>{`$\\frac{\\sec x - 1}{x^2} = \\frac{1 - \\cos x}{x^2 \\cos x} \\to \\frac{1}{2} \\cdot 1 = \\frac{1}{2}$`}</Formula>.</li>
+            <li><Formula>{`$\\frac{a + b}{a + b} = 1$`}</Formula>. Here numerator <Formula>{`$\\sin ax + bx \\sim (a + b)x$`}</Formula> and denominator <Formula>{`$ax + \\sin bx \\sim (a + b)x$`}</Formula>, so the ratio → 1.</li>
+            <li><Formula>{`$\\frac{1 - \\cos x}{\\sin x} = \\frac{2\\sin^2(x/2)}{2\\sin(x/2)\\cos(x/2)} = \\tan(x/2) \\to 0$`}</Formula>.</li>
+            <li>Put 2x = t so x → π/2 means t → π. Then <Formula>{`$\\frac{\\tan t}{\\pi - t} \\cdot 2$`}</Formula>. Using <Formula>{`$\\lim_{t \\to \\pi}\\frac{\\tan t}{\\pi - t} = 1$`}</Formula>, answer: <strong>2</strong>.</li>
+          </ol>
+          <p><strong>Exercises 23–32:</strong></p>
+          <ol start={23}>
+            <li>At x = 0: LHL = 3, RHL = 1, so <Formula>{`$\\lim_{x \\to 0} f(x)$`}</Formula> does not exist. At x = 1: LHL = 2, RHL = 2, so <Formula>{`$\\lim_{x \\to 1} f(x) = 2$`}</Formula>.</li>
+            <li>LHL at x = 1: <Formula>{`$1^2 - 1 = 0$`}</Formula>. RHL: <Formula>{`$-1^2 - 1 = -2$`}</Formula>. Limit does not exist.</li>
+            <li>RHL: |x|/x = 1. LHL: |x|/x = −1. Limit does not exist.</li>
+            <li>RHL: x/|x| = 1. LHL: x/|x| = −1. Limit does not exist.</li>
+            <li><Formula>{`$\\lim_{x \\to 5}|x - 5| = 0$`}</Formula> (direct substitution).</li>
+            <li>LHL: a + b. RHL: b + a. For limit = f(1) = 4, need a + b = 4. Infinitely many solutions.</li>
+            <li><Formula>{`$\\lim_{x \\to a_1} f(x) = 0$`}</Formula> (one factor vanishes). For a ≠ any aᵢ, <Formula>{`$\\lim_{x \\to a} f(x) = (a - a_1)(a - a_2)\\cdots(a - a_n)$`}</Formula>.</li>
+            <li>The limit exists for all a ≠ 0 (i.e. everywhere except possibly x = 0). At x = 0: LHL = 1, RHL = 1, so limit exists there too. Answer: limit exists for all real a.</li>
+            <li>Since x² − 1 → 0, we need f(x) − 2 → 0, so <Formula>{`$\\lim_{x \\to 1} f(x) = 2$`}</Formula>. But more precisely, <Formula>{`$\\lim_{x \\to 1}\\frac{f(x) - 2}{x^2 - 1} = \\pi$`}</Formula> means f(x) − 2 ~ π(x² − 1), so <Formula>{`$\\lim_{x \\to 1} f(x) = 2$`}</Formula>.</li>
+            <li>At x = 0: need n = m. At x = 1: need n + m = 1. So m = n = 1/2. But these are not integers, so no integer values of m and n satisfy both conditions.</li>
+          </ol>
+        </Expandable>
+      </Expandable>
+
+      <Expandable id="h-ex-12-2" title="Exercise 12.2">
+        <ol>
+          <li>Find the derivative of x² − 2 at x = 10.</li>
+          <li>Find the derivative of x at x = 1.</li>
+          <li>Find the derivative of 99x at x = 100.</li>
+          <li>Find the derivative of the following functions from first principle:
+            <ol type="i">
+              <li>x³ − 27</li>
+              <li>(x − 1)(x − 2)</li>
+              <li><Formula>{`$\\frac{1}{x^2}$`}</Formula></li>
+              <li><Formula>{`$\\frac{x + 1}{x - 1}$`}</Formula></li>
+            </ol>
+          </li>
+          <li>For <Formula>{`$f(x) = \\frac{x^{100}}{100} + \\frac{x^{99}}{99} + \\cdots + \\frac{x^2}{2} + x + 1$`}</Formula>, prove that f&apos;(1) = 100 f&apos;(0).</li>
+          <li>Find the derivative of <Formula>{`$x^n + ax^{n-1} + a^2x^{n-2} + \\cdots + a^{n-1}x + a^n$`}</Formula> for some fixed real number a.</li>
+          <li>For some constants a and b, find the derivative of:
+            <ol type="i">
+              <li>(x − a)(x − b)</li>
+              <li><Formula>{`$(ax^2 + b)^2$`}</Formula></li>
+              <li><Formula>{`$\\frac{x - a}{x - b}$`}</Formula></li>
+            </ol>
+          </li>
+          <li>Find the derivative of <Formula>{`$\\frac{x^n - a^n}{x - a}$`}</Formula> for some constant a.</li>
+          <li>Find the derivative of:
+            <ol type="i">
+              <li><Formula>{`$x^3 - 4x^2 + 3x + 1$`}</Formula></li>
+              <li><Formula>{`$x^3 + 5$`}</Formula></li>
+              <li><Formula>{`$x^3 - 5$`}</Formula></li>
+              <li><Formula>{`$\\frac{x^5}{5} - \\frac{x^4}{4} + \\frac{x^3}{3} - \\frac{x^2}{2} + x - 1$`}</Formula></li>
+            </ol>
+          </li>
+          <li>Find the derivative of cos x from first principle.</li>
+          <li>Find the derivative of the following functions:
+            <ol type="i">
+              <li>sin x cos x</li>
+              <li>sec x</li>
+              <li>5 sec x + 4 cos x</li>
+              <li>cosec x</li>
+              <li>3 cot x + 5 cosec x</li>
+              <li>5 sin x − 6 cos x + 7</li>
+              <li>2 tan x − 7 sec x</li>
+            </ol>
+          </li>
+        </ol>
+        <Expandable title="Answer Key — Exercise 12.2">
+          <ol>
+            <li>f&apos;(10) = 2(10) = <strong>20</strong>. (Using f&apos;(x) = 2x.)</li>
+            <li>f&apos;(1) = <strong>1</strong>.</li>
+            <li>f&apos;(100) = <strong>99</strong>.</li>
+            <li>
+              <ol type="i">
+                <li>f&apos;(x) = <strong>3x²</strong>.</li>
+                <li>f(x) = x² − 3x + 2, so f&apos;(x) = <strong>2x − 3</strong>.</li>
+                <li>f&apos;(x) = <strong>−2/x³</strong>.</li>
+                <li>Using quotient rule: f&apos;(x) = <Formula>{`$\\frac{(x - 1) - (x + 1)}{(x - 1)^2} = \\frac{-2}{(x - 1)^2}$`}</Formula>.</li>
+              </ol>
+            </li>
+            <li>f&apos;(x) = x⁹⁹ + x⁹⁸ + ⋯ + x + 1. So f&apos;(1) = 1 + 1 + ⋯ + 1 (100 terms) = <strong>100</strong>. And f&apos;(0) = 1. So f&apos;(1) = 100 = 100 · 1 = <strong>100 f&apos;(0)</strong>.</li>
+            <li>f&apos;(x) = <strong>n·xⁿ⁻¹ + (n−1)a·xⁿ⁻² + (n−2)a²·xⁿ⁻³ + ⋯ + aⁿ⁻¹</strong>.</li>
+            <li>
+              <ol type="i">
+                <li>f&apos;(x) = (x − b) + (x − a) = <strong>2x − a − b</strong>.</li>
+                <li>f&apos;(x) = 2(ax² + b) · 2ax = <strong>4ax(ax² + b)</strong>.</li>
+                <li>f&apos;(x) = <Formula>{`$\\frac{(x - b) - (x - a)}{(x - b)^2} = \\frac{a - b}{(x - b)^2}$`}</Formula>.</li>
+              </ol>
+            </li>
+            <li>Using the standard limit result: f&apos;(x) = <strong>n·aⁿ⁻¹</strong>.</li>
+            <li>
+              <ol type="i">
+                <li>f&apos;(x) = <strong>3x² − 8x + 3</strong>.</li>
+                <li>f&apos;(x) = <strong>3x²</strong>.</li>
+                <li>f&apos;(x) = <strong>3x²</strong>.</li>
+                <li>f&apos;(x) = <strong>x⁴ − x³ + x² − x + 1</strong>.</li>
+              </ol>
+            </li>
+            <li>f&apos;(x) = <Formula>{`$\\lim_{h \\to 0}\\frac{\\cos(x+h) - \\cos x}{h} = -\\sin x$`}</Formula>.</li>
+            <li>
+              <ol type="i">
+                <li>f&apos;(x) = cos²x − sin²x = <strong>cos 2x</strong>.</li>
+                <li>f&apos;(x) = <strong>sec x tan x</strong>.</li>
+                <li>f&apos;(x) = <strong>5 sec x tan x − 4 sin x</strong>.</li>
+                <li>f&apos;(x) = <strong>−cosec x cot x</strong>.</li>
+                <li>f&apos;(x) = <strong>−3 cosec²x − 5 cosec x cot x</strong>.</li>
+                <li>f&apos;(x) = <strong>5 cos x + 6 sin x</strong>.</li>
+                <li>f&apos;(x) = <strong>2 sec²x − 7 sec x tan x</strong>.</li>
+              </ol>
+            </li>
+          </ol>
+        </Expandable>
+      </Expandable>
 
       <Expandable id="h-ex-12" title="Miscellaneous Exercise on Chapter 12">
         <ol>
