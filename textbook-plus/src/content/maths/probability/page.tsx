@@ -268,6 +268,13 @@ export default function ProbabilityChapter() {
         </ol>
       </FormulaCard>
 
+      <KeyPoint title="Theorem: P(∅) = 0 and P(S) = 1">
+        <FormulaBlock latex="P(\emptyset) = 0 \quad \text{(impossible event)}" />
+        <FormulaBlock latex="P(S) = 1 \quad \text{(sure event)}" />
+        <p className="mt-1"><strong>Proof sketch:</strong> Since S and ∅ are mutually exclusive and S ∪ ∅ = S, by additivity: P(S) = P(S) + P(∅), so P(∅) = 0. The value P(S) = 1 is given by the normalization axiom.</p>
+        <p className="mt-1"><strong>Example:</strong> Rolling a die, the event &quot;getting a 7&quot; is impossible &rarr; P = 0. The event &quot;getting a number &le; 6&quot; is certain &rarr; P = 1.</p>
+      </KeyPoint>
+
       <h3>Probability of Equally Likely Outcomes</h3>
       <Callout type="important" title="Uniform Sample Space">
         When all n outcomes in S are <Highlight>equally likely</Highlight> (fair die, fair coin, etc.):
