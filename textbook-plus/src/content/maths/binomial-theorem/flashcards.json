@@ -1,0 +1,12 @@
+[
+  {"id":"bt-fc01","front":"Binomial Theorem formula","back":"(a+b)ⁿ = Σ k=0 to n of nCr · aⁿ⁻ʳ · bʳ."},
+  {"id":"bt-fc02","front":"How many terms in (a+b)ⁿ?","back":"(n+1) terms — one more than the index."},
+  {"id":"bt-fc03","front":"What are binomial coefficients?","back":"The numbers nCr appearing in the expansion. Arranged in Pascal's triangle."},
+  {"id":"bt-fc04","front":"Sum of all binomial coefficients","back":"nC0 + nC1 + … + nCn = 2ⁿ."},
+  {"id":"bt-fc05","front":"Alternating sum of coefficients","back":"nC0 − nC1 + nC2 − … = 0."},
+  {"id":"bt-fc06","front":"Sum of odd-indexed = sum of even-indexed coefficients","back":"Both equal 2ⁿ⁻¹."},
+  {"id":"bt-fc07","front":"(x−y)ⁿ expansion","back":"nC0xⁿ − nC1xⁿ⁻¹y + nC2xⁿ⁻²y² − ⋯ + (−1)ⁿnCyn."},
+  {"id":"bt-fc08","front":"(1+x)ⁿ special form","back":"nC0 + nC1x + nC2x² + ⋯ + nCnxⁿ."},
+  {"id":"bt-fc09","front":"Key property: indices in each term","back":"Sum of powers of a and b in every term equals n."},
+  {"id":"bt-fc10","front":"Pascal's triangle also called","back":"Meru Prastara (by Pingla, ~200 BC)."}
+]

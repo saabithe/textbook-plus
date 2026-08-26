@@ -482,6 +482,14 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-combinations", title: "6.4 Combinations" },
     { id: "h-summary", title: "Summary (Revision Points)" },
   ],
+  "c11/maths/binomial-theorem": [
+    { id: "h-intro", title: "7.1 Introduction" },
+    { id: "h-pascal", title: "Pascal's Triangle" },
+    { id: "h-theorem", title: "7.2 Binomial Theorem" },
+    { id: "h-special", title: "Special Cases" },
+    { id: "h-coeff-sums", title: "Sum of Binomial Coefficients" },
+    { id: "h-summary", title: "Summary (Revision Points)" },
+  ],
 };
 
 // Practice data is lazy-loaded per chapter so visiting one chapter doesn't
@@ -496,6 +504,7 @@ const QUESTION_KEYS = new Set([
   "c11/maths/complex-numbers-and-quadratic-equations",
   "c11/maths/linear-inequalities",
   "c11/maths/permutations-and-combinations",
+  "c11/maths/binomial-theorem",
 ]);
 
 const FLASHCARD_KEYS = new Set(QUESTION_KEYS);
@@ -517,6 +526,8 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
     import("@/content/maths/linear-inequalities/questions.json").then((m) => m.default as Question[]),
   "c11/maths/permutations-and-combinations": () =>
     import("@/content/maths/permutations-and-combinations/questions.json").then((m) => m.default as Question[]),
+  "c11/maths/binomial-theorem": () =>
+    import("@/content/maths/binomial-theorem/questions.json").then((m) => m.default as Question[]),
 };
 
 const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
@@ -536,6 +547,8 @@ const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
     import("@/content/maths/linear-inequalities/flashcards.json").then((m) => m.default as Flashcard[]),
   "c11/maths/permutations-and-combinations": () =>
     import("@/content/maths/permutations-and-combinations/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/maths/binomial-theorem": () =>
+    import("@/content/maths/binomial-theorem/flashcards.json").then((m) => m.default as Flashcard[]),
 };
 
 export function getSectionsForChapter(slug: string): ChapterSection[] {

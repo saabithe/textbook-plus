@@ -1,0 +1,14 @@
+[
+  {"id":"bt-q01","type":"mcq","difficulty":"easy","question":"In the expansion of (a+b)ⁿ, the total number of terms is","options":["n","n-1","n+1","2n"],"answer":"n+1"},
+  {"id":"bt-q02","type":"mcq","difficulty":"easy","question":"The coefficient of aⁿ⁻¹b in the expansion of (a+b)ⁿ is","options":["nC0","nC1","nC2","n"],"answer":"nC1"},
+  {"id":"bt-q03","type":"mcq","difficulty":"easy","question":"The 4th row of Pascal's triangle is","options":["1 3 3 1","1 4 6 4 1","1 2 1","1 5 10 10 5 1"],"answer":"1 3 3 1"},
+  {"id":"bt-q04","type":"mcq","difficulty":"medium","question":"(1+x)ⁿ = nC0 + nC1x + nC2x² + … — what is the sum of all binomial coefficients nC0 + nC1 + … + nCn?","options":["n","2n","2ⁿ","n²"],"answer":"2ⁿ"},
+  {"id":"bt-q05","type":"mcq","difficulty":"medium","question":"The coefficient of x³ in (1+x)¹⁰ is","options":["10C3","10C7","120","both a and c"],"answer":"both a and c"},
+  {"id":"bt-q06","type":"mcq","difficulty":"medium","question":"(x−y)ⁿ = nC0xⁿ − nC1xⁿ⁻¹y + nC2xⁿ⁻²y² − … The sign of the last term is","options":["positive","negative","depends on n","always zero"],"answer":"depends on n"},
+  {"id":"bt-q07","type":"mcq","difficulty":"hard","question":"nC0 − nC1 + nC2 − nC3 + … + (−1)ⁿnCn = ?","options":["2ⁿ","0","1","(−1)ⁿ"],"answer":"0"},
+  {"id":"bt-q08","type":"mcq","difficulty":"hard","question":"If nC0 + nC2 + nC4 + … = 2ⁿ⁻¹, then nC1 + nC3 + nC5 + … = ?","options":["2ⁿ","2ⁿ⁻¹","2ⁿ⁺¹","0"],"answer":"2ⁿ⁻¹"},
+  {"id":"bt-q09","type":"short","difficulty":"medium","question":"Expand (2x − 3)⁴ using binomial theorem.","answer":"16x⁴ − 96x³ + 216x² − 216x + 81"},
+  {"id":"bt-q10","type":"short","difficulty":"medium","question":"Find the coefficient of x⁵ in (1+x)¹¹.","answer":"11C5 = 462"},
+  {"id":"bt-q11","type":"short","difficulty":"hard","question":"Find the middle term(s) in the expansion of (x/3 + 9y)¹⁰.","answer":"T6 = 10C5·(x/3)⁵·(9y)⁵ = 61236·x⁵y⁵"},
+  {"id":"bt-q12","type":"short","difficulty":"hard","question":"Prove that 9ⁿ+1 − 8n − 9 is divisible by 64 for positive integer n.","answer":"9ⁿ⁺¹ = (1+8)ⁿ⁺¹ = 1 + (n+1)·8 + (n+1)n/2·64 + …; 9ⁿ⁺¹−8n−9 = 64·(some integer)"}
+]
