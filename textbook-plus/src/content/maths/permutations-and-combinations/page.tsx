@@ -24,14 +24,98 @@ export default function PermutationsAndCombinationsChapter() {
       </p>
 
       <h2 id="h-fpc">6.2 Fundamental Principle of Counting</h2>
-      <Callout type="important" title="Multiplication Principle">
-        If an event can occur in <strong>m</strong> different ways, and after it a second event can occur in <strong>n</strong> different ways,
-        then the total number of ways both events occur in order is <strong>m × n</strong>.
+      <Callout type="important" title="The Core Idea">
+        If task A can be done in <strong>m</strong> ways, and task B can be done in <strong>n</strong> ways,
+        then doing <strong>A then B</strong> can be done in <strong>m × n</strong> ways.
+        This extends to any number of tasks: multiply all the ways together.
       </Callout>
-      <ul>
-        <li><strong>Pant + Shirt:</strong> 3 pants × 2 shirts = 6 outfit combinations.</li>
-        <li><strong>Bag + Tiffin + Bottle:</strong> 2 × 3 × 2 = 12 ways (generalised to any finite number of events).</li>
-      </ul>
+
+      <h3 id="h-fpc-decision">Decision Flowchart — Which Formula?</h3>
+      <KeyPoint>
+        <strong>Step 1:</strong> Is repetition allowed? → This is the single most important question.
+      </KeyPoint>
+
+      <div className="my-4 rounded-lg border border-[var(--border)] bg-[var(--card)] p-4">
+        <p className="font-semibold text-sm mb-3">Repetition Allowed vs Not Allowed — The Two Branches</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="rounded-md border border-emerald-500/30 bg-emerald-500/5 p-3">
+            <p className="font-semibold text-emerald-600 dark:text-emerald-400 text-sm mb-2">Repetition Allowed</p>
+            <FormulaBlock latex="n \times n \times \cdots \times n = n^r" />
+            <p className="text-xs text-muted-foreground mt-1">Each place has full n choices, independently.</p>
+            <p className="text-xs mt-2"><strong>Keywords:</strong> &ldquo;can be repeated&rdquo;, &ldquo;with replacement&rdquo;, digits of a lock, PIN codes</p>
+          </div>
+          <div className="rounded-md border border-amber-500/30 bg-amber-500/5 p-3">
+            <p className="font-semibold text-amber-600 dark:text-amber-400 text-sm mb-2">Repetition NOT Allowed</p>
+            <FormulaBlock latex="n \times (n-1) \times (n-2) \times \cdots \times (n-r+1) = \frac{n!}{(n-r)!}" />
+            <p className="text-xs text-muted-foreground mt-1">Each choice reduces the pool by 1.</p>
+            <p className="text-xs mt-2"><strong>Keywords:</strong> &ldquo;distinct&rdquo;, &ldquo;no repetition&rdquo;, &ldquo;without replacement&rdquo;, selecting a committee</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 id="h-fpc-variants">Variant Matrix — Common Problem Types</h3>
+      <div className="my-4 rounded-lg border border-[var(--border)] bg-[var(--card)] p-4 overflow-x-auto">
+        <table className="w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b border-[var(--border)]">
+              <th className="text-left p-2 font-semibold">Variant</th>
+              <th className="text-left p-2 font-semibold">Repetition?</th>
+              <th className="text-left p-2 font-semibold">Formula</th>
+              <th className="text-left p-2 font-semibold">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">r-digit numbers from n digits</td>
+              <td className="p-2"><span className="text-emerald-500 font-semibold">Allowed</span></td>
+              <td className="p-2 font-mono text-xs">n<sup>r</sup></td>
+              <td className="p-2">4-digit PIN from {0-9}: 10<sup>4</sup> = 10000</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">r-digit numbers from n digits</td>
+              <td className="p-2"><span className="text-amber-500 font-semibold">Not allowed</span></td>
+              <td className="p-2 font-mono text-xs">nPr = n!/(n-r)!</td>
+              <td className="p-2">3-letter code from ROSE (distinct): 4P3 = 24</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">r-letter words from n letters</td>
+              <td className="p-2"><span className="text-emerald-500 font-semibold">Allowed</span></td>
+              <td className="p-2 font-mono text-xs">n<sup>r</sup></td>
+              <td className="p-2">3-letter words from &#123;A,B,C&#125;: 3<sup>3</sup> = 27</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">r-letter words from n letters</td>
+              <td className="p-2"><span className="text-amber-500 font-semibold">Not allowed</span></td>
+              <td className="p-2 font-mono text-xs">nPr</td>
+              <td className="p-2">4-letter words from ROSE: 4P4 = 24</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">Dress outfit (top + bottom + shoes)</td>
+              <td className="p-2"><span className="text-emerald-500 font-semibold">Allowed</span></td>
+              <td className="p-2 font-mono text-xs">n<sub>1</sub> × n<sub>2</sub> × n<sub>3</sub></td>
+              <td className="p-2">3 shirts × 2 pants × 4 shoes = 24</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">Digits with constraints (even, leading zero)</td>
+              <td className="p-2"><span className="text-emerald-500 font-semibold">Allowed</span></td>
+              <td className="p-2 font-mono text-xs">n<sup>r</sup> (with constraints per position)</td>
+              <td className="p-2">3-digit even from {1-5}: units=2 choices, tens=5, hundreds=5 → 50</td>
+            </tr>
+            <tr>
+              <td className="p-2">Digits with constraints</td>
+              <td className="p-2"><span className="text-amber-500 font-semibold">Not allowed</span></td>
+              <td className="p-2 font-mono text-xs">nPr (with constraints per position)</td>
+              <td className="p-2">3-digit from {0-5}, no repeat, first≠0: 5×4×3 = 60</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="h-fpc-constraints">Constraints Per Position — The Real Skill</h3>
+      <Callout type="important" title="Key Insight">
+        Most exam problems add <strong>constraints</strong> (even number, first digit ≠ 0, specific letter at start).
+        The trick: <Highlight>count choices for the most restricted position first</Highlight>, then move to less restricted positions.
+      </Callout>
 
       <Expandable title="Examples 1 to 3 — Fundamental Principle">
         <ProblemSolution problemNumber="Example 1">
@@ -39,8 +123,12 @@ export default function PermutationsAndCombinationsChapter() {
             Find the number of 4-letter words (with or without meaning) formed from ROSE, with no repetition.
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            4 choices for position 1, then 3, then 2, then 1.
-            By multiplication principle: 4 × 3 × 2 × 1 = 24.
+            <strong>No repetition → branching path:</strong>
+            <br />Position 1: 4 choices (R,O,S,E)
+            <br />Position 2: 3 choices (remaining)
+            <br />Position 3: 2 choices
+            <br />Position 4: 1 choice
+            <br /><strong>Total = 4 × 3 × 2 × 1 = 24</strong>
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -49,7 +137,10 @@ export default function PermutationsAndCombinationsChapter() {
             Given 4 flags of different colours, how many signals can be generated using 2 flags one below the other?
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            Upper place: 4 ways; lower place: 3 ways. Total = 4 × 3 = 12.
+            <strong>No repetition → each position reduces the pool:</strong>
+            <br />Upper place: 4 choices
+            <br />Lower place: 3 choices (one colour used)
+            <br /><strong>Total = 4 × 3 = 12</strong>
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -58,23 +149,30 @@ export default function PermutationsAndCombinationsChapter() {
             How many 2-digit even numbers can be formed from &#123;1, 2, 3, 4, 5&#125; with repetition allowed?
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            Units place: only &#123;2, 4&#125; → 2 ways.
-            Tens place: any of 5 digits → 5 ways.
-            Total = 2 × 5 = 10.
+            <strong>Repetition allowed, but with constraints:</strong>
+            <br />Units place (most constrained): only &#123;2, 4&#125; → 2 choices
+            <br />Tens place: any of 5 digits → 5 choices
+            <br /><strong>Total = 2 × 5 = 10</strong>
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
 
       <SpeedTricks>
-        <Callout type="tip" title="Counting: choose your event order">
-          The multiplication principle works for any ordering of events. Pick the most constrained event first (fewest choices) — it simplifies the count.
+        <Callout type="tip" title="Most constrained first">
+          Always fill the <strong>most restricted position first</strong>. If the units digit must be even, count that first (fewer choices), then fill remaining positions.
         </Callout>
         <Callout type="tip" title="Repetition = power">
-          If repetition is allowed, each of r places has n choices → nʳ. If not, it drops to nPr = n!/(n−r)!. Check the problem statement carefully.
+          If repetition is allowed, each of r places has n choices → n<sup>r</sup>. If not, it drops to nPr = n!/(n−r)!. <strong>Read the problem statement carefully</strong> — one word changes everything.
+        </Callout>
+        <Callout type="tip" title="Leading zero trap">
+          For numbers: always check if 0 can appear in the first position. If not, subtract those cases or count the first position separately.
         </Callout>
       </SpeedTricks>
 
       <h2 id="h-permutations">6.3 Permutations</h2>
+      <KeyPoint>
+        <strong>Memory anchor:</strong> <Highlight>Permutation = Placement</Highlight> (both start with P) — it&apos;s about <strong>arranging</strong> objects in order. <Highlight>Combination = Collector</Highlight> (both start with C) — it&apos;s about <strong>selecting</strong> a group where order doesn&apos;t matter.
+      </KeyPoint>
       <Callout type="important" title="Definition">
         A <strong>permutation</strong> is an arrangement of objects in a definite order.
         The order of writing matters — ROSE and REOS are different permutations.
