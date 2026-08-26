@@ -7,6 +7,7 @@ import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { Highlight } from "@/components/content/Highlight";
 import { SpeedTricks } from "@/components/content/SpeedTricks";
+import { TreeDiagram } from "@/components/content/concept/TreeDiagram";
 
 export default function PermutationsAndCombinationsChapter() {
   return (
@@ -321,6 +322,59 @@ export default function PermutationsAndCombinationsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
+
+      <TreeDiagram
+        title="52-Card Deck — Org Chart"
+        defaultExpanded={false}
+        nodes={[
+          {
+            label: "52 Cards",
+            detail: "Standard deck",
+            children: [
+              {
+                label: "By Suit — 4 groups of 13",
+                children: [
+                  { label: "Hearts (13)", children: [
+                    { label: "Number cards (2–10)", detail: "9 cards" },
+                    { label: "Face cards (J, Q, K)", detail: "3 cards" },
+                    { label: "Ace", detail: "1 card" },
+                  ]},
+                  { label: "Diamonds (13)", children: [
+                    { label: "Number cards (2–10)", detail: "9 cards" },
+                    { label: "Face cards (J, Q, K)", detail: "3 cards" },
+                    { label: "Ace", detail: "1 card" },
+                  ]},
+                  { label: "Clubs (13)", children: [
+                    { label: "Number cards (2–10)", detail: "9 cards" },
+                    { label: "Face cards (J, Q, K)", detail: "3 cards" },
+                    { label: "Ace", detail: "1 card" },
+                  ]},
+                  { label: "Spades (13)", children: [
+                    { label: "Number cards (2–10)", detail: "9 cards" },
+                    { label: "Face cards (J, Q, K)", detail: "3 cards" },
+                    { label: "Ace", detail: "1 card" },
+                  ]},
+                ],
+              },
+              {
+                label: "By Colour — 2 groups of 26",
+                children: [
+                  { label: "Red (26)", detail: "Hearts + Diamonds" },
+                  { label: "Black (26)", detail: "Clubs + Spades" },
+                ],
+              },
+              {
+                label: "By Rank — useful for counting",
+                children: [
+                  { label: "Number cards (2–10)", detail: "9 ranks × 4 suits = 36 cards" },
+                  { label: "Face cards (J, Q, K)", detail: "3 ranks × 4 suits = 12 cards" },
+                  { label: "Aces", detail: "1 rank × 4 suits = 4 cards" },
+                ],
+              },
+            ],
+          },
+        ]}
+      />
 
       <Expandable title="Example — Card Selection (52-card pack)">
         <p>4 cards from 52: <Formula>{`{^{52}C_{4}} = 270725`}</Formula>.</p>
