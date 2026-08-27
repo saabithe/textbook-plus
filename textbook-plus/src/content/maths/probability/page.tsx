@@ -409,6 +409,20 @@ export default function ProbabilityChapter() {
         <p className="text-sm text-muted-foreground mt-2">Equivalently: <FormulaBlock latex="P(A) + P(A') = 1" /></p>
       </FormulaCard>
 
+      <KeyPoint title="Useful Derived Formulas">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="rounded-lg border bg-card p-3 shadow-sm text-center">
+            <FormulaBlock latex="P(A \cap B') = P(A) - P(A \cap B)" />
+            <p className="text-xs text-muted-foreground mt-1">A happens but B does not</p>
+          </div>
+          <div className="rounded-lg border bg-card p-3 shadow-sm text-center">
+            <FormulaBlock latex="P(B \cap A') = P(B) - P(A \cap B)" />
+            <p className="text-xs text-muted-foreground mt-1">B happens but A does not</p>
+          </div>
+        </div>
+        <p className="text-sm mt-2">These give <strong>&ldquo;only one&rdquo;</strong> probability: P(only one of A, B) = P(A &cap; B&apos;) + P(A&apos; &cap; B).</p>
+      </KeyPoint>
+
       <Expandable title="Examples 14.5 — Addition Rule and Complement">
         <ProblemSolution problemNumber="Example 11">
           <ProblemSolution.Problem>
