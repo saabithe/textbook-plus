@@ -33,7 +33,7 @@
 | 10 | Conic Sections | `conic-sections` | 🔲 Pending |
 | 11 | Introduction to Three Dimensional Geometry | `introduction-to-three-dimensional-geometry` | 🔲 Pending |
 | 12 | Limits and Derivatives | `limits-and-derivatives` | 🔲 Pending |
-| 13 | Statistics | `statistics` | 🔲 Pending |
+| 13 | Statistics | `statistics` | ✅ Done |
 | 14 | Probability | `probability` | 🔲 Pending |
 
 ---

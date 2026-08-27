@@ -95,6 +95,58 @@ export default function StatisticsChapter() {
         </ProblemSolution>
       </Expandable>
 
+      <h3>Mean Deviation about Median</h3>
+      <Callout type="important" title="Median — robust alternative">
+        When data has <Highlight>outliers or extreme values</Highlight>, the median M is a more representative measure of
+        the centre than the mean. Mean deviation can be computed about the median too:
+      </Callout>
+      <FormulaCard>
+        <p className="font-semibold mb-2">Mean Deviation about Median (Ungrouped)</p>
+        <FormulaBlock latex="\text{M.D.}(M) = \frac{\sum_{i=1}^{n} |x_i - M|}{n}" />
+        <p className="text-sm text-muted-foreground mt-2">where M is the median of the observations.</p>
+      </FormulaCard>
+      <FormulaCard>
+        <p className="font-semibold mb-2">Mean Deviation about Median (Frequency Distribution)</p>
+        <FormulaBlock latex="\text{M.D.}(M) = \frac{\sum_{i=1}^{k} f_i |x_i - M|}{N}, \quad N = \sum f_i" />
+        <p className="text-sm text-muted-foreground mt-2">For grouped data, first find the median class using cumulative frequency, then the median formula from Chapter 5.</p>
+      </FormulaCard>
+
+      <Expandable title="Example 4 and 5 — Mean Deviation about Median">
+        <ProblemSolution problemNumber="Example 4">
+          <ProblemSolution.Problem>
+            Find the mean deviation about the median for: 13, 17, 16, 14, 11, 13, 10, 16, 11, 18, 12, 17.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Arrange in order", description: "10, 11, 11, 12, 13, 13, 14, 16, 16, 17, 17, 18" },
+                { label: "Median", description: "n = 12 (even), so M = average of the 6th and 7th values = (13 + 14)/2 = 13.5" },
+                { label: "∑|xᵢ − M|", description: "= |10−13.5| + |11−13.5| + |11−13.5| + |12−13.5| + |13−13.5| + |13−13.5| + |14−13.5| + |16−13.5| + |16−13.5| + |17−13.5| + |17−13.5| + |18−13.5| = 3.5 + 2.5 + 2.5 + 1.5 + 0.5 + 0.5 + 0.5 + 2.5 + 2.5 + 3.5 + 3.5 + 4.5 = 28" },
+                { label: "Mean deviation", description: "M.D.(M) = 28/12 = <strong>2.33</strong>" },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 5">
+          <ProblemSolution.Problem>
+            Calculate the mean deviation about median for the following data:
+            <br />
+            Class: 0–10, 10–20, 20–30, 30–40, 40–50, 50–60 &nbsp; | &nbsp; Frequency: 6, 7, 15, 16, 4, 2
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Cumulative frequency", description: "c.f.: 6, 13, 28, 44, 48, 50. N = 50, so N/2 = 25 falls in class 20–30 (median class)." },
+                { label: "Median", description: "M = l + (N/2 − C)/f × h = 20 + (25 − 13)/15 × 10 = 20 + 8 = 28" },
+                { label: "∑fᵢ|xᵢ − M|", description: "Using midpoints: 6|5−28| + 7|15−28| + 15|25−28| + 16|35−28| + 4|45−28| + 2|55−28| = 138 + 91 + 45 + 112 + 68 + 54 = 508" },
+                { label: "Mean deviation", description: "M.D.(M) = 508/50 = <strong>10.16</strong>" },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <h3>Mean Deviation for Discrete Frequency Distribution</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Mean Deviation (Discrete Frequency)</p>
@@ -102,8 +154,8 @@ export default function StatisticsChapter() {
         <p className="text-sm text-muted-foreground mt-2">xᵢ are the distinct values, fᵢ their frequencies.</p>
       </FormulaCard>
 
-      <Expandable title="Example 4 — Mean Deviation (Discrete Frequency)">
-        <ProblemSolution problemNumber="Example 4">
+      <Expandable title="Examples 6 and 7 — Mean Deviation (Discrete & Continuous Frequency)">
+        <ProblemSolution problemNumber="Example 6">
           <ProblemSolution.Problem>
             Find the mean deviation about the mean for the discrete frequency distribution:
             <br />
@@ -129,8 +181,8 @@ export default function StatisticsChapter() {
         <p className="text-sm text-muted-foreground mt-2">xᵢ = midpoint of the i-th class interval, fᵢ = frequency of that class, N = Σfᵢ.</p>
       </FormulaCard>
 
-      <Expandable title="Example 5 — Mean Deviation (Continuous Frequency)">
-        <ProblemSolution problemNumber="Example 5">
+      <Expandable title="Example 7 — Mean Deviation (Continuous Frequency)">
+        <ProblemSolution problemNumber="Example 7">
           <ProblemSolution.Problem>
             Find the mean deviation about the mean for:
             <br />
@@ -192,8 +244,8 @@ export default function StatisticsChapter() {
         <p className="text-sm text-muted-foreground mt-2">Step 1: find x̄. Step 2: compute each (xᵢ − x̄)². Step 3: average them.</p>
       </FormulaCard>
 
-      <Expandable title="Examples 6 and 7 — Ungrouped Variance">
-        <ProblemSolution problemNumber="Example 6">
+      <Expandable title="Examples 8 and 9 — Ungrouped Variance">
+        <ProblemSolution problemNumber="Example 8">
           <ProblemSolution.Problem>
             Find the variance and standard deviation of: 6, 8, 10, 12, 14.
           </ProblemSolution.Problem>
@@ -209,7 +261,7 @@ export default function StatisticsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="Example 7">
+        <ProblemSolution problemNumber="Example 9">
           <ProblemSolution.Problem>
             Find the variance of the first 10 natural numbers.
           </ProblemSolution.Problem>
@@ -232,8 +284,8 @@ export default function StatisticsChapter() {
         <p className="text-sm text-muted-foreground mt-2">xᵢ = distinct values, fᵢ = corresponding frequencies.</p>
       </FormulaCard>
 
-      <Expandable title="Example 8 — Discrete Frequency Variance">
-        <ProblemSolution problemNumber="Example 8">
+      <Expandable title="Example 10 — Discrete Frequency Variance">
+        <ProblemSolution problemNumber="Example 10">
           <ProblemSolution.Problem>
             Find the variance for: x: 3, 5, 7, 9, 11 &nbsp; | &nbsp; f: 4, 6, 8, 6, 4
           </ProblemSolution.Problem>
@@ -257,8 +309,8 @@ export default function StatisticsChapter() {
         <p className="text-sm text-muted-foreground mt-2">xᵢ = midpoint of i-th class, fᵢ = class frequency, N = total frequency.</p>
       </FormulaCard>
 
-      <Expandable title="Example 9 — Continuous Frequency Variance">
-        <ProblemSolution problemNumber="Example 9">
+      <Expandable title="Example 11 — Continuous Frequency Variance">
+        <ProblemSolution problemNumber="Example 11">
           <ProblemSolution.Problem>
             Find σ² and σ for:
             <br />
@@ -298,8 +350,8 @@ export default function StatisticsChapter() {
         <FormulaBlock latex="\sigma^2 = \frac{1}{N}\sum f_i d_i^2 - \left(\frac{1}{N}\sum f_i d_i\right)^2" />
       </KeyPoint>
 
-      <Expandable title="Example 10 — Step-Deviation Method">
-        <ProblemSolution problemNumber="Example 10">
+      <Expandable title="Example 12 — Step-Deviation Method">
+        <ProblemSolution problemNumber="Example 12">
           <ProblemSolution.Problem>
             Using the step-deviation method, find the variance and standard deviation for:
             <br />
@@ -328,8 +380,8 @@ export default function StatisticsChapter() {
         </ProblemSolution>
       </Expandable>
 
-      <Expandable title="Example 11 — Shortcut Method (Assumed Mean)">
-        <ProblemSolution problemNumber="Example 11">
+      <Expandable title="Example 13 — Shortcut Method (Assumed Mean)">
+        <ProblemSolution problemNumber="Example 13">
           <ProblemSolution.Problem>
             Find σ² using the shortcut method with assumed mean a = 10 for:
             <br />
@@ -374,81 +426,187 @@ export default function StatisticsChapter() {
         </ul>
       </Callout>
 
+      <h2 id="h-cv">13.6 Comparing Series: Coefficient of Variation <span className="text-sm font-normal text-muted-foreground">(beyond syllabus)</span></h2>
+      <Callout type="important" title="Why compare two standard deviations?">
+        Suppose two classes scored SD = 5 on two different exams — but one exam was out of 100 and the other out of 25.
+        A raw σ of 5 tells us <strong>nothing</strong> about which class is more consistent. The <Highlight>coefficient of variation (C.V.)</Highlight>
+        standardises σ against the mean, so datasets with <strong>different means or units</strong> can be compared.
+      </Callout>
+      <FormulaCard>
+        <p className="font-semibold mb-2">Coefficient of Variation</p>
+        <FormulaBlock latex="\text{C.V.} = \frac{\sigma}{\bar{x}} \times 100" />
+        <p className="text-sm text-muted-foreground mt-2">Expressed as a percentage. The dataset with the <strong>smaller</strong> C.V. is more consistent (less relative variability).</p>
+      </FormulaCard>
+      <ul>
+        <li><strong>Smaller C.V. → more consistent / uniform</strong> dataset (better performance, tighter control, etc.).</li>
+        <li><strong>Larger C.V. → more scattered</strong> dataset relative to its mean.</li>
+        <li>C.V. is <Highlight>unit-free</Highlight> — it works across kilograms vs centimetres, rupees vs marks.</li>
+        <li>Use σ (not σ²) in the numerator — C.V. is a percentage, and σ has the same units as x̄.</li>
+      </ul>
+
+      <Expandable title="Example 14 — Comparing Two Series with C.V.">
+        <ProblemSolution problemNumber="Example 14">
+          <ProblemSolution.Problem>
+            Prices of shares of two companies are: A: 45, 55, 50, 52, 48 &nbsp; B: 33, 35, 40, 38, 39. Which company&apos;s prices are more stable?
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Company A", description: "x̄ = 250/5 = 50. σ² = (25+25+0+4+4)/5 = 58/5 = 11.6, so σ ≈ 3.41. C.V. = (3.41/50)×100 = <strong>6.82%</strong>" },
+                { label: "Company B", description: "x̄ = 185/5 = 37. σ² = (16+4+9+1+4)/5 = 34/5 = 6.8, so σ ≈ 2.61. C.V. = (2.61/37)×100 = <strong>7.05%</strong>" },
+                { label: "Compare", description: "6.82% &lt; 7.05%, so <strong>Company A is more stable</strong> (lower relative variability)." },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <SpeedTricks>
+        <Callout type="tip" title="C.V. exam trick: same mean, compare σ directly">
+          If two datasets have the <strong>same mean</strong>, comparing C.V. is the same as comparing σ directly — skip the percentage and just compare the standard deviations.
+        </Callout>
+        <Callout type="tip" title="Watch the denominator's units">
+          C.V. = σ/x̄ pairs data of the same type. Never mix, e.g., σ in kg with a mean in ₹ — the ratio becomes meaningless.
+        </Callout>
+        <Callout type="tip" title="C.V. < 15% is 'low'">
+          A quick benchmark: in many fields, C.V. below ~15% signals tight, consistent data; above ~30% signals high relative scatter.
+        </Callout>
+      </SpeedTricks>
+
       <Expandable id="h-ex-13-1" title="Exercise 13.1">
         <ol>
-          <li>Find the range of: (a) 12, 34, 56, 8, 90, 15, (b) 100, 87, 56, 34, 23, 12.</li>
-          <li>The heights (in cm) of 10 students: 150, 152, 148, 155, 160, 145, 158, 162, 153, 147. Find the range.</li>
-          <li>Find the mean deviation about the mean for: 3, 6, 10, 12, 18, 21.</li>
-          <li>Find the mean deviation about the median for: 12, 15, 18, 20, 25, 30, 35.</li>
-          <li>Find the mean deviation about the mean for: x: 10, 30, 50, 70, 90 | f: 4, 6, 8, 6, 4.</li>
-          <li>Find the mean deviation about the mean for the class intervals: 0–10, 10–20, 20–30, 30–40 with frequencies 5, 8, 10, 7.</li>
-          <li>Calculate the variance of: 2, 4, 6, 8, 10.</li>
-          <li>Find the variance and standard deviation of the first 5 positive integers.</li>
-          <li>For the discrete distribution x: 1, 3, 5, 7 | f: 3, 5, 4, 2, find σ² and σ.</li>
-          <li>Find the variance of the data: 5, 10, 15, 20, 25, 30 using the step-deviation method with a = 17.5.</li>
+          <li>Find the mean deviation about the mean for the data: 4, 7, 8, 9, 10, 12, 13, 17.</li>
+          <li>Find the mean deviation about the mean for the data: 38, 70, 48, 40, 42, 55, 63, 46, 54, 44.</li>
+          <li>Find the mean deviation about the median for the data: 13, 17, 16, 14, 11, 13, 10, 16, 11, 18, 12, 17.</li>
+          <li>Find the mean deviation about the median for the data: 36, 72, 46, 42, 60, 45, 53, 46, 51, 49.</li>
+          <li>Find the mean deviation about the mean for the data: x: 5, 10, 15, 20, 25 | f: 7, 4, 6, 3, 5.</li>
+          <li>Find the mean deviation about the mean for the data: x: 10, 30, 50, 70, 90 | f: 4, 24, 28, 16, 8.</li>
+          <li>Find the mean deviation about the median for the data: x: 5, 7, 9, 10, 12, 15 | f: 8, 6, 2, 2, 2, 6.</li>
+          <li>Find the mean deviation about the median for the data: x: 15, 21, 27, 30, 35 | f: 3, 5, 6, 7, 8.</li>
         </ol>
         <Expandable title="Answer Key — Exercise 13.1">
           <ol>
-            <li>(a) 90 − 8 = 82. (b) 100 − 12 = 88.</li>
-            <li>Range = 162 − 145 = 17 cm.</li>
-            <li>x̄ = 70/6 ≈ 11.67. M.D.(x̄) ≈ 4.89.</li>
-            <li>Median = 20. M.D.(median) ≈ 6.86.</li>
-            <li>x̄ = 50. Σfᵢ|xᵢ−50| = 160+120+0+120+160 = 560. M.D. = 560/28 = 20.</li>
-            <li>x̄ = (25+120+250+245)/30 = 640/30 ≈ 21.33. M.D. ≈ 8.44.</li>
-            <li>x̄ = 6. σ² = (16+4+0+4+16)/5 = 40/5 = 8.</li>
-            <li>x̄ = 3. σ² = 2, σ = √2 ≈ 1.414.</li>
-            <li>N = 14. x̄ = (3+15+20+14)/14 = 52/14 ≈ 3.714. σ² ≈ 3.061, σ ≈ 1.75.</li>
-            <li>N = 6. dᵢ: −12.5, −7.5, −2.5, 2.5, 7.5, 12.5. Σdᵢ = 0. Σdᵢ² = 437.5. σ² = 437.5/6 ≈ 72.92.</li>
+            <li>x̄ = 80/8 = 10. MD = (6+3+2+1+0+2+3+7)/8 = 24/8 = <strong>3</strong>.</li>
+            <li>x̄ = 500/10 = 50. MD = (12+20+2+10+8+5+13+4+4+6)/10 = 84/10 = <strong>8.4</strong>.</li>
+            <li>Median = 13.5 (average of 6th & 7th values). MD = 28/12 ≈ <strong>2.33</strong>.</li>
+            <li>Median = 47.5. MD = 70/10 = <strong>7</strong>.</li>
+            <li>N = 25, x̄ = 350/25 = 14. MD = (63+16+6+18+55)/25 = 158/25 = <strong>6.32</strong>.</li>
+            <li>N = 80, x̄ = 4000/80 = 50. MD = (160+480+0+320+320)/80 = 1280/80 = <strong>16</strong>.</li>
+            <li>N = 26, median = 7. MD = (0+0+4+6+10+48)/26 = 68/26 ≈ <strong>2.62</strong>.</li>
+            <li>N = 29, median = 30. MD = (45+45+18+0+40)/29 = 148/29 ≈ <strong>5.10</strong>.</li>
           </ol>
         </Expandable>
       </Expandable>
 
       <Expandable id="h-ex-13-2" title="Exercise 13.2">
         <ol>
-          <li>Find the variance of: 6, 8, 10, 12, 14, 16.</li>
-          <li>Find the standard deviation of: 2, 4, 6, 8, 10, 12, 14, 16.</li>
-          <li>For x: 1, 2, 3, 4, 5, 6 | f: 2, 4, 6, 8, 10, 12, find σ².</li>
-          <li>Find σ² for: Class: 0–5, 5–10, 10–15, 15–20 | f: 3, 7, 5, 2 using step-deviation method (a = 7.5, h = 5).</li>
-          <li>The variance of a dataset is 4. If each observation is multiplied by 3, find the new variance.</li>
-          <li>The mean and standard deviation of 10 observations are 12 and 4. Find Σ(xᵢ − 12)².</li>
-          <li>Find the mean deviation about the mean for the continuous frequency distribution: Class 0–20, 20–40, 40–60, 60–80 with f: 6, 8, 10, 4.</li>
-          <li>If σ² = 9 for a dataset, what is the coefficient of variation if x̄ = 15?</li>
+          <li>Find the mean and variance for the data: 6, 7, 10, 12, 13, 4, 8, 12.</li>
+          <li>Find the mean and variance for the first n natural numbers.</li>
+          <li>Find the mean and variance for the first 10 multiples of 3.</li>
+          <li>Find the mean and variance for: x: 6, 10, 14, 18, 24, 28, 30 | f: 2, 4, 7, 12, 8, 4, 3.</li>
+          <li>Find the mean and variance for: x: 92, 93, 97, 98, 102, 104, 109 | f: 3, 2, 3, 2, 6, 3, 3.</li>
+          <li>Find the mean and standard deviation using the short-cut method: x: 60, 61, 62, 63, 64, 65, 66, 67, 68 | f: 2, 1, 12, 29, 25, 12, 10, 4, 5.</li>
+          <li>Find the mean and variance for the distribution: Classes: 0–30, 30–60, 60–90, 90–120, 120–150, 150–180, 180–210 | Frequencies: 2, 3, 5, 10, 3, 5, 2.</li>
+          <li>Find the mean and variance for the distribution: Classes: 0–10, 10–20, 20–30, 30–40, 40–50 | Frequencies: 5, 8, 15, 16, 6.</li>
+          <li>Find the mean, variance and standard deviation using the short-cut method for heights (in cm): 70–75, 75–80, 80–85, 85–90, 90–95, 95–100, 100–105, 105–110, 110–115 with frequencies 3, 4, 7, 7, 15, 9, 6, 6, 3.</li>
+          <li>The diameters of circles (in mm): 33–36, 37–40, 41–44, 45–48, 49–52 with frequencies 15, 17, 21, 22, 25. Calculate the SD and mean diameter. <em>Hint:</em> make data continuous as 32.5–36.5, 36.5–40.5, 40.5–44.5, 44.5–48.5, 48.5–52.5.</li>
         </ol>
         <Expandable title="Answer Key — Exercise 13.2">
           <ol>
-            <li>x̄ = 11. σ² = (25+9+1+1+9+25)/6 = 70/6 ≈ 11.67.</li>
-            <li>x̄ = 9. σ² = (49+25+9+1+1+9+25+49)/8 = 168/8 = 21. σ = √21 ≈ 4.583.</li>
-            <li>N = 42. x̄ = (2+8+18+32+50+72)/42 = 182/42 ≈ 4.33. σ² ≈ 2.551.</li>
-            <li>Midpoints: 2.5, 7.5, 12.5, 17.5. uᵢ: −1, 0, 1, 2. Σfᵢuᵢ = −3+0+5+4 = 6. Σfᵢuᵢ² = 3+0+5+8 = 16. σ² = 25[16/20 − (6/20)²] = 25[0.8 − 0.09] = 25(0.71) = 17.75.</li>
-            <li>New variance = 9 × 9 = 81. (Variance scales by k² when data is multiplied by k.)</li>
-            <li>Σ(xᵢ − x̄)² = Nσ² = 10 × 16 = 160.</li>
-            <li>Midpoints: 10, 30, 50, 70. x̄ = (60+240+500+280)/28 = 1080/28 ≈ 38.57. M.D. ≈ 14.29.</li>
-            <li>CV = (σ/x̄) × 100 = (3/15) × 100 = 20%.</li>
+            <li>x̄ = 72/8 = 9. Variance = 74/8 = <strong>9.25</strong>.</li>
+            <li>Mean = (n+1)/2; Variance = (n²−1)/12.</li>
+            <li>First 10 multiples of 3: 3, 6, …, 30. Mean = 16.5; Variance = <strong>74.25</strong>.</li>
+            <li>N = 40. x̄ = 760/40 = 19. σ² = 16176/40 − 19² = 404.4 − 361 = <strong>43.4</strong>.</li>
+            <li>N = 22. x̄ = 2200/22 = 100. Variance = <strong>29.09</strong>.</li>
+            <li>x̄ = 64. σ² = <strong>2.86</strong>, σ ≈ 1.69.</li>
+            <li>Midpoints: 15, 45, …, 195. x̄ = 107. σ² = <strong>2276</strong>.</li>
+            <li>Midpoints: 5, 15, …, 45. x̄ = 27. σ² = <strong>132</strong>.</li>
+            <li>x̄ = 93. σ² ≈ <strong>105.58</strong>, σ ≈ 10.28.</li>
+            <li>Continuous classes: 32.5–36.5, … x̄ = <strong>43.5 mm</strong>, σ ≈ <strong>5.55 mm</strong>.</li>
           </ol>
         </Expandable>
       </Expandable>
 
+      <Expandable title="Examples 15 to 18 — Miscellaneous Examples (NCERT)">
+        <ProblemSolution problemNumber="Example 15">
+          <ProblemSolution.Problem>
+            The variance of 20 observations is 5. If each observation is multiplied by 2, find the new variance.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Key fact", description: "When every observation is multiplied by k, the variance is multiplied by k²." },
+                { label: "Apply", description: "New variance = k² × old variance = 2² × 5 = 4 × 5 = <strong>20</strong>" },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 16">
+          <ProblemSolution.Problem>
+            The mean of 5 observations is 4.4 and the variance is 8.24. If three of the observations are 1, 2 and 6, find the other two.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Sum from mean", description: "Total = 5 × 4.4 = 22. Already known: 1+2+6 = 9, so the other two satisfy x + y = 13." },
+                { label: "Variance equation", description: "Σ(xᵢ)² = n(σ² + x̄²) = 5(8.24 + 19.36) = 138. Known squares: 1+4+36 = 41, so x² + y² = 97." },
+                { label: "Solve", description: "(x+y)² = x² + y² + 2xy → 169 = 97 + 2xy → 2xy = 72. Then (x−y)² = 97 − 72 = 25 → x − y = ±5." },
+                { label: "Answer", description: "With x + y = 13 and x − y = ±5, the two observations are <strong>4 and 9</strong>." },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 17">
+          <ProblemSolution.Problem>
+            If each observation x₁, x₂, …, xₙ is increased by a (positive or negative), show that the variance remains unchanged.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "New values", description: "yᵢ = xᵢ + a and the new mean ȳ = x̄ + a." },
+                { label: "Deviations cancel", description: "yᵢ − ȳ = (xᵢ + a) − (x̄ + a) = xᵢ − x̄ — the constant a drops out of every deviation." },
+                { label: "Conclusion", description: "σᵧ² = (1/n)Σ(yᵢ − ȳ)² = (1/n)Σ(xᵢ − x̄)² = σₓ², so <strong>variance is unchanged</strong>." },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 18">
+          <ProblemSolution.Problem>
+            The mean and SD of 100 observations were calculated as 40 and 5.1 by a student who took 50 instead of 40 for one observation. Find the correct mean and SD.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Correct sum", description: "Incorrect sum = 100 × 40 = 4000. Correct sum = 4000 − 50 + 40 = 3990. Correct mean = 3990/100 = <strong>39.9</strong>" },
+                { label: "Incorrect Σx²", description: "σ² = Σx²/n − x̄² → 26.01 = Σx²/100 − 1600 → Σx² = 100(26.01 + 1600) = 162601" },
+                { label: "Correct Σx²", description: "= 162601 − 50² + 40² = 162601 − 2500 + 1600 = 161701" },
+                { label: "Correct SD", description: "σ² = 161701/100 − (39.9)² = 1617.01 − 1592.01 = 25 → σ = <strong>5</strong>" },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <Expandable id="h-misc-ex-13" title="Miscellaneous Exercise on Chapter 13">
         <ol>
-          <li>Find the range and mean deviation about the mean for: 7, 11, 15, 19, 23, 27, 31.</li>
-          <li>The mean of 5 observations is 4.4 and the variance is 8.24. If three of the five observations are 1, 2, 6, find the other two.</li>
-          <li>Find the mean deviation about the median for: x: 5, 10, 15, 20, 25 | f: 3, 5, 4, 2, 1.</li>
-          <li>For the data: Class 0–10, 10–20, 20–30, 30–40, 40–50 | f: 1, 3, 4, 3, 2, find σ² using the step-deviation method.</li>
-          <li>The standard deviation of a dataset is 5. If every observation is decreased by 3, what is the new standard deviation?</li>
-          <li>Find the coefficient of variation for: x: 10, 12, 15, 18, 20, 25, 30.</li>
-          <li>The mean and variance of 20 observations are 15 and 9. If one observation 19 is replaced by 11, find the new mean and variance.</li>
-          <li>For two datasets A: 2, 4, 6, 8 and B: 5, 10, 15, 20, which has greater dispersion? Justify using the coefficient of variation.</li>
+          <li>The mean and variance of eight observations are 9 and 9.25, respectively. If six of the observations are 6, 7, 10, 12, 12 and 13, find the remaining two.</li>
+          <li>The mean and variance of 7 observations are 8 and 16, respectively. If five of the observations are 2, 4, 10, 12 and 14, find the remaining two.</li>
+          <li>The mean and standard deviation of six observations are 8 and 4, respectively. If each observation is multiplied by 3, find the new mean and new standard deviation.</li>
+          <li>Given that x̄ is the mean and σ² the variance of n observations x₁, x₂, …, xₙ, prove that the mean and variance of ax₁, ax₂, …, axₙ are ax̄ and a²σ² respectively (a ≠ 0).</li>
+          <li>The mean and standard deviation of 20 observations are found to be 10 and 2. On rechecking, an observation 8 was found incorrect. Calculate the correct mean and SD in each case: (i) if the wrong item is omitted, (ii) if it is replaced by 12.</li>
+          <li>The mean and SD of a group of 100 observations were found to be 20 and 3. Later, three observations were found incorrect, recorded as 21, 21 and 18. Find the mean and SD if the incorrect observations are omitted.</li>
         </ol>
         <Expandable title="Answer Key — Miscellaneous Exercise">
           <ol>
-            <li>Range = 31−7 = 24. x̄ = 19. M.D. = (12+8+4+0+4+8+12)/7 = 48/7 ≈ 6.86.</li>
-            <li>Sum = 22. Known three sum = 9. Other two sum = 13. Using variance: (1+4+36+a²+b²)/5 − (4.4)² = 8.24. Solve: a+b = 13, a²+b² = 83. → a = 4, b = 9 or a = 9, b = 4.</li>
-            <li>N = 15, Median = 15. Σfᵢ|xᵢ−15| = 30+25+0+10+25 = 90. M.D.(median) = 90/15 = 6.</li>
-            <li>Midpoints: 5, 15, 25, 35, 45. N = 13. x̄ = (5+45+100+105+90)/13 = 345/13 ≈ 26.54. σ² ≈ 139.6.</li>
-            <li>σ = 5. (Shifting by a constant does not change the standard deviation.)</li>
-            <li>x̄ = 120/7 ≈ 17.14. σ ≈ 6.84. CV = (6.84/17.14)×100 ≈ 39.9%.</li>
-            <li>New mean = (300−19+11)/20 = 292/20 = 14.6. New Σ(xᵢ−x̄)² = 20×9 − (19−15)² + (11−15)² = 180−16+16 = 180. New σ² = 180/20 = 9. (Variance unchanged because the net shift in sum of squares cancelled.)</li>
-            <li>A: x̄ = 5, σ = √5 ≈ 2.24, CV = 44.7%. B: x̄ = 12.5, σ ≈ 6.45, CV ≈ 51.6%. Dataset B has greater dispersion (higher CV).</li>
+            <li>Total sum = 72. Known sum = 60, so the two numbers satisfy a + b = 12 and a² + b² = 80 → ab = 32. They are <strong>4 and 8</strong>.</li>
+            <li>Total sum = 56. Known sum = 42 → a + b = 14, a² + b² = 100 → ab = 48. They are <strong>6 and 8</strong>.</li>
+            <li>New mean = 3 × 8 = <strong>24</strong>. New SD = 3 × 4 = <strong>12</strong>.</li>
+            <li>Mean of {`{axᵢ}`} = a·x̄. Variance = (1/n)Σ(axᵢ − ax̄)² = a²·(1/n)Σ(xᵢ − x̄)² = <strong>a²σ²</strong>.</li>
+            <li>(i) Omitted: correct sum = 192, n = 19, mean ≈ 10.11, σ² ≈ 3.99, σ ≈ 2.00. (ii) Replaced by 12: sum = 204, mean = 10.2, σ² = 3.96, σ ≈ 1.99.</li>
+            <li>Correct sum = 2000 − 60 = 1940, n = 97, mean = <strong>20</strong>. σ² = 39694/97 − (1940/97)² ≈ 9.22, σ ≈ <strong>3.04</strong>.</li>
           </ol>
         </Expandable>
       </Expandable>

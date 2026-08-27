@@ -20,6 +20,7 @@ const chapterComponents: Record<string, React.ComponentType> = {
   "maths/introduction-to-three-dimensional-geometry": dynamic(
     () => import("@/content/maths/introduction-to-three-dimensional-geometry/page")
   ) as React.ComponentType,
+  "maths/statistics": dynamic(() => import("@/content/maths/statistics/page")) as React.ComponentType,
 };
 
 export function Class11ChapterContent({ subject, slug }: { subject: string; slug: string }) {
