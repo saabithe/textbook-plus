@@ -530,6 +530,7 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-mean-deviation", title: "13.4 Mean Deviation" },
     { id: "h-variance", title: "13.5 Variance and Standard Deviation" },
     { id: "h-cv", title: "13.6 Coefficient of Variation" },
+    { id: "h-formula-map", title: "13.2 Formula Map — Which Formula to Use When?" },
   ],
 };
 

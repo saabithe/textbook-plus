@@ -1,7 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
-import { FormulaBlock } from "@/components/content/Formula";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -30,6 +30,7 @@ export default function StatisticsChapter() {
         <p className="font-semibold mb-2">Range</p>
         <FormulaBlock latex="R = L - S" />
         <p className="text-sm text-muted-foreground mt-2">L = largest value, S = smallest value in the dataset.</p>
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> the question says &ldquo;range&rdquo;, or asks for largest minus smallest.</p>
       </FormulaCard>
       <Callout type="important" title="Range">
         The <Highlight>range</Highlight> is the simplest measure of dispersion — the difference between the maximum and minimum values.
@@ -76,6 +77,7 @@ export default function StatisticsChapter() {
         <p className="font-semibold mb-2">Mean Deviation about Mean</p>
         <FormulaBlock latex="\text{M.D.}(\bar{x}) = \frac{\sum_{i=1}^{n} |x_i - \bar{x}|}{n}" />
         <p className="text-sm text-muted-foreground mt-2">where x̄ = (1/n) Σxᵢ is the arithmetic mean.</p>
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> a raw list of values says &ldquo;mean deviation about the mean&rdquo;.</p>
       </FormulaCard>
 
       <Expandable title="Example 3 — Mean Deviation (Ungrouped)">
@@ -104,11 +106,13 @@ export default function StatisticsChapter() {
         <p className="font-semibold mb-2">Mean Deviation about Median (Ungrouped)</p>
         <FormulaBlock latex="\text{M.D.}(M) = \frac{\sum_{i=1}^{n} |x_i - M|}{n}" />
         <p className="text-sm text-muted-foreground mt-2">where M is the median of the observations.</p>
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> a raw list says &ldquo;mean deviation about the median&rdquo;, or the data has outliers (M is robust).</p>
       </FormulaCard>
       <FormulaCard>
         <p className="font-semibold mb-2">Mean Deviation about Median (Frequency Distribution)</p>
         <FormulaBlock latex="\text{M.D.}(M) = \frac{\sum_{i=1}^{k} f_i |x_i - M|}{N}, \quad N = \sum f_i" />
         <p className="text-sm text-muted-foreground mt-2">For grouped data, first find the median class using cumulative frequency, then the median formula from Chapter 5.</p>
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> frequency data (x and f together) asks for deviation about the median.</p>
       </FormulaCard>
 
       <Expandable title="Example 4 and 5 — Mean Deviation about Median">
@@ -152,6 +156,7 @@ export default function StatisticsChapter() {
         <p className="font-semibold mb-2">Mean Deviation (Discrete Frequency)</p>
         <FormulaBlock latex="\text{M.D.}(\bar{x}) = \frac{\sum_{i=1}^{k} f_i |x_i - \bar{x}|}{N}, \quad N = \sum_{i=1}^{k} f_i" />
         <p className="text-sm text-muted-foreground mt-2">xᵢ are the distinct values, fᵢ their frequencies.</p>
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> discrete data given as x-values with frequencies f (no class intervals). Divide by N = Σfᵢ.</p>
       </FormulaCard>
 
       <Expandable title="Examples 6 and 7 — Mean Deviation (Discrete & Continuous Frequency)">
@@ -179,6 +184,7 @@ export default function StatisticsChapter() {
         <p className="font-semibold mb-2">Mean Deviation (Continuous Frequency)</p>
         <FormulaBlock latex="\text{M.D.}(\bar{x}) = \frac{\sum_{i=1}^{k} f_i |d_i|}{N}, \quad d_i = x_i - \bar{x}" />
         <p className="text-sm text-muted-foreground mt-2">xᵢ = midpoint of the i-th class interval, fᵢ = frequency of that class, N = Σfᵢ.</p>
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> data is grouped into class intervals — convert each class to its midpoint first.</p>
       </FormulaCard>
 
       <Expandable title="Example 7 — Mean Deviation (Continuous Frequency)">
@@ -231,6 +237,7 @@ export default function StatisticsChapter() {
         <p className="font-semibold mb-2">Population Variance (σ²)</p>
         <FormulaBlock latex="\sigma^2 = \frac{1}{N}\sum_{i=1}^{N}(x_i - \bar{x})^2" />
         <p className="text-sm text-muted-foreground mt-2">N = total number of observations. The variance is always ≥ 0.</p>
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> the question asks for variance of a raw list — compute x̄, then average the squared deviations. NCERT Class 11 divides by N (not N−1).</p>
       </FormulaCard>
       <KeyPoint title="Standard Deviation">
         <FormulaBlock latex="\sigma = \sqrt{\sigma^2} = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \bar{x})^2}" />
@@ -242,6 +249,7 @@ export default function StatisticsChapter() {
         <p className="font-semibold mb-2">Ungrouped Variance</p>
         <FormulaBlock latex="\sigma^2 = \frac{1}{N}\sum_{i=1}^{N}(x_i - \bar{x})^2" />
         <p className="text-sm text-muted-foreground mt-2">Step 1: find x̄. Step 2: compute each (xᵢ − x̄)². Step 3: average them.</p>
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> variance of an ungrouped list, e.g. examples 8–9. Same formula as the definition.</p>
       </FormulaCard>
 
       <Expandable title="Examples 8 and 9 — Ungrouped Variance">
@@ -282,6 +290,7 @@ export default function StatisticsChapter() {
         <p className="font-semibold mb-2">Discrete Frequency Variance</p>
         <FormulaBlock latex="\sigma^2 = \frac{1}{N}\sum_{i=1}^{k}f_i(x_i - \bar{x})^2, \quad N = \sum_{i=1}^{k}f_i" />
         <p className="text-sm text-muted-foreground mt-2">xᵢ = distinct values, fᵢ = corresponding frequencies.</p>
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> variance of discrete frequency data (x and f side by side, no classes).</p>
       </FormulaCard>
 
       <Expandable title="Example 10 — Discrete Frequency Variance">
@@ -307,6 +316,7 @@ export default function StatisticsChapter() {
         <p className="font-semibold mb-2">Continuous Frequency Variance</p>
         <FormulaBlock latex="\sigma^2 = \frac{1}{N}\sum_{i=1}^{k}f_i(x_i - \bar{x})^2" />
         <p className="text-sm text-muted-foreground mt-2">xᵢ = midpoint of i-th class, fᵢ = class frequency, N = total frequency.</p>
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> variance of continuous (class-interval) data — take midpoints, then apply the discrete formula.</p>
       </FormulaCard>
 
       <Expandable title="Example 11 — Continuous Frequency Variance">
@@ -342,12 +352,14 @@ export default function StatisticsChapter() {
         <FormulaBlock latex="\bar{x} = a + h \cdot \frac{\sum f_i u_i}{N}" />
         <FormulaBlock latex="\sigma^2 = h^2 \left[\frac{1}{N}\sum f_i u_i^2 - \left(\frac{1}{N}\sum f_i u_i\right)^2\right]" />
         <p className="text-sm text-muted-foreground mt-2">a = assumed mean, h = class width (or common factor), uᵢ = coded value, N = Σfᵢ.</p>
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> values are large / the mean is a messy fraction, or the question says &ldquo;step-deviation method&rdquo;. Keep h as the class width (e.g. classes 0–10 → h = 10).</p>
       </FormulaCard>
 
       <KeyPoint title="Shortcut Method (without step-deviation)">
         If you only shift by a (no dividing by h):
         <FormulaBlock latex="d_i = x_i - a" />
         <FormulaBlock latex="\sigma^2 = \frac{1}{N}\sum f_i d_i^2 - \left(\frac{1}{N}\sum f_i d_i\right)^2" />
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> you only want to shift by an assumed mean a (no class width h) to simplify arithmetic — the &ldquo;short-cut method&rdquo;.</p>
       </KeyPoint>
 
       <Expandable title="Example 12 — Step-Deviation Method">
@@ -436,6 +448,7 @@ export default function StatisticsChapter() {
         <p className="font-semibold mb-2">Coefficient of Variation</p>
         <FormulaBlock latex="\text{C.V.} = \frac{\sigma}{\bar{x}} \times 100" />
         <p className="text-sm text-muted-foreground mt-2">Expressed as a percentage. The dataset with the <strong>smaller</strong> C.V. is more consistent (less relative variability).</p>
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> comparing two series (&ldquo;which is more consistent / stable / uniform?&rdquo;), possibly with different means or units. Same mean → compare σ directly.</p>
       </FormulaCard>
       <ul>
         <li><strong>Smaller C.V. → more consistent / uniform</strong> dataset (better performance, tighter control, etc.).</li>
@@ -472,6 +485,128 @@ export default function StatisticsChapter() {
           A quick benchmark: in many fields, C.V. below ~15% signals tight, consistent data; above ~30% signals high relative scatter.
         </Callout>
       </SpeedTricks>
+
+      <h2 id="h-formula-map">13.2 Formula Map — Which Formula to Use When?</h2>
+      <Callout type="important" title="Read the words, not the numbers">
+        Every question in this chapter is a keyword decoder: the wording tells you <strong>which formula</strong> to reach
+        for before you compute anything. Ask yourself: does the question want (a) a quick range, (b) an average absolute
+        deviation, (c) variance/standard deviation, or (d) a <Highlight>comparison between two series</Highlight>?
+        Then let the <strong>shape of the data</strong> (raw list, x-and-f table, class intervals) finish the decision.
+      </Callout>
+
+      <div className="my-4 rounded-lg border border-[var(--border)] bg-[var(--card)] p-4 overflow-x-auto">
+        <table className="w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b border-[var(--border)]">
+              <th className="text-left p-2 font-semibold text-xs uppercase text-muted-foreground">When the question says…</th>
+              <th className="text-left p-2 font-semibold text-xs uppercase text-muted-foreground">Reach for this formula</th>
+              <th className="text-left p-2 font-semibold text-xs uppercase text-muted-foreground">Model example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-[var(--border)]/40">
+              <td colSpan={3} className="p-2 font-semibold bg-muted/40 text-[0.8rem]">Range — one-line spread check</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">&ldquo;Range&rdquo;, or &ldquo;largest − smallest&rdquo;</td>
+              <td className="p-2"><Formula>{`R = L - S`}</Formula></td>
+              <td className="p-2">Examples 1–2</td>
+            </tr>
+
+            <tr className="border-b border-[var(--border)]/40">
+              <td colSpan={3} className="p-2 font-semibold bg-muted/40 text-[0.8rem]">Mean Deviation — average absolute distance from a centre</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">&ldquo;M.D. about the mean&rdquo; for a list of values</td>
+              <td className="p-2"><Formula>{`\text{M.D.}(\bar{x}) = \frac{\sum_{i=1}^{n} |x_i - \bar{x}|}{n}`}</Formula></td>
+              <td className="p-2">Example 3</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">&ldquo;M.D. about the median&rdquo;, or data has outliers</td>
+              <td className="p-2"><Formula>{`\text{M.D.}(M) = \frac{\sum_{i=1}^{n} |x_i - M|}{n}`}</Formula></td>
+              <td className="p-2">Example 4</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">Data given as x-values with frequencies (no classes)</td>
+              <td className="p-2"><Formula>{`\text{M.D.}(\bar{x}) = \frac{\sum_{i=1}^{k} f_i |x_i - \bar{x}|}{N}, \quad N = \sum f_i`}</Formula></td>
+              <td className="p-2">Example 6</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">Data given as class intervals (0–10, 10–20, …)</td>
+              <td className="p-2">Convert to <strong>midpoints</strong> xᵢ, then <Formula>{`\text{M.D.}(\bar{x}) = \frac{\sum f_i |x_i - \bar{x}|}{N}`}</Formula></td>
+              <td className="p-2">Examples 5, 7</td>
+            </tr>
+
+            <tr className="border-b border-[var(--border)]/40">
+              <td colSpan={3} className="p-2 font-semibold bg-muted/40 text-[0.8rem]">Variance &amp; Standard Deviation — squared deviations</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">&ldquo;Variance&rdquo; / &ldquo;standard deviation&rdquo; of a list</td>
+              <td className="p-2"><Formula>{`\sigma^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2`}</Formula></td>
+              <td className="p-2">Examples 8–9</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">Values with frequencies (no classes)</td>
+              <td className="p-2"><Formula>{`\sigma^2 = \frac{1}{N} \sum_{i=1}^{k} f_i (x_i - \bar{x})^2`}</Formula></td>
+              <td className="p-2">Example 10</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">Class intervals (continuous)</td>
+              <td className="p-2">Midpoints xᵢ, then <Formula>{`\sigma^2 = \frac{1}{N} \sum f_i (x_i - \bar{x})^2`}</Formula></td>
+              <td className="p-2">Example 11</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">&ldquo;Short-cut / step-deviation method&rdquo;, or values are large with a messy mean</td>
+              <td className="p-2"><Formula>{`\sigma^2 = h^2 \left[ \frac{1}{N} \sum f_i u_i^2 - \left( \frac{1}{N} \sum f_i u_i \right)^2 \right]`}</Formula></td>
+              <td className="p-2">Examples 12–13</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">σ² and x̄ are given; asks for <strong>missing / wrong observations</strong></td>
+              <td className="p-2"><Formula>{`\sigma^2 = \frac{\sum x_i^2}{n} - \bar{x}^2 \ \Rightarrow \ \sum x_i^2 = n(\sigma^2 + \bar{x}^2)`}</Formula></td>
+              <td className="p-2">Examples 16, 18</td>
+            </tr>
+
+            <tr className="border-b border-[var(--border)]/40">
+              <td colSpan={3} className="p-2 font-semibold bg-muted/40 text-[0.8rem]">Coefficient of Variation — comparing two series</td>
+            </tr>
+            <tr className="border-b border-[var(--border)]/50">
+              <td className="p-2">&ldquo;Which series is more consistent / stable / uniform?&rdquo; (often different means or units)</td>
+              <td className="p-2"><Formula>{`\text{C.V.} = \frac{\sigma}{\bar{x}} \times 100`}</Formula> — smaller C.V. wins</td>
+              <td className="p-2">Example 14</td>
+            </tr>
+            <tr>
+              <td className="p-2">Each observation changed: &ldquo;multiplied by k&rdquo; or &ldquo;increased by c&rdquo;</td>
+              <td className="p-2"><Formula>{`\times k \Rightarrow \sigma \to |k|\sigma, \ \sigma^2 \to k^2\sigma^2`}</Formula> &nbsp; <Formula>{`+ c \Rightarrow`}</Formula> σ unchanged</td>
+              <td className="p-2">Examples 15, 17</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+        <div className="rounded-md border border-emerald-500/30 bg-emerald-500/5 p-3">
+          <p className="font-semibold text-emerald-600 dark:text-emerald-400 text-sm mb-1">Range</p>
+          <p className="text-xs text-muted-foreground"><strong>Grab it when:</strong> &ldquo;range&rdquo;, smallest−largest, instant sanity check. Never enough alone — pair with M.D. or σ.</p>
+        </div>
+        <div className="rounded-md border border-amber-500/30 bg-amber-500/5 p-3">
+          <p className="font-semibold text-amber-600 dark:text-amber-400 text-sm mb-1">Mean Deviation</p>
+          <p className="text-xs text-muted-foreground"><strong>Grab it when:</strong> question literally says &ldquo;mean deviation&rdquo; (about mean or median). Choose median when there are outliers.</p>
+        </div>
+        <div className="rounded-md border border-blue-500/30 bg-blue-500/5 p-3">
+          <p className="font-semibold text-blue-600 dark:text-blue-400 text-sm mb-1">Variance &amp; SD</p>
+          <p className="text-xs text-muted-foreground"><strong>Grab it when:</strong> &ldquo;variance&rdquo;, &ldquo;standard deviation&rdquo;, or you need algebra-friendly spread. σ has the data&apos;s units.</p>
+        </div>
+        <div className="rounded-md border border-purple-500/30 bg-purple-500/5 p-3">
+          <p className="font-semibold text-purple-600 dark:text-purple-400 text-sm mb-1">Coefficient of Variation</p>
+          <p className="text-xs text-muted-foreground"><strong>Grab it when:</strong> two series, &ldquo;which is more consistent?&rdquo;, possibly different means/units. Same mean → just compare σ.</p>
+        </div>
+      </div>
+
+      <KeyPoint title="The two working identities for missing / wrong observation problems">
+        Almost every &ldquo;find the missing observation&rdquo; / &ldquo;one observation was wrong&rdquo; question is solved by
+        (<Formula>{`\sum x_i = n\bar{x}`}</Formula>) and (<Formula>{`\sum x_i^2 = n(\sigma^2 + \bar{x}^2)`}</Formula>).
+        Recover the totals that got corrupted, fix them, and recompute the mean and variance directly — no need to solve systems by hand (see Examples 16 and 18, Misc Q1–2, 5–6).
+      </KeyPoint>
 
       <Expandable id="h-ex-13-1" title="Exercise 13.1">
         <ol>
