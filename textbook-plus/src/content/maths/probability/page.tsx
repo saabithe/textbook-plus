@@ -7,6 +7,7 @@ import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { Highlight } from "@/components/content/Highlight";
 import { SpeedTricks } from "@/components/content/SpeedTricks";
+import { OrgChart } from "@/components/content/OrgChart";
 
 export default function ProbabilityChapter() {
   return (
@@ -341,6 +342,43 @@ export default function ProbabilityChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
+
+      <h3 id="h-deck">52-Card Deck Structure</h3>
+      <OrgChart
+        title="52-Card Deck — Org Chart"
+        nodes={[
+          {
+            label: "52 Cards",
+            detail: "Standard deck",
+            children: [
+              {
+                label: "Red",
+                detail: "26 cards",
+                children: [
+                  { label: "♥ Hearts", detail: "13 cards", children: [
+                    { label: "A, 2–10, J, Q, K" },
+                  ]},
+                  { label: "♦ Diamonds", detail: "13 cards", children: [
+                    { label: "A, 2–10, J, Q, K" },
+                  ]},
+                ],
+              },
+              {
+                label: "Black",
+                detail: "26 cards",
+                children: [
+                  { label: "♣ Clubs", detail: "13 cards", children: [
+                    { label: "A, 2–10, J, Q, K" },
+                  ]},
+                  { label: "♠ Spades", detail: "13 cards", children: [
+                    { label: "A, 2–10, J, Q, K" },
+                  ]},
+                ],
+              },
+            ],
+          },
+        ]}
+      />
 
       <SpeedTricks>
         <Callout type="tip" title="Use the complement: P(A) = 1 − P(A&apos;)">
