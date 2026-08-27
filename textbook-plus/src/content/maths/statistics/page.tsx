@@ -371,7 +371,7 @@ export default function StatisticsChapter() {
             />
             <Stepper
               steps={[
-                { label: "Mean", description: "x̄ = 55/10 = 5.5" },
+                { label: "Mean", description: "x̄ = 55/10 = 5.5 — since 1, 2, …, 10 is an arithmetic sequence, this is also just (first + last)/2 = (1 + 10)/2" },
                 { label: "Variance by identity", description: "σ² = Σxᵢ²/n − x̄² = 385/10 − 5.5² = 38.5 − 30.25 = <strong>8.25</strong>" },
               ]}
             />
@@ -544,6 +544,11 @@ export default function StatisticsChapter() {
         </Callout>
         <Callout type="tip" title="Always verify: σ² ≥ 0">
           Variance is a sum of squares divided by N — it can never be negative. If your answer is negative, you made a sign error.
+        </Callout>
+        <Callout type="tip" title="Arithmetic sequence: mean = (first + last) / 2">
+          When the data is an arithmetic sequence (equally spaced, like the first n natural numbers or the first 10 multiples of 3), the mean is just
+          x̄ = (first + last)/2. For 1, 2, …, 10 that gives x̄ = (1 + 10)/2 = 5.5 — no summing needed. Combine with the identity
+          σ² = Σxᵢ²/n − x̄² and the variance drops out almost instantly.
         </Callout>
         <Callout type="tip" title="σ vs σ² — know when to use which">
           Standard deviation σ has the same units as the data (e.g., cm, kg) — use it for interpretation. Variance σ² is easier for algebraic manipulation — use it in proofs and further calculations.
