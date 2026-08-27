@@ -406,6 +406,34 @@ export default function StatisticsChapter() {
         </ProblemSolution>
       </Expandable>
 
+      <Expandable title="Derivation — Standard Deviation of the First n Natural Numbers">
+        <ProblemSolution problemNumber="Derivation">
+          <ProblemSolution.Problem>
+            Find the standard deviation of the first n natural numbers: 1, 2, 3, …, n.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Start from the definition", description: "SD = √Variance — so find the variance first, then take the square root." },
+                { label: "Mean of the sequence", description: "1, 2, …, n is an arithmetic sequence, so x̄ = (first + last)/2 = (1 + n)/2 = <strong>(n + 1)/2</strong>" },
+                { label: "Variance by the identity", description: "σ² = Σxᵢ²/n − x̄². Also 1² + 2² + ⋯ + n² = n(n+1)(2n+1)/6, so Σxᵢ²/n = (n+1)(2n+1)/6" },
+                { label: "Subtract the mean term", description: "σ² = (n+1)(2n+1)/6 − ((n+1)/2)² = [2(n+1)(2n+1) − 3(n+1)²]/12 = (n+1)[(4n+2) − (3n+3)]/12 = (n+1)(n−1)/12 = <strong>(n² − 1)/12</strong>" },
+                { label: "Take the square root", description: "SD = √σ² = √((n² − 1)/12)" },
+              ]}
+            />
+            <KeyPoint title="Result to memorise — the (n+1)/2 and (n²−1)/12 pair">
+              <FormulaBlock latex="\text{Mean of } 1, 2, \dots, n \ = \frac{n+1}{2}" />
+              <FormulaBlock latex="\text{SD of } 1, 2, \dots, n \ = \sqrt{\frac{n^2 - 1}{12}}" />
+              <p>
+                The same (n² − 1)/12 appeared in the 3, 6, …, 99 practice problem (where the factor 3² scaled it to 816),
+                and it answers Ex 13.2 Q2 instantly. For example, n = 10 gives SD = √(99/12) ≈ 2.87 — the root of the 8.25
+                from Example 9.
+              </p>
+            </KeyPoint>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <h3>Variance for Discrete Frequency Distribution</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Discrete Frequency Variance</p>
