@@ -86,11 +86,26 @@ export default function StatisticsChapter() {
             Find the mean deviation about the mean for: 4, 7, 8, 9, 10, 12, 13, 17.
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
+            <TableCard
+              headers={["xᵢ", "xᵢ − x̄", "|xᵢ − x̄|"]}
+              rows={[
+                { cells: ["4", "−6", "6"] },
+                { cells: ["7", "−3", "3"] },
+                { cells: ["8", "−2", "2"] },
+                { cells: ["9", "−1", "1"] },
+                { cells: ["10", "0", "0"] },
+                { cells: ["12", "2", "2"] },
+                { cells: ["13", "3", "3"] },
+                { cells: ["17", "7", "7"] },
+                { cells: ["Total", "", "Σ = 24"] },
+              ]}
+              caption="Each row is one observation — the numerator of M.D. is the total of the last column."
+            />
             <Stepper
               steps={[
                 { label: "Mean", description: "x̄ = (4+7+8+9+10+12+13+17)/8 = 80/8 = 10" },
-                { label: "Absolute deviations", description: "|4−10|=6, |7−10|=3, |8−10|=2, |9−10|=1, |10−10|=0, |12−10|=2, |13−10|=3, |17−10|=7" },
-                { label: "Mean deviation", description: "M.D.(x̄) = (6+3+2+1+0+2+3+7)/8 = 24/8 = <strong>3</strong>" },
+                { label: "Sum the last column", description: "Σ|xᵢ − x̄| = 24" },
+                { label: "Mean deviation", description: "M.D.(x̄) = 24/8 = <strong>3</strong>" },
               ]}
             />
           </ProblemSolution.Solution>
@@ -121,11 +136,29 @@ export default function StatisticsChapter() {
             Find the mean deviation about the median for: 13, 17, 16, 14, 11, 13, 10, 16, 11, 18, 12, 17.
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
+            <TableCard
+              headers={["xᵢ (sorted)", "xᵢ − M", "|xᵢ − M|"]}
+              rows={[
+                { cells: ["10", "−3.5", "3.5"] },
+                { cells: ["11", "−2.5", "2.5"] },
+                { cells: ["11", "−2.5", "2.5"] },
+                { cells: ["12", "−1.5", "1.5"] },
+                { cells: ["13", "−0.5", "0.5"] },
+                { cells: ["13", "−0.5", "0.5"] },
+                { cells: ["14", "0.5", "0.5"] },
+                { cells: ["16", "2.5", "2.5"] },
+                { cells: ["16", "2.5", "2.5"] },
+                { cells: ["17", "3.5", "3.5"] },
+                { cells: ["17", "3.5", "3.5"] },
+                { cells: ["18", "4.5", "4.5"] },
+                { cells: ["Total", "", "Σ = 28"] },
+              ]}
+              caption="Sort the list first — the median is the centre of the sorted values."
+            />
             <Stepper
               steps={[
-                { label: "Arrange in order", description: "10, 11, 11, 12, 13, 13, 14, 16, 16, 17, 17, 18" },
-                { label: "Median", description: "n = 12 (even), so M = average of the 6th and 7th values = (13 + 14)/2 = 13.5" },
-                { label: "∑|xᵢ − M|", description: "= |10−13.5| + |11−13.5| + |11−13.5| + |12−13.5| + |13−13.5| + |13−13.5| + |14−13.5| + |16−13.5| + |16−13.5| + |17−13.5| + |17−13.5| + |18−13.5| = 3.5 + 2.5 + 2.5 + 1.5 + 0.5 + 0.5 + 0.5 + 2.5 + 2.5 + 3.5 + 3.5 + 4.5 = 28" },
+                { label: "Median", description: "n = 12 (even), so M = (6th + 7th sorted value)/2 = (13 + 14)/2 = 13.5" },
+                { label: "Sum the last column", description: "Σ|xᵢ − M| = 28" },
                 { label: "Mean deviation", description: "M.D.(M) = 28/12 = <strong>2.33</strong>" },
               ]}
             />
@@ -139,11 +172,23 @@ export default function StatisticsChapter() {
             Class: 0–10, 10–20, 20–30, 30–40, 40–50, 50–60 &nbsp; | &nbsp; Frequency: 6, 7, 15, 16, 4, 2
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
+            <TableCard
+              headers={["Class", "xᵢ (mid)", "fᵢ", "c.f.", "|xᵢ − M|", "fᵢ|xᵢ − M|"]}
+              rows={[
+                { cells: ["0–10", "5", "6", "6", "23", "138"] },
+                { cells: ["10–20", "15", "7", "13", "13", "91"] },
+                { cells: ["20–30", "25", "15", "28", "3", "45"] },
+                { cells: ["30–40", "35", "16", "44", "7", "112"] },
+                { cells: ["40–50", "45", "4", "48", "17", "68"] },
+                { cells: ["50–60", "55", "2", "50", "27", "54"] },
+                { cells: ["Total", "", "N = 50", "", "", "Σ = 508"] },
+              ]}
+              caption="Each class-row feeds its midpoint and |xᵢ − M| into the final column — errors stay localised to one row."
+            />
             <Stepper
               steps={[
-                { label: "Cumulative frequency", description: "c.f.: 6, 13, 28, 44, 48, 50. N = 50, so N/2 = 25 falls in class 20–30 (median class)." },
-                { label: "Median", description: "M = l + (N/2 − C)/f × h = 20 + (25 − 13)/15 × 10 = 20 + 8 = 28" },
-                { label: "∑fᵢ|xᵢ − M|", description: "Using midpoints: 6|5−28| + 7|15−28| + 15|25−28| + 16|35−28| + 4|45−28| + 2|55−28| = 138 + 91 + 45 + 112 + 68 + 54 = 508" },
+                { label: "Median", description: "N/2 = 25 falls in class 20–30 (c.f. crosses 25). M = 20 + (25 − 13)/15 × 10 = 20 + 8 = 28" },
+                { label: "Sum the last column", description: "Σfᵢ|xᵢ − M| = 508" },
                 { label: "Mean deviation", description: "M.D.(M) = 508/50 = <strong>10.16</strong>" },
               ]}
             />
@@ -167,11 +212,22 @@ export default function StatisticsChapter() {
             x: 2, 5, 7, 10, 12 &nbsp; | &nbsp; f: 5, 8, 12, 10, 5
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
+            <TableCard
+              headers={["xᵢ", "fᵢ", "fᵢxᵢ", "|xᵢ − x̄|", "fᵢ|xᵢ − x̄|"]}
+              rows={[
+                { cells: ["2", "5", "10", "5.35", "26.75"] },
+                { cells: ["5", "8", "40", "2.35", "18.80"] },
+                { cells: ["7", "12", "84", "0.35", "4.20"] },
+                { cells: ["10", "10", "100", "2.65", "26.50"] },
+                { cells: ["12", "5", "60", "4.65", "23.25"] },
+                { cells: ["Total", "N = 40", "Σ = 294", "", "Σ = 99.50"] },
+              ]}
+              caption="Three columns build the mean, then the last two columns build M.D. — totals at the bottom drive both answers."
+            />
             <Stepper
               steps={[
-                { label: "Total frequency", description: "N = 5+8+12+10+5 = 40" },
-                { label: "Mean", description: "x̄ = (2×5 + 5×8 + 7×12 + 10×10 + 12×5)/40 = (10+40+84+100+60)/40 = 294/40 = 7.35" },
-                { label: "Σfᵢ|xᵢ − x̄|", description: "5|2−7.35| + 8|5−7.35| + 12|7−7.35| + 10|10−7.35| + 5|12−7.35| = 5(5.35)+8(2.35)+12(0.35)+10(2.65)+5(4.65) = 26.75+18.80+4.20+26.50+23.25 = 99.50" },
+                { label: "Mean", description: "x̄ = 294/40 = 7.35 (from the fᵢxᵢ column total)" },
+                { label: "Sum the last column", description: "Σfᵢ|xᵢ − x̄| = 99.50" },
                 { label: "Mean deviation", description: "M.D.(x̄) = 99.50/40 = <strong>2.4875</strong>" },
               ]}
             />
@@ -195,12 +251,22 @@ export default function StatisticsChapter() {
             Class: 0–10, 10–20, 20–30, 30–40, 40–50 &nbsp; | &nbsp; f: 4, 7, 12, 8, 6
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
+            <TableCard
+              headers={["Class", "xᵢ (mid)", "fᵢ", "fᵢxᵢ", "|xᵢ − x̄|", "fᵢ|xᵢ − x̄|"]}
+              rows={[
+                { cells: ["0–10", "5", "4", "20", "21.35", "85.40"] },
+                { cells: ["10–20", "15", "7", "105", "11.35", "79.45"] },
+                { cells: ["20–30", "25", "12", "300", "1.35", "16.20"] },
+                { cells: ["30–40", "35", "8", "280", "8.65", "69.20"] },
+                { cells: ["40–50", "45", "6", "270", "18.65", "111.90"] },
+                { cells: ["Total", "", "N = 37", "Σ = 975", "", "Σ = 362.15"] },
+              ]}
+              caption="Convert classes to midpoints, then follow the same column layout as the discrete-frequency case."
+            />
             <Stepper
               steps={[
-                { label: "Midpoints", description: "xᵢ = 5, 15, 25, 35, 45" },
-                { label: "N", description: "4+7+12+8+6 = 37" },
-                { label: "Mean", description: "x̄ = (4×5 + 7×15 + 12×25 + 8×35 + 6×45)/37 = (20+105+300+280+270)/37 = 975/37 ≈ 26.35" },
-                { label: "Σfᵢ|dᵢ|", description: "4|5−26.35|+7|15−26.35|+12|25−26.35|+8|35−26.35|+6|45−26.35| = 4(21.35)+7(11.35)+12(1.35)+8(8.65)+6(18.65) = 85.40+79.45+16.20+69.20+111.90 = 362.15" },
+                { label: "Mean", description: "x̄ = 975/37 = 26.35 (midpoint column, from the fᵢxᵢ total)" },
+                { label: "Sum the last column", description: "Σfᵢ|xᵢ − x̄| = 362.15" },
                 { label: "Mean deviation", description: "M.D.(x̄) = 362.15/37 ≈ <strong>9.79</strong>" },
               ]}
             />
@@ -258,11 +324,23 @@ export default function StatisticsChapter() {
             Find the variance and standard deviation of: 6, 8, 10, 12, 14.
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
+            <TableCard
+              headers={["xᵢ", "xᵢ − x̄", "(xᵢ − x̄)²"]}
+              rows={[
+                { cells: ["6", "−4", "16"] },
+                { cells: ["8", "−2", "4"] },
+                { cells: ["10", "0", "0"] },
+                { cells: ["12", "2", "4"] },
+                { cells: ["14", "4", "16"] },
+                { cells: ["Total", "", "Σ = 40"] },
+              ]}
+              caption="Squaring the middle column kills the negative signs — the variance numerator is the final column total."
+            />
             <Stepper
               steps={[
-                { label: "Mean", description: "x̄ = (6+8+10+12+14)/5 = 50/5 = 10" },
-                { label: "Squared deviations", description: "(6−10)²=16, (8−10)²=4, (10−10)²=0, (12−10)²=4, (14−10)²=16" },
-                { label: "Variance", description: "σ² = (16+4+0+4+16)/5 = 40/5 = <strong>8</strong>" },
+                { label: "Mean", description: "x̄ = 50/5 = 10" },
+                { label: "Sum the last column", description: "Σ(xᵢ − x̄)² = 40" },
+                { label: "Variance", description: "σ² = 40/5 = <strong>8</strong>" },
                 { label: "Standard deviation", description: "σ = √8 = <strong>2√2 ≈ 2.828</strong>" },
               ]}
             />
@@ -274,11 +352,27 @@ export default function StatisticsChapter() {
             Find the variance of the first 10 natural numbers.
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
+            <TableCard
+              headers={["xᵢ", "xᵢ²"]}
+              rows={[
+                { cells: ["1", "1"] },
+                { cells: ["2", "4"] },
+                { cells: ["3", "9"] },
+                { cells: ["4", "16"] },
+                { cells: ["5", "25"] },
+                { cells: ["6", "36"] },
+                { cells: ["7", "49"] },
+                { cells: ["8", "64"] },
+                { cells: ["9", "81"] },
+                { cells: ["10", "100"] },
+                { cells: ["Total", "Σxᵢ = 55", "Σxᵢ² = 385"] },
+              ]}
+              caption="For an arithmetic progression, the variance identity σ² = Σxᵢ²/n − x̄² avoids 10 separate squared deviations."
+            />
             <Stepper
               steps={[
-                { label: "Mean", description: "x̄ = (1+2+⋯+10)/10 = 55/10 = 5.5" },
-                { label: "Σ(xᵢ − x̄)²", description: "= (1−5.5)²+(2−5.5)²+⋯+(10−5.5)² = 20.25+12.25+6.25+2.25+0.25+0.25+2.25+6.25+12.25+20.25 = 82.5" },
-                { label: "Variance", description: "σ² = 82.5/10 = <strong>8.25</strong>" },
+                { label: "Mean", description: "x̄ = 55/10 = 5.5" },
+                { label: "Variance by identity", description: "σ² = Σxᵢ²/n − x̄² = 385/10 − 5.5² = 38.5 − 30.25 = <strong>8.25</strong>" },
               ]}
             />
           </ProblemSolution.Solution>
@@ -299,11 +393,22 @@ export default function StatisticsChapter() {
             Find the variance for: x: 3, 5, 7, 9, 11 &nbsp; | &nbsp; f: 4, 6, 8, 6, 4
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
+            <TableCard
+              headers={["xᵢ", "fᵢ", "fᵢxᵢ", "xᵢ − x̄", "(xᵢ − x̄)²", "fᵢ(xᵢ − x̄)²"]}
+              rows={[
+                { cells: ["3", "4", "12", "−4", "16", "64"] },
+                { cells: ["5", "6", "30", "−2", "4", "24"] },
+                { cells: ["7", "8", "56", "0", "0", "0"] },
+                { cells: ["9", "6", "54", "2", "4", "24"] },
+                { cells: ["11", "4", "44", "4", "16", "64"] },
+                { cells: ["Total", "N = 28", "Σ = 196", "", "", "Σ = 176"] },
+              ]}
+              caption="Weight each squared deviation by its frequency — the last column total is the full Σfᵢ(xᵢ − x̄)²."
+            />
             <Stepper
               steps={[
-                { label: "N", description: "4+6+8+6+4 = 28" },
-                { label: "Mean", description: "x̄ = (3×4+5×6+7×8+9×6+11×4)/28 = (12+30+56+54+44)/28 = 196/28 = 7" },
-                { label: "Σfᵢ(xᵢ−7)²", description: "4(16)+6(4)+8(0)+6(4)+4(16) = 64+24+0+24+64 = 176" },
+                { label: "Mean", description: "x̄ = 196/28 = 7 (from the fᵢxᵢ column total)" },
+                { label: "Sum the last column", description: "Σfᵢ(xᵢ − x̄)² = 176" },
                 { label: "Variance", description: "σ² = 176/28 = <strong>6.286</strong> (approx)" },
               ]}
             />
@@ -327,11 +432,22 @@ export default function StatisticsChapter() {
             Class: 0–10, 10–20, 20–30, 30–40, 40–50 &nbsp; | &nbsp; f: 2, 5, 8, 4, 1
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
+            <TableCard
+              headers={["Class", "xᵢ (mid)", "fᵢ", "fᵢxᵢ", "(xᵢ − x̄)²", "fᵢ(xᵢ − x̄)²"]}
+              rows={[
+                { cells: ["0–10", "5", "2", "10", "342.25", "684.50"] },
+                { cells: ["10–20", "15", "5", "75", "72.25", "361.25"] },
+                { cells: ["20–30", "25", "8", "200", "2.25", "18"] },
+                { cells: ["30–40", "35", "4", "140", "132.25", "529"] },
+                { cells: ["40–50", "45", "1", "45", "462.25", "462.25"] },
+                { cells: ["Total", "", "N = 20", "Σ = 470", "", "Σ = 2055"] },
+              ]}
+              caption="Same layout as Example 10 — only the first column changes from values to class intervals."
+            />
             <Stepper
               steps={[
-                { label: "Midpoints & N", description: "xᵢ = 5, 15, 25, 35, 45. N = 2+5+8+4+1 = 20" },
-                { label: "Mean", description: "x̄ = (10+75+200+140+45)/20 = 470/20 = 23.5" },
-                { label: "Σfᵢ(xᵢ−23.5)²", description: "= 2(342.25)+5(72.25)+8(2.25)+4(132.25)+1(462.25) = 684.50+361.25+18+529+462.25 = 2055" },
+                { label: "Mean", description: "x̄ = 470/20 = 23.5 (midpoint column, from the fᵢxᵢ total)" },
+                { label: "Sum the last column", description: "Σfᵢ(xᵢ − x̄)² = 2055" },
                 { label: "Variance", description: "σ² = 2055/20 = <strong>102.75</strong>" },
                 { label: "Standard deviation", description: "σ = √102.75 ≈ <strong>10.14</strong>" },
               ]}
@@ -400,13 +516,22 @@ export default function StatisticsChapter() {
             x: 5, 10, 15, 20, 25 &nbsp; | &nbsp; f: 2, 4, 7, 6, 3
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
+            <TableCard
+              headers={["xᵢ", "fᵢ", "dᵢ = xᵢ − 10", "fᵢdᵢ", "fᵢdᵢ²"]}
+              rows={[
+                { cells: ["5", "2", "−5", "−10", "50"] },
+                { cells: ["10", "4", "0", "0", "0"] },
+                { cells: ["15", "7", "5", "35", "175"] },
+                { cells: ["20", "6", "10", "60", "600"] },
+                { cells: ["25", "3", "15", "45", "675"] },
+                { cells: ["Total", "N = 22", "", "Σ = 130", "Σ = 1500"] },
+              ]}
+              caption="Coding the values as dᵢ = xᵢ − a keeps the arithmetic small; the variance formula needs only the two column totals."
+            />
             <Stepper
               steps={[
-                { label: "N", description: "2+4+7+6+3 = 22" },
-                { label: "dᵢ = xᵢ − 10", description: "d: −5, 0, 5, 10, 15" },
-                { label: "Σfᵢdᵢ", description: "2(−5)+4(0)+7(5)+6(10)+3(15) = −10+0+35+60+45 = 130" },
-                { label: "Σfᵢdᵢ²", description: "2(25)+4(0)+7(25)+6(100)+3(225) = 50+0+175+600+675 = 1500" },
-                { label: "Variance", description: "σ² = 1500/22 − (130/22)² = 68.182 − 34.917 ≈ <strong>33.27</strong>" },
+                { label: "Variance from the totals", description: "σ² = Σfᵢdᵢ²/N − (Σfᵢdᵢ/N)² = 1500/22 − (130/22)²" },
+                { label: "Simplify", description: "= 68.182 − 34.917 ≈ <strong>33.27</strong>" },
               ]}
             />
           </ProblemSolution.Solution>
@@ -463,10 +588,36 @@ export default function StatisticsChapter() {
             Prices of shares of two companies are: A: 45, 55, 50, 52, 48 &nbsp; B: 33, 35, 40, 38, 39. Which company&apos;s prices are more stable?
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+              <TableCard
+                headers={["Company A", "xᵢ − 50", "(xᵢ − 50)²"]}
+                rows={[
+                  { cells: ["45", "−5", "25"] },
+                  { cells: ["55", "5", "25"] },
+                  { cells: ["50", "0", "0"] },
+                  { cells: ["52", "2", "4"] },
+                  { cells: ["48", "−2", "4"] },
+                  { cells: ["Total", "", "Σ = 58"] },
+                ]}
+                caption="x̄A = 250/5 = 50"
+              />
+              <TableCard
+                headers={["Company B", "xᵢ − 37", "(xᵢ − 37)²"]}
+                rows={[
+                  { cells: ["33", "−4", "16"] },
+                  { cells: ["35", "−2", "4"] },
+                  { cells: ["40", "3", "9"] },
+                  { cells: ["38", "1", "1"] },
+                  { cells: ["39", "2", "4"] },
+                  { cells: ["Total", "", "Σ = 34"] },
+                ]}
+                caption="x̄B = 185/5 = 37"
+              />
+            </div>
             <Stepper
               steps={[
-                { label: "Company A", description: "x̄ = 250/5 = 50. σ² = (25+25+0+4+4)/5 = 58/5 = 11.6, so σ ≈ 3.41. C.V. = (3.41/50)×100 = <strong>6.82%</strong>" },
-                { label: "Company B", description: "x̄ = 185/5 = 37. σ² = (16+4+9+1+4)/5 = 34/5 = 6.8, so σ ≈ 2.61. C.V. = (2.61/37)×100 = <strong>7.05%</strong>" },
+                { label: "Company A", description: "σ² = 58/5 = 11.6, σ ≈ 3.41. C.V. = (3.41/50)×100 = <strong>6.82%</strong>" },
+                { label: "Company B", description: "σ² = 34/5 = 6.8, σ ≈ 2.61. C.V. = (2.61/37)×100 = <strong>7.05%</strong>" },
                 { label: "Compare", description: "6.82% &lt; 7.05%, so <strong>Company A is more stable</strong> (lower relative variability)." },
               ]}
             />
