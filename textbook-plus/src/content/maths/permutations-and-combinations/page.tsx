@@ -332,49 +332,37 @@ export default function PermutationsAndCombinationsChapter() {
             detail: "Standard deck",
             children: [
               {
-                label: "By Suit — 4 groups of 13",
+                label: "Red",
+                detail: "26 cards",
                 children: [
-                  { label: "Hearts (13)", children: [
-                    { label: "Number cards (2–10)", detail: "9 cards" },
-                    { label: "Face cards (J, Q, K)", detail: "3 cards" },
-                    { label: "Ace", detail: "1 card" },
+                  { label: "Hearts", detail: "13 cards", children: [
+                    { label: "A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K" },
                   ]},
-                  { label: "Diamonds (13)", children: [
-                    { label: "Number cards (2–10)", detail: "9 cards" },
-                    { label: "Face cards (J, Q, K)", detail: "3 cards" },
-                    { label: "Ace", detail: "1 card" },
-                  ]},
-                  { label: "Clubs (13)", children: [
-                    { label: "Number cards (2–10)", detail: "9 cards" },
-                    { label: "Face cards (J, Q, K)", detail: "3 cards" },
-                    { label: "Ace", detail: "1 card" },
-                  ]},
-                  { label: "Spades (13)", children: [
-                    { label: "Number cards (2–10)", detail: "9 cards" },
-                    { label: "Face cards (J, Q, K)", detail: "3 cards" },
-                    { label: "Ace", detail: "1 card" },
+                  { label: "Diamonds", detail: "13 cards", children: [
+                    { label: "A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K" },
                   ]},
                 ],
               },
               {
-                label: "By Colour — 2 groups of 26",
+                label: "Black",
+                detail: "26 cards",
                 children: [
-                  { label: "Red (26)", detail: "Hearts + Diamonds" },
-                  { label: "Black (26)", detail: "Clubs + Spades" },
-                ],
-              },
-              {
-                label: "By Rank — useful for counting",
-                children: [
-                  { label: "Number cards (2–10)", detail: "9 ranks × 4 suits = 36 cards" },
-                  { label: "Face cards (J, Q, K)", detail: "3 ranks × 4 suits = 12 cards" },
-                  { label: "Aces", detail: "1 rank × 4 suits = 4 cards" },
+                  { label: "Clubs", detail: "13 cards", children: [
+                    { label: "A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K" },
+                  ]},
+                  { label: "Spades", detail: "13 cards", children: [
+                    { label: "A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K" },
+                  ]},
                 ],
               },
             ],
           },
         ]}
       />
+
+      <Callout type="tip" title="Card Probability">
+        See <a href="/class-11/maths/probability" className="underline underline-offset-2">Probability (Ch14)</a> for P(spade), P(face card), P(King or Spade), and the full52-card sample space.
+      </Callout>
 
       <Expandable title="Example — Card Selection (52-card pack)">
         <p>4 cards from 52: <Formula>{`{^{52}C_{4}} = 270725`}</Formula>.</p>
