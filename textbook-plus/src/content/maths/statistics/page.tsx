@@ -379,6 +379,33 @@ export default function StatisticsChapter() {
         </ProblemSolution>
       </Expandable>
 
+      <Expandable title="Practice — Variance of an Arithmetic Sequence (3, 6, …, 99)">
+        <ProblemSolution problemNumber="Practice">
+          <ProblemSolution.Problem>
+            Consider the sequence 3, 6, 9, 12, …, 99. Find the variance of the sequence.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Callout type="tip" title="Spot the pattern first">
+              Every term is a multiple of 3: 3, 6, 9, …, 99 = 3 × (1, 2, 3, …, 33). So this is the
+              <strong> first 33 natural numbers scaled by a factor of 3 </strong> — no need to write out 33 rows.
+            </Callout>
+            <Stepper
+              steps={[
+                { label: "Count the terms", description: "3n = 99 → n = <strong>33</strong> terms" },
+                { label: "Mean", description: "Arithmetic sequence: x̄ = (first + last)/2 = (3 + 99)/2 = <strong>51</strong>. (Also: mean of 1..33 is 17, ×3 = 51.)" },
+                { label: "Variance of 1..33", description: "From Ex 13.2 Q2, the first m natural numbers have variance (m² − 1)/12. For m = 33: (1089 − 1)/12 = 1088/12 = <strong>272/3</strong>" },
+                { label: "Scale by k = 3", description: "Multiplying every observation by k multiplies variance by k²: σ² = 3² × (272/3) = 9 × (272/3) = <strong>816</strong>" },
+                { label: "Standard deviation (optional)", description: "σ = √816 = <strong>4√51 ≈ 28.57</strong>" },
+              ]}
+            />
+            <Callout type="note" title="Verify with the identity σ² = Σxᵢ²/n − x̄²">
+              Σxᵢ = 3(1+2+…+33) = 3 × 561 = 1683; Σxᵢ² = 9(1²+2²+…+33²) = 9 × 12529 = 112761.
+              σ² = 112761/33 − 51² = 3417 − 2601 = <strong>816</strong> ✓
+            </Callout>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <h3>Variance for Discrete Frequency Distribution</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Discrete Frequency Variance</p>
