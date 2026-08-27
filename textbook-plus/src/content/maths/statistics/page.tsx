@@ -471,6 +471,50 @@ export default function StatisticsChapter() {
         </ProblemSolution>
       </Expandable>
 
+      <Expandable title="Practice — Inverse: Find A When the Variance is Given (x = A, 2A, …, 6A)">
+        <ProblemSolution problemNumber="Practice">
+          <ProblemSolution.Problem>
+            The frequency distribution given below has a variance of 160 — where A is a positive integer.
+            <br />
+            x: A, 2A, 3A, 4A, 5A, 6A &nbsp; | &nbsp; f: 2, 1, 1, 1, 1, 1
+            <br />
+            Determine the value of A.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Callout type="tip" title="Pull the common factor A out first">
+              Every value is a multiple of A, so the data is just A × (1, 2, 3, 4, 5, 6). Work out the variance of the
+              <strong> base table (A = 1)</strong> — the real variance is then A² times that number.
+            </Callout>
+            <TableCard
+              headers={["xᵢ (base, A = 1)", "fᵢ", "fᵢxᵢ", "xᵢ²", "fᵢxᵢ²"]}
+              rows={[
+                { cells: ["1", "2", "2", "1", "2"] },
+                { cells: ["2", "1", "2", "4", "4"] },
+                { cells: ["3", "1", "3", "9", "9"] },
+                { cells: ["4", "1", "4", "16", "16"] },
+                { cells: ["5", "1", "5", "25", "25"] },
+                { cells: ["6", "1", "6", "36", "36"] },
+                { cells: ["Total", "N = 7", "Σ = 22", "", "Σ = 92"] },
+              ]}
+              caption="The identity σ² = Σfᵢxᵢ²/N − x̄² needs only the two column totals."
+            />
+            <Stepper
+              steps={[
+                { label: "Base variance (A = 1)", description: "x̄ = 22/7. σ₁² = 92/7 − (22/7)² = 644/49 − 484/49 = <strong>160/49</strong>" },
+                { label: "Scale by A", description: "Multiplying every value by A multiplies variance by A²: σ² = A² × (160/49)" },
+                { label: "Equate to 160", description: "A² × 160/49 = 160 → A² = 49" },
+                { label: "A is a positive integer", description: "A = √49 = <strong>7</strong>" },
+              ]}
+            />
+            <Callout type="note" title="Verify with A = 7">
+              x: 7, 14, 21, 28, 35, 42 &nbsp; | &nbsp; f: 2, 1, 1, 1, 1, 1.
+              Σfᵢxᵢ = 14 + 14 + 21 + 28 + 35 + 42 = 154, so x̄ = 22.
+              Σfᵢxᵢ² = 7² × 92 = 4508. σ² = 4508/7 − 22² = 644 − 484 = <strong>160 ✓</strong>
+            </Callout>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <h3>Variance for Continuous Frequency Distribution</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Continuous Frequency Variance</p>
