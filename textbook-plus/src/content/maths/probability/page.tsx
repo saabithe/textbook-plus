@@ -423,6 +423,39 @@ export default function ProbabilityChapter() {
         <p className="text-sm mt-2">These give <strong>&ldquo;only one&rdquo;</strong> probability: P(only one of A, B) = P(A &cap; B&apos;) + P(A&apos; &cap; B).</p>
       </KeyPoint>
 
+      <h3>14.2.5 Independent Events</h3>
+      <Callout type="important" title="Definition">
+        Events A and B are <Highlight>independent</Highlight> if the occurrence of one event does <strong>not affect</strong> the probability of the other. For example, tossing a coin and rolling a die: the coin&apos;s outcome has no influence on the die. The main formula to remember:
+      </Callout>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="rounded-lg border bg-card p-4 shadow-sm">
+          <p className="font-semibold mb-1">Main Formula</p>
+          <FormulaBlock latex="P(A \cap B) = P(A) \times P(B)" />
+          <p className="text-sm text-muted-foreground mt-1">Both A and B happen — multiply their probabilities.</p>
+        </div>
+        <div className="rounded-lg border bg-card p-4 shadow-sm">
+          <p className="font-semibold mb-1">Equivalent Forms</p>
+          <FormulaBlock latex="P(A \mid B) = P(A)" />
+          <FormulaBlock latex="P(B \mid A) = P(B)" />
+          <p className="text-sm text-muted-foreground mt-1">Knowing B occurred tells you nothing new about A.</p>
+        </div>
+      </div>
+
+      <Callout type="tip" title="Exam Shortcut: &ldquo;Independent&rdquo; ⟹ multiply">
+        If a question says <strong>&ldquo;A and B are independent&rdquo;</strong>, immediately write <FormulaBlock latex="P(A \cap B) = P(A) \times P(B)" />. That is the whole key to the problem.
+      </Callout>
+
+      <KeyPoint title="Dependency (the opposite)">
+        Two events are <strong>dependent</strong> when knowing one event changes the probability of the other.
+        <ul className="list-disc pl-5 space-y-1 mt-1">
+          <li><strong>Dependent ≠ impossible.</strong> It just means the outcome of one affects the other&apos;s odds.</li>
+          <li><strong>Example:</strong> Drawing two cards <em>without replacement</em>. P(2nd card is Ace | 1st was Ace) = 3/51 — not 4/52, because removing the first Ace changes the deck.</li>
+          <li><strong>Test for independence:</strong> Check whether P(A &cap; B) = P(A) &middot; P(B). If equality holds &rarr; independent. If not &rarr; dependent.</li>
+          <li><strong>Danger:</strong> Replacing the card before the second draw makes the events independent again (4/52 stays).</li>
+        </ul>
+      </KeyPoint>
+
       <Expandable title="Examples 14.5 — Addition Rule and Complement">
         <ProblemSolution problemNumber="Example 11">
           <ProblemSolution.Problem>
