@@ -161,6 +161,26 @@ export default function ProbabilityChapter() {
         </div>
       </div>
 
+      <KeyPoint title="Word Indicators — Translate English to Symbols">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b">
+              <th className="text-left py-1 pr-3">English Word/Phrase</th>
+              <th className="text-left py-1">Means</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b"><td className="py-1 pr-3"><strong>or</strong>, at least one, either</td><td className="py-1">Union (&cup;)</td></tr>
+            <tr className="border-b"><td className="py-1 pr-3"><strong>and</strong>, both, simultaneously</td><td className="py-1">Intersection (&cap;)</td></tr>
+            <tr className="border-b"><td className="py-1 pr-3"><strong>not</strong>, fails to, other than</td><td className="py-1">Complement (&apos;)</td></tr>
+            <tr className="border-b"><td className="py-1 pr-3"><strong>but</strong> (as in &quot;A but not B&quot;)</td><td className="py-1">Difference (A &minus; B)</td></tr>
+            <tr className="border-b"><td className="py-1 pr-3"><strong>neither</strong> A <strong>nor</strong> B</td><td className="py-1">(A &cup; B)&apos; = A&apos; &cap; B&apos;</td></tr>
+            <tr className="border-b"><td className="py-1 pr-3"><strong>exactly one</strong> of A, B</td><td className="py-1">(A &cap; B&apos;) &cup; (A&apos; &cap; B)</td></tr>
+            <tr><td className="py-1 pr-3"><strong>at most</strong> k</td><td className="py-1">Complement of &ldquo;more than k&rdquo;</td></tr>
+          </tbody>
+        </table>
+      </KeyPoint>
+
       <KeyPoint title="Important Properties">
         <ul className="list-disc pl-5 space-y-1">
           <li>A &cup; A&apos; = S (sure event) and A &cap; A&apos; = ∅ (impossible event).</li>
