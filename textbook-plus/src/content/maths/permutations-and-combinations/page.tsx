@@ -7,7 +7,7 @@ import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { Highlight } from "@/components/content/Highlight";
 import { SpeedTricks } from "@/components/content/SpeedTricks";
-import { TreeDiagram } from "@/components/content/concept/TreeDiagram";
+import { OrgChart } from "@/components/content/OrgChart";
 
 export default function PermutationsAndCombinationsChapter() {
   return (
@@ -323,9 +323,8 @@ export default function PermutationsAndCombinationsChapter() {
         </ProblemSolution>
       </Expandable>
 
-      <TreeDiagram
+      <OrgChart
         title="52-Card Deck — Org Chart"
-        defaultExpanded={false}
         nodes={[
           {
             label: "52 Cards",
@@ -335,11 +334,11 @@ export default function PermutationsAndCombinationsChapter() {
                 label: "Red",
                 detail: "26 cards",
                 children: [
-                  { label: "Hearts", detail: "13 cards", children: [
-                    { label: "A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K" },
+                  { label: "♥ Hearts", detail: "13 cards", children: [
+                    { label: "A, 2–10, J, Q, K" },
                   ]},
-                  { label: "Diamonds", detail: "13 cards", children: [
-                    { label: "A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K" },
+                  { label: "♦ Diamonds", detail: "13 cards", children: [
+                    { label: "A, 2–10, J, Q, K" },
                   ]},
                 ],
               },
@@ -347,11 +346,11 @@ export default function PermutationsAndCombinationsChapter() {
                 label: "Black",
                 detail: "26 cards",
                 children: [
-                  { label: "Clubs", detail: "13 cards", children: [
-                    { label: "A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K" },
+                  { label: "♣ Clubs", detail: "13 cards", children: [
+                    { label: "A, 2–10, J, Q, K" },
                   ]},
-                  { label: "Spades", detail: "13 cards", children: [
-                    { label: "A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K" },
+                  { label: "♠ Spades", detail: "13 cards", children: [
+                    { label: "A, 2–10, J, Q, K" },
                   ]},
                 ],
               },
