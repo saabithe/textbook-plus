@@ -531,6 +531,7 @@ export default function ProbabilityChapter() {
           <li>Find P(at least one head) in 4 tosses of a fair coin.</li>
           <li>One card is drawn from a well-shuffled pack of 52 cards. If each outcome is equally likely, calculate the probability that the card is a diamond.</li>
           <li>Find the probability of getting 53 Fridays in a leap year.</li>
+          <li>A bag contains 9 discs of which 4 are red, 3 are blue and 2 are yellow. A disc is drawn at random. Find P: (i) red, (ii) not blue, (iii) either red or blue.</li>
         </ol>
         <Expandable title="Answer Key — Exercise 14.2">
           <ol>
@@ -543,6 +544,10 @@ export default function ProbabilityChapter() {
             <li>P(none) = (1/2)&#8308; = 1/16. P(at least one) = 1 − 1/16 = 15/16.</li>
             <li>Diamond cards = 13. P = 13/52 = 1/4.</li>
             <li>A leap year has 366 days = 52 weeks + 2 days. The 2 extra days form one of 7 equally likely pairs: (Mon,Tue), (Tue,Wed), (Wed,Thu), (Thu,Fri), (Fri,Sat), (Sat,Sun), (Sun,Mon). Friday appears in (Thu,Fri) and (Fri,Sat). P = 2/7.</li>
+            <li>Total = 9 discs.
+              <br />(i) P(red) = 4/9.
+              <br />(ii) P(not blue) = 1 − 3/9 = 6/9 = 2/3.
+              <br />(iii) P(red or blue) = (4+3)/9 = 7/9.</li>
           </ol>
         </Expandable>
       </Expandable>
@@ -554,6 +559,8 @@ export default function ProbabilityChapter() {
           <li>A die is rolled twice. Find P(product of numbers = 6).</li>
           <li>Two cards are drawn without replacement from a deck. Find P(both are aces).</li>
           <li>If P(A) = 3/5 and P(B) = 1/5, and A and B are independent, find P(A &cap; B).</li>
+          <li>Two students Anil and Ashima appeared in an examination. P(Anil qualifies) = 0.05, P(Ashima qualifies) = 0.10, and P(both qualify) = 0.02. Find the probability that (a) both will not qualify, (b) at least one will not qualify, (c) only one will qualify.</li>
+          <li>Two students A and B appeared in an examination. P(A passes) = 0.25, P(B passes) = 0.45, and P(both pass) = 0.1. Find the probability that (i) both will not pass, (ii) only one of them will pass.</li>
         </ol>
         <Expandable title="Answer Key — Exercise 14.3">
           <ol>
@@ -562,6 +569,13 @@ export default function ProbabilityChapter() {
             <li>|S| = 36. Product = 6: {"{"}(1,6),(2,3),(3,2),(6,1){"}"} = 4 outcomes. P = 4/36 = 1/9.</li>
             <li>P(both aces) = P(1st ace) &times; P(2nd ace | 1st ace) = (4/52) &times; (3/51) = 12/2652 = 1/221.</li>
             <li>P(A &cap; B) = P(A) &times; P(B) = (3/5)(1/5) = 3/25.</li>
+            <li>Let A = Anil qualifies, B = Ashima qualifies. P(A) = 0.05, P(B) = 0.10, P(A &cap; B) = 0.02.
+              <br />(a) P(both not qualify) = P(A&apos; &cap; B&apos;) = 1 − P(A &cup; B) = 1 − (0.05 + 0.10 − 0.02) = 1 − 0.13 = 0.87.
+              <br />(b) P(at least one not qualify) = 1 − P(both qualify) = 1 − 0.02 = 0.98.
+              <br />(c) P(only one qualifies) = P(A &cap; B&apos;) + P(A&apos; &cap; B) = (0.05 − 0.02) + (0.10 − 0.02) = 0.03 + 0.08 = 0.11.</li>
+            <li>P(A) = 0.25, P(B) = 0.45, P(A &cap; B) = 0.1.
+              <br />(i) P(both not pass) = 1 − P(A &cup; B) = 1 − (0.25 + 0.45 − 0.1) = 1 − 0.6 = 0.4.
+              <br />(ii) P(only one passes) = P(A &cap; B&apos;) + P(A&apos; &cap; B) = (0.25 − 0.1) + (0.45 − 0.1) = 0.15 + 0.35 = 0.5.</li>
           </ol>
         </Expandable>
       </Expandable>
