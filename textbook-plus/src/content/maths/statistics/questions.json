@@ -104,5 +104,16 @@
     "question": "Using the step-deviation method, find the variance for: Class 0–10, 10–20, 20–30, 30–40 | f: 3, 5, 6, 4. Take a = 25, h = 10.",
     "answer": "N = 18. uᵢ: −2, −1, 0, 1. Σfᵢuᵢ = −6−5+0+4 = −7. Σfᵢuᵢ² = 12+5+0+4 = 21. σ² = 100[21/18 − (−7/18)²] = 100[1.1667 − 0.1512] = 101.55.",
     "explanation": "Using step-deviation: uᵢ = (xᵢ−25)/10 gives uᵢ = −2, −1, 0, 1. σ² = h²[Σfᵢuᵢ²/N − (Σfᵢuᵢ/N)²] = 100 × [21/18 − 49/324] = 100 × [378/324 − 49/324] = 100 × 329/324 ≈ 101.54."
+  },
+  {
+    "id": "c11/maths/statistics/q11",
+    "chapterSlug": "statistics",
+    "subject": "maths",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The sum of all the deviations of the observations of a data set from its arithmetic mean is:",
+    "options": ["Zero", "Maximum", "Minimum", "A negative number"],
+    "answer": "Zero",
+    "explanation": "By the defining property of the mean, Σ(xᵢ − x̄) = 0 — the positive deviations cancel the negative ones exactly."
   }
 ]
