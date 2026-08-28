@@ -1,7 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
-import { FormulaBlock } from "@/components/content/Formula";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -307,9 +307,9 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Identify coordinates", description: "x₁=−1, y₁=3, z₁=−4; x₂=1, y₂=−3, z₂=5" },
-                { label: "Compute differences", description: "x₂−x₁=2, y₂−y₁=−6, z₂−z₁=9" },
-                { label: "Apply formula", description: "PQ = √(4+36+81) = √121 = 11" },
+                { label: "Identify coordinates", description: <Formula>{String.raw`x_1=-1,\ y_1=3,\ z_1=-4;\quad x_2=1,\ y_2=-3,\ z_2=5`}</Formula> },
+                { label: "Compute differences", description: <Formula>{String.raw`x_2-x_1=2,\ \ y_2-y_1=-6,\ \ z_2-z_1=9`}</Formula> },
+                { label: "Apply formula", description: <Formula>{String.raw`PQ = \sqrt{4+36+81} = \sqrt{121} = 11`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`PQ = \sqrt{(1-(-1))^2+(-3-3)^2+(5-(-4))^2} = \sqrt{4+36+81} = \sqrt{121} = 11`} important />
@@ -325,8 +325,8 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Differences", description: "x₂−x₁ = −3, y₂−y₁ = 5, z₂−z₁ = 0" },
-                { label: "Distance", description: "PQ = √(9+25+0) = √34" },
+                { label: "Differences", description: <Formula>{String.raw`x_2-x_1 = -3,\ \ y_2-y_1 = 5,\ \ z_2-z_1 = 0`}</Formula> },
+                { label: "Distance", description: <Formula>{String.raw`PQ = \sqrt{9+25+0} = \sqrt{34}`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`PQ = \sqrt{9+25} = \sqrt{34}`} important />
@@ -346,8 +346,8 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Octant", description: "(+, −, +) → Octant IV" },
-                { label: "Distance from O", description: "OP = √(9+25+4) = √38" },
+                { label: "Octant", description: <Formula>{String.raw`(+, - , +) \to \text{Octant IV}`}</Formula> },
+                { label: "Distance from O", description: <Formula>{String.raw`OP = \sqrt{9+25+4} = \sqrt{38}`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`OP = \sqrt{3^2+(-5)^2+2^2} = \sqrt{9+25+4} = \sqrt{38}`} important />
@@ -384,19 +384,19 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
               steps={[
                 {
                   label: "AB",
-                  description: "AB = √((−1−1)²+(−2−2)²+(−1−3)²) = √(4+16+16) = √36 = 6",
+                  description: <Formula>{String.raw`AB = \sqrt{(-1-1)^2+(-2-2)^2+(-1-3)^2} = \sqrt{4+16+16} = \sqrt{36} = 6`}</Formula>,
                 },
                 {
                   label: "CD",
-                  description: "CD = √((4−2)²+(7−3)²+(3−(−1))²) = √(4+16+16) = √36 = 6",
+                  description: <Formula>{String.raw`CD = \sqrt{(4-2)^2+(7-3)^2+(3-(-1))^2} = \sqrt{4+16+16} = \sqrt{36} = 6`}</Formula>,
                 },
                 {
                   label: "BC",
-                  description: "BC = √((2−(−1))²+(3−(−2))²+(−1−(−1))²) = √(9+25+0) = √34",
+                  description: <Formula>{String.raw`BC = \sqrt{(2-(-1))^2+(3-(-2))^2+(-1-(-1))^2} = \sqrt{9+25+0} = \sqrt{34}`}</Formula>,
                 },
                 {
                   label: "DA",
-                  description: "DA = √((1−4)²+(2−7)²+(3−3)²) = √(9+25+0) = √34",
+                  description: <Formula>{String.raw`DA = \sqrt{(1-4)^2+(2-7)^2+(3-3)^2} = \sqrt{9+25+0} = \sqrt{34}`}</Formula>,
                 },
               ]}
             />
@@ -421,9 +421,9 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
             />
             <Stepper
               steps={[
-                { label: "x", description: "x = (2·1 + 3·(−2))/(2+3) = (2−6)/5 = −4/5" },
-                { label: "y", description: "y = (2·(−4) + 3·3)/5 = (−8+9)/5 = 1/5" },
-                { label: "z", description: "z = (2·6 + 3·5)/5 = (12+15)/5 = 27/5" },
+                { label: "x", description: <Formula>{String.raw`x = \frac{2\cdot 1 + 3\cdot (-2)}{2+3} = \frac{2-6}{5} = -\frac{4}{5}`}</Formula> },
+                { label: "y", description: <Formula>{String.raw`y = \frac{2\cdot (-4) + 3\cdot 3}{5} = \frac{-8+9}{5} = \frac{1}{5}`}</Formula> },
+                { label: "z", description: <Formula>{String.raw`z = \frac{2\cdot 6 + 3\cdot 5}{5} = \frac{12+15}{5} = \frac{27}{5}`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`\left(-\frac{4}{5},\;\frac{1}{5},\;\frac{27}{5}\right)`} important />
@@ -447,9 +447,9 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
             </FormulaCard>
             <Stepper
               steps={[
-                { label: "x-coordinate", description: "(1+(−1)+5)/3 = 5/3" },
-                { label: "y-coordinate", description: "(2+0+(−6))/3 = −4/3" },
-                { label: "z-coordinate", description: "(−3+1+3)/3 = 1/3" },
+                { label: "x-coordinate", description: <Formula>{String.raw`\frac{1+(-1)+5}{3} = \frac{5}{3}`}</Formula> },
+                { label: "y-coordinate", description: <Formula>{String.raw`\frac{2+0+(-6)}{3} = -\frac{4}{3}`}</Formula> },
+                { label: "z-coordinate", description: <Formula>{String.raw`\frac{-3+1+3}{3} = \frac{1}{3}`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`G = \left(\frac{5}{3},\;-\frac{4}{3},\;\frac{1}{3}\right)`} important />

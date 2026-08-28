@@ -575,7 +575,7 @@ export default function ElectricChargesChapter() {
       </Example>
       <Example title="Example 1.10 — Flux through a Cube">
         <p>E_x = αx^(1/2), α = 800, cube side 0.1 m.</p>
-        <FormulaBlock latex={String.raw`\Phi = \alpha a^{5/2}(\sqrt{2} - 1) = 1.05 \text{ N·m²/C}`} />
+        <FormulaBlock latex={String.raw`\Phi = \alpha a^{5/2}(\sqrt{2} - 1) = 1.05\ \text{N m}^2\text{/C}`} />
         <p>q = Φε₀ = 9.27 × 10⁻¹² C</p>
       </Example>
       <Example title="Example 1.12 — Atom Model (Gauss's Law)">

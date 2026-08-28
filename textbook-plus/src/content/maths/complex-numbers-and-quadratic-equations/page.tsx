@@ -1,7 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
-import { FormulaBlock } from "@/components/content/Formula";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -247,9 +247,9 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Group Re and Im", description: "(5+3) + i(2−4) — real with real, imaginary with imaginary" },
-                { label: "Add", description: "5+3 = 8,  2−4 = −2" },
-                { label: "Collect", description: "8 + i(−2) = 8 − 2i ✓" },
+                { label: "Group Re and Im", description: <><Formula>{String.raw`(5+3)+i(2-4)`}</Formula> — real with real, imaginary with imaginary</> },
+                { label: "Add", description: <Formula>{String.raw`5+3=8,\ \ 2-4=-2`}</Formula> },
+                { label: "Collect", description: <><Formula>{String.raw`8+i(-2)=8-2i`}</Formula> ✓</> },
               ]}
             />
             <FormulaBlock latex={String.raw`(5+2i)+(3-4i)=8-2i`} important />
@@ -263,9 +263,9 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Add the negative", description: "(7+5i)+(−2−8i) — flip signs of the subtrahend" },
-                { label: "Group", description: "(7−2) + i(5−8)" },
-                { label: "Compute", description: "5 − 3i ✓ (subtraction is not commutative — order matters)" },
+                { label: "Add the negative", description: <><Formula>{String.raw`(7+5i)+(-2-8i)`}</Formula> — flip signs of the subtrahend</> },
+                { label: "Group", description: <Formula>{String.raw`(7-2)+i(5-8)`}</Formula> },
+                { label: "Compute", description: <><Formula>{String.raw`5-3i`}</Formula> ✓ (subtraction is not commutative — order matters)</> },
               ]}
             />
             <FormulaBlock latex={String.raw`(7+5i)-(2+8i)=5-3i`} important />
@@ -279,10 +279,10 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "FOIL — multiply termwise", description: "2·4 + 2·(−i) + 3i·4 + 3i·(−i)" },
-                { label: "Expand", description: "8 −2i +12i −3i²" },
-                { label: "Fix i²", description: "i²=−1 → −3i² = −3(−1)=+3 → 8+3=11,  −2i+12i=10i" },
-                { label: "Collect", description: "11 + 10i ✓ — real part ac−bd, imaginary ad+bc" },
+                { label: "FOIL — multiply termwise", description: <Formula>{String.raw`2\cdot 4 + 2(-i) + 3i\cdot 4 + 3i(-i)`}</Formula> },
+                { label: "Expand", description: <Formula>{String.raw`8 - 2i + 12i - 3i^2`}</Formula> },
+                { label: "Fix i²", description: <Formula>{String.raw`i^2=-1 \to -3i^2 = -3(-1) = +3 \to 8+3=11,\ \ -2i+12i=10i`}</Formula> },
+                { label: "Collect", description: <><Formula>{String.raw`11+10i`}</Formula> ✓ — real part ac−bd, imaginary ad+bc</> },
               ]}
             />
             <FormulaBlock latex={String.raw`(2+3i)(4-i)=11+10i`} important />
@@ -296,11 +296,11 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Conjugate of denominator", description: "3 − i → 3 + i" },
-                { label: "Multiply by 1", description: "(4+2i)/(3−i) × (3+i)/(3+i)" },
-                { label: "Numerator", description: "(4+2i)(3+i)=12+4i+6i+2i²=10+10i" },
-                { label: "Denominator", description: "(3−i)(3+i)=9+1=10 — now real" },
-                { label: "Split", description: "(10+10i)/10 = 1 + i ✓" },
+                { label: "Conjugate of denominator", description: <Formula>{String.raw`3-i \to 3+i`}</Formula> },
+                { label: "Multiply by 1", description: <Formula>{String.raw`\frac{(4+2i)}{(3-i)} \times \frac{(3+i)}{(3+i)}`}</Formula> },
+                { label: "Numerator", description: <Formula>{String.raw`(4+2i)(3+i)=12+4i+6i+2i^2=10+10i`}</Formula> },
+                { label: "Denominator", description: <><Formula>{String.raw`(3-i)(3+i)=9+1=10`}</Formula> — now real</> },
+                { label: "Split", description: <><Formula>{String.raw`\frac{10+10i}{10} = 1+i`}</Formula> ✓</> },
               ]}
             />
             <FormulaBlock latex={String.raw`\frac{4+2i}{3-i}=1+i`} important />
@@ -484,15 +484,15 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
           steps={[
             {
               label: "Expand using distributive law",
-              description: "(z₁+z₂)² = (z₁+z₂)(z₁+z₂) = (z₁+z₂)z₁ + (z₁+z₂)z₂",
+              description: <Formula>{String.raw`(z_1+z_2)^2 = (z_1+z_2)(z_1+z_2) = (z_1+z_2)z_1 + (z_1+z_2)z_2`}</Formula>,
             },
             {
               label: "Apply distributive again",
-              description: "= z₁² + z₂z₁ + z₁z₂ + z₂²",
+              description: <Formula>{String.raw`= z_1^2 + z_2 z_1 + z_1 z_2 + z_2^2`}</Formula>,
             },
             {
               label: "Commutative law (z₂z₁ = z₁z₂)",
-              description: "= z₁² + 2z₁z₂ + z₂² ✓",
+              description: <><Formula>{String.raw`= z_1^2 + 2z_1z_2 + z_2^2`}</Formula> ✓</>,
             },
           ]}
         />

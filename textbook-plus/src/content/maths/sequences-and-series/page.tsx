@@ -1,7 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
-import { FormulaBlock } from "@/components/content/Formula";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -136,9 +136,9 @@ export default function SequencesAndSeriesChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "ar² = 24, ar⁵ = 192", description: "Divide: r³ = 8 → r = 2" },
-                { label: "Find a", description: "a(4) = 24 → a = 6" },
-                { label: "10th term", description: "a₁₀ = 6(2)⁹ = 3072" },
+                { label: <Formula>{String.raw`ar^2 = 24,\ ar^5 = 192`}</Formula>, description: <Formula>{String.raw`\text{Divide: } r^3 = 8 \to r = 2`}</Formula> },
+                { label: "Find a", description: <Formula>{String.raw`a(4) = 24 \to a = 6`}</Formula> },
+                { label: "10th term", description: <Formula>{String.raw`a_{10} = 6(2)^9 = 3072`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -213,9 +213,9 @@ export default function SequencesAndSeriesChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Factor out 7/9", description: "Sₙ = 7/9 [(10−1) + (100−1) + (1000−1) + ⋯]" },
-                { label: "Separate", description: "= 7/9 [10 + 100 + 1000 + ⋯ − n]" },
-                { label: "Geometric sum", description: "= 7/9 [10(10ⁿ−1)/9 − n]" },
+                { label: "Factor out 7/9", description: <Formula>{String.raw`S_n = \frac{7}{9}\left[(10-1)+(100-1)+(1000-1)+\cdots\right]`}</Formula> },
+                { label: "Separate", description: <Formula>{String.raw`= \frac{7}{9}\left[10 + 100 + 1000 + \cdots - n\right]`}</Formula> },
+                { label: "Geometric sum", description: <Formula>{String.raw`= \frac{7}{9}\left[\frac{10(10^n-1)}{9} - n\right]`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -283,9 +283,9 @@ export default function SequencesAndSeriesChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Set up equations", description: "(a+b)/2 = 10 → a+b = 20; √(ab) = 8 → ab = 64" },
-                { label: "Use identity", description: "(a−b)² = (a+b)² − 4ab = 400 − 256 = 144" },
-                { label: "Solve", description: "a−b = ±12. Combined with a+b = 20: a = 16, b = 4 (or vice versa)" },
+                { label: "Set up equations", description: <Formula>{String.raw`\frac{a+b}{2} = 10 \to a+b = 20;\quad \sqrt{ab} = 8 \to ab = 64`}</Formula> },
+                { label: "Use identity", description: <Formula>{String.raw`(a-b)^2 = (a+b)^2 - 4ab = 400 - 256 = 144`}</Formula> },
+                { label: "Solve", description: <><Formula>{String.raw`a-b = \pm 12`}</Formula> — with a + b = 20, this gives a = 16, b = 4 (or vice versa)</> },
               ]}
             />
           </ProblemSolution.Solution>

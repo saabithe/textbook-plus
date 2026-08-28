@@ -1,6 +1,6 @@
 import { Callout } from "@/components/content/Callout";
 import { Expandable } from "@/components/content/Expandable";
-import { FormulaBlock } from "@/components/content/Formula";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -81,9 +81,9 @@ export default function StraightLinesChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Identify points", description: "P&#8321;(6, 2) and P&#8322;(4, 3)" },
-                { label: "Apply formula", description: "m = (3 &#8722; 2) / (4 &#8722; 6) = 1 / (&#8722;2)" },
-                { label: "Result", description: "m = &#8722;1/2" },
+                { label: "Identify points", description: <Formula>{String.raw`P_1(6, 2)\ \text{and}\ P_2(4, 3)`}</Formula> },
+                { label: "Apply formula", description: <Formula>{String.raw`m = \frac{3-2}{4-6} = \frac{1}{-2}`}</Formula> },
+                { label: "Result", description: <Formula>{String.raw`m = -\frac{1}{2}`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`m = \frac{3-2}{4-6} = \frac{1}{-2} = -\frac{1}{2}`} important />
@@ -139,9 +139,9 @@ export default function StraightLinesChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Slope of &#8467;&#8321;", description: "m&#8321; = (1 &#8722; 3) / (4 &#8722; (&#8722;2)) = &#8722;2/6 = &#8722;1/3" },
-                { label: "Slope of &#8467;&#8322;", description: "m&#8322; = (8 &#8722; 5) / (1 &#8722; 3) = 3 / (&#8722;2) = &#8722;3/2" },
-                { label: "Compare", description: "m&#8321; = &#8722;1/3 &#8800; &#8722;3/2 = m&#8322;" },
+                { label: <Formula>{String.raw`\text{Slope of }\ell_1`}</Formula>, description: <Formula>{String.raw`m_1 = \frac{1-3}{4-(-2)} = \frac{-2}{6} = -\frac{1}{3}`}</Formula> },
+                { label: <Formula>{String.raw`\text{Slope of }\ell_2`}</Formula>, description: <Formula>{String.raw`m_2 = \frac{8-5}{1-3} = \frac{3}{-2} = -\frac{3}{2}`}</Formula> },
+                { label: "Compare", description: <Formula>{String.raw`m_1 = -\frac{1}{3} \ne -\frac{3}{2} = m_2`}</Formula> },
               ]}
             />
             <p>
@@ -304,10 +304,10 @@ export default function StraightLinesChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Identify", description: "x&#8321; = &#8722;4, y&#8321; = 3, m = &#8722;4" },
-                { label: "Substitute", description: "y &#8722; 3 = &#8722;4(x &#8722; (&#8722;4))" },
-                { label: "Simplify", description: "y &#8722; 3 = &#8722;4(x + 4) = &#8722;4x &#8722; 16" },
-                { label: "Standard form", description: "4x + y + 13 = 0" },
+                { label: "Identify", description: <Formula>{String.raw`x_1 = -4,\ y_1 = 3,\ m = -4`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`y - 3 = -4(x - (-4))`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`y - 3 = -4(x + 4) = -4x - 16`}</Formula> },
+                { label: "Standard form", description: <Formula>{String.raw`4x + y + 13 = 0`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`4x + y + 13 = 0`} important />
@@ -344,8 +344,8 @@ export default function StraightLinesChapter() {
             <Stepper
               steps={[
                 { label: "Identify intercept", description: "Line passes through (0, 3), so c = 3" },
-                { label: "Find slope", description: "m = (2 &#8722; 3) / (6 &#8722; 0) = &#8722;1/6" },
-                { label: "Write equation", description: "y = (&#8722;1/6)x + 3" },
+                { label: "Find slope", description: <Formula>{String.raw`m = \frac{2-3}{6-0} = -\frac{1}{6}`}</Formula> },
+                { label: "Write equation", description: <Formula>{String.raw`y = -\frac{1}{6}x + 3`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`y = -\frac{1}{6}x + 3 \;\;\text{or}\;\; x + 6y - 18 = 0`} important />
@@ -610,10 +610,10 @@ export default function StraightLinesChapter() {
             </p>
             <Stepper
               steps={[
-                { label: "Midpoint M", description: "M = ((h&#8722;1)/2, (k+3)/2)" },
-                { label: "M on line", description: "3((h&#8722;1)/2) &#8722; 4((k+3)/2) = 1 &#8594; 3h &#8722; 4k &#8722; 17 = 0" },
-                { label: "PQ &#8805; line", description: "Slope of PQ = (k&#8722;3)/(h+1) = &#8722;4/3 (negative reciprocal of 3/4)" },
-                { label: "Solve", description: "3k &#8722; 9 = &#8722;4h &#8722; 4 &#8594; 4h + 3k &#8722; 5 = 0. Solve the system: h = 61/25, k = &#8722;3/25" },
+                { label: "Midpoint M", description: <Formula>{String.raw`M = \left(\frac{h-1}{2},\ \frac{k+3}{2}\right)`}</Formula> },
+                { label: "M on line", description: <Formula>{String.raw`3\left(\frac{h-1}{2}\right) - 4\left(\frac{k+3}{2}\right) = 1 \to 3h - 4k - 17 = 0`}</Formula> },
+                { label: <Formula>{String.raw`PQ \perp \text{line}`}</Formula>, description: <><Formula>{String.raw`\text{Slope of }PQ = \frac{k-3}{h+1} = -\frac{4}{3}`}</Formula> (negative reciprocal of 3/4)</> },
+                { label: "Solve", description: <Formula>{String.raw`3k - 9 = -4h - 4 \to 4h + 3k - 5 = 0 \implies h = \frac{61}{25},\ k = -\frac{3}{25}`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`\text{Image} = \left(\frac{61}{25},\; -\frac{3}{25}\right)`} important />

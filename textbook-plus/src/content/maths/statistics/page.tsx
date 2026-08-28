@@ -81,9 +81,9 @@ export default function StatisticsChapter() {
             />
             <Stepper
               steps={[
-                { label: "Mean", description: "x̄ = (4+7+8+9+10+12+13+17)/8 = 80/8 = 10" },
-                { label: "Sum the last column", description: "Σ|xᵢ − x̄| = 24" },
-                { label: "Mean deviation", description: "M.D.(x̄) = 24/8 = <strong>3</strong>" },
+                { label: "Mean", description: <Formula>{String.raw`\bar{x} = \frac{4+7+8+9+10+12+13+17}{8} = \frac{80}{8} = 10`}</Formula> },
+                { label: "Sum the last column", description: <Formula>{String.raw`\sum |x_i - \bar{x}| = 24`}</Formula> },
+                { label: "Mean deviation", description: <Formula>{String.raw`\text{M.D.}(\bar{x}) = \frac{24}{8} = \mathbf{3}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -117,9 +117,9 @@ export default function StatisticsChapter() {
             />
             <Stepper
               steps={[
-                { label: "Median", description: "n = 12 (even), so M = (6th + 7th sorted value)/2 = (13 + 14)/2 = 13.5" },
-                { label: "Sum the last column", description: "Σ|xᵢ − M| = 28" },
-                { label: "Mean deviation", description: "M.D.(M) = 28/12 = <strong>2.33</strong>" },
+                { label: "Median", description: <><Formula>{String.raw`n = 12`}</Formula> (even), so M = (6th + 7th sorted value)/2 = <Formula>{String.raw`\frac{13+14}{2} = 13.5`}</Formula></> },
+                { label: "Sum the last column", description: <Formula>{String.raw`\sum |x_i - M| = 28`}</Formula> },
+                { label: "Mean deviation", description: <Formula>{String.raw`\text{M.D.}(M) = \frac{28}{12} = \mathbf{2.33}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -164,9 +164,9 @@ export default function StatisticsChapter() {
             />
             <Stepper
               steps={[
-                { label: "Mean", description: "x̄ = 294/40 = 7.35 (from the fᵢxᵢ column total)" },
-                { label: "Sum the last column", description: "Σfᵢ|xᵢ − x̄| = 99.50" },
-                { label: "Mean deviation", description: "M.D.(x̄) = 99.50/40 = <strong>2.4875</strong>" },
+                { label: "Mean", description: <><Formula>{String.raw`\bar{x} = \frac{294}{40} = 7.35`}</Formula> (from the fᵢxᵢ column total)</> },
+                { label: "Sum the last column", description: <Formula>{String.raw`\sum f_i\,|x_i - \bar{x}| = 99.50`}</Formula> },
+                { label: "Mean deviation", description: <Formula>{String.raw`\text{M.D.}(\bar{x}) = \frac{99.50}{40} = \mathbf{2.4875}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -196,9 +196,9 @@ export default function StatisticsChapter() {
             />
             <Stepper
               steps={[
-                { label: "Median", description: "n/2 = 13 sits in x = 7 (c.f. jumps 8 → 14) — the 13th and 14th values are both 7, so M = 7" },
-                { label: "Sum the last column", description: "Σfᵢ|xᵢ − M| = 8·2 + 6·0 + 2·2 + 2·3 + 2·5 + 6·8 = 16 + 0 + 4 + 6 + 10 + 48 = 84" },
-                { label: "Mean deviation", description: "M.D.(M) = 84/26 = <strong>42/13 ≈ 3.23</strong> (same data as Exercise 13.1 Q7)" },
+                { label: "Median", description: <><Formula>{String.raw`\frac{n}{2} = 13`}</Formula> falls in x = 7 (c.f. jumps 8 → 14) — the 13th and 14th values are both 7, so <Formula>{String.raw`M = 7`}</Formula></> },
+                { label: "Sum the last column", description: <Formula>{String.raw`\sum f_i\,|x_i - M| = 8\cdot 2 + 6\cdot 0 + 2\cdot 2 + 2\cdot 3 + 2\cdot 5 + 6\cdot 8 = 84`}</Formula> },
+                { label: "Mean deviation", description: <><Formula>{String.raw`\text{M.D.}(M) = \frac{84}{26} = \frac{42}{13} \approx 3.23`}</Formula> (same data as Exercise 13.1 Q7)</> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -249,9 +249,9 @@ export default function StatisticsChapter() {
             />
             <Stepper
               steps={[
-                { label: "Mean", description: "x̄ = 975/37 = 26.35 (midpoint column, from the fᵢxᵢ total)" },
-                { label: "Sum the last column", description: "Σfᵢ|xᵢ − x̄| = 362.15" },
-                { label: "Mean deviation", description: "M.D.(x̄) = 362.15/37 ≈ <strong>9.79</strong>" },
+                { label: "Mean", description: <><Formula>{String.raw`\bar{x} = \frac{975}{37} = 26.35`}</Formula> (midpoint column, from the fᵢxᵢ total)</> },
+                { label: "Sum the last column", description: <Formula>{String.raw`\sum f_i\,|x_i - \bar{x}| = 362.15`}</Formula> },
+                { label: "Mean deviation", description: <Formula>{String.raw`\text{M.D.}(\bar{x}) = \frac{362.15}{37} \approx \mathbf{9.79}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -281,9 +281,9 @@ export default function StatisticsChapter() {
             />
             <Stepper
               steps={[
-                { label: "Median", description: "n/2 = 25 falls in class 20–30 (c.f. crosses 25). M = 20 + (25 − 13)/15 × 10 = 20 + 8 = 28" },
-                { label: "Sum the last column", description: "Σfᵢ|xᵢ − M| = 508" },
-                { label: "Mean deviation", description: "M.D.(M) = 508/50 = <strong>10.16</strong>" },
+                { label: "Median", description: <><Formula>{String.raw`\frac{n}{2} = 25`}</Formula> falls in class 20–30 (c.f. crosses 25). <Formula>{String.raw`M = 20 + \frac{25-13}{15}\times 10 = 20 + 8 = 28`}</Formula></> },
+                { label: "Sum the last column", description: <Formula>{String.raw`\sum f_i\,|x_i - M| = 508`}</Formula> },
+                { label: "Mean deviation", description: <Formula>{String.raw`\text{M.D.}(M) = \frac{508}{50} = \mathbf{10.16}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -332,10 +332,10 @@ export default function StatisticsChapter() {
             />
             <Stepper
               steps={[
-                { label: "Mean", description: "x̄ = 50/5 = 10" },
-                { label: "Sum the last column", description: "Σ(xᵢ − x̄)² = 40" },
-                { label: "Variance", description: "σ² = 40/5 = <strong>8</strong>" },
-                { label: "Standard deviation", description: "σ = √8 = <strong>2√2 ≈ 2.828</strong>" },
+                { label: "Mean", description: <Formula>{String.raw`\bar{x} = \frac{50}{5} = 10`}</Formula> },
+                { label: "Sum the last column", description: <Formula>{String.raw`\sum (x_i - \bar{x})^2 = 40`}</Formula> },
+                { label: "Variance", description: <Formula>{String.raw`\sigma^2 = \frac{40}{5} = \mathbf{8}`}</Formula> },
+                { label: "Standard deviation", description: <Formula>{String.raw`\sigma = \sqrt 8 = \mathbf{2\sqrt 2 \approx 2.828}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -365,8 +365,8 @@ export default function StatisticsChapter() {
             />
             <Stepper
               steps={[
-                { label: "Mean", description: "x̄ = 55/10 = 5.5 — since 1, 2, …, 10 is an arithmetic sequence, this is also just (first + last)/2 = (1 + 10)/2" },
-                { label: "Variance by identity", description: "σ² = Σxᵢ²/n − x̄² = 385/10 − 5.5² = 38.5 − 30.25 = <strong>8.25</strong>" },
+                { label: "Mean", description: <><Formula>{String.raw`\bar{x} = \frac{55}{10} = 5.5`}</Formula> — since 1, 2, …, 10 is an arithmetic sequence, this is also just <Formula>{String.raw`\frac{1+10}{2}`}</Formula></> },
+                { label: "Variance by identity", description: <Formula>{String.raw`\sigma^2 = \frac{\sum x_i^2}{n} - \bar{x}^2 = \frac{385}{10} - 5.5^2 = 38.5 - 30.25 = \mathbf{8.25}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -385,11 +385,11 @@ export default function StatisticsChapter() {
             </Callout>
             <Stepper
               steps={[
-                { label: "Count the terms", description: "3n = 99 → n = <strong>33</strong> terms" },
-                { label: "Mean", description: "Arithmetic sequence: x̄ = (first + last)/2 = (3 + 99)/2 = <strong>51</strong>. (Also: mean of 1..33 is 17, ×3 = 51.)" },
-                { label: "Variance of 1..33", description: "From Ex 13.2 Q2, the first m natural numbers have variance (m² − 1)/12. For m = 33: (1089 − 1)/12 = 1088/12 = <strong>272/3</strong>" },
-                { label: "Scale by k = 3", description: "Multiplying every observation by k multiplies variance by k²: σ² = 3² × (272/3) = 9 × (272/3) = <strong>816</strong>" },
-                { label: "Standard deviation (optional)", description: "σ = √816 = <strong>4√51 ≈ 28.57</strong>" },
+                { label: "Count the terms", description: <><Formula>{String.raw`3n = 99 \to n = \mathbf{33}`}</Formula> terms</> },
+                { label: "Mean", description: <><Formula>{String.raw`\bar{x} = \frac{3+99}{2} = \mathbf{51}`}</Formula> (mean of 1..33 is 17, ×3 = 51)</> },
+                { label: "Variance of 1..33", description: <><Formula>{String.raw`\frac{m^2-1}{12}`}</Formula> (from Ex 13.2 Q2). For m = 33: <Formula>{String.raw`\frac{1089-1}{12} = \frac{1088}{12} = \mathbf{\frac{272}{3}}`}</Formula></> },
+                { label: "Scale by k = 3", description: <Formula>{String.raw`\sigma^2 = 3^2 \times \frac{272}{3} = 9 \times \frac{272}{3} = \mathbf{816}`}</Formula> },
+                { label: "Standard deviation (optional)", description: <Formula>{String.raw`\sigma = \sqrt{816} = \mathbf{4\sqrt{51} \approx 28.57}`}</Formula> },
               ]}
             />
             <Callout type="note" title="Verify with the identity σ² = Σxᵢ²/n − x̄²">
@@ -409,10 +409,10 @@ export default function StatisticsChapter() {
             <Stepper
               steps={[
                 { label: "Start from the definition", description: "SD = √Variance — so find the variance first, then take the square root." },
-                { label: "Mean of the sequence", description: "1, 2, …, n is an arithmetic sequence, so x̄ = (first + last)/2 = (1 + n)/2 = <strong>(n + 1)/2</strong>" },
-                { label: "Variance by the identity", description: "σ² = Σxᵢ²/n − x̄². Also 1² + 2² + ⋯ + n² = n(n+1)(2n+1)/6, so Σxᵢ²/n = (n+1)(2n+1)/6" },
-                { label: "Subtract the mean term", description: "σ² = (n+1)(2n+1)/6 − ((n+1)/2)² = [2(n+1)(2n+1) − 3(n+1)²]/12 = (n+1)[(4n+2) − (3n+3)]/12 = (n+1)(n−1)/12 = <strong>(n² − 1)/12</strong>" },
-                { label: "Take the square root", description: "SD = √σ² = √((n² − 1)/12)" },
+                { label: "Mean of the sequence", description: <><Formula>{String.raw`\bar{x} = \frac{1+n}{2} = \mathbf{\frac{n+1}{2}}`}</Formula></> },
+                { label: "Variance by the identity", description: <Formula>{String.raw`\sigma^2 = \frac{\sum x_i^2}{n} - \bar{x}^2,\quad 1^2+2^2+\cdots+n^2 = \frac{n(n+1)(2n+1)}{6} \ \Rightarrow\ \frac{\sum x_i^2}{n} = \frac{(n+1)(2n+1)}{6}`}</Formula> },
+                { label: "Subtract the mean term", description: <Formula>{String.raw`\sigma^2 = \frac{(n+1)(2n+1)}{6} - \left(\frac{n+1}{2}\right)^2 = \frac{2(n+1)(2n+1) - 3(n+1)^2}{12} = \frac{(n+1)\left[(4n+2) - (3n+3)\right]}{12} = \frac{(n+1)(n-1)}{12} = \mathbf{\frac{n^2-1}{12}}`}</Formula> },
+                { label: "Take the square root", description: <Formula>{String.raw`\text{SD} = \sqrt{\sigma^2} = \sqrt{\frac{n^2-1}{12}}`}</Formula> },
               ]}
             />
             <KeyPoint title="Result to memorise — the (n+1)/2 and (n²−1)/12 pair">
@@ -456,9 +456,9 @@ export default function StatisticsChapter() {
             />
             <Stepper
               steps={[
-                { label: "Mean", description: "x̄ = 196/28 = 7 (from the fᵢxᵢ column total)" },
-                { label: "Sum the last column", description: "Σfᵢ(xᵢ − x̄)² = 176" },
-                { label: "Variance", description: "σ² = 176/28 = <strong>6.286</strong> (approx)" },
+                { label: "Mean", description: <><Formula>{String.raw`\bar{x} = \frac{196}{28} = 7`}</Formula> (from the fᵢxᵢ column total)</> },
+                { label: "Sum the last column", description: <Formula>{String.raw`\sum f_i\,(x_i - \bar{x})^2 = 176`}</Formula> },
+                { label: "Variance", description: <><Formula>{String.raw`\sigma^2 = \frac{176}{28} = \mathbf{6.286}`}</Formula> (approx)</> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -494,10 +494,10 @@ export default function StatisticsChapter() {
             />
             <Stepper
               steps={[
-                { label: "Base variance (A = 1)", description: "x̄ = 22/7. σ₁² = 92/7 − (22/7)² = 644/49 − 484/49 = <strong>160/49</strong>" },
-                { label: "Scale by A", description: "Multiplying every value by A multiplies variance by A²: σ² = A² × (160/49)" },
-                { label: "Equate to 160", description: "A² × 160/49 = 160 → A² = 49" },
-                { label: "A is a positive integer", description: "A = √49 = <strong>7</strong>" },
+                { label: "Base variance (A = 1)", description: <><Formula>{String.raw`\bar{x} = \frac{22}{7},\quad \sigma_1^2 = \frac{92}{7} - \left(\frac{22}{7}\right)^2 = \frac{644}{49} - \frac{484}{49} = \mathbf{\frac{160}{49}}`}</Formula></> },
+                { label: "Scale by A", description: <Formula>{String.raw`\sigma^2 = A^2 \times \frac{160}{49}`}</Formula> },
+                { label: "Equate to 160", description: <Formula>{String.raw`A^2 \times \frac{160}{49} = 160 \to A^2 = 49`}</Formula> },
+                { label: "A is a positive integer", description: <Formula>{String.raw`A = \sqrt{49} = \mathbf{7}`}</Formula> },
               ]}
             />
             <Callout type="note" title="Verify with A = 7">
@@ -539,10 +539,10 @@ export default function StatisticsChapter() {
             />
             <Stepper
               steps={[
-                { label: "Mean", description: "x̄ = 470/20 = 23.5 (midpoint column, from the fᵢxᵢ total)" },
-                { label: "Sum the last column", description: "Σfᵢ(xᵢ − x̄)² = 2055" },
-                { label: "Variance", description: "σ² = 2055/20 = <strong>102.75</strong>" },
-                { label: "Standard deviation", description: "σ = √102.75 ≈ <strong>10.14</strong>" },
+                { label: "Mean", description: <><Formula>{String.raw`\bar{x} = \frac{470}{20} = 23.5`}</Formula> (midpoint column, from the fᵢxᵢ total)</> },
+                { label: "Sum the last column", description: <Formula>{String.raw`\sum f_i\,(x_i - \bar{x})^2 = 2055`}</Formula> },
+                { label: "Variance", description: <Formula>{String.raw`\sigma^2 = \frac{2055}{20} = \mathbf{102.75}`}</Formula> },
+                { label: "Standard deviation", description: <Formula>{String.raw`\sigma = \sqrt{102.75} \approx \mathbf{10.14}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -724,7 +724,7 @@ export default function StatisticsChapter() {
             <Stepper
               steps={[
                 { label: "Key fact", description: "When every observation is multiplied by k, the variance is multiplied by k²." },
-                { label: "Apply", description: "New variance = k² × old variance = 2² × 5 = 4 × 5 = <strong>20</strong>" },
+                { label: "Apply", description: <Formula>{String.raw`\text{New variance } = k^2 \times \text{old} = 2^2 \times 5 = \mathbf{20}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -737,10 +737,10 @@ export default function StatisticsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Sum from mean", description: "Total = 5 × 4.4 = 22. Already known: 1+2+6 = 9, so the other two satisfy x + y = 13." },
-                { label: "Variance equation", description: "Σ(xᵢ)² = n(σ² + x̄²) = 5(8.24 + 19.36) = 138. Known squares: 1+4+36 = 41, so x² + y² = 97." },
-                { label: "Solve", description: "(x+y)² = x² + y² + 2xy → 169 = 97 + 2xy → 2xy = 72. Then (x−y)² = 97 − 72 = 25 → x − y = ±5." },
-                { label: "Answer", description: "With x + y = 13 and x − y = ±5, the two observations are <strong>4 and 9</strong>." },
+                { label: "Sum from mean", description: <><Formula>{String.raw`\sum x_i = 5\times 4.4 = 22`}</Formula>. Known: 1+2+6 = 9, so <Formula>{String.raw`x + y = 13`}</Formula></> },
+                { label: "Variance equation", description: <><Formula>{String.raw`\sum x_i^2 = n(\sigma^2 + \bar{x}^2) = 5(8.24 + 19.36) = 138`}</Formula>. Known squares: 1+4+36 = 41, so <Formula>{String.raw`x^2 + y^2 = 97`}</Formula></> },
+                { label: "Solve", description: <><Formula>{String.raw`(x+y)^2 = x^2 + y^2 + 2xy \to 169 = 97 + 2xy \to 2xy = 72`}</Formula>. Then <Formula>{String.raw`(x-y)^2 = 97-72 = 25 \to x-y = \pm 5`}</Formula></> },
+                { label: "Answer", description: <>With <Formula>{String.raw`x+y = 13`}</Formula> and <Formula>{String.raw`x-y = \pm 5`}</Formula>, the two observations are <strong>4 and 9</strong>.</> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -753,9 +753,9 @@ export default function StatisticsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "New values", description: "yᵢ = xᵢ + a and the new mean ȳ = x̄ + a." },
-                { label: "Deviations cancel", description: "yᵢ − ȳ = (xᵢ + a) − (x̄ + a) = xᵢ − x̄ — the constant a drops out of every deviation." },
-                { label: "Conclusion", description: "σᵧ² = (1/n)Σ(yᵢ − ȳ)² = (1/n)Σ(xᵢ − x̄)² = σₓ², so <strong>variance is unchanged</strong>." },
+                { label: "New values", description: <Formula>{String.raw`y_i = x_i + a\ \text{ and }\ \bar{y} = \bar{x} + a`}</Formula> },
+                { label: "Deviations cancel", description: <><Formula>{String.raw`y_i - \bar{y} = (x_i + a) - (\bar{x} + a) = x_i - \bar{x}`}</Formula> — the constant a drops out of every deviation.</> },
+                { label: "Conclusion", description: <><Formula>{String.raw`\sigma_y^2 = \frac{1}{n}\sum (y_i - \bar{y})^2 = \frac{1}{n}\sum (x_i - \bar{x})^2 = \sigma_x^2`}</Formula>, so <strong>variance is unchanged</strong>.</> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -768,10 +768,10 @@ export default function StatisticsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Correct sum", description: "Incorrect sum = 100 × 40 = 4000. Correct sum = 4000 − 50 + 40 = 3990. Correct mean = 3990/100 = <strong>39.9</strong>" },
-                { label: "Incorrect Σx²", description: "σ² = Σx²/n − x̄² → 26.01 = Σx²/100 − 1600 → Σx² = 100(26.01 + 1600) = 162601" },
-                { label: "Correct Σx²", description: "= 162601 − 50² + 40² = 162601 − 2500 + 1600 = 161701" },
-                { label: "Correct SD", description: "σ² = 161701/100 − (39.9)² = 1617.01 − 1592.01 = 25 → σ = <strong>5</strong>" },
+                { label: "Correct sum", description: <><Formula>{String.raw`\sum x_i = 100\times 40 = 4000;\ \text{correct sum } = 4000-50+40 = 3990`}</Formula>. Correct mean <Formula>{String.raw`= \frac{3990}{100} = \mathbf{39.9}`}</Formula></> },
+                { label: "Incorrect Σx²", description: <Formula>{String.raw`\sigma^2 = \frac{\sum x_i^2}{n} - \bar{x}^2 \to 26.01 = \frac{\sum x_i^2}{100} - 1600 \to \sum x_i^2 = 100(26.01+1600) = 162601`}</Formula> },
+                { label: "Correct Σx²", description: <Formula>{String.raw`= 162601 - 50^2 + 40^2 = 162601 - 2500 + 1600 = 161701`}</Formula> },
+                { label: "Correct SD", description: <Formula>{String.raw`\sigma^2 = \frac{161701}{100} - (39.9)^2 = 1617.01 - 1592.01 = 25 \to \sigma = \mathbf{5}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>

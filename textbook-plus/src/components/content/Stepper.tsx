@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
+
 interface Step {
-  label: string;
-  description?: string;
+  label: ReactNode;
+  description?: ReactNode;
 }
 
 interface StepperProps {

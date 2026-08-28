@@ -1,7 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
-import { FormulaBlock } from "@/components/content/Formula";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -478,8 +478,8 @@ export default function ProbabilityChapter() {
             <Stepper
               steps={[
                 { label: "Identify events", description: "A = King (4 cards), B = Spade (13 cards), A ∩ B = King of Spades (1 card)" },
-                { label: "Apply addition rule", description: "P(A ∪ B) = P(A) + P(B) − P(A ∩ B) = 4/52 + 13/52 − 1/52 = 16/52" },
-                { label: "Simplify", description: "16/52 = 4/13" },
+                { label: "Apply addition rule", description: <Formula>{String.raw`P(A \cup B) = P(A) + P(B) - P(A \cap B) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52} = \frac{16}{52}`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`\frac{16}{52} = \frac{4}{13}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>

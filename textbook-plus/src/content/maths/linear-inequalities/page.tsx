@@ -1,7 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
-import { FormulaBlock } from "@/components/content/Formula";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -143,7 +143,7 @@ export default function LinearInequalitiesChapter() {
             <p>Solve 4x + 3 &lt; 6x + 7.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex={String.raw`4x+3<6x+7 \Rightarrow -2x<4 \Rightarrow x>-2\ \text{(divide by −2, flip!)}`} />
+            <FormulaBlock latex={String.raw`4x+3<6x+7 \Rightarrow -2x<4 \Rightarrow x>-2\ \text{(divide by } -2 \text{, flip!)}`} />
             <p>
               Solution set <strong>(−2, ∞)</strong> — all reals greater than −2.
             </p>
@@ -163,10 +163,10 @@ export default function LinearInequalitiesChapter() {
             <FormulaBlock latex={String.raw`\frac{5-2x}{3}\le\frac{x}{6}-5 \quad\text{(reconstructed; see PDF p.93 Fig)}`} />
             <Stepper
               steps={[
-                { label: "LCM 6", description: "Multiply by 6 (>0): 2(5−2x) ≤ x −30" },
-                { label: "Expand", description: "10−4x ≤ x−30" },
-                { label: "Bring terms", description: "−5x ≤ −40" },
-                { label: "Divide by −5 (flip!)", description: "x ≥8" },
+                { label: "LCM 6", description: <><Formula>{String.raw`2(5-2x) \le x - 30`}</Formula> — multiply by 6 (&gt; 0)</> },
+                { label: "Expand", description: <Formula>{String.raw`10-4x \le x-30`}</Formula> },
+                { label: "Bring terms", description: <Formula>{String.raw`-5x \le -40`}</Formula> },
+                { label: "Divide by −5 (flip!)", description: <Formula>{String.raw`x \ge 8`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`x\in[8,\infty)`} important />
@@ -193,8 +193,8 @@ export default function LinearInequalitiesChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "LCM 4", description: "2(3x−4) ≥ (x+1)−4 → 6x−8 ≥ x−3" },
-                { label: "Simplify", description: "5x ≥5 → x ≥1" },
+                { label: "LCM 4", description: <Formula>{String.raw`2(3x-4) \ge (x+1)-4 \to 6x-8 \ge x-3`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`5x \ge 5 \to x \ge 1`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`x\in[1,\infty)`} important />

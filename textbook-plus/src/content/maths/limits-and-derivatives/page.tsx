@@ -34,8 +34,8 @@ export default function LimitsAndDerivativesChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Average velocity", description: "[h(1+h) − h(1)]/h = [20(1+h) − 5(1+h)² − 15]/h = [20 + 20h − 5 − 10h − 5h² − 15]/h = [10h − 5h²]/h = 10 − 5h" },
-                { label: "Take limit h → 0", description: "Instantaneous velocity at t = 1 is lim(h→0)(10 − 5h) = 10 m/s" },
+                { label: "Average velocity", description: <Formula>{String.raw`\frac{h(1+h) - h(1)}{h} = \frac{20(1+h) - 5(1+h)^2 - 15}{h} = \frac{20 + 20h - 5 - 10h - 5h^2 - 15}{h} = \frac{10h - 5h^2}{h} = 10 - 5h`}</Formula> },
+                { label: "Take limit h → 0", description: <>Instantaneous velocity at t = 1 is <Formula>{String.raw`\lim_{h \to 0}(10 - 5h) = 10`}</Formula> m/s</> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -83,9 +83,9 @@ export default function LimitsAndDerivativesChapter() {
 
       <Stepper
         steps={[
-          { label: "Factor numerator", description: "xⁿ − aⁿ = (x − a)(xⁿ⁻¹ + xⁿ⁻²a + xⁿ⁻³a² + ⋯ + aⁿ⁻¹)" },
-          { label: "Cancel (x − a)", description: "Numerator/denominator = xⁿ⁻¹ + xⁿ⁻²a + ⋯ + aⁿ⁻¹" },
-          { label: "Substitute x = a", description: "Each of the n terms becomes aⁿ⁻¹, giving n · aⁿ⁻¹" },
+          { label: "Factor numerator", description: <Formula>{String.raw`x^n - a^n = (x-a)\left(x^{n-1} + x^{n-2}a + x^{n-3}a^2 + \cdots + a^{n-1}\right)`}</Formula> },
+          { label: "Cancel (x − a)", description: <Formula>{String.raw`\frac{x^n-a^n}{x-a} = x^{n-1} + x^{n-2}a + \cdots + a^{n-1}`}</Formula> },
+          { label: "Substitute x = a", description: <Formula>{String.raw`\text{Each of the } n \text{ terms becomes } a^{n-1},\ \text{giving } n\cdot a^{n-1}`}</Formula> },
         ]}
       />
 
@@ -147,8 +147,8 @@ export default function LimitsAndDerivativesChapter() {
         <Stepper
           steps={[
             { label: "Geometric argument", description: "For 0 &lt; x &lt; π/2: Area of triangle OAB &lt; Area of sector OAB &lt; Area of triangle OAC" },
-            { label: "Inequality", description: "(1/2)sin x &lt; (1/2)x &lt; (1/2)tan x → cos x &lt; sin x / x &lt; 1" },
-            { label: "Apply Sandwich", description: "Since lim cos x = 1 and lim 1 = 1, the squeeze theorem gives lim sin x / x = 1" },
+            { label: "Inequality", description: <Formula>{String.raw`\frac{1}{2}\sin x < \frac{1}{2}x < \frac{1}{2}\tan x \ \Rightarrow\ \cos x < \frac{\sin x}{x} < 1`}</Formula> },
+            { label: "Apply Sandwich", description: <Formula>{String.raw`\text{Since }\lim_{x\to 0}\cos x = 1 \text{ and } \lim_{x\to 0}1 = 1,\ \lim_{x \to 0}\frac{\sin x}{x} = 1`}</Formula> },
           ]}
         />
       </Expandable>
@@ -161,8 +161,8 @@ export default function LimitsAndDerivativesChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Rewrite", description: "sin 4x / x = 4 · (sin 4x)/(4x)" },
-                { label: "Substitute u = 4x", description: "As x → 0, u → 0. So lim = 4 · lim(u→0) sin u / u = 4 × 1 = 4" },
+                { label: "Rewrite", description: <Formula>{String.raw`\frac{\sin 4x}{x} = 4\cdot \frac{\sin 4x}{4x}`}</Formula> },
+                { label: "Substitute u = 4x", description: <><Formula>{String.raw`\lim_{x \to 0}\frac{\sin 4x}{x} = 4\lim_{u \to 0}\frac{\sin u}{u} = 4`}</Formula> — as x → 0, u → 0</> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -175,8 +175,8 @@ export default function LimitsAndDerivativesChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Multiply by conjugate", description: "(1 − cos x)(1 + cos x) / [x²(1 + cos x)] = (1 − cos²x) / [x²(1 + cos x)] = sin²x / [x²(1 + cos x)]" },
-                { label: "Split", description: "(sin x / x)² · 1/(1 + cos x) → 1² · 1/2 = 1/2" },
+                { label: "Multiply by conjugate", description: <Formula>{String.raw`\frac{(1-\cos x)(1+\cos x)}{x^2(1+\cos x)} = \frac{1-\cos^2 x}{x^2(1+\cos x)} = \frac{\sin^2 x}{x^2(1+\cos x)}`}</Formula> },
+                { label: "Split", description: <Formula>{String.raw`\left(\frac{\sin x}{x}\right)^2 \cdot \frac{1}{1+\cos x} \to 1 \cdot \frac{1}{2} = \frac{1}{2}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -217,9 +217,9 @@ export default function LimitsAndDerivativesChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Write difference quotient", description: "[f(x+h) − f(x)]/h = [(x+h)² − x²]/h = [x² + 2xh + h² − x²]/h = [2xh + h²]/h" },
-                { label: "Simplify", description: "= 2x + h" },
-                { label: "Take limit h → 0", description: "f&apos;(x) = lim(2x + h) = 2x" },
+                { label: "Write difference quotient", description: <Formula>{String.raw`\frac{f(x+h)-f(x)}{h} = \frac{(x+h)^2-x^2}{h} = \frac{x^2+2xh+h^2-x^2}{h} = \frac{2xh+h^2}{h}`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`= 2x + h`}</Formula> },
+                { label: "Take limit h → 0", description: <Formula>{String.raw`f'(x) = \lim_{h \to 0}(2x + h) = 2x`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -266,7 +266,7 @@ export default function LimitsAndDerivativesChapter() {
             <Stepper
               steps={[
                 { label: "Identify", description: "f = sin x (numerator), g = x (denominator)" },
-                { label: "Apply rule", description: "f' = (cos x · x − sin x · 1) / x² = (x cos x − sin x) / x²" },
+                { label: "Apply rule", description: <Formula>{String.raw`f' = \frac{\cos x \cdot x - \sin x \cdot 1}{x^2} = \frac{x\cos x - \sin x}{x^2}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>

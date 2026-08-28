@@ -1,7 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
-import { FormulaBlock } from "@/components/content/Formula";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -37,8 +37,8 @@ export default function BinomialTheoremChapter() {
         <p>Row 5 of Pascal&apos;s triangle: <strong>1, 5, 10, 10, 5, 1</strong></p>
         <Stepper
           steps={[
-            { label: "(2x + 3y)⁵", description: "(2x)⁵ + 5(2x)⁴(3y) + 10(2x)³(3y)² + 10(2x)²(3y)³ + 5(2x)(3y)⁴ + (3y)⁵" },
-            { label: "Simplify", description: "32x⁵ + 240x⁴y + 720x³y² + 1080x²y³ + 810xy⁴ + 243y⁵" },
+            { label: "(2x + 3y)⁵", description: <Formula>{String.raw`(2x)^5 + 5(2x)^4(3y) + 10(2x)^3(3y)^2 + 10(2x)^2(3y)^3 + 5(2x)(3y)^4 + (3y)^5`}</Formula> },
+            { label: "Simplify", description: <Formula>{String.raw`32x^5 + 240x^4 y + 720x^3 y^2 + 1080x^2 y^3 + 810x y^4 + 243y^5`}</Formula> },
           ]}
         />
       </Expandable>
@@ -72,8 +72,8 @@ export default function BinomialTheoremChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "(x+2)⁶", description: "6C0·x⁶ + 6C1·x⁵·2 + 6C2·x⁴·2² + 6C3·x³·2³ + 6C4·x²·2⁴ + 6C5·x·2⁵ + 6C6·2⁶" },
-                { label: "Simplify", description: "x⁶ + 12x⁵ + 60x⁴ + 160x³ + 240x² + 192x + 64" },
+                { label: "(x+2)⁶", description: <Formula>{String.raw`{}^{6}C_{0}\,x^6 + {}^{6}C_{1}\,x^5\cdot 2 + {}^{6}C_{2}\,x^4\cdot 2^2 + {}^{6}C_{3}\,x^3\cdot 2^3 + {}^{6}C_{4}\,x^2\cdot 2^4 + {}^{6}C_{5}\,x\cdot 2^5 + {}^{6}C_{6}\,2^6`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`x^6 + 12x^5 + 60x^4 + 160x^3 + 240x^2 + 192x + 64`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -96,9 +96,9 @@ export default function BinomialTheoremChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Write 98 = 100 − 2", description: "(98)⁵ = (100−2)⁵" },
-                { label: "Expand", description: "100⁵ − 5·100⁴·2 + 10·100³·2² − 10·100²·2³ + 5·100·2⁴ − 2⁵" },
-                { label: "Compute", description: "10000000000 − 1000000000 + 40000000 − 800000 + 8000 − 32 = 9039207968" },
+                { label: "Write 98 = 100 − 2", description: <Formula>{String.raw`(98)^5 = (100-2)^5`}</Formula> },
+                { label: "Expand", description: <Formula>{String.raw`100^5 - 5 \cdot 100^4 \cdot 2 + 10 \cdot 100^3 \cdot 2^2 - 10 \cdot 100^2 \cdot 2^3 + 5 \cdot 100 \cdot 2^4 - 2^5`}</Formula> },
+                { label: "Compute", description: <Formula>{String.raw`10000000000 - 1000000000 + 40000000 - 800000 + 8000 - 32 = 9039207968`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -140,8 +140,8 @@ export default function BinomialTheoremChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Write 6ⁿ = (1+5)ⁿ", description: "nC0 + nC1·5 + nC2·5² + … = 1 + 5n + 25·(nC2 + 5·nC3 + …)" },
-                { label: "Subtract 5n", description: "6ⁿ − 5n = 1 + 25k where k is a natural number" },
+                { label: "Write 6ⁿ = (1+5)ⁿ", description: <Formula>{String.raw`{}^{n}C_{0} + {}^{n}C_{1}\cdot 5 + {}^{n}C_{2}\cdot 5^2 + \cdots = 1 + 5n + 25\left({}^{n}C_{2} + 5\cdot {}^{n}C_{3} + \cdots\right)`}</Formula> },
+                { label: "Subtract 5n", description: <><Formula>{String.raw`6^n - 5n = 1 + 25k`}</Formula> where k is a natural number</> },
                 { label: "Conclusion", description: "Remainder when divided by 25 is always 1" },
               ]}
             />

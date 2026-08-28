@@ -314,9 +314,9 @@ export default function PermutationsAndCombinationsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "(i) No girl", description: "{^7C_5} = 21" },
-                { label: "(ii) At least 1 boy + 1 girl", description: "{^7C_1}×{^4C_4} + {^7C_2}×{^4C_3} + {^7C_3}×{^4C_2} + {^7C_4}×{^4C_1} = 7+84+210+140 = 441" },
-                { label: "(iii) At least 3 girls", description: "{^4C_3}×{^7C_2} + {^4C_4}×{^7C_1} = 84+7 = 91" },
+                { label: "(i) No girl", description: <Formula>{String.raw`{}^{7}C_{5} = 21`}</Formula> },
+                { label: "(ii) At least 1 boy + 1 girl", description: <Formula>{String.raw`{}^{7}C_{1}\times {}^{4}C_{4} + {}^{7}C_{2}\times {}^{4}C_{3} + {}^{7}C_{3}\times {}^{4}C_{2} + {}^{7}C_{4}\times {}^{4}C_{1} = 7+84+210+140 = 441`}</Formula> },
+                { label: "(iii) At least 3 girls", description: <Formula>{String.raw`{}^{4}C_{3}\times {}^{7}C_{2} + {}^{4}C_{4}\times {}^{7}C_{1} = 84+7 = 91`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>

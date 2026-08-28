@@ -1,7 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
-import { FormulaBlock } from "@/components/content/Formula";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -129,9 +129,9 @@ export default function ConicSectionsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Identify g, f, c", description: "2g = −6 → g = −3; 2f = 4 → f = 2; c = −12" },
-                { label: "Centre", description: "(−g, −f) = (3, −2)" },
-                { label: "Radius", description: "r = √(9 + 4 + 12) = √25 = 5" },
+                { label: "Identify g, f, c", description: <Formula>{String.raw`2g = -6 \to g = -3;\ \ 2f = 4 \to f = 2;\ \ c = -12`}</Formula> },
+                { label: "Centre", description: <Formula>{String.raw`(-g, -f) = (3, -2)`}</Formula> },
+                { label: "Radius", description: <Formula>{String.raw`r = \sqrt{9+4+12} = \sqrt{25} = 5`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -235,7 +235,7 @@ export default function ConicSectionsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Compare with y² = 4ax", description: "4a = 12 → a = 3" },
+                { label: "Compare with y² = 4ax", description: <Formula>{String.raw`4a = 12 \to a = 3`}</Formula> },
                 { label: "Focus", description: "(a, 0) = (3, 0)" },
                 { label: "Directrix", description: "x = −a = −3" },
                 { label: "Latus Rectum", description: "4a = 12" },
@@ -253,7 +253,7 @@ export default function ConicSectionsChapter() {
             <Stepper
               steps={[
                 { label: "Identify a", description: "Distance from vertex (0,0) to focus = a = 4" },
-                { label: "Form", description: "x² = 4ay = 4(4)y = 16y" },
+                { label: "Form", description: <Formula>{String.raw`x^2 = 4ay = 4(4)y = 16y`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`x^2 = 16y`} important />
@@ -342,9 +342,9 @@ export default function ConicSectionsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Identify a and c", description: "a = 5, c = 3" },
-                { label: "Find b²", description: "b² = a² − c² = 25 − 9 = 16 → b = 4" },
-                { label: "Equation", description: "Major axis along x-axis: x²/25 + y²/16 = 1" },
+                { label: "Identify a and c", description: <Formula>{String.raw`a = 5, c = 3`}</Formula> },
+                { label: "Find b²", description: <Formula>{String.raw`b^2 = a^2 - c^2 = 25 - 9 = 16 \to b = 4`}</Formula> },
+                { label: "Equation", description: <><Formula>{String.raw`\frac{x^2}{25} + \frac{y^2}{16} = 1`}</Formula> — major axis along the x-axis</> },
               ]}
             />
             <FormulaBlock latex={String.raw`\frac{x^2}{25} + \frac{y^2}{16} = 1`} important />
@@ -358,11 +358,11 @@ export default function ConicSectionsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Identify a, b", description: "a² = 16 → a = 4; b² = 9 → b = 3" },
-                { label: "Find c", description: "c² = 16 − 9 = 7 → c = √7" },
-                { label: "Eccentricity", description: "e = c/a = √7/4" },
-                { label: "Foci", description: "(±√7, 0)" },
-                { label: "Latus Rectum", description: "2b²/a = 2(9)/4 = 9/2" },
+                { label: "Identify a, b", description: <Formula>{String.raw`a^2 = 16 \to a = 4;\ \ b^2 = 9 \to b = 3`}</Formula> },
+                { label: "Find c", description: <Formula>{String.raw`c^2 = 16 - 9 = 7 \to c = \sqrt 7`}</Formula> },
+                { label: "Eccentricity", description: <Formula>{String.raw`e = \frac{c}{a} = \frac{\sqrt 7}{4}`}</Formula> },
+                { label: "Foci", description: <Formula>{String.raw`(\pm\sqrt 7, 0)`}</Formula> },
+                { label: "Latus Rectum", description: <Formula>{String.raw`\frac{2b^2}{a} = \frac{2(9)}{4} = \frac{9}{2}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -439,12 +439,12 @@ export default function ConicSectionsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Identify a, b", description: "a² = 9 → a = 3; b² = 16 → b = 4" },
-                { label: "Find c", description: "c² = a² + b² = 9 + 16 = 25 → c = 5" },
-                { label: "Foci", description: "(±5, 0)" },
-                { label: "Vertices", description: "(±3, 0)" },
-                { label: "Eccentricity", description: "e = c/a = 5/3" },
-                { label: "Latus Rectum", description: "2b²/a = 2(16)/3 = 32/3" },
+                { label: "Identify a, b", description: <Formula>{String.raw`a^2 = 9 \to a = 3;\ \ b^2 = 16 \to b = 4`}</Formula> },
+                { label: "Find c", description: <Formula>{String.raw`c^2 = a^2 + b^2 = 9 + 16 = 25 \to c = 5`}</Formula> },
+                { label: "Foci", description: <Formula>{String.raw`(\pm 5, 0)`}</Formula> },
+                { label: "Vertices", description: <Formula>{String.raw`(\pm 3, 0)`}</Formula> },
+                { label: "Eccentricity", description: <Formula>{String.raw`e = \frac{c}{a} = \frac{5}{3}`}</Formula> },
+                { label: "Latus Rectum", description: <Formula>{String.raw`\frac{2b^2}{a} = \frac{2(16)}{3} = \frac{32}{3}`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
@@ -457,10 +457,10 @@ export default function ConicSectionsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Transverse axis along y-axis", description: "Foci and vertices on y-axis → equation: y²/a² − x²/b² = 1" },
-                { label: "Identify a, c", description: "a = 3, c = 5" },
-                { label: "Find b²", description: "b² = c² − a² = 25 − 9 = 16" },
-                { label: "Equation", description: "y²/9 − x²/16 = 1" },
+                { label: "Transverse axis along y-axis", description: <><Formula>{String.raw`\frac{y^2}{a^2} - \frac{x^2}{b^2} = 1`}</Formula> — foci and vertices on the y-axis</> },
+                { label: "Identify a, c", description: <Formula>{String.raw`a = 3, c = 5`}</Formula> },
+                { label: "Find b²", description: <Formula>{String.raw`b^2 = c^2 - a^2 = 25 - 9 = 16`}</Formula> },
+                { label: "Equation", description: <Formula>{String.raw`\frac{y^2}{9} - \frac{x^2}{16} = 1`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`\frac{y^2}{9} - \frac{x^2}{16} = 1`} important />
@@ -487,11 +487,11 @@ export default function ConicSectionsChapter() {
             <Stepper
               steps={[
                 { label: "Let centre = (h, 2h)", description: "Centre lies on y = 2x" },
-                { label: "Equal radii", description: "(h−2)² + (2h−3)² = (h+1)² + (2h−1)²" },
-                { label: "Expand", description: "h²−4h+4 + 4h²−12h+9 = h²+2h+1 + 4h²−4h+1" },
-                { label: "Simplify", description: "−16h + 13 = −2h + 2 → −14h = −11 → h = 11/14" },
-                { label: "Centre", description: "(11/14, 22/14) = (11/14, 11/7)" },
-                { label: "Find r²", description: "r² = (11/14 − 2)² + (11/7 − 3)² = (−17/14)² + (−10/7)² = 289/196 + 100/49 = 289/196 + 400/196 = 689/196" },
+                { label: "Equal radii", description: <Formula>{String.raw`(h-2)^2 + (2h-3)^2 = (h+1)^2 + (2h-1)^2`}</Formula> },
+                { label: "Expand", description: <Formula>{String.raw`h^2-4h+4 + 4h^2-12h+9 = h^2+2h+1 + 4h^2-4h+1`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`-16h+13 = -2h+2 \to -14h = -11 \to h = \frac{11}{14}`}</Formula> },
+                { label: "Centre", description: <Formula>{String.raw`\left(\frac{11}{14}, \frac{22}{14}\right) = \left(\frac{11}{14}, \frac{11}{7}\right)`}</Formula> },
+                { label: "Find r²", description: <Formula>{String.raw`r^2 = \left(\frac{11}{14}-2\right)^2 + \left(\frac{11}{7}-3\right)^2 = \left(-\frac{17}{14}\right)^2 + \left(-\frac{10}{7}\right)^2 = \frac{289}{196} + \frac{100}{49} = \frac{289}{196} + \frac{400}{196} = \frac{689}{196}`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`\left(x - \frac{11}{14}\right)^2 + \left(y - \frac{11}{7}\right)^2 = \frac{689}{196}`} important />
@@ -507,10 +507,10 @@ export default function ConicSectionsChapter() {
             <p>P divides AB in ratio 3:9 = 1:3 from A. Using section formula:</p>
             <Stepper
               steps={[
-                { label: "Coordinates of P", description: "P = ((3·0 + 9a)/12, (3b + 9·0)/12) = (3a/4, b/4)" },
-                { label: "Set x = 3a/4, y = b/4", description: "a = 4x/3, b = 4y" },
-                { label: "Substitute", description: "(4x/3)² + (4y)² = 144 → 16x²/9 + 16y² = 144" },
-                { label: "Simplify", description: "x²/9 + y² = 9 → x²/81 + y²/81 × 9 = 1 → x²/81 + y²/9 = 1" },
+                { label: "Coordinates of P", description: <Formula>{String.raw`P = \left(\frac{3\cdot 0 + 9a}{12}, \frac{3b + 9\cdot 0}{12}\right) = \left(\frac{3a}{4}, \frac{b}{4}\right)`}</Formula> },
+                { label: "Set x = 3a/4, y = b/4", description: <Formula>{String.raw`a = \frac{4x}{3},\ \ b = 4y`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`\left(\frac{4x}{3}\right)^2 + (4y)^2 = 144 \to \frac{16x^2}{9} + 16y^2 = 144`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`\frac{x^2}{9} + y^2 = 9 \to \frac{x^2}{81} + \frac{y^2}{81}\cdot 9 = 1 \to \frac{x^2}{81} + \frac{y^2}{9} = 1`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`\frac{x^2}{81} + \frac{y^2}{9} = 1`} important />
@@ -525,13 +525,13 @@ export default function ConicSectionsChapter() {
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Given", description: "2b²/a = 8 and 2b = (1/2)(2c) → b = c/2" },
-                { label: "From b = c/2", description: "c = 2b → c² = 4b²" },
-                { label: "Use c² = a² + b²", description: "4b² = a² + b² → a² = 3b² → a = b√3" },
-                { label: "From latus rectum", description: "2b²/a = 8 → 2b²/(b√3) = 8 → 2b/√3 = 8 → b = 4√3" },
-                { label: "Find a", description: "a = 4√3 · √3 = 12" },
-                { label: "Find c", description: "c = 2b = 8√3" },
-                { label: "Eccentricity", description: "e = c/a = 8√3/12 = 2√3/3" },
+                { label: "Given", description: <Formula>{String.raw`\frac{2b^2}{a} = 8 \text{ and } 2b = \frac{1}{2}(2c) \to b = \frac{c}{2}`}</Formula> },
+                { label: "From b = c/2", description: <Formula>{String.raw`c = 2b \to c^2 = 4b^2`}</Formula> },
+                { label: "Use c² = a² + b²", description: <Formula>{String.raw`4b^2 = a^2 + b^2 \to a^2 = 3b^2 \to a = b\sqrt 3`}</Formula> },
+                { label: "From latus rectum", description: <Formula>{String.raw`\frac{2b^2}{a} = 8 \to \frac{2b^2}{b\sqrt 3} = 8 \to \frac{2b}{\sqrt 3} = 8 \to b = 4\sqrt 3`}</Formula> },
+                { label: "Find a", description: <Formula>{String.raw`a = 4\sqrt 3 \cdot \sqrt 3 = 12`}</Formula> },
+                { label: "Find c", description: <Formula>{String.raw`c = 2b = 8\sqrt 3`}</Formula> },
+                { label: "Eccentricity", description: <Formula>{String.raw`e = \frac{c}{a} = \frac{8\sqrt 3}{12} = \frac{2\sqrt 3}{3}`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`e = \frac{2\sqrt{3}}{3}`} important />
