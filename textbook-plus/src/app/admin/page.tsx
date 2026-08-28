@@ -2,13 +2,18 @@ import Link from "next/link";
 import { chapters } from "@/data/chapters";
 import { subjects } from "@/data/subjects";
 import { hasChapterContent } from "@/lib/content";
+import { getBuildCommit } from "@/lib/build-info";
 
 export default function AdminPage() {
+  const buildCommit = getBuildCommit();
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-2">Content Admin</h1>
-      <p className="text-muted-foreground mb-8">
+      <p className="text-muted-foreground mb-2">
         Manage chapter content. Chapters with content are marked below.
+      </p>
+      <p className="text-xs font-mono text-muted-foreground mb-8">
+        Build: {buildCommit || "unknown"}
       </p>
 
       <div className="space-y-8">

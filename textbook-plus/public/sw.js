@@ -1,4 +1,4 @@
-const CACHE_NAME = "textbook++-v3";
+const CACHE_NAME = "textbook++-494fa11";
 const PRECACHE_URLS = [
   "/",
   "/subjects/physics",
@@ -83,18 +83,20 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
 
-  // Next.js hashed assets — cache-first (immutable)
+  // Next.js hashed assets — stale-while-revalidate (serve cache, refresh in background)
   if (url.pathname.startsWith("/_next/static/")) {
     event.respondWith(
       caches.match(event.request).then((cached) => {
-        if (cached) return cached;
-        return fetch(event.request).then((response) => {
-          if (response && response.status === 200) {
-            const clone = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-          }
-          return response;
-        });
+        const refresh = fetch(event.request)
+          .then((response) => {
+            if (response && response.status === 200) {
+              const clone = response.clone();
+              caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+            }
+            return response;
+          })
+          .catch(() => cached);
+        return cached || refresh;
       })
     );
     return;

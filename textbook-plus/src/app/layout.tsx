@@ -7,6 +7,7 @@ import { MigrateBanner } from "@/components/auth/MigrateBanner";
 import { ErrorBoundary } from "@/components/auth/ErrorBoundary";
 import { ServiceWorkerRegistration } from "@/components/layout/ServiceWorkerRegistration";
 import { UpdateBanner } from "@/components/layout/UpdateBanner";
+import { getBuildCommit } from "@/lib/build-info";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -14,6 +15,8 @@ const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
 });
+
+const buildCommit = getBuildCommit();
 
 export const metadata: Metadata = {
   title: "Textbook++",
@@ -48,6 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${jakarta.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
+        <meta name="build-commit" content={buildCommit} />
         <script
           dangerouslySetInnerHTML={{
             __html: `
