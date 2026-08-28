@@ -206,6 +206,12 @@ export default function StatisticsChapter() {
       </Expandable>
 
       <h3>3. Grouped Data — Continuous (Class Intervals)</h3>
+      <FormulaCard>
+        <p className="font-semibold mb-2">Median of Grouped (Continuous) Data — the l + (N/2 − c.f.)/f × h formula</p>
+        <FormulaBlock latex="M = l + \frac{N/2 - \text{c.f.}}{f} \times h" />
+        <p className="text-sm text-muted-foreground mt-2">l = lower limit of the <strong>median class</strong> (the first class whose cumulative frequency ≥ N/2), f = frequency of the median class, h = class width, c.f. = cumulative frequency of the class <strong>just before</strong> the median class, N = Σfᵢ.</p>
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> data appears as <strong>class intervals (continuous)</strong> and the question asks for the median — most commonly inside &ldquo;mean deviation about the median&rdquo;. <strong>Don&apos;t use for</strong> a raw list (median = middle of the sorted data) or a discrete x-f table (median = the value whose c.f. reaches/exceeds N/2 — no formula needed, read it straight off the table).</p>
+      </FormulaCard>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
         <FormulaCard>
           <p className="font-semibold mb-2">Mean Deviation about Mean (Continuous Frequency)</p>
@@ -283,24 +289,6 @@ export default function StatisticsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
-
-      <h3>Limitations of Mean Deviation</h3>
-      <Callout type="warning" title="Limitations">
-        <ul className="list-disc pl-5 space-y-1">
-          <li>The absolute value |xᵢ − x̄| is <strong>not algebraically convenient</strong> — it is difficult to differentiate or manipulate further.</li>
-          <li>This limits the use of mean deviation in advanced mathematical analysis.</li>
-          <li><Highlight>Variance and standard deviation</Highlight> overcome this by squaring deviations instead of taking absolute values.</li>
-        </ul>
-      </Callout>
-
-      <SpeedTricks>
-        <Callout type="tip" title="Mean deviation shortcut: use the median">
-          When the data has outliers, mean deviation about the <strong>median</strong> is often smaller (and more representative) than about the mean. For symmetric data, both are close.
-        </Callout>
-        <Callout type="tip" title="Continuous data: midpoint rule">
-          For class intervals, always use the <strong>midpoint</strong> (lower + upper)/2 as xᵢ. This approximation is standard and expected in exams.
-        </Callout>
-      </SpeedTricks>
 
       <h2 id="h-variance">13.3 Variance and Standard Deviation</h2>
 
