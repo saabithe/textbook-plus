@@ -41,20 +41,24 @@ export default function StatisticsChapter() {
       />
 
       <h2 id="h-mean-deviation">13.2 Mean Deviation</h2>
-      <Callout type="important" title="Definition">
-        The <Highlight>mean deviation</Highlight> of a dataset measures the average of the absolute deviations from the mean.
-        It answers: &ldquo;On average, how far is each data point from the centre?&rdquo;
-      </Callout>
 
-      <h3>Mean Deviation for Ungrouped Data</h3>
-      <FormulaCard>
-        <p className="font-semibold mb-2">Mean Deviation about Mean</p>
-        <FormulaBlock latex="\text{M.D.}(\bar{x}) = \frac{\sum_{i=1}^{n} |x_i - \bar{x}|}{n}" />
-        <p className="text-sm text-muted-foreground mt-2">where x̄ = (1/n) Σxᵢ is the arithmetic mean.</p>
-        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> a raw list of values says &ldquo;mean deviation about the mean&rdquo;.</p>
-      </FormulaCard>
+      <h3>1. Ungrouped Data</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+        <FormulaCard>
+          <p className="font-semibold mb-2">Mean Deviation about Mean</p>
+          <FormulaBlock latex="\text{M.D.}(\bar{x}) = \frac{\sum_{i=1}^{n} |x_i - \bar{x}|}{n}" />
+          <p className="text-sm text-muted-foreground mt-2">where x̄ = (1/n) Σxᵢ is the arithmetic mean.</p>
+          <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> a raw list of values says &ldquo;mean deviation about the mean&rdquo;.</p>
+        </FormulaCard>
+        <FormulaCard>
+          <p className="font-semibold mb-2">Mean Deviation about Median</p>
+          <FormulaBlock latex="\text{M.D.}(M) = \frac{\sum_{i=1}^{n} |x_i - M|}{n}" />
+          <p className="text-sm text-muted-foreground mt-2">where M is the median — the <strong>middle</strong> value of the sorted list.</p>
+          <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> a raw list says &ldquo;mean deviation about the median&rdquo;, or the data has outliers — the median is robust.</p>
+        </FormulaCard>
+      </div>
 
-      <Expandable title="Example 1 — Mean Deviation (Ungrouped)">
+      <Expandable title="Example 1 — M.D. about the Mean (Ungrouped)">
         <ProblemSolution problemNumber="Example 1">
           <ProblemSolution.Problem>
             Find the mean deviation about the mean for: 4, 7, 8, 9, 10, 12, 13, 17.
@@ -86,25 +90,7 @@ export default function StatisticsChapter() {
         </ProblemSolution>
       </Expandable>
 
-      <h3>Mean Deviation about Median</h3>
-      <Callout type="important" title="Median — robust alternative">
-        When data has <Highlight>outliers or extreme values</Highlight>, the median M is a more representative measure of
-        the centre than the mean. Mean deviation can be computed about the median too:
-      </Callout>
-      <FormulaCard>
-        <p className="font-semibold mb-2">Mean Deviation about Median (Ungrouped)</p>
-        <FormulaBlock latex="\text{M.D.}(M) = \frac{\sum_{i=1}^{n} |x_i - M|}{n}" />
-        <p className="text-sm text-muted-foreground mt-2">where M is the median of the observations.</p>
-        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> a raw list says &ldquo;mean deviation about the median&rdquo;, or the data has outliers (M is robust).</p>
-      </FormulaCard>
-      <FormulaCard>
-        <p className="font-semibold mb-2">Mean Deviation about Median (Frequency Distribution)</p>
-        <FormulaBlock latex="\text{M.D.}(M) = \frac{\sum_{i=1}^{k} f_i |x_i - M|}{N}, \quad N = \sum f_i" />
-        <p className="text-sm text-muted-foreground mt-2">For grouped data, first find the median class using cumulative frequency, then the median formula from Chapter 5.</p>
-        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> frequency data (x and f together) asks for deviation about the median.</p>
-      </FormulaCard>
-
-      <Expandable title="Examples 2 and 3 — Mean Deviation about Median">
+      <Expandable title="Example 2 — M.D. about the Median (Ungrouped)">
         <ProblemSolution problemNumber="Example 2">
           <ProblemSolution.Problem>
             Find the mean deviation about the median for: 13, 17, 16, 14, 11, 13, 10, 16, 11, 18, 12, 17.
@@ -138,48 +124,26 @@ export default function StatisticsChapter() {
             />
           </ProblemSolution.Solution>
         </ProblemSolution>
-
-        <ProblemSolution problemNumber="Example 3">
-          <ProblemSolution.Problem>
-            Calculate the mean deviation about median for the following data:
-            <br />
-            Class: 0–10, 10–20, 20–30, 30–40, 40–50, 50–60 &nbsp; | &nbsp; Frequency: 6, 7, 15, 16, 4, 2
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <TableCard
-              headers={["Class", "xᵢ (mid)", "fᵢ", "c.f.", "|xᵢ − M|", "fᵢ|xᵢ − M|"]}
-              rows={[
-                { cells: ["0–10", "5", "6", "6", "23", "138"] },
-                { cells: ["10–20", "15", "7", "13", "13", "91"] },
-                { cells: ["20–30", "25", "15", "28", "3", "45"] },
-                { cells: ["30–40", "35", "16", "44", "7", "112"] },
-                { cells: ["40–50", "45", "4", "48", "17", "68"] },
-                { cells: ["50–60", "55", "2", "50", "27", "54"] },
-                { cells: ["Total", "", "N = 50", "", "", "Σ = 508"] },
-              ]}
-              caption="Each class-row feeds its midpoint and |xᵢ − M| into the final column — errors stay localised to one row."
-            />
-            <Stepper
-              steps={[
-                { label: "Median", description: "N/2 = 25 falls in class 20–30 (c.f. crosses 25). M = 20 + (25 − 13)/15 × 10 = 20 + 8 = 28" },
-                { label: "Sum the last column", description: "Σfᵢ|xᵢ − M| = 508" },
-                { label: "Mean deviation", description: "M.D.(M) = 508/50 = <strong>10.16</strong>" },
-              ]}
-            />
-          </ProblemSolution.Solution>
-        </ProblemSolution>
       </Expandable>
 
-      <h3>Mean Deviation for Discrete Frequency Distribution</h3>
-      <FormulaCard>
-        <p className="font-semibold mb-2">Mean Deviation (Discrete Frequency)</p>
-        <FormulaBlock latex="\text{M.D.}(\bar{x}) = \frac{\sum_{i=1}^{k} f_i |x_i - \bar{x}|}{N}, \quad N = \sum_{i=1}^{k} f_i" />
-        <p className="text-sm text-muted-foreground mt-2">xᵢ are the distinct values, fᵢ their frequencies.</p>
-        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> discrete data given as x-values with frequencies f (no class intervals). Divide by N = Σfᵢ.</p>
-      </FormulaCard>
+      <h3>2. Grouped Data — Discrete Frequency</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+        <FormulaCard>
+          <p className="font-semibold mb-2">Mean Deviation about Mean (Discrete Frequency)</p>
+          <FormulaBlock latex="\text{M.D.}(\bar{x}) = \frac{\sum_{i=1}^{k} f_i |x_i - \bar{x}|}{N}, \quad N = \sum_{i=1}^{k} f_i" />
+          <p className="text-sm text-muted-foreground mt-2">xᵢ are the distinct values, fᵢ their frequencies.</p>
+          <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> discrete data given as x-values with frequencies f (no class intervals). Divide by N = Σfᵢ.</p>
+        </FormulaCard>
+        <FormulaCard>
+          <p className="font-semibold mb-2">Mean Deviation about Median (Discrete Frequency)</p>
+          <FormulaBlock latex="\text{M.D.}(M) = \frac{\sum_{i=1}^{k} f_i |x_i - M|}{N}, \quad N = \sum f_i" />
+          <p className="text-sm text-muted-foreground mt-2">Find M from the cumulative frequency — N/2 falls within the value whose c.f. reaches N/2.</p>
+          <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> frequency data (x and f together) asks for deviation about the median.</p>
+        </FormulaCard>
+      </div>
 
-      <Expandable title="Examples 4 and 5 — Mean Deviation (Discrete &amp; Continuous Frequency)">
-        <ProblemSolution problemNumber="Example 4">
+      <Expandable title="Example 3 — M.D. about the Mean (Discrete Frequency)">
+        <ProblemSolution problemNumber="Example 3">
           <ProblemSolution.Problem>
             Find the mean deviation about the mean for the discrete frequency distribution:
             <br />
@@ -209,15 +173,55 @@ export default function StatisticsChapter() {
         </ProblemSolution>
       </Expandable>
 
-      <h3>Mean Deviation for Continuous Frequency Distribution</h3>
-      <FormulaCard>
-        <p className="font-semibold mb-2">Mean Deviation (Continuous Frequency)</p>
-        <FormulaBlock latex="\text{M.D.}(\bar{x}) = \frac{\sum_{i=1}^{k} f_i |d_i|}{N}, \quad d_i = x_i - \bar{x}" />
-        <p className="text-sm text-muted-foreground mt-2">xᵢ = midpoint of the i-th class interval, fᵢ = frequency of that class, N = Σfᵢ.</p>
-        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> data is grouped into class intervals — convert each class to its midpoint first.</p>
-      </FormulaCard>
+      <Expandable title="Example 4 — M.D. about the Median (Discrete Frequency)">
+        <ProblemSolution problemNumber="Example 4">
+          <ProblemSolution.Problem>
+            Calculate the mean deviation about the median for:
+            <br />
+            x: 5, 7, 9, 10, 12, 15 &nbsp; | &nbsp; f: 8, 6, 2, 2, 2, 6
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <TableCard
+              headers={["xᵢ", "fᵢ", "c.f.", "|xᵢ − M|", "fᵢ|xᵢ − M|"]}
+              rows={[
+                { cells: ["5", "8", "8", "2", "16"] },
+                { cells: ["7", "6", "14", "0", "0"] },
+                { cells: ["9", "2", "16", "2", "4"] },
+                { cells: ["10", "2", "18", "3", "6"] },
+                { cells: ["12", "2", "20", "5", "10"] },
+                { cells: ["15", "6", "26", "8", "48"] },
+                { cells: ["Total", "N = 26", "", "", "Σ = 84"] },
+              ]}
+              caption="The cumulative frequency column isolates the median position; the two right columns build M.D."
+            />
+            <Stepper
+              steps={[
+                { label: "Median", description: "N/2 = 13 sits in x = 7 (c.f. jumps 8 → 14) — the 13th and 14th values are both 7, so M = 7" },
+                { label: "Sum the last column", description: "Σfᵢ|xᵢ − M| = 8·2 + 6·0 + 2·2 + 2·3 + 2·5 + 6·8 = 16 + 0 + 4 + 6 + 10 + 48 = 84" },
+                { label: "Mean deviation", description: "M.D.(M) = 84/26 = <strong>42/13 ≈ 3.23</strong> (same data as Exercise 13.1 Q7)" },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
 
-      <Expandable title="Example 5 — Mean Deviation (Continuous Frequency)">
+      <h3>3. Grouped Data — Continuous (Class Intervals)</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+        <FormulaCard>
+          <p className="font-semibold mb-2">Mean Deviation about Mean (Continuous Frequency)</p>
+          <FormulaBlock latex="\text{M.D.}(\bar{x}) = \frac{\sum_{i=1}^{k} f_i |d_i|}{N}, \quad d_i = x_i - \bar{x}" />
+          <p className="text-sm text-muted-foreground mt-2">xᵢ = midpoint of the i-th class interval, fᵢ = frequency of that class, N = Σfᵢ.</p>
+          <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> data is grouped into class intervals — convert each class to its midpoint first.</p>
+        </FormulaCard>
+        <FormulaCard>
+          <p className="font-semibold mb-2">Mean Deviation about Median (Continuous Frequency)</p>
+          <FormulaBlock latex="\text{M.D.}(M) = \frac{\sum_{i=1}^{k} f_i |x_i - M|}{N}, \quad N = \sum f_i" />
+          <p className="text-sm text-muted-foreground mt-2">Locate the median class from cumulative frequency, then M = l + (N/2 − c.f.) × h/f via the median formula.</p>
+          <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> class-interval data asks for deviation about the median — compute M from the median class first.</p>
+        </FormulaCard>
+      </div>
+
+      <Expandable title="Example 5 — M.D. about the Mean (Continuous Frequency)">
         <ProblemSolution problemNumber="Example 5">
           <ProblemSolution.Problem>
             Find the mean deviation about the mean for:
@@ -242,6 +246,38 @@ export default function StatisticsChapter() {
                 { label: "Mean", description: "x̄ = 975/37 = 26.35 (midpoint column, from the fᵢxᵢ total)" },
                 { label: "Sum the last column", description: "Σfᵢ|xᵢ − x̄| = 362.15" },
                 { label: "Mean deviation", description: "M.D.(x̄) = 362.15/37 ≈ <strong>9.79</strong>" },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable title="Example 6 — M.D. about the Median (Continuous Frequency)">
+        <ProblemSolution problemNumber="Example 6">
+          <ProblemSolution.Problem>
+            Calculate the mean deviation about median for the following data:
+            <br />
+            Class: 0–10, 10–20, 20–30, 30–40, 40–50, 50–60 &nbsp; | &nbsp; Frequency: 6, 7, 15, 16, 4, 2
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <TableCard
+              headers={["Class", "xᵢ (mid)", "fᵢ", "c.f.", "|xᵢ − M|", "fᵢ|xᵢ − M|"]}
+              rows={[
+                { cells: ["0–10", "5", "6", "6", "23", "138"] },
+                { cells: ["10–20", "15", "7", "13", "13", "91"] },
+                { cells: ["20–30", "25", "15", "28", "3", "45"] },
+                { cells: ["30–40", "35", "16", "44", "7", "112"] },
+                { cells: ["40–50", "45", "4", "48", "17", "68"] },
+                { cells: ["50–60", "55", "2", "50", "27", "54"] },
+                { cells: ["Total", "", "N = 50", "", "", "Σ = 508"] },
+              ]}
+              caption="Each class-row feeds its midpoint and |xᵢ − M| into the final column — errors stay localised to one row."
+            />
+            <Stepper
+              steps={[
+                { label: "Median", description: "N/2 = 25 falls in class 20–30 (c.f. crosses 25). M = 20 + (25 − 13)/15 × 10 = 20 + 8 = 28" },
+                { label: "Sum the last column", description: "Σfᵢ|xᵢ − M| = 508" },
+                { label: "Mean deviation", description: "M.D.(M) = 508/50 = <strong>10.16</strong>" },
               ]}
             />
           </ProblemSolution.Solution>
@@ -289,11 +325,11 @@ export default function StatisticsChapter() {
         <p className="font-semibold mb-2">Ungrouped Variance</p>
         <FormulaBlock latex="\sigma^2 = \frac{1}{N}\sum_{i=1}^{N}(x_i - \bar{x})^2" />
         <p className="text-sm text-muted-foreground mt-2">Step 1: find x̄. Step 2: compute each (xᵢ − x̄)². Step 3: average them.</p>
-        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> variance of an ungrouped list, e.g. examples 8–9. Same formula as the definition.</p>
+        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> variance of an ungrouped list, e.g. examples 7–8. Same formula as the definition.</p>
       </FormulaCard>
 
-      <Expandable title="Examples 6 and 7 — Ungrouped Variance">
-        <ProblemSolution problemNumber="Example 6">
+      <Expandable title="Examples 7 and 8 — Ungrouped Variance">
+        <ProblemSolution problemNumber="Example 7">
           <ProblemSolution.Problem>
             Find the variance and standard deviation of: 6, 8, 10, 12, 14.
           </ProblemSolution.Problem>
@@ -321,7 +357,7 @@ export default function StatisticsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="Example 7">
+        <ProblemSolution problemNumber="Example 8">
           <ProblemSolution.Problem>
             Find the variance of the first 10 natural numbers.
           </ProblemSolution.Problem>
@@ -401,7 +437,7 @@ export default function StatisticsChapter() {
               <p>
                 The same (n² − 1)/12 appeared in the 3, 6, …, 99 practice problem (where the factor 3² scaled it to 816),
                 and it answers Ex 13.2 Q2 instantly. For example, n = 10 gives SD = √(99/12) ≈ 2.87 — the root of the 8.25
-                from Example 7.
+                from Example 8.
               </p>
             </KeyPoint>
           </ProblemSolution.Solution>
@@ -416,8 +452,8 @@ export default function StatisticsChapter() {
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> variance of discrete frequency data (x and f side by side, no classes).</p>
       </FormulaCard>
 
-      <Expandable title="Example 8 — Discrete Frequency Variance">
-        <ProblemSolution problemNumber="Example 8">
+      <Expandable title="Example 9 — Discrete Frequency Variance">
+        <ProblemSolution problemNumber="Example 9">
           <ProblemSolution.Problem>
             Find the variance for: x: 3, 5, 7, 9, 11 &nbsp; | &nbsp; f: 4, 6, 8, 6, 4
           </ProblemSolution.Problem>
@@ -497,8 +533,8 @@ export default function StatisticsChapter() {
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> variance of continuous (class-interval) data — take midpoints, then apply the discrete formula.</p>
       </FormulaCard>
 
-      <Expandable title="Example 9 — Continuous Frequency Variance">
-        <ProblemSolution problemNumber="Example 9">
+      <Expandable title="Example 10 — Continuous Frequency Variance">
+        <ProblemSolution problemNumber="Example 10">
           <ProblemSolution.Problem>
             Find σ² and σ for:
             <br />
@@ -515,7 +551,7 @@ export default function StatisticsChapter() {
                 { cells: ["40–50", "45", "1", "45", "462.25", "462.25"] },
                 { cells: ["Total", "", "N = 20", "Σ = 470", "", "Σ = 2055"] },
               ]}
-              caption="Same layout as Example 8 — only the first column changes from values to class intervals."
+              caption="Same layout as Example 9 — only the first column changes from values to class intervals."
             />
             <Stepper
               steps={[
@@ -551,8 +587,8 @@ export default function StatisticsChapter() {
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> you only want to shift by an assumed mean a (no class width h) to simplify arithmetic — the &ldquo;short-cut method&rdquo;.</p>
       </KeyPoint>
 
-      <Expandable title="Example 10 — Step-Deviation Method">
-        <ProblemSolution problemNumber="Example 10">
+      <Expandable title="Example 11 — Step-Deviation Method">
+        <ProblemSolution problemNumber="Example 11">
           <ProblemSolution.Problem>
             Using the step-deviation method, find the variance and standard deviation for:
             <br />
@@ -581,8 +617,8 @@ export default function StatisticsChapter() {
         </ProblemSolution>
       </Expandable>
 
-      <Expandable title="Example 11 — Shortcut Method (Assumed Mean)">
-        <ProblemSolution problemNumber="Example 11">
+      <Expandable title="Example 12 — Shortcut Method (Assumed Mean)">
+        <ProblemSolution problemNumber="Example 12">
           <ProblemSolution.Problem>
             Find σ² using the shortcut method with assumed mean a = 10 for:
             <br />
@@ -674,12 +710,12 @@ export default function StatisticsChapter() {
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">Data given as x-values with frequencies (no classes)</td>
               <td className="p-2"><Formula>{`\text{M.D.}(\bar{x}) = \frac{\sum_{i=1}^{k} f_i |x_i - \bar{x}|}{N}, \quad N = \sum f_i`}</Formula></td>
-              <td className="p-2">Example 4</td>
+              <td className="p-2">Example 3</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">Data given as class intervals (0–10, 10–20, …)</td>
               <td className="p-2">Convert to <strong>midpoints</strong> xᵢ, then <Formula>{`\text{M.D.}(\bar{x}) = \frac{\sum f_i |x_i - \bar{x}|}{N}`}</Formula></td>
-              <td className="p-2">Examples 3, 5</td>
+              <td className="p-2">Examples 5, 6</td>
             </tr>
 
             <tr className="border-b border-[var(--border)]/40">
@@ -688,27 +724,27 @@ export default function StatisticsChapter() {
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">&ldquo;Variance&rdquo; / &ldquo;standard deviation&rdquo; of a list</td>
               <td className="p-2"><Formula>{`\sigma^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2`}</Formula></td>
-              <td className="p-2">Examples 6–7</td>
+              <td className="p-2">Examples 7–8</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">Values with frequencies (no classes)</td>
               <td className="p-2"><Formula>{`\sigma^2 = \frac{1}{N} \sum_{i=1}^{k} f_i (x_i - \bar{x})^2`}</Formula></td>
-              <td className="p-2">Example 8</td>
+              <td className="p-2">Example 9</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">Class intervals (continuous)</td>
               <td className="p-2">Midpoints xᵢ, then <Formula>{`\sigma^2 = \frac{1}{N} \sum f_i (x_i - \bar{x})^2`}</Formula></td>
-              <td className="p-2">Example 9</td>
+              <td className="p-2">Example 10</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">&ldquo;Short-cut / step-deviation method&rdquo;, or values are large with a messy mean</td>
               <td className="p-2"><Formula>{`\sigma^2 = h^2 \left[ \frac{1}{N} \sum f_i u_i^2 - \left( \frac{1}{N} \sum f_i u_i \right)^2 \right]`}</Formula></td>
-              <td className="p-2">Examples 10–11</td>
+              <td className="p-2">Examples 11–12</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">σ² and x̄ are given; asks for <strong>missing / wrong observations</strong></td>
               <td className="p-2"><Formula>{`\sigma^2 = \frac{\sum x_i^2}{n} - \bar{x}^2 \ \Rightarrow \ \sum x_i^2 = n(\sigma^2 + \bar{x}^2)`}</Formula></td>
-              <td className="p-2">Examples 13, 15</td>
+              <td className="p-2">Examples 14, 16</td>
             </tr>
 
             <tr className="border-b border-[var(--border)]/40">
@@ -717,7 +753,7 @@ export default function StatisticsChapter() {
             <tr>
               <td className="p-2">Each observation changed: &ldquo;multiplied by k&rdquo; or &ldquo;increased by c&rdquo;</td>
               <td className="p-2"><Formula>{`\times k \Rightarrow \sigma \to |k|\sigma, \ \sigma^2 \to k^2\sigma^2`}</Formula> &nbsp; <Formula>{`+ c \Rightarrow`}</Formula> σ unchanged</td>
-              <td className="p-2">Examples 12, 14</td>
+              <td className="p-2">Examples 13, 15</td>
             </tr>
           </tbody>
         </table>
@@ -737,7 +773,7 @@ export default function StatisticsChapter() {
       <KeyPoint title="The two working identities for missing / wrong observation problems">
         Almost every &ldquo;find the missing observation&rdquo; / &ldquo;one observation was wrong&rdquo; question is solved by
         (<Formula>{`\sum x_i = n\bar{x}`}</Formula>) and (<Formula>{`\sum x_i^2 = n(\sigma^2 + \bar{x}^2)`}</Formula>).
-        Recover the totals that got corrupted, fix them, and recompute the mean and variance directly — no need to solve systems by hand (see Examples 13 and 15, Misc Q1–2, 5–6).
+        Recover the totals that got corrupted, fix them, and recompute the mean and variance directly — no need to solve systems by hand (see Examples 14 and 16, Misc Q1–2, 5–6).
       </KeyPoint>
 
       <Expandable id="h-ex-13-1" title="Exercise 13.1">
@@ -759,7 +795,7 @@ export default function StatisticsChapter() {
             <li>Median = 47.5. MD = 70/10 = <strong>7</strong>.</li>
             <li>N = 25, x̄ = 350/25 = 14. MD = (63+16+6+18+55)/25 = 158/25 = <strong>6.32</strong>.</li>
             <li>N = 80, x̄ = 4000/80 = 50. MD = (160+480+0+320+320)/80 = 1280/80 = <strong>16</strong>.</li>
-            <li>N = 26, median = 7. MD = (0+0+4+6+10+48)/26 = 68/26 ≈ <strong>2.62</strong>.</li>
+            <li>N = 26, median = 7. MD = (16+0+4+6+10+48)/26 = 84/26 ≈ <strong>3.23</strong>.</li>
             <li>N = 29, median = 30. MD = (45+45+18+0+40)/29 = 148/29 ≈ <strong>5.10</strong>.</li>
           </ol>
         </Expandable>
@@ -794,8 +830,8 @@ export default function StatisticsChapter() {
         </Expandable>
       </Expandable>
 
-      <Expandable title="Examples 12 to 15 — Miscellaneous Examples (NCERT)">
-        <ProblemSolution problemNumber="Example 12">
+      <Expandable title="Examples 13 to 16 — Miscellaneous Examples (NCERT)">
+        <ProblemSolution problemNumber="Example 13">
           <ProblemSolution.Problem>
             The variance of 20 observations is 5. If each observation is multiplied by 2, find the new variance.
           </ProblemSolution.Problem>
@@ -809,7 +845,7 @@ export default function StatisticsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="Example 13">
+        <ProblemSolution problemNumber="Example 14">
           <ProblemSolution.Problem>
             The mean of 5 observations is 4.4 and the variance is 8.24. If three of the observations are 1, 2 and 6, find the other two.
           </ProblemSolution.Problem>
@@ -825,7 +861,7 @@ export default function StatisticsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="Example 14">
+        <ProblemSolution problemNumber="Example 15">
           <ProblemSolution.Problem>
             If each observation x₁, x₂, …, xₙ is increased by a (positive or negative), show that the variance remains unchanged.
           </ProblemSolution.Problem>
@@ -840,7 +876,7 @@ export default function StatisticsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="Example 15">
+        <ProblemSolution problemNumber="Example 16">
           <ProblemSolution.Problem>
             The mean and SD of 100 observations were calculated as 40 and 5.1 by a student who took 50 instead of 40 for one observation. Find the correct mean and SD.
           </ProblemSolution.Problem>
