@@ -95,6 +95,51 @@ export default function LimitsAndDerivativesChapter() {
         </ProblemSolution>
       </Expandable>
 
+      <Callout type="important" title="Condition for the Existence of a Limit">
+        A limit <Formula>{String.raw`\lim_{x \to a} f(x)`}</Formula> exists iff LHL = RHL:
+        <FormulaBlock latex={String.raw`\text{L.H.L.} = \text{R.H.L.}`} />
+        <ul className="list-disc pl-5 space-y-1 mt-2">
+          <li><strong>General:</strong> <Formula>{String.raw`\lim_{x \to a} f(x)`}</Formula></li>
+          <li><strong>L.H.L.:</strong> <Formula>{String.raw`\lim_{x \to a^{-}} f(x)`}</Formula></li>
+          <li><strong>R.H.L.:</strong> <Formula>{String.raw`\lim_{x \to a^{+}} f(x)`}</Formula></li>
+        </ul>
+      </Callout>
+
+      <Expandable title="Example 1 — Piecewise at x = 0 (2x+3 / 3(x+1))">
+        <ProblemSolution problemNumber="Example 1">
+          <ProblemSolution.Problem>
+            Find <Formula>{String.raw`\lim_{x \to 0} f(x)`}</Formula> where <Formula>{String.raw`f(x)=\begin{cases}2x+3,&x\le0\\3(x+1),&x>0\end{cases}`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "L.H.L. (x ≤ 0)", description: <Formula>{String.raw`\lim_{x \to 0^{-}}(2x+3)=2(0)+3=3`}</Formula> },
+                { label: "R.H.L. (x > 0)", description: <Formula>{String.raw`\lim_{x \to 0^{+}}3(x+1)=3(0+1)=3`}</Formula> },
+                { label: "Conclusion", description: <><Formula>{String.raw`3=3`}</Formula> — LHL = RHL, so <Formula>{String.raw`\lim_{x \to 0}f(x)=3`}</Formula></> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable title="Example 2 — Signum at x = 0 (|x|/x)">
+        <ProblemSolution problemNumber="Example 2">
+          <ProblemSolution.Problem>
+            Find <Formula>{String.raw`\lim_{x \to 0} f(x)`}</Formula> if it exists, where <Formula>{String.raw`f(x)=\begin{cases}\frac{|x|}{x},&x\ne0\\0,&x=0\end{cases}`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p className="text-sm text-muted-foreground mb-3"><Formula>{String.raw`|x|=\begin{cases}x,&x\ge0\\-x,&x<0\end{cases}`}</Formula> so <Formula>{String.raw`f(x)=-1\;(x<0),\;1\;(x>0)`}</Formula>.</p>
+            <Stepper
+              steps={[
+                { label: "L.H.L.", description: <Formula>{String.raw`\lim_{x \to 0^{-}}f(x)=-1`}</Formula> },
+                { label: "R.H.L.", description: <Formula>{String.raw`\lim_{x \to 0^{+}}f(x)=1`}</Formula> },
+                { label: "Conclusion", description: <><Formula>{String.raw`-1\ne1`}</Formula> — LHL ≠ RHL, so <Formula>{String.raw`\lim_{x \to 0}f(x)`}</Formula> does not exist (<Formula>{String.raw`\text{DNE}`}</Formula>)</> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <h3>Algebra of Limits</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Limit Laws</p>
