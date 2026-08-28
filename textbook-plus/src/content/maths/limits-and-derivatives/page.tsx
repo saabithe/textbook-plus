@@ -268,15 +268,6 @@ export default function LimitsAndDerivativesChapter() {
         </ProblemSolution>
       </Expandable>
 
-      <h3>Limits of Polynomials and Rational Functions</h3>
-      <ul>
-        <li><strong>Polynomial:</strong>{" "}
-          <FormulaBlock latex={String.raw`\lim_{x \to a}\, p(x) = p(a)`} />{" "}
-          — just substitute x = a.
-        </li>
-        <li><strong>Rational function</strong> f(x) = p(x)/q(x): substitute; if q(a) ≠ 0, the limit is p(a)/q(a). If q(a) = 0 and p(a) ≠ 0, the limit does not exist.</li>
-      </ul>
-
       <KeyPoint title="Special Limit (Crucial)">
         <FormulaCard>
           <FormulaBlock latex={String.raw`\lim_{x \to a} \frac{x^n - a^n}{x - a} = n \cdot a^{n-1}`} />
