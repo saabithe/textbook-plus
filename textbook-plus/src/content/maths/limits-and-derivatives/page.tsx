@@ -663,18 +663,94 @@ export default function LimitsAndDerivativesChapter() {
         If f&apos;(a) exists, f is <strong>differentiable</strong> at a.
       </KeyPoint>
 
-      <h3>First Principle — Example</h3>
-      <Expandable title="Example 7 — Derivative from First Principle">
-        <ProblemSolution problemNumber="Example 7">
+      <Callout type="note" title="Fundamentals of Derivatives">
+        For <Formula>{String.raw`y=f(x)`}</Formula>, the derivative is the rate of change. Notations: <Formula>{String.raw`f'(x)`}</Formula>, <Formula>{String.raw`y'`}</Formula>, or <Formula>{String.raw`\frac{dy}{dx}`}</Formula>.
+        <FormulaBlock latex={String.raw`\frac{dy}{dx}=\lim_{\Delta x\to0}\frac{\Delta y}{\Delta x}`} />
+        With <Formula>{String.raw`\Delta x = h \to 0`}</Formula>, this is the <strong>first principle</strong> below.
+      </Callout>
+
+      <FormulaCard>
+        <p className="font-semibold mb-1">First Principle (ab initio)</p>
+        <FormulaBlock latex={String.raw`\frac{dy}{dx}=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}`} />
+      </FormulaCard>
+
+      <h3>First Principle — 5 Fully Worked Derivations</h3>
+      <Expandable title="First Principle — x², 1/x, sin x, cos x, tan x">
+        <ProblemSolution problemNumber="A — x² → 2x">
           <ProblemSolution.Problem>
-            Find the derivative of f(x) = x² from first principles.
+            Derive <Formula>{String.raw`f(x)=x^{2}`}</Formula> from first principles.
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Write difference quotient", description: <Formula>{String.raw`\frac{f(x+h)-f(x)}{h} = \frac{(x+h)^2-x^2}{h} = \frac{x^2+2xh+h^2-x^2}{h} = \frac{2xh+h^2}{h}`}</Formula> },
-                { label: "Simplify", description: <Formula>{String.raw`= 2x + h`}</Formula> },
-                { label: "Take limit h → 0", description: <Formula>{String.raw`f'(x) = \lim_{h \to 0}(2x + h) = 2x`}</Formula> },
+                { label: "Setup", description: <Formula>{String.raw`\frac{dy}{dx}=\lim_{h\to0}\frac{(x+h)^{2}-x^{2}}{h}`}</Formula> },
+                { label: "Expand", description: <Formula>{String.raw`\frac{x^{2}+2xh+h^{2}-x^{2}}{h}`}</Formula> },
+                { label: "Factor", description: <Formula>{String.raw`\frac{h(2x+h)}{h}=2x+h`}</Formula> },
+                { label: "Limit", description: <Formula>{String.raw`\lim_{h\to0}(2x+h)=2x`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="B — 1/x → −1/x²">
+          <ProblemSolution.Problem>
+            Derive <Formula>{String.raw`f(x)=\frac1x`}</Formula> from first principles.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Setup", description: <Formula>{String.raw`\frac{dy}{dx}=\lim_{h\to0}\frac{\frac1{x+h}-\frac1x}{h}`}</Formula> },
+                { label: "Common denominator", description: <Formula>{String.raw`\frac{x-(x+h)}{x(x+h)}\cdot\frac1h`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`\frac{-h}{hx(x+h)}=\frac{-1}{x(x+h)}`}</Formula> },
+                { label: "Limit", description: <Formula>{String.raw`\lim_{h\to0}\frac{-1}{x(x+h)}=-\frac1{x^{2}}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="C — sin x → cos x">
+          <ProblemSolution.Problem>
+            Derive <Formula>{String.raw`f(x)=\sin x`}</Formula> from first principles.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Setup", description: <Formula>{String.raw`\frac{dy}{dx}=\lim_{h\to0}\frac{\sin(x+h)-\sin x}{h}`}</Formula> },
+                { label: "Identity", description: <Formula>{String.raw`\sin(x+h)-\sin x=2\cos\frac{2x+h}{2}\sin\frac{h}{2}`}</Formula> },
+                { label: "Rewrite", description: <Formula>{String.raw`\frac{2\cos\frac{2x+h}{2}\sin\frac{h}{2}}{h}=\cos\frac{2x+h}{2}\cdot\frac{\sin(h/2)}{h/2}`}</Formula> },
+                { label: "Standard limit", description: <Formula>{String.raw`\lim_{h\to0}\frac{\sin(h/2)}{h/2}=1 \Rightarrow \cos x`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="D — cos x → −sin x">
+          <ProblemSolution.Problem>
+            Derive <Formula>{String.raw`f(x)=\cos x`}</Formula> from first principles.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Setup", description: <Formula>{String.raw`\frac{dy}{dx}=\lim_{h\to0}\frac{\cos(x+h)-\cos x}{h}`}</Formula> },
+                { label: "Identity", description: <Formula>{String.raw`\cos(x+h)-\cos x=-2\sin\frac{2x+h}{2}\sin\frac{h}{2}`}</Formula> },
+                { label: "Rewrite", description: <Formula>{String.raw`-\sin\frac{2x+h}{2}\cdot\frac{\sin(h/2)}{h/2}`}</Formula> },
+                { label: "Limit", description: <Formula>{String.raw`-\sin x`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="E — tan x → sec²x">
+          <ProblemSolution.Problem>
+            Derive <Formula>{String.raw`f(x)=\tan x=\frac{\sin x}{\cos x}`}</Formula> from first principles.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Setup", description: <Formula>{String.raw`\frac{\sin(x+h)}{\cos(x+h)}-\frac{\sin x}{\cos x}\over h`}</Formula> },
+                { label: "Cross-multiply", description: <Formula>{String.raw`\frac{\sin(x+h)\cos x-\cos(x+h)\sin x}{h\cos x\cos(x+h)}`}</Formula> },
+                { label: "Numerator", description: <Formula>{String.raw`\sin h`}</Formula> },
+                { label: "Limit", description: <Formula>{String.raw`\lim_{h\to0}\frac{\sin h}{h}\cdot\frac1{\cos x\cos(x+h)}=\sec^{2}x`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
