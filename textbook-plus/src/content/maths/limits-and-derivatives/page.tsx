@@ -755,6 +755,26 @@ export default function LimitsAndDerivativesChapter() {
             />
           </ProblemSolution.Solution>
         </ProblemSolution>
+
+        <ProblemSolution problemNumber="F — x²+x+1 → 2x+1">
+          <ProblemSolution.Problem>
+            Find the derivative of <Formula>{String.raw`f(x)=x^{2}+x+1`}</Formula> from first principles.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p className="text-sm text-muted-foreground mb-2">First Principle: <Formula>{String.raw`\frac{dy}{dx}=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}`}</Formula></p>
+            <Stepper
+              steps={[
+                { label: "Find f(x+h)", description: <Formula>{String.raw`f(x+h)=(x+h)^{2}+(x+h)+1`}</Formula> },
+                { label: "Expand", description: <Formula>{String.raw`(x+h)^{2}=x^{2}+2xh+h^{2}`}</Formula> },
+                { label: "Combine", description: <Formula>{String.raw`f(x+h)=x^{2}+2xh+h^{2}+x+h+1`}</Formula> },
+                { label: "Subtract & divide", description: <Formula>{String.raw`\frac{(x^{2}+2xh+h^{2}+x+h+1)-(x^{2}+x+1)}{h}`}</Formula> },
+                { label: "Cancel", description: <Formula>{String.raw`\frac{2xh+h^{2}+h}{h}`}</Formula> },
+                { label: "Factor h", description: <Formula>{String.raw`\frac{h(2x+h+1)}{h}=2x+h+1`}</Formula> },
+                { label: "Limit h→0", description: <Formula>{String.raw`\lim_{h\to0}(2x+h+1)=2x+1`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
       </Expandable>
 
       <h3>Algebra of Derivatives</h3>
