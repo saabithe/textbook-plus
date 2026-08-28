@@ -8,6 +8,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-type-definition: var(--type-definition);
+  --color-type-formula: var(--type-formula);
+  --color-type-example: var(--type-example);
+  --color-type-exercise: var(--type-exercise);
+  --color-type-data: var(--type-data);
+  --color-type-warning: var(--type-warning);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -98,6 +104,24 @@
   --subject-english-light: #F3E8FF;
   --subject-arabic: #F43F5E;
   --subject-arabic-light: #FFE4E6;
+
+  /* Content Type Colors — distinct visual families */
+  --type-definition: #8B5CF6;
+  --type-definition-light: #F5F3FF;
+  --type-definition-border: #DDD6FE;
+  --type-formula: #7C3AED;
+  --type-formula-light: #EDE9FE;
+  --type-example: #2563EB;
+  --type-example-light: #EFF6FF;
+  --type-example-border: #BFDBFE;
+  --type-exercise: #D97706;
+  --type-exercise-light: #FFFBEB;
+  --type-exercise-border: #FDE68A;
+  --type-data: #059669;
+  --type-data-light: #ECFDF5;
+  --type-data-border: #A7F3D0;
+  --type-warning: #DC2626;
+  --type-warning-light: #FEF2F2;
 }
 
 .dark {
@@ -146,6 +170,24 @@
   --subject-english-light: oklch(0.25 0.05 300);
   --subject-arabic: #FB7185;
   --subject-arabic-light: oklch(0.25 0.05 10);
+
+  /* Content Type Colors - Dark Mode */
+  --type-definition: #A78BFA;
+  --type-definition-light: oklch(0.25 0.04 285);
+  --type-definition-border: oklch(0.35 0.06 285);
+  --type-formula: #8B5CF6;
+  --type-formula-light: oklch(0.26 0.05 285);
+  --type-example: #60A5FA;
+  --type-example-light: oklch(0.25 0.05 250);
+  --type-example-border: oklch(0.35 0.05 250);
+  --type-exercise: #FBBF24;
+  --type-exercise-light: oklch(0.26 0.04 80);
+  --type-exercise-border: oklch(0.38 0.06 80);
+  --type-data: #34D399;
+  --type-data-light: oklch(0.25 0.04 160);
+  --type-data-border: oklch(0.35 0.05 160);
+  --type-warning: #F87171;
+  --type-warning-light: oklch(0.25 0.04 25);
 }
 
 @layer base {
@@ -171,11 +213,21 @@
 }
 
 .prose-custom h2 {
-  @apply text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground;
+  @apply text-2xl font-bold tracking-tight mt-14 mb-6 scroll-mt-24 text-foreground border-b border-border/40 pb-3 flex items-center gap-3;
+}
+
+.prose-custom h2::before {
+  content: "";
+  @apply h-6 w-1 rounded-full bg-violet-500/60 dark:bg-violet-400/60 shrink-0;
 }
 
 .prose-custom h3 {
-  @apply text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground;
+  @apply text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground flex items-center gap-2;
+}
+
+.prose-custom h3::before {
+  content: "";
+  @apply h-4 w-0.5 rounded-full bg-blue-500/50 dark:bg-blue-400/50 shrink-0;
 }
 
 .prose-custom p {

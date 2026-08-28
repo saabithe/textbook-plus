@@ -31,7 +31,7 @@ export function FormulaBlock({ latex, important = false }: { latex: string; impo
   });
 
   return (
-    <div className={`my-6 text-center overflow-x-auto ${important ? "rounded-xl border border-border/60 bg-muted/30 py-4 px-6" : ""}`}>
+    <div className={`my-6 text-center overflow-x-auto ${important ? "rounded-xl border border-violet-500/20 bg-violet-500/[0.06] dark:bg-violet-500/[0.10] py-4 px-6 shadow-sm" : ""}`}>
       <span dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );
