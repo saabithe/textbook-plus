@@ -35,13 +35,13 @@ export default function PermutationsAndCombinationsChapter() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="rounded-md border border-emerald-500/30 bg-emerald-500/5 p-3">
             <p className="font-semibold text-emerald-600 dark:text-emerald-400 text-sm mb-2">Repetition Allowed</p>
-            <FormulaBlock latex="n \times n \times \cdots \times n = n^r" />
+            <FormulaBlock latex="n \\times n \\times \\cdots \\times n = n^r" />
             <p className="text-xs text-muted-foreground mt-1">Each place has full <Formula>n</Formula> choices, independently.</p>
             <p className="text-xs mt-2"><strong>Keywords:</strong> &ldquo;can be repeated&rdquo;, &ldquo;with replacement&rdquo;, digits of a lock, PIN codes</p>
           </div>
           <div className="rounded-md border border-amber-500/30 bg-amber-500/5 p-3">
             <p className="font-semibold text-amber-600 dark:text-amber-400 text-sm mb-2">Repetition NOT Allowed</p>
-            <FormulaBlock latex="n \times (n-1) \times (n-2) \times \cdots \times (n-r+1) = \frac{n!}{(n-r)!}" />
+            <FormulaBlock latex="n \\times (n-1) \\times (n-2) \\times \\cdots \\times (n-r+1) = \\frac{n!}{(n-r)!}" />
             <p className="text-xs text-muted-foreground mt-1">Each choice reduces the pool by 1.</p>
             <p className="text-xs mt-2"><strong>Keywords:</strong> &ldquo;distinct&rdquo;, &ldquo;no repetition&rdquo;, &ldquo;without replacement&rdquo;, selecting a committee</p>
           </div>
@@ -102,12 +102,12 @@ export default function PermutationsAndCombinationsChapter() {
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2 font-semibold">Objects apart (separation)</td>
               <td className="p-2">Arrange non-restricted first (<Formula>n!</Formula>). Place restricted in gaps (<Formula>{`{^{n+1}P_{k}}`}</Formula>)</td>
-              <td className="p-2">3 girls apart from 5 boys: <Formula>{`5! \times {^{6}P_{3}} = 14400`}</Formula></td>
+              <td className="p-2">3 girls apart from 5 boys: <Formula>{`5! \\times {^{6}P_{3}} = 14400`}</Formula></td>
             </tr>
             <tr>
               <td className="p-2 font-semibold">No two alike adjacent</td>
               <td className="p-2">Use gap method: arrange unrestricted, then insert restricted in gaps</td>
-              <td className="p-2">3 girls, 5 boys, no two girls together: <Formula>{`5! \times {^{6}P_{3}} = 14400`}</Formula></td>
+              <td className="p-2">3 girls, 5 boys, no two girls together: <Formula>{`5! \\times {^{6}P_{3}} = 14400`}</Formula></td>
             </tr>
           </tbody>
         </table>
@@ -177,8 +177,8 @@ export default function PermutationsAndCombinationsChapter() {
       <h3 id="h-factorial">6.3.2 Factorial Notation</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Factorial</p>
-        <FormulaBlock latex="n! = 1 \times 2 \times 3 \times \cdots \times (n-1) \times n" />
-        <FormulaBlock latex="0! = 1,\quad n! = n \times (n-1)!" />
+        <FormulaBlock latex="n! = 1 \\times 2 \\times 3 \\times \\cdots \\times (n-1) \\times n" />
+        <FormulaBlock latex="0! = 1,\\quad n! = n \\times (n-1)!" />
       </FormulaCard>
       <ul>
         <li><Formula>1! = 1</Formula>, <Formula>2! = 2</Formula>, <Formula>3! = 6</Formula>, <Formula>4! = 24</Formula>, <Formula>5! = 120</Formula>.</li>
@@ -188,7 +188,7 @@ export default function PermutationsAndCombinationsChapter() {
       <h3 id="h-npr">6.3.1 &amp; 6.3.3 Permutations of Distinct Objects — <Formula>{`{^{n}P_{r}}`}</Formula></h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Permutations (no repetition)</p>
-        <FormulaBlock latex="^{n}P_{r} = \frac{n!}{(n-r)!}, \quad 0 \le r \le n" />
+        <FormulaBlock latex="^{n}P_{r} = \\frac{n!}{(n-r)!}, \\quad 0 \\le r \\le n" />
         <p className="text-sm text-muted-foreground mt-2"><Formula>r</Formula> vacant places filled in <Formula>n, n-1, n-2, \ldots, n-r+1</Formula> ways.</p>
       </FormulaCard>
       <KeyPoint>
@@ -218,7 +218,7 @@ export default function PermutationsAndCombinationsChapter() {
       <h3 id="h-repeated">6.3.4 Permutations When Objects Are Not All Distinct</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Division Principle</p>
-        <FormulaBlock latex="\text{Permutations} = \frac{n!}{p_1!\, p_2!\, \cdots\, p_k!}" />
+        <FormulaBlock latex="\\text{Permutations} = \\frac{n!}{p_1!\\, p_2!\\, \\cdots\\, p_k!}" />
         <p className="text-sm text-muted-foreground mt-2">Where <Formula>p_1</Formula> objects are of one kind, <Formula>p_2</Formula> of another, etc., and the rest are all different.</p>
       </FormulaCard>
 
@@ -229,7 +229,7 @@ export default function PermutationsAndCombinationsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             9 letters: 4 A&apos;s, 2 L&apos;s, rest different.
-            <br />Arrangements = <Formula>{`\frac{9!}{4! \times 2!} = \frac{362880}{48} = 7560`}</Formula>.
+            <br />Arrangements = <Formula>{`\\frac{9!}{4! \\times 2!} = \\frac{362880}{48} = 7560`}</Formula>.
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -272,7 +272,7 @@ export default function PermutationsAndCombinationsChapter() {
           <li><strong>Order matters vs not:</strong> If swapping two objects gives a &ldquo;different&rdquo; result, it&apos;s a permutation. If not, it&apos;s a combination.</li>
           <li><strong>Repetition check:</strong> Read carefully — &ldquo;with repetition allowed&rdquo; changes the formula from <Formula>{`{^{n}P_{r}}`}</Formula> to <Formula>n^r</Formula>.</li>
           <li><strong>Duplicate objects:</strong> When objects repeat, divide by factorials of repeat counts. Missing this overcounts.</li>
-          <li><strong>Division principle:</strong> <Formula>{`\frac{n!}{p_1!\, p_2!\, \cdots\, p_k!}`}</Formula> — the denominator accounts for identical objects being indistinguishable.</li>
+          <li><strong>Division principle:</strong> <Formula>{`\\frac{n!}{p_1!\\, p_2!\\, \\cdots\\, p_k!}`}</Formula> — the denominator accounts for identical objects being indistinguishable.</li>
         </ul>
       </Callout>
 
@@ -283,8 +283,8 @@ export default function PermutationsAndCombinationsChapter() {
       </Callout>
       <FormulaCard>
         <p className="font-semibold mb-2">Combinations</p>
-        <FormulaBlock latex="^{n}C_{r} = \frac{n!}{r!\,(n-r)!}, \quad 0 \le r \le n" />
-        <p className="text-sm text-muted-foreground mt-2">Relationship: <Formula>{`{^{n}P_{r}} = {^{n}C_{r}} \times r!`}</Formula></p>
+        <FormulaBlock latex="^{n}C_{r} = \\frac{n!}{r!\\,(n-r)!}, \\quad 0 \\le r \\le n" />
+        <p className="text-sm text-muted-foreground mt-2">Relationship: <Formula>{`{^{n}P_{r}} = {^{n}C_{r}} \\times r!`}</Formula></p>
       </FormulaCard>
       <KeyPoint>
         <Formula>{`{^{n}C_{r}} = {^{n}C_{n-r}}`}</Formula> — selecting <Formula>r</Formula> objects is the same as rejecting <Formula>n-r</Formula> objects.
@@ -302,7 +302,7 @@ export default function PermutationsAndCombinationsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             Total = <Formula>{`{^{5}C_{3}} = 10`}</Formula>.
-            <br />With 1 man and 2 women = <Formula>{`{^{2}C_{1}} \times {^{3}C_{2}} = 2 \times 3 = 6`}</Formula>.
+            <br />With 1 man and 2 women = <Formula>{`{^{2}C_{1}} \\times {^{3}C_{2}} = 2 \\times 3 = 6`}</Formula>.
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -329,11 +329,11 @@ export default function PermutationsAndCombinationsChapter() {
       <Expandable title="Example — Card Selection (52-card pack)">
         <p>4 cards from 52: <Formula>{`{^{52}C_{4}} = 270725`}</Formula>.</p>
         <ul className="list-disc pl-5">
-          <li>Four of same suit: <Formula>{`4 \times {^{13}C_4} = 4 \times 715 = 2860`}</Formula>.</li>
-          <li>One from each suit: <Formula>{`{^{13}C_1} \times {^{13}C_1} \times {^{13}C_1} \times {^{13}C_1} = 13^4 = 28561`}</Formula>.</li>
+          <li>Four of same suit: <Formula>{`4 \\times {^{13}C_4} = 4 \\times 715 = 2860`}</Formula>.</li>
+          <li>One from each suit: <Formula>{`{^{13}C_1} \\times {^{13}C_1} \\times {^{13}C_1} \\times {^{13}C_1} = 13^4 = 28561`}</Formula>.</li>
           <li>Four face cards: <Formula>{`{^{12}C_4} = 495`}</Formula>.</li>
-          <li>2 red + 2 black: <Formula>{`{^{26}C_2} \times {^{26}C_2} = 325 \times 325 = 105625`}</Formula>.</li>
-          <li>All same colour: <Formula>{`{^{26}C_4} + {^{26}C_4} = 2 \times 14950 = 29900`}</Formula>.</li>
+          <li>2 red + 2 black: <Formula>{`{^{26}C_2} \\times {^{26}C_2} = 325 \\times 325 = 105625`}</Formula>.</li>
+          <li>All same colour: <Formula>{`{^{26}C_4} + {^{26}C_4} = 2 \\times 14950 = 29900`}</Formula>.</li>
         </ul>
       </Expandable>
 
@@ -342,7 +342,7 @@ export default function PermutationsAndCombinationsChapter() {
           <Formula>{`{^{n}P_{r}}`}</Formula> counts ordered arrangements. If order doesn&apos;t matter, divide by <Formula>r!</Formula> to get <Formula>{`{^{n}C_{r}}`}</Formula>. Think: &ldquo;I counted each group <Formula>r!</Formula> times.&rdquo;
         </Callout>
         <Callout type="tip" title="nCr = nC(n−r) shortcut">
-          Use the smaller <Formula>r</Formula> for quicker calculation. <Formula>{`{^{10}C_8} = {^{10}C_2} = 45`}</Formula>, not <Formula>{`\frac{10!}{8!\,2!}`}</Formula> computed longhand.
+          Use the smaller <Formula>r</Formula> for quicker calculation. <Formula>{`{^{10}C_8} = {^{10}C_2} = 45`}</Formula>, not <Formula>{`\\frac{10!}{8!\\,2!}`}</Formula> computed longhand.
         </Callout>
         <Callout type="tip" title="At least = complementary counting">
           &ldquo;At least 1&rdquo; problems: compute <Formula>{`1 - P(\\text{none})`}</Formula> or total − (cases with none). Often simpler than summing all positive cases.
@@ -387,8 +387,8 @@ export default function PermutationsAndCombinationsChapter() {
             </ol>
           </li>
           <li>Is <Formula>3! + 4! = 7!</Formula>?</li>
-          <li>Compute <Formula>{`\frac{8!}{6! \\times 2!}`}</Formula></li>
-          <li>If <Formula>{`\frac{1}{8!} + \frac{1}{9!} = \frac{x}{10!}`}</Formula>, find the value of <Formula>x</Formula>.</li>
+          <li>Compute <Formula>{`\\frac{8!}{6! \\times 2!}`}</Formula></li>
+          <li>If <Formula>{`\\frac{1}{8!} + \\frac{1}{9!} = \\frac{x}{10!}`}</Formula>, find the value of <Formula>x</Formula>.</li>
           <li>Evaluate <Formula>r</Formula> when
             <ol type="i">
               <li><Formula>{`{^{5}P_{r}} = {^{5}P_{6}}`}</Formula></li>
@@ -401,8 +401,8 @@ export default function PermutationsAndCombinationsChapter() {
             <li>(i) <Formula>8! = 40320</Formula>. (ii) <Formula>4! - 3! = 24 - 6 = 18</Formula>.
               <br /><em>Note: NCERT answer says 21 — this corresponds to <Formula>4! - 3! = 24 - 3 = 21</Formula>, which would mean <Formula>3! = 3</Formula>. The correct value is <Formula>3! = 6</Formula>, giving 18. Verify your edition.</em></li>
             <li>No. <Formula>3! + 4! = 6 + 24 = 30</Formula>, while <Formula>7! = 5040</Formula>. <Formula>30 ≠ 5040</Formula>.</li>
-            <li><Formula>{`\frac{8!}{6! \\times 2!} = \\frac{8 \\times 7}{2 \\times 1} = 28`}</Formula>.</li>
-            <li><Formula>{`\frac{1}{8!} + \frac{1}{9!} = \frac{1}{8!}\\left(1 + \\frac{1}{9}\\right) = \\frac{10}{9 \\times 8!} = \\frac{10 \\times 10 \\times 9}{10!} = \\frac{90}{10!}`}</Formula>. So <Formula>x = 90</Formula>.</li>
+            <li><Formula>{`\\frac{8!}{6! \\times 2!} = \\frac{8 \\times 7}{2 \\times 1} = 28`}</Formula>.</li>
+            <li><Formula>{`\\frac{1}{8!} + \\frac{1}{9!} = \\frac{1}{8!}\\left(1 + \\frac{1}{9}\\right) = \\frac{10}{9 \\times 8!} = \\frac{10 \\times 10 \\times 9}{10!} = \\frac{90}{10!}`}</Formula>. So <Formula>x = 90</Formula>.</li>
             <li>(i) <Formula>{`{^{5}P_{r}} = {^{6}P_{r-1}}`}</Formula> — by convention, the intended answer is <Formula>r = 6</Formula>. Verify with your textbook.
               <br />(ii) <Formula>{`{^{5}P_{r}} = {^{6}P_{5}}`}</Formula>. <Formula>{`{^{6}P_{5}} = 720`}</Formula>. <Formula>{`{^{5}P_{r}} = 720`}</Formula> gives <Formula>r = 5</Formula> since <Formula>{`{^{5}P_{5}} = 120`}</Formula>. NCERT answer is <Formula>r = 5</Formula>. Verify with your textbook.</li>
           </ol>
@@ -469,13 +469,13 @@ export default function PermutationsAndCombinationsChapter() {
               <br />(ii) <Formula>6! = 720</Formula>.
               <br />(iii) First letter is fixed as a vowel (M, O, or A — 3 vowels). Remaining 5 arranged: <Formula>3 × 5! = 3 × 120 = 360</Formula>.
               <br /><em>NCERT says 144 for (iii) — this is <Formula>3 × 4! = 72</Formula> or <Formula>4!/2! × 3 = ...</Formula>. Verify your edition.</em></li>
-            <li>PERMUTATIONS has 12 letters: P(×1), E(×1), R(×1), M(×1), U(×1), T(×2), A(×1), I(×1), O(×1), N(×1), S(×1). Total with repeats = <Formula>{`\frac{12!}{2!}`}</Formula>.
-              <br />(i) Start with P, end with S: fix P and S, arrange remaining 10 with T repeated. = <Formula>{`\frac{10!}{2!} = \\frac{3628800}{2} = 1814400`}</Formula>.
-              <br /><em>NCERT answer is <Formula>{`\frac{9!}{3!2!}`}</Formula> — verify your edition for the exact problem statement.</em>
-              <br />(ii) Vowels (E, U, A, I, O — 5 vowels, all distinct) together: treat as 1 block. Remaining = 7 consonants + 1 block = 8 items, with T repeated. Arrangements = <Formula>{`\frac{8!}{2!} \\times 5! = 20160 \\times 120 = 2419200`}</Formula>.
-              <br /><em>NCERT answer is <Formula>{`\frac{8!}{3!}`}</Formula>. Verify your edition.</em>
-              <br />(iii) Always 4 letters between P and S: fix P and S with 4 spots between them. Positions for P can be: (1,6), (2,7), (3,8), (4,9), (5,10), (6,11), (7,12) — 7 ways. Arrange P and S in 2 ways. Remaining 10 letters arranged: <Formula>{`\frac{10!}{2!}`}</Formula>. Total = <Formula>7 × 2 × 1814400 = 25401600</Formula>.
-              <br /><em>NCERT answer is <Formula>{`\frac{2 \\times 7!}{3!2!}`}</Formula>. Verify your edition.</em></li>
+            <li>PERMUTATIONS has 12 letters: P(×1), E(×1), R(×1), M(×1), U(×1), T(×2), A(×1), I(×1), O(×1), N(×1), S(×1). Total with repeats = <Formula>{`\\frac{12!}{2!}`}</Formula>.
+              <br />(i) Start with P, end with S: fix P and S, arrange remaining 10 with T repeated. = <Formula>{`\\frac{10!}{2!} = \\frac{3628800}{2} = 1814400`}</Formula>.
+              <br /><em>NCERT answer is <Formula>{`\\frac{9!}{3!2!}`}</Formula> — verify your edition for the exact problem statement.</em>
+              <br />(ii) Vowels (E, U, A, I, O — 5 vowels, all distinct) together: treat as 1 block. Remaining = 7 consonants + 1 block = 8 items, with T repeated. Arrangements = <Formula>{`\\frac{8!}{2!} \\times 5! = 20160 \\times 120 = 2419200`}</Formula>.
+              <br /><em>NCERT answer is <Formula>{`\\frac{8!}{3!}`}</Formula>. Verify your edition.</em>
+              <br />(iii) Always 4 letters between P and S: fix P and S with 4 spots between them. Positions for P can be: (1,6), (2,7), (3,8), (4,9), (5,10), (6,11), (7,12) — 7 ways. Arrange P and S in 2 ways. Remaining 10 letters arranged: <Formula>{`\\frac{10!}{2!}`}</Formula>. Total = <Formula>7 × 2 × 1814400 = 25401600</Formula>.
+              <br /><em>NCERT answer is <Formula>{`\\frac{2 \\times 7!}{3!2!}`}</Formula>. Verify your edition.</em></li>
           </ol>
         </Expandable>
       </Expandable>
@@ -499,8 +499,8 @@ export default function PermutationsAndCombinationsChapter() {
         <Expandable title="Answer Key — Exercise 6.4">
           <ol>
             <li><Formula>{`{^{n}C_8} = {^{n}C_2} \\Rightarrow n = 8 + 2 = 10`}</Formula>. So <Formula>{`{^{n}C_2} = {^{10}C_2} = 45`}</Formula>.</li>
-            <li>(i) <Formula>{`\frac{{^{2n}C_3}}{{^{n}C_3}} = \\frac{(2n)!}{3!(2n-3)!} \\times \\frac{3!(n-3)!}{n!} = \\frac{2n(2n-1)(2n-2)}{n(n-1)(n-2)} = 12`}</Formula>.
-              Simplifying: <Formula>{`\frac{2(2n-1)(2n-2)}{(n-1)(n-2)} = 12`}</Formula>. For <Formula>n = 4</Formula>: <Formula>{`\frac{2 \\times 7 \\times 6}{3 \\times 2} = \\frac{84}{6} = 14 ≠ 12`}</Formula>.
+            <li>(i) <Formula>{`\\frac{{^{2n}C_3}}{{^{n}C_3}} = \\frac{(2n)!}{3!(2n-3)!} \\times \\frac{3!(n-3)!}{n!} = \\frac{2n(2n-1)(2n-2)}{n(n-1)(n-2)} = 12`}</Formula>.
+              Simplifying: <Formula>{`\\frac{2(2n-1)(2n-2)}{(n-1)(n-2)} = 12`}</Formula>. For <Formula>n = 4</Formula>: <Formula>{`\\frac{2 \\times 7 \\times 6}{3 \\times 2} = \\frac{84}{6} = 14 ≠ 12`}</Formula>.
               <br /><em>NCERT answer is <Formula>n = 4</Formula>. Verify the algebra with your textbook — there may be edition differences in the ratio.</em>
               <br />(ii) Same approach. NCERT answer is <Formula>n = 5</Formula>.</li>
             <li>A chord is determined by 2 points. <Formula>{`{^{21}C_2} = \\frac{21 \\times 20}{2} = 210`}</Formula>.</li>
@@ -528,8 +528,8 @@ export default function PermutationsAndCombinationsChapter() {
         <Expandable title="Answer Key — Miscellaneous Exercise">
           <ol>
             <li>(a) <Formula>5^3 = 125</Formula>. (b) <Formula>{`{^{5}P_3} = 60`}</Formula>.</li>
-            <li><Formula>{`\frac{9!}{2! \times 2! \times 2!} = 45360`}</Formula>.</li>
-            <li><Formula>{`5! \times {^{6}P_3} = 120 \times 120 = 14400`}</Formula>.</li>
+            <li><Formula>{`\\frac{9!}{2! \\times 2! \\times 2!} = 45360`}</Formula>.</li>
+            <li><Formula>{`5! \\times {^{6}P_3} = 120 \\times 120 = 14400`}</Formula>.</li>
             <li><Formula>(7-1)! = 6! = 720</Formula>.</li>
           </ol>
         </Expandable>

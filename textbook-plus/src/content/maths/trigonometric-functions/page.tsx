@@ -44,20 +44,20 @@ export default function TrigonometricFunctionsChapter() {
         <strong>Degree measure.</strong> One degree (1°) is 1/360 of a complete revolution. A
         degree splits into minutes, a minute into seconds:
       </p>
-      <FormulaBlock latex="1^{\circ} = 60', \qquad 1' = 60''" />
+      <FormulaBlock latex="1^{\\circ} = 60', \\qquad 1' = 60''" />
 
       <p>
         <strong>Radian measure.</strong> The angle subtended at the centre by an arc of length 1
         unit in a unit circle is <strong>1 radian</strong>. One full revolution subtends 2π
         radians. In general, an arc of length l in a circle of radius r subtends angle θ where:
       </p>
-      <FormulaBlock latex="\theta = \frac{l}{r} \qquad \text{or equivalently} \qquad l = r\,\theta" important />
+      <FormulaBlock latex="\\theta = \\frac{l}{r} \\qquad \\text{or equivalently} \\qquad l = r\\,\\theta" important />
 
       <p>
         <strong>Degree ↔ radian.</strong> One revolution is both 360° and 2π radians, so:
       </p>
-      <FormulaBlock latex="\pi \text{ radian} = 180^{\circ}" important />
-      <FormulaBlock latex="1 \text{ radian} = \frac{180^{\circ}}{\pi} \approx 57^{\circ}\,16' \qquad\qquad 1^{\circ} = \frac{\pi}{180} \text{ radian} \approx 0.01746 \text{ radian}" />
+      <FormulaBlock latex="\\pi \\text{ radian} = 180^{\\circ}" important />
+      <FormulaBlock latex="1 \\text{ radian} = \\frac{180^{\\circ}}{\\pi} \\approx 57^{\\circ}\\,16' \\qquad\\qquad 1^{\\circ} = \\frac{\\pi}{180} \\text{ radian} \\approx 0.01746 \\text{ radian}" />
 
       <table>
         <thead>
@@ -90,14 +90,14 @@ export default function TrigonometricFunctionsChapter() {
         <ProblemSolution problemNumber="Example 1">
           <ProblemSolution.Problem>Convert 40° 20′ into radian measure.</ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="40^{\circ}20' = 40\tfrac{1}{3}^{\circ} = \frac{\pi}{180} \times \frac{121}{3} = \frac{121\pi}{540} \text{ radian}" important />
+            <FormulaBlock latex="40^{\\circ}20' = 40\\tfrac{1}{3}^{\\circ} = \\frac{\\pi}{180} \\times \\frac{121}{3} = \\frac{121\\pi}{540} \\text{ radian}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 2">
           <ProblemSolution.Problem>Convert 6 radians into degree measure.</ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>Using π ≈ 22/7:</p>
-            <FormulaBlock latex="6 = \frac{180}{\pi} \times 6 = \frac{1080 \times 7}{22} = 343\tfrac{7}{11}^{\circ}" />
+            <FormulaBlock latex="6 = \\frac{180}{\\pi} \\times 6 = \\frac{1080 \\times 7}{22} = 343\\tfrac{7}{11}^{\\circ}" />
             <p>
               The fraction 7/11 of a degree × 60 = 38 2/11 minutes; and 2/11 of a minute × 60 =
               10.9 seconds. Hence 6 radians ≈ <strong>343° 38′ 11″</strong>.
@@ -111,7 +111,7 @@ export default function TrigonometricFunctionsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>Convert first: θ = 60° = π/3 radian. Then l = rθ gives</p>
-            <FormulaBlock latex="r = \frac{l}{\theta} = \frac{37.4 \times 3}{22/7} = 35.7 \text{ cm}" important />
+            <FormulaBlock latex="r = \\frac{l}{\\theta} = \\frac{37.4 \\times 3}{22/7} = 35.7 \\text{ cm}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 4">
@@ -124,7 +124,7 @@ export default function TrigonometricFunctionsChapter() {
               In 60 minutes the hand completes one revolution, so in 40 minutes it turns through
               2/3 of a revolution: θ = (2/3) × 2π = 4π/3 radian.
             </p>
-            <FormulaBlock latex="l = r\theta = 1.5 \times \frac{4\pi}{3} = 2\pi = 2 \times 3.14 = 6.28 \text{ cm}" important />
+            <FormulaBlock latex="l = r\\theta = 1.5 \\times \\frac{4\\pi}{3} = 2\\pi = 2 \\times 3.14 = 6.28 \\text{ cm}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 5">
@@ -136,7 +136,7 @@ export default function TrigonometricFunctionsChapter() {
             <p>
               θ₁ = 65° = 13π/36 and θ₂ = 110° = 22π/36. Equal arcs: l = r₁θ₁ = r₂θ₂, so
             </p>
-            <FormulaBlock latex="\frac{r_1}{r_2} = \frac{\theta_2}{\theta_1} = \frac{22}{13} \;\;\Rightarrow\;\; r_1 : r_2 = 22 : 13" important />
+            <FormulaBlock latex="\\frac{r_1}{r_2} = \\frac{\\theta_2}{\\theta_1} = \\frac{22}{13} \\;\\;\\Rightarrow\\;\\; r_1 : r_2 = 22 : 13" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -221,12 +221,12 @@ export default function TrigonometricFunctionsChapter() {
           <UnitCircle angle={1} caption="P(a, b) on the unit circle with ∠AOP = x" />
         </div>
         <div>
-          <FormulaBlock latex="\cos x = a \qquad \sin x = b" important />
+          <FormulaBlock latex="\\cos x = a \\qquad \\sin x = b" important />
           <p>
             Since △OMP is right-angled, OM² + MP² = OP² gives a² + b² = 1 for every point of the
             circle:
           </p>
-          <FormulaBlock latex="\cos^2 x + \sin^2 x = 1" important />
+          <FormulaBlock latex="\\cos^2 x + \\sin^2 x = 1" important />
         </div>
       </div>
 
@@ -267,19 +267,19 @@ export default function TrigonometricFunctionsChapter() {
       <p>
         One full revolution returns P to itself, so sine and cosine repeat every 2π:
       </p>
-      <FormulaBlock latex="\sin(2n\pi + x) = \sin x \quad\text{and}\quad \cos(2n\pi + x) = \cos x, \qquad n \in \mathbb{Z}" important />
-      <FormulaBlock latex="\sin x = 0 \iff x = n\pi \qquad\qquad \cos x = 0 \iff x = (2n+1)\frac{\pi}{2}, \quad n \in \mathbb{Z}" important />
+      <FormulaBlock latex="\\sin(2n\\pi + x) = \\sin x \\quad\\text{and}\\quad \\cos(2n\\pi + x) = \\cos x, \\qquad n \\in \\mathbb{Z}" important />
+      <FormulaBlock latex="\\sin x = 0 \\iff x = n\\pi \\qquad\\qquad \\cos x = 0 \\iff x = (2n+1)\\frac{\\pi}{2}, \\quad n \\in \\mathbb{Z}" important />
 
       <p>The other four functions are built from these two:</p>
       <FormulaCard>
         <p className="font-semibold mb-2">Definitions and Where They Break</p>
-        <FormulaBlock latex="\mathrm{cosec}\,x = \frac{1}{\sin x}, \quad x \neq n\pi" />
-        <FormulaBlock latex="\sec x = \frac{1}{\cos x}, \quad x \neq (2n+1)\frac{\pi}{2}" />
-        <FormulaBlock latex="\tan x = \frac{\sin x}{\cos x}, \quad x \neq (2n+1)\frac{\pi}{2}" />
-        <FormulaBlock latex="\cot x = \frac{\cos x}{\sin x}, \quad x \neq n\pi" />
+        <FormulaBlock latex="\\mathrm{cosec}\\,x = \\frac{1}{\\sin x}, \\quad x \\neq n\\pi" />
+        <FormulaBlock latex="\\sec x = \\frac{1}{\\cos x}, \\quad x \\neq (2n+1)\\frac{\\pi}{2}" />
+        <FormulaBlock latex="\\tan x = \\frac{\\sin x}{\\cos x}, \\quad x \\neq (2n+1)\\frac{\\pi}{2}" />
+        <FormulaBlock latex="\\cot x = \\frac{\\cos x}{\\sin x}, \\quad x \\neq n\\pi" />
       </FormulaCard>
       <p>Dividing sin²x + cos²x = 1 by sin²x or cos²x gives the other two Pythagorean identities:</p>
-      <FormulaBlock latex="1 + \tan^2 x = \sec^2 x \qquad\qquad 1 + \cot^2 x = \mathrm{cosec}^2 x" important />
+      <FormulaBlock latex="1 + \\tan^2 x = \\sec^2 x \\qquad\\qquad 1 + \\cot^2 x = \\mathrm{cosec}^2 x" important />
 
       <p>
         <strong>Standard values.</strong> Same as the old ratios — now valid for all real inputs,
@@ -343,16 +343,16 @@ export default function TrigonometricFunctionsChapter() {
         x-coordinate and negates the y-coordinate — so the reflected point sits at angle −x with
         coordinates (a, −b):
       </p>
-      <FormulaBlock latex="P(x) = (a,\, b) \qquad\qquad P(-x) = (a,\, -b)" />
+      <FormulaBlock latex="P(x) = (a,\\, b) \\qquad\\qquad P(-x) = (a,\\, -b)" />
       <p>
         Now read each function from the two points. Cosine reads the x-coordinate — and both
         points share the same a. Therefore:
       </p>
-      <FormulaBlock latex="\cos(-x) = a = \cos x \quad\Longrightarrow\quad \boxed{\cos(-x) = \cos x}" important />
+      <FormulaBlock latex="\\cos(-x) = a = \\cos x \\quad\\Longrightarrow\\quad \\boxed{\\cos(-x) = \\cos x}" important />
       <p>
         Sine reads the y-coordinate — and reflection flipped b to −b. But:
       </p>
-      <FormulaBlock latex="\sin(-x) = -b = -\sin x \quad\Longrightarrow\quad \boxed{\sin(-x) = -\sin x}" important />
+      <FormulaBlock latex="\\sin(-x) = -b = -\\sin x \\quad\\Longrightarrow\\quad \\boxed{\\sin(-x) = -\\sin x}" important />
       <KeyPoint title="Cosine Is Even, Sine Is Odd">
         <strong>cos(−x) = cos x</strong> — cosine treats x and −x identically: it is an{" "}
         <strong>even</strong> function. <strong>sin(−x) = −sin x</strong> — sine flips sign with
@@ -642,7 +642,7 @@ export default function TrigonometricFunctionsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>Immediately sec x = –5/3. From sin²x = 1 – 9/25 = 16/25,</p>
-            <FormulaBlock latex="\sin x = \pm\frac{4}{5}" />
+            <FormulaBlock latex="\\sin x = \\pm\\frac{4}{5}" />
             <p>
               Third quadrant ⇒ sine negative: sin x = –4/5, cosec x = –5/4. Then
               tan x = sin x / cos x = (–4/5)/(–3/5) = <strong>4/3</strong> and cot x ={" "}
@@ -667,13 +667,13 @@ export default function TrigonometricFunctionsChapter() {
         <ProblemSolution problemNumber="Example 8">
           <ProblemSolution.Problem>Find the value of sin 31π/3.</ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="\sin\frac{31\pi}{3} = \sin\left(10\pi + \frac{\pi}{3}\right) = \sin\frac{\pi}{3} = \frac{\sqrt{3}}{2}" important />
+            <FormulaBlock latex="\\sin\\frac{31\\pi}{3} = \\sin\\left(10\\pi + \\frac{\\pi}{3}\\right) = \\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 9">
           <ProblemSolution.Problem>Find the value of cos (–1710°).</ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="\cos(-1710^{\circ}) = \cos(-1710^{\circ} + 5 \times 360^{\circ}) = \cos 90^{\circ} = 0" important />
+            <FormulaBlock latex="\\cos(-1710^{\\circ}) = \\cos(-1710^{\\circ} + 5 \\times 360^{\\circ}) = \\cos 90^{\\circ} = 0" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -718,10 +718,10 @@ export default function TrigonometricFunctionsChapter() {
       </p>
       <FormulaCard>
         <p className="font-semibold mb-2">The Four Addition Formulas</p>
-        <FormulaBlock latex="\cos(x + y) = \cos x \cos y - \sin x \sin y" important />
-        <FormulaBlock latex="\cos(x - y) = \cos x \cos y + \sin x \sin y" important />
-        <FormulaBlock latex="\sin(x + y) = \sin x \cos y + \cos x \sin y" important />
-        <FormulaBlock latex="\sin(x - y) = \sin x \cos y - \cos x \sin y" important />
+        <FormulaBlock latex="\\cos(x + y) = \\cos x \\cos y - \\sin x \\sin y" important />
+        <FormulaBlock latex="\\cos(x - y) = \\cos x \\cos y + \\sin x \\sin y" important />
+        <FormulaBlock latex="\\sin(x + y) = \\sin x \\cos y + \\cos x \\sin y" important />
+        <FormulaBlock latex="\\sin(x - y) = \\sin x \\cos y - \\cos x \\sin y" important />
       </FormulaCard>
       <Callout type="important" title="Hard-Level Tips">
         <ul className="list-disc space-y-1 pl-5">
@@ -748,7 +748,7 @@ export default function TrigonometricFunctionsChapter() {
 
       <p>Substituting special angles produces the shifted-angle family:</p>
       <FormulaBlock
-        latex="\begin{aligned} \cos\left(\tfrac{\pi}{2} - x\right) &= \sin x & \sin\left(\tfrac{\pi}{2} - x\right) &= \cos x \\ \cos\left(\tfrac{\pi}{2} + x\right) &= -\sin x & \sin\left(\tfrac{\pi}{2} + x\right) &= \cos x \\ \cos(\pi - x) &= -\cos x & \sin(\pi - x) &= \sin x \\ \cos(\pi + x) &= -\cos x & \sin(\pi + x) &= -\sin x \\ \cos(2\pi - x) &= \cos x & \sin(2\pi - x) &= -\sin x \end{aligned}"
+        latex="\\begin{aligned} \\cos\\left(\\tfrac{\\pi}{2} - x\\right) &= \\sin x & \\sin\\left(\\tfrac{\\pi}{2} - x\\right) &= \\cos x \\ \\cos\\left(\\tfrac{\\pi}{2} + x\\right) &= -\\sin x & \\sin\\left(\\tfrac{\\pi}{2} + x\\right) &= \\cos x \\ \\cos(\\pi - x) &= -\\cos x & \\sin(\\pi - x) &= \\sin x \\ \\cos(\\pi + x) &= -\\cos x & \\sin(\\pi + x) &= -\\sin x \\ \\cos(2\\pi - x) &= \\cos x & \\sin(2\\pi - x) &= -\\sin x \\end{aligned}"
         important
       />
 
@@ -758,10 +758,10 @@ export default function TrigonometricFunctionsChapter() {
       </p>
       <FormulaCard>
         <p className="font-semibold mb-2">Tangent and Cotangent Sums</p>
-        <FormulaBlock latex="\tan(x + y) = \frac{\tan x + \tan y}{1 - \tan x \tan y}" important />
-        <FormulaBlock latex="\tan(x - y) = \frac{\tan x - \tan y}{1 + \tan x \tan y}" important />
+        <FormulaBlock latex="\\tan(x + y) = \\frac{\\tan x + \\tan y}{1 - \\tan x \\tan y}" important />
+        <FormulaBlock latex="\\tan(x - y) = \\frac{\\tan x - \\tan y}{1 + \\tan x \\tan y}" important />
         <FormulaBlock
-          latex="\cot(x + y) = \frac{\cot x \cot y - 1}{\cot x + \cot y} \qquad \cot(x - y) = \frac{\cot x \cot y + 1}{\cot y - \cot x}"
+          latex="\\cot(x + y) = \\frac{\\cot x \\cot y - 1}{\\cot x + \\cot y} \\qquad \\cot(x - y) = \\frac{\\cot x \\cot y + 1}{\\cot y - \\cot x}"
         />
         <p className="mt-2 text-sm text-muted-foreground">
           cot versions require none of x, y, (x±y) to be a multiple of π.
@@ -772,31 +772,31 @@ export default function TrigonometricFunctionsChapter() {
       <FormulaCard>
         <p className="font-semibold mb-2">Double Angle Formulas</p>
         <FormulaBlock
-          latex="\cos 2x = \cos^2 x - \sin^2 x = 2\cos^2 x - 1 = 1 - 2\sin^2 x = \frac{1 - \tan^2 x}{1 + \tan^2 x}"
+          latex="\\cos 2x = \\cos^2 x - \\sin^2 x = 2\\cos^2 x - 1 = 1 - 2\\sin^2 x = \\frac{1 - \\tan^2 x}{1 + \\tan^2 x}"
           important
         />
-        <FormulaBlock latex="\sin 2x = 2\sin x \cos x = \frac{2\tan x}{1 + \tan^2 x}" important />
-        <FormulaBlock latex="\tan 2x = \frac{2\tan x}{1 - \tan^2 x}" important />
+        <FormulaBlock latex="\\sin 2x = 2\\sin x \\cos x = \\frac{2\\tan x}{1 + \\tan^2 x}" important />
+        <FormulaBlock latex="\\tan 2x = \\frac{2\\tan x}{1 - \\tan^2 x}" important />
         <Expandable title="Derivation — try it yourself before expanding">
           <p>
             Every formula here is just an addition formula with <strong>y = x</strong>. Cosine:
           </p>
-          <FormulaBlock latex="\cos 2x = \cos(x + x) = \cos x\cos x - \sin x\sin x = \cos^2 x - \sin^2 x" />
+          <FormulaBlock latex="\\cos 2x = \\cos(x + x) = \\cos x\\cos x - \\sin x\\sin x = \\cos^2 x - \\sin^2 x" />
           <p>
             Apply sin²x + cos²x = 1 once replacing sin²x, once replacing cos²x:
           </p>
-          <FormulaBlock latex="\cos^2 x - (1 - \cos^2 x) = 2\cos^2 x - 1 \qquad\qquad (1-\sin^2 x) - \sin^2 x = 1 - 2\sin^2 x" />
+          <FormulaBlock latex="\\cos^2 x - (1 - \\cos^2 x) = 2\\cos^2 x - 1 \\qquad\\qquad (1-\\sin^2 x) - \\sin^2 x = 1 - 2\\sin^2 x" />
           <p>
             For the tangent form, divide the numerator and denominator of (
             cos²x − sin²x)/(sin²x + cos²x) = 1 by cos²x:
           </p>
-          <FormulaBlock latex="1 = \frac{\cos^2 x - \sin^2 x}{\cos^2 x + \sin^2 x} = \frac{1 - \tan^2 x}{1 + \tan^2 x}" />
+          <FormulaBlock latex="1 = \\frac{\\cos^2 x - \\sin^2 x}{\\cos^2 x + \\sin^2 x} = \\frac{1 - \\tan^2 x}{1 + \\tan^2 x}" />
           <p>Sine works identically:</p>
-          <FormulaBlock latex="\sin 2x = \sin x\cos x + \cos x\sin x = 2\sin x\cos x" />
+          <FormulaBlock latex="\\sin 2x = \\sin x\\cos x + \\cos x\\sin x = 2\\sin x\\cos x" />
           <p>Divide it by sin²x + cos²x = 1 and cancel cos²x top and bottom:</p>
-          <FormulaBlock latex="\sin 2x = \frac{2\sin x\cos x}{\sin^2 x + \cos^2 x} = \frac{2\tan x}{1 + \tan^2 x}" />
+          <FormulaBlock latex="\\sin 2x = \\frac{2\\sin x\\cos x}{\\sin^2 x + \\cos^2 x} = \\frac{2\\tan x}{1 + \\tan^2 x}" />
           <p>Tangent needs no extra step:</p>
-          <FormulaBlock latex="\tan 2x = \frac{\tan x + \tan x}{1 - \tan x\tan x} = \frac{2\tan x}{1 - \tan^2 x}" />
+          <FormulaBlock latex="\\tan 2x = \\frac{\\tan x + \\tan x}{1 - \\tan x\\tan x} = \\frac{2\\tan x}{1 - \\tan^2 x}" />
           <p className="text-sm text-muted-foreground">
             The divisions by cos x assume cos x ≠ 0 — the formulas hold wherever both sides are
             defined.
@@ -807,25 +807,25 @@ export default function TrigonometricFunctionsChapter() {
       <p>And iterating once more (writing 3x = 2x + x) gives the triple-angle family:</p>
       <FormulaCard>
         <p className="font-semibold mb-2">Triple Angle Formulas</p>
-        <FormulaBlock latex="\sin 3x = 3\sin x - 4\sin^3 x" important />
-        <FormulaBlock latex="\cos 3x = 4\cos^3 x - 3\cos x" important />
-        <FormulaBlock latex="\tan 3x = \frac{3\tan x - \tan^3 x}{1 - 3\tan^2 x}" important />
+        <FormulaBlock latex="\\sin 3x = 3\\sin x - 4\\sin^3 x" important />
+        <FormulaBlock latex="\\cos 3x = 4\\cos^3 x - 3\\cos x" important />
+        <FormulaBlock latex="\\tan 3x = \\frac{3\\tan x - \\tan^3 x}{1 - 3\\tan^2 x}" important />
         <Expandable title="Derivation — try it yourself before expanding">
           <p>
             Write <strong>3x = 2x + x</strong> and reuse the addition plus double-angle results.
             Sine first:
           </p>
-          <FormulaBlock latex="\sin 3x = \sin 2x\cos x + \cos 2x\sin x = 2\sin x\cos^2 x + (\cos^2 x - \sin^2 x)\sin x" />
-          <FormulaBlock latex="= 3\sin x\cos^2 x - \sin^3 x = 3\sin x(1 - \sin^2 x) - \sin^3 x = 3\sin x - 4\sin^3 x" />
+          <FormulaBlock latex="\\sin 3x = \\sin 2x\\cos x + \\cos 2x\\sin x = 2\\sin x\\cos^2 x + (\\cos^2 x - \\sin^2 x)\\sin x" />
+          <FormulaBlock latex="= 3\\sin x\\cos^2 x - \\sin^3 x = 3\\sin x(1 - \\sin^2 x) - \\sin^3 x = 3\\sin x - 4\\sin^3 x" />
           <p>Cosine runs the same route:</p>
-          <FormulaBlock latex="\cos 3x = \cos 2x\cos x - \sin 2x\sin x = (\cos^2 x - \sin^2 x)\cos x - 2\sin^2 x\cos x" />
-          <FormulaBlock latex="= \cos^3 x - 3\cos x\sin^2 x = \cos x(1 - 4\sin^2 x) = \cos x\big(1 - 4(1-\cos^2 x)\big) = 4\cos^3 x - 3\cos x" />
+          <FormulaBlock latex="\\cos 3x = \\cos 2x\\cos x - \\sin 2x\\sin x = (\\cos^2 x - \\sin^2 x)\\cos x - 2\\sin^2 x\\cos x" />
+          <FormulaBlock latex="= \\cos^3 x - 3\\cos x\\sin^2 x = \\cos x(1 - 4\\sin^2 x) = \\cos x\\big(1 - 4(1-\\cos^2 x)\\big) = 4\\cos^3 x - 3\\cos x" />
           <p>
             Tangent: substitute tan 2x = 2tan x/(1 − tan²x) into tan(2x + x) and clear the nested
             fraction:
           </p>
-          <FormulaBlock latex="\tan 3x = \frac{\dfrac{2t}{1-t^2} + t}{1 - \dfrac{2t^2}{1-t^2}} \quad\text{where } t = \tan x" />
-          <FormulaBlock latex="= \frac{2t + t(1-t^2)}{(1-t^2) - 2t^2} = \frac{3t - t^3}{1 - 3t^2} = \frac{3\tan x - \tan^3 x}{1 - 3\tan^2 x}" />
+          <FormulaBlock latex="\\tan 3x = \\frac{\\dfrac{2t}{1-t^2} + t}{1 - \\dfrac{2t^2}{1-t^2}} \\quad\\text{where } t = \\tan x" />
+          <FormulaBlock latex="= \\frac{2t + t(1-t^2)}{(1-t^2) - 2t^2} = \\frac{3t - t^3}{1 - 3t^2} = \\frac{3\\tan x - \\tan^3 x}{1 - 3\\tan^2 x}" />
         </Expandable>
       </FormulaCard>
 
@@ -836,11 +836,11 @@ export default function TrigonometricFunctionsChapter() {
       <FormulaCard>
         <p className="font-semibold mb-2">Sum ↔ Product Transformations</p>
         <FormulaBlock
-          latex="\begin{aligned} \cos x + \cos y &= 2\cos\tfrac{x+y}{2}\cos\tfrac{x-y}{2} & \sin x + \sin y &= 2\sin\tfrac{x+y}{2}\cos\tfrac{x-y}{2} \\ \cos x - \cos y &= -2\sin\tfrac{x+y}{2}\sin\tfrac{x-y}{2} & \sin x - \sin y &= 2\cos\tfrac{x+y}{2}\sin\tfrac{x-y}{2} \end{aligned}"
+          latex="\\begin{aligned} \\cos x + \\cos y &= 2\\cos\\tfrac{x+y}{2}\\cos\\tfrac{x-y}{2} & \\sin x + \\sin y &= 2\\sin\\tfrac{x+y}{2}\\cos\\tfrac{x-y}{2} \\ \\cos x - \\cos y &= -2\\sin\\tfrac{x+y}{2}\\sin\\tfrac{x-y}{2} & \\sin x - \\sin y &= 2\\cos\\tfrac{x+y}{2}\\sin\\tfrac{x-y}{2} \\end{aligned}"
           important
         />
         <FormulaBlock
-          latex="\begin{aligned} 2\cos x \cos y &= \cos(x+y) + \cos(x-y) & 2\sin x \cos y &= \sin(x+y) + \sin(x-y) \\ -2\sin x \sin y &= \cos(x+y) - \cos(x-y) & 2\cos x \sin y &= \sin(x+y) - \sin(x-y) \end{aligned}"
+          latex="\\begin{aligned} 2\\cos x \\cos y &= \\cos(x+y) + \\cos(x-y) & 2\\sin x \\cos y &= \\sin(x+y) + \\sin(x-y) \\ -2\\sin x \\sin y &= \\cos(x+y) - \\cos(x-y) & 2\\cos x \\sin y &= \\sin(x+y) - \\sin(x-y) \\end{aligned}"
           important
         />
       </FormulaCard>
@@ -870,20 +870,20 @@ export default function TrigonometricFunctionsChapter() {
             Prove that 3sin(π/6)sec(π/3) – 4sin(5π/6)cot(π/4) = 1.
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="3 \times \tfrac{1}{2} \times 2 - 4 \times \sin\left(\pi - \tfrac{\pi}{6}\right) \times 1 = 3 - 4 \times \tfrac{1}{2} = 1 = \text{R.H.S.}" important />
+            <FormulaBlock latex="3 \\times \\tfrac{1}{2} \\times 2 - 4 \\times \\sin\\left(\\pi - \\tfrac{\\pi}{6}\\right) \\times 1 = 3 - 4 \\times \\tfrac{1}{2} = 1 = \\text{R.H.S.}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 11">
           <ProblemSolution.Problem>Find the value of sin 15°.</ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="\sin 15^{\circ} = \sin(45^{\circ} - 30^{\circ}) = \sin 45^{\circ}\cos 30^{\circ} - \cos 45^{\circ}\sin 30^{\circ} = \frac{\sqrt{3} - 1}{2\sqrt{2}}" important />
+            <FormulaBlock latex="\\sin 15^{\\circ} = \\sin(45^{\\circ} - 30^{\\circ}) = \\sin 45^{\\circ}\\cos 30^{\\circ} - \\cos 45^{\\circ}\\sin 30^{\\circ} = \\frac{\\sqrt{3} - 1}{2\\sqrt{2}}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 12">
           <ProblemSolution.Problem>Find the value of tan 13π/12.</ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>Period π strips the extra rotation: tan 13π/12 = tan(π + π/12) = tan(π/4 – π/6).</p>
-            <FormulaBlock latex="\tan\left(\frac{\pi}{4} - \frac{\pi}{6}\right) = \frac{1 - 1/\sqrt{3}}{1 + 1/\sqrt{3}} = \frac{\sqrt{3}-1}{\sqrt{3}+1} = 2 - \sqrt{3}" important />
+            <FormulaBlock latex="\\tan\\left(\\frac{\\pi}{4} - \\frac{\\pi}{6}\\right) = \\frac{1 - 1/\\sqrt{3}}{1 + 1/\\sqrt{3}} = \\frac{\\sqrt{3}-1}{\\sqrt{3}+1} = 2 - \\sqrt{3}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 13">
@@ -895,7 +895,7 @@ export default function TrigonometricFunctionsChapter() {
               Expand both sines: numerator = sin x cos y + cos x sin y, denominator = sin x cos y –
               cos x sin y. Divide top and bottom by cos x cos y:
             </p>
-            <FormulaBlock latex="\frac{\sin(x+y)}{\sin(x-y)} = \frac{\tan x + \tan y}{\tan x - \tan y}" important />
+            <FormulaBlock latex="\\frac{\\sin(x+y)}{\\sin(x-y)} = \\frac{\\tan x + \\tan y}{\\tan x - \\tan y}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 14">
@@ -907,7 +907,7 @@ export default function TrigonometricFunctionsChapter() {
               Since 3x = 2x + x, the tangent sum formula rearranges to tan 3x(1 – tan 2x tan x) =
               tan 2x + tan x. Move everything:
             </p>
-            <FormulaBlock latex="\tan 3x - \tan 3x\tan 2x\tan x = \tan 2x + \tan x \;\Rightarrow\; \tan 3x\tan 2x\tan x = \tan 3x - \tan 2x - \tan x" important />
+            <FormulaBlock latex="\\tan 3x - \\tan 3x\\tan 2x\\tan x = \\tan 2x + \\tan x \\;\\Rightarrow\\; \\tan 3x\\tan 2x\\tan x = \\tan 3x - \\tan 2x - \\tan x" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 15">
@@ -915,7 +915,7 @@ export default function TrigonometricFunctionsChapter() {
             Prove that cos(π/4 + x) + cos(π/4 – x) = √2 cos x.
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="2\cos\frac{\pi/4 + x + \pi/4 - x}{2}\cos\frac{(\pi/4 + x) - (\pi/4 - x)}{2} = 2\cos\frac{\pi}{4}\cos x = \sqrt{2}\cos x" important />
+            <FormulaBlock latex="2\\cos\\frac{\\pi/4 + x + \\pi/4 - x}{2}\\cos\\frac{(\\pi/4 + x) - (\\pi/4 - x)}{2} = 2\\cos\\frac{\\pi}{4}\\cos x = \\sqrt{2}\\cos x" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 16">
@@ -923,7 +923,7 @@ export default function TrigonometricFunctionsChapter() {
             Prove that (cos 7x + cos 5x)/(sin 7x – sin 5x) = cot x.
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="\frac{2\cos 6x \cos x}{2\cos 6x \sin x} = \cot x = \text{R.H.S.}" important />
+            <FormulaBlock latex="\\frac{2\\cos 6x \\cos x}{2\\cos 6x \\sin x} = \\cot x = \\text{R.H.S.}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 17">
@@ -935,7 +935,7 @@ export default function TrigonometricFunctionsChapter() {
               Numerator: group sin 5x + sin x = 2 sin 3x cos 2x, so numerator = 2 sin 3x(cos 2x –
               1) = –4 sin 3x sin²x. Denominator: cos 5x – cos x = –2 sin 3x sin 2x.
             </p>
-            <FormulaBlock latex="\frac{-4\sin 3x \sin^2 x}{-2\sin 3x \sin 2x} = \frac{2\sin^2 x}{2\sin x \cos x} = \tan x = \text{R.H.S.}" important />
+            <FormulaBlock latex="\\frac{-4\\sin 3x \\sin^2 x}{-2\\sin 3x \\sin 2x} = \\frac{2\\sin^2 x}{2\\sin x \\cos x} = \\tan x = \\text{R.H.S.}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -1017,7 +1017,7 @@ export default function TrigonometricFunctionsChapter() {
               Second quadrant: cos x = –4/5 (from sin²x = 9/25) and sin y = +5/13 (from cos²y =
               144/169). Then
             </p>
-            <FormulaBlock latex="\sin(x+y) = \sin x\cos y + \cos x \sin y = \frac{3}{5}\times\frac{-12}{13} + \frac{-4}{5}\times\frac{5}{13} = \frac{-56}{65}" important />
+            <FormulaBlock latex="\\sin(x+y) = \\sin x\\cos y + \\cos x \\sin y = \\frac{3}{5}\\times\\frac{-12}{13} + \\frac{-4}{5}\\times\\frac{5}{13} = \\frac{-56}{65}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 19">
@@ -1026,9 +1026,9 @@ export default function TrigonometricFunctionsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>Convert each product with 2cosAcosB = cos(A+B) + cos(A–B):</p>
-            <FormulaBlock latex="2\cos 2x\cos\tfrac{x}{2} = \cos\tfrac{5x}{2} + \cos\tfrac{3x}{2}, \qquad 2\cos 3x\cos\tfrac{9x}{2} = \cos\tfrac{15x}{2} + \cos\tfrac{3x}{2}" />
+            <FormulaBlock latex="2\\cos 2x\\cos\\tfrac{x}{2} = \\cos\\tfrac{5x}{2} + \\cos\\tfrac{3x}{2}, \\qquad 2\\cos 3x\\cos\\tfrac{9x}{2} = \\cos\\tfrac{15x}{2} + \\cos\\tfrac{3x}{2}" />
             <p>Subtracting kills cos(3x/2):</p>
-            <FormulaBlock latex="\text{LHS} \times 2 = \cos\tfrac{5x}{2} - \cos\tfrac{15x}{2} = -2\sin 5x\sin\left(-\tfrac{5x}{2}\right) = 2\sin 5x \sin\tfrac{5x}{2}" important />
+            <FormulaBlock latex="\\text{LHS} \\times 2 = \\cos\\tfrac{5x}{2} - \\cos\\tfrac{15x}{2} = -2\\sin 5x\\sin\\left(-\\tfrac{5x}{2}\\right) = 2\\sin 5x \\sin\\tfrac{5x}{2}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 20">
@@ -1038,7 +1038,7 @@ export default function TrigonometricFunctionsChapter() {
               Let x = π/8, so 2x = π/4 and tan 2x = 1. With y = tan x: 1 = 2y/(1 – y²), i.e. y² +
               2y – 1 = 0.
             </p>
-            <FormulaBlock latex="y = \frac{-2 \pm \sqrt{8}}{2} = -1 \pm \sqrt{2}" />
+            <FormulaBlock latex="y = \\frac{-2 \\pm \\sqrt{8}}{2} = -1 \\pm \\sqrt{2}" />
             <p>
               π/8 sits in the first quadrant, so y &gt; 0. Hence{" "}
               <strong>tan π/8 = √2 – 1</strong>.
@@ -1055,8 +1055,8 @@ export default function TrigonometricFunctionsChapter() {
               Third quadrant ⇒ cos x negative. sec²x = 1 + 9/16 = 25/16 gives cos x = –4/5. Since
               x/2 lies in (π/2, 3π/4), sin(x/2) &gt; 0 and cos(x/2) &lt; 0.
             </p>
-            <FormulaBlock latex="\sin^2\tfrac{x}{2} = \frac{1-\cos x}{2} = \frac{9}{10} \Rightarrow \sin\tfrac{x}{2} = \frac{3}{\sqrt{10}}" />
-            <FormulaBlock latex="\cos^2\tfrac{x}{2} = \frac{1+\cos x}{2} = \frac{1}{10} \Rightarrow \cos\tfrac{x}{2} = -\frac{1}{\sqrt{10}}, \qquad \tan\tfrac{x}{2} = -3" important />
+            <FormulaBlock latex="\\sin^2\\tfrac{x}{2} = \\frac{1-\\cos x}{2} = \\frac{9}{10} \\Rightarrow \\sin\\tfrac{x}{2} = \\frac{3}{\\sqrt{10}}" />
+            <FormulaBlock latex="\\cos^2\\tfrac{x}{2} = \\frac{1+\\cos x}{2} = \\frac{1}{10} \\Rightarrow \\cos\\tfrac{x}{2} = -\\frac{1}{\\sqrt{10}}, \\qquad \\tan\\tfrac{x}{2} = -3" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 22">
@@ -1065,7 +1065,7 @@ export default function TrigonometricFunctionsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>Use cos²θ = (1 + cos 2θ)/2 on all three terms:</p>
-            <FormulaBlock latex="\text{LHS} = \frac{3}{2} + \frac{1}{2}\left[\cos 2x + \cos\left(2x + \tfrac{2\pi}{3}\right) + \cos\left(2x - \tfrac{2\pi}{3}\right)\right]" />
+            <FormulaBlock latex="\\text{LHS} = \\frac{3}{2} + \\frac{1}{2}\\left[\\cos 2x + \\cos\\left(2x + \\tfrac{2\\pi}{3}\\right) + \\cos\\left(2x - \\tfrac{2\\pi}{3}\\right)\\right]" />
             <p>
               The last two cosines sum to 2cos 2x cos(2π/3) = –cos 2x, so the bracket vanishes and
               LHS = <strong>3/2</strong>. ∎

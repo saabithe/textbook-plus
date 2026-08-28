@@ -163,7 +163,7 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
       </Callout>
       <FormulaCard>
         <p className="font-semibold mb-2">Coordinates of a Point</p>
-        <FormulaBlock latex="P(x,\, y,\, z)" important />
+        <FormulaBlock latex="P(x,\\, y,\\, z)" important />
         <p className="text-sm text-muted-foreground mt-2">
           x = distance from YZ-plane (signed), y = distance from ZX-plane (signed), z = distance
           from XY-plane (signed).
@@ -210,7 +210,7 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
             <p>
               Each vertex is a choice of sign for each coordinate:
             </p>
-            <FormulaBlock latex="(a,b,c),\; (a,b,-c),\; (a,-b,c),\; (a,-b,-c),\; (-a,b,c),\; (-a,b,-c),\; (-a,-b,c),\; (-a,-b,-c)" />
+            <FormulaBlock latex="(a,b,c),\\; (a,b,-c),\\; (a,-b,c),\\; (a,-b,-c),\\; (-a,b,c),\\; (-a,b,-c),\\; (-a,-b,c),\\; (-a,-b,-c)" />
             <p>
               There are <strong>2&#179; = 8</strong> vertices — one in each octant.
             </p>
@@ -261,7 +261,7 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
       <FormulaCard>
         <p className="font-semibold mb-2">3D Distance Formula</p>
         <FormulaBlock
-          latex="PQ = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}"
+          latex="PQ = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}"
           important
         />
         <p className="text-sm text-muted-foreground mt-2">
@@ -274,7 +274,7 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
           <li>
             Project P and Q onto the XY-plane to get P&#8242;(x&#8321;, y&#8321;, 0) and
             Q&#8242;(x&#8322;, y&#8322;, 0). Their distance in 2D is{" "}
-            <FormulaBlock latex="P&apos;Q&apos; = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}" />.
+            <FormulaBlock latex="P'Q' = \\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}" />.
           </li>
           <li>
             The line PQ forms the hypotenuse of a right triangle with P&#8242;Q&#8242; as one leg
@@ -290,7 +290,7 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
       <FormulaCard>
         <p className="font-semibold mb-2">Distance from Origin</p>
         <FormulaBlock
-          latex="OP = \sqrt{x^2 + y^2 + z^2}"
+          latex="OP = \\sqrt{x^2 + y^2 + z^2}"
           important
         />
         <p className="text-sm text-muted-foreground mt-2">
@@ -312,7 +312,7 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
                 { label: "Apply formula", description: "PQ = √(4+36+81) = √121 = 11" },
               ]}
             />
-            <FormulaBlock latex="PQ = \sqrt{(1-(-1))^2+(-3-3)^2+(5-(-4))^2} = \sqrt{4+36+81} = \sqrt{121} = 11" important />
+            <FormulaBlock latex="PQ = \\sqrt{(1-(-1))^2+(-3-3)^2+(5-(-4))^2} = \\sqrt{4+36+81} = \\sqrt{121} = 11" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -329,7 +329,7 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
                 { label: "Distance", description: "PQ = √(9+25+0) = √34" },
               ]}
             />
-            <FormulaBlock latex="PQ = \sqrt{9+25} = \sqrt{34}" important />
+            <FormulaBlock latex="PQ = \\sqrt{9+25} = \\sqrt{34}" important />
             <p className="text-sm text-muted-foreground">
               Note: z&#8321; = z&#8322; = 1, so the points are at the same height — the distance
               reduces to a 2D calculation in the z = 1 plane.
@@ -350,7 +350,7 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
                 { label: "Distance from O", description: "OP = √(9+25+4) = √38" },
               ]}
             />
-            <FormulaBlock latex="OP = \sqrt{3^2+(-5)^2+2^2} = \sqrt{9+25+4} = \sqrt{38}" important />
+            <FormulaBlock latex="OP = \\sqrt{3^2+(-5)^2+2^2} = \\sqrt{9+25+4} = \\sqrt{38}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -400,7 +400,7 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
                 },
               ]}
             />
-            <FormulaBlock latex="AB = CD = 6,\quad BC = DA = \sqrt{34}" important />
+            <FormulaBlock latex="AB = CD = 6,\\quad BC = DA = \\sqrt{34}" important />
             <p>Since both pairs of opposite sides are equal, ABCD is a parallelogram.</p>
           </ProblemSolution.Solution>
         </ProblemSolution>
@@ -417,7 +417,7 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
               Using the <strong>section formula</strong> for internal division in ratio m : n:
             </p>
             <FormulaBlock
-              latex="x = \frac{mx_2+nx_1}{m+n},\quad y = \frac{my_2+ny_1}{m+n},\quad z = \frac{mz_2+nz_1}{m+n}"
+              latex="x = \\frac{mx_2+nx_1}{m+n},\\quad y = \\frac{my_2+ny_1}{m+n},\\quad z = \\frac{mz_2+nz_1}{m+n}"
             />
             <Stepper
               steps={[
@@ -426,7 +426,7 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
                 { label: "z", description: "z = (2·6 + 3·5)/5 = (12+15)/5 = 27/5" },
               ]}
             />
-            <FormulaBlock latex="\left(-\frac{4}{5},\;\frac{1}{5},\;\frac{27}{5}\right)" important />
+            <FormulaBlock latex="\\left(-\\frac{4}{5},\\;\\frac{1}{5},\\;\\frac{27}{5}\\right)" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -441,7 +441,7 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
             <FormulaCard>
               <p className="font-semibold mb-2">Centroid Formula</p>
               <FormulaBlock
-                latex="G = \left(\frac{x_1+x_2+x_3}{3},\;\frac{y_1+y_2+y_3}{3},\;\frac{z_1+z_2+z_3}{3}\right)"
+                latex="G = \\left(\\frac{x_1+x_2+x_3}{3},\\;\\frac{y_1+y_2+y_3}{3},\\;\\frac{z_1+z_2+z_3}{3}\\right)"
                 important
               />
             </FormulaCard>
@@ -452,7 +452,7 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
                 { label: "z-coordinate", description: "(−3+1+3)/3 = 1/3" },
               ]}
             />
-            <FormulaBlock latex="G = \left(\frac{5}{3},\;-\frac{4}{3},\;\frac{1}{3}\right)" important />
+            <FormulaBlock latex="G = \\left(\\frac{5}{3},\\;-\\frac{4}{3},\\;\\frac{1}{3}\\right)" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>

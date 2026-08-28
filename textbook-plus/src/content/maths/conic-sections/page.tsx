@@ -299,8 +299,8 @@ export default function ConicSectionsChapter() {
       <FormulaCard>
         <p className="font-semibold mb-2">Key Relations</p>
         <FormulaBlock latex="c^2 = a^2 - b^2" />
-        <FormulaBlock latex="e = \frac{c}{a}, \quad 0 < e < 1" />
-        <FormulaBlock latex="\text{Latus Rectum} = \frac{2b^2}{a}" />
+        <FormulaBlock latex="e = \\frac{c}{a}, \\quad 0 < e < 1" />
+        <FormulaBlock latex="\\text{Latus Rectum} = \\frac{2b^2}{a}" />
         <p className="text-sm text-muted-foreground mt-2">a = semi-major axis, b = semi-minor axis, c = distance from centre to focus, e = eccentricity</p>
       </FormulaCard>
 
@@ -347,7 +347,7 @@ export default function ConicSectionsChapter() {
                 { label: "Equation", description: "Major axis along x-axis: x²/25 + y²/16 = 1" },
               ]}
             />
-            <FormulaBlock latex="\frac{x^2}{25} + \frac{y^2}{16} = 1" important />
+            <FormulaBlock latex="\\frac{x^2}{25} + \\frac{y^2}{16} = 1" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -378,15 +378,15 @@ export default function ConicSectionsChapter() {
       <h3>Standard Equation of Hyperbola</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Standard Form</p>
-        <FormulaBlock latex="\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1" />
+        <FormulaBlock latex="\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1" />
         <p className="text-sm text-muted-foreground mt-2">Transverse axis along x-axis. Centre at origin.</p>
       </FormulaCard>
 
       <FormulaCard>
         <p className="font-semibold mb-2">Key Relations</p>
         <FormulaBlock latex="c^2 = a^2 + b^2" />
-        <FormulaBlock latex="e = \frac{c}{a} > 1" />
-        <FormulaBlock latex="\text{Latus Rectum} = \frac{2b^2}{a}" />
+        <FormulaBlock latex="e = \\frac{c}{a} > 1" />
+        <FormulaBlock latex="\\text{Latus Rectum} = \\frac{2b^2}{a}" />
       </FormulaCard>
 
       <KeyPoint title="Properties of Hyperbola">
@@ -403,7 +403,7 @@ export default function ConicSectionsChapter() {
       <h3>Equilateral Hyperbola</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Equilateral (Rectangular) Hyperbola</p>
-        <FormulaBlock latex="x^2 - y^2 = a^2 \quad \text{(when } a = b\text{)}" />
+        <FormulaBlock latex="x^2 - y^2 = a^2 \\quad \\text{(when } a = b\\text{)}" />
         <p className="text-sm text-muted-foreground mt-2">Eccentricity = √2. Asymptotes are perpendicular (y = ±x).</p>
       </FormulaCard>
 
@@ -463,7 +463,7 @@ export default function ConicSectionsChapter() {
                 { label: "Equation", description: "y²/9 − x²/16 = 1" },
               ]}
             />
-            <FormulaBlock latex="\frac{y^2}{9} - \frac{x^2}{16} = 1" important />
+            <FormulaBlock latex="\\frac{y^2}{9} - \\frac{x^2}{16} = 1" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -494,7 +494,7 @@ export default function ConicSectionsChapter() {
                 { label: "Find r²", description: "r² = (11/14 − 2)² + (11/7 − 3)² = (−17/14)² + (−10/7)² = 289/196 + 100/49 = 289/196 + 400/196 = 689/196" },
               ]}
             />
-            <FormulaBlock latex="\left(x - \frac{11}{14}\right)^2 + \left(y - \frac{11}{7}\right)^2 = \frac{689}{196}" important />
+            <FormulaBlock latex="\\left(x - \\frac{11}{14}\\right)^2 + \\left(y - \\frac{11}{7}\\right)^2 = \\frac{689}{196}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -513,7 +513,7 @@ export default function ConicSectionsChapter() {
                 { label: "Simplify", description: "x²/9 + y² = 9 → x²/81 + y²/81 × 9 = 1 → x²/81 + y²/9 = 1" },
               ]}
             />
-            <FormulaBlock latex="\frac{x^2}{81} + \frac{y^2}{9} = 1" important />
+            <FormulaBlock latex="\\frac{x^2}{81} + \\frac{y^2}{9} = 1" important />
             <p>This is an ellipse with semi-major axis 9 and semi-minor axis 3.</p>
           </ProblemSolution.Solution>
         </ProblemSolution>
@@ -534,7 +534,7 @@ export default function ConicSectionsChapter() {
                 { label: "Eccentricity", description: "e = c/a = 8√3/12 = 2√3/3" },
               ]}
             />
-            <FormulaBlock latex="e = \frac{2\sqrt{3}}{3}" important />
+            <FormulaBlock latex="e = \\frac{2\\sqrt{3}}{3}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>

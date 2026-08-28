@@ -37,9 +37,9 @@ export default function LinearInequalitiesChapter() {
       <p>General forms:</p>
       <FormulaCard>
         <p className="font-semibold mb-2">Inequality Family</p>
-        <FormulaBlock latex="ax+b<0,\; ax+b>0,\; ax+b\le 0,\; ax+b\ge 0 \quad (a\neq0)\ \text{— linear in one variable}" />
-        <FormulaBlock latex="ax+by<c,\; ax+by>c,\; ax+by\le c,\; ax+by\ge c \quad (a\neq0,b\neq0)\ \text{— linear in two variables}" />
-        <FormulaBlock latex="ax^2+bx+c\le0,\; ax^2+bx+c>0 \quad (a\neq0)\ \text{— quadratic (non-linear)}" />
+        <FormulaBlock latex="ax+b<0,\\; ax+b>0,\\; ax+b\\le 0,\\; ax+b\\ge 0 \\quad (a\\neq0)\\ \\text{— linear in one variable}" />
+        <FormulaBlock latex="ax+by<c,\\; ax+by>c,\\; ax+by\\le c,\\; ax+by\\ge c \\quad (a\\neq0,b\\neq0)\\ \\text{— linear in two variables}" />
+        <FormulaBlock latex="ax^2+bx+c\\le0,\\; ax^2+bx+c>0 \\quad (a\\neq0)\\ \\text{— quadratic (non-linear)}" />
       </FormulaCard>
       <ul>
         <li>
@@ -92,8 +92,8 @@ export default function LinearInequalitiesChapter() {
       </Callout>
       <FormulaCard>
         <p className="font-semibold mb-2">Sign-Reversal in Action</p>
-        <FormulaBlock latex="3>2 \quad\text{while}\quad -3<-2" />
-        <FormulaBlock latex="-8<-7 \quad\text{while}\quad (-8)(-2)>(-7)(-2)\ \Rightarrow\ 16>14" />
+        <FormulaBlock latex="3>2 \\quad\\text{while}\\quad -3<-2" />
+        <FormulaBlock latex="-8<-7 \\quad\\text{while}\\quad (-8)(-2)>(-7)(-2)\\ \\Rightarrow\\ 16>14" />
       </FormulaCard>
       <KeyPoint title="Why the Flip?">
         Multiplying by −1 mirrors the number line about 0. The order of points reverses — what was to the right is now to the left. That mirror is why the inequality sign must flip.
@@ -105,7 +105,7 @@ export default function LinearInequalitiesChapter() {
             <p>Solve 30x &lt; 200 when (i) x is a natural number, (ii) x is an integer.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="30x<200 \Rightarrow x<\frac{20}{3}\approx 6.66\ \text{(Rule 2, divide by 30 >0)}" />
+            <FormulaBlock latex="30x<200 \\Rightarrow x<\\frac{20}{3}\\approx 6.66\\ \\text{(Rule 2, divide by 30 >0)}" />
             <ul>
               <li>(i) Natural: 1,2,3,4,5,6 → solution set <strong>&#123;1,2,3,4,5,6&#125;</strong>.</li>
               <li>(ii) Integer: ...,−3,−2,−1,0,1,2,3,4,5,6 → <strong>&#123;...,−1,0,1,...,6&#125;</strong>.</li>
@@ -143,7 +143,7 @@ export default function LinearInequalitiesChapter() {
             <p>Solve 4x + 3 &lt; 6x + 7.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="4x+3<6x+7 \Rightarrow -2x<4 \Rightarrow x>-2\ \text{(divide by −2, flip!)}" />
+            <FormulaBlock latex="4x+3<6x+7 \\Rightarrow -2x<4 \\Rightarrow x>-2\\ \\text{(divide by −2, flip!)}" />
             <p>
               Solution set <strong>(−2, ∞)</strong> — all reals greater than −2.
             </p>
@@ -160,7 +160,7 @@ export default function LinearInequalitiesChapter() {
             </p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="\frac{5-2x}{3}\le\frac{x}{6}-5 \quad\text{(reconstructed; see PDF p.93 Fig)}" />
+            <FormulaBlock latex="\\frac{5-2x}{3}\\le\\frac{x}{6}-5 \\quad\\text{(reconstructed; see PDF p.93 Fig)}" />
             <Stepper
               steps={[
                 { label: "LCM 6", description: "Multiply by 6 (>0): 2(5−2x) ≤ x −30" },
@@ -169,7 +169,7 @@ export default function LinearInequalitiesChapter() {
                 { label: "Divide by −5 (flip!)", description: "x ≥8" },
               ]}
             />
-            <FormulaBlock latex="x\in[8,\infty)" important />
+            <FormulaBlock latex="x\\in[8,\\infty)" important />
             <NumberLine min={4} max={10} segments={[{ from: 8, label: "[8,∞)" }]} />
           </ProblemSolution.Solution>
         </ProblemSolution>
@@ -179,8 +179,8 @@ export default function LinearInequalitiesChapter() {
             <p>Solve 7x + 3 &lt; 5x + 9. Show graph on number line.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="7x+3<5x+9 \Rightarrow 2x<6 \Rightarrow x<3" />
-            <FormulaBlock latex="x\in(-\infty,3)" important />
+            <FormulaBlock latex="7x+3<5x+9 \\Rightarrow 2x<6 \\Rightarrow x<3" />
+            <FormulaBlock latex="x\\in(-\\infty,3)" important />
             <NumberLine min={-1} max={5} segments={[{ to: 3, toOpen: true, label: "(−∞,3)  Fig 5.1" }]} />
             <p className="text-sm text-muted-foreground">Fig 5.1: open circle at 3, bold line to left.</p>
           </ProblemSolution.Solution>
@@ -197,7 +197,7 @@ export default function LinearInequalitiesChapter() {
                 { label: "Simplify", description: "5x ≥5 → x ≥1" },
               ]}
             />
-            <FormulaBlock latex="x\in[1,\infty)" important />
+            <FormulaBlock latex="x\\in[1,\\infty)" important />
             <NumberLine min={-1} max={4} segments={[{ from: 1, label: "[1,∞) Fig 5.2" }]} />
           </ProblemSolution.Solution>
         </ProblemSolution>
@@ -209,8 +209,8 @@ export default function LinearInequalitiesChapter() {
             <p>Marks in first and second terminal are 62 and 48. Find minimum marks in annual to have average at least 60.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="\frac{62+48+x}{3}\ge60" />
-            <FormulaBlock latex="110+x\ge180 \Rightarrow x\ge70" important />
+            <FormulaBlock latex="\\frac{62+48+x}{3}\\ge60" />
+            <FormulaBlock latex="110+x\\ge180 \\Rightarrow x\\ge70" important />
             <p>
               Must score at least <strong>70 marks</strong> in annual.
             </p>
@@ -223,8 +223,8 @@ export default function LinearInequalitiesChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>Let smaller be x, other x+2.</p>
-            <FormulaBlock latex="x>10 \quad\text{and}\quad x+(x+2)<40 \Rightarrow 2x+2<40 \Rightarrow x<19" />
-            <FormulaBlock latex="10<x<19,\ x\ \text{odd} \Rightarrow x=11,13,15,17" />
+            <FormulaBlock latex="x>10 \\quad\\text{and}\\quad x+(x+2)<40 \\Rightarrow 2x+2<40 \\Rightarrow x<19" />
+            <FormulaBlock latex="10<x<19,\\ x\\ \\text{odd} \\Rightarrow x=11,13,15,17" />
             <p>
               Pairs: <strong>(11,13), (13,15), (15,17), (17,19)</strong>.
             </p>
@@ -288,7 +288,7 @@ export default function LinearInequalitiesChapter() {
             <p>Solve −8 ≤ 5x − 3 &lt; 7.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="-8\le5x-3<7 \Rightarrow -5\le5x<10 \Rightarrow -1\le x<2" important />
+            <FormulaBlock latex="-8\\le5x-3<7 \\Rightarrow -5\\le5x<10 \\Rightarrow -1\\le x<2" important />
             <NumberLine min={-3} max={4} segments={[{ from: -1, to: 2, fromOpen: false, toOpen: true, label: "[−1,2)" }]} />
           </ProblemSolution.Solution>
         </ProblemSolution>
@@ -298,8 +298,8 @@ export default function LinearInequalitiesChapter() {
             <p>Solve −5 ≤ (5 − 3x)/2 ≤ 8.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="-5\le\frac{5-3x}{2}\le8 \Rightarrow -10\le5-3x\le16 \Rightarrow -15\le-3x\le11" />
-            <FormulaBlock latex="5\ge x\ge-\frac{11}{3} \Rightarrow -\frac{11}{3}\le x\le5" important />
+            <FormulaBlock latex="-5\\le\\frac{5-3x}{2}\\le8 \\Rightarrow -10\\le5-3x\\le16 \\Rightarrow -15\\le-3x\\le11" />
+            <FormulaBlock latex="5\\ge x\\ge-\\frac{11}{3} \\Rightarrow -\\frac{11}{3}\\le x\\le5" important />
             <NumberLine min={-5} max={6} segments={[{ from: -3.66, to: 5, label: "[−11/3,5]" }]} />
           </ProblemSolution.Solution>
         </ProblemSolution>
@@ -309,7 +309,7 @@ export default function LinearInequalitiesChapter() {
             <p>Solve system: 3x −7 &lt;5+x and 11−5x ≤1; represent on number line.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="3x-7<5+x \Rightarrow x<6,\qquad 11-5x\le1 \Rightarrow x\ge2" />
+            <FormulaBlock latex="3x-7<5+x \\Rightarrow x<6,\\qquad 11-5x\\le1 \\Rightarrow x\\ge2" />
             <p>
               Common to both: <strong>2 ≤ x &lt;6</strong> (intersection [2,6)).
             </p>
@@ -323,8 +323,8 @@ export default function LinearInequalitiesChapter() {
             <p>Acid solution kept between 30°C and 35°C. What is range in Fahrenheit if C=5/9(F−32)?</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="30<C<35,\ C=\frac59(F-32) \Rightarrow 30<\frac59(F-32)<35" />
-            <FormulaBlock latex="54<F-32<63 \Rightarrow 86<F<95" important />
+            <FormulaBlock latex="30<C<35,\\ C=\\frac59(F-32) \\Rightarrow 30<\\frac59(F-32)<35" />
+            <FormulaBlock latex="54<F-32<63 \\Rightarrow 86<F<95" important />
             <p>So <strong>86°F &lt; F &lt; 95°F</strong>.</p>
           </ProblemSolution.Solution>
         </ProblemSolution>
@@ -334,8 +334,8 @@ export default function LinearInequalitiesChapter() {
             <p>600 L of 12% acid. How many litres of 30% acid must be added so that resulting mixture has more than 15% but less than 18% acid?</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="x=\text{litres of 30\% added},\ \frac{30}{100}x+\frac{12}{100}600 \gtrless \frac{15,18}{100}(x+600)" />
-            <FormulaBlock latex="30x+7200>15x+9000 \Rightarrow x>120;\quad 30x+7200<18x+10800 \Rightarrow x<300" />
+            <FormulaBlock latex="x=\\text{litres of 30\\% added},\\ \\frac{30}{100}x+\\frac{12}{100}600 \\gtrless \\frac{15,18}{100}(x+600)" />
+            <FormulaBlock latex="30x+7200>15x+9000 \\Rightarrow x>120;\\quad 30x+7200<18x+10800 \\Rightarrow x<300" />
             <FormulaBlock latex="120<x<300" important />
             <p>So <strong>more than 120 L but less than 300 L</strong>.</p>
           </ProblemSolution.Solution>

@@ -24,9 +24,9 @@ export default function StraightLinesChapter() {
 
       <FormulaCard>
         <p className="font-semibold mb-2">Key Formulas from Class X</p>
-        <FormulaBlock latex="d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \quad \text{(Distance)}" />
-        <FormulaBlock latex="\left(\frac{mx_2 + nx_1}{m+n},\; \frac{my_2 + ny_1}{m+n}\right) \quad \text{(Section formula)}" />
-        <FormulaBlock latex="\text{Area} = \frac{1}{2}\big|x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\big|" />
+        <FormulaBlock latex="d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\quad \\text{(Distance)}" />
+        <FormulaBlock latex="\\left(\\frac{mx_2 + nx_1}{m+n},\\; \\frac{my_2 + ny_1}{m+n}\\right) \\quad \\text{(Section formula)}" />
+        <FormulaBlock latex="\\text{Area} = \\frac{1}{2}\\big|x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\\big|" />
       </FormulaCard>
 
       <SpeedTricks>
@@ -57,7 +57,7 @@ export default function StraightLinesChapter() {
         The <strong>slope</strong> (or <strong>gradient</strong>) of a non-vertical line is the tangent
         of its inclination:
       </Callout>
-      <FormulaBlock latex="m = \tan\theta" important />
+      <FormulaBlock latex="m = \\tan\\theta" important />
       <ul>
         <li>If &#952; = 90°, the slope is <strong>not defined</strong> (tan 90° is undefined).</li>
         <li>Vertical lines have <Highlight>no defined slope</Highlight>.</li>
@@ -67,7 +67,7 @@ export default function StraightLinesChapter() {
       <Callout type="important" title="Slope Formula">
         The slope of the line passing through P(x&#8321;, y&#8321;) and Q(x&#8322;, y&#8322;) is:
       </Callout>
-      <FormulaBlock latex="m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{\text{rise}}{\text{run}}" important />
+      <FormulaBlock latex="m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{\\text{rise}}{\\text{run}}" important />
       <ul>
         <li>If x&#8321; = x&#8322;, the line is vertical and slope is undefined.</li>
         <li>If y&#8321; = y&#8322;, the line is horizontal and m = 0.</li>
@@ -86,7 +86,7 @@ export default function StraightLinesChapter() {
                 { label: "Result", description: "m = &#8722;1/2" },
               ]}
             />
-            <FormulaBlock latex="m = \frac{3-2}{4-6} = \frac{1}{-2} = -\frac{1}{2}" important />
+            <FormulaBlock latex="m = \\frac{3-2}{4-6} = \\frac{1}{-2} = -\\frac{1}{2}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -95,7 +95,7 @@ export default function StraightLinesChapter() {
             <p>Find the slope of the line making inclination 30° with the positive direction of the x-axis.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="m = \tan 30° = \frac{1}{\sqrt{3}} = \frac{\sqrt{3}}{3}" important />
+            <FormulaBlock latex="m = \\tan 30° = \\frac{1}{\\sqrt{3}} = \\frac{\\sqrt{3}}{3}" important />
             <p>
               The slope is positive, confirming the line rises from left to right.
             </p>
@@ -107,12 +107,12 @@ export default function StraightLinesChapter() {
       <Callout type="important" title="Parallel Lines Condition">
         Two non-vertical lines are <strong>parallel</strong> if and only if their slopes are equal:
       </Callout>
-      <FormulaBlock latex="\ell_1 \parallel \ell_2 \;\Leftrightarrow\; m_1 = m_2" important />
+      <FormulaBlock latex="\\ell_1 \\parallel \\ell_2 \\;\\Leftrightarrow\\; m_1 = m_2" important />
 
       <Callout type="important" title="Perpendicular Lines Condition">
         Two lines with slopes m&#8321; and m&#8322; are <strong>perpendicular</strong> if and only if:
       </Callout>
-      <FormulaBlock latex="\ell_1 \perp \ell_2 \;\Leftrightarrow\; m_1 \cdot m_2 = -1" important />
+      <FormulaBlock latex="\\ell_1 \\perp \\ell_2 \\;\\Leftrightarrow\\; m_1 \\cdot m_2 = -1" important />
       <ul>
         <li>Equivalently, m&#8322; = &#8722;1/m&#8321; (one slope is the <Highlight>negative reciprocal</Highlight> of the other).</li>
         <li>If one line is vertical (slope undefined), the other must be horizontal (slope 0) for them to be perpendicular.</li>
@@ -122,7 +122,7 @@ export default function StraightLinesChapter() {
       <Callout type="important" title="Angle Between Two Lines">
         The acute angle &#952; between two lines with slopes m&#8321; and m&#8322; is:
       </Callout>
-      <FormulaBlock latex="\tan\theta = \left|\frac{m_2 - m_1}{1 + m_1 m_2}\right|" important />
+      <FormulaBlock latex="\\tan\\theta = \\left|\\frac{m_2 - m_1}{1 + m_1 m_2}\\right|" important />
       <ul>
         <li>The <strong>absolute value</strong> ensures &#952; is acute (0° &#8804; &#952; &#8804; 90°).</li>
         <li>If m&#8321;m&#8322; = &#8722;1, the denominator is 0, giving &#952; = 90° (perpendicular lines).</li>
@@ -158,8 +158,8 @@ export default function StraightLinesChapter() {
             </p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="m_1 = \frac{6-(-2)}{2-(-4)} = \frac{8}{6} = \frac{4}{3}" />
-            <FormulaBlock latex="m_2 = \frac{1-5}{-5-3} = \frac{-4}{-8} = \frac{1}{2}" />
+            <FormulaBlock latex="m_1 = \\frac{6-(-2)}{2-(-4)} = \\frac{8}{6} = \\frac{4}{3}" />
+            <FormulaBlock latex="m_2 = \\frac{1-5}{-5-3} = \\frac{-4}{-8} = \\frac{1}{2}" />
             <p>
               Since 4/3 &#8800; 1/2, the lines are <strong>not parallel</strong>.
             </p>
@@ -174,9 +174,9 @@ export default function StraightLinesChapter() {
             </p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="m_1 = \tan 60° = \sqrt{3}" />
-            <FormulaBlock latex="m_1 \cdot m_2 = -1 \;\Rightarrow\; m_2 = -\frac{1}{\sqrt{3}}" />
-            <FormulaBlock latex="\theta_2 = \tan^{-1}\!\left(-\frac{1}{\sqrt{3}}\right) = 150°" important />
+            <FormulaBlock latex="m_1 = \\tan 60° = \\sqrt{3}" />
+            <FormulaBlock latex="m_1 \\cdot m_2 = -1 \\;\\Rightarrow\\; m_2 = -\\frac{1}{\\sqrt{3}}" />
+            <FormulaBlock latex="\\theta_2 = \\tan^{-1}\\!\\left(-\\frac{1}{\\sqrt{3}}\\right) = 150°" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -278,8 +278,8 @@ export default function StraightLinesChapter() {
       <h3>Horizontal and Vertical Lines</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Special Lines</p>
-        <FormulaBlock latex="y = b \quad \text{(horizontal line, slope = 0)}" important />
-        <FormulaBlock latex="x = a \quad \text{(vertical line, slope undefined)}" important />
+        <FormulaBlock latex="y = b \\quad \\text{(horizontal line, slope = 0)}" important />
+        <FormulaBlock latex="x = a \\quad \\text{(vertical line, slope undefined)}" important />
       </FormulaCard>
       <ul>
         <li>y = 3 is a horizontal line through (0, 3).</li>
@@ -319,7 +319,7 @@ export default function StraightLinesChapter() {
       <Callout type="important" title="Two-Point Form">
         The equation of the line passing through (x&#8321;, y&#8321;) and (x&#8322;, y&#8322;) is:
       </Callout>
-      <FormulaBlock latex="y - y_1 = \frac{y_2 - y_1}{x_2 - x_1}(x - x_1)" important />
+      <FormulaBlock latex="y - y_1 = \\frac{y_2 - y_1}{x_2 - x_1}(x - x_1)" important />
       <ul>
         <li>Works as long as x&#8321; &#8800; x&#8322; (non-vertical line).</li>
         <li>If x&#8321; = x&#8322;, the line is simply x = x&#8321;.</li>
@@ -348,7 +348,7 @@ export default function StraightLinesChapter() {
                 { label: "Write equation", description: "y = (&#8722;1/6)x + 3" },
               ]}
             />
-            <FormulaBlock latex="y = -\frac{1}{6}x + 3 \;\;\text{or}\;\; x + 6y - 18 = 0" important />
+            <FormulaBlock latex="y = -\\frac{1}{6}x + 3 \\;\\;\\text{or}\\;\\; x + 6y - 18 = 0" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -357,7 +357,7 @@ export default function StraightLinesChapter() {
       <Callout type="important" title="Intercept Form">
         The equation of the line with x-intercept a and y-intercept b (a &#8800; 0, b &#8800; 0) is:
       </Callout>
-      <FormulaBlock latex="\frac{x}{a} + \frac{y}{b} = 1" important />
+      <FormulaBlock latex="\\frac{x}{a} + \\frac{y}{b} = 1" important />
       <ul>
         <li>The line passes through (a, 0) and (0, b).</li>
         <li>If either intercept is zero, this form cannot be used.</li>
@@ -372,11 +372,11 @@ export default function StraightLinesChapter() {
             <p>
               Let the equal intercepts be a (so a = b). Using intercept form:
             </p>
-            <FormulaBlock latex="\frac{x}{a} + \frac{y}{a} = 1 \;\Rightarrow\; x + y = a" />
+            <FormulaBlock latex="\\frac{x}{a} + \\frac{y}{a} = 1 \\;\\Rightarrow\\; x + y = a" />
             <p>
               Substituting (&#8722;2, 3): &#8722;2 + 3 = a &#8594; a = 1.
             </p>
-            <FormulaBlock latex="x + y = 1 \;\;\text{or}\;\; x + y - 1 = 0" important />
+            <FormulaBlock latex="x + y = 1 \\;\\;\\text{or}\\;\\; x + y - 1 = 0" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -400,12 +400,12 @@ export default function StraightLinesChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p className="font-medium">(i) Slope-intercept:</p>
-            <FormulaBlock latex="4y = -3x - 12 \;\Rightarrow\; y = -\frac{3}{4}x - 3" />
+            <FormulaBlock latex="4y = -3x - 12 \\;\\Rightarrow\\; y = -\\frac{3}{4}x - 3" />
             <p>
               Slope = &#8722;3/4, y-intercept = &#8722;3.
             </p>
             <p className="font-medium mt-3">(ii) Intercept form:</p>
-            <FormulaBlock latex="\frac{3x}{-12} + \frac{4y}{-12} = 1 \;\Rightarrow\; \frac{x}{-4} + \frac{y}{-3} = 1" />
+            <FormulaBlock latex="\\frac{3x}{-12} + \\frac{4y}{-12} = 1 \\;\\Rightarrow\\; \\frac{x}{-4} + \\frac{y}{-3} = 1" />
             <p>
               x-intercept = &#8722;4, y-intercept = &#8722;3.
             </p>
@@ -417,7 +417,7 @@ export default function StraightLinesChapter() {
             <p>Reduce y &#8722; 3 = 0 to general form.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="0\cdot x + 1\cdot y - 3 = 0 \quad\text{(here } A=0, B=1, C=-3\text{)}" />
+            <FormulaBlock latex="0\\cdot x + 1\\cdot y - 3 = 0 \\quad\\text{(here } A=0, B=1, C=-3\\text{)}" />
             <p>
               This is already a horizontal line y = 3 in general form.
             </p>
@@ -480,7 +480,7 @@ export default function StraightLinesChapter() {
         The <Highlight>perpendicular distance</Highlight> from a point (x&#8321;, y&#8321;) to the line
         Ax + By + C = 0 is:
       </Callout>
-      <FormulaBlock latex="d = \frac{|Ax_1 + By_1 + C|}{\sqrt{A^2 + B^2}}" important />
+      <FormulaBlock latex="d = \\frac{|Ax_1 + By_1 + C|}{\\sqrt{A^2 + B^2}}" important />
       <ul>
         <li>The <strong>absolute value</strong> ensures distance is always non-negative.</li>
         <li>The line must be in <strong>general form</strong> Ax + By + C = 0 before applying.</li>
@@ -492,7 +492,7 @@ export default function StraightLinesChapter() {
         The distance between two <strong>parallel</strong> lines Ax + By + C&#8321; = 0 and
         Ax + By + C&#8322; = 0 is:
       </Callout>
-      <FormulaBlock latex="d = \frac{|C_1 - C_2|}{\sqrt{A^2 + B^2}}" important />
+      <FormulaBlock latex="d = \\frac{|C_1 - C_2|}{\\sqrt{A^2 + B^2}}" important />
       <ul>
         <li>The coefficients A and B must be <strong>identical</strong> in both equations.</li>
         <li>If they are not, multiply one equation by a constant to match them first.</li>
@@ -504,7 +504,7 @@ export default function StraightLinesChapter() {
             <p>Find the distance of the point (3, &#8722;5) from the line 3x + 4y &#8722; 26 = 0.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="d = \frac{|3(3) + 4(-5) - 26|}{\sqrt{3^2 + 4^2}} = \frac{|9 - 20 - 26|}{\sqrt{25}} = \frac{|-37|}{5} = \frac{37}{5}" important />
+            <FormulaBlock latex="d = \\frac{|3(3) + 4(-5) - 26|}{\\sqrt{3^2 + 4^2}} = \\frac{|9 - 20 - 26|}{\\sqrt{25}} = \\frac{|-37|}{5} = \\frac{37}{5}" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -513,7 +513,7 @@ export default function StraightLinesChapter() {
             <p>Find the distance between the parallel lines 3x + 4y + 7 = 0 and 3x + 4y + 5 = 0.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="d = \frac{|7 - 5|}{\sqrt{3^2 + 4^2}} = \frac{2}{5}" important />
+            <FormulaBlock latex="d = \\frac{|7 - 5|}{\\sqrt{3^2 + 4^2}} = \\frac{2}{5}" important />
             <p>
               The coefficients A = 3, B = 4 are already identical, so we directly use the formula.
             </p>
@@ -568,8 +568,8 @@ export default function StraightLinesChapter() {
             <p>
               Parallel line: 3x &#8722; 4y + k = 0. Distance between parallel lines:
             </p>
-            <FormulaBlock latex="\frac{|k - 2|}{\sqrt{9+16}} = 4 \;\Rightarrow\; \frac{|k-2|}{5} = 4" />
-            <FormulaBlock latex="|k-2| = 20 \;\Rightarrow\; k = 22 \text{ or } k = -18" important />
+            <FormulaBlock latex="\\frac{|k - 2|}{\\sqrt{9+16}} = 4 \\;\\Rightarrow\\; \\frac{|k-2|}{5} = 4" />
+            <FormulaBlock latex="|k-2| = 20 \\;\\Rightarrow\\; k = 22 \\text{ or } k = -18" important />
             <p>
               Two solutions: <strong>3x &#8722; 4y + 22 = 0</strong> and{" "}
               <strong>3x &#8722; 4y &#8722; 18 = 0</strong>.
@@ -589,7 +589,7 @@ export default function StraightLinesChapter() {
               Let x-intercept = a, so y-intercept = &#8722;a (since a + b = 0). Using intercept form
               (a &#8800; 0):
             </p>
-            <FormulaBlock latex="\frac{x}{a} + \frac{y}{-a} = 1 \;\Rightarrow\; x - y = a" />
+            <FormulaBlock latex="\\frac{x}{a} + \\frac{y}{-a} = 1 \\;\\Rightarrow\\; x - y = a" />
             <p>
               Substituting (2, 3): 2 &#8722; 3 = a &#8594; a = &#8722;1.
             </p>
@@ -616,7 +616,7 @@ export default function StraightLinesChapter() {
                 { label: "Solve", description: "3k &#8722; 9 = &#8722;4h &#8722; 4 &#8594; 4h + 3k &#8722; 5 = 0. Solve the system: h = 61/25, k = &#8722;3/25" },
               ]}
             />
-            <FormulaBlock latex="\text{Image} = \left(\frac{61}{25},\; -\frac{3}{25}\right)" important />
+            <FormulaBlock latex="\\text{Image} = \\left(\\frac{61}{25},\\; -\\frac{3}{25}\\right)" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -636,12 +636,12 @@ export default function StraightLinesChapter() {
               <li>Intersection of y = x and x = a: (a, a).</li>
               <li>Intersection of y = &#8722;x and x = a: (a, &#8722;a).</li>
             </ul>
-            <FormulaBlock latex="\text{Area} = \frac{1}{2}|0(-a-a)+a(-a-0)+a(0-(-a))| = \frac{1}{2}|0-a^2+a^2| = 0" />
+            <FormulaBlock latex="\\text{Area} = \\frac{1}{2}|0(-a-a)+a(-a-0)+a(0-(-a))| = \\frac{1}{2}|0-a^2+a^2| = 0" />
             <p>
               Wait — let us recheck: vertices are O(0,0), P(a, a), Q(a, &#8722;a). Base PQ = 2|a|, height from
               O = |a|.
             </p>
-            <FormulaBlock latex="\text{Area} = \frac{1}{2}\times 2|a|\times|a| = a^2" important />
+            <FormulaBlock latex="\\text{Area} = \\frac{1}{2}\\times 2|a|\\times|a| = a^2" important />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>

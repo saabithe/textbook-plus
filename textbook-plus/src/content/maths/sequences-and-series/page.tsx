@@ -31,14 +31,14 @@ export default function SequencesAndSeriesChapter() {
       </ul>
 
       <KeyPoint title="Fibonacci Sequence">
-        <FormulaBlock latex="a_1 = a_2 = 1,\quad a_n = a_{n-1} + a_{n-2} \text{ for } n > 2" />
+        <FormulaBlock latex="a_1 = a_2 = 1,\\quad a_n = a_{n-1} + a_{n-2} \\text{ for } n > 2" />
         <p>Sequence: 1, 1, 2, 3, 5, 8, 13, 21, … — each term is the sum of the two before it.</p>
       </KeyPoint>
 
       <h2 id="h-series">8.3 Series</h2>
       <Callout type="important" title="Definition">
         The <strong>series</strong> associated with a sequence a₁, a₂, …, aₙ is the sum:
-        <FormulaBlock latex="a_1 + a_2 + a_3 + \cdots + a_n = \sum_{k=1}^{n} a_k" />
+        <FormulaBlock latex="a_1 + a_2 + a_3 + \\cdots + a_n = \\sum_{k=1}^{n} a_k" />
         <p>A series is finite or infinite according to the sequence. The <strong>sigma notation</strong> ∑ abbreviates the sum.</p>
       </Callout>
 
@@ -87,7 +87,7 @@ export default function SequencesAndSeriesChapter() {
       <h2 id="h-gp">8.4 Geometric Progression (G.P.)</h2>
       <Callout type="important" title="Definition">
         A sequence a₁, a₂, a₃, … is a <strong>geometric progression</strong> if each term is non-zero and{" "}
-        <FormulaBlock latex="\frac{a_{k+1}}{a_k} = r \text{ (constant) for all } k \ge 1" />
+        <FormulaBlock latex="\\frac{a_{k+1}}{a_k} = r \\text{ (constant) for all } k \\ge 1" />
         <p>Written as: a, ar, ar², ar³, … where <strong>a</strong> is the first term and <strong>r</strong> is the common ratio.</p>
       </Callout>
 
@@ -101,7 +101,7 @@ export default function SequencesAndSeriesChapter() {
       <h3 id="h-gp-sum">Sum to n Terms of a G.P.</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Sum Formula</p>
-        <FormulaBlock latex="S_n = \frac{a(r^n - 1)}{r - 1} \text{ if } r \ne 1, \qquad S_n = na \text{ if } r = 1" />
+        <FormulaBlock latex="S_n = \\frac{a(r^n - 1)}{r - 1} \\text{ if } r \\ne 1, \\qquad S_n = na \\text{ if } r = 1" />
       </FormulaCard>
 
       <Expandable title="Examples 4 to 9 — G.P. Problems">
@@ -201,7 +201,7 @@ export default function SequencesAndSeriesChapter() {
       <h2 id="h-sum-special">Sum of Special Series</h2>
       <FormulaCard>
         <p className="font-semibold mb-2">Sum of n Terms of 7 + 77 + 777 + ⋯</p>
-        <FormulaBlock latex="S_n = \frac{7}{9}\left[\frac{10(10^n - 1)}{9} - n\right]" />
+        <FormulaBlock latex="S_n = \\frac{7}{9}\\left[\\frac{10(10^n - 1)}{9} - n\\right]" />
         <p className="text-sm text-muted-foreground mt-2">Pattern: each term = 7/9 × (10ᵏ − 1). Factor out 7/9, then use geometric series for the powers of 10.</p>
       </FormulaCard>
 
@@ -236,9 +236,9 @@ export default function SequencesAndSeriesChapter() {
       <h3 id="h-gm">Geometric Mean (G.M.)</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Geometric Mean</p>
-        <FormulaBlock latex="G = \sqrt{ab}" />
+        <FormulaBlock latex="G = \\sqrt{ab}" />
         <p className="text-sm text-muted-foreground mt-2">Given a and b, insert n geometric means G₁, G₂, …, Gₙ between them:</p>
-        <FormulaBlock latex="r = \left(\frac{b}{a}\right)^{1/(n+1)}, \qquad G_k = ar^k" />
+        <FormulaBlock latex="r = \\left(\\frac{b}{a}\\right)^{1/(n+1)}, \\qquad G_k = ar^k" />
       </FormulaCard>
 
       <Expandable title="Example 12 — Insert Geometric Means">
@@ -270,8 +270,8 @@ export default function SequencesAndSeriesChapter() {
       <h2 id="h-am-gm">8.5 Relationship Between A.M. and G.M.</h2>
       <FormulaCard>
         <p className="font-semibold mb-2">A.M. ≥ G.M.</p>
-        <FormulaBlock latex="A = \frac{a+b}{2}, \quad G = \sqrt{ab}" />
-        <FormulaBlock latex="A - G = \frac{(\sqrt{a} - \sqrt{b})^2}{2} \ge 0 \quad \Rightarrow \quad A \ge G" />
+        <FormulaBlock latex="A = \\frac{a+b}{2}, \\quad G = \\sqrt{ab}" />
+        <FormulaBlock latex="A - G = \\frac{(\\sqrt{a} - \\sqrt{b})^2}{2} \\ge 0 \\quad \\Rightarrow \\quad A \\ge G" />
         <p className="text-sm text-muted-foreground mt-2">Equality holds iff a = b.</p>
       </FormulaCard>
 

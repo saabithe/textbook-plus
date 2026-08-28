@@ -55,7 +55,7 @@ export default function BinomialTheoremChapter() {
       <h2 id="h-theorem">7.2 Binomial Theorem</h2>
       <FormulaCard>
         <p className="font-semibold mb-2">Binomial Theorem</p>
-        <FormulaBlock latex="(a+b)^n = \sum_{k=0}^{n} {^{n}C_{k}}\, a^{n-k}\, b^{k}" />
+        <FormulaBlock latex="(a+b)^n = \\sum_{k=0}^{n} {^{n}C_{k}}\\, a^{n-k}\\, b^{k}" />
         <p className="text-sm text-muted-foreground mt-2">Expanded: nC0·aⁿ + nC1·aⁿ⁻¹b + nC2·aⁿ⁻²b² + ⋯ + nCn·bⁿ</p>
       </FormulaCard>
       <KeyPoint>
@@ -83,9 +83,9 @@ export default function BinomialTheoremChapter() {
       <h2 id="h-special">Special Cases</h2>
       <FormulaCard>
         <p className="font-semibold mb-2">Three Useful Forms</p>
-        <FormulaBlock latex="(x-y)^n = {^{n}C_{0}}x^n - {^{n}C_{1}}x^{n-1}y + {^{n}C_{2}}x^{n-2}y^2 - \cdots + (-1)^n {^{n}C_{n}}y^n" />
-        <FormulaBlock latex="(1+x)^n = {^{n}C_{0}} + {^{n}C_{1}}x + {^{n}C_{2}}x^2 + \cdots + {^{n}C_{n}}x^n" />
-        <FormulaBlock latex="(1-x)^n = {^{n}C_{0}} - {^{n}C_{1}}x + {^{n}C_{2}}x^2 - \cdots + (-1)^n {^{n}C_{n}}x^n" />
+        <FormulaBlock latex="(x-y)^n = {^{n}C_{0}}x^n - {^{n}C_{1}}x^{n-1}y + {^{n}C_{2}}x^{n-2}y^2 - \\cdots + (-1)^n {^{n}C_{n}}y^n" />
+        <FormulaBlock latex="(1+x)^n = {^{n}C_{0}} + {^{n}C_{1}}x + {^{n}C_{2}}x^2 + \\cdots + {^{n}C_{n}}x^n" />
+        <FormulaBlock latex="(1-x)^n = {^{n}C_{0}} - {^{n}C_{1}}x + {^{n}C_{2}}x^2 - \\cdots + (-1)^n {^{n}C_{n}}x^n" />
       </FormulaCard>
 
       <Expandable title="Examples 2 and 3 — Applications">
@@ -127,8 +127,8 @@ export default function BinomialTheoremChapter() {
       <h2 id="h-coeff-sums">Sum of Binomial Coefficients</h2>
       <FormulaCard>
         <p className="font-semibold mb-2">Key Identities</p>
-        <FormulaBlock latex="{^{n}C_{0}} + {^{n}C_{1}} + {^{n}C_{2}} + \cdots + {^{n}C_{n}} = 2^n" />
-        <FormulaBlock latex="{^{n}C_{0}} - {^{n}C_{1}} + {^{n}C_{2}} - \cdots + (-1)^n {^{n}C_{n}} = 0" />
+        <FormulaBlock latex="{^{n}C_{0}} + {^{n}C_{1}} + {^{n}C_{2}} + \\cdots + {^{n}C_{n}} = 2^n" />
+        <FormulaBlock latex="{^{n}C_{0}} - {^{n}C_{1}} + {^{n}C_{2}} - \\cdots + (-1)^n {^{n}C_{n}} = 0" />
         <p className="text-sm text-muted-foreground mt-2">Odd-indexed sum = Even-indexed sum = 2ⁿ⁻¹.</p>
       </FormulaCard>
 
