@@ -824,6 +824,56 @@ export default function LimitsAndDerivativesChapter() {
         </ProblemSolution>
       </Expandable>
 
+      <Expandable title="Additional Derivatives — cot x, −sin x, x sin x">
+        <ProblemSolution problemNumber="G — cot x (First Principle)">
+          <ProblemSolution.Problem>
+            Find the derivative of <Formula>{String.raw`y=\cot x`}</Formula> from first principles.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Setup", description: <Formula>{String.raw`\frac{dy}{dx}=\lim_{h\to0}\frac{\cot(x+h)-\cot x}{h}=\lim_{h\to0}\frac{\frac{\cos(x+h)}{\sin(x+h)}-\frac{\cos x}{\sin x}}{h}`}</Formula> },
+                { label: "Combine", description: <Formula>{String.raw`\frac{\sin x\cos(x+h)-\cos x\sin(x+h)}{h\sin x\sin(x+h)}`}</Formula> },
+                { label: "Numerator", description: <Formula>{String.raw`\sin(x-(x+h))=-\sin h`}</Formula> },
+                { label: "Limit", description: <Formula>{String.raw`\lim_{h\to0}\frac{-\sin h}{h}\cdot\frac1{\sin x\sin(x+h)}=-\csc^{2}x`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="H — −sin x (Constant Multiple)">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\frac{d}{dx}(-\sin x)=\,?`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Recall", description: <Formula>{String.raw`\frac{d}{dx}(\sin x)=\cos x`}</Formula> },
+                { label: "Constant multiple", description: <Formula>{String.raw`\frac{d}{dx}(-\sin x)=-1\cdot\frac{d}{dx}(\sin x)`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`-1\cdot\cos x=-\cos x`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{\frac{d}{dx}(-\sin x)=-\cos x}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="I — x sin x (Product Rule)">
+          <ProblemSolution.Problem>
+            Find the derivative of <Formula>{String.raw`y=x\sin x`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Identify", description: <Formula>{String.raw`u=x,\;v=\sin x`}</Formula> },
+                { label: "Product rule", description: <Formula>{String.raw`(uv)'=u'v+uv'`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`1\cdot\sin x + x\cdot\cos x = \sin x + x\cos x`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{\frac{d}{dx}(x\sin x)=\sin x + x\cos x}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <h3>Standard Derivatives</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Common Derivatives</p>
