@@ -5,16 +5,16 @@ import { Class11ChapterList } from "@/components/subject/Class11ChapterList";
 import { getClass11SubjectBySlug, class11Subjects, getClass11Chapters } from "@/data/class11";
 
 export function generateStaticParams() {
-  return class11Subjects.map((s) => ({ slug: s.slug }));
+  return class11Subjects.map((s) => ({ subject: s.slug }));
 }
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ subject: string }>;
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { slug } = await params;
-  const subject = getClass11SubjectBySlug(slug);
+  const { subject: subjectSlug } = await params;
+  const subject = getClass11SubjectBySlug(subjectSlug);
   if (!subject) return { title: "Not Found" };
   return {
     title: `${subject.name} (Class 11) — Textbook++`,
@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Class11SubjectPage({ params }: Props) {
-  const { slug } = await params;
-  const subject = getClass11SubjectBySlug(slug);
+  const { subject: subjectSlug } = await params;
+  const subject = getClass11SubjectBySlug(subjectSlug);
 
   if (!subject) notFound();
 
