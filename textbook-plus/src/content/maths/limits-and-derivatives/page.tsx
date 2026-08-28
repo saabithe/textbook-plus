@@ -268,6 +268,275 @@ export default function LimitsAndDerivativesChapter() {
         </ProblemSolution>
       </Expandable>
 
+      <Expandable title="Additional Practice — 14 Fully Solved Limits">
+        <ProblemSolution problemNumber="1 — Direct Substitution">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to -1} \frac{x^{2}-5x+6}{x-1}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Substitute x = −1", description: <Formula>{String.raw`\frac{(-1)^{2}-5(-1)+6}{-1-1} = \frac{1+5+6}{-2}`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`\frac{12}{-2} = -6`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{-6}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="2 — Factorisation at x = −4">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to -4} \frac{2x+8}{x^{2}+x-12}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Factor numerator", description: <Formula>{String.raw`2x+8 = 2(x+4)`}</Formula> },
+                { label: "Factor denominator", description: <Formula>{String.raw`x^{2}+x-12 = (x+4)(x-3)`}</Formula> },
+                { label: "Cancel", description: <Formula>{String.raw`\frac{2(x+4)}{(x+4)(x-3)} = \frac{2}{x-3}`}</Formula> },
+                { label: "Put x = −4", description: <Formula>{String.raw`\frac{2}{-4-3} = -\frac{2}{7}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{-\tfrac{2}{7}}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="3 — Greatest Integer at x = 2">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to 2} [x]`}</Formula> where <Formula>{String.raw`[x]`}</Formula> is the greatest integer (floor) function.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Left of 2", description: <><Formula>{String.raw`x=1.9,1.99 \Rightarrow [x]=1`}</Formula> so <Formula>{String.raw`\lim_{x \to 2^{-}}[x]=1`}</Formula></> },
+                { label: "Right of 2", description: <><Formula>{String.raw`x=2.1,2.01 \Rightarrow [x]=2`}</Formula> so <Formula>{String.raw`\lim_{x \to 2^{+}}[x]=2`}</Formula></> },
+                { label: "Compare", description: <><Formula>{String.raw`1 \ne 2`}</Formula> — LHL ≠ RHL, so <Formula>{String.raw`\text{DNE}`}</Formula></> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{\text{DNE}}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="4 — cos9x−cos5x over sin17x−sin3x at 0">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to 0} \frac{\cos 9x - \cos 5x}{\sin 17x - \sin 3x}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Numerator", description: <Formula>{String.raw`\cos A-\cos B=-2\sin\frac{A+B}{2}\sin\frac{A-B}{2} \Rightarrow -2\sin 7x\sin 2x`}</Formula> },
+                { label: "Denominator", description: <Formula>{String.raw`\sin A-\sin B=2\cos\frac{A+B}{2}\sin\frac{A-B}{2} \Rightarrow 2\cos 10x\sin 7x`}</Formula> },
+                { label: "Cancel", description: <Formula>{String.raw`\frac{-2\sin 7x\sin 2x}{2\cos 10x\sin 7x} = -\frac{\sin 2x}{\cos 10x}`}</Formula> },
+                { label: "Put x = 0", description: <Formula>{String.raw`-\frac{0}{1}=0`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{0}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="5 — (1−cos4x)/x² at 0">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to 0} \frac{1-\cos 4x}{x^{2}}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Identity", description: <Formula>{String.raw`1-\cos 4x = 2\sin^{2}2x`}</Formula> },
+                { label: "Rewrite", description: <Formula>{String.raw`\frac{2\sin^{2}2x}{x^{2}} = 2\left(\frac{\sin 2x}{x}\right)^{2}`}</Formula> },
+                { label: "Adjust", description: <Formula>{String.raw`2\left(2\cdot\frac{\sin 2x}{2x}\right)^{2}=8\left(\frac{\sin 2x}{2x}\right)^{2}`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`8\cdot 1^{2}=8`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{8}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="6 — (√x+√a)/(x+a) at x→a">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to a} \frac{\sqrt{x}+\sqrt{a}}{x+a}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Direct", description: <Formula>{String.raw`\frac{\sqrt{a}+\sqrt{a}}{a+a}=\frac{2\sqrt{a}}{2a}`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`\frac{\sqrt{a}}{a}=\frac{1}{\sqrt{a}}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{\tfrac{1}{\sqrt{a}}\;(a>0)}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="7 — (x³−8)/(x²−4) at 2">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to 2} \frac{x^{3}-8}{x^{2}-4}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Factor", description: <Formula>{String.raw`x^{3}-8=(x-2)(x^{2}+2x+4),\;x^{2}-4=(x-2)(x+2)`}</Formula> },
+                { label: "Cancel", description: <Formula>{String.raw`\frac{x^{2}+2x+4}{x+2}`}</Formula> },
+                { label: "Put x=2", description: <Formula>{String.raw`\frac{4+4+4}{4}=3`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{3}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="8 — (x⁷−1)/(x⁴−1) at 1">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to 1} \frac{x^{7}-1}{x^{4}-1}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Standard form", description: <Formula>{String.raw`\frac{(x^{7}-1)/(x-1)}{(x^{4}-1)/(x-1)}`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`\frac{7\cdot1^{6}}{4\cdot1^{3}}=\frac{7}{4}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{\tfrac{7}{4}}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="9 — (cos2x−1)/(cos x−1) at 0 (Method A)">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to 0} \frac{\cos 2x-1}{\cos x-1}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Numerator", description: <Formula>{String.raw`\cos 2x-1=-2\sin^{2}x`}</Formula> },
+                { label: "Rewrite", description: <Formula>{String.raw`\frac{-2\sin^{2}x}{-(1-\cos x)}=\frac{2\sin^{2}x}{1-\cos x}`}</Formula> },
+                { label: "Divide by x²", description: <Formula>{String.raw`\frac{2(\sin x/x)^{2}}{(1-\cos x)/x^{2}}`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`\frac{2\cdot1}{1/2}=4`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{4}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="10 — (cos2x−1)/(cos x−1) at 0 (Method B)">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to 0} \frac{\cos 2x-1}{\cos x-1}`}</Formula> — alternative factorisation.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Use", description: <Formula>{String.raw`\cos 2x=2\cos^{2}x-1 \Rightarrow \cos2x-1=2(\cos^{2}x-1)`}</Formula> },
+                { label: "Factor", description: <Formula>{String.raw`2(\cos x-1)(\cos x+1)/(\cos x-1)=2(\cos x+1)`}</Formula> },
+                { label: "Put x=0", description: <Formula>{String.raw`2(1+1)=4`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{4}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="11 — sin ax / (x cos bx) at 0">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to 0} \frac{\sin ax}{x\cos bx}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Rewrite", description: <Formula>{String.raw`\frac{\sin ax}{ax}\cdot\frac{a}{\cos bx}`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`1\cdot a \cdot 1 = a`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{a}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="12 — (√z−1)/(1−z) at 1">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{z \to 1} \frac{\sqrt{z}-1}{1-z}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Factor denom", description: <Formula>{String.raw`1-z=(1-\sqrt{z})(1+\sqrt{z})`}</Formula> },
+                { label: "Cancel", description: <Formula>{String.raw`\frac{\sqrt{z}-1}{-(\sqrt{z}-1)(\sqrt{z}+1)}=-\frac1{\sqrt{z}+1}`}</Formula> },
+                { label: "Put z=1", description: <Formula>{String.raw`-\frac1{2}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{-\tfrac12}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="13 — tan(π/4−x)/(π/4−x) at π/4">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to \pi/4} \frac{\tan(\pi/4 - x)}{\pi/4 - x}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Let θ = π/4−x →0", description: <Formula>{String.raw`\lim_{\theta\to0}\frac{\tan\theta}{\theta}=1`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{1}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="14 — sin(π−x)/(π(π−x)) at π">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to \pi} \frac{\sin(\pi-x)}{\pi(\pi-x)}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Let θ=π−x →0", description: <Formula>{String.raw`\frac1\pi\cdot\frac{\sin\theta}{\theta}`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`\frac1\pi\cdot1=\frac1\pi`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{\tfrac1\pi}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="15 — (x+5)²−25 over x at 0">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to 0} \frac{(x+5)^{2}-25}{x}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Expand", description: <Formula>{String.raw`x^{2}+10x`}</Formula> },
+                { label: "Factor", description: <Formula>{String.raw`x(x+10)/x = x+10`}</Formula> },
+                { label: "Put x=0", description: <Formula>{String.raw`10`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{10}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="16 — cos x/(π/2−x) at π/2">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to \pi/2} \frac{\cos x}{\pi/2 - x}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Let θ=π/2−x", description: <Formula>{String.raw`\cos x=\sin\theta`}</Formula> },
+                { label: "Limit", description: <Formula>{String.raw`\lim_{\theta\to0}\sin\theta/\theta=1`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{1}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="17 — (xⁿ−2ⁿ)/(x−2)=32 find n">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to 2} \frac{x^{n}-2^{n}}{x-2}=32`}</Formula> — find <Formula>{String.raw`n`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Standard", description: <Formula>{String.raw`n\cdot2^{\,n-1}=32`}</Formula> },
+                { label: "Test n=4", description: <Formula>{String.raw`4\cdot2^{3}=32`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{n=4}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <KeyPoint title="Special Limit (Crucial)">
         <FormulaCard>
           <FormulaBlock latex={String.raw`\lim_{x \to a} \frac{x^n - a^n}{x - a} = n \cdot a^{n-1}`} />
