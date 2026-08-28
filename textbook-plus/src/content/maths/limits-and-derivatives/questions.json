@@ -105,5 +105,25 @@
     "question": "Find f'(x) from first principles if f(x) = x² + 3x.",
     "answer": "f'(x) = 2x + 3",
     "explanation": "[f(x+h) − f(x)]/h = [(x+h)² + 3(x+h) − x² − 3x]/h = [2xh + h² + 3h]/h = 2x + h + 3 → 2x + 3 as h → 0."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/q11",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Evaluate lim(x→0) (cosec x − cot x).",
+    "answer": "0",
+    "explanation": "cosec x − cot x = (1 − cos x)/sin x = 2 sin²(x/2) / (2 sin(x/2)cos(x/2)) = tan(x/2) → 0 as x→0. Also seen in Ex 12.1 Q21: (1−cos x)/sin x = tan(x/2)."
+  },
+  {
+    "id": "c11/maths/limits-and-derivatives/q12",
+    "chapterSlug": "limits-and-derivatives",
+    "subject": "maths",
+    "type": "short",
+    "difficulty": "easy",
+    "question": "Find lim(x→2) (x² − 2).",
+    "answer": "2",
+    "explanation": "Polynomial limit — direct substitution: 2² − 2 = 4 − 2 = 2. No indeterminate form, unlike (x²−4)/(x−2) which needs factoring."
   }
 ]
