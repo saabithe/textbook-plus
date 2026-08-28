@@ -278,14 +278,6 @@ export default function LimitsAndDerivativesChapter() {
         </FormulaCard>
       </KeyPoint>
 
-      <Stepper
-        steps={[
-          { label: "Factor numerator", description: <Formula>{String.raw`x^n - a^n = (x-a)\left(x^{n-1} + x^{n-2}a + x^{n-3}a^2 + \cdots + a^{n-1}\right)`}</Formula> },
-          { label: "Cancel (x − a)", description: <Formula>{String.raw`\frac{x^n-a^n}{x-a} = x^{n-1} + x^{n-2}a + \cdots + a^{n-1}`}</Formula> },
-          { label: "Substitute x = a", description: <Formula>{String.raw`\text{Each of the } n \text{ terms becomes } a^{n-1},\ \text{giving } n\cdot a^{n-1}`}</Formula> },
-        ]}
-      />
-
       <Expandable title="Examples 2 and 3 — Polynomial &amp; Standard Limits">
         <ProblemSolution problemNumber="Example 2">
           <ProblemSolution.Problem>
