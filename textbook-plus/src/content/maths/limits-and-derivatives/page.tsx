@@ -513,23 +513,6 @@ export default function LimitsAndDerivativesChapter() {
         In degrees, lim(x→0) sin x°/x ≠ 1.
       </KeyPoint>
 
-      <h3>The Sandwich (Squeeze) Theorem</h3>
-      <Callout type="note" title="Sandwich Theorem">
-        If g(x) ≤ f(x) ≤ h(x) for all x near a (except possibly at a), and{" "}
-        <FormulaBlock latex={String.raw`\lim_{x \to a} g(x) = \lim_{x \to a} h(x) = L`} />
-        then <FormulaBlock latex={String.raw`\lim_{x \to a} f(x) = L`} />.
-      </Callout>
-
-      <Expandable title="Example 4 — Proving lim sin x / x = 1 (Sketch)">
-        <Stepper
-          steps={[
-            { label: "Geometric argument", description: "For 0 &lt; x &lt; π/2: Area of triangle OAB &lt; Area of sector OAB &lt; Area of triangle OAC" },
-            { label: "Inequality", description: <Formula>{String.raw`\frac{1}{2}\sin x < \frac{1}{2}x < \frac{1}{2}\tan x \ \Rightarrow\ \cos x < \frac{\sin x}{x} < 1`}</Formula> },
-            { label: "Apply Sandwich", description: <Formula>{String.raw`\text{Since }\lim_{x\to 0}\cos x = 1 \text{ and } \lim_{x\to 0}1 = 1,\ \lim_{x \to 0}\frac{\sin x}{x} = 1`}</Formula> },
-          ]}
-        />
-      </Expandable>
-
       <Expandable title="Examples 5 and 6 — Trigonometric Limits">
         <ProblemSolution problemNumber="Example 5">
           <ProblemSolution.Problem>
