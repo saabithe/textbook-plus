@@ -201,74 +201,7 @@ export default function LimitsAndDerivativesChapter() {
         </ProblemSolution>
       </Expandable>
 
-      <Expandable title="Practice — 4 Limits (Fully Solved)">
-        <ProblemSolution problemNumber="Q1">
-          <ProblemSolution.Problem>
-            <Formula>{String.raw`\lim_{x \to -1} \frac{x^{2}-5x+6}{x-1}`}</Formula>
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <Stepper
-              steps={[
-                { label: "Substitute x = −1", description: <Formula>{String.raw`\frac{(-1)^{2}-5(-1)+6}{-1-1}`}</Formula> },
-                { label: "Simplify", description: <Formula>{String.raw`\frac{1+5+6}{-2} = \frac{12}{-2} = -6`}</Formula> },
-              ]}
-            />
-            <FormulaBlock latex={String.raw`\boxed{-6}`} important />
-          </ProblemSolution.Solution>
-        </ProblemSolution>
-
-        <ProblemSolution problemNumber="Q2">
-          <ProblemSolution.Problem>
-            <Formula>{String.raw`\lim_{x \to -4} \frac{2x+8}{x^{2}+x-12}`}</Formula>
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <Stepper
-              steps={[
-                { label: "Factor numerator", description: <Formula>{String.raw`2x+8 = 2(x+4)`}</Formula> },
-                { label: "Factor denominator", description: <Formula>{String.raw`x^{2}+x-12 = (x+4)(x-3)`}</Formula> },
-                { label: "Cancel", description: <Formula>{String.raw`\frac{2(x+4)}{(x+4)(x-3)} = \frac{2}{x-3}`}</Formula> },
-                { label: "Put x = −4", description: <Formula>{String.raw`\frac{2}{-4-3} = -\frac{2}{7}`}</Formula> },
-              ]}
-            />
-            <FormulaBlock latex={String.raw`\boxed{-\tfrac{2}{7}}`} important />
-          </ProblemSolution.Solution>
-        </ProblemSolution>
-
-        <ProblemSolution problemNumber="Q3">
-          <ProblemSolution.Problem>
-            <Formula>{String.raw`\lim_{x \to 2} [x]`}</Formula> where <Formula>{String.raw`[x]`}</Formula> is the greatest integer (floor) function.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <Stepper
-              steps={[
-                { label: "Left of 2", description: <><Formula>{String.raw`x=1.9,1.99,1.999 \Rightarrow [x]=1`}</Formula> so <Formula>{String.raw`\lim_{x \to 2^{-}}[x]=1`}</Formula></> },
-                { label: "Right of 2", description: <><Formula>{String.raw`x=2.1,2.01 \Rightarrow [x]=2`}</Formula> so <Formula>{String.raw`\lim_{x \to 2^{+}}[x]=2`}</Formula></> },
-                { label: "Compare", description: <><Formula>{String.raw`1 \ne 2`}</Formula> — LHL ≠ RHL, so limit <Formula>{String.raw`\text{DNE}`}</Formula></> },
-              ]}
-            />
-            <FormulaBlock latex={String.raw`\boxed{\text{DNE}}`} important />
-          </ProblemSolution.Solution>
-        </ProblemSolution>
-
-        <ProblemSolution problemNumber="Q4">
-          <ProblemSolution.Problem>
-            <Formula>{String.raw`\lim_{x \to 0} \frac{\cos 9x - \cos 5x}{\sin 17x - \sin 3x}`}</Formula>
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <Stepper
-              steps={[
-                { label: "Numerator identity", description: <Formula>{String.raw`\cos A-\cos B=-2\sin\frac{A+B}{2}\sin\frac{A-B}{2} \Rightarrow -2\sin 7x\sin 2x`}</Formula> },
-                { label: "Denominator identity", description: <Formula>{String.raw`\sin A-\sin B=2\cos\frac{A+B}{2}\sin\frac{A-B}{2} \Rightarrow 2\cos 10x\sin 7x`}</Formula> },
-                { label: "Substitute & cancel", description: <Formula>{String.raw`\frac{-2\sin 7x\sin 2x}{2\cos 10x\sin 7x} = -\frac{\sin 2x}{\cos 10x}`}</Formula> },
-                { label: "Put x = 0", description: <Formula>{String.raw`-\frac{\sin 0}{\cos 0} = -\frac{0}{1}=0`}</Formula> },
-              ]}
-            />
-            <FormulaBlock latex={String.raw`\boxed{0}`} important />
-          </ProblemSolution.Solution>
-        </ProblemSolution>
-      </Expandable>
-
-      <Expandable title="Additional Practice — 14 Fully Solved Limits">
+      <Expandable title="Practice — Fully Solved Limits (15 Problems)">
         <ProblemSolution problemNumber="1 — Direct Substitution">
           <ProblemSolution.Problem>
             <Formula>{String.raw`\lim_{x \to -1} \frac{x^{2}-5x+6}{x-1}`}</Formula>
@@ -414,23 +347,7 @@ export default function LimitsAndDerivativesChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="10 — (cos2x−1)/(cos x−1) at 0 (Method B)">
-          <ProblemSolution.Problem>
-            <Formula>{String.raw`\lim_{x \to 0} \frac{\cos 2x-1}{\cos x-1}`}</Formula> — alternative factorisation.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <Stepper
-              steps={[
-                { label: "Use", description: <Formula>{String.raw`\cos 2x=2\cos^{2}x-1 \Rightarrow \cos2x-1=2(\cos^{2}x-1)`}</Formula> },
-                { label: "Factor", description: <Formula>{String.raw`2(\cos x-1)(\cos x+1)/(\cos x-1)=2(\cos x+1)`}</Formula> },
-                { label: "Put x=0", description: <Formula>{String.raw`2(1+1)=4`}</Formula> },
-              ]}
-            />
-            <FormulaBlock latex={String.raw`\boxed{4}`} important />
-          </ProblemSolution.Solution>
-        </ProblemSolution>
-
-        <ProblemSolution problemNumber="11 — sin ax / (x cos bx) at 0">
+        <ProblemSolution problemNumber="10 — sin ax / (x cos bx) at 0">
           <ProblemSolution.Problem>
             <Formula>{String.raw`\lim_{x \to 0} \frac{\sin ax}{x\cos bx}`}</Formula>
           </ProblemSolution.Problem>
@@ -445,7 +362,7 @@ export default function LimitsAndDerivativesChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="12 — (√z−1)/(1−z) at 1">
+        <ProblemSolution problemNumber="11 — (√z−1)/(1−z) at 1">
           <ProblemSolution.Problem>
             <Formula>{String.raw`\lim_{z \to 1} \frac{\sqrt{z}-1}{1-z}`}</Formula>
           </ProblemSolution.Problem>
@@ -461,7 +378,7 @@ export default function LimitsAndDerivativesChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="13 — tan(π/4−x)/(π/4−x) at π/4">
+        <ProblemSolution problemNumber="12 — tan(π/4−x)/(π/4−x) at π/4">
           <ProblemSolution.Problem>
             <Formula>{String.raw`\lim_{x \to \pi/4} \frac{\tan(\pi/4 - x)}{\pi/4 - x}`}</Formula>
           </ProblemSolution.Problem>
@@ -475,7 +392,7 @@ export default function LimitsAndDerivativesChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="14 — sin(π−x)/(π(π−x)) at π">
+        <ProblemSolution problemNumber="13 — sin(π−x)/(π(π−x)) at π">
           <ProblemSolution.Problem>
             <Formula>{String.raw`\lim_{x \to \pi} \frac{\sin(\pi-x)}{\pi(\pi-x)}`}</Formula>
           </ProblemSolution.Problem>
@@ -490,7 +407,7 @@ export default function LimitsAndDerivativesChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="15 — (x+5)²−25 over x at 0">
+        <ProblemSolution problemNumber="14 — (x+5)²−25 over x at 0">
           <ProblemSolution.Problem>
             <Formula>{String.raw`\lim_{x \to 0} \frac{(x+5)^{2}-25}{x}`}</Formula>
           </ProblemSolution.Problem>
@@ -506,22 +423,7 @@ export default function LimitsAndDerivativesChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="16 — cos x/(π/2−x) at π/2">
-          <ProblemSolution.Problem>
-            <Formula>{String.raw`\lim_{x \to \pi/2} \frac{\cos x}{\pi/2 - x}`}</Formula>
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <Stepper
-              steps={[
-                { label: "Let θ=π/2−x", description: <Formula>{String.raw`\cos x=\sin\theta`}</Formula> },
-                { label: "Limit", description: <Formula>{String.raw`\lim_{\theta\to0}\sin\theta/\theta=1`}</Formula> },
-              ]}
-            />
-            <FormulaBlock latex={String.raw`\boxed{1}`} important />
-          </ProblemSolution.Solution>
-        </ProblemSolution>
-
-        <ProblemSolution problemNumber="17 — (xⁿ−2ⁿ)/(x−2)=32 find n">
+        <ProblemSolution problemNumber="15 — (xⁿ−2ⁿ)/(x−2)=32 find n">
           <ProblemSolution.Problem>
             <Formula>{String.raw`\lim_{x \to 2} \frac{x^{n}-2^{n}}{x-2}=32`}</Formula> — find <Formula>{String.raw`n`}</Formula>.
           </ProblemSolution.Problem>
