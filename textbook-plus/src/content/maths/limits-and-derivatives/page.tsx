@@ -201,6 +201,73 @@ export default function LimitsAndDerivativesChapter() {
         </ProblemSolution>
       </Expandable>
 
+      <Expandable title="Practice — 4 Limits (Fully Solved)">
+        <ProblemSolution problemNumber="Q1">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to -1} \frac{x^{2}-5x+6}{x-1}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Substitute x = −1", description: <Formula>{String.raw`\frac{(-1)^{2}-5(-1)+6}{-1-1}`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`\frac{1+5+6}{-2} = \frac{12}{-2} = -6`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{-6}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Q2">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to -4} \frac{2x+8}{x^{2}+x-12}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Factor numerator", description: <Formula>{String.raw`2x+8 = 2(x+4)`}</Formula> },
+                { label: "Factor denominator", description: <Formula>{String.raw`x^{2}+x-12 = (x+4)(x-3)`}</Formula> },
+                { label: "Cancel", description: <Formula>{String.raw`\frac{2(x+4)}{(x+4)(x-3)} = \frac{2}{x-3}`}</Formula> },
+                { label: "Put x = −4", description: <Formula>{String.raw`\frac{2}{-4-3} = -\frac{2}{7}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{-\tfrac{2}{7}}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Q3">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to 2} [x]`}</Formula> where <Formula>{String.raw`[x]`}</Formula> is the greatest integer (floor) function.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Left of 2", description: <><Formula>{String.raw`x=1.9,1.99,1.999 \Rightarrow [x]=1`}</Formula> so <Formula>{String.raw`\lim_{x \to 2^{-}}[x]=1`}</Formula></> },
+                { label: "Right of 2", description: <><Formula>{String.raw`x=2.1,2.01 \Rightarrow [x]=2`}</Formula> so <Formula>{String.raw`\lim_{x \to 2^{+}}[x]=2`}</Formula></> },
+                { label: "Compare", description: <><Formula>{String.raw`1 \ne 2`}</Formula> — LHL ≠ RHL, so limit <Formula>{String.raw`\text{DNE}`}</Formula></> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{\text{DNE}}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Q4">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to 0} \frac{\cos 9x - \cos 5x}{\sin 17x - \sin 3x}`}</Formula>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Numerator identity", description: <Formula>{String.raw`\cos A-\cos B=-2\sin\frac{A+B}{2}\sin\frac{A-B}{2} \Rightarrow -2\sin 7x\sin 2x`}</Formula> },
+                { label: "Denominator identity", description: <Formula>{String.raw`\sin A-\sin B=2\cos\frac{A+B}{2}\sin\frac{A-B}{2} \Rightarrow 2\cos 10x\sin 7x`}</Formula> },
+                { label: "Substitute & cancel", description: <Formula>{String.raw`\frac{-2\sin 7x\sin 2x}{2\cos 10x\sin 7x} = -\frac{\sin 2x}{\cos 10x}`}</Formula> },
+                { label: "Put x = 0", description: <Formula>{String.raw`-\frac{\sin 0}{\cos 0} = -\frac{0}{1}=0`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{0}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <h3>Limits of Polynomials and Rational Functions</h3>
       <ul>
         <li><strong>Polynomial:</strong>{" "}
