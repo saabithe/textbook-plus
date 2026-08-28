@@ -105,6 +105,102 @@ export default function LimitsAndDerivativesChapter() {
         <p className="text-sm text-muted-foreground mt-2">These hold provided the individual limits on the right exist (and denominator ≠ 0).</p>
       </FormulaCard>
 
+      <h2 id="h-methods">Methods to Find Limits</h2>
+
+      <h3>Direct Method</h3>
+      <Callout type="note" title="Direct Substitution">
+        For finding <Formula>{String.raw`\lim_{x \to a} f(x)`}</Formula>, substitute <Formula>{String.raw`x=a`}</Formula> in <Formula>{String.raw`f(x)`}</Formula>. If <Formula>{String.raw`f(a)`}</Formula> is a finite number, then <Formula>{String.raw`f(a)`}</Formula> is the required limit.
+      </Callout>
+      <ul>
+        <li><Formula>{String.raw`\lim_{x \to 5} (x+2) = 5+2 = 7`}</Formula></li>
+        <li>Evaluate <Formula>{String.raw`\lim_{x \to 3} (x+3)`}</Formula>: <Formula>{String.raw`3+3 = 6`}</Formula></li>
+        <li>Evaluate <Formula>{String.raw`\lim_{r \to 1} \pi r^{2}`}</Formula>: <Formula>{String.raw`\pi \times 1^{2} = \pi`}</Formula></li>
+        <li>Evaluate <Formula>{String.raw`\lim_{x \to 4} \frac{4x+3}{x-2}`}</Formula>: <Formula>{String.raw`\frac{4(4)+3}{4-2} = \frac{19}{2}`}</Formula></li>
+        <li>Evaluate <Formula>{String.raw`\lim_{x \to 0} \frac{ax+b}{cx+1}`}</Formula>: <Formula>{String.raw`\frac{a(0)+b}{c(0)+1} = b`}</Formula></li>
+      </ul>
+
+      <h3>By Factorisation</h3>
+      <Callout type="tip" title="When to Factorise">
+        If direct substitution gives <Formula>{String.raw`\frac{0}{0}`}</Formula> (indeterminate), factorise numerator and denominator, cancel the common factor <Formula>{String.raw`(x-a)`}</Formula>, then substitute again.
+      </Callout>
+
+      <Expandable title="Factorisation — Worked Examples">
+        <ProblemSolution problemNumber="Ex A">
+          <ProblemSolution.Problem>
+            <Formula>{String.raw`\lim_{x \to 2} \frac{x-2}{x^{2}-4}`}</Formula> — direct gives <Formula>{String.raw`\frac{0}{0}`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Factor denominator", description: <Formula>{String.raw`x^{2}-4 = (x-2)(x+2)`}</Formula> },
+                { label: "Cancel", description: <Formula>{String.raw`\frac{x-2}{(x-2)(x+2)} = \frac{1}{x+2}`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`\frac{1}{2+2} = \frac{1}{4}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Ex B">
+          <ProblemSolution.Problem>
+            Find <Formula>{String.raw`\lim_{x \to 3} \frac{x-3}{x^{2}-9}`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Factor", description: <Formula>{String.raw`x^{2}-9 = (x-3)(x+3)`}</Formula> },
+                { label: "Cancel", description: <Formula>{String.raw`\frac{x-3}{(x-3)(x+3)} = \frac{1}{x+3}`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`\frac{1}{3+3} = \frac{1}{6}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Ex C">
+          <ProblemSolution.Problem>
+            Find <Formula>{String.raw`\lim_{x \to 3} \frac{x^{2}-4x+3}{x-3}`}</Formula> — note <Formula>{String.raw`x^{2}-4x+3 = (x-1)(x-3)`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Factor numerator", description: <Formula>{String.raw`x^{2}-4x+3 = (x-1)(x-3)`}</Formula> },
+                { label: "Cancel", description: <Formula>{String.raw`\frac{(x-1)(x-3)}{x-3} = x-1`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`3-1 = 2`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Ex D">
+          <ProblemSolution.Problem>
+            Find <Formula>{String.raw`\lim_{x \to 2} \frac{x^{3}-2x^{2}}{x^{2}-5x+6}`}</Formula> — note <Formula>{String.raw`x^{2}-5x+6 = (x-2)(x-3)`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Factor numerator", description: <Formula>{String.raw`x^{3}-2x^{2} = x^{2}(x-2)`}</Formula> },
+                { label: "Cancel", description: <Formula>{String.raw`\frac{x^{2}(x-2)}{(x-2)(x-3)} = \frac{x^{2}}{x-3}`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`\frac{2^{2}}{2-3} = \frac{4}{-1} = -4`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Ex E">
+          <ProblemSolution.Problem>
+            Find <Formula>{String.raw`\lim_{x \to -2} \frac{\frac{1}{x}+\frac{1}{2}}{x+2}`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Combine numerator", description: <Formula>{String.raw`\frac{1}{x}+\frac{1}{2} = \frac{2+x}{2x}`}</Formula> },
+                { label: "Divide by (x+2)", description: <Formula>{String.raw`\frac{(2+x)/2x}{x+2} = \frac{1}{2x}`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`\frac{1}{2(-2)} = -\frac{1}{4}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <h3>Limits of Polynomials and Rational Functions</h3>
       <ul>
         <li><strong>Polynomial:</strong>{" "}
