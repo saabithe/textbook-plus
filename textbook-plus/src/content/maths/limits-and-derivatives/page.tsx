@@ -779,24 +779,105 @@ export default function LimitsAndDerivativesChapter() {
 
       <h3>Algebra of Derivatives</h3>
       <FormulaCard>
-        <p className="font-semibold mb-2">Sum, Difference, Constant Multiple</p>
-        <FormulaBlock latex={String.raw`[f(x) \pm g(x)]' = f'(x) \pm g'(x)`} />
-        <FormulaBlock latex={String.raw`[k \cdot f(x)]' = k \cdot f'(x)`} />
+        <p className="font-semibold mb-2">Where <Formula>{String.raw`u,v`}</Formula> are functions, <Formula>{String.raw`u',v'`}</Formula> their derivatives:</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 text-sm">
+          <FormulaBlock latex={String.raw`(u+v)'=u'+v'`} />
+          <FormulaBlock latex={String.raw`(u-v)'=u'-v'`} />
+          <FormulaBlock latex={String.raw`(u\cdot v)'=uv'+vu'`} />
+          <FormulaBlock latex={String.raw`\left(\frac{u}{v}\right)'=\frac{vu'-uv'}{v^{2}}`} />
+        </div>
+        <p className="text-sm font-medium mt-3">Differential notation</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 text-sm">
+          <FormulaBlock latex={String.raw`\frac{d}{dx}[f+g]=\frac{d}{dx}f+\frac{d}{dx}g`} />
+          <FormulaBlock latex={String.raw`\frac{d}{dx}[f-g]=\frac{d}{dx}f-\frac{d}{dx}g`} />
+          <FormulaBlock latex={String.raw`\frac{d}{dx}[f\cdot g]=f'g+fg'`} />
+          <FormulaBlock latex={String.raw`\frac{d}{dx}\left(\frac{f}{g}\right)=\frac{g f'-f g'}{g^{2}}`} />
+        </div>
+        <FormulaBlock latex={String.raw`\frac{d}{dx}[k\cdot f]=k\,f'`} />
       </FormulaCard>
 
-      <h3>Product Rule</h3>
+      <h3>Standard Results</h3>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-6">
+        <div className="rounded-xl border border-emerald-500/20 overflow-hidden">
+          <div className="px-4 py-2 bg-emerald-500/[0.08] border-b border-emerald-500/15 font-semibold text-sm text-emerald-800 dark:text-emerald-200">Algebraic &amp; Exponential</div>
+          <table className="w-full text-sm">
+            <tbody>
+              <tr className="border-b border-border/20"><td className="px-4 py-2 font-mono">k</td><td className="px-4 py-2"><Formula>{String.raw`0`}</Formula></td></tr>
+              <tr className="border-b border-border/20 bg-muted/20"><td className="px-4 py-2 font-mono">x</td><td className="px-4 py-2"><Formula>{String.raw`1`}</Formula></td></tr>
+              <tr className="border-b border-border/20"><td className="px-4 py-2 font-mono">xⁿ</td><td className="px-4 py-2"><Formula>{String.raw`n x^{n-1}`}</Formula></td></tr>
+              <tr className="border-b border-border/20 bg-muted/20"><td className="px-4 py-2 font-mono">1/x</td><td className="px-4 py-2"><Formula>{String.raw`-1/x^{2}`}</Formula></td></tr>
+              <tr className="border-b border-border/20"><td className="px-4 py-2 font-mono">√x</td><td className="px-4 py-2"><Formula>{String.raw`1/(2\sqrt{x})`}</Formula></td></tr>
+              <tr className="border-b border-border/20 bg-muted/20"><td className="px-4 py-2 font-mono">log x</td><td className="px-4 py-2"><Formula>{String.raw`1/x`}</Formula></td></tr>
+              <tr className="border-b border-border/20"><td className="px-4 py-2 font-mono">eˣ</td><td className="px-4 py-2"><Formula>{String.raw`e^{x}`}</Formula></td></tr>
+              <tr><td className="px-4 py-2 font-mono">aˣ</td><td className="px-4 py-2"><Formula>{String.raw`a^{x}\log a`}</Formula></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="rounded-xl border border-violet-500/20 overflow-hidden">
+          <div className="px-4 py-2 bg-violet-500/[0.08] border-b border-violet-500/15 font-semibold text-sm text-violet-800 dark:text-violet-200">Trigonometric</div>
+          <table className="w-full text-sm">
+            <tbody>
+              <tr className="border-b border-border/20"><td className="px-4 py-2 font-mono">sin x</td><td className="px-4 py-2"><Formula>{String.raw`\cos x`}</Formula></td></tr>
+              <tr className="border-b border-border/20 bg-muted/20"><td className="px-4 py-2 font-mono">cos x</td><td className="px-4 py-2"><Formula>{String.raw`-\sin x`}</Formula></td></tr>
+              <tr className="border-b border-border/20"><td className="px-4 py-2 font-mono">tan x</td><td className="px-4 py-2"><Formula>{String.raw`\sec^{2}x`}</Formula></td></tr>
+              <tr className="border-b border-border/20 bg-muted/20"><td className="px-4 py-2 font-mono">cot x</td><td className="px-4 py-2"><Formula>{String.raw`-\csc^{2}x`}</Formula></td></tr>
+              <tr className="border-b border-border/20"><td className="px-4 py-2 font-mono">sec x</td><td className="px-4 py-2"><Formula>{String.raw`\sec x\tan x`}</Formula></td></tr>
+              <tr><td className="px-4 py-2 font-mono">csc x</td><td className="px-4 py-2"><Formula>{String.raw`-\csc x\cot x`}</Formula></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h3>Product &amp; Quotient Rules — Quick Reference</h3>
       <FormulaCard>
-        <p className="font-semibold mb-2">Product Rule (Leibniz Rule)</p>
-        <FormulaBlock latex={String.raw`[f(x) \cdot g(x)]' = f'(x) \cdot g(x) + f(x) \cdot g'(x)`} />
-        <p className="text-sm text-muted-foreground mt-2">&ldquo;Derivative of first × second + first × derivative of second.&rdquo;</p>
+        <p className="font-semibold mb-2">Leibniz Rules</p>
+        <FormulaBlock latex={String.raw`(uv)'=uv'+vu'`} />
+        <FormulaBlock latex={String.raw`\left(\frac{u}{v}\right)'=\frac{vu'-uv'}{v^{2}}`} />
+        <p className="text-sm text-muted-foreground mt-2">Product: “first×derivative of second + second×derivative of first.” Quotient: “low d-high minus high d-low, over low squared.”</p>
       </FormulaCard>
 
-      <h3>Quotient Rule</h3>
-      <FormulaCard>
-        <p className="font-semibold mb-2">Quotient Rule</p>
-        <FormulaBlock latex={String.raw`\left[\frac{f(x)}{g(x)}\right]' = \frac{f'(x) \cdot g(x) - f(x) \cdot g'(x)}{[g(x)]^2}`} />
-        <p className="text-sm text-muted-foreground mt-2">Remember: &ldquo;Low d-high minus high d-low, over low squared.&rdquo;</p>
-      </FormulaCard>
+      <Expandable title="Worked Examples 1–10 — Standard Results">
+        <ProblemSolution problemNumber="1 — x⁹">
+          <ProblemSolution.Problem>Find <Formula>{String.raw`\frac{d}{dx}(x^{9})`}</Formula>.</ProblemSolution.Problem>
+          <ProblemSolution.Solution><Formula>{String.raw`\frac{d}{dx}(x^{9})=9x^{8}`}</Formula></ProblemSolution.Solution>
+        </ProblemSolution>
+        <ProblemSolution problemNumber="2 — 8√x">
+          <ProblemSolution.Problem>Find <Formula>{String.raw`\frac{d}{dx}(8\sqrt{x})`}</Formula>.</ProblemSolution.Problem>
+          <ProblemSolution.Solution><Stepper steps={[{ label: "Use", description: <Formula>{String.raw`\frac{d}{dx}(\sqrt{x})=1/(2\sqrt{x})`}</Formula> },{ label: "Multiply", description: <Formula>{String.raw`8\cdot 1/(2\sqrt{x})=4/\sqrt{x}`}</Formula> }]} /></ProblemSolution.Solution>
+        </ProblemSolution>
+        <ProblemSolution problemNumber="3 — (x+1)/x">
+          <ProblemSolution.Problem>Find <Formula>{String.raw`f(x)=\frac{x+1}{x}`}</Formula>.</ProblemSolution.Problem>
+          <ProblemSolution.Solution><Stepper steps={[{ label: "Rewrite", description: <Formula>{String.raw`1+1/x`}</Formula> },{ label: "Derive", description: <Formula>{String.raw`0-1/x^{2}=-1/x^{2}`}</Formula> }]} /></ProblemSolution.Solution>
+        </ProblemSolution>
+        <ProblemSolution problemNumber="4 — sin x cos x">
+          <ProblemSolution.Problem>Find <Formula>{String.raw`\frac{d}{dx}(\sin x\cos x)`}</Formula>.</ProblemSolution.Problem>
+          <ProblemSolution.Solution><Stepper steps={[{ label: "Product", description: <Formula>{String.raw`\sin x(-\sin x)+\cos x\cos x`}</Formula> },{ label: "Simplify", description: <Formula>{String.raw`\cos^{2}x-\sin^{2}x=\cos 2x`}</Formula> }]} /></ProblemSolution.Solution>
+        </ProblemSolution>
+        <ProblemSolution problemNumber="5 — 5 sin x −6 cos x +7">
+          <ProblemSolution.Problem>Find <Formula>{String.raw`\frac{d}{dx}(5\sin x-6\cos x+7)`}</Formula>.</ProblemSolution.Problem>
+          <ProblemSolution.Solution><Formula>{String.raw`5\cos x+6\sin x`}</Formula></ProblemSolution.Solution>
+        </ProblemSolution>
+        <ProblemSolution problemNumber="6 — sin²x">
+          <ProblemSolution.Problem>Find <Formula>{String.raw`\frac{d}{dx}(\sin^{2}x)`}</Formula>.</ProblemSolution.Problem>
+          <ProblemSolution.Solution><Stepper steps={[{ label: "Rewrite", description: <Formula>{String.raw`\sin x\cdot\sin x`}</Formula> },{ label: "Product", description: <Formula>{String.raw`\sin x\cos x+\sin x\cos x=2\sin x\cos x=\sin 2x`}</Formula> }]} /></ProblemSolution.Solution>
+        </ProblemSolution>
+        <ProblemSolution problemNumber="7 — sin²+cos²">
+          <ProblemSolution.Problem>Evaluate <Formula>{String.raw`\frac{d}{dx}(\sin^{2}x+\cos^{2}x)`}</Formula>.</ProblemSolution.Problem>
+          <ProblemSolution.Solution><Formula>{String.raw`\sin^{2}x+\cos^{2}x=1\Rightarrow 0`}</Formula></ProblemSolution.Solution>
+        </ProblemSolution>
+        <ProblemSolution problemNumber="8 — x⁵(3−6x⁻⁹)">
+          <ProblemSolution.Problem>Find <Formula>{String.raw`\frac{d}{dx}[x^{5}(3-6x^{-9})]`}</Formula>.</ProblemSolution.Problem>
+          <ProblemSolution.Solution><Stepper steps={[{ label: "Expand", description: <Formula>{String.raw`3x^{5}-6x^{-4}`}</Formula> },{ label: "Derive", description: <Formula>{String.raw`15x^{4}+24x^{-5}`}</Formula> }]} /></ProblemSolution.Solution>
+        </ProblemSolution>
+        <ProblemSolution problemNumber="9 — (x²+1)/(x²−1)">
+          <ProblemSolution.Problem>Find <Formula>{String.raw`\frac{d}{dx}\frac{x^{2}+1}{x^{2}-1}`}</Formula>.</ProblemSolution.Problem>
+          <ProblemSolution.Solution><Stepper steps={[{ label: "Quotient", description: <Formula>{String.raw`\frac{(x^{2}-1)2x-(x^{2}+1)2x}{(x^{2}-1)^{2}}`}</Formula> },{ label: "Simplify", description: <Formula>{String.raw`-4x/(x^{2}-1)^{2}`}</Formula> }]} /></ProblemSolution.Solution>
+        </ProblemSolution>
+        <ProblemSolution problemNumber="10 — (1−sin x)/(1+sin x)">
+          <ProblemSolution.Problem>Find <Formula>{String.raw`\frac{d}{dx}\frac{1-\sin x}{1+\sin x}`}</Formula>.</ProblemSolution.Problem>
+          <ProblemSolution.Solution><Stepper steps={[{ label: "Quotient", description: <Formula>{String.raw`\frac{(1+\sin x)(-\cos x)-(1-\sin x)\cos x}{(1+\sin x)^{2}}`}</Formula> },{ label: "Simplify", description: <Formula>{String.raw`-2\cos x/(1+\sin x)^{2}`}</Formula> }]} /></ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
 
       <Expandable title="Examples 8 and 9 — Product &amp; Quotient Rules">
         <ProblemSolution problemNumber="Example 8">
