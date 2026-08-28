@@ -44,10 +44,15 @@ export default function LimitsAndDerivativesChapter() {
 
       <h2 id="h-limits">12.2–12.3 Intuitive Idea of Derivatives &amp; Limits</h2>
       <Callout type="important" title="Definition of a Limit">
-        We write{" "}
-        <FormulaBlock latex={String.raw`\lim_{x \to a} f(x) = L`} />
-        if f(x) can be made arbitrarily close to L by taking x sufficiently close to (but not equal to) a.
-        The value of f at x = a is irrelevant — only nearby values matter.
+        A limit describes the value that a function <Formula>{String.raw`f(x)`}</Formula> approaches as <Formula>{String.raw`x`}</Formula> approaches a specific value <Formula>{String.raw`a`}</Formula> (written as <FormulaBlock latex={String.raw`\lim_{x \to a} f(x) = L`} />), where <Formula>{String.raw`x`}</Formula> gets closer to <Formula>{String.raw`a`}</Formula> but never has to equal it (<Formula>{String.raw`x \ne a`}</Formula>). In simple words: you can make <Formula>{String.raw`f(x)`}</Formula> as close to <Formula>{String.raw`L`}</Formula> as you want, just by taking <Formula>{String.raw`x`}</Formula> close enough to <Formula>{String.raw`a`}</Formula>. What <Formula>{String.raw`f(a)`}</Formula> actually equals does not matter — only nearby values do.
+        <p className="mt-3">Values can approach <Formula>{String.raw`a`}</Formula> from the left (e.g. <Formula>{String.raw`1.9, 1.99, 1.999`}</Formula> when <Formula>{String.raw`a=2`}</Formula>) or from the right (e.g. <Formula>{String.raw`2.1, 2.01, 2.001`}</Formula>).</p>
+        <p className="font-semibold mt-3">Two Types of Limits:</p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li><strong>Left-Hand Limit (LHL):</strong> <Formula>{String.raw`\lim_{x \to a^{-}} f(x)`}</Formula> — approached from values less than <Formula>{String.raw`a`}</Formula>.</li>
+          <li><strong>Right-Hand Limit (RHL):</strong> <Formula>{String.raw`\lim_{x \to a^{+}} f(x)`}</Formula> — approached from values greater than <Formula>{String.raw`a`}</Formula>.</li>
+        </ul>
+        <p className="font-semibold mt-3">Existence of a Limit:</p>
+        <p>A limit <Formula>{String.raw`\lim_{x \to a} f(x)`}</Formula> exists iff LHL and RHL both exist and are equal: <Formula>{String.raw`\text{LHL}=\text{RHL}`}</Formula>. If <Formula>{String.raw`\text{LHL}\ne\text{RHL}`}</Formula>, the limit does not exist.</p>
       </Callout>
 
       <KeyPoint>Key idea: <Highlight>the limit describes behaviour near a point, not at the point</Highlight>. f(a) may be undefined or different from L.</KeyPoint>
