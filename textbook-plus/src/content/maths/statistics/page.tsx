@@ -13,60 +13,34 @@ export default function StatisticsChapter() {
   return (
     <>
       <h2 id="h-intro">13.1 Introduction</h2>
-      <Callout type="note" title="Why Statistics?">
-        Two shops may sell rice at the same average price — but one might vary wildly while the other is consistent.
-        <strong> Measures of central tendency</strong> (mean, median, mode) tell us the &ldquo;centre&rdquo; of data.
-        <strong> Measures of dispersion</strong> tell us how <Highlight>spread out</Highlight> the data is around that centre.
-        Both are needed to fully describe a dataset.
-      </Callout>
-      <ul>
-        <li><strong>Central tendency:</strong> single value representing the &ldquo;typical&rdquo; observation (arithmetic mean x̄).</li>
-        <li><strong>Dispersion:</strong> quantify how far individual observations deviate from the centre.</li>
-        <li>If dispersion is small, the data is clustered near the mean; if large, data is widely scattered.</li>
-      </ul>
-
-      <h2 id="h-range">13.3 Range</h2>
-      <FormulaCard>
-        <p className="font-semibold mb-2">Range</p>
-        <FormulaBlock latex="R = L - S" />
-        <p className="text-sm text-muted-foreground mt-2">L = largest value, S = smallest value in the dataset.</p>
-        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> the question says &ldquo;range&rdquo;, or asks for largest minus smallest.</p>
-      </FormulaCard>
-      <Callout type="important" title="Range">
-        The <Highlight>range</Highlight> is the simplest measure of dispersion — the difference between the maximum and minimum values.
-        It gives a quick idea of the spread but <strong>ignores all intermediate values</strong> and is sensitive to outliers.
+      <Callout type="note" title="Mean vs Median — the two &ldquo;centres&rdquo; of data">
+        To talk about how spread out data is, we first need a reference point. Two summaries describe the
+        <strong>centre</strong> of a dataset:
+        <ul className="list-disc pl-5 space-y-1 mt-2">
+          <li>
+            <strong>Mean (arithmetic mean)</strong> x̄ = (x₁ + x₂ + ⋯ + xₙ)/n — the <strong>balance point</strong> of the data,
+            where every value contributes equally.
+          </li>
+          <li>
+            <strong>Median</strong> M — the <strong>middle value</strong> when the data is arranged in ascending order.
+            If n is odd, M is the middle value; if n is even, M is the average of the two middle values. Unlike the mean,
+            the median resists extreme outliers.
+          </li>
+        </ul>
+        This chapter is about <Highlight>measures of dispersion</Highlight> — how far the values spread out around the mean or median.
       </Callout>
 
-      <Expandable title="Examples 1 and 2 — Range">
-        <ProblemSolution problemNumber="Example 1">
-          <ProblemSolution.Problem>
-            Find the range of the data: 12, 25, 8, 42, 17, 3, 31.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            L = 42, S = 3. Range = 42 − 3 = <strong>39</strong>.
-          </ProblemSolution.Solution>
-        </ProblemSolution>
+      <TableCard
+        headers={["Measure of Central Tendency", "Measure of Dispersion"]}
+        rows={[
+          { cells: ["Mean (x̄) — the balance point, Σxᵢ/n", "Mean deviation (M.D.) — average absolute distance from a centre"] },
+          { cells: ["Median (M) — middle value of sorted data", "Standard deviation (σ) — typical distance of values from the mean"] },
+          { cells: ["Mode — the most frequent value", "Variance (σ²) — average of the squared distances from the mean"] },
+        ]}
+        caption="Measures of central tendency say where the data sits; measures of dispersion (this chapter) say how far it spreads."
+      />
 
-        <ProblemSolution problemNumber="Example 2">
-          <ProblemSolution.Problem>
-            Heights (in cm) of 8 students: 145, 152, 160, 148, 155, 162, 170, 140. Find the range.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            L = 170, S = 140. Range = 170 − 140 = <strong>30 cm</strong>.
-          </ProblemSolution.Solution>
-        </ProblemSolution>
-      </Expandable>
-
-      <SpeedTricks>
-        <Callout type="tip" title="Range = quick sanity check">
-          Before computing mean or variance, scan for the min and max. Their difference (range) gives an instant estimate of spread — useful for catching data-entry errors.
-        </Callout>
-        <Callout type="tip" title="Range in grouped data">
-          For grouped frequency tables, L and S are the <strong>upper boundary of the last class</strong> and <strong>lower boundary of the first class</strong>, not the midpoints.
-        </Callout>
-      </SpeedTricks>
-
-      <h2 id="h-mean-deviation">13.4 Mean Deviation</h2>
+      <h2 id="h-mean-deviation">13.2 Mean Deviation</h2>
       <Callout type="important" title="Definition">
         The <Highlight>mean deviation</Highlight> of a dataset measures the average of the absolute deviations from the mean.
         It answers: &ldquo;On average, how far is each data point from the centre?&rdquo;
@@ -80,8 +54,8 @@ export default function StatisticsChapter() {
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> a raw list of values says &ldquo;mean deviation about the mean&rdquo;.</p>
       </FormulaCard>
 
-      <Expandable title="Example 3 — Mean Deviation (Ungrouped)">
-        <ProblemSolution problemNumber="Example 3">
+      <Expandable title="Example 1 — Mean Deviation (Ungrouped)">
+        <ProblemSolution problemNumber="Example 1">
           <ProblemSolution.Problem>
             Find the mean deviation about the mean for: 4, 7, 8, 9, 10, 12, 13, 17.
           </ProblemSolution.Problem>
@@ -130,8 +104,8 @@ export default function StatisticsChapter() {
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> frequency data (x and f together) asks for deviation about the median.</p>
       </FormulaCard>
 
-      <Expandable title="Example 4 and 5 — Mean Deviation about Median">
-        <ProblemSolution problemNumber="Example 4">
+      <Expandable title="Examples 2 and 3 — Mean Deviation about Median">
+        <ProblemSolution problemNumber="Example 2">
           <ProblemSolution.Problem>
             Find the mean deviation about the median for: 13, 17, 16, 14, 11, 13, 10, 16, 11, 18, 12, 17.
           </ProblemSolution.Problem>
@@ -165,7 +139,7 @@ export default function StatisticsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="Example 5">
+        <ProblemSolution problemNumber="Example 3">
           <ProblemSolution.Problem>
             Calculate the mean deviation about median for the following data:
             <br />
@@ -204,8 +178,8 @@ export default function StatisticsChapter() {
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> discrete data given as x-values with frequencies f (no class intervals). Divide by N = Σfᵢ.</p>
       </FormulaCard>
 
-      <Expandable title="Examples 6 and 7 — Mean Deviation (Discrete & Continuous Frequency)">
-        <ProblemSolution problemNumber="Example 6">
+      <Expandable title="Examples 4 and 5 — Mean Deviation (Discrete &amp; Continuous Frequency)">
+        <ProblemSolution problemNumber="Example 4">
           <ProblemSolution.Problem>
             Find the mean deviation about the mean for the discrete frequency distribution:
             <br />
@@ -243,8 +217,8 @@ export default function StatisticsChapter() {
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> data is grouped into class intervals — convert each class to its midpoint first.</p>
       </FormulaCard>
 
-      <Expandable title="Example 7 — Mean Deviation (Continuous Frequency)">
-        <ProblemSolution problemNumber="Example 7">
+      <Expandable title="Example 5 — Mean Deviation (Continuous Frequency)">
+        <ProblemSolution problemNumber="Example 5">
           <ProblemSolution.Problem>
             Find the mean deviation about the mean for:
             <br />
@@ -292,7 +266,7 @@ export default function StatisticsChapter() {
         </Callout>
       </SpeedTricks>
 
-      <h2 id="h-variance">13.5 Variance and Standard Deviation</h2>
+      <h2 id="h-variance">13.3 Variance and Standard Deviation</h2>
       <Callout type="important" title="Why Squared Deviations?">
         Squaring eliminates negative signs and is <Highlight>algebraically tractable</Highlight>.
         Variance and standard deviation are the most widely used measures of dispersion in statistics.
@@ -318,8 +292,8 @@ export default function StatisticsChapter() {
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> variance of an ungrouped list, e.g. examples 8–9. Same formula as the definition.</p>
       </FormulaCard>
 
-      <Expandable title="Examples 8 and 9 — Ungrouped Variance">
-        <ProblemSolution problemNumber="Example 8">
+      <Expandable title="Examples 6 and 7 — Ungrouped Variance">
+        <ProblemSolution problemNumber="Example 6">
           <ProblemSolution.Problem>
             Find the variance and standard deviation of: 6, 8, 10, 12, 14.
           </ProblemSolution.Problem>
@@ -347,7 +321,7 @@ export default function StatisticsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="Example 9">
+        <ProblemSolution problemNumber="Example 7">
           <ProblemSolution.Problem>
             Find the variance of the first 10 natural numbers.
           </ProblemSolution.Problem>
@@ -427,7 +401,7 @@ export default function StatisticsChapter() {
               <p>
                 The same (n² − 1)/12 appeared in the 3, 6, …, 99 practice problem (where the factor 3² scaled it to 816),
                 and it answers Ex 13.2 Q2 instantly. For example, n = 10 gives SD = √(99/12) ≈ 2.87 — the root of the 8.25
-                from Example 9.
+                from Example 7.
               </p>
             </KeyPoint>
           </ProblemSolution.Solution>
@@ -442,8 +416,8 @@ export default function StatisticsChapter() {
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> variance of discrete frequency data (x and f side by side, no classes).</p>
       </FormulaCard>
 
-      <Expandable title="Example 10 — Discrete Frequency Variance">
-        <ProblemSolution problemNumber="Example 10">
+      <Expandable title="Example 8 — Discrete Frequency Variance">
+        <ProblemSolution problemNumber="Example 8">
           <ProblemSolution.Problem>
             Find the variance for: x: 3, 5, 7, 9, 11 &nbsp; | &nbsp; f: 4, 6, 8, 6, 4
           </ProblemSolution.Problem>
@@ -523,8 +497,8 @@ export default function StatisticsChapter() {
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> variance of continuous (class-interval) data — take midpoints, then apply the discrete formula.</p>
       </FormulaCard>
 
-      <Expandable title="Example 11 — Continuous Frequency Variance">
-        <ProblemSolution problemNumber="Example 11">
+      <Expandable title="Example 9 — Continuous Frequency Variance">
+        <ProblemSolution problemNumber="Example 9">
           <ProblemSolution.Problem>
             Find σ² and σ for:
             <br />
@@ -541,7 +515,7 @@ export default function StatisticsChapter() {
                 { cells: ["40–50", "45", "1", "45", "462.25", "462.25"] },
                 { cells: ["Total", "", "N = 20", "Σ = 470", "", "Σ = 2055"] },
               ]}
-              caption="Same layout as Example 10 — only the first column changes from values to class intervals."
+              caption="Same layout as Example 8 — only the first column changes from values to class intervals."
             />
             <Stepper
               steps={[
@@ -577,8 +551,8 @@ export default function StatisticsChapter() {
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> you only want to shift by an assumed mean a (no class width h) to simplify arithmetic — the &ldquo;short-cut method&rdquo;.</p>
       </KeyPoint>
 
-      <Expandable title="Example 12 — Step-Deviation Method">
-        <ProblemSolution problemNumber="Example 12">
+      <Expandable title="Example 10 — Step-Deviation Method">
+        <ProblemSolution problemNumber="Example 10">
           <ProblemSolution.Problem>
             Using the step-deviation method, find the variance and standard deviation for:
             <br />
@@ -607,8 +581,8 @@ export default function StatisticsChapter() {
         </ProblemSolution>
       </Expandable>
 
-      <Expandable title="Example 13 — Shortcut Method (Assumed Mean)">
-        <ProblemSolution problemNumber="Example 13">
+      <Expandable title="Example 11 — Shortcut Method (Assumed Mean)">
+        <ProblemSolution problemNumber="Example 11">
           <ProblemSolution.Problem>
             Find σ² using the shortcut method with assumed mean a = 10 for:
             <br />
@@ -656,10 +630,9 @@ export default function StatisticsChapter() {
 
       <Callout type="warning" title="Hard-Level Tips: Statistics Traps">
         <ul className="list-disc pl-5 space-y-1">
-          <li><strong>Range ignores distribution shape:</strong> Two datasets can have the same range but completely different spreads. Always pair range with mean deviation or standard deviation.</li>
           <li><strong>Mean deviation ≠ average deviation:</strong> M.D. uses absolute values of deviations from the <strong>mean</strong>, not from an arbitrary point.</li>
           <li><strong>Variance: population vs sample:</strong> NCERT Class 11 uses N (not N−1) in the denominator. The N−1 correction (Bessel&apos;s correction) appears in later statistics courses.</li>
-          <li><strong>Step-deviation: h is the class width,</strong> not the range. For classes 0–10, 10–20, …, h = 10. Don&apos;t confuse with the number of classes.</li>
+          <li><strong>Step-deviation: h is the class width,</strong> not the number of classes. For classes 0–10, 10–20, …, h = 10. Don&apos;t confuse with the number of classes.</li>
           <li><strong>Midpoint approximation:</strong> For continuous classes, the midpoint is used as a representative value. This introduces a small error but is standard practice.</li>
           <li><strong>Variance of constant data = 0:</strong> If all values are the same, every deviation is zero, so σ² = σ = 0. This makes sense — there is no spread.</li>
           <li><strong>Adding a constant:</strong> If every observation is increased by c, the mean increases by c but <Highlight>variance and standard deviation remain unchanged</Highlight>.</li>
@@ -667,85 +640,11 @@ export default function StatisticsChapter() {
         </ul>
       </Callout>
 
-      <h2 id="h-cv">13.6 Comparing Series: Coefficient of Variation <span className="text-sm font-normal text-muted-foreground">(beyond syllabus)</span></h2>
-      <Callout type="important" title="Why compare two standard deviations?">
-        Suppose two classes scored SD = 5 on two different exams — but one exam was out of 100 and the other out of 25.
-        A raw σ of 5 tells us <strong>nothing</strong> about which class is more consistent. The <Highlight>coefficient of variation (C.V.)</Highlight>
-        standardises σ against the mean, so datasets with <strong>different means or units</strong> can be compared.
-      </Callout>
-      <FormulaCard>
-        <p className="font-semibold mb-2">Coefficient of Variation</p>
-        <FormulaBlock latex="\text{C.V.} = \frac{\sigma}{\bar{x}} \times 100" />
-        <p className="text-sm text-muted-foreground mt-2">Expressed as a percentage. The dataset with the <strong>smaller</strong> C.V. is more consistent (less relative variability).</p>
-        <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> comparing two series (&ldquo;which is more consistent / stable / uniform?&rdquo;), possibly with different means or units. Same mean → compare σ directly.</p>
-      </FormulaCard>
-      <ul>
-        <li><strong>Smaller C.V. → more consistent / uniform</strong> dataset (better performance, tighter control, etc.).</li>
-        <li><strong>Larger C.V. → more scattered</strong> dataset relative to its mean.</li>
-        <li>C.V. is <Highlight>unit-free</Highlight> — it works across kilograms vs centimetres, rupees vs marks.</li>
-        <li>Use σ (not σ²) in the numerator — C.V. is a percentage, and σ has the same units as x̄.</li>
-      </ul>
-
-      <Expandable title="Example 14 — Comparing Two Series with C.V.">
-        <ProblemSolution problemNumber="Example 14">
-          <ProblemSolution.Problem>
-            Prices of shares of two companies are: A: 45, 55, 50, 52, 48 &nbsp; B: 33, 35, 40, 38, 39. Which company&apos;s prices are more stable?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-              <TableCard
-                headers={["Company A", "xᵢ − 50", "(xᵢ − 50)²"]}
-                rows={[
-                  { cells: ["45", "−5", "25"] },
-                  { cells: ["55", "5", "25"] },
-                  { cells: ["50", "0", "0"] },
-                  { cells: ["52", "2", "4"] },
-                  { cells: ["48", "−2", "4"] },
-                  { cells: ["Total", "", "Σ = 58"] },
-                ]}
-                caption="x̄A = 250/5 = 50"
-              />
-              <TableCard
-                headers={["Company B", "xᵢ − 37", "(xᵢ − 37)²"]}
-                rows={[
-                  { cells: ["33", "−4", "16"] },
-                  { cells: ["35", "−2", "4"] },
-                  { cells: ["40", "3", "9"] },
-                  { cells: ["38", "1", "1"] },
-                  { cells: ["39", "2", "4"] },
-                  { cells: ["Total", "", "Σ = 34"] },
-                ]}
-                caption="x̄B = 185/5 = 37"
-              />
-            </div>
-            <Stepper
-              steps={[
-                { label: "Company A", description: "σ² = 58/5 = 11.6, σ ≈ 3.41. C.V. = (3.41/50)×100 = <strong>6.82%</strong>" },
-                { label: "Company B", description: "σ² = 34/5 = 6.8, σ ≈ 2.61. C.V. = (2.61/37)×100 = <strong>7.05%</strong>" },
-                { label: "Compare", description: "6.82% &lt; 7.05%, so <strong>Company A is more stable</strong> (lower relative variability)." },
-              ]}
-            />
-          </ProblemSolution.Solution>
-        </ProblemSolution>
-      </Expandable>
-
-      <SpeedTricks>
-        <Callout type="tip" title="C.V. exam trick: same mean, compare σ directly">
-          If two datasets have the <strong>same mean</strong>, comparing C.V. is the same as comparing σ directly — skip the percentage and just compare the standard deviations.
-        </Callout>
-        <Callout type="tip" title="Watch the denominator's units">
-          C.V. = σ/x̄ pairs data of the same type. Never mix, e.g., σ in kg with a mean in ₹ — the ratio becomes meaningless.
-        </Callout>
-        <Callout type="tip" title="C.V. < 15% is 'low'">
-          A quick benchmark: in many fields, C.V. below ~15% signals tight, consistent data; above ~30% signals high relative scatter.
-        </Callout>
-      </SpeedTricks>
-
-      <h2 id="h-formula-map">13.2 Formula Map — Which Formula to Use When?</h2>
+      <h2 id="h-formula-map">13.4 Formula Map — Which Formula to Use When?</h2>
       <Callout type="important" title="Read the words, not the numbers">
         Every question in this chapter is a keyword decoder: the wording tells you <strong>which formula</strong> to reach
-        for before you compute anything. Ask yourself: does the question want (a) a quick range, (b) an average absolute
-        deviation, (c) variance/standard deviation, or (d) a <Highlight>comparison between two series</Highlight>?
+        for before you compute anything. Ask yourself: does the question want (a) an average absolute deviation
+        (mean deviation about the mean or the median), or (b) a variance / standard deviation?
         Then let the <strong>shape of the data</strong> (raw list, x-and-f table, class intervals) finish the decision.
       </Callout>
 
@@ -760,36 +659,27 @@ export default function StatisticsChapter() {
           </thead>
           <tbody>
             <tr className="border-b border-[var(--border)]/40">
-              <td colSpan={3} className="p-2 font-semibold bg-muted/40 text-[0.8rem]">Range — one-line spread check</td>
-            </tr>
-            <tr className="border-b border-[var(--border)]/50">
-              <td className="p-2">&ldquo;Range&rdquo;, or &ldquo;largest − smallest&rdquo;</td>
-              <td className="p-2"><Formula>{`R = L - S`}</Formula></td>
-              <td className="p-2">Examples 1–2</td>
-            </tr>
-
-            <tr className="border-b border-[var(--border)]/40">
               <td colSpan={3} className="p-2 font-semibold bg-muted/40 text-[0.8rem]">Mean Deviation — average absolute distance from a centre</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">&ldquo;M.D. about the mean&rdquo; for a list of values</td>
               <td className="p-2"><Formula>{`\text{M.D.}(\bar{x}) = \frac{\sum_{i=1}^{n} |x_i - \bar{x}|}{n}`}</Formula></td>
-              <td className="p-2">Example 3</td>
+              <td className="p-2">Example 1</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">&ldquo;M.D. about the median&rdquo;, or data has outliers</td>
               <td className="p-2"><Formula>{`\text{M.D.}(M) = \frac{\sum_{i=1}^{n} |x_i - M|}{n}`}</Formula></td>
-              <td className="p-2">Example 4</td>
+              <td className="p-2">Example 2</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">Data given as x-values with frequencies (no classes)</td>
               <td className="p-2"><Formula>{`\text{M.D.}(\bar{x}) = \frac{\sum_{i=1}^{k} f_i |x_i - \bar{x}|}{N}, \quad N = \sum f_i`}</Formula></td>
-              <td className="p-2">Example 6</td>
+              <td className="p-2">Example 4</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">Data given as class intervals (0–10, 10–20, …)</td>
               <td className="p-2">Convert to <strong>midpoints</strong> xᵢ, then <Formula>{`\text{M.D.}(\bar{x}) = \frac{\sum f_i |x_i - \bar{x}|}{N}`}</Formula></td>
-              <td className="p-2">Examples 5, 7</td>
+              <td className="p-2">Examples 3, 5</td>
             </tr>
 
             <tr className="border-b border-[var(--border)]/40">
@@ -798,51 +688,42 @@ export default function StatisticsChapter() {
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">&ldquo;Variance&rdquo; / &ldquo;standard deviation&rdquo; of a list</td>
               <td className="p-2"><Formula>{`\sigma^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2`}</Formula></td>
-              <td className="p-2">Examples 8–9</td>
+              <td className="p-2">Examples 6–7</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">Values with frequencies (no classes)</td>
               <td className="p-2"><Formula>{`\sigma^2 = \frac{1}{N} \sum_{i=1}^{k} f_i (x_i - \bar{x})^2`}</Formula></td>
-              <td className="p-2">Example 10</td>
+              <td className="p-2">Example 8</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">Class intervals (continuous)</td>
               <td className="p-2">Midpoints xᵢ, then <Formula>{`\sigma^2 = \frac{1}{N} \sum f_i (x_i - \bar{x})^2`}</Formula></td>
-              <td className="p-2">Example 11</td>
+              <td className="p-2">Example 9</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">&ldquo;Short-cut / step-deviation method&rdquo;, or values are large with a messy mean</td>
               <td className="p-2"><Formula>{`\sigma^2 = h^2 \left[ \frac{1}{N} \sum f_i u_i^2 - \left( \frac{1}{N} \sum f_i u_i \right)^2 \right]`}</Formula></td>
-              <td className="p-2">Examples 12–13</td>
+              <td className="p-2">Examples 10–11</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">σ² and x̄ are given; asks for <strong>missing / wrong observations</strong></td>
               <td className="p-2"><Formula>{`\sigma^2 = \frac{\sum x_i^2}{n} - \bar{x}^2 \ \Rightarrow \ \sum x_i^2 = n(\sigma^2 + \bar{x}^2)`}</Formula></td>
-              <td className="p-2">Examples 16, 18</td>
+              <td className="p-2">Examples 13, 15</td>
             </tr>
 
             <tr className="border-b border-[var(--border)]/40">
-              <td colSpan={3} className="p-2 font-semibold bg-muted/40 text-[0.8rem]">Coefficient of Variation — comparing two series</td>
-            </tr>
-            <tr className="border-b border-[var(--border)]/50">
-              <td className="p-2">&ldquo;Which series is more consistent / stable / uniform?&rdquo; (often different means or units)</td>
-              <td className="p-2"><Formula>{`\text{C.V.} = \frac{\sigma}{\bar{x}} \times 100`}</Formula> — smaller C.V. wins</td>
-              <td className="p-2">Example 14</td>
+              <td colSpan={3} className="p-2 font-semibold bg-muted/40 text-[0.8rem]">Effect of changing the data — multiplying by k or adding c</td>
             </tr>
             <tr>
               <td className="p-2">Each observation changed: &ldquo;multiplied by k&rdquo; or &ldquo;increased by c&rdquo;</td>
               <td className="p-2"><Formula>{`\times k \Rightarrow \sigma \to |k|\sigma, \ \sigma^2 \to k^2\sigma^2`}</Formula> &nbsp; <Formula>{`+ c \Rightarrow`}</Formula> σ unchanged</td>
-              <td className="p-2">Examples 15, 17</td>
+              <td className="p-2">Examples 12, 14</td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-        <div className="rounded-md border border-emerald-500/30 bg-emerald-500/5 p-3">
-          <p className="font-semibold text-emerald-600 dark:text-emerald-400 text-sm mb-1">Range</p>
-          <p className="text-xs text-muted-foreground"><strong>Grab it when:</strong> &ldquo;range&rdquo;, smallest−largest, instant sanity check. Never enough alone — pair with M.D. or σ.</p>
-        </div>
         <div className="rounded-md border border-amber-500/30 bg-amber-500/5 p-3">
           <p className="font-semibold text-amber-600 dark:text-amber-400 text-sm mb-1">Mean Deviation</p>
           <p className="text-xs text-muted-foreground"><strong>Grab it when:</strong> question literally says &ldquo;mean deviation&rdquo; (about mean or median). Choose median when there are outliers.</p>
@@ -851,16 +732,12 @@ export default function StatisticsChapter() {
           <p className="font-semibold text-blue-600 dark:text-blue-400 text-sm mb-1">Variance &amp; SD</p>
           <p className="text-xs text-muted-foreground"><strong>Grab it when:</strong> &ldquo;variance&rdquo;, &ldquo;standard deviation&rdquo;, or you need algebra-friendly spread. σ has the data&apos;s units.</p>
         </div>
-        <div className="rounded-md border border-purple-500/30 bg-purple-500/5 p-3">
-          <p className="font-semibold text-purple-600 dark:text-purple-400 text-sm mb-1">Coefficient of Variation</p>
-          <p className="text-xs text-muted-foreground"><strong>Grab it when:</strong> two series, &ldquo;which is more consistent?&rdquo;, possibly different means/units. Same mean → just compare σ.</p>
-        </div>
       </div>
 
       <KeyPoint title="The two working identities for missing / wrong observation problems">
         Almost every &ldquo;find the missing observation&rdquo; / &ldquo;one observation was wrong&rdquo; question is solved by
         (<Formula>{`\sum x_i = n\bar{x}`}</Formula>) and (<Formula>{`\sum x_i^2 = n(\sigma^2 + \bar{x}^2)`}</Formula>).
-        Recover the totals that got corrupted, fix them, and recompute the mean and variance directly — no need to solve systems by hand (see Examples 16 and 18, Misc Q1–2, 5–6).
+        Recover the totals that got corrupted, fix them, and recompute the mean and variance directly — no need to solve systems by hand (see Examples 13 and 15, Misc Q1–2, 5–6).
       </KeyPoint>
 
       <Expandable id="h-ex-13-1" title="Exercise 13.1">
@@ -917,8 +794,8 @@ export default function StatisticsChapter() {
         </Expandable>
       </Expandable>
 
-      <Expandable title="Examples 15 to 18 — Miscellaneous Examples (NCERT)">
-        <ProblemSolution problemNumber="Example 15">
+      <Expandable title="Examples 12 to 15 — Miscellaneous Examples (NCERT)">
+        <ProblemSolution problemNumber="Example 12">
           <ProblemSolution.Problem>
             The variance of 20 observations is 5. If each observation is multiplied by 2, find the new variance.
           </ProblemSolution.Problem>
@@ -932,7 +809,7 @@ export default function StatisticsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="Example 16">
+        <ProblemSolution problemNumber="Example 13">
           <ProblemSolution.Problem>
             The mean of 5 observations is 4.4 and the variance is 8.24. If three of the observations are 1, 2 and 6, find the other two.
           </ProblemSolution.Problem>
@@ -948,7 +825,7 @@ export default function StatisticsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="Example 17">
+        <ProblemSolution problemNumber="Example 14">
           <ProblemSolution.Problem>
             If each observation x₁, x₂, …, xₙ is increased by a (positive or negative), show that the variance remains unchanged.
           </ProblemSolution.Problem>
@@ -963,7 +840,7 @@ export default function StatisticsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="Example 18">
+        <ProblemSolution problemNumber="Example 15">
           <ProblemSolution.Problem>
             The mean and SD of 100 observations were calculated as 40 and 5.1 by a student who took 50 instead of 40 for one observation. Find the correct mean and SD.
           </ProblemSolution.Problem>

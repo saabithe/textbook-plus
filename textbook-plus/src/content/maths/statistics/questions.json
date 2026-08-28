@@ -1,16 +1,5 @@
 [
   {
-    "id": "c11/maths/statistics/q1",
-    "chapterSlug": "statistics",
-    "subject": "maths",
-    "type": "mcq",
-    "difficulty": "easy",
-    "question": "The range of the dataset 3, 7, 12, 25, 18, 40, 5 is:",
-    "options": ["37", "35", "43", "38"],
-    "answer": "37",
-    "explanation": "L = 40, S = 3. Range = 40 − 3 = 37."
-  },
-  {
     "id": "c11/maths/statistics/q2",
     "chapterSlug": "statistics",
     "subject": "maths",
@@ -83,17 +72,6 @@
     "question": "Find the standard deviation for: x: 10, 20, 30, 40 | f: 1, 2, 3, 4.",
     "answer": "N = 10. x̄ = (10+40+90+160)/10 = 30. σ² = (400+200+0+400)/10 = 100. σ = 10.",
     "explanation": "x̄ = 30. Σfᵢ(xᵢ−30)² = 1(400)+2(200)+3(0)+4(100) = 1000. σ² = 100. σ = 10."
-  },
-  {
-    "id": "c11/maths/statistics/q9",
-    "chapterSlug": "statistics",
-    "subject": "maths",
-    "type": "mcq",
-    "difficulty": "hard",
-    "question": "If the variance of a dataset is 25 and the mean is 20, the coefficient of variation is:",
-    "options": ["10%", "25%", "12.5%", "50%"],
-    "answer": "25%",
-    "explanation": "CV = (σ/x̄) × 100 = (5/20) × 100 = 25%. (σ = √25 = 5.)"
   },
   {
     "id": "c11/maths/statistics/q10",
