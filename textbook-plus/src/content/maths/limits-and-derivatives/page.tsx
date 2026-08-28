@@ -738,25 +738,18 @@ export default function LimitsAndDerivativesChapter() {
       </Callout>
 
       <Expandable id="h-ex-12-1" title="Exercise 12.1">
-        <p>Evaluate the following limits (Exercises 1–22):</p>
+        <p>Evaluate the following limits (Exercises 1–15, deduped — 7 duplicates already solved in Methods/Practice removed):</p>
         <ol>
-          <li><Formula>{String.raw`\lim_{x \to 3} (x + 3)`}</Formula></li>
           <li><Formula>{String.raw`\lim_{x \to \pi} \left(x - \frac{22}{7}\right)`}</Formula></li>
-          <li><Formula>{String.raw`\lim_{r \to 1} \pi r^2`}</Formula></li>
-          <li><Formula>{String.raw`\lim_{x \to 4} \frac{4x + 3}{x - 2}`}</Formula></li>
           <li><Formula>{String.raw`\lim_{x \to -1} \frac{x^{10} + x^5 + 1}{x - 1}`}</Formula></li>
           <li><Formula>{String.raw`\lim_{x \to 0} \frac{(x + 1)^5 - 1}{x}`}</Formula></li>
           <li><Formula>{String.raw`\lim_{x \to 2} \frac{3x^2 - x - 10}{x^2 - 4}`}</Formula></li>
           <li><Formula>{String.raw`\lim_{x \to 3} \frac{x^4 - 81}{2x^2 - 5x - 3}`}</Formula></li>
-          <li><Formula>{String.raw`\lim_{x \to 0} \frac{ax + b}{cx + 1}`}</Formula></li>
           <li><Formula>{String.raw`\lim_{z \to 1} \frac{z^{1/3} - 1}{z^{1/6} - 1}`}</Formula></li>
           <li><Formula>{String.raw`\lim_{x \to 0} \frac{ax^2 + bx + c}{bx^2 + cx + a}`}</Formula>, where a, b, c are constants and a + b + c ≠ 0</li>
           <li><Formula>{String.raw`\lim_{x \to -1} \frac{x^2 + 1}{x + 1}`}</Formula></li>
-          <li><Formula>{String.raw`\lim_{x \to 0} \frac{\sin ax}{bx}`}</Formula></li>
           <li><Formula>{String.raw`\lim_{x \to 0} \frac{\sin ax}{\sin bx}`}</Formula>, a, b ≠ 0</li>
-          <li><Formula>{String.raw`\lim_{x \to \pi} \frac{\sin(\pi - x)}{\pi(\pi - x)}`}</Formula></li>
           <li><Formula>{String.raw`\lim_{x \to 0} \frac{\cos x}{\pi - x}`}</Formula></li>
-          <li><Formula>{String.raw`\lim_{x \to 0} \frac{\cos 2x - 1}{\cos x - 1}`}</Formula></li>
           <li><Formula>{String.raw`\lim_{x \to 0} \frac{\cos ax - \cos bx}{x^2}`}</Formula></li>
           <li><Formula>{String.raw`\lim_{x \to 0} \frac{\sec x - 1}{x^2}`}</Formula></li>
           <li><Formula>{String.raw`\lim_{x \to 0} \frac{\sin ax + bx}{ax + \sin bx}`}</Formula>, a, b, a + b ≠ 0</li>
@@ -781,25 +774,18 @@ export default function LimitsAndDerivativesChapter() {
           <li>If <Formula>{String.raw`f(x) = \begin{cases} mx^2 + n, & x < 0 \\ nx + m, & 0 \le x \le 1 \\ nx^3 + m, & x > 1 \end{cases}`}</Formula>, for what integers m and n do both <Formula>{String.raw`\lim_{x \to 0} f(x)`}</Formula> and <Formula>{String.raw`\lim_{x \to 1} f(x)`}</Formula> exist?</li>
         </ol>
         <Expandable title="Answer Key — Exercise 12.1">
-          <p><strong>Exercises 1–22:</strong></p>
+          <p><strong>Exercises 1–15 (deduped):</strong></p>
           <ol>
-            <li><Formula>{String.raw`\lim_{x \to 3}(x + 3) = 6`}</Formula></li>
             <li><Formula>{String.raw`\lim_{x \to \pi}\left(x - \frac{22}{7}\right) = \pi - \frac{22}{7}`}</Formula></li>
-            <li><Formula>{String.raw`\lim_{r \to 1} \pi r^2 = \pi`}</Formula></li>
-            <li><Formula>{String.raw`\lim_{x \to 4}\frac{4x + 3}{x - 2} = \frac{19}{2}`}</Formula></li>
             <li><Formula>{String.raw`\lim_{x \to -1}\frac{x^{10} + x^5 + 1}{x - 1} = \frac{1}{2}`}</Formula></li>
             <li>Put x + 1 = y so y → 1 as x → 0. Then <Formula>{String.raw`\frac{y^5 - 1}{y - 1} \to 5`}</Formula>. Answer: <strong>5</strong>.</li>
             <li>Factor: <Formula>{String.raw`\frac{(x - 2)(3x + 5)}{(x - 2)(x + 2)} = \frac{3x + 5}{x + 2} \to \frac{11}{4}`}</Formula>.</li>
             <li>Factor: <Formula>{String.raw`\frac{(x - 3)(x + 3)(x^2 + 9)}{(x - 3)(2x + 1)} = \frac{(x + 3)(x^2 + 9)}{2x + 1} \to \frac{108}{7}`}</Formula>.</li>
-            <li><Formula>{String.raw`\lim_{x \to 0}\frac{ax + b}{cx + 1} = b`}</Formula>.</li>
             <li>Put z = t⁶ so z → 1 means t → 1. Then <Formula>{String.raw`\frac{t^2 - 1}{t - 1} = t + 1 \to 2`}</Formula>.</li>
             <li><Formula>{String.raw`\lim_{x \to 0}\frac{ax^2 + bx + c}{bx^2 + cx + a} = \frac{c}{a}`}</Formula>.</li>
             <li>Direct substitution: <Formula>{String.raw`\frac{(-1)^2 + 1}{-1 + 1} = \frac{2}{0}`}</Formula>. Limit does not exist (approaches ∞).</li>
-            <li><Formula>{String.raw`\frac{a}{b} \cdot \lim_{x \to 0}\frac{\sin ax}{ax} = \frac{a}{b}`}</Formula>.</li>
             <li><Formula>{String.raw`\frac{a}{b} \cdot \frac{\lim \sin ax / ax}{\lim \sin bx / bx} = \frac{a}{b}`}</Formula>.</li>
-            <li>Put π − x = t. Then <Formula>{String.raw`\frac{\sin t}{\pi t} \to \frac{1}{\pi}`}</Formula>.</li>
             <li>Direct substitution: <Formula>{String.raw`\frac{\cos 0}{\pi - 0} = \frac{1}{\pi}`}</Formula>.</li>
-            <li><Formula>{String.raw`\frac{1 - \cos 2x}{1 - \cos x} = \frac{2\sin^2 x}{2\sin^2(x/2)} = \frac{\sin^2 x}{\sin^2(x/2)}`}</Formula>. Using <Formula>{String.raw`\frac{\sin x}{x} \to 1`}</Formula>, answer: <strong>4</strong>.</li>
             <li><Formula>{String.raw`\frac{-2\sin\frac{(a+b)x}{2}\sin\frac{(a-b)x}{2}}{x^2} = -\frac{(a+b)}{2}\cdot\frac{\sin\frac{(a+b)x}{2}}{\frac{(a+b)x}{2}} \cdot \frac{(a-b)}{2}\cdot\frac{\sin\frac{(a-b)x}{2}}{\frac{(a-b)x}{2}} \to \frac{b^2 - a^2}{2}`}</Formula>.</li>
             <li><Formula>{String.raw`\frac{\sec x - 1}{x^2} = \frac{1 - \cos x}{x^2 \cos x} \to \frac{1}{2} \cdot 1 = \frac{1}{2}`}</Formula>.</li>
             <li><Formula>{String.raw`\frac{a + b}{a + b} = 1`}</Formula>. Here numerator <Formula>{String.raw`\sin ax + bx \sim (a + b)x`}</Formula> and denominator <Formula>{String.raw`ax + \sin bx \sim (a + b)x`}</Formula>, so the ratio → 1.</li>
