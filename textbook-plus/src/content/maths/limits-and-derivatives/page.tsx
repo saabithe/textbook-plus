@@ -12,19 +12,6 @@ export default function LimitsAndDerivativesChapter() {
   return (
     <>
       <h2 id="h-intro">12.1 Introduction</h2>
-      <Callout type="note" title="Why Limits and Derivatives?">
-        Suppose a ball is dropped from a height of 100 m. Its distance after t seconds is
-        s = 4.9t². How fast is it moving at t = 3? We need <strong>instantaneous velocity</strong> —
-        the rate of change of position at an exact moment, not over an interval. This is
-        where <Highlight>derivatives</Highlight> come in, built on the foundation of <strong>limits</strong>.
-      </Callout>
-
-      <ul>
-        <li><strong>Average velocity</strong> over [t₁, t₂]: Δs/Δt = [s(t₂) − s(t₁)]/(t₂ − t₁).</li>
-        <li><strong>Instantaneous velocity</strong> at t = a: the limit of average velocity as Δt → 0.</li>
-        <li>Limits answer: &ldquo;What does f(x) approach as x gets arbitrarily close to a?&rdquo;</li>
-      </ul>
-
       <Expandable title="Example 1 — Instantaneous Velocity">
         <ProblemSolution problemNumber="Example 1">
           <ProblemSolution.Problem>
