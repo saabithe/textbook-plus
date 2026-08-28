@@ -602,15 +602,6 @@ export default function LimitsAndDerivativesChapter() {
         </ProblemSolution>
       </Expandable>
 
-      <SpeedTricks>
-        <Callout type="tip" title="Pattern-match sin(something)/something">
-          lim sin(f(x))/f(x) = 1 whenever f(x) → 0. Multiply and divide by the argument to get this form.
-        </Callout>
-        <Callout type="tip" title="(1 − cos x)/x → 0; (1 − cos x)/x² → 1/2">
-          The first goes to 0 (higher-order zero). The second goes to 1/2. Remember both.
-        </Callout>
-      </SpeedTricks>
-
       <h2 id="h-derivatives">12.5 Derivatives</h2>
       <Callout type="important" title="Definition of the Derivative">
         The <strong>derivative</strong> of f at x = a is the instantaneous rate of change:
