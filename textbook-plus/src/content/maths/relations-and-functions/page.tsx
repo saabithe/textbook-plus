@@ -33,7 +33,7 @@ export default function RelationsAndFunctionsChapter() {
         Given two non-empty sets P and Q, the cartesian product P × Q is the set of all ordered
         pairs (p, q) with p drawn from P and q drawn from Q:
       </Callout>
-      <FormulaBlock latex="P \\times Q = \\{(p, q) : p \\in P,\\; q \\in Q\\}" important />
+      <FormulaBlock latex={String.raw`P \times Q = \{(p, q) : p \in P,\; q \in Q\}`} important />
       <KeyPoint>
         If either P or Q is the empty set, then P × Q = φ. Order is crucial: (DL, 01) ≠ (01, DL) —
         licence codes, coordinates, everything depends on which element comes first.
@@ -78,7 +78,7 @@ export default function RelationsAndFunctionsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>Equal ordered pairs ⇒ corresponding coordinates equal:</p>
-            <FormulaBlock latex="x + 1 = 3 \\;\\Rightarrow\\; x = 2, \\qquad y - 2 = 1 \\;\\Rightarrow\\; y = 3" />
+            <FormulaBlock latex={String.raw`x + 1 = 3 \;\Rightarrow\; x = 2, \qquad y - 2 = 1 \;\Rightarrow\; y = 3`} />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -87,7 +87,7 @@ export default function RelationsAndFunctionsChapter() {
             <p>P = {"{a, b, c}"}, Q = {"{r}"}. Form P × Q and Q × P. Are they equal?</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="P \\times Q = \\{(a,r),(b,r),(c,r)\\}, \\qquad Q \\times P = \\{(r,a),(r,b),(r,c)\\}" />
+            <FormulaBlock latex={String.raw`P \times Q = \{(a,r),(b,r),(c,r)\}, \qquad Q \times P = \{(r,a),(r,b),(r,c)\}`} />
             <p>
               Not equal — (a, r) ≠ (r, a). In general <strong><Highlight>A × B ≠ B × A</Highlight></strong>, though both
               have the same number of elements here.
@@ -118,7 +118,7 @@ export default function RelationsAndFunctionsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>All 2³ = 8 triplets:</p>
-            <FormulaBlock latex="P^3 = \\{(1,1,1),(1,1,2),(1,2,1),(1,2,2),(2,1,1),(2,1,2),(2,2,1),(2,2,2)\\}" />
+            <FormulaBlock latex={String.raw`P^3 = \{(1,1,1),(1,1,2),(1,2,1),(1,2,2),(2,1,1),(2,1,2),(2,2,1),(2,2,2)\}`} />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -140,7 +140,7 @@ export default function RelationsAndFunctionsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>Project first and second coordinates:</p>
-            <FormulaBlock latex="A = \\{p, m\\}, \\qquad B = \\{q, r\\}" />
+            <FormulaBlock latex={String.raw`A = \{p, m\}, \qquad B = \{q, r\}`} />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -203,7 +203,7 @@ export default function RelationsAndFunctionsChapter() {
         pairs — but we usually want only those satisfying a condition. Say R is &ldquo;x is the
         first letter of the name y&rdquo;:
       </p>
-      <FormulaBlock latex="R = \\{(a,\\text{Ali}),\\; (b,\\text{Bhanu}),\\; (b,\\text{Binoy}),\\; (c,\\text{Chandra})\\}" />
+      <FormulaBlock latex={String.raw`R = \{(a,\text{Ali}),\; (b,\text{Bhanu}),\; (b,\text{Binoy}),\; (c,\text{Chandra})\}`} />
       <ArrowDiagram
         leftLabel="P"
         rightLabel="Q"
@@ -301,7 +301,7 @@ export default function RelationsAndFunctionsChapter() {
       <Callout type="important" title="How Many Relations Can Exist?">
         Every subset of A × B is a relation. With n(A) = p and n(B) = q, n(A × B) = pq, so:
       </Callout>
-      <FormulaBlock latex="\\text{Total number of relations from } A \\text{ to } B = 2^{pq}" important />
+      <FormulaBlock latex={String.raw`\text{Total number of relations from } A \text{ to } B = 2^{pq}`} important />
 
       <Callout type="important" title="Counting Cheat Sheet — Don't Mix These Up">
         <p className="mb-2">
@@ -370,7 +370,7 @@ export default function RelationsAndFunctionsChapter() {
             Depict with an arrow diagram; write domain, codomain, range.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="R = \\{(1,2), (2,3), (3,4), (4,5), (5,6)\\}" />
+            <FormulaBlock latex={String.raw`R = \{(1,2), (2,3), (3,4), (4,5), (5,6)\}`} />
             <ArrowDiagram
               leftLabel="A"
               rightLabel="A"
@@ -411,8 +411,8 @@ export default function RelationsAndFunctionsChapter() {
               ]}
               caption="Fig 2.6 — each square pairs with both ± roots; –1 and 1 receive no arrows"
             />
-            <FormulaBlock latex="\\text{(i)}\\quad R = \\{(x,y) : x = y^2,\\; x \\in P,\\; y \\in Q\\}" />
-            <FormulaBlock latex="\\text{(ii)}\\quad R = \\{(9,3),(9,-3),(4,2),(4,-2),(25,5),(25,-5)\\}" />
+            <FormulaBlock latex={String.raw`\text{(i)}\quad R = \{(x,y) : x = y^2,\; x \in P,\; y \in Q\}`} />
+            <FormulaBlock latex={String.raw`\text{(ii)}\quad R = \{(9,3),(9,-3),(4,2),(4,-2),(25,5),(25,-5)\}`} />
             <p>Domain = {"{4, 9, 25}"}; range = {"{–5, –3, –2, 2, 3, 5}"}; Q itself is the codomain.</p>
           </ProblemSolution.Solution>
         </ProblemSolution>
@@ -422,7 +422,7 @@ export default function RelationsAndFunctionsChapter() {
             <p>A = {"{1, 2}"}, B = {"{3, 4}"}. How many relations exist from A to B?</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="A \\times B = \\{(1,3),(1,4),(2,3),(2,4)\\} \\;\\Rightarrow\\; n(A \\times B) = 4" />
+            <FormulaBlock latex={String.raw`A \times B = \{(1,3),(1,4),(2,3),(2,4)\} \;\Rightarrow\; n(A \times B) = 4`} />
             <p>Relations = subsets = 2⁴ = 16.</p>
           </ProblemSolution.Solution>
         </ProblemSolution>
@@ -481,7 +481,7 @@ export default function RelationsAndFunctionsChapter() {
         <strong><Highlight>one and only one image</Highlight></strong> in B. Equivalently: the domain of f is all of A,
         and no two distinct ordered pairs of f share the same first element.
       </Callout>
-      <FormulaBlock latex="f: A \\rightarrow B, \\qquad f(a) = b \\;\\;\\text{means}\\;\\; (a, b) \\in f" important />
+      <FormulaBlock latex={String.raw`f: A \rightarrow B, \qquad f(a) = b \;\;\text{means}\;\; (a, b) \in f`} important />
       <ul>
         <li>b is the <strong>image</strong> of a under f; a is the <strong>preimage</strong> of b.</li>
         <li>&ldquo;map&rdquo; / &ldquo;mapping&rdquo; are synonyms for function.</li>
@@ -606,7 +606,7 @@ export default function RelationsAndFunctionsChapter() {
       <div className="grid items-center gap-4 sm:grid-cols-2">
         <div>
           <p className="font-semibold">(i) Identity function</p>
-          <FormulaBlock latex="f(x) = x, \\quad x \\in \\mathbb{R}" />
+          <FormulaBlock latex={String.raw`f(x) = x, \quad x \in \mathbb{R}`} />
           <p>
             Domain = range = R. Every input maps to itself — the graph is the straight line through
             the origin at 45°.
@@ -618,7 +618,7 @@ export default function RelationsAndFunctionsChapter() {
       <div className="grid items-center gap-4 sm:grid-cols-2">
         <div>
           <p className="font-semibold">(ii) Constant function</p>
-          <FormulaBlock latex="f(x) = c, \\quad x \\in \\mathbb{R}" />
+          <FormulaBlock latex={String.raw`f(x) = c, \quad x \in \mathbb{R}`} />
           <p>
             Domain R; range is the single value {"{c}"}. Graph: a line parallel to the x-axis
             (shown for c = 3).
@@ -630,7 +630,7 @@ export default function RelationsAndFunctionsChapter() {
       <div className="grid items-center gap-4 sm:grid-cols-2">
         <div>
           <p className="font-semibold">(iii) Polynomial function</p>
-          <FormulaBlock latex="f(x) = a_0 + a_1x + a_2x^2 + \\dots + a_nx^n" />
+          <FormulaBlock latex={String.raw`f(x) = a_0 + a_1x + a_2x^2 + \dots + a_nx^n`} />
           <p>
             n a non-negative integer, all coefficients real. f(x) = x³ – x² + 2 ✓,{" "}
             g(x) = x⁴ + √2·x ✓ — but h(x) = x² + 2/x is not (a negative power of x appears).
@@ -713,7 +713,7 @@ export default function RelationsAndFunctionsChapter() {
 
       <div>
         <p className="font-semibold">(iv) Rational function</p>
-        <FormulaBlock latex="\\frac{f(x)}{g(x)}, \\quad g(x) \\neq 0" />
+        <FormulaBlock latex={String.raw`\frac{f(x)}{g(x)}, \quad g(x) \neq 0`} />
         <p>
           A ratio of two polynomials. The reciprocal 1/x above is the classic example — its
           domain simply excludes roots of g.
@@ -722,7 +722,7 @@ export default function RelationsAndFunctionsChapter() {
 
       <Callout type="important" title="Domain Rules: The Only Two Restrictions">
         <p className="font-semibold mb-1">12. Fractional / Rational type — f(x)/g(x)</p>
-        <FormulaBlock latex="g(x) \\neq 0" important />
+        <FormulaBlock latex={String.raw`g(x) \neq 0`} important />
         <p>The denominator can never equal zero. Consider f(x) = 1/(x – 2):</p>
         <ul>
           <li>Can x = 2? No.</li>
@@ -734,7 +734,7 @@ export default function RelationsAndFunctionsChapter() {
           </li>
         </ul>
         <p className="font-semibold mb-1 mt-4">13. Square-root type — √f(x)</p>
-        <FormulaBlock latex="f(x) \\ge 0" important />
+        <FormulaBlock latex={String.raw`f(x) \ge 0`} important />
         <p>What sits under the root must never go negative. Consider f(x) = √(x – 3):</p>
         <ul>
           <li>For real-valued f, we need x – 3 ≥ 0.</li>
@@ -752,7 +752,7 @@ export default function RelationsAndFunctionsChapter() {
       <div className="grid items-center gap-4 sm:grid-cols-2">
         <div>
           <p className="font-semibold">(v) Modulus function</p>
-          <FormulaBlock latex="f(x) = |x| = \\begin{cases} x, & x \\ge 0 \\ -x, & x < 0 \\end{cases}" />
+          <FormulaBlock latex={String.raw`f(x) = |x| = \begin{cases} x, & x \ge 0 \ -x, & x < 0 \end{cases}`} />
           <p>Negative inputs flip sign; output is never negative — the V-shape.</p>
         </div>
         <FunctionGraph curves={[{ fn: Math.abs, from: -5, to: 5 }]} caption="y = |x| — V-shaped" />
@@ -801,7 +801,7 @@ export default function RelationsAndFunctionsChapter() {
       <div className="grid items-center gap-4 sm:grid-cols-2">
         <div>
           <p className="font-semibold">(vii) Greatest integer function</p>
-          <FormulaBlock latex="f(x) = [x] = \\text{greatest integer} \\le x" />
+          <FormulaBlock latex={String.raw`f(x) = [x] = \text{greatest integer} \le x`} />
           <p>
             [x] = –1 on [–1, 0), 0 on [0, 1), 1 on [1, 2), 2 on [2, 3)… Each step includes its left
             end (filled dot) but not its right end (hollow dot). Domain R; range ℤ — the output is
@@ -883,7 +883,7 @@ export default function RelationsAndFunctionsChapter() {
             <strong>(b)</strong> A full circle of radius 4 satisfies x² + y² = 16. The upper half
             means y ≥ 0, so take the positive square root:
           </p>
-          <FormulaBlock latex="f(x) = \\sqrt{16 - x^2}, \\quad -4 \\le x \\le 4" important />
+          <FormulaBlock latex={String.raw`f(x) = \sqrt{16 - x^2}, \quad -4 \le x \le 4`} important />
           <p>
             Check the endpoints: √(16 – 16) = 0 ✓ at both ends, and f(0) = √16 = 4 ✓ at the top.
             Note the domain restriction is exactly the square-root rule in action: 16 – x² ≥ 0 ⇔
@@ -905,7 +905,7 @@ export default function RelationsAndFunctionsChapter() {
             <br />
             For the range, set y = (x + 2)/(x – 2) and solve back for x:
           </p>
-          <FormulaBlock latex="y(x-2) = x+2 \\;\\Rightarrow\\; x(y-1) = 2(y+1) \\;\\Rightarrow\\; x = \\frac{2(y+1)}{y-1}" />
+          <FormulaBlock latex={String.raw`y(x-2) = x+2 \;\Rightarrow\; x(y-1) = 2(y+1) \;\Rightarrow\; x = \frac{2(y+1)}{y-1}`} />
           <p>
             This fails only when y – 1 = 0, i.e., y = 1 — and indeed (x + 2) = (x – 2) would force
             2 = –2, impossible. Hence <strong>range = ℝ – {"{1}"}</strong>.
@@ -913,11 +913,11 @@ export default function RelationsAndFunctionsChapter() {
           <p>
             <strong>(b)</strong> Replace x by –x and simplify:
           </p>
-          <FormulaBlock latex="f(-x) = \\frac{-x+2}{-x-2} = \\frac{x-2}{x+2}" />
+          <FormulaBlock latex={String.raw`f(-x) = \frac{-x+2}{-x-2} = \frac{x-2}{x+2}`} />
           <p>The two fractions are exact reciprocals:</p>
-          <FormulaBlock latex="f(x)\\cdot f(-x) = \\frac{x+2}{x-2}\\cdot\\frac{x-2}{x+2} = 1" />
+          <FormulaBlock latex={String.raw`f(x)\cdot f(-x) = \frac{x+2}{x-2}\cdot\frac{x-2}{x+2} = 1`} />
           <p>And f(0) = (0 + 2)/(0 – 2) = –1. Therefore:</p>
-          <FormulaBlock latex="f(x)\\cdot f(-x) + f(0) = 1 + (-1) = 0" important />
+          <FormulaBlock latex={String.raw`f(x)\cdot f(-x) + f(0) = 1 + (-1) = 0`} important />
           <p>
             The identity holds for every x in the domain (x ≠ ±2 keeps both fractions defined).
           </p>
@@ -979,11 +979,11 @@ export default function RelationsAndFunctionsChapter() {
       </p>
       <FormulaCard>
         <p className="font-semibold mb-2">The Five Operations</p>
-        <FormulaBlock latex="(f + g)(x) = f(x) + g(x)" />
-        <FormulaBlock latex="(f - g)(x) = f(x) - g(x)" />
-        <FormulaBlock latex="(\\alpha f)(x) = \\alpha \\, f(x), \\qquad \\alpha \\in \\mathbb{R}" />
-        <FormulaBlock latex="(fg)(x) = f(x)\\, g(x) \\quad \\text{(pointwise multiplication)}" />
-        <FormulaBlock latex="\\left(\\frac{f}{g}\\right)(x) = \\frac{f(x)}{g(x)}, \\qquad g(x) \\neq 0" important />
+        <FormulaBlock latex={String.raw`(f + g)(x) = f(x) + g(x)`} />
+        <FormulaBlock latex={String.raw`(f - g)(x) = f(x) - g(x)`} />
+        <FormulaBlock latex={String.raw`(\alpha f)(x) = \alpha \, f(x), \qquad \alpha \in \mathbb{R}`} />
+        <FormulaBlock latex={String.raw`(fg)(x) = f(x)\, g(x) \quad \text{(pointwise multiplication)}`} />
+        <FormulaBlock latex={String.raw`\left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)}, \qquad g(x) \neq 0`} important />
       </FormulaCard>
 
       <Expandable id="h-examples-2-4-2" title="Examples 16 and 17">
@@ -992,8 +992,8 @@ export default function RelationsAndFunctionsChapter() {
             <p>f(x) = x² and g(x) = 2x + 1. Find (f+g)(x), (f–g)(x), (fg)(x), (f/g)(x).</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="(f+g)(x) = x^2 + 2x + 1, \\qquad (f-g)(x) = x^2 - 2x - 1" />
-            <FormulaBlock latex="(fg)(x) = 2x^3 + x^2, \\qquad \\left(\\frac{f}{g}\\right)(x) = \\frac{x^2}{2x+1},\\; x \\neq -\\tfrac{1}{2}" />
+            <FormulaBlock latex={String.raw`(f+g)(x) = x^2 + 2x + 1, \qquad (f-g)(x) = x^2 - 2x - 1`} />
+            <FormulaBlock latex={String.raw`(fg)(x) = 2x^3 + x^2, \qquad \left(\frac{f}{g}\right)(x) = \frac{x^2}{2x+1},\; x \neq -\tfrac{1}{2}`} />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -1002,8 +1002,8 @@ export default function RelationsAndFunctionsChapter() {
             <p>f(x) = √x and g(x) = x over the non-negative reals. Find all four combinations.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="(f+g)(x) = \\sqrt{x} + x, \\qquad (f-g)(x) = \\sqrt{x} - x" />
-            <FormulaBlock latex="(fg)(x) = x^{3/2}, \\qquad \\left(\\frac{f}{g}\\right)(x) = \\frac{1}{\\sqrt{x}},\\; x > 0" />
+            <FormulaBlock latex={String.raw`(f+g)(x) = \sqrt{x} + x, \qquad (f-g)(x) = \sqrt{x} - x`} />
+            <FormulaBlock latex={String.raw`(fg)(x) = x^{3/2}, \qquad \left(\frac{f}{g}\right)(x) = \frac{1}{\sqrt{x}},\; x > 0`} />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -1040,7 +1040,7 @@ export default function RelationsAndFunctionsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>Linear means f(x) = mx + c. From (0, –1): c = –1. From (1, 1): m – 1 = 1 ⇒ m = 2.</p>
-            <FormulaBlock latex="f(x) = 2x - 1" important />
+            <FormulaBlock latex={String.raw`f(x) = 2x - 1`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -1050,7 +1050,7 @@ export default function RelationsAndFunctionsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>Denominator must not vanish:</p>
-            <FormulaBlock latex="x^2 - 5x + 4 = (x-1)(x-4) \\neq 0 \\;\\Rightarrow\\; \\text{domain} = \\mathbb{R} - \\{1, 4\\}" important />
+            <FormulaBlock latex={String.raw`x^2 - 5x + 4 = (x-1)(x-4) \neq 0 \;\Rightarrow\; \text{domain} = \mathbb{R} - \{1, 4\}`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 

@@ -163,7 +163,7 @@ export default function SetsChapter() {
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p>The given equation can be written as:</p>
-          <FormulaBlock latex="(x - 1)(x + 2) = 0, \\quad \\text{i.e.,} \\quad x = 1, -2" />
+          <FormulaBlock latex={String.raw`(x - 1)(x + 2) = 0, \quad \text{i.e.,} \quad x = 1, -2`} />
           <p>Therefore, the solution set in roster form is <strong>{"{1, –2}"}</strong>.</p>
         </ProblemSolution.Solution>
       </ProblemSolution>
@@ -183,8 +183,8 @@ export default function SetsChapter() {
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <div className="flex flex-col items-center justify-center sm:flex-row sm:gap-8 [&>div]:my-3">
-            <FormulaBlock latex="A = \\{x : x \\text{ is the square of a natural number}\\}" />
-            <FormulaBlock latex="A = \\{x : x = n^2, \\text{ where } n \\in \\mathbb{N}\\}" important />
+            <FormulaBlock latex={String.raw`A = \{x : x \text{ is the square of a natural number}\}`} />
+            <FormulaBlock latex={String.raw`A = \{x : x = n^2, \text{ where } n \in \mathbb{N}\}`} important />
           </div>
         </ProblemSolution.Solution>
       </ProblemSolution>
@@ -195,7 +195,7 @@ export default function SetsChapter() {
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p>Each member has numerator one less than the denominator; numerators begin at 1 and do not exceed 6. Hence:</p>
-          <FormulaBlock latex="A = \\left\\{x : x = \\frac{n}{n+1}, \\text{ where } n \\in \\mathbb{N} \\text{ and } 1 \\le n \\le 6\\right\\}" important />
+          <FormulaBlock latex={String.raw`A = \left\{x : x = \frac{n}{n+1}, \text{ where } n \in \mathbb{N} \text{ and } 1 \le n \le 6\right\}`} important />
         </ProblemSolution.Solution>
       </ProblemSolution>
 
@@ -626,13 +626,13 @@ export default function SetsChapter() {
         A set A is said to be a subset of a set B if every element of A is also an element of B.
         Using the implication symbol ⇒:
       </Callout>
-      <FormulaBlock latex="A \\subset B \\quad \\text{if} \\quad a \\in A \\Rightarrow a \\in B" important />
+      <FormulaBlock latex={String.raw`A \subset B \quad \text{if} \quad a \in A \Rightarrow a \in B`} important />
       <VennDiagram layout="subset" caption="B ⊂ A — every element of B lies inside A" />
       <p>
         If every element of B is also in A then B ⊂ A as well; in that case the two sets are the
         same, giving the important criterion:
       </p>
-      <FormulaBlock latex="A \\subset B \\;\\text{and}\\; B \\subset A \\Leftrightarrow A = B" important />
+      <FormulaBlock latex={String.raw`A \subset B \;\text{and}\; B \subset A \Leftrightarrow A = B`} important />
       <KeyPoint>
         Every set A is a subset of itself (A ⊂ A). The empty set φ has no elements, so by
         agreement <Highlight>φ is a subset of every set</Highlight>. If A is not a subset of B we write A ⊄ B.
@@ -654,8 +654,8 @@ export default function SetsChapter() {
           While forming a subset, every element gives you exactly two choices — include it or leave
           it out. With n elements making independent choices, the counts are:
         </p>
-        <FormulaBlock latex="\\text{Number of subsets of an } n\\text{-element set} = 2^n" important />
-        <FormulaBlock latex="\\text{Number of proper subsets} = 2^n - 1" />
+        <FormulaBlock latex={String.raw`\text{Number of subsets of an } n\text{-element set} = 2^n`} important />
+        <FormulaBlock latex={String.raw`\text{Number of proper subsets} = 2^n - 1`} />
         <p className="mb-1">(Proper subsets exclude the complete set itself; the count including φ.)</p>
         <table>
           <thead>
@@ -766,7 +766,7 @@ export default function SetsChapter() {
         as 7/2) and −11/3. Members of T include √2, √5 and π.
       </p>
       <Callout type="important" title="Relations among the subsets of ℝ">
-        <FormulaBlock latex="\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q}, \\qquad \\mathbb{Q} \\subset \\mathbb{R}, \\qquad T \\subset \\mathbb{R}, \\qquad \\mathbb{N} \\not\\subset T" important />
+        <FormulaBlock latex={String.raw`\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q}, \qquad \mathbb{Q} \subset \mathbb{R}, \qquad T \subset \mathbb{R}, \qquad \mathbb{N} \not\subset T`} important />
       </Callout>
 
       <h3 id="h-1-6-2">1.6.2 Intervals as subsets of R</h3>
@@ -777,7 +777,7 @@ export default function SetsChapter() {
             title: "Open interval (a, b)",
             children: (
               <>
-                <FormulaBlock latex="(a, b) = \\{y : a < y < b\\}" />
+                <FormulaBlock latex={String.raw`(a, b) = \{y : a < y < b\}`} />
                 <p>All points between a and b belong to it, but the end points a, b do not.</p>
               </>
             ),
@@ -786,7 +786,7 @@ export default function SetsChapter() {
             title: "Closed interval [a, b]",
             children: (
               <>
-                <FormulaBlock latex="[a, b] = \\{x : a \\le x \\le b\\}" />
+                <FormulaBlock latex={String.raw`[a, b] = \{x : a \le x \le b\}`} />
                 <p>The end points are included.</p>
               </>
             ),
@@ -794,8 +794,8 @@ export default function SetsChapter() {
         ]}
       />
       <p>Semi-open intervals are closed at one end and open at the other:</p>
-      <FormulaBlock latex="[a, b) = \\{x : a \\le x < b\\} \\quad\\text{(includes } a \\text{, excludes } b\\text{)}" />
-      <FormulaBlock latex="(a, b] = \\{x : a < x \\le b\\} \\quad\\text{(includes } b \\text{, excludes } a\\text{)}" />
+      <FormulaBlock latex={String.raw`[a, b) = \{x : a \le x < b\} \quad\text{(includes } a \text{, excludes } b\text{)}`} />
+      <FormulaBlock latex={String.raw`(a, b] = \{x : a < x \le b\} \quad\text{(includes } b \text{, excludes } a\text{)}`} />
       <p>
         These notations designate subsets of the real numbers compactly: if A = (–3, 5) and
         B = [–7, 9], then A ⊂ B. The set [0, ∞) defines the non-negative reals, (–∞, 0) the
@@ -957,7 +957,7 @@ export default function SetsChapter() {
           <p>Let A = {"{2, 4, 6, 8}"} and B = {"{6, 8, 10, 12}"}. Find A ∪ B.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex="A \\cup B = \\{2, 4, 6, 8, 10, 12\\}" important />
+          <FormulaBlock latex={String.raw`A \cup B = \{2, 4, 6, 8, 10, 12\}`} important />
           <p>The common elements 6 and 8 have been taken only once.</p>
         </ProblemSolution.Solution>
       </ProblemSolution>
@@ -995,16 +995,16 @@ export default function SetsChapter() {
         The union of two sets A and B is the set C of all those elements which are in A or in B
         (including those in both):
       </Callout>
-      <FormulaBlock latex="A \\cup B = \\{x : x \\in A \\;\\text{or}\\; x \\in B\\}" important />
+      <FormulaBlock latex={String.raw`A \cup B = \{x : x \in A \;\text{or}\; x \in B\}`} important />
       <VennDiagram shade="union" caption="A ∪ B — the whole of both circles shaded" />
 
       <FormulaCard>
         <p className="font-semibold mb-2">Properties of Union</p>
-        <FormulaBlock latex="A \\cup B = B \\cup A \\quad \\text{(Commutative law)}" />
-        <FormulaBlock latex="(A \\cup B) \\cup C = A \\cup (B \\cup C) \\quad \\text{(Associative law)}" />
-        <FormulaBlock latex="A \\cup \\phi = A \\quad \\text{($\\phi$ is the identity of $\\cup$)}" />
-        <FormulaBlock latex="A \\cup A = A \\quad \\text{(Idempotent law)}" />
-        <FormulaBlock latex="U \\cup A = U \\quad \\text{(Law of U)}" />
+        <FormulaBlock latex={String.raw`A \cup B = B \cup A \quad \text{(Commutative law)}`} />
+        <FormulaBlock latex={String.raw`(A \cup B) \cup C = A \cup (B \cup C) \quad \text{(Associative law)}`} />
+        <FormulaBlock latex={String.raw`A \cup \phi = A \quad \text{($\phi$ is the identity of $\cup$)}`} />
+        <FormulaBlock latex={String.raw`A \cup A = A \quad \text{(Idempotent law)}`} />
+        <FormulaBlock latex={String.raw`U \cup A = U \quad \text{(Law of U)}`} />
       </FormulaCard>
 
       <h3 id="h-1-8-2">1.8.2 Intersection of sets</h3>
@@ -1052,7 +1052,7 @@ export default function SetsChapter() {
         The intersection of two sets A and B is the set of all those elements which belong to both
         A and B:
       </Callout>
-      <FormulaBlock latex="A \\cap B = \\{x : x \\in A \\;\\text{and}\\; x \\in B\\}" important />
+      <FormulaBlock latex={String.raw`A \cap B = \{x : x \in A \;\text{and}\; x \in B\}`} important />
       <div className="grid gap-4 sm:grid-cols-2">
         <VennDiagram shade="intersection" caption="A ∩ B — only the common region" />
         <VennDiagram layout="disjoint" shade="union" caption="Disjoint sets — no overlap, A ∩ B = φ" />
@@ -1064,11 +1064,11 @@ export default function SetsChapter() {
 
       <FormulaCard>
         <p className="font-semibold mb-2">Properties of Intersection</p>
-        <FormulaBlock latex="A \\cap B = B \\cap A \\quad \\text{(Commutative law)}" />
-        <FormulaBlock latex="(A \\cap B) \\cap C = A \\cap (B \\cap C) \\quad \\text{(Associative law)}" />
-        <FormulaBlock latex="\\phi \\cap A = \\phi, \\qquad U \\cap A = A \\quad \\text{(Law of $\\phi$ and $U$)}" />
-        <FormulaBlock latex="A \\cap A = A \\quad \\text{(Idempotent law)}" />
-        <FormulaBlock latex="A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C) \\quad \\text{(Distributive law — $\\cap$ distributes over $\\cup$)}" important />
+        <FormulaBlock latex={String.raw`A \cap B = B \cap A \quad \text{(Commutative law)}`} />
+        <FormulaBlock latex={String.raw`(A \cap B) \cap C = A \cap (B \cap C) \quad \text{(Associative law)}`} />
+        <FormulaBlock latex={String.raw`\phi \cap A = \phi, \qquad U \cap A = A \quad \text{(Law of $\phi$ and $U$)}`} />
+        <FormulaBlock latex={String.raw`A \cap A = A \quad \text{(Idempotent law)}`} />
+        <FormulaBlock latex={String.raw`A \cap (B \cup C) = (A \cap B) \cup (A \cap C) \quad \text{(Distributive law — $\cap$ distributes over $\cup$)}`} important />
       </FormulaCard>
       <div className="grid gap-4 sm:grid-cols-2">
         <ThreeSetVenn shade="a-cap-buc" caption="A ∩ (B ∪ C)" />
@@ -1090,7 +1090,7 @@ export default function SetsChapter() {
           <p>Let A = {"{1, 2, 3, 4, 5, 6}"}, B = {"{2, 4, 6, 8}"}. Find A – B and B – A.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex="A - B = \\{1, 3, 5\\}, \\qquad B - A = \\{8\\}" important />
+          <FormulaBlock latex={String.raw`A - B = \{1, 3, 5\}, \qquad B - A = \{8\}`} important />
           <p>Note that A – B ≠ B – A.</p>
         </ProblemSolution.Solution>
       </ProblemSolution>
@@ -1100,9 +1100,9 @@ export default function SetsChapter() {
           <p>Let V = {"{a, e, i, o, u}"} and B = {"{a, i, k, u}"}. Find V – B and B – V.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex="V - B = \\{e, o\\}, \\qquad B - V = \\{k\\}" />
+          <FormulaBlock latex={String.raw`V - B = \{e, o\}, \qquad B - V = \{k\}`} />
           <p>Again V – B ≠ B – V. In set-builder notation:</p>
-          <FormulaBlock latex="A - B = \\{x : x \\in A \\;\\text{and}\\; x \\notin B\\}" important />
+          <FormulaBlock latex={String.raw`A - B = \{x : x \in A \;\text{and}\; x \notin B\}`} important />
         </ProblemSolution.Solution>
       </ProblemSolution>
       </Expandable>
@@ -1124,9 +1124,9 @@ export default function SetsChapter() {
           subset relationship before doing any element work.
         </Callout>
         <Callout type="tip" title="Inclusion–exclusion: the word-problem weapon">
-          <FormulaBlock latex="n(A \\cup B) = n(A) + n(B) - n(A \\cap B)" />
+          <FormulaBlock latex={String.raw`n(A \cup B) = n(A) + n(B) - n(A \cap B)`} />
           Three sets:
-          <FormulaBlock latex="n(A \\cup B \\cup C) = n(A)+n(B)+n(C) - n(A\\cap B)-n(B\\cap C)-n(A\\cap C) + n(A\\cap B\\cap C)" />
+          <FormulaBlock latex={String.raw`n(A \cup B \cup C) = n(A)+n(B)+n(C) - n(A\cap B)-n(B\cap C)-n(A\cap C) + n(A\cap B\cap C)`} />
         </Callout>
         <Callout type="tip" title="Fill the Venn center-out">
           In word problems, start with the triple intersection, then pairwise regions, then
@@ -1243,7 +1243,7 @@ export default function SetsChapter() {
         Let U be the universal set and A a subset of U. The complement of A is the set of all
         elements of U which are not elements of A, written A′. Thus:
       </Callout>
-      <FormulaBlock latex="A' = \\{x : x \\in U \\;\\text{and}\\; x \\notin A\\}, \\qquad A' = U - A" important />
+      <FormulaBlock latex={String.raw`A' = \{x : x \in U \;\text{and}\; x \notin A\}, \qquad A' = U - A`} important />
       <VennDiagram shade="outside-a" caption="A′ = U – A — everything outside A, inside U" />
 
       <Expandable id="h-examples-1-10" title="Examples 20 and 21">
@@ -1284,11 +1284,11 @@ export default function SetsChapter() {
           </p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex="A' = \\{1, 4, 5, 6\\}, \\qquad B' = \\{1, 2, 6\\}, \\qquad A' \\cap B' = \\{1, 6\\}" />
-          <FormulaBlock latex="A \\cup B = \\{2, 3, 4, 5\\} \\;\\Rightarrow\\; (A \\cup B)' = \\{1, 6\\}" />
-          <FormulaBlock latex="(A \\cup B)' = \\{1, 6\\} = A' \\cap B'" important />
+          <FormulaBlock latex={String.raw`A' = \{1, 4, 5, 6\}, \qquad B' = \{1, 2, 6\}, \qquad A' \cap B' = \{1, 6\}`} />
+          <FormulaBlock latex={String.raw`A \cup B = \{2, 3, 4, 5\} \;\Rightarrow\; (A \cup B)' = \{1, 6\}`} />
+          <FormulaBlock latex={String.raw`(A \cup B)' = \{1, 6\} = A' \cap B'`} important />
           <p>This result holds in general, giving De Morgan&apos;s laws:</p>
-          <FormulaBlock latex="(A \\cup B)' = A' \\cap B', \\qquad (A \\cap B)' = A' \\cup B'" important />
+          <FormulaBlock latex={String.raw`(A \cup B)' = A' \cap B', \qquad (A \cap B)' = A' \cup B'`} important />
         </ProblemSolution.Solution>
       </ProblemSolution>
       </Expandable>
@@ -1303,10 +1303,10 @@ export default function SetsChapter() {
 
       <FormulaCard>
         <p className="font-semibold mb-2">Properties of Complement Sets</p>
-        <FormulaBlock latex="\\textbf{Complement laws:} \\quad A \\cup A' = U, \\qquad A \\cap A' = \\phi" />
-        <FormulaBlock latex="\\textbf{De Morgan's laws:} \\quad (A \\cup B)' = A' \\cap B', \\qquad (A \\cap B)' = A' \\cup B'" />
-        <FormulaBlock latex="\\textbf{Double complementation:} \\quad (A')' = A" />
-        <FormulaBlock latex="\\phi' = U \\quad \\text{and} \\quad U' = \\phi" />
+        <FormulaBlock latex={String.raw`\textbf{Complement laws:} \quad A \cup A' = U, \qquad A \cap A' = \phi`} />
+        <FormulaBlock latex={String.raw`\textbf{De Morgan's laws:} \quad (A \cup B)' = A' \cap B', \qquad (A \cap B)' = A' \cup B'`} />
+        <FormulaBlock latex={String.raw`\textbf{Double complementation:} \quad (A')' = A`} />
+        <FormulaBlock latex={String.raw`\phi' = U \quad \text{and} \quad U' = \phi`} />
       </FormulaCard>
       <KeyPoint>
         All these laws can be verified using Venn diagrams — shade each side separately and check
@@ -1316,7 +1316,7 @@ export default function SetsChapter() {
       <SpeedTricks>
         <Callout type="tip" title="Complement arithmetic">
           &ldquo;Not A&rdquo; counts = total − A:{" "}
-          <FormulaBlock latex="n(A') = n(U) - n(A)" />
+          <FormulaBlock latex={String.raw`n(A') = n(U) - n(A)`} />
           Also instantly: n(A ∪ B) = n(U) − n(A′ ∩ B′) — complement first, then flip back.
         </Callout>
         <Callout type="tip" title="Difference via complement (beyond syllabus)">
@@ -1414,8 +1414,8 @@ export default function SetsChapter() {
           <p>Show that the set of letters needed to spell &ldquo;CATARACT&rdquo; and the set of letters needed to spell &ldquo;TRACT&rdquo; are equal.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex="X = \\{\\text{letters of CATARACT}\\} = \\{C, A, T, R\\}" />
-          <FormulaBlock latex="Y = \\{\\text{letters of TRACT}\\} = \\{T, R, A, C, T\\} = \\{T, R, A, C\\}" />
+          <FormulaBlock latex={String.raw`X = \{\text{letters of CATARACT}\} = \{C, A, T, R\}`} />
+          <FormulaBlock latex={String.raw`Y = \{\text{letters of TRACT}\} = \{T, R, A, C, T\} = \{T, R, A, C\}`} />
           <p>Every element of X is in Y and vice-versa, hence X = Y.</p>
         </ProblemSolution.Solution>
       </ProblemSolution>

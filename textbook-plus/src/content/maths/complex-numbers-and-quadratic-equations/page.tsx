@@ -45,9 +45,9 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
             </p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="4x + i(3x - y) = 3 + i(-6) \\tag{1}" />
+            <FormulaBlock latex={String.raw`4x + i(3x - y) = 3 + i(-6) \tag{1}`} />
               <p>Equating real and imaginary parts of (1):</p>
-            <FormulaBlock latex="4x = 3, \\qquad 3x - y = -6" />
+            <FormulaBlock latex={String.raw`4x = 3, \qquad 3x - y = -6`} />
             <p>
               Solving:  <strong>x = 3/4</strong>, then 3·(3/4) − y = −6 → y = 9/4 + 6 ={" "}
               <strong>y = 33/4</strong>.
@@ -65,7 +65,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p>Equate Re and Im separately:</p>
-            <FormulaBlock latex="x+3 = 5 \\;\\Rightarrow\\; x=2, \\qquad y-2 = 4 \\;\\Rightarrow\\; y=6" />
+            <FormulaBlock latex={String.raw`x+3 = 5 \;\Rightarrow\; x=2, \qquad y-2 = 4 \;\Rightarrow\; y=6`} />
             <p>
               So <strong>(x, y) = (2, 6)</strong> — the real part matches the real part, the
               imaginary part matches the imaginary part. Always split into two real equations.
@@ -80,7 +80,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
             </p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="a+b = 7,\\qquad a-b = 1" />
+            <FormulaBlock latex={String.raw`a+b = 7,\qquad a-b = 1`} />
             <p>Adding: 2a = 8 → <strong>a = 4</strong>; then b = 7 − a = <strong>b = 3</strong>.</p>
             <p className="text-sm text-muted-foreground">
               Two linear equations in two unknowns — solve simultaneously. This pattern appears
@@ -96,7 +96,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
             </p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="2x = 6 \\Rightarrow x=3, \\qquad 3y-5=-2 \\Rightarrow 3y=3 \\Rightarrow y=1" />
+            <FormulaBlock latex={String.raw`2x = 6 \Rightarrow x=3, \qquad 3y-5=-2 \Rightarrow 3y=3 \Rightarrow y=1`} />
             <p>
               Hence <strong>x = 3, y = 1</strong>. Check: LHS = 6 + i(−2) ✓.
             </p>
@@ -111,10 +111,10 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
             </p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="(x-iy)(3+5i)=(3x+5y)+i(5x-3y)" />
+            <FormulaBlock latex={String.raw`(x-iy)(3+5i)=(3x+5y)+i(5x-3y)`} />
             <p>
               Purely real ⇔ imaginary part = 0:
-              <FormulaBlock latex="5x-3y=0 \\;\\Rightarrow\\; y=\\frac53x" important />
+              <FormulaBlock latex={String.raw`5x-3y=0 \;\Rightarrow\; y=\frac53x`} important />
               This is the condition for the product to land on the real axis — useful in
               locus problems later.
             </p>
@@ -125,7 +125,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
       <h2 id="h-4-3">4.3 Algebra of Complex Numbers</h2>
 
       <h3 id="h-4-3-1">4.3.1 Addition of two complex numbers</h3>
-      <FormulaBlock latex="z_1 + z_2 = (a + c) + i(b + d)" important />
+      <FormulaBlock latex={String.raw`z_1 + z_2 = (a + c) + i(b + d)`} important />
       <ul>
         <li>Again a complex number (closure).</li>
         <li>Example: (2 + 3i) + (−6 + 5i) = −4 + 8i.</li>
@@ -133,32 +133,32 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
       <Expandable title="Properties of Addition — hidden (click to expand)">
         <FormulaCard>
           <p className="font-semibold mb-2">Properties of Addition</p>
-          <FormulaBlock latex="z_1 + z_2 = z_2 + z_1 \\quad\\text{(commutative)}" />
-          <FormulaBlock latex="(z_1 + z_2) + z_3 = z_1 + (z_2 + z_3) \\quad\\text{(associative)}" />
-          <FormulaBlock latex="z + 0 = z \\;\\; \\text{where } 0 = 0 + i0 \\text{ (additive identity)}" />
-          <FormulaBlock latex="z + (-z) = 0 \\;\\; \\text{where } -z = -a + i(-b) \\text{ (additive inverse)}" />
+          <FormulaBlock latex={String.raw`z_1 + z_2 = z_2 + z_1 \quad\text{(commutative)}`} />
+          <FormulaBlock latex={String.raw`(z_1 + z_2) + z_3 = z_1 + (z_2 + z_3) \quad\text{(associative)}`} />
+          <FormulaBlock latex={String.raw`z + 0 = z \;\; \text{where } 0 = 0 + i0 \text{ (additive identity)}`} />
+          <FormulaBlock latex={String.raw`z + (-z) = 0 \;\; \text{where } -z = -a + i(-b) \text{ (additive inverse)}`} />
           <p className="text-sm text-muted-foreground">Closure: sum of two complex numbers is complex.</p>
         </FormulaCard>
       </Expandable>
 
       <h3 id="h-4-3-2">4.3.2 Difference of two complex numbers</h3>
-      <FormulaBlock latex="z_1 - z_2 = z_1 + (-z_2)" />
+      <FormulaBlock latex={String.raw`z_1 - z_2 = z_1 + (-z_2)`} />
       <ul>
         <li>(6 + 3i) − (2 − i) = 4 + 4i</li>
         <li>(2 − i) − (6 + 3i) = −4 − 4i — order matters; subtraction is not commutative.</li>
       </ul>
 
       <h3 id="h-4-3-3">4.3.3 Multiplication of two complex numbers</h3>
-      <FormulaBlock latex="z_1 z_2 = (ac - bd) + i(ad + bc)" important />
+      <FormulaBlock latex={String.raw`z_1 z_2 = (ac - bd) + i(ad + bc)`} important />
       <p>Example: (3 + 5i)(2 + 6i) = (6 − 30) + i(18 + 10) = −24 + 28i.</p>
       <Expandable title="Properties of Multiplication — hidden (click to expand)">
         <FormulaCard>
           <p className="font-semibold mb-2">Properties of Multiplication</p>
-          <FormulaBlock latex="z_1 z_2 = z_2 z_1 \\quad\\text{(commutative)}" />
-          <FormulaBlock latex="(z_1 z_2)z_3 = z_1(z_2 z_3) \\quad\\text{(associative)}" />
-          <FormulaBlock latex="z\\cdot 1 = z \\;\\; \\text{where } 1 = 1 + i0 \\text{ (multiplicative identity)}" />
-          <FormulaBlock latex="(a+ib)\\frac{a-ib}{a^2+b^2}=1 \\;\\; \\text{(inverse exists for } z\\neq 0\\text{)}" />
-          <FormulaBlock latex="z_1(z_2+z_3)=z_1z_2+z_1z_3 \\quad\\text{(distributive)}" />
+          <FormulaBlock latex={String.raw`z_1 z_2 = z_2 z_1 \quad\text{(commutative)}`} />
+          <FormulaBlock latex={String.raw`(z_1 z_2)z_3 = z_1(z_2 z_3) \quad\text{(associative)}`} />
+          <FormulaBlock latex={String.raw`z\cdot 1 = z \;\; \text{where } 1 = 1 + i0 \text{ (multiplicative identity)}`} />
+          <FormulaBlock latex={String.raw`(a+ib)\frac{a-ib}{a^2+b^2}=1 \;\; \text{(inverse exists for } z\neq 0\text{)}`} />
+          <FormulaBlock latex={String.raw`z_1(z_2+z_3)=z_1z_2+z_1z_3 \quad\text{(distributive)}`} />
         </FormulaCard>
       </Expandable>
 
@@ -172,7 +172,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
         </div>
         <div className="px-4 py-4 space-y-3">
           <p className="text-sm">
-            Suppose we want to simplify <FormulaBlock latex="\\frac{a+ib}{c+id}" />. The problem is that the
+            Suppose we want to simplify <FormulaBlock latex={String.raw`\frac{a+ib}{c+id}`} />. The problem is that the
             denominator is <strong>complex</strong>.
           </p>
           <p className="text-sm">
@@ -182,14 +182,14 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
             The trick: <Highlight>multiply numerator and denominator by the conjugate of the denominator</Highlight>.
           </p>
           <p className="text-sm">
-            The conjugate of <FormulaBlock latex="c+id" /> is <FormulaBlock latex="c-id" />. Therefore,
+            The conjugate of <FormulaBlock latex={String.raw`c+id`} /> is <FormulaBlock latex={String.raw`c-id`} />. Therefore,
           </p>
-          <FormulaBlock latex="\\frac{a+ib}{c+id}\\times\\frac{c-id}{c-id}" important />
+          <FormulaBlock latex={String.raw`\frac{a+ib}{c+id}\times\frac{c-id}{c-id}`} important />
           <p className="text-sm">
-            Since <FormulaBlock latex="\\frac{c-id}{c-id}=1" />, the value doesn&apos;t change.
+            Since <FormulaBlock latex={String.raw`\frac{c-id}{c-id}=1`} />, the value doesn&apos;t change.
           </p>
           <p className="text-sm">Thus,</p>
-          <FormulaBlock latex="=\\frac{(a+ib)(c-id)}{(c+id)(c-id)}=\\frac{(ac+bd)+i(bc-ad)}{c^2+d^2}" important />
+          <FormulaBlock latex={String.raw`=\frac{(a+ib)(c-id)}{(c+id)(c-id)}=\frac{(ac+bd)+i(bc-ad)}{c^2+d^2}`} important />
           <p className="text-xs text-muted-foreground">
             Denominator is now <strong>c²+d²</strong> — real. Split into real and imaginary parts and you are in{" "}
             <strong>a+ib</strong> form.
@@ -212,27 +212,27 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
         </div>
         <div className="px-4 py-4 space-y-3">
           <p className="text-sm">
-            For <FormulaBlock latex="z=a+ib,\\; z\\neq0" />, we want <FormulaBlock latex="\\frac1z" />.
+            For <FormulaBlock latex={String.raw`z=a+ib,\; z\neq0`} />, we want <FormulaBlock latex={String.raw`\frac1z`} />.
           </p>
           <p className="text-sm">Multiply numerator and denominator by z̄:</p>
-          <FormulaBlock latex="\\frac1z=\\frac{\\bar z}{z\\bar z}" important />
+          <FormulaBlock latex={String.raw`\frac1z=\frac{\bar z}{z\bar z}`} important />
           <p className="text-sm">
-            But <FormulaBlock latex="z\\bar z=|z|^2" />.
+            But <FormulaBlock latex={String.raw`z\bar z=|z|^2`} />.
           </p>
           <p className="text-sm">Therefore,</p>
-          <FormulaBlock latex="\\boxed{\\frac1z=\\frac{\\bar z}{|z|^2}}" important />
+          <FormulaBlock latex={String.raw`\boxed{\frac1z=\frac{\bar z}{|z|^2}}`} important />
           <p className="text-sm">
-            Since <FormulaBlock latex="\\bar z=a-ib" /> and <FormulaBlock latex="|z|^2=a^2+b^2" />, we get
+            Since <FormulaBlock latex={String.raw`\bar z=a-ib`} /> and <FormulaBlock latex={String.raw`|z|^2=a^2+b^2`} />, we get
           </p>
-          <FormulaBlock latex="\\boxed{\\frac1{a+ib}=\\frac{a-ib}{a^2+b^2}}" important />
+          <FormulaBlock latex={String.raw`\boxed{\frac1{a+ib}=\frac{a-ib}{a^2+b^2}}`} important />
           <div className="rounded-lg border border-border/40 bg-card p-3">
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Example</p>
             <p className="text-sm">
-              Find <FormulaBlock latex="\\frac1{3+4i}" />.
+              Find <FormulaBlock latex={String.raw`\frac1{3+4i}`} />.
             </p>
             <p className="text-sm">Using the formula:</p>
-            <FormulaBlock latex="\\frac1{3+4i}=\\frac{3-4i}{3^2+4^2}=\\frac{3-4i}{25}" />
-            <FormulaBlock latex="=\\frac{3}{25}-\\frac{4}{25}i" important />
+            <FormulaBlock latex={String.raw`\frac1{3+4i}=\frac{3-4i}{3^2+4^2}=\frac{3-4i}{25}`} />
+            <FormulaBlock latex={String.raw`=\frac{3}{25}-\frac{4}{25}i`} important />
           </div>
         </div>
       </div>
@@ -252,7 +252,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
                 { label: "Collect", description: "8 + i(−2) = 8 − 2i ✓" },
               ]}
             />
-            <FormulaBlock latex="(5+2i)+(3-4i)=8-2i" important />
+            <FormulaBlock latex={String.raw`(5+2i)+(3-4i)=8-2i`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -268,7 +268,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
                 { label: "Compute", description: "5 − 3i ✓ (subtraction is not commutative — order matters)" },
               ]}
             />
-            <FormulaBlock latex="(7+5i)-(2+8i)=5-3i" important />
+            <FormulaBlock latex={String.raw`(7+5i)-(2+8i)=5-3i`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -285,7 +285,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
                 { label: "Collect", description: "11 + 10i ✓ — real part ac−bd, imaginary ad+bc" },
               ]}
             />
-            <FormulaBlock latex="(2+3i)(4-i)=11+10i" important />
+            <FormulaBlock latex={String.raw`(2+3i)(4-i)=11+10i`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -303,7 +303,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
                 { label: "Split", description: "(10+10i)/10 = 1 + i ✓" },
               ]}
             />
-            <FormulaBlock latex="\\frac{4+2i}{3-i}=1+i" important />
+            <FormulaBlock latex={String.raw`\frac{4+2i}{3-i}=1+i`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -313,11 +313,11 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p className="text-sm">Work piece by piece, then combine:</p>
-            <FormulaBlock latex="(1+i)^2=1+2i+i^2=2i" />
-            <FormulaBlock latex="(2-i)(1+3i)=2+6i-i-3i^2=5+5i" />
-            <FormulaBlock latex="\\frac{5-i}{1+i}=\\frac{(5-i)(1-i)}{2}=\\frac{4-6i}{2}=2-3i" />
+            <FormulaBlock latex={String.raw`(1+i)^2=1+2i+i^2=2i`} />
+            <FormulaBlock latex={String.raw`(2-i)(1+3i)=2+6i-i-3i^2=5+5i`} />
+            <FormulaBlock latex={String.raw`\frac{5-i}{1+i}=\frac{(5-i)(1-i)}{2}=\frac{4-6i}{2}=2-3i`} />
             <p>Now add/subtract:</p>
-            <FormulaBlock latex="2i+(5+5i)-(2-3i)=3+10i" important />
+            <FormulaBlock latex={String.raw`2i+(5+5i)-(2-3i)=3+10i`} important />
             <p className="text-xs text-muted-foreground">Strategy: clear powers → products → quotients → finally addition/subtraction.</p>
           </ProblemSolution.Solution>
         </ProblemSolution>
@@ -326,10 +326,10 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
       <h3 id="h-4-3-5">4.3.5 Power of i</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Powers of i</p>
-        <FormulaBlock latex="i^2=-1,\\; i^3=-i,\\; i^4=1,\\; i^5=i,\\; i^6=-1,\\dots" />
-        <FormulaBlock latex="i^4=1 \\text{ is the cycle length}" important />
-        <FormulaBlock latex="i^{4k}=1,\\; i^{4k+1}=i,\\; i^{4k+2}=-1,\\; i^{4k+3}=-i \\quad(k\\in\\mathbb Z)" important />
-        <FormulaBlock latex="i^{-1}=-i,\\; i^{-2}=-1,\\; i^{-3}=i,\\; i^{-4}=1" />
+        <FormulaBlock latex={String.raw`i^2=-1,\; i^3=-i,\; i^4=1,\; i^5=i,\; i^6=-1,\dots`} />
+        <FormulaBlock latex={String.raw`i^4=1 \text{ is the cycle length}`} important />
+        <FormulaBlock latex={String.raw`i^{4k}=1,\; i^{4k+1}=i,\; i^{4k+2}=-1,\; i^{4k+3}=-i \quad(k\in\mathbb Z)`} important />
+        <FormulaBlock latex={String.raw`i^{-1}=-i,\; i^{-2}=-1,\; i^{-3}=i,\; i^{-4}=1`} />
       </FormulaCard>
       <KeyPoint title="Fast Power Tip">
         Divide the exponent by 4 — the <strong>remainder</strong> decides: 0→1, 1→i, 2→−1, 3→−i.
@@ -354,7 +354,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
                 (iii) 115 ÷ 4 = 28 rem 3 → i<sup>115</sup> = i³ = <strong>−i</strong>.
               </li>
             </ul>
-            <FormulaBlock latex="i^{27}=-i,\\; i^{48}=1,\\; i^{115}=-i" />
+            <FormulaBlock latex={String.raw`i^{27}=-i,\; i^{48}=1,\; i^{115}=-i`} />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -378,7 +378,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
                 (iii) 1/i<sup>13</sup> = i<sup>−13</sup>; −13 + 16 = 3 → i³ = <strong>−i</strong>.
               </li>
             </ul>
-            <FormulaBlock latex="i^{-29}=-i,\\; i^{-39}=i,\\; \\frac1{i^{13}}=-i" />
+            <FormulaBlock latex={String.raw`i^{-29}=-i,\; i^{-39}=i,\; \frac1{i^{13}}=-i`} />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -389,7 +389,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
             </p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="i + i^2 + i^3 + i^4 = i -1 -i +1 =0" important />
+            <FormulaBlock latex={String.raw`i + i^2 + i^3 + i^4 = i -1 -i +1 =0`} important />
             <p>
               The four-term block sums to 0, so any multiple of 4 is 0. 20 = 4·5 → sum = 5·0 ={" "}
               <strong>0</strong>. For a non-multiple, e.g. i + ··· + i<sup>22</sup> = (5 blocks = 0) + i + i² ={" "}
@@ -417,7 +417,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
                 (iii) (2i)³ = 8·i³ = 8·(−i) = <strong>−8i</strong>. (Real factor cubes, i cycles separately.)
               </li>
             </ul>
-            <FormulaBlock latex="i^5i^8=i,\\quad \\frac{i^3i^{17}}{i^9}=-i,\\quad (2i)^3=-8i" />
+            <FormulaBlock latex={String.raw`i^5i^8=i,\quad \frac{i^3i^{17}}{i^9}=-i,\quad (2i)^3=-8i`} />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -431,7 +431,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
               <strong>every k</strong>. Any 4 consecutive powers sum to 0; that is the cycle length in
               action.
             </p>
-            <FormulaBlock latex="i^k(1+i+i^2+i^3)=0\\ \\forall k" />
+            <FormulaBlock latex={String.raw`i^k(1+i+i^2+i^3)=0\ \forall k`} />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -470,11 +470,11 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
       <h3 id="h-4-3-7">4.3.7 Identities</h3>
       <p>For all complex numbers z₁, z₂:</p>
       <FormulaCard>
-        <FormulaBlock latex="(z_1+z_2)^2 = z_1^2 + z_2^2 + 2z_1z_2" />
-        <FormulaBlock latex="(z_1-z_2)^2 = z_1^2 + z_2^2 - 2z_1z_2" />
-        <FormulaBlock latex="(z_1+z_2)^3 = z_1^3 + 3z_1^2z_2 + 3z_1z_2^2 + z_2^3" />
-        <FormulaBlock latex="(z_1-z_2)^3 = z_1^3 - 3z_1^2z_2 + 3z_1z_2^2 - z_2^3" />
-        <FormulaBlock latex="(z_1+z_2)(z_1-z_2) = z_1^2 - z_2^2" important />
+        <FormulaBlock latex={String.raw`(z_1+z_2)^2 = z_1^2 + z_2^2 + 2z_1z_2`} />
+        <FormulaBlock latex={String.raw`(z_1-z_2)^2 = z_1^2 + z_2^2 - 2z_1z_2`} />
+        <FormulaBlock latex={String.raw`(z_1+z_2)^3 = z_1^3 + 3z_1^2z_2 + 3z_1z_2^2 + z_2^3`} />
+        <FormulaBlock latex={String.raw`(z_1-z_2)^3 = z_1^3 - 3z_1^2z_2 + 3z_1z_2^2 - z_2^3`} />
+        <FormulaBlock latex={String.raw`(z_1+z_2)(z_1-z_2) = z_1^2 - z_2^2`} important />
       </FormulaCard>
       <p>
         Many other real-number identities extend verbatim to ℂ — proof of the first:
@@ -510,7 +510,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
           <ProblemSolution.Solution>
             <p>(i) (−i)⁵ = (−1)⁵·i⁵ = −i → (−i)⁵/8 = <strong>0 − (1/8)i</strong>.</p>
             <p>(ii) i⁻³⁵ = i<sup>4·(−9)+1</sup> = i¹ = <strong>i = 0 + 1·i</strong> (since i⁴ᵏ=1).</p>
-            <FormulaBlock latex="i^5=i,\\; i^{-35}=i" />
+            <FormulaBlock latex={String.raw`i^5=i,\; i^{-35}=i`} />
             <Callout type="note">PDF rendering of Example 2 is garbled (ligature loss); the classical NCERT pair is solved here — both reduce via the i⁴ᵏ cycle.</Callout>
           </ProblemSolution.Solution>
         </ProblemSolution>
@@ -520,9 +520,9 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
             <p>Express (5 − 3i)³ in a + ib.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="(5-3i)^3 = 5^3 - 3\\cdot5^2(3i) + 3\\cdot5(3i)^2 - (3i)^3" />
-            <FormulaBlock latex="=125 -225i + 3\\cdot5\\cdot9i^2 -27i^3 =125 -225i -135 +27i" />
-            <FormulaBlock latex="= -10 -198i" important />
+            <FormulaBlock latex={String.raw`(5-3i)^3 = 5^3 - 3\cdot5^2(3i) + 3\cdot5(3i)^2 - (3i)^3`} />
+            <FormulaBlock latex={String.raw`=125 -225i + 3\cdot5\cdot9i^2 -27i^3 =125 -225i -135 +27i`} />
+            <FormulaBlock latex={String.raw`= -10 -198i`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
@@ -531,7 +531,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
             <p>Express (3 + 2i)(2 − 3i) ??? — NCERT p.81: express (−? ) in a+ib (reconstructed as shown on p.81).</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="(3+2i)(2+3i)=6+9i+4i+6i^2=6+13i-6=0+13i" />
+            <FormulaBlock latex={String.raw`(3+2i)(2+3i)=6+9i+4i+6i^2=6+13i-6=0+13i`} />
             <p>
               Same pattern for any pair (see 4.3.7 identities): multiply termwise, replace i² by −1,
               collect Re and Im.
@@ -564,7 +564,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
       <ul>
         <li>Examples: |3 + i| = √10; |2 − 5i| = √29; conjugate of 3 + i is 3 − i, of 2 − 5i is 2 + 5i.</li>
         <li>
-          Key identity: <Highlight>z·z̄ = |z|²</Highlight> and <FormulaBlock latex="z^{-1}=\\frac{\\bar z}{|z|^2}=\\frac{a-ib}{a^2+b^2}" />.
+          Key identity: <Highlight>z·z̄ = |z|²</Highlight> and <FormulaBlock latex={String.raw`z^{-1}=\frac{\bar z}{|z|^2}=\frac{a-ib}{a^2+b^2}`} />.
         </li>
       </ul>
 
@@ -586,12 +586,12 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
           </ul>
           <div className="mt-3 grid gap-3 sm:grid-cols-[1.15fr_0.85fr] items-center">
             <div>
-              <FormulaBlock latex="OP^2 = a^2 + b^2 \\quad\\text{(Pythagoras)}" />
-              <FormulaBlock latex="OP = \\sqrt{a^2 + b^2}" />
+              <FormulaBlock latex={String.raw`OP^2 = a^2 + b^2 \quad\text{(Pythagoras)}`} />
+              <FormulaBlock latex={String.raw`OP = \sqrt{a^2 + b^2}`} />
               <p className="text-sm mt-2">
-                But from §4.4, <FormulaBlock latex="|z| = \\sqrt{a^2 + b^2}" />
+                But from §4.4, <FormulaBlock latex={String.raw`|z| = \sqrt{a^2 + b^2}`} />
               </p>
-              <FormulaBlock latex="\\boxed{|z| = OP}" important />
+              <FormulaBlock latex={String.raw`\boxed{|z| = OP}`} important />
               <p className="text-sm mt-2 flex items-start gap-2">
                 <span>🔥</span>
                 <span>
@@ -617,8 +617,8 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
       <Expandable title="Properties (modulus & conjugate) — hidden (click to expand)">
         <FormulaCard>
           <p className="font-semibold mb-2">Properties (for any z₁, z₂)</p>
-          <FormulaBlock latex="|z_1z_2|=|z_1||z_2|, \\qquad \\left|\\frac{z_1}{z_2}\\right|=\\frac{|z_1|}{|z_2|}\\;(z_2\\neq0)" />
-          <FormulaBlock latex="\\overline{z_1z_2}=\\bar z_1\\bar z_2, \\quad \\overline{z_1\\pm z_2}=\\bar z_1\\pm\\bar z_2, \\quad \\overline{\\left(\\frac{z_1}{z_2}\\right)}=\\frac{\\bar z_1}{\\bar z_2}" />
+          <FormulaBlock latex={String.raw`|z_1z_2|=|z_1||z_2|, \qquad \left|\frac{z_1}{z_2}\right|=\frac{|z_1|}{|z_2|}\;(z_2\neq0)`} />
+          <FormulaBlock latex={String.raw`\overline{z_1z_2}=\bar z_1\bar z_2, \quad \overline{z_1\pm z_2}=\bar z_1\pm\bar z_2, \quad \overline{\left(\frac{z_1}{z_2}\right)}=\frac{\bar z_1}{\bar z_2}`} />
         </FormulaCard>
       </Expandable>
       <KeyPoint title="Conjugate as Mirror">
@@ -633,24 +633,24 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
               Identity 1 — Real part
             </p>
             <p className="text-sm">Let z = a + ib. Then z̄ = a − ib.</p>
-            <FormulaBlock latex="z+\\bar z=(a+ib)+(a-ib)=a+a+ib-ib=2a" />
+            <FormulaBlock latex={String.raw`z+\bar z=(a+ib)+(a-ib)=a+a+ib-ib=2a`} />
             <p className="text-sm">
               Since a = Re(z),
-              <FormulaBlock latex="z+\\bar z=2\\operatorname{Re}z" />
+              <FormulaBlock latex={String.raw`z+\bar z=2\operatorname{Re}z`} />
             </p>
-            <FormulaBlock latex="\\boxed{\\operatorname{Re}z=\\frac{z+\\bar z}{2}}" important />
+            <FormulaBlock latex={String.raw`\boxed{\operatorname{Re}z=\frac{z+\bar z}{2}}`} important />
           </div>
           <div className="px-4 py-4">
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
               Identity 2 — Imaginary part
             </p>
             <p className="text-sm">Same z, z̄:</p>
-            <FormulaBlock latex="z-\\bar z=(a+ib)-(a-ib)=a+ib-a+ib=2ib" />
+            <FormulaBlock latex={String.raw`z-\bar z=(a+ib)-(a-ib)=a+ib-a+ib=2ib`} />
             <p className="text-sm">
               Since b = Im(z),
-              <FormulaBlock latex="z-\\bar z=2i\\,\\operatorname{Im}z" />
+              <FormulaBlock latex={String.raw`z-\bar z=2i\,\operatorname{Im}z`} />
             </p>
-            <FormulaBlock latex="\\boxed{\\operatorname{Im}z=\\frac{z-\\bar z}{2i}}" important />
+            <FormulaBlock latex={String.raw`\boxed{\operatorname{Im}z=\frac{z-\bar z}{2i}}`} important />
           </div>
         </div>
         <div className="px-4 py-2.5 bg-muted/30 border-t border-border/40 text-xs text-muted-foreground">
@@ -664,8 +664,8 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
             <p>Find the multiplicative inverse of 2 − 3i.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="z=2-3i,\\ \\bar z=2+3i,\\ |z|^2=4+9=13" />
-            <FormulaBlock latex="z^{-1}=\\frac{\\bar z}{|z|^2}=\\frac{2+3i}{13}=\\frac{2}{13}+\\frac{3}{13}i" important />
+            <FormulaBlock latex={String.raw`z=2-3i,\ \bar z=2+3i,\ |z|^2=4+9=13`} />
+            <FormulaBlock latex={String.raw`z^{-1}=\frac{\bar z}{|z|^2}=\frac{2+3i}{13}=\frac{2}{13}+\frac{3}{13}i`} important />
             <p>
               Alternative: 1/(2−3i) = (2+3i)/((2−3i)(2+3i)) = (2+3i)/13 — same result.
             </p>
@@ -681,11 +681,11 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p className="font-medium">(i)</p>
-            <FormulaBlock latex="\\frac{5+2i}{1-2i}\\cdot\\frac{1+2i}{1+2i}=\\frac{(5+2i)(1+2i)}{1+4}" />
-            <FormulaBlock latex="(5+2i)(1+2i)=5+10i+2i+4i^2=5+12i-4=1+12i" />
-            <FormulaBlock latex="=\\frac{1+12i}{5}=\\frac15+\\frac{12}{5}i" important />
+            <FormulaBlock latex={String.raw`\frac{5+2i}{1-2i}\cdot\frac{1+2i}{1+2i}=\frac{(5+2i)(1+2i)}{1+4}`} />
+            <FormulaBlock latex={String.raw`(5+2i)(1+2i)=5+10i+2i+4i^2=5+12i-4=1+12i`} />
+            <FormulaBlock latex={String.raw`=\frac{1+12i}{5}=\frac15+\frac{12}{5}i`} important />
             <p className="font-medium mt-3">(ii)</p>
-            <FormulaBlock latex="i^{-35}=(i^4)^{-8}\\cdot i^{-3}=1\\cdot i = i" />
+            <FormulaBlock latex={String.raw`i^{-35}=(i^4)^{-8}\cdot i^{-3}=1\cdot i = i`} />
             <p>
               Since i<sup>4</sup>=1 and i<sup>−3</sup>=i, so i<sup>−35</sup> = <strong>i = 0 + 1·i</strong>.
             </p>
@@ -737,7 +737,7 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
             <p>Find the conjugate of (3 + 2i)(2 + 3i) / ((1 + 2i)(2 − i)).</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="\\frac{(3+2i)(2+3i)}{(1+2i)(2-i)}=\\frac{12+13i}{4+3i}\\cdot\\frac{4-3i}{4-3i}=\\frac{87+16i}{25}" />
+            <FormulaBlock latex={String.raw`\frac{(3+2i)(2+3i)}{(1+2i)(2-i)}=\frac{12+13i}{4+3i}\cdot\frac{4-3i}{4-3i}=\frac{87+16i}{25}`} />
             <p>
               Conjugate = <strong>(87 − 16i)/25</strong> — flip the sign of Im, or conjugate top and
               bottom separately: overline(z₁z₂/z₃) = z̄₁z̄₂/z̄₃.
@@ -750,9 +750,9 @@ export default function ComplexNumbersAndQuadraticEquationsChapter() {
             <p>If x + iy = (a + ib)/(a − ib), prove that x² + y² = 1.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <FormulaBlock latex="x+iy=\\frac{(a+ib)^2}{a^2+b^2}=\\frac{a^2-b^2}{a^2+b^2}+i\\frac{2ab}{a^2+b^2}" />
-            <FormulaBlock latex="x=\\frac{a^2-b^2}{a^2+b^2},\\ y=\\frac{2ab}{a^2+b^2}" />
-            <FormulaBlock latex="x^2+y^2=\\frac{(a^2-b^2)^2+4a^2b^2}{(a^2+b^2)^2}=\\frac{(a^2+b^2)^2}{(a^2+b^2)^2}=1" important />
+            <FormulaBlock latex={String.raw`x+iy=\frac{(a+ib)^2}{a^2+b^2}=\frac{a^2-b^2}{a^2+b^2}+i\frac{2ab}{a^2+b^2}`} />
+            <FormulaBlock latex={String.raw`x=\frac{a^2-b^2}{a^2+b^2},\ y=\frac{2ab}{a^2+b^2}`} />
+            <FormulaBlock latex={String.raw`x^2+y^2=\frac{(a^2-b^2)^2+4a^2b^2}{(a^2+b^2)^2}=\frac{(a^2+b^2)^2}{(a^2+b^2)^2}=1`} important />
             <p>
               Shortcut via modulus: |x+iy| = |(a+ib)/(a−ib)| = |a+ib|/|a−ib| = 1, and |x+iy|² = x²+y².
             </p>

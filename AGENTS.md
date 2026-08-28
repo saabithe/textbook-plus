@@ -73,6 +73,8 @@ src/content/{subject-slug}/{chapter-slug}/
 
 **Barrel export** (`src/components/content/index.ts`) — exports all 30 transformation components. Subject-specific components are imported directly.
 
+**CRITICAL — LaTeX authoring rule**: All LaTeX in content files MUST be written with **single** backslashes inside **`String.raw`** templates — e.g. `latex={String.raw`\frac{a}{b}`}` and `<Formula>{String.raw`\sum x_i`}</Formula>`. Never double backslashes: JSX attributes preserve backslashes literally (doubling breaks KaTeX), and plain `{"`...`"}` template literals strip them. Never write `latex="\frac..."`. Run `node scripts/verify-latex.cjs` after any content math change — it renders every formula through KaTeX and fails on any error.
+
 **Content registry** (`src/lib/content.ts`):
 - `SECTIONS_MAP` — manually maintained section IDs + titles per chapter (for sidebar/ToC). Each section has an optional `tab?: "read" | "discourses"` property for sidebar filtering.
 - `QUESTIONS_MAP` / `FLASHCARDS_MAP` — manually imported JSON data

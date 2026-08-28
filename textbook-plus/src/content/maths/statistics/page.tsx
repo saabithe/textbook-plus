@@ -46,13 +46,13 @@ export default function StatisticsChapter() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
         <FormulaCard>
           <p className="font-semibold mb-2">Mean Deviation about Mean</p>
-          <FormulaBlock latex="\\text{M.D.}(\\bar{x}) = \\frac{\\sum |x_i - \\bar{x}|}{n}" />
+          <FormulaBlock latex={String.raw`\text{M.D.}(\bar{x}) = \frac{\sum |x_i - \bar{x}|}{n}`} />
           <p className="text-sm text-muted-foreground mt-2">where x̄ = (1/n) Σxᵢ is the arithmetic mean.</p>
           <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> a raw list of values says &ldquo;mean deviation about the mean&rdquo;.</p>
         </FormulaCard>
         <FormulaCard>
           <p className="font-semibold mb-2">Mean Deviation about Median</p>
-          <FormulaBlock latex="\\text{M.D.}(M) = \\frac{\\sum |x_i - M|}{n}" />
+          <FormulaBlock latex={String.raw`\text{M.D.}(M) = \frac{\sum |x_i - M|}{n}`} />
           <p className="text-sm text-muted-foreground mt-2">where M is the median — the <strong>middle</strong> value of the sorted list.</p>
           <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> a raw list says &ldquo;mean deviation about the median&rdquo;, or the data has outliers — the median is robust.</p>
         </FormulaCard>
@@ -130,13 +130,13 @@ export default function StatisticsChapter() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
         <FormulaCard>
           <p className="font-semibold mb-2">Mean Deviation about Mean (Discrete Frequency)</p>
-          <FormulaBlock latex="\\text{M.D.}(\\bar{x}) = \\frac{\\sum f_i |x_i - \\bar{x}|}{n}, \\quad n = \\sum f_i" />
+          <FormulaBlock latex={String.raw`\text{M.D.}(\bar{x}) = \frac{\sum f_i |x_i - \bar{x}|}{n}, \quad n = \sum f_i`} />
           <p className="text-sm text-muted-foreground mt-2">xᵢ are the distinct values, fᵢ their frequencies.</p>
           <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> discrete data given as x-values with frequencies f (no class intervals). Divide by n = Σfᵢ.</p>
         </FormulaCard>
         <FormulaCard>
           <p className="font-semibold mb-2">Mean Deviation about Median (Discrete Frequency)</p>
-          <FormulaBlock latex="\\text{M.D.}(M) = \\frac{\\sum f_i |x_i - M|}{n}, \\quad n = \\sum f_i" />
+          <FormulaBlock latex={String.raw`\text{M.D.}(M) = \frac{\sum f_i |x_i - M|}{n}, \quad n = \sum f_i`} />
           <p className="text-sm text-muted-foreground mt-2">Find M from the cumulative frequency — n/2 falls within the value whose c.f. reaches n/2.</p>
           <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> frequency data (x and f together) asks for deviation about the median.</p>
         </FormulaCard>
@@ -208,20 +208,20 @@ export default function StatisticsChapter() {
       <h3>3. Grouped Data — Continuous (Class Intervals)</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Median of Grouped (Continuous) Data — the l + (n/2 − c.f.)/f × h formula</p>
-        <FormulaBlock latex="M = l + \\frac{n/2 - \\text{c.f.}}{f} \\times h" />
+        <FormulaBlock latex={String.raw`M = l + \frac{n/2 - \text{c.f.}}{f} \times h`} />
         <p className="text-sm text-muted-foreground mt-2">l = lower limit of the <strong>median class</strong> (the first class whose cumulative frequency ≥ n/2), f = frequency of the median class, h = class width, c.f. = cumulative frequency of the class <strong>just before</strong> the median class, n = Σfᵢ.</p>
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> data appears as <strong>class intervals (continuous)</strong> and the question asks for the median — most commonly inside &ldquo;mean deviation about the median&rdquo;. <strong>Don&apos;t use for</strong> a raw list (median = middle of the sorted data) or a discrete x-f table (median = the value whose c.f. reaches/exceeds n/2 — no formula needed, read it straight off the table).</p>
       </FormulaCard>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
         <FormulaCard>
           <p className="font-semibold mb-2">Mean Deviation about Mean (Continuous Frequency)</p>
-          <FormulaBlock latex="\\text{M.D.}(\\bar{x}) = \\frac{\\sum f_i |x_i - \\bar{x}|}{n}" />
+          <FormulaBlock latex={String.raw`\text{M.D.}(\bar{x}) = \frac{\sum f_i |x_i - \bar{x}|}{n}`} />
           <p className="text-sm text-muted-foreground mt-2">xᵢ = midpoint of the i-th class interval, fᵢ = frequency of that class, n = Σfᵢ.</p>
           <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> data is grouped into class intervals — convert each class to its midpoint first.</p>
         </FormulaCard>
         <FormulaCard>
           <p className="font-semibold mb-2">Mean Deviation about Median (Continuous Frequency)</p>
-          <FormulaBlock latex="\\text{M.D.}(M) = \\frac{\\sum f_i |x_i - M|}{n}, \\quad n = \\sum f_i" />
+          <FormulaBlock latex={String.raw`\text{M.D.}(M) = \frac{\sum f_i |x_i - M|}{n}, \quad n = \sum f_i`} />
           <p className="text-sm text-muted-foreground mt-2">Locate the median class from cumulative frequency, then M = l + (n/2 − c.f.) × h/f via the median formula.</p>
           <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> class-interval data asks for deviation about the median — compute M from the median class first.</p>
         </FormulaCard>
@@ -295,19 +295,19 @@ export default function StatisticsChapter() {
       <h3>Variance — Definition</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Population Variance (σ²)</p>
-        <FormulaBlock latex="\\sigma^2 = \\frac{\\sum(x_i - \\bar{x})^2}{n}" />
+        <FormulaBlock latex={String.raw`\sigma^2 = \frac{\sum(x_i - \bar{x})^2}{n}`} />
         <p className="text-sm text-muted-foreground mt-2">n = total number of observations. The variance is always ≥ 0.</p>
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> the question asks for variance of a raw list — compute x̄, then average the squared deviations. NCERT Class 11 divides by n (not n−1).</p>
       </FormulaCard>
       <KeyPoint title="Standard Deviation">
-        <FormulaBlock latex="\\sigma = \\sqrt{\\sigma^2} = \\sqrt{\\frac{\\sum(x_i - \\bar{x})^2}{n}}" />
+        <FormulaBlock latex={String.raw`\sigma = \sqrt{\sigma^2} = \sqrt{\frac{\sum(x_i - \bar{x})^2}{n}}`} />
         <p>Standard deviation has the <strong>same units</strong> as the original data (unlike variance which is in squared units).</p>
       </KeyPoint>
 
       <h3>Variance for Ungrouped Data</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Ungrouped Variance</p>
-        <FormulaBlock latex="\\sigma^2 = \\frac{\\sum(x_i - \\bar{x})^2}{n}" />
+        <FormulaBlock latex={String.raw`\sigma^2 = \frac{\sum(x_i - \bar{x})^2}{n}`} />
         <p className="text-sm text-muted-foreground mt-2">Step 1: find x̄. Step 2: compute each (xᵢ − x̄)². Step 3: average them.</p>
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> variance of an ungrouped list, e.g. examples 7–8. Same formula as the definition.</p>
       </FormulaCard>
@@ -416,8 +416,8 @@ export default function StatisticsChapter() {
               ]}
             />
             <KeyPoint title="Result to memorise — the (n+1)/2 and (n²−1)/12 pair">
-              <FormulaBlock latex="\\text{Mean of } 1, 2, \\dots, n \\ = \\frac{n+1}{2}" />
-              <FormulaBlock latex="\\text{SD of } 1, 2, \\dots, n \\ = \\sqrt{\\frac{n^2 - 1}{12}}" />
+              <FormulaBlock latex={String.raw`\text{Mean of } 1, 2, \dots, n \ = \frac{n+1}{2}`} />
+              <FormulaBlock latex={String.raw`\text{SD of } 1, 2, \dots, n \ = \sqrt{\frac{n^2 - 1}{12}}`} />
               <p>
                 The same (n² − 1)/12 appeared in the 3, 6, …, 99 practice problem (where the factor 3² scaled it to 816),
                 and it answers Ex 13.2 Q2 instantly. For example, n = 10 gives SD = √(99/12) ≈ 2.87 — the root of the 8.25
@@ -431,7 +431,7 @@ export default function StatisticsChapter() {
       <h3>Variance for Discrete Frequency Distribution</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Discrete Frequency Variance</p>
-        <FormulaBlock latex="\\sigma^2 = \\frac{\\sum f_i(x_i - \\bar{x})^2}{n}, \\quad n = \\sum f_i" />
+        <FormulaBlock latex={String.raw`\sigma^2 = \frac{\sum f_i(x_i - \bar{x})^2}{n}, \quad n = \sum f_i`} />
         <p className="text-sm text-muted-foreground mt-2">xᵢ = distinct values, fᵢ = corresponding frequencies.</p>
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> variance of discrete frequency data (x and f side by side, no classes).</p>
       </FormulaCard>
@@ -512,7 +512,7 @@ export default function StatisticsChapter() {
       <h3>Variance for Continuous Frequency Distribution</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Continuous Frequency Variance</p>
-        <FormulaBlock latex="\\sigma^2 = \\frac{\\sum f_i(x_i - \\bar{x})^2}{n}" />
+        <FormulaBlock latex={String.raw`\sigma^2 = \frac{\sum f_i(x_i - \bar{x})^2}{n}`} />
         <p className="text-sm text-muted-foreground mt-2">xᵢ = midpoint of i-th class, fᵢ = class frequency, n = total frequency.</p>
         <p className="text-xs text-muted-foreground mt-1"><strong>Use when:</strong> variance of continuous (class-interval) data — take midpoints, then apply the discrete formula.</p>
       </FormulaCard>
@@ -589,22 +589,22 @@ export default function StatisticsChapter() {
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">&ldquo;M.D. about the mean&rdquo; for a list of values</td>
-              <td className="p-2"><Formula>{`\\text{M.D.}(\\bar{x}) = \\frac{\\sum |x_i - \\bar{x}|}{n}`}</Formula></td>
+              <td className="p-2"><Formula>{String.raw`\text{M.D.}(\bar{x}) = \frac{\sum |x_i - \bar{x}|}{n}`}</Formula></td>
               <td className="p-2">Example 1</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">&ldquo;M.D. about the median&rdquo;, or data has outliers</td>
-              <td className="p-2"><Formula>{`\\text{M.D.}(M) = \\frac{\\sum |x_i - M|}{n}`}</Formula></td>
+              <td className="p-2"><Formula>{String.raw`\text{M.D.}(M) = \frac{\sum |x_i - M|}{n}`}</Formula></td>
               <td className="p-2">Example 2</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">Data given as x-values with frequencies (no classes)</td>
-              <td className="p-2"><Formula>{`\\text{M.D.}(\\bar{x}) = \\frac{\\sum f_i |x_i - \\bar{x}|}{n}, \\quad n = \\sum f_i`}</Formula></td>
+              <td className="p-2"><Formula>{String.raw`\text{M.D.}(\bar{x}) = \frac{\sum f_i |x_i - \bar{x}|}{n}, \quad n = \sum f_i`}</Formula></td>
               <td className="p-2">Example 3</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">Data given as class intervals (0–10, 10–20, …)</td>
-              <td className="p-2">Convert to <strong>midpoints</strong> xᵢ, then <Formula>{`\\text{M.D.}(\\bar{x}) = \\frac{\\sum f_i |x_i - \\bar{x}|}{n}`}</Formula></td>
+              <td className="p-2">Convert to <strong>midpoints</strong> xᵢ, then <Formula>{String.raw`\text{M.D.}(\bar{x}) = \frac{\sum f_i |x_i - \bar{x}|}{n}`}</Formula></td>
               <td className="p-2">Examples 5, 6</td>
             </tr>
 
@@ -613,22 +613,22 @@ export default function StatisticsChapter() {
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">&ldquo;Variance&rdquo; / &ldquo;standard deviation&rdquo; of a list</td>
-              <td className="p-2"><Formula>{`\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}`}</Formula></td>
+              <td className="p-2"><Formula>{String.raw`\sigma^2 = \frac{\sum (x_i - \bar{x})^2}{n}`}</Formula></td>
               <td className="p-2">Examples 7–8</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">Values with frequencies (no classes)</td>
-              <td className="p-2"><Formula>{`\\sigma^2 = \\frac{\\sum f_i (x_i - \\bar{x})^2}{n}`}</Formula></td>
+              <td className="p-2"><Formula>{String.raw`\sigma^2 = \frac{\sum f_i (x_i - \bar{x})^2}{n}`}</Formula></td>
               <td className="p-2">Example 9</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">Class intervals (continuous)</td>
-              <td className="p-2">Midpoints xᵢ, then <Formula>{`\\sigma^2 = \\frac{\\sum f_i (x_i - \\bar{x})^2}{n}`}</Formula></td>
+              <td className="p-2">Midpoints xᵢ, then <Formula>{String.raw`\sigma^2 = \frac{\sum f_i (x_i - \bar{x})^2}{n}`}</Formula></td>
               <td className="p-2">Example 10</td>
             </tr>
             <tr className="border-b border-[var(--border)]/50">
               <td className="p-2">σ² and x̄ are given; asks for <strong>missing / wrong observations</strong></td>
-              <td className="p-2"><Formula>{`\\sigma^2 = \\frac{\\sum x_i^2}{n} - \\bar{x}^2 \\ \\Rightarrow \\ \\sum x_i^2 = n(\\sigma^2 + \\bar{x}^2)`}</Formula></td>
+              <td className="p-2"><Formula>{String.raw`\sigma^2 = \frac{\sum x_i^2}{n} - \bar{x}^2 \ \Rightarrow \ \sum x_i^2 = n(\sigma^2 + \bar{x}^2)`}</Formula></td>
               <td className="p-2">Examples 12, 14</td>
             </tr>
 
@@ -637,7 +637,7 @@ export default function StatisticsChapter() {
             </tr>
             <tr>
               <td className="p-2">Each observation changed: &ldquo;multiplied by k&rdquo; or &ldquo;increased by c&rdquo;</td>
-              <td className="p-2"><Formula>{`\\times k \\Rightarrow \\sigma \\to |k|\\sigma, \\ \\sigma^2 \\to k^2\\sigma^2`}</Formula> &nbsp; <Formula>{`+ c \\Rightarrow`}</Formula> σ unchanged</td>
+              <td className="p-2"><Formula>{String.raw`\times k \Rightarrow \sigma \to |k|\sigma, \ \sigma^2 \to k^2\sigma^2`}</Formula> &nbsp; <Formula>{String.raw`+ c \Rightarrow`}</Formula> σ unchanged</td>
               <td className="p-2">Examples 11, 13</td>
             </tr>
           </tbody>
@@ -657,7 +657,7 @@ export default function StatisticsChapter() {
 
       <KeyPoint title="The two working identities for missing / wrong observation problems">
         Almost every &ldquo;find the missing observation&rdquo; / &ldquo;one observation was wrong&rdquo; question is solved by
-        (<Formula>{`\\sum x_i = n\\bar{x}`}</Formula>) and (<Formula>{`\\sum x_i^2 = n(\\sigma^2 + \\bar{x}^2)`}</Formula>).
+        (<Formula>{String.raw`\sum x_i = n\bar{x}`}</Formula>) and (<Formula>{String.raw`\sum x_i^2 = n(\sigma^2 + \bar{x}^2)`}</Formula>).
         Recover the totals that got corrupted, fix them, and recompute the mean and variance directly — no need to solve systems by hand (see Examples 12 and 14, Misc Q1–2, 5–6).
       </KeyPoint>
 

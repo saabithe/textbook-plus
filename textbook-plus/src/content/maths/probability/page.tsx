@@ -142,22 +142,22 @@ export default function ProbabilityChapter() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div className="rounded-lg border bg-card p-4 shadow-sm">
           <p className="font-semibold mb-1">Complement of A</p>
-          <FormulaBlock latex="A' = \\{x \\in S : x \\notin A\\}" />
+          <FormulaBlock latex={String.raw`A' = \{x \in S : x \notin A\}`} />
           <p className="text-sm text-muted-foreground mt-1">&ldquo;Not A&rdquo; — occurs when A does not occur.</p>
         </div>
         <div className="rounded-lg border bg-card p-4 shadow-sm">
           <p className="font-semibold mb-1">A or B (Union)</p>
-          <FormulaBlock latex="A \\cup B = \\{x : x \\in A \\text{ or } x \\in B\\}" />
+          <FormulaBlock latex={String.raw`A \cup B = \{x : x \in A \text{ or } x \in B\}`} />
           <p className="text-sm text-muted-foreground mt-1">At least one of A, B occurs.</p>
         </div>
         <div className="rounded-lg border bg-card p-4 shadow-sm">
           <p className="font-semibold mb-1">A and B (Intersection)</p>
-          <FormulaBlock latex="A \\cap B = \\{x : x \\in A \\text{ and } x \\in B\\}" />
+          <FormulaBlock latex={String.raw`A \cap B = \{x : x \in A \text{ and } x \in B\}`} />
           <p className="text-sm text-muted-foreground mt-1">Both A and B occur simultaneously.</p>
         </div>
         <div className="rounded-lg border bg-card p-4 shadow-sm">
           <p className="font-semibold mb-1">A but not B (Difference)</p>
-          <FormulaBlock latex="A - B = A \\cap B' = \\{x : x \\in A \\text{ and } x \\notin B\\}" />
+          <FormulaBlock latex={String.raw`A - B = A \cap B' = \{x : x \in A \text{ and } x \notin B\}`} />
           <p className="text-sm text-muted-foreground mt-1">A happens but B does not.</p>
         </div>
       </div>
@@ -232,13 +232,13 @@ export default function ProbabilityChapter() {
         <div className="rounded-lg border bg-card p-4 shadow-sm">
           <p className="font-semibold mb-1">14.1.4 Mutually Exclusive Events</p>
           <p className="text-sm mb-1">Two events A and B are <Highlight>mutually exclusive</Highlight> if they cannot occur simultaneously:</p>
-          <FormulaBlock latex="A \\cap B = \\emptyset" />
+          <FormulaBlock latex={String.raw`A \cap B = \emptyset`} />
           <p className="text-sm text-muted-foreground mt-1">A &cup; B is their combined event with no overlap.</p>
         </div>
         <div className="rounded-lg border bg-card p-4 shadow-sm">
           <p className="font-semibold mb-1">14.1.5 Exhaustive Events</p>
           <p className="text-sm mb-1">Events A&#8321;, A&#8322;, &hellip;, A&#8345; are <Highlight>exhaustive</Highlight> if their union covers the entire sample space:</p>
-          <FormulaBlock latex="A_1 \\cup A_2 \\cup \\cdots \\cup A_n = S" />
+          <FormulaBlock latex={String.raw`A_1 \cup A_2 \cup \cdots \cup A_n = S`} />
           <p className="text-sm text-muted-foreground mt-1">At least one of them must occur.</p>
         </div>
       </div>
@@ -283,15 +283,15 @@ export default function ProbabilityChapter() {
       <FormulaCard>
         <p className="font-semibold mb-2">Three Axioms</p>
         <ol className="list-decimal pl-5 space-y-2">
-          <li><Highlight>Non-negativity:</Highlight> <FormulaBlock latex="P(A) \\ge 0" /></li>
-          <li><Highlight>Normalization:</Highlight> <FormulaBlock latex="P(S) = 1" /></li>
-          <li><Highlight>Countable additivity:</Highlight> For mutually exclusive events A&#8321;, A&#8322;, &hellip;: <FormulaBlock latex="P(A_1 \\cup A_2 \\cup \\cdots) = P(A_1) + P(A_2) + \\cdots" /></li>
+          <li><Highlight>Non-negativity:</Highlight> <FormulaBlock latex={String.raw`P(A) \ge 0`} /></li>
+          <li><Highlight>Normalization:</Highlight> <FormulaBlock latex={String.raw`P(S) = 1`} /></li>
+          <li><Highlight>Countable additivity:</Highlight> For mutually exclusive events A&#8321;, A&#8322;, &hellip;: <FormulaBlock latex={String.raw`P(A_1 \cup A_2 \cup \cdots) = P(A_1) + P(A_2) + \cdots`} /></li>
         </ol>
       </FormulaCard>
 
       <KeyPoint title="Theorem: P(∅) = 0 and P(S) = 1">
-        <FormulaBlock latex="P(\\emptyset) = 0 \\quad \\text{(impossible event)}" />
-        <FormulaBlock latex="P(S) = 1 \\quad \\text{(sure event)}" />
+        <FormulaBlock latex={String.raw`P(\emptyset) = 0 \quad \text{(impossible event)}`} />
+        <FormulaBlock latex={String.raw`P(S) = 1 \quad \text{(sure event)}`} />
         <p className="mt-1"><strong>Proof sketch:</strong> Since S and ∅ are mutually exclusive and S ∪ ∅ = S, by additivity: P(S) = P(S) + P(∅), so P(∅) = 0. The value P(S) = 1 is given by the normalization axiom.</p>
         <p className="mt-1"><strong>Example:</strong> Rolling a die, the event &quot;getting a 7&quot; is impossible &rarr; P = 0. The event &quot;getting a number &le; 6&quot; is certain &rarr; P = 1.</p>
       </KeyPoint>
@@ -299,7 +299,7 @@ export default function ProbabilityChapter() {
       <h3>Probability of Equally Likely Outcomes</h3>
       <Callout type="important" title="Uniform Sample Space">
         When all n outcomes in S are <Highlight>equally likely</Highlight> (fair die, fair coin, etc.):
-        <FormulaBlock latex="P(A) = \\frac{\\text{number of outcomes in } A}{\\text{number of outcomes in } S} = \\frac{n(A)}{n(S)}" />
+        <FormulaBlock latex={String.raw`P(A) = \frac{\text{number of outcomes in } A}{\text{number of outcomes in } S} = \frac{n(A)}{n(S)}`} />
       </Callout>
 
       <Expandable title="Examples 14.4 — Equally Likely Probability">
@@ -392,31 +392,31 @@ export default function ProbabilityChapter() {
       <h2 id="h-addition">14.2.3 Probability of &apos;A or B&apos; — Addition Rule</h2>
       <FormulaCard>
         <p className="font-semibold mb-2">General Addition Rule</p>
-        <FormulaBlock latex="P(A \\cup B) = P(A) + P(B) - P(A \\cap B)" />
+        <FormulaBlock latex={String.raw`P(A \cup B) = P(A) + P(B) - P(A \cap B)`} />
         <p className="text-sm text-muted-foreground mt-2">For any two events A and B. The intersection is subtracted to avoid double-counting.</p>
       </FormulaCard>
 
       <KeyPoint title="When A and B are Mutually Exclusive">
         If A &cap; B = ∅, then P(A &cap; B) = 0, so:
-        <FormulaBlock latex="P(A \\cup B) = P(A) + P(B)" />
+        <FormulaBlock latex={String.raw`P(A \cup B) = P(A) + P(B)`} />
         <p>This is the simpler form — no subtraction needed.</p>
       </KeyPoint>
 
       <h3>14.2.4 Probability of &apos;not A&apos;</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Complement Rule</p>
-        <FormulaBlock latex="P(A') = 1 - P(A)" />
-        <p className="text-sm text-muted-foreground mt-2">Equivalently: <FormulaBlock latex="P(A) + P(A') = 1" /></p>
+        <FormulaBlock latex={String.raw`P(A') = 1 - P(A)`} />
+        <p className="text-sm text-muted-foreground mt-2">Equivalently: <FormulaBlock latex={String.raw`P(A) + P(A') = 1`} /></p>
       </FormulaCard>
 
       <KeyPoint title="Useful Derived Formulas">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div className="rounded-lg border bg-card p-3 shadow-sm text-center">
-            <FormulaBlock latex="P(A \\cap B') = P(A) - P(A \\cap B)" />
+            <FormulaBlock latex={String.raw`P(A \cap B') = P(A) - P(A \cap B)`} />
             <p className="text-xs text-muted-foreground mt-1">A happens but B does not</p>
           </div>
           <div className="rounded-lg border bg-card p-3 shadow-sm text-center">
-            <FormulaBlock latex="P(B \\cap A') = P(B) - P(A \\cap B)" />
+            <FormulaBlock latex={String.raw`P(B \cap A') = P(B) - P(A \cap B)`} />
             <p className="text-xs text-muted-foreground mt-1">B happens but A does not</p>
           </div>
         </div>
@@ -431,19 +431,19 @@ export default function ProbabilityChapter() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div className="rounded-lg border bg-card p-4 shadow-sm">
           <p className="font-semibold mb-1">Main Formula</p>
-          <FormulaBlock latex="P(A \\cap B) = P(A) \\times P(B)" />
+          <FormulaBlock latex={String.raw`P(A \cap B) = P(A) \times P(B)`} />
           <p className="text-sm text-muted-foreground mt-1">Both A and B happen — multiply their probabilities.</p>
         </div>
         <div className="rounded-lg border bg-card p-4 shadow-sm">
           <p className="font-semibold mb-1">Equivalent Forms</p>
-          <FormulaBlock latex="P(A \\mid B) = P(A)" />
-          <FormulaBlock latex="P(B \\mid A) = P(B)" />
+          <FormulaBlock latex={String.raw`P(A \mid B) = P(A)`} />
+          <FormulaBlock latex={String.raw`P(B \mid A) = P(B)`} />
           <p className="text-sm text-muted-foreground mt-1">Knowing B occurred tells you nothing new about A.</p>
         </div>
       </div>
 
       <Callout type="tip" title="Exam Shortcut: &ldquo;Independent&rdquo; ⟹ multiply">
-        If a question says <strong>&ldquo;A and B are independent&rdquo;</strong>, immediately write <FormulaBlock latex="P(A \\cap B) = P(A) \\times P(B)" />. That is the whole key to the problem.
+        If a question says <strong>&ldquo;A and B are independent&rdquo;</strong>, immediately write <FormulaBlock latex={String.raw`P(A \cap B) = P(A) \times P(B)`} />. That is the whole key to the problem.
       </Callout>
 
       <KeyPoint title="Dependency (the opposite)">
