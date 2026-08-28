@@ -11,24 +11,6 @@ import { SpeedTricks } from "@/components/content/SpeedTricks";
 export default function LimitsAndDerivativesChapter() {
   return (
     <>
-      <h2 id="h-intro">12.1 Introduction</h2>
-      <Expandable title="Example 1 — Instantaneous Velocity">
-        <ProblemSolution problemNumber="Example 1">
-          <ProblemSolution.Problem>
-            A ball thrown upward has height h(t) = 20t − 5t². Find the average velocity
-            over [1, 1+h] and the instantaneous velocity at t = 1.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <Stepper
-              steps={[
-                { label: "Average velocity", description: <Formula>{String.raw`\frac{h(1+h) - h(1)}{h} = \frac{20(1+h) - 5(1+h)^2 - 15}{h} = \frac{20 + 20h - 5 - 10h - 5h^2 - 15}{h} = \frac{10h - 5h^2}{h} = 10 - 5h`}</Formula> },
-                { label: "Take limit h → 0", description: <>Instantaneous velocity at t = 1 is <Formula>{String.raw`\lim_{h \to 0}(10 - 5h) = 10`}</Formula> m/s</> },
-              ]}
-            />
-          </ProblemSolution.Solution>
-        </ProblemSolution>
-      </Expandable>
-
       <h2 id="h-limits">12.2–12.3 Intuitive Idea of Derivatives &amp; Limits</h2>
       <Callout type="important" title="Definition of a Limit">
         A limit describes the value that a function <Formula>{String.raw`f(x)`}</Formula> approaches as <Formula>{String.raw`x`}</Formula> approaches a specific value <Formula>{String.raw`a`}</Formula> (written as <FormulaBlock latex={String.raw`\lim_{x \to a} f(x) = L`} />), where <Formula>{String.raw`x`}</Formula> gets closer to <Formula>{String.raw`a`}</Formula> but never has to equal it (<Formula>{String.raw`x \ne a`}</Formula>). In simple words: you can make <Formula>{String.raw`f(x)`}</Formula> as close to <Formula>{String.raw`L`}</Formula> as you want, just by taking <Formula>{String.raw`x`}</Formula> close enough to <Formula>{String.raw`a`}</Formula>. What <Formula>{String.raw`f(a)`}</Formula> actually equals does not matter — only nearby values do.
@@ -43,6 +25,75 @@ export default function LimitsAndDerivativesChapter() {
       </Callout>
 
       <KeyPoint>Key idea: <Highlight>the limit describes behaviour near a point, not at the point</Highlight>. f(a) may be undefined or different from L.</KeyPoint>
+
+      <Expandable title="Example — LHL vs RHL at a Jump (Graph)">
+        <ProblemSolution problemNumber="Example — Graph at x = 1">
+          <ProblemSolution.Problem>
+            Graph of a function <Formula>{String.raw`f: \mathbb{R} \to \mathbb{R}`}</Formula> is given below:
+            <br />(i) Find <Formula>{String.raw`\lim_{x \to 1^{-}} f(x)`}</Formula> and <Formula>{String.raw`\lim_{x \to 1^{+}} f(x)`}</Formula>.
+            <br />(ii) Does the limit <Formula>{String.raw`\lim_{x \to 1} f(x)`}</Formula> exist? Give reason.
+            <div className="my-4 flex justify-center">
+              <figure className="rounded-xl border border-border/60 bg-white dark:bg-zinc-900 p-3">
+                <svg viewBox="0 0 420 320" className="w-[380px] max-w-full h-auto" role="img" aria-labelledby="jumpGraphTitle jumpGraphDesc">
+                  <title id="jumpGraphTitle">Piecewise graph with jump at x = 1</title>
+                  <desc id="jumpGraphDesc">Cartesian system x -3 to 4, y -1 to 6. Approaching x=1 from left the curve goes to y=1, from right it starts at y=2. Purple dashed indicators highlight LHL=1 and RHL=2 showing LHL != RHL.</desc>
+                  {/* grid */}
+                  <rect x="40" y="20" width="360" height="260" fill="none" stroke="#e5e7eb" strokeWidth="1" rx="6" />
+                  {/* axes */}
+                  <line x1="40" y1="240" x2="400" y2="240" stroke="#6b7280" strokeWidth="1.5" />
+                  <line x1="140" y1="20" x2="140" y2="280" stroke="#6b7280" strokeWidth="1.5" />
+                  {/* x ticks -3 to 4 */}
+                  <text x="48" y="255" fontSize="11" fill="#6b7280">-3</text>
+                  <text x="98" y="255" fontSize="11" fill="#6b7280">-2</text>
+                  <text x="118" y="255" fontSize="11" fill="#6b7280">-1</text>
+                  <text x="158" y="255" fontSize="11" fill="#6b7280">0</text>
+                  <text x="208" y="255" fontSize="11" fill="#6b7280">1</text>
+                  <text x="258" y="255" fontSize="11" fill="#6b7280">2</text>
+                  <text x="308" y="255" fontSize="11" fill="#6b7280">3</text>
+                  <text x="358" y="255" fontSize="11" fill="#6b7280">4</text>
+                  {/* y ticks -1 to 6 */}
+                  <text x="15" y="285" fontSize="11" fill="#6b7280">-1</text>
+                  <text x="20" y="245" fontSize="11" fill="#6b7280">0</text>
+                  <text x="20" y="205" fontSize="11" fill="#6b7280">1</text>
+                  <text x="20" y="165" fontSize="11" fill="#6b7280">2</text>
+                  <text x="20" y="125" fontSize="11" fill="#6b7280">3</text>
+                  <text x="20" y="85" fontSize="11" fill="#6b7280">4</text>
+                  <text x="20" y="45" fontSize="11" fill="#6b7280">5</text>
+                  {/* left branch up to (1,1) */}
+                  <path d="M 50 180 Q 110 150 190 205" fill="none" stroke="#3b82f6" strokeWidth="2.5" />
+                  <circle cx="190" cy="205" r="5" fill="white" stroke="#9333ea" strokeWidth="2.5" />
+                  <circle cx="190" cy="205" r="2" fill="#9333ea" />
+                  {/* right branch from (1,2) */}
+                  <path d="M 190 165 Q 250 140 380 60" fill="none" stroke="#3b82f6" strokeWidth="2.5" />
+                  <circle cx="190" cy="165" r="5" fill="#9333ea" stroke="#9333ea" strokeWidth="2" />
+                  {/* purple dashed indicators */}
+                  <line x1="190" y1="205" x2="190" y2="240" stroke="#a855f7" strokeWidth="1.5" strokeDasharray="6 4" />
+                  <line x1="40" y1="205" x2="190" y2="205" stroke="#a855f7" strokeWidth="1.5" strokeDasharray="6 4" />
+                  <line x1="190" y1="165" x2="190" y2="240" stroke="#a855f7" strokeWidth="1.5" strokeDasharray="6 4" />
+                  <line x1="40" y1="165" x2="190" y2="165" stroke="#a855f7" strokeWidth="1.5" strokeDasharray="6 4" />
+                  {/* labels */}
+                  <text x="195" y="200" fontSize="12" fill="#9333ea" fontWeight="600">LHL = 1</text>
+                  <text x="195" y="160" fontSize="12" fill="#9333ea" fontWeight="600">RHL = 2</text>
+                  <text x="190" y="292" fontSize="11" fill="#6b7280">x = 1</text>
+                  <text x="405" y="245" fontSize="12" fill="#6b7280">x</text>
+                  <text x="135" y="15" fontSize="12" fill="#6b7280">y</text>
+                </svg>
+                <figcaption className="mt-2 text-xs text-muted-foreground text-center max-w-[380px]">Jump discontinuity at <Formula>{String.raw`x=1`}</Formula>: left approach → <Formula>{String.raw`y=1`}</Formula>, right approach → <Formula>{String.raw`y=2`}</Formula> (purple dashes). Since <Formula>{String.raw`\text{LHL}\ne\text{RHL}`}</Formula>, the two-sided limit does not exist.</figcaption>
+              </figure>
+            </div>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "LHL", description: <Formula>{String.raw`\lim_{x \to 1^{-}} f(x) = 1`}</Formula> },
+                { label: "RHL", description: <Formula>{String.raw`\lim_{x \to 1^{+}} f(x) = 2`}</Formula> },
+                { label: "Existence", description: <><Formula>{String.raw`\text{LHL}=1 \ne 2=\text{RHL}`}</Formula> — so <Formula>{String.raw`\lim_{x \to 1} f(x)`}</Formula> does not exist</> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">Visually, the purple dashed lines at <Formula>{String.raw`y=1`}</Formula> and <Formula>{String.raw`y=2`}</Formula> never meet at <Formula>{String.raw`x=1`}</Formula> — the graph jumps.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
 
       <h3>Algebra of Limits</h3>
       <FormulaCard>
