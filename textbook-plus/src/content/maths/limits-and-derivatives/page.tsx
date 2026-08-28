@@ -876,11 +876,18 @@ export default function LimitsAndDerivativesChapter() {
 
       <h3>Standard Derivatives</h3>
       <FormulaCard>
-        <p className="font-semibold mb-2">Common Derivatives</p>
-        <FormulaBlock latex={String.raw`(x^n)' = n \cdot x^{n-1}`} />
-        <FormulaBlock latex={String.raw`(\sin x)' = \cos x`} />
-        <FormulaBlock latex={String.raw`(\cos x)' = -\sin x`} />
-        <FormulaBlock latex={String.raw`(\tan x)' = \sec^2 x`} />
+        <p className="font-semibold mb-3">Common Derivatives — 2 columns</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1">
+          <FormulaBlock latex={String.raw`(c)' = 0`} />
+          <FormulaBlock latex={String.raw`(x^n)' = n x^{n-1}`} />
+          <FormulaBlock latex={String.raw`(\sin x)' = \cos x`} />
+          <FormulaBlock latex={String.raw`(\cos x)' = -\sin x`} />
+          <FormulaBlock latex={String.raw`(\tan x)' = \sec^{2}x`} />
+          <FormulaBlock latex={String.raw`(\cot x)' = -\csc^{2}x`} />
+          <FormulaBlock latex={String.raw`(\sec x)' = \sec x \tan x`} />
+          <FormulaBlock latex={String.raw`(\csc x)' = -\csc x \cot x`} />
+        </div>
+        <p className="text-xs text-muted-foreground mt-2 text-center">Left: power &amp; sine/cosine — Right: tan/cot/sec/csc. Memorise the signs on cot/csc.</p>
       </FormulaCard>
 
       <SpeedTricks>
