@@ -892,16 +892,6 @@ export default function LimitsAndDerivativesChapter() {
         </Callout>
       </SpeedTricks>
 
-      <Callout type="warning" title="Hard-Level Tips: Limits &amp; Derivatives Traps">
-        <ul className="list-disc pl-5 space-y-1">
-          <li><strong>sin x / x → 1 only when x → 0</strong> and x is in radians. Writing lim(x→π) sin x / x = 1 is wrong.</li>
-          <li><strong>The standard limit uses aⁿ − bⁿ form:</strong> If the numerator is xⁿ + aⁿ (plus instead of minus), you cannot use it directly.</li>
-          <li><strong>Differentiable ⟹ continuous, but not the reverse:</strong> f(x) = |x| is continuous at 0 but not differentiable there.</li>
-          <li><strong>Quotient rule sign:</strong> numerator is (f′g − fg′), NOT (f′g + fg′). The minus sign is crucial.</li>
-          <li><strong>Chain rule next chapter:</strong> (sin 2x)′ is NOT cos 2x. It is 2 cos 2x. The chain rule is needed — this is a preview.</li>
-        </ul>
-      </Callout>
-
       <Expandable id="h-ex-12-1" title="Exercise 12.1">
         <p>Evaluate the following limits (Exercises 1–15, deduped — 7 duplicates already solved in Methods/Practice removed):</p>
         <ol>
