@@ -310,15 +310,32 @@ export default function LimitsAndDerivativesChapter() {
       </SpeedTricks>
 
       <h2 id="h-trig-limits">12.4 Limits of Trigonometric Functions</h2>
-      <Callout type="important" title="Two Fundamental Trigonometric Limits">
+      <Callout type="important" title="Three Fundamental Trigonometric Limits">
         <FormulaCard>
           <FormulaBlock latex={String.raw`\lim_{x \to 0} \frac{\sin x}{x} = 1`} />
+          <FormulaBlock latex={String.raw`\lim_{x \to 0} \frac{\tan x}{x} = 1`} />
           <FormulaBlock latex={String.raw`\lim_{x \to 0} \frac{1 - \cos x}{x} = 0`} />
           <p className="text-sm text-muted-foreground mt-2">
-            Here x is in <strong>radians</strong>. These two limits are the backbone of all trigonometric derivatives.
+            Here x is in <strong>radians</strong>. These three limits are the backbone of all trigonometric derivatives.
           </p>
         </FormulaCard>
       </Callout>
+
+      <Expandable title="Example 3 — Algebraic Limit via Standard Form">
+        <ProblemSolution problemNumber="Example 3">
+          <ProblemSolution.Problem>
+            Evaluate <Formula>{String.raw`\lim_{x \to 0} \frac{\sqrt{1+x}-1}{x}`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Rewrite in standard form", description: <Formula>{String.raw`\frac{(1+x)^{1/2}-1^{1/2}}{(1+x)-1}`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`\lim_{(1+x)\to 1}\frac{(1+x)^{1/2}-1^{1/2}}{(1+x)-1} = \frac12(1)^{-1/2} = \frac12`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
 
       <KeyPoint>
         The angle x in sin x, cos x must be in <Highlight>radians</Highlight> for these limits to hold.
@@ -366,6 +383,65 @@ export default function LimitsAndDerivativesChapter() {
               steps={[
                 { label: "Multiply by conjugate", description: <Formula>{String.raw`\frac{(1-\cos x)(1+\cos x)}{x^2(1+\cos x)} = \frac{1-\cos^2 x}{x^2(1+\cos x)} = \frac{\sin^2 x}{x^2(1+\cos x)}`}</Formula> },
                 { label: "Split", description: <Formula>{String.raw`\left(\frac{\sin x}{x}\right)^2 \cdot \frac{1}{1+\cos x} \to 1 \cdot \frac{1}{2} = \frac{1}{2}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable title="More Trigonometric Limits — sin ax / sin bx, sin ax / bx, tan x / x, cos shift">
+        <ProblemSolution problemNumber="Example 2 — sin 4x / sin 2x">
+          <ProblemSolution.Problem>
+            Evaluate <Formula>{String.raw`\lim_{x \to 0} \frac{\sin 4x}{\sin 2x}`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Separate", description: <Formula>{String.raw`\frac{\sin 4x}{4x}\cdot 4x \Big/ \left(\frac{\sin 2x}{2x}\cdot 2x\right)`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`\frac{1\cdot 4}{1\cdot 2}=2`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">In general <Formula>{String.raw`\lim_{x\to0}\frac{\sin ax}{\sin bx}=\frac{a}{b}`}</Formula>.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 3 — sin ax / bx">
+          <ProblemSolution.Problem>
+            Evaluate <Formula>{String.raw`\lim_{x \to 0} \frac{\sin ax}{bx}`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Factor", description: <Formula>{String.raw`\frac{\sin ax}{ax}\cdot\frac{a}{b}`}</Formula> },
+                { label: "Limit", description: <Formula>{String.raw`\frac{a}{b}\cdot 1 = \frac{a}{b}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 4 — tan x / x">
+          <ProblemSolution.Problem>
+            Evaluate <Formula>{String.raw`\lim_{x \to 0} \frac{\tan x}{x}`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Rewrite", description: <Formula>{String.raw`\frac{\sin x}{\cos x}\cdot\frac1x`}</Formula> },
+                { label: "Split", description: <Formula>{String.raw`\left(\lim_{x\to0}\frac{\sin x}{x}\right)\!\left(\lim_{x\to0}\frac1{\cos x}\right)=1\cdot\frac1{1}=1`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 6 — cos shift at π/2">
+          <ProblemSolution.Problem>
+            Evaluate <Formula>{String.raw`\lim_{x \to \pi/2}\frac{\cos x}{\pi/2 - x}`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Use identity", description: <Formula>{String.raw`\cos x = \sin(\pi/2 - x)`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`\lim_{\pi/2 - x \to 0}\frac{\sin(\pi/2 - x)}{\pi/2 - x}=1`}</Formula> },
               ]}
             />
           </ProblemSolution.Solution>
