@@ -426,16 +426,61 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
         </ProblemSolution>
       </Expandable>
 
-      <SpeedTricks>
-        <Callout type="tip" title="Section formula: m goes with the far end">
-          In ratio m : n, the coordinate = (m × far + n × near)/(m + n). &quot;m goes with the far
-          end&quot; — easy to remember and hard to get wrong.
-        </Callout>
-        <Callout type="tip" title="Centroid = arithmetic mean of vertices">
-          Just average each coordinate across all three vertices. No weights, no ratios — pure
-          average.
-        </Callout>
-      </SpeedTricks>
+      <Expandable title="Advanced Questions — Centroid, Equidistant YZ-Plane, Prism">
+        <ProblemSolution problemNumber="Q1 — Centroid">
+          <ProblemSolution.Problem>
+            <p>Given vertices <Formula>{String.raw`A(0,7,10), B(1,6,6), C(-4,9,6)`}</Formula>. Find the centroid.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <FormulaCard>
+              <p className="font-semibold mb-1">Centroid Formula</p>
+              <FormulaBlock latex={String.raw`\text{Centroid}=\left(\frac{x_1+x_2+x_3}{3},\frac{y_1+y_2+y_3}{3},\frac{z_1+z_2+z_3}{3}\right)`} important />
+            </FormulaCard>
+            <Stepper
+              steps={[
+                { label: "x", description: <Formula>{String.raw`\frac{0+1-4}{3}=-1`}</Formula> },
+                { label: "y", description: <Formula>{String.raw`\frac{7+6+9}{3}=\frac{22}{3}`}</Formula> },
+                { label: "z", description: <Formula>{String.raw`\frac{10+6+6}{3}=\frac{22}{3}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{(-1,\,22/3,\,22/3)}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Q2 — YZ-Plane Equidistant">
+          <ProblemSolution.Problem>
+            <p>Find point <Formula>{String.raw`P`}</Formula> in the YZ-plane equidistant from <Formula>{String.raw`A(2,0,3), B(0,3,2), C(0,0,1)`}</Formula>. Let <Formula>{String.raw`P(0,y,z)`}</Formula>, <Formula>{String.raw`AP=BP=CP`}</Formula>.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "AP²", description: <Formula>{String.raw`AP^{2}= (0-2)^{2}+y^{2}+(z-3)^{2}=y^{2}+z^{2}-6z+13`}</Formula> },
+                { label: "BP²", description: <Formula>{String.raw`BP^{2}= (y-3)^{2}+(z-2)^{2}=y^{2}+z^{2}-6y-4z+13`}</Formula> },
+                { label: "CP²", description: <Formula>{String.raw`CP^{2}= y^{2}+(z-1)^{2}=y^{2}+z^{2}-2z+1`}</Formula> },
+                { label: "AP²=CP²", description: <Formula>{String.raw`-6z+13=-2z+1\Rightarrow z=3`}</Formula> },
+                { label: "BP²=CP², z=3", description: <Formula>{String.raw`-6y-12+13=-6+1\Rightarrow y=1`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{P(0,1,3)}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Q3 — Prism">
+          <ProblemSolution.Problem>
+            <p>Prism <Formula>{String.raw`ABCDEFGH`}</Formula>, <Formula>{String.raw`G(3,2,4)`}</Formula>. Base: <Formula>{String.raw`A(3,0,0), B(3,2,0), C(0,2,0)`}</Formula> with top <Formula>{String.raw`E(3,0,4), F(0,0,4), H(0,2,4)`}</Formula>. Find (i) vertices, (ii) <Formula>{String.raw`CG`}</Formula>.</p>
+            <div className="my-3 rounded-xl border border-border/40 bg-muted/20 p-3 text-xs text-muted-foreground">Alt: 3D prism on XYZ axes, base at z=0 with A/B/C, top at z=4 with E/F/H/G, C(0,2,0) to G(3,2,4).</div>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p className="text-sm mb-2">(i) Vertices: <Formula>{String.raw`A(3,0,0), B(3,2,0), C(0,2,0), E(3,0,4), F(0,0,4), H(0,2,4), G(3,2,4)`}</Formula>.</p>
+            <Stepper
+              steps={[
+                { label: "CG", description: <Formula>{String.raw`CG=\sqrt{(3-0)^{2}+(2-2)^{2}+(4-0)^{2}}=\sqrt{9+16}=5`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`CG=5\text{ units}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
 
       <Callout type="warning" title="Hard-Level Tips: 3D Geometry Traps">
         <ul className="list-disc pl-5 space-y-1">
