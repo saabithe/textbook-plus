@@ -240,79 +240,97 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
         </Callout>
       </SpeedTricks>
 
-      <h2 id="h-distance">11.4 Distance between Two Points</h2>
+      <h2 id="h-distance">Distance between Two Points</h2>
       <FormulaCard>
-        <p className="font-semibold mb-2">3D Distance Formula</p>
-        <FormulaBlock
-          latex={String.raw`PQ = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}`}
-          important
-        />
+        <p className="font-semibold mb-2">Distance AB in 3D</p>
+        <FormulaBlock latex={String.raw`AB = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}`} important />
+        <p className="text-sm text-muted-foreground mt-2">For <Formula>{String.raw`A(x_1,y_1,z_1)`}</Formula> and <Formula>{String.raw`B(x_2,y_2,z_2)`}</Formula>.</p>
       </FormulaCard>
 
       <FormulaCard>
         <p className="font-semibold mb-2">Distance from Origin</p>
-        <FormulaBlock
-          latex={String.raw`OP = \sqrt{x^2 + y^2 + z^2}`}
-          important
-        />
-        <p className="text-sm text-muted-foreground mt-2">
-          The distance from the origin O(0, 0, 0) to P(x, y, z) is the modulus of the position
-          vector — a natural 3D extension of &#8730;(x&#178; + y&#178;).
-        </p>
+        <FormulaBlock latex={String.raw`OP = \sqrt{x^2 + y^2 + z^2}`} important />
+        <p className="text-sm text-muted-foreground mt-2">Origin <Formula>{String.raw`O(0,0,0)`}</Formula> to <Formula>{String.raw`P(x,y,z)`}</Formula>.</p>
       </FormulaCard>
 
-      <Expandable title="Examples 4 to 6 — Distance Formula">
-        <ProblemSolution problemNumber="Example 4">
+      <Expandable title="Examples 1–5 — Distance & Applications (from shared doc)">
+        <ProblemSolution problemNumber="Example 1">
           <ProblemSolution.Problem>
-            <p>Find the distance between the points (−1, 3, −4) and (1, −3, 5).</p>
+            <p>Find the distance between <Formula>{String.raw`A(-3,7,2)`}</Formula> and <Formula>{String.raw`B(2,4,-1)`}</Formula>.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Identify coordinates", description: <Formula>{String.raw`x_1=-1,\ y_1=3,\ z_1=-4;\quad x_2=1,\ y_2=-3,\ z_2=5`}</Formula> },
-                { label: "Compute differences", description: <Formula>{String.raw`x_2-x_1=2,\ \ y_2-y_1=-6,\ \ z_2-z_1=9`}</Formula> },
-                { label: "Apply formula", description: <Formula>{String.raw`PQ = \sqrt{4+36+81} = \sqrt{121} = 11`}</Formula> },
+                { label: "Identify", description: <Formula>{String.raw`A(-3,7,2)=(x_1,y_1,z_1),\;B(2,4,-1)=(x_2,y_2,z_2)`}</Formula> },
+                { label: "Differences", description: <Formula>{String.raw`(2-(-3))=5,\;(4-7)=-3,\;(-1-2)=-3`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`AB=\sqrt{5^{2}+(-3)^{2}+(-3)^{2}}=\sqrt{25+9+9}=\sqrt{43}`}</Formula> },
               ]}
             />
-            <FormulaBlock latex={String.raw`PQ = \sqrt{(1-(-1))^2+(-3-3)^2+(5-(-4))^2} = \sqrt{4+36+81} = \sqrt{121} = 11`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="Example 5">
+        <ProblemSolution problemNumber="Example 2 — Collinear">
           <ProblemSolution.Problem>
-            <p>
-              Find the distance between the points (1, −1, 1) and (−2, 4, 1).
-            </p>
+            <p>Show <Formula>{String.raw`A(-2,3,5), B(1,2,3), C(7,0,-1)`}</Formula> are collinear. Condition: <Formula>{String.raw`AB+BC=AC`}</Formula>.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Differences", description: <Formula>{String.raw`x_2-x_1 = -3,\ \ y_2-y_1 = 5,\ \ z_2-z_1 = 0`}</Formula> },
-                { label: "Distance", description: <Formula>{String.raw`PQ = \sqrt{9+25+0} = \sqrt{34}`}</Formula> },
+                { label: "AB", description: <Formula>{String.raw`AB=\sqrt{(1+2)^{2}+(2-3)^{2}+(3-5)^{2}}=\sqrt{9+1+4}=\sqrt{14}`}</Formula> },
+                { label: "BC", description: <Formula>{String.raw`BC=\sqrt{(7-1)^{2}+(0-2)^{2}+(-1-3)^{2}}=\sqrt{36+4+16}=2\sqrt{14}`}</Formula> },
+                { label: "AC", description: <Formula>{String.raw`AC=\sqrt{(7+2)^{2}+(0-3)^{2}+(-1-5)^{2}}=\sqrt{81+9+36}=3\sqrt{14}`}</Formula> },
+                { label: "Verify", description: <Formula>{String.raw`\sqrt{14}+2\sqrt{14}=3\sqrt{14}\Rightarrow AB+BC=AC`}</Formula> },
               ]}
             />
-            <FormulaBlock latex={String.raw`PQ = \sqrt{9+25} = \sqrt{34}`} important />
-            <p className="text-sm text-muted-foreground">
-              Note: z&#8321; = z&#8322; = 1, so the points are at the same height — the distance
-              reduces to a 2D calculation in the z = 1 plane.
-            </p>
+            <p className="text-sm text-muted-foreground mt-2">Hence collinear.</p>
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="Example 6">
+        <ProblemSolution problemNumber="Example 3 — Isosceles">
           <ProblemSolution.Problem>
-            <p>
-              Determine the octant of the point (3, −5, 2) and find its distance from the origin.
-            </p>
+            <p>Verify <Formula>{String.raw`A(0,7,-10), B(1,6,-6), C(4,9,-6)`}</Formula> are isosceles.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <Stepper
               steps={[
-                { label: "Octant", description: <Formula>{String.raw`(+, - , +) \to \text{Octant IV}`}</Formula> },
-                { label: "Distance from O", description: <Formula>{String.raw`OP = \sqrt{9+25+4} = \sqrt{38}`}</Formula> },
+                { label: "AB", description: <Formula>{String.raw`AB=\sqrt{(1-0)^{2}+(6-7)^{2}+(-6+10)^{2}}=\sqrt{1+1+16}=\sqrt{18}`}</Formula> },
+                { label: "BC", description: <Formula>{String.raw`BC=\sqrt{(4-1)^{2}+(9-6)^{2}+0^{2}}=\sqrt{9+9}=\sqrt{18}`}</Formula> },
+                { label: "Conclusion", description: <Formula>{String.raw`AB=BC\Rightarrow\text{isosceles}`}</Formula> },
               ]}
             />
-            <FormulaBlock latex={String.raw`OP = \sqrt{3^2+(-5)^2+2^2} = \sqrt{9+25+4} = \sqrt{38}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 4 — Right-Angled">
+          <ProblemSolution.Problem>
+            <p>Verify <Formula>{String.raw`A(0,7,10), B(-1,6,6), C(-4,9,6)`}</Formula> are right-angled.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "AB", description: <Formula>{String.raw`AB=\sqrt{(-1)^{2}+(-1)^{2}+(-4)^{2}}=\sqrt{18}`}</Formula> },
+                { label: "BC", description: <Formula>{String.raw`BC=\sqrt{(-3)^{2}+3^{2}+0}=\sqrt{18}`}</Formula> },
+                { label: "AC", description: <Formula>{String.raw`AC=\sqrt{(-4)^{2}+2^{2}+(-4)^{2}}=\sqrt{36}=6`}</Formula> },
+                { label: "Pythagoras", description: <Formula>{String.raw`(\sqrt{36})^{2}=(\sqrt{18})^{2}+(\sqrt{18})^{2}\Rightarrow36=36`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 5 — Equidistant Set">
+          <ProblemSolution.Problem>
+            <p>Find the equation of points equidistant from <Formula>{String.raw`A(1,2,3)`}</Formula> and <Formula>{String.raw`B(3,2,-1)`}</Formula>. Let <Formula>{String.raw`P(x,y,z)`}</Formula>, <Formula>{String.raw`PA=PB`}</Formula>.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Set up", description: <Formula>{String.raw`PA^{2}=(x-1)^{2}+(y-2)^{2}+(z-3)^{2},\;PB^{2}=(x-3)^{2}+(y-2)^{2}+(z+1)^{2}`}</Formula> },
+                { label: "Equate", description: <Formula>{String.raw`(x-1)^{2}+(y-2)^{2}+(z-3)^{2}=(x-3)^{2}+(y-2)^{2}+(z+1)^{2}`}</Formula> },
+                { label: "Expand", description: <Formula>{String.raw`x^{2}-2x+1+y^{2}-4y+4+z^{2}-6z+9=x^{2}-6x+9+y^{2}-4y+4+z^{2}+2z+1`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`-2x-6z=-6x+2z\Rightarrow4x-8z=0`}</Formula> },
+                { label: "Result", description: <Formula>{String.raw`x-2z=0`}</Formula> },
+              ]}
+            />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
