@@ -11,22 +11,6 @@ import { SpeedTricks } from "@/components/content/SpeedTricks";
 export default function IntroductionToThreeDimensionalGeometryChapter() {
   return (
     <>
-      <h2 id="h-intro">11.1 Introduction</h2>
-      <Callout type="important" title="From 2D to 3D">
-        In <strong>analytical geometry</strong>, we locate a point in a plane using two perpendicular
-        axes (x and y). But real-world objects — a room corner, a fly on a ceiling, a satellite —
-        live in <strong>three-dimensional space</strong>. We need <Highlight>three mutually
-        perpendicular axes</Highlight> to fix a point&apos;s position.
-      </Callout>
-      <ul>
-        <li>Two-dimensional geometry (coordinate geometry) = 2 axes, ordered pairs (x, y).</li>
-        <li>Three-dimensional geometry = 3 axes, ordered triplets (x, y, z).</li>
-        <li>
-          The third axis (z-axis) is drawn <strong>perpendicular to the plane of the paper</strong>,
-          pointing towards the reader.
-        </li>
-      </ul>
-
       <h2 id="h-axes">11.2 Coordinate Axes and Coordinate Planes</h2>
       <Callout type="important" title="Coordinate Axes">
         Three mutually perpendicular lines OX, OY, OZ meeting at O form the{" "}
