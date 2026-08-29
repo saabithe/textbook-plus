@@ -62,7 +62,7 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
       <div className="my-6 rounded-xl border border-border/60 overflow-hidden">
         <div className="px-4 py-2.5 bg-muted/30 border-b border-border/40">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Octant Signs Table — Rotated (Octants as Columns)
+            Octant Signs Table
           </p>
         </div>
         <div className="overflow-x-auto">
@@ -148,12 +148,6 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
       </SpeedTricks>
 
       <h2 id="h-coordinates">11.3 Coordinates of a Point in Space</h2>
-      <Callout type="important" title="Ordered Triplet">
-        For any point P in space, drop perpendiculars to the three coordinate planes. The
-        perpendicular distances from P to the YZ-plane, ZX-plane, and XY-plane give the{" "}
-        <strong>x</strong>, <strong>y</strong>, <strong>z</strong> coordinates respectively. P is
-        represented by the <Highlight>ordered triplet (x, y, z)</Highlight>.
-      </Callout>
       <FormulaCard>
         <p className="font-semibold mb-2">Coordinates of a Point</p>
         <FormulaBlock latex={String.raw`P(x,\, y,\, z)`} important />
@@ -247,38 +241,13 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
       </SpeedTricks>
 
       <h2 id="h-distance">11.4 Distance between Two Points</h2>
-      <Callout type="important" title="Distance Formula in 3D">
-        The <strong>distance</strong> between two points P(x&#8321;, y&#8321;, z&#8321;) and
-        Q(x&#8322;, y&#8322;, z&#8322;) is:
-      </Callout>
       <FormulaCard>
         <p className="font-semibold mb-2">3D Distance Formula</p>
         <FormulaBlock
           latex={String.raw`PQ = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}`}
           important
         />
-        <p className="text-sm text-muted-foreground mt-2">
-          This is the 3D extension of the 2D formula. Apply the Pythagorean theorem twice: once in
-          the XY-plane, then use the z-difference for the final step.
-        </p>
       </FormulaCard>
-      <KeyPoint title="Derivation (Two-Step Pythagoras)">
-        <ol className="list-decimal pl-5 space-y-1">
-          <li>
-            Project P and Q onto the XY-plane to get P&#8242;(x&#8321;, y&#8321;, 0) and
-            Q&#8242;(x&#8322;, y&#8322;, 0). Their distance in 2D is{" "}
-            <FormulaBlock latex={String.raw`P'Q' = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}`} />.
-          </li>
-          <li>
-            The line PQ forms the hypotenuse of a right triangle with P&#8242;Q&#8242; as one leg
-            and |z&#8322; − z&#8321;| as the other.
-          </li>
-          <li>
-            By Pythagoras: PQ&#178; = P&#8242;Q&#8242;&#178; + (z&#8322; − z&#8321;)&#178;
-            → PQ = the formula above.
-          </li>
-        </ol>
-      </KeyPoint>
 
       <FormulaCard>
         <p className="font-semibold mb-2">Distance from Origin</p>
@@ -347,17 +316,6 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
-
-      <SpeedTricks>
-        <Callout type="tip" title="Distance formula — square first, add later">
-          Compute each difference, square it, then add. Don&apos;t try to simplify mid-step. Squares
-          are always non-negative, so sign errors vanish.
-        </Callout>
-        <Callout type="tip" title="Same coordinate → it drops out">
-          If z&#8321; = z&#8322; (or x or y), that difference is 0 — the formula reduces to 2D
-          distance in that plane. Useful shortcut for horizontally/vertically aligned points.
-        </Callout>
-      </SpeedTricks>
 
       <h2 id="h-misc">Miscellaneous Examples</h2>
       <Expandable title="Examples 7 to 9 — Mixed Applications">
