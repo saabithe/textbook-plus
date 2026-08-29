@@ -7,17 +7,37 @@ import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { Highlight } from "@/components/content/Highlight";
 import { SpeedTricks } from "@/components/content/SpeedTricks";
+import { Comparison } from "@/components/content/Comparison";
 
 export default function IntroductionToThreeDimensionalGeometryChapter() {
   return (
     <>
+      <Comparison
+        columns={[
+          {
+            title: "2D Geometry",
+            children: (
+              <ul className="list-disc pl-5 space-y-1">
+                <li>2 axes: x and y</li>
+                <li>Ordered pairs <Formula>{String.raw`(x,y)`}</Formula></li>
+                <li>Plane geometry</li>
+              </ul>
+            ),
+          },
+          {
+            title: "3D Geometry",
+            children: (
+              <ul className="list-disc pl-5 space-y-1">
+                <li>3 axes: x, y, z (z ⟂ paper, toward reader)</li>
+                <li>Ordered triplets <Formula>{String.raw`(x,y,z)`}</Formula></li>
+                <li>Space geometry</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+
       <h2 id="h-axes">11.2 Coordinate Axes and Coordinate Planes</h2>
-      <Callout type="important" title="Coordinate Axes">
-        Three mutually perpendicular lines OX, OY, OZ meeting at O form the{" "}
-        <strong>coordinate axes</strong>. OX = <strong>x-axis</strong>, OY = <strong>y-axis</strong>,
-        OZ = <strong>z-axis</strong>. They define a <strong>right-handed rectangular coordinate
-        system</strong>.
-      </Callout>
       <ul>
         <li>
           Each pair of axes determines a <strong>coordinate plane</strong>:
@@ -42,74 +62,63 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
       <div className="my-6 rounded-xl border border-border/60 overflow-hidden">
         <div className="px-4 py-2.5 bg-muted/30 border-b border-border/40">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Octant Signs Table
+            Octant Signs Table — Rotated (Octants as Columns)
           </p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border/40">
-                <th className="px-4 py-2 text-left font-semibold">Octant</th>
-                <th className="px-4 py-2 text-left font-semibold">Sign of x</th>
-                <th className="px-4 py-2 text-left font-semibold">Sign of y</th>
-                <th className="px-4 py-2 text-left font-semibold">Sign of z</th>
+                <th className="px-4 py-2 text-left font-semibold">Sign \ Octant</th>
+                <th className="px-3 py-2 text-center font-semibold">I</th>
+                <th className="px-3 py-2 text-center font-semibold">II</th>
+                <th className="px-3 py-2 text-center font-semibold">III</th>
+                <th className="px-3 py-2 text-center font-semibold">IV</th>
+                <th className="px-3 py-2 text-center font-semibold">V</th>
+                <th className="px-3 py-2 text-center font-semibold">VI</th>
+                <th className="px-3 py-2 text-center font-semibold">VII</th>
+                <th className="px-3 py-2 text-center font-semibold">VIII</th>
               </tr>
             </thead>
             <tbody>
               <tr className="border-b border-border/30">
-                <td className="px-4 py-2">I</td>
-                <td className="px-4 py-2">+</td>
-                <td className="px-4 py-2">+</td>
-                <td className="px-4 py-2">+</td>
+                <td className="px-4 py-2 font-medium">x</td>
+                <td className="px-3 py-2 text-center">+</td>
+                <td className="px-3 py-2 text-center">−</td>
+                <td className="px-3 py-2 text-center">−</td>
+                <td className="px-3 py-2 text-center">+</td>
+                <td className="px-3 py-2 text-center">+</td>
+                <td className="px-3 py-2 text-center">−</td>
+                <td className="px-3 py-2 text-center">−</td>
+                <td className="px-3 py-2 text-center">+</td>
               </tr>
               <tr className="border-b border-border/30">
-                <td className="px-4 py-2">II</td>
-                <td className="px-4 py-2">−</td>
-                <td className="px-4 py-2">+</td>
-                <td className="px-4 py-2">+</td>
-              </tr>
-              <tr className="border-b border-border/30">
-                <td className="px-4 py-2">III</td>
-                <td className="px-4 py-2">−</td>
-                <td className="px-4 py-2">−</td>
-                <td className="px-4 py-2">+</td>
-              </tr>
-              <tr className="border-b border-border/30">
-                <td className="px-4 py-2">IV</td>
-                <td className="px-4 py-2">+</td>
-                <td className="px-4 py-2">−</td>
-                <td className="px-4 py-2">+</td>
-              </tr>
-              <tr className="border-b border-border/30">
-                <td className="px-4 py-2">V</td>
-                <td className="px-4 py-2">+</td>
-                <td className="px-4 py-2">+</td>
-                <td className="px-4 py-2">−</td>
-              </tr>
-              <tr className="border-b border-border/30">
-                <td className="px-4 py-2">VI</td>
-                <td className="px-4 py-2">−</td>
-                <td className="px-4 py-2">+</td>
-                <td className="px-4 py-2">−</td>
-              </tr>
-              <tr className="border-b border-border/30">
-                <td className="px-4 py-2">VII</td>
-                <td className="px-4 py-2">−</td>
-                <td className="px-4 py-2">−</td>
-                <td className="px-4 py-2">−</td>
+                <td className="px-4 py-2 font-medium">y</td>
+                <td className="px-3 py-2 text-center">+</td>
+                <td className="px-3 py-2 text-center">+</td>
+                <td className="px-3 py-2 text-center">−</td>
+                <td className="px-3 py-2 text-center">−</td>
+                <td className="px-3 py-2 text-center">+</td>
+                <td className="px-3 py-2 text-center">+</td>
+                <td className="px-3 py-2 text-center">−</td>
+                <td className="px-3 py-2 text-center">−</td>
               </tr>
               <tr>
-                <td className="px-4 py-2">VIII</td>
-                <td className="px-4 py-2">+</td>
-                <td className="px-4 py-2">−</td>
-                <td className="px-4 py-2">−</td>
+                <td className="px-4 py-2 font-medium">z</td>
+                <td className="px-3 py-2 text-center">+</td>
+                <td className="px-3 py-2 text-center">+</td>
+                <td className="px-3 py-2 text-center">+</td>
+                <td className="px-3 py-2 text-center">+</td>
+                <td className="px-3 py-2 text-center">−</td>
+                <td className="px-3 py-2 text-center">−</td>
+                <td className="px-3 py-2 text-center">−</td>
+                <td className="px-3 py-2 text-center">−</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div className="px-4 py-2.5 bg-muted/30 border-t border-border/40 text-xs text-muted-foreground">
-          Octants I–IV are above the XY-plane (z &#62; 0); V–VIII are below (z &#60; 0). The pattern
-          for x and y in V–VIII mirrors I–IV.
+          Rotated view — now octants are columns. I–IV (z &#62; 0) on top, V–VIII (z &#60; 0) mirrored below. Read down a column to get (x,y,z) signs.
         </div>
       </div>
 
