@@ -796,37 +796,7 @@ export default function LimitsAndDerivativesChapter() {
         <FormulaBlock latex={String.raw`\frac{d}{dx}[k\cdot f]=k\,f'`} />
       </FormulaCard>
 
-      <h3>Standard Results</h3>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-6">
-        <div className="rounded-xl border border-emerald-500/20 overflow-hidden">
-          <div className="px-4 py-2 bg-emerald-500/[0.08] border-b border-emerald-500/15 font-semibold text-sm text-emerald-800 dark:text-emerald-200">Algebraic &amp; Exponential</div>
-          <table className="w-full text-sm">
-            <tbody>
-              <tr className="border-b border-border/20"><td className="px-4 py-2 font-mono">k</td><td className="px-4 py-2"><Formula>{String.raw`0`}</Formula></td></tr>
-              <tr className="border-b border-border/20 bg-muted/20"><td className="px-4 py-2 font-mono">x</td><td className="px-4 py-2"><Formula>{String.raw`1`}</Formula></td></tr>
-              <tr className="border-b border-border/20"><td className="px-4 py-2 font-mono">xⁿ</td><td className="px-4 py-2"><Formula>{String.raw`n x^{n-1}`}</Formula></td></tr>
-              <tr className="border-b border-border/20 bg-muted/20"><td className="px-4 py-2 font-mono">1/x</td><td className="px-4 py-2"><Formula>{String.raw`-1/x^{2}`}</Formula></td></tr>
-              <tr className="border-b border-border/20"><td className="px-4 py-2 font-mono">√x</td><td className="px-4 py-2"><Formula>{String.raw`1/(2\sqrt{x})`}</Formula></td></tr>
-              <tr className="border-b border-border/20 bg-muted/20"><td className="px-4 py-2 font-mono">log x</td><td className="px-4 py-2"><Formula>{String.raw`1/x`}</Formula></td></tr>
-              <tr className="border-b border-border/20"><td className="px-4 py-2 font-mono">eˣ</td><td className="px-4 py-2"><Formula>{String.raw`e^{x}`}</Formula></td></tr>
-              <tr><td className="px-4 py-2 font-mono">aˣ</td><td className="px-4 py-2"><Formula>{String.raw`a^{x}\log a`}</Formula></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div className="rounded-xl border border-violet-500/20 overflow-hidden">
-          <div className="px-4 py-2 bg-violet-500/[0.08] border-b border-violet-500/15 font-semibold text-sm text-violet-800 dark:text-violet-200">Trigonometric</div>
-          <table className="w-full text-sm">
-            <tbody>
-              <tr className="border-b border-border/20"><td className="px-4 py-2 font-mono">sin x</td><td className="px-4 py-2"><Formula>{String.raw`\cos x`}</Formula></td></tr>
-              <tr className="border-b border-border/20 bg-muted/20"><td className="px-4 py-2 font-mono">cos x</td><td className="px-4 py-2"><Formula>{String.raw`-\sin x`}</Formula></td></tr>
-              <tr className="border-b border-border/20"><td className="px-4 py-2 font-mono">tan x</td><td className="px-4 py-2"><Formula>{String.raw`\sec^{2}x`}</Formula></td></tr>
-              <tr className="border-b border-border/20 bg-muted/20"><td className="px-4 py-2 font-mono">cot x</td><td className="px-4 py-2"><Formula>{String.raw`-\csc^{2}x`}</Formula></td></tr>
-              <tr className="border-b border-border/20"><td className="px-4 py-2 font-mono">sec x</td><td className="px-4 py-2"><Formula>{String.raw`\sec x\tan x`}</Formula></td></tr>
-              <tr><td className="px-4 py-2 font-mono">csc x</td><td className="px-4 py-2"><Formula>{String.raw`-\csc x\cot x`}</Formula></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+
 
       <h3>Product &amp; Quotient Rules — Quick Reference</h3>
       <FormulaCard>
@@ -1000,12 +970,18 @@ export default function LimitsAndDerivativesChapter() {
         </ProblemSolution>
       </Expandable>
 
-      <h3>Standard Derivatives</h3>
+      <h3>Standard Derivatives — 14 in 2 Columns</h3>
       <FormulaCard>
-        <p className="font-semibold mb-3">Common Derivatives — 2 columns</p>
+        <p className="font-semibold mb-3">All Standard Results — 2 columns (merged, compact)</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1">
-          <FormulaBlock latex={String.raw`(c)' = 0`} />
-          <FormulaBlock latex={String.raw`(x^n)' = n x^{n-1}`} />
+          <FormulaBlock latex={String.raw`(k)' = 0`} />
+          <FormulaBlock latex={String.raw`(x)' = 1`} />
+          <FormulaBlock latex={String.raw`(x^{n})' = n x^{n-1}`} />
+          <FormulaBlock latex={String.raw`(1/x)' = -1/x^{2}`} />
+          <FormulaBlock latex={String.raw`(\sqrt{x})' = 1/(2\sqrt{x})`} />
+          <FormulaBlock latex={String.raw`(\log x)' = 1/x`} />
+          <FormulaBlock latex={String.raw`(e^{x})' = e^{x}`} />
+          <FormulaBlock latex={String.raw`(a^{x})' = a^{x}\log a`} />
           <FormulaBlock latex={String.raw`(\sin x)' = \cos x`} />
           <FormulaBlock latex={String.raw`(\cos x)' = -\sin x`} />
           <FormulaBlock latex={String.raw`(\tan x)' = \sec^{2}x`} />
@@ -1013,7 +989,7 @@ export default function LimitsAndDerivativesChapter() {
           <FormulaBlock latex={String.raw`(\sec x)' = \sec x \tan x`} />
           <FormulaBlock latex={String.raw`(\csc x)' = -\csc x \cot x`} />
         </div>
-        <p className="text-xs text-muted-foreground mt-2 text-center">Left: power &amp; sine/cosine — Right: tan/cot/sec/csc. Memorise the signs on cot/csc.</p>
+        <p className="text-xs text-muted-foreground mt-2 text-center">Left: algebraic &amp; exponential — Right: trigonometric. Single source, 2-column compact.</p>
       </FormulaCard>
 
       <SpeedTricks>
