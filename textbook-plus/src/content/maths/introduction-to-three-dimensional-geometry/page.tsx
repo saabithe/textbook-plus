@@ -430,6 +430,39 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
         <ProblemSolution problemNumber="Q1 — Centroid">
           <ProblemSolution.Problem>
             <p>Given vertices <Formula>{String.raw`A(0,7,10), B(1,6,6), C(-4,9,6)`}</Formula>. Find the centroid.</p>
+            <div className="my-4 flex justify-center">
+              <figure className="rounded-xl border border-border/40 bg-white dark:bg-zinc-900 p-3">
+                <svg viewBox="0 0 400 300" className="w-[380px] max-w-full h-auto" role="img" aria-labelledby="centroidTitle centroidDesc">
+                  <title id="centroidTitle">Triangle centroid in 3D</title>
+                  <desc id="centroidDesc">Isometric view of triangle ABC with centroid G(-1,22/3,22/3) inside. Axes: X to right-down, Y to left-down, Z vertical.</desc>
+                  <rect x="10" y="10" width="380" height="280" fill="none" stroke="#e5e7eb" rx="8" />
+                  {/* axes */}
+                  <line x1="200" y1="250" x2="340" y2="180" stroke="#cbd5e1" strokeWidth="1.5" markerEnd="url(#arrow1)" />
+                  <line x1="200" y1="250" x2="60" y2="180" stroke="#cbd5e1" strokeWidth="1.5" markerEnd="url(#arrow1)" />
+                  <line x1="200" y1="250" x2="200" y2="60" stroke="#cbd5e1" strokeWidth="1.5" markerEnd="url(#arrow1)" />
+                  <text x="350" y="175" fontSize="12" fill="#64748b">X</text>
+                  <text x="50" y="175" fontSize="12" fill="#64748b">Y</text>
+                  <text x="205" y="70" fontSize="12" fill="#64748b">Z</text>
+                  <text x="205" y="265" fontSize="11" fill="#94a3b8">O</text>
+                  <defs><marker id="arrow1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#cbd5e1" /></marker></defs>
+                  {/* triangle */}
+                  <polygon points="116,88 140,136 44,148" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2" strokeLinejoin="round" opacity="0.9" />
+                  {/* centroid */}
+                  <circle cx="100" cy="124" r="5" fill="#ef4444" stroke="white" strokeWidth="2" />
+                  <circle cx="100" cy="124" r="2" fill="#991b1b" />
+                  {/* labels */}
+                  <text x="115" y="78" fontSize="11" fontWeight="600" fill="#1e40af">A(0,7,10)</text>
+                  <text x="145" y="152" fontSize="11" fontWeight="600" fill="#1e40af">B(1,6,6)</text>
+                  <text x="10" y="165" fontSize="11" fontWeight="600" fill="#1e40af">C(-4,9,6)</text>
+                  <text x="108" y="118" fontSize="10" fontWeight="700" fill="#dc2626">G(-1,22/3,22/3)</text>
+                  {/* medians dashed */}
+                  <line x1="116" y1="88" x2="92" y2="142" stroke="#93c5fd" strokeWidth="1" strokeDasharray="4 3" />
+                  <line x1="140" y1="136" x2="80" y2="118" stroke="#93c5fd" strokeWidth="1" strokeDasharray="4 3" />
+                  <line x1="44" y1="148" x2="128" y2="112" stroke="#93c5fd" strokeWidth="1" strokeDasharray="4 3" />
+                </svg>
+                <figcaption className="mt-2 text-xs text-muted-foreground text-center">Triangle ABC with centroid G — average of vertices. Dashed medians meet at G.</figcaption>
+              </figure>
+            </div>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <FormulaCard>
@@ -450,6 +483,55 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
         <ProblemSolution problemNumber="Q2 — YZ-Plane Equidistant">
           <ProblemSolution.Problem>
             <p>Find point <Formula>{String.raw`P`}</Formula> in the YZ-plane equidistant from <Formula>{String.raw`A(2,0,3), B(0,3,2), C(0,0,1)`}</Formula>. Let <Formula>{String.raw`P(0,y,z)`}</Formula>, <Formula>{String.raw`AP=BP=CP`}</Formula>.</p>
+            <div className="my-4 flex justify-center">
+              <figure className="rounded-xl border border-border/40 bg-white dark:bg-zinc-900 p-3">
+                <svg viewBox="0 0 400 300" className="w-[380px] max-w-full h-auto" role="img" aria-labelledby="yzTitle yzDesc">
+                  <title id="yzTitle">YZ-plane equidistant point</title>
+                  <desc id="yzDesc">YZ-plane (x=0) with Y horizontal, Z vertical. Points A(2,0,3) off-plane, B(0,3,2), C(0,0,1) and equidistant P(0,1,3). Dashed circles show equal distances.</desc>
+                  <rect x="10" y="10" width="380" height="280" fill="#f8fafc" stroke="#e2e8f0" rx="8" />
+                  {/* axes YZ */}
+                  <line x1="60" y1="240" x2="340" y2="240" stroke="#64748b" strokeWidth="1.5" markerEnd="url(#arrowYZ)" />
+                  <line x1="60" y1="240" x2="60" y2="30" stroke="#64748b" strokeWidth="1.5" markerEnd="url(#arrowYZ)" />
+                  <text x="345" y="245" fontSize="12" fill="#475569">Y</text>
+                  <text x="65" y="25" fontSize="12" fill="#475569">Z</text>
+                  <text x="45" y="255" fontSize="11" fill="#94a3b8">O</text>
+                  <defs><marker id="arrowYZ" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#94a3b8" /></marker></defs>
+                  {/* grid */}
+                  <line x1="60" y1="190" x2="340" y2="190" stroke="#e2e8f0" strokeDasharray="3 3" />
+                  <line x1="60" y1="140" x2="340" y2="140" stroke="#e2e8f0" strokeDasharray="3 3" />
+                  <line x1="60" y1="90" x2="340" y2="90" stroke="#e2e8f0" strokeDasharray="3 3" />
+                  <text x="120" y="255" fontSize="10" fill="#64748b">1</text>
+                  <text x="180" y="255" fontSize="10" fill="#64748b">2</text>
+                  <text x="240" y="255" fontSize="10" fill="#64748b">3</text>
+                  <text x="45" y="195" fontSize="10" fill="#64748b">1</text>
+                  <text x="45" y="145" fontSize="10" fill="#64748b">2</text>
+                  <text x="45" y="95" fontSize="10" fill="#64748b">3</text>
+                  {/* YZ plane shading */}
+                  <rect x="60" y="40" width="280" height="200" fill="#f1f5f9" stroke="#cbd5e1" strokeWidth="1" opacity="0.6" rx="4" />
+                  <text x="180" y="50" fontSize="10" fill="#94a3b8">YZ-plane (x=0)</text>
+                  {/* points */}
+                  {/* C(0,0,1): y=0,z=1 => (60,190) */}
+                  <circle cx="60" cy="190" r="5" fill="#f59e0b" stroke="white" strokeWidth="2" />
+                  <text x="70" y="195" fontSize="11" fontWeight="600" fill="#92400e">C(0,0,1)</text>
+                  {/* B(0,3,2): y=3,z=2 => (240,140) */}
+                  <circle cx="240" cy="140" r="5" fill="#10b981" stroke="white" strokeWidth="2" />
+                  <text x="250" y="145" fontSize="11" fontWeight="600" fill="#065f46">B(0,3,2)</text>
+                  {/* P(0,1,3): y=1,z=3 => (120,90) */}
+                  <circle cx="120" cy="90" r="6" fill="#ef4444" stroke="white" strokeWidth="2" />
+                  <text x="130" y="95" fontSize="11" fontWeight="700" fill="#dc2626">P(0,1,3)</text>
+                  {/* A(2,0,3): x=2 off-plane, projection (60,90) but show offset */}
+                  <circle cx="60" cy="90" r="5" fill="#3b82f6" stroke="white" strokeWidth="2" />
+                  <text x="10" y="85" fontSize="11" fontWeight="600" fill="#1e40af">A(2,0,3)</text>
+                  <line x1="60" y1="90" x2="120" y2="90" stroke="#3b82f6" strokeWidth="1" strokeDasharray="4 3" opacity="0.7" />
+                  <text x="85" y="85" fontSize="9" fill="#3b82f6">x=2</text>
+                  {/* equal distance dashed */}
+                  <line x1="120" y1="90" x2="60" y2="190" stroke="#ef4444" strokeWidth="1.2" strokeDasharray="6 3" opacity="0.6" />
+                  <line x1="120" y1="90" x2="240" y2="140" stroke="#ef4444" strokeWidth="1.2" strokeDasharray="6 3" opacity="0.6" />
+                  <line x1="120" y1="90" x2="60" y2="90" stroke="#ef4444" strokeWidth="1.2" strokeDasharray="6 3" opacity="0.6" />
+                </svg>
+                <figcaption className="mt-2 text-xs text-muted-foreground text-center max-w-[380px]">YZ-plane (x=0). P(0,1,3) equidistant from A, B, C — dashed red distances equal in 3D (A off-plane by x=2).</figcaption>
+              </figure>
+            </div>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <Stepper
@@ -468,7 +550,52 @@ export default function IntroductionToThreeDimensionalGeometryChapter() {
         <ProblemSolution problemNumber="Q3 — Prism">
           <ProblemSolution.Problem>
             <p>Prism <Formula>{String.raw`ABCDEFGH`}</Formula>, <Formula>{String.raw`G(3,2,4)`}</Formula>. Base: <Formula>{String.raw`A(3,0,0), B(3,2,0), C(0,2,0)`}</Formula> with top <Formula>{String.raw`E(3,0,4), F(0,0,4), H(0,2,4)`}</Formula>. Find (i) vertices, (ii) <Formula>{String.raw`CG`}</Formula>.</p>
-            <div className="my-3 rounded-xl border border-border/40 bg-muted/20 p-3 text-xs text-muted-foreground">Alt: 3D prism on XYZ axes, base at z=0 with A/B/C, top at z=4 with E/F/H/G, C(0,2,0) to G(3,2,4).</div>
+            <div className="my-4 flex justify-center">
+              <figure className="rounded-xl border border-border/40 bg-white dark:bg-zinc-900 p-3">
+                <svg viewBox="0 0 400 320" className="w-[400px] max-w-full h-auto" role="img" aria-labelledby="prismTitle prismDesc">
+                  <title id="prismTitle">Prism ABCDEFGH with G(3,2,4)</title>
+                  <desc id="prismDesc">Isometric prism: base OABC? Actually base A(3,0,0) B(3,2,0) C(0,2,0) F(0,0,4) E(3,0,4) H(0,2,4) G(3,2,4). CG distance highlighted.</desc>
+                  <rect x="10" y="10" width="380" height="300" fill="#f8fafc" stroke="#e2e8f0" rx="8" />
+                  {/* axes */}
+                  <line x1="40" y1="260" x2="380" y2="260" stroke="#94a3b8" strokeWidth="1.2" />
+                  <line x1="40" y1="260" x2="40" y2="40" stroke="#94a3b8" strokeWidth="1.2" />
+                  <line x1="40" y1="260" x2="100" y2="220" stroke="#94a3b8" strokeWidth="1.2" strokeDasharray="3 3" />
+                  <text x="385" y="265" fontSize="11" fill="#64748b">X</text>
+                  <text x="105" y="218" fontSize="11" fill="#64748b">Y</text>
+                  <text x="35" y="45" fontSize="11" fill="#64748b">Z</text>
+                  <text x="30" y="275" fontSize="10" fill="#94a3b8">O(0,0,0)</text>
+                  {/* base rectangle A-B-C-O */}
+                  <polygon points="236,232 212,220 176,238 200,250" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1.5" opacity="0.7" />
+                  {/* top rectangle E-G-H-F */}
+                  <polygon points="236,184 212,172 176,190 200,202" fill="#fce7f3" stroke="#ec4899" strokeWidth="1.5" opacity="0.7" />
+                  {/* vertical edges */}
+                  <line x1="236" y1="232" x2="236" y2="184" stroke="#3b82f6" strokeWidth="1.5" />
+                  <line x1="212" y1="220" x2="212" y2="172" stroke="#3b82f6" strokeWidth="1.5" />
+                  <line x1="176" y1="238" x2="176" y2="190" stroke="#3b82f6" strokeWidth="1.5" />
+                  <line x1="200" y1="250" x2="200" y2="202" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="4 3" />
+                  {/* CG highlighted */}
+                  <line x1="176" y1="238" x2="212" y2="172" stroke="#ef4444" strokeWidth="2.5" />
+                  <circle cx="176" cy="238" r="5" fill="#ef4444" stroke="white" strokeWidth="2" />
+                  <circle cx="212" cy="172" r="5" fill="#ef4444" stroke="white" strokeWidth="2" />
+                  {/* points */}
+                  <circle cx="236" cy="232" r="4" fill="#3b82f6" stroke="white" strokeWidth="1.5" />
+                  <circle cx="212" cy="220" r="4" fill="#3b82f6" stroke="white" strokeWidth="1.5" />
+                  <circle cx="200" cy="202" r="4" fill="#ec4899" stroke="white" strokeWidth="1.5" />
+                  <circle cx="236" cy="184" r="4" fill="#ec4899" stroke="white" strokeWidth="1.5" />
+                  <circle cx="176" cy="190" r="4" fill="#ec4899" stroke="white" strokeWidth="1.5" />
+                  {/* labels */}
+                  <text x="240" y="230" fontSize="10" fontWeight="600" fill="#1e40af">A(3,0,0)</text>
+                  <text x="215" y="215" fontSize="10" fontWeight="600" fill="#1e40af">B(3,2,0)</text>
+                  <text x="135" y="250" fontSize="10" fontWeight="600" fill="#dc2626">C(0,2,0)</text>
+                  <text x="240" y="180" fontSize="10" fontWeight="600" fill="#be185d">E(3,0,4)</text>
+                  <text x="205" y="195" fontSize="10" fontWeight="600" fill="#be185d">F(0,0,4)</text>
+                  <text x="135" y="185" fontSize="10" fontWeight="600" fill="#be185d">H(0,2,4)</text>
+                  <text x="218" y="165" fontSize="11" fontWeight="700" fill="#dc2626">G(3,2,4)</text>
+                  <text x="185" y="205" fontSize="9" fill="#ef4444" fontWeight="600">CG=5</text>
+                </svg>
+                <figcaption className="mt-2 text-xs text-muted-foreground text-center max-w-[400px]">Prism on XYZ: base z=0 (A,B,C,O) and top z=4 (E,F,H,G). Red diagonal CG from C(0,2,0) to G(3,2,4) = 5 units.</figcaption>
+              </figure>
+            </div>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <p className="text-sm mb-2">(i) Vertices: <Formula>{String.raw`A(3,0,0), B(3,2,0), C(0,2,0), E(3,0,4), F(0,0,4), H(0,2,4), G(3,2,4)`}</Formula>.</p>
