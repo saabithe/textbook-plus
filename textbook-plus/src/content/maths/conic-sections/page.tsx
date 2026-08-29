@@ -37,21 +37,6 @@ export default function ConicSectionsChapter() {
           .
         </figcaption>
       </figure>
-      <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/8/88/Conics_anim.gif"
-          alt="Animated morph from circle to ellipse to parabola to hyperbola as eccentricity changes from 0 to >1"
-          className="w-full max-w-[380px] mx-auto h-auto"
-          loading="lazy"
-        />
-        <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs leading-relaxed text-muted-foreground text-center">
-          Animated eccentricity morph — how tilting the plane continuously morphs circle → ellipse → parabola → hyperbola. Source:{" "}
-          <a href="https://commons.wikimedia.org/wiki/File:Conics_anim.gif" target="_blank" rel="noreferrer" className="underline">
-            Wikimedia / Blondandy (CC0)
-          </a>
-          . Degenerate cases (point, line, intersecting lines) occur when the plane passes through the vertex — see NCERT Fig 11.8–11.10.
-        </figcaption>
-      </figure>
       <Callout type="important" title="How the Plane Cuts the Cone">
         <table>
           <thead>
