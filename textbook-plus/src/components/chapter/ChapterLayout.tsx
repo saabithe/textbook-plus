@@ -9,9 +9,11 @@ import { ChapterTabs, PracticePlaceholder } from "./ChapterTabs";
 import { PracticeSession } from "@/components/practice/PracticeSession";
 import { FlashcardDeck } from "@/components/flashcard/FlashcardDeck";
 import { getAdjacentChapters } from "@/data/chapters";
+import { getAdjacentClass11Chapters, getClass11ChapterBySlugFromAll } from "@/data/class11";
 import { getQuestionsForChapter, getFlashcardsForChapter, hasQuestions, hasFlashcards } from "@/lib/content";
 import { useProgress } from "@/hooks/useProgress";
 import type { Chapter } from "@/data/chapters";
+import type { Class11Chapter } from "@/data/class11";
 import type { Question, Flashcard } from "@/types/chapter";
 
 export interface Crumb {
@@ -19,8 +21,10 @@ export interface Crumb {
   href?: string;
 }
 
+type ChapterLike = Chapter | Class11Chapter;
+
 interface ChapterLayoutProps {
-  chapter: Chapter;
+  chapter: ChapterLike;
   subjectName: string;
   subjectSlug: string;
   subjectColor: string;
@@ -28,7 +32,8 @@ interface ChapterLayoutProps {
   breadcrumb?: Crumb[];
   subtitle?: string;
   contentKey?: string;
-  prevNext?: { prev?: Chapter | null; next?: Chapter | null };
+  prevNext?: { prev?: ChapterLike | null; next?: ChapterLike | null };
+  navBasePath?: string;
 }
 
 export function ChapterLayout({
@@ -41,9 +46,21 @@ export function ChapterLayout({
   subtitle,
   contentKey,
   prevNext,
+  navBasePath,
 }: ChapterLayoutProps) {
-  const adjacent = prevNext ?? getAdjacentChapters(chapter);
+  const adjacent = (() => {
+    if (prevNext) return prevNext as { prev: Chapter | null; next: Chapter | null };
+    const main = getAdjacentChapters(chapter as Chapter);
+    if (main.prev || main.next) return main;
+    const class11 = getClass11ChapterBySlugFromAll(chapter.slug);
+    if (class11) {
+      const c = getAdjacentClass11Chapters(class11);
+      return { prev: c.prev as unknown as Chapter | null, next: c.next as unknown as Chapter | null };
+    }
+    return main;
+  })();
   const registryKey = contentKey ?? chapter.slug;
+  const navBase = navBasePath ?? (getClass11ChapterBySlugFromAll(chapter.slug) ? `/class-11/${chapter.subjectSlug}` : "/chapter");
   const { isCompleted, toggle } = useProgress(subjectSlug);
   const completed = isCompleted(chapter.slug);
   const [activeTab, setActiveTab] = useState("learning");
@@ -128,7 +145,7 @@ export function ChapterLayout({
         <article className="max-w-3xl mx-auto">
           {children}
 
-          <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} />
+          <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} basePath={navBase} />
         </article>
       ) : (
         /* Practice tab */
@@ -140,7 +157,7 @@ export function ChapterLayout({
             subjectColor={subjectColor}
           />
 
-          <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} />
+          <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} basePath={navBase} />
         </div>
       )}
     </div>

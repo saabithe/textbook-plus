@@ -55,6 +55,7 @@ export default async function Class11ChapterPage({ params }: Props) {
             { label: chapter.title },
           ]}
           prevNext={getAdjacentClass11Chapters(chapter)}
+          navBasePath={`/class-11/${subject}`}
           contentKey={`c11/${subject}/${slug}`}
         >
           <Class11ChapterContent subject={subject} slug={slug} />
