@@ -905,6 +905,28 @@ export default function LimitsAndDerivativesChapter() {
         </ProblemSolution>
       </Expandable>
 
+      <Expandable title="Quotient of Product — x² tan x / (1+x)">
+        <ProblemSolution problemNumber="Example — x² tan x / (1+x)">
+          <ProblemSolution.Problem>
+            Differentiate <Formula>{String.raw`y=\frac{x^{2}\tan x}{1+x}`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p className="text-sm text-muted-foreground mb-3">Quotient: <Formula>{String.raw`\left(\frac{u}{v}\right)'=\frac{v u'-u v'}{v^{2}}`}</Formula></p>
+            <Stepper
+              steps={[
+                { label: "Identify u,v", description: <Formula>{String.raw`u=x^{2}\tan x,\;v=1+x`}</Formula> },
+                { label: "u' via product", description: <Formula>{String.raw`f=x^{2},g=\tan x\Rightarrow f'=2x,\;g'=\sec^{2}x`}</Formula> },
+                { label: "Compute u'", description: <Formula>{String.raw`u'=(2x)\tan x+x^{2}\sec^{2}x`}</Formula> },
+                { label: "v'", description: <Formula>{String.raw`v'=1`}</Formula> },
+                { label: "Quotient", description: <Formula>{String.raw`\frac{dy}{dx}=\frac{(1+x)(2x\tan x+x^{2}\sec^{2}x)-x^{2}\tan x}{(1+x)^{2}}`}</Formula> },
+                { label: "Expand", description: <Formula>{String.raw`\frac{2x\tan x+2x^{2}\tan x+x^{2}\sec^{2}x+x^{3}\sec^{2}x-x^{2}\tan x}{(1+x)^{2}}`}</Formula> },
+                { label: "Combine", description: <Formula>{String.raw`\frac{2x\tan x+x^{2}\tan x+x^{2}\sec^{2}x+x^{3}\sec^{2}x}{(1+x)^{2}}=\frac{x(2+x)\tan x+x^{2}(1+x)\sec^{2}x}{(1+x)^{2}}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <Expandable title="Additional Derivatives — cot x, −sin x, x sin x">
         <ProblemSolution problemNumber="G — cot x (First Principle)">
           <ProblemSolution.Problem>
