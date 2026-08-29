@@ -927,6 +927,29 @@ export default function LimitsAndDerivativesChapter() {
         </ProblemSolution>
       </Expandable>
 
+      <Expandable title="Quotient Example — cos x / (1+ sin x) = −1/(1+ sin x)">
+        <ProblemSolution problemNumber="Example — cos x / (1+ sin x)">
+          <ProblemSolution.Problem>
+            Prove that <Formula>{String.raw`\frac{d}{dx}\left(\frac{\cos x}{1+\sin x}\right)=\frac{-1}{1+\sin x}`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p className="text-sm text-muted-foreground mb-3">Quotient: <Formula>{String.raw`\left(\frac{u}{v}\right)'=\frac{vu'-uv'}{v^{2}}`}</Formula></p>
+            <Stepper
+              steps={[
+                { label: "Identify u,v", description: <Formula>{String.raw`u=\cos x,\;v=1+\sin x`}</Formula> },
+                { label: "u'", description: <Formula>{String.raw`u'=-\sin x`}</Formula> },
+                { label: "v'", description: <Formula>{String.raw`v'=\cos x`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`\frac{(1+\sin x)(-\sin x)-\cos x\cdot\cos x}{(1+\sin x)^{2}}`}</Formula> },
+                { label: "Expand", description: <Formula>{String.raw`\frac{-\sin x-\sin^{2}x-\cos^{2}x}{(1+\sin x)^{2}}`}</Formula> },
+                { label: "Use identity", description: <Formula>{String.raw`\sin^{2}x+\cos^{2}x=1\Rightarrow -\sin^{2}x-\cos^{2}x=-1`}</Formula> },
+                { label: "Numerator", description: <Formula>{String.raw`-\sin x-1=-(1+\sin x)`}</Formula> },
+                { label: "Cancel", description: <Formula>{String.raw`\frac{-(1+\sin x)}{(1+\sin x)^{2}}=\frac{-1}{1+\sin x}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <Expandable title="Additional Derivatives — cot x, −sin x, x sin x">
         <ProblemSolution problemNumber="G — cot x (First Principle)">
           <ProblemSolution.Problem>
