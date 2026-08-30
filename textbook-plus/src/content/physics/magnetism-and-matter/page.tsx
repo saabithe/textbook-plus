@@ -223,6 +223,53 @@ export default function MagnetismAndMatterChapter() {
         The zero of potential energy is fixed at <strong>θ = 90°</strong> (needle perpendicular to the field).
         Stable equilibrium is at θ = 0°; unstable at θ = 180°.
       </Callout>
+      <p><strong>Field uniformity:</strong> whether a dipole also feels a net force depends on whether the field is uniform.</p>
+      <Comparison
+        columns={[
+          {
+            title: "Uniform magnetic field",
+            children: (
+              <ul>
+                <li>Net force <strong>F_net = 0</strong></li>
+                <li>Only a torque acts, tending to align m with B</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Non-uniform magnetic field",
+            children: (
+              <ul>
+                <li>Net force <strong>F_net ≠ 0</strong></li>
+                <li>Both a force and a torque act on the dipole</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+      <TableCard
+        caption="Potential energy of a magnetic dipole: U = −m·B = −mB cos θ"
+        headers={["Angle θ", "U = −mB cos θ", "Result"]}
+        rows={[
+          { cells: ["0°", "−mB", "Minimum · Stable equilibrium"] },
+          { cells: ["90°", "0", "Zero of energy (midway)"] },
+          { cells: ["180°", "+mB", "Maximum · Unstable equilibrium"] },
+        ]}
+      />
+      <Callout type="note">
+        <strong>Key Note:</strong> A magnetic needle in a <Highlight color="blue">non-uniform magnetic field</Highlight> experiences{" "}
+        <strong>both a torque and a force</strong>; in a <Highlight color="green">uniform magnetic field</Highlight> it experiences{" "}
+        <strong>a torque while the net force is zero</strong>.
+      </Callout>
+      <Expandable title="Practice Question: A magnetic needle in a non-uniform magnetic field experiences…">
+        <p><strong>Question:</strong> When a magnetic needle is placed in a non-uniform magnetic field, it experiences —</p>
+        <ol className="list-none">
+          <li>1. A force but no torque</li>
+          <li>2. A torque but no force</li>
+          <li>3. <strong>Force and torque</strong></li>
+          <li>4. Neither a force nor a torque</li>
+        </ol>
+        <p><strong>Answer:</strong> A <Highlight color="yellow">force and a torque</Highlight> — in a non-uniform field the net force is non-zero (F_net ≠ 0) and the torque τ = m × B is still present.</p>
+      </Expandable>
 
       <h3 id="h-5-2-4">5.2.4 The electrostatic analog</h3>
       <p>
