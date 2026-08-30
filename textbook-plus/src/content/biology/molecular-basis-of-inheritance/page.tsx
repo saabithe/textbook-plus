@@ -29,6 +29,31 @@ export default function MolecularBasisOfInheritanceChapter() {
         <MetricCard label="Human (haploid)" value="3.3 × 10⁹" unit="bp" description="Diploid content 6.6 × 10⁹ bp → 2.2 m of DNA per cell." />
       </div>
 
+      <div className="my-6 rounded-xl border border-border/60 bg-card overflow-hidden">
+        <div className="grid grid-cols-12 gap-0">
+          <div className="col-span-12 sm:col-span-4 flex items-center justify-center bg-muted/30 border-b sm:border-b-0 sm:border-r border-border/60 p-6">
+            <span className="text-base font-semibold">Nucleic Acids</span>
+            <span className="ml-2 text-xs text-muted-foreground">— polymers of nucleotides</span>
+          </div>
+          <div className="col-span-12 sm:col-span-8 grid grid-rows-2 gap-0">
+            <div className="border-b border-border/60 p-4 bg-background">
+              <p className="text-sm font-semibold">DNA (Deoxyribonucleic acid)</p>
+              <p className="text-sm text-muted-foreground">Genetic material for most organisms.</p>
+            </div>
+            <div className="p-4 bg-background">
+              <p className="text-sm font-semibold">RNA (Ribonucleic acid)</p>
+              <p className="text-sm text-muted-foreground">Genetic material for some viruses.</p>
+              <ul className="list-disc pl-5 text-sm text-muted-foreground mt-2 space-y-1">
+                <li>Messenger</li>
+                <li>Adapter</li>
+                <li>Structural role</li>
+                <li>Catalytic role</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <h3 id="h-5-1-1">5.1.1 Structure of Polynucleotide Chain</h3>
       <ConceptCard title="Nucleotide — Three components">
         <ul className="list-disc pl-5 space-y-1.5">
