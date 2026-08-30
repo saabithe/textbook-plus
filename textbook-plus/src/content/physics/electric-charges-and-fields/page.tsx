@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Callout } from "@/components/content/Callout";
 import { Example } from "@/components/content/Example";
 import { KeyPoint } from "@/components/content/KeyPoint";
@@ -333,6 +334,12 @@ export default function ElectricChargesChapter() {
       </p>
 
       <h2 id="h-1-10">1.10 Electric Dipole</h2>
+      <Callout type="note">
+        <strong>See also — Magnetism (Ch. 5):</strong> The magnetic dipole obeying the same 1/r³ field law and torque/energy
+        behaviour is introduced in{" "}
+        <Link className="underline underline-offset-2" href="/chapter/magnetism-and-matter#h-5-2-moment">Magnetic Dipole &amp; Magnetic Dipole Moment</Link> and{" "}
+        <Link className="underline underline-offset-2" href="/chapter/magnetism-and-matter#h-5-2-4">§5.2.4 The electrostatic analog</Link>.
+      </Callout>
       <p>
         An electric dipole is a pair of equal and opposite point charges q and −q, separated by
         distance 2a. The direction from −q to q is the dipole direction. The total charge is zero,
@@ -391,6 +398,11 @@ export default function ElectricChargesChapter() {
       <FormulaBlock latex={String.raw`\vec{E} \cong \sum \frac{1}{4\pi\varepsilon_0} \frac{\rho \Delta V}{r'^2} \hat{r}'`} />
 
       <h2 id="h-1-13">1.13 Gauss&apos;s Law</h2>
+      <Callout type="note">
+        <strong>See also — Magnetism (Ch. 5):</strong> Gauss&apos;s law for magnetism sets the magnetic flux through any closed
+        surface to <strong>zero</strong> (no monopoles). See{" "}
+        <Link className="underline underline-offset-2" href="/chapter/magnetism-and-matter#h-5-3">§5.3 Magnetism and Gauss&apos;s Law</Link>.
+      </Callout>
       <p>
         As a simple application of electric flux, consider the total flux through a sphere of
         radius r enclosing a point charge q at its centre.

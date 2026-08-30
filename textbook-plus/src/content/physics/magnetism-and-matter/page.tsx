@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Callout } from "@/components/content/Callout";
 import { Example } from "@/components/content/Example";
 import { KeyPoint } from "@/components/content/KeyPoint";
@@ -297,8 +298,8 @@ export default function MagnetismAndMatterChapter() {
       />
       <Callout type="note">
         <strong>Connecting back to Chapter 1.</strong> This analogy is built from the electric dipole results you met in{" "}
-        <Highlight color="yellow">Section 1.10 (Electric Dipole)</Highlight> and{" "}
-        <Highlight color="yellow">Section 1.11 (Dipole in a Uniform External Field)</Highlight>.
+        <Highlight color="yellow"><Link className="underline underline-offset-2" href="/chapter/electric-charges-and-fields#h-1-10">Section 1.10 (Electric Dipole)</Link></Highlight> and{" "}
+        <Highlight color="yellow"><Link className="underline underline-offset-2" href="/chapter/electric-charges-and-fields#h-1-11">Section 1.11 (Dipole in a Uniform External Field)</Link></Highlight>.
         Every magnetic dipole result in this chapter is obtained from those known electric results by the simple replacement
         E → B, p → m, and 1/4πε₀ → µ₀/4π.
       </Callout>
@@ -382,7 +383,7 @@ export default function MagnetismAndMatterChapter() {
         <p>Then Gauss&apos;s law of magnetism would read ∮ B·dS = µ₀q_m, where q_m is the enclosed monopole (magnetic charge) — exactly analogous to electrostatics.</p>
       </Expandable>
       <Callout type="note">
-        <strong>Connecting back to Chapter 1.</strong> The electrostatics statement was <Highlight color="yellow">Gauss&apos;s law (Section 1.13)</Highlight>,
+        <strong>Connecting back to Chapter 1.</strong> The electrostatics statement was <Highlight color="yellow"><Link className="underline underline-offset-2" href="/chapter/electric-charges-and-fields#h-1-13">Gauss&apos;s law (Section 1.13)</Link></Highlight>,
         <Formula>{String.raw`\sum \vec{E}\cdot\Delta\vec{S} = q/\varepsilon_0`}</Formula>,
         where the flux is set by the enclosed charge. The magnetic statement sets the flux to <em>zero</em> for every closed surface —
         the single conceptual contrast that organises the whole chapter.
@@ -424,8 +425,9 @@ export default function MagnetismAndMatterChapter() {
       <FormulaBlock latex={String.raw`B = \mu_0 (1 + \chi) H`} important />
       <FormulaBlock latex={String.raw`B = \mu_0 \mu_r H = \mu H`} important />
       <p>
-        Here <strong>µ_r = 1 + χ</strong> is the <Highlight color="yellow">relative magnetic permeability</Highlight> — the analog of the
-        dielectric constant in electrostatics. The magnetic permeability µ has the same dimensions as µ₀:
+        Here <strong>µ_r = 1 + χ</strong> is the <Highlight color="yellow">relative magnetic permeability</Highlight> — the analog of the{" "}
+        <Link className="underline underline-offset-2" href="/chapter/electric-charges-and-fields#h-1-5-2">dielectric constant in electrostatics</Link>.
+        The magnetic permeability µ has the same dimensions as µ₀:
       </p>
       <FormulaBlock latex={String.raw`\mu = \mu_0 \mu_r = \mu_0 (1 + \chi)`} important />
       <KeyPoint title="Memory Anchor">
@@ -589,6 +591,23 @@ export default function MagnetismAndMatterChapter() {
         Magnetism and electrostatics are deeply connected. Nearly every idea in this chapter has a{" "}
         <Highlight color="yellow">direct counterpart in Chapter 1</Highlight>. Learning the pairings together makes both chapters easier.
       </p>
+      <div className="flex flex-wrap gap-2 my-4">
+        {[
+          ["In this chapter — §5.2.4 Electrostatic analog", "/chapter/magnetism-and-matter#h-5-2-4"],
+          ["In this chapter — §5.3 Gauss's law", "/chapter/magnetism-and-matter#h-5-3"],
+          ["In this chapter — §5.4 Permeability analog", "/chapter/magnetism-and-matter#h-5-4"],
+          ["Chapter 1 — §1.13 Gauss's law (electrostatics)", "/chapter/electric-charges-and-fields#h-1-13"],
+          ["Chapter 1 — §1.10 Electric dipole", "/chapter/electric-charges-and-fields#h-1-10"],
+        ].map(([label, href]) => (
+          <Link
+            key={href}
+            href={href}
+            className="rounded-lg border border-border/60 bg-muted/40 px-3 py-1.5 text-xs font-medium text-foreground/85 transition-colors hover:bg-muted hover:border-foreground/30"
+          >
+            {label}
+          </Link>
+        ))}
+      </div>
       <Comparison
         columns={[
           {
