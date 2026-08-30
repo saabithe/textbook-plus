@@ -197,9 +197,11 @@ export default function MagnetismAndMatterChapter() {
       </KeyPoint>
       <FormulaCard>
         <p className="text-[0.85rem] text-muted-foreground mb-2">Equations for magnetic dipole moment</p>
+        <p className="text-[0.75rem] font-medium text-muted-foreground">Bar magnet</p>
         <FormulaBlock latex={String.raw`\vec{M} = P \times 2l`} />
+        <p className="text-[0.75rem] font-medium text-muted-foreground">Solenoid / current loop</p>
         <FormulaBlock latex={String.raw`\vec{M} = N I A`} />
-        <p className="text-[0.85rem] text-muted-foreground">Here N is the number of turns, I is the current, and A is the area of the current loop.</p>
+        <p className="text-[0.85rem] text-muted-foreground">Here P is the pole strength and 2l the effective length of the bar magnet; N is the number of turns, I the current, and A the area of the current loop.</p>
       </FormulaCard>
 
       <h3 id="h-5-2-3">5.2.3 The dipole in a uniform magnetic field</h3>
@@ -211,19 +213,7 @@ export default function MagnetismAndMatterChapter() {
       <p>In magnitude:</p>
       <FormulaBlock latex={String.raw`\tau = mB \sin\theta`} />
       <p>Here τ is the restoring torque and θ is the angle between <strong>m</strong> and <strong>B</strong>.</p>
-      <Expandable title="Derivation: Magnetic potential energy U_m">
-        <p>Potential energy equals the work done against the restoring torque. The work to rotate the dipole through a small angle dθ is:</p>
-        <FormulaBlock latex={String.raw`dW = \tau\, d\theta = mB \sin\theta \, d\theta`} />
-        <p>Integrating from θ = 90° (the chosen zero of energy) to the angle θ:</p>
-        <FormulaBlock latex={String.raw`U_m = \int_{\pi/2}^{\theta} mB \sin\theta' \, d\theta' = -mB\cos\theta = -\vec{m}\cdot\vec{B}`} />
-        <p>Energy is <Highlight color="yellow">minimum (−mB) at θ = 0°</Highlight> (most stable) and
-        <Highlight color="pink">maximum (+mB) at θ = 180°</Highlight> (most unstable).</p>
-      </Expandable>
       <FormulaBlock latex={String.raw`U_m = -\vec{m}\cdot\vec{B} = -mB\cos\theta`} important />
-      <Callout type="important">
-        The zero of potential energy is fixed at <strong>θ = 90°</strong> (needle perpendicular to the field).
-        Stable equilibrium is at θ = 0°; unstable at θ = 180°.
-      </Callout>
       <p><strong>Field uniformity:</strong> whether a dipole also feels a net force depends on whether the field is uniform.</p>
       <Comparison
         columns={[
@@ -261,16 +251,6 @@ export default function MagnetismAndMatterChapter() {
         <strong>both a torque and a force</strong>; in a <Highlight color="green">uniform magnetic field</Highlight> it experiences{" "}
         <strong>a torque while the net force is zero</strong>.
       </Callout>
-      <Expandable title="Practice Question: A magnetic needle in a non-uniform magnetic field experiences…">
-        <p><strong>Question:</strong> When a magnetic needle is placed in a non-uniform magnetic field, it experiences —</p>
-        <ol className="list-none">
-          <li>1. A force but no torque</li>
-          <li>2. A torque but no force</li>
-          <li>3. <strong>Force and torque</strong></li>
-          <li>4. Neither a force nor a torque</li>
-        </ol>
-        <p><strong>Answer:</strong> A <Highlight color="yellow">force and a torque</Highlight> — in a non-uniform field the net force is non-zero (F_net ≠ 0) and the torque τ = m × B is still present.</p>
-      </Expandable>
 
       <h3 id="h-5-2-4">5.2.4 The electrostatic analog</h3>
       <p>
@@ -300,39 +280,7 @@ export default function MagnetismAndMatterChapter() {
         <strong>Connecting back to Chapter 1.</strong> This analogy is built from the electric dipole results you met in{" "}
         <Highlight color="yellow"><Link className="underline underline-offset-2" href="/chapter/electric-charges-and-fields#h-1-10">Section 1.10 (Electric Dipole)</Link></Highlight> and{" "}
         <Highlight color="yellow"><Link className="underline underline-offset-2" href="/chapter/electric-charges-and-fields#h-1-11">Section 1.11 (Dipole in a Uniform External Field)</Link></Highlight>.
-        Every magnetic dipole result in this chapter is obtained from those known electric results by the simple replacement
-        E → B, p → m, and 1/4πε₀ → µ₀/4π.
       </Callout>
-      <Comparison
-        columns={[
-          {
-            title: "Electric Dipole (Ch. 1)",
-            children: (
-              <ul>
-                <li>Two charges +q and −q, separation 2a</li>
-                <li>Dipole moment p = q·2a</li>
-                <li>Equatorial E = −p/4πε₀r³</li>
-                <li>Axial E = 2p/4πε₀r³</li>
-                <li>Torque τ = p × E</li>
-                <li>Energy U = −p·E</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Magnetic Dipole (Ch. 5)",
-            children: (
-              <ul>
-                <li>Two poles N and S, no isolated pole</li>
-                <li>Dipole moment m</li>
-                <li>Equatorial B = −µ₀m/4πr³</li>
-                <li>Axial B = µ₀2m/4πr³</li>
-                <li>Torque τ = m × B</li>
-                <li>Energy U = −m·B</li>
-              </ul>
-            ),
-          },
-        ]}
-      />
       <KeyPoint title="Key Exam Point">
         Both dipole fields fall off as <strong>1/r³</strong> — not 1/r² like a single charge/pole. That is why
         two dipoles (electric or magnetic) interact much more weakly at large separation than two isolated charges would.
