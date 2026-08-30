@@ -292,7 +292,7 @@ export default function MagnetismAndMatterChapter() {
         Magnetic fields are <Highlight color="blue">continuous and form closed loops</Highlight>, so for any closed surface
         the number of field lines entering equals the number leaving — the net flux is always zero.
       </p>
-      <FormulaBlock latex={String.raw`\sum_{\text{all}} \vec{B}\cdot\Delta\vec{S} = 0`} important />
+      <FormulaBlock latex={String.raw`\phi = \oint \vec{B}\cdot d\vec{s} = 0`} important />
       <Callout type="important">
         <Highlight color="yellow">Gauss&apos;s law for magnetism:</Highlight> the net magnetic flux through any closed surface is zero.
         This reflects the fact that <strong>isolated magnetic poles (monopoles) do not exist</strong> — there are no sources or sinks of B.
@@ -303,7 +303,7 @@ export default function MagnetismAndMatterChapter() {
             title: "Magnetism",
             children: (
               <ul>
-                <li>Σ B·ΔS = 0</li>
+                <li>φ = ∮ B·ds = 0</li>
                 <li>Net flux through a closed surface is always zero</li>
                 <li>No sources or sinks of B</li>
                 <li>Monopoles do not exist</li>
@@ -314,7 +314,7 @@ export default function MagnetismAndMatterChapter() {
             title: "Electrostatics",
             children: (
               <ul>
-                <li>Σ E·ΔS = q/ε₀</li>
+                <li>φ = ∮ E·ds = q/ε₀</li>
                 <li>Flux equals enclosed charge / ε₀</li>
                 <li>Field lines begin on + and end on −</li>
                 <li>Isolated charges exist</li>
@@ -339,7 +339,7 @@ export default function MagnetismAndMatterChapter() {
       </Expandable>
       <Callout type="note">
         <strong>Connecting back to Chapter 1.</strong> The electrostatics statement was <Highlight color="yellow"><Link className="underline underline-offset-2" href="/chapter/electric-charges-and-fields#h-1-13">Gauss&apos;s law (Section 1.13)</Link></Highlight>,
-        <Formula>{String.raw`\sum \vec{E}\cdot\Delta\vec{S} = q/\varepsilon_0`}</Formula>,
+        <Formula>{String.raw`\phi = \oint \vec{E}\cdot d\vec{s} = q/\varepsilon_0`}</Formula>,
         where the flux is set by the enclosed charge. The magnetic statement sets the flux to <em>zero</em> for every closed surface —
         the single conceptual contrast that organises the whole chapter.
       </Callout>
@@ -570,7 +570,7 @@ export default function MagnetismAndMatterChapter() {
             children: (
               <ul>
                 <li><strong>Sources:</strong> isolated charges (+q, −q)</li>
-                <li><strong>Gauss&apos;s law:</strong> Σ E·ΔS = q/ε₀</li>
+                <li><strong>Gauss&apos;s law:</strong> φ = ∮ E·ds = q/ε₀</li>
                 <li><strong>E-fields:</strong> start on +, end on −</li>
                 <li><strong>Dipole:</strong> torque p × E, U = −p·E</li>
                 <li><strong>Dipole fields:</strong> fall as 1/r³</li>
@@ -583,7 +583,7 @@ export default function MagnetismAndMatterChapter() {
             children: (
               <ul>
                 <li><strong>Sources:</strong> dipoles / current loops only</li>
-                <li><strong>Gauss&apos;s law:</strong> Σ B·ΔS = 0</li>
+                <li><strong>Gauss&apos;s law:</strong> φ = ∮ B·ds = 0</li>
                 <li><strong>B-fields:</strong> continuous closed loops</li>
                 <li><strong>Dipole:</strong> torque m × B, U = −m·B</li>
                 <li><strong>Dipole fields:</strong> fall as 1/r³</li>
@@ -603,7 +603,7 @@ export default function MagnetismAndMatterChapter() {
           { cells: ["Equatorial field", "−p/4πε₀r³", "−µ₀m/4πr³"] },
           { cells: ["Torque in uniform field", "τ = p × E", "τ = m × B"] },
           { cells: ["Energy in uniform field", "U = −p·E", "U = −m·B"] },
-          { cells: ["Gauss&apos;s law", "Σ E·ΔS = q/ε₀", "Σ B·ΔS = 0"] },
+          { cells: ["Gauss&apos;s law", "φ = ∮ E·ds = q/ε₀", "φ = ∮ B·ds = 0"] },
           { cells: ["Material response", "ε_r (permittivity)", "µ_r (permeability)"] },
         ]}
       />
@@ -694,7 +694,7 @@ export default function MagnetismAndMatterChapter() {
         <li>Magnetic materials point north-south; like poles repel, unlike attract; cutting a bar magnet yields two smaller magnets. <Highlight color="yellow">Poles cannot be isolated.</Highlight></li>
         <li>In a uniform field B, a dipole of moment m experiences <Highlight color="blue">zero net force</Highlight>, torque τ = m × B, and potential energy U_m = −m·B (zero chosen at θ = 90°).</li>
         <li>At large distance (r &gt;&gt; l): <strong>B = (µ₀/4π)(2m/r³)</strong> along the axis and <strong>B = −(µ₀/4π)(m/r³)</strong> along the equator.</li>
-        <li><Highlight color="yellow">Gauss&apos;s law for magnetism:</Highlight> the net magnetic flux through any closed surface is zero, Σ B·ΔS = 0.</li>
+        <li><Highlight color="yellow">Gauss&apos;s law for magnetism:</Highlight> the net magnetic flux through any closed surface is zero, φ = ∮ B·ds = 0.</li>
         <li>For a material: H = B/µ₀, M = dipole moment per unit volume, and <strong>B = µ₀(H + M)</strong>.</li>
         <li>For a linear material M = χH so B = µH, with χ the susceptibility and <strong>µ = µ₀µ_r, µ_r = 1 + χ</strong>.</li>
         <li>Materials are <Highlight color="green">diamagnetic</Highlight> (χ negative, small), <Highlight color="green">paramagnetic</Highlight> (χ positive, small), or <Highlight color="green">ferromagnetic</Highlight> (χ large).</li>
