@@ -25,7 +25,7 @@
 | 2 | Human Reproduction | `human-reproduction` | 🔲 Pending |
 | 3 | Reproductive Health | `reproductive-health` | 🔲 Pending |
 | 4 | Principles of Inheritance and Variation | `principles-of-inheritance-and-variation` | 🔲 Pending |
-| 5 | Molecular Basis of Inheritance | `molecular-basis-of-inheritance` | 🔲 Pending |
+| 5 | Molecular Basis of Inheritance | `molecular-basis-of-inheritance` | ✅ Content |
 | 6 | Evolution | `evolution` | 🔲 Pending |
 | 7 | Human Health and Diseases | `human-health-and-diseases` | 🔲 Pending |
 | 8 | Microbes in Human Welfare | `microbes-in-human-welfare` | 🔲 Pending |

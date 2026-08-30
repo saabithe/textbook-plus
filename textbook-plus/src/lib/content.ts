@@ -351,6 +351,43 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     },
     { id: "h-5-examples", title: "Worked Examples" },
   ],
+  "molecular-basis-of-inheritance": [
+    { id: "h-5-1", title: "5.1 The DNA", children: [
+      { id: "h-5-1-1", title: "5.1.1 Structure of Polynucleotide Chain" },
+      { id: "h-5-1-2", title: "5.1.2 Packaging of DNA Helix" },
+    ]},
+    { id: "h-5-2", title: "5.2 The Search for Genetic Material", children: [
+      { id: "h-5-2-transforming", title: "Transforming Principle — Griffith" },
+      { id: "h-5-2-avery", title: "Biochemical Characterisation — Avery et al." },
+      { id: "h-5-2-1", title: "5.2.1 The Genetic Material is DNA" },
+      { id: "h-5-2-2", title: "5.2.2 Properties of Genetic Material" },
+    ]},
+    { id: "h-5-3", title: "5.3 RNA World" },
+    { id: "h-5-4", title: "5.4 Replication", children: [
+      { id: "h-5-4-1", title: "5.4.1 The Experimental Proof" },
+      { id: "h-5-4-2", title: "5.4.2 The Machinery and the Enzymes" },
+    ]},
+    { id: "h-5-5", title: "5.5 Transcription", children: [
+      { id: "h-5-5-1", title: "5.5.1 Transcription Unit" },
+      { id: "h-5-5-2", title: "5.5.2 Transcription Unit and the Gene" },
+      { id: "h-5-5-3", title: "5.5.3 Types of RNA and Transcription" },
+    ]},
+    { id: "h-5-6", title: "5.6 Genetic Code", children: [
+      { id: "h-5-6-1", title: "5.6.1 Mutations and Genetic Code" },
+      { id: "h-5-6-2", title: "5.6.2 tRNA– the Adapter Molecule" },
+    ]},
+    { id: "h-5-7", title: "5.7 Translation" },
+    { id: "h-5-8", title: "5.8 Regulation of Gene Expression", children: [
+      { id: "h-5-8-1", title: "5.8.1 The Lac operon" },
+    ]},
+    { id: "h-5-9", title: "5.9 Human Genome Project", children: [
+      { id: "h-5-9-goals", title: "Goals of HGP" },
+      { id: "h-5-9-method", title: "Methodologies" },
+      { id: "h-5-9-1", title: "5.9.1 Salient Features" },
+      { id: "h-5-9-2", title: "5.9.2 Applications and Challenges" },
+    ]},
+    { id: "h-5-10", title: "5.10 DNA Fingerprinting" },
+  ],
   "electric-charges-and-fields": [
     { id: "h-1-1", title: "1.1 Introduction" },
     { id: "h-1-2", title: "1.2 Electric Charge" },
