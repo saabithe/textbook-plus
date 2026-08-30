@@ -29,6 +29,13 @@ export default function MagnetismAndMatterChapter() {
         <li>We cannot isolate the north or south pole — cutting a bar magnet yields <Highlight color="yellow">two weaker magnets</Highlight>, never an isolated pole.</li>
         <li>It is possible to make magnets out of iron and its alloys.</li>
       </ul>
+      <Expandable title="Q: If a magnet is cut into two equal parts, what happens to its poles?">
+        <p><strong>Answer:</strong> Each part becomes a <Highlight color="yellow">complete magnet with both a north pole and a south pole</Highlight> — the two poles are never separated.</p>
+        <p>For a bar magnet cut <strong>transverse to its length</strong>, you get two smaller bar magnets, each with its own N and S poles.</p>
+        <p>This is a direct consequence of the fact that{" "}
+        <Highlight color="blue">isolated magnetic poles (monopoles) do not exist</Highlight> — however many times you cut,
+        every piece retains a pair of opposite poles, and the pieces get progressively weaker.</p>
+      </Expandable>
 
       <h2 id="h-5-2">5.2 The Bar Magnet</h2>
       <p>
