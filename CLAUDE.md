@@ -11,7 +11,8 @@ Root-level docs:
 - `Constitution/USER_PREFERENCES.md` — design decisions (colors, layout, naming, typography)
 - `CHAPTER_PIPELINE.md` — 17-step content pipeline (NCERT PDF → live chapter). Content format is JSX `page.tsx` files with custom React components.
 - `Pipeline/PIPELINE_{SUBJECT}.md` — per-subject pipelines with dynamic steps, component suggestions, and subject-specific rules. Each file is self-contained.
-- `Developer_Deliveries/` — user-provided assets and content (gitignored). Contains chapter name references, source images, Physics textbook PDFs in `Chapters/Physics Textbooks/`.
+- `Developer_Deliveries/` — user-provided assets and content (gitignored). Contains chapter name references, source images, and textbook PDFs.
+  - **Two-folder convention** (preference): keep **raw PDF inputs** in `Chapters/{Subject} Textbooks/` (e.g. `Chapters/Physics Textbooks/` holds only `leph1XX.pdf`). Keep **extraction work outputs** in a separate subject working folder `Chapters/{Subject}/` (no "Textbooks"), matching `Chapters/Mathematics/`. Per `Pipeline/CHAPTER_PIPELINE.md`, extractions live at `Chapters/{Subject}/{chapter-slug}-extracted.md`; also `-raw.md`, `-prerequisites.md`, `pdf-page-*.png`, and `{chapter-slug}-backup/` (practice-data JSON backups) go there. Never dump extraction files into the `Textbooks/` input folder.
 - `Pending/` — saved work-in-progress plans for future sessions. Files follow `plan_NNNN.md`. When user says "continue plan_NNNN.md", resume and delete when done.
 
 ## Commands
