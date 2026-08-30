@@ -323,6 +323,13 @@ export default function MagnetismAndMatterChapter() {
           },
         ]}
       />
+      <FormulaBlock latex={String.raw`\phi = \oint \vec{B}\cdot d\vec{s} = 0`} important />
+      <KeyPoint title="Key Insights &amp; Observations">
+        <ul className="list-disc pl-5 space-y-1.5">
+          <li><Highlight color="yellow">Isolated magnetic poles do not exist</Highlight> — magnetic monopoles are nonexistent.</li>
+          <li><Highlight color="blue">Magnetic field lines always form closed loops</Highlight>, unlike electric field lines, which can originate from or terminate on isolated electric charges.</li>
+        </ul>
+      </KeyPoint>
       <KeyPoint title="Key Exam Point">
         The difference between the two Gauss&apos;s laws is <Highlight color="yellow">the existence of charges versus monopoles</Highlight>.
         All magnetic phenomena are explained by arrangements of dipoles and/or current loops.
