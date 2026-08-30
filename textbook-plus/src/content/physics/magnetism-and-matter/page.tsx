@@ -32,7 +32,6 @@ export default function MagnetismAndMatterChapter() {
       </ul>
       <Expandable title="Q: If a magnet is cut into two equal parts, what happens to its poles?">
         <p><strong>Answer:</strong> Each part becomes a <Highlight color="yellow">complete magnet with both a north pole and a south pole</Highlight> — the two poles are never separated.</p>
-        <p>For a bar magnet cut <strong>transverse to its length</strong>, you get two smaller bar magnets, each with its own N and S poles.</p>
         <p>This is a direct consequence of the fact that{" "}
         <Highlight color="blue">isolated magnetic poles (monopoles) do not exist</Highlight> — however many times you cut,
         every piece retains a pair of opposite poles, and the pieces get progressively weaker.</p>
@@ -51,54 +50,49 @@ export default function MagnetismAndMatterChapter() {
       </p>
 
       <h3 id="h-5-2-0">Key Definitions</h3>
-      <FactCard
-        title="Magnetism"
-        definition="A piece of material that has both attractive and repulsive properties is called a magnet, and this property is called magnetism. Every magnet is characterised by a pair of unlike poles — north and south — which give rise to these attractions and repulsions."
-        icon="🧲"
-      />
-      <FactCard
-        title="Magnetic Field"
-        definition="The region or space around a magnet where its effect can be felt is called the magnetic field around the magnet. It is a vector field represented by the symbol B."
-        icon="🧭"
-      />
-      <FactCard
-        title="Magnetic Field Line"
-        definition="The imaginary lines used to represent a magnetic field are called magnetic field lines. Their tangent at any point gives the direction of the magnetic field there."
-        icon="➿"
-      />
-      <FactCard
-        title="Magnetic Field Intensity (B)"
-        definition="The force acting on a unit north pole placed at a point gives the magnetic field intensity B at that point. Its unit is the tesla (T)."
-        icon="🔶"
-      />
-      <FactCard
-        title="Pole Strength (p)"
-        definition="The strength of a magnetic pole to attract magnetic material towards it is called its pole strength. It is a scalar quantity, measured in ampere-metre (A m)."
-        icon="🧲"
-      />
-      <FactCard
-        title="Neutral Point"
-        definition="The attracting power of a bar magnet at its centre point is zero, so the centre is called the neutral point. The field lines are parallel here and there is no resultant attractive force."
-        icon="⚫"
-      />
-      <Callout type="important">
-        <Highlight color="yellow">Properties of magnetic field lines:</Highlight>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 [&>div]:my-0">
+        <FactCard
+          title="Magnetism"
+          definition="A piece of material that has both attractive and repulsive properties is called a magnet, and this property is called magnetism."
+          icon="🧲"
+        />
+        <FactCard
+          title="Magnetic Field"
+          definition="The region or space around a magnet where its effect can be felt is called the magnetic field around the magnet. It is a vector field represented by the symbol B."
+          icon="🧭"
+        />
+        <FactCard
+          title="Magnetic Field Line"
+          definition="The imaginary lines used to represent a magnetic field are called magnetic field lines. Their tangent at any point gives the direction of the magnetic field there."
+          icon="➿"
+        />
+        <FactCard
+          title="Magnetic Field Intensity (B)"
+          definition="The force acting on a unit north pole placed at a point gives the magnetic field intensity B at that point. Its unit is the tesla (T)."
+          icon="🔶"
+        />
+        <FactCard
+          title="Pole Strength (p)"
+          definition="The strength of a magnetic pole to attract magnetic material towards it is called its pole strength. It is a scalar quantity, measured in ampere-metre (A m)."
+          icon="🧲"
+        />
+        <FactCard
+          title="Neutral Point"
+          definition="The attracting power of a bar magnet at its centre point is zero, so the centre is called the neutral point. The field lines are parallel here and there is no resultant attractive force."
+          icon="⚫"
+        />
+      </div>
+      <Callout type="important" title="Properties of magnetic field lines">
+        <ol className="list-decimal pl-5 space-y-2">
+          <li>The magnetic field lines of a magnet form <Highlight color="blue">continuous closed loops</Highlight>.</li>
+          <li>A tangent drawn at any point on a magnetic field line gives the <strong>direction of the magnetic field</strong> at that point.</li>
+          <li>A <Highlight color="yellow">larger number of field lines crossing per unit area</Highlight> means a <strong>stronger magnetic field</strong> there.</li>
+          <li>Two magnetic field lines <Highlight color="pink">never intersect</Highlight> each other.</li>
+        </ol>
       </Callout>
-      <ul>
-        <li>The magnetic field lines of a magnet form <Highlight color="blue">continuous closed loops</Highlight>.</li>
-        <li>A tangent drawn at any point on a magnetic field line gives the <strong>direction of the magnetic field</strong> at that point.</li>
-        <li>A <Highlight color="yellow">larger number of field lines crossing per unit area</Highlight> means a <strong>stronger magnetic field</strong> there.</li>
-        <li>Two magnetic field lines <Highlight color="pink">never intersect</Highlight> each other.</li>
-      </ul>
 
       <h3 id="h-5-2-1">5.2.1 The magnetic field lines</h3>
       <p>The pattern of iron filings lets us plot the <strong>magnetic field lines</strong> — a visual and intuitive realisation of the magnetic field.</p>
-      <Callout type="note">
-        The field-line properties above are the key to reading any field-line diagram: they explain why
-        the lines curve, crowd together near the poles, and never cross. In particular, unlike electric
-        dipole field lines (which begin on + and end on −, or escape to infinity), magnetic field lines
-        <Highlight color="blue">form continuous closed loops</Highlight>.
-      </Callout>
       <p><strong>Direction of magnetic field lines</strong> — around a bar magnet with a north (N) and a south (S) pole:</p>
       <Comparison
         columns={[
