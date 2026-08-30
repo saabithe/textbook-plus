@@ -145,6 +145,11 @@ src/content/{subject-slug}/{chapter-slug}/
 - Nav: Home `/`, Progress `/progress`, Search `Ctrl+K`
 - Chapter content uses `.prose-custom` class for typography (defined in `globals.css`)
 
+### Content Preferences (see `Constitution/USER_PREFERENCES.md` §11)
+- **No Summary section** and **no "Points to Ponder" section** in chapters — do not add these.
+- **Worked examples render as collapsed `Expandable`** blocks (not expanded `Example` blocks).
+- Avoid re-stating in one section content already covered elsewhere in the chapter (e.g. removing an aggregate recap/table when the same points are covered in-topic).
+
 ## Todo Rule
 
 When starting any multi-step task:

@@ -128,6 +128,14 @@ This file tracks ALL user preferences, design decisions, and customization choic
 | Sidebar behavior | Shows only sections for the active tab (Read or Discourses). Clicking a section scrolls to visible content. | Aug 2026 |
 | No auto-creating content | Always ask user via question tool before adding new Discourses sections | Aug 2026 |
 
+## 11. Chapter Content Preferences
+
+| Preference | Value | Date |
+|------------|-------|------|
+| Summary section | **Do not include** a Summary section / "Summary" heading in chapters | Aug 2026 |
+| Points to Ponder | **Do not include** a "Points to Ponder" section in chapters | Aug 2026 |
+| Worked examples | Rendering of worked Examples as **collapsed Expandable** blocks (not expanded `Example` blocks) | Aug 2026 |
+
 ---
 
 *This file is append-only. Previous decisions are never deleted, only updated with new values when explicitly changed by the user.*

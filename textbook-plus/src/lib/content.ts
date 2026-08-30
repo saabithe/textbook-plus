@@ -346,8 +346,6 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     },
     { id: "h-5-materials-compare", title: "Comparing the Three Materials" },
     { id: "h-5-examples", title: "Worked Examples" },
-    { id: "h-5-summary", title: "Summary" },
-    { id: "h-5-ponder", title: "Points to Ponder" },
   ],
   "electric-charges-and-fields": [
     { id: "h-1-1", title: "1.1 Introduction" },

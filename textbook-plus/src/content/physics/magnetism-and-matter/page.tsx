@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Callout } from "@/components/content/Callout";
-import { Example } from "@/components/content/Example";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
@@ -572,55 +571,6 @@ export default function MagnetismAndMatterChapter() {
           </Link>
         ))}
       </div>
-      <Comparison
-        columns={[
-          {
-            title: "Electrostatics (Ch. 1)",
-            children: (
-              <ul>
-                <li><strong>Sources:</strong> isolated charges (+q, −q)</li>
-                <li><strong>Gauss&apos;s law:</strong> φ = ∮ E·ds = q/ε₀</li>
-                <li><strong>E-fields:</strong> start on +, end on −</li>
-                <li><strong>Dipole:</strong> torque p × E, U = −p·E</li>
-                <li><strong>Dipole fields:</strong> fall as 1/r³</li>
-                <li><strong>Medium:</strong> ε_r, always reduces field</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Magnetism (Ch. 5)",
-            children: (
-              <ul>
-                <li><strong>Sources:</strong> dipoles / current loops only</li>
-                <li><strong>Gauss&apos;s law:</strong> φ = ∮ B·ds = 0</li>
-                <li><strong>B-fields:</strong> continuous closed loops</li>
-                <li><strong>Dipole:</strong> torque m × B, U = −m·B</li>
-                <li><strong>Dipole fields:</strong> fall as 1/r³</li>
-                <li><strong>Medium:</strong> µ_r, can enhance or reduce</li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-      <TableCard
-        caption="The one-line summary of every electrostatics–magnetism pairing in this chapter."
-        headers={["Concept", "Electrostatics (Ch. 1)", "Magnetism (Ch. 5)"]}
-        rows={[
-          { cells: ["Field constant", "1/ε₀", "µ₀"] },
-          { cells: ["Dipole moment", "p", "m"] },
-          { cells: ["Axial field", "2p/4πε₀r³", "µ₀2m/4πr³"] },
-          { cells: ["Equatorial field", "−p/4πε₀r³", "−µ₀m/4πr³"] },
-          { cells: ["Torque in uniform field", "τ = p × E", "τ = m × B"] },
-          { cells: ["Energy in uniform field", "U = −p·E", "U = −m·B"] },
-          { cells: ["Gauss&apos;s law", "φ = ∮ E·ds = q/ε₀", "φ = ∮ B·ds = 0"] },
-          { cells: ["Material response", "ε_r (permittivity)", "µ_r (permeability)"] },
-        ]}
-      />
-      <Callout type="didyouknow">
-        <strong>Why the two Gauss&apos;s laws differ.</strong> Electrostatics allows isolated charges, so field lines can begin and end;
-        magnetism has no isolated poles, so lines must close on themselves. If you can remember <em>why</em> the
-        Gauss&apos;s laws differ, the rest of the analogies follow naturally.
-      </Callout>
       <KeyPoint title="Revision Tool">
         Use the replacements <strong>p → m, E → B, 1/ε₀ → µ₀, q → (none)</strong> to convert any electrostatics result into its
         magnetic twin. The one rule that has <em>no</em> electric counterpart is{" "}
@@ -629,7 +579,7 @@ export default function MagnetismAndMatterChapter() {
 
       <h2 id="h-5-examples">Worked Examples</h2>
 
-      <Example title="Example 5.1 — Cutting a Bar Magnet and Related Ideas">
+      <Expandable title="Example 5.1 — Cutting a Bar Magnet and Related Ideas">
         <p><strong>(a)</strong> What happens if a bar magnet is cut (i) transverse to its length, (ii) along its length?</p>
         <p><Highlight color="yellow">In either case you get two magnets, each with a north and a south pole.</Highlight></p>
         <p><strong>(b)</strong> A magnetised needle in a uniform field experiences torque but no net force. An iron nail near a bar magnet also experiences a force of attraction. Why?</p>
@@ -638,9 +588,9 @@ export default function MagnetismAndMatterChapter() {
         <p><Highlight color="blue">Not necessarily.</Highlight> Only if the source has net non-zero moment. A toroid or straight infinite conductor does not.</p>
         <p><strong>(d)</strong> Identify the single magnet among two bars A and B.</p>
         <p>A repulsive force in some situation shows both are magnetised. If always attractive, one is unmagnetised. Lower end A onto an end of B, then onto the middle of B: no force at B&apos;s middle means <Highlight color="yellow">B is the magnet</Highlight>.</p>
-      </Example>
+      </Expandable>
 
-      <Example title="Example 5.2 — Stable and Unstable Equilibrium of Two Needles">
+      <Expandable title="Example 5.2 — Stable and Unstable Equilibrium of Two Needles">
         <p>Needle Q is placed in six positions relative to fixed needle P. Potential energy arises from Q in P&apos;s field.</p>
         <FormulaBlock latex={String.raw`B_P = -\frac{\mu_0}{4\pi} \frac{m_P}{r^3} \quad \text{(normal bisector)} \qquad B_P = \frac{\mu_0}{4\pi} \frac{2m_P}{r^3} \quad \text{(axis)}`} />
         <p>Equilibrium is <Highlight color="green">stable when m_Q is parallel to B_P</Highlight> and <Highlight color="pink">unstable when anti-parallel</Highlight>.</p>
@@ -649,7 +599,7 @@ export default function MagnetismAndMatterChapter() {
           <li>(b) (i) Stable: <strong>PQ3, PQ6</strong>; (ii) Unstable: <strong>PQ5, PQ4</strong></li>
           <li>(c) Lowest potential energy: <strong>PQ6</strong></li>
         </ul>
-      </Example>
+      </Expandable>
 
       <ProblemSolution problemNumber="5.3">
         <ProblemSolution.Problem>
@@ -697,29 +647,6 @@ export default function MagnetismAndMatterChapter() {
         </ProblemSolution.Solution>
       </ProblemSolution>
       <MetricCard label="Core effect" value="794" unit="A magnetising current" trend="up" description="The µr = 400 core amplifies the effective field: without it, 794 A would be needed instead of 2 A." />
-
-      <h2 id="h-5-summary">Summary</h2>
-      <ul>
-        <li>Magnetic materials point north-south; like poles repel, unlike attract; cutting a bar magnet yields two smaller magnets. <Highlight color="yellow">Poles cannot be isolated.</Highlight></li>
-        <li>In a uniform field B, a dipole of moment m experiences <Highlight color="blue">zero net force</Highlight>, torque τ = m × B, and potential energy U_m = −m·B (zero chosen at θ = 90°).</li>
-        <li>At large distance (r &gt;&gt; l): <strong>B = (µ₀/4π)(2m/r³)</strong> along the axis and <strong>B = −(µ₀/4π)(m/r³)</strong> along the equator.</li>
-        <li><Highlight color="yellow">Gauss&apos;s law for magnetism:</Highlight> the net magnetic flux through any closed surface is zero, φ = ∮ B·ds = 0.</li>
-        <li>For a material: H = B/µ₀, M = dipole moment per unit volume, and <strong>B = µ₀(H + M)</strong>.</li>
-        <li>For a linear material M = χH so B = µH, with χ the susceptibility and <strong>µ = µ₀µ_r, µ_r = 1 + χ</strong>.</li>
-        <li>Materials are <Highlight color="green">diamagnetic</Highlight> (χ negative, small), <Highlight color="green">paramagnetic</Highlight> (χ positive, small), or <Highlight color="green">ferromagnetic</Highlight> (χ large).</li>
-        <li>Substances retaining ferromagnetism at room temperature for a long time are <strong>permanent magnets</strong>.</li>
-      </ul>
-
-      <h2 id="h-5-ponder">Points to Ponder</h2>
-      <ul>
-        <li>Scientific understanding of magnetism came after 1800 AD, but technological use of magnets predates it by <Highlight color="blue">two thousand years</Highlight>.</li>
-        <li>Magnetic monopoles do not exist, while electric charge is quantised (|e| = 1.6 × 10⁻¹⁹ C). We do not know why either is true.</li>
-        <li>Because monopoles do not exist, magnetic field lines are continuous and form <Highlight color="blue">closed loops</Highlight>.</li>
-        <li>A tiny difference in χ flips behaviour: <strong>diamagnetic χ = −10⁻⁵</strong> versus <strong>paramagnetic χ = +10⁻⁵</strong>.</li>
-        <li>A superconductor is a perfect diamagnet (χ = −1, µr = 0) and a perfect conductor — the quantum BCS theory (1957, Nobel 1970) explains these.</li>
-        <li>Diamagnetism is universal but weak, so it is hard to detect in para-/ferromagnetic substances.</li>
-        <li>Beyond these three classes exist <Highlight color="pink">ferrimagnetic, anti-ferromagnetic, and spin glass</Highlight> materials with exotic properties.</li>
-      </ul>
     </>
   );
 }
