@@ -397,6 +397,28 @@ export default function MagnetismAndMatterChapter() {
         <Highlight color="yellow">χ, µ_r and µ are interrelated — only one is independent.</Highlight>
         Given any one, the other two follow from µ_r = 1 + χ and µ = µ₀µ_r.
       </KeyPoint>
+
+      <h3 id="h-5-4-deriv-bh">Relation Between B and H</h3>
+      <p>The net magnetic field inside a solenoid with a material core builds up step by step:</p>
+      <FormulaBlock latex={String.raw`B = B_0 + B_m`} />
+      <FormulaBlock latex={String.raw`B = \mu_0 H + \mu_0 M`} />
+      <FormulaBlock latex={String.raw`B = \mu_0 H + \mu_0 \chi H`} />
+      <FormulaBlock latex={String.raw`B = \mu_0 H [1 + \chi]`} />
+      <FormulaBlock latex={String.raw`B = \mu_0 \mu_r H`} important />
+      <FormulaBlock latex={String.raw`B = \mu H`} important />
+
+      <h3 id="h-5-4-deriv-chi">Relation Between χ and µr</h3>
+      <p>Starting from the fundamental definitions, the relation between susceptibility and relative permeability:</p>
+      <FormulaBlock latex={String.raw`B = B_0 + B_m`} />
+      <FormulaBlock latex={String.raw`B = \mu_0 H + \mu_0 M`} />
+      <FormulaBlock latex={String.raw`\chi = \frac{M}{H}`} />
+      <FormulaBlock latex={String.raw`M = \chi H`} />
+      <FormulaBlock latex={String.raw`B = \mu_0 H + \mu_0 (\chi H)`} />
+      <FormulaBlock latex={String.raw`B = \mu_0 H (1 + \chi)`} />
+      <FormulaBlock latex={String.raw`\frac{B}{H} = \mu_0 [1 + \chi]`} />
+      <FormulaBlock latex={String.raw`\frac{\mu}{\mu_0} = 1 + \chi`} />
+      <FormulaBlock latex={String.raw`\mu_r = 1 + \chi`} important />
+
       <Comparison
         columns={[
           {
