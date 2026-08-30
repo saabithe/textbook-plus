@@ -36,6 +36,11 @@ export default function MagnetismAndMatterChapter() {
         <Highlight color="blue">isolated magnetic poles (monopoles) do not exist</Highlight> — however many times you cut,
         every piece retains a pair of opposite poles, and the pieces get progressively weaker.</p>
       </Expandable>
+      <Expandable title="Q: What causes a freely suspended magnet to align itself in the North-South direction?">
+        <p><strong>Answer:</strong> The <Highlight color="yellow">Earth itself behaves as a giant magnet</Highlight> with a magnetic field around it, and a freely suspended magnet acts like a compass needle — it aligns with this field.</p>
+        <p>The Earth&apos;s magnetic field exerts a <Highlight color="blue">restoring torque</Highlight> on the suspended magnet, turning it until the field lines through it align with the Earth&apos;s field, pointing essentially from geographic south to geographic north.</p>
+        <p>The tip that points toward <Highlight color="green">geographic north</Highlight> is called the <strong>north pole</strong>; the opposite tip is the <strong>south pole</strong>.</p>
+      </Expandable>
 
       <h2 id="h-5-2">5.2 The Bar Magnet</h2>
       <p>
