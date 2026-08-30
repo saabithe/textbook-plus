@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 const chapterComponents: Record<string, React.ComponentType> = {
+  "magnetism-and-matter": dynamic(() => import("@/content/physics/magnetism-and-matter/page")) as React.ComponentType,
   "electric-charges-and-fields": dynamic(() => import("@/content/physics/electric-charges-and-fields/page")) as React.ComponentType,
   "electrostatic-potential-and-capacitance": dynamic(() => import("@/content/physics/electrostatic-potential-and-capacitance/page")) as React.ComponentType,
   "horegallu": dynamic(() => import("@/content/english/horegallu/page")) as React.ComponentType,

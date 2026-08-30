@@ -325,6 +325,30 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "key-takeaway", title: "Key Takeaway", tab: "read" },
     { id: "read-and-respond", title: "Read & Respond", tab: "read" },
   ],
+  "magnetism-and-matter": [
+    { id: "h-5-1", title: "5.1 Introduction" },
+    {
+      id: "h-5-2", title: "5.2 The Bar Magnet", children: [
+        { id: "h-5-2-1", title: "5.2.1 The Magnetic Field Lines" },
+        { id: "h-5-2-2", title: "5.2.2 Bar Magnet as Equivalent Solenoid" },
+        { id: "h-5-2-3", title: "5.2.3 The Dipole in a Uniform Magnetic Field" },
+        { id: "h-5-2-4", title: "5.2.4 The Electrostatic Analog" },
+      ],
+    },
+    { id: "h-5-3", title: "5.3 Magnetism and Gauss's Law" },
+    { id: "h-5-4", title: "5.4 Magnetisation and Magnetic Intensity" },
+    {
+      id: "h-5-5", title: "5.5 Magnetic Properties of Materials", children: [
+        { id: "h-5-5-1", title: "5.5.1 Diamagnetism" },
+        { id: "h-5-5-2", title: "5.5.2 Paramagnetism" },
+        { id: "h-5-5-3", title: "5.5.3 Ferromagnetism" },
+      ],
+    },
+    { id: "h-5-materials-compare", title: "Comparing the Three Materials" },
+    { id: "h-5-examples", title: "Worked Examples" },
+    { id: "h-5-summary", title: "Summary" },
+    { id: "h-5-ponder", title: "Points to Ponder" },
+  ],
   "electric-charges-and-fields": [
     { id: "h-1-1", title: "1.1 Introduction" },
     { id: "h-1-2", title: "1.2 Electric Charge" },
@@ -536,6 +560,7 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
 // download every chapter's questions/flashcards. Keys are static (sync
 // hasQuestions/hasFlashcards); data arrives via dynamic import.
 const QUESTION_KEYS = new Set([
+  "magnetism-and-matter",
   "electric-charges-and-fields",
   "electrostatic-potential-and-capacitance",
   "c11/maths/sets",
@@ -556,6 +581,8 @@ const QUESTION_KEYS = new Set([
 const FLASHCARD_KEYS = new Set(QUESTION_KEYS);
 
 const questionLoaders: Record<string, () => Promise<Question[]>> = {
+  "magnetism-and-matter": () =>
+    import("@/content/physics/magnetism-and-matter/questions.json").then((m) => m.default as Question[]),
   "electric-charges-and-fields": () =>
     import("@/content/physics/electric-charges-and-fields/questions.json").then((m) => m.default as Question[]),
   "electrostatic-potential-and-capacitance": () =>
@@ -587,6 +614,8 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
 };
 
 const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
+  "magnetism-and-matter": () =>
+    import("@/content/physics/magnetism-and-matter/flashcards.json").then((m) => m.default as Flashcard[]),
   "electric-charges-and-fields": () =>
     import("@/content/physics/electric-charges-and-fields/flashcards.json").then((m) => m.default as Flashcard[]),
   "electrostatic-potential-and-capacitance": () =>
