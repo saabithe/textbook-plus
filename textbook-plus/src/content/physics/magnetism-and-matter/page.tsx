@@ -340,6 +340,12 @@ export default function MagnetismAndMatterChapter() {
       </Callout>
 
       <h2 id="h-5-4">5.4 Magnetisation and Magnetic Intensity</h2>
+      <Callout type="note">
+        <strong>Magnetisation:</strong> the process of bringing up magnetism in a material is known as
+        magnetisation. It is described by three interlinked quantities — the{" "}
+        <strong>intensity of magnetisation M</strong>, the <strong>magnetising field intensity H</strong>, and the{" "}
+        <strong>magnetic susceptibility χ</strong>.
+      </Callout>
       <p>
         A circulating electron in an atom has a magnetic moment; in bulk material these moments add up vectorially.
         We define <Highlight color="yellow">magnetisation M</Highlight> as the net magnetic moment per unit volume:
@@ -360,6 +366,11 @@ export default function MagnetismAndMatterChapter() {
         the part of the field due to external factors (like the solenoid current):
       </p>
       <FormulaBlock latex={String.raw`H = \frac{B}{\mu_0} - M`} important />
+      <p>
+        For a long solenoid the magnetising field intensity is set entirely by the current — with{" "}
+        <strong>n = N/l</strong> turns per unit length, the magnetising force is:
+      </p>
+      <FormulaBlock latex={String.raw`H = nI = \frac{N}{l}\, I`} />
       <p>H has the same dimensions as M (units A m⁻¹). Rearranging gives the total field:</p>
       <FormulaBlock latex={String.raw`B = \mu_0 (H + M)`} important />
       <p>
@@ -367,6 +378,8 @@ export default function MagnetismAndMatterChapter() {
         <Highlight color="yellow">magnetic susceptibility χ</Highlight>:
       </p>
       <FormulaBlock latex={String.raw`M = \chi H`} important />
+      <p>Equivalently, χ is the ratio of the intensity of magnetisation to the magnetising field:
+        <Formula>{String.raw`\chi = \frac{M}{H}`}</Formula>.</p>
       <Callout type="important">
         χ is <Highlight color="blue">small and positive</Highlight> for <strong>paramagnetic</strong> materials and
         <Highlight color="pink">small and negative</Highlight> for <strong>diamagnetic</strong> materials (in which case M and H point opposite).
@@ -375,7 +388,8 @@ export default function MagnetismAndMatterChapter() {
       <FormulaBlock latex={String.raw`B = \mu_0 (1 + \chi) H`} important />
       <FormulaBlock latex={String.raw`B = \mu_0 \mu_r H = \mu H`} important />
       <p>
-        Here <strong>µ_r = 1 + χ</strong> is the <Highlight color="yellow">relative magnetic permeability</Highlight> — the analog of the{" "}
+        Here <strong>µ_r = 1 + χ</strong> is the <Highlight color="yellow">relative magnetic permeability</Highlight> — the ratio of the
+        permeability of the medium to that of free space, <strong>µ_r = µ/µ₀</strong>, and the analog of the{" "}
         <Link className="underline underline-offset-2" href="/chapter/electric-charges-and-fields#h-1-5-2">dielectric constant in electrostatics</Link>.
         The magnetic permeability µ has the same dimensions as µ₀:
       </p>
