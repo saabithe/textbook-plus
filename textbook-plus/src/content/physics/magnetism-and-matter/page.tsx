@@ -3,9 +3,13 @@ import { Example } from "@/components/content/Example";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
-import { FormulaBlock } from "@/components/content/Formula";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
+import { Highlight } from "@/components/content/Highlight";
+import { Stepper } from "@/components/content/Stepper";
+import { ProcessCard } from "@/components/content/process/ProcessCard";
+import { MetricCard } from "@/components/content/study/MetricCard";
 import { TableCard } from "@/components/content/data/TableCard";
 
 export default function MagnetismAndMatterChapter() {
@@ -13,32 +17,36 @@ export default function MagnetismAndMatterChapter() {
     <>
       <h2 id="h-5-1">5.1 Introduction</h2>
       <Callout type="important">
-        Magnetic phenomena are universal in nature — from distant galaxies to tiny invisible atoms. Isolated magnetic north and south poles, known as magnetic monopoles, do not exist. The word "magnet" comes from Magnesia, an island in Greece where magnetic ore was found as early as 600 BC.
+        <Highlight color="yellow">Magnetic phenomena are universal</Highlight> — from distant galaxies to tiny invisible atoms.
+        The crucial fact is that <Highlight color="blue">isolated magnetic poles (monopoles) do not exist</Highlight>. The word &ldquo;magnet&rdquo;
+        comes from <em>Magnesia</em>, an island in Greece where magnetic ore was found as early as 600 BC.
       </Callout>
       <p>Some commonly known ideas regarding magnetism:</p>
       <ul>
-        <li>The earth behaves as a magnet, with the magnetic field pointing approximately from the geographic south to the north.</li>
-        <li>When a bar magnet is freely suspended, it points in the north-south direction. The tip pointing to the geographic north is the <strong>north pole</strong>; the tip pointing to the geographic south is the <strong>south pole</strong>.</li>
-        <li>Like poles repel; unlike poles attract.</li>
-        <li>We cannot isolate the north or south pole. If a bar magnet is broken into two halves, we get two similar bar magnets with somewhat weaker properties.</li>
+        <li>The earth behaves as a magnet, with the magnetic field pointing approximately from the geographic <Highlight color="blue">south to north</Highlight>.</li>
+        <li>When a bar magnet is freely suspended, it points north-south. The tip toward the <Highlight color="yellow">geographic north</Highlight> is the <strong>north pole</strong>; the other is the <strong>south pole</strong>.</li>
+        <li><Highlight color="pink">Like poles repel; unlike poles attract.</Highlight></li>
+        <li>We cannot isolate the north or south pole — cutting a bar magnet yields <Highlight color="yellow">two weaker magnets</Highlight>, never an isolated pole.</li>
         <li>It is possible to make magnets out of iron and its alloys.</li>
       </ul>
 
       <h2 id="h-5-2">5.2 The Bar Magnet</h2>
       <p>
-        Examining iron filings sprinkled on glass over a short bar magnet, the pattern suggests the magnet has two poles, similar to the positive and negative charge of an electric dipole. A similar pattern is observed around a current-carrying solenoid.
+        Iron-filing patterns over a bar magnet suggest two poles, analogous to an electric dipole,
+        and resemble the pattern around a current-carrying solenoid — the first hint that
+        <Highlight color="yellow"> magnetism and moving charges are related</Highlight>.
       </p>
 
       <h3 id="h-5-2-1">5.2.1 The magnetic field lines</h3>
-      <p>The pattern of iron filings permits us to plot the magnetic field lines — a visual and intuitive realisation of the magnetic field.</p>
+      <p>The pattern of iron filings lets us plot the <strong>magnetic field lines</strong> — a visual and intuitive realisation of the magnetic field.</p>
       <Callout type="important">
-        Properties of magnetic field lines:
+        <Highlight color="yellow">Properties of magnetic field lines:</Highlight>
       </Callout>
       <ul>
-        <li>They form <strong>continuous closed loops</strong> — unlike electric dipole field lines, which begin on a positive charge and end on a negative charge or escape to infinity.</li>
-        <li>The tangent to the field line at a given point represents the direction of the net magnetic field <strong>B</strong> at that point.</li>
-        <li>The larger the number of field lines crossing per unit area, the stronger is the magnitude of B.</li>
-        <li>Magnetic field lines <strong>do not intersect</strong> — otherwise the direction of the field would not be unique at the point of intersection.</li>
+        <li>They form <Highlight color="blue">continuous closed loops</Highlight> — unlike electric dipole field lines, which begin on a positive charge and end on a negative charge, or escape to infinity.</li>
+        <li>The <strong>tangent</strong> to a field line at a point gives the direction of the net field <strong>B</strong> at that point.</li>
+        <li>The <strong>density</strong> of field lines indicates field strength — more lines per unit area means stronger B.</li>
+        <li>Magnetic field lines <Highlight color="pink">never intersect</Highlight> — otherwise the field direction would be ambiguous at the crossing point.</li>
       </ul>
       <Comparison
         columns={[
@@ -68,7 +76,7 @@ export default function MagnetismAndMatterChapter() {
               <ul>
                 <li>Field lines start at +, end at −</li>
                 <li>Do not form closed loops</li>
-                <li>At large distances, very similar to magnet</li>
+                <li>At large distances, very similar to a magnet</li>
               </ul>
             ),
           },
@@ -76,47 +84,63 @@ export default function MagnetismAndMatterChapter() {
       />
 
       <h3 id="h-5-2-2">5.2.2 Bar magnet as an equivalent solenoid</h3>
-      <Expandable title="Ampere's hypothesis">
-        <p>All magnetic phenomena can be explained in terms of circulating currents.</p>
-        <p>The resemblance of field lines for a bar magnet and a solenoid suggests a bar magnet may be thought of as a large number of circulating currents in analogy with a solenoid.</p>
-        <ul>
-          <li>Cutting a bar magnet in half is like cutting a solenoid — we get two smaller solenoids with weaker magnetic properties.</li>
-          <li>Field lines remain continuous, emerging from one face and entering the other.</li>
-          <li>This analogy can be tested with a compass needle near a bar magnet and a current-carrying solenoid.</li>
-        </ul>
-      </Expandable>
+      <Callout type="note">
+        <strong>Ampere&apos;s hypothesis:</strong> <Highlight color="yellow">all magnetic phenomena can be explained in terms of circulating currents.</Highlight>
+        A bar magnet behaves like a solenoid because both are arrangements of many tiny current loops.
+      </Callout>
+      <Stepper
+        steps={[
+          { label: "A bar magnet ≈ many circulating currents", description: "Like a finite solenoid, which is a helical coil of current." },
+          { label: "Cutting a bar magnet ≈ cutting a solenoid", description: "You get two smaller solenoids (or magnets) with weaker magnetic properties." },
+          { label: "Field lines remain continuous", description: "They emerge from one face and enter the other." },
+          { label: "Test with a compass needle", description: "Deflections near a bar magnet and a current-carrying solenoid are similar." },
+        ]}
+      />
       <p>
-        To make this analogy firm, we calculate the axial field of a finite solenoid. At large distances this axial field resembles that of a bar magnet. The magnitude of the field at point P due to the solenoid is:
+        To make this analogy firm, we calculate the axial field of a finite solenoid. At large distances it
+        resembles that of a bar magnet. The magnitude of the field at point P is:
       </p>
       <FormulaBlock latex={String.raw`B = \frac{\mu_0}{4\pi} \frac{2m}{r^3}`} important />
-      <p>
-        This is also the <strong>far axial magnetic field of a bar magnet</strong> which one may obtain experimentally. The magnetic moment of a bar magnet is thus equal to the magnetic moment of an equivalent solenoid that produces the same magnetic field.
-      </p>
+      <KeyPoint title="Key Idea">
+        This is the <Highlight color="yellow">far axial field of a bar magnet</Highlight>, obtained experimentally.
+        The magnetic moment of a bar magnet equals that of an <strong>equivalent solenoid</strong> producing the same field.
+      </KeyPoint>
 
       <h3 id="h-5-2-3">5.2.3 The dipole in a uniform magnetic field</h3>
       <p>
-        Place a small compass needle of known magnetic moment <strong>m</strong> in a magnetic field, allowing it to oscillate. The torque on the needle is:
+        Place a small compass needle of known moment <strong>m</strong> in a field, allowing it to oscillate.
+        The needle experiences a <Highlight color="blue">restoring torque</Highlight> that tends to align it with the field:
       </p>
       <FormulaBlock latex={String.raw`\vec{\tau} = \vec{m} \times \vec{B}`} important />
       <p>In magnitude:</p>
       <FormulaBlock latex={String.raw`\tau = mB \sin\theta`} />
-      <p>
-        Here τ is the restoring torque and θ is the angle between <strong>m</strong> and <strong>B</strong>. An expression for magnetic potential energy can be obtained on lines similar to electrostatic potential energy.
-      </p>
-      <FormulaBlock latex={String.raw`U_m = \int \tau\, d\theta = \int mB \sin\theta \, d\theta = -mB\cos\theta = -\vec{m}\cdot\vec{B}`} important />
+      <p>Here τ is the restoring torque and θ is the angle between <strong>m</strong> and <strong>B</strong>.</p>
+      <Expandable title="Derivation: Magnetic potential energy U_m">
+        <p>Potential energy equals the work done against the restoring torque. The work to rotate the dipole through a small angle dθ is:</p>
+        <FormulaBlock latex={String.raw`dW = \tau\, d\theta = mB \sin\theta \, d\theta`} />
+        <p>Integrating from θ = 90° (the chosen zero of energy) to the angle θ:</p>
+        <FormulaBlock latex={String.raw`U_m = \int_{\pi/2}^{\theta} mB \sin\theta' \, d\theta' = -mB\cos\theta = -\vec{m}\cdot\vec{B}`} />
+        <p>Energy is <Highlight color="yellow">minimum (−mB) at θ = 0°</Highlight> (most stable) and
+        <Highlight color="pink">maximum (+mB) at θ = 180°</Highlight> (most unstable).</p>
+      </Expandable>
+      <FormulaBlock latex={String.raw`U_m = -\vec{m}\cdot\vec{B} = -mB\cos\theta`} important />
       <Callout type="important">
-        The zero of potential energy is fixed at θ = 90°, i.e., when the needle is perpendicular to the field. Potential energy is minimum (−mB) at θ = 0° (most stable position) and maximum (+mB) at θ = 180° (most unstable position).
+        The zero of potential energy is fixed at <strong>θ = 90°</strong> (needle perpendicular to the field).
+        Stable equilibrium is at θ = 0°; unstable at θ = 180°.
       </Callout>
 
       <h3 id="h-5-2-4">5.2.4 The electrostatic analog</h3>
       <p>
-        Comparing the magnetic equations with the electric dipole equations suggests that the magnetic field at large distances due to a bar magnet of moment <strong>m</strong> can be obtained from the electric field of an electric dipole of moment <strong>p</strong> by the replacements:
+        Comparing the magnetic dipole equations with the electric dipole equations reveals a striking
+        <Highlight color="yellow">one-to-one analogy</Highlight> — the magnetic field drops out of the electric field by simple replacements:
       </p>
       <FormulaBlock latex={String.raw`\vec{E} \to \vec{B}, \qquad \vec{p} \to \vec{m}, \qquad \frac{1}{4\pi\varepsilon_0} \to \frac{\mu_0}{4\pi}`} />
-      <p>In particular, the <strong>equatorial field</strong> (B_E) of a bar magnet at a distance r (for r &gt;&gt; l, where l is the size of the magnet):</p>
-      <FormulaBlock latex={String.raw`B_E = -\frac{\mu_0}{4\pi} \frac{m}{r^3}`} important />
-      <p>Likewise, the <strong>axial field</strong> (B_A) of a bar magnet for r &gt;&gt; l:</p>
-      <FormulaBlock latex={String.raw`B_A = \frac{\mu_0}{4\pi} \frac{2m}{r^3}`} important />
+      <p>In particular for r &gt;&gt; l (l = size of the magnet):</p>
+      <FormulaCard>
+        <p className="text-[0.85rem] text-muted-foreground mb-2">Bar magnet fields (large distance, r &gt;&gt; l)</p>
+        <FormulaBlock latex={String.raw`\text{Equatorial } B_E = -\frac{\mu_0}{4\pi} \frac{m}{r^3} \quad;\quad \text{Axial } B_A = \frac{\mu_0}{4\pi} \frac{2m}{r^3}`} />
+        <p className="text-[0.85rem] text-muted-foreground">The axial field is <strong>twice</strong> the equatorial field in magnitude and opposite in sign; both fall off as 1/r³.</p>
+      </FormulaCard>
       <TableCard
         caption="Table 5.1 — The Dipole Analogy. Magnetic quantities are obtained from electrostatic quantities by these replacements."
         headers={["Electrostatics", "Magnetism"]}
@@ -130,13 +154,15 @@ export default function MagnetismAndMatterChapter() {
         ]}
       />
 
-      <h2 id="h-5-3">5.3 Magnetism and Gauss's Law</h2>
+      <h2 id="h-5-3">5.3 Magnetism and Gauss&apos;s Law</h2>
       <p>
-        For magnetic fields, which are continuous and form closed loops, the number of field lines leaving any closed surface is balanced by the number entering it. The net magnetic flux is zero for any closed surface.
+        Magnetic fields are <Highlight color="blue">continuous and form closed loops</Highlight>, so for any closed surface
+        the number of field lines entering equals the number leaving — the net flux is always zero.
       </p>
       <FormulaBlock latex={String.raw`\sum_{\text{all}} \vec{B}\cdot\Delta\vec{S} = 0`} important />
       <Callout type="important">
-        Gauss's law for magnetism: The net magnetic flux through any closed surface is zero. Isolated magnetic poles (monopoles) are not known to exist — there are no sources or sinks of B. The simplest magnetic element is a dipole or a current loop.
+        <Highlight color="yellow">Gauss&apos;s law for magnetism:</Highlight> the net magnetic flux through any closed surface is zero.
+        This reflects the fact that <strong>isolated magnetic poles (monopoles) do not exist</strong> — there are no sources or sinks of B.
       </Callout>
       <Comparison
         columns={[
@@ -145,7 +171,7 @@ export default function MagnetismAndMatterChapter() {
             children: (
               <ul>
                 <li>Σ B·ΔS = 0</li>
-                <li>Net flux through closed surface is always zero</li>
+                <li>Net flux through a closed surface is always zero</li>
                 <li>No sources or sinks of B</li>
                 <li>Monopoles do not exist</li>
               </ul>
@@ -165,53 +191,63 @@ export default function MagnetismAndMatterChapter() {
         ]}
       />
       <KeyPoint title="Key Exam Point">
-        The difference between Gauss's law of magnetism and that for electrostatics reflects the fact that isolated magnetic poles are not known to exist. All magnetic phenomena can be explained in terms of an arrangement of dipoles and/or current loops.
+        The difference between the two Gauss&apos;s laws is <Highlight color="yellow">the existence of charges versus monopoles</Highlight>.
+        All magnetic phenomena are explained by arrangements of dipoles and/or current loops.
       </KeyPoint>
+      <Expandable title="What if monopoles existed? (Example 5.4)">
+        <p>Then Gauss&apos;s law of magnetism would read ∮ B·dS = µ₀q_m, where q_m is the enclosed monopole (magnetic charge) — exactly analogous to electrostatics.</p>
+      </Expandable>
 
       <h2 id="h-5-4">5.4 Magnetisation and Magnetic Intensity</h2>
       <p>
-        A circulating electron in an atom has a magnetic moment. In bulk material, these moments add up vectorially and can give a non-zero net magnetic moment. We define <strong>magnetisation M</strong> of a sample to be equal to its net magnetic moment per unit volume:
+        A circulating electron in an atom has a magnetic moment; in bulk material these moments add up vectorially.
+        We define <Highlight color="yellow">magnetisation M</Highlight> as the net magnetic moment per unit volume:
       </p>
       <FormulaBlock latex={String.raw`\vec{M} = \frac{m_{\text{net}}}{V}`} important />
+      <p><strong>M</strong> is a vector with dimensions <strong>L⁻¹A</strong>, measured in <strong>A m⁻¹</strong>.</p>
+      <Callout type="note">
+        <p>For a long solenoid of n turns per unit length carrying current I, the interior field is <Formula>{String.raw`B_0 = \mu_0 n I`}</Formula>.
+        With a material core this becomes part of the field from external factors.</p>
+      </Callout>
+      <FormulaCard>
+        <p className="text-[0.85rem] text-muted-foreground mb-2">Building up the field inside a material</p>
+        <FormulaBlock latex={String.raw`B_0 = \mu_0 n I \qquad\qquad B = B_0 + B_m \qquad\qquad B_m = \mu_0 M`} />
+        <p className="text-[0.85rem] text-muted-foreground">The material core adds a field B_m proportional to its magnetisation M.</p>
+      </FormulaCard>
       <p>
-        <strong>M</strong> is a vector with dimensions L⁻¹A and is measured in units of A m⁻¹. Consider a long solenoid of n turns per unit length carrying a current I. The magnetic field in the interior of the solenoid is:
-      </p>
-      <FormulaBlock latex={String.raw`B_0 = \mu_0 n I`} important />
-      <p>
-        If the interior is filled with a material with non-zero magnetisation, the net B field is greater than B₀:
-      </p>
-      <FormulaBlock latex={String.raw`B = B_0 + B_m`} important />
-      <p>
-        The additional field B_m contributed by the material core is proportional to the magnetisation M:
-      </p>
-      <FormulaBlock latex={String.raw`B_m = \mu_0 M`} />
-      <p>
-        It is convenient to introduce another vector field <strong>H</strong>, called the <strong>magnetic intensity</strong>:
+        It is convenient to introduce the <Highlight color="yellow">magnetic intensity H</Highlight>,
+        the part of the field due to external factors (like the solenoid current):
       </p>
       <FormulaBlock latex={String.raw`H = \frac{B}{\mu_0} - M`} important />
-      <p>where H has the same dimensions as M and is measured in units of A m⁻¹. Thus the total magnetic field B is written as:</p>
+      <p>H has the same dimensions as M (units A m⁻¹). Rearranging gives the total field:</p>
       <FormulaBlock latex={String.raw`B = \mu_0 (H + M)`} important />
       <p>
-        We partition the total field into two parts: one due to external factors such as the current in the solenoid (represented by H), and the other due to the specific nature of the material (M). The latter can be influenced by external factors:
+        The material&apos;s response to the external field is captured by the
+        <Highlight color="yellow">magnetic susceptibility χ</Highlight>:
       </p>
       <FormulaBlock latex={String.raw`M = \chi H`} important />
-      <p>
-        where χ, a dimensionless quantity, is called the <strong>magnetic susceptibility</strong>. It measures how a material responds to an external field. χ is <strong>small and positive</strong> for <strong>paramagnetic</strong> materials, and <strong>small and negative</strong> for <strong>diamagnetic</strong> materials (in which case M and H are opposite in direction).
-      </p>
-      <p>From Eqs. M = χH and B = µ₀(H + M), we obtain:</p>
+      <Callout type="important">
+        χ is <Highlight color="blue">small and positive</Highlight> for <strong>paramagnetic</strong> materials and
+        <Highlight color="pink">small and negative</Highlight> for <strong>diamagnetic</strong> materials (in which case M and H point opposite).
+      </Callout>
+      <p>Combining M = χH with B = µ₀(H + M):</p>
       <FormulaBlock latex={String.raw`B = \mu_0 (1 + \chi) H`} important />
       <FormulaBlock latex={String.raw`B = \mu_0 \mu_r H = \mu H`} important />
       <p>
-        where µ_r = 1 + χ is a dimensionless quantity called the <strong>relative magnetic permeability</strong> of the substance — the analog of the dielectric constant in electrostatics. The magnetic permeability of the substance is µ, with the same dimensions and units as µ₀:
+        Here <strong>µ_r = 1 + χ</strong> is the <Highlight color="yellow">relative magnetic permeability</Highlight> — the analog of the
+        dielectric constant in electrostatics. The magnetic permeability µ has the same dimensions as µ₀:
       </p>
       <FormulaBlock latex={String.raw`\mu = \mu_0 \mu_r = \mu_0 (1 + \chi)`} important />
-      <Callout type="important">
-        The three quantities χ, µ_r and µ are interrelated and only one of them is independent. Given one, the other two may be easily determined.
-      </Callout>
+      <KeyPoint title="Memory Anchor">
+        <Highlight color="yellow">χ, µ_r and µ are interrelated — only one is independent.</Highlight>
+        Given any one, the other two follow from µ_r = 1 + χ and µ = µ₀µ_r.
+      </KeyPoint>
 
       <h2 id="h-5-5">5.5 Magnetic Properties of Materials</h2>
       <p>
-        In terms of the susceptibility χ, a material is <strong>diamagnetic</strong> if χ is negative, <strong>para-</strong> if χ is positive and small, and <strong>ferro-</strong> if χ is large and positive. Here ε is a small positive number introduced to quantify paramagnetic materials.
+        In terms of χ: a material is <Highlight color="blue">diamagnetic</Highlight> if χ is negative,
+        <Highlight color="green">paramagnetic</Highlight> if χ is positive and small, and
+        <Highlight color="pink">ferromagnetic</Highlight> if χ is large and positive (here ε is a small positive number).
       </p>
       <TableCard
         caption="Table 5.2 — Classification of Magnetic Materials."
@@ -225,48 +261,63 @@ export default function MagnetismAndMatterChapter() {
 
       <h3 id="h-5-5-1">5.5.1 Diamagnetism</h3>
       <Callout type="important">
-        Diamagnetic substances have a tendency to move from stronger to weaker parts of an external magnetic field — a magnet would <strong>repel</strong> a diamagnetic substance.
+        <Highlight color="yellow">Diamagnetic substances move from stronger to weaker field</Highlight> — a magnet
+        <strong>repels</strong> a diamagnetic substance. Field lines are expelled; the field inside is <strong>reduced</strong>.
       </Callout>
+      <Stepper
+        steps={[
+          { label: "Atoms in a diamagnetic substance have zero net magnetic moment" },
+          { label: "An external field is applied", description: "Electrons orbit the nucleus with orbital angular momentum and orbital magnetic moment." },
+          { label: "Induced currents arise (Lenz's law)", description: "Electrons with moment along the field slow down; those opposite speed up." },
+          { label: "A net moment develops opposite to the field", description: "Hence the substance is repelled." },
+        ]}
+      />
       <ul>
-        <li>Field lines are repelled or expelled, and the field inside the material is <strong>reduced</strong> (slight, one part in 10⁵).</li>
-        <li>Orbiting electrons possess orbital angular momentum and orbital magnetic moment — diamagnetic substances are those in which the resultant magnetic moment in an atom is zero.</li>
-        <li>When a magnetic field is applied, those electrons having orbital magnetic moment in the same direction slow down, and those in the opposite direction speed up (induced current in accordance with Lenz's law).</li>
-        <li>The substance develops a net magnetic moment <strong>opposite</strong> to the applied field, hence <strong>repulsion</strong>.</li>
-        <li>Examples: bismuth, copper, lead, silicon, nitrogen (at STP), water, sodium chloride.</li>
-        <li>Diamagnetism is present in all substances, but the effect is so weak it gets masked by other effects.</li>
+        <li>Field reduction is slight — about <strong>one part in 10⁵</strong>.</li>
+        <li>Examples: <Highlight color="green">bismuth, copper, lead, silicon, nitrogen (at STP), water, sodium chloride</Highlight>.</li>
+        <li>Diamagnetism is present in <Highlight color="blue">all substances</Highlight> but is usually masked by stronger effects.</li>
       </ul>
       <Callout type="didyouknow">
-        The most exotic diamagnetic materials are <strong>superconductors</strong> — metals cooled to very low temperatures exhibiting perfect conductivity and perfect diamagnetism. Here χ = −1 and µr = 0; field lines are completely expelled. This phenomenon is called the <strong>Meissner effect</strong>. Superconducting magnets can run magnetically levitated superfast trains.
+        The most exotic diamagnets are <Highlight color="yellow">superconductors</Highlight> (χ = −1, µr = 0), where field lines are
+        completely expelled — the <strong>Meissner effect</strong>. This perfect diamagnetism is used in magnetically levitated superfast trains.
       </Callout>
 
       <h3 id="h-5-5-2">5.5.2 Paramagnetism</h3>
       <Callout type="important">
-        Paramagnetic substances get weakly magnetised when placed in an external magnetic field — they tend to move from weak to strong field, i.e., get <strong>weakly attracted</strong> to a magnet.
+        <Highlight color="yellow">Paramagnetic substances get weakly magnetised</Highlight> — they tend to move from weak to strong
+        field, i.e., are <strong>weakly attracted</strong> to a magnet. Field lines concentrate inside; the field is <strong>enhanced</strong>.
       </Callout>
       <ul>
-        <li>The individual atoms (or ions or molecules) possess a <strong>permanent magnetic dipole moment</strong> of their own.</li>
-        <li>Due to random thermal motion, no net magnetisation is seen without an external field.</li>
-        <li>In a strong external field B₀ and at low temperatures, the individual atomic dipoles can be made to align and point in the same direction as B₀.</li>
-        <li>Field lines get <strong>concentrated inside</strong> the material, and the field inside is <strong>enhanced</strong> (slight, one part in 10⁵).</li>
-        <li>Examples: aluminium, sodium, calcium, oxygen (at STP), copper chloride.</li>
-        <li>Both χ and µr depend on the material and (in a simple fashion) on the sample temperature.</li>
-        <li>As the field increases or the temperature lowers, magnetisation increases until it reaches the <strong>saturation value</strong> when all dipoles are perfectly aligned with the field.</li>
+        <li>Atoms have a <Highlight color="yellow">permanent magnetic dipole moment</Highlight>.</li>
+        <li>Random thermal motion cancels net magnetisation until an external field is applied.</li>
+        <li>In a strong field B₀, at low temperature, the atomic dipoles align with B₀ until <Highlight color="pink">saturation</Highlight>.</li>
+        <li>Enhancement is slight — about <strong>one part in 10⁵</strong>.</li>
+        <li>Examples: <Highlight color="green">aluminium, sodium, calcium, oxygen (at STP), copper chloride</Highlight>.</li>
+        <li>χ and µr depend on the material <em>and</em> on temperature.</li>
       </ul>
 
       <h3 id="h-5-5-3">5.5.3 Ferromagnetism</h3>
       <Callout type="important">
-        Ferromagnetic substances get strongly magnetised when placed in an external magnetic field — they get <strong>strongly attracted</strong> to a magnet.
+        <Highlight color="yellow">Ferromagnetic substances get strongly magnetised</Highlight> — they move strongly from weak to
+        strong field and are <strong>strongly attracted</strong>; the field is highly concentrated and µr &gt; 1000.
       </Callout>
+      <p>The key idea is the <Highlight color="yellow">domain</Highlight> — a macroscopic region where atomic dipoles spontaneously align:</p>
+      <ProcessCard
+        title="How domains respond to an external field"
+        steps={[
+          { label: "Randomly oriented domains", description: "Initially domains point in many directions, giving no bulk magnetisation." },
+          { label: "Apply an external field B₀", description: "Domains aligned with B₀ grow in size while others orient toward B₀." },
+          { label: "Domains amalgamate", description: "They merge into a single 'giant' domain aligned with the field." },
+          { label: "Remove the field", description: "Hard ferromagnets stay magnetised; soft ferromagnets lose magnetisation." },
+        ]}
+      />
       <ul>
-        <li>The individual atoms possess a dipole moment as in a paramagnetic material, but they interact so as to spontaneously align over a macroscopic volume called a <strong>domain</strong>.</li>
-        <li>Each domain has a net magnetisation. Typical domain size is 1 mm and the domain contains about 10¹¹ atoms.</li>
-        <li>Initially the magnetisation varies randomly from domain to domain and there is no bulk magnetisation.</li>
-        <li>On applying an external field B₀, the domains orient in the direction of B₀ and the domain oriented in the direction of B₀ grows in size — they can form a single "giant" domain.</li>
-        <li>In a non-uniform field, the sample tends to move towards the region of high field.</li>
-        <li><strong>Hard ferromagnets</strong> (e.g. Alnico, lodestone): magnetisation persists after the field is removed — form permanent magnets used as compass needles.</li>
-        <li><strong>Soft ferromagnets</strong> (e.g. soft iron): magnetisation disappears when the external field is removed.</li>
-        <li>Ferromagnetic elements: iron, cobalt, nickel, gadolinium; relative magnetic permeability &gt; 1000.</li>
-        <li>Ferromagnetic property depends on temperature — at high enough temperature, a ferromagnet becomes a paramagnet.</li>
+        <li>Each domain has net magnetisation; typical size ~1 mm, ~10¹¹ atoms.</li>
+        <li>The cooperative alignment requires quantum mechanics to explain fully.</li>
+        <li><strong>Hard ferromagnets</strong> (Alnico, lodestone): retain magnetisation — form <Highlight color="yellow">permanent magnets</Highlight>.</li>
+        <li><strong>Soft ferromagnets</strong> (soft iron): lose magnetisation when the field is removed.</li>
+        <li>Examples: <Highlight color="green">iron, cobalt, nickel, gadolinium</Highlight>.</li>
+        <li>At high enough temperature the domain structure disintegrates and a ferromagnet <Highlight color="pink">becomes a paramagnet</Highlight>.</li>
       </ul>
 
       <h2 id="h-5-materials-compare">Comparing the Three Materials</h2>
@@ -278,7 +329,7 @@ export default function MagnetismAndMatterChapter() {
               <ul>
                 <li>χ negative and small</li>
                 <li>µr slightly less than 1</li>
-                <li>Repelled by magnet</li>
+                <li>Repelled by a magnet</li>
                 <li>Field inside reduced</li>
                 <li>Examples: copper, water, bismuth</li>
               </ul>
@@ -313,98 +364,96 @@ export default function MagnetismAndMatterChapter() {
 
       <h2 id="h-5-examples">Worked Examples</h2>
 
-      <ProblemSolution problemNumber="5.1">
+      <Example title="Example 5.1 — Cutting a Bar Magnet and Related Ideas">
+        <p><strong>(a)</strong> What happens if a bar magnet is cut (i) transverse to its length, (ii) along its length?</p>
+        <p><Highlight color="yellow">In either case you get two magnets, each with a north and a south pole.</Highlight></p>
+        <p><strong>(b)</strong> A magnetised needle in a uniform field experiences torque but no net force. An iron nail near a bar magnet also experiences a force of attraction. Why?</p>
+        <p>In a <strong>uniform</strong> field there is no net force. The nail sits in a <strong>non-uniform</strong> field, so it acquires an induced moment and feels both force and torque — the force is attractive because the induced south pole is closer to the magnet&apos;s north pole.</p>
+        <p><strong>(c)</strong> Must every configuration have a north and south pole?</p>
+        <p><Highlight color="blue">Not necessarily.</Highlight> Only if the source has net non-zero moment. A toroid or straight infinite conductor does not.</p>
+        <p><strong>(d)</strong> Identify the single magnet among two bars A and B.</p>
+        <p>A repulsive force in some situation shows both are magnetised. If always attractive, one is unmagnetised. Lower end A onto an end of B, then onto the middle of B: no force at B&apos;s middle means <Highlight color="yellow">B is the magnet</Highlight>.</p>
+      </Example>
+
+      <Example title="Example 5.2 — Stable and Unstable Equilibrium of Two Needles">
+        <p>Needle Q is placed in six positions relative to fixed needle P. Potential energy arises from Q in P&apos;s field.</p>
+        <FormulaBlock latex={String.raw`B_P = -\frac{\mu_0}{4\pi} \frac{m_P}{r^3} \quad \text{(normal bisector)} \qquad B_P = \frac{\mu_0}{4\pi} \frac{2m_P}{r^3} \quad \text{(axis)}`} />
+        <p>Equilibrium is <Highlight color="green">stable when m_Q is parallel to B_P</Highlight> and <Highlight color="pink">unstable when anti-parallel</Highlight>.</p>
+        <ul>
+          <li>(a) Not in equilibrium: <strong>PQ1, PQ2</strong></li>
+          <li>(b) (i) Stable: <strong>PQ3, PQ6</strong>; (ii) Unstable: <strong>PQ5, PQ4</strong></li>
+          <li>(c) Lowest potential energy: <strong>PQ6</strong></li>
+        </ul>
+      </Example>
+
+      <ProblemSolution problemNumber="5.3">
         <ProblemSolution.Problem>
-          <p>(a) What happens if a bar magnet is cut into two pieces: (i) transverse to its length, (ii) along its length?</p>
-          <p>(b) A magnetised needle in a uniform magnetic field experiences a torque but no net force. An iron nail near a bar magnet, however, experiences a force of attraction in addition to a torque. Why?</p>
-          <p>(c) Must every magnetic configuration have a north pole and a south pole? What about the field due to a toroid?</p>
-          <p>(d) Two identical looking iron bars A and B are given, one of which is definitely known to be magnetised. How would one ascertain whether or not both are magnetised? If only one is magnetised, how does one ascertain which one?</p>
+          <p>Many diagrams of magnetic field lines are drawn wrongly. Point out what is wrong with each, and note any that correctly describe electrostatic field lines.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p><strong>(a)</strong> In either case, one gets two magnets, each with a north and a south pole.</p>
-          <p><strong>(b)</strong> No force if the field is uniform. The iron nail experiences a non-uniform field due to the bar magnet. There is an induced magnetic moment in the nail, so it experiences both force and torque. The net force is attractive because the induced south pole in the nail is closer to the north pole of the magnet than the induced north pole.</p>
-          <p><strong>(c)</strong> Not necessarily. True only if the source of the field has a net non-zero magnetic moment. This is not so for a toroid or even for a straight infinite conductor.</p>
-          <p><strong>(d)</strong> Try to bring different ends of the bars closer. A repulsive force in some situation establishes both are magnetised. If always attractive, one of them is not magnetised. In a bar magnet, the field is strongest at the two ends (poles) and weakest at the central region. Pick up A and lower one end, first on an end of B, then on the middle of B. If A experiences no force at the middle of B, then B is magnetised. If no change is noticed, A is magnetised.</p>
+          <p><strong>(a) Wrong.</strong> Field lines can never emanate from a point; net flux over a closed surface must be zero. These are actually electric field lines of a long charged wire.</p>
+          <p><strong>(b) Wrong.</strong> Field lines can never cross, and static magnetic loops cannot enclose empty space — a closed loop must enclose a current.</p>
+          <p><strong>(c) Right.</strong> Magnetic lines are confined within a toroid, each enclosing a current.</p>
+          <p><strong>(d) Wrong.</strong> Solenoid field lines cannot be straight and confined outside — violates Ampere&apos;s law.</p>
+          <p><strong>(e) Right.</strong> Field lines outside and inside a bar magnet; net flux around each pole is zero.</p>
+          <p><strong>(f) Wrong.</strong> All lines emanate from a plate (non-zero flux) — actually electrostatic field lines between charged plates.</p>
+          <p><strong>(g) Wrong.</strong> Field lines between poles cannot be precisely straight at the ends (fringing is inevitable).</p>
         </ProblemSolution.Solution>
       </ProblemSolution>
 
-      <ProblemSolution problemNumber="5.2">
+      <ProblemSolution problemNumber="5.4">
         <ProblemSolution.Problem>
-          <p>A small magnetised needle P is placed at a point O. The arrow shows the direction of its magnetic moment. Another identical magnetised needle Q is placed in various positions and orientations.</p>
-          <p>(a) In which configuration is the system not in equilibrium?</p>
-          <p>(b) In which configuration is the system in (i) stable, and (ii) unstable equilibrium?</p>
-          <p>(c) Which configuration corresponds to the lowest potential energy among all configurations shown?</p>
+          <p>(a) Do magnetic field lines also represent lines of force on a moving charge?</p>
+          <p>(b) How would Gauss&apos;s law of magnetism change if monopoles existed?</p>
+          <p>(c) Does a bar magnet exert a torque on itself? Does one element of a wire exert a force on another element of the same wire?</p>
+          <p>(d) Can a system have magnetic moment yet zero net charge?</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>Potential energy arises due to the potential energy of one dipole (Q) in the field due to the other (P). The field due to P is given by:</p>
-          <FormulaBlock latex={String.raw`B_P = -\frac{\mu_0}{4\pi} \frac{m_P}{r^3} \quad \text{(on the normal bisector)}`} />
-          <FormulaBlock latex={String.raw`B_P = \frac{\mu_0}{4\pi} \frac{2m_P}{r^3} \quad \text{(on the axis)}`} />
-          <p>Equilibrium is <strong>stable</strong> when m_Q is <strong>parallel</strong> to B_P, and <strong>unstable</strong> when it is <strong>anti-parallel</strong> to B_P.</p>
-          <p>(a) PQ1 and PQ2</p>
-          <p>(b) (i) PQ3, PQ6 (stable); (ii) PQ5, PQ4 (unstable)</p>
-          <p>(c) PQ6</p>
+          <p><strong>(a) No.</strong> The magnetic force is always normal to B (F = qv × B), so calling field lines &ldquo;lines of force&rdquo; is misleading.</p>
+          <p><strong>(b)</strong> The closed-surface flux would equal µ₀q_m, where q_m is the enclosed monopole charge.</p>
+          <p><strong>(c) No</strong> to the self-torque; but an element can feel a force from another element of the same wire (zero for a straight wire).</p>
+          <p><strong>(d) Yes.</strong> Mean of magnetic moments from current loops can be non-zero with zero net charge — as in paramagnetic atoms.</p>
         </ProblemSolution.Solution>
       </ProblemSolution>
-
-      <Example title="Example 5.3 — Correct / Incorrect Field-Line Diagrams">
-        <p>Many diagrams show magnetic field lines wrongly. Point out what is wrong with them.</p>
-        <p><strong>(a) Wrong.</strong> Magnetic field lines can never emanate from a point. Over any closed surface the net flux of B must be zero — as many lines should enter as leave. These lines actually represent the electric field of a long positively charged wire; the correct magnetic field lines circle the straight conductor.</p>
-        <p><strong>(b) Wrong.</strong> Magnetic field lines can never cross each other, otherwise the direction of the field is ambiguous. Also, magnetostatic field lines can never form closed loops around empty space — a closed loop of static field must enclose a region with a current passing.</p>
-        <p><strong>(c) Right.</strong> Magnetic lines are completely confined within a toroid; each loop encloses a region across which a current passes.</p>
-        <p><strong>(d) Wrong.</strong> Field lines due to a solenoid at its ends and outside cannot be so completely straight and confined — this violates Ampere's law. Lines should curve out at both ends and meet to form closed loops.</p>
-        <p><strong>(e) Right.</strong> Field lines outside and inside a bar magnet. Around both the N-pole and S-pole, the net flux of the field is zero.</p>
-        <p><strong>(f) Wrong.</strong> These lines cannot represent a magnetic field — all lines seem to emanate out of the shaded plate, giving non-zero net flux. These are actually electrostatic field lines around a positively charged upper plate and a negatively charged lower plate.</p>
-        <p><strong>(g) Wrong.</strong> Magnetic field lines between two pole pieces cannot be precisely straight at the ends; some fringing is inevitable, otherwise Ampere's law is violated.</p>
-      </Example>
-
-      <Example title="Example 5.4 — Conceptual Questions on Gauss's Law">
-        <p><strong>(a)</strong> Magnetic field lines show the direction along which a small magnetised needle aligns. Do the field lines also represent lines of force on a moving charged particle?</p>
-        <p><strong>No.</strong> The magnetic force is always normal to B (F = qv × B). It is misleading to call magnetic field lines lines of force.</p>
-        <p><strong>(b)</strong> If magnetic monopoles existed, how would Gauss's law of magnetism be modified?</p>
-        <p>If monopoles existed, the right-hand side of ∮ B·dS = 0 would equal the monopole (magnetic charge) q_m enclosed by S — analogous to Gauss's law of electrostatics: ∮ B·dS = µ₀q_m.</p>
-        <p><strong>(c)</strong> Does a bar magnet exert a torque on itself due to its own field?</p>
-        <p><strong>No.</strong> There is no force or torque on an element due to the field produced by that element itself. (For a special case of a straight wire, this force is zero.)</p>
-        <p><strong>(d)</strong> Can a system have magnetic moments even though its net charge is zero?</p>
-        <p><strong>Yes.</strong> The average charge may be zero, yet the mean of the magnetic moments due to various current loops may not be zero — as in paramagnetic materials where atoms have net dipole moment while net charge is zero.</p>
-      </Example>
 
       <ProblemSolution problemNumber="5.5">
         <ProblemSolution.Problem>
-          <p>A solenoid has a core of a material with relative permeability 400. The windings carry a current of 2 A. If the number of turns is 1000 per metre, calculate (a) H, (b) M, (c) B, and (d) the magnetising current I_m.</p>
+          <p>A solenoid has a core of relative permeability 400, current 2 A, and 1000 turns per metre. Calculate (a) H, (b) M, (c) B, and (d) the magnetising current I_m.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p><strong>(a)</strong> The field H is independent of the material of the core:</p>
+          <p><strong>(a)</strong> H is independent of the core material:</p>
           <FormulaBlock latex={String.raw`H = nI = 1000 \times 2.0 = 2 \times 10^3 \ \text{A/m}`} important />
-          <p><strong>(b)</strong> The magnetic field B is given by:</p>
+          <p><strong>(b)</strong> The magnetic field B:</p>
           <FormulaBlock latex={String.raw`B = \mu_r \mu_0 H = 400 \times 4\pi \times 10^{-7} \times 2 \times 10^3 = 1.0 \ \text{T}`} important />
-          <p><strong>(c)</strong> Magnetisation is given by:</p>
+          <p><strong>(c)</strong> Magnetisation:</p>
           <FormulaBlock latex={String.raw`M = \frac{B - \mu_0 H}{\mu_0} = (\mu_r - 1)H = 399 \times H \cong 8 \times 10^5 \ \text{A/m}`} important />
-          <p><strong>(d)</strong> The magnetising current I_M is the additional current needed in the windings, in the absence of the core, to give the same B value. Thus B = µ_r n (I + I_M). Using I = 2 A, B = 1 T:</p>
+          <p><strong>(d)</strong> Magnetising current from B = µ_r n (I + I_M), with I = 2 A, B = 1 T:</p>
           <FormulaBlock latex={String.raw`I_M = 794 \ \text{A}`} important />
         </ProblemSolution.Solution>
       </ProblemSolution>
+      <MetricCard label="Core effect" value="794" unit="A magnetising current" trend="up" description="The µr = 400 core amplifies the effective field: without it, 794 A would be needed instead of 2 A." />
 
       <h2 id="h-5-summary">Summary</h2>
       <ul>
-        <li>The science of magnetism is old — magnetic materials tend to point north-south; like poles repel, unlike attract; cutting a bar magnet in two leads to two smaller magnets. Magnetic poles cannot be isolated.</li>
-        <li>When a bar magnet of dipole moment m is placed in a uniform magnetic field B: (a) the force on it is zero, (b) the torque on it is m × B, (c) its potential energy is −m·B, with the zero of energy at the orientation where m is perpendicular to B.</li>
-        <li>For a bar magnet of size l and moment m at distance r (r &gt;&gt; l): B = (µ₀/4π)(2m/r³) along axis, and B = −(µ₀/4π)(m/r³) along equator.</li>
-        <li>Gauss's law for magnetism states the net magnetic flux through any closed surface is zero: Σ B·ΔS = 0.</li>
-        <li>For a material placed in an external field B₀, the magnetic intensity is H = B/µ₀. Magnetisation M is the dipole moment per unit volume. The magnetic field B in the material is B = µ₀(H + M).</li>
-        <li>For a linear material M = χH, so B = µH, and χ is the magnetic susceptibility. The three quantities relate as µ = µ₀µ_r and µ_r = 1 + χ.</li>
-        <li>Magnetic materials are broadly classified as diamagnetic (χ negative and small), paramagnetic (χ positive and small), and ferromagnetic (χ large).</li>
-        <li>Substances which at room temperature retain their ferromagnetic property for a long time are called <strong>permanent magnets</strong>.</li>
+        <li>Magnetic materials point north-south; like poles repel, unlike attract; cutting a bar magnet yields two smaller magnets. <Highlight color="yellow">Poles cannot be isolated.</Highlight></li>
+        <li>In a uniform field B, a dipole of moment m experiences <Highlight color="blue">zero net force</Highlight>, torque τ = m × B, and potential energy U_m = −m·B (zero chosen at θ = 90°).</li>
+        <li>At large distance (r &gt;&gt; l): <strong>B = (µ₀/4π)(2m/r³)</strong> along the axis and <strong>B = −(µ₀/4π)(m/r³)</strong> along the equator.</li>
+        <li><Highlight color="yellow">Gauss&apos;s law for magnetism:</Highlight> the net magnetic flux through any closed surface is zero, Σ B·ΔS = 0.</li>
+        <li>For a material: H = B/µ₀, M = dipole moment per unit volume, and <strong>B = µ₀(H + M)</strong>.</li>
+        <li>For a linear material M = χH so B = µH, with χ the susceptibility and <strong>µ = µ₀µ_r, µ_r = 1 + χ</strong>.</li>
+        <li>Materials are <Highlight color="green">diamagnetic</Highlight> (χ negative, small), <Highlight color="green">paramagnetic</Highlight> (χ positive, small), or <Highlight color="green">ferromagnetic</Highlight> (χ large).</li>
+        <li>Substances retaining ferromagnetism at room temperature for a long time are <strong>permanent magnets</strong>.</li>
       </ul>
 
       <h2 id="h-5-ponder">Points to Ponder</h2>
       <ul>
-        <li>A satisfactory understanding of magnetic phenomena in terms of moving charges/currents came after 1800 AD, but technological exploitation of the directional properties of magnets predates this by two thousand years.</li>
-        <li>Magnetic monopoles do not exist — slicing a magnet in half gives two smaller magnets. Electric charge, however, is quantised (|e| = 1.6 × 10⁻¹⁹ C and all other charges are integral multiples). We do not know why.</li>
-        <li>A consequence of the absence of magnetic monopoles is that magnetic field lines are continuous and form closed loops.</li>
-        <li>A miniscule difference in χ yields radically different behaviour: diamagnetic (χ = −10⁻⁵) versus paramagnetic (χ = +10⁻⁵).</li>
-        <li>There exists a perfect diamagnet — a superconductor (χ = −1, µr = 0, µ = 0), also a perfect conductor. The BCS theory (1957, Nobel Prize 1970) explains these effects.</li>
-        <li>Diamagnetism is universal — present in all materials, but weak and hard to detect if the substance is para- or ferromagnetic.</li>
-        <li>Beyond dia-/para-/ferromagnetism there exist ferrimagnetic, anti-ferromagnetic, and spin glass materials, with exotic properties.</li>
+        <li>Scientific understanding of magnetism came after 1800 AD, but technological use of magnets predates it by <Highlight color="blue">two thousand years</Highlight>.</li>
+        <li>Magnetic monopoles do not exist, while electric charge is quantised (|e| = 1.6 × 10⁻¹⁹ C). We do not know why either is true.</li>
+        <li>Because monopoles do not exist, magnetic field lines are continuous and form <Highlight color="blue">closed loops</Highlight>.</li>
+        <li>A tiny difference in χ flips behaviour: <strong>diamagnetic χ = −10⁻⁵</strong> versus <strong>paramagnetic χ = +10⁻⁵</strong>.</li>
+        <li>A superconductor is a perfect diamagnet (χ = −1, µr = 0) and a perfect conductor — the quantum BCS theory (1957, Nobel 1970) explains these.</li>
+        <li>Diamagnetism is universal but weak, so it is hard to detect in para-/ferromagnetic substances.</li>
+        <li>Beyond these three classes exist <Highlight color="pink">ferrimagnetic, anti-ferromagnetic, and spin glass</Highlight> materials with exotic properties.</li>
       </ul>
     </>
   );
