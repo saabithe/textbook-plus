@@ -477,6 +477,98 @@ export default function MagnetismAndMatterChapter() {
         Given the behavior of magnetic field lines near two magnetic substances <strong>P</strong> and <strong>Q</strong>, identify the paramagnetic substance. The magnetic susceptibility of substance <strong>P</strong> is <Highlight color="green">positive</Highlight>.
       </KeyPoint>
 
+      <h2 id="h-5-board">Board PYQs — Magnetism and Matter</h2>
+      <p>
+        Selected Board questions (March 2023–2025, Model & IMP). Comparison-type questions are already covered by <Highlight color="yellow">Table 5.2</Highlight> above — the PYQs below add only the <em>new</em> information.
+      </p>
+
+      <h3 id="h-5-board-identification">Relative Permeability &amp; Material Identification</h3>
+      <Expandable title="March 2025 & Model 2023 — Identify from µr (PYQ)" variant="exercise">
+        <p><strong>Q1 [March 2025]:</strong> Relative permeability <Formula>{String.raw`\mu_r \le 1`}</Formula> — identify the material and write <Formula>{String.raw`\mu_r = 1 + \chi`}</Formula>.</p>
+        <p><strong>Q12 [Model 2023]:</strong> P has <Formula>{String.raw`\mu_r > 1`}</Formula> (slightly), Q has <Formula>{String.raw`\mu_r < 1`}</Formula> — what are P and Q?</p>
+        <p><strong>Answer:</strong> <Highlight color="pink">µr ≤ 1 or &lt; 1 → diamagnetic</Highlight>; <Highlight color="green">µr &gt; 1 (small) → paramagnetic</Highlight>; <Highlight color="yellow">µr ≫ 1 → ferromagnetic</Highlight>.</p>
+        <FormulaBlock latex={String.raw`\mu_r = 1 + \chi`} important />
+        <p className="text-sm text-muted-foreground">Derived in §5.4: <Formula>{String.raw`B = \mu_0(1+\chi)H = \mu_0\mu_r H`}</Formula> so <Formula>{String.raw`\mu = \mu_0(1+\chi)`}</Formula>.</p>
+      </Expandable>
+
+      <h3 id="h-5-board-numerical">Numerical — χ → µr</h3>
+      <Expandable title="Dec 2024 — χ = 5499 → µr = ? (PYQ)" variant="exercise">
+        <p>Susceptibility <Formula>{String.raw`\chi = 5499`}</Formula>. Find <Formula>{String.raw`\mu_r`}</Formula>.</p>
+        <FormulaBlock latex={String.raw`\mu_r = 1 + \chi`} />
+        <FormulaBlock latex={String.raw`\mu_r = 1 + 5499 = 5500`} important />
+        <p className="text-sm text-muted-foreground">Large χ ⇒ µr ≫ 1 → ferromagnetic (cf. Table 5.2: χ large +ve).</p>
+      </Expandable>
+
+      <h3 id="h-5-board-gauss">Gauss&apos;s Law in Magnetism</h3>
+      <Expandable title="IMP 2024 & Model 2023 — State Gauss&apos;s law (PYQ)" variant="exercise">
+        <p><strong>Q:</strong> State Gauss&apos;s law in magnetism.</p>
+        <FormulaBlock latex={String.raw`\oint \vec{B}\cdot d\vec{s} = 0`} important />
+        <p>Net magnetic flux through any closed surface is zero — <Highlight color="blue">no isolated monopoles</Highlight>. Contrast: <Formula>{String.raw`\oint \vec{E}\cdot d\vec{s}= q/\varepsilon_0`}</Formula> (see §5.3).</p>
+        <p><strong>Also asked:</strong> relation <Formula>{String.raw`\mu_r = 1 + \chi`}</Formula> (same as above).</p>
+      </Expandable>
+
+      <h3 id="h-5-board-energy">Susceptibility Sign &amp; Potential Energy of a Dipole</h3>
+      <Expandable title="IMP 2024 — χ sign & U = −M·B (PYQ)" variant="exercise">
+        <p><strong>(a)</strong> Susceptibility of diamagnetic is <Highlight color="pink">negative</Highlight> (<Formula>{String.raw`\chi < 0`}</Formula>, small).</p>
+        <p><strong>(b)</strong> Dipole free to rotate in uniform <Formula>{String.raw`\vec{B}`}</Formula>:</p>
+        <FormulaBlock latex={String.raw`U = -\vec{M}\cdot\vec{B} = -MB\cos\theta`} important />
+        <TableCard
+          headers={["θ", "U = −MB cosθ", "Equilibrium"]}
+          rows={[
+            { cells: ["0°", "−MB", "Minimum — stable"] },
+            { cells: ["180°", "+MB", "Maximum — unstable"] },
+          ]}
+        />
+        <p className="text-sm text-muted-foreground">Same result as §5.2.3: <Formula>{String.raw`U = -mB\cos\theta`}</Formula>.</p>
+      </Expandable>
+
+      <h3 id="h-5-board-curie">Curie Temperature</h3>
+      <Expandable title="Model 2024 — Ferromagnet above Curie point (PYQ)" variant="exercise">
+        <p>At high enough temperature a <Highlight color="pink">ferromagnet becomes a paramagnet</Highlight>. This temperature is the <Highlight color="yellow">Curie temperature</Highlight>.</p>
+        <p className="text-sm text-muted-foreground">Above Curie: domain order destroyed, χ drops to small +ve, µr → 1+ small.</p>
+      </Expandable>
+
+      <h3 id="h-5-board-misc">Units &amp; Behaviour in Non-uniform Field</h3>
+      <Expandable title="IMP 2023 & Model 2023 — Units, Bismuth, field behaviour (PYQ)" variant="exercise">
+        <p><strong>(a)</strong> Which is <em>not</em> ferromagnetic? Iron, <Highlight color="pink">Bismuth</Highlight>, Cobalt, Nickel → <strong>Bismuth</strong> (diamagnetic).</p>
+        <p><strong>(b)</strong> Susceptibility of ferromagnetic is <Highlight color="yellow">positive and large</Highlight> (<Formula>{String.raw`\chi \gg 0`}</Formula>).</p>
+        <p><strong>(c)</strong> Diamagnetic in non-uniform field: moves from <Highlight color="pink">stronger to weaker</Highlight> parts (repelled). Paramagnetic: weaker → stronger.</p>
+        <p><strong>(d)</strong> SI unit of magnetic dipole moment is <Formula>{String.raw`\text{A}\,\text{m}^2`}</Formula> (already in §5.2 FactCard <em>M = P×2l / NIA</em>).</p>
+      </Expandable>
+
+      <Callout type="note">
+        Comparison Qs — <em>March 2024, Model 2025, Dec 2024 (Q3), March 2023 (Q10)</em> — ask to compare / differentiate or list two properties of dia/para/ferro. All are answered by <strong>Table 5.2</strong> and §5.4 relations above; no new material needed.
+      </Callout>
+
+      <h3 id="h-5-board-mcqs">Practice MCQs — Dia / Para / Ferro Characteristics</h3>
+      <Expandable title="MCQ 1 — Paramagnetic materials are characterized by" variant="exercise">
+        <ul className="list-none pl-0 space-y-1.5">
+          <li>A — No net magnetic moment</li>
+          <li>B — Permanent dipole moments opposite to field</li>
+          <li><Highlight color="green">C — Dipole moments that align parallel to the field ✓</Highlight></li>
+          <li>D — Complete absence of response</li>
+        </ul>
+        <p className="text-sm text-muted-foreground">Paramagnetic: net moment present, randomly oriented at 0 field, weakly aligns with <Formula>{String.raw`\vec{B}`}</Formula> (χ small +ve).</p>
+      </Expandable>
+      <Expandable title="MCQ 2 — Diamagnetic materials are characterized by" variant="exercise">
+        <ul className="list-none pl-0 space-y-1.5">
+          <li>A — Net moment aligning with field</li>
+          <li>B — Net moment opposing field</li>
+          <li><Highlight color="green">C — No net moment and weakly repelling external fields ✓</Highlight></li>
+          <li>D — Strongly attracting fields</li>
+        </ul>
+        <p className="text-sm text-muted-foreground">Diamagnetic: paired electrons, χ negative small, induced moment opposes <Formula>{String.raw`\vec{B}`}</Formula>.</p>
+      </Expandable>
+      <Expandable title="MCQ 3 — Ferromagnetic materials are characterized by" variant="exercise">
+        <ul className="list-none pl-0 space-y-1.5">
+          <li>A — No net moment</li>
+          <li><Highlight color="green">B — Permanent dipole moments that align parallel to external field ✓</Highlight></li>
+          <li>C — Moments antiparallel to field</li>
+          <li>D — Weak response disappearing at high T (this describes paramagnet above Curie, not ferro at room T)</li>
+        </ul>
+        <p className="text-sm text-muted-foreground">Ferromagnetic: domains with permanent parallel alignment, χ large +ve, µr ≫ 1; above Curie becomes paramagnetic.</p>
+      </Expandable>
+
       <h2 id="h-5-examples">Worked Examples</h2>
 
       <Expandable title="Example 5.1 — Cutting a Bar Magnet and Related Ideas">

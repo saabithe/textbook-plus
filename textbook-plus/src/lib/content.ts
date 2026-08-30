@@ -338,8 +338,17 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-5-3", title: "5.3 Magnetism and Gauss's Law" },
     { id: "h-5-4", title: "5.4 Magnetisation and Magnetic Intensity" },
     { id: "h-5-5", title: "5.5 Magnetic Properties of Materials" },
-    { id: "h-5-exam-materials", title: "Exam Questions & Applications (March 2021)" },
-    { id: "h-5-materials-compare", title: "Comparing the Three Materials" },
+    {
+      id: "h-5-board", title: "Board PYQs — Magnetism and Matter", children: [
+        { id: "h-5-board-identification", title: "Relative Permeability & Identification" },
+        { id: "h-5-board-numerical", title: "Numerical: χ → µr" },
+        { id: "h-5-board-gauss", title: "Gauss's Law in Magnetism" },
+        { id: "h-5-board-energy", title: "Susceptibility Sign & Potential Energy" },
+        { id: "h-5-board-curie", title: "Curie Temperature" },
+        { id: "h-5-board-misc", title: "Units & Behaviour in Non-uniform Field" },
+        { id: "h-5-board-mcqs", title: "Practice MCQs — Dia / Para / Ferro" },
+      ],
+    },
     { id: "h-5-examples", title: "Worked Examples" },
   ],
   "electric-charges-and-fields": [
