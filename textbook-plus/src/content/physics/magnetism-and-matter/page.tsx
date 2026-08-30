@@ -477,34 +477,6 @@ export default function MagnetismAndMatterChapter() {
         Given the behavior of magnetic field lines near two magnetic substances <strong>P</strong> and <strong>Q</strong>, identify the paramagnetic substance. The magnetic susceptibility of substance <strong>P</strong> is <Highlight color="green">positive</Highlight>.
       </KeyPoint>
 
-      <h2 id="h-5-connections">Electrostatics ↔ Magnetism: Concept Connections</h2>
-      <p>
-        Magnetism and electrostatics are deeply connected. Nearly every idea in this chapter has a{" "}
-        <Highlight color="yellow">direct counterpart in Chapter 1</Highlight>. Learning the pairings together makes both chapters easier.
-      </p>
-      <div className="flex flex-wrap gap-2 my-4">
-        {[
-          ["In this chapter — §5.2.4 Electrostatic analog", "/chapter/magnetism-and-matter#h-5-2-4"],
-          ["In this chapter — §5.3 Gauss's law", "/chapter/magnetism-and-matter#h-5-3"],
-          ["In this chapter — §5.4 Permeability analog", "/chapter/magnetism-and-matter#h-5-4"],
-          ["Chapter 1 — §1.13 Gauss's law (electrostatics)", "/chapter/electric-charges-and-fields#h-1-13"],
-          ["Chapter 1 — §1.10 Electric dipole", "/chapter/electric-charges-and-fields#h-1-10"],
-        ].map(([label, href]) => (
-          <Link
-            key={href}
-            href={href}
-            className="rounded-lg border border-border/60 bg-muted/40 px-3 py-1.5 text-xs font-medium text-foreground/85 transition-colors hover:bg-muted hover:border-foreground/30"
-          >
-            {label}
-          </Link>
-        ))}
-      </div>
-      <KeyPoint title="Revision Tool">
-        Use the replacements <strong>p → m, E → B, 1/ε₀ → µ₀, q → (none)</strong> to convert any electrostatics result into its
-        magnetic twin. The one rule that has <em>no</em> electric counterpart is{" "}
-        <Highlight color="yellow">&ldquo;monopoles do not exist&rdquo;</Highlight> — the root of every difference.
-      </KeyPoint>
-
       <h2 id="h-5-examples">Worked Examples</h2>
 
       <Expandable title="Example 5.1 — Cutting a Bar Magnet and Related Ideas">
@@ -529,7 +501,7 @@ export default function MagnetismAndMatterChapter() {
         </ul>
       </Expandable>
 
-      <ProblemSolution problemNumber="5.3">
+      <Expandable title="Problem 5.3 — Field Line Diagram Errors" variant="exercise">
         <ProblemSolution.Problem>
           <p>Many diagrams of magnetic field lines are drawn wrongly. Point out what is wrong with each, and note any that correctly describe electrostatic field lines.</p>
         </ProblemSolution.Problem>
@@ -542,9 +514,9 @@ export default function MagnetismAndMatterChapter() {
           <p><strong>(f) Wrong.</strong> All lines emanate from a plate (non-zero flux) — actually electrostatic field lines between charged plates.</p>
           <p><strong>(g) Wrong.</strong> Field lines between poles cannot be precisely straight at the ends (fringing is inevitable).</p>
         </ProblemSolution.Solution>
-      </ProblemSolution>
+      </Expandable>
 
-      <ProblemSolution problemNumber="5.4">
+      <Expandable title="Problem 5.4 — Conceptual Questions" variant="exercise">
         <ProblemSolution.Problem>
           <p>(a) Do magnetic field lines also represent lines of force on a moving charge?</p>
           <p>(b) How would Gauss&apos;s law of magnetism change if monopoles existed?</p>
@@ -557,9 +529,9 @@ export default function MagnetismAndMatterChapter() {
           <p><strong>(c) No</strong> to the self-torque; but an element can feel a force from another element of the same wire (zero for a straight wire).</p>
           <p><strong>(d) Yes.</strong> Mean of magnetic moments from current loops can be non-zero with zero net charge — as in paramagnetic atoms.</p>
         </ProblemSolution.Solution>
-      </ProblemSolution>
+      </Expandable>
 
-      <ProblemSolution problemNumber="5.5">
+      <Expandable title="Problem 5.5 — Solenoid with Magnetic Core Calculation" variant="exercise">
         <ProblemSolution.Problem>
           <p>A solenoid has a core of relative permeability 400, current 2 A, and 1000 turns per metre. Calculate (a) H, (b) M, (c) B, and (d) the magnetising current I_m.</p>
         </ProblemSolution.Problem>
@@ -573,7 +545,7 @@ export default function MagnetismAndMatterChapter() {
           <p><strong>(d)</strong> Magnetising current from B = µ_r n (I + I_M), with I = 2 A, B = 1 T:</p>
           <FormulaBlock latex={String.raw`I_M = 794 \ \text{A}`} important />
         </ProblemSolution.Solution>
-      </ProblemSolution>
+      </Expandable>
       <MetricCard label="Core effect" value="794" unit="A magnetising current" trend="up" description="The µr = 400 core amplifies the effective field: without it, 794 A would be needed instead of 2 A." />
     </>
   );
