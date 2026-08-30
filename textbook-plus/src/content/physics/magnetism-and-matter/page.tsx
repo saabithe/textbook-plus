@@ -153,6 +153,48 @@ export default function MagnetismAndMatterChapter() {
           { cells: ["External Field: Energy −p·E", "−m·B"] },
         ]}
       />
+      <Callout type="note">
+        <strong>Connecting back to Chapter 1.</strong> This analogy is built from the electric dipole results you met in{" "}
+        <Highlight color="yellow">Section 1.10 (Electric Dipole)</Highlight> and{" "}
+        <Highlight color="yellow">Section 1.11 (Dipole in a Uniform External Field)</Highlight>.
+        Every magnetic dipole result in this chapter is obtained from those known electric results by the simple replacement
+        E → B, p → m, and 1/4πε₀ → µ₀/4π.
+      </Callout>
+      <Comparison
+        columns={[
+          {
+            title: "Electric Dipole (Ch. 1)",
+            children: (
+              <ul>
+                <li>Two charges +q and −q, separation 2a</li>
+                <li>Dipole moment p = q·2a</li>
+                <li>Equatorial E = −p/4πε₀r³</li>
+                <li>Axial E = 2p/4πε₀r³</li>
+                <li>Torque τ = p × E</li>
+                <li>Energy U = −p·E</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Magnetic Dipole (Ch. 5)",
+            children: (
+              <ul>
+                <li>Two poles N and S, no isolated pole</li>
+                <li>Dipole moment m</li>
+                <li>Equatorial B = −µ₀m/4πr³</li>
+                <li>Axial B = µ₀2m/4πr³</li>
+                <li>Torque τ = m × B</li>
+                <li>Energy U = −m·B</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+      <KeyPoint title="Key Exam Point">
+        Both dipole fields fall off as <strong>1/r³</strong> — not 1/r² like a single charge/pole. That is why
+        two dipoles (electric or magnetic) interact much more weakly at large separation than two isolated charges would.
+        The axial field is <Highlight color="yellow">twice the equatorial field</Highlight> for both dipoles.
+      </KeyPoint>
 
       <h2 id="h-5-3">5.3 Magnetism and Gauss&apos;s Law</h2>
       <p>
@@ -197,6 +239,12 @@ export default function MagnetismAndMatterChapter() {
       <Expandable title="What if monopoles existed? (Example 5.4)">
         <p>Then Gauss&apos;s law of magnetism would read ∮ B·dS = µ₀q_m, where q_m is the enclosed monopole (magnetic charge) — exactly analogous to electrostatics.</p>
       </Expandable>
+      <Callout type="note">
+        <strong>Connecting back to Chapter 1.</strong> The electrostatics statement was <Highlight color="yellow">Gauss&apos;s law (Section 1.13)</Highlight>,
+        <Formula>{String.raw`\sum \vec{E}\cdot\Delta\vec{S} = q/\varepsilon_0`}</Formula>,
+        where the flux is set by the enclosed charge. The magnetic statement sets the flux to <em>zero</em> for every closed surface —
+        the single conceptual contrast that organises the whole chapter.
+      </Callout>
 
       <h2 id="h-5-4">5.4 Magnetisation and Magnetic Intensity</h2>
       <p>
@@ -242,6 +290,38 @@ export default function MagnetismAndMatterChapter() {
         <Highlight color="yellow">χ, µ_r and µ are interrelated — only one is independent.</Highlight>
         Given any one, the other two follow from µ_r = 1 + χ and µ = µ₀µ_r.
       </KeyPoint>
+      <Comparison
+        columns={[
+          {
+            title: "Electrostatics (Ch. 1) — dielectric",
+            children: (
+              <ul>
+                <li><strong>E = E₀/ε_r</strong> — field is <em>reduced</em></li>
+                <li>ε_r &gt; 1 for dielectrics</li>
+                <li>Permittivity ε = ε₀ε_r</li>
+                <li>Polarisation P ∝ E reduces field inside</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Magnetism (Ch. 5) — magnetic material",
+            children: (
+              <ul>
+                <li><strong>B = µ_r B₀</strong> — field enhanced or reduced</li>
+                <li>µ_r &gt; 1 (para/ferro) or µ_r &lt; 1 (dia)</li>
+                <li>Permeability µ = µ₀µ_r</li>
+                <li>Magnetisation M can add to or oppose B₀</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+      <Callout type="important">
+        <Highlight color="pink">Key contrast:</Highlight> a dielectric always <em>weakens</em> an electric field (E = E₀/ε_r, ε_r &gt; 1),
+        but a magnetic material can <Highlight color="yellow">strengthen</Highlight> it (para/ferro, µ_r &gt; 1) or{" "}
+        <Highlight color="yellow">weaken</Highlight> it (dia, µ_r &lt; 1), depending on the sign of χ. This is why permeability,
+        unlike permittivity, can be either larger or smaller than the vacuum value.
+      </Callout>
 
       <h2 id="h-5-5">5.5 Magnetic Properties of Materials</h2>
       <p>
@@ -361,6 +441,66 @@ export default function MagnetismAndMatterChapter() {
           },
         ]}
       />
+
+      <h2 id="h-5-connections">Electrostatics ↔ Magnetism: Concept Connections</h2>
+      <p>
+        Magnetism and electrostatics are deeply connected. Nearly every idea in this chapter has a{" "}
+        <Highlight color="yellow">direct counterpart in Chapter 1</Highlight>. Learning the pairings together makes both chapters easier.
+      </p>
+      <Comparison
+        columns={[
+          {
+            title: "Electrostatics (Ch. 1)",
+            children: (
+              <ul>
+                <li><strong>Sources:</strong> isolated charges (+q, −q)</li>
+                <li><strong>Gauss&apos;s law:</strong> Σ E·ΔS = q/ε₀</li>
+                <li><strong>E-fields:</strong> start on +, end on −</li>
+                <li><strong>Dipole:</strong> torque p × E, U = −p·E</li>
+                <li><strong>Dipole fields:</strong> fall as 1/r³</li>
+                <li><strong>Medium:</strong> ε_r, always reduces field</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Magnetism (Ch. 5)",
+            children: (
+              <ul>
+                <li><strong>Sources:</strong> dipoles / current loops only</li>
+                <li><strong>Gauss&apos;s law:</strong> Σ B·ΔS = 0</li>
+                <li><strong>B-fields:</strong> continuous closed loops</li>
+                <li><strong>Dipole:</strong> torque m × B, U = −m·B</li>
+                <li><strong>Dipole fields:</strong> fall as 1/r³</li>
+                <li><strong>Medium:</strong> µ_r, can enhance or reduce</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+      <TableCard
+        caption="The one-line summary of every electrostatics–magnetism pairing in this chapter."
+        headers={["Concept", "Electrostatics (Ch. 1)", "Magnetism (Ch. 5)"]}
+        rows={[
+          { cells: ["Field constant", "1/ε₀", "µ₀"] },
+          { cells: ["Dipole moment", "p", "m"] },
+          { cells: ["Axial field", "2p/4πε₀r³", "µ₀2m/4πr³"] },
+          { cells: ["Equatorial field", "−p/4πε₀r³", "−µ₀m/4πr³"] },
+          { cells: ["Torque in uniform field", "τ = p × E", "τ = m × B"] },
+          { cells: ["Energy in uniform field", "U = −p·E", "U = −m·B"] },
+          { cells: ["Gauss&apos;s law", "Σ E·ΔS = q/ε₀", "Σ B·ΔS = 0"] },
+          { cells: ["Material response", "ε_r (permittivity)", "µ_r (permeability)"] },
+        ]}
+      />
+      <Callout type="didyouknow">
+        <strong>Why the two Gauss&apos;s laws differ.</strong> Electrostatics allows isolated charges, so field lines can begin and end;
+        magnetism has no isolated poles, so lines must close on themselves. If you can remember <em>why</em> the
+        Gauss&apos;s laws differ, the rest of the analogies follow naturally.
+      </Callout>
+      <KeyPoint title="Revision Tool">
+        Use the replacements <strong>p → m, E → B, 1/ε₀ → µ₀, q → (none)</strong> to convert any electrostatics result into its
+        magnetic twin. The one rule that has <em>no</em> electric counterpart is{" "}
+        <Highlight color="yellow">&ldquo;monopoles do not exist&rdquo;</Highlight> — the root of every difference.
+      </KeyPoint>
 
       <h2 id="h-5-examples">Worked Examples</h2>
 
