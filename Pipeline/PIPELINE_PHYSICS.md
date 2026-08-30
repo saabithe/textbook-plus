@@ -85,6 +85,12 @@ Physics follows the **master 16-step pipeline** with subject-specific content ru
 
 ## Physics-Specific Rules
 
+### Content Preferences (Science-Only — from Magnetism & Matter experience)
+- **Summary / Points to Ponder — science only:** Extract but **do not render** `Summary` / `Points to Ponder` headings for Physics (and Chemistry/Biology/Maths). English/Arabic keep them. User preference `USER_PREFERENCES.md:11` clarified as science-only in Aug 2026.
+- **Worked Examples + Problems → collapsed `Expandable`:** All NCERT worked examples and end-chapter problems render as **collapsed `Expandable`**, not expanded `Example` / expanded `ProblemSolution`. Use `variant="example"` for examples, `variant="exercise"` for problems. For problems use `<Expandable variant="exercise"><ProblemSolution.Problem>/<ProblemSolution.Solution>` (no outer `<ProblemSolution>` wrapper) to avoid double border — see `magnetism-and-matter/page.tsx:596-640`.
+- **Deduplication rule:** If a `TableCard`/`Comparison` already answers a PYQ (e.g., Table 5.2 covers dia/para/ferro comparison), **skip the duplicate PYQ** and add a `Callout type="note"` pointing to the table: “All are answered by Table X.Y”. Keeps exam relevance without repetition.
+- **Exam supplement (optional):** Board PYQ slides are a secondary source (beyond NCERT). If provided, render as optional `Board PYQs` section (`h-5-board` pattern) — grouped by theme, each PYQ as collapsed `Expandable` with year tag (e.g., `[March 2025]`), deduplicated against the Table.
+
 ### Formula Handling
 - **Every formula** must be rendered with `FormulaBlock` (block) or `FormulaInline` (inline)
 - **Important formulas** get `FormulaBlock` with `important={true}` (bordered card)
@@ -98,9 +104,11 @@ Physics follows the **master 16-step pipeline** with subject-specific content ru
 - Use `Stepper` when derivation has 3+ clear sequential steps
 - Final result must be highlighted with `FormulaBlock` (important)
 - **Full expansion required** — do not shorten or summarize derivations. Every step must be understandable to anyone reading it. Expand fully, show all intermediate steps, explain each equation.
+- **Ch5 learning:** For `B–H` and `χ–µr` relations always add explicit subsections with 6–8 `FormulaBlock`s and `important` on the final `µr = 1+χ` / `B = µH`.
 
 ### Numerical Problems
-- Use `ProblemSolution` for all NCERT worked examples
+- Use collapsed `Expandable` (not expanded `ProblemSolution`) for all NCERT worked examples and exercises — see Content Preferences above
+- Inside the Expandable use `ProblemSolution.Problem` + `ProblemSolution.Solution` (avoids nested borders)
 - Include: Given → Formula → Substitution → Result with units
 - Use `MetricCard` for key numerical values (constants, conversion factors)
 - Use `MistakeCard` for common unit conversion errors
@@ -112,7 +120,7 @@ Physics follows the **master 16-step pipeline** with subject-specific content ru
 
 ### Comparison Tables
 - Use `Comparison` (side-by-side) for 2 items: vacuum vs medium, AC vs DC
-- Use `TableCard` for 3+ items: conductor types, material properties
+- Use `TableCard` for 3+ items: conductor types, material properties (prefer a single comprehensive `TableCard` over 3 separate subsections + redundant Comparison — see ch5 `Table 5.2` consolidation `ac2d3c6`)
 
 ---
 

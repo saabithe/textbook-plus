@@ -132,9 +132,11 @@ This file tracks ALL user preferences, design decisions, and customization choic
 
 | Preference | Value | Date |
 |------------|-------|------|
-| Summary section | **Do not include** a Summary section / "Summary" heading in chapters | Aug 2026 |
-| Points to Ponder | **Do not include** a "Points to Ponder" section in chapters | Aug 2026 |
-| Worked examples | Rendering of worked Examples as **collapsed Expandable** blocks (not expanded `Example` blocks) | Aug 2026 |
+| Summary section | **Do not include** a Summary section / "Summary" heading — **Science subjects only** (Physics/Chemistry/Biology/Maths). English/Arabic keep their Summary. | Aug 2026 |
+| Points to Ponder | **Do not include** a "Points to Ponder" section — **Science subjects only**. English/Arabic keep if present in NCERT. | Aug 2026 |
+| Worked examples | Rendering of worked Examples **and Problems** as **collapsed Expandable** blocks (not expanded `Example`/`ProblemSolution` blocks). `variant="example"` for Examples, `variant="exercise"` for Problems (`<Expandable><ProblemSolution.Problem/.Solution>` without outer wrapper). | Aug 2026 |
+| Avoid repetition | Do not re-state in one section content already covered in another — e.g., skip duplicate PYQ comparison when `TableCard` already answers it; add a `Callout` pointing to the table. | Aug 2026 |
+| Board PYQs | Board PYQ slides are an **optional** secondary source — render as optional `Board PYQs` section (collapsed Expandables grouped by theme) only when provided. | Aug 2026 |
 
 ---
 
