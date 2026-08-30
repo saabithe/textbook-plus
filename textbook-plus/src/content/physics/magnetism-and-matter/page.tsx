@@ -66,6 +66,21 @@ export default function MagnetismAndMatterChapter() {
         definition="The imaginary lines used to represent a magnetic field are called magnetic field lines. Their tangent at any point gives the direction of the magnetic field there."
         icon="➿"
       />
+      <FactCard
+        title="Magnetic Field Intensity (B)"
+        definition="The force acting on a unit north pole placed at a point gives the magnetic field intensity B at that point. Its unit is the tesla (T)."
+        icon="🔶"
+      />
+      <FactCard
+        title="Pole Strength (p)"
+        definition="The strength of a magnetic pole to attract magnetic material towards it is called its pole strength. It is a scalar quantity, measured in ampere-metre (A m)."
+        icon="🧲"
+      />
+      <FactCard
+        title="Neutral Point"
+        definition="The attracting power of a bar magnet at its centre point is zero, so the centre is called the neutral point. The field lines are parallel here and there is no resultant attractive force."
+        icon="⚫"
+      />
       <Callout type="important">
         <Highlight color="yellow">Properties of magnetic field lines:</Highlight>
       </Callout>
@@ -84,6 +99,34 @@ export default function MagnetismAndMatterChapter() {
         dipole field lines (which begin on + and end on −, or escape to infinity), magnetic field lines
         <Highlight color="blue">form continuous closed loops</Highlight>.
       </Callout>
+      <p><strong>Direction of magnetic field lines</strong> — around a bar magnet with a north (N) and a south (S) pole:</p>
+      <Comparison
+        columns={[
+          {
+            title: "Outside the magnet",
+            children: (
+              <ul>
+                <li>Field lines run from the <Highlight color="pink">north pole (N)</Highlight> to the <Highlight color="blue">south pole (S)</Highlight>.</li>
+                <li>The tangent at any external point points from N to S.</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Inside the magnet",
+            children: (
+              <ul>
+                <li>Field lines run from the <Highlight color="blue">south pole (S)</Highlight> to the <Highlight color="pink">north pole (N)</Highlight>.</li>
+                <li>Together with the outside lines this forms the continuous closed loop.</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+      <Expandable title="Q: Why do two magnetic field lines never intersect?">
+        <p><strong>Answer:</strong> At the point where two field lines meet, there would be <Highlight color="yellow">two different tangents</Highlight>, and hence two different directions of the magnetic field at the <em>same</em> point.</p>
+        <p>But the magnetic field at any point has <Highlight color="blue">only one unique direction</Highlight> — the tangent is fixed. Since two distinct tangents cannot both describe the same point,{" "}
+        <Highlight color="pink">two magnetic field lines can never cross each other</Highlight>.</p>
+      </Expandable>
       <Comparison
         columns={[
           {
