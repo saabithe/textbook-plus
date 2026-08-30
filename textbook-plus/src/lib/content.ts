@@ -395,23 +395,6 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-1-summary", title: "Summary" },
     { id: "h-1-ponder", title: "Points to Ponder" },
   ],
-  "electrostatic-potential-and-capacitance": [
-    { id: "h-2-1", title: "2.1 Introduction" },
-    { id: "h-2-2", title: "2.2 Electrostatic Potential" },
-    { id: "h-2-3", title: "2.3 Potential Due to a Point Charge" },
-    { id: "h-2-4", title: "2.4 Potential Due to an Electric Dipole" },
-    { id: "h-2-5", title: "2.5 Potential Due to a System of Charges" },
-    { id: "h-2-6", title: "2.6 Equipotential Surfaces" },
-    { id: "h-2-7", title: "2.7 Potential Energy of a System of Charges" },
-    { id: "h-2-8", title: "2.8 Potential Energy in an External Field" },
-    { id: "h-2-9", title: "2.9 Electrostatics of Conductors" },
-    { id: "h-2-10", title: "2.10 Dielectrics and Polarisation" },
-    { id: "h-2-11", title: "2.11 Capacitors and Capacitance" },
-    { id: "h-2-12", title: "2.12 The Parallel Plate Capacitor" },
-    { id: "h-2-13", title: "2.13 Effect of Dielectric on Capacitance" },
-    { id: "h-2-14", title: "2.14 Combination of Capacitors" },
-    { id: "h-2-15", title: "2.15 Energy Stored in a Capacitor" },
-  ],
   "c11/maths/sets": [
     { id: "h-intro", title: "1.1 Introduction" },
     {
@@ -562,7 +545,6 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
 const QUESTION_KEYS = new Set([
   "magnetism-and-matter",
   "electric-charges-and-fields",
-  "electrostatic-potential-and-capacitance",
   "c11/maths/sets",
   "c11/maths/relations-and-functions",
   "c11/maths/trigonometric-functions",
@@ -585,8 +567,6 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
     import("@/content/physics/magnetism-and-matter/questions.json").then((m) => m.default as Question[]),
   "electric-charges-and-fields": () =>
     import("@/content/physics/electric-charges-and-fields/questions.json").then((m) => m.default as Question[]),
-  "electrostatic-potential-and-capacitance": () =>
-    import("@/content/physics/electrostatic-potential-and-capacitance/questions.json").then((m) => m.default as Question[]),
   "c11/maths/sets": () =>
     import("@/content/maths/sets/questions.json").then((m) => m.default as Question[]),
   "c11/maths/relations-and-functions": () =>
@@ -618,8 +598,6 @@ const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
     import("@/content/physics/magnetism-and-matter/flashcards.json").then((m) => m.default as Flashcard[]),
   "electric-charges-and-fields": () =>
     import("@/content/physics/electric-charges-and-fields/flashcards.json").then((m) => m.default as Flashcard[]),
-  "electrostatic-potential-and-capacitance": () =>
-    import("@/content/physics/electrostatic-potential-and-capacitance/flashcards.json").then((m) => m.default as Flashcard[]),
   "c11/maths/sets": () =>
     import("@/content/maths/sets/flashcards.json").then((m) => m.default as Flashcard[]),
   "c11/maths/relations-and-functions": () =>

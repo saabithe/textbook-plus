@@ -22,7 +22,7 @@
 | # | Chapter | Slug | Status |
 |---|---------|------|--------|
 | 1 | Electric Charges and Fields | `electric-charges-and-fields` | ✅ Content |
-| 2 | Electrostatic Potential and Capacitance | `electrostatic-potential-and-capacitance` | ✅ Content |
+| 2 | Electrostatic Potential and Capacitance | `electrostatic-potential-and-capacitance` | 🔲 Pending |
 | 3 | Current Electricity | `current-electricity` | 🔲 Pending |
 | 4 | Moving Charges and Magnetism | `moving-charges-and-magnetism` | 🔲 Pending |
 | 5 | Magnetism and Matter | `magnetism-and-matter` | ✅ Content |
