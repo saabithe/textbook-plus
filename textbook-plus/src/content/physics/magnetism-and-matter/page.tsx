@@ -179,6 +179,28 @@ export default function MagnetismAndMatterChapter() {
         The magnetic moment of a bar magnet equals that of an <strong>equivalent solenoid</strong> producing the same field.
       </KeyPoint>
 
+      <h3 id="h-5-2-moment">Magnetic Dipole &amp; Magnetic Dipole Moment</h3>
+      <FactCard
+        title="Magnetic Dipole"
+        definition="A magnetic north pole and a south pole separated by a small distance is called a magnetic dipole. Examples: a bar magnet, a current-carrying loop."
+        icon="🧲"
+      />
+      <KeyPoint title="Magnetic Dipole Moment (m)">
+        <ul className="list-disc pl-5 space-y-1.5">
+          <li>It represents the <strong>strength of a magnet</strong>.</li>
+          <li>It is the product of pole strength (P) and effective length (2l).</li>
+          <li>It is a <Highlight color="yellow">vector quantity</Highlight> (m).</li>
+          <li>Directed along the axis of the magnet <Highlight color="pink">from the south pole to the north pole</Highlight>.</li>
+          <li><strong>Unit:</strong> A m&#178;.</li>
+        </ul>
+      </KeyPoint>
+      <FormulaCard>
+        <p className="text-[0.85rem] text-muted-foreground mb-2">Equations for magnetic dipole moment</p>
+        <FormulaBlock latex={String.raw`\vec{M} = P \times 2l`} />
+        <FormulaBlock latex={String.raw`\vec{M} = N I A`} />
+        <p className="text-[0.85rem] text-muted-foreground">Here N is the number of turns, I is the current, and A is the area of the current loop.</p>
+      </FormulaCard>
+
       <h3 id="h-5-2-3">5.2.3 The dipole in a uniform magnetic field</h3>
       <p>
         Place a small compass needle of known moment <strong>m</strong> in a field, allowing it to oscillate.
