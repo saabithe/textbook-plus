@@ -11,6 +11,7 @@ import { Stepper } from "@/components/content/Stepper";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { MetricCard } from "@/components/content/study/MetricCard";
 import { TableCard } from "@/components/content/data/TableCard";
+import { FactCard } from "@/components/content/concept/FactCard";
 
 export default function MagnetismAndMatterChapter() {
   return (
@@ -49,17 +50,40 @@ export default function MagnetismAndMatterChapter() {
         <Highlight color="yellow"> magnetism and moving charges are related</Highlight>.
       </p>
 
-      <h3 id="h-5-2-1">5.2.1 The magnetic field lines</h3>
-      <p>The pattern of iron filings lets us plot the <strong>magnetic field lines</strong> — a visual and intuitive realisation of the magnetic field.</p>
+      <h3 id="h-5-2-0">Key Definitions</h3>
+      <FactCard
+        title="Magnetism"
+        definition="A piece of material that has both attractive and repulsive properties is called a magnet, and this property is called magnetism. Every magnet is characterised by a pair of unlike poles — north and south — which give rise to these attractions and repulsions."
+        icon="🧲"
+      />
+      <FactCard
+        title="Magnetic Field"
+        definition="The region or space around a magnet where its effect can be felt is called the magnetic field around the magnet. It is a vector field represented by the symbol B."
+        icon="🧭"
+      />
+      <FactCard
+        title="Magnetic Field Line"
+        definition="The imaginary lines used to represent a magnetic field are called magnetic field lines. Their tangent at any point gives the direction of the magnetic field there."
+        icon="➿"
+      />
       <Callout type="important">
         <Highlight color="yellow">Properties of magnetic field lines:</Highlight>
       </Callout>
       <ul>
-        <li>They form <Highlight color="blue">continuous closed loops</Highlight> — unlike electric dipole field lines, which begin on a positive charge and end on a negative charge, or escape to infinity.</li>
-        <li>The <strong>tangent</strong> to a field line at a point gives the direction of the net field <strong>B</strong> at that point.</li>
-        <li>The <strong>density</strong> of field lines indicates field strength — more lines per unit area means stronger B.</li>
-        <li>Magnetic field lines <Highlight color="pink">never intersect</Highlight> — otherwise the field direction would be ambiguous at the crossing point.</li>
+        <li>The magnetic field lines of a magnet form <Highlight color="blue">continuous closed loops</Highlight>.</li>
+        <li>A tangent drawn at any point on a magnetic field line gives the <strong>direction of the magnetic field</strong> at that point.</li>
+        <li>A <Highlight color="yellow">larger number of field lines crossing per unit area</Highlight> means a <strong>stronger magnetic field</strong> there.</li>
+        <li>Two magnetic field lines <Highlight color="pink">never intersect</Highlight> each other.</li>
       </ul>
+
+      <h3 id="h-5-2-1">5.2.1 The magnetic field lines</h3>
+      <p>The pattern of iron filings lets us plot the <strong>magnetic field lines</strong> — a visual and intuitive realisation of the magnetic field.</p>
+      <Callout type="note">
+        The field-line properties above are the key to reading any field-line diagram: they explain why
+        the lines curve, crowd together near the poles, and never cross. In particular, unlike electric
+        dipole field lines (which begin on + and end on −, or escape to infinity), magnetic field lines
+        <Highlight color="blue">form continuous closed loops</Highlight>.
+      </Callout>
       <Comparison
         columns={[
           {
