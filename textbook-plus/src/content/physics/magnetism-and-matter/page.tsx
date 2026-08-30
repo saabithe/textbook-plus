@@ -294,7 +294,7 @@ export default function MagnetismAndMatterChapter() {
       </p>
       <FormulaBlock latex={String.raw`\phi = \oint \vec{B}\cdot d\vec{s} = 0`} important />
       <Callout type="important">
-        <Highlight color="yellow">Gauss&apos;s law for magnetism:</Highlight> the net magnetic flux through any closed surface is zero.
+        <Highlight color="yellow">Gauss&apos;s law for magnetism:</Highlight> it states the surface integral of magnetic flux through any closed surface is Zero.
         This reflects the fact that <strong>isolated magnetic poles (monopoles) do not exist</strong> — there are no sources or sinks of B.
       </Callout>
       <Comparison
@@ -323,16 +323,11 @@ export default function MagnetismAndMatterChapter() {
           },
         ]}
       />
-      <FormulaBlock latex={String.raw`\phi = \oint \vec{B}\cdot d\vec{s} = 0`} important />
       <KeyPoint title="Key Insights &amp; Observations">
         <ul className="list-disc pl-5 space-y-1.5">
           <li><Highlight color="yellow">Isolated magnetic poles do not exist</Highlight> — magnetic monopoles are nonexistent.</li>
           <li><Highlight color="blue">Magnetic field lines always form closed loops</Highlight>, unlike electric field lines, which can originate from or terminate on isolated electric charges.</li>
         </ul>
-      </KeyPoint>
-      <KeyPoint title="Key Exam Point">
-        The difference between the two Gauss&apos;s laws is <Highlight color="yellow">the existence of charges versus monopoles</Highlight>.
-        All magnetic phenomena are explained by arrangements of dipoles and/or current loops.
       </KeyPoint>
       <Expandable title="What if monopoles existed? (Example 5.4)">
         <p>Then Gauss&apos;s law of magnetism would read ∮ B·dS = µ₀q_m, where q_m is the enclosed monopole (magnetic charge) — exactly analogous to electrostatics.</p>
