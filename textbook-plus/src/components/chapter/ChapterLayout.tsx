@@ -6,6 +6,7 @@ import { ChevronRight, CheckCircle2, Circle, Brain, Layers } from "lucide-react"
 import { cn } from "@/lib/utils";
 import { ChapterNav } from "./ChapterNav";
 import { ChapterTabs, PracticePlaceholder } from "./ChapterTabs";
+import { ReadingProgress } from "./ReadingProgress";
 import { PracticeSession } from "@/components/practice/PracticeSession";
 import { FlashcardDeck } from "@/components/flashcard/FlashcardDeck";
 import { getAdjacentChapters } from "@/data/chapters";
@@ -74,6 +75,7 @@ export function ChapterLayout({
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
+      <ReadingProgress color={subjectColor} />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-1.5 text-sm text-muted-foreground mb-8">
         {crumbs.map((crumb, i) => (
