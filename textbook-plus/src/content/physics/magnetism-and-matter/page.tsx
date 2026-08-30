@@ -432,79 +432,54 @@ export default function MagnetismAndMatterChapter() {
 
       <h2 id="h-5-5">5.5 Magnetic Properties of Materials</h2>
       <p>
-        In terms of χ: a material is <Highlight color="blue">diamagnetic</Highlight> if χ is negative,
-        <Highlight color="green">paramagnetic</Highlight> if χ is positive and small, and
-        <Highlight color="pink">ferromagnetic</Highlight> if χ is large and positive (here ε is a small positive number).
+        Based on their magnetic properties, materials are classified into three main categories:
       </p>
-      <TableCard
-        caption="Table 5.2 — Classification of Magnetic Materials."
-        headers={["Diamagnetic", "Paramagnetic", "Ferromagnetic"]}
-        rows={[
-          { cells: ["−1 ≤ χ < 0", "0 < χ < ε", "χ >> 1"] },
-          { cells: ["0 ≤ µr < 1", "1 < µr < 1 + ε", "µr >> 1"] },
-          { cells: ["µ < µ₀", "µ > µ₀", "µ >> µ₀"] },
-        ]}
-      />
-
-      <h3 id="h-5-5-1">5.5.1 Diamagnetism</h3>
-      <Callout type="important">
-        <Highlight color="yellow">Diamagnetic substances move from stronger to weaker field</Highlight> — a magnet
-        <strong>repels</strong> a diamagnetic substance. Field lines are expelled; the field inside is <strong>reduced</strong>.
-      </Callout>
-      <Stepper
-        steps={[
-          { label: "Atoms in a diamagnetic substance have zero net magnetic moment" },
-          { label: "An external field is applied", description: "Electrons orbit the nucleus with orbital angular momentum and orbital magnetic moment." },
-          { label: "Induced currents arise (Lenz's law)", description: "Electrons with moment along the field slow down; those opposite speed up." },
-          { label: "A net moment develops opposite to the field", description: "Hence the substance is repelled." },
-        ]}
-      />
       <ul>
-        <li>Field reduction is slight — about <strong>one part in 10⁵</strong>.</li>
-        <li>Examples: <Highlight color="green">bismuth, copper, lead, silicon, nitrogen (at STP), water, sodium chloride</Highlight>.</li>
-        <li>Diamagnetism is present in <Highlight color="blue">all substances</Highlight> but is usually masked by stronger effects.</li>
-      </ul>
-      <Callout type="didyouknow">
-        The most exotic diamagnets are <Highlight color="yellow">superconductors</Highlight> (χ = −1, µr = 0), where field lines are
-        completely expelled — the <strong>Meissner effect</strong>. This perfect diamagnetism is used in magnetically levitated superfast trains.
-      </Callout>
-
-      <h3 id="h-5-5-2">5.5.2 Paramagnetism</h3>
-      <Callout type="important">
-        <Highlight color="yellow">Paramagnetic substances get weakly magnetised</Highlight> — they tend to move from weak to strong
-        field, i.e., are <strong>weakly attracted</strong> to a magnet. Field lines concentrate inside; the field is <strong>enhanced</strong>.
-      </Callout>
-      <ul>
-        <li>Atoms have a <Highlight color="yellow">permanent magnetic dipole moment</Highlight>.</li>
-        <li>Random thermal motion cancels net magnetisation until an external field is applied.</li>
-        <li>In a strong field B₀, at low temperature, the atomic dipoles align with B₀ until <Highlight color="pink">saturation</Highlight>.</li>
-        <li>Enhancement is slight — about <strong>one part in 10⁵</strong>.</li>
-        <li>Examples: <Highlight color="green">aluminium, sodium, calcium, oxygen (at STP), copper chloride</Highlight>.</li>
-        <li>χ and µr depend on the material <em>and</em> on temperature.</li>
+        <li><Highlight color="blue">Diamagnetic</Highlight></li>
+        <li><Highlight color="green">Paramagnetic</Highlight></li>
+        <li><Highlight color="pink">Ferromagnetic</Highlight></li>
       </ul>
 
-      <h3 id="h-5-5-3">5.5.3 Ferromagnetism</h3>
-      <Callout type="important">
-        <Highlight color="yellow">Ferromagnetic substances get strongly magnetised</Highlight> — they move strongly from weak to
-        strong field and are <strong>strongly attracted</strong>; the field is highly concentrated and µr &gt; 1000.
-      </Callout>
-      <p>The key idea is the <Highlight color="yellow">domain</Highlight> — a macroscopic region where atomic dipoles spontaneously align:</p>
-      <ProcessCard
-        title="How domains respond to an external field"
-        steps={[
-          { label: "Randomly oriented domains", description: "Initially domains point in many directions, giving no bulk magnetisation." },
-          { label: "Apply an external field B₀", description: "Domains aligned with B₀ grow in size while others orient toward B₀." },
-          { label: "Domains amalgamate", description: "They merge into a single 'giant' domain aligned with the field." },
-          { label: "Remove the field", description: "Hard ferromagnets stay magnetised; soft ferromagnets lose magnetisation." },
-        ]}
-      />
+      <h3 id="h-5-5-1">5.1 Diamagnetic Materials</h3>
+      <p>
+        Magnetic susceptibility <Highlight color="blue">χ is negative, but small</Highlight>.
+      </p>
       <ul>
-        <li>Each domain has net magnetisation; typical size ~1 mm, ~10¹¹ atoms.</li>
-        <li>The cooperative alignment requires quantum mechanics to explain fully.</li>
-        <li><strong>Hard ferromagnets</strong> (Alnico, lodestone): retain magnetisation — form <Highlight color="yellow">permanent magnets</Highlight>.</li>
-        <li><strong>Soft ferromagnets</strong> (soft iron): lose magnetisation when the field is removed.</li>
-        <li>Examples: <Highlight color="green">iron, cobalt, nickel, gadolinium</Highlight>.</li>
-        <li>At high enough temperature the domain structure disintegrates and a ferromagnet <Highlight color="pink">becomes a paramagnet</Highlight>.</li>
+        <li><strong>Behavior in an external field:</strong> Diamagnetic substances tend to move from <strong>stronger to weaker</strong> parts of an external field and are <strong>repelled</strong> when placed in an external magnetic field.</li>
+        <li><strong>Atomic / molecular structure:</strong> Individual constituents do not have a net magnetic moment of their own.</li>
+        <li><strong>Examples:</strong> Bismuth, copper, lead, silicon, nitrogen.</li>
+      </ul>
+      <Callout type="important">
+        <strong>Exam Question (Model 2022):</strong> The susceptibility of a diamagnetic material is <Highlight color="yellow">negative</Highlight>.
+      </Callout>
+
+      <h3 id="h-5-5-2">5.2 Paramagnetic Materials</h3>
+      <p>
+        Magnetic susceptibility <Highlight color="green">χ is positive, but small</Highlight>.
+      </p>
+      <ul>
+        <li><strong>Behavior in an external field:</strong> Paramagnetic substances tend to move from <strong>weaker to stronger</strong> parts of an external field and are <strong>weakly attracted</strong> when placed in an external magnetic field.</li>
+        <li><strong>Atomic / molecular structure:</strong> Individual constituents possess a net magnetic moment of their own, but they are randomly oriented in the absence of an external field.</li>
+        <li><strong>Examples:</strong> Aluminium, calcium, oxygen, <Formula>{String.raw`\mathrm{CuCl}_2`}</Formula>.</li>
+      </ul>
+
+      <h3 id="h-5-5-3">5.3 Ferromagnetic Materials</h3>
+      <p>
+        Magnetic susceptibility <Highlight color="pink">χ is positive and large</Highlight>.
+      </p>
+      <ul>
+        <li><strong>Behavior in an external field:</strong> Ferromagnetic substances tend to move <strong>strongly from weaker to stronger</strong> parts of an external field and possess a <strong>strong force of attraction</strong> when placed in an external magnetic field.</li>
+        <li><strong>Atomic / molecular structure:</strong> They possess a permanent magnetic dipole moment even in the absence of an external magnetic field (due to domain structures).</li>
+        <li><strong>Examples:</strong> Iron, cobalt, nickel.</li>
+      </ul>
+
+      <h2 id="h-5-exam-materials">Exam Questions &amp; Applications (March 2021)</h2>
+      <p>
+        <strong>Question Analysis:</strong> Given the behavior of magnetic field lines near two magnetic substances <strong>P</strong> and <strong>Q</strong>:
+      </p>
+      <ul>
+        <li><strong>(a)</strong> Identify the paramagnetic substance from the field line configuration.</li>
+        <li><strong>(b)</strong> The magnetic susceptibility of substance <strong>P</strong> is <Highlight color="green">positive</Highlight>.</li>
       </ul>
 
       <h2 id="h-5-materials-compare">Comparing the Three Materials</h2>
