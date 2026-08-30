@@ -337,13 +337,7 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     },
     { id: "h-5-3", title: "5.3 Magnetism and Gauss's Law" },
     { id: "h-5-4", title: "5.4 Magnetisation and Magnetic Intensity" },
-    {
-      id: "h-5-5", title: "5.5 Magnetic Properties of Materials", children: [
-        { id: "h-5-5-1", title: "5.1 Diamagnetic Materials" },
-        { id: "h-5-5-2", title: "5.2 Paramagnetic Materials" },
-        { id: "h-5-5-3", title: "5.3 Ferromagnetic Materials" },
-      ],
-    },
+    { id: "h-5-5", title: "5.5 Magnetic Properties of Materials" },
     { id: "h-5-exam-materials", title: "Exam Questions & Applications (March 2021)" },
     { id: "h-5-materials-compare", title: "Comparing the Three Materials" },
     { id: "h-5-examples", title: "Worked Examples" },

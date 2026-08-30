@@ -440,89 +440,20 @@ export default function MagnetismAndMatterChapter() {
         <li><Highlight color="pink">Ferromagnetic</Highlight></li>
       </ul>
 
-      <h3 id="h-5-5-1">5.1 Diamagnetic Materials</h3>
-      <p>
-        Magnetic susceptibility <Highlight color="blue">χ is negative, but small</Highlight>.
-      </p>
-      <ul>
-        <li><strong>Behavior in an external field:</strong> Diamagnetic substances tend to move from <strong>stronger to weaker</strong> parts of an external field and are <strong>repelled</strong> when placed in an external magnetic field.</li>
-        <li><strong>Atomic / molecular structure:</strong> Individual constituents do not have a net magnetic moment of their own.</li>
-        <li><strong>Examples:</strong> Bismuth, copper, lead, silicon, nitrogen.</li>
-      </ul>
-      <Callout type="important">
-        <strong>Exam Question (Model 2022):</strong> The susceptibility of a diamagnetic material is <Highlight color="yellow">negative</Highlight>.
-      </Callout>
-
-      <h3 id="h-5-5-2">5.2 Paramagnetic Materials</h3>
-      <p>
-        Magnetic susceptibility <Highlight color="green">χ is positive, but small</Highlight>.
-      </p>
-      <ul>
-        <li><strong>Behavior in an external field:</strong> Paramagnetic substances tend to move from <strong>weaker to stronger</strong> parts of an external field and are <strong>weakly attracted</strong> when placed in an external magnetic field.</li>
-        <li><strong>Atomic / molecular structure:</strong> Individual constituents possess a net magnetic moment of their own, but they are randomly oriented in the absence of an external field.</li>
-        <li><strong>Examples:</strong> Aluminium, calcium, oxygen, <Formula>{String.raw`\mathrm{CuCl}_2`}</Formula>.</li>
-      </ul>
-
-      <h3 id="h-5-5-3">5.3 Ferromagnetic Materials</h3>
-      <p>
-        Magnetic susceptibility <Highlight color="pink">χ is positive and large</Highlight>.
-      </p>
-      <ul>
-        <li><strong>Behavior in an external field:</strong> Ferromagnetic substances tend to move <strong>strongly from weaker to stronger</strong> parts of an external field and possess a <strong>strong force of attraction</strong> when placed in an external magnetic field.</li>
-        <li><strong>Atomic / molecular structure:</strong> They possess a permanent magnetic dipole moment even in the absence of an external magnetic field (due to domain structures).</li>
-        <li><strong>Examples:</strong> Iron, cobalt, nickel.</li>
-      </ul>
-
-      <h2 id="h-5-exam-materials">Exam Questions &amp; Applications (March 2021)</h2>
-      <p>
-        <strong>Question Analysis:</strong> Given the behavior of magnetic field lines near two magnetic substances <strong>P</strong> and <strong>Q</strong>:
-      </p>
-      <ul>
-        <li><strong>(a)</strong> Identify the paramagnetic substance from the field line configuration.</li>
-        <li><strong>(b)</strong> The magnetic susceptibility of substance <strong>P</strong> is <Highlight color="green">positive</Highlight>.</li>
-      </ul>
-
-      <h2 id="h-5-materials-compare">Comparing the Three Materials</h2>
-      <Comparison
-        columns={[
-          {
-            title: "Diamagnetic",
-            children: (
-              <ul>
-                <li>χ negative and small</li>
-                <li>µr slightly less than 1</li>
-                <li>Repelled by a magnet</li>
-                <li>Field inside reduced</li>
-                <li>Examples: copper, water, bismuth</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Paramagnetic",
-            children: (
-              <ul>
-                <li>χ positive and small</li>
-                <li>µr slightly greater than 1</li>
-                <li>Weakly attracted</li>
-                <li>Field inside enhanced</li>
-                <li>Examples: aluminium, oxygen</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Ferromagnetic",
-            children: (
-              <ul>
-                <li>χ large and positive</li>
-                <li>µr &gt;&gt; 1 (&gt;1000)</li>
-                <li>Strongly attracted</li>
-                <li>Field highly concentrated</li>
-                <li>Examples: iron, cobalt, nickel</li>
-              </ul>
-            ),
-          },
+      <TableCard
+        caption="Table 5.2 — Magnetic Properties of Materials."
+        headers={["Property", "Diamagnetic", "Paramagnetic", "Ferromagnetic"]}
+        rows={[
+          { cells: ["Susceptibility χ", "Negative, small (χ < 0)", "Positive, small (χ > 0)", "Positive, large (χ >> 0)"] },
+          { cells: ["Relative permeability µr", "0 ≤ µr < 1", "1 < µr < 1 + ε", "µr >> 1"] },
+          { cells: ["Behavior in external field", "Repelled; moves stronger to weaker", "Weakly attracted; moves weaker to stronger", "Strongly attracted; moves weaker to stronger"] },
+          { cells: ["Atomic / molecular structure", "No net magnetic moment", "Net magnetic moment; randomly oriented", "Permanent dipole moment (domain structures)"] },
+          { cells: ["Examples", "Bismuth, copper, lead, silicon, nitrogen", "Aluminium, calcium, oxygen, CuCl₂", "Iron, cobalt, nickel"] },
         ]}
       />
+      <KeyPoint title="Exam Question (March 2021)">
+        Given the behavior of magnetic field lines near two magnetic substances <strong>P</strong> and <strong>Q</strong>, identify the paramagnetic substance. The magnetic susceptibility of substance <strong>P</strong> is <Highlight color="green">positive</Highlight>.
+      </KeyPoint>
 
       <h2 id="h-5-connections">Electrostatics ↔ Magnetism: Concept Connections</h2>
       <p>
