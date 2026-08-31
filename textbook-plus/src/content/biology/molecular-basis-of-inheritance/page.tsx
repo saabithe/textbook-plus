@@ -305,10 +305,14 @@ export default function MolecularBasisOfInheritanceChapter() {
         steps={[
           { label: "1. Prokaryotes — Nucleoid", description: "Negatively charged DNA wrapped around positively charged proteins — held in large loops in region called nucleoid (no defined nucleus)." },
           { label: "2. Eukaryotes — Histone octamer", description: "Positively charged basic proteins rich in Lysine (Lys) & Arginine (Arg) — Lys & Arg carry positive charges. Eight molecules form histone octamer." },
-          { label: "Nucleosome — H1 stabilised", description: "Negatively charged DNA wraps around histone octamer core, stabilised by H1 histone (Figure 5.4a). ~200 bp per nucleosome — repeating unit of chromatin (Figure 5.4 — alt: spherical octamer of 8 histones wrapped by DNA thread, secured by H1 at entry/exit)." },
+          { label: "Nucleosome — H1 stabilised", description: "Negatively charged DNA wraps around histone octamer core, stabilised by H1 histone (Figure 5.4a). ~200 bp per nucleosome — repeating unit of chromatin." },
           { label: "Beads-on-string → Chromatin fibre → Chromosome", description: "Nucleosomes give beads-on-string appearance under EM (Figure 5.4b). Further coiled with NHC proteins into chromatin fibres. Hierarchy: DNA → Nucleosome → Chromatin fibre → Chromosome (metaphase condensed)." },
         ]}
       />
+      <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
+        <img src="/images/biology/molecular-basis-of-inheritance/figure-5.4a-nucleosome.png" alt="A structural model of a nucleosome core showing a spherical octamer composed of 8 histone proteins wrapped by a double-stranded DNA thread, secured at the entry/exit point by an H1 histone protein unit." className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <figcaption className="text-xs text-muted-foreground mt-3 text-center">Figure 5.4a — Nucleosome core: 8 histones wrapped by DNA, secured by H1</figcaption>
+      </figure>
       <FormulaBlock latex={String.raw`\text{DNA} \rightarrow \text{Nucleosome} \rightarrow \text{Chromatin fibre} \rightarrow \text{Chromosome}`} />
       <TableCard
         caption="Types of Chromatin"
