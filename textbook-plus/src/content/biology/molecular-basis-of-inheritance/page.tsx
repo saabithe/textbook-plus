@@ -484,11 +484,26 @@ export default function MolecularBasisOfInheritanceChapter() {
       </ul>
 
       <h2 id="h-5-4">5.4 Replication</h2>
+      <h3 id="h-5-4-semiconservative">Semiconservative Scheme</h3>
       <Callout type="note" title="Watson–Crick 1953">
         “It has not escaped our notice that the specific pairing we have postulated immediately suggests a possible <strong>copying mechanism</strong>.”
         Each strand separates and acts as template for new complementary strand → after replication each DNA has <Highlight color="yellow">one parental + one new strand</Highlight> → <strong>semiconservative</strong> (Figure 5.6).
       </Callout>
+      <p className="mt-4">
+        <strong>Mechanism:</strong> DNA replicates in a <strong>semiconservative manner</strong>. The original DNA strands separate, with each original strand acting as a <strong>template strand</strong> to synthesize a new <strong>complementary strand</strong>.
+      </p>
+
       <h3 id="h-5-4-1">5.4.1 The Experimental Proof — Meselson & Stahl (1958)</h3>
+      <p><strong>Researchers:</strong> Matthew Meselson and Franklin Stahl.</p>
+      <p><strong>Organism Used:</strong> <em>E. coli</em>.</p>
+      <p><strong>Isotope & Density Gradient Technique:</strong> Used heavy nitrogen isotope (<span className="font-mono">¹⁵N</span> in ammonium chloride, <span className="font-mono">¹⁵NH₄Cl</span>) and standard nitrogen isotope (<span className="font-mono">¹⁴N</span> in <span className="font-mono">¹⁴NH₄Cl</span>), separated using Cesium Chloride (<span className="font-mono">CsCl</span>) density gradient centrifugation.</p>
+      <p><strong>Generation Timeline & Results:</strong></p>
+      <ul className="list-disc pl-5 space-y-1 mt-2">
+        <li><strong>0 min (Initial):</strong> Both strands contain <span className="font-mono">¹⁵N</span> (<span className="font-mono">¹⁵N¹⁵N</span>) → <strong>Heavy density</strong> band.</li>
+        <li><strong>20 min (1st Generation):</strong> All DNA molecules contain one <span className="font-mono">¹⁵N</span> strand and one <span className="font-mono">¹⁴N</span> strand (<span className="font-mono">¹⁵N¹⁴N</span>) → <strong>Hybrid / Intermediate density</strong> band.</li>
+        <li><strong>40 min (2nd Generation):</strong> Equal proportion of hybrid (<span className="font-mono">¹⁵N¹⁴N</span>) and light (<span className="font-mono">¹⁴N¹⁴N</span>) DNA → <strong>Intermediate density</strong> and <strong>Light density</strong> bands.</li>
+        <li><strong>60 min / 80 min (Subsequent Generations):</strong> Higher proportion of light density DNA (<span className="font-mono">¹⁴N¹⁴N</span>) relative to hybrid DNA.</li>
+      </ul>
       <Stepper
         steps={[
           { label: "Grow in ¹⁵N", description: "E. coli in ¹⁵NH₄Cl (heavy N) for many generations → heavy DNA (¹⁵N). Distinguish by CsCl density gradient (¹⁵N not radioactive, separated by density only)." },
@@ -514,7 +529,46 @@ export default function MolecularBasisOfInheritanceChapter() {
       <Callout type="note" title="Centrifugation note">
         Can you recall centrifugal force? Higher mass/density sediments faster → heavy (¹⁵N) at bottom, light (¹⁴N) at top, hybrid in middle on CsCl gradient (Figure 5.7).
       </Callout>
-      <h3 id="h-5-4-2">5.4.2 The Machinery and the Enzymes</h3>
+
+      <h3 id="h-5-4-taylor">Taylor and Colleagues Experiment (1958)</h3>
+      <p><strong>Researchers:</strong> Taylor and colleagues.</p>
+      <p><strong>Organism Used:</strong> Plant – <em>Vicia faba</em> (Faba bean).</p>
+      <p><strong>Medium Used:</strong> <strong>Radioactive Thymidine</strong>.</p>
+      <Callout type="note">
+        <strong>Conclusion:</strong> Proved that DNA replication in chromosomes also proceeds in a <strong>semiconservative manner</strong> in eukaryotes.
+      </Callout>
+
+      <h3 id="h-5-4-2">5.4.2 DNA Replication Process</h3>
+      <p><strong>Key Characteristics:</strong></p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li><strong>Mode of Replication:</strong> Proceeds in a <strong>semiconservative manner</strong>.</li>
+        <li><strong>Main Enzyme:</strong> <strong>DNA-dependent DNA polymerase</strong>.</li>
+        <li><strong>Replication Rate in <em>E. coli</em>:</strong> Total genome size: <span className="font-mono">4.6 × 10⁶ bp</span>. Rate of polymerization: <strong>2000 bp/sec</strong>.</li>
+        <li><strong>Energy Source:</strong> <strong>Deoxynucleoside triphosphates</strong> act as both substrates and provide energy for polymerization.</li>
+      </ul>
+
+      <h4>Mechanism of Replication</h4>
+      <ul className="list-disc pl-5 space-y-1">
+        <li><strong>Origin of Replication:</strong> Specific site where replication initiates.</li>
+        <li><strong>Helicase:</strong> Unwinds the double-stranded DNA to form the <strong>Replication Fork</strong>.</li>
+        <li><strong>Direction of Synthesis:</strong> DNA polymerase synthesizes new strands exclusively in the <strong>5' → 3' direction</strong>.</li>
+      </ul>
+
+      <h5>Strand Synthesis Types:</h5>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>
+          <strong>Leading Strand (Continuous Synthesis):</strong> Formed on the <strong>3' → 5' template strand</strong>. The new strand is synthesized continuously in the 5' → 3' direction.
+        </li>
+        <li>
+          <strong>Lagging Strand (Discontinuous Synthesis):</strong> Formed on the <strong>5' → 3' template strand</strong>. The new strand is synthesized discontinuously as small fragments (Okazaki fragments) which are later joined by <strong>DNA ligase</strong>.
+        </li>
+      </ul>
+
+      <Callout type="note" title="Centrifugation note">
+        Can you recall centrifugal force? Higher mass/density sediments faster → heavy (¹⁵N) at bottom, light (¹⁴N) at top, hybrid in middle on CsCl gradient (Figure 5.7).
+      </Callout>
+
+      <h3 id="h-5-4-3">5.4.3 The Machinery and the Enzymes</h3>
       <FactCard
         title="Main enzyme"
         definition="DNA-dependent DNA polymerase — uses DNA template to polymerise deoxynucleotides. E. coli 4.6×10⁶ bp vs human diploid 6.6×10⁹ bp. E. coli finishes in 18 min → ~2000 bp/s. Must be fast and highly accurate; errors → mutations."
