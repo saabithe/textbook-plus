@@ -387,6 +387,7 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
       { id: "h-5-9-2", title: "5.9.2 Applications and Challenges" },
     ]},
     { id: "h-5-10", title: "5.10 DNA Fingerprinting" },
+    { id: "h-5-11", title: "5.11 Key Scientists of This Chapter" },
   ],
   "electric-charges-and-fields": [
     { id: "h-1-1", title: "1.1 Introduction" },

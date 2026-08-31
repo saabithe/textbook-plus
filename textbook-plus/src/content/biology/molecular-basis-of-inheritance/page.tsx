@@ -415,26 +415,20 @@ export default function MolecularBasisOfInheritanceChapter() {
         </li>
       </ul>
       <h4 className="text-sm font-semibold mt-4">Experimental Steps:</h4>
-      <div className="grid gap-3 lg:grid-cols-5 my-4">
-        <div className="lg:col-span-3">
-          <Stepper
-            steps={[
-              { label: "Infection", description: "Radiolabeled phages allowed to infect E. coli." },
-              { label: "Blending", description: "Agitation in a blender to separate viral coats from bacterial cells." },
-              { label: "Centrifugation", description: "Separation of lighter viral particles (supernatant) from heavier bacterial cells (pellet)." },
-            ]}
-          />
-          <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hershey_Chase_experiment.png" alt="Figure 5.5 The Hershey-Chase experiment — 35S protein vs 32P DNA labeling, blender and centrifuge separation" className="w-full h-auto rounded-lg object-contain max-h-[320px] mx-auto bg-white" loading="lazy" />
-            <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.5 — Hershey–Chase experiment (³⁵S protein vs ³²P DNA)</figcaption>
-          </figure>
-        </div>
-        <div className="lg:col-span-2">
-          <KeyPoint title="Unequivocal proof">
-            <Highlight color="yellow">DNA is the genetic material</Highlight> passed from virus to bacteria (Figure 5.5).
-          </KeyPoint>
-        </div>
-      </div>
+      <Stepper
+        steps={[
+          { label: "Infection", description: "Radiolabeled phages allowed to infect E. coli." },
+          { label: "Blending", description: "Agitation in a blender to separate viral coats from bacterial cells." },
+          { label: "Centrifugation", description: "Separation of lighter viral particles (supernatant) from heavier bacterial cells (pellet)." },
+        ]}
+      />
+      <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hershey_Chase_experiment.png" alt="Figure 5.5 The Hershey-Chase experiment — 35S protein vs 32P DNA labeling, blender and centrifuge separation" className="w-full h-auto rounded-lg object-contain max-h-[320px] mx-auto bg-white" loading="lazy" />
+        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.5 — Hershey–Chase experiment (³⁵S protein vs ³²P DNA)</figcaption>
+      </figure>
+      <KeyPoint title="Unequivocal proof">
+        <Highlight color="yellow">DNA is the genetic material</Highlight> passed from virus to bacteria (Figure 5.5).
+      </KeyPoint>
       <h3 id="h-5-2-2">5.2.2 Properties of Genetic Material (DNA vs RNA)</h3>
       <p>In some viruses (TMV, QB bacteriophage) RNA is the genetic material. Why is DNA predominant while RNA is messenger/adapter? To function as genetic material, a molecule must fulfill four requirements:</p>
       <ul className="list-disc pl-5 space-y-1 text-sm">
@@ -825,6 +819,36 @@ export default function MolecularBasisOfInheritanceChapter() {
           <li>RNA to DNA flow name? → Teminism / Reverse transcription.</li>
         </ul>
       </Expandable>
+
+      <h2 id="h-5-11">5.11 Key Scientists of This Chapter</h2>
+      <p className="text-sm text-muted-foreground">
+        This chapter traces a chain of discoveries. Read it in order — each scientist’s contribution only makes sense after the one before.
+      </p>
+      <Timeline
+        title="Who did what, and when"
+        events={[
+          { date: "1869", label: "Friedrich Miescher", detail: "Identified “nuclein” (DNA) in white blood cell nuclei." },
+          { date: "1928", label: "Frederick Griffith", detail: "Transforming principle — heat-killed S strain turns live R strain virulent (S. pneumoniae)." },
+          { date: "1933–44", label: "Avery, MacLeod & McCarty", detail: "DNA is the transforming principle — DNase abolishes transformation; proteases/RNases do not." },
+          { date: "1952", label: "Alfred Hershey & Martha Chase", detail: "³⁵S/³²P phage experiment — DNA enters bacteria, protein coat does not." },
+          { date: "1953", label: "James Watson & Francis Crick", detail: "Double helix model — built on Chargaff’s rule and Wilkins/Franklin X-ray data." },
+          { date: "1958", label: "Meselson & Stahl", detail: "Semiconservative replication proved by CsCl density-gradient centrifugation." },
+          { date: "1958", label: "Taylor et al.", detail: "Same semiconservative replication in eukaryotes (Vicia faba chromosomes)." },
+          { date: "1961", label: "Francis Crick", detail: "Central Dogma + tRNA adapter hypothesis." },
+          { date: "1960s", label: "Gamow, Khorana, Nirenberg & Ochoa", detail: "Cracked the genetic code — 4 bases → 4³ = 64 codons for 20 amino acids." },
+          { date: "1961", label: "François Jacob & Jacques Monod", detail: "lac operon — the first transcriptionally regulated system." },
+          { date: "1970s", label: "Frederick Sanger", detail: "Dideoxy DNA sequencing method." },
+          { date: "1970s", label: "Howard Temin", detail: "Reverse transcription (Teminism) — RNA → DNA flow." },
+          { date: "1984", label: "Alec Jeffreys", detail: "VNTR → DNA fingerprinting." },
+        ]}
+      />
+      <KeyPoint title="Common mix-ups to avoid">
+        <ul className="list-disc pl-5 space-y-1 text-sm">
+          <li><strong>Griffith (1928)</strong> found the transforming principle; <strong>Avery (1933–44)</strong> identified it as DNA.</li>
+          <li><strong>Hershey–Chase (1952)</strong> proved DNA is genetic material; <strong>Meselson–Stahl (1958)</strong> proved how it replicates.</li>
+          <li><strong>Watson &amp; Crick</strong> built the model on <strong>Wilkins &amp; Franklin’s</strong> X-ray data and <strong>Chargaff’s</strong> base ratios.</li>
+        </ul>
+      </KeyPoint>
     </>
   );
 }
