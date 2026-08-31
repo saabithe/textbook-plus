@@ -167,7 +167,7 @@ export default function MolecularBasisOfInheritanceChapter() {
         </li>
       </ul>
       <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Phosphodiester_Bond_Diagram.svg/800px-Phosphodiester_Bond_Diagram.svg.png" alt="Polynucleotide chain backbone — alternating sugar-phosphate via 3'–5' phosphodiester bonds" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Phosphodiester_Bond_Diagram.svg" alt="Polynucleotide chain backbone — alternating sugar-phosphate via 3'–5' phosphodiester bonds" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">Polynucleotide chain: alternating sugar (pentagon) — phosphate (P) via 3&apos;–5&apos; phosphodiester bonds; 5&apos; phosphate (top) → 3&apos; OH (bottom); bases to the right (Figure 5.1).</figcaption>
       </figure>
       <Callout type="note" title="Polarity — quick recap">
@@ -214,7 +214,7 @@ export default function MolecularBasisOfInheritanceChapter() {
       </Expandable>
       <p>Because strands are complementary, knowing one strand predicts the other. Each parental strand as template → two daughter DNAs identical to parental.</p>
       <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/DNA_Structure%2BKey-Labelled.pn_NoBB.png/800px-DNA_Structure%2BKey-Labelled.pn_NoBB.png" alt="A detailed structural diagram of antiparallel double-stranded DNA showing a 5' to 3' strand paired with a 3' to 5' strand. Sugar-phosphate backbones form the outer structural support, with complementary nitrogenous bases extending inwards—Adenine paired to Thymine via double hydrogen bonds, and Guanine paired to Cytosine via triple hydrogen bonds." className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DNA_double_helix_horizontal.png" alt="A detailed structural diagram of antiparallel double-stranded DNA showing a 5' to 3' strand paired with a 3' to 5' strand. Sugar-phosphate backbones form the outer structural support, with complementary nitrogenous bases extending inwards—Adenine paired to Thymine via double hydrogen bonds, and Guanine paired to Cytosine via triple hydrogen bonds." className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">Antiparallel 5&apos;→3&apos; / 3&apos;→5&apos; duplex — sugar-phosphate outer backbone, inner bases: A–T (2 H-bonds), G–C (3 H-bonds); right-handed, pitch 3.4 nm ≈10 bp.</figcaption>
       </figure>
       <ConceptCard title="Salient Features of DNA Double Helix (Figure 5.2, 5.3)">
@@ -257,7 +257,7 @@ export default function MolecularBasisOfInheritanceChapter() {
         ]}
       />
       <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Nucleosome_structure.png/800px-Nucleosome_structure.png" alt="Figure 5.4a/b Nucleosome and beads-on-string — DNA wrapped around histone octamer" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Nucleosome_structure.png" alt="Figure 5.4a/b Nucleosome and beads-on-string — DNA wrapped around histone octamer" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">Left: nucleosome — 8 histones (Lys/Arg rich) + ~200 bp DNA wrapped. Right: beads-on-string chromatin viewed under EM; further coiling forms chromosomes.</figcaption>
       </figure>
       <Comparison
@@ -331,7 +331,7 @@ export default function MolecularBasisOfInheritanceChapter() {
         <Highlight color="yellow">DNA is the genetic material</Highlight> passed from virus to bacteria (Figure 5.5).
       </KeyPoint>
       <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Hershey-Chase_experiment.svg/800px-Hershey-Chase_experiment.svg.png" alt="Figure 5.5 Hershey–Chase experiment — 32P DNA vs 35S protein" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hershey_Chase_experiment.png" alt="Figure 5.5 Hershey–Chase experiment — 32P DNA vs 35S protein" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">³²P (DNA) → pellet radioactive; ³⁵S (protein) → supernatant radioactive. DNA enters bacteria.</figcaption>
       </figure>
 
@@ -370,7 +370,7 @@ export default function MolecularBasisOfInheritanceChapter() {
         Each strand separates and acts as template for new complementary strand → after replication each DNA has <Highlight color="yellow">one parental + one new strand</Highlight> → <strong>semiconservative</strong> (Figure 5.6).
       </Callout>
       <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/DNA_replication_semiconservative.png/800px-DNA_replication_semiconservative.png" alt="Figure 5.6 Semiconservative DNA replication — one parental + one new strand per daughter" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DNA_replication.svg" alt="Figure 5.6 Semiconservative DNA replication — one parental + one new strand per daughter" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">Each parental strand as template → two daughters identical to parental, each with one old + one new strand.</figcaption>
       </figure>
 
@@ -401,7 +401,7 @@ export default function MolecularBasisOfInheritanceChapter() {
         Can you recall centrifugal force? Higher mass/density sediments faster → heavy (¹⁵N) at bottom, light (¹⁴N) at top, hybrid in middle on CsCl gradient (Figure 5.7).
       </Callout>
       <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Meselson-Stahl_experiment.svg/800px-Meselson-Stahl_experiment.svg.png" alt="Figure 5.7 Meselson and Stahl — CsCl gradient heavy/hybrid/light bands" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Meselson-stahl_experiment_diagram_en.svg" alt="Figure 5.7 Meselson and Stahl — CsCl gradient heavy/hybrid/light bands" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">CsCl gradient: heavy (¹⁵N) bottom, light (¹⁴N) top; 1 gen → single hybrid band, 2 gens → hybrid + light.</figcaption>
       </figure>
 
@@ -426,7 +426,7 @@ export default function MolecularBasisOfInheritanceChapter() {
       />
 
             <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/DNA_replication_fork.svg/800px-DNA_replication_fork.svg.png" alt="Figure 5.8 Replicating fork — continuous vs discontinuous Okazaki fragments" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DNA_replication.svg" alt="Figure 5.8 Replicating fork — continuous vs discontinuous Okazaki fragments" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">Fork: continuous on 3&apos;→5&apos; template, discontinuous Okazaki on 5&apos;→3&apos; template (ligase joins); origin required.</figcaption>
       </figure>
 
@@ -458,7 +458,7 @@ export default function MolecularBasisOfInheritanceChapter() {
       </Callout>
 
             <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Transcription_unit.svg/800px-Transcription_unit.svg.png" alt="Figure 5.9 Transcription unit — promoter, structural gene, terminator" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Transcription.svg" alt="Figure 5.9 Transcription unit — promoter, structural gene, terminator" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">Promoter (upstream, 5&apos;) — Structural gene — Terminator (downstream, 3&apos;); template 3&apos;→5&apos;, coding 5&apos;→3&apos;.</figcaption>
       </figure>
 
@@ -491,7 +491,7 @@ export default function MolecularBasisOfInheritanceChapter() {
         ]}
       />
             <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Transcription_bacteria.svg/800px-Transcription_bacteria.svg.png" alt="Figure 5.10 Transcription in bacteria — single polymerase, sigma/rho factors" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Transcription.svg" alt="Figure 5.10 Transcription in bacteria — single polymerase, sigma/rho factors" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">Bacterial: single RNA polymerase + σ (initiation) / ρ (termination); coupled transcription-translation.</figcaption>
       </figure>
 
@@ -531,7 +531,7 @@ export default function MolecularBasisOfInheritanceChapter() {
         ]}
       />
             <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Transcription_eukaryote.svg/800px-Transcription_eukaryote.svg.png" alt="Figure 5.11 Transcription in eukaryotes — three polymerases, splicing, capping, tailing" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Transcription.svg" alt="Figure 5.11 Transcription in eukaryotes — three polymerases, splicing, capping, tailing" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">Three polymerases; hnRNA → splicing + capping + tailing → mRNA exported for translation.</figcaption>
       </figure>
 
@@ -585,7 +585,7 @@ export default function MolecularBasisOfInheritanceChapter() {
       />
 
             <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/TRNA_cloverleaf.svg/800px-TRNA_cloverleaf.svg.png" alt="Figure 5.12 tRNA — clover-leaf and inverted L, anticodon loop and acceptor end" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cloverleaf.svg" alt="Figure 5.12 tRNA — clover-leaf and inverted L, anticodon loop and acceptor end" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">Clover-leaf secondary → compact inverted L; anticodon loop + amino acid acceptor end.</figcaption>
       </figure>
 
@@ -601,7 +601,7 @@ export default function MolecularBasisOfInheritanceChapter() {
       />
 
             <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Translation_process.svg/800px-Translation_process.svg.png" alt="Figure 5.13 Translation — ribosome, charging, peptide bond, UTRs" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Translation.svg" alt="Figure 5.13 Translation — ribosome, charging, peptide bond, UTRs" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">Charging → ribosome (2 subunits) → peptide bond (ribozyme) → UTR-flanked translational unit.</figcaption>
       </figure>
 
@@ -642,7 +642,7 @@ export default function MolecularBasisOfInheritanceChapter() {
         ]}
       />
             <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Lac_operon_2021.svg/800px-Lac_operon_2021.svg.png" alt="Figure 5.14 Lac operon — i, z, y, a genes, promoter, operator, repressor, inducer" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lac_Operon.svg" alt="Figure 5.14 Lac operon — i, z, y, a genes, promoter, operator, repressor, inducer" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">i (repressor) → p (promoter) — o (operator) — z,y,a (structural); lactose inducer switches OFF → ON.</figcaption>
       </figure>
 
@@ -683,7 +683,7 @@ export default function MolecularBasisOfInheritanceChapter() {
         ]}
       />
             <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Human_Genome_Project.svg/800px-Human_Genome_Project.svg.png" alt="Figure 5.15 HGP — BAC/YAC cloning, Sanger sequencing, assembly" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Human_genome.png" alt="Figure 5.15 HGP — BAC/YAC cloning, Sanger sequencing, assembly" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">DNA → fragments → BAC/YAC clones → Sanger sequencing → overlap assembly → chromosome assignment.</figcaption>
       </figure>
 
@@ -740,7 +740,7 @@ export default function MolecularBasisOfInheritanceChapter() {
         ]}
       />
             <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/DNA_fingerprinting_gel.png/800px-DNA_fingerprinting_gel.png" alt="Figure 5.16 DNA fingerprinting — VNTR, Southern blot, gel bands" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Human_genome.png" alt="Figure 5.16 DNA fingerprinting — VNTR, Southern blot, gel bands" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-3 text-center">VNTR copy number varies (0.1–20 kb) → Southern blot bands → fingerprint; crime scene matches B, not A (identical twins same).</figcaption>
       </figure>
 
