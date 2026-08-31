@@ -829,18 +829,19 @@ export default function MolecularBasisOfInheritanceChapter() {
         orientation="horizontal"
         rtl
         events={[
-          { date: "1869", label: "Friedrich Miescher", detail: "Identified “nuclein” (DNA) in white blood cell nuclei." },
+          { date: "1869", label: "Friedrich Miescher", detail: "Identified 'nuclein' (DNA) in white blood cell nuclei." },
           { date: "1928", label: "Frederick Griffith", detail: "Transforming principle — heat-killed S strain turns live R strain virulent (S. pneumoniae)." },
           { date: "1933–44", label: "Avery, MacLeod & McCarty", detail: "DNA is the transforming principle — DNase abolishes transformation; proteases/RNases do not." },
+          { date: "1950", label: "Erwin Chargaff", detail: "Chargaff's rule — A=T, G=C; base composition of DNA." },
           { date: "1952", label: "Alfred Hershey & Martha Chase", detail: "³⁵S/³²P phage experiment — DNA enters bacteria, protein coat does not." },
-          { date: "1953", label: "James Watson & Francis Crick", detail: "Double helix model — built on Chargaff’s rule and Wilkins/Franklin X-ray data." },
+          { date: "1952", label: "Rosalind Franklin & Maurice Wilkins", detail: "X-ray diffraction (Photo 51) revealing DNA's helical structure." },
+          { date: "1953", label: "James Watson & Francis Crick", detail: "Double helix model — built on Chargaff's rule and Wilkins/Franklin X-ray data." },
           { date: "1958", label: "Meselson & Stahl", detail: "Semiconservative replication proved by CsCl density-gradient centrifugation." },
           { date: "1958", label: "Taylor et al.", detail: "Same semiconservative replication in eukaryotes (Vicia faba chromosomes)." },
           { date: "1961", label: "Francis Crick", detail: "Central Dogma + tRNA adapter hypothesis." },
           { date: "1960s", label: "Gamow, Khorana, Nirenberg & Ochoa", detail: "Cracked the genetic code — 4 bases → 4³ = 64 codons for 20 amino acids." },
           { date: "1961", label: "François Jacob & Jacques Monod", detail: "lac operon — the first transcriptionally regulated system." },
           { date: "1970s", label: "Frederick Sanger", detail: "Dideoxy DNA sequencing method." },
-          { date: "1970s", label: "Howard Temin", detail: "Reverse transcription (Teminism) — RNA → DNA flow." },
           { date: "1984", label: "Alec Jeffreys", detail: "VNTR → DNA fingerprinting." },
         ]}
       />
