@@ -161,14 +161,28 @@ export default function MolecularBasisOfInheritanceChapter() {
         Polymer has <Highlight color="yellow">5&apos; end</Highlight> (free phosphate at 5&apos; sugar) and <Highlight color="green">3&apos; end</Highlight> (free –OH at 3&apos; sugar). Backbone = sugar-phosphate; bases project from it. Same convention defines Template (3&apos;→5&apos;) vs Coding (5&apos;→3&apos;) later in Transcription.
       </Callout>
       <Callout type="note" title="DNA Double Helix – History">
-        <ul className="list-disc pl-5 space-y-1.5">
+        <ul className="list-disc pl-5 space-y-2">
           <li>
-            <strong>1869 – Friedrich Miescher:</strong> Identified &ldquo;Nuclein&rdquo;, an acidic substance. Progress was delayed due to technical limitations in isolating the long polymer intact.
+            <strong>1869 – Friedrich Miescher</strong>
+            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
+              <li>Identified &ldquo;Nuclein&rdquo; — an acidic substance in nucleus</li>
+              <li>Progress delayed — technical limitations in isolating long polymer intact</li>
+            </ul>
           </li>
           <li>
-            <strong>1953 – James Watson and Francis Crick:</strong> Proposed the <Highlight color="yellow">DNA double helical model</Highlight>, based on X-ray diffraction data produced by <strong>Maurice Wilkins</strong> and <strong>Rosalind Franklin</strong>.
+            <strong>1953 – Watson & Crick</strong>
+            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
+              <li>Proposed <Highlight color="yellow">DNA double helical model</Highlight></li>
+              <li>Based on X-ray diffraction data — <strong>Maurice Wilkins & Rosalind Franklin</strong></li>
+            </ul>
           </li>
-          <li>The main hallmark of the double helix model of DNA is <Highlight color="yellow">base pairing</Highlight> — purine opposite pyrimidine, giving uniform distance.</li>
+          <li>
+            <strong>Hallmark</strong> — <Highlight color="yellow">base pairing</Highlight>
+            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
+              <li>Purine opposite pyrimidine</li>
+              <li>Gives uniform distance between strands</li>
+            </ul>
+          </li>
         </ul>
       </Callout>
       <Callout type="important" title="Chargaff's Rule — Erwin Chargaff">
@@ -201,30 +215,67 @@ export default function MolecularBasisOfInheritanceChapter() {
       </Expandable>
       <p>Because strands are complementary, knowing one strand predicts the other. Each parental strand as template → two daughter DNAs identical to parental.</p>
       <ConceptCard title="Salient Features of DNA Double Helix (Figure 5.2, 5.3)">
-        <ul className="list-disc pl-5 space-y-1.5">
+        <ul className="list-disc pl-5 space-y-3">
           <li>
-            <strong>1. Composition & Backbone:</strong> Composed of <strong>2 polynucleotide chains</strong>. The <strong>sugar and phosphate</strong> form the outer backbone, while the <strong>nitrogenous bases project inside</strong>.
+            <strong>1. Composition & Backbone</strong>
+            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
+              <li>Composed of <strong>2 polynucleotide chains</strong></li>
+              <li><strong>Sugar-phosphate</strong> forms outer backbone</li>
+              <li><strong>Bases project inside</strong></li>
+            </ul>
           </li>
           <li>
-            <strong>2. Antiparallel Polarity:</strong> The two chains run in opposite directions (<strong>5&apos; → 3&apos;</strong> and <strong>3&apos; → 5&apos;</strong>).
+            <strong>2. Antiparallel Polarity</strong>
+            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
+              <li>Two chains run opposite</li>
+              <li>One <strong>5&apos; → 3&apos;</strong>, the other <strong>3&apos; → 5&apos;</strong></li>
+            </ul>
           </li>
           <li>
-            <strong>3. Hydrogen Bonding:</strong> The two chains are held together by hydrogen bonds between complementary base pairs. Adenine pairs with Thymine via <strong>2 H-bonds (A = T)</strong>. Guanine pairs with Cytosine via <strong>3 H-bonds (G ≡ C)</strong>.
+            <strong>3. Hydrogen Bonding</strong>
+            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
+              <li>Held together by <strong>H-bonds</strong> between complementary pairs</li>
+              <li><strong>A = T</strong> via <strong>2 H-bonds</strong></li>
+              <li><strong>G ≡ C</strong> via <strong>3 H-bonds</strong></li>
+            </ul>
           </li>
           <li>
-            <strong>4. Coiling & Pitch:</strong> The two chains are coiled in a <strong>right-handed fashion</strong>. <strong>Pitch of helix</strong> (one complete turn) = <strong>3.4 nm</strong> (contains 10 bp). <strong>Distance between two consecutive base pairs</strong> = <strong>0.34 nm</strong>.
+            <strong>4. Coiling & Pitch</strong>
+            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
+              <li>Coiled in <strong>right-handed</strong> fashion</li>
+              <li><strong>Pitch</strong> (one turn) = <strong>3.4 nm</strong> — contains <strong>10 bp</strong></li>
+              <li>Distance between 2 consecutive bp = <strong>0.34 nm</strong></li>
+            </ul>
           </li>
           <li>
-            <strong>5. Stability:</strong> Base pairs stack one over the other in a double helix, conferring additional stability to the helical structure.
+            <strong>5. Stability</strong>
+            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
+              <li>Base pairs <strong>stack</strong> one over the other</li>
+              <li>In addition to H-bonds, confers stability</li>
+            </ul>
           </li>
         </ul>
       </ConceptCard>
+      <div className="grid gap-4 sm:grid-cols-2 my-6">
+        <figure className="rounded-xl border border-border/60 bg-card p-3">
+          <img src="/images/biology/molecular-basis-of-inheritance/ds-polynucleotide-chain.png" alt="Double stranded polynucleotide chain — two anti-parallel strands with complementary base pairing, purine opposite pyrimidine" className="w-full h-auto rounded-lg object-contain max-h-[320px] mx-auto bg-white" loading="lazy" />
+          <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.2 — Double stranded polynucleotide chain</figcaption>
+        </figure>
+        <figure className="rounded-xl border border-border/60 bg-card p-3">
+          <img src="/images/biology/molecular-basis-of-inheritance/dna-double-helix.png" alt="A detailed structural diagram of antiparallel double-stranded DNA showing a 5&apos; to 3&apos; strand paired with a 3&apos; to 5&apos; strand. Sugar-phosphate backbones form the outer structural support, with complementary nitrogenous bases extending inwards—Adenine paired to Thymine via double hydrogen bonds, and Guanine paired to Cytosine via triple hydrogen bonds." className="w-full h-auto rounded-lg object-contain max-h-[320px] mx-auto bg-white" loading="lazy" />
+          <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.3 — DNA double helix (pitch 3.4 nm, 10 bp/turn)</figcaption>
+        </figure>
+      </div>
       <Expandable title="Why does purine–pyrimidine pairing keep distance constant?">
         <p>Purine (double ring) opposite pyrimidine (single ring) gives roughly constant width. Purine–purine would be too wide, pyrimidine–pyrimidine too narrow — Chargaff’s pairing solves this.</p>
       </Expandable>
       <KeyPoint title="Central Dogma — Crick">
         Genetic information flows <Highlight color="yellow">DNA → RNA → Protein</Highlight>. In some viruses flow reverses: <strong>RNA → DNA</strong> (reverse transcription).
       </KeyPoint>
+      <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
+        <img src="/images/biology/molecular-basis-of-inheritance/central-dogma.png" alt="Central dogma — genetic information flows from DNA to RNA to Protein, with reverse flow RNA to DNA in some viruses" className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
+        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Central Dogma — DNA → RNA → Protein (reverse: RNA → DNA in retroviruses)</figcaption>
+      </figure>
 
       <h3 id="h-5-1-2">5.1.2 Packaging of DNA Helix</h3>
       <MetricCard label="DNA in a mammalian cell" value="2.2 metres" unit="6.6 × 10⁹ bp × 0.34 nm/bp" trend="up" description="Far larger than nucleus (~10⁻⁶ m). Must be packaged." />
