@@ -328,46 +328,104 @@ export default function MolecularBasisOfInheritanceChapter() {
       </Expandable>
 
       <h2 id="h-5-2">5.2 The Search for Genetic Material</h2>
-      <p>
-        Meischer’s nuclein (1869) and Mendel’s factors were simultaneous, but “DNA is the genetic material” took decades. By 1926 chromosomes in the nucleus were narrowed as carriers — but which molecule?
-      </p>
+      <ul className="list-disc pl-5 space-y-1 text-sm">
+        <li>
+          <strong>1869:</strong> Identification of Nuclein (Miescher).
+        </li>
+        <li>
+          <strong>1926:</strong> Core question raised — chemical nature of genetic material?
+        </li>
+      </ul>
+      <p className="text-sm text-muted-foreground">Meischer’s nuclein and Mendel’s factors were simultaneous, but “DNA is the genetic material” took decades. By 1926 chromosomes were narrowed as carriers — but which molecule?</p>
 
-      <h3 id="h-5-2-transforming">Transforming Principle — Griffith (1928)</h3>
-      <Stepper
-        steps={[
-          { label: "S and R strains", description: "S. pneumoniae S strain → smooth shiny colonies + polysaccharide coat, virulent (kills mice). R strain → rough colonies, no coat, non-virulent." },
-          { label: "Heat-killed S alone", description: "Injected into mice → mice live. Bacteria dead." },
-          { label: "Live R alone", description: "Mice live." },
-          { label: "Heat-killed S + Live R", description: "Mice die. Living S bacteria recovered from dead mice — R had been transformed." },
+      <h3 id="h-5-2-transforming">1. Transforming Principle — Frederick Griffith (1928)</h3>
+      <ul className="list-disc pl-5 space-y-1 text-sm">
+        <li>
+          <strong>Organism Used:</strong> <em>Streptococcus pneumoniae</em>
+        </li>
+        <li>
+          <strong>Bacterial Strains:</strong>
+          <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
+            <li>
+              <strong>S strain (Smooth):</strong> mucus polysaccharide coat; virulent
+            </li>
+            <li>
+              <strong>R strain (Rough):</strong> lacks coat; non-virulent
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <h4 className="text-sm font-semibold mt-4">Experimental Procedure & Results:</h4>
+      <TableCard
+        headers={["Treatment", "Result"]}
+        rows={[
+          { cells: ["S strain → Injected into Mice", "Mice Died"] },
+          { cells: ["R strain → Injected into Mice", "Mice Lived"] },
+          { cells: ["Heat-Killed S strain → Injected into Mice", "Mice Lived"] },
+          { cells: ["Heat-Killed S + Live R → Injected into Mice", "Mice Died (Live S recovered)"] },
         ]}
       />
       <KeyPoint title="Griffith’s conclusion">
         Some <Highlight color="yellow">transforming principle</Highlight> from heat-killed S enabled R to make a smooth coat and become virulent — transfer of genetic material. Biochemical nature not defined yet.
       </KeyPoint>
 
-      <h3 id="h-5-2-avery">Biochemical Characterisation — Avery, MacLeod, McCarty (1933–44)</h3>
-      <Callout type="important">
-        Genetic material was thought to be <strong>protein</strong>. They purified proteins, DNA, RNA from heat-killed S and tested transformation of live R → S.
-        <ul className="list-disc pl-5 space-y-1 mt-2">
-          <li><strong>DNA alone</strong> caused transformation.</li>
-          <li>Proteases & RNases → transformation <strong>unaffected</strong> (not protein/RNA).</li>
-          <li>DNase → transformation <strong>inhibited</strong>.</li>
-        </ul>
-        Conclusion: <Highlight color="yellow">DNA is the hereditary material</Highlight> — but not all biologists convinced.
-      </Callout>
-      <Expandable title="DNAs vs DNase — what’s the difference?">
-        <p><strong>DNA</strong> is the polymer (genetic material). <strong>DNase</strong> is the enzyme that digests DNA. Avery used DNase to prove DNA’s role.</p>
-      </Expandable>
-
-      <h3 id="h-5-2-1">5.2.1 The Genetic Material is DNA — Hershey–Chase (1952)</h3>
-      <ProcessCard
-        steps={[
-          { label: "Bacteriophage attaches", description: "Phage genetic material enters bacterial cell; bacterial machinery makes more phages." },
-          { label: "Label separately", description: "Grow phages on ³²P medium → radioactive DNA (DNA has P, protein doesn’t). Grow on ³⁵S medium → radioactive protein (DNA has no S)." },
-          { label: "Infect + blend + centrifuge", description: "Radioactive phages attach to E. coli. Blend to shear coats, centrifuge to separate bacteria (pellet) from coats (supernatant)." },
-          { label: "Result", description: "Bacteria with ³²P-DNA phages → radioactive (DNA entered). Bacteria with ³⁵S-protein phages → not radioactive (protein did not enter)." },
+      <h3 id="h-5-2-avery">2. Biochemical Characterisation — Avery, MacLeod, McCarty (1933–44)</h3>
+      <ul className="list-disc pl-5 space-y-1 text-sm">
+        <li>
+          <strong>Researchers:</strong> Oswald Avery, Colin MacLeod, Maclyn McCarty
+        </li>
+        <li>
+          <strong>Objective:</strong> Determine chemical nature of transforming principle from Griffith’s experiment.
+        </li>
+      </ul>
+      <h4 className="text-sm font-semibold mt-4">Experimental Setup & Findings:</h4>
+      <p className="text-sm">Purified biomolecules (RNA, Protein, DNA) from Heat-Killed S strain and added them to Live R strain:</p>
+      <TableCard
+        headers={["Enzyme Added", "Effect", "Conclusion"]}
+        rows={[
+          { cells: ["Protease (destroys protein)", "Transformation still occurs (R → S)", "Protein is NOT genetic material"] },
+          { cells: ["RNase (destroys RNA)", "Transformation still occurs (R → S)", "RNA is NOT genetic material"] },
+          { cells: ["DNase (destroys DNA)", "Transformation inhibited (remains R)", "DNA IS the transforming principle"] },
         ]}
       />
+      <Expandable title="DNAs vs DNase — what’s the difference?">
+        <p>
+          <strong>DNA</strong> is the polymer (genetic material). <strong>DNase</strong> is the enzyme that digests DNA. Avery used DNase to prove DNA’s role.
+        </p>
+      </Expandable>
+
+      <h3 id="h-5-2-1">3. Proof That DNA is the Genetic Material — Hershey & Chase (1952)</h3>
+      <ul className="list-disc pl-5 space-y-1 text-sm">
+        <li>
+          <strong>Researchers:</strong> Alfred Hershey and Martha Chase
+        </li>
+        <li>
+          <strong>Experimental System:</strong> Bacteriophages (viruses that infect bacteria) and <em>E. coli</em>
+        </li>
+        <li>
+          <strong>Radioactive Isotope Labeling:</strong>
+          <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
+            <li>
+              <strong>³⁵S (Radioactive Sulfur):</strong> Labels viral <strong>protein coat</strong> (Sulfur in protein, absent in DNA)
+            </li>
+            <li>
+              <strong>³²P (Radioactive Phosphorus):</strong> Labels viral <strong>DNA</strong> (Phosphorus in DNA, absent in protein)
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <h4 className="text-sm font-semibold mt-4">Experimental Steps:</h4>
+      <Stepper
+        steps={[
+          { label: "Infection", description: "Radiolabeled phages allowed to infect E. coli." },
+          { label: "Blending", description: "Agitation in a blender to separate viral coats from bacterial cells." },
+          { label: "Centrifugation", description: "Separation of lighter viral particles (supernatant) from heavier bacterial cells (pellet)." },
+        ]}
+      />
+      <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hershey_Chase_experiment.png" alt="Figure 5.5 The Hershey-Chase experiment — 35S protein vs 32P DNA labeling, blender and centrifuge separation" className="w-full h-auto rounded-lg object-contain max-h-[320px] mx-auto bg-white" loading="lazy" />
+        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.5 — Hershey–Chase experiment (³⁵S protein vs ³²P DNA)</figcaption>
+      </figure>
       <KeyPoint title="Unequivocal proof">
         <Highlight color="yellow">DNA is the genetic material</Highlight> passed from virus to bacteria (Figure 5.5).
       </KeyPoint>
