@@ -415,30 +415,61 @@ export default function MolecularBasisOfInheritanceChapter() {
         </li>
       </ul>
       <h4 className="text-sm font-semibold mt-4">Experimental Steps:</h4>
-      <Stepper
-        steps={[
-          { label: "Infection", description: "Radiolabeled phages allowed to infect E. coli." },
-          { label: "Blending", description: "Agitation in a blender to separate viral coats from bacterial cells." },
-          { label: "Centrifugation", description: "Separation of lighter viral particles (supernatant) from heavier bacterial cells (pellet)." },
-        ]}
-      />
-      <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hershey_Chase_experiment.png" alt="Figure 5.5 The Hershey-Chase experiment — 35S protein vs 32P DNA labeling, blender and centrifuge separation" className="w-full h-auto rounded-lg object-contain max-h-[320px] mx-auto bg-white" loading="lazy" />
-        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.5 — Hershey–Chase experiment (³⁵S protein vs ³²P DNA)</figcaption>
-      </figure>
-      <KeyPoint title="Unequivocal proof">
-        <Highlight color="yellow">DNA is the genetic material</Highlight> passed from virus to bacteria (Figure 5.5).
-      </KeyPoint>
+      <div className="grid gap-3 lg:grid-cols-5 my-4">
+        <div className="lg:col-span-3">
+          <Stepper
+            steps={[
+              { label: "Infection", description: "Radiolabeled phages allowed to infect E. coli." },
+              { label: "Blending", description: "Agitation in a blender to separate viral coats from bacterial cells." },
+              { label: "Centrifugation", description: "Separation of lighter viral particles (supernatant) from heavier bacterial cells (pellet)." },
+            ]}
+          />
+          <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hershey_Chase_experiment.png" alt="Figure 5.5 The Hershey-Chase experiment — 35S protein vs 32P DNA labeling, blender and centrifuge separation" className="w-full h-auto rounded-lg object-contain max-h-[320px] mx-auto bg-white" loading="lazy" />
+            <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.5 — Hershey–Chase experiment (³⁵S protein vs ³²P DNA)</figcaption>
+          </figure>
+        </div>
+        <div className="lg:col-span-2">
+          <KeyPoint title="Unequivocal proof">
+            <Highlight color="yellow">DNA is the genetic material</Highlight> passed from virus to bacteria (Figure 5.5).
+          </KeyPoint>
+        </div>
+      </div>
       <h3 id="h-5-2-2">5.2.2 Properties of Genetic Material (DNA vs RNA)</h3>
-      <p>In some viruses (TMV, QB bacteriophage) RNA is the genetic material. Why is DNA predominant while RNA is messenger/adapter?</p>
+      <p>In some viruses (TMV, QB bacteriophage) RNA is the genetic material. Why is DNA predominant while RNA is messenger/adapter? To function as genetic material, a molecule must fulfill four requirements:</p>
+      <ul className="list-disc pl-5 space-y-1 text-sm">
+        <li>
+          <strong>1. Replication:</strong> It should be able to generate its replica.
+        </li>
+        <li>
+          <strong>2. Stability:</strong> It should be structurally and chemically stable.
+        </li>
+        <li>
+          <strong>3. Mutation/Evolution:</strong> It should undergo slow changes that lead to evolution.
+        </li>
+        <li>
+          <strong>4. Expression:</strong> It should be able to express itself in the form of Mendelian characters.
+        </li>
+      </ul>
       <TableCard
         caption="Four criteria for a molecule to act as genetic material"
         headers={["Criterion", "DNA", "RNA", "Protein"]}
         rows={[
-          { cells: ["(i) Replica (replication)", "Yes — complementarity directs duplication", "Yes — can duplicate", "Cannot direct its own duplication"] },
-          { cells: ["(ii) Stability (chemical/structural)", "High — less reactive, double-stranded, thymine + repair", "Low — 2&apos;-OH reactive, catalytic, labile", "Varies"] },
-          { cells: ["(iii) Scope for mutation/evolution", "Mutates but slower (stable)", "Mutates faster (unstable) → RNA viruses evolve faster", "—"] },
-          { cells: ["(iv) Express as Mendelian characters", "Via RNA → protein (needs RNA for expression)", "Directly codes for protein", "End product"] },
+          { cells: ["1. Replication", "Yes — complementarity directs duplication", "Yes — can duplicate", "Cannot direct its own duplication"] },
+          { cells: ["2. Stability", "High — less reactive, double-stranded, thymine + repair", "Low — 2'-OH reactive, catalytic, labile", "Varies"] },
+          { cells: ["3. Mutation / Evolution", "Mutates but slower (stable)", "Mutates faster (unstable) → RNA viruses evolve faster", "—"] },
+          { cells: ["4. Expression", "Via RNA → protein (needs RNA for expression)", "Directly codes for protein", "End product"] },
+        ]}
+      />
+      <TableCard
+        caption="DNA vs RNA"
+        headers={["Feature", "DNA (Deoxyribonucleic Acid)", "RNA (Ribonucleic Acid)"]}
+        rows={[
+          { cells: ["Structure", "Double-stranded", "Single-stranded"] },
+          { cells: ["Sugar reactive group", "2'-H group (non-reactive)", "2'-OH group (highly reactive, labile)"] },
+          { cells: ["Catalytic role", "No role as catalyst", "Can act as catalyst"] },
+          { cells: ["Base stability", "Contains Thymine (confers higher stability)", "Contains Uracil (less stable)"] },
+          { cells: ["Primary function", "Storing genetic information", "Transferring genetic information"] },
         ]}
       />
       <Callout type="note">
