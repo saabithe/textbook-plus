@@ -812,7 +812,7 @@ export default function MolecularBasisOfInheritanceChapter() {
         DNA fingerprinting works on <Highlight color="yellow">polymorphism in repetitive sequences</Highlight> — especially mini-satellite VNTRs. Copy number polymorphism → band pattern fingerprint.
       </KeyPoint>
 
-      <Expandable title="In-text questions — quick check">
+<Expandable title="In-text questions — quick check">
         <ul>
           <li>Two chemical differences between DNA and RNA? → DNA: deoxyribose (no 2&apos;-OH), thymine; RNA: ribose (2&apos;-OH), uracil.</li>
           <li>Reverse transcription name? → Reverse transcription / Central dogma reverse.</li>
@@ -822,7 +822,7 @@ export default function MolecularBasisOfInheritanceChapter() {
 
       <h2 id="h-5-11">5.11 Key Scientists of This Chapter</h2>
       <p className="text-sm text-muted-foreground">
-        This chapter traces a chain of discoveries. Read it in order — each scientist’s contribution only makes sense after the one before.
+        This chapter traces a chain of discoveries. Read it in order — each scientist's contribution only makes sense after the one before.
       </p>
       <Timeline
         title="Who did what, and when"
@@ -830,12 +830,12 @@ export default function MolecularBasisOfInheritanceChapter() {
         rtl
         events={[
           { date: "1869", label: "Friedrich Miescher", detail: "Identified 'nuclein' (DNA) in white blood cell nuclei." },
-          { date: "1928", label: "Frederick Griffith", detail: "Transforming principle — heat-killed S strain turns live R strain virulent (S. pneumoniae)." },
-          { date: "1933–44", label: "Avery, MacLeod & McCarty", detail: "DNA is the transforming principle — DNase abolishes transformation; proteases/RNases do not." },
           { date: "1950", label: "Erwin Chargaff", detail: "Chargaff's rule — A=T, G=C; base composition of DNA." },
-          { date: "1952", label: "Alfred Hershey & Martha Chase", detail: "³⁵S/³²P phage experiment — DNA enters bacteria, protein coat does not." },
           { date: "1952", label: "Rosalind Franklin & Maurice Wilkins", detail: "X-ray diffraction (Photo 51) revealing DNA's helical structure." },
           { date: "1953", label: "James Watson & Francis Crick", detail: "Double helix model — built on Chargaff's rule and Wilkins/Franklin X-ray data." },
+          { date: "1928", label: "Frederick Griffith", detail: "Transforming principle — heat-killed S strain turns live R strain virulent (S. pneumoniae)." },
+          { date: "1933–44", label: "Avery, MacLeod & McCarty", detail: "DNA is the transforming principle — DNase abolishes transformation; proteases/RNases do not." },
+          { date: "1952", label: "Alfred Hershey & Martha Chase", detail: "³⁵S/³²P phage experiment — DNA enters bacteria, protein coat does not." },
           { date: "1958", label: "Meselson & Stahl", detail: "Semiconservative replication proved by CsCl density-gradient centrifugation." },
           { date: "1958", label: "Taylor et al.", detail: "Same semiconservative replication in eukaryotes (Vicia faba chromosomes)." },
           { date: "1961", label: "Francis Crick", detail: "Central Dogma + tRNA adapter hypothesis." },

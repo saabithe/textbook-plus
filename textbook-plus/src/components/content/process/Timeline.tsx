@@ -93,7 +93,7 @@ export function Timeline({ title, events, orientation = "horizontal", rtl = true
                   <div className="w-2 h-2 rounded-full bg-primary" />
                 </div>
               )}
-              <div className="flex-shrink-0 w-[200px] rounded-xl border border-border/60 bg-background px-3 py-3 hover:-translate-y-0.5 hover:border-primary/30 transition-all duration-200">
+              <div className="flex-shrink-0 w-[200px] rounded-xl border border-border/60 bg-background px-3 py-3">
                 <span className="inline-block px-2 py-0.5 rounded-full text-[11px] font-bold bg-[var(--subject-biology-light)] text-[var(--subject-biology)]">
                   {event.date}
                 </span>
