@@ -826,6 +826,8 @@ export default function MolecularBasisOfInheritanceChapter() {
       </p>
       <Timeline
         title="Who did what, and when"
+        orientation="horizontal"
+        rtl
         events={[
           { date: "1869", label: "Friedrich Miescher", detail: "Identified “nuclein” (DNA) in white blood cell nuclei." },
           { date: "1928", label: "Frederick Griffith", detail: "Transforming principle — heat-killed S strain turns live R strain virulent (S. pneumoniae)." },
