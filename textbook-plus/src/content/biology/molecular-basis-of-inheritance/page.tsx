@@ -29,19 +29,37 @@ export default function MolecularBasisOfInheritanceChapter() {
         <MetricCard label="Human (haploid)" value="3.3 × 10⁹" unit="bp" description="Diploid content 6.6 × 10⁹ bp → 2.2 m of DNA per cell." />
       </div>
 
-      <div className="my-6 rounded-xl border border-border/60 bg-card overflow-hidden">
-        <div className="grid grid-cols-12 gap-0">
-          <div className="col-span-12 sm:col-span-4 flex items-center justify-center bg-muted/30 border-b sm:border-b-0 sm:border-r border-border/60 p-6">
-            <span className="text-base font-semibold">Nucleic Acids</span>
-            <span className="ml-2 text-xs text-muted-foreground">— polymers of nucleotides</span>
+      <div className="my-6 rounded-xl border border-border/60 bg-card p-4 sm:p-6">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-0">
+          {/* Left boxed */}
+          <div className="rounded-lg border border-border/60 bg-muted/30 px-6 py-6 text-center shrink-0 sm:min-w-[200px] flex flex-col items-center justify-center">
+            <p className="text-base font-semibold">Nucleic Acids</p>
+            <p className="text-xs text-muted-foreground">— polymers of nucleotides</p>
           </div>
-          <div className="col-span-12 sm:col-span-8 grid grid-rows-2 gap-0">
-            <div className="border-b border-border/60 p-4 bg-background">
-              <p className="text-sm font-semibold">DNA (Deoxyribonucleic acid)</p>
+          {/* Branching lines — horizontal to the right */}
+          <div className="hidden sm:flex items-center shrink-0">
+            {/* horizontal from left box */}
+            <div className="h-px w-6 bg-border/60" />
+            {/* vertical spine */}
+            <div className="relative h-[148px] w-px bg-border/60">
+              {/* top horizontal */}
+              <div className="absolute top-[34px] left-0 h-px w-6 bg-border/60" />
+              {/* bottom horizontal */}
+              <div className="absolute bottom-[34px] left-0 h-px w-6 bg-border/60" />
+            </div>
+          </div>
+          {/* Mobile vertical connector */}
+          <div className="flex sm:hidden justify-center">
+            <div className="w-px h-6 bg-border/60" />
+          </div>
+          {/* Right — DNA / RNA stacked */}
+          <div className="flex flex-col gap-4 flex-1">
+            <div className="rounded-lg border border-blue-500/20 bg-blue-500/[0.06] px-4 py-3">
+              <p className="text-sm font-semibold text-blue-900 dark:text-blue-100">DNA (Deoxyribonucleic acid)</p>
               <p className="text-sm text-muted-foreground">Genetic material for most organisms.</p>
             </div>
-            <div className="p-4 bg-background">
-              <p className="text-sm font-semibold">RNA (Ribonucleic acid)</p>
+            <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/[0.06] px-4 py-3">
+              <p className="text-sm font-semibold text-emerald-900 dark:text-emerald-100">RNA (Ribonucleic acid)</p>
               <p className="text-sm text-muted-foreground">Genetic material for some viruses.</p>
               <ul className="list-disc pl-5 text-sm text-muted-foreground mt-2 space-y-1">
                 <li>Messenger</li>
