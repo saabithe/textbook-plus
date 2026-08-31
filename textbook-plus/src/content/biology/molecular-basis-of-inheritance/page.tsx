@@ -270,46 +270,53 @@ export default function MolecularBasisOfInheritanceChapter() {
         <p>Purine (double ring) opposite pyrimidine (single ring) gives roughly constant width. Purine–purine would be too wide, pyrimidine–pyrimidine too narrow — Chargaff’s pairing solves this.</p>
       </Expandable>
       <KeyPoint title="Central Dogma — Crick">
-        Genetic information flows <Highlight color="yellow">DNA → RNA → Protein</Highlight>. In some viruses flow reverses: <strong>RNA → DNA</strong> (reverse transcription).
+        Proposed by <Highlight color="yellow">Francis Crick</Highlight> — explains the flow of genetic information.
       </KeyPoint>
+      <FormulaBlock latex={String.raw`\text{DNA} \xrightarrow{\text{Replication}} \text{DNA} \xrightarrow{\text{Transcription}} \text{mRNA} \xrightarrow{\text{Translation}} \text{Protein}`} important />
       <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="/images/biology/molecular-basis-of-inheritance/central-dogma.png" alt="Central dogma — genetic information flows from DNA to RNA to Protein, with reverse flow RNA to DNA in some viruses" className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
-        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Central Dogma — DNA → RNA → Protein (reverse: RNA → DNA in retroviruses)</figcaption>
+        <img src="/images/biology/molecular-basis-of-inheritance/central-dogma.png" alt="A flow diagram representing the Central Dogma of Molecular Biology by Francis Crick, depicting a circular loop on DNA for replication, a forward arrow to mRNA labeled transcription, and a forward arrow to protein labeled translation." className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
+        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Central Dogma — DNA → (Replication) → DNA → (Transcription) → mRNA → (Translation) → Protein</figcaption>
       </figure>
+      <Callout type="note" title="Reverse Transcription">
+        <p>Information flow from <Highlight color="yellow">RNA to DNA</Highlight>:</p>
+        <FormulaBlock latex={String.raw`\text{RNA} \xrightarrow{\text{Reverse Transcription}} \text{DNA}`} />
+        <p className="text-sm text-muted-foreground">
+          <strong>Example:</strong> HIV (retrovirus).
+        </p>
+      </Callout>
 
       <h3 id="h-5-1-2">5.1.2 Packaging of DNA Helix</h3>
+      <Callout type="note" title="Calculation of DNA Length">
+        <p>
+          <strong>Formula:</strong> <Formula>{String.raw`\text{Length of DNA} = \text{Total number of base pairs (bp)} \times \text{Distance between 2 bp}`}</Formula>
+        </p>
+        <p className="mt-2">
+          <strong>Human DNA (2n):</strong>
+        </p>
+        <FormulaBlock latex={String.raw`\text{Length} = 6.6 \times 10^{9}\,\text{bp} \times 0.34\,\text{nm}`} />
+        <FormulaBlock latex={String.raw`\text{Length} = 6.6 \times 10^{9} \times 0.34 \times 10^{-9}\,\text{m}`} />
+        <FormulaBlock latex={String.raw`\text{Length} = 2.2\,\text{meters}`} important />
+      </Callout>
       <MetricCard label="DNA in a mammalian cell" value="2.2 metres" unit="6.6 × 10⁹ bp × 0.34 nm/bp" trend="up" description="Far larger than nucleus (~10⁻⁶ m). Must be packaged." />
       <Expandable title="Do the calculation: E. coli DNA 1.36 mm → how many bp?">
         <p>1.36 mm = 1.36 × 10⁻³ m. Divide by 0.34 × 10⁻⁹ m/bp → <strong>4 × 10⁶ bp</strong> (≈ 4.6 × 10⁶ bp with precise constants).</p>
       </Expandable>
       <ProcessCard
         steps={[
-          { label: "Prokaryotes — nucleoid", description: "No defined nucleus. Negatively charged DNA held with positively charged proteins in large loops in region called nucleoid." },
-          { label: "Eukaryotes — histones", description: "Positively charged basic proteins rich in lysine & arginine. Eight molecules form histone octamer." },
-          { label: "Nucleosome", description: "Negatively charged DNA wrapped around histone octamer → ~200 bp per nucleosome (Figure 5.4a). Repeating unit of chromatin." },
-          { label: "Beads-on-string", description: "Nucleosomes seen as beads-on-string under EM (Figure 5.4b). Further coiled into chromatin fibres → condensed at metaphase into chromosomes. Needs additional NHC proteins." },
+          { label: "1. Prokaryotes — Nucleoid", description: "Negatively charged DNA wrapped around positively charged proteins — held in large loops in region called nucleoid (no defined nucleus)." },
+          { label: "2. Eukaryotes — Histone octamer", description: "Positively charged basic proteins rich in Lysine (Lys) & Arginine (Arg) — Lys & Arg carry positive charges. Eight molecules form histone octamer." },
+          { label: "Nucleosome — H1 stabilised", description: "Negatively charged DNA wraps around histone octamer core, stabilised by H1 histone (Figure 5.4a). ~200 bp per nucleosome — repeating unit of chromatin (Figure 5.4 — alt: spherical octamer of 8 histones wrapped by DNA thread, secured by H1 at entry/exit)." },
+          { label: "Beads-on-string → Chromatin fibre → Chromosome", description: "Nucleosomes give beads-on-string appearance under EM (Figure 5.4b). Further coiled with NHC proteins into chromatin fibres. Hierarchy: DNA → Nucleosome → Chromatin fibre → Chromosome (metaphase condensed)." },
         ]}
       />
-      <Comparison
-        columns={[
-          {
-            title: "Euchromatin",
-            children: (
-              <ul>
-                <li>Loosely packed, stains <strong>light</strong></li>
-                <li><Highlight color="green">Transcriptionally active</Highlight></li>
-              </ul>
-            ),
-          },
-          {
-            title: "Heterochromatin",
-            children: (
-              <ul>
-                <li>Densely packed, stains <strong>dark</strong></li>
-                <li><Highlight color="pink">Inactive</Highlight></li>
-              </ul>
-            ),
-          },
+      <FormulaBlock latex={String.raw`\text{DNA} \rightarrow \text{Nucleosome} \rightarrow \text{Chromatin fibre} \rightarrow \text{Chromosome}`} />
+      <TableCard
+        caption="Types of Chromatin"
+        headers={["Feature", "Heterochromatin", "Euchromatin"]}
+        rows={[
+          { cells: ["Arrangement", "Densely arranged", "Loosely arranged"] },
+          { cells: ["Staining", "Stains darker", "Stains lighter"] },
+          { cells: ["Activity", "Transcriptionally inactive", "Transcriptionally active"] },
         ]}
       />
       <Expandable title="How many nucleosomes in a mammalian cell?">
