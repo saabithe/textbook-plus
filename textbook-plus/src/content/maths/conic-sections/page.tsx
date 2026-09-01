@@ -7,7 +7,7 @@ import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { Highlight } from "@/components/content/Highlight";
 import { SpeedTricks } from "@/components/content/SpeedTricks";
-import { CircleDiagram, ParabolaFocus, EllipseDiagram, HyperbolaDiagram } from "@/components/content/conic/ConicDiagrams";
+import { CircleDiagram } from "@/components/content/conic/ConicDiagrams";
 
 export default function ConicSectionsChapter() {
   return (
@@ -205,14 +205,42 @@ export default function ConicSectionsChapter() {
             />
           </ProblemSolution.Solution>
         </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 5">
+          <ProblemSolution.Problem>
+            <p>Find the centre and radius of the circle <Formula>{String.raw`2x^2 + 2y^2 - x = 0`}</Formula>.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Divide through by 2", description: <Formula>{String.raw`x^2 + y^2 - \frac{x}{2} = 0`}</Formula> },
+                { label: "Identify g, f, c", description: <Formula>{String.raw`2g = -\frac{1}{2} \implies g = -\frac{1}{4};\ \ 2f = 0 \implies f = 0;\ \ c = 0`}</Formula> },
+                { label: "Centre", description: <Formula>{String.raw`(-g, -f) = \left(-\left(-\frac{1}{4}\right), 0\right) = \left(\frac{1}{4}, 0\right)`}</Formula> },
+                { label: "Radius", description: <Formula>{String.raw`r = \sqrt{g^2 + f^2 - c} = \sqrt{\frac{1}{16} + 0 - 0} = \frac{1}{4}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
       </Expandable>
 
       <h2 id="h-parabola">10.4 Parabola</h2>
       <Callout type="important" title="Definition: Parabola">
         A <strong>parabola</strong> is the set of all points in a plane that are equidistant from a fixed
-        point (<Highlight>focus</Highlight>) and a fixed line (<Highlight>directrix</Highlight>).
+        point (<Highlight>focus</Highlight>) and a fixed line (<Highlight>directrix</Highlight>). i.e. the
+        distance from any point on the curve to the focus equals its perpendicular distance to the directrix:{" "}
+        <Highlight>PF = PB</Highlight>.
       </Callout>
-      <ParabolaFocus />
+      <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
+        <img
+          src="/images/maths/conic-sections/parabola-pf-pb-definition.png"
+          alt="Parabola definition: PF = PB — distance to focus equals distance to directrix"
+          className="w-full h-auto"
+          loading="lazy"
+        />
+        <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs text-muted-foreground text-center leading-relaxed">
+          For every point P on the curve, PF = PB (P₁F = P₁B₁, P₂F = P₂B₂, P₃F = P₃B₃) — focus F, directrix l. Source: NCERT Fig 11.13 (textbook screenshot).
+        </figcaption>
+      </figure>
       <KeyPoint title="Key Terms">
         <ul>
           <li><strong>Focus (S):</strong> the fixed point.</li>
@@ -223,6 +251,17 @@ export default function ConicSectionsChapter() {
             <Highlight>4a</Highlight>.</li>
         </ul>
       </KeyPoint>
+      <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
+        <img
+          src="/images/maths/conic-sections/parabola-components.png"
+          alt="Parabola components: vertex, focus, axis of symmetry, directrix"
+          className="w-full h-auto"
+          loading="lazy"
+        />
+        <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs text-muted-foreground text-center leading-relaxed">
+          Core components of a standard parabola — vertex, focus, axis of symmetry, and directrix. Source: NCERT Fig 11.14 (textbook screenshot).
+        </figcaption>
+      </figure>
 
       <h3>Standard Equations of Parabola</h3>
       <FormulaCard>
@@ -230,55 +269,76 @@ export default function ConicSectionsChapter() {
         <table>
           <thead>
             <tr>
+              <th>Parabola</th>
               <th>Equation</th>
-              <th>Opens</th>
+              <th>Axis</th>
+              <th>Vertex</th>
               <th>Focus</th>
               <th>Directrix</th>
+              <th>Latus Rectum</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td>Right Hand</td>
               <td>y² = 4ax</td>
-              <td>Right</td>
+              <td>X-axis</td>
+              <td>(0, 0)</td>
               <td>(a, 0)</td>
               <td>x = −a</td>
+              <td>4a</td>
             </tr>
             <tr>
+              <td>Left Hand</td>
               <td>y² = −4ax</td>
-              <td>Left</td>
+              <td>X-axis</td>
+              <td>(0, 0)</td>
               <td>(−a, 0)</td>
               <td>x = a</td>
+              <td>4a</td>
             </tr>
             <tr>
+              <td>Upward</td>
               <td>x² = 4ay</td>
-              <td>Up</td>
+              <td>Y-axis</td>
+              <td>(0, 0)</td>
               <td>(0, a)</td>
               <td>y = −a</td>
+              <td>4a</td>
             </tr>
             <tr>
+              <td>Downward</td>
               <td>x² = −4ay</td>
-              <td>Down</td>
+              <td>Y-axis</td>
+              <td>(0, 0)</td>
               <td>(0, −a)</td>
               <td>y = a</td>
+              <td>4a</td>
             </tr>
           </tbody>
         </table>
+        <p className="text-sm text-muted-foreground mt-2">Here a is the distance from the vertex to the focus (and from the vertex to the directrix).</p>
       </FormulaCard>
       <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/7/77/Conic_section_-_standard_forms_of_a_parabola.png"
-          alt="Four standard parabolas: y²=4ax (right), y²=−4ax (left), x²=4ay (up), x²=−4ay (down)"
-          className="w-full h-auto max-w-[440px] mx-auto"
+          src="/images/maths/conic-sections/parabola-horizontal-forms.png"
+          alt="Horizontal parabolas: y²=4ax (right) and y²=−4ax (left)"
+          className="w-full h-auto"
           loading="lazy"
         />
         <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs text-muted-foreground text-center leading-relaxed">
-          Four standard parabolas with vertex at the origin — y²=4ax (opens right), y²=−4ax (left),
-          x²=4ay (up), x²=−4ay (down). Focus (a,0), (−a,0), (0,a), (0,−a); latus rectum 4a.
-          Here a is the distance from the vertex to the focus (and to the directrix). Source:{" "}
-          <a href="https://commons.wikimedia.org/wiki/File:Conic_section_-_standard_forms_of_a_parabola.png" target="_blank" rel="noreferrer" className="underline">
-            Wikimedia Commons / Klaas van Aarsen
-          </a>{" "}
-          — see NCERT Fig 11.15.
+          Horizontal parabolas along the x-axis — right-opening y² = 4ax and left-opening y² = −4ax. Source: NCERT Fig 11.15 (textbook screenshot).
+        </figcaption>
+      </figure>
+      <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
+        <img
+          src="/images/maths/conic-sections/parabola-vertical-forms.png"
+          alt="Vertical parabolas: x²=4ay (up) and x²=−4ay (down)"
+          className="w-full h-auto"
+          loading="lazy"
+        />
+        <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs text-muted-foreground text-center leading-relaxed">
+          Vertical parabolas along the y-axis — upward-opening x² = 4ay and downward-opening x² = −4ay. Source: NCERT Fig 11.15 (textbook screenshot).
         </figcaption>
       </figure>
 
@@ -323,6 +383,68 @@ export default function ConicSectionsChapter() {
             <FormulaBlock latex={String.raw`x^2 = 16y`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 5">
+          <ProblemSolution.Problem>
+            <p>For the parabola <Formula>{String.raw`x^2 = -8y`}</Formula>, find (i) the coordinates of the focus, and (ii) the axis, equation of the directrix, and length of the latus rectum.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p className="mb-2"><strong>Part (i) — Focus</strong></p>
+            <Stepper
+              steps={[
+                { label: "Compare with x² = −4ay", description: <Formula>{String.raw`-4a = -8 \implies a = 2`}</Formula> },
+                { label: "Focus", description: <Formula>{String.raw`(0, -a) = (0, -2)`}</Formula> },
+              ]}
+            />
+            <p className="mt-3 mb-2"><strong>Part (ii) — Axis, Directrix, Latus Rectum</strong></p>
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li><strong>Axis:</strong> Y-axis.</li>
+              <li><strong>Directrix:</strong> <Formula>{String.raw`y = a \implies y = 2`}</Formula>.</li>
+              <li><strong>Latus Rectum:</strong> <Formula>{String.raw`4a = 4 \times 2 = 8`}</Formula>.</li>
+            </ul>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 6">
+          <ProblemSolution.Problem>
+            <p>Find the equation of the parabola with focus (6, 0) and directrix x = −6.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Read a", description: <Formula>{String.raw`(a, 0) = (6, 0) \implies a = 6`}</Formula> },
+                { label: "Check directrix", description: <Formula>{String.raw`x = -a = -6`}</Formula> },
+                { label: "Form (opens right)", description: <Formula>{String.raw`y^2 = 4ax`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`y^2 = 4 \times 6 \times x = 24x`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`y^2 = 24x`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 7">
+          <ProblemSolution.Problem>
+            <p>Which of the following equations represents a parabola that is symmetrical about the positive y-axis?</p>
+            <ol className="list-decimal pl-5 space-y-1 text-sm">
+              <li>y² = 8x</li>
+              <li>y² = −8x</li>
+              <li>x² + 4y = 0</li>
+              <li>x² − 4y = 0</li>
+            </ol>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p>A parabola symmetrical about the positive y-axis has the form <Formula>{String.raw`x^2 = 4ay`}</Formula>.</p>
+            <Stepper
+              steps={[
+                { label: "Eliminate (i), (ii)", description: "y² = ±8x open along the x-axis — not symmetric about the y-axis." },
+                { label: "Rearrange (iii)", description: <Formula>{String.raw`x^2 + 4y = 0 \implies x^2 = -4y`}</Formula> },
+                { label: "Rearrange (iv)", description: <Formula>{String.raw`x^2 - 4y = 0 \implies x^2 = 4y`}</Formula> },
+                { label: "Conclusion", description: "(iv) matches x² = 4ay — symmetric about the positive y-axis." },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\text{Correct option: (iv)}\ x^2 - 4y = 0`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
       </Expandable>
 
       <h2 id="h-ellipse">10.5 Ellipse</h2>
@@ -330,7 +452,6 @@ export default function ConicSectionsChapter() {
         An <strong>ellipse</strong> is the set of all points in a plane such that the{" "}
         <Highlight>sum of distances from two fixed points (foci)</Highlight> is a constant.
       </Callout>
-      <EllipseDiagram />
 
       <h3>Standard Equations of Ellipse</h3>
       <FormulaCard>
@@ -378,23 +499,6 @@ export default function ConicSectionsChapter() {
           <li><Highlight>a² = b² + c²</Highlight> — the larger of a² and b² equals the sum of the other two.</li>
         </ul>
       </KeyPoint>
-
-      <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/4/47/Ellipse_latus_rectum.svg"
-          alt="Ellipse x²/25 + y²/9 = 1 — foci at ±c, latus rectum"
-          className="w-full h-auto max-w-[380px] mx-auto"
-          loading="lazy"
-        />
-        <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs text-muted-foreground text-center leading-relaxed">
-          Ellipse x²/25 + y²/9 = 1 — a = 5, b = 3, c = √(25−9) = 4, e = c/a = 4/5, latus rectum = 2b²/a.
-          Source:{" "}
-          <a href="https://commons.wikimedia.org/wiki/File:Ellipse_latus_rectum.svg" target="_blank" rel="noreferrer" className="underline">
-            Wikimedia Commons
-          </a>{" "}
-          — see NCERT Fig 11.27.
-        </figcaption>
-      </figure>
 
       <SpeedTricks>
         <Callout type="tip" title="Which is a, which is b?">
@@ -445,7 +549,6 @@ export default function ConicSectionsChapter() {
         A <strong>hyperbola</strong> is the set of all points in a plane such that the{" "}
         <Highlight>difference of distances from two fixed points (foci)</Highlight> is a constant.
       </Callout>
-      <HyperbolaDiagram />
 
       <h3>Standard Equation of Hyperbola</h3>
       <FormulaCard>
@@ -478,23 +581,6 @@ export default function ConicSectionsChapter() {
         <FormulaBlock latex={String.raw`x^2 - y^2 = a^2 \quad \text{(when } a = b\text{)}`} />
         <p className="text-sm text-muted-foreground mt-2">Eccentricity = √2. Asymptotes are perpendicular (y = ±x).</p>
       </FormulaCard>
-
-      <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Hyperbola_properties.svg/960px-Hyperbola_properties.svg.png"
-          alt="Hyperbola x²/25 − y²/9 = 1 — foci, vertices at ±a, dashed asymptotes"
-          className="w-full h-auto max-w-[380px] mx-auto"
-          loading="lazy"
-        />
-        <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs text-muted-foreground text-center leading-relaxed">
-          Hyperbola x²/25 − y²/9 = 1 — a = 5, b = 3, c = √(25+9) = √34, asymptotes y = ±(b/a)x = ±(3/5)x shown dashed.
-          Source:{" "}
-          <a href="https://commons.wikimedia.org/wiki/File:Hyperbola_properties.svg" target="_blank" rel="noreferrer" className="underline">
-            Wikimedia Commons / Inductiveload (PD)
-          </a>{" "}
-          — see NCERT Fig 11.31.
-        </figcaption>
-      </figure>
 
       <SpeedTricks>
         <Callout type="tip" title="Ellipse: a² = b² + c². Hyperbola: c² = a² + b²">
