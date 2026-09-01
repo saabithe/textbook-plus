@@ -732,6 +732,30 @@ export default function ConicSectionsChapter() {
         <Highlight>difference of distances from two fixed points (foci)</Highlight> is a constant.
       </Callout>
 
+      <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
+        <img
+          src="/images/maths/conic-sections/hyperbola-definition.png"
+          alt="Hyperbola definition with foci"
+          className="w-full h-auto"
+          loading="lazy"
+        />
+        <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs text-muted-foreground text-center leading-relaxed">
+          Hyperbola with its foci S, S′ — |PS′ − PS| = 2a. Source: NCERT (textbook screenshot).
+        </figcaption>
+      </figure>
+
+      <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
+        <img
+          src="/images/maths/conic-sections/hyperbola-components.png"
+          alt="Hyperbola foci, vertices and axes"
+          className="w-full h-auto"
+          loading="lazy"
+        />
+        <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs text-muted-foreground text-center leading-relaxed">
+          Hyperbola components — foci, vertices, transverse/conjugate axes. Source: NCERT (textbook screenshot).
+        </figcaption>
+      </figure>
+
       <h3>Standard Equation of Hyperbola</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Standard Forms</p>
@@ -788,6 +812,10 @@ export default function ConicSectionsChapter() {
         <FormulaBlock latex={String.raw`c^2 = a^2 + b^2 \implies c = \sqrt{a^2 + b^2}`} />
         <FormulaBlock latex={String.raw`e = \frac{c}{a} > 1`} />
         <FormulaBlock latex={String.raw`\text{Latus Rectum} = \frac{2b^2}{a}`} />
+        <FormulaBlock latex={String.raw`|PS' - PS| = 2a \quad \text{(focal difference property for any point } P \text{)}`} />
+        <p className="text-sm text-muted-foreground mt-2">
+          Eccentricity comparison: circle e = 0, ellipse 0 &lt; e &lt; 1, parabola e = 1, hyperbola e &gt; 1.
+        </p>
       </FormulaCard>
 
       <KeyPoint title="Properties of Hyperbola">
@@ -851,6 +879,65 @@ export default function ConicSectionsChapter() {
               ]}
             />
             <FormulaBlock latex={String.raw`\frac{y^2}{9} - \frac{x^2}{16} = 1`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 9">
+          <ProblemSolution.Problem>
+            <p>Find the equation of the hyperbola whose foci are (0, ±8) and the length of whose latus rectum is 24.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Foci", description: <><Formula>{String.raw`c = 8 \implies c^2 = 64`}</Formula> — foci (0, ±c), so transverse axis along the y-axis</> },
+                { label: "Latus rectum", description: <Formula>{String.raw`\frac{2b^2}{a} = 24 \implies b^2 = 12a`}</Formula> },
+                { label: "Use c² = a² + b²", description: <Formula>{String.raw`64 = a^2 + 12a \implies a^2 + 12a - 64 = 0`}</Formula> },
+                { label: "Solve quadratic", description: <Formula>{String.raw`(a+6)^2 = 100 \implies a + 6 = \pm 10`}</Formula> },
+                { label: "Choose a", description: <>{<Formula>{String.raw`a = 4`}</Formula>} (a = −16 rejected as a &gt; 0)</> },
+                { label: "Find b²", description: <Formula>{String.raw`b^2 = 12a = 12 \times 4 = 48`}</Formula> },
+                { label: "Equation", description: <><Formula>{String.raw`\frac{y^2}{16} - \frac{x^2}{48} = 1`}</Formula> — transverse axis along the y-axis</> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\frac{y^2}{16} - \frac{x^2}{48} = 1`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 10">
+          <ProblemSolution.Problem>
+            <p>For the conic 9y² − 4x² = 36, find the foci, eccentricity, and length of the latus rectum.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Normalise", description: <><Formula>{String.raw`\frac{y^2}{4} - \frac{x^2}{9} = 1`}</Formula> — divide by 36</> },
+                { label: "Identify a, b", description: <>{<Formula>{String.raw`a^2 = 4 \to a = 2;\ \ b^2 = 9 \to b = 3`}</Formula>} — transverse axis along the y-axis</> },
+                { label: "Find c", description: <Formula>{String.raw`c = \sqrt{4 + 9} = \sqrt{13}`}</Formula> },
+                { label: "Foci", description: <Formula>{String.raw`(0, \pm \sqrt{13})`}</Formula> },
+                { label: "Eccentricity", description: <Formula>{String.raw`e = \frac{\sqrt{13}}{2}`}</Formula> },
+                { label: "Latus Rectum", description: <Formula>{String.raw`\frac{2b^2}{a} = \frac{2 \times 9}{2} = 9`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 11">
+          <ProblemSolution.Problem>
+            <p>A hyperbola with its transverse axis along the x-axis, centre at the origin, and foci (±√10, 0) passes through (3, 2). Find its equation.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Foci", description: <>{<Formula>{String.raw`c = \sqrt{10} \implies a^2 + b^2 = 10`}</Formula>} (equation 1)</> },
+                { label: "Point (3, 2)", description: <>{<Formula>{String.raw`\frac{9}{a^2} - \frac{4}{b^2} = 1`}</Formula>} (equation 2)</> },
+                { label: "Substitute b² = 10 − a²", description: <Formula>{String.raw`\frac{9}{a^2} - \frac{4}{10-a^2} = 1`}</Formula> },
+                { label: "Multiply through", description: <Formula>{String.raw`9(10-a^2) - 4a^2 = a^2(10-a^2) \implies a^4 - 23a^2 + 90 = 0`}</Formula> },
+                { label: "Factor", description: <Formula>{String.raw`(a^2 - 5)(a^2 - 18) = 0 \implies a^2 = 5 \ \text{or}\ 18`}</Formula> },
+                { label: "Reject a² = 18", description: <><Formula>{String.raw`a^2 + b^2 = 10 \implies a^2 < 10`}</Formula> — reject 18</> },
+                { label: "b²", description: <Formula>{String.raw`b^2 = 10 - 5 = 5`}</Formula> },
+                { label: "Equation", description: <Formula>{String.raw`\frac{x^2}{5} - \frac{y^2}{5} = 1 \implies x^2 - y^2 = 5`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`x^2 - y^2 = 5`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
