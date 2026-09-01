@@ -24,7 +24,7 @@ export default function BinomialTheoremChapter() {
 
       <h2 id="h-pascal">Pascal&apos;s Triangle</h2>
       <p>
-        Coefficients of (a+b)ⁿ form a triangular array known as <Highlight>Pascal&apos;s triangle</Highlight> (also called <strong>Meru Prastara</strong> by Pingla):
+        Coefficients of (a+b)ⁿ form a triangular array known as <Highlight>Pascal&apos;s triangle</Highlight>.
       </p>
       <ul>
         <li>Row n: 1, nC1, nC2, …, nC(n-1), 1 — each entry is the sum of the two above it.</li>
@@ -32,6 +32,18 @@ export default function BinomialTheoremChapter() {
         <li>Powers of a decrease: aⁿ → aⁿ⁻¹ → … → a⁰. Powers of b increase: b⁰ → b¹ → … → bⁿ.</li>
         <li>In each term, index of a + index of b = n.</li>
       </ul>
+
+      <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
+        <img
+          src="/images/maths/binomial-theorem/pascals-triangle.webp"
+          alt="Pascal's triangle"
+          className="w-full h-auto max-w-[420px] mx-auto"
+          loading="lazy"
+        />
+        <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs text-muted-foreground text-center leading-relaxed">
+          Pascal&apos;s triangle — row n gives the coefficients of (a + b)ⁿ, each entry the sum of the two above it.
+        </figcaption>
+      </figure>
 
       <Expandable title="Example — Expand (2x + 3y)⁵ using Pascal&apos;s triangle">
         <p>Row 5 of Pascal&apos;s triangle: <strong>1, 5, 10, 10, 5, 1</strong></p>
@@ -64,6 +76,16 @@ export default function BinomialTheoremChapter() {
         Each term has total index n (indices of a and b add to n).
       </KeyPoint>
 
+      <Callout type="note" title="Number of Terms & Sign Pattern">
+        <p className="mb-2">For (a ± b)ⁿ with n a natural number:</p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li><strong>Total terms:</strong> n + 1 (one more than the exponent).</li>
+          <li><strong>(a + b)ⁿ:</strong> all terms positive.</li>
+          <li><strong>(a − b)ⁿ:</strong> signs alternate starting with + : +, −, +, −, +, …</li>
+          <li>Examples: (3x − 2)¹⁰ → 11 terms, (9 + y)⁴ → 5 terms, (3 − 2x)¹¹ → 12 terms, (9 − 3y)¹² → 13 terms, (2x + 3)⁵ → 6 terms.</li>
+        </ul>
+      </Callout>
+
       <Expandable title="Example 1 — Expand (x + 2)⁶">
         <ProblemSolution problemNumber="Example 1">
           <ProblemSolution.Problem>
@@ -76,6 +98,38 @@ export default function BinomialTheoremChapter() {
                 { label: "Simplify", description: <Formula>{String.raw`x^6 + 12x^5 + 60x^4 + 160x^3 + 240x^2 + 192x + 64`}</Formula> },
               ]}
             />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable title="Examples — Basic Expansions">
+        <ProblemSolution problemNumber="Example 1B">
+          <ProblemSolution.Problem>
+            Expand (x + 2)⁴.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "(x+2)⁴", description: <Formula>{String.raw`{}^{4}C_{0}\,x^4 + {}^{4}C_{1}\,x^3\cdot 2 + {}^{4}C_{2}\,x^2\cdot 2^2 + {}^{4}C_{3}\,x\cdot 2^3 + {}^{4}C_{4}\,2^4`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`x^4 + 8x^3 + 24x^2 + 32x + 16`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">4 + 1 = 5 terms.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 1C">
+          <ProblemSolution.Problem>
+            Expand (3 − x)⁵.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "(3−x)⁵", description: <Formula>{String.raw`{}^{5}C_{0}\,3^5 - {}^{5}C_{1}\,3^4\,x + {}^{5}C_{2}\,3^3\,x^2 - {}^{5}C_{3}\,3^2\,x^3 + {}^{5}C_{4}\,3\,x^4 - {}^{5}C_{5}\,x^5`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`243 - 405x + 270x^2 - 90x^3 + 15x^4 - x^5`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">5 + 1 = 6 terms, signs alternating +, −, +, −, +, −.</p>
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
