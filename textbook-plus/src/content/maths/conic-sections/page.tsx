@@ -459,36 +459,88 @@ export default function ConicSectionsChapter() {
         <table>
           <thead>
             <tr>
-              <th>Equation</th>
-              <th>Major Axis</th>
-              <th>Foci</th>
-              <th>Vertices</th>
+              <th>Property</th>
+              <th>Major Axis along X-axis</th>
+              <th>Major Axis along Y-axis</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td><strong>Standard Form</strong></td>
               <td>x²/a² + y²/b² = 1 &nbsp;(a &gt; b)</td>
-              <td>Along x-axis</td>
-              <td>(±c, 0)</td>
-              <td>(±a, 0)</td>
+              <td>x²/b² + y²/a² = 1 &nbsp;(a &gt; b)</td>
             </tr>
             <tr>
-              <td>x²/b² + y²/a² = 1 &nbsp;(a &gt; b)</td>
-              <td>Along y-axis</td>
+              <td><strong>Centre</strong></td>
+              <td>(0, 0)</td>
+              <td>(0, 0)</td>
+            </tr>
+            <tr>
+              <td><strong>Foci</strong></td>
+              <td>(±c, 0)</td>
               <td>(0, ±c)</td>
+            </tr>
+            <tr>
+              <td><strong>Vertices</strong></td>
+              <td>(±a, 0)</td>
               <td>(0, ±a)</td>
+            </tr>
+            <tr>
+              <td><strong>Major Axis Length</strong></td>
+              <td>2a</td>
+              <td>2a</td>
+            </tr>
+            <tr>
+              <td><strong>Minor Axis Length</strong></td>
+              <td>2b</td>
+              <td>2b</td>
+            </tr>
+            <tr>
+              <td><strong>Latus Rectum</strong></td>
+              <td>2b²/a</td>
+              <td>2b²/a</td>
+            </tr>
+            <tr>
+              <td><strong>Eccentricity</strong></td>
+              <td>e = c/a</td>
+              <td>e = c/a</td>
             </tr>
           </tbody>
         </table>
       </FormulaCard>
 
+      <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
+        <img
+          src="/images/maths/conic-sections/ellipse-foci-vertices.png"
+          alt="Ellipse with foci and vertices"
+          className="w-full h-auto"
+          loading="lazy"
+        />
+        <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs text-muted-foreground text-center leading-relaxed">
+          Ellipse with its foci S, S′ and vertices — PS + PS′ = 2a. Source: NCERT Fig 11.25 (textbook screenshot).
+        </figcaption>
+      </figure>
+
       <FormulaCard>
         <p className="font-semibold mb-2">Key Relations</p>
-        <FormulaBlock latex={String.raw`c^2 = a^2 - b^2`} />
+        <FormulaBlock latex={String.raw`c^2 = a^2 - b^2 \implies c = \sqrt{a^2 - b^2}`} />
         <FormulaBlock latex={String.raw`e = \frac{c}{a}, \quad 0 < e < 1`} />
         <FormulaBlock latex={String.raw`\text{Latus Rectum} = \frac{2b^2}{a}`} />
+        <FormulaBlock latex={String.raw`PS + PS' = 2a \quad \text{(focal distance property for any point } P \text{)}`} />
         <p className="text-sm text-muted-foreground mt-2">a = semi-major axis, b = semi-minor axis, c = distance from centre to focus, e = eccentricity</p>
       </FormulaCard>
+
+      <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
+        <img
+          src="/images/maths/conic-sections/ellipse-latus-rectum.png"
+          alt="Ellipse latus rectum"
+          className="w-full h-auto"
+          loading="lazy"
+        />
+        <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs text-muted-foreground text-center leading-relaxed">
+          Latus rectum of an ellipse — chord through a focus perpendicular to the major axis, length 2b²/a. Source: NCERT Fig 11.27 (textbook screenshot).
+        </figcaption>
+      </figure>
 
       <KeyPoint title="Properties of Ellipse">
         <ul>
@@ -542,6 +594,115 @@ export default function ConicSectionsChapter() {
             />
           </ProblemSolution.Solution>
         </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 7">
+          <ProblemSolution.Problem>
+            <p>Find the coordinates of the foci, vertices, length of the major axis, and length of the latus rectum of x²/36 + y²/16 = 1.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Identify a, b", description: <Formula>{String.raw`a^2 = 36 \to a = 6;\ \ b^2 = 16 \to b = 4`}</Formula> },
+                { label: "Find c", description: <Formula>{String.raw`c = \sqrt{36 - 16} = \sqrt{20} = 2\sqrt{5}`}</Formula> },
+                { label: "Foci", description: <Formula>{String.raw`(\pm 2\sqrt{5}, 0)`}</Formula> },
+                { label: "Vertices", description: <Formula>{String.raw`(\pm 6, 0)`}</Formula> },
+                { label: "Major axis", description: <Formula>{String.raw`2a = 12`}</Formula> },
+                { label: "Latus Rectum", description: <Formula>{String.raw`\frac{2b^2}{a} = \frac{2 \times 16}{6} = \frac{16}{3}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 8">
+          <ProblemSolution.Problem>
+            <p>Find the foci, vertices, eccentricity, and latus rectum of 100x² + 25y² = 2500.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Normalise", description: <><Formula>{String.raw`\frac{x^2}{25} + \frac{y^2}{100} = 1`}</Formula> — divide by 2500</> },
+                { label: "Identify a, b", description: <><Formula>{String.raw`a^2 = 100 \to a = 10;\ \ b^2 = 25 \to b = 5`}</Formula> — major axis along the y-axis</> },
+                { label: "Find c", description: <Formula>{String.raw`c = \sqrt{100 - 25} = \sqrt{75} = 5\sqrt{3}`}</Formula> },
+                { label: "Foci", description: <Formula>{String.raw`(0, \pm 5\sqrt{3})`}</Formula> },
+                { label: "Vertices", description: <Formula>{String.raw`(0, \pm 10)`}</Formula> },
+                { label: "Eccentricity", description: <Formula>{String.raw`e = \frac{5\sqrt{3}}{10} = \frac{\sqrt{3}}{2}`}</Formula> },
+                { label: "Latus Rectum", description: <Formula>{String.raw`\frac{2b^2}{a} = \frac{2 \times 25}{10} = 5`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 9">
+          <ProblemSolution.Problem>
+            <p>An ellipse has vertices (±5, 0) and foci (±4, 0). Find its equation and eccentricity.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Identify a, c", description: <Formula>{String.raw`a = 5, c = 4`}</Formula> },
+                { label: "Find b²", description: <Formula>{String.raw`b^2 = a^2 - c^2 = 25 - 16 = 9`}</Formula> },
+                { label: "Equation", description: <Formula>{String.raw`\frac{x^2}{25} + \frac{y^2}{9} = 1`}</Formula> },
+                { label: "Eccentricity", description: <Formula>{String.raw`e = \frac{c}{a} = \frac{4}{5}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\frac{x^2}{25} + \frac{y^2}{9} = 1, \quad e = \frac{4}{5}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 10">
+          <ProblemSolution.Problem>
+            <p>For the ellipse x²/25 + y²/9 = 1, let A and B be the foci and C a point on the ellipse with BC ⊥ AB. Find the side lengths of triangle ABC.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Identify a, b", description: <Formula>{String.raw`a = 5, b = 3`}</Formula> },
+                { label: "Find c", description: <Formula>{String.raw`c = \sqrt{25 - 9} = 4`}</Formula> },
+                { label: "Foci", description: <Formula>{String.raw`A = (-4, 0),\ B = (4, 0)`}</Formula> },
+                { label: "AB", description: <Formula>{String.raw`2c = 8`}</Formula> },
+                { label: "BC", description: <><Formula>{String.raw`\frac{b^2}{a} = \frac{9}{5} = 1.8`}</Formula> — semi-latus rectum</> },
+                { label: "AC", description: <><Formula>{String.raw`AC + BC = 2a \implies AC = 10 - 1.8 = 8.2`}</Formula> — focal distance property</> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 11">
+          <ProblemSolution.Problem>
+            <p>Let S and S′ be the foci of x²/25 + y²/16 = 1, and P any point on the ellipse. Find PS + PS′.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Identify a", description: <Formula>{String.raw`a^2 = 25 \to a = 5`}</Formula> },
+                { label: "Focal distance property", description: <Formula>{String.raw`PS + PS' = 2a = 10`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`PS + PS' = 10`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 12">
+          <ProblemSolution.Problem>
+            <p>An ellipse passes through (3, 1) and has foci (±4, 0). Find the length of the major axis, its standard equation, eccentricity, and latus rectum.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Foci", description: <Formula>{String.raw`S(-4, 0),\ S'(4, 0),\ P(3, 1)`}</Formula> },
+                { label: "PS", description: <Formula>{String.raw`\sqrt{(3+4)^2 + 1^2} = \sqrt{50} = 5\sqrt{2}`}</Formula> },
+                { label: "PS′", description: <Formula>{String.raw`\sqrt{(3-4)^2 + 1^2} = \sqrt{2}`}</Formula> },
+                { label: "2a", description: <Formula>{String.raw`PS + PS' = 6\sqrt{2} \quad (\text{major axis length})`}</Formula> },
+                { label: "a²", description: <Formula>{String.raw`a = 3\sqrt{2} \to a^2 = 18`}</Formula> },
+                { label: "b²", description: <Formula>{String.raw`b^2 = a^2 - c^2 = 18 - 16 = 2`}</Formula> },
+                { label: "Equation", description: <Formula>{String.raw`\frac{x^2}{18} + \frac{y^2}{2} = 1`}</Formula> },
+                { label: "Eccentricity", description: <Formula>{String.raw`e = \frac{4}{3\sqrt{2}}`}</Formula> },
+                { label: "Latus Rectum", description: <Formula>{String.raw`\frac{2b^2}{a} = \frac{4}{3\sqrt{2}}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\frac{x^2}{18} + \frac{y^2}{2} = 1, \quad 2a = 6\sqrt{2}, \quad e = \frac{4}{3\sqrt{2}}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
       </Expandable>
 
       <h2 id="h-hyperbola">10.6 Hyperbola</h2>
@@ -552,14 +713,58 @@ export default function ConicSectionsChapter() {
 
       <h3>Standard Equation of Hyperbola</h3>
       <FormulaCard>
-        <p className="font-semibold mb-2">Standard Form</p>
-        <FormulaBlock latex={String.raw`\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1`} />
-        <p className="text-sm text-muted-foreground mt-2">Transverse axis along x-axis. Centre at origin.</p>
+        <p className="font-semibold mb-2">Standard Forms</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Transverse Axis along X-axis</th>
+              <th>Transverse Axis along Y-axis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Standard Form</strong></td>
+              <td>x²/a² − y²/b² = 1</td>
+              <td>y²/a² − x²/b² = 1</td>
+            </tr>
+            <tr>
+              <td><strong>Centre</strong></td>
+              <td>(0, 0)</td>
+              <td>(0, 0)</td>
+            </tr>
+            <tr>
+              <td><strong>Foci</strong></td>
+              <td>(±c, 0)</td>
+              <td>(0, ±c)</td>
+            </tr>
+            <tr>
+              <td><strong>Vertices</strong></td>
+              <td>(±a, 0)</td>
+              <td>(0, ±a)</td>
+            </tr>
+            <tr>
+              <td><strong>Transverse Axis</strong></td>
+              <td>2a</td>
+              <td>2a</td>
+            </tr>
+            <tr>
+              <td><strong>Conjugate Axis</strong></td>
+              <td>2b</td>
+              <td>2b</td>
+            </tr>
+            <tr>
+              <td><strong>Latus Rectum</strong></td>
+              <td>2b²/a</td>
+              <td>2b²/a</td>
+            </tr>
+          </tbody>
+        </table>
       </FormulaCard>
 
       <FormulaCard>
         <p className="font-semibold mb-2">Key Relations</p>
-        <FormulaBlock latex={String.raw`c^2 = a^2 + b^2`} />
+        <FormulaBlock latex={String.raw`c^2 = a^2 + b^2 \implies c = \sqrt{a^2 + b^2}`} />
         <FormulaBlock latex={String.raw`e = \frac{c}{a} > 1`} />
         <FormulaBlock latex={String.raw`\text{Latus Rectum} = \frac{2b^2}{a}`} />
       </FormulaCard>
@@ -594,7 +799,7 @@ export default function ConicSectionsChapter() {
       <Expandable id="h-ex-hyperbola" title="Examples — Hyperbola">
         <ProblemSolution problemNumber="Example 7">
           <ProblemSolution.Problem>
-            <p>Find the foci, vertices, eccentricity, and latus rectum of x²/9 − y²/16 = 1.</p>
+            <p>For the hyperbola x²/9 − y²/16 = 1, find the foci, vertices, eccentricity, latus rectum, and the lengths of the transverse and conjugate axes.</p>
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
             <Stepper
@@ -605,6 +810,7 @@ export default function ConicSectionsChapter() {
                 { label: "Vertices", description: <Formula>{String.raw`(\pm 3, 0)`}</Formula> },
                 { label: "Eccentricity", description: <Formula>{String.raw`e = \frac{c}{a} = \frac{5}{3}`}</Formula> },
                 { label: "Latus Rectum", description: <Formula>{String.raw`\frac{2b^2}{a} = \frac{2(16)}{3} = \frac{32}{3}`}</Formula> },
+                { label: "Axes", description: <><Formula>{String.raw`2a = 6,\quad 2b = 8`}</Formula> — transverse and conjugate axes</> },
               ]}
             />
           </ProblemSolution.Solution>

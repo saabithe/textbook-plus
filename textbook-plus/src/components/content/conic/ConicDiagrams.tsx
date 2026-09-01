@@ -21,9 +21,9 @@ function FigureShell({ title, desc, children, caption }: { title: string; desc: 
 
 export function CircleDiagram() {
   return (
-    <FigureShell title="Fig 11.11 — Circle definition (real)" desc="Real textbook circle: centre C(h,k) radius r" caption="Centre C(h,k), radius r: (x−h)²+(y−k)²=r². Source: Wikimedia / NCERT Fig 11.11">
+    <FigureShell title="Fig 11.11 — Circle definition" desc="Real textbook circle: centre C(h,k) radius r" caption="Centre C(h,k), radius r: (x−h)²+(y−k)²=r². Source: NCERT Fig 11.11 (textbook screenshot).">
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Circle_with_radius_and_diameter.png"
+        src="/images/maths/conic-sections/circle-definition.png"
         alt="Circle with centre and radius"
         className="w-full h-auto max-w-[340px] mx-auto"
         loading="lazy"
