@@ -495,7 +495,7 @@ export default function MolecularBasisOfInheritanceChapter() {
       </p>
       <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
         <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DNA_replication_split.svg" alt="Semiconservative DNA replication — parental strands separate, each serves as template for new complementary strand" className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
-        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.6 — Semiconservative replication scheme (Watson–Crick model)</figcaption>
+        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.6 Watson–Crick model for semiconservative DNA replication</figcaption>
       </figure>
 
       <h3 id="h-5-4-1">5.4.1 The Experimental Proof — Meselson & Stahl (1958)</h3>
@@ -536,7 +536,7 @@ export default function MolecularBasisOfInheritanceChapter() {
       </Callout>
       <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
         <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Meselson-stahl_experiment_diagram_en.svg" alt="Meselson–Stahl experiment — CsCl density gradient showing heavy 15N, hybrid, and light 14N DNA bands across generations" className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
-        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.7 — Meselson–Stahl experiment: CsCl density gradient centrifugation results</figcaption>
+        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.7 Meselson and Stahl&apos;s Experiment — Separation of DNA by Centrifugation</figcaption>
       </figure>
 
       <h3 id="h-5-4-taylor">Taylor and Colleagues Experiment (1958)</h3>
@@ -559,7 +559,7 @@ export default function MolecularBasisOfInheritanceChapter() {
       <h4>Mechanism of Replication</h4>
       <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
         <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Replication_fork.svg" alt="DNA replication fork — helicase unwinds DNA, leading strand synthesized continuously, lagging strand in Okazaki fragments, DNA ligase joins fragments" className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
-        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.8 — DNA replication fork: leading/lagging strand synthesis, Okazaki fragments, DNA ligase</figcaption>
+        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.8 Replicating Fork — leading/lagging strand synthesis, Okazaki fragments, DNA ligase</figcaption>
       </figure>
       <ul className="list-disc pl-5 space-y-1">
         <li><strong>Origin of Replication:</strong> Specific site where replication initiates.</li>
@@ -617,6 +617,10 @@ export default function MolecularBasisOfInheritanceChapter() {
           <li><strong>Terminator:</strong> Towards 3&apos; end (downstream) of coding strand; defines end of transcription.</li>
         </ul>
       </ConceptCard>
+      <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gene_structure_prokaryote_2_annotated.svg" alt="Schematic structure of a transcription unit — promoter (upstream, 5' end), structural gene, terminator (downstream, 3' end)" className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
+        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.9 Schematic structure of a transcription unit</figcaption>
+      </figure>
       <Callout type="note" title="Template vs Coding strand — convention">
         <p>Polymerase also works 5&apos;→3&apos;, so the strand with polarity <Highlight color="yellow">3&apos;→5&apos;</Highlight> acts as <strong>template strand</strong>. The other strand (5&apos;→3&apos;), same sequence as RNA (T instead of U), is <strong>coding strand</strong> (does not code, strange name) — displaced during transcription. Reference point is coding strand. Example:</p>
         <p className="font-mono text-sm bg-muted p-2 rounded">3&apos;-ATGCATGCATGC-5&apos; Template<br />5&apos;-TACGTACGTACG-3&apos; Coding</p>
