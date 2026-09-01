@@ -138,6 +138,74 @@ export default function ConicSectionsChapter() {
             />
           </ProblemSolution.Solution>
         </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 3">
+          <ProblemSolution.Problem>
+            <p>Consider the circle <Formula>{String.raw`C:\ x^2 + y^2 - 4x + 6y - 12 = 0`}</Formula>. Find the centre and radius of <Formula>{String.raw`C`}</Formula>, then find the equation of another circle which is concentric with <Formula>{String.raw`C`}</Formula> and has double the radius.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                {
+                  label: "Identify g, f, c",
+                  description: <Formula>{String.raw`2g = -4 \implies g = -2;\ \ 2f = 6 \implies f = 3;\ \ c = -12`}</Formula>,
+                },
+                {
+                  label: "Centre",
+                  description: <Formula>{String.raw`(-g, -f) = (-(-2), -3) = (2, -3)`}</Formula>,
+                },
+                {
+                  label: "Radius",
+                  description: <Formula>{String.raw`r = \sqrt{g^2 + f^2 - c} = \sqrt{4 + 9 + 12} = \sqrt{25} = 5`}</Formula>,
+                },
+                {
+                  label: "Double the radius",
+                  description: <Formula>{String.raw`r_{\text{new}} = 5 \times 2 = 10;\ \ \text{Centre stays } (2, -3)`}</Formula>,
+                },
+                {
+                  label: "Standard form",
+                  description: <Formula>{String.raw`(x - 2)^2 + (y + 3)^2 = 100`}</Formula>,
+                },
+                {
+                  label: "Expand to general form",
+                  description: <Formula>{String.raw`x^2 - 4x + 4 + y^2 + 6y + 9 - 100 = 0 \implies x^2 + y^2 - 4x + 6y - 87 = 0`}</Formula>,
+                },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 4">
+          <ProblemSolution.Problem>
+            <p>Find the equations of the circles with radius 5 whose centres lie on the x-axis and which pass through the point (2, 3).</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                {
+                  label: "Centre on x-axis",
+                  description: <Formula>{String.raw`(h, 0);\ \ r = 5`}</Formula>,
+                },
+                {
+                  label: "Passes through (2, 3)",
+                  description: <Formula>{String.raw`(2 - h)^2 + (3 - 0)^2 = 5^2 \implies (2 - h)^2 + 9 = 25`}</Formula>,
+                },
+                {
+                  label: "Solve for h",
+                  description: <Formula>{String.raw`(2 - h)^2 = 16 \implies 2 - h = \pm 4`}</Formula>,
+                },
+                {
+                  label: "Case 1: h = 6",
+                  description: <Formula>{String.raw`2 - h = -4 \implies h = 6;\ \ x^2 + y^2 - 12x + 11 = 0`}</Formula>,
+                },
+                {
+                  label: "Case 2: h = -2",
+                  description: <Formula>{String.raw`2 - h = 4 \implies h = -2;\ \ x^2 + y^2 + 4x - 21 = 0`}</Formula>,
+                },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
       </Expandable>
 
       <h2 id="h-parabola">10.4 Parabola</h2>
