@@ -494,7 +494,7 @@ export default function MolecularBasisOfInheritanceChapter() {
         <strong>Mechanism:</strong> DNA replicates in a <strong>semiconservative manner</strong>. The original DNA strands separate, with each original strand acting as a <strong>template strand</strong> to synthesize a new <strong>complementary strand</strong>.
       </p>
       <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DNA_replication_semiconservative.png" alt="Semiconservative DNA replication — parental strands separate, each serves as template for new complementary strand" className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DNA_replication_split.svg" alt="Semiconservative DNA replication — parental strands separate, each serves as template for new complementary strand" className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.6 — Semiconservative replication scheme (Watson–Crick model)</figcaption>
       </figure>
 
@@ -535,7 +535,7 @@ export default function MolecularBasisOfInheritanceChapter() {
         Can you recall centrifugal force? Higher mass/density sediments faster → heavy (¹⁵N) at bottom, light (¹⁴N) at top, hybrid in middle on CsCl gradient (Figure 5.7).
       </Callout>
       <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Meselson-Stahl_experiment.png" alt="Meselson–Stahl experiment — CsCl density gradient showing heavy, hybrid, and light DNA bands after 1st and 2nd generations" className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Meselson-stahl_experiment_diagram_en.svg" alt="Meselson–Stahl experiment — CsCl density gradient showing heavy 15N, hybrid, and light 14N DNA bands across generations" className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.7 — Meselson–Stahl experiment: CsCl density gradient centrifugation results</figcaption>
       </figure>
 
@@ -543,10 +543,6 @@ export default function MolecularBasisOfInheritanceChapter() {
       <p><strong>Researchers:</strong> Taylor and colleagues.</p>
       <p><strong>Organism Used:</strong> Plant – <em>Vicia faba</em> (Faba bean).</p>
       <p><strong>Medium Used:</strong> <strong>Radioactive Thymidine</strong>.</p>
-      <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Taylor_Woods_Hughes_autoradiograph.jpg" alt="Taylor et al. autoradiograph of Vicia faba chromosomes — radioactive thymidine incorporation shows semiconservative replication in eukaryotes" className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
-        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.8 — Taylor et al. autoradiograph: semiconservative replication in Vicia faba</figcaption>
-      </figure>
       <Callout type="note">
         <strong>Conclusion:</strong> Proved that DNA replication in chromosomes also proceeds in a <strong>semiconservative manner</strong> in eukaryotes (Taylor et al., 1958, using radioactive thymidine on <em>Vicia faba</em>).
       </Callout>
@@ -562,8 +558,8 @@ export default function MolecularBasisOfInheritanceChapter() {
 
       <h4>Mechanism of Replication</h4>
       <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Replication_fork.png" alt="DNA replication fork — helicase unwinds DNA, leading strand synthesized continuously, lagging strand in Okazaki fragments, DNA ligase joins fragments" className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
-        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.9 — DNA replication fork: leading/lagging strand synthesis, Okazaki fragments, DNA ligase</figcaption>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Replication_fork.svg" alt="DNA replication fork — helicase unwinds DNA, leading strand synthesized continuously, lagging strand in Okazaki fragments, DNA ligase joins fragments" className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
+        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.8 — DNA replication fork: leading/lagging strand synthesis, Okazaki fragments, DNA ligase</figcaption>
       </figure>
       <ul className="list-disc pl-5 space-y-1">
         <li><strong>Origin of Replication:</strong> Specific site where replication initiates.</li>
@@ -581,10 +577,6 @@ export default function MolecularBasisOfInheritanceChapter() {
         </li>
       </ul>
 
-      <Callout type="note" title="Centrifugation note">
-        Can you recall centrifugal force? Higher mass/density sediments faster → heavy (¹⁵N) at bottom, light (¹⁴N) at top, hybrid in middle on CsCl gradient (Figure 5.7).
-      </Callout>
-
       <h3 id="h-5-4-3">5.4.3 The Machinery and the Enzymes</h3>
       <FactCard
         title="Main enzyme"
@@ -593,8 +585,8 @@ export default function MolecularBasisOfInheritanceChapter() {
       />
       <ul>
         <li><strong>Energy:</strong> Deoxyribonucleoside triphosphates act as substrates <em>and</em> energy source (two terminal high-energy phosphates like ATP).</li>
-        <li><strong>Replication fork:</strong> Cannot separate whole long DNA at once — replication within small opening called <Highlight color="blue">replication fork</Highlight> (Figure 5.9).</li>
-        <li>Polymerase catalyses only <Highlight color="yellow">5&apos;→3&apos;</Highlight> → one template (3&apos;→5&apos;) → <strong>continuous</strong> replication; the other (5&apos;→3&apos;) → <strong>discontinuous</strong> (Okazaki) fragments later joined by <strong>DNA ligase</strong> (Figure 5.9).</li>
+        <li><strong>Replication fork:</strong> Cannot separate whole long DNA at once — replication within small opening called <Highlight color="blue">replication fork</Highlight> (Figure 5.8).</li>
+        <li>Polymerase catalyses only <Highlight color="yellow">5&apos;→3&apos;</Highlight> → one template (3&apos;→5&apos;) → <strong>continuous</strong> replication; the other (5&apos;→3&apos;) → <strong>discontinuous</strong> (Okazaki) fragments later joined by <strong>DNA ligase</strong> (Figure 5.8).</li>
         <li>Cannot initiate on its own; needs <strong>origin of replication</strong> — definite region in E. coli DNA. Vectors need origin to propagate in recombinant DNA procedures.</li>
       </ul>
       <Callout type="note">
