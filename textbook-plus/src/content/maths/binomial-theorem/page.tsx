@@ -1,5 +1,4 @@
 import { Callout } from "@/components/content/Callout";
-import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
@@ -61,27 +60,24 @@ export default function BinomialTheoremChapter() {
         </Callout>
         <Callout type="tip" title="Index check = error catcher">
           In every term, the powers of a and b must add to n. If they don&apos;t, you made an arithmetic error.
+          <span className="block mt-2">
+            Example: in (x + 2)⁴, the third term is ⁴C₂·x²·2² — indices 2 + 2 = 4 = n ✓. A common slip writes ⁴C₂·x³·2¹, giving 3 + 1 = 4 ✓ it happens to pass; but ⁴C₂·x³·2² would give 3 + 2 = 5 ≠ 4 — instantly wrong.
+          </span>
         </Callout>
       </SpeedTricks>
 
       <h2 id="h-theorem">7.2 Binomial Theorem</h2>
       <FormulaCard>
         <p className="font-semibold mb-2">Binomial Theorem</p>
-        <FormulaBlock latex={String.raw`(a+b)^n = \sum_{k=0}^{n} {^{n}C_{k}}\, a^{n-k}\, b^{k}`} />
-        <p className="text-sm text-muted-foreground mt-2">Expanded: nC0·aⁿ + nC1·aⁿ⁻¹b + nC2·aⁿ⁻²b² + ⋯ + nCn·bⁿ</p>
+        <FormulaBlock latex={String.raw`(a+b)^n = {}^{n}C_{0}\,a^n + {}^{n}C_{1}\,a^{n-1}b + {}^{n}C_{2}\,a^{n-2}b^2 + \cdots + {}^{n}C_{n}\,b^n`} />
       </FormulaCard>
-      <KeyPoint>
-        <strong>(n+1) terms</strong> in the expansion.
-        The coefficients nCr are called <strong>binomial coefficients</strong>.
-        Each term has total index n (indices of a and b add to n).
-      </KeyPoint>
-
       <Callout type="note" title="Number of Terms & Sign Pattern">
+        <p className="mb-2"><strong>Key:</strong> (n+1) terms in the expansion; the coefficients nCr are called <strong>binomial coefficients</strong>, and each term has total index n (indices of a and b add to n).</p>
         <p className="mb-2">For (a ± b)ⁿ with n a natural number:</p>
         <ul className="list-disc pl-5 space-y-1">
           <li><strong>Total terms:</strong> n + 1 (one more than the exponent).</li>
           <li><strong>(a + b)ⁿ:</strong> all terms positive.</li>
-          <li><strong>(a − b)ⁿ:</strong> signs alternate starting with + : +, −, +, −, +, …</li>
+          <li><strong>(a − b)ⁿ:</strong> signs alternate starting with − : −, +, −, +, −, …</li>
           <li>Examples: (3x − 2)¹⁰ → 11 terms, (9 + y)⁴ → 5 terms, (3 − 2x)¹¹ → 12 terms, (9 − 3y)¹² → 13 terms, (2x + 3)⁵ → 6 terms.</li>
         </ul>
       </Callout>
@@ -129,7 +125,23 @@ export default function BinomialTheoremChapter() {
                 { label: "Simplify", description: <Formula>{String.raw`243 - 405x + 270x^2 - 90x^3 + 15x^4 - x^5`}</Formula> },
               ]}
             />
-            <p className="text-sm text-muted-foreground mt-2">5 + 1 = 6 terms, signs alternating +, −, +, −, +, −.</p>
+            <p className="text-sm text-muted-foreground mt-2">5 + 1 = 6 terms, signs alternating −, +, −, +, −, +.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 1D">
+          <ProblemSolution.Problem>
+            Expand (2/x − x/2)⁵.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "(2/x − x/2)⁵", description: <Formula>{String.raw`{}^{5}C_{0}\left(\frac{2}{x}\right)^5 - {}^{5}C_{1}\left(\frac{2}{x}\right)^4\frac{x}{2} + {}^{5}C_{2}\left(\frac{2}{x}\right)^3\left(\frac{x}{2}\right)^2 - {}^{5}C_{3}\left(\frac{2}{x}\right)^2\left(\frac{x}{2}\right)^3 + {}^{5}C_{4}\left(\frac{2}{x}\right)\left(\frac{x}{2}\right)^4 - {}^{5}C_{5}\left(\frac{x}{2}\right)^5`}</Formula> },
+                { label: "Simplify powers", description: <Formula>{String.raw`\frac{32}{x^5} - 5\cdot\frac{8}{x^3} + 10\cdot\frac{2}{x} - 10\cdot\frac{x}{2} + 5\cdot\frac{x^3}{8} - \frac{x^5}{32}`}</Formula> },
+                { label: "Evaluate", description: <Formula>{String.raw`\frac{32}{x^5} - \frac{40}{x^3} + \frac{20}{x} - 5x + \frac{5x^3}{8} - \frac{x^5}{32}`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">5 + 1 = 6 terms.</p>
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
