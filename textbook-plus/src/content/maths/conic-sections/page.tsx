@@ -7,8 +7,7 @@ import { Stepper } from "@/components/content/Stepper";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { Highlight } from "@/components/content/Highlight";
 import { SpeedTricks } from "@/components/content/SpeedTricks";
-import { FunctionGraph } from "@/components/content/maths/FunctionGraph";
-import { CircleDiagram, ParabolaFocus, ParabolaFour, EllipseDiagram, HyperbolaDiagram } from "@/components/content/conic/ConicDiagrams";
+import { CircleDiagram, ParabolaFocus, EllipseDiagram, HyperbolaDiagram } from "@/components/content/conic/ConicDiagrams";
 
 export default function ConicSectionsChapter() {
   return (
@@ -265,30 +264,23 @@ export default function ConicSectionsChapter() {
           </tbody>
         </table>
       </FormulaCard>
-      <ParabolaFour />
-      <p>Here a is the distance from the vertex to the focus (and from the vertex to the directrix).</p>
-
-      <FunctionGraph
-        curves={[
-          { fn: (x) => 2 * Math.sqrt(x), from: 0, to: 5 },
-          { fn: (x) => -2 * Math.sqrt(x), from: 0, to: 5 },
-        ]}
-        points={[{ x: 1, y: 0 }]}
-        xMin={-3} xMax={6} yMin={-5} yMax={5}
-        xTicks={[{ at: 1, label: "S(1,0)" }]}
-        caption="y² = 4x — parabola opening right, a = 1, focus at (1, 0)"
-      />
-
-      <FunctionGraph
-        curves={[
-          { fn: (x) => -2 * Math.sqrt(x), from: 0, to: 5 },
-          { fn: (x) => 2 * Math.sqrt(x), from: 0, to: 5 },
-        ]}
-        points={[{ x: -1, y: 0 }]}
-        xMin={-6} xMax={3} yMin={-5} yMax={5}
-        xTicks={[{ at: -1, label: "S(−1,0)" }]}
-        caption="y² = −4x — parabola opening left, a = 1, focus at (−1, 0)"
-      />
+      <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/7/77/Conic_section_-_standard_forms_of_a_parabola.png"
+          alt="Four standard parabolas: y²=4ax (right), y²=−4ax (left), x²=4ay (up), x²=−4ay (down)"
+          className="w-full h-auto max-w-[440px] mx-auto"
+          loading="lazy"
+        />
+        <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs text-muted-foreground text-center leading-relaxed">
+          Four standard parabolas with vertex at the origin — y²=4ax (opens right), y²=−4ax (left),
+          x²=4ay (up), x²=−4ay (down). Focus (a,0), (−a,0), (0,a), (0,−a); latus rectum 4a.
+          Here a is the distance from the vertex to the focus (and to the directrix). Source:{" "}
+          <a href="https://commons.wikimedia.org/wiki/File:Conic_section_-_standard_forms_of_a_parabola.png" target="_blank" rel="noreferrer" className="underline">
+            Wikimedia Commons / Klaas van Aarsen
+          </a>{" "}
+          — see NCERT Fig 11.15.
+        </figcaption>
+      </figure>
 
       <SpeedTricks>
         <Callout type="tip" title="Remember the four forms">
@@ -387,16 +379,22 @@ export default function ConicSectionsChapter() {
         </ul>
       </KeyPoint>
 
-      <FunctionGraph
-        curves={[
-          { fn: (x) => 3 * Math.sqrt(1 - (x * x) / 25), from: -5, to: 5 },
-          { fn: (x) => -3 * Math.sqrt(1 - (x * x) / 25), from: -5, to: 5 },
-        ]}
-        points={[{ x: 4, y: 0, filled: false }, { x: -4, y: 0, filled: false }]}
-        xMin={-7} xMax={7} yMin={-5} yMax={5}
-        xTicks={[{ at: -4, label: "−c" }, { at: 4, label: "c" }]}
-        caption="x²/25 + y²/9 = 1 — a = 5, b = 3, c = 4, e = 4/5"
-      />
+      <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/4/47/Ellipse_latus_rectum.svg"
+          alt="Ellipse x²/25 + y²/9 = 1 — foci at ±c, latus rectum"
+          className="w-full h-auto max-w-[380px] mx-auto"
+          loading="lazy"
+        />
+        <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs text-muted-foreground text-center leading-relaxed">
+          Ellipse x²/25 + y²/9 = 1 — a = 5, b = 3, c = √(25−9) = 4, e = c/a = 4/5, latus rectum = 2b²/a.
+          Source:{" "}
+          <a href="https://commons.wikimedia.org/wiki/File:Ellipse_latus_rectum.svg" target="_blank" rel="noreferrer" className="underline">
+            Wikimedia Commons
+          </a>{" "}
+          — see NCERT Fig 11.27.
+        </figcaption>
+      </figure>
 
       <SpeedTricks>
         <Callout type="tip" title="Which is a, which is b?">
@@ -481,20 +479,22 @@ export default function ConicSectionsChapter() {
         <p className="text-sm text-muted-foreground mt-2">Eccentricity = √2. Asymptotes are perpendicular (y = ±x).</p>
       </FormulaCard>
 
-      <FunctionGraph
-        curves={[
-          { fn: (x) => 3 * Math.sqrt((x * x) / 25 - 1), from: 5, to: 8 },
-          { fn: (x) => -3 * Math.sqrt((x * x) / 25 - 1), from: 5, to: 8 },
-          { fn: (x) => 3 * Math.sqrt((x * x) / 25 - 1), from: -8, to: -5 },
-          { fn: (x) => -3 * Math.sqrt((x * x) / 25 - 1), from: -8, to: -5 },
-          { fn: (x) => (3 / 5) * x, from: -8, to: 8, dashed: true },
-          { fn: (x) => -(3 / 5) * x, from: -8, to: 8, dashed: true },
-        ]}
-        points={[{ x: 5, y: 0, filled: false }, { x: -5, y: 0, filled: false }]}
-        xMin={-9} xMax={9} yMin={-7} yMax={7}
-        xTicks={[{ at: -5, label: "−a" }, { at: 5, label: "a" }]}
-        caption="x²/25 − y²/9 = 1 — a = 5, b = 3, c = √34, asymptotes shown dashed"
-      />
+      <figure className="my-6 rounded-xl border border-border/40 overflow-hidden bg-card">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Hyperbola_properties.svg/960px-Hyperbola_properties.svg.png"
+          alt="Hyperbola x²/25 − y²/9 = 1 — foci, vertices at ±a, dashed asymptotes"
+          className="w-full h-auto max-w-[380px] mx-auto"
+          loading="lazy"
+        />
+        <figcaption className="px-4 py-2.5 bg-muted/20 border-t border-border/30 text-xs text-muted-foreground text-center leading-relaxed">
+          Hyperbola x²/25 − y²/9 = 1 — a = 5, b = 3, c = √(25+9) = √34, asymptotes y = ±(b/a)x = ±(3/5)x shown dashed.
+          Source:{" "}
+          <a href="https://commons.wikimedia.org/wiki/File:Hyperbola_properties.svg" target="_blank" rel="noreferrer" className="underline">
+            Wikimedia Commons / Inductiveload (PD)
+          </a>{" "}
+          — see NCERT Fig 11.31.
+        </figcaption>
+      </figure>
 
       <SpeedTricks>
         <Callout type="tip" title="Ellipse: a² = b² + c². Hyperbola: c² = a² + b²">
