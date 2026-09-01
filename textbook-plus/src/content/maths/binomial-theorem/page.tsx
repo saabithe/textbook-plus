@@ -179,6 +179,23 @@ export default function BinomialTheoremChapter() {
             So <strong>(1.01)¹⁰⁰⁰⁰⁰⁰ &gt; 10,000</strong>.
           </ProblemSolution.Solution>
         </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 3B">
+          <ProblemSolution.Problem>
+            Approximate (0.99)⁵ using the first three terms of its expansion.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Rewrite", description: <Formula>{String.raw`(0.99)^5 = (1 - 0.01)^5`}</Formula> },
+                { label: "First three terms", description: <Formula>{String.raw`1 - {}^{5}C_{1}(0.01) + {}^{5}C_{2}(0.01)^2`}</Formula> },
+                { label: "Evaluate", description: <Formula>{String.raw`1 - 5\times 0.01 + 10\times 0.0001 = 1 - 0.05 + 0.001`}</Formula> },
+                { label: "Approximation", description: <Formula>{String.raw`\approx 0.951`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">Full expansion gives 0.9509900499. Dropped terms are 10⁻⁵, 10⁻⁷, 10⁻⁹ — negligible.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
       </Expandable>
 
       <SpeedTricks>
