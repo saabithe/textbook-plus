@@ -19,31 +19,6 @@ function FigureShell({ title, desc, children, caption }: { title: string; desc: 
   );
 }
 
-// Not used in 10.2 anymore (replaced by real Wikimedia in page.tsx) but kept
-export function DoubleCone() {
-  return (
-    <FigureShell title="Fig 11.1–11.2 — Double-napped cone (real)" desc="Real textbook figure: double-napped cone" caption="Source: Wikimedia / NCERT kemh111.pdf">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Conic_sections_with_plane.svg/960px-Conic_sections_with_plane.svg.png" alt="Double cone" className="w-full h-auto" loading="lazy" />
-    </FigureShell>
-  );
-}
-
-export function ConeSections() {
-  return (
-    <FigureShell title="Fig 11.4–11.7 — Sections" desc="Real sections" caption="Real figure">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Conic_sections_with_plane.svg/960px-Conic_sections_with_plane.svg.png" alt="Conic sections with plane" className="w-full h-auto" loading="lazy" />
-    </FigureShell>
-  );
-}
-
-export function DegenerateStrip() {
-  return (
-    <FigureShell title="Fig 11.8–11.10 — Degenerate" desc="Degenerate conics" caption="Point, line, intersecting lines">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Conic_sections_with_plane.svg/960px-Conic_sections_with_plane.svg.png" alt="Degenerate conics" className="w-full h-auto" loading="lazy" />
-    </FigureShell>
-  );
-}
-
 export function CircleDiagram() {
   return (
     <FigureShell title="Fig 11.11 — Circle definition (real)" desc="Real textbook circle: centre C(h,k) radius r" caption="Centre C(h,k), radius r: (x−h)²+(y−k)²=r². Source: Wikimedia / NCERT Fig 11.11">
