@@ -487,32 +487,41 @@ export default function MolecularBasisOfInheritanceChapter() {
 
       <h3 id="h-5-4-semiconservative">Semiconservative Scheme</h3>
       <Callout type="note" title="Watson–Crick 1953">
-        Each strand separates and acts as template for a new complementary strand → after replication each DNA has <Highlight color="yellow">one parental + one new strand</Highlight> → <strong>semiconservative</strong> (Figure 5.6).
+        Each strand separates and acts as a template for a new complementary strand → after replication each DNA has <Highlight color="yellow">one parental + one new strand</Highlight> → <strong>semiconservative</strong> (Figure 5.6).
       </Callout>
-      <p className="mt-4">
-        <strong>Mechanism:</strong> DNA replicates in a <strong>semiconservative manner</strong>. The original DNA strands separate, with each original strand acting as a <strong>template strand</strong> to synthesize a new <strong>complementary strand</strong>.
-      </p>
       <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
         <img src="/images/biology/molecular-basis-of-inheritance/watson-crick-replication.png" alt="Watson–Crick model for semiconservative DNA replication — parental strands separate, each serves as template for a new complementary strand" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.6 Watson–Crick model for semiconservative DNA replication</figcaption>
       </figure>
 
+      <h4>Mechanism — three key points</h4>
+      <ul className="space-y-1.5 text-sm leading-relaxed">
+        <li><strong>DNA replicates semiconservatively.</strong> The original double helix separates and each strand acts as a template.</li>
+        <li><strong>Each template builds its complement.</strong> Complementary base pairing drives synthesis of a new strand.</li>
+        <li><strong>Result — one old + one new.</strong> Every daughter molecule ends with one parental and one newly synthesised strand.</li>
+      </ul>
+
       <h3 id="h-5-4-1">5.4.1 The Experimental Proof — Meselson & Stahl (1958)</h3>
       <p>
-        DNA replicates semiconservatively — shown first in <em>E. coli</em> and subsequently in higher organisms such as plants and human cells. <strong>Researchers:</strong> Matthew Meselson and Franklin Stahl (1958). <strong>Organism:</strong> <em>E. coli</em>, using heavy (¹⁵N) and normal (¹⁴N) nitrogen isotopes with Cesium Chloride (<span className="font-mono">CsCl</span>) density gradient centrifugation.
+        DNA replicates semiconservatively — shown first in <em>E. coli</em> and later in higher organisms such as plants and human cells.
       </p>
+      <div className="grid gap-2 sm:grid-cols-3">
+        <FactCard title="Researchers" definition="Matthew Meselson and Franklin Stahl (1958)" icon="🧑‍🔬" />
+        <FactCard title="Organism" definition="E. coli — grown in ¹⁵NH₄Cl then ¹⁴NH₄Cl" icon="🦠" />
+        <FactCard title="Technique" definition="CsCl density-gradient centrifugation separates DNA purely by density" icon="🧪" />
+      </div>
 
-      <h4>Procedure</h4>
+      <h4>Procedure — three steps</h4>
       <Stepper
         steps={[
           { label: "Grow in ¹⁵N", description: "Grow E. coli in ¹⁵NH₄Cl (heavy N as only N source) for many generations → ¹⁵N incorporated into newly synthesised DNA (heavy DNA). ¹⁵N is not radioactive; distinguished from ¹⁴N only by density." },
-          { label: "Shift to ¹⁴N", description: "Transfer cells to normal ¹⁴NH₄Cl medium. Take samples at definite intervals as cells multiply; extract DNA (remains as double-stranded helices)." },
+          { label: "Shift to ¹⁴N", description: "Transfer cells to normal ¹⁴NH₄Cl. Take samples at definite intervals as cells multiply; extract DNA (remains as double-stranded helices)." },
           { label: "Separate on CsCl", description: "Separate each sample independently on a CsCl density gradient to measure DNA densities." },
         ]}
       />
 
       <Callout type="note" title="Centrifugation note">
-        Can you recall what <strong>centrifugal force</strong> is — and think why a molecule with higher mass/density sediments faster? On a CsCl gradient: heavy (¹⁵N) DNA → bottom, light (¹⁴N) DNA → top, hybrid → middle.
+        Can you recall what <strong>centrifugal force</strong> is — and why a molecule with higher mass/density sediments faster? On a CsCl gradient: heavy (¹⁵N) DNA → bottom, light (¹⁴N) DNA → top, hybrid → middle.
       </Callout>
       <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
         <img src="/images/biology/molecular-basis-of-inheritance/meselson-stahl-centrifugation.png" alt="Meselson and Stahl's experiment — Separation of DNA by Centrifugation, CsCl density gradient showing heavy, hybrid, and light DNA bands across generations" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
@@ -520,11 +529,11 @@ export default function MolecularBasisOfInheritanceChapter() {
       </figure>
 
       <h4>Generation Timeline & Results</h4>
-      <ul className="list-disc pl-5 space-y-1 mt-2">
-        <li><strong>0 min (Initial):</strong> Both strands contain <span className="font-mono">¹⁵N</span> (<span className="font-mono">¹⁵N¹⁵N</span>) → <strong>Heavy density</strong> band.</li>
-        <li><strong>20 min (1st Generation):</strong> All DNA molecules contain one <span className="font-mono">¹⁵N</span> strand and one <span className="font-mono">¹⁴N</span> strand (<span className="font-mono">¹⁵N¹⁴N</span>) → <strong>Hybrid / Intermediate density</strong> band.</li>
-        <li><strong>40 min (2nd Generation):</strong> Equal proportion of hybrid (<span className="font-mono">¹⁵N¹⁴N</span>) and light (<span className="font-mono">¹⁴N¹⁴N</span>) DNA → <strong>Intermediate density</strong> and <strong>Light density</strong> bands.</li>
-        <li><strong>60 min / 80 min (Subsequent Generations):</strong> Higher proportion of light density DNA (<span className="font-mono">¹⁴N¹⁴N</span>) relative to hybrid DNA.</li>
+      <ul className="space-y-1.5 text-sm leading-relaxed">
+        <li><strong>0 min — initial:</strong> both strands ¹⁵N (¹⁵N¹⁵N) → <strong>heavy</strong> band.</li>
+        <li><strong>20 min — 1st generation:</strong> all DNA one ¹⁵N + one ¹⁴N (¹⁵N¹⁴N) → <strong>hybrid / intermediate</strong> band.</li>
+        <li><strong>40 min — 2nd generation:</strong> equal hybrid + light (¹⁴N¹⁴N) → <strong>intermediate + light</strong> bands.</li>
+        <li><strong>60 / 80 min — later generations:</strong> light DNA keeps increasing relative to hybrid.</li>
       </ul>
       <Comparison
         columns={[
@@ -539,54 +548,78 @@ export default function MolecularBasisOfInheritanceChapter() {
         ]}
       />
       <Expandable title="If grown for 80 min → proportions?">
-        <p>80 min = 4 generations (dividing every 20 min). Start 2 strands heavy. After n gens: 2 hybrid + (2ⁿ – 2) light. For 80 min (4 gens, 16 strands): <strong>2 hybrid : 14 light = 1:7</strong>.</p>
+        <p>80 min = 4 generations (dividing every 20 min). Start with 2 heavy strands. After n gens: 2 hybrid + (2ⁿ – 2) light. For 80 min (4 gens, 16 strands): <strong>2 hybrid : 14 light = 1:7</strong>.</p>
       </Expandable>
+      <KeyPoint title="Why it rules out conservative">
+        Because after one generation <em>all</em> DNA is hybrid (no heavy, no light), only semiconservative (and dispersive) explain it; conservative replication would show heavy + light with no hybrid.
+      </KeyPoint>
 
       <h3 id="h-5-4-taylor">Taylor and Colleagues Experiment (1958)</h3>
       <p>
-        A very similar experiment, using <strong>radioactive thymidine</strong> to detect the distribution of newly synthesised DNA in chromosomes, was performed on <em>Vicia faba</em> (faba beans) by Taylor and colleagues in 1958.
+        A very similar experiment using <strong>radioactive thymidine</strong> to detect newly synthesised DNA in chromosomes was performed on <em>Vicia faba</em> (faba beans) by Taylor and colleagues in 1958.
       </p>
       <Callout type="note">
-        <strong>Conclusion:</strong> Proved that DNA in <strong>chromosomes</strong> also replicates in a <strong>semiconservative manner</strong> in eukaryotes (Taylor et al., 1958, using radioactive thymidine on <em>Vicia faba</em>).
+        <strong>Conclusion:</strong> DNA in <strong>chromosomes</strong> also replicates in a <strong>semiconservative manner</strong> in eukaryotes.
       </Callout>
 
       <h3 id="h-5-4-2">5.4.2 DNA Replication Process and the Machinery</h3>
       <FactCard
         title="Main enzyme"
-        definition="DNA-dependent DNA polymerase — uses a DNA template to catalyse polymerisation of deoxynucleotides. E. coli (4.6×10⁶ bp, vs human diploid 6.6×10⁹ bp) completes replication in 18 min → average rate ~2000 bp/s. Must be fast and highly accurate; any error → mutations."
+        definition="DNA-dependent DNA polymerase — uses a DNA template to catalyse polymerisation of deoxynucleotides. E. coli (4.6×10⁶ bp, vs human diploid 6.6×10⁹ bp) completes replication in 18 min → average rate ~2000 bp/s. Must be fast and accurate; any error → mutations."
         icon="⚙️"
       />
-      <ul className="list-disc pl-5 space-y-1 mt-3">
-        <li><strong>Mode of Replication:</strong> Proceeds in a <strong>semiconservative manner</strong>.</li>
-        <li><strong>Energy:</strong> Deoxyribonucleoside triphosphates serve dual purposes — act as substrates <em>and</em> provide energy for polymerisation (the two terminal phosphates are high-energy, like ATP).</li>
-        <li><strong>Cannot initiate on its own:</strong> Replication does not start randomly — it requires a definite region in E. coli DNA called the <strong>origin of replication</strong>. This is why a piece of DNA propagated during recombinant DNA procedures needs a <strong>vector</strong> (the vector provides the origin of replication).</li>
+
+      <h4>Key characteristics</h4>
+      <ul className="space-y-1.5 text-sm leading-relaxed">
+        <li><strong>Mode:</strong> semiconservative.</li>
+        <li><strong>Energy:</strong> deoxyribonucleoside triphosphates act as substrates <em>and</em> provide energy (two terminal high-energy phosphates, like ATP).</li>
+        <li><strong>Starting:</strong> cannot initiate on its own — needs a definite <strong>origin of replication</strong> in E. coli DNA. This is why a DNA piece propagated in recombinant procedures needs a <strong>vector</strong> (vector provides the origin).</li>
       </ul>
 
       <h4>Mechanism of Replication — the Replicating Fork</h4>
       <p>
-        For long DNA molecules the two strands cannot be separated along their entire length (very high energy requirement). Instead, replication occurs within a small opening of the helix called the <Highlight color="blue">replication fork</Highlight> (Figure 5.8).
+        Long DNA cannot be separated along its whole length (very high energy requirement) — replication occurs in a small opening of the helix called the <Highlight color="blue">replication fork</Highlight> (Figure 5.8).
       </p>
       <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
         <img src="/images/biology/molecular-basis-of-inheritance/replicating-fork.png" alt="Replicating Fork — helicase unwinds DNA, DNA polymerase synthesizes leading strand continuously and lagging strand in Okazaki fragments joined by DNA ligase" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
         <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.8 Replicating Fork</figcaption>
       </figure>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li><strong>Origin of replication:</strong> Specific site where replication initiates.</li>
-        <li><strong>Helicase / unwinding:</strong> The <strong>replication fork</strong> forms as the double-stranded DNA is unwound (separated) at a small opening.</li>
-        <li><strong>Direction of synthesis:</strong> DNA-dependent DNA polymerases catalyse polymerisation only in the <strong>5&apos; → 3&apos;</strong> direction — this creates complications at the fork.</li>
-        <li><strong>Strand synthesis types:</strong>
-          <ul className="list-disc pl-5 space-y-1 mt-1">
-            <li><strong>Leading strand (continuous):</strong> Formed on the <strong>3&apos; → 5&apos; template strand</strong>; synthesis is continuous in the 5&apos; → 3&apos; direction.</li>
-            <li><strong>Lagging strand (discontinuous):</strong> Formed on the <strong>5&apos; → 3&apos; template strand</strong>; synthesised discontinuously as small (<strong>Okazaki</strong>) fragments, later joined by <strong>DNA ligase</strong> (Figure 5.8).</li>
-          </ul>
-        </li>
-      </ul>
+      <ConceptCard title="The fork at a glance">
+        <ul className="space-y-1.5">
+          <li><strong>Origin of replication:</strong> specific site where replication initiates.</li>
+          <li><strong>Unwinding:</strong> the fork forms as double-stranded DNA is separated at a small opening.</li>
+          <li><strong>Direction:</strong> polymerases synthesise only <strong>5&apos; → 3&apos;</strong> — this creates complications at the fork.</li>
+        </ul>
+      </ConceptCard>
+      <Comparison
+        columns={[
+          {
+            title: "Leading strand — continuous",
+            children: (
+              <ul className="space-y-1">
+                <li>Template: <strong>3&apos; → 5&apos;</strong></li>
+                <li>Synthesis continuous in 5&apos; → 3&apos;</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Lagging strand — discontinuous",
+            children: (
+              <ul className="space-y-1">
+                <li>Template: <strong>5&apos; → 3&apos;</strong></li>
+                <li>Synthesised as small (<strong>Okazaki</strong>) fragments</li>
+                <li>Fragments joined by <strong>DNA ligase</strong> (Fig 5.8)</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
       <Callout type="note">
         In eukaryotes replication occurs at <Highlight color="yellow">S-phase</Highlight>, tightly coordinated with the cell cycle. Failure of replication without division → <strong>polyploidy</strong> (chromosomal anomaly). Detailed origin structure — higher classes.
       </Callout>
       <MistakeCard
         mistake="Thinking both strands replicate continuously."
-        correction="Remember: polymerase only 5'→3', so one strand must be discontinuous. Template 3'→5' = continuous; Template 5'→3' = discontinuous + ligase."
+        correction="Polymerase only synthesises 5'→3', so one strand must be discontinuous. Template 3'→5' = continuous; Template 5'→3' = discontinuous + ligase."
       />
 
             <h2 id="h-5-5">5.5 Transcription</h2>
