@@ -703,6 +703,27 @@ export default function ConicSectionsChapter() {
             <FormulaBlock latex={String.raw`\frac{x^2}{18} + \frac{y^2}{2} = 1, \quad 2a = 6\sqrt{2}, \quad e = \frac{4}{3\sqrt{2}}`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 13">
+          <ProblemSolution.Problem>
+            <p>Find the equation of the ellipse with centre at the origin, major axis along the x-axis, passing through (4, 3) and (−1, 4).</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Standard form", description: <><Formula>{String.raw`\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1`}</Formula> — centre at origin, major axis along x-axis, a² &gt; b²</> },
+                { label: "Substitute (4, 3)", description: <><Formula>{String.raw`\frac{16}{a^2} + \frac{9}{b^2} = 1`}</Formula> (equation 1)</> },
+                { label: "Substitute (−1, 4)", description: <><Formula>{String.raw`\frac{1}{a^2} + \frac{16}{b^2} = 1`}</Formula> (equation 2)</> },
+                { label: "Eliminate a²", description: <><Formula>{String.raw`16 \times (2) - (1)`}</Formula> — multiply eq (2) by 16 and subtract eq (1)</> },
+                { label: "Solve for b²", description: <Formula>{String.raw`\frac{256}{b^2} - \frac{9}{b^2} = 15 \implies \frac{247}{b^2} = 15 \implies b^2 = \frac{247}{15}`}</Formula> },
+                { label: "Solve for a²", description: <><Formula>{String.raw`\frac{1}{a^2} = 1 - \frac{16 \times 15}{247} = \frac{7}{247} \implies a^2 = \frac{247}{7}`}</Formula> (using equation 2)</> },
+                { label: "Equation", description: <Formula>{String.raw`\frac{7x^2}{247} + \frac{15y^2}{247} = 1 \implies 7x^2 + 15y^2 = 247`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`7x^2 + 15y^2 = 247, \quad a^2 = \frac{247}{7} > b^2 = \frac{247}{15}`} important />
+            <p className="text-sm text-muted-foreground mt-2">Since a² &gt; b², the major axis is along the x-axis as required.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
       </Expandable>
 
       <h2 id="h-hyperbola">10.6 Hyperbola</h2>
