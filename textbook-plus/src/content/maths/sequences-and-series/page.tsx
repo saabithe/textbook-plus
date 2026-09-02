@@ -390,6 +390,43 @@ export default function SequencesAndSeriesChapter() {
         </ProblemSolution>
       </Expandable>
 
+      <h3 id="h-gp-infinite">Sum of an Infinite G.P.</h3>
+      <FormulaCard>
+        <p className="font-semibold mb-2">Infinite Sum</p>
+        <FormulaBlock latex={String.raw`S_\infty = \frac{a}{1 - r} \quad \text{where } -1 < r < 1`} />
+        <p className="text-sm text-muted-foreground mt-2">The infinite series converges only when |r| &lt; 1. Otherwise the sum diverges (grows without bound) and this formula does not apply.</p>
+      </FormulaCard>
+
+      <Expandable title="Example 12B — Sum of an Infinite G.P.">
+        <ProblemSolution problemNumber="Example 12B">
+          <ProblemSolution.Problem>
+            Find the sum of the infinite series 1 + 1/2 + 1/2² + 1/2³ + ⋯
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Identify a and r", description: <Formula>{String.raw`a = 1,\quad r = \frac{1/2}{1} = \frac{1}{2}`}</Formula> },
+                { label: "Apply formula", description: <Formula>{String.raw`S_\infty = \frac{1}{1 - \frac{1}{2}} = \frac{1}{\frac{1}{2}} = 2`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 12C">
+          <ProblemSolution.Problem>
+            Find the sum of the infinite terms of the G.P. −3/4, 3/16, −3/64, ⋯
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Identify a and r", description: <Formula>{String.raw`a = -\frac{3}{4},\quad r = \frac{3/16}{-3/4} = -\frac{1}{4}`}</Formula> },
+                { label: "Apply formula", description: <Formula>{String.raw`S_\infty = \frac{-3/4}{1 - (-\frac{1}{4})} = \frac{-3/4}{5/4} = -\frac{3}{5}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <h3 id="h-gm">Geometric Mean (G.M.)</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Geometric Mean</p>
