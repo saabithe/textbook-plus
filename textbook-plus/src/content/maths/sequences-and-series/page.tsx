@@ -242,6 +242,100 @@ export default function SequencesAndSeriesChapter() {
             />
           </ProblemSolution.Solution>
         </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 4F">
+          <ProblemSolution.Problem>
+            If the 3rd, 8th and 13th terms of a G.P. are x, y and z respectively, prove that x, y, z are in G.P.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Write the three terms", description: <Formula>{String.raw`x = ar^2,\quad y = ar^7,\quad z = ar^{12}`}</Formula> },
+                { label: "Check ratio", description: <>{<Formula>{String.raw`\frac{y}{x} = \frac{ar^7}{ar^2} = r^5`}</Formula>} and {<Formula>{String.raw`\frac{z}{y} = \frac{ar^{12}}{ar^7} = r^5`}</Formula>}</> },
+                { label: "Conclusion", description: <Formula>{String.raw`\frac{y}{x} = \frac{z}{y} \;\Rightarrow\; x,y,z \text{ are in G.P.}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <h3 id="h-gp-sum-practice" className="mt-6">Sum of a G.P. — More Practice</h3>
+
+        <ProblemSolution problemNumber="Example 6B">
+          <ProblemSolution.Problem>
+            Find the sum of the first n terms and the first 5 terms of the series 1 + 2/3 + 4/9 + ⋯
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            a = 1, r = 2/3 (&lt; 1).
+            <br />
+            Sₙ = 3(1 − (2/3)ⁿ) = 3(3ⁿ − 2ⁿ)/3ⁿ.
+            <br />
+            S₅ = 3(3⁵ − 2⁵)/3⁵ = 3 × 211/243 = <strong>211/81</strong>.
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 6C">
+          <ProblemSolution.Problem>
+            How many terms of the G.P. 3, 9, 27, … are needed to give the sum 120?
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "a, r and Sₙ", description: <Formula>{String.raw`a = 3,\ r = 3,\ S_n = 120`}</Formula> },
+                { label: "Apply sum formula", description: <Formula>{String.raw`\frac{3(3^n - 1)}{3 - 1} = 120 \;\Rightarrow\; 3^n - 1 = 80`}</Formula> },
+                { label: "Solve", description: <Formula>{String.raw`3^n = 81 = 3^4 \;\Rightarrow\; n = 4`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 6D">
+          <ProblemSolution.Problem>
+            Find the sum of the first 10 terms of a G.P. whose 3rd term is 12 and 8th term is 384.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Find r", description: <Formula>{String.raw`\frac{ar^7}{ar^2} = \frac{384}{12} \;\Rightarrow\; r^5 = 32 \;\Rightarrow\; r = 2`}</Formula> },
+                { label: "Find a", description: <Formula>{String.raw`a(2)^2 = 12 \;\Rightarrow\; a = 3`}</Formula> },
+                { label: "Sum to 10", description: <Formula>{String.raw`S_{10} = \frac{3(2^{10} - 1)}{2 - 1} = 3(1023) = 3069`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 6E">
+          <ProblemSolution.Problem>
+            The sum of the first three terms of a G.P. is 16 and the sum of the next three terms is 128. Determine the first term, common ratio and the sum to n terms.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "First three sum 16", description: <Formula>{String.raw`a(1 + r + r^2) = 16`}</Formula> },
+                { label: "Next three sum 128", description: <Formula>{String.raw`ar^3(1 + r + r^2) = 128`}</Formula> },
+                { label: "Divide to get r", description: <Formula>{String.raw`r^3 = \frac{128}{16} = 8 \;\Rightarrow\; r = 2`}</Formula> },
+                { label: "Solve for a", description: <Formula>{String.raw`a(1 + 2 + 4) = 16 \;\Rightarrow\; a = \frac{16}{7}`}</Formula> },
+                { label: "Sum to n", description: <Formula>{String.raw`S_n = \frac{16}{7}(2^n - 1)`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 6F">
+          <ProblemSolution.Problem>
+            The sum of the first three terms of a G.P. is 39/10 and their product is 1. Find the common ratio and the terms.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            Let the terms be a/r, a, ar.
+            <br />
+            Product: a³ = 1 → a = 1.
+            <br />
+            Sum: 1/r + 1 + r = 39/10 → 10r² − 29r + 10 = 0.
+            <br />
+            Solve: r = (29 ± 21)/20 = 5/2 or 2/5.
+            <br />
+            Terms: <strong>2/5, 1, 5/2</strong> or <strong>5/2, 1, 2/5</strong>.
+          </ProblemSolution.Solution>
+        </ProblemSolution>
       </Expandable>
 
       <SpeedTricks>
