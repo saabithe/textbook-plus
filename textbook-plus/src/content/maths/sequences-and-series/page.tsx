@@ -100,8 +100,13 @@ export default function SequencesAndSeriesChapter() {
 
       <h3 id="h-gp-sum">Sum to n Terms of a G.P.</h3>
       <FormulaCard>
-        <p className="font-semibold mb-2">Sum Formula</p>
-        <FormulaBlock latex={String.raw`S_n = \frac{a(r^n - 1)}{r - 1} \text{ if } r \ne 1, \qquad S_n = na \text{ if } r = 1`} />
+        <p className="font-semibold mb-2">Sum Formula — three cases for r</p>
+        <FormulaBlock latex={String.raw`r > 1: \qquad S_n = \frac{a(r^n - 1)}{r - 1}`} />
+        <FormulaBlock latex={String.raw`r < 1: \qquad S_n = \frac{a(1 - r^n)}{1 - r}`} />
+        <FormulaBlock latex={String.raw`r = 1: \qquad S_n = na`} />
+        <p className="text-sm text-muted-foreground mt-2">
+          Both r&gt;1 and r&lt;1 versions give the same value — pick whichever keeps the denominator positive.
+        </p>
       </FormulaCard>
 
       <Expandable title="Examples 4 to 9 — G.P. Problems">
