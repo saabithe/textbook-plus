@@ -87,7 +87,7 @@ export default function SequencesAndSeriesChapter() {
       <h2 id="h-gp">8.4 Geometric Progression (G.P.)</h2>
       <Callout type="important" title="Definition">
         A sequence a₁, a₂, a₃, … is a <strong>geometric progression</strong> if each term is non-zero and{" "}
-        <FormulaBlock latex={String.raw`\frac{a_{k+1}}{a_k} = r \text{ (constant) for all } k \ge 1`} />
+        r = a₂/a₁ = a₃/a₂ = … is a constant (called the <strong>common ratio</strong>).
         <p>Written as: a, ar, ar², ar³, … where <strong>a</strong> is the first term and <strong>r</strong> is the common ratio.</p>
       </Callout>
 
@@ -182,6 +182,64 @@ export default function SequencesAndSeriesChapter() {
             Sum: −1/r − 1 − r = 13/12 → 12r² + 25r + 12 = 0 → r = −3/4 or −4/3.
             <br />
             Terms: <strong>4/3, −1, 3/4</strong> or <strong>3/4, −1, 4/3</strong>.
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 4B">
+          <ProblemSolution.Problem>
+            Find the 12th term of a G.P. whose 8th term is 192 and whose common ratio is 2.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: <Formula>{String.raw`a_8 = ar^7 = 192`}</Formula>, description: <Formula>{String.raw`a = \frac{192}{2^7} = \frac{192}{128} = \frac{3}{2}`}</Formula> },
+                { label: "12th term", description: <Formula>{String.raw`a_{12} = ar^{11} = \frac{3}{2}\times 2^{11} = 3 \times 2^{10} = 3072`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 4C">
+          <ProblemSolution.Problem>
+            Which term of the G.P. 1/3, 1/9, 1/27, … is 1/19683?
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "a and r", description: <Formula>{String.raw`a = \frac{1}{3},\ r = \frac{1}{3}`}</Formula> },
+                { label: "Set equal to nth term", description: <Formula>{String.raw`\frac{1}{3}\left(\frac{1}{3}\right)^{n-1} = \frac{1}{19683} \;\Rightarrow\; \frac{1}{3^n} = \frac{1}{19683}`}</Formula> },
+                { label: "Solve", description: <Formula>{String.raw`3^n = 19683 = 3^9 \;\Rightarrow\; n = 9`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 4D">
+          <ProblemSolution.Problem>
+            For what values of x are the numbers −2/7, x, −7/2 in geometric progression?
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "G.P. condition", description: <Formula>{String.raw`x^2 = a_1 a_3 = \left(-\frac{2}{7}\right)\left(-\frac{7}{2}\right)`}</Formula> },
+                { label: "Solve", description: <Formula>{String.raw`x^2 = 1 \;\Rightarrow\; x = 1 \text{ or } x = -1`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 4E">
+          <ProblemSolution.Problem>
+            The 4th term of a G.P. is the square of its 2nd term, and its first term is −3. Determine its 7th term.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Translate condition", description: <Formula>{String.raw`a_4 = (a_2)^2 \;\Rightarrow\; ar^3 = (ar)^2 = a^2 r^2`}</Formula> },
+                { label: "Solve for r", description: <Formula>{String.raw`r = a = -3`}</Formula> },
+                { label: "7th term", description: <Formula>{String.raw`a_7 = ar^6 = -3(-3)^6 = (-3)^7 = -2187`}</Formula> },
+              ]}
+            />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
