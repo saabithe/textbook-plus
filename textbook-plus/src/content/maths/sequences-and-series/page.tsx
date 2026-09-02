@@ -398,6 +398,17 @@ export default function SequencesAndSeriesChapter() {
         <FormulaBlock latex={String.raw`r = \left(\frac{b}{a}\right)^{1/(n+1)}, \qquad G_k = ar^k`} />
       </FormulaCard>
 
+      <Expandable title="Example 11B — Find the Geometric Mean">
+        <ProblemSolution problemNumber="Example 11B">
+          <ProblemSolution.Problem>
+            Find the geometric mean of 16 and 4.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Formula>{String.raw`G = \sqrt{16 \times 4} = \sqrt{64} = 8`}</Formula>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <Expandable title="Example 12 — Insert Geometric Means">
         <ProblemSolution problemNumber="Example 12">
           <ProblemSolution.Problem>
