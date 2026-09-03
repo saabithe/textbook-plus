@@ -11,10 +11,6 @@ export default function StraightLinesChapter() {
   return (
     <>
       <h2 id="h-intro">9.1 Introduction</h2>
-      <Callout type="important" title="Coordinate Geometry Recap">
-        In Class X, we studied <strong>coordinate geometry</strong> — the branch of mathematics
-        that links algebra and geometry using the coordinate plane.
-      </Callout>
       <ul>
         <li>Every point in the plane is described by an <strong>ordered pair (x, y)</strong>.</li>
         <li>The <Highlight>distance formula</Highlight> gives the length between two points.</li>
@@ -25,6 +21,7 @@ export default function StraightLinesChapter() {
       <FormulaCard>
         <p className="font-semibold mb-2">Key Formulas from Class X</p>
         <FormulaBlock latex={String.raw`d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \quad \text{(Distance)}`} />
+        <FormulaBlock latex={String.raw`\left(\frac{x_1+x_2}{2},\; \frac{y_1+y_2}{2}\right) \quad \text{(Midpoint)}`} />
         <FormulaBlock latex={String.raw`\left(\frac{mx_2 + nx_1}{m+n},\; \frac{my_2 + ny_1}{m+n}\right) \quad \text{(Section formula)}`} />
         <FormulaBlock latex={String.raw`\text{Area} = \frac{1}{2}\big|x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\big|`} />
       </FormulaCard>
@@ -39,6 +36,53 @@ export default function StraightLinesChapter() {
           <em>far</em> endpoint, n multiplies the <em>near</em> endpoint.
         </Callout>
       </SpeedTricks>
+
+      <Expandable title="Class X Recap — Worked Examples">
+        <ProblemSolution problemNumber="Recap 1">
+          <ProblemSolution.Problem>
+            Find the coordinates of the midpoint of the line joining P(−4, 1) and Q(0, 5).
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Apply midpoint formula", description: <Formula>{String.raw`\left(\frac{-4+0}{2},\ \frac{1+5}{2}\right)`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`\left(\frac{-4}{2},\ \frac{6}{2}\right) = (-2,\ 3)`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Recap 2">
+          <ProblemSolution.Problem>
+            Find the area of the triangle whose vertices are (4, 4), (3, −2) and (−3, 16).
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Substitute into area formula", description: <Formula>{String.raw`\frac{1}{2}\big|4(-2-16) + 3(16-4) + (-3)(4-(-2))\big|`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`\frac{1}{2}\big|4(-18) + 3(12) - 3(6)\big| = \frac{1}{2}|{-72 + 36 - 18}|`}</Formula> },
+                { label: "Result", description: <Formula>{String.raw`\frac{1}{2}|{-54}| = 27 \text{ sq units}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Recap 3">
+          <ProblemSolution.Problem>
+            Find a point on the x-axis which is equidistant from the points (7, 6) and (3, 4).
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Let point be C(x, 0)", description: <Formula>{String.raw`AC^2 = BC^2`}</Formula> },
+                { label: "Equate squared distances", description: <Formula>{String.raw`(7-x)^2 + 6^2 = (3-x)^2 + 4^2`}</Formula> },
+                { label: "Solve", description: <Formula>{String.raw`85 - 14x = 25 - 6x \;\Rightarrow\; 60 = 8x \;\Rightarrow\; x = \frac{15}{2} = 7.5`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">Answer: <strong>(7.5, 0)</strong>.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
 
       <h2 id="h-slope">9.2 Slope of a Line</h2>
       <Callout type="important" title="Definition: Inclination">
