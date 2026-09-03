@@ -97,10 +97,6 @@ export default function StraightLinesChapter() {
         <li>A downward-sloping line: 90° &lt; &#952; &lt; 180°.</li>
       </ul>
 
-      <Callout type="important" title="Definition: Slope">
-        The <strong>slope</strong> (or <strong>gradient</strong>) of a non-vertical line is the tangent
-        of its inclination:
-      </Callout>
       <FormulaBlock latex={String.raw`m = \tan\theta`} important />
       <ul>
         <li>If &#952; = 90°, the slope is <strong>not defined</strong> (tan 90° is undefined).</li>
@@ -143,6 +139,34 @@ export default function StraightLinesChapter() {
             <p>
               The slope is positive, confirming the line rises from left to right.
             </p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 1C">
+          <ProblemSolution.Problem>
+            <p>Find the slope of the line joining the points (2, 2) and (5, 3).</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Identify points", description: <Formula>{String.raw`(x_1, y_1) = (2, 2),\ (x_2, y_2) = (5, 3)`}</Formula> },
+                { label: "Apply formula", description: <Formula>{String.raw`m = \frac{3 - 2}{5 - 2} = \frac{1}{3}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 1D">
+          <ProblemSolution.Problem>
+            <p>Find the slope of a line making an angle of 120° with the positive direction of the x-axis.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Use m = tan θ", description: <Formula>{String.raw`m = \tan 120°`}</Formula> },
+                { label: "Reduce", description: <Formula>{String.raw`\tan 120° = \tan(180° - 60°) = -\tan 60° = -\sqrt{3}`}</Formula> },
+              ]}
+            />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -221,6 +245,24 @@ export default function StraightLinesChapter() {
             <FormulaBlock latex={String.raw`m_1 = \tan 60° = \sqrt{3}`} />
             <FormulaBlock latex={String.raw`m_1 \cdot m_2 = -1 \;\Rightarrow\; m_2 = -\frac{1}{\sqrt{3}}`} />
             <FormulaBlock latex={String.raw`\theta_2 = \tan^{-1}\!\left(-\frac{1}{\sqrt{3}}\right) = 150°`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 5B">
+          <ProblemSolution.Problem>
+            <p>
+              If the angle between two lines is π/4 and the slope of one of them is 1/2, find the slope of the other line.
+            </p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Set up angle formula", description: <Formula>{String.raw`\tan\frac{\pi}{4} = 1 = \left|\frac{m - \frac{1}{2}}{1 + \frac{1}{2}m}\right| = \left|\frac{2m-1}{2+m}\right|`}</Formula> },
+                { label: "Case 1", description: <Formula>{String.raw`\frac{2m-1}{2+m} = 1 \;\Rightarrow\; 2m - 1 = 2 + m \;\Rightarrow\; m = 3`}</Formula> },
+                { label: "Case 2", description: <Formula>{String.raw`\frac{2m-1}{2+m} = -1 \;\Rightarrow\; 2m - 1 = -2 - m \;\Rightarrow\; m = -\frac{1}{3}`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">Answer: the other slope is <strong>3</strong> or <strong>−1/3</strong>.</p>
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
