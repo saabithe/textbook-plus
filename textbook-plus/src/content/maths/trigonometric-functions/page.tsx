@@ -1131,6 +1131,468 @@ export default function TrigonometricFunctionsChapter() {
           </ol>
         </Expandable>
       </Expandable>
+
+      <h2 id="h-pyq">Previous Year Questions</h2>
+      <Expandable id="h-pyq-mcq" title="PYQ — MCQ &amp; Conceptual">
+        <ProblemSolution problemNumber="PYQ-M1">
+          <ProblemSolution.Problem>
+            If sin A + cos A = 1, then the value of sin 2A is: (a) −1 (b) −2 (c) 0 (d) 1
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Square both sides", description: <Formula>{String.raw`(\sin A + \cos A)^2 = 1^2`}</Formula> },
+                { label: "Expand", description: <Formula>{String.raw`\sin^2 A + \cos^2 A + 2\sin A\cos A = 1`}</Formula> },
+                { label: "Use identities", description: <Formula>{String.raw`1 + \sin 2A = 1 \;\Rightarrow\; \sin 2A = 0`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">Answer: <strong>(c) 0</strong>.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-M2">
+          <ProblemSolution.Problem>
+            The value of sec²2 − tan²2 is: (a) −8 (b) 8 (c) 0 (d) 1
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Pythagorean identity", description: <Formula>{String.raw`\sec^2 x - \tan^2 x = 1`}</Formula> },
+                { label: "Hold for any x", description: <Formula>{String.raw`\sec^2 2 - \tan^2 2 = 1`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">Answer: <strong>(d) 1</strong>.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-M3">
+          <ProblemSolution.Problem>
+            The domain of the function sec x is:
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p>Since sec x = 1/cos x, it is undefined where cos x = 0, i.e. at odd multiples of π/2.</p>
+            <FormulaBlock latex={String.raw`\text{Domain}(\sec x) = \mathbb{R} - \{(2n+1)\tfrac{\pi}{2} : n \in \mathbb{Z}\}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-M4">
+          <ProblemSolution.Problem>
+            Show that (1 − tan²15°)/(1 + tan²15°) = √3/2.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Use double-angle", description: <Formula>{String.raw`\frac{1-\tan^2 x}{1+\tan^2 x} = \cos 2x`}</Formula> },
+                { label: "Apply with x = 15°", description: <Formula>{String.raw`\frac{1-\tan^2 15°}{1+\tan^2 15°} = \cos 30° = \frac{\sqrt{3}}{2}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-M5">
+          <ProblemSolution.Problem>
+            sin 765° = (a) 0 (b) 1 (c) 1/√2 (d) −1/√2
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Strip full cycles", description: <Formula>{String.raw`765° = 2 \times 360° + 45°`}</Formula> },
+                { label: "Reduce", description: <Formula>{String.raw`\sin 765° = \sin 45° = \frac{1}{\sqrt{2}}`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">Answer: <strong>(c) 1/√2</strong>.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-M6">
+          <ProblemSolution.Problem>
+            In which interval does f(x) = cos x increase from −1 to 0? (A) [0, π/2] (B) [π/2, π] (C) [π, 3π/2] (D) [3π/2, 2π]
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p>cos x rises from −1 to 0 as x goes from π to 3π/2 (cos π = −1, cos 3π/2 = 0).</p>
+            <FormulaBlock latex={String.raw`\text{Answer: } [\pi,\ \tfrac{3\pi}{2}]`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-M7">
+          <ProblemSolution.Problem>
+            Which of the following is an incorrect value of sin x? (i) 0 (ii) 1/2 (iii) 3 (iv) 1
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Range of sin x", description: <Formula>{String.raw`-1 \le \sin x \le 1`}</Formula> },
+                { label: "Identify the outlier", description: <Formula>{String.raw`3 \notin [-1,\ 1] \;\Rightarrow\; \text{incorrect}`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">Answer: <strong>(iii) 3</strong>.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-pyq-arc" title="PYQ — Arc Length &amp; Conversions">
+        <ProblemSolution problemNumber="PYQ-A1">
+          <ProblemSolution.Problem>
+            An arc of a circle of radius 80 cm subtends an angle 10° at the centre. Find the arc length.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Convert to radians", description: <Formula>{String.raw`\theta = 10° \times \frac{\pi}{180°} = \frac{\pi}{18}`}</Formula> },
+                { label: "Apply arc-length formula", description: <Formula>{String.raw`l = r\theta = 80 \times \frac{\pi}{18} = \frac{40\pi}{9}\text{ cm}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-A2">
+          <ProblemSolution.Problem>
+            The minute hand of a watch is 1.5 cm long. How far does its tip move in 40 minutes? (Use π = 3.14)
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Angle in 40 min", description: <Formula>{String.raw`\theta = 360° \times \frac{40}{60} = 240°`}</Formula> },
+                { label: "Convert to radians", description: <Formula>{String.raw`\theta = 240° \times \frac{\pi}{180°} = \frac{4\pi}{3}`}</Formula> },
+                { label: "Distance moved", description: <Formula>{String.raw`l = r\theta = 1.5 \times \frac{4\pi}{3} = 2\pi = 2 \times 3.14 = 6.28\text{ cm}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-A3">
+          <ProblemSolution.Problem>
+            The degree measure of 4π/3 is:
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <FormulaBlock latex={String.raw`\frac{180°}{\pi} \times \frac{4\pi}{3} = 240°`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-A4">
+          <ProblemSolution.Problem>
+            Convert 25° into radians.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <FormulaBlock latex={String.raw`25° \times \frac{\pi}{180°} = \frac{5\pi}{36}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-A5">
+          <ProblemSolution.Problem>
+            Find the radian measure corresponding to −47°30′.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Express minutes", description: <Formula>{String.raw`30' = \tfrac{1}{2}° \;\Rightarrow\; 47°30' = \tfrac{95}{2}°`}</Formula> },
+                { label: "Convert to radians", description: <Formula>{String.raw`\frac{\pi}{180} \times \frac{95}{2} = \frac{19\pi}{72}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`-47°30' = -\frac{19\pi}{72}\text{ radians}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-pyq-unitcircle" title="PYQ — Unit Circle">
+        <ProblemSolution problemNumber="PYQ-U1">
+          <ProblemSolution.Problem>
+            A point P on the unit circle has coordinates (0.6, 0.8). Write sin x and cos x.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <FormulaBlock latex={String.raw`\cos x = 0.6, \qquad \sin x = 0.8`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-U2">
+          <ProblemSolution.Problem>
+            For P(0.6, 0.8) on the unit circle, evaluate sin 2x.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Double-angle formula", description: <Formula>{String.raw`\sin 2x = 2\sin x \cos x`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`= 2 \times 0.8 \times 0.6 = 0.96`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-U3">
+          <ProblemSolution.Problem>
+            If ∠POQ = 180° and P = (0.6, 0.8), find the coordinates of Q.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Angle of Q", description: <Formula>{String.raw`\angle \text{ of } Q = 180° + x`}</Formula> },
+                { label: "Coordinates", description: <Formula>{String.raw`(\cos(180°+x), \sin(180°+x)) = (-\cos x, -\sin x)`}</Formula> },
+                { label: "Result", description: <Formula>{String.raw`Q = (-0.6, -0.8)`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-U4">
+          <ProblemSolution.Problem>
+            Write the radian measure of ∠AOB = 150° and the coordinates of B on the unit circle.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Radian measure", description: <Formula>{String.raw`150° \times \frac{\pi}{180°} = \frac{5\pi}{6}`}</Formula> },
+                { label: "Coordinates", description: <Formula>{String.raw`B = (\cos 150°, \sin 150°)`}</Formula> },
+                { label: "Evaluate", description: <Formula>{String.raw`\cos 150° = -\frac{\sqrt{3}}{2},\ \sin 150° = \frac{1}{2}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`B = \left(-\frac{\sqrt{3}}{2},\ \frac{1}{2}\right)`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-pyq-proofs" title="PYQ — Identity Proofs">
+        <ProblemSolution problemNumber="PYQ-P1">
+          <ProblemSolution.Problem>
+            Show that cos 20° + cos 100° + cos 140° = 0.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Group first two", description: <Formula>{String.raw`\cos 100° + \cos 20° = 2\cos 60° \cos 40° = \cos 40°`}</Formula> },
+                { label: "Use supplementary", description: <Formula>{String.raw`\cos 140° = \cos(180° - 40°) = -\cos 40°`}</Formula> },
+                { label: "Sum", description: <Formula>{String.raw`\cos 40° - \cos 40° = 0 = \text{RHS}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P2">
+          <ProblemSolution.Problem>
+            Prove that (sin 24° cos 6° − sin 6° sin 66°) / (sin 21° cos 39° − cos 51° sin 69°) = −1.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Cofunction substitutions", description: <Formula>{String.raw`\sin 66° = \cos 24°,\ \sin 69° = \cos 21°,\ \cos 51° = \sin 39°`}</Formula> },
+                { label: "Rewrite numerator", description: <Formula>{String.raw`\sin 24°\cos 6° - \cos 24°\sin 6° = \sin(24°-6°) = \sin 18°`}</Formula> },
+                { label: "Rewrite denominator", description: <Formula>{String.raw`\sin 21°\cos 39° - \cos 21°\sin 39° = \sin(21°-39°) = \sin(-18°)`}</Formula> },
+                { label: "Divide", description: <Formula>{String.raw`\frac{\sin 18°}{-\sin 18°} = -1 = \text{RHS}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P3">
+          <ProblemSolution.Problem>
+            Prove that (cos 5x − cos 7x) / (2 sin 6x) = sin x.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Sum-to-product", description: <Formula>{String.raw`\cos 5x - \cos 7x = -2\sin 6x \sin(-x)`}</Formula> },
+                { label: "Since sin(−x) = −sin x", description: <Formula>{String.raw`= 2\sin 6x \sin x`}</Formula> },
+                { label: "Divide", description: <Formula>{String.raw`\frac{2\sin 6x \sin x}{2\sin 6x} = \sin x = \text{RHS}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P4">
+          <ProblemSolution.Problem>
+            Find the exact value of cos 75°.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Split angle", description: <Formula>{String.raw`75° = 45° + 30°`}</Formula> },
+                { label: "Compound-angle formula", description: <Formula>{String.raw`\cos 75° = \cos 45°\cos 30° - \sin 45°\sin 30°`}</Formula> },
+                { label: "Evaluate", description: <Formula>{String.raw`\frac{1}{\sqrt{2}}\cdot\frac{\sqrt{3}}{2} - \frac{1}{\sqrt{2}}\cdot\frac{1}{2} = \frac{\sqrt{3}-1}{2\sqrt{2}}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P5">
+          <ProblemSolution.Problem>
+            Show that cos(x + y) + cos(x − y) = 2 cos x cos y.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Expand each", description: <Formula>{String.raw`(\cos x\cos y - \sin x\sin y) + (\cos x\cos y + \sin x\sin y)`}</Formula> },
+                { label: "Cancel opposite terms", description: <Formula>{String.raw`= 2\cos x \cos y = \text{RHS}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P6">
+          <ProblemSolution.Problem>
+            Prove that cos(3π/4 + x) + cos(3π/4 − x) = −√2 cos x.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Use cos(x+y)+cos(x−y)", description: <Formula>{String.raw`\text{LHS} = 2\cos\tfrac{3\pi}{4}\cos x`}</Formula> },
+                { label: "Evaluate cos(3π/4)", description: <Formula>{String.raw`\cos\tfrac{3\pi}{4} = -\tfrac{1}{\sqrt{2}}`}</Formula> },
+                { label: "Multiply", description: <Formula>{String.raw`2\left(-\frac{1}{\sqrt{2}}\right)\cos x = -\sqrt{2}\cos x = \text{RHS}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P7">
+          <ProblemSolution.Problem>
+            If tan θ = 1/2 and tan φ = 1/3, show that θ + φ = π/4.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Tangent sum formula", description: <Formula>{String.raw`\tan(\theta+\phi) = \frac{\tan\theta + \tan\phi}{1 - \tan\theta\tan\phi}`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`\frac{\frac{1}{2}+\frac{1}{3}}{1 - \frac{1}{2}\cdot\frac{1}{3}} = \frac{\frac{5}{6}}{\frac{5}{6}} = 1`}</Formula> },
+                { label: "Conclusion", description: <Formula>{String.raw`\tan(\theta+\phi) = 1 = \tan\tfrac{\pi}{4} \;\Rightarrow\; \theta + \phi = \frac{\pi}{4}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P8">
+          <ProblemSolution.Problem>
+            Match the following:
+            <br />
+            (a) sin x cos y − cos x sin y &nbsp; ↔
+            <br />
+            (b) tan π/4 &nbsp; ↔
+            <br />
+            (c) 2 sin x cos x &nbsp; ↔
+            <br />
+            (d) 1 + cos 2x &nbsp; ↔
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>sin x cos y − cos x sin y = <strong>sin(x − y)</strong></li>
+              <li>tan π/4 = <strong>1</strong></li>
+              <li>2 sin x cos x = <strong>sin 2x</strong></li>
+              <li>1 + cos 2x = <strong>2 cos²x</strong> (since 1 + cos 2x = 1 + 2cos²x − 1 = 2cos²x)</li>
+            </ul>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P9">
+          <ProblemSolution.Problem>
+            Prove that cos 4x = 1 − 8 sin²x cos²x.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Double double-angle", description: <Formula>{String.raw`\cos 4x = \cos 2(2x) = 1 - 2\sin^2 2x`}</Formula> },
+                { label: "Expand sin 2x", description: <Formula>{String.raw`= 1 - 2(2\sin x\cos x)^2`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`= 1 - 8\sin^2 x \cos^2 x = \text{RHS}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P10">
+          <ProblemSolution.Problem>
+            Prove that cos(3π/4 + x) − cos(3π/4 − x) = −√2 sin x.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Expand both", description: <Formula>{String.raw`(\cos\tfrac{3\pi}{4}\cos x - \sin\tfrac{3\pi}{4}\sin x) - (\cos\tfrac{3\pi}{4}\cos x + \sin\tfrac{3\pi}{4}\sin x)`}</Formula> },
+                { label: "Cancel the cos terms", description: <Formula>{String.raw`= -2\sin\tfrac{3\pi}{4}\sin x`}</Formula> },
+                { label: "Evaluate", description: <Formula>{String.raw`-2\times\frac{1}{\sqrt{2}}\sin x = -\sqrt{2}\sin x = \text{RHS}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P11">
+          <ProblemSolution.Problem>
+            Prove that (cos x − cos y)² + (sin x − sin y)² = 4 sin²((x−y)/2).
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Sum-to-product", description: <Formula>{String.raw`\cos x-\cos y = -2\sin\tfrac{x+y}{2}\sin\tfrac{x-y}{2},\quad \sin x-\sin y = 2\cos\tfrac{x+y}{2}\sin\tfrac{x-y}{2}`}</Formula> },
+                { label: "Square and add", description: <Formula>{String.raw`4\sin^2\tfrac{x-y}{2}\left[\sin^2\tfrac{x+y}{2} + \cos^2\tfrac{x+y}{2}\right]`}</Formula> },
+                { label: "Pythagorean identity", description: <Formula>{String.raw`4\sin^2\frac{x-y}{2} = \text{RHS}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P12">
+          <ProblemSolution.Problem>
+            Prove that (sin 7x + sin 5x + sin 9x + sin 3x) / (cos 7x + cos 5x + cos 9x + cos 3x) = tan 6x.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Group numerator", description: <Formula>{String.raw`2\sin 6x\cos x + 2\sin 6x\cos 3x = 2\sin 6x(\cos x + \cos 3x)`}</Formula> },
+                { label: "Group denominator", description: <Formula>{String.raw`2\cos 6x\cos x + 2\cos 6x\cos 3x = 2\cos 6x(\cos x + \cos 3x)`}</Formula> },
+                { label: "Divide", description: <Formula>{String.raw`\frac{2\sin 6x\cancel{(\cos x+\cos 3x)}}{2\cos 6x\cancel{(\cos x+\cos 3x)}} = \frac{\sin 6x}{\cos 6x} = \tan 6x`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P13">
+          <ProblemSolution.Problem>
+            Prove that sin x + sin 3x + sin 5x + sin 7x = 4 cos x cos 2x sin 4x.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Group in pairs", description: <Formula>{String.raw`(\sin 3x+\sin x) + (\sin 7x+\sin 5x) = 2\sin 2x\cos x + 2\sin 6x\cos x`}</Formula> },
+                { label: "Factor cos x", description: <Formula>{String.raw`= 2\cos x(\sin 6x + \sin 2x)`}</Formula> },
+                { label: "Sum-to-product", description: <Formula>{String.raw`= 2\cos x(2\sin 4x\cos 2x) = 4\cos x\cos 2x\sin 4x`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P14">
+          <ProblemSolution.Problem>
+            Prove that (sin 3x − sin x)/(cos²x − sin²x) = 2 sin x.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Sum-to-product numerator", description: <Formula>{String.raw`\sin 3x - \sin x = 2\cos 2x \sin x`}</Formula> },
+                { label: "Denominator identity", description: <Formula>{String.raw`\cos^2 x - \sin^2 x = \cos 2x`}</Formula> },
+                { label: "Divide", description: <Formula>{String.raw`\frac{2\cos 2x \sin x}{\cos 2x} = 2\sin x = \text{RHS}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P15">
+          <ProblemSolution.Problem>
+            Prove that tan 1° · tan 2° · tan 3° ⋯ tan 89° = 1.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Pair complementary", description: <Formula>{String.raw`\tan 89° = \cot 1° = \frac{1}{\tan 1°},\quad \tan 88° = \frac{1}{\tan 2°},\ \dots`}</Formula> },
+                { label: "Pair products", description: <Formula>{String.raw`(\tan 1°\cdot\tfrac{1}{\tan 1°})(\tan 2°\cdot\tfrac{1}{\tan 2°})\cdots\tan 45°`}</Formula> },
+                { label: "Result", description: <Formula>{String.raw`1 \times 1 \times \cdots \times 1 = 1`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-P16">
+          <ProblemSolution.Problem>
+            Show that sin(π − x) = sin x.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p>Since π − x is the supplement of x in the unit-circle convention, sine stays positive:</p>
+            <FormulaBlock latex={String.raw`\sin(\pi - x) = \sin\pi\cos x - \cos\pi\sin x = 0\cdot\cos x - (-1)\sin x = \sin x`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
     </>
   );
 }
