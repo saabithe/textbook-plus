@@ -1013,11 +1013,16 @@ export default function TrigonometricFunctionsChapter() {
             the value of sin (x + y).
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <p>
-              Second quadrant: cos x = –4/5 (from sin²x = 9/25) and sin y = +5/13 (from cos²y =
-              144/169). Then
-            </p>
-            <FormulaBlock latex={String.raw`\sin(x+y) = \sin x\cos y + \cos x \sin y = \frac{3}{5}\times\frac{-12}{13} + \frac{-4}{5}\times\frac{5}{13} = \frac{-56}{65}`} important />
+            <Stepper
+              steps={[
+                { label: "Quadrant signs", description: "For QII: sin x, sin y, cos y > 0 but cos x < 0." },
+                { label: "Find cos x", description: <Formula>{String.raw`\cos^2 x = 1 - \sin^2 x = 1 - \frac{9}{25} = \frac{16}{25} \;\Rightarrow\; \cos x = -\frac{4}{5}`}</Formula> },
+                { label: "Find sin y", description: <Formula>{String.raw`\sin^2 y = 1 - \cos^2 y = 1 - \frac{144}{169} = \frac{25}{169} \;\Rightarrow\; \sin y = \frac{5}{13}`}</Formula> },
+                { label: "Compound-angle formula", description: <Formula>{String.raw`\sin(x+y) = \sin x \cos y + \cos x \sin y`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`= \left(\frac{3}{5}\right)\left(-\frac{12}{13}\right) + \left(-\frac{4}{5}\right)\left(\frac{5}{13}\right) = \frac{-36}{65} - \frac{20}{65}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\sin(x+y) = \frac{-56}{65}`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 19">
@@ -1025,24 +1030,34 @@ export default function TrigonometricFunctionsChapter() {
             Prove that cos 2x cos(x/2) – cos 3x cos(9x/2) = sin 5x sin(5x/2).
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <p>Convert each product with 2cosAcosB = cos(A+B) + cos(A–B):</p>
-            <FormulaBlock latex={String.raw`2\cos 2x\cos\tfrac{x}{2} = \cos\tfrac{5x}{2} + \cos\tfrac{3x}{2}, \qquad 2\cos 3x\cos\tfrac{9x}{2} = \cos\tfrac{15x}{2} + \cos\tfrac{3x}{2}`} />
-            <p>Subtracting kills cos(3x/2):</p>
-            <FormulaBlock latex={String.raw`\text{LHS} \times 2 = \cos\tfrac{5x}{2} - \cos\tfrac{15x}{2} = -2\sin 5x\sin\left(-\tfrac{5x}{2}\right) = 2\sin 5x \sin\tfrac{5x}{2}`} important />
+            <p>Use the product-to-sum identity <Formula>{String.raw`2\cos A \cos B = \cos(A+B) + \cos(A-B)`}</Formula>.</p>
+            <Stepper
+              steps={[
+                { label: "Multiply LHS by 2", description: <Formula>{String.raw`\text{LHS}\times 2 = 2\cos 2x\cos\tfrac{x}{2} - 2\cos 3x\cos\tfrac{9x}{2}`}</Formula> },
+                { label: "Apply product-to-sum", description: <Formula>{String.raw`= \left(\cos\tfrac{5x}{2} + \cos\tfrac{3x}{2}\right) - \left(\cos\tfrac{15x}{2} + \cos\tfrac{3x}{2}\right)`}</Formula> },
+                { label: "Cancel cos(3x/2)", description: <Formula>{String.raw`= \cos\tfrac{5x}{2} - \cos\tfrac{15x}{2}`}</Formula> },
+                { label: "Use cos A − cos B", description: <Formula>{String.raw`\cos A - \cos B = -2\sin\tfrac{A+B}{2}\sin\tfrac{A-B}{2}`}</Formula> },
+                { label: "Substitute A, B", description: <Formula>{String.raw`= -2\sin 5x\sin\left(-\tfrac{5x}{2}\right) = 2\sin 5x\sin\tfrac{5x}{2}`}</Formula> },
+              ]}
+            />
+            <p>Dividing both sides by 2 (the factor on the LHS):</p>
+            <FormulaBlock latex={String.raw`\cos 2x\cos\tfrac{x}{2} - \cos 3x\cos\tfrac{9x}{2} = \sin 5x\sin\tfrac{5x}{2} = \text{RHS}`} important />
+            <p><strong>Hence proved.</strong> ∎</p>
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 20">
           <ProblemSolution.Problem>Find the value of tan π/8.</ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <p>
-              Let x = π/8, so 2x = π/4 and tan 2x = 1. With y = tan x: 1 = 2y/(1 – y²), i.e. y² +
-              2y – 1 = 0.
-            </p>
-            <FormulaBlock latex={String.raw`y = \frac{-2 \pm \sqrt{8}}{2} = -1 \pm \sqrt{2}`} />
-            <p>
-              π/8 sits in the first quadrant, so y &gt; 0. Hence{" "}
-              <strong>tan π/8 = √2 – 1</strong>.
-            </p>
+            <Stepper
+              steps={[
+                { label: "Let x = π/8", description: <Formula>{String.raw`2x = \frac{\pi}{4}, \qquad \tan 2x = 1`}</Formula> },
+                { label: "Double-angle identity", description: <Formula>{String.raw`\tan 2x = \frac{2\tan x}{1 - \tan^2 x}\;\Rightarrow\; 1 = \frac{2y}{1-y^2}`}</Formula> },
+                { label: "Form quadratic", description: <Formula>{String.raw`1 - y^2 = 2y \;\Rightarrow\; y^2 + 2y - 1 = 0`}</Formula> },
+                { label: "Solve", description: <Formula>{String.raw`y = \frac{-2 \pm \sqrt{4+4}}{2} = \frac{-2 \pm 2\sqrt{2}}{2} = -1 \pm \sqrt{2}`}</Formula> },
+                { label: "Pick root", description: <Formula>{String.raw`\frac{\pi}{8} \in \text{QI} \Rightarrow \tan\frac{\pi}{8} > 0 \;\Rightarrow\; y = \sqrt{2} - 1`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\tan\frac{\pi}{8} = \sqrt{2} - 1`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 21">
@@ -1051,12 +1066,17 @@ export default function TrigonometricFunctionsChapter() {
             tan(x/2).
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
-            <p>
-              Third quadrant ⇒ cos x negative. sec²x = 1 + 9/16 = 25/16 gives cos x = –4/5. Since
-              x/2 lies in (π/2, 3π/4), sin(x/2) &gt; 0 and cos(x/2) &lt; 0.
-            </p>
-            <FormulaBlock latex={String.raw`\sin^2\tfrac{x}{2} = \frac{1-\cos x}{2} = \frac{9}{10} \Rightarrow \sin\tfrac{x}{2} = \frac{3}{\sqrt{10}}`} />
-            <FormulaBlock latex={String.raw`\cos^2\tfrac{x}{2} = \frac{1+\cos x}{2} = \frac{1}{10} \Rightarrow \cos\tfrac{x}{2} = -\frac{1}{\sqrt{10}}, \qquad \tan\tfrac{x}{2} = -3`} important />
+            <Stepper
+              steps={[
+                { label: "Locate x/2", description: <Formula>{String.raw`\frac{\pi}{2} < \frac{x}{2} < \frac{3\pi}{4}\;\Rightarrow\;\frac{x}{2}\in \text{QII}`}</Formula> },
+                { label: "Half-angle signs", description: <Formula>{String.raw`\sin\frac{x}{2} > 0,\quad \cos\frac{x}{2} < 0,\quad \tan\frac{x}{2} < 0`}</Formula> },
+                { label: "Find cos x", description: <Formula>{String.raw`\sec^2 x = 1 + \tan^2 x = 1 + \frac{9}{16} = \frac{25}{16}\;\Rightarrow\; \cos x = -\frac{4}{5}`}</Formula> },
+                { label: "sin(x/2)", description: <Formula>{String.raw`\sin^2\frac{x}{2} = \frac{1-\cos x}{2} = \frac{1+\frac{4}{5}}{2} = \frac{9}{10}\;\Rightarrow\; \sin\frac{x}{2} = +\frac{3}{\sqrt{10}}`}</Formula> },
+                { label: "cos(x/2)", description: <Formula>{String.raw`\cos^2\frac{x}{2} = \frac{1+\cos x}{2} = \frac{1-\frac{4}{5}}{2} = \frac{1}{10}\;\Rightarrow\; \cos\frac{x}{2} = -\frac{1}{\sqrt{10}}`}</Formula> },
+                { label: "tan(x/2)", description: <Formula>{String.raw`\tan\frac{x}{2} = \frac{\sin\frac{x}{2}}{\cos\frac{x}{2}} = \frac{3/\sqrt{10}}{-1/\sqrt{10}} = -3`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\sin\frac{x}{2} = \frac{3}{\sqrt{10}}, \qquad \cos\frac{x}{2} = -\frac{1}{\sqrt{10}}, \qquad \tan\frac{x}{2} = -3`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="Example 22">
