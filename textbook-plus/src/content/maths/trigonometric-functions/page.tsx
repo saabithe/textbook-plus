@@ -1480,21 +1480,6 @@ export default function TrigonometricFunctionsChapter() {
 
         <ProblemSolution problemNumber="PYQ-P9">
           <ProblemSolution.Problem>
-            Prove that cos 4x = 1 − 8 sin²x cos²x.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <Stepper
-              steps={[
-                { label: "Double double-angle", description: <Formula>{String.raw`\cos 4x = \cos 2(2x) = 1 - 2\sin^2 2x`}</Formula> },
-                { label: "Expand sin 2x", description: <Formula>{String.raw`= 1 - 2(2\sin x\cos x)^2`}</Formula> },
-                { label: "Simplify", description: <Formula>{String.raw`= 1 - 8\sin^2 x \cos^2 x = \text{RHS}`}</Formula> },
-              ]}
-            />
-          </ProblemSolution.Solution>
-        </ProblemSolution>
-
-        <ProblemSolution problemNumber="PYQ-P10">
-          <ProblemSolution.Problem>
             Prove that cos(3π/4 + x) − cos(3π/4 − x) = −√2 sin x.
           </ProblemSolution.Problem>
           <ProblemSolution.Solution>
@@ -1508,7 +1493,7 @@ export default function TrigonometricFunctionsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="PYQ-P11">
+        <ProblemSolution problemNumber="PYQ-P10">
           <ProblemSolution.Problem>
             Prove that (cos x − cos y)² + (sin x − sin y)² = 4 sin²((x−y)/2).
           </ProblemSolution.Problem>
@@ -1523,7 +1508,7 @@ export default function TrigonometricFunctionsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="PYQ-P12">
+        <ProblemSolution problemNumber="PYQ-P11">
           <ProblemSolution.Problem>
             Prove that (sin 7x + sin 5x + sin 9x + sin 3x) / (cos 7x + cos 5x + cos 9x + cos 3x) = tan 6x.
           </ProblemSolution.Problem>
@@ -1538,7 +1523,7 @@ export default function TrigonometricFunctionsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="PYQ-P13">
+        <ProblemSolution problemNumber="PYQ-P12">
           <ProblemSolution.Problem>
             Prove that sin x + sin 3x + sin 5x + sin 7x = 4 cos x cos 2x sin 4x.
           </ProblemSolution.Problem>
@@ -1553,22 +1538,7 @@ export default function TrigonometricFunctionsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="PYQ-P14">
-          <ProblemSolution.Problem>
-            Prove that (sin 3x − sin x)/(cos²x − sin²x) = 2 sin x.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <Stepper
-              steps={[
-                { label: "Sum-to-product numerator", description: <Formula>{String.raw`\sin 3x - \sin x = 2\cos 2x \sin x`}</Formula> },
-                { label: "Denominator identity", description: <Formula>{String.raw`\cos^2 x - \sin^2 x = \cos 2x`}</Formula> },
-                { label: "Divide", description: <Formula>{String.raw`\frac{2\cos 2x \sin x}{\cos 2x} = 2\sin x = \text{RHS}`}</Formula> },
-              ]}
-            />
-          </ProblemSolution.Solution>
-        </ProblemSolution>
-
-        <ProblemSolution problemNumber="PYQ-P15">
+        <ProblemSolution problemNumber="PYQ-P13">
           <ProblemSolution.Problem>
             Prove that tan 1° · tan 2° · tan 3° ⋯ tan 89° = 1.
           </ProblemSolution.Problem>
@@ -1583,7 +1553,7 @@ export default function TrigonometricFunctionsChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
 
-        <ProblemSolution problemNumber="PYQ-P16">
+        <ProblemSolution problemNumber="PYQ-P14">
           <ProblemSolution.Problem>
             Show that sin(π − x) = sin x.
           </ProblemSolution.Problem>
