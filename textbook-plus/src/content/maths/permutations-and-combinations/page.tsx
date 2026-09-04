@@ -214,6 +214,23 @@ export default function PermutationsAndCombinationsChapter() {
             <Formula>{String.raw`{^{12}P_{2}} = \frac{12!}{(12-2)!} = 12 \times 11 = 132`}</Formula>.
           </ProblemSolution.Solution>
         </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 5B">
+          <ProblemSolution.Problem>
+            If <Formula>{String.raw`{^{n}P_{r}}`}</Formula> = 840 and <Formula>{String.raw`{^{n}C_{r}}`}</Formula> = 35, find the value of r.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Use the relation", description: <Formula>{String.raw`{^{n}P_{r}} = r! \cdot {^{n}C_{r}}`}</Formula> },
+                { label: "Substitute known values", description: <Formula>{String.raw`840 = r! \times 35`}</Formula> },
+                { label: "Solve for r!", description: <Formula>{String.raw`r! = \frac{840}{35} = 24`}</Formula> },
+                { label: "Identify r", description: <Formula>{String.raw`24 = 4! \;\Rightarrow\; r = 4`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`r = 4`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
       </Expandable>
 
       <h3 id="h-repeated">6.3.4 Permutations When Objects Are Not All Distinct</h3>
