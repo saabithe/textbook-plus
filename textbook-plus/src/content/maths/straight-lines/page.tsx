@@ -770,6 +770,158 @@ export default function StraightLinesChapter() {
           </ol>
         </Expandable>
       </Expandable>
+
+      <h2 id="h-pyq">Previous Year Questions</h2>
+
+      <Expandable id="h-pyq-basic" title="PYQ — Basic (1 Mark)">
+        <ProblemSolution problemNumber="PYQ-Q1">
+          <ProblemSolution.Problem>
+            <p>Write the equation of the y-axis. <span className="text-sm text-muted-foreground">[1 Mark]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <FormulaBlock latex={String.raw`x = 0`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-pyq-mar25" title="PYQ — March 2025">
+        <ProblemSolution problemNumber="PYQ-M1">
+          <ProblemSolution.Problem>
+            <p>(a) Write the equation of the y-axis. <span className="text-sm text-muted-foreground">[1 Mark]</span></p>
+            <p>(b) Find the slope of a line which passes through the origin and the midpoint of the line segment joining the points P(0, −4) and Q(8, 0). <span className="text-sm text-muted-foreground">[2 Marks]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p className="font-medium">(a)</p>
+            <FormulaBlock latex={String.raw`x = 0`} important />
+            <p className="font-medium mt-3">(b)</p>
+            <Stepper
+              steps={[
+                { label: "Midpoint of PQ", description: <Formula>{String.raw`B = \left(\frac{0+8}{2},\;\frac{-4+0}{2}\right) = (4,\; -2)`}</Formula> },
+                { label: "Slope through origin A(0,0) and B", description: <Formula>{String.raw`m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{-2 - 0}{4 - 0} = -\frac{1}{2}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-M2">
+          <ProblemSolution.Problem>
+            <p>(a) Find the equation of a line passing through the point (−2, 3) with slope 1/4. <span className="text-sm text-muted-foreground">[2 Marks]</span></p>
+            <p>(b) Find the distance of the point (3, −5) from the line 3x − 4y − 26 = 0. <span className="text-sm text-muted-foreground">[2 Marks]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p className="font-medium">(a) — point-slope form y − y₀ = m(x − x₀)</p>
+            <Stepper
+              steps={[
+                { label: "Substitute", description: <Formula>{String.raw`y - 3 = \frac{1}{4}(x + 2)`}</Formula> },
+                { label: "Multiply through by 4", description: <Formula>{String.raw`4(y - 3) = x + 2`}</Formula> },
+                { label: "Expand", description: <Formula>{String.raw`4y - 12 = x + 2`}</Formula> },
+                { label: "Rearrange", description: <Formula>{String.raw`x - 4y + 14 = 0`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`x - 4y + 14 = 0`} important />
+            <p className="font-medium mt-4">(b) — distance formula</p>
+            <Stepper
+              steps={[
+                { label: "Formula", description: <Formula>{String.raw`d = \frac{|Ax_1 + By_1 + C|}{\sqrt{A^2 + B^2}}`}</Formula> },
+                { label: "Substitute (3, −5)", description: <Formula>{String.raw`d = \frac{|3(3) - 4(-5) - 26|}{\sqrt{3^2 + (-4)^2}}`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`= \frac{|9 + 20 - 26|}{\sqrt{9 + 16}} = \frac{3}{5}\text{ units}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-pyq-model25" title="PYQ — Model 2025">
+        <ProblemSolution problemNumber="PYQ-MO1">
+          <ProblemSolution.Problem>
+            <p>Consider the straight line x − 3y + 4 = 0.</p>
+            <p>(i) Find the slope of the line perpendicular to the given line. <span className="text-sm text-muted-foreground">[1 Mark]</span></p>
+            <p>(ii) Find the equation of a line perpendicular to the above line and passing through (1, 2). <span className="text-sm text-muted-foreground">[2 Marks]</span></p>
+            <p>(iii) Find the coordinates of the point of intersection of the given line and the line obtained in (ii). <span className="text-sm text-muted-foreground">[1 Mark]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p className="font-medium">(i)</p>
+            <Stepper
+              steps={[
+                { label: "Slope of given line", description: <Formula>{String.raw`m_1 = -\frac{A}{B} = -\frac{1}{-3} = \frac{1}{3}`}</Formula> },
+                { label: "Perpendicular condition", description: <Formula>{String.raw`m_1 \times m_2 = -1 \;\Rightarrow\; \frac{1}{3}m_2 = -1 \;\Rightarrow\; m_2 = -3`}</Formula> },
+              ]}
+            />
+            <p className="font-medium mt-3">(ii)</p>
+            <Stepper
+              steps={[
+                { label: "Point-slope form", description: <Formula>{String.raw`y - 2 = -3(x - 1)`}</Formula> },
+                { label: "Expand", description: <Formula>{String.raw`y - 2 = -3x + 3`}</Formula> },
+                { label: "Rearrange", description: <Formula>{String.raw`3x + y - 5 = 0`}</Formula> },
+              ]}
+            />
+            <p className="font-medium mt-3">(iii)</p>
+            <Stepper
+              steps={[
+                { label: "Solve together", description: <>3x + y = 5 &#8594; y = 5 − 3x; and x − 3y = −4.</> },
+                { label: "Substitute y", description: <Formula>{String.raw`x - 3(5 - 3x) = -4 \;\Rightarrow\; x - 15 + 9x = -4 \;\Rightarrow\; 10x = 11`}</Formula> },
+                { label: "x-coordinate", description: <Formula>{String.raw`x = \frac{11}{10}`}</Formula> },
+                { label: "y-coordinate", description: <Formula>{String.raw`y = 5 - 3\left(\frac{11}{10}\right) = \frac{50 - 33}{10} = \frac{17}{10}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\left(\frac{11}{10},\;\frac{17}{10}\right)`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-pyq-model24" title="PYQ — Model 2024">
+        <ProblemSolution problemNumber="PYQ-MO2">
+          <ProblemSolution.Problem>
+            <p>Consider the line AB with x-intercept a = −4 and y-intercept b = 3.</p>
+            <p>(i) Find the equation of the line AB. <span className="text-sm text-muted-foreground">[1 Mark]</span></p>
+            <p>(ii) Find the distance of the origin from the line AB. <span className="text-sm text-muted-foreground">[2 Marks]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p className="font-medium">(i) — intercept form x/a + y/b = 1</p>
+            <Stepper
+              steps={[
+                { label: "Intercept form", description: <Formula>{String.raw`\frac{x}{-4} + \frac{y}{3} = 1`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`\frac{3x - 4y}{-12} = 1 \;\Rightarrow\; 3x - 4y + 12 = 0`}</Formula> },
+              ]}
+            />
+            <p className="font-medium mt-3">(ii) — distance from origin (0, 0)</p>
+            <Stepper
+              steps={[
+                { label: "Distance formula", description: <Formula>{String.raw`d = \frac{|3(0) - 4(0) + 12|}{\sqrt{3^2 + (-4)^2}}`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`= \frac{12}{\sqrt{25}} = \frac{12}{5}\text{ units}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-MO3">
+          <ProblemSolution.Problem>
+            <p>Line l₂ is perpendicular to line l₁, where l₁ makes an angle of 30° with the positive x-axis and passes through the origin, and l₂ passes through (4, 0).</p>
+            <p>(i) Find the slope of l₁. <span className="text-sm text-muted-foreground">[1 Mark]</span></p>
+            <p>(ii) Find the equation of l₁. <span className="text-sm text-muted-foreground">[1 Mark]</span></p>
+            <p>(iii) Find the equation of l₂. <span className="text-sm text-muted-foreground">[2 Marks]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <p className="font-medium">(i)</p>
+            <FormulaBlock latex={String.raw`m_1 = \tan 30^\circ = \frac{1}{\sqrt{3}}`} important />
+            <p className="font-medium mt-3">(ii)</p>
+            <Stepper
+              steps={[
+                { label: "Through origin, y₀ = 0", description: <Formula>{String.raw`y - 0 = \frac{1}{\sqrt{3}}(x - 0)`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`\sqrt{3}y = x \;\Rightarrow\; x - \sqrt{3}y = 0`}</Formula> },
+              ]}
+            />
+            <p className="font-medium mt-3">(iii)</p>
+            <Stepper
+              steps={[
+                { label: "Perpendicular slope", description: <Formula>{String.raw`\frac{1}{\sqrt{3}} \times m_2 = -1 \;\Rightarrow\; m_2 = -\sqrt{3}`}</Formula> },
+                { label: "Through (4, 0)", description: <Formula>{String.raw`y - 0 = -\sqrt{3}(x - 4) \;\Rightarrow\; y = -\sqrt{3}x + 4\sqrt{3}`}</Formula> },
+                { label: "Rearrange", description: <Formula>{String.raw`\sqrt{3}x + y - 4\sqrt{3} = 0`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
     </>
   );
 }
