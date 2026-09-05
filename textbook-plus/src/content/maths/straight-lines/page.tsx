@@ -922,6 +922,145 @@ export default function StraightLinesChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
+
+      <h2 id="h-advanced">Advanced Questions — Competitive</h2>
+
+      <Expandable id="h-adv-angle" title="Advanced 1 to 3 — Angle, Distance &amp; Slope">
+        <ProblemSolution problemNumber="Advanced 1">
+          <ProblemSolution.Problem>
+            <p>Find the angle between the lines y = (2 − √3)(x + 5) and y = (2 + √3)(x − 7).</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Identify slopes", description: <Formula>{String.raw`m_1 = 2 - \sqrt{3},\quad m_2 = 2 + \sqrt{3}`}</Formula> },
+                { label: "Use angle formula", description: <Formula>{String.raw`\tan\theta = \left|\frac{m_1 - m_2}{1 + m_1 m_2}\right|`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`\tan\theta = \left|\frac{(2-\sqrt{3}) - (2+\sqrt{3})}{1 + (2-\sqrt{3})(2+\sqrt{3})}\right|`}</Formula> },
+                { label: "Simplify denominator", description: <Formula>{String.raw`= \left|\frac{-2\sqrt{3}}{1 + (4 - 3)}\right| = \left|\frac{-2\sqrt{3}}{2}\right| = \sqrt{3}`}</Formula> },
+                { label: "Angle", description: <Formula>{String.raw`\theta = \tan^{-1}(\sqrt{3}) = 60^\circ = \frac{\pi}{3}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\theta = 60^\circ \;\text{or}\; \frac{\pi}{3}\text{ radians}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Advanced 2">
+          <ProblemSolution.Problem>
+            <p>Find the points on the line x + y = 4 which lie at a unit distance from the line 4x + 3y = 10.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Let (x₁, y₁) be on x + y = 4", description: <Formula>{String.raw`y_1 = 4 - x_1`}</Formula> },
+                { label: "Distance formula, d = 1", description: <Formula>{String.raw`1 = \left|\frac{4x_1 + 3y_1 - 10}{\sqrt{4^2 + 3^2}}\right| \;\Rightarrow\; \left|\frac{4x_1 + 3y_1 - 10}{5}\right| = 1`}</Formula> },
+                { label: "Drop absolute value", description: <Formula>{String.raw`4x_1 + 3y_1 - 10 = \pm 5`}</Formula> },
+                { label: "Case 1 (+5)", description: <><Formula>{String.raw`4x_1 + 3y_1 = 15`}</Formula>, substitute y₁ = 4 − x₁: <Formula>{String.raw`4x_1 + 3(4 - x_1) = 15 \;\Rightarrow\; x_1 = 3,\; y_1 = 1`}</Formula></> },
+                { label: "Case 2 (−5)", description: <><Formula>{String.raw`4x_1 + 3y_1 = 5`}</Formula>, substitute y₁ = 4 − x₁: <Formula>{String.raw`4x_1 + 3(4 - x_1) = 5 \;\Rightarrow\; x_1 = -7,\; y_1 = 11`}</Formula></> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`(3, 1)\quad\text{and}\quad(-7, 11)`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Advanced 3">
+          <ProblemSolution.Problem>
+            <p>Find the equation of the lines passing through (1, 2) and making an angle of 30° with the y-axis.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Convert to inclination with x-axis", description: <Formula>{String.raw`90^\circ - 30^\circ = 60^\circ \;\Rightarrow\; m = \tan 60^\circ = \sqrt{3}`}</Formula> },
+                { label: "Point-slope form", description: <Formula>{String.raw`y - 2 = \sqrt{3}(x - 1)`}</Formula> },
+                { label: "Expand", description: <Formula>{String.raw`y - 2 = \sqrt{3}x - \sqrt{3}`}</Formula> },
+                { label: "Rearrange", description: <Formula>{String.raw`\sqrt{3}x - y - \sqrt{3} + 2 = 0`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\sqrt{3}x - y - \sqrt{3} + 2 = 0`} important />
+            <Callout type="note" title="There is a second line">
+              A line making 30° with the y-axis can also have inclination 90° + 30° = 120° with the
+              x-axis, giving m = −√3. The second line is
+              <Formula>{String.raw`y - 2 = -\sqrt{3}(x - 1) \;\Rightarrow\; \sqrt{3}x + y - \sqrt{3} - 2 = 0`}</Formula>.
+            </Callout>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-adv-int" title="Advanced 4 to 5 — Intersection &amp; Triangles">
+        <ProblemSolution problemNumber="Advanced 4">
+          <ProblemSolution.Problem>
+            <p>Find the equation of the line passing through the point of intersection of 2x + y = 5 and x + 3y + 8 = 0 and parallel to the line 3x + 4y = 7.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Set up equations", description: <><Formula>{String.raw`2x + y = 5 \;\Rightarrow\; y = 5 - 2x`}</Formula> and <Formula>{String.raw`x + 3y = -8`}</Formula></> },
+                { label: "Substitute y", description: <Formula>{String.raw`x + 3(5 - 2x) = -8 \;\Rightarrow\; x + 15 - 6x = -8 \;\Rightarrow\; -5x = -23`}</Formula> },
+                { label: "x-coordinate", description: <Formula>{String.raw`x = \frac{23}{5}`}</Formula> },
+                { label: "y-coordinate", description: <Formula>{String.raw`y = 5 - 2\left(\frac{23}{5}\right) = \frac{25 - 46}{5} = -\frac{21}{5}`}</Formula> },
+                { label: "Slope of parallel line", description: <Formula>{String.raw`3x + 4y - 7 = 0 \;\Rightarrow\; m = -\frac{A}{B} = -\frac{3}{4}`}</Formula> },
+                { label: "Equation through intersection", description: <Formula>{String.raw`y + \frac{21}{5} = -\frac{3}{4}\left(x - \frac{23}{5}\right)`}</Formula> },
+                { label: "Clear denominators", description: <Formula>{String.raw`4\left(y + \frac{21}{5}\right) = -3\left(x - \frac{23}{5}\right) \;\Rightarrow\; 4y + \frac{84}{5} = -3x + \frac{69}{5}`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`3x + 4y = \frac{69 - 84}{5} = -3`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`3x + 4y + 3 = 0`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Advanced 5">
+          <ProblemSolution.Problem>
+            <p>Find the equation of one of the sides of an isosceles right-angled triangle whose hypotenuse is given by 3x + 4y = 4 and the opposite vertex of the hypotenuse is (2, 2).</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Slope of hypotenuse", description: <Formula>{String.raw`m_2 = -\frac{3}{4}`}</Formula> },
+                { label: "Base angles of isosceles right triangle", description: <Formula>{String.raw`45^\circ`}</Formula> },
+                { label: "Angle formula", description: <Formula>{String.raw`\tan 45^\circ = \left|\frac{m_1 - m_2}{1 + m_1 m_2}\right| \;\Rightarrow\; 1 = \left|\frac{4m + 3}{4 - 3m}\right|`}</Formula> },
+                { label: "Two cases", description: <Formula>{String.raw`\frac{4m + 3}{4 - 3m} = 1\ \ \text{or}\ \ -1`}</Formula> },
+                { label: "Case 1", description: <Formula>{String.raw`4m + 3 = 4 - 3m \;\Rightarrow\; 7m = 1 \;\Rightarrow\; m = \frac{1}{7}`}</Formula> },
+                { label: "Equation (m = 1/7) through (2, 2)", description: <Formula>{String.raw`y - 2 = \frac{1}{7}(x - 2) \;\Rightarrow\; 7y - 14 = x - 2 \;\Rightarrow\; x - 7y + 12 = 0`}</Formula> },
+                { label: "Case 2", description: <Formula>{String.raw`4m + 3 = -(4 - 3m) \;\Rightarrow\; m = -7`}</Formula> },
+                { label: "Equation (m = −7) through (2, 2)", description: <Formula>{String.raw`y - 2 = -7(x - 2) \;\Rightarrow\; 7x + y - 16 = 0`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`x - 7y + 12 = 0\ \ \text{and}\ \ 7x + y - 16 = 0`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-adv-mcq" title="Advanced MCQs">
+        <ProblemSolution problemNumber="MCQ 1">
+          <ProblemSolution.Problem>
+            <p>A line cutting off intercept −3 from the y-axis and the tangent of the angle to the x-axis is 3/5. Its equation is: (a) 5y − 3x + 15 = 0 (b) 3y − 5x + 15 = 0 (c) 5y − 3x − 15 = 0 (d) None of these</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Intercept and slope", description: <Formula>{String.raw`c = -3,\quad m = \tan\theta = \frac{3}{5}`}</Formula> },
+                { label: "Slope-intercept form", description: <Formula>{String.raw`y = \frac{3}{5}x - 3`}</Formula> },
+                { label: "Multiply by 5", description: <Formula>{String.raw`5y = 3x - 15 \;\Rightarrow\; 5y - 3x + 15 = 0`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">Answer: <strong>(a) 5y − 3x + 15 = 0</strong>.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="MCQ 2">
+          <ProblemSolution.Problem>
+            <p>The slope of a line which cuts off intercepts of equal length on the axes is: (a) −1 (b) 0 (c) 2 (d) √3</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Intercept form with equal intercepts", description: <Formula>{String.raw`\frac{x}{a} + \frac{y}{a} = 1 \;\Rightarrow\; x + y - a = 0`}</Formula> },
+                { label: "Slope", description: <Formula>{String.raw`m = -\frac{A}{B} = -\frac{1}{1} = -1`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">Answer: <strong>(a) −1</strong>.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
     </>
   );
 }
