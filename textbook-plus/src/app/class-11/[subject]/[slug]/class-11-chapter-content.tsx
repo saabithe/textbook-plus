@@ -21,6 +21,48 @@ const chapterComponents: Record<string, React.ComponentType> = {
     () => import("@/content/maths/introduction-to-three-dimensional-geometry/page")
   ) as React.ComponentType,
   "maths/statistics": dynamic(() => import("@/content/maths/statistics/page")) as React.ComponentType,
+  "physics/units-and-measurements": dynamic(
+    () => import("@/content/physics/units-and-measurements/page")
+  ) as React.ComponentType,
+  "physics/motion-in-a-straight-line": dynamic(
+    () => import("@/content/physics/motion-in-a-straight-line/page")
+  ) as React.ComponentType,
+  "physics/motion-in-a-plane": dynamic(
+    () => import("@/content/physics/motion-in-a-plane/page")
+  ) as React.ComponentType,
+  "physics/laws-of-motion": dynamic(
+    () => import("@/content/physics/laws-of-motion/page")
+  ) as React.ComponentType,
+  "physics/work-energy-and-power": dynamic(
+    () => import("@/content/physics/work-energy-and-power/page")
+  ) as React.ComponentType,
+  "physics/system-of-particles-and-rotational-motion": dynamic(
+    () => import("@/content/physics/system-of-particles-and-rotational-motion/page")
+  ) as React.ComponentType,
+  "physics/gravitation": dynamic(
+    () => import("@/content/physics/gravitation/page")
+  ) as React.ComponentType,
+  "physics/mechanical-properties-of-solids": dynamic(
+    () => import("@/content/physics/mechanical-properties-of-solids/page")
+  ) as React.ComponentType,
+  "physics/mechanical-properties-of-fluids": dynamic(
+    () => import("@/content/physics/mechanical-properties-of-fluids/page")
+  ) as React.ComponentType,
+  "physics/thermal-properties-of-matter": dynamic(
+    () => import("@/content/physics/thermal-properties-of-matter/page")
+  ) as React.ComponentType,
+  "physics/thermodynamics": dynamic(
+    () => import("@/content/physics/thermodynamics/page")
+  ) as React.ComponentType,
+  "physics/kinetic-theory": dynamic(
+    () => import("@/content/physics/kinetic-theory/page")
+  ) as React.ComponentType,
+  "physics/oscillations": dynamic(
+    () => import("@/content/physics/oscillations/page")
+  ) as React.ComponentType,
+  "physics/waves": dynamic(
+    () => import("@/content/physics/waves/page")
+  ) as React.ComponentType,
 };
 
 export function Class11ChapterContent({ subject, slug }: { subject: string; slug: string }) {

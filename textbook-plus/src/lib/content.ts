@@ -577,6 +577,290 @@ const SECTIONS_MAP: Record<string, ChapterSection[]> = {
     { id: "h-variance", title: "13.3 Variance and Standard Deviation" },
     { id: "h-formula-map", title: "13.4 Formula Map — Which Formula to Use When?" },
   ],
+  "c11/physics/units-and-measurements": [
+    { id: "h-intro", title: "1.1 Introduction" },
+    { id: "h-1-2", title: "1.2 The International System of Units" },
+    {
+      id: "h-sig-figs", title: "1.3 Significant Figures", children: [
+        { id: "h-sig-count", title: "Rules for Counting" },
+        { id: "h-sig-arithmetic", title: "1.3.1 Arithmetic Operations" },
+        { id: "h-sig-rounding", title: "1.3.2 Rounding off Uncertain Digits" },
+        { id: "h-sig-uncertainty", title: "1.3.3 Uncertainties in Arithmetic" },
+      ],
+    },
+    { id: "h-1-4", title: "1.4 Dimensions of Physical Quantities" },
+    { id: "h-1-5", title: "1.5 Dimensional Formulae and Equations" },
+    {
+      id: "h-1-6", title: "1.6 Dimensional Analysis and its Applications", children: [
+        { id: "h-1-6-1", title: "1.6.1 Checking Dimensional Consistency" },
+        { id: "h-1-6-2", title: "1.6.2 Deducing Relations" },
+      ],
+    },
+    { id: "h-exercises", title: "Exercises 1.1 – 1.17" },
+    { id: "h-revision", title: "Quick Revision" },
+  ],
+  "c11/physics/motion-in-a-straight-line": [
+    { id: "h-intro", title: "2.1 Introduction" },
+    { id: "h-2-2", title: "2.2 Instantaneous Velocity and Speed" },
+    { id: "h-2-3", title: "2.3 Acceleration" },
+    { id: "h-2-4", title: "2.4 Kinematic Equations for Uniformly Accelerated Motion" },
+    { id: "h-exercises", title: "Exercises 2.1 – 2.18" },
+    { id: "h-revision", title: "Quick Revision" },
+  ],
+  "c11/physics/motion-in-a-plane": [
+    { id: "h-intro", title: "3.1 Introduction" },
+    { id: "h-scalars-vectors", title: "3.2 Scalars and Vectors" },
+    { id: "h-multiplication", title: "3.3 Multiplication of Vectors by Real Numbers" },
+    { id: "h-addition", title: "3.4 Addition and Subtraction of Vectors — Graphical Method" },
+    { id: "h-resolution", title: "3.5 Resolution of Vectors" },
+    { id: "h-analytical", title: "3.6 Vector Addition — Analytical Method" },
+    { id: "h-motion-plane", title: "3.7 Motion in a Plane" },
+    { id: "h-constant-accel", title: "3.8 Motion in a Plane with Constant Acceleration" },
+    { id: "h-projectile", title: "3.9 Projectile Motion" },
+    { id: "h-circular", title: "3.10 Uniform Circular Motion" },
+    { id: "h-exercises", title: "Exercises 3.1 – 3.22" },
+    { id: "h-revision", title: "Quick Revision" },
+  ],
+  "c11/physics/laws-of-motion": [
+    { id: "h-intro", title: "4.1 Introduction" },
+    { id: "h-aristotle", title: "4.2 Aristotle's Fallacy" },
+    { id: "h-inertia", title: "4.3 The Law of Inertia" },
+    { id: "h-first", title: "4.4 Newton's First Law of Motion" },
+    { id: "h-second", title: "4.5 Newton's Second Law of Motion" },
+    { id: "h-third", title: "4.6 Newton's Third Law of Motion" },
+    { id: "h-momentum", title: "4.7 Conservation of Momentum" },
+    { id: "h-equilibrium", title: "4.8 Equilibrium of a Particle" },
+    { id: "h-forces", title: "4.9 Common Forces in Mechanics" },
+    { id: "h-friction", title: "4.9.1 Friction" },
+    { id: "h-circular", title: "4.10 Circular Motion" },
+    { id: "h-solving", title: "4.11 Solving Problems in Mechanics" },
+    { id: "h-exercises", title: "Exercises 4.1 – 4.23" },
+    { id: "h-revision", title: "Quick Revision" },
+  ],
+  "c11/physics/work-energy-and-power": [
+    { id: "h-intro", title: "5.1 Introduction" },
+    { id: "h-scalar", title: "5.1.1 The Scalar Product" },
+    { id: "h-we", title: "5.2 Notions of Work and Kinetic Energy" },
+    { id: "h-work", title: "5.3 Work" },
+    { id: "h-kinetic", title: "5.4 Kinetic Energy" },
+    { id: "h-variable", title: "5.5 Work Done by a Variable Force" },
+    { id: "h-we-variable", title: "5.6 The Work-Energy Theorem for a Variable Force" },
+    { id: "h-potential", title: "5.7 The Concept of Potential Energy" },
+    { id: "h-conservation", title: "5.8 The Conservation of Mechanical Energy" },
+    { id: "h-spring", title: "5.9 The Potential Energy of a Spring" },
+    { id: "h-power", title: "5.10 Power" },
+    { id: "h-collisions", title: "5.11 Collisions" },
+    { id: "h-exercises", title: "Exercises 5.1 – 5.23" },
+    { id: "h-revision", title: "Quick Revision" },
+  ],
+  "c11/physics/system-of-particles-and-rotational-motion": [
+    { id: "h-intro", title: "6.1 Introduction" },
+    { id: "h-com", title: "6.2 Centre of Mass" },
+    { id: "h-com-motion", title: "6.3 Motion of the Centre of Mass" },
+    { id: "h-p-system", title: "6.4 Linear Momentum of a System of Particles" },
+    { id: "h-vector-product", title: "6.5 Vector Product of Two Vectors" },
+    { id: "h-angular-velocity", title: "6.6 Angular Velocity and Its Relation with Linear Velocity" },
+    { id: "h-torque", title: "6.7 Torque and Angular Momentum" },
+    { id: "h-equilibrium", title: "6.8 Equilibrium of a Rigid Body" },
+    { id: "h-moment-inertia", title: "6.9 Moment of Inertia" },
+    { id: "h-angular-kinematics", title: "6.10 Kinematics of Rotational Motion about a Fixed Axis" },
+    { id: "h-dynamics", title: "6.11 Dynamics of Rotational Motion about a Fixed Axis" },
+    { id: "h-fixed-axis-angular", title: "6.12 Angular Momentum in Case of Rotation about a Fixed Axis" },
+    { id: "h-exercises", title: "Exercises 6.1 – 6.17" },
+    { id: "h-revision", title: "Quick Revision" },
+  ],
+  "c11/physics/gravitation": [
+    { id: "h-intro", title: "7.1 Introduction" },
+    { id: "h-kepler", title: "7.2 Kepler's Laws" },
+    { id: "h-universal-law", title: "7.3 Universal Law of Gravitation" },
+    { id: "h-g-constant", title: "7.4 The Gravitational Constant" },
+    { id: "h-g-earth", title: "7.5 Acceleration due to Gravity of the Earth" },
+    { id: "h-g-below-above", title: "7.6 g below and above the Surface of the Earth" },
+    { id: "h-potential-energy", title: "7.7 Gravitational Potential Energy" },
+    { id: "h-escape", title: "7.8 Escape Speed" },
+    { id: "h-satellites", title: "7.9 Earth Satellites" },
+    { id: "h-satellite-energy", title: "7.10 Energy of an Orbiting Satellite" },
+    { id: "h-exercises", title: "Exercises 7.1 – 7.21" },
+    { id: "h-revision", title: "Quick Revision" },
+  ],
+  "c11/physics/mechanical-properties-of-solids": [
+    { id: "h-intro", title: "8.1 Introduction" },
+    { id: "h-stress-strain", title: "8.2 Stress and Strain" },
+    { id: "h-hookes-law", title: "8.3 Hooke's Law" },
+    { id: "h-ss-curve", title: "8.4 Stress-Strain Curve" },
+    {
+      id: "h-elastic-moduli", title: "8.5 Elastic Moduli", children: [
+        { id: "h-young", title: "8.5.1 Young's Modulus" },
+        { id: "h-shear", title: "8.5.2 Shear Modulus" },
+        { id: "h-bulk", title: "8.5.3 Bulk Modulus" },
+        { id: "h-poisson", title: "8.5.4 Poisson's Ratio" },
+        { id: "h-penergy", title: "8.5.5 Elastic Potential Energy" },
+      ],
+    },
+    { id: "h-applications", title: "8.6 Applications of Elastic Behaviour" },
+    { id: "h-exercises", title: "Exercises 8.1 – 8.16" },
+    { id: "h-revision", title: "Quick Revision" },
+  ],
+  "c11/physics/mechanical-properties-of-fluids": [
+    { id: "h-intro", title: "9.1 Introduction" },
+    {
+      id: "h-pressure", title: "9.2 Pressure", children: [
+        { id: "h-pascals-law", title: "9.2.1 Pascal's Law" },
+        { id: "h-depth", title: "9.2.2 Variation of Pressure with Depth" },
+        { id: "h-atmosphere", title: "9.2.3 Atmospheric Pressure and Gauge Pressure" },
+        { id: "h-hydraulic", title: "9.2.4 Hydraulic Machines" },
+      ],
+    },
+    { id: "h-streamline", title: "9.3 Streamline Flow" },
+    {
+      id: "h-bernoulli", title: "9.4 Bernoulli's Principle", children: [
+        { id: "h-efflux", title: "9.4.1 Speed of Efflux: Torricelli's Law" },
+        { id: "h-lift", title: "9.4.2 Dynamic Lift" },
+      ],
+    },
+    {
+      id: "h-viscosity", title: "9.5 Viscosity", children: [
+        { id: "h-stokes", title: "9.5.1 Stokes' Law" },
+      ],
+    },
+    {
+      id: "h-surface-tension", title: "9.6 Surface Tension", children: [
+        { id: "h-surface-energy", title: "9.6.1 Surface Energy" },
+        { id: "h-st-surface-energy", title: "9.6.2 Surface Energy and Surface Tension" },
+        { id: "h-contact-angle", title: "9.6.3 Angle of Contact" },
+        { id: "h-drops-bubbles", title: "9.6.4 Drops and Bubbles" },
+        { id: "h-capillary", title: "9.6.5 Capillary Rise" },
+      ],
+    },
+    { id: "h-exercises", title: "Exercises 9.1 – 9.20" },
+    { id: "h-revision", title: "Quick Revision" },
+  ],
+  "c11/physics/thermal-properties-of-matter": [
+    { id: "h-intro", title: "10.1 Introduction" },
+    { id: "h-temp-heat", title: "10.2 Temperature and Heat" },
+    { id: "h-measurement", title: "10.3 Measurement of Temperature" },
+    { id: "h-ideal-gas", title: "10.4 Ideal-Gas Equation and Absolute Temperature" },
+    {
+      id: "h-expansion", title: "10.5 Thermal Expansion", children: [
+        { id: "h-linear-expansion", title: "10.5.1 Linear Expansion" },
+        { id: "h-volume-expansion", title: "10.5.2 Volume Expansion" },
+        { id: "h-alpha-relation", title: "10.5.3 Relation between α_V and α_l" },
+        { id: "h-thermal-stress", title: "10.5.4 Thermal Stress" },
+      ],
+    },
+    { id: "h-specific-heat", title: "10.6 Specific Heat Capacity" },
+    { id: "h-calorimetry", title: "10.7 Calorimetry" },
+    {
+      id: "h-change-of-state", title: "10.8 Change of State", children: [
+        { id: "h-melting", title: "10.8.1 Melting and Freezing" },
+        { id: "h-boiling", title: "10.8.2 Boiling Point" },
+        { id: "h-sublimation", title: "10.8.3 Sublimation" },
+        { id: "h-triple-point", title: "10.8.4 Triple Point" },
+        { id: "h-latent-heat", title: "10.8.5 Latent Heat" },
+      ],
+    },
+    {
+      id: "h-heat-transfer", title: "10.9 Heat Transfer", children: [
+        { id: "h-conduction", title: "10.9.1 Conduction" },
+        { id: "h-convection", title: "10.9.2 Convection" },
+        { id: "h-radiation", title: "10.9.3 Radiation" },
+        { id: "h-blackbody", title: "10.9.4 Blackbody Radiation" },
+      ],
+    },
+    { id: "h-newton-cooling", title: "10.10 Newton's Law of Cooling" },
+    { id: "h-exercises", title: "Exercises 10.1 – 10.20" },
+    { id: "h-revision", title: "Quick Revision" },
+  ],
+  "c11/physics/thermodynamics": [
+    { id: "h-intro", title: "11.1 Introduction" },
+    { id: "h-thermal-equilibrium", title: "11.2 Thermal Equilibrium" },
+    { id: "h-zeroth-law", title: "11.3 Zeroth Law of Thermodynamics" },
+    { id: "h-heat-internal-work", title: "11.4 Heat, Internal Energy and Work" },
+    { id: "h-first-law", title: "11.5 First Law of Thermodynamics" },
+    { id: "h-specific-heat", title: "11.6 Specific Heat Capacity" },
+    { id: "h-state-vars", title: "11.7 Thermodynamic State Variables and Equation of State" },
+    {
+      id: "h-processes", title: "11.8 Thermodynamic Processes", children: [
+        { id: "h-quasi-static", title: "11.8.1 Quasi-static Process" },
+        { id: "h-isothermal", title: "11.8.2 Isothermal Process" },
+        { id: "h-adiabatic", title: "11.8.3 Adiabatic Process" },
+        { id: "h-isochoric", title: "11.8.4 Isochoric Process" },
+        { id: "h-isobaric", title: "11.8.5 Isobaric Process" },
+        { id: "h-cyclic", title: "11.8.6 Cyclic Process" },
+      ],
+    },
+    { id: "h-second-law", title: "11.9 Second Law of Thermodynamics" },
+    { id: "h-reversible", title: "11.10 Reversible and Irreversible Processes" },
+    { id: "h-carnot", title: "11.11 Carnot Engine" },
+    { id: "h-exercises", title: "Exercises 11.1 – 11.8" },
+    { id: "h-revision", title: "Quick Revision" },
+  ],
+  "c11/physics/kinetic-theory": [
+    { id: "k-intro", title: "12.1 Introduction" },
+    { id: "k-mols", title: "12.2 Molecular Nature of Matter" },
+    { id: "k-gas", title: "12.3 Behaviour of Gases" },
+    {
+      id: "k-models", title: "12.4 Kinetic Theory of an Ideal Gas", children: [
+        { id: "k-pressure", title: "12.4.1 Pressure of an Ideal Gas" },
+        { id: "k-temp", title: "12.4.2 Kinetic Interpretation of Temperature" },
+      ],
+    },
+    { id: "k-equip", title: "12.5 Law of Equipartition of Energy" },
+    {
+      id: "k-spec", title: "12.6 Specific Heat Capacity", children: [
+        { id: "k-spec-mono", title: "12.6.1 Monatomic Gases" },
+        { id: "k-spec-di", title: "12.6.2 Diatomic Gases" },
+        { id: "k-spec-poly", title: "12.6.3 Polyatomic Gases" },
+        { id: "k-spec-solid", title: "12.6.4 Specific Heat Capacity of Solids" },
+      ],
+    },
+    { id: "k-mfp", title: "12.7 Mean Free Path" },
+    { id: "k-examples", title: "Worked Examples" },
+    { id: "k-exercises", title: "Exercises 12.1 – 12.10" },
+    { id: "k-revision", title: "Quick Revision" },
+  ],
+  "c11/physics/oscillations": [
+    { id: "o-intro", title: "13.1 Introduction" },
+    { id: "o-periodic", title: "13.2 Periodic and Oscillatory Motions" },
+    { id: "o-freq", title: "13.2.1 Period and Frequency" },
+    { id: "o-displacement", title: "13.2.2 Displacement" },
+    { id: "o-shm", title: "13.3 Simple Harmonic Motion" },
+    { id: "o-circular", title: "13.4 SHM and Uniform Circular Motion" },
+    { id: "o-velocity", title: "13.5 Velocity and Acceleration in SHM" },
+    { id: "o-force", title: "13.6 Force Law for SHM" },
+    { id: "o-energy", title: "13.7 Energy in SHM" },
+    { id: "o-pendulum", title: "13.8 The Simple Pendulum" },
+    { id: "o-examples", title: "Worked Examples" },
+    { id: "o-exercises", title: "Exercises 13.1 – 13.18" },
+    { id: "o-revision", title: "Quick Revision" },
+  ],
+  "c11/physics/waves": [
+    { id: "w-intro", title: "14.1 Introduction" },
+    { id: "w-types", title: "14.2 Transverse and Longitudinal Waves" },
+    {
+      id: "w-displacement", title: "14.3 Displacement Relation in a Progressive Wave", children: [
+        { id: "w-amp", title: "14.3.1 Amplitude and Phase" },
+        { id: "w-wavelength", title: "14.3.2 Wavelength and Angular Wave Number" },
+        { id: "w-period", title: "14.3.3 Period, Angular Frequency and Frequency" },
+      ],
+    },
+    {
+      id: "w-speed", title: "14.4 The Speed of a Travelling Wave", children: [
+        { id: "w-speed-string", title: "14.4.1 Speed of a Transverse Wave on a Stretched String" },
+        { id: "w-speed-sound", title: "14.4.2 Speed of a Longitudinal Wave (Speed of Sound)" },
+      ],
+    },
+    { id: "w-superposition", title: "14.5 The Principle of Superposition of Waves" },
+    {
+      id: "w-reflection", title: "14.6 Reflection of Waves", children: [
+        { id: "w-standing", title: "14.6.1 Standing Waves and Normal Modes" },
+      ],
+    },
+    { id: "w-beats", title: "14.7 Beats" },
+    { id: "w-examples", title: "Worked Examples" },
+    { id: "w-exercises", title: "Exercises 14.1 – 14.19" },
+    { id: "w-revision", title: "Quick Revision" },
+  ],
 };
 
 // Practice data is lazy-loaded per chapter so visiting one chapter doesn't
@@ -598,6 +882,20 @@ const QUESTION_KEYS = new Set([
   "c11/maths/probability",
   "c11/maths/introduction-to-three-dimensional-geometry",
   "c11/maths/statistics",
+  "c11/physics/units-and-measurements",
+  "c11/physics/motion-in-a-straight-line",
+  "c11/physics/motion-in-a-plane",
+  "c11/physics/laws-of-motion",
+  "c11/physics/work-energy-and-power",
+  "c11/physics/system-of-particles-and-rotational-motion",
+  "c11/physics/gravitation",
+  "c11/physics/mechanical-properties-of-solids",
+  "c11/physics/mechanical-properties-of-fluids",
+  "c11/physics/thermal-properties-of-matter",
+  "c11/physics/thermodynamics",
+  "c11/physics/kinetic-theory",
+  "c11/physics/oscillations",
+  "c11/physics/waves",
 ]);
 
 const FLASHCARD_KEYS = new Set(QUESTION_KEYS);
@@ -631,6 +929,34 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
     import("@/content/maths/limits-and-derivatives/questions.json").then((m) => m.default as Question[]),
   "c11/maths/statistics": () =>
     import("@/content/maths/statistics/questions.json").then((m) => m.default as Question[]),
+  "c11/physics/units-and-measurements": () =>
+    import("@/content/physics/units-and-measurements/questions.json").then((m) => m.default as Question[]),
+  "c11/physics/motion-in-a-straight-line": () =>
+    import("@/content/physics/motion-in-a-straight-line/questions.json").then((m) => m.default as Question[]),
+  "c11/physics/motion-in-a-plane": () =>
+    import("@/content/physics/motion-in-a-plane/questions.json").then((m) => m.default as Question[]),
+  "c11/physics/laws-of-motion": () =>
+    import("@/content/physics/laws-of-motion/questions.json").then((m) => m.default as Question[]),
+  "c11/physics/work-energy-and-power": () =>
+    import("@/content/physics/work-energy-and-power/questions.json").then((m) => m.default as Question[]),
+  "c11/physics/system-of-particles-and-rotational-motion": () =>
+    import("@/content/physics/system-of-particles-and-rotational-motion/questions.json").then((m) => m.default as Question[]),
+  "c11/physics/gravitation": () =>
+    import("@/content/physics/gravitation/questions.json").then((m) => m.default as Question[]),
+  "c11/physics/mechanical-properties-of-solids": () =>
+    import("@/content/physics/mechanical-properties-of-solids/questions.json").then((m) => m.default as Question[]),
+  "c11/physics/mechanical-properties-of-fluids": () =>
+    import("@/content/physics/mechanical-properties-of-fluids/questions.json").then((m) => m.default as Question[]),
+  "c11/physics/thermal-properties-of-matter": () =>
+    import("@/content/physics/thermal-properties-of-matter/questions.json").then((m) => m.default as Question[]),
+  "c11/physics/thermodynamics": () =>
+    import("@/content/physics/thermodynamics/questions.json").then((m) => m.default as Question[]),
+  "c11/physics/kinetic-theory": () =>
+    import("@/content/physics/kinetic-theory/questions.json").then((m) => m.default as Question[]),
+  "c11/physics/oscillations": () =>
+    import("@/content/physics/oscillations/questions.json").then((m) => m.default as Question[]),
+  "c11/physics/waves": () =>
+    import("@/content/physics/waves/questions.json").then((m) => m.default as Question[]),
 };
 
 const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
@@ -662,6 +988,34 @@ const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
     import("@/content/maths/limits-and-derivatives/flashcards.json").then((m) => m.default as Flashcard[]),
   "c11/maths/statistics": () =>
     import("@/content/maths/statistics/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/physics/units-and-measurements": () =>
+    import("@/content/physics/units-and-measurements/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/physics/motion-in-a-straight-line": () =>
+    import("@/content/physics/motion-in-a-straight-line/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/physics/motion-in-a-plane": () =>
+    import("@/content/physics/motion-in-a-plane/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/physics/laws-of-motion": () =>
+    import("@/content/physics/laws-of-motion/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/physics/work-energy-and-power": () =>
+    import("@/content/physics/work-energy-and-power/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/physics/system-of-particles-and-rotational-motion": () =>
+    import("@/content/physics/system-of-particles-and-rotational-motion/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/physics/gravitation": () =>
+    import("@/content/physics/gravitation/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/physics/mechanical-properties-of-solids": () =>
+    import("@/content/physics/mechanical-properties-of-solids/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/physics/mechanical-properties-of-fluids": () =>
+    import("@/content/physics/mechanical-properties-of-fluids/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/physics/thermal-properties-of-matter": () =>
+    import("@/content/physics/thermal-properties-of-matter/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/physics/thermodynamics": () =>
+    import("@/content/physics/thermodynamics/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/physics/kinetic-theory": () =>
+    import("@/content/physics/kinetic-theory/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/physics/oscillations": () =>
+    import("@/content/physics/oscillations/flashcards.json").then((m) => m.default as Flashcard[]),
+  "c11/physics/waves": () =>
+    import("@/content/physics/waves/flashcards.json").then((m) => m.default as Flashcard[]),
 };
 
 export function getSectionsForChapter(slug: string): ChapterSection[] {

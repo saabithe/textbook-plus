@@ -149,6 +149,7 @@ src/content/{subject-slug}/{chapter-slug}/
 - **No Summary section** and **no "Points to Ponder" section** in chapters — do not add these.
 - **Worked examples render as collapsed `Expandable`** blocks (not expanded `Example` blocks).
 - Avoid re-stating in one section content already covered elsewhere in the chapter (e.g. removing an aggregate recap/table when the same points are covered in-topic).
+- **Capture ALL user-provided solution steps verbatim.** When the user shares step-by-step notes/solutions, reproduce every step they give — never collapse, condense, or drop intermediate steps. Expand worked answers into full step-by-step (e.g. `Stepper` + final highlighted answer) matching the user's supplied derivation, even if a shorter version already exists.
 
 ## Todo Rule
 
