@@ -140,6 +140,23 @@ export default function LimitsAndDerivativesChapter() {
         </ProblemSolution>
       </Expandable>
 
+      <Expandable title="Example 3 — find c so the limit exists (x+2 / cx² at x = −1)">
+        <ProblemSolution problemNumber="Example 3">
+          <ProblemSolution.Problem>
+            Find the value of c such that the limit of <Formula>{String.raw`f(x)=\begin{cases}x+2,&x\le-1\\cx^{2},&x>-1\end{cases}`}</Formula> exists at x = −1.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "L.H.L. (x ≤ −1)", description: <Formula>{String.raw`\lim_{x \to -1^{-}}(x+2)=-1+2=1`}</Formula> },
+                { label: "R.H.L. (x > −1)", description: <Formula>{String.raw`\lim_{x \to -1^{+}}cx^{2}=c(-1)^{2}=c`}</Formula> },
+                { label: "Equate for limit to exist", description: <Formula>{String.raw`1=c \Rightarrow \boxed{c=1}`}</Formula> },
+              ]}
+            />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <h3>Algebra of Limits</h3>
       <FormulaCard>
         <p className="font-semibold mb-2">Limit Laws</p>
@@ -645,6 +662,41 @@ export default function LimitsAndDerivativesChapter() {
             />
           </ProblemSolution.Solution>
         </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 7 — sin x − cos x at π/4">
+          <ProblemSolution.Problem>
+            Evaluate <Formula>{String.raw`\lim_{x \to \pi/4}\frac{\sin x - \cos x}{x - \pi/4}`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Combine into single sine", description: <Formula>{String.raw`\sin x - \cos x = \sqrt{2}\left(\frac{1}{\sqrt{2}}\sin x - \frac{1}{\sqrt{2}}\cos x\right) = \sqrt{2}\,\sin\left(x - \frac{\pi}{4}\right)`}</Formula> },
+                { label: "Factor √2 out", description: <Formula>{String.raw`\sqrt{2}\cdot \lim_{x \to \pi/4}\frac{\sin\left(x - \frac{\pi}{4}\right)}{x - \frac{\pi}{4}}`}</Formula> },
+                { label: "Apply standard limit", description: <Formula>{String.raw`\sqrt{2}\cdot 1 = \sqrt{2}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{\sqrt{2}}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 8 — MCQ: sin x/(x−π) at π">
+          <ProblemSolution.Problem>
+            <p>
+              <Formula>{String.raw`\lim_{x \to \pi} \frac{\sin x}{x - \pi}`}</Formula>. Check: does it equal −1, 1, or 0?
+            </p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Reframe numerator", description: <Formula>{String.raw`\sin x = \sin(\pi - x)`}</Formula> },
+                { label: "Reframe denominator", description: <Formula>{String.raw`x - \pi = -(\pi - x)`}</Formula> },
+                { label: "Combine", description: <Formula>{String.raw`-\lim_{\pi-x \to 0}\frac{\sin(\pi-x)}{\pi-x}`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`-1\cdot 1 = -1`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{-1}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
       </Expandable>
 
       <h2 id="h-derivatives">12.5 Derivatives</h2>
@@ -775,6 +827,25 @@ export default function LimitsAndDerivativesChapter() {
             />
           </ProblemSolution.Solution>
         </ProblemSolution>
+
+        <ProblemSolution problemNumber="A+ — x cos x (First Principle)">
+          <ProblemSolution.Problem>
+            Compute the derivative of <Formula>{String.raw`f(x)=x\cos x`}</Formula> from first principles.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Setup", description: <Formula>{String.raw`f(x+h)=(x+h)\cos(x+h)`}</Formula> },
+                { label: "Difference quotient", description: <Formula>{String.raw`\lim_{h\to0}\frac{(x+h)\cos(x+h)-x\cos x}{h}`}</Formula> },
+                { label: "Split", description: <Formula>{String.raw`\lim_{h\to0}\left[\frac{x(\cos(x+h)-\cos x)}{h}+\frac{h\cos(x+h)}{h}\right]`}</Formula> },
+                { label: "Identity", description: <Formula>{String.raw`\cos(x+h)-\cos x=-2\sin\frac{2x+h}{2}\sin\frac{h}{2}`}</Formula> },
+                { label: "Rewrite", description: <Formula>{String.raw`\lim_{h\to0}\left[-x\sin\frac{2x+h}{2}\cdot\frac{\sin(h/2)}{h/2}\right]+\lim_{h\to0}\cos(x+h)`}</Formula> },
+                { label: "Apply limits", description: <Formula>{String.raw`-x\cdot\sin\frac{2x}{2}\cdot 1+\cos x`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`f'(x)=\cos x - x\sin x`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
       </Expandable>
 
       <h3>Algebra of Derivatives</h3>
@@ -881,6 +952,57 @@ export default function LimitsAndDerivativesChapter() {
                 { label: "Apply rule", description: <Formula>{String.raw`f' = \frac{\cos x \cdot x - \sin x \cdot 1}{x^2} = \frac{x\cos x - \sin x}{x^2}`}</Formula> },
               ]}
             />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 10 — (x⁴+x³+x²+1)/x">
+          <ProblemSolution.Problem>
+            Find <Formula>{String.raw`\frac{d}{dx}\left(\frac{x^4 + x^3 + x^2 + 1}{x}\right)`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Split each term", description: <Formula>{String.raw`\frac{x^4}{x} + \frac{x^3}{x} + \frac{x^2}{x} + \frac{1}{x} = x^3 + x^2 + x + x^{-1}`}</Formula> },
+                { label: "Power rule", description: <Formula>{String.raw`3x^2 + 2x^1 + 1 - 1x^{-2}`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`3x^2 + 2x + 1 - x^{-2}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`f'(x) = 3x^2 + 2x + 1 - x^{-2}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 11 — (a + b sin x)/(c + d cos x)">
+          <ProblemSolution.Problem>
+            Find <Formula>{String.raw`\frac{d}{dx}\left(\frac{a + b\sin x}{c + d\cos x}\right)`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Quotient rule", description: <Formula>{String.raw`\left(\frac{u}{v}\right)' = \frac{vu' - uv'}{v^2}`}</Formula> },
+                { label: "Identify", description: <Formula>{String.raw`u = a + b\sin x,\quad v = c + d\cos x`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`\frac{(c + d\cos x)(b\cos x) - (a + b\sin x)(-d\sin x)}{(c + d\cos x)^2}`}</Formula> },
+                { label: "Expand", description: <Formula>{String.raw`\frac{bc\cos x + bd\cos^2 x + ad\sin x + bd\sin^2 x}{(c + d\cos x)^2}`}</Formula> },
+                { label: "Group bd terms", description: <Formula>{String.raw`\frac{bc\cos x + ad\sin x + bd(\cos^2 x + \sin^2 x)}{(c + d\cos x)^2}`}</Formula> },
+                { label: "Use identity", description: <Formula>{String.raw`\cos^2 x + \sin^2 x = 1 \Rightarrow \frac{bc\cos x + ad\sin x + bd}{(c + d\cos x)^2}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\frac{bc\cos x + ad\sin x + bd}{(c + d\cos x)^2}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Example 12 — (3x+5)(1+tan x)">
+          <ProblemSolution.Problem>
+            Differentiate <Formula>{String.raw`f(x) = (3x+5)(1+\tan x)`}</Formula>.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Product rule", description: <Formula>{String.raw`(uv)' = u'v + uv'`}</Formula> },
+                { label: "Identify", description: <Formula>{String.raw`u = 3x+5,\; u' = 3;\quad v = 1+\tan x,\; v' = \sec^2 x`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`3(1+\tan x) + (3x+5)\sec^2 x`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`f'(x) = 3(1+\tan x) + (3x+5)\sec^2 x`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
@@ -1251,9 +1373,11 @@ export default function LimitsAndDerivativesChapter() {
                 { label: "Apply", description: <Formula>{String.raw`\frac{(\sin x - \cos x)(\cos x + \sin x) - (\sin x + \cos x)(\cos x - \sin x)}{(\sin x - \cos x)^2}`}</Formula> },
                 { label: "Expand numerator", description: <Formula>{String.raw`(\sin^2 x - \cos^2 x) - (\sin^2 x - \cos^2 x) \cdot (-1)`}</Formula> },
                 { label: "Simplify", description: <Formula>{String.raw`\frac{-2(\sin^2 x + \cos^2 x)}{(\sin x - \cos x)^2} = \frac{-2}{(\sin x - \cos x)^2}`}</Formula> },
+                { label: "Evaluate at x = 0", description: <Formula>{String.raw`\frac{-2}{(0 - 1)^2} = \frac{-2}{1} = -2`}</Formula> },
               ]}
             />
             <FormulaBlock latex={String.raw`f'(x) = \frac{-2}{(\sin x - \cos x)^2}`} important />
+            <p className="text-sm text-muted-foreground mt-2">MCQ: <Formula>{String.raw`\left.\frac{dy}{dx}\right|_{x=0} = -2`}</Formula> — option <strong>(a) −2</strong>.</p>
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
