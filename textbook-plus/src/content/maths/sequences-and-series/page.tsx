@@ -355,6 +355,77 @@ export default function SequencesAndSeriesChapter() {
         </Callout>
       </SpeedTricks>
 
+      <h3 id="h-gp-advanced">Advanced G.P. — Competitive Questions</h3>
+      <Expandable title="Advanced Problems 1 to 4 — Applied G.P.">
+        <ProblemSolution problemNumber="Advanced 1">
+          <ProblemSolution.Problem>
+            A side of an equilateral triangle is 20 cm. A second equilateral triangle is inscribed in it by joining the midpoints of the sides. The process continues. Find the perimeter of the sixth inscribed equilateral triangle.
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Perimeters form a G.P.", description: <Formula>{String.raw`60,\ 30,\ 15,\ \dots`}</Formula> },
+                { label: "First term and ratio", description: <Formula>{String.raw`a = 60,\quad r = \frac{30}{60} = \frac{1}{2}`}</Formula> },
+                { label: "6th triangle", description: <Formula>{String.raw`a_6 = ar^5 = 60 \times \left(\frac{1}{2}\right)^5 = 60 \times \frac{1}{32}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`a_6 = \frac{15}{8}\text{ cm}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Advanced 2">
+          <ProblemSolution.Problem>
+            The third term of a G.P. is 4. The product of its first 5 terms is: (a) 4³ (b) 4⁴ (c) 4⁵ (d) none of these
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Write the product", description: <Formula>{String.raw`a \cdot ar \cdot ar^2 \cdot ar^3 \cdot ar^4 = a^5 r^{10} = (ar^2)^5`}</Formula> },
+                { label: "Given a₃", description: <Formula>{String.raw`a_3 = ar^2 = 4`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`(ar^2)^5 = 4^5`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">Answer: <strong>(c) 4⁵</strong>.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Advanced 3">
+          <ProblemSolution.Problem>
+            The three unequal edges of a rectangular solid block are in G.P. Its volume is 216 cm³ and total surface area is 252 cm². Find the length of the largest edge. (a) 12 cm (b) 6 cm (c) 18 cm (d) 3 cm
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Let edges be a/r, a, ar", description: <Formula>{String.raw`\frac{a}{r},\ a,\ ar`}</Formula> },
+                { label: "Volume", description: <Formula>{String.raw`\frac{a}{r}\cdot a \cdot ar = a^3 = 216 \;\Rightarrow\; a = 6`}</Formula> },
+                { label: "Surface area", description: <Formula>{String.raw`2\left(\frac{a^2}{r} + a^2 + a^2r\right) = 252 \;\Rightarrow\; a^2\left(\frac{1}{r} + 1 + r\right) = 126`}</Formula> },
+                { label: "Substitute a = 6", description: <Formula>{String.raw`36\left(\frac{r^2 + r + 1}{r}\right) = 126 \;\Rightarrow\; \frac{r^2+r+1}{r} = \frac{7}{2}`}</Formula> },
+                { label: "Quadratic", description: <Formula>{String.raw`2r^2 - 5r + 2 = 0 \;\Rightarrow\; r = \frac{5 \pm 3}{4} = 2\ \text{or}\ \frac{1}{2}`}</Formula> },
+                { label: "Edges", description: <>For r = 2: 3, 6, 12. For r = 1/2: 12, 6, 3.</> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">Largest edge = <strong>12 cm</strong> — answer <strong>(a)</strong>.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Advanced 4">
+          <ProblemSolution.Problem>
+            If a, b, c are in G.P., find the value of (a − b)/(b − c).
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Write in terms of r", description: <Formula>{String.raw`b = ar,\quad c = ar^2`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`\frac{a-b}{b-c} = \frac{a - ar}{ar - ar^2} = \frac{a(1-r)}{ar(1-r)}`}</Formula> },
+                { label: "Cancel (1 − r)", description: <Formula>{String.raw`= \frac{a}{ar} = \frac{1}{r}`}</Formula> },
+                { label: "Write as a ratio", description: <Formula>{String.raw`\frac{1}{r} = \frac{a}{b}\quad\text{or}\quad\frac{b}{c}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\frac{a-b}{b-c} = \frac{a}{b} = \frac{b}{c}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
       <h2 id="h-sum-special">Sum of Special Series</h2>
       <FormulaCard>
         <p className="font-semibold mb-2">Sum of n Terms of 7 + 77 + 777 + ⋯</p>
