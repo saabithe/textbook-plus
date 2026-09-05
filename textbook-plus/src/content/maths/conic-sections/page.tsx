@@ -1075,6 +1075,138 @@ export default function ConicSectionsChapter() {
           </ol>
         </Expandable>
       </Expandable>
+
+      <h2 id="h-advanced">Advanced Questions — Competitive</h2>
+
+      <Expandable id="h-adv-circle" title="Advanced 1 to 4 — Circles">
+        <ProblemSolution problemNumber="Advanced 1">
+          <ProblemSolution.Problem>
+            <p>Find the equation of the circle which touches both axes in the first quadrant and whose radius is a.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Centre in first quadrant", description: <Formula>{String.raw`(h, k) = (a, a)`}</Formula> },
+                { label: "Radius", description: <Formula>{String.raw`r = a`}</Formula> },
+                { label: "Standard equation", description: <Formula>{String.raw`(x - a)^2 + (y - a)^2 = a^2`}</Formula> },
+                { label: "Expand", description: <Formula>{String.raw`x^2 - 2ax + a^2 + y^2 - 2ay + a^2 = a^2`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`x^2 + y^2 - 2ax - 2ay + a^2 = 0`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`x^2 + y^2 - 2ax - 2ay + a^2 = 0`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Advanced 2">
+          <ProblemSolution.Problem>
+            <p>If one end of a diameter of the circle x² + y² − 4x − 6y + 11 = 0 is (3, 4), find the coordinates of the other end of the diameter.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Identify g, f from general form", description: <Formula>{String.raw`2g = -4 \Rightarrow g = -2;\ \ 2f = -6 \Rightarrow f = -3`}</Formula> },
+                { label: "Centre", description: <Formula>{String.raw`(-g, -f) = (2, 3)`}</Formula> },
+                { label: "Centre = midpoint of diameter", description: <Formula>{String.raw`\left(\frac{x + 3}{2},\ \frac{y + 4}{2}\right) = (2, 3)`}</Formula> },
+                { label: "Solve for x", description: <Formula>{String.raw`\frac{x + 3}{2} = 2 \Rightarrow x + 3 = 4 \Rightarrow x = 1`}</Formula> },
+                { label: "Solve for y", description: <Formula>{String.raw`\frac{y + 4}{2} = 3 \Rightarrow y + 4 = 6 \Rightarrow y = 2`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`(1, 2)`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Advanced 3">
+          <ProblemSolution.Problem>
+            <p>Find the equation of a circle concentric with x² + y² − 6x + 12y + 15 = 0 and having double its area.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Identify g, f, c", description: <Formula>{String.raw`2g = -6 \Rightarrow g = -3;\ \ 2f = 12 \Rightarrow f = 6;\ \ c = 15`}</Formula> },
+                { label: "Centre", description: <Formula>{String.raw`(-g, -f) = (3, -6)`}</Formula> },
+                { label: "Radius of given circle", description: <Formula>{String.raw`r_1 = \sqrt{g^2 + f^2 - c} = \sqrt{(-3)^2 + 6^2 - 15} = \sqrt{30}`}</Formula> },
+                { label: "Area of given circle", description: <Formula>{String.raw`A_1 = \pi r_1^2 = \pi(\sqrt{30})^2 = 30\pi`}</Formula> },
+                { label: "Double the area", description: <Formula>{String.raw`A_2 = 2 \times 30\pi = 60\pi \Rightarrow \pi r_2^2 = 60\pi \Rightarrow r_2^2 = 60`}</Formula> },
+                { label: "Equation of new circle", description: <Formula>{String.raw`(x - 3)^2 + (y + 6)^2 = 60`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`(x - 3)^2 + (y + 6)^2 = 60`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Advanced 4">
+          <ProblemSolution.Problem>
+            <p>Find the equation of the circle having centre at (3, −4) and touching the line 5x + 12y − 12 = 0.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Radius = perpendicular distance to line", description: <Formula>{String.raw`r = \frac{|Ax_1 + By_1 + C|}{\sqrt{A^2 + B^2}}`}</Formula> },
+                { label: "Substitute centre (3, −4)", description: <Formula>{String.raw`r = \frac{|5(3) + 12(-4) - 12|}{\sqrt{5^2 + 12^2}}`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`= \frac{|15 - 60|}{\sqrt{25 + 144}} = \frac{|-45|}{13} = \frac{45}{13}`}</Formula> },
+                { label: "Equation", description: <Formula>{String.raw`(x - 3)^2 + (y + 4)^2 = \left(\frac{45}{13}\right)^2`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`(x - 3)^2 + (y + 4)^2 = \left(\frac{45}{13}\right)^2`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-adv-ellipse" title="Advanced 5 to 6 — Ellipses">
+        <ProblemSolution problemNumber="Advanced 5">
+          <ProblemSolution.Problem>
+            <p>If the eccentricity of an ellipse is 5/8 and the distance between its foci is 10, find the latus rectum of the ellipse.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Given", description: <Formula>{String.raw`e = \frac{c}{a} = \frac{5}{8},\quad 2c = 10 \Rightarrow c = 5`}</Formula> },
+                { label: "Find a", description: <Formula>{String.raw`\frac{5}{a} = \frac{5}{8} \Rightarrow a = 8`}</Formula> },
+                { label: "Find b²", description: <Formula>{String.raw`b^2 = a^2 - c^2 = 8^2 - 5^2 = 64 - 25 = 39`}</Formula> },
+                { label: "Latus rectum", description: <Formula>{String.raw`\frac{2b^2}{a} = \frac{2 \times 39}{8} = \frac{39}{4}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\text{Latus Rectum} = \frac{39}{4}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="Advanced 6">
+          <ProblemSolution.Problem>
+            <p>Find the length of the latus rectum of the ellipse 3x² + y² = 12. (a) 4 (b) 3 (c) 8 (d) 4/√3</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Divide by 12", description: <Formula>{String.raw`\frac{x^2}{4} + \frac{y^2}{12} = 1`}</Formula> },
+                { label: "Identify a², b²", description: <Formula>{String.raw`a^2 = 12 \Rightarrow a = \sqrt{12};\ \ b^2 = 4 \Rightarrow b = 2`}</Formula> },
+                { label: "Latus rectum", description: <Formula>{String.raw`\frac{2b^2}{a} = \frac{2 \times 4}{\sqrt{12}} = \frac{8}{\sqrt{12}}`}</Formula> },
+                { label: "Rationalise", description: <Formula>{String.raw`\frac{8}{2\sqrt{3}} = \frac{4}{\sqrt{3}}`}</Formula> },
+              ]}
+            />
+            <p className="text-sm text-muted-foreground mt-2">Answer: <strong>(d) 4/√3</strong>.</p>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-adv-hyperbola" title="Advanced 7 — Hyperbola">
+        <ProblemSolution problemNumber="Advanced 7">
+          <ProblemSolution.Problem>
+            <p>Find the equation of the hyperbola with vertices at (0, ±6) and eccentricity 5/3, and find its foci.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Vertices on y-axis", description: <Formula>{String.raw`(0, \pm a) \Rightarrow a = 6`}</Formula> },
+                { label: "Eccentricity", description: <Formula>{String.raw`e = \frac{c}{a} = \frac{5}{3} \Rightarrow \frac{c}{6} = \frac{5}{3} \Rightarrow c = 10`}</Formula> },
+                { label: "Find b²", description: <Formula>{String.raw`c^2 = a^2 + b^2 \Rightarrow b^2 = 100 - 36 = 64`}</Formula> },
+                { label: "Foci", description: <Formula>{String.raw`(0, \pm c) = (0, \pm 10)`}</Formula> },
+                { label: "Equation (y-axis transverse axis)", description: <Formula>{String.raw`\frac{y^2}{36} - \frac{x^2}{64} = 1`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\frac{y^2}{36} - \frac{x^2}{64} = 1,\quad\text{Foci } (0, \pm 10)`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
     </>
   );
 }
