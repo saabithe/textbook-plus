@@ -1191,6 +1191,80 @@ export default function LimitsAndDerivativesChapter() {
           </ol>
         </Expandable>
       </Expandable>
+
+      <h2 id="h-pyq">Previous Year Questions</h2>
+
+      <Expandable id="h-pyq-mar25" title="PYQ — March 2025">
+        <ProblemSolution problemNumber="PYQ-M1">
+          <ProblemSolution.Problem>
+            <p>Evaluate <Formula>{String.raw`\lim_{x \to 0} \frac{\tan 2x}{x}`}</Formula>. <span className="text-sm text-muted-foreground">[1 Mark]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Rewrite", description: <Formula>{String.raw`\frac{\tan 2x}{2x} \times 2`}</Formula> },
+                { label: "Split limits", description: <Formula>{String.raw`\lim_{x\to 0}\frac{\tan 2x}{2x} \times \lim_{x\to 0} 2`}</Formula> },
+                { label: "Apply standard limit", description: <Formula>{String.raw`1 \times 2 = 2`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\lim_{x \to 0} \frac{\tan 2x}{x} = 2`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-M2">
+          <ProblemSolution.Problem>
+            <p>Prove that <Formula>{String.raw`\lim_{x \to 0} \frac{1 - \cos x}{x} = 0`}</Formula>. <span className="text-sm text-muted-foreground">[2 Marks]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Use identity", description: <Formula>{String.raw`1 - \cos x = 2\sin^2\left(\frac{x}{2}\right)`}</Formula> },
+                { label: "Substitute", description: <Formula>{String.raw`\lim_{x\to 0}\frac{2\sin^2\left(\frac{x}{2}\right)}{x}`}</Formula> },
+                { label: "Split", description: <Formula>{String.raw`\lim_{x\to 0}\left(\frac{\sin(x/2)}{x/2} \times \sin\left(\frac{x}{2}\right)\right)`}</Formula> },
+                { label: "Apply limits", description: <Formula>{String.raw`\lim_{x\to 0}\frac{\sin(x/2)}{x/2} \times \lim_{x\to 0}\sin\left(\frac{x}{2}\right) = 1 \times 0`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\lim_{x \to 0} \frac{1 - \cos x}{x} = 0`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-pyq-model25" title="PYQ — Model 2025">
+        <ProblemSolution problemNumber="PYQ-MO1">
+          <ProblemSolution.Problem>
+            <p>Find the derivative of <Formula>{String.raw`\frac{\sin x + \cos x}{\sin x - \cos x}`}</Formula>. <span className="text-sm text-muted-foreground">[3 Marks]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Quotient rule", description: <Formula>{String.raw`\left(\frac{u}{v}\right)' = \frac{vu' - uv'}{v^2}`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`\frac{(\sin x - \cos x)(\cos x + \sin x) - (\sin x + \cos x)(\cos x - \sin x)}{(\sin x - \cos x)^2}`}</Formula> },
+                { label: "Expand numerator", description: <Formula>{String.raw`(\sin^2 x - \cos^2 x) - (\sin^2 x - \cos^2 x) \cdot (-1)`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`\frac{-2(\sin^2 x + \cos^2 x)}{(\sin x - \cos x)^2} = \frac{-2}{(\sin x - \cos x)^2}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`f'(x) = \frac{-2}{(\sin x - \cos x)^2}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-pyq-feb25" title="PYQ — Feb 2025">
+        <ProblemSolution problemNumber="PYQ-F1">
+          <ProblemSolution.Problem>
+            <p>Evaluate <Formula>{String.raw`\lim_{x \to 0}\left[\frac{\sin \pi x}{x \cos 2x}\right]`}</Formula>. <span className="text-sm text-muted-foreground">[2 Marks]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Split limits", description: <Formula>{String.raw`\lim_{x\to 0}\frac{\sin \pi x}{x} \times \lim_{x\to 0}\frac{1}{\cos 2x}`}</Formula> },
+                { label: "Refactor first limit", description: <Formula>{String.raw`\lim_{x\to 0}\left(\frac{\sin \pi x}{\pi x} \times \pi\right) \times \frac{1}{\cos 0}`}</Formula> },
+                { label: "Apply standard limit", description: <Formula>{String.raw`\pi \times 1 \times \frac{1}{1} = \pi`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\pi`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
     </>
   );
 }
