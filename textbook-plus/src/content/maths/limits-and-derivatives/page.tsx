@@ -825,7 +825,17 @@ export default function LimitsAndDerivativesChapter() {
         </ProblemSolution>
         <ProblemSolution problemNumber="5 — 5 sin x −6 cos x +7">
           <ProblemSolution.Problem>Find <Formula>{String.raw`\frac{d}{dx}(5\sin x-6\cos x+7)`}</Formula>.</ProblemSolution.Problem>
-          <ProblemSolution.Solution><Formula>{String.raw`5\cos x+6\sin x`}</Formula></ProblemSolution.Solution>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Write f(x)", description: <Formula>{String.raw`f(x) = 5\sin x - 6\cos x + 7`}</Formula> },
+                { label: "Differentiate term by term", description: <Formula>{String.raw`f'(x) = 5\frac{d}{dx}(\sin x) - 6\frac{d}{dx}(\cos x) + \frac{d}{dx}(7)`}</Formula> },
+                { label: "Apply standard derivatives", description: <Formula>{String.raw`= 5\cos x - 6(-\sin x) + 0`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`= 5\cos x + 6\sin x`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`f'(x) = 5\cos x + 6\sin x`} important />
+          </ProblemSolution.Solution>
         </ProblemSolution>
         <ProblemSolution problemNumber="6 — sin²x">
           <ProblemSolution.Problem>Find <Formula>{String.raw`\frac{d}{dx}(\sin^{2}x)`}</Formula>.</ProblemSolution.Problem>
@@ -1315,6 +1325,85 @@ export default function LimitsAndDerivativesChapter() {
               ]}
             />
             <FormulaBlock latex={String.raw`\lim_{x \to 0} \left(\frac{1 - \cos x}{\sin x}\right) = 0`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-pyq-model21" title="PYQ — 2021 Model">
+        <ProblemSolution problemNumber="PYQ-M21-SL">
+          <ProblemSolution.Problem>
+            <p>Evaluate <Formula>{String.raw`\lim_{x \to 2} \left(\frac{x^5 - 32}{x^3 - 8}\right)`}</Formula>. <span className="text-sm text-muted-foreground">[3 Marks]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Rewrite as ratio of standard limits", description: <Formula>{String.raw`\frac{\frac{x^5 - 2^5}{x - 2}}{\frac{x^3 - 2^3}{x - 2}}`}</Formula> },
+                { label: "Apply standard limit to numerator", description: <Formula>{String.raw`n=5,\;a=2 \Rightarrow 5 \times 2^{5-1} = 5 \times 2^4 = 80`}</Formula> },
+                { label: "Apply standard limit to denominator", description: <Formula>{String.raw`n=3,\;a=2 \Rightarrow 3 \times 2^{3-1} = 3 \times 2^2 = 12`}</Formula> },
+                { label: "Divide", description: <Formula>{String.raw`\frac{5 \times 2^4}{3 \times 2^2} = \frac{5 \times 2^2}{3} = \frac{20}{3}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\frac{20}{3}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-pyq-mar20" title="PYQ — March 2020">
+        <ProblemSolution problemNumber="PYQ-M20-PS">
+          <ProblemSolution.Problem>
+            <p>Find the derivative of <Formula>{String.raw`f(x) = 1 + x + x^2 + x^3 + \dots + x^{50}`}</Formula> at <Formula>{String.raw`x = 1`}</Formula>.</p>
+            <p>Options: A) 50, B) 1250, C) 1275, D) <Formula>{String.raw`\frac{101}{2}`}</Formula></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Differentiate term by term", description: <Formula>{String.raw`f'(x) = 0 + 1 + 2x + 3x^2 + 4x^3 + \dots + 50x^{49}`}</Formula> },
+                { label: "Evaluate at x = 1", description: <Formula>{String.raw`f'(1) = 1 + 2 + 3 + 4 + \dots + 50`}</Formula> },
+                { label: "Sum formula", description: <Formula>{String.raw`1 + 2 + \dots + 50 = \frac{50(50+1)}{2} = \frac{50 \times 51}{2}`}</Formula> },
+                { label: "Compute", description: <Formula>{String.raw`25 \times 51 = 1275`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\boxed{f'(1) = 1275}`} important />
+            <KeyPoint>Correct Option: <strong>C) 1275</strong></KeyPoint>
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-pyq-impr18" title="PYQ — Improvement 2018">
+        <ProblemSolution problemNumber="PYQ-I18-FP">
+          <ProblemSolution.Problem>
+            <p>Find the derivative of <Formula>{String.raw`y = \sqrt{x}`}</Formula> with respect to <Formula>{String.raw`x`}</Formula> using first principles. <span className="text-sm text-muted-foreground">[3 Marks]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Setup", description: <Formula>{String.raw`f'(x) = \lim_{h \to 0} \frac{\sqrt{x+h} - \sqrt{x}}{h}`}</Formula> },
+                { label: "Rationalize numerator", description: <Formula>{String.raw`\frac{\sqrt{x+h} - \sqrt{x}}{h} \times \frac{\sqrt{x+h} + \sqrt{x}}{\sqrt{x+h} + \sqrt{x}}`}</Formula> },
+                { label: "Use (a−b)(a+b) = a²−b²", description: <Formula>{String.raw`\frac{(\sqrt{x+h})^2 - (\sqrt{x})^2}{h(\sqrt{x} + \sqrt{x+h})}`}</Formula> },
+                { label: "Simplify numerator", description: <Formula>{String.raw`\frac{x+h-x}{h(\sqrt{x} + \sqrt{x+h})} = \frac{h}{h(\sqrt{x} + \sqrt{x+h})}`}</Formula> },
+                { label: "Cancel h and take limit", description: <Formula>{String.raw`\frac{1}{\sqrt{x} + \sqrt{x+0}} = \frac{1}{\sqrt{x} + \sqrt{x}}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`f'(x) = \frac{1}{2\sqrt{x}}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-pyq-mar18" title="PYQ — March 2018">
+        <ProblemSolution problemNumber="PYQ-M18-RF">
+          <ProblemSolution.Problem>
+            <p>Evaluate <Formula>{String.raw`\lim_{x \to 2} \frac{x^3 - 4x^2 + 4x}{x^2 - 4}`}</Formula>. <span className="text-sm text-muted-foreground">[3 Marks]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Factor numerator", description: <Formula>{String.raw`x^3 - 4x^2 + 4x = x(x^2 - 4x + 4) = x(x-2)^2`}</Formula> },
+                { label: "Factor denominator", description: <Formula>{String.raw`x^2 - 4 = (x+2)(x-2)`}</Formula> },
+                { label: "Cancel (x−2)", description: <Formula>{String.raw`\frac{x(x-2)^2}{(x+2)(x-2)} = \frac{x(x-2)}{x+2}`}</Formula> },
+                { label: "Put x = 2", description: <Formula>{String.raw`\frac{2(2-2)}{2+2} = \frac{2(0)}{4} = 0`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`0`} important />
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
