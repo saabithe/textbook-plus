@@ -1265,6 +1265,59 @@ export default function LimitsAndDerivativesChapter() {
           </ProblemSolution.Solution>
         </ProblemSolution>
       </Expandable>
+
+      <Expandable id="h-pyq-mar24" title="PYQ — March 2024">
+        <ProblemSolution problemNumber="PYQ-M24-QR1">
+          <ProblemSolution.Problem>
+            <p>Find <Formula>{String.raw`\frac{d}{dx}\left(\frac{x^2 + 1}{x^2 - 1}\right)`}</Formula>. <span className="text-sm text-muted-foreground">[3 Marks]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Quotient rule", description: <Formula>{String.raw`\left(\frac{u}{v}\right)' = \frac{vu' - uv'}{v^2}`}</Formula> },
+                { label: "Identify", description: <Formula>{String.raw`u = x^2 + 1,\quad v = x^2 - 1`}</Formula> },
+                { label: "Apply", description: <Formula>{String.raw`\frac{(x^2 - 1)(2x) - (x^2 + 1)(2x)}{(x^2 - 1)^2}`}</Formula> },
+                { label: "Factor 2x", description: <Formula>{String.raw`\frac{2x\left[(x^2 - 1) - (x^2 + 1)\right]}{(x^2 - 1)^2}`}</Formula> },
+                { label: "Simplify", description: <Formula>{String.raw`\frac{2x(-2)}{(x^2 - 1)^2} = \frac{-4x}{(x^2 - 1)^2}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\frac{-4x}{(x^2 - 1)^2}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
+
+      <Expandable id="h-pyq-model24" title="PYQ — Model 2024">
+        <ProblemSolution problemNumber="PYQ-MO24-QR">
+          <ProblemSolution.Problem>
+            <p>Find the derivative of <Formula>{String.raw`f(x) = \frac{x + \cos x}{\tan x}`}</Formula>. <span className="text-sm text-muted-foreground">[2 Marks]</span></p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Quotient rule", description: <Formula>{String.raw`f'(x) = \frac{\tan x \cdot (1 - \sin x) - (x + \cos x)\sec^2 x}{\tan^2 x}`}</Formula> },
+                { label: "Expand numerator", description: <Formula>{String.raw`\frac{\tan x - \tan x \sin x - x \sec^2 x - \cos x \sec^2 x}{\tan^2 x}`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\frac{\tan x - \tan x \sin x - x\sec^2 x - \cos x \sec^2 x}{\tan^2 x}`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+
+        <ProblemSolution problemNumber="PYQ-MO24-L1">
+          <ProblemSolution.Problem>
+            <p>Evaluate <Formula>{String.raw`\lim_{x \to 0} \left(\frac{1 - \cos x}{\sin x}\right)`}</Formula>.</p>
+          </ProblemSolution.Problem>
+          <ProblemSolution.Solution>
+            <Stepper
+              steps={[
+                { label: "Divide numerator and denominator by x", description: <Formula>{String.raw`\frac{\frac{1 - \cos x}{x}}{\frac{\sin x}{x}}`}</Formula> },
+                { label: "Split limits", description: <Formula>{String.raw`\frac{\lim_{x\to 0}\frac{1 - \cos x}{x}}{\lim_{x\to 0}\frac{\sin x}{x}}`}</Formula> },
+                { label: "Apply standard limits", description: <Formula>{String.raw`\frac{0}{1} = 0`}</Formula> },
+              ]}
+            />
+            <FormulaBlock latex={String.raw`\lim_{x \to 0} \left(\frac{1 - \cos x}{\sin x}\right) = 0`} important />
+          </ProblemSolution.Solution>
+        </ProblemSolution>
+      </Expandable>
     </>
   );
 }
