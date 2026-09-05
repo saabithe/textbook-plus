@@ -606,6 +606,15 @@ export default function LimitsAndDerivativesChapter() {
       </Expandable>
 
       <Expandable title="More Trigonometric Limits — sin ax / sin bx, sin ax / bx, tan x / x, cos shift">
+        <FormulaCard>
+          <p className="font-semibold mb-2">Standard identities (a, b ≠ 0)</p>
+          <FormulaBlock latex={String.raw`\lim_{x\to0}\frac{\sin ax}{bx}=\frac{a}{b}`} />
+          <FormulaBlock latex={String.raw`\lim_{x\to0}\frac{\sin ax}{\sin bx}=\frac{a}{b}`} />
+          <p className="text-sm text-muted-foreground mt-2">
+            Both follow from <Formula>{String.raw`\lim_{x\to0}\frac{\sin x}{x}=1`}</Formula>; the second is realized by writing each sine as a multiple of its argument.
+          </p>
+        </FormulaCard>
+
         <ProblemSolution problemNumber="Example 2 — sin 4x / sin 2x">
           <ProblemSolution.Problem>
             Evaluate <Formula>{String.raw`\lim_{x \to 0} \frac{\sin 4x}{\sin 2x}`}</Formula>.
