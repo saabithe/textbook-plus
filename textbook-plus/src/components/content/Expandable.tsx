@@ -86,7 +86,7 @@ export function Expandable({ title, id, variant, children }: ExpandableProps) {
         />
         <span className={cn("text-sm font-semibold", v.titleClass)}>{title}</span>
         {v.badge && (
-          <span className={cn("ml-auto text-[10px] font-bold tracking-widest px-1.5 py-0.5 rounded", v.badgeClass)}>
+          <span className={cn("ml-auto text-xs font-bold tracking-widest px-1.5 py-0.5 rounded", v.badgeClass)}>
             {v.badge}
           </span>
         )}

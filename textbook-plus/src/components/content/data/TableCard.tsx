@@ -13,8 +13,8 @@ export function TableCard({ headers, rows, caption }: TableCardProps) {
     <div className="rounded-xl border border-emerald-500/20 bg-card overflow-hidden my-6 shadow-sm">
       <div className="flex items-center gap-1.5 px-4 py-2 border-b border-emerald-500/15 bg-emerald-500/[0.06] dark:bg-emerald-500/[0.10]">
         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-        <span className="text-[10px] font-bold tracking-[0.12em] text-emerald-700 dark:text-emerald-400 uppercase">Data</span>
-        <span className="text-[11px] text-emerald-700/60 dark:text-emerald-400/60 ml-1">— table</span>
+        <span className="text-xs font-bold tracking-[0.12em] text-emerald-700 dark:text-emerald-400 uppercase">Data</span>
+        <span className="text-xs text-emerald-700/60 dark:text-emerald-400/60 ml-1">— table</span>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">

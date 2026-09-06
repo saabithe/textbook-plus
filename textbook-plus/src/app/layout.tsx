@@ -41,10 +41,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#18181B",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  viewportFit: "cover",
+  interactiveWidget: "resizes-content",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -57,9 +58,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             __html: `
               (function() {
                 var theme = localStorage.getItem('theme');
-                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                  document.documentElement.classList.add('dark');
+                var dark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                document.documentElement.classList.toggle('dark', dark);
+                var meta = document.createElement('meta');
+                meta.name = 'theme-color';
+                document.head.appendChild(meta);
+                function sync() {
+                  meta.content = document.documentElement.classList.contains('dark') ? '#18181B' : '#FAFAFA';
                 }
+                sync();
+                new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
               })();
             `,
           }}

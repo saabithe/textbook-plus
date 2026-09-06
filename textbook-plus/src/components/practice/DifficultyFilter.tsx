@@ -33,7 +33,7 @@ export function DifficultyFilter({
             key={filter.id}
             onClick={() => onChange(filter.id)}
             className={cn(
-              "inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-all duration-200 border",
+              "inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 border",
               isActive
                 ? "text-white border-transparent"
                 : "border-border/60 bg-muted/30 text-muted-foreground hover:bg-muted hover:text-foreground"

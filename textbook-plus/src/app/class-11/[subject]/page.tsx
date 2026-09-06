@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Class11ChapterList } from "@/components/subject/Class11ChapterList";
 import { getClass11SubjectBySlug, class11Subjects, getClass11Chapters } from "@/data/class11";
@@ -37,7 +38,7 @@ export default async function Class11SubjectPage({ params }: Props) {
       <main className="flex-1">
         <section className="mx-auto max-w-6xl px-6 py-14">
           {/* Breadcrumb */}
-          <nav className="mb-8 flex items-center gap-1.5 text-sm text-muted-foreground">
+          <nav className="mb-8 flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
             <Link href="/" className="transition-colors hover:text-foreground">
               Home
             </Link>
@@ -73,6 +74,35 @@ export default async function Class11SubjectPage({ params }: Props) {
 
           {/* Chapter list */}
           <Class11ChapterList subjectSlug={subject.slug} subjectColor={subject.color} />
+
+          {subject.slug === "physics" && (
+            <div className="mt-8">
+              <h2 className="mb-3 text-lg font-bold text-foreground">Resources</h2>
+              <Link
+                href="/class-11/physics/derivation-sheet"
+                className="group flex items-center gap-4 rounded-xl border border-transparent bg-card px-5 py-4 shadow-sm transition-all duration-200 hover:border-border/60 hover:shadow-md"
+              >
+                <span
+                  className="flex h-10 min-w-10 items-center justify-center rounded-lg text-base font-bold sm:h-11 sm:min-w-11"
+                  style={{
+                    backgroundColor: subject.color + "15",
+                    color: subject.color,
+                  }}
+                >
+                  ∑
+                </span>
+                <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+                  <span className="text-sm font-medium text-foreground sm:text-[15px]">
+                    Complete Derivation Sheet
+                  </span>
+                  <span className="text-xs text-muted-foreground/60">
+                    All derivations from every chapter, step by step
+                  </span>
+                </div>
+                <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground/30 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-muted-foreground/70" />
+              </Link>
+            </div>
+          )}
         </section>
       </main>
     </>

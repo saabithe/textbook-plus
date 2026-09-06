@@ -41,7 +41,7 @@ export function UpdateBanner() {
   }
 
   return (
-    <div role="status" className="fixed bottom-0 inset-x-0 z-50 flex items-center justify-between gap-4 border-t border-border/40 bg-background/90 px-6 py-3 backdrop-blur-xl">
+    <div role="status" className="fixed bottom-0 inset-x-0 z-50 flex items-center justify-between gap-4 border-t border-border/40 bg-background/90 px-6 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur-xl">
       <p className="text-sm font-medium">Update available</p>
       <div className="flex items-center gap-2">
         <button

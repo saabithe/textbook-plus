@@ -44,7 +44,7 @@ export function Timeline({ title, events, orientation = "horizontal", rtl = true
           {ordered.map((event, i) => (
             <div key={i} className="flex gap-3">
               <div className="flex flex-col items-center">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[10px] font-bold text-primary">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">
                   {i + 1}
                 </div>
                 {i < ordered.length - 1 && <div className="w-px flex-1 bg-border/60 my-1" />}
@@ -94,11 +94,11 @@ export function Timeline({ title, events, orientation = "horizontal", rtl = true
                 </div>
               )}
               <div className="flex-shrink-0 w-[200px] rounded-xl border border-border/60 bg-background px-3 py-3">
-                <span className="inline-block px-2 py-0.5 rounded-full text-[11px] font-bold bg-[var(--subject-biology-light)] text-[var(--subject-biology)]">
+                <span className="inline-block px-2 py-0.5 rounded-full text-xs font-bold bg-[var(--subject-biology-light)] text-[var(--subject-biology)]">
                   {event.date}
                 </span>
                 <p className="text-sm font-semibold text-foreground leading-tight mt-1.5">{event.label}</p>
-                <p className="text-[11px] text-muted-foreground mt-1 leading-relaxed line-clamp-3">{event.detail}</p>
+                <p className="text-xs text-muted-foreground mt-1 leading-relaxed line-clamp-3">{event.detail}</p>
               </div>
             </>
           ))}

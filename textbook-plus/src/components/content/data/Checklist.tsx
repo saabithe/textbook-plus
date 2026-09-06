@@ -40,14 +40,14 @@ export function Checklist({ title, items }: ChecklistProps) {
           <button
             key={i}
             onClick={() => toggle(i)}
-            className="flex items-center gap-3 w-full text-left group"
+            className="flex items-center gap-3 w-full text-left group py-1"
           >
-            <div className={`flex h-5 w-5 shrink-0 items-center justify-center rounded border transition-colors ${
+            <div className={`flex h-7 w-7 shrink-0 items-center justify-center rounded border transition-colors ${
               checked.has(i)
                 ? "bg-primary border-primary text-primary-foreground"
                 : "border-border/60 bg-background group-hover:border-primary/50"
             }`}>
-              {checked.has(i) && <Check className="h-3 w-3" />}
+              {checked.has(i) && <Check className="h-3.5 w-3.5" />}
             </div>
             <span className={`text-sm leading-relaxed ${
               checked.has(i) ? "text-muted-foreground line-through" : "text-foreground"

@@ -98,7 +98,7 @@ export function PracticeSession({ questions, subjectColor, revealedIds = [], onQ
                   setShowList(false);
                 }}
                 className={cn(
-                  "inline-flex h-8 w-8 items-center justify-center rounded-lg text-xs font-medium transition-all duration-200 border",
+                  "inline-flex h-9 w-9 items-center justify-center rounded-lg text-xs font-medium transition-all duration-200 border",
                   idx === current
                     ? "text-white border-transparent"
                     : "border-border/60 bg-muted/30 text-muted-foreground hover:bg-muted"

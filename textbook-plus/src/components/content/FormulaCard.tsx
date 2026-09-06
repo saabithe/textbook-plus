@@ -12,7 +12,7 @@ export function FormulaCard({ children }: FormulaCardProps) {
         <span className="inline-flex h-5 w-5 items-center justify-center rounded-md bg-violet-500/15 dark:bg-violet-500/20">
           <Sigma className="h-3 w-3 text-violet-600 dark:text-violet-400" />
         </span>
-        <span className="text-[10px] font-bold tracking-[0.14em] text-violet-600 dark:text-violet-400 uppercase">Formula</span>
+        <span className="text-xs font-bold tracking-[0.14em] text-violet-600 dark:text-violet-400 uppercase">Formula</span>
         <span className="h-px flex-1 bg-gradient-to-r from-violet-500/20 to-transparent ml-2" />
       </div>
       {children}

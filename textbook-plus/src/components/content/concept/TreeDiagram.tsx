@@ -32,10 +32,10 @@ function TreeNodeComponent({ node, depth = 0, defaultExpanded = false }: { node:
             depth === 0 && "font-medium text-foreground",
             depth > 0 && "text-muted-foreground"
           )}
-          style={{ paddingLeft: `${depth * 16 + 8}px` }}
+          style={{ paddingLeft: `${Math.min(depth * 16 + 8, 40)}px` }}
         >
           {open ? <ChevronDown className="h-3.5 w-3.5 shrink-0" /> : <ChevronRight className="h-3.5 w-3.5 shrink-0" />}
-          <span>{node.label}</span>
+          <span className="min-w-0 break-words">{node.label}</span>
         </button>
       ) : (
         <div
@@ -44,10 +44,10 @@ function TreeNodeComponent({ node, depth = 0, defaultExpanded = false }: { node:
             depth === 0 && "font-medium text-foreground",
             depth > 0 && "text-muted-foreground"
           )}
-          style={{ paddingLeft: `${depth * 16 + 8}px` }}
+          style={{ paddingLeft: `${Math.min(depth * 16 + 8, 40)}px` }}
         >
           <div className="w-3.5 h-3.5 shrink-0" />
-          <span>{node.label}</span>
+          <span className="min-w-0 break-words">{node.label}</span>
         </div>
       )}
       {hasChildren && open && (

@@ -21,7 +21,7 @@ export default function HomePage() {
           </div>
 
           {/* Subject grid — 3 cols */}
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-3 min-[360px]:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {subjects.map((subject) => (
               <SubjectCard key={subject.id} subject={subject} />
             ))}

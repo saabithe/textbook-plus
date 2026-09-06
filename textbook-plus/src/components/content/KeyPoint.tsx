@@ -16,7 +16,7 @@ export function KeyPoint({ title = "Key Takeaway", children }: KeyPointProps) {
         <span className="text-sm font-semibold tracking-tight text-amber-700 dark:text-amber-300">
           {title}
         </span>
-        <span className="ml-auto text-[10px] font-bold tracking-[0.12em] text-amber-700/60 dark:text-amber-300/60 uppercase">Key</span>
+        <span className="ml-auto text-xs font-bold tracking-[0.12em] text-amber-700/60 dark:text-amber-300/60 uppercase">Key</span>
       </div>
       <div className="text-[0.95rem] leading-[1.75] text-foreground/90">
         {children}

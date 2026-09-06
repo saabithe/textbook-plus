@@ -14,7 +14,7 @@ function Solution({ children }: { children: React.ReactNode }) {
     <div className="mt-4 -mx-5 -mb-4 px-5 py-4 bg-blue-500/[0.04] dark:bg-blue-500/[0.06] border-t border-blue-500/10 rounded-b-xl">
       <div className="flex items-center gap-2 mb-3">
         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-        <span className="text-[11px] font-bold tracking-[0.12em] text-emerald-700 dark:text-emerald-400 uppercase">
+        <span className="text-xs font-bold tracking-[0.12em] text-emerald-700 dark:text-emerald-400 uppercase">
           Solution
         </span>
         <span className="h-px flex-1 bg-gradient-to-r from-emerald-500/20 to-transparent ml-2" />
@@ -35,7 +35,7 @@ export function ProblemSolution({ problemNumber, children }: ProblemSolutionProp
           {isExample ? <FlaskConical className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" /> : <Wrench className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />}
         </span>
         <span className="text-sm font-semibold tracking-tight text-blue-900 dark:text-blue-100">Problem {problemNumber}</span>
-        <span className="ml-auto text-[10px] font-bold tracking-widest px-1.5 py-0.5 rounded bg-blue-500 text-white">
+        <span className="ml-auto text-xs font-bold tracking-widest px-1.5 py-0.5 rounded bg-blue-500 text-white">
           {isExample ? "EXAMPLE" : "PROBLEM"}
         </span>
       </div>

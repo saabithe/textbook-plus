@@ -56,7 +56,7 @@ export function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
             <Image
@@ -99,11 +99,11 @@ export function Navbar() {
           </nav>
 
           {/* Right actions */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             {/* Search */}
             <button
               onClick={() => setSearchOpen(true)}
-              className="flex h-9 items-center gap-2 rounded-lg border border-border/60 bg-muted/50 px-3 text-sm text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground"
+              className="flex h-9 w-9 items-center justify-center gap-2 rounded-lg border border-border/60 bg-muted/50 text-sm text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground px-0 sm:w-auto sm:px-3"
               aria-label="Search chapters"
             >
               <Search className="h-4 w-4" />
@@ -113,11 +113,11 @@ export function Navbar() {
             </button>
 
             {/* Font Size */}
-            <div className="hidden sm:flex items-center gap-0.5 rounded-lg border border-border/60 bg-muted/50">
+            <div className="flex items-center gap-0.5 rounded-lg border border-border/60 bg-muted/50">
               <button
                 onClick={decrease}
                 disabled={!canDecrease}
-                className="flex h-9 w-9 items-center justify-center text-sm font-bold text-muted-foreground transition-all duration-200 hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed"
+                className="flex h-9 w-8 items-center justify-center text-sm font-bold text-muted-foreground transition-all duration-200 hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed sm:w-9"
                 aria-label="Decrease font size"
               >
                 A-
@@ -126,7 +126,7 @@ export function Navbar() {
               <button
                 onClick={increase}
                 disabled={!canIncrease}
-                className="flex h-9 w-9 items-center justify-center text-sm font-bold text-muted-foreground transition-all duration-200 hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed"
+                className="flex h-9 w-8 items-center justify-center text-sm font-bold text-muted-foreground transition-all duration-200 hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed sm:w-9"
                 aria-label="Increase font size"
               >
                 A+
@@ -136,7 +136,7 @@ export function Navbar() {
             {/* Sync Status */}
             <div
               className={cn(
-                "flex h-9 w-9 items-center justify-center rounded-lg border border-border/60 bg-muted/50 transition-all duration-200",
+                "hidden h-9 w-9 items-center justify-center rounded-lg border border-border/60 bg-muted/50 transition-all duration-200 sm:flex",
                 status === "syncing" && "text-blue-500",
                 status === "error" && "text-amber-500",
                 status === "idle" && "text-muted-foreground",
@@ -165,7 +165,7 @@ export function Navbar() {
             {isAnonymous || !user ? (
               <Link
                 href="/login"
-                className="flex h-9 items-center gap-1.5 rounded-lg border border-border/60 bg-muted/50 px-3 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground"
+                className="flex h-9 w-9 items-center justify-center gap-1.5 rounded-lg border border-border/60 bg-muted/50 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground px-0 sm:w-auto sm:px-3"
               >
                 <LogIn className="h-4 w-4" />
                 <span className="hidden sm:inline">Sign In</span>
@@ -174,7 +174,7 @@ export function Navbar() {
               <div className="relative">
                 <button
                   onClick={(e) => { e.stopPropagation(); setMenuOpen((prev) => !prev); }}
-                  className="flex h-9 items-center gap-1.5 rounded-lg border border-border/60 bg-muted/50 px-3 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground"
+                  className="flex h-9 w-9 items-center justify-center gap-1.5 rounded-lg border border-border/60 bg-muted/50 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground px-0 sm:w-auto sm:px-3"
                 >
                   <User className="h-4 w-4" />
                   <span className="hidden sm:inline max-w-[100px] truncate">{user.email}</span>

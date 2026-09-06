@@ -21,7 +21,11 @@ export function Formula({ children, block = false }: FormulaProps) {
     );
   }
 
-  return <span dangerouslySetInnerHTML={{ __html: html }} />;
+  return (
+    <span className="inline-block max-w-full overflow-x-auto align-baseline">
+      <span dangerouslySetInnerHTML={{ __html: html }} />
+    </span>
+  );
 }
 
 export function FormulaBlock({ latex, important = false }: { latex: string; important?: boolean }) {
