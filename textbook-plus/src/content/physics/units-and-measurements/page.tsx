@@ -8,7 +8,6 @@ import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Highlight } from "@/components/content/Highlight";
 import { Stepper } from "@/components/content/Stepper";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
-import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
 
@@ -221,33 +220,37 @@ export default function UnitsAndMeasurementsChapter() {
       </Callout>
 
       <h2 id="h-sig-figs">1.3 Significant Figures</h2>
-      <p>
-        Every measurement involves errors. The reported result must indicate the{" "}
-        <strong>precision</strong> of the measurement: all digits known <em>reliably</em> plus{" "}
-        <strong>the first digit that is uncertain</strong>.
-      </p>
       <Callout type="important" title="Definition">
         <strong>Significant digits (significant figures)</strong> = the reliable digits plus the first
         uncertain digit of a reported measurement.
       </Callout>
-      <ul>
-        <li>Period of a pendulum reported as 1.62 s &rarr; digits 1, 6 reliable, 2 uncertain &rarr; <strong>3 significant figures</strong>.</li>
-        <li>Length reported as 287.5 cm &rarr; digits 2, 8, 7 certain, 5 uncertain &rarr; <strong>4 significant figures</strong>.</li>
-        <li>Reporting <em>more</em> digits than the significant digits is <Highlight color="blue">superfluous and misleading</Highlight> — it claims a precision the instrument never had.</li>
-      </ul>
+      <TableCard
+        caption="Counting significant figures — a variety of examples."
+        headers={["Measurement", "Sig. figs", "Why"]}
+        rows={[
+          { cells: ["1.62 s", "3", "digits 1, 6 reliable, 2 uncertain"] },
+          { cells: ["287.5 cm", "4", "digits 2, 8, 7 certain, 5 uncertain"] },
+          { cells: ["2.308 cm", "4", "all non-zero + zero between non-zeros"] },
+          { cells: ["0.0069 m", "2", "leading zeros after the decimal are not significant"] },
+          { cells: ["3.500 g", "4", "trailing zeros with a decimal point are significant"] },
+          { cells: ["12300 cm", "3", "trailing zeros without a decimal point are not significant"] },
+          { cells: ["2.64 × 10²⁴ kg", "3", "scientific notation — the power of 10 is irrelevant"] },
+          { cells: ["100.0 mL", "4", "zeros inside plus trailing zero after the point"] },
+        ]}
+      />
       <KeyPoint title="Chosen unit ≠ precision">
         A change of units does <strong>not</strong> change the number of significant figures.
         2.308 cm = 0.02308 m = 23080 <em>&mu;</em>m all have the <strong>same four</strong> significant figures (2, 3, 0, 8).
       </KeyPoint>
 
       <h3 id="h-sig-count">Rules for counting significant figures</h3>
-      <ul>
+      <ol>
         <li>All <strong>non-zero digits</strong> are significant.</li>
         <li>All <strong>zeros between two non-zero digits</strong> are significant, wherever the decimal point is.</li>
-        <li>For numbers less than 1, <strong>leading zeros after the decimal point</strong> (left of the first non-zero digit) are <strong>not</strong> significant. (In 0.00&nbsp;2308, the two underlined leading zeros are not significant.)</li>
+        <li>For numbers less than 1, <strong>leading zeros after the decimal point</strong> (left of the first non-zero digit) are <strong>not</strong> significant. (In 0.00&nbsp;2308, the two leading zeros are not significant.)</li>
         <li>Trailing zeros in a number <strong>without</strong> a decimal point are <strong>not</strong> significant (123 m = 12300 cm = 123000 mm &rarr; 3 sig. figs).</li>
         <li>Trailing zeros in a number <strong>with</strong> a decimal point <strong>are</strong> significant (3.500 and 0.06900 &rarr; 4 sig. figs each).</li>
-      </ul>
+      </ol>
       <MistakeCard
         mistake="Reporting 4700 mm for a 4.700 m length and calling it 2 significant figures."
         correction="Change of units never changes the count: 4.700 m = 470.0 cm = 4700 mm = 0.004700 km — every form has four significant figures. If in doubt, use scientific notation: 4.700 × 10³ mm."
@@ -273,13 +276,6 @@ export default function UnitsAndMeasurementsChapter() {
         </li>
         <li>The Earth is <strong>17 orders of magnitude larger</strong> than the hydrogen atom.</li>
       </ul>
-      <MetricCard
-        label="Order of magnitude gap"
-        value="17"
-        unit="orders of magnitude"
-        trend="up"
-        description="Diameter of Earth (10⁷ m) vs diameter of a hydrogen atom (10⁻¹⁰ m): 7 − (−10) = 17."
-      />
       <p>
         Exact numbers in formulae (the 2 in <Formula>{String.raw`d = 2r`}</Formula> or <Formula>{String.raw`T = t/n`}</Formula>)
         have <strong>infinite</strong> significant figures; <Formula>2\pi</Formula> in{" "}
@@ -363,25 +359,6 @@ export default function UnitsAndMeasurementsChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h3 id="h-sig-uncertainty">1.3.3 Uncertainty in the results of arithmetic calculations</h3>
-      <ul>
-        <li>
-          <strong>Product rule:</strong> relative errors add. For a sheet with l = 16.2 ± 0.1 cm (0.6%) and
-          b = 10.1 ± 0.1 cm (1%):
-          <FormulaBlock latex={String.raw`l \times b = 163.62\ \text{cm}^2 \pm 1.6\% = 163.62 \pm 2.6\ \text{cm}^2`} />
-          Final result: <Formula>{String.raw`l \times b = 164 \pm 3\ \text{cm}^2`}</Formula> — 3 cm² is the uncertainty in the area.
-        </li>
-        <li>
-          <strong>Subtraction can destroy significance:</strong> 12.9 g − 7.06 g, both given to 3 sig.
-          figs, can only be written as <strong>5.8 g</strong> — uncertainties combine in a different
-          fashion for sums and differences (decimal places, not sig. figs).
-        </li>
-        <li>
-          <strong>Relative error depends on the number too:</strong> 1.02 g ± 0.01 g has relative error ±1%,
-          while 9.89 g ± 0.01 g has relative error ±0.1%.
-        </li>
-      </ul>
-
       <h2 id="h-1-4">1.4 Dimensions of Physical Quantities</h2>
       <Callout type="important" title="Definition">
         The <strong>dimensions</strong> of a physical quantity are the{" "}
@@ -393,13 +370,165 @@ export default function UnitsAndMeasurementsChapter() {
         <li>In mechanics everything reduces to <strong>[L], [M], [T]</strong>.</li>
         <li>Dimensions carry <strong>no magnitudes</strong> — only the type of quantity matters.</li>
       </ul>
+
+      <h3 id="h-dim-base">Fundamental quantities and their representations</h3>
+      <TableCard
+        caption="Each base quantity has a symbol for its dimension; the general form shows its full exponent set."
+        headers={["Fundamental quantity", "Representation", "General representation"]}
+        rows={[
+          { cells: ["Mass", "[M]", "M¹ L⁰ T⁰"] },
+          { cells: ["Length", "[L]", "M⁰ L¹ T⁰"] },
+          { cells: ["Time", "[T]", "M⁰ L⁰ T¹"] },
+          { cells: ["Electric current", "[A]", "M⁰ L⁰ T⁰ A¹"] },
+          { cells: ["Thermodynamic temperature", "[K] (or [θ])", "M⁰ L⁰ T⁰ K¹"] },
+          { cells: ["Amount of substance", "[mol]", "M⁰ L⁰ T⁰ mol¹"] },
+          { cells: ["Luminous intensity", "[cd]", "M⁰ L⁰ T⁰ cd¹"] },
+        ]}
+      />
+
+      <h3 id="h-dim-rules">Exponent rules that make dimensions work</h3>
       <FormulaCard>
         <ul>
-          <li>Volume = L × L × L &rarr; <strong>[L<sup>3</sup>]</strong> (zero dimensions in mass and time)</li>
-          <li>Force = mass × acceleration <Formula>{String.raw`= [M]\times\frac{[L]}{[T]^2}`}</Formula> &rarr; <strong>[M L T<sup>−2</sup>]</strong></li>
-          <li>Velocity, speed, initial/final/average velocity &rarr; all <strong>[L T<sup>−1</sup>]</strong></li>
+          <li><Formula>{String.raw`x^0 = 1`}</Formula> — so <Formula>{String.raw`20^0 = 100^0 = 1^0 = 1`}</Formula></li>
+          <li><Formula>{String.raw`x^1 = x`}</Formula></li>
+          <li><Formula>{String.raw`a^x \times a^y = a^{x+y}`}</Formula> — <Formula>{String.raw`L^1 \times L^1 = L^{1+1} = L^2`}</Formula></li>
+          <li><Formula>{String.raw`\frac{1}{a^x} = a^{-x}`}</Formula> — <Formula>{String.raw`\frac{L^1}{T^1} = L^1 T^{-1}`}</Formula></li>
+          <li><Formula>{String.raw`(x^y)^z = x^{y\cdot z}`}</Formula> — <Formula>{String.raw`(L\,T^{-1})^2 = L^2\,T^{-2}`}</Formula></li>
+          <li><Formula>{String.raw`[M^1 L^0 T^0] = M \times 1 \times 1 = M`}</Formula></li>
         </ul>
       </FormulaCard>
+
+      <h3 id="h-dim-master">Dimensions of derived quantities — the master table</h3>
+      <p>
+        Every entry follows the same recipe: write the defining formula, substitute the dimensions of
+        each part, and simplify with the exponent rules above.
+      </p>
+      <TableCard
+        caption="Master table of physical quantities and their dimensional formulae."
+        headers={["Quantity", "Formula / expression", "Dimensional formula"]}
+        rows={[
+          { cells: ["Area", "length × breadth", "M⁰ L² T⁰"] },
+          { cells: ["Volume", "length × breadth × height", "M⁰ L³ T⁰"] },
+          { cells: ["Density", "mass / volume", "M L⁻³ T⁰"] },
+          { cells: ["Speed / velocity", "distance (displacement) / time", "M⁰ L T⁻¹"] },
+          { cells: ["Acceleration", "change in velocity / time", "M⁰ L T⁻²"] },
+          { cells: ["Force", "mass × acceleration", "M L T⁻²"] },
+          { cells: ["Work, energy", "force × displacement; ½ mv²", "M L² T⁻²"] },
+          { cells: ["Power", "work / time", "M L² T⁻³"] },
+          { cells: ["Momentum", "mass × velocity", "M L T⁻¹"] },
+          { cells: ["Impulse", "force × time", "M L T⁻¹"] },
+          { cells: ["Angular velocity", "angle / time (θ / t)", "M⁰ L⁰ T⁻¹"] },
+          { cells: ["Frequency", "1 / time period", "M⁰ L⁰ T⁻¹"] },
+          { cells: ["Pressure", "force / area", "M L⁻¹ T⁻²"] },
+          { cells: ["Coefficient of viscosity", "(force/area) ÷ (velocity gradient)", "M L⁻¹ T⁻¹"] },
+          { cells: ["Modulus of elasticity", "force / area", "M L⁻¹ T⁻²"] },
+          { cells: ["Gravitational constant G", "F·r² ÷ (m₁·m₂)", "M⁻¹ L³ T⁻²"] },
+          { cells: ["Plane angle", "arc length / radius", "M⁰ L⁰ T⁰ (none)"] },
+          { cells: ["Solid angle", "area / radius²", "M⁰ L⁰ T⁰ (none)"] },
+          { cells: ["Strain", "ΔL / L", "M⁰ L⁰ T⁰ (none)"] },
+        ]}
+      />
+
+      <h3 id="h-dim-worked">Worked derivations — step by step</h3>
+      <Expandable title="Angular velocity ω and frequency f — both [T⁻¹]" variant="default">
+        <p>
+          <strong>Angular velocity:</strong> <Formula>{String.raw`\omega = \frac{\theta}{t}`}</Formula>.
+          An angle in radians is dimensionless, <Formula>{String.raw`[\theta] = M^0 L^0 T^0 = 1`}</Formula>, so
+          <FormulaBlock latex={String.raw`[\omega] = \frac{[\theta]}{[t]} = \frac{1}{T} = M^0 L^0 T^{-1}`} />
+        </p>
+        <p>
+          <strong>Frequency:</strong> <Formula>{String.raw`f = \frac{1}{T}`}</Formula> gives the same
+          result, agreeing with <Formula>{String.raw`\omega = 2\pi f`}</Formula> since 2π is dimensionless.
+        </p>
+      </Expandable>
+      <Expandable title="Work W, energy E, momentum p and impulse J" variant="default">
+        <p>
+          <strong>Force:</strong> <Formula>{String.raw`F = ma`}</Formula> with{" "}
+          <Formula>{String.raw`[v] = L T^{-1}`}</Formula> and{" "}
+          <Formula>{String.raw`[a] = \frac{[v]}{[t]} = L T^{-2}`}</Formula> gives{" "}
+          <Formula>{String.raw`[F] = M L T^{-2}`}</Formula>.
+        </p>
+        <p>
+          <strong>Work:</strong> <Formula>{String.raw`W = F \times s`}</Formula> →{" "}
+          <Formula>{String.raw`[W] = M L T^{-2} \times L = M L^2 T^{-2}`}</Formula>.
+        </p>
+        <p>
+          <strong>Energy:</strong> <Formula>{String.raw`KE = \frac{1}{2}mv^2`}</Formula>; ½ is
+          dimensionless, so <Formula>{String.raw`[E] = M \times (L T^{-1})^2 = M L^2 T^{-2}`}</Formula>{" "}
+          — work and energy share the same dimensions.
+        </p>
+        <p>
+          <strong>Momentum:</strong> <Formula>{String.raw`p = mv`}</Formula> →{" "}
+          <Formula>{String.raw`[p] = M L T^{-1}`}</Formula>.{" "}
+          <strong>Impulse:</strong> <Formula>{String.raw`J = F\,\Delta t`}</Formula> →{" "}
+          <Formula>{String.raw`[J] = M L T^{-2} \times T = M L T^{-1} = [p]`}</Formula> — consistent
+          with <Formula>{String.raw`J = \Delta p`}</Formula>.
+        </p>
+      </Expandable>
+      <Expandable title="Power P — work per unit time" variant="default">
+        <p>
+          <Formula>{String.raw`P = \frac{W}{t}`}</Formula> with{" "}
+          <Formula>{String.raw`W = F \times s`}</Formula>:
+          <FormulaBlock
+            latex={String.raw`[P] = \frac{[W]}{[T]} = \frac{M L T^{-2} \times L}{T} = M L^2 T^{-3}`}
+            important
+          />
+        </p>
+      </Expandable>
+
+      <h3 id="h-dimensionless">Dimensionless quantities</h3>
+      <ul>
+        <li><strong>Pure numbers:</strong> <Formula>{String.raw`[2] = [100] = M^0 L^0 T^0 = 1`}</Formula></li>
+        <li><strong>Constants:</strong> <Formula>{String.raw`[\pi] = [3.14] = 1`}</Formula>, <Formula>{String.raw`[e] = 1`}</Formula></li>
+        <li><strong>Angles:</strong> <Formula>{String.raw`[30^\circ] = 1`}</Formula>, <Formula>{String.raw`[\pi\ \text{rad}] = 1`}</Formula></li>
+        <li><strong>Trigonometric ratios:</strong> arguments and values are dimensionless — <Formula>{String.raw`[\sin\theta] = 1`}</Formula> requires <Formula>{String.raw`[\theta] = 1`}</Formula>.</li>
+        <li><strong>Powers &amp; exponents:</strong> the 2 in <Formula>{String.raw`x^2`}</Formula>, the ½ in <Formula>{String.raw`\frac{1}{2}mv^2`}</Formula> — dimensionless.</li>
+      </ul>
+
+      <h3 id="h-dim-practice">Solved practice questions on dimensions</h3>
+      <Expandable title="Q1 — A quantity has dimensions [M¹ L² T⁻²]" variant="exercise">
+        <p>What are its SI and CGS units?</p>
+        <p>Replace M, L, T by the base units of each system:</p>
+        <ul>
+          <li>
+            <strong>SI:</strong> <Formula>{String.raw`\text{kg}\cdot\text{m}^2\cdot\text{s}^{-2}`}</Formula>{" "}
+            — the joule (J), a unit of energy/work.
+          </li>
+          <li>
+            <strong>CGS:</strong> <Formula>{String.raw`\text{g}\cdot\text{cm}^2\cdot\text{s}^{-2}`}</Formula>{" "}
+            — the erg.
+          </li>
+        </ul>
+      </Expandable>
+      <Expandable title="Q2 — SI unit is kg m⁻². Find the dimensions" variant="exercise">
+        <p>Replace each unit by its dimension: kg → [M], m → [L].</p>
+        <FormulaBlock latex={String.raw`\frac{\text{kg}^1}{\text{m}^2} \;\Rightarrow\; [M^1 L^{-2} T^0]`} important />
+      </Expandable>
+      <Expandable title="Q3 — Kinetic energy K = ½mv²" variant="example">
+        <FormulaBlock latex={String.raw`[K] = [\tfrac{1}{2}]\,[m]\,[v]^2 = 1 \times M \times (L T^{-1})^2 = [M L^2 T^{-2}]`} important />
+      </Expandable>
+      <Expandable title="Q4 — Gravitational constant G from F = Gm₁m₂/r²" variant="example">
+        <p>Rearrange for G, then substitute dimensions:</p>
+        <FormulaBlock latex={String.raw`G = \frac{F\,r^2}{m_1 m_2} = \frac{(M L T^{-2})\,L^2}{M \times M} = [M^{-1} L^3 T^{-2}]`} important />
+      </Expandable>
+      <Expandable title="Q5 — Coefficient of viscosity, modulus of elasticity and G" variant="exercise">
+        <p>Write the dimensional formula of each quantity:</p>
+        <TableCard
+          headers={["Quantity", "Formula / expression", "Dimensional formula"]}
+          rows={[
+            { cells: ["Coefficient of viscosity", "(force/area) ÷ (velocity gradient)", "M L⁻¹ T⁻¹"] },
+            { cells: ["Gravitational constant", "force × (distance)² ÷ (mass)²", "M⁻¹ L³ T⁻²"] },
+            { cells: ["Modulus of elasticity", "force ÷ area", "M L⁻¹ T⁻²"] },
+          ]}
+        />
+      </Expandable>
+      <Expandable title="Q6 — Spring constant k from F = −kx" variant="exercise">
+        <p>
+          The restoring force developed in a spring extended by a length x is <Formula>{String.raw`F = -kx`}</Formula>.
+          What is the dimensional formula of k?
+        </p>
+        <FormulaBlock latex={String.raw`[k] = \frac{[F]}{[x]} = \frac{M L T^{-2}}{L} = [M L^0 T^{-2}] = [M T^{-2}]`} important />
+      </Expandable>
       <KeyPoint>
         Because dimensions ignore magnitudes, <em>speed</em>, <em>velocity</em>, and all velocity-like
         quantities are dimensionally identical — a change of position per unit time is [L T⁻¹] in every case.
