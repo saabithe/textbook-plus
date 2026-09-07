@@ -110,9 +110,26 @@ export default function UnitsAndMeasurementsChapter() {
         ]}
       />
       <h3 id="h-supplementary">Supplementary quantities — a side-by-side</h3>
-      <p>
-        Two supplementary quantities are defined. They <strong>have units but no dimension</strong>.
-      </p>
+      <Callout type="important" title="Definition — the two supplementary quantities">
+        <p>
+          Besides the seven base quantities, the SI defines <strong>two supplementary quantities</strong>{" "}
+          for specifying angles. They <strong>have units but no dimension</strong>:
+        </p>
+        <ul>
+          <li>
+            <strong>Plane angle</strong> (symbol θ) — the angle between two lines meeting at a point,
+            defined as the ratio of the arc length <em>s</em> to the radius <em>r</em>{" "}
+            (<Formula>{String.raw`\theta = s/r`}</Formula>). Its SI unit is the{" "}
+            <strong>radian</strong> (rad).
+          </li>
+          <li>
+            <strong>Solid angle</strong> (symbol Ω) — the angle subtended at a point by an area on the
+            surface of a sphere, defined as the ratio of the intercepted area <em>A</em> to the square
+            of the radius <em>r</em> (<Formula>{String.raw`\Omega = A/r^2`}</Formula>). Its SI unit is
+            the <strong>steradian</strong> (sr).
+          </li>
+        </ul>
+      </Callout>
       <Comparison
         columns={[
           {
@@ -554,34 +571,75 @@ export default function UnitsAndMeasurementsChapter() {
       </FormulaCard>
 
       <h2 id="h-1-6">1.6 Dimensional Analysis and its Applications</h2>
-      <p>
-        Only physical quantities of <strong>the same dimensions</strong> can be added or subtracted.
-        When magnitudes are multiplied, their units are treated like algebraic symbols — identical
-        units cancel, and the same is true of dimensions. This whole toolkit is{" "}
-        <strong>dimensional analysis</strong>.
-      </p>
-
-      <h3 id="h-1-6-1">1.6.1 Checking the dimensional consistency of equations</h3>
-      <Callout type="important" title="Principle of homogeneity of dimensions">
-        An equation can be correct only if every term on both sides has the <Highlight color="blue">same dimensions</Highlight>.
-        Velocity cannot be added to force; electric current cannot be subtracted from temperature.
+      <h3 id="h-1-6-poh">Principle of homogeneity of dimensions (P.O.H)</h3>
+      <Callout type="important" title="Principle of homogeneity (P.O.H)">
+        <p>
+          In any valid physical equation, the dimensions of each term on both sides must be
+          identical — in short, <strong>the dimension of the RHS and the LHS of an equation must be
+          the same</strong>.
+        </p>
+        <FormulaBlock latex={String.raw`[\text{LHS}] = [\text{RHS}]`} important />
       </Callout>
       <ul>
-        <li>Arguments of trigonometric, logarithmic and exponential <strong>functions must be dimensionless</strong>.</li>
-        <li>Ratios of similar quantities — angle (length/length), refractive index (c₀/c<sub>m</sub>) — are dimensionless.</li>
         <li>
-          If an equation fails the test it is <strong>proved wrong</strong>; if it passes it is{" "}
-          <strong>not proved right</strong> — dimensionless factors can hide in front.
+          <strong>Rule:</strong> only quantities having <Highlight color="blue">the same dimensions</Highlight>{" "}
+          can be added or subtracted — velocity cannot be added to force, nor electric current
+          subtracted from temperature.
+        </li>
+        <li>
+          <strong>Property:</strong> all terms in an equation separated by +, − or = must have the
+          same dimensions. If <Formula>{String.raw`x = a + b - ct - \frac{d}{t}`}</Formula>, then
+          <FormulaBlock latex={String.raw`[x] = [a] = [b] = [ct] = \left[\frac{d}{t}\right]`} />
         </li>
       </ul>
-      <Expandable title="Consistency test — x = x₀ + v₀t + ½at²" variant="default">
-        <p>For a particle starting at x₀ with velocity v₀ and uniform acceleration a:</p>
+
+      <h3 id="h-1-6-app">Applications of P.O.H</h3>
+      <ol>
+        <li>To find the dimension of unknown quantities.</li>
+        <li>To check the correctness of the equation.</li>
+        <li>To find the relationship between physical quantities (<Formula>{String.raw`A \propto k\,B`}</Formula>).</li>
+      </ol>
+
+      <h3 id="h-1-6-1">1.6.1 Checking the dimensional consistency of equations</h3>
+      <Expandable title="Check 1 — S = ut + ½at² is dimensionally correct" variant="default">
         <ul>
-          <li><Formula>{String.raw`[x] = [L]`}</Formula> and <Formula>{String.raw`[x_0] = [L]`}</Formula></li>
-          <li><Formula>{String.raw`[v_0 t] = [L T^{-1}][T] = [L]`}</Formula></li>
-          <li><Formula>{String.raw`[\tfrac{1}{2} a t^2] = [L T^{-2}][T^2] = [L]`}</Formula></li>
+          <li><Formula>{String.raw`[S] = L^1`}</Formula></li>
+          <li><Formula>{String.raw`[ut] = (L^1 T^{-1})\cdot T^1 = L^1`}</Formula></li>
+          <li><Formula>{String.raw`[\tfrac{1}{2}at^2] = 1 \cdot (L^1 T^{-2}) \cdot T^2 = L^1`}</Formula></li>
         </ul>
-        <p>Every term has the dimension of length &rarr; the equation is <strong>dimensionally correct</strong>.</p>
+        <p>
+          <Formula>{String.raw`[S] = [ut] = [\tfrac{1}{2}at^2]`}</Formula> &rarr;{" "}
+          <Highlight color="blue">[LHS] = [RHS]</Highlight>. The equation is{" "}
+          <strong>dimensionally correct</strong>.
+        </p>
+      </Expandable>
+
+      <Expandable title="Check 2 — T = 2π√(g/l)" variant="default">
+        <p>T → time period, g → acceleration due to gravity, l → length.</p>
+        <ul>
+          <li><Formula>{String.raw`[\text{LHS}] = [T] = T^1`}</Formula></li>
+          <li><Formula>{String.raw`[\text{RHS}] = \left[2\pi\sqrt{\frac{g}{l}}\right] = 1 \cdot \sqrt{\frac{L^1 T^{-2}}{L^1}} = \sqrt{T^{-2}} = T^{-1}`}</Formula></li>
+        </ul>
+        <p>
+          <Formula>{String.raw`[\text{LHS}] \neq [\text{RHS}]`}</Formula> &rarr; the equation is{" "}
+          <strong>dimensionally incorrect</strong>. (The correct relation is{" "}
+          <Formula>{String.raw`T = 2\pi\sqrt{l/g}`}</Formula> — swapping l and g flips the time
+          dimension, as seen in Example 1.5.)
+        </p>
+      </Expandable>
+
+      <Expandable title="Check 3 — f = 2π√(l/g)" variant="default">
+        <p>f → frequency, g → acceleration due to gravity, l → length.</p>
+        <ul>
+          <li><Formula>{String.raw`[f] = T^{-1}`}</Formula></li>
+          <li><Formula>{String.raw`\left[2\pi\sqrt{\frac{l}{g}}\right] = 1 \cdot \sqrt{\frac{L^1}{L^1 T^{-2}}} = \sqrt{T^2} = T^1`}</Formula></li>
+        </ul>
+        <p>
+          <Formula>{String.raw`[\text{LHS}] \neq [\text{RHS}]`}</Formula> (
+          <Formula>{String.raw`T^{-1} \neq T^1`}</Formula>) &rarr; the equation is{" "}
+          <strong>dimensionally incorrect</strong>. (Frequency actually runs as{" "}
+          <Formula>{String.raw`f = \frac{1}{T} = \frac{1}{2\pi}\sqrt{g/l}`}</Formula>.)
+        </p>
       </Expandable>
 
       <Expandable title="Example 1.3 — Is ½mv² = mgh dimensionally correct?" variant="example">
@@ -664,12 +722,199 @@ export default function UnitsAndMeasurementsChapter() {
           </p>
         </ProblemSolution.Solution>
       </Expandable>
-      <Callout type="warning" title="Limitations of dimensional analysis">
+
+      <Expandable title="Derivation 1 — Centripetal force Fc = mv²/r (k = 1)" variant="example">
+        <ProblemSolution.Problem>
+          <p>
+            Centripetal force experienced by a body in uniform circular motion relates to its mass (m),
+            velocity (v) and radius (r). Derive the expression for F<sub>c</sub>, taking the
+            dimensionless constant k = 1.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <Stepper
+            steps={[
+              {
+                label: "Assume a product dependence",
+                description: <Formula>{String.raw`F_c = k\, m^a v^b r^c`}</Formula>,
+              },
+              {
+                label: "Insert dimensions on both sides",
+                description: <Formula>{String.raw`M^1 L^1 T^{-2} = (M^1)^a (L^1 T^{-1})^b (L^1)^c = M^a L^{b+c} T^{-b}`}</Formula>,
+              },
+              {
+                label: "Equate the powers",
+                description: <Formula>{String.raw`a = 1;\quad -b = -2 \Rightarrow b = 2;\quad b + c = 1 \Rightarrow 2 + c = 1 \Rightarrow c = -1`}</Formula>,
+              },
+              {
+                label: "Write the relation",
+                description: <Formula>{String.raw`F_c = m^1 v^2 r^{-1} = \frac{m v^2}{r}`}</Formula>,
+              },
+            ]}
+          />
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="Derivation 2 — Time period of a planet around the Sun" variant="example">
+        <ProblemSolution.Problem>
+          <p>
+            A planet moves around the Sun in a nearly circular orbit. Its period (T) depends on the
+            radius of the orbit (r), the mass of the Sun (M) and the gravitational constant (G).
+            Derive the expression for T using the method of dimensions.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <Stepper
+            steps={[
+              {
+                label: "Assume a product dependence",
+                description: <Formula>{String.raw`T = k\, r^a M^b G^c`}</Formula>,
+              },
+              {
+                label: "Insert dimensions on both sides",
+                description: <Formula>{String.raw`T^1 = (L^1)^a (M^1)^b (M^{-1} L^3 T^{-2})^c = M^{b-c} L^{a+3c} T^{-2c}`}</Formula>,
+              },
+              {
+                label: "Equate the powers",
+                description: <Formula>{String.raw`-2c = 1 \Rightarrow c = -\tfrac{1}{2};\quad b - c = 0 \Rightarrow b = -\tfrac{1}{2};\quad a + 3c = 0 \Rightarrow a = \tfrac{3}{2}`}</Formula>,
+              },
+              {
+                label: "Write the relation",
+                description: <Formula>{String.raw`T = k r^{3/2} M^{-1/2} G^{-1/2} = k\sqrt{\frac{r^3}{G M}}`}</Formula>,
+              },
+            ]}
+          />
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <h3 id="h-1-6-3">1.6.3 Practice questions — applying P.O.H</h3>
+      <Expandable title="P1 — Dimensions of a, b, c in x = a + bt + c/t²" variant="exercise">
+        <ProblemSolution.Problem>
+          <p>
+            The displacement x of a body is given by{" "}
+            <Formula>{String.raw`x = a + bt + \frac{c}{t^2}`}</Formula>, where x is displacement and t
+            is time. Find the dimensions of a, b and c.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            By P.O.H: <Formula>{String.raw`[x] = [a] = [bt] = \left[\frac{c}{t^2}\right]`}</Formula>,
+            with <Formula>{String.raw`[x] = M^0 L^1 T^0`}</Formula>:
+          </p>
+          <ul>
+            <li><Formula>{String.raw`[a] = [x] = [M^0 L^1 T^0]`}</Formula></li>
+            <li><Formula>{String.raw`[bt] = [x] \Rightarrow [b] = \frac{[x]}{[t]} = \frac{L^1}{T^1} = [M^0 L^1 T^{-1}]`}</Formula></li>
+            <li><Formula>{String.raw`\left[\frac{c}{t^2}\right] = [x] \Rightarrow [c] = [x] \cdot [t^2] = L^1 \cdot T^2 = [M^0 L^1 T^2]`}</Formula></li>
+          </ul>
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="P2 — Is P = Fv + Av³ρ dimensionally valid?" variant="exercise">
+        <p>
+          Mechanical power is represented by <Formula>{String.raw`P = Fv + Av^3 \rho`}</Formula>,
+          where F is force, v velocity, A area and ρ density. Check the dimensional validity of the
+          equation.
+        </p>
+        <p><Formula>{String.raw`[P] = M L^2 T^{-3}`}</Formula>. Term by term:</p>
         <ul>
-          <li>Dimensionless constants (like 2π) can never be obtained by this method.</li>
-          <li>It tests dimensional validity only — not the exact relationship.</li>
-          <li>It cannot distinguish quantities with the same dimensions (e.g., work and torque).</li>
+          <li>
+            <Formula>{String.raw`[Fv] = (M L T^{-2})(L T^{-1}) = M L^2 T^{-3} = [P]`}</Formula> — matches ✓
+          </li>
+          <li>
+            <Formula>{String.raw`[Av^3 \rho] = L^2 \cdot (L T^{-1})^3 \cdot M L^{-3} = M L^2 T^{-3} = [P]`}</Formula> — matches ✓
+          </li>
         </ul>
+        <p>
+          Every term has the dimensions of power &rarr; the equation is{" "}
+          <strong>dimensionally valid</strong>.
+        </p>
+      </Expandable>
+
+      <Expandable title="P3 — A pipe company&apos;s claim V = KA²ut" variant="exercise">
+        <p>
+          A company manufacturing PVC pipes claims that the volume of water flowing out through a pipe
+          in a given time is <Formula>{String.raw`V = K A^2 u t`}</Formula>, where A is the area of
+          cross section, u is the speed of flow, t is the time and K is a dimensionless constant.
+          Check the equation and state whether the claim can be correct.
+        </p>
+        <ul>
+          <li><Formula>{String.raw`[V] = [L^3]`}</Formula></li>
+          <li><Formula>{String.raw`[K A^2 u t] = 1 \cdot (L^2)^2 \cdot (L T^{-1}) \cdot T = L^5`}</Formula></li>
+        </ul>
+        <p>
+          <Formula>{String.raw`[L^3] \neq [L^5]`}</Formula> &rarr; the equation is{" "}
+          <strong>dimensionally incorrect</strong>, so the claim <strong>cannot be correct</strong>.
+          (Dimensionally sound forms are <Formula>{String.raw`V = K A u t`}</Formula> for the volume,
+          or the volume flow rate <Formula>{String.raw`Q = A u`}</Formula>.)
+        </p>
+      </Expandable>
+
+      <Expandable title="P4 — Relativistic mass and the dimension of x" variant="exercise">
+        <p>
+          A student writes the relativistic variation of mass with velocity as{" "}
+          <Formula>{String.raw`m = \frac{m_0}{\sqrt{1 - \frac{x^2}{c^2}}}`}</Formula>, where m₀ is the
+          rest mass and c is the speed of light. What is the dimensional formula of x?
+        </p>
+        <p>
+          The number 1 is dimensionless, so by P.O.H the term subtracted from it must also be
+          dimensionless:
+        </p>
+        <ul>
+          <li><Formula>{String.raw`\left[\frac{x^2}{c^2}\right] = M^0 L^0 T^0`}</Formula></li>
+          <li><Formula>{String.raw`[x^2] = [c^2] \Rightarrow [x] = [c] = [M^0 L T^{-1}]`}</Formula></li>
+        </ul>
+        <p>
+          <Highlight color="blue">[x] = [M⁰ L T⁻¹]</Highlight> — x has the dimensions of velocity (in
+          the real relation, x is the speed v).
+        </p>
+      </Expandable>
+
+      <Expandable title="P5 — Orbital velocity v = √(GM/R)" variant="exercise">
+        <p>
+          Check the dimensional correctness of <Formula>{String.raw`v = \sqrt{GM/R}`}</Formula>, where
+          v is orbital velocity, G the gravitational constant, M the mass of Earth and R its radius.
+        </p>
+        <ul>
+          <li>
+            <Formula>{String.raw`[G] = \frac{[F r^2]}{[M^2]} = \frac{M L T^{-2} \cdot L^2}{M^2} = M^{-1} L^3 T^{-2}`}</Formula>
+          </li>
+          <li>
+            <Formula>{String.raw`\left[\frac{GM}{R}\right] = \frac{M^{-1} L^3 T^{-2} \cdot M}{L} = L^2 T^{-2}`}</Formula>
+          </li>
+          <li>
+            <Formula>{String.raw`[\text{RHS}] = \sqrt{L^2 T^{-2}} = L T^{-1} = [v]`}</Formula>
+          </li>
+        </ul>
+        <p>
+          [LHS] = [RHS] = <Highlight color="blue">[M⁰ L T⁻¹]</Highlight> &rarr; the relation is{" "}
+          <strong>dimensionally correct</strong>.
+        </p>
+      </Expandable>
+
+      <Callout type="warning" title="Limits of the principle of homogeneity">
+        <ol>
+          <li>
+            Equations containing <strong>dimensional constants</strong> cannot be derived — e.g. the
+            gravitational law <Formula>{String.raw`F = G\frac{m_1 m_2}{r^2}`}</Formula>.
+          </li>
+          <li>
+            Equations with <strong>more than two terms added/subtracted</strong> cannot be derived —
+            e.g. <Formula>{String.raw`S = ut + \tfrac{1}{2}at^2`}</Formula>.
+          </li>
+          <li>
+            Even if an equation is dimensionally correct, it need not be numerically correct:
+            <ul>
+              <li>
+                <Formula>{String.raw`KE = \tfrac{1}{2}mv^2`}</Formula> — dimensionally correct ✓ and numerically correct ✓
+              </li>
+              <li>
+                <Formula>{String.raw`KE = 2mv^2`}</Formula> — dimensionally correct ✓ but numerically incorrect ✗
+              </li>
+            </ul>
+          </li>
+          <li>Dimensionless constants (like 2π) can never be obtained by this method.</li>
+          <li>It cannot distinguish quantities with the same dimensions (e.g., work and torque).</li>
+        </ol>
       </Callout>
 
       <h2 id="h-exercises">Exercises 1.1 – 1.17</h2>
@@ -717,29 +962,6 @@ export default function UnitsAndMeasurementsChapter() {
       </Expandable>
 
       <h2 id="h-revision">Quick Revision</h2>
-      <Expandable title="Key formulas &amp; facts — one page">
-        <p><strong>1. Measurement &amp; units</strong></p>
-        <ul>
-          <li>Base quantity → fundamental unit; derived quantities → combinations of base units.</li>
-          <li>Seven SI base units: m, kg, s, A, K, mol, cd. Plane angle (rad) and solid angle (sr) have units but no dimension.</li>
-          <li>SI is decimal — prefixes (k, m, c, µ, n …) are powers of ten; area/volume convert with the square/cube of the length factor.</li>
-        </ul>
-        <p><strong>2. Significant figures</strong></p>
-        <ul>
-          <li>Count = reliable digits + first uncertain digit. Change of units never changes the count.</li>
-          <li>Leading zeros: not significant. Trailing zeros: significant only with a decimal point.</li>
-          <li>× / ÷ → least number of significant figures. + / − → least number of decimal places.</li>
-          <li>Rounding: &gt;5 raise, &lt;5 leave, exactly 5 → even preceding digit drops, odd raises.</li>
-          <li>Keep one extra digit through multi-step calculations; round off only at the end.</li>
-        </ul>
-        <p><strong>3. Dimensions</strong></p>
-        <ul>
-          <li>Volume [L³], velocity [L T⁻¹], acceleration [L T⁻²], force [M L T⁻²], density [M L⁻³], energy [M L² T⁻²].</li>
-          <li>Only same-dimension quantities can be added/subtracted; function arguments must be dimensionless.</li>
-          <li>Homogeneity: dimensionally wrong ⇒ certainly wrong; dimensionally correct ⇒ not proved right.</li>
-          <li>Method of dimensions can deduce product-form relations but never the dimensionless constant k.</li>
-        </ul>
-      </Expandable>
       <Expandable title="Last-minute recall — formulas only">
         <ul>
           <li><Formula>{String.raw`\rho = \frac{m}{V}`}</Formula> — density (÷ : least sig. figs)</li>
