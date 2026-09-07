@@ -1,4 +1,4 @@
-const CACHE_NAME = "textbook++-4580e36";
+const CACHE_NAME = "textbook++-7454f6f";
 const PRECACHE_URLS = [
   "/",
   "/subjects/physics",

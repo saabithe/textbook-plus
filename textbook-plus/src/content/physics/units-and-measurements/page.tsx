@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Callout } from "@/components/content/Callout";
+import { Comparison } from "@/components/content/Comparison";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
@@ -16,28 +16,70 @@ export default function UnitsAndMeasurementsChapter() {
   return (
     <>
       <h2 id="h-intro">1.1 Introduction</h2>
-      <Callout type="important" title="Measurement — a comparison with a standard">
-        Measurement of any physical quantity involves comparison with a certain basic, arbitrarily
-        chosen, <Highlight color="blue">internationally accepted reference standard</Highlight> called a{" "}
-        <strong>unit</strong>. The result of a measurement is expressed by a{" "}
-        <strong>number (numerical measure)</strong> accompanied by a <strong>unit</strong>.
+      <Callout type="important" title="What is a physical quantity?">
+        A <strong>physical quantity</strong> is any quantity that can be measured. Every measurement
+        has two <strong>components</strong>: a{" "}
+        <Highlight color="blue">number (numerical measure or magnitude)</Highlight> and a{" "}
+        <strong>unit</strong>. Measuring means comparing the quantity with a basic, arbitrarily
+        chosen, internationally accepted reference standard called a <strong>unit</strong>.
       </Callout>
       <ul>
-        <li>We need only a <strong>limited number of units</strong> to express all physical quantities — the quantities are inter-related.</li>
         <li>Units for the <strong>fundamental or base quantities</strong> are called <strong>fundamental or base units</strong>.</li>
         <li>Units of all other quantities, expressed as combinations of base units, are called <strong>derived units</strong>.</li>
         <li>A complete set of base units and derived units is known as a <strong>system of units</strong>.</li>
       </ul>
-      <KeyPoint>
-        Physics is a quantitative science: every result must name <em>both</em> a number and a unit.
-        The same physical quantity can take different numbers in different systems — the unit pins down what the number means.
-      </KeyPoint>
+      <Comparison
+        columns={[
+          {
+            title: "Fundamental / Base Quantities",
+            children: (
+              <>
+                <p className="mb-2">
+                  A set of physical quantities that are <strong>independent</strong> of each other.
+                </p>
+                <ul>
+                  <li>Mass — kilogram (kg)</li>
+                  <li>Length — metre (m)</li>
+                  <li>Time — second (s)</li>
+                  <li>Electric current — ampere (A)</li>
+                  <li>Thermodynamic temperature — kelvin (K)</li>
+                  <li>Amount of substance — mole (mol)</li>
+                  <li>Luminous intensity — candela (cd)</li>
+                </ul>
+              </>
+            ),
+          },
+          {
+            title: "Derived Quantities",
+            children: (
+              <>
+                <p className="mb-2">
+                  Quantities that can be <strong>expressed in terms of fundamental quantities</strong>.
+                </p>
+                <ul>
+                  <li>
+                    Speed <Formula>{String.raw`= \dfrac{\text{distance}}{\text{time}}`}</Formula> — m s<sup>−1</sup>
+                  </li>
+                  <li>
+                    Area <Formula>{String.raw`= \text{length} \times \text{breadth}`}</Formula> — m<sup>2</sup>
+                  </li>
+                  <li>
+                    Volume <Formula>{String.raw`= \text{length}^3`}</Formula> — m<sup>3</sup>
+                  </li>
+                  <li>
+                    Density <Formula>{String.raw`= \dfrac{\text{mass}}{\text{volume}}`}</Formula> — kg m<sup>−3</sup>
+                  </li>
+                  <li>
+                    Force <Formula>{String.raw`= \text{mass} \times \text{acceleration}`}</Formula> — newton (N)
+                  </li>
+                </ul>
+              </>
+            ),
+          },
+        ]}
+      />
 
       <h2 id="h-1-2">1.2 The International System of Units (SI)</h2>
-      <p>
-        Until recently, three systems were in wide use. They differed only in their base units for
-        length, mass and time:
-      </p>
       <TableCard
         caption="Base units of length, mass and time in the three older systems."
         headers={["System", "Length", "Mass", "Time"]}
@@ -50,12 +92,10 @@ export default function UnitsAndMeasurementsChapter() {
       <p>
         The now internationally accepted system is the <em>Système Internationale d&rsquo;unités</em>{" "}
         (French for <strong>International System of Units</strong>), abbreviated <strong>SI</strong>.
-        It was developed by the Bureau International des Poids et Mesures (BIPM) in 1971 and revised
-        by the General Conference on Weights and Measures in November 2018.
       </p>
       <ul>
         <li>SI uses the <strong>decimal system</strong>, so conversions within the system are simple and convenient.</li>
-        <li>SI has <strong>seven base units</strong>. Two more units are defined for dimensionless quantities:</li>
+        <li>SI has <strong>seven base units</strong>, plus two supplementary units:</li>
       </ul>
       <TableCard
         caption="Table 1.1 — The seven SI base quantities and their base units (2025–26 syllabus: the exact values need not be memorised)."
@@ -70,37 +110,114 @@ export default function UnitsAndMeasurementsChapter() {
           { cells: ["Luminous intensity", "candela", "cd"] },
         ]}
       />
-      <p>Two supplementary dimensionless units are also defined:</p>
-      <ul>
-        <li>
-          <strong>Plane angle</strong> d<em>&theta;</em> = ratio of arc length d<em>s</em> to radius <em>r</em> —
-          unit <strong>radian</strong> (rad).
-        </li>
-        <li>
-          <strong>Solid angle</strong> d<em>&Omega;</em> = ratio of intercepted area d<em>A</em> on a sphere to
-          <em> r</em><sup>2</sup> — unit <strong>steradian</strong> (sr).
-        </li>
-        <li>Both are <strong>dimensionless</strong> (ratio of length/length or area/area).</li>
-      </ul>
-
-      <h3 id="h-sig-defs">Defining the base units (modern SI)</h3>
+      <h3 id="h-supplementary">Supplementary quantities — a side-by-side</h3>
       <p>
-        In the 2018 revision, the base units are defined by fixing the numerical values of certain
-        physical constants. The ones worth knowing:
+        Two supplementary quantities are defined. They <strong>have units but no dimension</strong>.
       </p>
+      <Comparison
+        columns={[
+          {
+            title: "Plane Angle (2D)",
+            children: (
+              <ul>
+                <li>SI unit: <strong>radian</strong> (rad)</li>
+                <li>
+                  <Formula>{String.raw`\theta = \frac{\text{arc length}}{\text{radius}} = \frac{s}{r}`}</Formula>
+                </li>
+                <li>Ratio of two lengths.</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Solid Angle (3D)",
+            children: (
+              <ul>
+                <li>SI unit: <strong>steradian</strong> (sr)</li>
+                <li>
+                  <Formula>{String.raw`\Omega = \frac{\text{area}}{\text{radius}^2} = \frac{A}{r^2}`}</Formula>
+                </li>
+                <li>Ratio of an area to a radius squared.</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+      <Callout type="note" title="Why do they have no dimension?">
+        Both are ratios of a length to a length (or an area to an area) — the units cancel, so they
+        carry <strong>a unit but no dimension</strong>.
+      </Callout>
+
+      <h3 id="h-decimal">The decimal system and conversions</h3>
+      <p>
+        SI is a <strong>decimal system</strong>: every unit is a power of ten of the base unit.
+        Conversions are just a matter of <strong>shifting the decimal point</strong>, guided by{" "}
+        <strong>prefixes</strong>.
+      </p>
+      <TableCard
+        caption="Common SI prefixes — each step is a power of ten."
+        headers={["Prefix", "Symbol", "Power"]}
+        rows={[
+          { cells: ["giga", "G", "10⁹"] },
+          { cells: ["mega", "M", "10⁶"] },
+          { cells: ["kilo", "k", "10³"] },
+          { cells: ["deci", "d", "10⁻¹"] },
+          { cells: ["centi", "c", "10⁻²"] },
+          { cells: ["milli", "m", "10⁻³"] },
+          { cells: ["micro", "µ", "10⁻⁶"] },
+          { cells: ["nano", "n", "10⁻⁹"] },
+          { cells: ["pico", "p", "10⁻¹²"] },
+        ]}
+      />
       <FormulaCard>
         <ul>
-          <li><strong>Second</strong>: caesium-133 hyperfine frequency <Formula>{String.raw`\Delta\nu_{cs} = 9\,192\,631\,770\ \text{Hz}`}</Formula></li>
-          <li><strong>Metre</strong>: speed of light <Formula>{String.raw`c = 299\,792\,458\ \text{m s}^{-1}`}</Formula></li>
-          <li><strong>Kilogram</strong>: Planck constant <Formula>{String.raw`h = 6.62607015 \times 10^{-34}\ \text{J s}`}</Formula></li>
-          <li><strong>Ampere</strong>: elementary charge <Formula>{String.raw`e = 1.602176634 \times 10^{-19}\ \text{C}`}</Formula></li>
-          <li><strong>Kelvin</strong>: Boltzmann constant <Formula>{String.raw`k = 1.380649 \times 10^{-23}\ \text{J K}^{-1}`}</Formula></li>
-          <li><strong>Mole</strong>: Avogadro constant <Formula>{String.raw`N_A = 6.02214076 \times 10^{23}\ \text{mol}^{-1}`}</Formula></li>
+          <li>
+            <Formula>{String.raw`1\ \text{km} = 10^3\ \text{m}`}</Formula>,{" "}
+            <Formula>{String.raw`1\ \text{cm} = 10^{-2}\ \text{m}`}</Formula>,{" "}
+            <Formula>{String.raw`1\ \text{mm} = 10^{-3}\ \text{m}`}</Formula>
+          </li>
+          <li>
+            <Formula>{String.raw`1\ \text{mg} = 10^{-3}\ \text{g}`}</Formula>,{" "}
+            <Formula>{String.raw`1\ \mu\text{s} = 10^{-6}\ \text{s}`}</Formula>
+          </li>
+          <li>
+            <Formula>{String.raw`1\ \text{m}^2 = 10^4\ \text{cm}^2 = 10^6\ \text{mm}^2`}</Formula>{" "}
+            — area converts with the square of the length factor.
+          </li>
         </ul>
       </FormulaCard>
-      <Callout type="note" title="Mole">
-        When the mole is used, the <strong>elementary entities must be specified</strong> — atoms,
-        molecules, ions, electrons, other particles, or specified groups of such particles.
+      <MistakeCard
+        mistake="Converting area or volume with a single decimal shift: thinking 1 m² = 10² cm² or 1 m³ = 10³ cm³."
+        correction="Square (area) or cube (volume) the length conversion factor: 1 m² = 10⁴ cm² and 1 m³ = 10⁶ cm³. The power of ten multiplies by 2 or 3."
+      />
+
+      <h3 id="h-practice">Practice questions &amp; conversions</h3>
+      <Callout type="important" title="Question">
+        Plane angle has:
+        <ul>
+          <li>(a) a unit and a dimension</li>
+          <li>(b) a unit but no dimension</li>
+          <li>(c) no unit but a dimension</li>
+          <li>(d) no unit and no dimension</li>
+        </ul>
+        <p className="mt-2">
+          <strong>Answer: (b)</strong> — an angle has the SI unit radian but, being a ratio of
+          lengths, no dimension.
+        </p>
+      </Callout>
+      <TableCard
+        caption="Fill in the blanks — from smallest to largest."
+        headers={["Given", "Value", "Tag"]}
+        rows={[
+          { cells: ["1 fermi / femtometre (fm)", "10⁻¹⁵ m", "smallest"] },
+          { cells: ["1 Ångström (Å)", "10⁻¹⁰ m", "—"] },
+          { cells: ["1 Astronomical Unit (AU)", "1.496 × 10¹¹ m", "—"] },
+          { cells: ["1 light year (ly)", "9.46 × 10¹⁵ m", "—"] },
+          { cells: ["1 parsec (pc)", "3.08 × 10¹⁶ m", "largest"] },
+        ]}
+      />
+      <Callout type="note" title="Energy — a common confusion">
+        <strong>kilowatt-hour (kWh)</strong> is a unit of <strong>energy</strong>, not power:
+        <FormulaBlock latex={String.raw`1\ \text{kWh} = 1000\ \text{W} \times 3600\ \text{s} = 3.6 \times 10^6\ \text{J}`} />
       </Callout>
 
       <h2 id="h-sig-figs">1.3 Significant Figures</h2>
@@ -475,8 +592,8 @@ export default function UnitsAndMeasurementsChapter() {
         <p><strong>1. Measurement &amp; units</strong></p>
         <ul>
           <li>Base quantity → fundamental unit; derived quantities → combinations of base units.</li>
-          <li>Seven SI base units: m, kg, s, A, K, mol, cd. Plane angle (rad) and solid angle (sr) are dimensionless.</li>
-          <li>2018 SI: second ↔ Δν_cs; metre ↔ c; kilogram ↔ h; ampere ↔ e; kelvin ↔ k; mole ↔ N_A.</li>
+          <li>Seven SI base units: m, kg, s, A, K, mol, cd. Plane angle (rad) and solid angle (sr) have units but no dimension.</li>
+          <li>SI is decimal — prefixes (k, m, c, µ, n …) are powers of ten; area/volume convert with the square/cube of the length factor.</li>
         </ul>
         <p><strong>2. Significant figures</strong></p>
         <ul>
