@@ -5,6 +5,8 @@ import { ChevronLeft, ChevronRight, List } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { QuestionCard } from "./QuestionCard";
 import { DifficultyFilter } from "./DifficultyFilter";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import type { Question } from "@/types/chapter";
 
 interface PracticeSessionProps {
@@ -69,47 +71,42 @@ export function PracticeSession({ questions, subjectColor, revealedIds = [], onQ
           subjectColor={subjectColor}
           counts={counts}
         />
-        <button
+        <Button
+          variant={showList ? "secondary" : "outline"}
+          size="sm"
           onClick={() => setShowList(!showList)}
-          className={cn(
-            "flex items-center gap-1.5 rounded-lg border border-border/60 px-3 py-1.5 text-xs font-medium transition-all duration-200",
-            showList
-              ? "bg-muted text-foreground"
-              : "bg-muted/30 text-muted-foreground hover:bg-muted"
-          )}
         >
           <List className="h-3.5 w-3.5" />
           {showList ? "Hide list" : "Question list"}
-        </button>
+        </Button>
       </div>
 
       {/* Question list (jump to) */}
       {showList && (
-        <div className="rounded-xl border border-border/60 bg-card p-4">
+        <Card className="p-4">
           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">
             Jump to question
           </p>
           <div className="flex flex-wrap gap-2">
             {filtered.map((q, idx) => (
-              <button
+              <Button
                 key={q.id}
+                variant={idx === current ? "default" : "outline"}
+                size="sm"
                 onClick={() => {
                   setCurrent(idx);
                   setShowList(false);
                 }}
-                className={cn(
-                  "inline-flex h-9 w-9 items-center justify-center rounded-lg text-xs font-medium transition-all duration-200 border",
-                  idx === current
-                    ? "text-white border-transparent"
-                    : "border-border/60 bg-muted/30 text-muted-foreground hover:bg-muted"
-                )}
+                className="h-9 w-9 rounded-lg px-0"
                 style={idx === current ? { backgroundColor: subjectColor } : undefined}
+                aria-label={`Go to question ${idx + 1}`}
+                aria-current={idx === current}
               >
                 {idx + 1}
-              </button>
+              </Button>
             ))}
           </div>
-        </div>
+        </Card>
       )}
 
       {/* Counter */}
@@ -148,37 +145,22 @@ export function PracticeSession({ questions, subjectColor, revealedIds = [], onQ
 
       {/* Navigation */}
       <div className="flex items-center justify-between">
-        <button
+        <Button
+          variant="outline"
           onClick={prev}
           disabled={current === 0}
-          className={cn(
-            "flex items-center gap-2 rounded-lg border border-border/60 px-4 py-2.5 text-sm font-medium transition-all duration-200",
-            current === 0
-              ? "text-muted-foreground cursor-not-allowed"
-              : "text-foreground hover:bg-muted"
-          )}
         >
           <ChevronLeft className="h-4 w-4" />
           Previous
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={next}
           disabled={current === filtered.length - 1}
-          className={cn(
-            "flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium text-white transition-all duration-200",
-            current === filtered.length - 1
-              ? "opacity-50 cursor-not-allowed"
-              : "hover:opacity-90"
-          )}
-          style={
-            current < filtered.length - 1
-              ? { backgroundColor: subjectColor }
-              : { backgroundColor: subjectColor, opacity: 0.5 }
-          }
+          style={{ backgroundColor: subjectColor }}
         >
           Next
           <ChevronRight className="h-4 w-4" />
-        </button>
+        </Button>
       </div>
     </div>
   );

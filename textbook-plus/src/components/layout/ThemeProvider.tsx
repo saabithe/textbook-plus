@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, type ReactNode } from "react";
+import { ThemeProvider as NextThemesProvider, useTheme as useNextTheme } from "next-themes";
 
 type Theme = "light" | "dark";
 
@@ -13,40 +14,31 @@ export function useTheme() {
   return useContext(ThemeContext);
 }
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    let stored: Theme | null = null;
-    try {
-      stored = localStorage.getItem("theme") as Theme | null;
-    } catch {}
-    const system = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    const initial = stored === "light" || stored === "dark" ? stored : system;
-    setTheme(initial);
-    document.documentElement.classList.toggle("dark", initial === "dark");
-    setMounted(true);
-  }, []);
+function ThemeBridge({ children }: { children: ReactNode }) {
+  const { resolvedTheme, setTheme } = useNextTheme();
+  const theme: Theme = resolvedTheme === "dark" ? "dark" : "light";
 
   function toggle() {
-    setTheme((prev) => {
-      const next = prev === "light" ? "dark" : "light";
-      try {
-        localStorage.setItem("theme", next);
-      } catch {}
-      document.documentElement.classList.toggle("dark", next === "dark");
-      return next;
-    });
-  }
-
-  if (!mounted) {
-    return <>{children}</>;
+    setTheme(theme === "dark" ? "light" : "dark");
   }
 
   return (
     <ThemeContext.Provider value={{ theme, toggle }}>
       {children}
     </ThemeContext.Provider>
+  );
+}
+
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  return (
+    <NextThemesProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      storageKey="theme"
+      disableTransitionOnChange
+    >
+      <ThemeBridge>{children}</ThemeBridge>
+    </NextThemesProvider>
   );
 }

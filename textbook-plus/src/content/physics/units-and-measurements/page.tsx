@@ -891,6 +891,91 @@ export default function UnitsAndMeasurementsChapter() {
         </p>
       </Expandable>
 
+      <Expandable title="P6 — Velocity as a function of time: V = At² + Bt" variant="exercise">
+        <p>
+          Given <Formula>{String.raw`V = At^2 + Bt`}</Formula>, where V is velocity and t is time,
+          find the dimensions and SI units of A and B.
+        </p>
+        <ul>
+          <li><Formula>{String.raw`[V] = [At^2] \Rightarrow [A] = \frac{[V]}{[t^2]} = \frac{L T^{-1}}{T^2} = [L T^{-3}]`}</Formula></li>
+          <li><Formula>{String.raw`[V] = [Bt] \Rightarrow [B] = \frac{[V]}{[t]} = \frac{L T^{-1}}{T^1} = [L T^{-2}]`}</Formula></li>
+        </ul>
+        <p>Units: A → <strong>m·s⁻³</strong>, B → <strong>m·s⁻²</strong>.</p>
+      </Expandable>
+
+      <Expandable title="P7 — Is PV = F·x dimensionally correct?" variant="exercise">
+        <p>
+          Check <Formula>{String.raw`P V = F \cdot x`}</Formula>, where P is pressure, V volume, F
+          force and x displacement.
+        </p>
+        <ul>
+          <li>LHS: <Formula>{String.raw`[P][V] = [M L^{-1} T^{-2}] \times [L^3] = [M L^2 T^{-2}]`}</Formula></li>
+          <li>RHS: <Formula>{String.raw`[F][x] = [M L T^{-2}] \times [L] = [M L^2 T^{-2}]`}</Formula></li>
+        </ul>
+        <p>[LHS] = [RHS] &rarr; the equation is <strong>dimensionally correct</strong>.</p>
+      </Expandable>
+
+      <Expandable title="P8 — Is v = v₀ + at dimensionally correct?" variant="exercise">
+        <ul>
+          <li><Formula>{String.raw`[v] = [L T^{-1}]`}</Formula></li>
+          <li><Formula>{String.raw`[v_0] = [L T^{-1}]`}</Formula></li>
+          <li><Formula>{String.raw`[at] = [L T^{-2} \cdot T] = [L T^{-1}]`}</Formula></li>
+        </ul>
+        <p>
+          Every term is <Formula>{String.raw`[L T^{-1}]`}</Formula> &rarr; the equation is{" "}
+          <strong>dimensionally correct</strong>.
+        </p>
+      </Expandable>
+
+      <Expandable title="P9 — h = F v² L where L is angular momentum" variant="exercise">
+        <p>
+          Find the dimensions of h if <Formula>{String.raw`h = F v^2 L`}</Formula>, where F is force,
+          v is velocity and <strong>L is angular momentum</strong>{" "}
+          (<Formula>{String.raw`[L] = [M L^2 T^{-1}]`}</Formula> — note: <em>not</em> length).
+        </p>
+        <FormulaBlock latex={String.raw`[h] = [F]\,[v]^2\,[L] = [M L T^{-2}] \times [L^2 T^{-2}] \times [M L^2 T^{-1}] = [M^2 L^5 T^{-5}]`} important />
+      </Expandable>
+
+      <Expandable title="P10 — 1 N = 10⁵ dyne (converting units)" variant="exercise">
+        <p>Show that 1 newton = 10⁵ dynes using the numerical-factor formula:</p>
+        <FormulaBlock latex={String.raw`n_2 = n_1 \cdot \left(\frac{M_1}{M_2}\right)^a \left(\frac{L_1}{L_2}\right)^b \left(\frac{T_1}{T_2}\right)^c`} />
+        <p>Force has dimensions <Formula>{String.raw`[M^1 L^1 T^{-2}]`}</Formula>, so</p>
+        <FormulaBlock latex={String.raw`n_2 = 1 \cdot \left(\frac{1\ \text{kg}}{1\ \text{g}}\right)^1 \left(\frac{1\ \text{m}}{1\ \text{cm}}\right)^1 \left(\frac{1\ \text{s}}{1\ \text{s}}\right)^{-2} = 10^3 \times 10^2 \times 1 = 10^5\ \text{dynes}`} important />
+      </Expandable>
+
+      <Expandable title="P11 — Coefficient b in x = a + bt + ct²" variant="exercise">
+        <p>
+          Given <Formula>{String.raw`x = a + bt + ct^2`}</Formula> (x displacement, t time), find the
+          dimension of b.
+        </p>
+        <FormulaBlock latex={String.raw`[bt] = [x] \Rightarrow [b] = \frac{[x]}{[t]} = [L^1 T^{-1}]`} important />
+      </Expandable>
+
+      <Expandable title="P12 — Percentage error in the volume of a block" variant="exercise">
+        <p>
+          A rectangular block has percentage errors of 2%, 1% and 3% in its length, breadth and
+          thickness. Since <Formula>{String.raw`V = L \times B \times H`}</Formula> is a product, the
+          percentage errors add:
+        </p>
+        <FormulaBlock latex={String.raw`\frac{\Delta V}{V} \times 100 = 2\% + 1\% + 3\% = 6\%`} important />
+      </Expandable>
+
+      <Expandable title="P13 — Measuring the diameter of the Moon" variant="exercise">
+        <p>
+          Direct measurement is impossible, so the <strong>parallax method</strong> is used: the Moon
+          is observed from two points separated by a known baseline b, giving the parallax angle θ
+          with <Formula>{String.raw`\theta = \frac{b}{D}`}</Formula>, where D is the Moon&rsquo;s
+          distance. Combined with the Moon&rsquo;s angular size, this yields its diameter.
+        </p>
+      </Expandable>
+
+      <Expandable title="P14 — Which of second, newton, joule is a fundamental unit?" variant="exercise">
+        <p>
+          <strong>Second</strong>. Newton (force) and joule (energy) are{" "}
+          <strong>derived</strong> units — each is built from the base units m, kg, s.
+        </p>
+      </Expandable>
+
       <Callout type="warning" title="Limits of the principle of homogeneity">
         <ol>
           <li>

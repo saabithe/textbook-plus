@@ -4,6 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export default function SignupPage() {
   const { supabase } = useAuth();
@@ -55,29 +60,26 @@ export default function SignupPage() {
   if (success) {
     return (
       <div className="flex min-h-screen items-center justify-center px-6">
-        <div className="w-full max-w-sm text-center space-y-6">
-          <Image
-            src="/icon.svg"
-            alt="Textbook++"
-            width={48}
-            height={48}
-            className="mx-auto dark:invert"
-            priority
-          />
-          <div className="space-y-2">
-            <h1 className="text-2xl font-bold tracking-tight">Check your email</h1>
-            <p className="text-sm text-muted-foreground">
-              We sent a confirmation link to <span className="font-medium text-foreground">{email}</span>.
-              Click the link to activate your account.
-            </p>
-          </div>
-          <Link
-            href="/login"
-            className="inline-flex h-10 items-center justify-center rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background transition-all hover:opacity-90"
-          >
-            Back to Sign In
-          </Link>
-        </div>
+        <Card className="w-full max-w-sm">
+          <CardContent className="flex flex-col items-center gap-6 px-6 py-8 text-center">
+            <Image
+              src="/icon.svg"
+              alt="Textbook++"
+              width={48}
+              height={48}
+              className="dark:invert"
+              priority
+            />
+            <div className="space-y-2">
+              <h1 className="text-2xl font-bold tracking-tight">Check your email</h1>
+              <p className="text-sm text-muted-foreground">
+                We sent a confirmation link to <span className="font-medium text-foreground">{email}</span>.
+                Click the link to activate your account.
+              </p>
+            </div>
+            <Button render={<Link href="/login">Back to Sign In</Link>} />
+          </CardContent>
+        </Card>
       </div>
     );
   }
@@ -98,73 +100,66 @@ export default function SignupPage() {
             />
             <span className="text-xl font-bold tracking-tight">Textbook++</span>
           </Link>
-          <h1 className="text-2xl font-bold tracking-tight">Create account</h1>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Save your progress and access it from any device.
-          </p>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {error && (
-            <div className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-600 dark:text-red-400">
-              {error}
-            </div>
-          )}
+        <Card>
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl font-bold tracking-tight">Create account</CardTitle>
+            <CardDescription>
+              Save your progress and access it from any device.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {error && (
+                <Alert variant="destructive">
+                  <AlertDescription>{error}</AlertDescription>
+                </Alert>
+              )}
 
-          <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium">
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex h-10 w-full rounded-lg border border-border/60 bg-muted/50 px-3 py-2 text-sm transition-colors placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-              placeholder="you@example.com"
-            />
-          </div>
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                />
+              </div>
 
-          <div className="space-y-2">
-            <label htmlFor="password" className="text-sm font-medium">
-              Password
-            </label>
-            <input
-              id="password"
-              type="password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="flex h-10 w-full rounded-lg border border-border/60 bg-muted/50 px-3 py-2 text-sm transition-colors placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-              placeholder="At least 6 characters"
-            />
-          </div>
+              <div className="space-y-2">
+                <Label htmlFor="password">Password</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="At least 6 characters"
+                />
+              </div>
 
-          <div className="space-y-2">
-            <label htmlFor="confirmPassword" className="text-sm font-medium">
-              Confirm Password
-            </label>
-            <input
-              id="confirmPassword"
-              type="password"
-              required
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              className="flex h-10 w-full rounded-lg border border-border/60 bg-muted/50 px-3 py-2 text-sm transition-colors placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-              placeholder="Repeat your password"
-            />
-          </div>
+              <div className="space-y-2">
+                <Label htmlFor="confirmPassword">Confirm Password</Label>
+                <Input
+                  id="confirmPassword"
+                  type="password"
+                  required
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  placeholder="Repeat your password"
+                />
+              </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="flex h-10 w-full items-center justify-center rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background transition-all hover:opacity-90 disabled:opacity-50"
-          >
-            {loading ? "Creating account..." : "Create Account"}
-          </button>
-        </form>
+              <Button type="submit" disabled={loading} className="h-10 w-full">
+                {loading ? "Creating account..." : "Create Account"}
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
 
         {/* Links */}
         <p className="text-center text-sm text-muted-foreground">

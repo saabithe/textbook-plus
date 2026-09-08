@@ -1,6 +1,7 @@
 "use client";
 
 import { CheckCircle2, XCircle, Layers } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 interface FlashcardProgressProps {
   total: number;
@@ -14,31 +15,31 @@ export function FlashcardProgress({ total, known, unknown, subjectColor }: Flash
   const remaining = total - reviewed;
 
   return (
-    <div className="flex items-center gap-4 flex-wrap">
-      <div className="flex items-center gap-1.5 text-sm">
-        <Layers className="h-4 w-4" style={{ color: subjectColor }} />
+    <div className="flex items-center gap-2 flex-wrap">
+      <Badge variant="secondary" className="h-6 gap-1.5 px-2.5 text-xs font-normal">
+        <Layers style={{ color: subjectColor }} />
         <span className="font-medium">{total}</span>
         <span className="text-muted-foreground">total</span>
-      </div>
-      <div className="flex items-center gap-1.5 text-sm text-green-600 dark:text-green-400">
-        <CheckCircle2 className="h-4 w-4" />
+      </Badge>
+      <Badge variant="outline" className="h-6 gap-1.5 border-green-500/30 bg-green-500/10 px-2.5 text-xs font-normal text-green-600 dark:text-green-400">
+        <CheckCircle2 />
         <span className="font-medium">{known}</span>
-        <span className="text-muted-foreground">known</span>
-      </div>
-      <div className="flex items-center gap-1.5 text-sm text-red-600 dark:text-red-400">
-        <XCircle className="h-4 w-4" />
+        <span>known</span>
+      </Badge>
+      <Badge variant="outline" className="h-6 gap-1.5 border-red-500/30 bg-red-500/10 px-2.5 text-xs font-normal text-red-600 dark:text-red-400">
+        <XCircle />
         <span className="font-medium">{unknown}</span>
-        <span className="text-muted-foreground">unknown</span>
-      </div>
+        <span>unknown</span>
+      </Badge>
       {remaining > 0 && (
-        <div className="text-sm text-muted-foreground">
+        <Badge variant="outline" className="h-6 px-2.5 text-xs font-normal text-muted-foreground">
           <span className="font-medium">{remaining}</span> remaining
-        </div>
+        </Badge>
       )}
       {reviewed === total && total > 0 && (
-        <div className="text-sm font-medium" style={{ color: subjectColor }}>
+        <Badge className="h-6 px-2.5 text-xs text-white" style={{ backgroundColor: subjectColor }}>
           All reviewed! 🎉
-        </div>
+        </Badge>
       )}
     </div>
   );

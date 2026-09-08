@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { CSSProperties } from "react";
+import { Progress } from "@/components/ui/progress";
 
 export function ReadingProgress({
   color,
@@ -35,19 +37,11 @@ export function ReadingProgress({
   }, []);
 
   return (
-    <div
-      className="fixed left-0 w-full h-1 bg-muted/30 pointer-events-none"
-      style={{ top, zIndex: 60 }}
-      role="progressbar"
-      aria-valuemin={0}
-      aria-valuemax={100}
-      aria-valuenow={Math.round(pct)}
+    <Progress
+      value={pct}
       aria-label="Reading progress"
-    >
-      <div
-        className="h-full transition-[width] duration-150 ease-out"
-        style={{ width: `${pct}%`, backgroundColor: color }}
-      />
-    </div>
+      className="fixed left-0 w-full gap-0 p-0 pointer-events-none [&_[data-slot=progress-track]]:rounded-none [&_[data-slot=progress-track]]:bg-muted/30 [&_[data-slot=progress-indicator]]:bg-[var(--reading-color)]"
+      style={{ top, zIndex: 60, "--reading-color": color } as CSSProperties}
+    />
   );
 }

@@ -1,9 +1,12 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import type { CSSProperties } from "react";
 import { ChevronLeft, ChevronRight, RotateCcw } from "lucide-react";
 import { FlashcardCard } from "./FlashcardCard";
 import { FlashcardProgress } from "./FlashcardProgress";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 import type { Flashcard } from "@/types/chapter";
 
 interface FlashcardDeckProps {
@@ -76,15 +79,12 @@ export function FlashcardDeck({ cards, subjectColor, initialKnown = [], initialU
   return (
     <div className="space-y-6">
       {/* Progress bar */}
-      <div className="w-full h-1.5 rounded-full bg-muted overflow-hidden">
-        <div
-          className="h-full rounded-full transition-all duration-500"
-          style={{
-            width: `${((knownIds.size + unknownIds.size) / cards.length) * 100}%`,
-            backgroundColor: subjectColor,
-          }}
-        />
-      </div>
+      <Progress
+        value={((knownIds.size + unknownIds.size) / cards.length) * 100}
+        aria-label="Flashcard progress"
+        className="gap-0 p-0 [&_[data-slot=progress-track]]:h-1.5 [&_[data-slot=progress-indicator]]:bg-[var(--deck-color)]"
+        style={{ "--deck-color": subjectColor } as CSSProperties}
+      />
 
       {/* Stats */}
       <FlashcardProgress
@@ -105,30 +105,24 @@ export function FlashcardDeck({ cards, subjectColor, initialKnown = [], initialU
 
       {/* Navigation */}
       <div className="flex items-center justify-between max-w-lg mx-auto">
-        <button
-          onClick={goPrev}
-          className="flex items-center gap-2 rounded-lg border border-border/60 px-4 py-2.5 text-sm font-medium text-foreground hover:bg-muted transition-all duration-200"
-        >
+        <Button variant="outline" onClick={goPrev}>
           <ChevronLeft className="h-4 w-4" />
           Prev
-        </button>
+        </Button>
 
-        <button
+        <Button
+          variant="outline"
           onClick={reset}
-          className="flex items-center gap-2 rounded-lg border border-border/60 px-4 py-2.5 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-all duration-200"
+          className="text-muted-foreground hover:text-foreground"
         >
           <RotateCcw className="h-4 w-4" />
           Reset
-        </button>
+        </Button>
 
-        <button
-          onClick={goNext}
-          className="flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium text-white hover:opacity-90 transition-all duration-200"
-          style={{ backgroundColor: subjectColor }}
-        >
+        <Button onClick={goNext} style={{ backgroundColor: subjectColor }}>
           Next
           <ChevronRight className="h-4 w-4" />
-        </button>
+        </Button>
       </div>
     </div>
   );

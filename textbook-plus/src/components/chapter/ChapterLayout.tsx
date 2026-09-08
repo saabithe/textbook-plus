@@ -1,14 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronRight, CheckCircle2, Circle, Brain, Layers } from "lucide-react";
+import { CheckCircle2, Circle, Brain, Layers } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ChapterNav } from "./ChapterNav";
 import { ChapterTabs, PracticePlaceholder } from "./ChapterTabs";
 import { ReadingProgress } from "./ReadingProgress";
 import { PracticeSession } from "@/components/practice/PracticeSession";
 import { FlashcardDeck } from "@/components/flashcard/FlashcardDeck";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { getAdjacentChapters } from "@/data/chapters";
 import { getAdjacentClass11Chapters, getClass11ChapterBySlugFromAll } from "@/data/class11";
 import { getQuestionsForChapter, getFlashcardsForChapter, hasQuestions, hasFlashcards } from "@/lib/content";
@@ -77,20 +87,24 @@ export function ChapterLayout({
     <div className="mx-auto max-w-6xl px-6 py-10">
       <ReadingProgress color={subjectColor} />
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-1.5 text-sm text-muted-foreground mb-8">
-        {crumbs.map((crumb, i) => (
-          <span key={i} className="flex items-center gap-1.5 min-w-0">
-            {i > 0 && <ChevronRight className="h-3.5 w-3.5 shrink-0" />}
-            {crumb.href ? (
-              <Link href={crumb.href} className="transition-colors hover:text-foreground">
-                {crumb.label}
-              </Link>
-            ) : (
-              <span className="text-foreground font-medium truncate">{crumb.label}</span>
-            )}
-          </span>
-        ))}
-      </nav>
+      <Breadcrumb className="mb-8">
+        <BreadcrumbList>
+          {crumbs.map((crumb, i) => (
+            <Fragment key={i}>
+              {i > 0 && <BreadcrumbSeparator />}
+              <BreadcrumbItem className="min-w-0">
+                {crumb.href ? (
+                  <BreadcrumbLink render={<Link href={crumb.href} />}>
+                    {crumb.label}
+                  </BreadcrumbLink>
+                ) : (
+                  <BreadcrumbPage className="font-medium truncate">{crumb.label}</BreadcrumbPage>
+                )}
+              </BreadcrumbItem>
+            </Fragment>
+          ))}
+        </BreadcrumbList>
+      </Breadcrumb>
 
       {/* Chapter Header */}
       <header className="mb-6 flex items-start justify-between gap-4">
@@ -112,13 +126,14 @@ export function ChapterLayout({
         </div>
         <div className="flex items-center gap-2 shrink-0">
           {/* Mark complete button */}
-          <button
+          <Button
+            variant="outline"
             onClick={() => toggle(chapter.slug)}
             className={cn(
-              "flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-all duration-200",
+              "h-9 px-3",
               completed
                 ? "border-green-500/30 bg-green-500/10 text-green-600 dark:text-green-400"
-                : "border-border/60 bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
+                : "bg-muted/50 text-muted-foreground hover:text-foreground"
             )}
           >
             {completed ? (
@@ -129,7 +144,7 @@ export function ChapterLayout({
             <span className="hidden sm:inline">
               {completed ? "Completed" : "Mark complete"}
             </span>
-          </button>
+          </Button>
         </div>
       </header>
 
@@ -213,30 +228,30 @@ function PracticeTabContent({
       {/* Sub-tabs: Questions / Flashcards */}
       {(hasQ && hasFC) && (
         <div className="flex items-center gap-1 rounded-xl border border-border/60 bg-muted/30 p-1">
-          <button
+          <Button
+            variant={subTab === "questions" ? "secondary" : "ghost"}
             onClick={() => setSubTab("questions")}
             className={cn(
-              "flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 flex-1 justify-center",
-              subTab === "questions"
-                ? "bg-background text-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
+              "flex-1 justify-center px-4 py-2.5",
+              subTab === "questions" && "bg-background shadow-sm hover:bg-background"
             )}
           >
             <Brain className="h-4 w-4" />
-            Questions ({questions.length})
-          </button>
-          <button
+            Questions
+            <Badge variant="secondary" className="ml-1">{questions.length}</Badge>
+          </Button>
+          <Button
+            variant={subTab === "flashcards" ? "secondary" : "ghost"}
             onClick={() => setSubTab("flashcards")}
             className={cn(
-              "flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 flex-1 justify-center",
-              subTab === "flashcards"
-                ? "bg-background text-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
+              "flex-1 justify-center px-4 py-2.5",
+              subTab === "flashcards" && "bg-background shadow-sm hover:bg-background"
             )}
           >
             <Layers className="h-4 w-4" />
-            Flashcards ({flashcards.length})
-          </button>
+            Flashcards
+            <Badge variant="secondary" className="ml-1">{flashcards.length}</Badge>
+          </Button>
         </div>
       )}
 

@@ -1,6 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Badge } from "@/components/ui/badge";
 
 type Difficulty = "all" | "easy" | "medium" | "hard";
 
@@ -25,35 +27,45 @@ export function DifficultyFilter({
   counts,
 }: DifficultyFilterProps) {
   return (
-    <div className="flex items-center gap-1.5 flex-wrap">
+    <ToggleGroup
+      variant="outline"
+      spacing={2}
+      value={[active]}
+      onValueChange={(v) => {
+        const next = v[v.length - 1] ?? v[0];
+        if (next) onChange(next as Difficulty);
+      }}
+      className="flex-wrap"
+      aria-label="Filter questions by difficulty"
+    >
       {filters.map((filter) => {
         const isActive = active === filter.id;
         return (
-          <button
+          <ToggleGroupItem
             key={filter.id}
-            onClick={() => onChange(filter.id)}
+            value={filter.id}
+            aria-label={`Show ${filter.label} questions`}
             className={cn(
-              "inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 border",
-              isActive
-                ? "text-white border-transparent"
-                : "border-border/60 bg-muted/30 text-muted-foreground hover:bg-muted hover:text-foreground"
+              "gap-1.5 px-3 py-2",
+              isActive && "border-transparent text-white hover:bg-transparent hover:text-white"
             )}
             style={isActive ? { backgroundColor: subjectColor } : undefined}
           >
             {filter.label}
-            <span
+            <Badge
+              variant="secondary"
               className={cn(
-                "inline-flex h-5 min-w-5 items-center justify-center rounded-md px-1 text-[10px] font-bold",
+                "h-5 min-w-5 px-1 text-[10px]",
                 isActive
                   ? "bg-white/20 text-white dark:text-background"
                   : "bg-muted text-muted-foreground"
               )}
             >
               {counts[filter.id]}
-            </span>
-          </button>
+            </Badge>
+          </ToggleGroupItem>
         );
       })}
-    </div>
+    </ToggleGroup>
   );
 }

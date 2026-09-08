@@ -7,7 +7,21 @@ import { ChevronRight, Shield, Trash2 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useSync } from "@/components/auth/SyncProvider";
-import { cn } from "@/lib/utils";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 export default function AccountPage() {
   const { user, supabase, isAnonymous } = useAuth();
@@ -32,18 +46,15 @@ export default function AccountPage() {
         <Navbar />
         <main className="flex-1">
           <section className="mx-auto max-w-6xl px-6 py-14">
-            <div className="text-center space-y-4">
-              <h1 className="text-2xl font-bold">Account Settings</h1>
-              <p className="text-muted-foreground">
-                Sign in with an email account to access settings.
-              </p>
-              <Link
-                href="/signup"
-                className="inline-flex h-10 items-center justify-center rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background transition-all hover:opacity-90"
-              >
-                Create Account
-              </Link>
-            </div>
+            <Card className="mx-auto max-w-md">
+              <CardContent className="flex flex-col items-center gap-4 px-6 py-8 text-center">
+                <h1 className="text-2xl font-bold">Account Settings</h1>
+                <p className="text-muted-foreground">
+                  Sign in with an email account to access settings.
+                </p>
+                <Button render={<Link href="/signup">Create Account</Link>} />
+              </CardContent>
+            </Card>
           </section>
         </main>
       </>
@@ -138,99 +149,119 @@ export default function AccountPage() {
 
           <div className="max-w-lg space-y-8">
             {/* Email */}
-            <div className="rounded-xl border border-border/60 bg-card p-6">
-              <h2 className="text-lg font-semibold mb-1">Email</h2>
-              <p className="text-sm text-muted-foreground">{user.email}</p>
-            </div>
+            <Card className="border-border/60 py-0 ring-0">
+              <CardContent className="px-6 py-6">
+                <h2 className="text-lg font-semibold mb-1">Email</h2>
+                <p className="text-sm text-muted-foreground">{user.email}</p>
+              </CardContent>
+            </Card>
 
             {/* Change Password */}
-            <div className="rounded-xl border border-border/60 bg-card p-6">
-              <div className="flex items-center gap-2 mb-4">
-                <Shield className="h-5 w-5 text-muted-foreground" />
-                <h2 className="text-lg font-semibold">Change Password</h2>
-              </div>
-
-              <form onSubmit={handlePasswordChange} className="space-y-4">
-                {pwError && (
-                  <div className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-600 dark:text-red-400">
-                    {pwError}
-                  </div>
-                )}
-                {pwSuccess && (
-                  <div className="rounded-lg border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-600 dark:text-green-400">
-                    Password updated successfully.
-                  </div>
-                )}
-
-                <div className="space-y-2">
-                  <label htmlFor="newPassword" className="text-sm font-medium">New Password</label>
-                  <input
-                    id="newPassword"
-                    type="password"
-                    required
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                    className="flex h-10 w-full rounded-lg border border-border/60 bg-muted/50 px-3 py-2 text-sm transition-colors placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    placeholder="At least 6 characters"
-                  />
+            <Card className="border-border/60 py-0 ring-0">
+              <CardHeader>
+                <div className="flex items-center gap-2">
+                  <Shield className="h-5 w-5 text-muted-foreground" />
+                  <CardTitle className="text-lg font-semibold">Change Password</CardTitle>
                 </div>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handlePasswordChange} className="space-y-4">
+                  {pwError && (
+                    <Alert variant="destructive">
+                      <AlertDescription>{pwError}</AlertDescription>
+                    </Alert>
+                  )}
+                  {pwSuccess && (
+                    <Alert>
+                      <AlertDescription>Password updated successfully.</AlertDescription>
+                    </Alert>
+                  )}
 
-                <div className="space-y-2">
-                  <label htmlFor="confirmPw" className="text-sm font-medium">Confirm Password</label>
-                  <input
-                    id="confirmPw"
-                    type="password"
-                    required
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="flex h-10 w-full rounded-lg border border-border/60 bg-muted/50 px-3 py-2 text-sm transition-colors placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    placeholder="Repeat your password"
-                  />
-                </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="newPassword">New Password</Label>
+                    <Input
+                      id="newPassword"
+                      type="password"
+                      required
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      placeholder="At least 6 characters"
+                    />
+                  </div>
 
-                <button
-                  type="submit"
-                  disabled={pwLoading}
-                  className="flex h-10 items-center justify-center rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background transition-all hover:opacity-90 disabled:opacity-50"
-                >
-                  {pwLoading ? "Updating..." : "Update Password"}
-                </button>
-              </form>
-            </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="confirmPw">Confirm Password</Label>
+                    <Input
+                      id="confirmPw"
+                      type="password"
+                      required
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      placeholder="Repeat your password"
+                    />
+                  </div>
+
+                  <Button type="submit" disabled={pwLoading} className="h-10">
+                    {pwLoading ? "Updating..." : "Update Password"}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
 
             {/* Delete Account */}
-            <div className="rounded-xl border border-red-500/20 bg-red-500/5 p-6">
-              <div className="flex items-center gap-2 mb-2">
-                <Trash2 className="h-5 w-5 text-red-500" />
-                <h2 className="text-lg font-semibold text-red-600 dark:text-red-400">Delete Account</h2>
-              </div>
-              <p className="text-sm text-muted-foreground mb-4">
-                Permanently delete your account and all associated data. This cannot be undone.
-              </p>
-
-              {deleteError && (
-                <div className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-600 dark:text-red-400 mb-4">
-                  {deleteError}
+            <Card className="border border-red-500/20 bg-red-500/5 py-0 ring-0">
+              <CardHeader>
+                <div className="flex items-center gap-2">
+                  <Trash2 className="h-5 w-5 text-red-500" />
+                  <CardTitle className="text-lg font-semibold text-red-600 dark:text-red-400">
+                    Delete Account
+                  </CardTitle>
                 </div>
-              )}
+                <CardDescription>
+                  Permanently delete your account and all associated data. This cannot be undone.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Dialog open={deleteConfirm} onOpenChange={setDeleteConfirm}>
+                  <DialogTrigger
+                    render={
+                      <Button
+                        variant="outline"
+                        className="border-red-500/30 text-red-600 hover:bg-red-500/10 hover:text-red-600 dark:text-red-400 dark:hover:text-red-400"
+                      >
+                        Delete Account
+                      </Button>
+                    }
+                  />
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>Delete account?</DialogTitle>
+                      <DialogDescription>
+                        This permanently deletes your account and all associated data.
+                        This action cannot be undone.
+                      </DialogDescription>
+                    </DialogHeader>
 
-              <button
-                onClick={handleDeleteAccount}
-                disabled={deleteLoading}
-                className={cn(
-                  "flex h-10 items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-all disabled:opacity-50",
-                  deleteConfirm
-                    ? "bg-red-600 text-white hover:bg-red-700"
-                    : "border border-red-500/30 bg-transparent text-red-600 dark:text-red-400 hover:bg-red-500/10"
-                )}
-              >
-                {deleteLoading
-                  ? "Deleting..."
-                  : deleteConfirm
-                  ? "Confirm Delete — This is permanent"
-                  : "Delete Account"}
-              </button>
-            </div>
+                    {deleteError && (
+                      <Alert variant="destructive">
+                        <AlertDescription>{deleteError}</AlertDescription>
+                      </Alert>
+                    )}
+
+                    <DialogFooter>
+                      <DialogClose render={<Button variant="outline">Cancel</Button>} />
+                      <Button
+                        variant="destructive"
+                        onClick={handleDeleteAccount}
+                        disabled={deleteLoading}
+                      >
+                        {deleteLoading ? "Deleting..." : "Confirm Delete"}
+                      </Button>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+              </CardContent>
+            </Card>
           </div>
         </section>
       </main>

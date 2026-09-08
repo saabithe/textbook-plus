@@ -11,6 +11,20 @@ import { useFontSize } from "@/hooks/useFontSize";
 import { useSync } from "@/components/auth/SyncProvider";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { SearchModal } from "@/components/search/SearchModal";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip";
 
 const navLinks = [
   { href: "/", label: "Home", icon: Home },
@@ -25,7 +39,6 @@ export function Navbar() {
   const { status } = useSync();
   const { user, isAnonymous, supabase } = useAuth();
   const [searchOpen, setSearchOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -38,20 +51,21 @@ export function Navbar() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // Close menu on outside click
-  useEffect(() => {
-    if (!menuOpen) return;
-    function handleClick() { setMenuOpen(false); }
-    window.addEventListener("click", handleClick);
-    return () => window.removeEventListener("click", handleClick);
-  }, [menuOpen]);
-
   async function handleSignOut() {
     try {
       await supabase.auth.signOut();
     } catch {}
     router.push("/");
   }
+
+  const syncLabel =
+    status === "syncing"
+      ? "Syncing progress..."
+      : status === "error"
+      ? "Sync failed — will retry"
+      : status === "offline"
+      ? "Offline — changes saved locally"
+      : "Progress synced";
 
   return (
     <>
@@ -101,120 +115,125 @@ export function Navbar() {
           {/* Right actions */}
           <div className="flex items-center gap-1.5 sm:gap-2">
             {/* Search */}
-            <button
+            <Button
+              variant="outline"
+              size="icon-lg"
               onClick={() => setSearchOpen(true)}
-              className="flex h-9 w-9 items-center justify-center gap-2 rounded-lg border border-border/60 bg-muted/50 text-sm text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground px-0 sm:w-auto sm:px-3"
               aria-label="Search chapters"
+              className="border-border/60 bg-muted/50 px-0 text-muted-foreground hover:text-foreground sm:w-auto sm:px-3"
             >
               <Search className="h-4 w-4" />
               <kbd className="hidden sm:inline-flex h-5 items-center gap-1 rounded border border-border/60 bg-background px-1.5 text-[10px] font-medium">
                 Ctrl K
               </kbd>
-            </button>
+            </Button>
 
             {/* Font Size */}
             <div className="flex items-center gap-0.5 rounded-lg border border-border/60 bg-muted/50">
-              <button
+              <Button
+                variant="ghost"
                 onClick={decrease}
                 disabled={!canDecrease}
-                className="flex h-9 w-8 items-center justify-center text-sm font-bold text-muted-foreground transition-all duration-200 hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed sm:w-9"
                 aria-label="Decrease font size"
+                className="h-9 w-8 rounded-md px-0 text-sm font-bold text-muted-foreground hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30 disabled:pointer-events-auto sm:w-9"
               >
                 A-
-              </button>
+              </Button>
               <div className="h-4 w-px bg-border/60" />
-              <button
+              <Button
+                variant="ghost"
                 onClick={increase}
                 disabled={!canIncrease}
-                className="flex h-9 w-8 items-center justify-center text-sm font-bold text-muted-foreground transition-all duration-200 hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed sm:w-9"
                 aria-label="Increase font size"
+                className="h-9 w-8 rounded-md px-0 text-sm font-bold text-muted-foreground hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30 disabled:pointer-events-auto sm:w-9"
               >
                 A+
-              </button>
+              </Button>
             </div>
 
             {/* Sync Status */}
-            <div
-              className={cn(
-                "hidden h-9 w-9 items-center justify-center rounded-lg border border-border/60 bg-muted/50 transition-all duration-200 sm:flex",
-                status === "syncing" && "text-blue-500",
-                status === "error" && "text-amber-500",
-                status === "idle" && "text-muted-foreground",
-                status === "offline" && "text-muted-foreground"
-              )}
-              title={
-                status === "syncing"
-                  ? "Syncing progress..."
-                  : status === "error"
-                  ? "Sync failed — will retry"
-                  : status === "offline"
-                  ? "Offline — changes saved locally"
-                  : "Progress synced"
-              }
-            >
-              {status === "syncing" ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : status === "error" ? (
-                <CloudOff className="h-4 w-4" />
-              ) : (
-                <Cloud className="h-4 w-4" />
-              )}
-            </div>
+            <Tooltip>
+              <TooltipTrigger
+                render={
+                  <div
+                    className={cn(
+                      "hidden h-9 w-9 items-center justify-center rounded-lg border border-border/60 bg-muted/50 transition-all duration-200 sm:flex",
+                      status === "syncing" && "text-blue-500",
+                      status === "error" && "text-amber-500",
+                      status === "idle" && "text-muted-foreground",
+                      status === "offline" && "text-muted-foreground"
+                    )}
+                  />
+                }
+              >
+                {status === "syncing" ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : status === "error" ? (
+                  <CloudOff className="h-4 w-4" />
+                ) : (
+                  <Cloud className="h-4 w-4" />
+                )}
+              </TooltipTrigger>
+              <TooltipContent>{syncLabel}</TooltipContent>
+            </Tooltip>
 
             {/* Auth Menu */}
             {isAnonymous || !user ? (
-              <Link
-                href="/login"
-                className="flex h-9 w-9 items-center justify-center gap-1.5 rounded-lg border border-border/60 bg-muted/50 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground px-0 sm:w-auto sm:px-3"
+              <Button
+                variant="outline"
+                size="icon-lg"
+                render={<Link href="/login" />}
+                className="border-border/60 bg-muted/50 px-0 text-muted-foreground hover:text-foreground sm:w-auto sm:px-3"
               >
                 <LogIn className="h-4 w-4" />
                 <span className="hidden sm:inline">Sign In</span>
-              </Link>
+              </Button>
             ) : (
-              <div className="relative">
-                <button
-                  onClick={(e) => { e.stopPropagation(); setMenuOpen((prev) => !prev); }}
-                  className="flex h-9 w-9 items-center justify-center gap-1.5 rounded-lg border border-border/60 bg-muted/50 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground px-0 sm:w-auto sm:px-3"
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  render={
+                    <Button
+                      variant="outline"
+                      size="icon-lg"
+                      aria-label="Account menu"
+                      className="border-border/60 bg-muted/50 px-0 text-muted-foreground hover:text-foreground sm:w-auto sm:px-3"
+                    />
+                  }
                 >
                   <User className="h-4 w-4" />
                   <span className="hidden sm:inline max-w-[100px] truncate">{user.email}</span>
-                </button>
-                {menuOpen && (
-                  <div className="absolute right-0 top-full mt-1 w-48 rounded-xl border border-border/60 bg-card p-1 shadow-lg z-50">
-                    <div className="px-3 py-2 text-xs text-muted-foreground truncate border-b border-border/40 mb-1">
-                      {user.email}
-                    </div>
-                    <Link
-                      href="/account"
-                      className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
-                    >
-                      <Settings className="h-4 w-4" />
-                      Account
-                    </Link>
-                    <button
-                      onClick={handleSignOut}
-                      className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
-                    >
-                      <LogOut className="h-4 w-4" />
-                      Sign Out
-                    </button>
-                  </div>
-                )}
-              </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuLabel className="truncate">
+                    {user.email}
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem render={<Link href="/account" />}>
+                    <Settings className="h-4 w-4" />
+                    Account
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleSignOut}>
+                    <LogOut className="h-4 w-4" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             )}
 
             {/* Theme Toggle */}
-            <button
+            <Button
+              variant="outline"
+              size="icon-lg"
               onClick={toggle}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/60 bg-muted/50 text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground"
               aria-label="Toggle theme"
+              className="border-border/60 bg-muted/50 text-muted-foreground hover:text-foreground"
             >
               {theme === "dark" ? (
                 <Moon className="h-4 w-4" />
               ) : (
                 <Sun className="h-4 w-4" />
               )}
-            </button>
+            </Button>
           </div>
         </div>
       </header>

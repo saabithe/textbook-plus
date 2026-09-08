@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import { SyncProvider } from "@/components/auth/SyncProvider";
 import { MigrateBanner } from "@/components/auth/MigrateBanner";
@@ -57,9 +59,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                var theme = localStorage.getItem('theme');
-                var dark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-                document.documentElement.classList.toggle('dark', dark);
                 var meta = document.createElement('meta');
                 meta.name = 'theme-color';
                 document.head.appendChild(meta);
@@ -75,16 +74,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full flex flex-col font-sans">
         <ThemeProvider>
-          <AuthProvider>
-            <SyncProvider>
-              <MigrateBanner />
-              <ServiceWorkerRegistration />
-              <UpdateBanner />
-              <ErrorBoundary>
-                {children}
-              </ErrorBoundary>
-            </SyncProvider>
-          </AuthProvider>
+          <TooltipProvider>
+            <AuthProvider>
+              <SyncProvider>
+                <MigrateBanner />
+                <ServiceWorkerRegistration />
+                <UpdateBanner />
+                <ErrorBoundary>
+                  {children}
+                </ErrorBoundary>
+                <Toaster position="bottom-center" />
+              </SyncProvider>
+            </AuthProvider>
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

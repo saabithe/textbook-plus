@@ -1,19 +1,39 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { RefreshCw, X } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { toast } from "sonner";
 
 export function UpdateBanner() {
-  const [show, setShow] = useState(false);
-  const [waiting, setWaiting] = useState<ServiceWorker | null>(null);
+  const waitingRef = useRef<ServiceWorker | null>(null);
+  const toastIdRef = useRef<string | number | null>(null);
 
   useEffect(() => {
     if (process.env.NODE_ENV !== "production") return;
 
+    function applyUpdate() {
+      waitingRef.current?.postMessage({ type: "SKIP_WAITING" });
+      if (toastIdRef.current !== null) {
+        toast.dismiss(toastIdRef.current);
+        toastIdRef.current = null;
+      }
+    }
+
+    function showUpdateToast(worker: ServiceWorker) {
+      waitingRef.current = worker;
+      if (toastIdRef.current !== null) return;
+      toastIdRef.current = toast.warning("Update available", {
+        duration: Infinity,
+        dismissible: true,
+        action: {
+          label: "Update",
+          onClick: applyUpdate,
+        },
+      });
+    }
+
     navigator.serviceWorker.ready.then((registration) => {
       if (registration.waiting) {
-        setWaiting(registration.waiting);
-        setShow(true);
+        showUpdateToast(registration.waiting);
       }
 
       registration.addEventListener("updatefound", () => {
@@ -21,8 +41,7 @@ export function UpdateBanner() {
         if (!newWorker) return;
         newWorker.addEventListener("statechange", () => {
           if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
-            setWaiting(newWorker);
-            setShow(true);
+            showUpdateToast(newWorker);
           }
         });
       });
@@ -33,32 +52,5 @@ export function UpdateBanner() {
     return () => navigator.serviceWorker.removeEventListener("controllerchange", onControllerChange);
   }, []);
 
-  if (!show || !waiting) return null;
-
-  function handleUpdate() {
-    waiting?.postMessage({ type: "SKIP_WAITING" });
-    setShow(false);
-  }
-
-  return (
-    <div role="status" className="fixed bottom-0 inset-x-0 z-50 flex items-center justify-between gap-4 border-t border-border/40 bg-background/90 px-6 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur-xl">
-      <p className="text-sm font-medium">Update available</p>
-      <div className="flex items-center gap-2">
-        <button
-          onClick={handleUpdate}
-          className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-        >
-          <RefreshCw className="h-3.5 w-3.5" />
-          Update
-        </button>
-        <button
-          onClick={() => setShow(false)}
-          className="inline-flex h-7 w-7 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-          aria-label="Dismiss"
-        >
-          <X className="h-4 w-4" />
-        </button>
-      </div>
-    </div>
-  );
+  return null;
 }

@@ -3,6 +3,10 @@
 import { useState, useEffect } from "react";
 import { Eye, EyeOff, CheckCircle2, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import type { Question } from "@/types/chapter";
 
 interface QuestionCardProps {
@@ -42,13 +46,13 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
   }
 
   const difficultyColors = {
-    easy: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
-    medium: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
-    hard: "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20",
+    easy: "border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+    medium: "border-amber-500/20 bg-amber-500/10 text-amber-600 dark:text-amber-400",
+    hard: "border-red-500/20 bg-red-500/10 text-red-600 dark:text-red-400",
   };
 
   return (
-    <div className="rounded-xl border border-border/60 bg-card p-5 sm:p-6">
+    <Card className="p-5 sm:p-6">
       {/* Header */}
       <div className="flex items-start justify-between gap-3 mb-4">
         <div className="flex items-center gap-2">
@@ -58,14 +62,12 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
           >
             {index}
           </span>
-          <span
-            className={cn(
-              "inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-medium capitalize",
-              difficultyColors[question.difficulty]
-            )}
+          <Badge
+            variant="outline"
+            className={cn("capitalize", difficultyColors[question.difficulty])}
           >
             {question.difficulty}
-          </span>
+          </Badge>
           <span className="text-xs text-muted-foreground uppercase tracking-wide">
             {question.type === "mcq" ? "MCQ" : "Short Answer"}
           </span>
@@ -83,26 +85,27 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
           {question.options.map((option, idx) => {
             const isSelected = selected === idx;
             const isCorrectOption = idx === correctIndex;
-            let optionStyle = "border-border/60 bg-muted/30 hover:bg-muted/60";
+            let optionStyle = "hover:bg-muted/60";
             if (revealed) {
               if (isCorrectOption) {
                 optionStyle = "border-green-500/40 bg-green-500/10";
               } else if (isSelected && !isCorrectOption) {
                 optionStyle = "border-red-500/40 bg-red-500/10";
               } else {
-                optionStyle = "border-border/30 bg-muted/10 opacity-60";
+                optionStyle = "opacity-60";
               }
             } else if (isSelected) {
               optionStyle = "border-primary/40 bg-primary/10";
             }
 
             return (
-              <button
+              <Button
                 key={idx}
+                variant="outline"
                 onClick={() => handleSelect(idx)}
                 disabled={revealed}
                 className={cn(
-                  "w-full flex items-start gap-3 rounded-lg border p-3 text-left text-sm transition-all duration-200",
+                  "h-auto w-full items-start justify-start gap-3 p-3 text-left whitespace-normal disabled:opacity-100",
                   optionStyle,
                   revealed && "cursor-default"
                 )}
@@ -128,7 +131,7 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
                   )}
                 </span>
                 <span className="leading-relaxed">{option}</span>
-              </button>
+              </Button>
             );
           })}
         </div>
@@ -138,42 +141,36 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
       {!isMCQ && (
         <div className="mb-4">
           {revealed ? (
-            <div className="rounded-lg border border-green-500/30 bg-green-500/5 p-4">
-              <p className="text-sm font-medium text-green-700 dark:text-green-300 mb-1">Answer:</p>
-              <p className="text-sm leading-relaxed whitespace-pre-line">{question.answer as string}</p>
-            </div>
+            <Alert className="border-green-500/30 bg-green-500/5 p-4">
+              <AlertTitle className="text-green-700 dark:text-green-300">Answer:</AlertTitle>
+              <AlertDescription className="text-foreground leading-relaxed whitespace-pre-line">{question.answer as string}</AlertDescription>
+            </Alert>
           ) : (
-            <div className="rounded-lg border border-dashed border-border/60 bg-muted/20 p-4">
-              <p className="text-sm text-muted-foreground italic">
+            <Alert className="border-dashed bg-muted/20 p-4">
+              <AlertDescription className="italic">
                 Think about your answer, then reveal to check.
-              </p>
-            </div>
+              </AlertDescription>
+            </Alert>
           )}
         </div>
       )}
 
       {/* Explanation (shown after reveal) */}
       {revealed && (
-        <div className="rounded-lg bg-muted/30 border border-border/40 p-4 mb-4">
-          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+        <Alert className="border-border/40 bg-muted/30 p-4 mb-4">
+          <AlertTitle className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
             Explanation
-          </p>
-          <p className="text-sm leading-relaxed">{question.explanation}</p>
-        </div>
+          </AlertTitle>
+          <AlertDescription className="text-foreground leading-relaxed">{question.explanation}</AlertDescription>
+        </Alert>
       )}
 
       {/* Actions */}
       <div className="flex items-center gap-2">
         {!revealed ? (
-          <button
+          <Button
             onClick={handleReveal}
             disabled={isMCQ && selected === null}
-            className={cn(
-              "flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200",
-              isMCQ && selected === null
-                ? "bg-muted text-muted-foreground cursor-not-allowed"
-                : "text-white hover:opacity-90"
-            )}
             style={
               !(isMCQ && selected === null)
                 ? { backgroundColor: subjectColor }
@@ -182,17 +179,14 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
           >
             <Eye className="h-4 w-4" />
             Reveal Answer
-          </button>
+          </Button>
         ) : (
-          <button
-            onClick={handleReset}
-            className="flex items-center gap-2 rounded-lg border border-border/60 bg-muted/50 px-4 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-all duration-200"
-          >
+          <Button variant="outline" onClick={handleReset}>
             <EyeOff className="h-4 w-4" />
             Try Again
-          </button>
+          </Button>
         )}
       </div>
-    </div>
+    </Card>
   );
 }

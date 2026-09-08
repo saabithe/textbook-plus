@@ -1,7 +1,9 @@
 "use client";
 
 import { BookOpen, Dumbbell, Brain, FileText, Layers, HelpCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 interface ChapterTabsProps {
   activeTab: string;
@@ -17,29 +19,19 @@ const tabs = [
 export function ChapterTabs({ activeTab, onTabChange, showPractice = true }: ChapterTabsProps) {
   const filteredTabs = showPractice ? tabs : [tabs[0]];
   return (
-    <div role="tablist" aria-label="Chapter views" className="flex items-center gap-1 rounded-xl border border-border/60 bg-muted/30 p-1 mb-8">
-      {filteredTabs.map((tab) => {
-        const Icon = tab.icon;
-        const active = activeTab === tab.id;
-        return (
-          <button
-            key={tab.id}
-            role="tab"
-            aria-selected={active}
-            onClick={() => onTabChange(tab.id)}
-            className={cn(
-              "flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 flex-1 justify-center",
-              active
-                ? "bg-background text-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
-            )}
-          >
-            <Icon className="h-4 w-4" />
-            {tab.label}
-          </button>
-        );
-      })}
-    </div>
+    <Tabs value={activeTab} onValueChange={(v) => onTabChange(v as string)} className="mb-8">
+      <TabsList aria-label="Chapter views" className="flex w-full gap-1 rounded-xl border border-border/60 bg-muted/30 p-1">
+        {filteredTabs.map((tab) => {
+          const Icon = tab.icon;
+          return (
+            <TabsTrigger key={tab.id} value={tab.id} className="flex-1 justify-center rounded-lg px-4 py-2.5">
+              <Icon className="h-4 w-4" />
+              {tab.label}
+            </TabsTrigger>
+          );
+        })}
+      </TabsList>
+    </Tabs>
   );
 }
 
@@ -77,9 +69,9 @@ export function PracticePlaceholder({ subjectColor }: { subjectColor: string }) 
         {tools.map((tool) => {
           const Icon = tool.icon;
           return (
-            <div
+            <Card
               key={tool.title}
-              className="rounded-xl border border-border/60 bg-card p-5 opacity-75"
+              className="p-5 opacity-75"
             >
               <div className="flex items-start gap-3 mb-3">
                 <div
@@ -90,13 +82,13 @@ export function PracticePlaceholder({ subjectColor }: { subjectColor: string }) 
                 </div>
                 <div>
                   <h3 className="font-semibold text-sm">{tool.title}</h3>
-                  <span className="text-xs text-muted-foreground">{tool.status}</span>
+                  <Badge variant="secondary" className="mt-1 text-xs font-normal">{tool.status}</Badge>
                 </div>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {tool.description}
               </p>
-            </div>
+            </Card>
           );
         })}
       </div>
