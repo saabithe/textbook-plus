@@ -2,6 +2,7 @@
 
 import { BookOpen, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface ContentTabsProps {
   activeTab: string;
@@ -21,28 +22,22 @@ export function ContentTabs({ activeTab, onTabChange, className }: ContentTabsPr
   }
 
   return (
-    <div role="tablist" aria-label="Content views" className={cn("flex items-center gap-1 rounded-xl border border-border/60 bg-muted/30 p-1 mb-8", className)}>
-      {tabs.map((tab) => {
-        const Icon = tab.icon;
-        const active = activeTab === tab.id;
-        return (
-          <button
-            key={tab.id}
-            role="tab"
-            aria-selected={active}
-            onClick={() => handleChange(tab.id)}
-            className={cn(
-              "flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 flex-1 justify-center",
-              active
-                ? "bg-background text-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
-            )}
-          >
-            <Icon className="h-4 w-4" />
-            {tab.label}
-          </button>
-        );
-      })}
-    </div>
+    <Tabs value={activeTab} onValueChange={handleChange} className="mb-8">
+      <TabsList className={cn("flex w-full items-center gap-1 rounded-xl border border-border/60 bg-muted/30 p-1", className)}>
+        {tabs.map((tab) => {
+          const Icon = tab.icon;
+          return (
+            <TabsTrigger
+              key={tab.id}
+              value={tab.id}
+              className="flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium"
+            >
+              <Icon className="h-4 w-4" />
+              {tab.label}
+            </TabsTrigger>
+          );
+        })}
+      </TabsList>
+    </Tabs>
   );
 }

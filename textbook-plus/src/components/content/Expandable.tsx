@@ -1,8 +1,14 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useState } from "react";
 import { ChevronRight, BookOpen, FlaskConical, ClipboardList, Layers } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from "@/components/ui/collapsible";
+import { Badge } from "@/components/ui/badge";
 
 type ExpandableVariant = "example" | "exercise" | "misc" | "default";
 
@@ -62,40 +68,38 @@ const variantStyles = {
 
 export function Expandable({ title, id, variant, children }: ExpandableProps) {
   const [open, setOpen] = useState(false);
-  const panelId = useId();
   const v = variantStyles[variant ?? inferVariant(title)];
   const VariantIcon = v.Icon;
 
   return (
-    <div id={id} className={cn("my-6 rounded-xl border overflow-hidden", v.wrapper)}>
-      <button
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-        aria-controls={panelId}
-        className={cn("flex items-center gap-2.5 w-full px-4 py-3 text-left transition-colors border-b", open ? "border-border/30" : "border-transparent", v.trigger)}
-      >
-        <span className={cn("flex h-6 w-6 shrink-0 items-center justify-center rounded-md", v.iconWrap)}>
-          <VariantIcon className="h-3.5 w-3.5" />
-        </span>
-        <ChevronRight
-          className={cn(
-            "h-4 w-4 shrink-0 transition-transform duration-200",
-            v.titleClass,
-            open && "rotate-90"
-          )}
-        />
-        <span className={cn("text-sm font-semibold", v.titleClass)}>{title}</span>
-        {v.badge && (
-          <span className={cn("ml-auto text-xs font-bold tracking-widest px-1.5 py-0.5 rounded", v.badgeClass)}>
-            {v.badge}
+    <Collapsible open={open} onOpenChange={setOpen}>
+      <div id={id} className={cn("my-6 rounded-xl border overflow-hidden", v.wrapper)}>
+        <CollapsibleTrigger
+          className={cn("flex items-center gap-2.5 w-full px-4 py-3 text-left transition-colors border-b", open ? "border-border/30" : "border-transparent", v.trigger)}
+        >
+          <span className={cn("flex h-6 w-6 shrink-0 items-center justify-center rounded-md", v.iconWrap)}>
+            <VariantIcon className="h-3.5 w-3.5" />
           </span>
-        )}
-      </button>
-      {open && (
-        <div id={panelId} className="px-5 py-4 text-[0.95rem] leading-[1.75] text-foreground/85 bg-card">
-          {children}
-        </div>
-      )}
-    </div>
+          <ChevronRight
+            className={cn(
+              "h-4 w-4 shrink-0 transition-transform duration-200",
+              v.titleClass,
+              open && "rotate-90"
+            )}
+          />
+          <span className={cn("text-sm font-semibold", v.titleClass)}>{title}</span>
+          {v.badge && (
+            <Badge className={cn("ml-auto text-xs font-bold tracking-widest", v.badgeClass)}>
+              {v.badge}
+            </Badge>
+          )}
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <div className="px-5 py-4 text-[0.95rem] leading-[1.75] text-foreground/85 bg-card">
+            {children}
+          </div>
+        </CollapsibleContent>
+      </div>
+    </Collapsible>
   );
 }

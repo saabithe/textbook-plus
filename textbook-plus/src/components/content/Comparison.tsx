@@ -1,4 +1,6 @@
 import { ArrowLeftRight } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 interface ComparisonColumn {
   title: string;
@@ -11,11 +13,12 @@ interface ComparisonProps {
 
 export function Comparison({ columns }: ComparisonProps) {
   return (
-    <div className="rounded-xl border border-border/60 overflow-hidden my-6">
-      <div className="flex items-center gap-2 px-5 py-3 bg-muted/30 border-b border-border/40">
+    <Card className="my-6 gap-0 overflow-hidden border border-border/60 py-0">
+      <div className="flex items-center gap-2 px-5 py-3 bg-muted/30">
         <ArrowLeftRight className="h-4 w-4 text-muted-foreground" />
         <span className="text-sm font-medium text-muted-foreground">Comparison</span>
       </div>
+      <Separator />
       <div
         className="grid grid-cols-1 divide-y sm:divide-y-0 sm:divide-x divide-border/40 sm:[grid-template-columns:repeat(var(--cols),minmax(0,1fr))]"
         style={{ "--cols": String(columns.length) } as React.CSSProperties}
@@ -31,6 +34,6 @@ export function Comparison({ columns }: ComparisonProps) {
           </div>
         ))}
       </div>
-    </div>
+    </Card>
   );
 }

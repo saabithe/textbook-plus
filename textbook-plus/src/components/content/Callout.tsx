@@ -1,5 +1,6 @@
 import { AlertCircle, BookOpen, Lightbulb, AlertTriangle, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 const variants = {
   note: {
@@ -62,18 +63,18 @@ export function Callout({ type = "note", title, children }: CalloutProps) {
   const Icon = v.icon;
 
   return (
-    <div className={cn("rounded-xl border border-l-4 px-5 py-4 my-6 shadow-sm", v.border, v.left, v.bg)}>
+    <Alert className={cn("my-6 gap-0 rounded-xl border border-l-4 px-5 py-4 shadow-sm", v.border, v.left, v.bg)}>
       <div className="flex items-center gap-2.5 mb-2.5">
         <span className={cn("flex h-7 w-7 items-center justify-center rounded-full", v.iconWrap)}>
           <Icon className={cn("h-4 w-4", v.iconColor)} />
         </span>
-        <span className={cn("text-sm font-semibold tracking-tight", v.iconColor)}>
+        <AlertTitle className={cn("text-sm font-semibold tracking-tight", v.iconColor)}>
           {title ?? v.label}
-        </span>
+        </AlertTitle>
       </div>
-      <div className="text-[0.95rem] leading-[1.75] text-foreground/85">
+      <AlertDescription className="text-[0.95rem] leading-[1.75] text-foreground/85">
         {children}
-      </div>
-    </div>
+      </AlertDescription>
+    </Alert>
   );
 }

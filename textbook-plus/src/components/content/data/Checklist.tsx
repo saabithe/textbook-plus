@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Check } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { cn } from "@/lib/utils";
 
 interface CheckItem {
   label: string;
@@ -33,30 +35,35 @@ export function Checklist({ title, items }: ChecklistProps) {
   };
 
   return (
-    <div className="rounded-xl border border-border/60 bg-background px-5 py-4 my-6">
-      {title && <span className="text-sm font-semibold block mb-3">{title}</span>}
-      <div className="space-y-2">
-        {items.map((item, i) => (
-          <button
-            key={i}
-            onClick={() => toggle(i)}
-            className="flex items-center gap-3 w-full text-left group py-1"
-          >
-            <div className={`flex h-7 w-7 shrink-0 items-center justify-center rounded border transition-colors ${
-              checked.has(i)
-                ? "bg-primary border-primary text-primary-foreground"
-                : "border-border/60 bg-background group-hover:border-primary/50"
-            }`}>
-              {checked.has(i) && <Check className="h-3.5 w-3.5" />}
-            </div>
-            <span className={`text-sm leading-relaxed ${
-              checked.has(i) ? "text-muted-foreground line-through" : "text-foreground"
-            }`}>
-              {item.label}
-            </span>
-          </button>
-        ))}
-      </div>
-    </div>
+    <Card className="my-6 gap-0 border-border/60 py-4">
+      <CardContent className="px-5">
+        {title && <span className="text-sm font-semibold block mb-3">{title}</span>}
+        <div className="space-y-2">
+          {items.map((item, i) => {
+            const isChecked = checked.has(i);
+            return (
+              <div
+                key={i}
+                onClick={() => toggle(i)}
+                className="flex items-center gap-3 w-full text-left group py-1 cursor-pointer"
+              >
+                <Checkbox
+                  checked={isChecked}
+                  onCheckedChange={() => toggle(i)}
+                  onClick={(e) => e.stopPropagation()}
+                  aria-label={item.label}
+                  className="h-7 w-7 rounded-md group-hover:border-primary/50 [&>svg]:size-3.5"
+                />
+                <span className={cn("text-sm leading-relaxed",
+                  isChecked ? "text-muted-foreground line-through" : "text-foreground"
+                )}>
+                  {item.label}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </CardContent>
+    </Card>
   );
 }
