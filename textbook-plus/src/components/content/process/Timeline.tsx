@@ -14,9 +14,11 @@ export interface TimelineProps {
   events: TimelineEvent[];
   orientation?: "vertical" | "horizontal";
   rtl?: boolean;
+  /** Subject color hex (e.g. subject.color). Falls back to biology tokens when omitted. */
+  color?: string;
 }
 
-export function Timeline({ title, events, orientation = "horizontal", rtl = true }: TimelineProps) {
+export function Timeline({ title, events, orientation = "horizontal", rtl = true, color }: TimelineProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScroll, setCanScroll] = useState(false);
 
@@ -94,7 +96,13 @@ export function Timeline({ title, events, orientation = "horizontal", rtl = true
                 </div>
               )}
               <div className="flex-shrink-0 w-[200px] rounded-xl border border-border/60 bg-background px-3 py-3">
-                <span className="inline-block px-2 py-0.5 rounded-full text-xs font-bold bg-[var(--subject-biology-light)] text-[var(--subject-biology)]">
+                <span
+                  className="inline-block px-2 py-0.5 rounded-full text-xs font-bold"
+                  style={{
+                    backgroundColor: color ? `${color}15` : "var(--subject-biology-light)",
+                    color: color ?? "var(--subject-biology)",
+                  }}
+                >
                   {event.date}
                 </span>
                 <p className="text-sm font-semibold text-foreground leading-tight mt-1.5">{event.label}</p>
