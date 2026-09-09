@@ -976,6 +976,80 @@ export default function UnitsAndMeasurementsChapter() {
         </p>
       </Expandable>
 
+      <Expandable title="P15 — Angular frequency ω from y = A sin(ωt)" variant="exercise">
+        <p>
+          The displacement of an oscillating body is <Formula>{String.raw`y = A \sin(\omega t)`}</Formula>,
+          where y and A are in metres and t is in seconds. Find the dimensions of the angular
+          frequency ω.
+        </p>
+        <p>
+          Trigonometric functions and their arguments are dimensionless:
+          <Formula>{String.raw`[\sin(\omega t)] = 1 \implies [\omega t] = 1`}</Formula>. Hence
+          <FormulaBlock latex={String.raw`[\omega]\cdot[t] = 1 \implies [\omega] = \frac{1}{[t]} = [T^{-1}]`} important />
+        </p>
+      </Expandable>
+
+      <Expandable title="P16 — Wave parameters k, ω, φ, A from y = A sin(kx + ωt + φ)" variant="exercise">
+        <p>
+          A wave is described by <Formula>{String.raw`y = A \sin(kx + \omega t + \phi)`}</Formula>,
+          where y and x are displacements. Find the dimensions of k (wave number), ω (angular
+          frequency), φ (phase angle) and A (amplitude).
+        </p>
+        <p>
+          The whole angle inside the sine must be dimensionless, so each piece is too:
+          <Formula>{String.raw`[kx + \omega t + \phi] = 1 \implies [kx] = [\omega t] = [\phi] = 1`}</Formula>.
+        </p>
+        <ul>
+          <li>
+            <strong>Wave number k:</strong>{" "}
+            <Formula>{String.raw`[k]\cdot[x] = 1 \implies [k] = \frac{1}{[L]} = [L^{-1}]`}</Formula>
+          </li>
+          <li>
+            <strong>Angular frequency ω:</strong>{" "}
+            <Formula>{String.raw`[\omega]\cdot[t] = 1 \implies [\omega] = \frac{1}{[T]} = [T^{-1}]`}</Formula>
+          </li>
+          <li>
+            <strong>Phase angle φ:</strong>{" "}
+            <Formula>{String.raw`[\phi] = M^0 L^0 T^0`}</Formula> — dimensionless.
+          </li>
+          <li>
+            <strong>Amplitude A:</strong> since <Formula>{String.raw`[\sin(\dots)] = 1`}</Formula> and{" "}
+            <Formula>{String.raw`[y] = [A]`}</Formula>, we get <Formula>{String.raw`[A] = [L^1]`}</Formula>.
+          </li>
+        </ul>
+      </Expandable>
+
+      <Expandable title="P17 — Quantity x in the exponential law A = A₀·e^(xt)" variant="exercise">
+        <p>
+          The pressure of a system falls as <Formula>{String.raw`A = A_0\,e^{xt}`}</Formula>, where A
+          and A₀ are pressures and t is time. Find the dimensions of x.
+        </p>
+        <p>
+          Exponents of power terms (the argument of <Formula>{String.raw`e^{(\dots)}`}</Formula>) must
+          be dimensionless:
+          <FormulaBlock latex={String.raw`[xt] = 1 \implies [x]\cdot[t] = 1 \implies [x] = \frac{1}{[T]} = [T^{-1}]`} important />
+        </p>
+      </Expandable>
+
+      <Expandable title="P18 — Constants a and b in the van der Waals equation" variant="exercise">
+        <p>
+          In the van der Waals equation{" "}
+          <Formula>{String.raw`\left(P + \frac{a}{V^2}\right)(V - b) = R T`}</Formula>, find the
+          dimensions of the constants a and b.
+        </p>
+        <ul>
+          <li>
+            <strong>b:</strong> only terms with identical dimensions can be subtracted, so{" "}
+            <Formula>{String.raw`[b] = [V] = [L^3]`}</Formula>.
+          </li>
+          <li>
+            <strong>a:</strong> only terms with identical dimensions can be added, so{" "}
+            <Formula>{String.raw`\left[\frac{a}{V^2}\right] = [P]`}</Formula>:
+            <FormulaBlock latex={String.raw`[a] = [P]\cdot[V]^2 = [M L^{-1} T^{-2}] \cdot (L^3)^2 = [M L^5 T^{-2}]`} important />
+          </li>
+        </ul>
+      </Expandable>
+
       <Callout type="warning" title="Limits of the principle of homogeneity">
         <ol>
           <li>
