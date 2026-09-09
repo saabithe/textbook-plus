@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
 interface MistakeCardProps {
@@ -12,28 +11,27 @@ export function MistakeCard({ mistake, correction, example }: MistakeCardProps) 
   return (
     <Card className={cn("my-6 gap-0 border-border/60 bg-background py-0")}>
       <CardContent className="px-5 py-4">
-        <div className="flex flex-col gap-3">
-          <div className="flex items-start gap-3">
-            <span className="text-red-500 text-lg mt-0.5">✗</span>
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+          <div className="flex flex-1 items-start gap-3 rounded-lg bg-red-500/[0.06] p-3 dark:bg-red-500/[0.10]">
+            <span className="mt-0.5 text-lg text-red-500">✗</span>
             <div>
-              <span className="text-xs font-medium text-red-600 uppercase tracking-wide">Common Mistake</span>
-              <p className="text-sm text-foreground mt-0.5">{mistake}</p>
+              <span className="text-xs font-medium uppercase tracking-wide text-red-600">Common Mistake</span>
+              <p className="mt-1 text-sm text-foreground">{mistake}</p>
             </div>
           </div>
-          <Separator className="bg-border/30" />
-          <div className="flex items-start gap-3">
-            <span className="text-green-500 text-lg mt-0.5">✓</span>
+          <div className="flex flex-1 items-start gap-3 rounded-lg bg-green-500/[0.06] p-3 dark:bg-green-500/[0.10]">
+            <span className="mt-0.5 text-lg text-green-500">✓</span>
             <div>
-              <span className="text-xs font-medium text-green-600 uppercase tracking-wide">Correction</span>
-              <p className="text-sm text-foreground mt-0.5">{correction}</p>
+              <span className="text-xs font-medium uppercase tracking-wide text-green-600">Correction</span>
+              <p className="mt-1 text-sm text-foreground">{correction}</p>
             </div>
           </div>
-          {example && (
-            <div className="pl-6 text-xs text-muted-foreground italic">
-              Example: {example}
-            </div>
-          )}
         </div>
+        {example && (
+          <div className="mt-3 pl-6 text-xs italic text-muted-foreground">
+            Example: {example}
+          </div>
+        )}
       </CardContent>
     </Card>
   );

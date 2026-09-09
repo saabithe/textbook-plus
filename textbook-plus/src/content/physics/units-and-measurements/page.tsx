@@ -22,11 +22,6 @@ export default function UnitsAndMeasurementsChapter() {
         <strong>unit</strong>. Measuring means comparing the quantity with a basic, arbitrarily
         chosen, internationally accepted reference standard called a <strong>unit</strong>.
       </Callout>
-      <ul>
-        <li>Units for the <strong>fundamental or base quantities</strong> are called <strong>fundamental or base units</strong>.</li>
-        <li>Units of all other quantities, expressed as combinations of base units, are called <strong>derived units</strong>.</li>
-        <li>A complete set of base units and derived units is known as a <strong>system of units</strong>.</li>
-      </ul>
       <Comparison
         columns={[
           {
@@ -93,60 +88,88 @@ export default function UnitsAndMeasurementsChapter() {
         (French for <strong>International System of Units</strong>), abbreviated <strong>SI</strong>.
       </p>
       <ul>
-        <li>SI uses the <strong>decimal system</strong>, so conversions within the system are simple and convenient.</li>
         <li>SI has <strong>seven base units</strong>, plus two supplementary units:</li>
       </ul>
-      <TableCard
-        caption="Table 1.1 — The seven SI base quantities and their base units (2025–26 syllabus: the exact values need not be memorised)."
-        headers={["Quantity", "Unit", "Symbol"]}
-        rows={[
-          { cells: ["Length", "metre", "m"] },
-          { cells: ["Mass", "kilogram", "kg"] },
-          { cells: ["Time", "second", "s"] },
-          { cells: ["Electric current", "ampere", "A"] },
-          { cells: ["Thermodynamic temperature", "kelvin", "K"] },
-          { cells: ["Amount of substance", "mole", "mol"] },
-          { cells: ["Luminous intensity", "candela", "cd"] },
-        ]}
-      />
-      <h3 id="h-supplementary">Supplementary quantities — a side-by-side</h3>
-      <p>
-        Besides the seven base quantities, the SI defines <strong>two supplementary quantities</strong>{" "}
-        for specifying angles. They <strong>have units but no dimension</strong>:
-      </p>
       <Comparison
         columns={[
           {
-            title: "Plane Angle (2D)",
+            title: "Fundamental — the seven base quantities",
             children: (
-              <ul>
-                <li>
-                  <strong>Definition:</strong> the angle between two lines meeting at a point — the
-                  ratio of the arc length <em>s</em> to the radius <em>r</em> (symbol{" "}
-                  <Formula>{String.raw`\theta`}</Formula>).
-                </li>
-                <li>SI unit: <strong>radian</strong> (rad)</li>
-                <li>
-                  <Formula>{String.raw`\theta = \frac{\text{arc length}}{\text{radius}} = \frac{s}{r}`}</Formula>
-                </li>
-                <li>Ratio of two lengths.</li>
-              </ul>
+              <>
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-emerald-500/15 bg-emerald-500/[0.06] text-emerald-900/80 dark:bg-emerald-500/[0.08] dark:text-emerald-100/90">
+                      <th className="px-3 py-2 text-left font-semibold">Quantity</th>
+                      <th className="px-3 py-2 text-left font-semibold">Unit</th>
+                      <th className="px-3 py-2 text-left font-semibold">Symbol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-border/20 last:border-0">
+                      <td className="px-3 py-1.5">Length</td>
+                      <td className="px-3 py-1.5">metre</td>
+                      <td className="px-3 py-1.5">m</td>
+                    </tr>
+                    <tr className="border-b border-border/20 last:border-0">
+                      <td className="px-3 py-1.5">Mass</td>
+                      <td className="px-3 py-1.5">kilogram</td>
+                      <td className="px-3 py-1.5">kg</td>
+                    </tr>
+                    <tr className="border-b border-border/20 last:border-0">
+                      <td className="px-3 py-1.5">Time</td>
+                      <td className="px-3 py-1.5">second</td>
+                      <td className="px-3 py-1.5">s</td>
+                    </tr>
+                    <tr className="border-b border-border/20 last:border-0">
+                      <td className="px-3 py-1.5">Electric current</td>
+                      <td className="px-3 py-1.5">ampere</td>
+                      <td className="px-3 py-1.5">A</td>
+                    </tr>
+                    <tr className="border-b border-border/20 last:border-0">
+                      <td className="px-3 py-1.5">Thermodynamic temperature</td>
+                      <td className="px-3 py-1.5">kelvin</td>
+                      <td className="px-3 py-1.5">K</td>
+                    </tr>
+                    <tr className="border-b border-border/20 last:border-0">
+                      <td className="px-3 py-1.5">Amount of substance</td>
+                      <td className="px-3 py-1.5">mole</td>
+                      <td className="px-3 py-1.5">mol</td>
+                    </tr>
+                    <tr className="border-b border-border/20 last:border-0">
+                      <td className="px-3 py-1.5">Luminous intensity</td>
+                      <td className="px-3 py-1.5">candela</td>
+                      <td className="px-3 py-1.5">cd</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p className="mt-2 text-xs italic text-muted-foreground">
+                  Table 1.1 — the seven SI base quantities (2025–26 syllabus: exact definitions
+                  need not be memorised).
+                </p>
+              </>
             ),
           },
           {
-            title: "Solid Angle (3D)",
+            title: "Supplementary — two angle quantities",
             children: (
               <ul>
                 <li>
-                  <strong>Definition:</strong> the angle subtended at a point by an area on the
-                  surface of a sphere — the ratio of the intercepted area <em>A</em> to the square
-                  of the radius <em>r</em> (symbol <Formula>{String.raw`\Omega`}</Formula>).
+                  <strong>Plane angle</strong> (symbol <Formula>{String.raw`\theta`}</Formula>): the
+                  angle between two lines meeting at a point — the ratio of the arc length <em>s</em>
+                  to the radius <em>r</em> (<Formula>{String.raw`\theta = s/r`}</Formula>). SI unit:
+                  the <strong>radian</strong> (rad).
                 </li>
-                <li>SI unit: <strong>steradian</strong> (sr)</li>
                 <li>
-                  <Formula>{String.raw`\Omega = \frac{\text{area}}{\text{radius}^2} = \frac{A}{r^2}`}</Formula>
+                  <strong>Solid angle</strong> (symbol <Formula>{String.raw`\Omega`}</Formula>): the
+                  angle subtended at a point by an area on the surface of a sphere — the ratio of the
+                  intercepted area <em>A</em> to the square of the radius <em>r</em>{" "}
+                  (<Formula>{String.raw`\Omega = A/r^2`}</Formula>). SI unit: the{" "}
+                  <strong>steradian</strong> (sr).
                 </li>
-                <li>Ratio of an area to a radius squared.</li>
+                <li>
+                  Both are ratios of a length to a length (or an area to a length&sup2;) — they have{" "}
+                  <strong>a unit but no dimension</strong>.
+                </li>
               </ul>
             ),
           },
@@ -175,6 +198,15 @@ export default function UnitsAndMeasurementsChapter() {
         Conversions are just a matter of <strong>shifting the decimal point</strong>, guided by{" "}
         <strong>prefixes</strong>.
       </p>
+      <Callout type="note" title="How to convert — shift the decimal point">
+        Take the <strong>difference of the two prefix exponents</strong>: that is the number of
+        places to move the decimal point — to the <strong>right</strong> for a larger unit, to the{" "}
+        <strong>left</strong> for a smaller one. E.g. nanometre (10<sup>&minus;9</sup>) to millimetre
+        (10<sup>&minus;3</sup>): exponent difference <Formula>{String.raw`-3 - (-9) = 6`}</Formula>{" "}
+        steps up, so <Formula>{String.raw`1\ \text{nm} = 10^{-6}\ \text{mm}`}</Formula>. For{" "}
+        <strong>area</strong> or <strong>volume</strong>, apply the factor once per dimension
+        (square or cube it).
+      </Callout>
       <TableCard
         caption="Common SI prefixes — each step is a power of ten."
         headers={["Prefix", "Symbol", "Power"]}
@@ -279,64 +311,50 @@ export default function UnitsAndMeasurementsChapter() {
         correction="Change of units never changes the count: 4.700 m = 470.0 cm = 4700 mm = 0.004700 km — every form has four significant figures. If in doubt, use scientific notation: 4.700 × 10³ mm."
         example="4700 mm with trailing zeros counts the same four digits as 4.700 m."
       />
-      <p>
-        To remove the trailing-zero ambiguity, report every measurement in{" "}
-        <strong>scientific notation</strong>: <Formula>{String.raw`a \times 10^b`}</Formula> with{" "}
-        <Formula>{String.raw`1 \le a \le 10`}</Formula>. All zeros in the base number are
-        significant; the power of 10 is irrelevant.
-      </p>
-      <ul>
-        <li>
-          For an estimate, round <em>a</em> to 1 (for <Formula>{String.raw`a \le 5`}</Formula>) or to 10 (for{" "}
-          <Formula>{String.raw`5 < a \le 10`}</Formula>). The exponent <em>b</em> is the{" "}
-          <strong>order of magnitude</strong>.
-        </li>
-        <li>
-          Earth&rsquo;s diameter <Formula>{String.raw`1.28\times10^7\ \text{m}`}</Formula> &rarr; order{" "}
-          <Formula>{String.raw`10^7\ \text{m}`}</Formula> (order of magnitude 7). Hydrogen atom diameter{" "}
-          <Formula>{String.raw`1.06\times10^{-10}\ \text{m}`}</Formula> &rarr; order{" "}
-          <Formula>{String.raw`10^{-10}\ \text{m}`}</Formula>.
-        </li>
-        <li>The Earth is <strong>17 orders of magnitude larger</strong> than the hydrogen atom.</li>
-      </ul>
-      <p>
-        Exact numbers in formulae (the 2 in <Formula>{String.raw`d = 2r`}</Formula> or <Formula>{String.raw`T = t/n`}</Formula>)
-        have <strong>infinite</strong> significant figures; <Formula>2\pi</Formula> in{" "}
-        <Formula block>{String.raw`T = 2\pi\sqrt{l/g}`}</Formula> is treated the same way.
-      </p>
-
       <h3 id="h-sig-arithmetic">1.3.1 Arithmetic operations with significant figures</h3>
       <p>
         A calculated result <strong>cannot be more accurate</strong> than the least precise input on
         which it relies.
       </p>
-      <FormulaCard>
-        <ul>
-          <li>
-            <strong>Multiplication / Division:</strong> keep as many significant figures as the input
-            with the <strong>least</strong> significant figures.
-          </li>
-          <li>
-            <strong>Addition / Subtraction:</strong> keep as many <strong>decimal places</strong> as
-            the input with the <strong>least</strong> decimal places.
-          </li>
-        </ul>
-      </FormulaCard>
-      <ul>
-        <li>
-          Mass 4.237 g (4 sig. figs) ÷ volume 2.51 cm³ (3 sig. figs) &rarr; density reported to{" "}
-          <strong>3 significant figures</strong>:
-          <FormulaBlock latex={String.raw`\rho = \frac{4.237\ \text{g}}{2.51\ \text{cm}^3} = 1.69\ \text{g cm}^{-3}`} important />
-        </li>
-        <li>
-          436.32 g + 227.2 g + 0.301 g = 663.821 g arithmetically, but 227.2 g is correct to one
-          decimal place &rarr; report <strong>663.8 g</strong>.
-        </li>
-        <li>
-          <Formula>{String.raw`0.307\ \text{m} - 0.304\ \text{m} = 0.003\ \text{m} = 3\times10^{-3}\ \text{m}`}</Formula>{" "}
-          (decimal places decide, not significant figures).
-        </li>
-      </ul>
+      <Comparison
+        columns={[
+          {
+            title: "Rules",
+            children: (
+              <ul>
+                <li>
+                  <strong>Multiplication / Division:</strong> keep as many{" "}
+                  <strong>significant figures</strong> as the input with the <strong>least</strong>.
+                </li>
+                <li>
+                  <strong>Addition / Subtraction:</strong> keep as many{" "}
+                  <strong>decimal places</strong> as the input with the <strong>least</strong>.
+                </li>
+              </ul>
+            ),
+          },
+          {
+            title: "Examples",
+            children: (
+              <ul>
+                <li>
+                  Mass 4.237 g (4 sig. figs) ÷ volume 2.51 cm³ (3 sig. figs) &rarr; density reported
+                  to <strong>3 significant figures</strong>:
+                  <FormulaBlock latex={String.raw`\rho = \frac{4.237\ \text{g}}{2.51\ \text{cm}^3} = 1.69\ \text{g cm}^{-3}`} important />
+                </li>
+                <li>
+                  436.32 g + 227.2 g + 0.301 g = 663.821 g arithmetically, but 227.2 g is correct to
+                  one decimal place &rarr; report <strong>663.8 g</strong>.
+                </li>
+                <li>
+                  <Formula>{String.raw`0.307\ \text{m} - 0.304\ \text{m} = 0.003\ \text{m} = 3\times10^{-3}\ \text{m}`}</Formula>{" "}
+                  (decimal places decide, not significant figures).
+                </li>
+              </ul>
+            ),
+          },
+        ]}
+      />
       <MistakeCard
         mistake="Rounding an addition to significant figures (664 g) or a subtraction to 3.00 × 10⁻³ m — applying the multiplication/division rule to the wrong operation."
         correction="Addition and subtraction count decimal places, not significant figures. For 0.307 − 0.304 write 3 × 10⁻³ m (one significant digit), never 3.00 × 10⁻³ m here."
