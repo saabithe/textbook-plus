@@ -69,7 +69,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 w-full border-b-2 border-border/60 bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
@@ -78,10 +78,10 @@ export function Navbar() {
               alt="Textbook++"
               width={36}
               height={36}
-              className="transition-transform duration-200 group-hover:scale-105 dark:invert"
+              className="transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-6 dark:invert"
               priority
             />
-            <span className="text-lg font-bold tracking-tight hidden sm:inline">
+            <span className="text-lg font-extrabold tracking-tight hidden sm:inline">
               Textbook++
             </span>
           </Link>
@@ -99,10 +99,10 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors duration-150 sm:gap-2 sm:px-4",
+                    "flex items-center gap-1.5 rounded-full px-2.5 py-2 text-sm font-bold transition-all duration-150 sm:gap-2 sm:px-4",
                     isActive
-                      ? "bg-muted text-foreground"
-                      : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                      ? "bg-primary text-primary-foreground shadow-[0_3px_0_rgb(0_0_0/0.2)]"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
                   )}
                 >
                   <Icon className="h-4 w-4" />
@@ -120,7 +120,7 @@ export function Navbar() {
               size="icon-lg"
               onClick={() => setSearchOpen(true)}
               aria-label="Search chapters"
-              className="border-border/60 bg-muted/50 px-0 text-muted-foreground hover:text-foreground sm:w-auto sm:px-3"
+              className="rounded-full border-border/60 bg-muted/50 px-0 text-muted-foreground hover:text-foreground sm:w-auto sm:px-3"
             >
               <Search className="h-4 w-4" />
               <kbd className="hidden sm:inline-flex h-5 items-center gap-1 rounded border border-border/60 bg-background px-1.5 text-[10px] font-medium">
@@ -183,7 +183,7 @@ export function Navbar() {
                 variant="outline"
                 size="icon-lg"
                 render={<Link href="/login" />}
-                className="border-border/60 bg-muted/50 px-0 text-muted-foreground hover:text-foreground sm:w-auto sm:px-3"
+                className="rounded-full border-border/60 bg-muted/50 px-0 text-muted-foreground hover:text-foreground sm:w-auto sm:px-3"
               >
                 <LogIn className="h-4 w-4" />
                 <span className="hidden sm:inline">Sign In</span>
@@ -226,7 +226,7 @@ export function Navbar() {
               size="icon-lg"
               onClick={toggle}
               aria-label="Toggle theme"
-              className="border-border/60 bg-muted/50 text-muted-foreground hover:text-foreground"
+              className="rounded-full border-border/60 bg-muted/50 text-muted-foreground hover:text-foreground"
             >
               {theme === "dark" ? (
                 <Moon className="h-4 w-4" />
