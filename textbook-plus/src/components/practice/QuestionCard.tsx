@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Eye, EyeOff, CheckCircle2, XCircle } from "lucide-react";
+import { Eye, EyeOff, CheckCircle2, XCircle, PartyPopper, Trophy } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -20,6 +20,10 @@ interface QuestionCardProps {
 export function QuestionCard({ question, index, subjectColor, isRevealed = false, onReveal }: QuestionCardProps) {
   const [selected, setSelected] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(isRevealed);
+
+  const praiseOptions = ["Brilliant!", "Nailed it!", "Nicely done!"];
+  const praise = praiseOptions[index % praiseOptions.length];
+  const PraiseIcon = index % 2 === 0 ? Trophy : PartyPopper;
 
   // Sync when navigating to a different question that was already revealed
   useEffect(() => {
@@ -85,17 +89,17 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
           {question.options.map((option, idx) => {
             const isSelected = selected === idx;
             const isCorrectOption = idx === correctIndex;
-            let optionStyle = "hover:bg-muted/60";
+            let optionStyle = "border-2 hover:bg-muted/60 active:translate-y-0.5";
             if (revealed) {
               if (isCorrectOption) {
-                optionStyle = "border-green-500/40 bg-green-500/10";
+                optionStyle = "border-2 border-green-600 bg-green-500 text-white hover:bg-green-500 hover:text-white active:translate-y-0.5";
               } else if (isSelected && !isCorrectOption) {
-                optionStyle = "border-red-500/40 bg-red-500/10";
+                optionStyle = "border-2 border-red-600 bg-red-500 text-white hover:bg-red-500 hover:text-white active:translate-y-0.5";
               } else {
-                optionStyle = "opacity-60";
+                optionStyle = "border-2 opacity-60";
               }
             } else if (isSelected) {
-              optionStyle = "border-primary/40 bg-primary/10";
+              optionStyle = "border-2 border-primary/50 bg-primary/10 active:translate-y-0.5";
             }
 
             return (
@@ -105,18 +109,18 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
                 onClick={() => handleSelect(idx)}
                 disabled={revealed}
                 className={cn(
-                  "h-auto w-full items-start justify-start gap-3 p-3 text-left whitespace-normal disabled:opacity-100",
+                  "h-auto w-full items-start justify-start gap-3 rounded-2xl p-3 text-left font-bold whitespace-normal disabled:opacity-100",
                   optionStyle,
                   revealed && "cursor-default"
                 )}
               >
                 <span
                   className={cn(
-                    "inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-medium mt-0.5",
+                    "inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 text-xs font-bold mt-0.5",
                     revealed && isCorrectOption
-                      ? "border-green-700 bg-green-700 text-white"
+                      ? "border-white bg-white/20 text-white"
                       : revealed && isSelected && !isCorrectOption
-                      ? "border-red-600 bg-red-600 text-white"
+                      ? "border-white bg-white/20 text-white"
                       : isSelected
                       ? "border-primary bg-primary text-primary-foreground"
                       : "border-border"
@@ -137,11 +141,35 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
         </div>
       )}
 
+      {/* Celebration / encouragement feedback (MCQ only) */}
+      {revealed && isMCQ && selected !== null && selected === correctIndex && (
+        <Alert className="mb-4 border-2 border-green-600/40 bg-green-500/15 p-4">
+          <PraiseIcon className="h-5 w-5 shrink-0 text-green-600 dark:text-green-400" />
+          <AlertTitle className="font-extrabold text-green-700 dark:text-green-300">
+            {praise} You got it!
+          </AlertTitle>
+          <AlertDescription className="font-semibold text-green-700/80 dark:text-green-300/80">
+            Keep the streak going.
+          </AlertDescription>
+        </Alert>
+      )}
+      {revealed && isMCQ && selected !== null && selected !== correctIndex && (
+        <Alert className="mb-4 border-2 border-red-600/40 bg-red-500/10 p-4">
+          <XCircle className="h-5 w-5 shrink-0 text-red-600 dark:text-red-400" />
+          <AlertTitle className="font-extrabold text-red-700 dark:text-red-300">
+            Not quite — try again!
+          </AlertTitle>
+          <AlertDescription className="font-semibold text-red-700/80 dark:text-red-300/80">
+            Check the correct answer below, then give it another shot.
+          </AlertDescription>
+        </Alert>
+      )}
+
       {/* Short answer */}
       {!isMCQ && (
         <div className="mb-4">
           {revealed ? (
-            <Alert className="border-green-500/30 bg-green-500/5 p-4">
+            <Alert className="border-2 border-green-600/30 bg-green-500/10 p-4">
               <AlertTitle className="text-green-700 dark:text-green-300">Answer:</AlertTitle>
               <AlertDescription className="text-foreground leading-relaxed whitespace-pre-line">{question.answer as string}</AlertDescription>
             </Alert>
@@ -157,11 +185,11 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
 
       {/* Explanation (shown after reveal) */}
       {revealed && (
-        <Alert className="border-border/40 bg-muted/30 p-4 mb-4">
-          <AlertTitle className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+        <Alert className="mb-4 border-2 border-amber-500/30 bg-amber-500/10 p-4">
+          <AlertTitle className="text-xs font-extrabold text-amber-700 dark:text-amber-300 uppercase tracking-wide">
             Explanation
           </AlertTitle>
-          <AlertDescription className="text-foreground leading-relaxed">{question.explanation}</AlertDescription>
+          <AlertDescription className="text-foreground font-medium leading-relaxed">{question.explanation}</AlertDescription>
         </Alert>
       )}
 
@@ -171,6 +199,8 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
           <Button
             onClick={handleReveal}
             disabled={isMCQ && selected === null}
+            size="lg"
+            className="rounded-2xl font-extrabold"
             style={
               !(isMCQ && selected === null)
                 ? { backgroundColor: subjectColor }
@@ -181,7 +211,7 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
             Reveal Answer
           </Button>
         ) : (
-          <Button variant="outline" onClick={handleReset}>
+          <Button variant="outline" size="lg" onClick={handleReset} className="rounded-2xl border-2 font-extrabold">
             <EyeOff className="h-4 w-4" />
             Try Again
           </Button>

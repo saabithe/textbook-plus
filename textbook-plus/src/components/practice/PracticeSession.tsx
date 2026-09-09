@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { ChevronLeft, ChevronRight, List } from "lucide-react";
+import { ChevronLeft, ChevronRight, List, Trophy } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { QuestionCard } from "./QuestionCard";
 import { DifficultyFilter } from "./DifficultyFilter";
@@ -40,6 +40,8 @@ export function PracticeSession({ questions, subjectColor, revealedIds = [], onQ
 
   const question = filtered[current];
 
+  const allRevealed = questions.length > 0 && revealedIds.length >= questions.length;
+
   function handleDifficultyChange(d: Difficulty) {
     setDifficulty(d);
     setCurrent(0);
@@ -63,6 +65,27 @@ export function PracticeSession({ questions, subjectColor, revealedIds = [], onQ
 
   return (
     <div className="space-y-5">
+      {/* Completion celebration */}
+      {allRevealed && (
+        <Card
+          className="flex items-center gap-3 rounded-2xl border-2 p-4"
+          style={{ borderColor: `${subjectColor}55`, backgroundColor: `${subjectColor}12` }}
+        >
+          <span
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-white"
+            style={{ backgroundColor: subjectColor }}
+          >
+            <Trophy className="h-5 w-5" />
+          </span>
+          <div>
+            <p className="font-extrabold leading-tight">Chapter crushed!</p>
+            <p className="text-sm font-semibold text-muted-foreground">
+              You revealed all {questions.length} {questions.length === 1 ? "question" : "questions"}. Stellar work — review the list or run through them again.
+            </p>
+          </div>
+        </Card>
+      )}
+
       {/* Filters */}
       <div className="flex items-center justify-between gap-4 flex-wrap">
         <DifficultyFilter
@@ -75,6 +98,7 @@ export function PracticeSession({ questions, subjectColor, revealedIds = [], onQ
           variant={showList ? "secondary" : "outline"}
           size="sm"
           onClick={() => setShowList(!showList)}
+          className="rounded-xl border-2 font-bold"
         >
           <List className="h-3.5 w-3.5" />
           {showList ? "Hide list" : "Question list"}
@@ -83,8 +107,8 @@ export function PracticeSession({ questions, subjectColor, revealedIds = [], onQ
 
       {/* Question list (jump to) */}
       {showList && (
-        <Card className="p-4">
-          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">
+        <Card className="rounded-2xl border-2 p-4">
+          <p className="text-xs font-extrabold text-muted-foreground uppercase tracking-wide mb-3">
             Jump to question
           </p>
           <div className="flex flex-wrap gap-2">
@@ -97,7 +121,7 @@ export function PracticeSession({ questions, subjectColor, revealedIds = [], onQ
                   setCurrent(idx);
                   setShowList(false);
                 }}
-                className="h-9 w-9 rounded-lg px-0"
+                className="h-10 w-10 rounded-xl border-2 px-0 font-extrabold active:translate-y-0.5"
                 style={idx === current ? { backgroundColor: subjectColor } : undefined}
                 aria-label={`Go to question ${idx + 1}`}
                 aria-current={idx === current}
@@ -111,9 +135,12 @@ export function PracticeSession({ questions, subjectColor, revealedIds = [], onQ
 
       {/* Counter */}
       <div className="flex items-center justify-between">
-        <p className="text-sm text-muted-foreground">
-          Question <span className="font-medium text-foreground">{current + 1}</span> of{" "}
-          <span className="font-medium text-foreground">{filtered.length}</span>
+        <p className="text-sm font-semibold text-muted-foreground">
+          Question <span className="font-extrabold text-foreground">{current + 1}</span> of{" "}
+          <span className="font-extrabold text-foreground">{filtered.length}</span>
+          {revealedIds.length > 0 && (
+            <span> · {revealedIds.length} revealed</span>
+          )}
         </p>
         <div className="flex items-center gap-1">
           {filtered.map((_, idx) => (
@@ -147,15 +174,19 @@ export function PracticeSession({ questions, subjectColor, revealedIds = [], onQ
       <div className="flex items-center justify-between">
         <Button
           variant="outline"
+          size="lg"
           onClick={prev}
           disabled={current === 0}
+          className="rounded-2xl border-2 font-extrabold"
         >
           <ChevronLeft className="h-4 w-4" />
           Previous
         </Button>
         <Button
+          size="lg"
           onClick={next}
           disabled={current === filtered.length - 1}
+          className="rounded-2xl font-extrabold"
           style={{ backgroundColor: subjectColor }}
         >
           Next

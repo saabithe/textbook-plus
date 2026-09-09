@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { RotateCcw } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -90,20 +90,23 @@ export function FlashcardCard({ card, subjectColor, onKnown, onUnknown }: Flashc
         <div className="flex items-center justify-center gap-3 mt-5">
           <Button
             variant="outline"
+            size="lg"
             onClick={onUnknown}
-            className="border-red-500/30 bg-red-500/10 text-red-600 hover:bg-red-500/20 hover:text-red-600 dark:text-red-400 dark:hover:text-red-400"
+            className="rounded-2xl border-2 border-red-600/40 bg-red-500 font-extrabold text-white hover:bg-red-500/90 hover:text-white active:translate-y-0.5 dark:text-white dark:hover:text-white"
           >
-            <RotateCcw className="h-4 w-4" />
+            <X className="h-4 w-4" />
             Unknown
-            <kbd className="hidden sm:inline text-[10px] bg-red-500/10 rounded px-1.5 py-0.5">1</kbd>
+            <kbd className="hidden sm:inline rounded-lg bg-white/20 px-1.5 py-0.5 text-[10px] font-extrabold">1</kbd>
           </Button>
           <Button
             variant="outline"
+            size="lg"
             onClick={onKnown}
-            className="border-green-500/30 bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-600 dark:text-green-400 dark:hover:text-green-400"
+            className="rounded-2xl border-2 border-green-600/40 bg-green-500 font-extrabold text-white hover:bg-green-500/90 hover:text-white active:translate-y-0.5 dark:text-white dark:hover:text-white"
           >
-            ✓ Known
-            <kbd className="hidden sm:inline text-[10px] bg-green-500/10 rounded px-1.5 py-0.5">2</kbd>
+            <Check className="h-4 w-4" />
+            Known
+            <kbd className="hidden sm:inline rounded-lg bg-white/20 px-1.5 py-0.5 text-[10px] font-extrabold">2</kbd>
           </Button>
         </div>
       )}

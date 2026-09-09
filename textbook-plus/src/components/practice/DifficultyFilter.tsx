@@ -46,7 +46,7 @@ export function DifficultyFilter({
             value={filter.id}
             aria-label={`Show ${filter.label} questions`}
             className={cn(
-              "gap-1.5 px-3 py-2",
+              "gap-1.5 rounded-full border-2 px-4 py-2 font-extrabold active:translate-y-0.5",
               isActive && "border-transparent text-white hover:bg-transparent hover:text-white"
             )}
             style={isActive ? { backgroundColor: subjectColor } : undefined}
@@ -55,7 +55,7 @@ export function DifficultyFilter({
             <Badge
               variant="secondary"
               className={cn(
-                "h-5 min-w-5 px-1 text-[10px]",
+                "h-5 min-w-5 rounded-full px-1.5 text-[10px] font-extrabold",
                 isActive
                   ? "bg-white/20 text-white dark:text-background"
                   : "bg-muted text-muted-foreground"
