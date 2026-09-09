@@ -1,4 +1,5 @@
 import { Card, CardFooter } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import {
   Table,
   TableHeader,
@@ -26,11 +27,11 @@ export function TableCard({ headers, rows, caption }: TableCardProps) {
         <span className="text-xs font-bold tracking-[0.12em] text-emerald-700 dark:text-emerald-400 uppercase">Data</span>
         <span className="text-xs text-emerald-700/60 dark:text-emerald-400/60 ml-1">— table</span>
       </div>
-      <Table className="text-sm">
+      <Table className="table-fixed text-sm">
         <TableHeader>
           <TableRow className="border-b border-emerald-500/15 bg-emerald-500/[0.06] hover:bg-emerald-500/[0.06] dark:bg-emerald-500/[0.08] dark:hover:bg-emerald-500/[0.08]">
             {headers.map((h, i) => (
-              <TableHead key={i} className="h-auto px-4 py-2.5 font-semibold whitespace-normal text-emerald-900/80 dark:text-emerald-100/90">
+              <TableHead key={i} className="h-auto min-w-0 px-4 py-2.5 align-top font-semibold whitespace-normal break-words text-emerald-900/80 dark:text-emerald-100/90">
                 {h}
               </TableHead>
             ))}
@@ -40,7 +41,13 @@ export function TableCard({ headers, rows, caption }: TableCardProps) {
           {rows.map((row, i) => (
             <TableRow key={i} className="border-b border-border/20 last:border-0 odd:bg-background even:bg-muted/30 hover:bg-emerald-500/[0.04]">
               {row.cells.map((cell, j) => (
-                <TableCell key={j} className="px-4 py-2 whitespace-normal text-muted-foreground">
+                <TableCell
+                  key={j}
+                  className={cn(
+                    "min-w-0 px-4 py-2 align-top whitespace-normal break-words text-muted-foreground",
+                    j === 0 && "font-medium text-foreground/90"
+                  )}
+                >
                   {cell}
                 </TableCell>
               ))}

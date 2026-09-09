@@ -110,32 +110,21 @@ export default function UnitsAndMeasurementsChapter() {
         ]}
       />
       <h3 id="h-supplementary">Supplementary quantities — a side-by-side</h3>
-      <Callout type="important" title="Definition — the two supplementary quantities">
-        <p>
-          Besides the seven base quantities, the SI defines <strong>two supplementary quantities</strong>{" "}
-          for specifying angles. They <strong>have units but no dimension</strong>:
-        </p>
-        <ul>
-          <li>
-            <strong>Plane angle</strong> (symbol θ) — the angle between two lines meeting at a point,
-            defined as the ratio of the arc length <em>s</em> to the radius <em>r</em>{" "}
-            (<Formula>{String.raw`\theta = s/r`}</Formula>). Its SI unit is the{" "}
-            <strong>radian</strong> (rad).
-          </li>
-          <li>
-            <strong>Solid angle</strong> (symbol Ω) — the angle subtended at a point by an area on the
-            surface of a sphere, defined as the ratio of the intercepted area <em>A</em> to the square
-            of the radius <em>r</em> (<Formula>{String.raw`\Omega = A/r^2`}</Formula>). Its SI unit is
-            the <strong>steradian</strong> (sr).
-          </li>
-        </ul>
-      </Callout>
+      <p>
+        Besides the seven base quantities, the SI defines <strong>two supplementary quantities</strong>{" "}
+        for specifying angles. They <strong>have units but no dimension</strong>:
+      </p>
       <Comparison
         columns={[
           {
             title: "Plane Angle (2D)",
             children: (
               <ul>
+                <li>
+                  <strong>Definition:</strong> the angle between two lines meeting at a point — the
+                  ratio of the arc length <em>s</em> to the radius <em>r</em> (symbol{" "}
+                  <Formula>{String.raw`\theta`}</Formula>).
+                </li>
                 <li>SI unit: <strong>radian</strong> (rad)</li>
                 <li>
                   <Formula>{String.raw`\theta = \frac{\text{arc length}}{\text{radius}} = \frac{s}{r}`}</Formula>
@@ -148,6 +137,11 @@ export default function UnitsAndMeasurementsChapter() {
             title: "Solid Angle (3D)",
             children: (
               <ul>
+                <li>
+                  <strong>Definition:</strong> the angle subtended at a point by an area on the
+                  surface of a sphere — the ratio of the intercepted area <em>A</em> to the square
+                  of the radius <em>r</em> (symbol <Formula>{String.raw`\Omega`}</Formula>).
+                </li>
                 <li>SI unit: <strong>steradian</strong> (sr)</li>
                 <li>
                   <Formula>{String.raw`\Omega = \frac{\text{area}}{\text{radius}^2} = \frac{A}{r^2}`}</Formula>
@@ -162,6 +156,18 @@ export default function UnitsAndMeasurementsChapter() {
         Both are ratios of a length to a length (or an area to an area) — the units cancel, so they
         carry <strong>a unit but no dimension</strong>.
       </Callout>
+
+      <h3 id="h-dim-vs-unit">Dimension vs unit — the four combinations</h3>
+      <TableCard
+        caption="A quantity is either dimensional or dimensionless, and either carries a unit or not. These are all four combinations a quantity can take."
+        headers={["Combination", "Dimensional formula?", "Unit?", "Examples"]}
+        rows={[
+          { cells: ["Dimension + unit", "✓ e.g. [M L T⁻²]", "✓ e.g. newton (N)", "Force, energy, pressure"] },
+          { cells: ["Unit, no dimension", "—", "✓ rad, sr", "Plane angle (θ), solid angle (Ω)"] },
+          { cells: ["No dimension, no unit", "—", "—", "Strain, refractive index, relative density, π"] },
+          { cells: ["Dimension, no unit", "✓", "—", "None — a quantity with dimensions always carries a unit"] },
+        ]}
+      />
 
       <h3 id="h-decimal">The decimal system and conversions</h3>
       <p>
@@ -502,51 +508,7 @@ export default function UnitsAndMeasurementsChapter() {
         <li><strong>Powers &amp; exponents:</strong> the 2 in <Formula>{String.raw`x^2`}</Formula>, the ½ in <Formula>{String.raw`\frac{1}{2}mv^2`}</Formula> — dimensionless.</li>
       </ul>
 
-      <h3 id="h-dim-practice">Solved practice questions on dimensions</h3>
-      <Expandable title="Q1 — A quantity has dimensions [M¹ L² T⁻²]" variant="exercise">
-        <p>What are its SI and CGS units?</p>
-        <p>Replace M, L, T by the base units of each system:</p>
-        <ul>
-          <li>
-            <strong>SI:</strong> <Formula>{String.raw`\text{kg}\cdot\text{m}^2\cdot\text{s}^{-2}`}</Formula>{" "}
-            — the joule (J), a unit of energy/work.
-          </li>
-          <li>
-            <strong>CGS:</strong> <Formula>{String.raw`\text{g}\cdot\text{cm}^2\cdot\text{s}^{-2}`}</Formula>{" "}
-            — the erg.
-          </li>
-        </ul>
-      </Expandable>
-      <Expandable title="Q2 — SI unit is kg m⁻². Find the dimensions" variant="exercise">
-        <p>Replace each unit by its dimension: kg → [M], m → [L].</p>
-        <FormulaBlock latex={String.raw`\frac{\text{kg}^1}{\text{m}^2} \;\Rightarrow\; [M^1 L^{-2} T^0]`} important />
-      </Expandable>
-      <Expandable title="Q3 — Kinetic energy K = ½mv²" variant="example">
-        <FormulaBlock latex={String.raw`[K] = [\tfrac{1}{2}]\,[m]\,[v]^2 = 1 \times M \times (L T^{-1})^2 = [M L^2 T^{-2}]`} important />
-      </Expandable>
-      <Expandable title="Q4 — Gravitational constant G from F = Gm₁m₂/r²" variant="example">
-        <p>Rearrange for G, then substitute dimensions:</p>
-        <FormulaBlock latex={String.raw`G = \frac{F\,r^2}{m_1 m_2} = \frac{(M L T^{-2})\,L^2}{M \times M} = [M^{-1} L^3 T^{-2}]`} important />
-      </Expandable>
-      <Expandable title="Q5 — Coefficient of viscosity, modulus of elasticity and G" variant="exercise">
-        <p>Write the dimensional formula of each quantity:</p>
-        <TableCard
-          headers={["Quantity", "Formula / expression", "Dimensional formula"]}
-          rows={[
-            { cells: ["Coefficient of viscosity", "(force/area) ÷ (velocity gradient)", "M L⁻¹ T⁻¹"] },
-            { cells: ["Gravitational constant", "force × (distance)² ÷ (mass)²", "M⁻¹ L³ T⁻²"] },
-            { cells: ["Modulus of elasticity", "force ÷ area", "M L⁻¹ T⁻²"] },
-          ]}
-        />
-      </Expandable>
-      <Expandable title="Q6 — Spring constant k from F = −kx" variant="exercise">
-        <p>
-          The restoring force developed in a spring extended by a length x is <Formula>{String.raw`F = -kx`}</Formula>.
-          What is the dimensional formula of k?
-        </p>
-        <FormulaBlock latex={String.raw`[k] = \frac{[F]}{[x]} = \frac{M L T^{-2}}{L} = [M L^0 T^{-2}] = [M T^{-2}]`} important />
-      </Expandable>
-      <KeyPoint>
+<KeyPoint>
         Because dimensions ignore magnitudes, <em>speed</em>, <em>velocity</em>, and all velocity-like
         quantities are dimensionally identical — a change of position per unit time is [L T⁻¹] in every case.
       </KeyPoint>
@@ -593,12 +555,54 @@ export default function UnitsAndMeasurementsChapter() {
         </li>
       </ul>
 
-      <h3 id="h-1-6-app">Applications of P.O.H</h3>
-      <ol>
-        <li>To find the dimension of unknown quantities.</li>
-        <li>To check the correctness of the equation.</li>
-        <li>To find the relationship between physical quantities (<Formula>{String.raw`A \propto k\,B`}</Formula>).</li>
-      </ol>
+      <h3 id="h-1-6-app">Uses and limits of P.O.H — a side-by-side</h3>
+      <Comparison
+        columns={[
+          {
+            title: "Uses",
+            children: (
+              <ol>
+                <li>
+                  To find the <strong>dimension of unknown quantities</strong>.
+                </li>
+                <li>
+                  To <strong>check the correctness</strong> of a given equation.
+                </li>
+                <li>
+                  To find the <strong>relationship between physical quantities</strong>{" "}
+                  (<Formula>{String.raw`A \propto k\,B`}</Formula>).
+                </li>
+              </ol>
+            ),
+          },
+          {
+            title: "Limits",
+            children: (
+              <ol>
+                <li>
+                  Cannot handle equations with <strong>dimensional constants</strong> — e.g. the
+                  gravitational law <Formula>{String.raw`F = G\frac{m_1 m_2}{r^2}`}</Formula>.
+                </li>
+                <li>
+                  Cannot handle <strong>more than two terms</strong> added/subtracted — e.g.{" "}
+                  <Formula>{String.raw`S = ut + \tfrac{1}{2}at^2`}</Formula>.
+                </li>
+                <li>
+                  No information on <strong>numerical correctness</strong>: both{" "}
+                  <Formula>{String.raw`KE = \tfrac{1}{2}mv^2`}</Formula> and{" "}
+                  <Formula>{String.raw`KE = 2mv^2`}</Formula> are dimensionally correct, but only the
+                  first is numerically right.
+                </li>
+                <li><strong>Dimensionless constants</strong> (like 2π) are never obtained.</li>
+                <li>
+                  Cannot distinguish quantities with the <strong>same dimensions</strong> (e.g., work
+                  and torque).
+                </li>
+              </ol>
+            ),
+          },
+        ]}
+      />
 
       <h3 id="h-1-6-1">1.6.1 Checking the dimensional consistency of equations</h3>
       <Expandable title="Check 1 — S = ut + ½at² is dimensionally correct" variant="default">
@@ -788,7 +792,51 @@ export default function UnitsAndMeasurementsChapter() {
       </Expandable>
 
       <h3 id="h-1-6-3">1.6.3 Practice questions — applying P.O.H</h3>
-      <Expandable title="P1 — Dimensions of a, b, c in x = a + bt + c/t²" variant="exercise">
+      <Expandable title="Solved practice questions on dimensions" variant="exercise">
+        <Expandable title="Q1 — A quantity has dimensions [M¹ L² T⁻²]" variant="exercise">
+          <p>What are its SI and CGS units?</p>
+          <p>Replace M, L, T by the base units of each system:</p>
+          <ul>
+            <li>
+              <strong>SI:</strong> <Formula>{String.raw`\text{kg}\cdot\text{m}^2\cdot\text{s}^{-2}`}</Formula>{" "}
+              — the joule (J), a unit of energy/work.
+            </li>
+            <li>
+              <strong>CGS:</strong> <Formula>{String.raw`\text{g}\cdot\text{cm}^2\cdot\text{s}^{-2}`}</Formula>{" "}
+              — the erg.
+            </li>
+          </ul>
+        </Expandable>
+        <Expandable title="Q2 — SI unit is kg m⁻². Find the dimensions" variant="exercise">
+          <p>Replace each unit by its dimension: kg → [M], m → [L].</p>
+          <FormulaBlock latex={String.raw`\frac{\text{kg}^1}{\text{m}^2} \;\Rightarrow\; [M^1 L^{-2} T^0]`} important />
+        </Expandable>
+        <Expandable title="Q3 — Kinetic energy K = ½mv²" variant="example">
+          <FormulaBlock latex={String.raw`[K] = [\tfrac{1}{2}]\,[m]\,[v]^2 = 1 \times M \times (L T^{-1})^2 = [M L^2 T^{-2}]`} important />
+        </Expandable>
+        <Expandable title="Q4 — Gravitational constant G from F = Gm₁m₂/r²" variant="example">
+          <p>Rearrange for G, then substitute dimensions:</p>
+          <FormulaBlock latex={String.raw`G = \frac{F\,r^2}{m_1 m_2} = \frac{(M L T^{-2})\,L^2}{M \times M} = [M^{-1} L^3 T^{-2}]`} important />
+        </Expandable>
+        <Expandable title="Q5 — Coefficient of viscosity, modulus of elasticity and G" variant="exercise">
+          <p>Write the dimensional formula of each quantity:</p>
+          <TableCard
+            headers={["Quantity", "Formula / expression", "Dimensional formula"]}
+            rows={[
+              { cells: ["Coefficient of viscosity", "(force/area) ÷ (velocity gradient)", "M L⁻¹ T⁻¹"] },
+              { cells: ["Gravitational constant", "force × (distance)² ÷ (mass)²", "M⁻¹ L³ T⁻²"] },
+              { cells: ["Modulus of elasticity", "force ÷ area", "M L⁻¹ T⁻²"] },
+            ]}
+          />
+        </Expandable>
+        <Expandable title="Q6 — Spring constant k from F = −kx" variant="exercise">
+          <p>
+            The restoring force developed in a spring extended by a length x is <Formula>{String.raw`F = -kx`}</Formula>.
+            What is the dimensional formula of k?
+          </p>
+          <FormulaBlock latex={String.raw`[k] = \frac{[F]}{[x]} = \frac{M L T^{-2}}{L} = [M L^0 T^{-2}] = [M T^{-2}]`} important />
+        </Expandable>
+        <Expandable title="P1 — Dimensions of a, b, c in x = a + bt + c/t²" variant="exercise">
         <ProblemSolution.Problem>
           <p>
             The displacement x of a body is given by{" "}
@@ -1049,32 +1097,7 @@ export default function UnitsAndMeasurementsChapter() {
           </li>
         </ul>
       </Expandable>
-
-      <Callout type="warning" title="Limits of the principle of homogeneity">
-        <ol>
-          <li>
-            Equations containing <strong>dimensional constants</strong> cannot be derived — e.g. the
-            gravitational law <Formula>{String.raw`F = G\frac{m_1 m_2}{r^2}`}</Formula>.
-          </li>
-          <li>
-            Equations with <strong>more than two terms added/subtracted</strong> cannot be derived —
-            e.g. <Formula>{String.raw`S = ut + \tfrac{1}{2}at^2`}</Formula>.
-          </li>
-          <li>
-            Even if an equation is dimensionally correct, it need not be numerically correct:
-            <ul>
-              <li>
-                <Formula>{String.raw`KE = \tfrac{1}{2}mv^2`}</Formula> — dimensionally correct ✓ and numerically correct ✓
-              </li>
-              <li>
-                <Formula>{String.raw`KE = 2mv^2`}</Formula> — dimensionally correct ✓ but numerically incorrect ✗
-              </li>
-            </ul>
-          </li>
-          <li>Dimensionless constants (like 2π) can never be obtained by this method.</li>
-          <li>It cannot distinguish quantities with the same dimensions (e.g., work and torque).</li>
-        </ol>
-      </Callout>
+      </Expandable>
 
       <h2 id="h-exercises">Exercises 1.1 – 1.17</h2>
       <Expandable title="Exercises 1.1 – 1.17" variant="exercise">
