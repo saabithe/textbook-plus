@@ -28,10 +28,10 @@ export function CollapsibleSection({
     <Collapsible open={open} onOpenChange={setOpen}>
       <div
         id={id}
-        className="rounded-xl border border-border/60 bg-card/50 overflow-hidden scroll-mt-24"
+        className="rounded-2xl border border-border/60 bg-card/50 overflow-hidden scroll-mt-24 shadow-sm"
       >
         <CollapsibleTrigger
-          className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left text-foreground hover:bg-muted/30 transition-colors"
+          className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left text-foreground transition-colors hover:bg-primary/[0.05]"
         >
           <span className="text-base font-bold tracking-tight">{title}</span>
           <ChevronDown

@@ -107,44 +107,53 @@ export function ChapterLayout({
       </Breadcrumb>
 
       {/* Chapter Header */}
-      <header className="mb-6 flex items-start justify-between gap-4">
-        <div className="space-y-2">
-          <div className="flex items-center gap-3">
+      <header
+        className="mb-8 overflow-hidden rounded-3xl border-2 p-5 sm:p-7"
+        style={{
+          borderColor: `${subjectColor}33`,
+          background: `linear-gradient(135deg, ${subjectColor}14, transparent 65%)`,
+        }}
+      >
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex items-center gap-4">
             <span
-              className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold text-white dark:text-background"
-              style={{ backgroundColor: subjectColor }}
+              className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-lg font-extrabold text-white sm:h-14 sm:w-14 sm:text-xl"
+              style={{
+                background: `linear-gradient(135deg, ${subjectColor}, ${subjectColor}B3)`,
+                boxShadow: `0 8px 20px -8px ${subjectColor}`,
+              }}
             >
               {chapter.number}
             </span>
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              {chapter.title}
-            </h1>
+            <div className="space-y-1">
+              <h1 className="text-2xl font-extrabold tracking-tight sm:text-4xl">
+                {chapter.title}
+              </h1>
+              <p className="text-sm font-semibold text-muted-foreground">
+                {subtitle ?? `${chapter.topicCount} topics`}
+              </p>
+            </div>
           </div>
-          <p className="text-sm text-muted-foreground ml-11">
-            {subtitle ?? `${chapter.topicCount} topics`}
-          </p>
-        </div>
-        <div className="flex items-center gap-2 shrink-0">
-          {/* Mark complete button */}
-          <Button
-            variant="outline"
-            onClick={() => toggle(chapter.slug)}
-            className={cn(
-              "h-9 px-3",
-              completed
-                ? "border-green-500/30 bg-green-500/10 text-green-600 dark:text-green-400"
-                : "bg-muted/50 text-muted-foreground hover:text-foreground"
-            )}
-          >
-            {completed ? (
-              <CheckCircle2 className="h-4 w-4" />
-            ) : (
-              <Circle className="h-4 w-4" />
-            )}
-            <span className="hidden sm:inline">
-              {completed ? "Completed" : "Mark complete"}
-            </span>
-          </Button>
+          <div className="flex items-center gap-2 shrink-0">
+            {/* Mark complete button */}
+            <Button
+              variant={completed ? "default" : "outline"}
+              onClick={() => toggle(chapter.slug)}
+              className={cn(
+                "h-9 rounded-full px-3 sm:px-4",
+                !completed && "bg-muted/50 text-muted-foreground hover:text-foreground"
+              )}
+            >
+              {completed ? (
+                <CheckCircle2 className="h-4 w-4" />
+              ) : (
+                <Circle className="h-4 w-4" />
+              )}
+              <span className="hidden sm:inline">
+                {completed ? "Completed" : "Mark complete"}
+              </span>
+            </Button>
+          </div>
         </div>
       </header>
 

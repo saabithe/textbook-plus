@@ -19,22 +19,34 @@ interface AuthorCardProps {
 export function AuthorCard({ name, children, className }: AuthorCardProps) {
   const [expanded, setExpanded] = useState(false);
   const hasChildren = !!children;
+  const initials = name
+    .split(/\s+/)
+    .map((w) => w[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
 
   return (
     <Card
       className={cn(
-        "my-6 gap-0 rounded-2xl border-border/50 bg-card py-0",
+        "my-6 gap-0 rounded-2xl border-border/50 bg-card py-0 shadow-sm",
         className
       )}
     >
       <CardContent className="px-6 py-5">
         <Collapsible open={expanded} onOpenChange={setExpanded}>
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
-                Author
-              </p>
-              <h3 className="text-xl font-bold text-foreground">{name}</h3>
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3.5">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 text-sm font-extrabold text-white shadow-md shadow-fuchsia-500/25">
+                {initials}
+              </span>
+              <div>
+                <p className="text-xs font-extrabold uppercase tracking-[0.14em] mb-1.5 bg-gradient-to-r from-violet-600 to-fuchsia-600 dark:from-violet-400 dark:to-fuchsia-400 bg-clip-text text-transparent">
+                  Author
+                </p>
+                <h3 className="text-xl font-extrabold tracking-tight text-foreground">{name}</h3>
+              </div>
             </div>
             {hasChildren && (
               <CollapsibleTrigger

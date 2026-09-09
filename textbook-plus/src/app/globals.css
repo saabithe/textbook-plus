@@ -150,16 +150,18 @@
 
 .prose-custom h2::before {
   content: "";
-  @apply h-6 w-1 rounded-full bg-violet-500/60 dark:bg-violet-400/60 shrink-0;
+  @apply h-7 w-1.5 rounded-full shrink-0;
+  background: linear-gradient(180deg, var(--color-violet-500), var(--color-fuchsia-400));
 }
 
 .prose-custom h3 {
-  @apply text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground flex items-center gap-2;
+  @apply text-lg font-bold mt-10 mb-3 scroll-mt-24 text-foreground flex items-center gap-2.5;
 }
 
 .prose-custom h3::before {
   content: "";
-  @apply h-4 w-0.5 rounded-full bg-blue-500/50 dark:bg-blue-400/50 shrink-0;
+  @apply h-5 w-1 rounded-full shrink-0;
+  background: linear-gradient(180deg, var(--color-blue-500), var(--color-sky-400));
 }
 
 .prose-custom p {
@@ -184,7 +186,7 @@
 }
 
 .prose-custom blockquote {
-  @apply border-l-4 border-primary/30 pl-4 py-1 my-5 text-foreground/80 italic;
+  @apply border-l-4 border-primary/40 pl-4 pr-4 py-2 my-5 text-foreground/80 italic rounded-r-2xl bg-primary/[0.05];
 }
 
 .prose-custom table {

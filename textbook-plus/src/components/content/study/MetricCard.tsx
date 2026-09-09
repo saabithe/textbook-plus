@@ -11,11 +11,11 @@ interface MetricCardProps {
 
 export function MetricCard({ label, value, unit, trend, description }: MetricCardProps) {
   return (
-    <Card className={cn("my-6 gap-0 border-border/60 bg-muted/30 py-0")}>
+    <Card className={cn("my-6 gap-0 rounded-2xl border-border/60 bg-muted/30 py-0")}>
       <CardContent className="px-5 py-4">
-        <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{label}</p>
+        <p className="text-xs font-extrabold text-muted-foreground uppercase tracking-widest">{label}</p>
         <div className="flex items-baseline gap-2 mt-1">
-          <span className="text-2xl font-bold text-foreground">{value}</span>
+          <span className="text-2xl font-extrabold text-foreground">{value}</span>
           {unit && <span className="text-sm text-muted-foreground">{unit}</span>}
           {trend && (
             <span className={cn("text-xs font-medium",

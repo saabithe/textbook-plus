@@ -15,7 +15,7 @@ export function Stepper({ steps }: StepperProps) {
       {steps.map((step, i) => (
         <div key={i} className="flex gap-3.5">
           <div className="flex flex-col items-center">
-            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-500 text-white text-xs font-bold shadow-sm ring-2 ring-blue-500/20">
+            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-blue-600 text-white text-xs font-extrabold shadow-md shadow-blue-500/30 ring-2 ring-blue-500/25">
               {i + 1}
             </div>
             {i < steps.length - 1 && (
@@ -27,7 +27,7 @@ export function Stepper({ steps }: StepperProps) {
               {step.label}
             </div>
             {step.description && (
-              <div className="text-sm text-foreground/75 mt-1 leading-relaxed bg-muted/20 rounded-lg px-3 py-2 border border-border/30">
+              <div className="text-sm text-foreground/75 mt-1 leading-relaxed bg-muted/20 rounded-xl px-3 py-2 border border-border/30">
                 {step.description}
               </div>
             )}

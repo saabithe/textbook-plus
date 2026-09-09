@@ -13,10 +13,12 @@ interface ComparisonProps {
 
 export function Comparison({ columns }: ComparisonProps) {
   return (
-    <Card className="my-6 gap-0 overflow-hidden border border-border/60 py-0">
-      <div className="flex items-center gap-2 px-5 py-3 bg-muted/30">
-        <ArrowLeftRight className="h-4 w-4 text-muted-foreground" />
-        <span className="text-sm font-medium text-muted-foreground">Comparison</span>
+    <Card className="my-6 gap-0 overflow-hidden rounded-2xl border border-border/60 py-0 shadow-sm">
+      <div className="flex items-center gap-2.5 px-5 py-3 bg-muted/30">
+        <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 shadow-md shadow-fuchsia-500/25">
+          <ArrowLeftRight className="h-3.5 w-3.5 text-white" />
+        </span>
+        <span className="text-xs font-extrabold uppercase tracking-[0.14em] text-foreground">Comparison</span>
       </div>
       <Separator />
       <div

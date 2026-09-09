@@ -26,19 +26,19 @@ export function ReadRespond({ title = "Textbook \"Read and Respond\" Questions &
 
   return (
     <div id="read-and-respond" className={cn("my-6", className)}>
-      <h3 className="text-lg font-bold tracking-tight mt-10 mb-3 scroll-mt-24 text-foreground flex items-center gap-2">
+      <h3 className="text-lg font-extrabold tracking-tight mt-10 mb-3 scroll-mt-24 text-foreground flex items-center gap-2">
         <span className="text-xl">📘</span> {title}
       </h3>
       <Accordion
         value={openIndex === null ? [] : [openIndex]}
         onValueChange={(value) => setOpenIndex(value.length > 0 ? (value[0] as number) : null)}
-        className="rounded-2xl border border-border/50 overflow-hidden"
+        className="rounded-2xl border border-border/50 overflow-hidden shadow-sm"
       >
         {items.map((item, i) => {
           const open = openIndex === i;
           return (
             <AccordionItem key={i} value={i} className="bg-card">
-              <AccordionTrigger className="px-5 py-3.5 hover:no-underline hover:bg-muted/40 [&_[data-slot=accordion-trigger-icon]]:hidden">
+              <AccordionTrigger className="px-5 py-3.5 transition-colors hover:no-underline hover:bg-primary/[0.05] [&_[data-slot=accordion-trigger-icon]]:hidden">
                 <span className="flex items-center gap-3 text-left">
                   <ChevronRight
                     className={cn(

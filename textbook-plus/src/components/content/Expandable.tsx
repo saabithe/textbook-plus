@@ -31,7 +31,7 @@ const variantStyles = {
   example: {
     wrapper: "border-blue-500/20 shadow-sm",
     trigger: "bg-blue-500/[0.07] hover:bg-blue-500/[0.11] dark:bg-blue-500/[0.10] dark:hover:bg-blue-500/[0.14] border-b-blue-500/10",
-    iconWrap: "bg-blue-500/15 text-blue-600 dark:text-blue-400",
+    iconWrap: "bg-gradient-to-br from-blue-500 to-sky-400 text-white shadow-sm shadow-blue-500/30",
     Icon: FlaskConical,
     badge: "EX",
     badgeClass: "bg-blue-500 text-white",
@@ -40,7 +40,7 @@ const variantStyles = {
   exercise: {
     wrapper: "border-amber-500/30 shadow-sm",
     trigger: "bg-amber-500/[0.09] hover:bg-amber-500/[0.14] dark:bg-amber-500/[0.12] dark:hover:bg-amber-500/[0.16] border-b-amber-500/15",
-    iconWrap: "bg-amber-500/20 text-amber-700 dark:text-amber-300",
+    iconWrap: "bg-gradient-to-br from-amber-500 to-orange-400 text-white shadow-sm shadow-amber-500/30",
     Icon: ClipboardList,
     badge: "EX",
     badgeClass: "bg-amber-500 text-white",
@@ -49,7 +49,7 @@ const variantStyles = {
   misc: {
     wrapper: "border-slate-500/20 shadow-sm",
     trigger: "bg-slate-500/[0.06] hover:bg-slate-500/[0.10] dark:bg-slate-500/[0.10] dark:hover:bg-slate-500/[0.14]",
-    iconWrap: "bg-slate-500/15 text-slate-600 dark:text-slate-400",
+    iconWrap: "bg-gradient-to-br from-slate-500 to-slate-400 text-white shadow-sm shadow-slate-500/25",
     Icon: Layers,
     badge: "M",
     badgeClass: "bg-slate-600 text-white",
@@ -58,7 +58,7 @@ const variantStyles = {
   default: {
     wrapper: "border-border/60",
     trigger: "bg-muted/40 hover:bg-muted/60",
-    iconWrap: "bg-muted text-foreground",
+    iconWrap: "bg-gradient-to-br from-slate-500/80 to-slate-400/80 text-white shadow-sm shadow-slate-500/20",
     Icon: BookOpen,
     badge: null as string | null,
     badgeClass: "",
@@ -73,11 +73,11 @@ export function Expandable({ title, id, variant, children }: ExpandableProps) {
 
   return (
     <Collapsible open={open} onOpenChange={setOpen}>
-      <div id={id} className={cn("my-6 rounded-xl border overflow-hidden", v.wrapper)}>
+      <div id={id} className={cn("my-6 rounded-2xl border overflow-hidden", v.wrapper)}>
         <CollapsibleTrigger
-          className={cn("flex items-center gap-2.5 w-full px-4 py-3 text-left transition-colors border-b", open ? "border-border/30" : "border-transparent", v.trigger)}
+          className={cn("group flex items-center gap-2.5 w-full px-4 py-3 text-left transition-colors border-b", open ? "border-border/30" : "border-transparent", v.trigger)}
         >
-          <span className={cn("flex h-6 w-6 shrink-0 items-center justify-center rounded-md", v.iconWrap)}>
+          <span className={cn("flex h-7 w-7 shrink-0 items-center justify-center rounded-xl transition-transform duration-200 group-hover:-rotate-6", v.iconWrap)}>
             <VariantIcon className="h-3.5 w-3.5" />
           </span>
           <ChevronRight
@@ -87,9 +87,9 @@ export function Expandable({ title, id, variant, children }: ExpandableProps) {
               open && "rotate-90"
             )}
           />
-          <span className={cn("text-sm font-semibold", v.titleClass)}>{title}</span>
+          <span className={cn("text-sm font-extrabold tracking-wide", v.titleClass)}>{title}</span>
           {v.badge && (
-            <Badge className={cn("ml-auto text-xs font-bold tracking-widest", v.badgeClass)}>
+            <Badge className={cn("ml-auto text-xs font-extrabold tracking-widest", v.badgeClass)}>
               {v.badge}
             </Badge>
           )}

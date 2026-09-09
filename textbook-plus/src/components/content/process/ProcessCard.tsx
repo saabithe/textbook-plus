@@ -13,14 +13,14 @@ interface ProcessCardProps {
 
 export function ProcessCard({ title, steps }: ProcessCardProps) {
   return (
-    <Card className={cn("my-6 gap-0 border-border/60 bg-background py-0")}>
+    <Card className={cn("my-6 gap-0 rounded-2xl border-border/60 bg-background py-0 shadow-sm")}>
       <CardContent className="px-5 py-4">
         {title && <span className="text-sm font-semibold block mb-3">{title}</span>}
         <div className="space-y-0">
           {steps.map((step, i) => (
             <div key={i} className="flex gap-3">
               <div className="flex flex-col items-center">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/60 text-xs font-extrabold text-primary-foreground shadow-md shadow-primary/25">
                   {i + 1}
                 </div>
                 {i < steps.length - 1 && (
