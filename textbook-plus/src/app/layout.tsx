@@ -83,7 +83,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 <ErrorBoundary>
                   {children}
                 </ErrorBoundary>
-                <Toaster position="bottom-center" />
+                <Toaster position="bottom-center" richColors closeButton />
               </SyncProvider>
             </AuthProvider>
           </TooltipProvider>

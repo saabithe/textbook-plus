@@ -36,62 +36,49 @@ export function ChapterTabs({ activeTab, onTabChange, showPractice = true }: Cha
 }
 
 export function PracticePlaceholder({ subjectColor }: { subjectColor: string }) {
-  const tools = [
-    {
-      icon: Brain,
-      title: "Practice Questions",
-      description: "Test your understanding with MCQs and short answer questions",
-      status: "Coming soon",
-    },
-    {
-      icon: Layers,
-      title: "Flashcards",
-      description: "Review key concepts with flip cards and spaced repetition",
-      status: "Coming soon",
-    },
-    {
-      icon: FileText,
-      title: "Revision Notes",
-      description: "Quick summary sheets for last-minute revision",
-      status: "Coming soon",
-    },
-    {
-      icon: HelpCircle,
-      title: "Question Bank",
-      description: "Past year questions and sample papers organized by topic",
-      status: "Coming soon",
-    },
-  ];
-
   return (
-    <div className="space-y-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {tools.map((tool) => {
+    <Card className="rounded-3xl p-8 text-center sm:p-10">
+      <div
+        className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl shadow-lg"
+        style={{
+          background: `linear-gradient(135deg, ${subjectColor}, ${subjectColor}B3)`,
+          boxShadow: `0 10px 25px -5px ${subjectColor}55`,
+        }}
+      >
+        <BookOpen className="h-8 w-8 text-white" />
+      </div>
+      <h3 className="text-xl font-extrabold tracking-tight">Practice is on its way!</h3>
+      <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
+        We&apos;re cooking up questions, flashcards, and revision notes for this
+        chapter. Keep learning — practice will be ready soon!
+      </p>
+      <Badge
+        variant="secondary"
+        className="mt-4"
+        style={{ color: subjectColor, backgroundColor: `${subjectColor}15` }}
+      >
+        Coming soon
+      </Badge>
+      <div className="mx-auto mt-6 flex max-w-md flex-wrap items-center justify-center gap-2">
+        {[
+          { icon: Brain, label: "Practice Questions" },
+          { icon: Layers, label: "Flashcards" },
+          { icon: FileText, label: "Revision Notes" },
+          { icon: HelpCircle, label: "Question Bank" },
+        ].map((tool) => {
           const Icon = tool.icon;
           return (
-            <Card
-              key={tool.title}
-              className="p-5 opacity-75"
+            <span
+              key={tool.label}
+              className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold"
+              style={{ color: subjectColor, backgroundColor: `${subjectColor}12` }}
             >
-              <div className="flex items-start gap-3 mb-3">
-                <div
-                  className="flex h-9 w-9 items-center justify-center rounded-lg shrink-0"
-                  style={{ backgroundColor: `${subjectColor}15` }}
-                >
-                  <Icon className="h-4.5 w-4.5" style={{ color: subjectColor }} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-sm">{tool.title}</h3>
-                  <Badge variant="secondary" className="mt-1 text-xs font-normal">{tool.status}</Badge>
-                </div>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {tool.description}
-              </p>
-            </Card>
+              <Icon className="h-3.5 w-3.5" />
+              {tool.label}
+            </span>
           );
         })}
       </div>
-    </div>
+    </Card>
   );
 }

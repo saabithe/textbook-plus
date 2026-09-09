@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { LogIn } from "lucide-react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -61,11 +62,14 @@ export default function LoginPage() {
         </div>
 
         {/* Form */}
-        <Card>
+        <Card className="rounded-3xl">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold tracking-tight">Welcome back</CardTitle>
+            <div className="mx-auto mb-2 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-teal-500 shadow-lg shadow-green-500/25">
+              <LogIn className="h-7 w-7 text-white" />
+            </div>
+            <CardTitle className="text-2xl font-extrabold tracking-tight">Welcome back!</CardTitle>
             <CardDescription>
-              Sign in to sync your progress across devices.
+              Good to see you again! Sign in to keep learning and sync your progress.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -100,7 +104,7 @@ export default function LoginPage() {
                 />
               </div>
 
-              <Button type="submit" disabled={loading} className="h-10 w-full">
+              <Button type="submit" disabled={loading} size="lg" className="w-full">
                 {loading ? "Signing in..." : "Sign In"}
               </Button>
             </form>
@@ -110,13 +114,13 @@ export default function LoginPage() {
         {/* Links */}
         <div className="text-center text-sm text-muted-foreground space-y-2">
           <p>
-            <Link href="/reset-password" className="text-foreground underline underline-offset-4 hover:opacity-80">
+            <Link href="/reset-password" className="font-bold text-primary underline-offset-4 hover:underline">
               Forgot password?
             </Link>
           </p>
           <p>
             Don&apos;t have an account?{" "}
-            <Link href="/signup" className="text-foreground underline underline-offset-4 hover:opacity-80">
+            <Link href="/signup" className="font-bold text-primary underline-offset-4 hover:underline">
               Sign up
             </Link>
           </p>

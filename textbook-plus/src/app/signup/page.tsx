@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { UserPlus } from "lucide-react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -60,24 +61,19 @@ export default function SignupPage() {
   if (success) {
     return (
       <div className="flex min-h-screen items-center justify-center px-6">
-        <Card className="w-full max-w-sm">
+        <Card className="w-full max-w-sm rounded-3xl">
           <CardContent className="flex flex-col items-center gap-6 px-6 py-8 text-center">
-            <Image
-              src="/icon.svg"
-              alt="Textbook++"
-              width={48}
-              height={48}
-              className="dark:invert"
-              priority
-            />
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-teal-500 shadow-lg shadow-green-500/25">
+              <UserPlus className="h-7 w-7 text-white" />
+            </div>
             <div className="space-y-2">
-              <h1 className="text-2xl font-bold tracking-tight">Check your email</h1>
+              <h1 className="text-2xl font-extrabold tracking-tight">Check your email!</h1>
               <p className="text-sm text-muted-foreground">
-                We sent a confirmation link to <span className="font-medium text-foreground">{email}</span>.
+                You&apos;re almost in! We sent a confirmation link to <span className="font-medium text-foreground">{email}</span>.
                 Click the link to activate your account.
               </p>
             </div>
-            <Button render={<Link href="/login">Back to Sign In</Link>} />
+            <Button size="lg" className="w-full" render={<Link href="/login">Back to Sign In</Link>} />
           </CardContent>
         </Card>
       </div>
@@ -103,11 +99,14 @@ export default function SignupPage() {
         </div>
 
         {/* Form */}
-        <Card>
+        <Card className="rounded-3xl">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold tracking-tight">Create account</CardTitle>
+            <div className="mx-auto mb-2 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-teal-500 shadow-lg shadow-green-500/25">
+              <UserPlus className="h-7 w-7 text-white" />
+            </div>
+            <CardTitle className="text-2xl font-extrabold tracking-tight">Join the fun!</CardTitle>
             <CardDescription>
-              Save your progress and access it from any device.
+              Create your account and keep your progress wherever you go.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -154,7 +153,7 @@ export default function SignupPage() {
                 />
               </div>
 
-              <Button type="submit" disabled={loading} className="h-10 w-full">
+              <Button type="submit" disabled={loading} size="lg" className="w-full">
                 {loading ? "Creating account..." : "Create Account"}
               </Button>
             </form>
@@ -164,7 +163,7 @@ export default function SignupPage() {
         {/* Links */}
         <p className="text-center text-sm text-muted-foreground">
           Already have an account?{" "}
-          <Link href="/login" className="text-foreground underline underline-offset-4 hover:opacity-80">
+          <Link href="/login" className="font-bold text-primary underline-offset-4 hover:underline">
             Sign in
           </Link>
         </p>

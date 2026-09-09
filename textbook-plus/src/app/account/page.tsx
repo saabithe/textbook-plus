@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ChevronRight, Shield, Trash2 } from "lucide-react";
+import { ChevronRight, Settings, Shield, Trash2 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useSync } from "@/components/auth/SyncProvider";
@@ -46,13 +46,16 @@ export default function AccountPage() {
         <Navbar />
         <main className="flex-1">
           <section className="mx-auto max-w-6xl px-6 py-14">
-            <Card className="mx-auto max-w-md">
+            <Card className="mx-auto max-w-md rounded-3xl">
               <CardContent className="flex flex-col items-center gap-4 px-6 py-8 text-center">
-                <h1 className="text-2xl font-bold">Account Settings</h1>
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-teal-500 shadow-lg shadow-green-500/25">
+                  <Settings className="h-7 w-7 text-white" />
+                </div>
+                <h1 className="text-2xl font-extrabold tracking-tight">Your account</h1>
                 <p className="text-muted-foreground">
-                  Sign in with an email account to access settings.
+                  Sign in with an email account to manage your settings and keep your progress.
                 </p>
-                <Button render={<Link href="/signup">Create Account</Link>} />
+                <Button size="lg" className="w-full" render={<Link href="/signup">Create Account</Link>} />
               </CardContent>
             </Card>
           </section>
@@ -145,11 +148,21 @@ export default function AccountPage() {
             <span className="text-foreground font-medium">Account</span>
           </nav>
 
-          <h1 className="text-3xl font-bold tracking-tight mb-8">Account Settings</h1>
+          <div className="mb-8 flex items-center gap-4">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-teal-500 shadow-lg shadow-green-500/25">
+              <Settings className="h-7 w-7 text-white" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-extrabold tracking-tight">Your account</h1>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Manage your sign-in and keep your learning progress safe.
+              </p>
+            </div>
+          </div>
 
           <div className="max-w-lg space-y-8">
             {/* Email */}
-            <Card className="border-border/60 py-0 ring-0">
+            <Card className="rounded-3xl border-border/60 py-0 ring-0">
               <CardContent className="px-6 py-6">
                 <h2 className="text-lg font-semibold mb-1">Email</h2>
                 <p className="text-sm text-muted-foreground">{user.email}</p>
@@ -157,7 +170,7 @@ export default function AccountPage() {
             </Card>
 
             {/* Change Password */}
-            <Card className="border-border/60 py-0 ring-0">
+            <Card className="rounded-3xl border-border/60 py-0 ring-0">
               <CardHeader>
                 <div className="flex items-center gap-2">
                   <Shield className="h-5 w-5 text-muted-foreground" />
@@ -201,7 +214,7 @@ export default function AccountPage() {
                     />
                   </div>
 
-                  <Button type="submit" disabled={pwLoading} className="h-10">
+                  <Button type="submit" disabled={pwLoading} size="lg" className="w-full">
                     {pwLoading ? "Updating..." : "Update Password"}
                   </Button>
                 </form>
@@ -209,7 +222,7 @@ export default function AccountPage() {
             </Card>
 
             {/* Delete Account */}
-            <Card className="border border-red-500/20 bg-red-500/5 py-0 ring-0">
+            <Card className="rounded-3xl border border-red-500/20 bg-red-500/5 py-0 ring-0">
               <CardHeader>
                 <div className="flex items-center gap-2">
                   <Trash2 className="h-5 w-5 text-red-500" />
