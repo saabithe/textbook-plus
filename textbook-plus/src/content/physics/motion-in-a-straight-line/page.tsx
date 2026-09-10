@@ -1,4 +1,5 @@
 import { Callout } from "@/components/content/Callout";
+import { Comparison } from "@/components/content/Comparison";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
@@ -15,27 +16,50 @@ export default function MotionInAStraightLineChapter() {
     <>
       <h2 id="h-intro">2.1 Introduction</h2>
       <p>
-        Motion is change in position of an object with time. It is everywhere: we walk and run, blood
-        flows through veins, leaves fall, water flows down a dam, the Earth rotates every 24 hours and
-        revolves round the Sun once a year, the Sun itself moves through the Milky Way.
-      </p>
-      <p>
         This chapter is confined to <strong>rectilinear motion</strong> — motion of objects along a
-        straight line. We develop the concepts of <strong>velocity</strong> and{" "}
-        <strong>acceleration</strong>, and for rectilinear motion with uniform acceleration we obtain a
-        set of simple equations.
+        straight line.
       </p>
-      <Callout type="important" title="Point-object approximation">
-        Objects in motion are treated as <strong>point objects</strong>. This is valid so far as the size
-        of the object is much smaller than the distance it moves in a reasonable duration of time — a
-        good number of real-life situations can be treated this way without much error.
-      </Callout>
-      <KeyPoint>
-        In <strong>kinematics</strong> we describe motion <em>without</em> going into its causes. What
-        causes the motion is the subject of Chapter 4 (Laws of Motion). A car can be {""}
-        <em>kinematically described</em> by its x–t, v–t and a–t graphs; <em>why</em> it accelerates is a
-        dynamics question.
+      <KeyPoint title="Kinematics vs dynamics">
+        <ul>
+          <li>
+            <strong>Kinematics</strong> describes motion <em>without</em> going into its causes: a car is{" "}
+            <em>kinematically described</em> by its x–t, v–t and a–t graphs.
+          </li>
+          <li>
+            <strong>Dynamics</strong> studies the <em>cause</em> of motion — why a body accelerates. That
+            is the subject of Chapter 4 (Laws of Motion).
+          </li>
+        </ul>
       </KeyPoint>
+      <Comparison
+        columns={[
+          {
+            title: "Distance (path length)",
+            children: (
+              <ul>
+                <li>The <strong>actual length of the path</strong> travelled between two points.</li>
+                <li><strong>Always positive</strong> — a scalar that never decreases.</li>
+                <li>Depends on the path taken, not just the end positions.</li>
+                <li>SI unit: <strong>metre</strong> (m).</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Displacement",
+            children: (
+              <ul>
+                <li>
+                  The <strong>shortest straight-line distance</strong> from the initial to the final
+                  position, together with its direction.
+                </li>
+                <li>Can be <strong>positive, negative or zero</strong> — a vector.</li>
+                <li>Depends only on the end points; never longer than the path (&le; distance).</li>
+                <li>SI unit: <strong>metre</strong> (m).</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
 
       <h2 id="h-2-2">2.2 Instantaneous Velocity and Speed</h2>
       <p>
