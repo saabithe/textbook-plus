@@ -162,7 +162,7 @@ export default function AccountPage() {
 
           <div className="max-w-lg space-y-8">
             {/* Email */}
-            <Card className="rounded-3xl border-border/60 py-0 ring-0">
+            <Card className="rounded-3xl border-border/60 py-0">
               <CardContent className="px-6 py-6">
                 <h2 className="text-lg font-semibold mb-1">Email</h2>
                 <p className="text-sm text-muted-foreground">{user.email}</p>
@@ -170,7 +170,7 @@ export default function AccountPage() {
             </Card>
 
             {/* Change Password */}
-            <Card className="rounded-3xl border-border/60 py-0 ring-0">
+            <Card className="rounded-3xl border-border/60 py-0">
               <CardHeader>
                 <div className="flex items-center gap-2">
                   <Shield className="h-5 w-5 text-muted-foreground" />
@@ -222,7 +222,7 @@ export default function AccountPage() {
             </Card>
 
             {/* Delete Account */}
-            <Card className="rounded-3xl border border-red-500/20 bg-red-500/5 py-0 ring-0">
+            <Card className="rounded-3xl border border-red-500/20 bg-red-500/5 py-0">
               <CardHeader>
                 <div className="flex items-center gap-2">
                   <Trash2 className="h-5 w-5 text-red-500" />

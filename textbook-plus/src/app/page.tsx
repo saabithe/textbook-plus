@@ -1,10 +1,8 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { SubjectCard } from "@/components/subject/SubjectCard";
 import { subjects } from "@/data/subjects";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { GraduationCap, ChevronRight, Sparkles, BookOpen, Layers, Brain, Play } from "lucide-react";
+import { GraduationCap, ChevronRight, BookOpen, Layers, Brain } from "lucide-react";
 
 export default function HomePage() {
   const totalChapters = subjects.reduce((n, s) => n + s.chapterCount, 0);
@@ -13,34 +11,19 @@ export default function HomePage() {
     <>
       <Navbar />
       <main className="flex-1">
-        {/* Hero */}
-        <section className="mx-auto max-w-6xl px-4 sm:px-6 pt-12 sm:pt-20 pb-10 text-center">
-          <Badge
-            variant="secondary"
-            className="rounded-full px-4 py-1.5 text-xs font-bold"
-          >
-            <Sparkles className="h-3.5 w-3.5" />
-            Class 12 NCERT Companion
-          </Badge>
-          <h1 className="mx-auto mt-5 max-w-2xl text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl">
-            Learning that <span className="text-primary">feels like play</span>
-          </h1>
-          <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground leading-relaxed sm:text-lg">
-            Interactive notes, practice questions and flashcards for every
-            subject — pick up where you left off, or start something new.
-          </p>
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-            <Button size="lg" render={<a href="#subjects" />}>
-              <Play className="h-4 w-4" />
-              Start learning
-            </Button>
-            <Button variant="outline" size="lg" render={<Link href="/progress" />}>
-              View my progress
-            </Button>
+        <section className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16">
+          {/* Page heading */}
+          <div className="mb-8">
+            <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+              Choose a subject
+            </h1>
+            <p className="mt-2 text-base text-muted-foreground">
+              Pick up where you left off, or start something new.
+            </p>
           </div>
 
           {/* Stats */}
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-semibold text-muted-foreground">
+          <div className="mb-8 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm font-semibold text-muted-foreground">
             <span className="inline-flex items-center gap-2">
               <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary/15 text-primary">
                 <Layers className="h-4 w-4" />
@@ -60,18 +43,9 @@ export default function HomePage() {
               Learn + Practice modes
             </span>
           </div>
-        </section>
-
-        <section id="subjects" className="mx-auto max-w-6xl px-4 sm:px-6 pb-16 scroll-mt-20">
-          {/* Page heading */}
-          <div className="mb-6">
-            <h2 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl">
-              Choose a subject
-            </h2>
-          </div>
 
           {/* Subject grid — 3 cols */}
-          <div className="grid grid-cols-1 gap-3 min-[360px]:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+          <div id="subjects" className="grid grid-cols-1 gap-3 min-[360px]:grid-cols-2 sm:gap-5 lg:grid-cols-3 scroll-mt-20">
             {subjects.map((subject) => (
               <SubjectCard key={subject.id} subject={subject} />
             ))}

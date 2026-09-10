@@ -110,7 +110,7 @@ function QuizItem({ question: q, index, onResult, onRetry }: { question: Grammar
   };
 
   return (
-    <Card className="border border-border/60 bg-background py-0 ring-0">
+    <Card className="border border-border/60 bg-background py-0">
       <CardContent className="px-5 py-5">
         <p className="text-sm font-medium text-foreground mb-3">
           <span className="text-muted-foreground mr-2">{index}.</span>

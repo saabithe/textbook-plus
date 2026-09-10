@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { Sun, Moon, Home, BarChart3, Search, Cloud, CloudOff, Loader2, LogIn, LogOut, User, Settings } from "lucide-react";
+import { Sun, Moon, Home, Search, Cloud, CloudOff, LogIn, LogOut, User, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import { useFontSize } from "@/hooks/useFontSize";
@@ -12,6 +12,8 @@ import { useSync } from "@/components/auth/SyncProvider";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { SearchModal } from "@/components/search/SearchModal";
 import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
+import { Kbd } from "@/components/ui/kbd";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -28,7 +30,6 @@ import {
 
 const navLinks = [
   { href: "/", label: "Home", icon: Home },
-  { href: "/progress", label: "Progress", icon: BarChart3 },
 ];
 
 export function Navbar() {
@@ -123,9 +124,9 @@ export function Navbar() {
               className="rounded-full border-border/60 bg-muted/50 px-0 text-muted-foreground hover:text-foreground sm:w-auto sm:px-3"
             >
               <Search className="h-4 w-4" />
-              <kbd className="hidden sm:inline-flex h-5 items-center gap-1 rounded border border-border/60 bg-background px-1.5 text-[10px] font-medium">
+              <Kbd className="hidden text-[10px] sm:inline-flex">
                 Ctrl K
-              </kbd>
+              </Kbd>
             </Button>
 
             {/* Font Size */}
@@ -167,7 +168,7 @@ export function Navbar() {
                 }
               >
                 {status === "syncing" ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <Spinner className="h-4 w-4" />
                 ) : status === "error" ? (
                   <CloudOff className="h-4 w-4" />
                 ) : (

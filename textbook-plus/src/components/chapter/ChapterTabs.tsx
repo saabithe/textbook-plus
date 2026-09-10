@@ -2,8 +2,15 @@
 
 import { BookOpen, Dumbbell, Brain, FileText, Layers, HelpCircle } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Empty,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+  EmptyDescription,
+  EmptyContent,
+} from "@/components/ui/empty";
 
 interface ChapterTabsProps {
   activeTab: string;
@@ -37,48 +44,54 @@ export function ChapterTabs({ activeTab, onTabChange, showPractice = true }: Cha
 
 export function PracticePlaceholder({ subjectColor }: { subjectColor: string }) {
   return (
-    <Card className="rounded-3xl p-8 text-center sm:p-10">
-      <div
-        className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl shadow-lg"
-        style={{
-          background: `linear-gradient(135deg, ${subjectColor}, ${subjectColor}B3)`,
-          boxShadow: `0 10px 25px -5px ${subjectColor}55`,
-        }}
-      >
-        <BookOpen className="h-8 w-8 text-white" />
-      </div>
-      <h3 className="text-xl font-extrabold tracking-tight">Practice is on its way!</h3>
-      <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
-        We&apos;re cooking up questions, flashcards, and revision notes for this
-        chapter. Keep learning — practice will be ready soon!
-      </p>
-      <Badge
-        variant="secondary"
-        className="mt-4"
-        style={{ color: subjectColor, backgroundColor: `${subjectColor}15` }}
-      >
-        Coming soon
-      </Badge>
-      <div className="mx-auto mt-6 flex max-w-md flex-wrap items-center justify-center gap-2">
-        {[
-          { icon: Brain, label: "Practice Questions" },
-          { icon: Layers, label: "Flashcards" },
-          { icon: FileText, label: "Revision Notes" },
-          { icon: HelpCircle, label: "Question Bank" },
-        ].map((tool) => {
-          const Icon = tool.icon;
-          return (
-            <span
-              key={tool.label}
-              className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold"
-              style={{ color: subjectColor, backgroundColor: `${subjectColor}12` }}
-            >
-              <Icon className="h-3.5 w-3.5" />
-              {tool.label}
-            </span>
-          );
-        })}
-      </div>
-    </Card>
+    <Empty className="rounded-3xl p-8 sm:p-10">
+      <EmptyHeader>
+        <EmptyMedia
+          variant="icon"
+          className="size-16 rounded-2xl text-white"
+          style={{
+            background: `linear-gradient(135deg, ${subjectColor}, ${subjectColor}B3)`,
+            boxShadow: `0 10px 25px -5px ${subjectColor}55`,
+          }}
+        >
+          <BookOpen className="size-8" />
+        </EmptyMedia>
+        <EmptyTitle className="text-xl font-extrabold tracking-tight">
+          Practice is on its way!
+        </EmptyTitle>
+        <EmptyDescription className="max-w-sm">
+          We&apos;re cooking up questions, flashcards, and revision notes for this
+          chapter. Keep learning — practice will be ready soon!
+        </EmptyDescription>
+      </EmptyHeader>
+      <EmptyContent>
+        <Badge
+          variant="secondary"
+          style={{ color: subjectColor, backgroundColor: `${subjectColor}15` }}
+        >
+          Coming soon
+        </Badge>
+        <div className="flex max-w-md flex-wrap items-center justify-center gap-2">
+          {[
+            { icon: Brain, label: "Practice Questions" },
+            { icon: Layers, label: "Flashcards" },
+            { icon: FileText, label: "Revision Notes" },
+            { icon: HelpCircle, label: "Question Bank" },
+          ].map((tool) => {
+            const Icon = tool.icon;
+            return (
+              <span
+                key={tool.label}
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold"
+                style={{ color: subjectColor, backgroundColor: `${subjectColor}12` }}
+              >
+                <Icon className="h-3.5 w-3.5" />
+                {tool.label}
+              </span>
+            );
+          })}
+        </div>
+      </EmptyContent>
+    </Empty>
   );
 }

@@ -17,7 +17,7 @@ export function SubjectCard({ subject }: SubjectCardProps) {
       className="group block transition-all duration-300 ease-out hover:-translate-y-1.5"
     >
       <Card
-        className="overflow-hidden border-2 border-transparent py-0 ring-0 transition-all duration-300 ease-out group-hover:border-[var(--card-border)] group-hover:shadow-[0_12px_32px_-12px_var(--card-shadow)]"
+        className="overflow-hidden border-2 border-transparent py-0 transition-all duration-300 ease-out group-hover:border-[var(--card-border)] group-hover:shadow-[0_12px_32px_-12px_var(--card-shadow)]"
         style={
           {
             "--card-shadow": subject.color,

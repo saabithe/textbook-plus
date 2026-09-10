@@ -12,6 +12,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { Kbd } from "@/components/ui/kbd";
 
 interface SearchModalProps {
   open: boolean;
@@ -82,9 +83,9 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
           )}
         </CommandList>
         <div className="flex items-center justify-end gap-1.5 border-t border-border/40 px-3 py-2 text-[10px] text-muted-foreground">
-          <kbd className="inline-flex h-5 items-center rounded border border-border/60 bg-muted px-1.5 font-medium">
+          <Kbd>
             ESC
-          </kbd>
+          </Kbd>
           to close
         </div>
       </Command>

@@ -5,6 +5,7 @@ import { Check, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Kbd } from "@/components/ui/kbd";
 import type { Flashcard } from "@/types/chapter";
 
 interface FlashcardCardProps {
@@ -96,7 +97,7 @@ export function FlashcardCard({ card, subjectColor, onKnown, onUnknown }: Flashc
           >
             <X className="h-4 w-4" />
             Unknown
-            <kbd className="hidden sm:inline rounded-lg bg-white/20 px-1.5 py-0.5 text-[10px] font-extrabold">1</kbd>
+            <Kbd className="hidden bg-white/20 px-1.5 py-0.5 text-[10px] font-extrabold text-white sm:inline">1</Kbd>
           </Button>
           <Button
             variant="outline"
@@ -106,7 +107,7 @@ export function FlashcardCard({ card, subjectColor, onKnown, onUnknown }: Flashc
           >
             <Check className="h-4 w-4" />
             Known
-            <kbd className="hidden sm:inline rounded-lg bg-white/20 px-1.5 py-0.5 text-[10px] font-extrabold">2</kbd>
+            <Kbd className="hidden bg-white/20 px-1.5 py-0.5 text-[10px] font-extrabold text-white sm:inline">2</Kbd>
           </Button>
         </div>
       )}
