@@ -61,6 +61,108 @@ export default function MotionInAStraightLineChapter() {
         ]}
       />
 
+      <h3 id="h-speed-vs-velocity">Speed and velocity — the essentials</h3>
+      <Comparison
+        columns={[
+          {
+            title: "Speed",
+            children: (
+              <ul>
+                <li>
+                  <strong>Definition:</strong> <em>distance</em> covered in unit time — a{" "}
+                  <strong>scalar</strong> quantity.
+                </li>
+                <li>
+                  <strong>Formula:</strong>{" "}
+                  <Formula>{String.raw`\text{Speed} = \frac{\text{Distance}}{\text{Time}}`}</Formula>
+                </li>
+                <li>
+                  <strong>Examples:</strong> 20 km/h, 10 m/s — only a magnitude, no direction.
+                </li>
+                <li>
+                  <strong>SI unit:</strong> <Formula>{String.raw`\text{m s}^{-1}`}</Formula>
+                </li>
+              </ul>
+            ),
+          },
+          {
+            title: "Velocity",
+            children: (
+              <ul>
+                <li>
+                  <strong>Definition:</strong> <em>displacement</em> in unit time — a{" "}
+                  <strong>vector</strong> quantity.
+                </li>
+                <li>
+                  <strong>Formula:</strong>{" "}
+                  <Formula>{String.raw`\text{Velocity} = \frac{\text{Displacement}}{\text{Time}}`}</Formula>
+                </li>
+                <li>
+                  <strong>Examples:</strong> 20 km/h east, 10 m/s north — needs a direction.
+                </li>
+                <li>
+                  <strong>SI unit:</strong> <Formula>{String.raw`\text{m s}^{-1}`}</Formula>
+                </li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+
+      <Expandable title="Types of speed">
+        <ul>
+          <li>
+            <strong>Uniform speed:</strong> the object covers <em>equal distances in equal intervals of
+            time</em> — speed is constant throughout the motion.
+          </li>
+          <li>
+            <strong>Variable (non-uniform) speed:</strong> the object covers <em>unequal distances in equal
+            intervals of time</em> — speed keeps changing.
+          </li>
+          <li>
+            <strong>Average speed:</strong> for the whole journey, the total distance divided by the total
+            time:
+            <Formula>{String.raw`\text{Average Speed} = \frac{\text{Total Distance}}{\text{Total Time}}`}</Formula>
+            example: a distance of 10 m covered in 10 s gives an average speed of 10/10 ={" "}
+            <strong>1 m/s</strong>.
+          </li>
+          <li>
+            <strong>Instantaneous speed:</strong> the speed at a <em>specific instant</em> — how fast the
+            object is moving right now:
+            <Formula>{String.raw`v = \frac{\mathrm{d}x}{\mathrm{d}t}`}</Formula>
+          </li>
+        </ul>
+      </Expandable>
+
+      <Expandable title="Types of velocity">
+        <ul>
+          <li>
+            <strong>Uniform velocity (uniform motion):</strong> the object covers <em>equal displacements
+            in equal intervals of time</em> — velocity is constant in magnitude and direction.
+          </li>
+          <li>
+            <strong>Variable (non-uniform) velocity (non-uniform motion):</strong> the object covers{" "}
+            <em>unequal displacements in equal intervals of time</em> — velocity keeps changing.
+          </li>
+          <li>
+            <strong>Average velocity:</strong> total displacement divided by total time:
+            <Formula>{String.raw`\text{Average Velocity} = \frac{\text{Total Displacement}}{\text{Total Time}} = \frac{\Delta s}{\Delta t}`}</Formula>
+          </li>
+          <li>
+            <strong>Instantaneous velocity:</strong> the velocity at a specific instant:
+            <Formula>{String.raw`v = \frac{\mathrm{d}s}{\mathrm{d}t}`}</Formula>
+          </li>
+        </ul>
+      </Expandable>
+
+      <Callout type="note" title="Key notes & relationships">
+        <ul>
+          <li><Formula>{String.raw`\text{Distance} \ge \text{Displacement}`}</Formula></li>
+          <li><Formula>{String.raw`|\text{Average Speed}| \ge |\text{Average Velocity}|`}</Formula></li>
+          <li><Formula>{String.raw`\text{Instantaneous Speed} = |\text{Instantaneous Velocity}|`}</Formula></li>
+        </ul>
+      </Callout>
+
       <h2 id="h-2-2">2.2 Instantaneous Velocity and Speed</h2>
       <p>
         Average velocity tells us how fast an object has been moving over a given interval, but not how
@@ -160,6 +262,70 @@ export default function MotionInAStraightLineChapter() {
         Since velocity has magnitude <em>and</em> direction, acceleration may come from a change in
         speed, a change in direction, or both. Acceleration can be positive, negative or zero.
       </p>
+      <Expandable title="Worked examples — computing acceleration" variant="example">
+        <p>
+          Acceleration = change in velocity ÷ time. So for a body whose velocity changes from{" "}
+          <strong>u</strong> (initial) to <strong>v</strong> (final) in time <strong>t</strong>:
+        </p>
+        <FormulaBlock latex={String.raw`a = \frac{v - u}{t}`} important />
+        <p>
+          SI unit: <strong>m s⁻²</strong>.
+        </p>
+        <p>
+          <strong>Example 1 — positive acceleration:</strong> an object at rest (u = 0 m/s) reaches a
+          velocity of 20 m/s in 2 s.
+        </p>
+        <ul>
+          <li>Initial velocity (u) = 0 m/s</li>
+          <li>Final velocity (v) = 20 m/s</li>
+          <li>Time (t) = 2 s</li>
+        </ul>
+        <FormulaBlock latex={String.raw`a = \frac{v - u}{t} = \frac{20 - 0}{2} = 10\ \text{m s}^{-2}`} important />
+        <p>
+          <strong>Example 2 — negative acceleration:</strong> an object slows from 20 m/s to rest in 2 s.
+        </p>
+        <ul>
+          <li>Initial velocity (u) = 20 m/s</li>
+          <li>Final velocity (v) = 0 m/s</li>
+          <li>Time (t) = 2 s</li>
+        </ul>
+        <FormulaBlock latex={String.raw`a = \frac{v - u}{t} = \frac{0 - 20}{2} = \frac{-20}{2} = -10\ \text{m s}^{-2}`} important />
+        <Callout type="note" title="Retardation / deceleration">
+          A <strong>negative acceleration</strong> means the velocity is decreasing, and is often called{" "}
+          <strong>retardation</strong> or <strong>deceleration</strong>.
+        </Callout>
+        <p>
+          <strong>Solved problem:</strong> a body&rsquo;s velocity changes from 20 m/s to 80 m/s in 4 s.
+          Find its acceleration.
+        </p>
+        <ul>
+          <li>Initial velocity (u) = 20 m/s</li>
+          <li>Final velocity (v) = 80 m/s</li>
+          <li>Time (t) = 4 s</li>
+        </ul>
+        <FormulaBlock latex={String.raw`a = \frac{v - u}{t} = \frac{80 - 20}{4} = \frac{60}{4} = 15\ \text{m s}^{-2}`} important />
+      </Expandable>
+      <KeyPoint title="Types of acceleration">
+        <ul>
+          <li>
+            <strong>Uniform acceleration:</strong> velocity changes by <em>equal amounts in equal
+            intervals of time</em> — acceleration is constant (e.g. free fall near the Earth&rsquo;s
+            surface).
+          </li>
+          <li>
+            <strong>Variable (non-uniform) acceleration:</strong> acceleration itself keeps changing —
+            the rate of change of velocity is <em>not</em> constant.
+          </li>
+          <li>
+            <strong>Average acceleration:</strong> total change in velocity over total time:
+            <Formula>{String.raw`a = \frac{\Delta v}{\Delta t}`}</Formula>
+          </li>
+          <li>
+            <strong>Instantaneous acceleration:</strong> acceleration at a specific instant:
+            <Formula>{String.raw`a = \frac{\mathrm{d}v}{\mathrm{d}t}`}</Formula>
+          </li>
+        </ul>
+      </KeyPoint>
       <p>Four v–t graph cases for constant acceleration:</p>
       <TableCard
         caption="Constant-acceleration v–t graphs (Fig. 2.3)."
