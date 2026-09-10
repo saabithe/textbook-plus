@@ -216,5 +216,5 @@ This is mandatory — never leave stale todos behind.
 
 ## Git Rules
 
-- **Never auto-push.** Wait for explicit user approval before `git push`. Commits OK, push only when user says "push", "go", or approves.
-- **Shorthand**: `p` means commit + push (user-approved).
+- **Always push.** Commit and push after every change by default (user policy change, 11 Sep 2026).
+- **Shorthand**: `p` means commit + push.
