@@ -401,8 +401,8 @@ export default function MotionInAStraightLineChapter() {
         instant</strong>. Sharp kinks in x–t, v–t or a–t figures imply the functions are not
         differentiable at those points — an idealization only.
       </Callout>
-      <p>For constant acceleration, with v = v₀ at t = 0:</p>
-      <FormulaBlock latex={String.raw`a = \frac{v - v_0}{t}\;\;\Rightarrow\;\; v = v_0 + at`} />
+      <p>For constant acceleration, with v = u at t = 0:</p>
+      <FormulaBlock latex={String.raw`a = \frac{v - u}{t}\;\;\Rightarrow\;\; v = u + at`} />
 
       <h2 id="h-graphs">Graphs in Kinematics</h2>
       <h3 id="h-graph-basics">General concept of graphs</h3>
@@ -511,13 +511,13 @@ export default function MotionInAStraightLineChapter() {
       </Expandable>
 
       <h2 id="h-2-4">2.4 Kinematic Equations for Uniformly Accelerated Motion</h2>
-      <p>For uniform acceleration, five quantities — displacement x, time t, initial velocity v₀, final velocity v and acceleration a — are related by simple equations.</p>
+      <p>For uniform acceleration, five quantities — displacement x, time t, initial velocity u, final velocity v and acceleration a — are related by simple equations.</p>
       <p><strong>Deriving x from the v–t graph:</strong></p>
       <Stepper
         steps={[
-          { label: "The v–t graph", description: "A straight line rising from v₀ to v = v₀ + at. Displacement = area between 0 and t." },
-          { label: "Break the area into triangle + rectangle", description: "Area = ½(v − v₀)t + v₀t = ½(v + v₀)t." },
-          { label: "Use v − v₀ = at", description: "x = ½·at·t + v₀t, giving the displacement equation." },
+          { label: "The v–t graph", description: "A straight line rising from u to v = u + at. Displacement = area between 0 and t." },
+          { label: "Break the area into triangle + rectangle", description: "Area = ½(v − u)t + ut = ½(v + u)t." },
+          { label: "Use v − u = at", description: "x = ½·at·t + ut, giving the displacement equation." },
         ]}
       />
       <Expandable title="Graphical method — complete derivations of all three equations" variant="example">
@@ -555,19 +555,19 @@ export default function MotionInAStraightLineChapter() {
       <p><strong>The three kinematic equations (x = 0 at t = 0):</strong></p>
       <FormulaCard>
         <ul>
-          <li><Formula>{String.raw`v = v_0 + at`}</Formula></li>
-          <li><Formula>{String.raw`x = v_0 t + \tfrac{1}{2}at^2`}</Formula></li>
-          <li><Formula>{String.raw`v^2 = v_0^2 + 2ax`}</Formula> (from x = ½(v₀ + v)t with t = (v − v₀)/a)</li>
+          <li><Formula>{String.raw`v = u + at`}</Formula></li>
+          <li><Formula>{String.raw`x = u t + \tfrac{1}{2}at^2`}</Formula></li>
+          <li><Formula>{String.raw`v^2 = u^2 + 2ax`}</Formula> (from x = ½(u + v)t with t = (v − u)/a)</li>
         </ul>
       </FormulaCard>
       <p>There is also the compact average-velocity form</p>
-      <FormulaBlock latex={String.raw`x = \bar{v}\,t, \qquad \bar{v} = \frac{v_0 + v}{2}\quad (\text{constant acceleration only})`} />
+      <FormulaBlock latex={String.raw`x = \bar{v}\,t, \qquad \bar{v} = \frac{u + v}{2}\quad (\text{constant acceleration only})`} />
       <p><strong>General forms (position x₀ at t = 0):</strong></p>
       <FormulaCard>
         <ul>
-          <li><Formula>{String.raw`v = v_0 + at`}</Formula></li>
-          <li><Formula>{String.raw`x = x_0 + v_0 t + \tfrac{1}{2}at^2`}</Formula></li>
-          <li><Formula>{String.raw`v^2 = v_0^2 + 2a(x - x_0)`}</Formula></li>
+          <li><Formula>{String.raw`v = u + at`}</Formula></li>
+          <li><Formula>{String.raw`x = x_0 + u t + \tfrac{1}{2}at^2`}</Formula></li>
+          <li><Formula>{String.raw`v^2 = u^2 + 2a(x - x_0)`}</Formula></li>
         </ul>
       </FormulaCard>
 
@@ -679,13 +679,13 @@ export default function MotionInAStraightLineChapter() {
           <p>By definition a = dv/dt, so</p>
           <FormulaBlock latex={String.raw`\mathrm{d}v = a\,\mathrm{d}t`} />
           <p>Integrating both sides (a is constant):</p>
-          <FormulaBlock latex={String.raw`\int_{v_0}^{v}\mathrm{d}v = \int_0^t a\,\mathrm{d}t \;\;\Rightarrow\;\; v - v_0 = at\;\;\Rightarrow\;\; v = v_0 + at`} />
+          <FormulaBlock latex={String.raw`\int_{u}^{v}\mathrm{d}v = \int_0^t a\,\mathrm{d}t \;\;\Rightarrow\;\; v - u = at\;\;\Rightarrow\;\; v = u + at`} />
           <p>Further, v = dx/dt so dx = v dt. Integrating:</p>
-          <FormulaBlock latex={String.raw`\int_{x_0}^{x}\mathrm{d}x = \int_0^t (v_0 + at)\,\mathrm{d}t \;\;\Rightarrow\;\; x = x_0 + v_0 t + \tfrac{1}{2}at^2`} />
+          <FormulaBlock latex={String.raw`\int_{x_0}^{x}\mathrm{d}x = \int_0^t (u + at)\,\mathrm{d}t \;\;\Rightarrow\;\; x = x_0 + u t + \tfrac{1}{2}at^2`} />
           <p>Also, using the chain rule:</p>
           <FormulaBlock latex={String.raw`a = \frac{\mathrm{d}v}{\mathrm{d}t} = \frac{\mathrm{d}v}{\mathrm{d}x}\frac{\mathrm{d}x}{\mathrm{d}t} = v\frac{\mathrm{d}v}{\mathrm{d}x}\;\;\Rightarrow\;\; v\,\mathrm{d}v = a\,\mathrm{d}x`} />
           <p>Integrating:</p>
-          <FormulaBlock latex={String.raw`\int_{v_0}^{v} v\,\mathrm{d}v = a\int_{x_0}^{x}\mathrm{d}x\;\;\Rightarrow\;\; \frac{v^2 - v_0^2}{2} = a(x - x_0)\;\;\Rightarrow\;\; v^2 = v_0^2 + 2a(x - x_0)`} important />
+          <FormulaBlock latex={String.raw`\int_{u}^{v} v\,\mathrm{d}v = a\int_{x_0}^{x}\mathrm{d}x\;\;\Rightarrow\;\; \frac{v^2 - u^2}{2} = a(x - x_0)\;\;\Rightarrow\;\; v^2 = u^2 + 2a(x - x_0)`} important />
           <p>
             The advantage of this method is that it can <strong>also be used for motion with
             non-uniform acceleration</strong>.
@@ -704,16 +704,16 @@ export default function MotionInAStraightLineChapter() {
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p>
-            Take the y-axis in the vertically upward direction with zero at the ground. Then v₀ = +20 m s⁻¹,
+            Take the y-axis in the vertically upward direction with zero at the ground. Then u = +20 m s⁻¹,
             a = −g = −10 m s⁻², v = 0 m s⁻¹ at the top.
           </p>
-          <p><strong>(a) Maximum height.</strong> Using v² = v₀² + 2a(y − y₀):</p>
+          <p><strong>(a) Maximum height.</strong> Using v² = u² + 2a(y − y₀):</p>
           <FormulaBlock latex={String.raw`0 = (20)^2 + 2(-10)(y - y_0)\;\;\Rightarrow\;\; y - y_0 = 20\ \text{m}`} important />
           <p><strong>(b) Time to hit the ground — two methods, note them carefully.</strong></p>
-          <p><em>First method (split the path).</em> Upward A→B: v = v₀ + at gives 0 = 20 − 10t₁ → t₁ = 2 s. From B the ball falls freely with v₀ = 0 from y₀ = 45 m:</p>
+          <p><em>First method (split the path).</em> Upward A→B: v = u + at gives 0 = 20 − 10t₁ → t₁ = 2 s. From B the ball falls freely with u = 0 from y₀ = 45 m:</p>
           <FormulaBlock latex={String.raw`0 = 45 + \frac{1}{2}(-10)t_2^2\;\;\Rightarrow\;\; t_2 = 3\ \text{s}`} />
           <p>Total time = t₁ + t₂ = 2 s + 3 s = <strong>5 s</strong>.</p>
-          <p><em>Second method (single equation).</em> Using y = y₀ + v₀t + ½at² with y₀ = 25 m, y = 0, v₀ = 20 m s⁻¹, a = −10 m s⁻²:</p>
+          <p><em>Second method (single equation).</em> Using y = y₀ + ut + ½at² with y₀ = 25 m, y = 0, u = 20 m s⁻¹, a = −10 m s⁻²:</p>
           <FormulaBlock latex={String.raw`0 = 25 + 20t + \frac{1}{2}(-10)t^2 \;\;\Rightarrow\;\; 5t^2 - 20t - 25 = 0`} />
           <p>Solving the quadratic for t gives <strong>t = 5 s</strong>.</p>
           <Callout type="note" title="Why the second method is better">
@@ -736,7 +736,7 @@ export default function MotionInAStraightLineChapter() {
           </p>
           <p>
             Choose upward as positive (motion is then in the −y direction, a = −g = −9.8 m s⁻²). Released
-            from rest at y = 0 (v₀ = 0):
+            from rest at y = 0 (u = 0):
           </p>
           <FormulaBlock latex={String.raw`v = -9.8\,t\ \text{m s}^{-1}`} />
           <FormulaBlock latex={String.raw`y = -\tfrac{1}{2}gt^2 = -4.9\,t^2\ \text{m}`} />
@@ -785,18 +785,18 @@ export default function MotionInAStraightLineChapter() {
         <ProblemSolution.Problem>
           <p>
             When brakes are applied to a moving vehicle, the distance it travels before stopping is the
-            stopping distance. It depends on the initial velocity v₀ and the braking capacity (deceleration
-            of magnitude a). Derive an expression for the stopping distance in terms of v₀ and a.
+            stopping distance. It depends on the initial velocity u and the braking capacity (deceleration
+            of magnitude a). Derive an expression for the stopping distance in terms of u and a.
           </p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p>
-            With v² = v₀² + 2ax and v = 0 at the stop (x = d_s), and taking a as the magnitude of the
+            With v² = u² + 2ax and v = 0 at the stop (x = d_s), and taking a as the magnitude of the
             deceleration:
           </p>
-          <FormulaBlock latex={String.raw`0 = v_0^2 - 2a\,d_s\;\;\Rightarrow\;\; d_s = \frac{v_0^2}{2a}`} important />
+          <FormulaBlock latex={String.raw`0 = u^2 - 2a\,d_s\;\;\Rightarrow\;\; d_s = \frac{u^2}{2a}`} important />
           <MetricCard
-            label="Stopping distance ∝ v₀²"
+            label="Stopping distance ∝ u²"
             value="×4"
             unit="when speed doubles"
             trend="up"
@@ -897,7 +897,7 @@ export default function MotionInAStraightLineChapter() {
           </p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>The ruler drops under free fall: v₀ = 0, a = −g = −9.8 m s⁻². The fall distance d and reaction time t_r are related by</p>
+          <p>The ruler drops under free fall: u = 0, a = −g = −9.8 m s⁻². The fall distance d and reaction time t_r are related by</p>
           <FormulaBlock latex={String.raw`t_r = \sqrt{\frac{2d}{g}}`} important />
           <FormulaBlock latex={String.raw`t_r = \sqrt{\frac{2 \times 0.21}{9.8}} \approx 0.207\ \text{s} \approx 0.2\ \text{s}`} />
         </ProblemSolution.Solution>
@@ -1196,7 +1196,7 @@ export default function MotionInAStraightLineChapter() {
             <li>(a) A; (b) A; (c) B; (d) same; (e) B overtakes A once. (A starts earlier and nearer; B walks faster with a steeper x–t slope and catches A on the way.)</li>
             <li>Graph: rising line 0 → 0.5 h (2.5 km at 9:00–9:30), horizontal until 17:00, then a steep falling line back to x = 0 at 17:06 (2.5 km at 25 km h⁻¹ = 0.1 h).</li>
             <li>Each 8 s cycle (5 forward, 3 backward) nets +2 m. After 4 cycles (32 s) the drunkard is at 8 m facing forward; the 5th step (at t = 37 s) takes him to 13 m — just reaching the pit. Total time ≈ 37 s.</li>
-            <li>126 km h⁻¹ = 35 m s⁻¹. v² = v₀² − 2ad → 0 = 35² − 2a(200) → a ≈ 3.06 m s⁻² (retardation). t = v₀/a = 35/3.06 ≈ 11.4 s.</li>
+            <li>126 km h⁻¹ = 35 m s⁻¹. v² = u² − 2ad → 0 = 35² − 2a(200) → a ≈ 3.06 m s⁻² (retardation). t = u/a = 35/3.06 ≈ 11.4 s.</li>
             <li>(a) Downward (acceleration due to gravity) throughout the flight, including upward motion. (b) v = 0; a = 9.8 m s⁻² downward. (c) Upward motion: x positive, v negative, a positive (all along +x downward? No — with downward positive: during upward motion x &gt; 0 (above origin), v &lt; 0, a &gt; 0; during downward motion x &gt; 0, v &gt; 0, a &gt; 0.) (d) Height = (29.4)²/(2 × 9.8) = 44.1 m; total flight time = 2 × 29.4/9.8 = 6 s.</li>
             <li>(a) True — the top of a vertical throw is a moment of zero speed with a = g. (b) False — speed is |v|; zero speed means v = 0. (c) False — uniform circular motion has constant speed but centripetal acceleration (though that is not one-dimensional); in 1-D, constant speed with straight-line motion does give a = 0, but the statement as given is false without that qualification. (d) False — a can be positive while the speed decreases (e.g. upward motion with upward-positive axis).</li>
             <li>Fall from 90 m: v = √(2 × 9.8 × 90) ≈ 42 m s⁻¹, t = 4.29 s; after each bounce v loses 10%, so successive peak speeds are 42, 37.8, 34.0, … with constant slopes g between bounces — a sawtooth speed–time graph decaying until t ≈ 12 s.</li>
@@ -1215,26 +1215,13 @@ export default function MotionInAStraightLineChapter() {
       </Expandable>
 
       <h2 id="h-revision">Quick Revision</h2>
-      <Expandable title="Key formulas &amp; facts — one page">
-        <ul>
-          <li>Instantaneous velocity: <Formula>{String.raw`v = \mathrm{d}x/\mathrm{d}t`}</Formula> = slope of x–t tangent; speed = |v|.</li>
-          <li>Instantaneous acceleration: <Formula>{String.raw`a = \mathrm{d}v/\mathrm{d}t`}</Formula> = slope of v–t tangent.</li>
-          <li>Average acceleration = Δv/Δt; SI unit m s⁻².</li>
-          <li>Area under v–t curve = displacement over the interval.</li>
-          <li>Kinematic equations: v = v₀ + at; x = v₀t + ½at²; v² = v₀² + 2ax; x = ½(v₀ + v)t. Replace x by x − x₀ and v₀→(x₀, v₀) for a starting point x₀.</li>
-          <li>Free fall: v = −gt; y = −½gt²; v² = −2gy (upward positive).</li>
-          <li>Stopping distance: d_s = v₀²/(2a) — ∝ v₀².</li>
-          <li>Reaction time (ruler drop): t_r = √(2d/g).</li>
-          <li>Galileo&rsquo;s law: fall distances in successive equal intervals go 1 : 3 : 5 : 7 : …</li>
-        </ul>
-      </Expandable>
       <Expandable title="Last-minute recall — formulas only">
         <ul>
-          <li><Formula>{String.raw`v = v_0 + at`}</Formula></li>
-          <li><Formula>{String.raw`x = v_0 t + \tfrac{1}{2}at^2`}</Formula></li>
-          <li><Formula>{String.raw`v^2 = v_0^2 + 2ax`}</Formula></li>
-          <li><Formula>{String.raw`\bar v = \tfrac{1}{2}(v_0 + v)`}</Formula> (constant a)</li>
-          <li><Formula>{String.raw`d_s = \frac{v_0^2}{2a}`}</Formula>, <Formula>{String.raw`t_r = \sqrt{\frac{2d}{g}}`}</Formula></li>
+          <li><Formula>{String.raw`v = u + at`}</Formula></li>
+          <li><Formula>{String.raw`x = u t + \tfrac{1}{2}at^2`}</Formula></li>
+          <li><Formula>{String.raw`v^2 = u^2 + 2ax`}</Formula></li>
+          <li><Formula>{String.raw`\bar v = \tfrac{1}{2}(u + v)`}</Formula> (constant a)</li>
+          <li><Formula>{String.raw`d_s = \frac{u^2}{2a}`}</Formula>, <Formula>{String.raw`t_r = \sqrt{\frac{2d}{g}}`}</Formula></li>
           <li><Formula>{String.raw`v = \mathrm{d}x/\mathrm{d}t`}</Formula>, <Formula>{String.raw`a = \mathrm{d}v/\mathrm{d}t`}</Formula></li>
         </ul>
       </Expandable>

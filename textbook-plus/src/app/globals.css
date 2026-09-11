@@ -114,10 +114,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image:
-      radial-gradient(60rem 28rem at 50% -10rem, oklch(0.72 0.16 150 / 0.14), transparent 70%),
-      radial-gradient(44rem 26rem at 92% -4rem, oklch(0.7 0.16 300 / 0.1), transparent 70%);
-    background-attachment: scroll;
   }
   .dark body {
     background-image:
