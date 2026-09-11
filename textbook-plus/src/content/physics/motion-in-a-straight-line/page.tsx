@@ -404,6 +404,112 @@ export default function MotionInAStraightLineChapter() {
       <p>For constant acceleration, with v = v₀ at t = 0:</p>
       <FormulaBlock latex={String.raw`a = \frac{v - v_0}{t}\;\;\Rightarrow\;\; v = v_0 + at`} />
 
+      <h2 id="h-graphs">Graphs in Kinematics</h2>
+      <h3 id="h-graph-basics">General concept of graphs</h3>
+      <p><strong>Slope of a graph:</strong></p>
+      <FormulaBlock latex={String.raw`\text{Slope} = \frac{\Delta y}{\Delta x} = \tan\theta`} important />
+      <p><strong>Types of slopes:</strong></p>
+      <ul>
+        <li>
+          <strong>Zero slope:</strong> horizontal straight line (<Formula>{String.raw`\text{Slope} = 0`}</Formula>).
+        </li>
+        <li>
+          <strong>Constant slope:</strong> straight inclined line (<Formula>{String.raw`\text{Slope} = \text{constant}`}</Formula>).
+        </li>
+        <li><strong>Increasing slope:</strong> curve bending upwards.</li>
+        <li><strong>Decreasing slope:</strong> curve flattening out.</li>
+      </ul>
+
+      <h3 id="h-xt-graph">1. Position–time (x–t) graph</h3>
+      <KeyPoint title="Slope of the x–t graph = velocity">
+        <Formula>{String.raw`\text{Slope} = \text{Velocity}`}</Formula>
+      </KeyPoint>
+      <TableCard
+        caption="x–t graph shapes."
+        headers={["Situation", "Graph shape", "Meaning"]}
+        rows={[
+          { cells: ["At rest", "Horizontal line parallel to the time axis", "Slope = 0, so v = 0"] },
+          { cells: ["Uniform motion", "Straight inclined line", "Slope = constant, so v = constant and a = 0"] },
+          { cells: ["Accelerated motion", "Curve bending upwards", "Slope ↑, so velocity ↑"] },
+          { cells: ["Decelerated motion", "Curve flattening out", "Slope ↓, so velocity ↓"] },
+        ]}
+      />
+
+      <h3 id="h-vt-graph">2. Velocity–time (v–t) graph</h3>
+      <KeyPoint title="Slope and area of the v–t graph">
+        <ul>
+          <li>Slope of the v–t graph = <strong>acceleration</strong>.</li>
+          <li>Area under the v–t graph = <strong>displacement</strong> (or distance).</li>
+        </ul>
+      </KeyPoint>
+      <TableCard
+        caption="v–t graph shapes."
+        headers={["Situation", "Graph shape", "Meaning"]}
+        rows={[
+          { cells: ["At rest", "Line along the time axis", "v = 0"] },
+          { cells: ["Uniform motion", "Horizontal line parallel to the time axis", "v = constant, so a = 0"] },
+          { cells: ["Uniformly accelerated motion", "Straight inclined line", "Slope = constant, so a = constant"] },
+          { cells: ["Increasing acceleration", "Curve bending upwards", "Slope ↑, so a ↑"] },
+          { cells: ["Decreasing acceleration", "Curve flattening out", "Slope ↓, so a ↓"] },
+        ]}
+      />
+
+      <h3 id="h-at-graph">3. Acceleration–time (a–t) graph</h3>
+      <KeyPoint title="Area under the a–t graph = change in velocity">
+        <Formula>{String.raw`\text{Area under a–t} = \Delta v`}</Formula>
+      </KeyPoint>
+      <TableCard
+        caption="a–t graph shapes."
+        headers={["Situation", "Graph shape"]}
+        rows={[
+          { cells: ["Uniform motion / at rest", "Line along the time axis (a = 0)"] },
+          { cells: ["Constant acceleration", "Horizontal line parallel to the time axis (a = constant)"] },
+          { cells: ["Motion under gravity", "Horizontal line at a = −g = −9.8 m/s² (or −10 m/s²)"] },
+        ]}
+      />
+
+      <Expandable title="Solved problems — graphs in kinematics (2)" variant="exercise">
+        <p>
+          <strong>Problem 1 — ratio of velocities from graph angles.</strong> The displacement–time graphs
+          of two moving particles make angles of 30° and 45° with the X-axis as shown in the figure. The
+          ratio of their respective velocities is:
+        </p>
+        <ul>
+          <li>a) 1 : 1</li>
+          <li>b) 1 : 2</li>
+          <li>c) 1 : √3</li>
+          <li>d) √3 : 1</li>
+        </ul>
+        <p><strong>Solution.</strong> Velocity = slope = tan θ:</p>
+        <FormulaBlock latex={String.raw`v_{30} = \tan 30^\circ = \frac{1}{\sqrt{3}}`} />
+        <FormulaBlock latex={String.raw`v_{45} = \tan 45^\circ = 1`} />
+        <p><strong>Ratio:</strong></p>
+        <FormulaBlock latex={String.raw`\frac{v_{30}}{v_{45}} = \frac{\tan 30^\circ}{\tan 45^\circ} = \frac{\frac{1}{\sqrt{3}}}{1} = \frac{1}{\sqrt{3}}`} important />
+        <p>
+          <strong>Correct option:</strong> c) 1 : √3.
+        </p>
+
+        <p>
+          <strong>Problem 2 — maximum instantaneous velocity.</strong> A particle shows a distance–time
+          curve as given in the figure. The maximum instantaneous velocity of the particle is around the
+          point:
+        </p>
+        <ul>
+          <li>a) A</li>
+          <li>b) B</li>
+          <li>c) C</li>
+          <li>d) D</li>
+        </ul>
+        <p>
+          <strong>Solution.</strong> Instantaneous velocity is equal to the slope of the distance–time
+          graph at that point (v = ds/dt = slope). Looking at the curve, the steepness (slope) of the
+          graph is maximum around point <strong>C</strong>.
+        </p>
+        <p>
+          <strong>Correct option:</strong> c) C.
+        </p>
+      </Expandable>
+
       <h2 id="h-2-4">2.4 Kinematic Equations for Uniformly Accelerated Motion</h2>
       <p>For uniform acceleration, five quantities — displacement x, time t, initial velocity v₀, final velocity v and acceleration a — are related by simple equations.</p>
       <p><strong>Deriving x from the v–t graph:</strong></p>
@@ -414,6 +520,38 @@ export default function MotionInAStraightLineChapter() {
           { label: "Use v − v₀ = at", description: "x = ½·at·t + v₀t, giving the displacement equation." },
         ]}
       />
+      <Expandable title="Graphical method — complete derivations of all three equations" variant="example">
+        <p>
+          <strong>1. Velocity–time relationship (v = u + at).</strong>
+        </p>
+        <p>Slope of the velocity–time graph represents acceleration (a):</p>
+        <FormulaBlock latex={String.raw`\text{Slope} = \frac{\Delta y}{\Delta x}`} />
+        <FormulaBlock latex={String.raw`a = \frac{v - u}{t}`} />
+        <FormulaBlock latex={String.raw`at = v - u`} />
+        <FormulaBlock latex={String.raw`v = u + at`} important />
+
+        <p>
+          <strong>2. Displacement–time relationship (S = ut + ½at²).</strong>
+        </p>
+        <p>Distance/displacement S is given by the area under the velocity–time graph:</p>
+        <FormulaBlock latex={String.raw`S = \text{Area of Triangle} + \text{Area of Rectangle}`} />
+        <FormulaBlock latex={String.raw`S = \frac{1}{2}t(v - u) + ut`} />
+        <p>Substituting v − u = at:</p>
+        <FormulaBlock latex={String.raw`S = ut + \frac{1}{2}(at)\,t`} />
+        <FormulaBlock latex={String.raw`S = ut + \frac{1}{2}at^2`} important />
+
+        <p>
+          <strong>3. Position–velocity relationship (v² = u² + 2aS).</strong>
+        </p>
+        <p>Area under the velocity–time graph calculated as a trapezium:</p>
+        <FormulaBlock latex={String.raw`\text{Area of Trapezium} = \frac{1}{2} \times (\text{sum of parallel sides}) \times \text{height}`} />
+        <FormulaBlock latex={String.raw`S = \frac{1}{2}(v + u)t`} />
+        <p>From a = (v − u)/t, we get t = (v − u)/a. Substituting t into the area equation:</p>
+        <FormulaBlock latex={String.raw`S = \frac{1}{2}(v + u)\left(\frac{v - u}{a}\right)`} />
+        <FormulaBlock latex={String.raw`S = \frac{v^2 - u^2}{2a}`} />
+        <FormulaBlock latex={String.raw`v^2 - u^2 = 2aS`} />
+        <FormulaBlock latex={String.raw`v^2 = u^2 + 2aS`} important />
+      </Expandable>
       <p><strong>The three kinematic equations (x = 0 at t = 0):</strong></p>
       <FormulaCard>
         <ul>
