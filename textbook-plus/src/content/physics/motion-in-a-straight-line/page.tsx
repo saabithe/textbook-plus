@@ -913,45 +913,220 @@ export default function MotionInAStraightLineChapter() {
       <Expandable title="Exercises 2.1 – 2.18" variant="exercise">
         <ExerciseQa
           answersHeading="Answer key — Exercises 2.1 – 2.18"
-          questions={[
-            <p key={1}>In which of the following examples of motion can the body be considered approximately a point object: (a) a railway carriage moving without jerks between two stations; (b) a monkey sitting on top of a man cycling smoothly on a circular track; (c) a spinning cricket ball that turns sharply on hitting the ground; (d) a tumbling beaker that has slipped off the edge of a table?</p>,
-            <p key={2}>The position–time (x–t) graphs for two children A and B returning from their school O to their homes P and Q respectively are shown in Fig. 2.9. Choose the correct entries: (a) (A/B) lives closer to the school than (B/A); (b) (A/B) starts from the school earlier than (B/A); (c) (A/B) walks faster than (B/A); (d) A and B reach home at the (same/different) time; (e) (A/B) overtakes (B/A) on the road (once/twice).</p>,
-            <p key={3}>A woman starts from her home at 9.00 am, walks with a speed of 5 km h⁻¹ on a straight road up to her office 2.5 km away, stays at the office up to 5.00 pm, and returns home by an auto with a speed of 25 km h⁻¹. Choose suitable scales and plot the x–t graph of her motion.</p>,
-            <p key={4}>A drunkard walking in a narrow lane takes 5 steps forward and 3 steps backward, followed again by 5 steps forward and 3 steps backward, and so on. Each step is 1 m long and requires 1 s. Plot the x–t graph of his motion. Determine graphically and otherwise how long the drunkard takes to fall in a pit 13 m away from the start.</p>,
-            <p key={5}>A car moving along a straight highway with speed of 126 km h⁻¹ is brought to a stop within a distance of 200 m. What is the retardation of the car (assumed uniform), and how long does it take for the car to stop?</p>,
-            <p key={6}>A player throws a ball upwards with an initial speed of 29.4 m s⁻¹. (a) What is the direction of acceleration during the upward motion of the ball? (b) What are the velocity and acceleration of the ball at the highest point of its motion? (c) Choose x = 0 m and t = 0 s at the highest point with the vertically downward direction positive, and give the signs of position, velocity and acceleration of the ball during its upward and downward motion. (d) To what height does the ball rise and after how long does the ball return to the player&rsquo;s hands? (Take g = 9.8 m s⁻² and neglect air resistance.)</p>,
-            <p key={7}>Read each statement below carefully and state with reasons and examples if it is true or false. A particle in one-dimensional motion (a) with zero speed at an instant may have non-zero acceleration at that instant; (b) with zero speed may have non-zero velocity; (c) with constant speed must have zero acceleration; (d) with positive value of acceleration must be speeding up.</p>,
-            <p key={8}>A ball is dropped from a height of 90 m on a floor. At each collision with the floor, the ball loses one tenth of its speed. Plot the speed–time graph of its motion between t = 0 to 12 s.</p>,
-            <p key={9}>Explain clearly, with examples, the distinction between: (a) magnitude of displacement over an interval of time and the total length of path covered by a particle over the same interval; (b) magnitude of average velocity over an interval and the average speed over the same interval (total path length / time). Show that in both (a) and (b) the second quantity is greater than or equal to the first. When does equality hold? [One-dimensional motion only.]</p>,
-            <p key={10}>A man walks on a straight road from his home to a market 2.5 km away with a speed of 5 km h⁻¹. Finding the market closed, he instantly turns and walks back home with a speed of 7.5 km h⁻¹. What is the (a) magnitude of average velocity, and (b) average speed of the man over (i) 0 to 30 min, (ii) 0 to 50 min, (iii) 0 to 40 min? [Note: this is why average speed is defined as total path length / time, not as |average velocity| — you would not tell the tired man his average speed was zero!]</p>,
-            <p key={11}>In Exercises 2.9 and 2.10 we carefully distinguished average speed from magnitude of average velocity. No such distinction is needed for instantaneous speed and magnitude of velocity. Instantaneous speed is always equal to the magnitude of instantaneous velocity. Why?</p>,
-            <p key={12}>Look at the graphs (a) to (d) carefully and state, with reasons, which of these cannot possibly represent one-dimensional motion of a particle.</p>,
-            <p key={13}>The figure shows the x–t plot of one-dimensional motion of a particle. Is it correct to say that the particle moves in a straight line for t &lt; 0 and on a parabolic path for t &gt; 0? If not, suggest a suitable physical context for this graph.</p>,
-            <p key={14}>A police van moving on a highway with a speed of 30 km h⁻¹ fires a bullet at a thief&rsquo;s car speeding away in the same direction with a speed of 192 km h⁻¹. If the muzzle speed of the bullet is 150 m s⁻¹, with what speed does the bullet hit the thief&rsquo;s car? (Obtain the speed relevant for damaging the car.)</p>,
-            <p key={15}>Suggest a suitable physical situation for each of the graphs shown.</p>,
-            <p key={16}>The figure gives the x–t plot of a particle executing one-dimensional simple harmonic motion (Chapter 13). Give the signs of position, velocity and acceleration variables of the particle at t = 0.3 s, 1.2 s, −1.2 s.</p>,
-            <p key={17}>The figure gives the x–t plot of a particle in one-dimensional motion. Three different equal intervals of time are shown. In which interval is the average speed greatest, and in which is it the least? Give the sign of average velocity for each interval.</p>,
-            <p key={18}>The figure gives a speed–time graph of a particle in motion along a constant direction. Three equal intervals of time are shown. In which interval is the average acceleration greatest in magnitude? In which interval is the average speed greatest? Choosing the positive direction as the constant direction of motion, give the signs of v and a in the three intervals. What are the accelerations at the points A, B, C and D?</p>,
+questions={[
+            <div key={1}>
+              <p>In which of the following examples of motion can the body be considered approximately a point object?</p>
+              <ul className="mt-1 ml-5 space-y-1 list-none">
+                <li>(a) a railway carriage moving without jerks between two stations;</li>
+                <li>(b) a monkey sitting on top of a man cycling smoothly on a circular track;</li>
+                <li>(c) a spinning cricket ball that turns sharply on hitting the ground;</li>
+                <li>(d) a tumbling beaker that has slipped off the edge of a table.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <p>The position–time (x–t) graphs for two children A and B returning from their school O to their homes P and Q respectively are shown in Fig. 2.9. Choose the correct entries:</p>
+              <ul className="mt-1 ml-5 space-y-1 list-none">
+                <li>(a) (A/B) lives closer to the school than (B/A);</li>
+                <li>(b) (A/B) starts from the school earlier than (B/A);</li>
+                <li>(c) (A/B) walks faster than (B/A);</li>
+                <li>(d) A and B reach home at the (same/different) time;</li>
+                <li>(e) (A/B) overtakes (B/A) on the road (once/twice).</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <p>A woman starts from her home at 9.00 am, walks with a speed of 5 km h⁻¹ on a straight road up to her office 2.5 km away, stays at the office up to 5.00 pm, and returns home by an auto with a speed of 25 km h⁻¹.</p>
+              <p className="mt-1">Choose suitable scales and plot the x–t graph of her motion.</p>
+            </div>,
+            <div key={4}>
+              <p>A drunkard walking in a narrow lane takes 5 steps forward and 3 steps backward, followed again by 5 steps forward and 3 steps backward, and so on. Each step is 1 m long and requires 1 s.</p>
+              <p className="mt-1">Plot the x–t graph of his motion. Determine graphically and otherwise how long the drunkard takes to fall in a pit 13 m away from the start.</p>
+            </div>,
+            <div key={5}>
+              <p>A car moving along a straight highway with speed of 126 km h⁻¹ is brought to a stop within a distance of 200 m.</p>
+              <p className="mt-1">What is the retardation of the car (assumed uniform), and how long does it take for the car to stop?</p>
+            </div>,
+            <div key={6}>
+              <p>A player throws a ball upwards with an initial speed of 29.4 m s⁻¹.</p>
+              <ul className="mt-1 ml-5 space-y-1 list-none">
+                <li>(a) What is the direction of acceleration during the upward motion of the ball?</li>
+                <li>(b) What are the velocity and acceleration of the ball at the highest point of its motion?</li>
+                <li>(c) Choose x = 0 m and t = 0 s at the highest point with the vertically downward direction positive, and give the signs of position, velocity and acceleration of the ball during its upward and downward motion.</li>
+                <li>(d) To what height does the ball rise and after how long does the ball return to the player&rsquo;s hands?</li>
+              </ul>
+              <p className="mt-1">Take g = 9.8 m s⁻² and neglect air resistance.</p>
+            </div>,
+            <div key={7}>
+              <p>Read each statement below carefully and state with reasons and examples if it is true or false. A particle in one-dimensional motion</p>
+              <ul className="mt-1 ml-5 space-y-1 list-none">
+                <li>(a) with zero speed at an instant may have non-zero acceleration at that instant;</li>
+                <li>(b) with zero speed may have non-zero velocity;</li>
+                <li>(c) with constant speed must have zero acceleration;</li>
+                <li>(d) with positive value of acceleration must be speeding up.</li>
+              </ul>
+            </div>,
+            <div key={8}>
+              <p>A ball is dropped from a height of 90 m on a floor. At each collision with the floor, the ball loses one tenth of its speed.</p>
+              <p className="mt-1">Plot the speed–time graph of its motion between t = 0 to 12 s.</p>
+            </div>,
+            <div key={9}>
+              <p>Explain clearly, with examples, the distinction between:</p>
+              <ul className="mt-1 ml-5 space-y-1 list-none">
+                <li>(a) magnitude of displacement over an interval of time and the total length of path covered by a particle over the same interval;</li>
+                <li>(b) magnitude of average velocity over an interval and the average speed over the same interval (total path length / time).</li>
+              </ul>
+              <p className="mt-1">Show that in both (a) and (b) the second quantity is greater than or equal to the first. When does equality hold? [One-dimensional motion only.]</p>
+            </div>,
+            <div key={10}>
+              <p>A man walks on a straight road from his home to a market 2.5 km away with a speed of 5 km h⁻¹. Finding the market closed, he instantly turns and walks back home with a speed of 7.5 km h⁻¹.</p>
+              <p className="mt-1">What is the (a) magnitude of average velocity and (b) average speed of the man over the following intervals?</p>
+              <ul className="mt-1 ml-5 space-y-1 list-none">
+                <li>(i) 0 to 30 min;</li>
+                <li>(ii) 0 to 50 min;</li>
+                <li>(iii) 0 to 40 min.</li>
+              </ul>
+              <p className="mt-1">[Note: this is why average speed is defined as total path length / time, not as |average velocity| — you would not tell the tired man his average speed was zero!]</p>
+            </div>,
+            <div key={11}>
+              <p>In Exercises 2.9 and 2.10 we carefully distinguished average speed from magnitude of average velocity. No such distinction is needed for instantaneous speed and magnitude of velocity.</p>
+              <p className="mt-1">Instantaneous speed is always equal to the magnitude of instantaneous velocity. Why?</p>
+            </div>,
+            <div key={12}>
+              <p>Look at the graphs (a) to (d) carefully and state, with reasons, which of these cannot possibly represent one-dimensional motion of a particle.</p>
+            </div>,
+            <div key={13}>
+              <p>The figure shows the x–t plot of one-dimensional motion of a particle. Is it correct to say that the particle moves in a straight line for t &lt; 0 and on a parabolic path for t &gt; 0? If not, suggest a suitable physical context for this graph.</p>
+            </div>,
+            <div key={14}>
+              <p>A police van moving on a highway with a speed of 30 km h⁻¹ fires a bullet at a thief&rsquo;s car speeding away in the same direction with a speed of 192 km h⁻¹.</p>
+              <p className="mt-1">If the muzzle speed of the bullet is 150 m s⁻¹, with what speed does the bullet hit the thief&rsquo;s car? (Obtain the speed relevant for damaging the car.)</p>
+            </div>,
+            <div key={15}>
+              <p>Suggest a suitable physical situation for each of the graphs shown.</p>
+            </div>,
+            <div key={16}>
+              <p>The figure gives the x–t plot of a particle executing one-dimensional simple harmonic motion (Chapter 13).</p>
+              <p className="mt-1">Give the signs of position, velocity and acceleration variables of the particle at t = 0.3 s, 1.2 s, −1.2 s.</p>
+            </div>,
+            <div key={17}>
+              <p>The figure gives the x–t plot of a particle in one-dimensional motion. Three different equal intervals of time are shown.</p>
+              <p className="mt-1">In which interval is the average speed greatest, and in which is it the least? Give the sign of average velocity for each interval.</p>
+            </div>,
+            <div key={18}>
+              <p>The figure gives a speed–time graph of a particle in motion along a constant direction. Three equal intervals of time are shown.</p>
+              <p className="mt-1">In which interval is the average acceleration greatest in magnitude? In which interval is the average speed greatest? Choosing the positive direction as the constant direction of motion, give the signs of v and a in the three intervals. What are the accelerations at the points A, B, C and D?</p>
+            </div>,
           ]}
           answers={[
-            <p key={1}>(a) Yes — the carriage&apos;s size is negligible compared with the distance between stations. (b) Yes — the monkey-and-man system is small compared with the track radius, so its motion can be treated point-like. (c) No — the spinning/turning ball&apos;s size and rotation matter. (d) No — the tumbling motion of the whole beaker depends on its size.</p>,
-            <p key={2}>(a) A; (b) A; (c) B; (d) same; (e) B overtakes A once. (A starts earlier and nearer; B walks faster with a steeper x–t slope and catches A on the way.)</p>,
-            <p key={3}>Graph: rising line 0 → 0.5 h (2.5 km at 9:00–9:30), horizontal until 17:00, then a steep falling line back to x = 0 at 17:06 (2.5 km at 25 km h⁻¹ = 0.1 h).</p>,
-            <p key={4}>Each 8 s cycle (5 forward, 3 backward) nets +2 m. After 4 cycles (32 s) the drunkard is at 8 m facing forward; the 5th step (at t = 37 s) takes him to 13 m — just reaching the pit. Total time ≈ 37 s.</p>,
-            <p key={5}>126 km h⁻¹ = 35 m s⁻¹. v² = u² − 2ad → 0 = 35² − 2a(200) → a ≈ 3.06 m s⁻² (retardation). t = u/a = 35/3.06 ≈ 11.4 s.</p>,
-            <p key={6}>(a) Downward (acceleration due to gravity) throughout the flight, including upward motion. (b) v = 0; a = 9.8 m s⁻² downward. (c) Upward motion: x positive, v negative, a positive; downward motion: x positive, v positive, a positive. (d) Height = (29.4)²/(2 × 9.8) = 44.1 m; total flight time = 2 × 29.4/9.8 = 6 s.</p>,
-            <p key={7}>(a) True — the top of a vertical throw is a moment of zero speed with a = g. (b) False — speed is |v|; zero speed means v = 0. (c) False — uniform circular motion has constant speed but centripetal acceleration; in 1-D, constant speed with straight-line motion does give a = 0, but the statement as given is false without that qualification. (d) False — a can be positive while the speed decreases (e.g. upward motion with upward-positive axis).</p>,
-            <p key={8}>Fall from 90 m: v = √(2 × 9.8 × 90) ≈ 42 m s⁻¹, t = 4.29 s; after each bounce v loses 10%, so successive peak speeds are 42, 37.8, 34.0, … with constant slopes g between bounces — a sawtooth speed–time graph decaying until t ≈ 12 s.</p>,
-            <p key={9}>(a) Magnitude of displacement ≤ total path length; equality when motion is along one straight line without turning back. (b) |average velocity| ≤ average speed; equality when the path length equals |displacement|, i.e. no reversal.</p>,
-            <p key={10}>(i) 0–30 min: home→market 2.5 km done in 0.5 h: avg velocity = 5 km h⁻¹, avg speed = 5 km h⁻¹. (ii) 0–50 min: returns 2.5 km in 1/3 h (20 min); net displacement 0 → avg velocity 0; total path 5 km in 5/6 h → avg speed = 6 km h⁻¹. (iii) 0–40 min: out for 30 min (2.5 km), back for 10 min at 7.5 → 1.25 km; net displacement 1.25 km, time 2/3 h → avg velocity 1.875 km h⁻¹; total path 3.75 km / (2/3) h = 5.625 km h⁻¹.</p>,
-            <p key={11}>At any instant the particle has a single velocity v, and speed is just |v| — there is no path-length vs displacement distinction at a single instant to average over.</p>,
-            <p key={12}>The graphs that imply two positions at one time, or a vertical (infinite-slope) x–t segment, or looping back in time cannot represent one-dimensional motion.</p>,
-            <p key={13}>No — being an x–t graph, the particle is always moving along the straight x-axis; the parabola merely means the acceleration (curvature) is present for t &gt; 0 and absent for t &lt; 0. Suitable context: an object at uniform motion that starts decelerating/accelerating at t = 0.</p>,
-            <p key={14}>Relative approach speed = muzzle speed against the closing ambient: bullet at 150 m s⁻¹ relative to van; van at 30 km h⁻¹ = 8.33 m s⁻¹; thief car at 192 km h⁻¹ = 53.3 m s⁻¹. Ground speed of bullet = 150 + 8.33 ≈ 158.3 m s⁻¹; relative to thief car = 158.3 − 53.3 ≈ 105 m s⁻¹.</p>,
-            <p key={15}>Suggestions: (1) horizontal line in v–t → constant velocity; falling x–t curve → acceleration; (2) the classic: a body thrown upward (v decreasing then negative); (3) a child on a swing / car braking.</p>,
-            <p key={16}>At t = 0.3 s (recently past equilibrium, moving +x): x &gt; 0, v &gt; 0, a &lt; 0. At t = 1.2 s (past positive turning point): x &gt; 0, v &lt; 0, a &lt; 0. At t = −1.2 s (mirror of +1.2 s): x &lt; 0, v &gt; 0, a &gt; 0.</p>,
-            <p key={17}>Greatest average speed where the path length per time is largest (steepest-slope majority interval); least where the curve is almost flat. Sign of average velocity is the sign of (x₁ − x₂) over the interval.</p>,
-            <p key={18}>Accelerations at A, B, C, D are 0 (slope of speed–time is zero at the flat extents); greatest |a| in the interval with the steepest slope; greatest average speed in the interval at the highest speeds; signs: v &gt; 0 throughout; a &lt; 0 where speed falls, a &gt; 0 where speed rises, a = 0 at A/B/C/D.</p>,
+            <div key={1}>
+              <ul className="space-y-1 list-none">
+                <li>(a) Yes — the carriage&apos;s size is negligible compared with the distance between stations.</li>
+                <li>(b) Yes — the monkey-and-man system is small compared with the track radius, so its motion can be treated point-like.</li>
+                <li>(c) No — the spinning/turning ball&apos;s size and rotation matter.</li>
+                <li>(d) No — the tumbling motion of the whole beaker depends on its size.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1 list-none">
+                <li>(a) A</li>
+                <li>(b) A</li>
+                <li>(c) B</li>
+                <li>(d) same</li>
+                <li>(e) B overtakes A once.</li>
+              </ul>
+              <p className="mt-1">A starts earlier and nearer; B walks faster with a steeper x–t slope and catches A on the way.</p>
+            </div>,
+            <div key={3}>
+              <p>Graph: rising line 0 → 0.5 h (2.5 km at 9:00–9:30); horizontal until 17:00; then a steep falling line back to x = 0 at 17:06 (2.5 km at 25 km h⁻¹ = 0.1 h).</p>
+            </div>,
+            <div key={4}>
+              <p>Each 8 s cycle (5 forward, 3 backward) nets +2 m. After 4 cycles (32 s) the drunkard is at 8 m facing forward; the 5th step (at t = 37 s) takes him to 13 m — just reaching the pit.</p>
+              <p className="mt-1">Total time ≈ 37 s.</p>
+            </div>,
+            <div key={5}>
+              <p>126 km h⁻¹ = 35 m s⁻¹.</p>
+              <ul className="mt-1 ml-5 space-y-1 list-none">
+                <li><strong>Retardation:</strong> v² = u² − 2ad → 0 = 35² − 2a(200) → a ≈ 3.06 m s⁻².</li>
+                <li><strong>Time to stop:</strong> t = u/a = 35/3.06 ≈ 11.4 s.</li>
+              </ul>
+            </div>,
+            <div key={6}>
+              <ul className="space-y-1 list-none">
+                <li>(a) Downward (acceleration due to gravity) throughout the flight, including the upward motion.</li>
+                <li>(b) v = 0; a = 9.8 m s⁻² downward.</li>
+                <li>(c) Upward motion: x &gt; 0, v &lt; 0, a &gt; 0; downward motion: x &gt; 0, v &gt; 0, a &gt; 0.</li>
+                <li>(d) Height: (29.4)²/(2 × 9.8) = 44.1 m. Total flight time: 2 × 29.4/9.8 = 6 s.</li>
+              </ul>
+            </div>,
+            <div key={7}>
+              <ul className="space-y-1 list-none">
+                <li>(a) True — the top of a vertical throw is a moment of zero speed with a = g.</li>
+                <li>(b) False — speed is |v|; zero speed means v = 0.</li>
+                <li>(c) False — uniform circular motion has constant speed but centripetal acceleration; in 1-D, constant speed along a straight line does give a = 0, but the statement as given is false without that qualification.</li>
+                <li>(d) False — a can be positive while the speed decreases (e.g. upward motion with an upward-positive axis).</li>
+              </ul>
+            </div>,
+            <div key={8}>
+              <p>Fall from 90 m: v = √(2 × 9.8 × 90) ≈ 42 m s⁻¹, t = 4.29 s.</p>
+              <p className="mt-1">After each bounce v loses 10%, so successive peak speeds are 42, 37.8, 34.0, … with constant slopes g between bounces — a sawtooth speed–time graph decaying until t ≈ 12 s.</p>
+            </div>,
+            <div key={9}>
+              <ul className="space-y-1 list-none">
+                <li>(a) Magnitude of displacement ≤ total path length; equality when motion is along one straight line without turning back.</li>
+                <li>(b) |average velocity| ≤ average speed; equality when the path length equals |displacement|, i.e. no reversal.</li>
+              </ul>
+            </div>,
+            <div key={10}>
+              <p><strong>(a) Magnitude of average velocity:</strong></p>
+              <ul className="mt-1 ml-5 space-y-1 list-none">
+                <li>(i) 0–30 min: 5 km h⁻¹ (displacement 2.5 km in 0.5 h).</li>
+                <li>(ii) 0–50 min: 0 (returned home — net displacement 0).</li>
+                <li>(iii) 0–40 min: 1.875 km h⁻¹ (displacement 1.25 km in 2/3 h).</li>
+              </ul>
+              <p className="mt-1"><strong>(b) Average speed:</strong></p>
+              <ul className="mt-1 ml-5 space-y-1 list-none">
+                <li>(i) 0–30 min: 5 km h⁻¹ (path 2.5 km in 0.5 h).</li>
+                <li>(ii) 0–50 min: 6 km h⁻¹ (path 5 km in 5/6 h).</li>
+                <li>(iii) 0–40 min: 5.625 km h⁻¹ (path 3.75 km in 2/3 h).</li>
+              </ul>
+            </div>,
+            <div key={11}>
+              <p>At any instant the particle has a single velocity v, and speed is just |v| — there is no path-length vs displacement distinction at a single instant to average over.</p>
+            </div>,
+            <div key={12}>
+              <p>The graphs that imply two positions at one time, a vertical (infinite-slope) x–t segment, or looping back in time cannot represent one-dimensional motion.</p>
+            </div>,
+            <div key={13}>
+              <p>No — being an x–t graph, the particle is always moving along the straight x-axis; the parabola merely means the acceleration (curvature) is present for t &gt; 0 and absent for t &lt; 0. Suitable context: an object at uniform motion that starts decelerating/accelerating at t = 0.</p>
+            </div>,
+            <div key={14}>
+              <p>Van speed = 30 km h⁻¹ = 8.33 m s⁻¹; thief&rsquo;s car = 192 km h⁻¹ = 53.3 m s⁻¹.</p>
+              <ul className="mt-1 ml-5 space-y-1 list-none">
+                <li>Ground speed of bullet = muzzle speed + van speed = 150 + 8.33 ≈ 158.3 m s⁻¹.</li>
+                <li>Relative to the thief&rsquo;s car: 158.3 − 53.3 ≈ 105 m s⁻¹ — this is the speed relevant for damaging the car.</li>
+              </ul>
+            </div>,
+            <div key={15}>
+              <p>Suggestions: (1) horizontal line in v–t, meaning constant velocity; (2) a body thrown upward — v decreasing then negative; (3) a child on a swing / car braking.</p>
+            </div>,
+            <div key={16}>
+              <ul className="space-y-1 list-none">
+                <li>t = 0.3 s (recently past equilibrium, moving +x): x &gt; 0, v &gt; 0, a &lt; 0.</li>
+                <li>t = 1.2 s (past positive turning point): x &gt; 0, v &lt; 0, a &lt; 0.</li>
+                <li>t = −1.2 s (mirror of +1.2 s): x &lt; 0, v &gt; 0, a &gt; 0.</li>
+              </ul>
+            </div>,
+            <div key={17}>
+              <p>Greatest average speed where the path length per time is largest (steepest-slope majority interval); least where the curve is almost flat.</p>
+              <p className="mt-1">Sign of average velocity is the sign of (x₁ − x₂) over the interval.</p>
+            </div>,
+            <div key={18}>
+              <p>Accelerations at A, B, C, D are 0 (slope of the speed–time graph is zero at the flat extents).</p>
+              <ul className="mt-1 ml-5 space-y-1 list-none">
+                <li>Greatest |a|: the interval with the steepest slope.</li>
+                <li>Greatest average speed: the interval at the highest speeds.</li>
+                <li>Signs: v &gt; 0 throughout; a &lt; 0 where speed falls, a &gt; 0 where speed rises, a = 0 at A/B/C/D.</li>
+              </ul>
+            </div>,
           ]}
         />
       </Expandable>
