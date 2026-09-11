@@ -61,6 +61,57 @@ export default function MotionInAStraightLineChapter() {
         ]}
       />
 
+      <h2 id="h-classification">Classification of Motion</h2>
+      <ul>
+        <li>
+          <strong>1. Uniform Motion</strong> — velocity is <strong>constant</strong>:
+          <ul>
+            <li>
+              Acceleration: <Formula>{String.raw`a = 0`}</Formula>
+            </li>
+            <li>
+              Displacement formula: <Formula>{String.raw`S = ut`}</Formula>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>2. Non-Uniform Motion</strong> — velocity is <strong>changing</strong>:
+          <ul>
+            <li>
+              <strong>A. Uniformly Accelerated Motion</strong> — acceleration is constant (
+              <Formula>{String.raw`a = \text{constant}`}</Formula>). Equations of motion:
+              <Formula>{String.raw`v = u + at`}</Formula>;{" "}
+              <Formula>{String.raw`S = ut + \tfrac{1}{2}at^2`}</Formula>;{" "}
+              <Formula>{String.raw`v^2 = u^2 + 2aS`}</Formula>.
+            </li>
+            <li>
+              <strong>B. Non-Uniformly Accelerated Motion</strong> — acceleration is changing (
+              <Formula>{String.raw`a \neq \text{constant}`}</Formula>).
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 id="h-unit-conversions">Unit conversions: km/h to m/s</h3>
+      <p>
+        <strong>Conversion factor:</strong> multiply by <Formula>{String.raw`\frac{5}{18}`}</Formula>
+      </p>
+      <FormulaBlock latex={String.raw`1\ \text{km/h} = \frac{5}{18}\ \text{m/s}`} important />
+      <TableCard
+        caption="Common values (km/h → m/s)."
+        headers={["Speed (km/h)", "Speed (m/s)"]}
+        rows={[
+          { cells: ["18", "5"] },
+          { cells: ["36", "10"] },
+          { cells: ["54", "15"] },
+          { cells: ["72", "20"] },
+          { cells: ["90", "25"] },
+          { cells: ["108", "30"] },
+          { cells: ["126", "35"] },
+          { cells: ["144", "40"] },
+        ]}
+      />
+
       <h3 id="h-speed-vs-velocity">Speed and velocity — the essentials</h3>
       <Comparison
         columns={[
@@ -382,6 +433,106 @@ export default function MotionInAStraightLineChapter() {
         </ul>
       </FormulaCard>
 
+      <Expandable title="Supplementary solved problems — kinematic equations (3)" variant="exercise">
+        <p>
+          <strong>Problem 1 — distance travelled by the train.</strong> The velocity of a train increases
+          uniformly from 20 km/h to 60 km/h in 4 h. The distance travelled by the train during this period
+          is:
+        </p>
+        <ul>
+          <li>a) 160 km</li>
+          <li>b) 180 km</li>
+          <li>c) 100 km</li>
+          <li>d) 120 km</li>
+        </ul>
+        <p>
+          <strong>Given data:</strong> u = 20 km/h, v = 60 km/h, t = 4 h.
+        </p>
+        <p><strong>Solution.</strong></p>
+        <ol>
+          <li>
+            <strong>Acceleration (a):</strong>
+            <FormulaBlock latex={String.raw`a = \frac{v - u}{t} = \frac{60 - 20}{4} = \frac{40}{4} = 10\ \text{km/h}^2`} />
+          </li>
+          <li>
+            <strong>Distance (S):</strong>
+            <FormulaBlock latex={String.raw`S = ut + \tfrac{1}{2}at^2`} />
+            <FormulaBlock latex={String.raw`S = (20 \times 4) + \tfrac{1}{2}(10)(4)^2 = 80 + \tfrac{1}{2}(10)(16) = 80 + 80 = 160\ \text{km}`} />
+            <p>
+              <em>Alternatively, using v² = u² + 2aS:</em>
+            </p>
+            <FormulaBlock latex={String.raw`60^2 = 20^2 + 2(10)S \;\Rightarrow\; 3600 = 400 + 20S \;\Rightarrow\; 3200 = 20S \;\Rightarrow\; S = 160\ \text{km}`} />
+          </li>
+        </ol>
+        <p>
+          <strong>Correct option:</strong> a) 160 km.
+        </p>
+
+        <p>
+          <strong>Problem 2 — time taken to change velocity.</strong> A particle moves in a straight line
+          with a constant acceleration. It changes its velocity from 10 m/s to 20 m/s while passing through
+          a distance of 135 m in t seconds. The value of t is:
+        </p>
+        <ul>
+          <li>a) 10 s</li>
+          <li>b) 1.8 s</li>
+          <li>c) 12 s</li>
+          <li>d) 9 s</li>
+        </ul>
+        <p>
+          <strong>Given data:</strong> u = 10 m/s, v = 20 m/s, S = 135 m.
+        </p>
+        <p><strong>Solution.</strong></p>
+        <ol>
+          <li>
+            <strong>Find acceleration (a):</strong>
+            <FormulaBlock latex={String.raw`v^2 = u^2 + 2aS`} />
+            <FormulaBlock latex={String.raw`20^2 = 10^2 + 2a(135) \;\Rightarrow\; 400 = 100 + 270a \;\Rightarrow\; a = \frac{300}{270} = \frac{10}{9}\ \text{m/s}^2`} />
+          </li>
+          <li>
+            <strong>Find time (t):</strong>
+            <FormulaBlock latex={String.raw`v = u + at`} />
+            <FormulaBlock latex={String.raw`20 = 10 + \left(\frac{10}{9}\right)t \;\Rightarrow\; 10 = \frac{10}{9}t \;\Rightarrow\; t = 9\ \text{s}`} />
+          </li>
+        </ol>
+        <p>
+          <strong>Correct option:</strong> d) 9 s.
+        </p>
+
+        <p>
+          <strong>Problem 3 — distance covered by the car.</strong> If a car at rest accelerates uniformly
+          to a speed of 144 km/h in 20 s, it covers a distance of:
+        </p>
+        <ul>
+          <li>a) 2880 m</li>
+          <li>b) 1440 m</li>
+          <li>c) 400 m</li>
+          <li>d) 20 m</li>
+        </ul>
+        <p>
+          <strong>Given data:</strong> initial velocity u = 0 m/s (at rest); final velocity v = 144 km/h =
+          40 m/s; time t = 20 s.
+        </p>
+        <p><strong>Solution.</strong></p>
+        <ol>
+          <li>
+            <strong>Acceleration (a):</strong>
+            <FormulaBlock latex={String.raw`a = \frac{v - u}{t} = \frac{40 - 0}{20} = 2\ \text{m/s}^2`} />
+          </li>
+          <li>
+            <strong>Distance (S):</strong>
+            <FormulaBlock latex={String.raw`S = ut + \tfrac{1}{2}at^2 = 0 + \tfrac{1}{2}(2)(20)^2 = 400\ \text{m}`} />
+            <p>
+              <em>Alternatively, using v² = u² + 2aS:</em>
+            </p>
+            <FormulaBlock latex={String.raw`40^2 = 0 + 2(2)S \;\Rightarrow\; 1600 = 4S \;\Rightarrow\; S = 400\ \text{m}`} />
+          </li>
+        </ol>
+        <p>
+          <strong>Correct option:</strong> c) 400 m.
+        </p>
+      </Expandable>
+
       <Expandable title="Example 2.2 — Equations of motion by the method of calculus" variant="example">
         <ProblemSolution.Problem>
           <p>Obtain equations of motion for constant acceleration using the method of calculus.</p>
@@ -520,6 +671,84 @@ export default function MotionInAStraightLineChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
+      <h3 id="h-stopping-distance">Stopping distance and stopping time</h3>
+      <p>
+        <strong>Stopping distance (s).</strong> Using <Formula>{String.raw`v^2 = u^2 + 2as`}</Formula> with
+        final velocity v = 0 and acceleration a = −a (retardation):
+      </p>
+      <FormulaBlock latex={String.raw`0 = u^2 + 2(-a)s \;\Rightarrow\; 0 = u^2 - 2as`} />
+      <FormulaBlock latex={String.raw`2as = u^2 \;\Rightarrow\; s = \frac{u^2}{2a}`} important />
+      <p>
+        <strong>Key relationship:</strong> stopping distance is directly proportional to the square of the
+        initial velocity: <Formula>{String.raw`s \propto u^2`}</Formula>.
+      </p>
+      <p>
+        <strong>Stopping time (t).</strong> Using <Formula>{String.raw`v = u + at`}</Formula> with v = 0
+        and a = −a (retardation):
+      </p>
+      <FormulaBlock latex={String.raw`0 = u + (-a)t \;\Rightarrow\; 0 = u - at`} />
+      <FormulaBlock latex={String.raw`at = u \;\Rightarrow\; t = \frac{u}{a}`} important />
+
+      <Expandable title="Supplementary solved problems — stopping distance and stopping time (2)" variant="exercise">
+        <p>
+          <strong>Problem 1 — car stopping distance.</strong> A car moving with a speed of 40 km/h can be
+          stopped after 2 m by applying brakes. If the same car is moving with a speed of 80 km/h, what is
+          the minimum stopping distance?
+        </p>
+        <ul>
+          <li>a) 8 m</li>
+          <li>b) 2 m</li>
+          <li>c) 4 m</li>
+          <li>d) 6 m</li>
+        </ul>
+        <p>
+          <strong>Given data:</strong> u₁ = 40 km/h, s₁ = 2 m; u₂ = 80 km/h, s₂ = ?
+        </p>
+        <p><strong>Solution.</strong> Since s ∝ u²:</p>
+        <FormulaBlock latex={String.raw`\frac{s_1}{s_2} = \left(\frac{u_1}{u_2}\right)^2`} />
+        <FormulaBlock latex={String.raw`\frac{2}{s_2} = \left(\frac{40}{80}\right)^2 = \left(\frac{1}{2}\right)^2 = \frac{1}{4}`} />
+        <FormulaBlock latex={String.raw`s_2 = 2 \times 4 = 8\ \text{m}`} important />
+        <p>
+          <strong>Correct option:</strong> a) 8 m.
+        </p>
+
+        <p>
+          <strong>Problem 2 — bullet penetration into a wooden block.</strong> If a body loses half of its
+          velocity on penetrating 3 cm in a wooden block, then how much will it penetrate more before
+          coming to rest?
+        </p>
+        <p>
+          <strong>Shortcut formula.</strong> If a bullet loses <Formula>{String.raw`\tfrac{1}{n}`}</Formula>{" "}
+          of its velocity in penetrating a distance x, the further distance x&prime; it penetrates before
+          coming to rest is:
+        </p>
+        <FormulaBlock latex={String.raw`x' = \frac{x}{n^2 - 1}`} />
+        <p>
+          <strong>Method 1 (shortcut formula).</strong> Given x = 3 cm and the velocity becomes half (u/2),
+          so n = 2:
+        </p>
+        <FormulaBlock latex={String.raw`x' = \frac{3}{2^2 - 1} = \frac{3}{4 - 1} = \frac{3}{3} = 1\ \text{cm}`} important />
+        <p>
+          <strong>Method 2 (standard derivation).</strong>
+        </p>
+        <ol>
+          <li>
+            <strong>First phase (u → u/2 over distance x = 3 cm):</strong>
+            <FormulaBlock latex={String.raw`v^2 = u^2 + 2as`} />
+            <FormulaBlock latex={String.raw`\left(\frac{u}{2}\right)^2 = u^2 + 2(-a)(3) \;\Rightarrow\; \frac{u^2}{4} = u^2 - 6a`} />
+            <FormulaBlock latex={String.raw`6a = u^2 - \frac{u^2}{4} = \frac{3u^2}{4} \;\Rightarrow\; a = \frac{u^2}{8}`} />
+          </li>
+          <li>
+            <strong>Second phase (u/2 → 0 over distance x&prime;):</strong>
+            <FormulaBlock latex={String.raw`0^2 = \left(\frac{u}{2}\right)^2 + 2\left(-\frac{u^2}{8}\right)x' \;\Rightarrow\; 0 = \frac{u^2}{4} - \frac{u^2 x'}{4}`} />
+            <FormulaBlock latex={String.raw`\frac{u^2 x'}{4} = \frac{u^2}{4} \;\Rightarrow\; x' = 1\ \text{cm}`} important />
+          </li>
+        </ol>
+        <p>
+          <strong>Answer:</strong> 1 cm.
+        </p>
+      </Expandable>
+
       <Expandable title="Example 2.7 — Reaction time" variant="example">
         <ProblemSolution.Problem>
           <p>
@@ -549,6 +778,257 @@ export default function MotionInAStraightLineChapter() {
         up, acceleration points along the velocity; if slowing down, it points opposite — independent of
         the axis choice.
       </KeyPoint>
+
+      <h2 id="h-motion-under-gravity">Motion Under Gravity</h2>
+      <p>
+        When the only force on a body is its own weight, it moves with the acceleration due to gravity{" "}
+        <Formula>{String.raw`\pm g`}</Formula>. Choosing the upward direction as positive:
+      </p>
+      <Comparison
+        columns={[
+          {
+            title: "Upward motion (a = −g)",
+            children: (
+              <ul>
+                <li><Formula>{String.raw`v = u - gt`}</Formula></li>
+                <li><Formula>{String.raw`s = ut - \tfrac{1}{2}gt^2`}</Formula></li>
+                <li><Formula>{String.raw`v^2 = u^2 - 2gs`}</Formula></li>
+              </ul>
+            ),
+          },
+          {
+            title: "Downward motion (a = +g)",
+            children: (
+              <ul>
+                <li><Formula>{String.raw`v = u + gt`}</Formula></li>
+                <li><Formula>{String.raw`s = ut + \tfrac{1}{2}gt^2`}</Formula></li>
+                <li><Formula>{String.raw`v^2 = u^2 + 2gs`}</Formula></li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+
+      <h3 id="h-dropped-from-height">1. An object dropped from a height h</h3>
+      <p>
+        Initial velocity <Formula>{String.raw`u = 0\ \text{m/s}`}</Formula>.
+      </p>
+      <p><strong>Velocity with which the body strikes the ground:</strong></p>
+      <FormulaBlock latex={String.raw`v^2 = u^2 + 2gh \;\Rightarrow\; v^2 = 0 + 2gh \;\Rightarrow\; v = \sqrt{2gh}`} important />
+      <p><strong>Time taken to reach the ground:</strong></p>
+      <FormulaBlock latex={String.raw`h = ut + \tfrac{1}{2}gt^2 \;\Rightarrow\; h = 0 + \tfrac{1}{2}gt^2`} />
+      <FormulaBlock latex={String.raw`2h = gt^2 \;\Rightarrow\; t = \sqrt{\frac{2h}{g}}`} important />
+
+      <h3 id="h-thrown-upward">2. An object thrown upward with a velocity u</h3>
+      <p>
+        <strong>Time of ascent (t_A) and time of descent (t_D).</strong> At maximum height, the final
+        velocity v = 0:
+      </p>
+      <FormulaBlock latex={String.raw`v = u - gt_A \;\Rightarrow\; 0 = u - gt_A \;\Rightarrow\; gt_A = u`} />
+      <FormulaBlock latex={String.raw`t_A = \frac{u}{g}`} important />
+      <KeyPoint title="Symmetry — t_A = t_D">
+        Time of ascent = time of descent = <Formula>{String.raw`\frac{u}{g}`}</Formula>. Example (u = 20
+        m/s, g = 10 m/s²): t_A = 20/10 = 2 s and t_D = 20/10 = 2 s.
+      </KeyPoint>
+      <p>
+        <strong>Maximum height reached (h<sub>max</sub>).</strong> At maximum height, v = 0:
+      </p>
+      <FormulaBlock latex={String.raw`v^2 = u^2 - 2gh \;\Rightarrow\; 0 = u^2 - 2gh`} />
+      <FormulaBlock latex={String.raw`2gh = u^2 \;\Rightarrow\; h = \frac{u^2}{2g}`} important />
+
+      <Expandable title="Solved problems — motion under gravity (8)" variant="exercise">
+        <p>
+          <strong>Problem 1 — velocity of the stone hitting the ground.</strong> A boy standing at the top
+          of a tower of 20 m height drops a stone. Assuming g = 10 m/s², the velocity with which it hits
+          the ground is:
+        </p>
+        <ul>
+          <li>a) 20 m/s</li>
+          <li>b) 40 m/s</li>
+          <li>c) 5 m/s</li>
+          <li>d) 10 m/s</li>
+        </ul>
+        <p>
+          <strong>Given data:</strong> height h = 20 m; initial velocity u = 0 m/s (dropped); g = 10 m/s².
+        </p>
+        <p><strong>Solution:</strong></p>
+        <FormulaBlock latex={String.raw`v = \sqrt{2gh} = \sqrt{2 \times 10 \times 20} = \sqrt{400} = 20\ \text{m/s}`} important />
+        <p>
+          <strong>Correct option:</strong> a) 20 m/s.
+        </p>
+
+        <p>
+          <strong>Problem 2 — ratio of times for two falling bodies.</strong> Two bodies A (of mass 1 kg)
+          and B (of mass 3 kg) are dropped from heights of 16 m and 25 m, respectively. The ratio of the
+          time taken by them to reach the ground is:
+        </p>
+        <ul>
+          <li>a) 5/4</li>
+          <li>b) 12/5</li>
+          <li>c) 5/12</li>
+          <li>d) 4/5</li>
+        </ul>
+        <p>
+          <strong>Given data:</strong> h_A = 16 m, h_B = 25 m.
+        </p>
+        <p>
+          <strong>Solution.</strong> From <Formula>{String.raw`t = \sqrt{\frac{2h}{g}}`}</Formula>, time is
+          proportional to <Formula>{String.raw`\sqrt{h}`}</Formula>:
+        </p>
+        <FormulaBlock latex={String.raw`\frac{t_A}{t_B} = \sqrt{\frac{h_A}{h_B}} = \sqrt{\frac{16}{25}} = \frac{4}{5}`} important />
+        <p>
+          <strong>Correct option:</strong> d) 4/5.
+        </p>
+
+        <p>
+          <strong>Problem 3 — velocity of the ball after 2 s.</strong> If a ball is thrown vertically
+          upwards with a velocity of 40 m/s, then the velocity of the ball after 2 s will be (g = 10
+          m/s²):
+        </p>
+        <ul>
+          <li>a) 15 m/s</li>
+          <li>b) 20 m/s</li>
+          <li>c) 25 m/s</li>
+          <li>d) 28 m/s</li>
+        </ul>
+        <p>
+          <strong>Given data:</strong> initial velocity u = 40 m/s; time t = 2 s; g = 10 m/s².
+        </p>
+        <p><strong>Solution:</strong></p>
+        <FormulaBlock latex={String.raw`v = u - gt = 40 - (10 \times 2) = 40 - 20 = 20\ \text{m/s}`} important />
+        <p>
+          <strong>Correct option:</strong> b) 20 m/s.
+        </p>
+
+        <p>
+          <strong>Problem 4 — maximum height from the half-height speed.</strong> A stone is thrown
+          vertically upwards. When the stone is at a height half of its maximum height, its speed is 10
+          m/s. The maximum height attained by the stone is (g = 10 m/s²):
+        </p>
+        <ul>
+          <li>a) 8 m</li>
+          <li>b) 10 m</li>
+          <li>c) 15 m</li>
+          <li>d) 20 m</li>
+        </ul>
+        <p>
+          <strong>Given data:</strong> at s = H/2, speed v = 10 m/s; at s = H, speed v_H = 0 m/s.
+        </p>
+        <p><strong>Solution.</strong> Using <Formula>{String.raw`v^2 = u^2 - 2gs`}</Formula>:</p>
+        <ol>
+          <li>
+            For maximum height H (v = 0):{" "}
+            <Formula>{String.raw`0 = u^2 - 2gH \;\Rightarrow\; u^2 = 2gH`}</Formula>
+          </li>
+          <li>
+            At half maximum height (s = H/2):
+            <FormulaBlock latex={String.raw`10^2 = u^2 - 2g\left(\frac{H}{2}\right)`} />
+            <FormulaBlock latex={String.raw`100 = 2gH - gH = gH`} />
+            <FormulaBlock latex={String.raw`H = \frac{100}{g} = \frac{100}{10} = 10\ \text{m}`} important />
+          </li>
+        </ol>
+        <p>
+          <strong>Correct option:</strong> b) 10 m.
+        </p>
+
+        <p>
+          <strong>Problem 5 — descent time from maximum height.</strong> A body is thrown vertically
+          upwards from the ground. It reaches a maximum height of 20 m in 2 s. After what time will it
+          reach the ground from its maximum height position?
+        </p>
+        <ul>
+          <li>a) 2.5 s</li>
+          <li>b) 5 s</li>
+          <li>c) 10 s</li>
+          <li>d) 2 s</li>
+        </ul>
+        <p>
+          <strong>Solution.</strong> Time of ascent (t_A) = time of descent (t_D). Given t_A = 2 s, the
+          time taken to reach the ground from the maximum height position (t_D) is also{" "}
+          <strong>2 s</strong>.
+        </p>
+        <p>
+          <strong>Correct option:</strong> d) 2 s.
+        </p>
+
+        <p>
+          <strong>Problem 6 — final velocity with a non-zero initial velocity.</strong> A body dropped from
+          a height h with initial velocity zero strikes the ground with a velocity of 3 m/s. Another body
+          of the same mass dropped from the same height h with an initial velocity of 4 m/s. The final
+          velocity of the second body, with which it strikes the ground, is:
+        </p>
+        <ul>
+          <li>a) 4 m/s</li>
+          <li>b) 12 m/s</li>
+          <li>c) 3 m/s</li>
+          <li>d) 5 m/s</li>
+        </ul>
+        <p>
+          <strong>Given data:</strong> Case 1: u₁ = 0, v₁ = 3 m/s, distance = h. Case 2: u₂ = 4 m/s, v₂ =
+          ?, distance = h.
+        </p>
+        <p><strong>Solution:</strong></p>
+        <ol>
+          <li>
+            From case 1:{" "}
+            <Formula>{String.raw`v_1^2 = u_1^2 + 2gh \;\Rightarrow\; 3^2 = 0 + 2gh \;\Rightarrow\; 2gh = 9`}</Formula>
+          </li>
+          <li>
+            From case 2: <Formula>{String.raw`v_2^2 = u_2^2 + 2gh = 4^2 + 9 = 16 + 9 = 25`}</Formula>
+            <FormulaBlock latex={String.raw`v_2 = \sqrt{25} = 5\ \text{m/s}`} important />
+          </li>
+        </ol>
+        <p>
+          <strong>Correct option:</strong> d) 5 m/s.
+        </p>
+
+        <p>
+          <strong>Problem 7 — height of the tower.</strong> A ball is thrown vertically downward with a
+          velocity of 20 m/s from the top of a tower. It hits the ground after some time with a velocity
+          of 80 m/s. The height of the tower is (g = 10 m/s²):
+        </p>
+        <ul>
+          <li>a) 340 m</li>
+          <li>b) 320 m</li>
+          <li>c) 300 m</li>
+          <li>d) 360 m</li>
+        </ul>
+        <p>
+          <strong>Given data:</strong> initial velocity u = 20 m/s; final velocity v = 80 m/s; g = 10 m/s².
+        </p>
+        <p><strong>Solution:</strong></p>
+        <FormulaBlock latex={String.raw`v^2 = u^2 + 2gh`} />
+        <FormulaBlock latex={String.raw`80^2 = 20^2 + 2(10)h \;\Rightarrow\; 6400 = 400 + 20h`} />
+        <FormulaBlock latex={String.raw`6000 = 20h \;\Rightarrow\; h = \frac{6000}{20} = 300\ \text{m}`} important />
+        <p>
+          <strong>Correct option:</strong> c) 300 m.
+        </p>
+
+        <p>
+          <strong>Problem 8 — height of the bridge.</strong> A horizontal bridge is built across a river. A
+          student standing on the bridge throws a small ball vertically upwards with a velocity of 4 m/s.
+          The ball strikes the water surface after 4 s. The height of the bridge above the water surface is
+          (g = 10 m/s²):
+        </p>
+        <ul>
+          <li>a) 60 m</li>
+          <li>b) 64 m</li>
+          <li>c) 68 m</li>
+          <li>d) 56 m</li>
+        </ul>
+        <p>
+          <strong>Given data:</strong> initial velocity u = +4 m/s (upwards); time t = 4 s; acceleration a
+          = −g = −10 m/s²; displacement S = −h (downward from bridge to water).
+        </p>
+        <p><strong>Solution:</strong></p>
+        <FormulaBlock latex={String.raw`S = ut + \tfrac{1}{2}at^2`} />
+        <FormulaBlock latex={String.raw`-h = (4 \times 4) + \tfrac{1}{2}(-10)(4)^2`} />
+        <FormulaBlock latex={String.raw`-h = 16 - 5(16) = 16 - 80 = -64\ \text{m}`} />
+        <FormulaBlock latex={String.raw`h = 64\ \text{m}`} important />
+        <p>
+          <strong>Correct option:</strong> b) 64 m.
+        </p>
+      </Expandable>
 
       <h2 id="h-exercises">Exercises 2.1 – 2.18</h2>
       <Expandable title="Exercises 2.1 – 2.18" variant="exercise">
