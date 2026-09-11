@@ -6,8 +6,9 @@ import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
-import { MetricCard } from "@/components/content/study/MetricCard";
 import { TableCard } from "@/components/content/data/TableCard";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { SolvedProblem } from "@/components/content/SolvedProblem";
 import { KinematicsGraphs } from "@/components/content/physics/KinematicsGraphs";
 
 export default function MotionInAStraightLineChapter() {
@@ -343,45 +344,44 @@ export default function MotionInAStraightLineChapter() {
       />
 
       <Expandable title="Solved problems — graphs in kinematics (2)" variant="exercise">
-        <p>
-          <strong>Problem 1 — ratio of velocities from graph angles.</strong> The displacement–time graphs
-          of two moving particles make angles of 30° and 45° with the X-axis as shown in the figure. The
-          ratio of their respective velocities is:
-        </p>
-        <ul>
-          <li>a) 1 : 1</li>
-          <li>b) 1 : 2</li>
-          <li>c) 1 : √3</li>
-          <li>d) √3 : 1</li>
-        </ul>
-        <p><strong>Solution.</strong> Velocity = slope = tan θ:</p>
-        <FormulaBlock latex={String.raw`v_{30} = \tan 30^\circ = \frac{1}{\sqrt{3}}`} />
-        <FormulaBlock latex={String.raw`v_{45} = \tan 45^\circ = 1`} />
-        <p><strong>Ratio:</strong></p>
-        <FormulaBlock latex={String.raw`\frac{v_{30}}{v_{45}} = \frac{\tan 30^\circ}{\tan 45^\circ} = \frac{\frac{1}{\sqrt{3}}}{1} = \frac{1}{\sqrt{3}}`} important />
-        <p>
-          <strong>Correct option:</strong> c) 1 : √3.
-        </p>
-
-        <p>
-          <strong>Problem 2 — maximum instantaneous velocity.</strong> A particle shows a distance–time
-          curve as given in the figure. The maximum instantaneous velocity of the particle is around the
-          point:
-        </p>
-        <ul>
-          <li>a) A</li>
-          <li>b) B</li>
-          <li>c) C</li>
-          <li>d) D</li>
-        </ul>
-        <p>
-          <strong>Solution.</strong> Instantaneous velocity is equal to the slope of the distance–time
-          graph at that point (v = ds/dt = slope). Looking at the curve, the steepness (slope) of the
-          graph is maximum around point <strong>C</strong>.
-        </p>
-        <p>
-          <strong>Correct option:</strong> c) C.
-        </p>
+        <div className="space-y-4">
+          <SolvedProblem
+            number={1}
+            title="Ratio of velocities from graph angles"
+            question={<>The displacement–time graphs of two moving particles make angles of 30° and 45° with the X-axis as shown in the figure. The ratio of their respective velocities is:</>}
+            options={[
+              { label: "a", text: "1 : 1" },
+              { label: "b", text: "1 : 2" },
+              { label: "c", text: "1 : √3" },
+              { label: "d", text: "√3 : 1" },
+            ]}
+            solution={
+              <>
+                <p>Velocity = slope = tan θ:</p>
+                <FormulaBlock latex={String.raw`v_{30} = \tan 30^\circ = \frac{1}{\sqrt{3}}`} />
+                <FormulaBlock latex={String.raw`v_{45} = \tan 45^\circ = 1`} />
+                <p><strong>Ratio:</strong></p>
+                <FormulaBlock latex={String.raw`\frac{v_{30}}{v_{45}} = \frac{\tan 30^\circ}{\tan 45^\circ} = \frac{\frac{1}{\sqrt{3}}}{1} = \frac{1}{\sqrt{3}}`} important />
+              </>
+            }
+            answer="c) 1 : √3"
+          />
+          <SolvedProblem
+            number={2}
+            title="Maximum instantaneous velocity"
+            question={<>A particle shows a distance–time curve as given in the figure. The maximum instantaneous velocity of the particle is around the point:</>}
+            options={[
+              { label: "a", text: "A" },
+              { label: "b", text: "B" },
+              { label: "c", text: "C" },
+              { label: "d", text: "D" },
+            ]}
+            solution={
+              <p>Instantaneous velocity is equal to the slope of the distance–time graph at that point (v = ds/dt = slope). Looking at the curve, the steepness (slope) of the graph is maximum around point <strong>C</strong>.</p>
+            }
+            answer="c) C"
+          />
+        </div>
       </Expandable>
 
       <h2 id="h-2-4">2.4 Kinematic Equations for Uniformly Accelerated Motion</h2>
@@ -435,253 +435,96 @@ export default function MotionInAStraightLineChapter() {
           <li><Formula>{String.raw`v^2 = u^2 + 2ax`}</Formula> (from x = ½(u + v)t with t = (v − u)/a)</li>
         </ul>
       </FormulaCard>
-      <p>There is also the compact average-velocity form</p>
-      <FormulaBlock latex={String.raw`x = \bar{v}\,t, \qquad \bar{v} = \frac{u + v}{2}\quad (\text{constant acceleration only})`} />
-      <p><strong>General forms (position x₀ at t = 0):</strong></p>
-      <FormulaCard>
-        <ul>
-          <li><Formula>{String.raw`v = u + at`}</Formula></li>
-          <li><Formula>{String.raw`x = x_0 + u t + \tfrac{1}{2}at^2`}</Formula></li>
-          <li><Formula>{String.raw`v^2 = u^2 + 2a(x - x_0)`}</Formula></li>
-        </ul>
-      </FormulaCard>
 
       <Expandable title="Supplementary solved problems — kinematic equations (3)" variant="exercise">
-        <p>
-          <strong>Problem 1 — distance travelled by the train.</strong> The velocity of a train increases
-          uniformly from 20 km/h to 60 km/h in 4 h. The distance travelled by the train during this period
-          is:
-        </p>
-        <ul>
-          <li>a) 160 km</li>
-          <li>b) 180 km</li>
-          <li>c) 100 km</li>
-          <li>d) 120 km</li>
-        </ul>
-        <p>
-          <strong>Given data:</strong> u = 20 km/h, v = 60 km/h, t = 4 h.
-        </p>
-        <p><strong>Solution.</strong></p>
-        <ol>
-          <li>
-            <strong>Acceleration (a):</strong>
-            <FormulaBlock latex={String.raw`a = \frac{v - u}{t} = \frac{60 - 20}{4} = \frac{40}{4} = 10\ \text{km/h}^2`} />
-          </li>
-          <li>
-            <strong>Distance (S):</strong>
-            <FormulaBlock latex={String.raw`S = ut + \tfrac{1}{2}at^2`} />
-            <FormulaBlock latex={String.raw`S = (20 \times 4) + \tfrac{1}{2}(10)(4)^2 = 80 + \tfrac{1}{2}(10)(16) = 80 + 80 = 160\ \text{km}`} />
-            <p>
-              <em>Alternatively, using v² = u² + 2aS:</em>
-            </p>
-            <FormulaBlock latex={String.raw`60^2 = 20^2 + 2(10)S \;\Rightarrow\; 3600 = 400 + 20S \;\Rightarrow\; 3200 = 20S \;\Rightarrow\; S = 160\ \text{km}`} />
-          </li>
-        </ol>
-        <p>
-          <strong>Correct option:</strong> a) 160 km.
-        </p>
-
-        <p>
-          <strong>Problem 2 — time taken to change velocity.</strong> A particle moves in a straight line
-          with a constant acceleration. It changes its velocity from 10 m/s to 20 m/s while passing through
-          a distance of 135 m in t seconds. The value of t is:
-        </p>
-        <ul>
-          <li>a) 10 s</li>
-          <li>b) 1.8 s</li>
-          <li>c) 12 s</li>
-          <li>d) 9 s</li>
-        </ul>
-        <p>
-          <strong>Given data:</strong> u = 10 m/s, v = 20 m/s, S = 135 m.
-        </p>
-        <p><strong>Solution.</strong></p>
-        <ol>
-          <li>
-            <strong>Find acceleration (a):</strong>
-            <FormulaBlock latex={String.raw`v^2 = u^2 + 2aS`} />
-            <FormulaBlock latex={String.raw`20^2 = 10^2 + 2a(135) \;\Rightarrow\; 400 = 100 + 270a \;\Rightarrow\; a = \frac{300}{270} = \frac{10}{9}\ \text{m/s}^2`} />
-          </li>
-          <li>
-            <strong>Find time (t):</strong>
-            <FormulaBlock latex={String.raw`v = u + at`} />
-            <FormulaBlock latex={String.raw`20 = 10 + \left(\frac{10}{9}\right)t \;\Rightarrow\; 10 = \frac{10}{9}t \;\Rightarrow\; t = 9\ \text{s}`} />
-          </li>
-        </ol>
-        <p>
-          <strong>Correct option:</strong> d) 9 s.
-        </p>
-
-        <p>
-          <strong>Problem 3 — distance covered by the car.</strong> If a car at rest accelerates uniformly
-          to a speed of 144 km/h in 20 s, it covers a distance of:
-        </p>
-        <ul>
-          <li>a) 2880 m</li>
-          <li>b) 1440 m</li>
-          <li>c) 400 m</li>
-          <li>d) 20 m</li>
-        </ul>
-        <p>
-          <strong>Given data:</strong> initial velocity u = 0 m/s (at rest); final velocity v = 144 km/h =
-          40 m/s; time t = 20 s.
-        </p>
-        <p><strong>Solution.</strong></p>
-        <ol>
-          <li>
-            <strong>Acceleration (a):</strong>
-            <FormulaBlock latex={String.raw`a = \frac{v - u}{t} = \frac{40 - 0}{20} = 2\ \text{m/s}^2`} />
-          </li>
-          <li>
-            <strong>Distance (S):</strong>
-            <FormulaBlock latex={String.raw`S = ut + \tfrac{1}{2}at^2 = 0 + \tfrac{1}{2}(2)(20)^2 = 400\ \text{m}`} />
-            <p>
-              <em>Alternatively, using v² = u² + 2aS:</em>
-            </p>
-            <FormulaBlock latex={String.raw`40^2 = 0 + 2(2)S \;\Rightarrow\; 1600 = 4S \;\Rightarrow\; S = 400\ \text{m}`} />
-          </li>
-        </ol>
-        <p>
-          <strong>Correct option:</strong> c) 400 m.
-        </p>
-      </Expandable>
-
-      <Expandable title="Example 2.2 — Equations of motion by the method of calculus" variant="example">
-        <ProblemSolution.Problem>
-          <p>Obtain equations of motion for constant acceleration using the method of calculus.</p>
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>By definition a = dv/dt, so</p>
-          <FormulaBlock latex={String.raw`\mathrm{d}v = a\,\mathrm{d}t`} />
-          <p>Integrating both sides (a is constant):</p>
-          <FormulaBlock latex={String.raw`\int_{u}^{v}\mathrm{d}v = \int_0^t a\,\mathrm{d}t \;\;\Rightarrow\;\; v - u = at\;\;\Rightarrow\;\; v = u + at`} />
-          <p>Further, v = dx/dt so dx = v dt. Integrating:</p>
-          <FormulaBlock latex={String.raw`\int_{x_0}^{x}\mathrm{d}x = \int_0^t (u + at)\,\mathrm{d}t \;\;\Rightarrow\;\; x = x_0 + u t + \tfrac{1}{2}at^2`} />
-          <p>Also, using the chain rule:</p>
-          <FormulaBlock latex={String.raw`a = \frac{\mathrm{d}v}{\mathrm{d}t} = \frac{\mathrm{d}v}{\mathrm{d}x}\frac{\mathrm{d}x}{\mathrm{d}t} = v\frac{\mathrm{d}v}{\mathrm{d}x}\;\;\Rightarrow\;\; v\,\mathrm{d}v = a\,\mathrm{d}x`} />
-          <p>Integrating:</p>
-          <FormulaBlock latex={String.raw`\int_{u}^{v} v\,\mathrm{d}v = a\int_{x_0}^{x}\mathrm{d}x\;\;\Rightarrow\;\; \frac{v^2 - u^2}{2} = a(x - x_0)\;\;\Rightarrow\;\; v^2 = u^2 + 2a(x - x_0)`} important />
-          <p>
-            The advantage of this method is that it can <strong>also be used for motion with
-            non-uniform acceleration</strong>.
-          </p>
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <Expandable title="Example 2.3 — A ball thrown up from a building (two methods)" variant="example">
-        <ProblemSolution.Problem>
-          <p>
-            A ball is thrown vertically upwards with a velocity of 20 m s⁻¹ from the top of a multistorey
-            building. The height of the point from where the ball is thrown is 25.0 m from the ground.
-            (a) How high will the ball rise? and (b) how long will it be before the ball hits the ground?
-            Take g = 10 m s⁻².
-          </p>
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>
-            Take the y-axis in the vertically upward direction with zero at the ground. Then u = +20 m s⁻¹,
-            a = −g = −10 m s⁻², v = 0 m s⁻¹ at the top.
-          </p>
-          <p><strong>(a) Maximum height.</strong> Using v² = u² + 2a(y − y₀):</p>
-          <FormulaBlock latex={String.raw`0 = (20)^2 + 2(-10)(y - y_0)\;\;\Rightarrow\;\; y - y_0 = 20\ \text{m}`} important />
-          <p><strong>(b) Time to hit the ground — two methods, note them carefully.</strong></p>
-          <p><em>First method (split the path).</em> Upward A→B: v = u + at gives 0 = 20 − 10t₁ → t₁ = 2 s. From B the ball falls freely with u = 0 from y₀ = 45 m:</p>
-          <FormulaBlock latex={String.raw`0 = 45 + \frac{1}{2}(-10)t_2^2\;\;\Rightarrow\;\; t_2 = 3\ \text{s}`} />
-          <p>Total time = t₁ + t₂ = 2 s + 3 s = <strong>5 s</strong>.</p>
-          <p><em>Second method (single equation).</em> Using y = y₀ + ut + ½at² with y₀ = 25 m, y = 0, u = 20 m s⁻¹, a = −10 m s⁻²:</p>
-          <FormulaBlock latex={String.raw`0 = 25 + 20t + \frac{1}{2}(-10)t^2 \;\;\Rightarrow\;\; 5t^2 - 20t - 25 = 0`} />
-          <p>Solving the quadratic for t gives <strong>t = 5 s</strong>.</p>
-          <Callout type="note" title="Why the second method is better">
-            Under constant acceleration you need not worry about the path of the motion — a single
-            correctly-signed equation handles the whole motion.
-          </Callout>
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <Expandable title="Example 2.4 — Free fall" variant="example">
-        <ProblemSolution.Problem>
-          <p>Discuss the motion of an object under free fall. Neglect air resistance.</p>
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>
-            An object released near the surface of the Earth is accelerated downward with magnitude g. With
-            air resistance neglected it is in <strong>free fall</strong>; if the height of fall is small
-            compared with the Earth&rsquo;s radius, g ≈ 9.8 m s⁻² constant — so free fall is uniform
-            acceleration.
-          </p>
-          <p>
-            Choose upward as positive (motion is then in the −y direction, a = −g = −9.8 m s⁻²). Released
-            from rest at y = 0 (u = 0):
-          </p>
-          <FormulaBlock latex={String.raw`v = -9.8\,t\ \text{m s}^{-1}`} />
-          <FormulaBlock latex={String.raw`y = -\tfrac{1}{2}gt^2 = -4.9\,t^2\ \text{m}`} />
-          <FormulaBlock latex={String.raw`v^2 = -2gy = -19.6\,y\ \ \text{m}^2\text{s}^{-2}`} important />
-          <ul>
-            <li>a–t graph: horizontal line at −9.8 (constant).</li>
-            <li>v–t graph: straight line of slope −9.8 passing through origin.</li>
-            <li>y–t graph: downward-opening parabola.</li>
-          </ul>
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <Expandable title="Example 2.5 — Galileo's law of odd numbers" variant="example">
-        <ProblemSolution.Problem>
-          <p>
-            &ldquo;The distances traversed, during equal intervals of time, by a body falling from rest,
-            stand to one another in the same ratio as the odd numbers beginning with unity (1 : 3 : 5 : 7…
-            ).&rdquo; Prove it.
-          </p>
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>
-            For free fall from rest, <Formula>{String.raw`y = -\tfrac{1}{2}gt^2`}</Formula>. Divide the time
-            into equal intervals τ and compare positions at 0, τ, 2τ, 3τ, …, which grow as 0, 1, 4, 9, 16, 25, 36, …
-          </p>
-          <TableCard
-            caption="Distances traversed in successive intervals τ (in units of y₀ = ½gτ²)."
-            headers={["Interval", "Position (units of y₀)", "Distance in the τ", "Ratio"]}
-            rows={[
-              { cells: ["0–τ", "1", "1", "1"] },
-              { cells: ["τ–2τ", "4", "3", "3"] },
-              { cells: ["2τ–3τ", "9", "5", "5"] },
-              { cells: ["3τ–4τ", "16", "7", "7"] },
-              { cells: ["4τ–5τ", "25", "9", "9"] },
-              { cells: ["5τ–6τ", "36", "11", "11"] },
+        <div className="space-y-4">
+          <SolvedProblem
+            number={1}
+            title="Distance travelled by the train"
+            question={<>The velocity of a train increases uniformly from 20 km/h to 60 km/h in 4 h. The distance travelled by the train during this period is:</>}
+            options={[
+              { label: "a", text: "160 km" },
+              { label: "b", text: "180 km" },
+              { label: "c", text: "100 km" },
+              { label: "d", text: "120 km" },
             ]}
+            given={<>u = 20 km/h, v = 60 km/h, t = 4 h.</>}
+            solution={
+              <ol>
+                <li>
+                  <strong>Acceleration (a):</strong>
+                  <FormulaBlock latex={String.raw`a = \frac{v - u}{t} = \frac{60 - 20}{4} = \frac{40}{4} = 10\ \text{km/h}^2`} />
+                </li>
+                <li>
+                  <strong>Distance (S):</strong>
+                  <FormulaBlock latex={String.raw`S = ut + \tfrac{1}{2}at^2`} />
+                  <FormulaBlock latex={String.raw`S = (20 \times 4) + \tfrac{1}{2}(10)(4)^2 = 80 + \tfrac{1}{2}(10)(16) = 80 + 80 = 160\ \text{km}`} />
+                  <p>
+                    <em>Alternatively, using v² = u² + 2aS:</em>
+                  </p>
+                  <FormulaBlock latex={String.raw`60^2 = 20^2 + 2(10)S \;\Rightarrow\; 3600 = 400 + 20S \;\Rightarrow\; 3200 = 20S \;\Rightarrow\; S = 160\ \text{km}`} />
+                </li>
+              </ol>
+            }
+            answer="a) 160 km"
           />
-          <p>Distances in successive equal intervals stand in the ratio <strong>1 : 3 : 5 : 7 : 9 : 11…</strong>.</p>
-          <Callout type="didyouknow" title="Galileo Galilei (1564–1642)">
-            The first to make quantitative studies of free fall, establishing this law empirically.
-          </Callout>
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <Expandable title="Example 2.6 — Stopping distance of vehicles" variant="example">
-        <ProblemSolution.Problem>
-          <p>
-            When brakes are applied to a moving vehicle, the distance it travels before stopping is the
-            stopping distance. It depends on the initial velocity u and the braking capacity (deceleration
-            of magnitude a). Derive an expression for the stopping distance in terms of u and a.
-          </p>
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>
-            With v² = u² + 2ax and v = 0 at the stop (x = d_s), and taking a as the magnitude of the
-            deceleration:
-          </p>
-          <FormulaBlock latex={String.raw`0 = u^2 - 2a\,d_s\;\;\Rightarrow\;\; d_s = \frac{u^2}{2a}`} important />
-          <MetricCard
-            label="Stopping distance ∝ u²"
-            value="×4"
-            unit="when speed doubles"
-            trend="up"
-            description="Doubling the initial velocity quadruples the stopping distance for the same deceleration. Observed braking distances 10, 20, 34, 50 m at 11, 15, 20, 25 m s⁻¹ are consistent with the formula."
+          <SolvedProblem
+            number={2}
+            title="Time taken to change velocity"
+            question={<>A particle moves in a straight line with a constant acceleration. It changes its velocity from 10 m/s to 20 m/s while passing through a distance of 135 m in t seconds. The value of t is:</>}
+            options={[
+              { label: "a", text: "10 s" },
+              { label: "b", text: "1.8 s" },
+              { label: "c", text: "12 s" },
+              { label: "d", text: "9 s" },
+            ]}
+            given={<>u = 10 m/s, v = 20 m/s, S = 135 m.</>}
+            solution={
+              <ol>
+                <li>
+                  <strong>Find acceleration (a):</strong>
+                  <FormulaBlock latex={String.raw`v^2 = u^2 + 2aS`} />
+                  <FormulaBlock latex={String.raw`20^2 = 10^2 + 2a(135) \;\Rightarrow\; 400 = 100 + 270a \;\Rightarrow\; a = \frac{300}{270} = \frac{10}{9}\ \text{m/s}^2`} />
+                </li>
+                <li>
+                  <strong>Find time (t):</strong>
+                  <FormulaBlock latex={String.raw`v = u + at`} />
+                  <FormulaBlock latex={String.raw`20 = 10 + \left(\frac{10}{9}\right)t \;\Rightarrow\; 10 = \frac{10}{9}t \;\Rightarrow\; t = 9\ \text{s}`} />
+                </li>
+              </ol>
+            }
+            answer="d) 9 s"
           />
-          <p>
-            Stopping distance is an important factor in setting speed limits, for example, in{" "}
-            <strong>school zones</strong>.
-          </p>
-        </ProblemSolution.Solution>
+          <SolvedProblem
+            number={3}
+            title="Distance covered by the car"
+            question={<>If a car at rest accelerates uniformly to a speed of 144 km/h in 20 s, it covers a distance of:</>}
+            options={[
+              { label: "a", text: "2880 m" },
+              { label: "b", text: "1440 m" },
+              { label: "c", text: "400 m" },
+              { label: "d", text: "20 m" },
+            ]}
+            given={<>initial velocity u = 0 m/s (at rest); final velocity v = 144 km/h = 40 m/s; time t = 20 s.</>}
+            solution={
+              <ol>
+                <li>
+                  <strong>Acceleration (a):</strong>
+                  <FormulaBlock latex={String.raw`a = \frac{v - u}{t} = \frac{40 - 0}{20} = 2\ \text{m/s}^2`} />
+                </li>
+                <li>
+                  <strong>Distance (S):</strong>
+                  <FormulaBlock latex={String.raw`S = ut + \tfrac{1}{2}at^2 = 0 + \tfrac{1}{2}(2)(20)^2 = 400\ \text{m}`} />
+                  <p>
+                    <em>Alternatively, using v² = u² + 2aS:</em>
+                  </p>
+                  <FormulaBlock latex={String.raw`40^2 = 0 + 2(2)S \;\Rightarrow\; 1600 = 4S \;\Rightarrow\; S = 400\ \text{m}`} />
+                </li>
+              </ol>
+            }
+            answer="c) 400 m"
+          />
+        </div>
       </Expandable>
 
       <h3 id="h-stopping-distance">Stopping distance and stopping time</h3>
@@ -703,63 +546,66 @@ export default function MotionInAStraightLineChapter() {
       <FormulaBlock latex={String.raw`at = u \;\Rightarrow\; t = \frac{u}{a}`} important />
 
       <Expandable title="Supplementary solved problems — stopping distance and stopping time (2)" variant="exercise">
-        <p>
-          <strong>Problem 1 — car stopping distance.</strong> A car moving with a speed of 40 km/h can be
-          stopped after 2 m by applying brakes. If the same car is moving with a speed of 80 km/h, what is
-          the minimum stopping distance?
-        </p>
-        <ul>
-          <li>a) 8 m</li>
-          <li>b) 2 m</li>
-          <li>c) 4 m</li>
-          <li>d) 6 m</li>
-        </ul>
-        <p>
-          <strong>Given data:</strong> u₁ = 40 km/h, s₁ = 2 m; u₂ = 80 km/h, s₂ = ?
-        </p>
-        <p><strong>Solution.</strong> Since s ∝ u²:</p>
-        <FormulaBlock latex={String.raw`\frac{s_1}{s_2} = \left(\frac{u_1}{u_2}\right)^2`} />
-        <FormulaBlock latex={String.raw`\frac{2}{s_2} = \left(\frac{40}{80}\right)^2 = \left(\frac{1}{2}\right)^2 = \frac{1}{4}`} />
-        <FormulaBlock latex={String.raw`s_2 = 2 \times 4 = 8\ \text{m}`} important />
-        <p>
-          <strong>Correct option:</strong> a) 8 m.
-        </p>
-
-        <p>
-          <strong>Problem 2 — bullet penetration into a wooden block.</strong> If a body loses half of its
-          velocity on penetrating 3 cm in a wooden block, then how much will it penetrate more before
-          coming to rest?
-        </p>
-        <p>
-          <strong>Shortcut formula.</strong> If a bullet loses <Formula>{String.raw`\tfrac{1}{n}`}</Formula>{" "}
-          of its velocity in penetrating a distance x, the further distance x&prime; it penetrates before
-          coming to rest is:
-        </p>
-        <FormulaBlock latex={String.raw`x' = \frac{x}{n^2 - 1}`} />
-        <p>
-          <strong>Method 1 (shortcut formula).</strong> Given x = 3 cm and the velocity becomes half (u/2),
-          so n = 2:
-        </p>
-        <FormulaBlock latex={String.raw`x' = \frac{3}{2^2 - 1} = \frac{3}{4 - 1} = \frac{3}{3} = 1\ \text{cm}`} important />
-        <p>
-          <strong>Method 2 (standard derivation).</strong>
-        </p>
-        <ol>
-          <li>
-            <strong>First phase (u → u/2 over distance x = 3 cm):</strong>
-            <FormulaBlock latex={String.raw`v^2 = u^2 + 2as`} />
-            <FormulaBlock latex={String.raw`\left(\frac{u}{2}\right)^2 = u^2 + 2(-a)(3) \;\Rightarrow\; \frac{u^2}{4} = u^2 - 6a`} />
-            <FormulaBlock latex={String.raw`6a = u^2 - \frac{u^2}{4} = \frac{3u^2}{4} \;\Rightarrow\; a = \frac{u^2}{8}`} />
-          </li>
-          <li>
-            <strong>Second phase (u/2 → 0 over distance x&prime;):</strong>
-            <FormulaBlock latex={String.raw`0^2 = \left(\frac{u}{2}\right)^2 + 2\left(-\frac{u^2}{8}\right)x' \;\Rightarrow\; 0 = \frac{u^2}{4} - \frac{u^2 x'}{4}`} />
-            <FormulaBlock latex={String.raw`\frac{u^2 x'}{4} = \frac{u^2}{4} \;\Rightarrow\; x' = 1\ \text{cm}`} important />
-          </li>
-        </ol>
-        <p>
-          <strong>Answer:</strong> 1 cm.
-        </p>
+        <div className="space-y-4">
+          <SolvedProblem
+            number={1}
+            title="Car stopping distance"
+            question={<>A car moving with a speed of 40 km/h can be stopped after 2 m by applying brakes. If the same car is moving with a speed of 80 km/h, what is the minimum stopping distance?</>}
+            options={[
+              { label: "a", text: "8 m" },
+              { label: "b", text: "2 m" },
+              { label: "c", text: "4 m" },
+              { label: "d", text: "6 m" },
+            ]}
+            given={<>u₁ = 40 km/h, s₁ = 2 m; u₂ = 80 km/h, s₂ = ?</>}
+            solution={
+              <>
+                <p>Since s ∝ u²:</p>
+                <FormulaBlock latex={String.raw`\frac{s_1}{s_2} = \left(\frac{u_1}{u_2}\right)^2`} />
+                <FormulaBlock latex={String.raw`\frac{2}{s_2} = \left(\frac{40}{80}\right)^2 = \left(\frac{1}{2}\right)^2 = \frac{1}{4}`} />
+                <FormulaBlock latex={String.raw`s_2 = 2 \times 4 = 8\ \text{m}`} important />
+              </>
+            }
+            answer="a) 8 m"
+          />
+          <SolvedProblem
+            number={2}
+            title="Bullet penetration into a wooden block"
+            question={<>If a body loses half of its velocity on penetrating 3 cm in a wooden block, then how much will it penetrate more before coming to rest?</>}
+            solution={
+              <>
+                <p>
+                  <strong>Shortcut formula.</strong> If a bullet loses{" "}
+                  <Formula>{String.raw`\tfrac{1}{n}`}</Formula> of its velocity in penetrating a distance
+                  x, the further distance x&prime; it penetrates before coming to rest is:
+                </p>
+                <FormulaBlock latex={String.raw`x' = \frac{x}{n^2 - 1}`} />
+                <p>
+                  <strong>Method 1 (shortcut formula).</strong> Given x = 3 cm and the velocity becomes
+                  half (u/2), so n = 2:
+                </p>
+                <FormulaBlock latex={String.raw`x' = \frac{3}{2^2 - 1} = \frac{3}{4 - 1} = \frac{3}{3} = 1\ \text{cm}`} important />
+                <p>
+                  <strong>Method 2 (standard derivation).</strong>
+                </p>
+                <ol>
+                  <li>
+                    <strong>First phase (u → u/2 over distance x = 3 cm):</strong>
+                    <FormulaBlock latex={String.raw`v^2 = u^2 + 2as`} />
+                    <FormulaBlock latex={String.raw`\left(\frac{u}{2}\right)^2 = u^2 + 2(-a)(3) \;\Rightarrow\; \frac{u^2}{4} = u^2 - 6a`} />
+                    <FormulaBlock latex={String.raw`6a = u^2 - \frac{u^2}{4} = \frac{3u^2}{4} \;\Rightarrow\; a = \frac{u^2}{8}`} />
+                  </li>
+                  <li>
+                    <strong>Second phase (u/2 → 0 over distance x&prime;):</strong>
+                    <FormulaBlock latex={String.raw`0^2 = \left(\frac{u}{2}\right)^2 + 2\left(-\frac{u^2}{8}\right)x' \;\Rightarrow\; 0 = \frac{u^2}{4} - \frac{u^2 x'}{4}`} />
+                    <FormulaBlock latex={String.raw`\frac{u^2 x'}{4} = \frac{u^2}{4} \;\Rightarrow\; x' = 1\ \text{cm}`} important />
+                  </li>
+                </ol>
+              </>
+            }
+            answer="1 cm"
+          />
+        </div>
       </Expandable>
 
       <Expandable title="Example 2.7 — Reaction time" variant="example">
@@ -777,20 +623,6 @@ export default function MotionInAStraightLineChapter() {
           <FormulaBlock latex={String.raw`t_r = \sqrt{\frac{2 \times 0.21}{9.8}} \approx 0.207\ \text{s} \approx 0.2\ \text{s}`} />
         </ProblemSolution.Solution>
       </Expandable>
-
-      <Callout type="warning" title="Zero velocity ≠ zero acceleration">
-        A particle may be momentarily at rest and yet have non-zero acceleration — a ball thrown up has
-        <strong>zero velocity</strong> at its highest point but its acceleration there is still g. Also,
-        the sign of acceleration does not tell whether speed increases or decreases: falling under gravity
-        (with upward positive) the particle has negative a yet speeds up; the thrown-up particle has the
-        same negative a yet slows down.
-      </Callout>
-      <KeyPoint title="Correct-sign discipline">
-        Kinematic-equation quantities are <strong>algebraic</strong>. Choose the origin and positive
-        direction first, then substitute every quantity with its proper sign. If a particle is speeding
-        up, acceleration points along the velocity; if slowing down, it points opposite — independent of
-        the axis choice.
-      </KeyPoint>
 
       <h2 id="h-motion-under-gravity">Motion Under Gravity</h2>
       <p>
@@ -826,267 +658,302 @@ export default function MotionInAStraightLineChapter() {
       <p>
         Initial velocity <Formula>{String.raw`u = 0\ \text{m/s}`}</Formula>.
       </p>
-      <p><strong>Velocity with which the body strikes the ground:</strong></p>
-      <FormulaBlock latex={String.raw`v^2 = u^2 + 2gh \;\Rightarrow\; v^2 = 0 + 2gh \;\Rightarrow\; v = \sqrt{2gh}`} important />
-      <p><strong>Time taken to reach the ground:</strong></p>
-      <FormulaBlock latex={String.raw`h = ut + \tfrac{1}{2}gt^2 \;\Rightarrow\; h = 0 + \tfrac{1}{2}gt^2`} />
-      <FormulaBlock latex={String.raw`2h = gt^2 \;\Rightarrow\; t = \sqrt{\frac{2h}{g}}`} important />
+      <Comparison
+        columns={[
+          {
+            title: "Velocity with which it strikes the ground",
+            children: (
+              <>
+                <p>
+                  Using <Formula>{String.raw`v^2 = u^2 + 2gh`}</Formula> with u = 0:
+                </p>
+                <FormulaBlock
+                  latex={String.raw`v^2 = 0 + 2gh \;\Rightarrow\; v = \sqrt{2gh}`}
+                  important
+                />
+              </>
+            ),
+          },
+          {
+            title: "Time taken to reach the ground",
+            children: (
+              <>
+                <p>
+                  Using <Formula>{String.raw`h = ut + \tfrac{1}{2}gt^2`}</Formula> with u = 0:
+                </p>
+                <FormulaBlock latex={String.raw`h = \tfrac{1}{2}gt^2`} />
+                <FormulaBlock
+                  latex={String.raw`t = \sqrt{\frac{2h}{g}}`}
+                  important
+                />
+              </>
+            ),
+          },
+        ]}
+      />
 
       <h3 id="h-thrown-upward">2. An object thrown upward with a velocity u</h3>
-      <p>
-        <strong>Time of ascent (t_A) and time of descent (t_D).</strong> At maximum height, the final
-        velocity v = 0:
-      </p>
-      <FormulaBlock latex={String.raw`v = u - gt_A \;\Rightarrow\; 0 = u - gt_A \;\Rightarrow\; gt_A = u`} />
-      <FormulaBlock latex={String.raw`t_A = \frac{u}{g}`} important />
-      <KeyPoint title="Symmetry — t_A = t_D">
-        Time of ascent = time of descent = <Formula>{String.raw`\frac{u}{g}`}</Formula>. Example (u = 20
-        m/s, g = 10 m/s²): t_A = 20/10 = 2 s and t_D = 20/10 = 2 s.
-      </KeyPoint>
-      <p>
-        <strong>Maximum height reached (h<sub>max</sub>).</strong> At maximum height, v = 0:
-      </p>
-      <FormulaBlock latex={String.raw`v^2 = u^2 - 2gh \;\Rightarrow\; 0 = u^2 - 2gh`} />
-      <FormulaBlock latex={String.raw`2gh = u^2 \;\Rightarrow\; h = \frac{u^2}{2g}`} important />
+      <Comparison
+        columns={[
+          {
+            title: "Maximum height reached (h_max)",
+            children: (
+              <>
+                <p>
+                  At the top, v = 0. Using{" "}
+                  <Formula>{String.raw`v^2 = u^2 - 2gh`}</Formula>:
+                </p>
+                <FormulaBlock
+                  latex={String.raw`0 = u^2 - 2gh \;\Rightarrow\; h = \frac{u^2}{2g}`}
+                  important
+                />
+              </>
+            ),
+          },
+          {
+            title: "Time of ascent (t_A) and time of descent (t_D)",
+            children: (
+              <>
+                <p>
+                  At the top, v = 0. Using{" "}
+                  <Formula>{String.raw`v = u - gt_A`}</Formula>:
+                </p>
+                <FormulaBlock
+                  latex={String.raw`0 = u - gt_A \;\Rightarrow\; t_A = \frac{u}{g}`}
+                  important
+                />
+                <p>
+                  <strong>Symmetry:</strong>{" "}
+                  <Formula>{String.raw`t_D = t_A = \frac{u}{g}`}</Formula>. Example
+                  (u = 20 m/s, g = 10 m/s²): t_A = t_D = 2 s.
+                </p>
+              </>
+            ),
+          },
+        ]}
+      />
 
       <Expandable title="Solved problems — motion under gravity (8)" variant="exercise">
-        <p>
-          <strong>Problem 1 — velocity of the stone hitting the ground.</strong> A boy standing at the top
-          of a tower of 20 m height drops a stone. Assuming g = 10 m/s², the velocity with which it hits
-          the ground is:
-        </p>
-        <ul>
-          <li>a) 20 m/s</li>
-          <li>b) 40 m/s</li>
-          <li>c) 5 m/s</li>
-          <li>d) 10 m/s</li>
-        </ul>
-        <p>
-          <strong>Given data:</strong> height h = 20 m; initial velocity u = 0 m/s (dropped); g = 10 m/s².
-        </p>
-        <p><strong>Solution:</strong></p>
-        <FormulaBlock latex={String.raw`v = \sqrt{2gh} = \sqrt{2 \times 10 \times 20} = \sqrt{400} = 20\ \text{m/s}`} important />
-        <p>
-          <strong>Correct option:</strong> a) 20 m/s.
-        </p>
-
-        <p>
-          <strong>Problem 2 — ratio of times for two falling bodies.</strong> Two bodies A (of mass 1 kg)
-          and B (of mass 3 kg) are dropped from heights of 16 m and 25 m, respectively. The ratio of the
-          time taken by them to reach the ground is:
-        </p>
-        <ul>
-          <li>a) 5/4</li>
-          <li>b) 12/5</li>
-          <li>c) 5/12</li>
-          <li>d) 4/5</li>
-        </ul>
-        <p>
-          <strong>Given data:</strong> h_A = 16 m, h_B = 25 m.
-        </p>
-        <p>
-          <strong>Solution.</strong> From <Formula>{String.raw`t = \sqrt{\frac{2h}{g}}`}</Formula>, time is
-          proportional to <Formula>{String.raw`\sqrt{h}`}</Formula>:
-        </p>
-        <FormulaBlock latex={String.raw`\frac{t_A}{t_B} = \sqrt{\frac{h_A}{h_B}} = \sqrt{\frac{16}{25}} = \frac{4}{5}`} important />
-        <p>
-          <strong>Correct option:</strong> d) 4/5.
-        </p>
-
-        <p>
-          <strong>Problem 3 — velocity of the ball after 2 s.</strong> If a ball is thrown vertically
-          upwards with a velocity of 40 m/s, then the velocity of the ball after 2 s will be (g = 10
-          m/s²):
-        </p>
-        <ul>
-          <li>a) 15 m/s</li>
-          <li>b) 20 m/s</li>
-          <li>c) 25 m/s</li>
-          <li>d) 28 m/s</li>
-        </ul>
-        <p>
-          <strong>Given data:</strong> initial velocity u = 40 m/s; time t = 2 s; g = 10 m/s².
-        </p>
-        <p><strong>Solution:</strong></p>
-        <FormulaBlock latex={String.raw`v = u - gt = 40 - (10 \times 2) = 40 - 20 = 20\ \text{m/s}`} important />
-        <p>
-          <strong>Correct option:</strong> b) 20 m/s.
-        </p>
-
-        <p>
-          <strong>Problem 4 — maximum height from the half-height speed.</strong> A stone is thrown
-          vertically upwards. When the stone is at a height half of its maximum height, its speed is 10
-          m/s. The maximum height attained by the stone is (g = 10 m/s²):
-        </p>
-        <ul>
-          <li>a) 8 m</li>
-          <li>b) 10 m</li>
-          <li>c) 15 m</li>
-          <li>d) 20 m</li>
-        </ul>
-        <p>
-          <strong>Given data:</strong> at s = H/2, speed v = 10 m/s; at s = H, speed v_H = 0 m/s.
-        </p>
-        <p><strong>Solution.</strong> Using <Formula>{String.raw`v^2 = u^2 - 2gs`}</Formula>:</p>
-        <ol>
-          <li>
-            For maximum height H (v = 0):{" "}
-            <Formula>{String.raw`0 = u^2 - 2gH \;\Rightarrow\; u^2 = 2gH`}</Formula>
-          </li>
-          <li>
-            At half maximum height (s = H/2):
-            <FormulaBlock latex={String.raw`10^2 = u^2 - 2g\left(\frac{H}{2}\right)`} />
-            <FormulaBlock latex={String.raw`100 = 2gH - gH = gH`} />
-            <FormulaBlock latex={String.raw`H = \frac{100}{g} = \frac{100}{10} = 10\ \text{m}`} important />
-          </li>
-        </ol>
-        <p>
-          <strong>Correct option:</strong> b) 10 m.
-        </p>
-
-        <p>
-          <strong>Problem 5 — descent time from maximum height.</strong> A body is thrown vertically
-          upwards from the ground. It reaches a maximum height of 20 m in 2 s. After what time will it
-          reach the ground from its maximum height position?
-        </p>
-        <ul>
-          <li>a) 2.5 s</li>
-          <li>b) 5 s</li>
-          <li>c) 10 s</li>
-          <li>d) 2 s</li>
-        </ul>
-        <p>
-          <strong>Solution.</strong> Time of ascent (t_A) = time of descent (t_D). Given t_A = 2 s, the
-          time taken to reach the ground from the maximum height position (t_D) is also{" "}
-          <strong>2 s</strong>.
-        </p>
-        <p>
-          <strong>Correct option:</strong> d) 2 s.
-        </p>
-
-        <p>
-          <strong>Problem 6 — final velocity with a non-zero initial velocity.</strong> A body dropped from
-          a height h with initial velocity zero strikes the ground with a velocity of 3 m/s. Another body
-          of the same mass dropped from the same height h with an initial velocity of 4 m/s. The final
-          velocity of the second body, with which it strikes the ground, is:
-        </p>
-        <ul>
-          <li>a) 4 m/s</li>
-          <li>b) 12 m/s</li>
-          <li>c) 3 m/s</li>
-          <li>d) 5 m/s</li>
-        </ul>
-        <p>
-          <strong>Given data:</strong> Case 1: u₁ = 0, v₁ = 3 m/s, distance = h. Case 2: u₂ = 4 m/s, v₂ =
-          ?, distance = h.
-        </p>
-        <p><strong>Solution:</strong></p>
-        <ol>
-          <li>
-            From case 1:{" "}
-            <Formula>{String.raw`v_1^2 = u_1^2 + 2gh \;\Rightarrow\; 3^2 = 0 + 2gh \;\Rightarrow\; 2gh = 9`}</Formula>
-          </li>
-          <li>
-            From case 2: <Formula>{String.raw`v_2^2 = u_2^2 + 2gh = 4^2 + 9 = 16 + 9 = 25`}</Formula>
-            <FormulaBlock latex={String.raw`v_2 = \sqrt{25} = 5\ \text{m/s}`} important />
-          </li>
-        </ol>
-        <p>
-          <strong>Correct option:</strong> d) 5 m/s.
-        </p>
-
-        <p>
-          <strong>Problem 7 — height of the tower.</strong> A ball is thrown vertically downward with a
-          velocity of 20 m/s from the top of a tower. It hits the ground after some time with a velocity
-          of 80 m/s. The height of the tower is (g = 10 m/s²):
-        </p>
-        <ul>
-          <li>a) 340 m</li>
-          <li>b) 320 m</li>
-          <li>c) 300 m</li>
-          <li>d) 360 m</li>
-        </ul>
-        <p>
-          <strong>Given data:</strong> initial velocity u = 20 m/s; final velocity v = 80 m/s; g = 10 m/s².
-        </p>
-        <p><strong>Solution:</strong></p>
-        <FormulaBlock latex={String.raw`v^2 = u^2 + 2gh`} />
-        <FormulaBlock latex={String.raw`80^2 = 20^2 + 2(10)h \;\Rightarrow\; 6400 = 400 + 20h`} />
-        <FormulaBlock latex={String.raw`6000 = 20h \;\Rightarrow\; h = \frac{6000}{20} = 300\ \text{m}`} important />
-        <p>
-          <strong>Correct option:</strong> c) 300 m.
-        </p>
-
-        <p>
-          <strong>Problem 8 — height of the bridge.</strong> A horizontal bridge is built across a river. A
-          student standing on the bridge throws a small ball vertically upwards with a velocity of 4 m/s.
-          The ball strikes the water surface after 4 s. The height of the bridge above the water surface is
-          (g = 10 m/s²):
-        </p>
-        <ul>
-          <li>a) 60 m</li>
-          <li>b) 64 m</li>
-          <li>c) 68 m</li>
-          <li>d) 56 m</li>
-        </ul>
-        <p>
-          <strong>Given data:</strong> initial velocity u = +4 m/s (upwards); time t = 4 s; acceleration a
-          = −g = −10 m/s²; displacement S = −h (downward from bridge to water).
-        </p>
-        <p><strong>Solution:</strong></p>
-        <FormulaBlock latex={String.raw`S = ut + \tfrac{1}{2}at^2`} />
-        <FormulaBlock latex={String.raw`-h = (4 \times 4) + \tfrac{1}{2}(-10)(4)^2`} />
-        <FormulaBlock latex={String.raw`-h = 16 - 5(16) = 16 - 80 = -64\ \text{m}`} />
-        <FormulaBlock latex={String.raw`h = 64\ \text{m}`} important />
-        <p>
-          <strong>Correct option:</strong> b) 64 m.
-        </p>
+        <div className="space-y-4">
+          <SolvedProblem
+            number={1}
+            title="Velocity of the stone hitting the ground"
+            question={<>A boy standing at the top of a tower of 20 m height drops a stone. Assuming g = 10 m/s², the velocity with which it hits the ground is:</>}
+            options={[
+              { label: "a", text: "20 m/s" },
+              { label: "b", text: "40 m/s" },
+              { label: "c", text: "5 m/s" },
+              { label: "d", text: "10 m/s" },
+            ]}
+            given={<>height h = 20 m; initial velocity u = 0 m/s (dropped); g = 10 m/s².</>}
+            solution={<FormulaBlock latex={String.raw`v = \sqrt{2gh} = \sqrt{2 \times 10 \times 20} = \sqrt{400} = 20\ \text{m/s}`} important />}
+            answer="a) 20 m/s"
+          />
+          <SolvedProblem
+            number={2}
+            title="Ratio of times for two falling bodies"
+            question={<>Two bodies A (of mass 1 kg) and B (of mass 3 kg) are dropped from heights of 16 m and 25 m, respectively. The ratio of the time taken by them to reach the ground is:</>}
+            options={[
+              { label: "a", text: "5/4" },
+              { label: "b", text: "12/5" },
+              { label: "c", text: "5/12" },
+              { label: "d", text: "4/5" },
+            ]}
+            given={<>h_A = 16 m, h_B = 25 m.</>}
+            solution={
+              <>
+                <p>
+                  From <Formula>{String.raw`t = \sqrt{\frac{2h}{g}}`}</Formula>, time is proportional to{" "}
+                  <Formula>{String.raw`\sqrt{h}`}</Formula>:
+                </p>
+                <FormulaBlock latex={String.raw`\frac{t_A}{t_B} = \sqrt{\frac{h_A}{h_B}} = \sqrt{\frac{16}{25}} = \frac{4}{5}`} important />
+              </>
+            }
+            answer="d) 4/5"
+          />
+          <SolvedProblem
+            number={3}
+            title="Velocity of the ball after 2 s"
+            question={<>If a ball is thrown vertically upwards with a velocity of 40 m/s, then the velocity of the ball after 2 s will be (g = 10 m/s²):</>}
+            options={[
+              { label: "a", text: "15 m/s" },
+              { label: "b", text: "20 m/s" },
+              { label: "c", text: "25 m/s" },
+              { label: "d", text: "28 m/s" },
+            ]}
+            given={<>initial velocity u = 40 m/s; time t = 2 s; g = 10 m/s².</>}
+            solution={<FormulaBlock latex={String.raw`v = u - gt = 40 - (10 \times 2) = 40 - 20 = 20\ \text{m/s}`} important />}
+            answer="b) 20 m/s"
+          />
+          <SolvedProblem
+            number={4}
+            title="Maximum height from the half-height speed"
+            question={<>A stone is thrown vertically upwards. When the stone is at a height half of its maximum height, its speed is 10 m/s. The maximum height attained by the stone is (g = 10 m/s²):</>}
+            options={[
+              { label: "a", text: "8 m" },
+              { label: "b", text: "10 m" },
+              { label: "c", text: "15 m" },
+              { label: "d", text: "20 m" },
+            ]}
+            given={<>at s = H/2, speed v = 10 m/s; at s = H, speed v_H = 0 m/s.</>}
+            solution={
+              <>
+                <p>
+                  Using <Formula>{String.raw`v^2 = u^2 - 2gs`}</Formula>:
+                </p>
+                <ol>
+                  <li>
+                    For maximum height H (v = 0):{" "}
+                    <Formula>{String.raw`0 = u^2 - 2gH \;\Rightarrow\; u^2 = 2gH`}</Formula>
+                  </li>
+                  <li>
+                    At half maximum height (s = H/2):
+                    <FormulaBlock latex={String.raw`10^2 = u^2 - 2g\left(\frac{H}{2}\right)`} />
+                    <FormulaBlock latex={String.raw`100 = 2gH - gH = gH`} />
+                    <FormulaBlock latex={String.raw`H = \frac{100}{g} = \frac{100}{10} = 10\ \text{m}`} important />
+                  </li>
+                </ol>
+              </>
+            }
+            answer="b) 10 m"
+          />
+          <SolvedProblem
+            number={5}
+            title="Descent time from maximum height"
+            question={<>A body is thrown vertically upwards from the ground. It reaches a maximum height of 20 m in 2 s. After what time will it reach the ground from its maximum height position?</>}
+            options={[
+              { label: "a", text: "2.5 s" },
+              { label: "b", text: "5 s" },
+              { label: "c", text: "10 s" },
+              { label: "d", text: "2 s" },
+            ]}
+            solution={
+              <>
+                <p>
+                  Time of ascent (t_A) = time of descent (t_D). Given t_A = 2 s, the time taken to reach
+                  the ground from the maximum height position (t_D) is also <strong>2 s</strong>.
+                </p>
+              </>
+            }
+            answer="d) 2 s"
+          />
+          <SolvedProblem
+            number={6}
+            title="Final velocity with a non-zero initial velocity"
+            question={<>A body dropped from a height h with initial velocity zero strikes the ground with a velocity of 3 m/s. Another body of the same mass dropped from the same height h with an initial velocity of 4 m/s. The final velocity of the second body, with which it strikes the ground, is:</>}
+            options={[
+              { label: "a", text: "4 m/s" },
+              { label: "b", text: "12 m/s" },
+              { label: "c", text: "3 m/s" },
+              { label: "d", text: "5 m/s" },
+            ]}
+            given={<>Case 1: u₁ = 0, v₁ = 3 m/s, distance = h. Case 2: u₂ = 4 m/s, v₂ = ?, distance = h.</>}
+            solution={
+              <>
+                <ol>
+                  <li>
+                    From case 1:{" "}
+                    <Formula>{String.raw`v_1^2 = u_1^2 + 2gh \;\Rightarrow\; 3^2 = 0 + 2gh \;\Rightarrow\; 2gh = 9`}</Formula>
+                  </li>
+                  <li>
+                    From case 2:{" "}
+                    <Formula>{String.raw`v_2^2 = u_2^2 + 2gh = 4^2 + 9 = 16 + 9 = 25`}</Formula>
+                    <FormulaBlock latex={String.raw`v_2 = \sqrt{25} = 5\ \text{m/s}`} important />
+                  </li>
+                </ol>
+              </>
+            }
+            answer="d) 5 m/s"
+          />
+          <SolvedProblem
+            number={7}
+            title="Height of the tower"
+            question={<>A ball is thrown vertically downward with a velocity of 20 m/s from the top of a tower. It hits the ground after some time with a velocity of 80 m/s. The height of the tower is (g = 10 m/s²):</>}
+            options={[
+              { label: "a", text: "340 m" },
+              { label: "b", text: "320 m" },
+              { label: "c", text: "300 m" },
+              { label: "d", text: "360 m" },
+            ]}
+            given={<>initial velocity u = 20 m/s; final velocity v = 80 m/s; g = 10 m/s².</>}
+            solution={
+              <>
+                <FormulaBlock latex={String.raw`v^2 = u^2 + 2gh`} />
+                <FormulaBlock latex={String.raw`80^2 = 20^2 + 2(10)h \;\Rightarrow\; 6400 = 400 + 20h`} />
+                <FormulaBlock latex={String.raw`6000 = 20h \;\Rightarrow\; h = \frac{6000}{20} = 300\ \text{m}`} important />
+              </>
+            }
+            answer="c) 300 m"
+          />
+          <SolvedProblem
+            number={8}
+            title="Height of the bridge"
+            question={<>A horizontal bridge is built across a river. A student standing on the bridge throws a small ball vertically upwards with a velocity of 4 m/s. The ball strikes the water surface after 4 s. The height of the bridge above the water surface is (g = 10 m/s²):</>}
+            options={[
+              { label: "a", text: "60 m" },
+              { label: "b", text: "64 m" },
+              { label: "c", text: "68 m" },
+              { label: "d", text: "56 m" },
+            ]}
+            given={<>initial velocity u = +4 m/s (upwards); time t = 4 s; acceleration a = −g = −10 m/s²; displacement S = −h (downward from bridge to water).</>}
+            solution={
+              <>
+                <FormulaBlock latex={String.raw`S = ut + \tfrac{1}{2}at^2`} />
+                <FormulaBlock latex={String.raw`-h = (4 \times 4) + \tfrac{1}{2}(-10)(4)^2`} />
+                <FormulaBlock latex={String.raw`-h = 16 - 5(16) = 16 - 80 = -64\ \text{m}`} />
+                <FormulaBlock latex={String.raw`h = 64\ \text{m}`} important />
+              </>
+            }
+            answer="b) 64 m"
+          />
+        </div>
       </Expandable>
 
       <h2 id="h-exercises">Exercises 2.1 – 2.18</h2>
       <Expandable title="Exercises 2.1 – 2.18" variant="exercise">
-        <ol>
-          <li>In which of the following examples of motion can the body be considered approximately a point object: (a) a railway carriage moving without jerks between two stations; (b) a monkey sitting on top of a man cycling smoothly on a circular track; (c) a spinning cricket ball that turns sharply on hitting the ground; (d) a tumbling beaker that has slipped off the edge of a table?</li>
-          <li>The position–time (x–t) graphs for two children A and B returning from their school O to their homes P and Q respectively are shown in Fig. 2.9. Choose the correct entries: (a) (A/B) lives closer to the school than (B/A); (b) (A/B) starts from the school earlier than (B/A); (c) (A/B) walks faster than (B/A); (d) A and B reach home at the (same/different) time; (e) (A/B) overtakes (B/A) on the road (once/twice).</li>
-          <li>A woman starts from her home at 9.00 am, walks with a speed of 5 km h⁻¹ on a straight road up to her office 2.5 km away, stays at the office up to 5.00 pm, and returns home by an auto with a speed of 25 km h⁻¹. Choose suitable scales and plot the x–t graph of her motion.</li>
-          <li>A drunkard walking in a narrow lane takes 5 steps forward and 3 steps backward, followed again by 5 steps forward and 3 steps backward, and so on. Each step is 1 m long and requires 1 s. Plot the x–t graph of his motion. Determine graphically and otherwise how long the drunkard takes to fall in a pit 13 m away from the start.</li>
-          <li>A car moving along a straight highway with speed of 126 km h⁻¹ is brought to a stop within a distance of 200 m. What is the retardation of the car (assumed uniform), and how long does it take for the car to stop?</li>
-          <li>A player throws a ball upwards with an initial speed of 29.4 m s⁻¹. (a) What is the direction of acceleration during the upward motion of the ball? (b) What are the velocity and acceleration of the ball at the highest point of its motion? (c) Choose x = 0 m and t = 0 s at the highest point with the vertically downward direction positive, and give the signs of position, velocity and acceleration of the ball during its upward and downward motion. (d) To what height does the ball rise and after how long does the ball return to the player&rsquo;s hands? (Take g = 9.8 m s⁻² and neglect air resistance.)</li>
-          <li>Read each statement below carefully and state with reasons and examples if it is true or false. A particle in one-dimensional motion (a) with zero speed at an instant may have non-zero acceleration at that instant; (b) with zero speed may have non-zero velocity; (c) with constant speed must have zero acceleration; (d) with positive value of acceleration must be speeding up.</li>
-          <li>A ball is dropped from a height of 90 m on a floor. At each collision with the floor, the ball loses one tenth of its speed. Plot the speed–time graph of its motion between t = 0 to 12 s.</li>
-          <li>Explain clearly, with examples, the distinction between: (a) magnitude of displacement over an interval of time and the total length of path covered by a particle over the same interval; (b) magnitude of average velocity over an interval and the average speed over the same interval (total path length / time). Show that in both (a) and (b) the second quantity is greater than or equal to the first. When does equality hold? [One-dimensional motion only.]</li>
-          <li>A man walks on a straight road from his home to a market 2.5 km away with a speed of 5 km h⁻¹. Finding the market closed, he instantly turns and walks back home with a speed of 7.5 km h⁻¹. What is the (a) magnitude of average velocity, and (b) average speed of the man over (i) 0 to 30 min, (ii) 0 to 50 min, (iii) 0 to 40 min? [Note: this is why average speed is defined as total path length / time, not as |average velocity| — you would not tell the tired man his average speed was zero!]</li>
-          <li>In Exercises 2.9 and 2.10 we carefully distinguished average speed from magnitude of average velocity. No such distinction is needed for instantaneous speed and magnitude of velocity. Instantaneous speed is always equal to the magnitude of instantaneous velocity. Why?</li>
-          <li>Look at the graphs (a) to (d) carefully and state, with reasons, which of these cannot possibly represent one-dimensional motion of a particle.</li>
-          <li>The figure shows the x–t plot of one-dimensional motion of a particle. Is it correct to say that the particle moves in a straight line for t &lt; 0 and on a parabolic path for t &gt; 0? If not, suggest a suitable physical context for this graph.</li>
-          <li>A police van moving on a highway with a speed of 30 km h⁻¹ fires a bullet at a thief&rsquo;s car speeding away in the same direction with a speed of 192 km h⁻¹. If the muzzle speed of the bullet is 150 m s⁻¹, with what speed does the bullet hit the thief&rsquo;s car? (Obtain the speed relevant for damaging the car.)</li>
-          <li>Suggest a suitable physical situation for each of the graphs shown.</li>
-          <li>The figure gives the x–t plot of a particle executing one-dimensional simple harmonic motion (Chapter 13). Give the signs of position, velocity and acceleration variables of the particle at t = 0.3 s, 1.2 s, −1.2 s.</li>
-          <li>The figure gives the x–t plot of a particle in one-dimensional motion. Three different equal intervals of time are shown. In which interval is the average speed greatest, and in which is it the least? Give the sign of average velocity for each interval.</li>
-          <li>The figure gives a speed–time graph of a particle in motion along a constant direction. Three equal intervals of time are shown. In which interval is the average acceleration greatest in magnitude? In which interval is the average speed greatest? Choosing the positive direction as the constant direction of motion, give the signs of v and a in the three intervals. What are the accelerations at the points A, B, C and D?</li>
-        </ol>
-        <Expandable title="Answer Key — Exercises 2.1 – 2.18">
-          <ol>
-            <li>(a) Yes — the carriage&apos;s size is negligible compared with the distance between stations. (b) Yes — the monkey-and-man system is small compared with the track radius, so its motion can be treated point-like. (c) No — the spinning/turning ball&apos;s size and rotation matter. (d) No — the tumbling motion of the whole beaker depends on its size.</li>
-            <li>(a) A; (b) A; (c) B; (d) same; (e) B overtakes A once. (A starts earlier and nearer; B walks faster with a steeper x–t slope and catches A on the way.)</li>
-            <li>Graph: rising line 0 → 0.5 h (2.5 km at 9:00–9:30), horizontal until 17:00, then a steep falling line back to x = 0 at 17:06 (2.5 km at 25 km h⁻¹ = 0.1 h).</li>
-            <li>Each 8 s cycle (5 forward, 3 backward) nets +2 m. After 4 cycles (32 s) the drunkard is at 8 m facing forward; the 5th step (at t = 37 s) takes him to 13 m — just reaching the pit. Total time ≈ 37 s.</li>
-            <li>126 km h⁻¹ = 35 m s⁻¹. v² = u² − 2ad → 0 = 35² − 2a(200) → a ≈ 3.06 m s⁻² (retardation). t = u/a = 35/3.06 ≈ 11.4 s.</li>
-            <li>(a) Downward (acceleration due to gravity) throughout the flight, including upward motion. (b) v = 0; a = 9.8 m s⁻² downward. (c) Upward motion: x positive, v negative, a positive (all along +x downward? No — with downward positive: during upward motion x &gt; 0 (above origin), v &lt; 0, a &gt; 0; during downward motion x &gt; 0, v &gt; 0, a &gt; 0.) (d) Height = (29.4)²/(2 × 9.8) = 44.1 m; total flight time = 2 × 29.4/9.8 = 6 s.</li>
-            <li>(a) True — the top of a vertical throw is a moment of zero speed with a = g. (b) False — speed is |v|; zero speed means v = 0. (c) False — uniform circular motion has constant speed but centripetal acceleration (though that is not one-dimensional); in 1-D, constant speed with straight-line motion does give a = 0, but the statement as given is false without that qualification. (d) False — a can be positive while the speed decreases (e.g. upward motion with upward-positive axis).</li>
-            <li>Fall from 90 m: v = √(2 × 9.8 × 90) ≈ 42 m s⁻¹, t = 4.29 s; after each bounce v loses 10%, so successive peak speeds are 42, 37.8, 34.0, … with constant slopes g between bounces — a sawtooth speed–time graph decaying until t ≈ 12 s.</li>
-            <li>(a) Magnitude of displacement ≤ total path length; equality when motion is along one straight line without turning back. (b) |average velocity| ≤ average speed; equality when the path length equals |displacement|, i.e. no reversal.</li>
-            <li>(i) 0–30 min: home→market 2.5 km done in 0.5 h: avg velocity = 5 km h⁻¹, avg speed = 5 km h⁻¹. (ii) 0–50 min: returns 2.5 km in 1/3 h (20 min); net displacement 0 → avg velocity 0; total path 5 km in 1 h? Wait — 30 min out + 20 min back = 50 min = 5/6 h → avg speed = 5/(5/6) = 6 km h⁻¹. (iii) 0–40 min: out for 30 min (2.5 km), back for 10 min at 7.5 → 1.25 km; net displacement 1.25 km, time 2/3 h → avg velocity 1.875 km h⁻¹; total path 3.75 km / (2/3) h = 5.625 km h⁻¹.</li>
-            <li>At any instant the particle has a single velocity v, and speed is just |v| — there is no path-length vs displacement distinction at a single instant to average over.</li>
-            <li>The graphs that imply two positions at one time, or a vertical (infinite-slope) x–t segment, or looping back in time cannot represent one-dimensional motion. (Answers: (a)–(d) per figure; those with multiple x for one t are impossible.)</li>
-            <li>No — being an x–t graph, the particle is always moving along the straight x-axis; the parabola merely means the acceleration (curvature) is present for t &gt; 0 and absent for t &lt; 0. Suitable context: an object at uniform motion that starts decelerating/accelerating at t = 0.</li>
-            <li>Relative approach speed = muzzle speed against the closing ambient: bullet at 150 m s⁻¹ relative to van; van at 30 km h⁻¹ = 8.33 m s⁻¹; thief car at 192 km h⁻¹ = 53.3 m s⁻¹. Ground speed of bullet = 150 + 8.33 ≈ 158.3 m s⁻¹; relative to thief car = 158.3 − 53.3 ≈ 105 m s⁻¹.</li>
-            <li>Suggestions: (1) horizontal line in v–t → constant velocity; falling x–t curve → acceleration; (2) the classic: a body thrown upward (v decreasing then negative); (3) a child on a swing / car braking.</li>
-            <li>At t = 0.3 s (recently past equilibrium, moving +x): x &gt; 0, v &gt; 0, a &lt; 0. At t = 1.2 s (past positive turning point): x &gt; 0, v &lt; 0, a &lt; 0. At t = −1.2 s (mirror of +1.2 s): x &lt; 0, v &gt; 0, a &gt; 0. [Signs read from the slope of the x–t sinusoid.]</li>
-            <li>Greatest average speed where the path length per time is largest (steepest-slope majority interval) — the interval with both the largest excursion; least where the curve is almost flat (small net change but large path). Sign of average velocity is the sign of (x₁ − x₂) over the interval.</li>
-            <li>Accelerations at A, B, C, D are 0 (slope of speed–time is zero at the flat extents); greatest |a| in the interval with the steepest slope; greatest average speed in the interval at the highest speeds; signs: with positive direction = direction of motion, v &gt; 0 throughout; a &lt; 0 where speed falls, a &gt; 0 where speed rises, a = 0 at A/B/C/D.</li>
-          </ol>
-        </Expandable>
+        <ExerciseQa
+          answersHeading="Answer key — Exercises 2.1 – 2.18"
+          questions={[
+            <p key={1}>In which of the following examples of motion can the body be considered approximately a point object: (a) a railway carriage moving without jerks between two stations; (b) a monkey sitting on top of a man cycling smoothly on a circular track; (c) a spinning cricket ball that turns sharply on hitting the ground; (d) a tumbling beaker that has slipped off the edge of a table?</p>,
+            <p key={2}>The position–time (x–t) graphs for two children A and B returning from their school O to their homes P and Q respectively are shown in Fig. 2.9. Choose the correct entries: (a) (A/B) lives closer to the school than (B/A); (b) (A/B) starts from the school earlier than (B/A); (c) (A/B) walks faster than (B/A); (d) A and B reach home at the (same/different) time; (e) (A/B) overtakes (B/A) on the road (once/twice).</p>,
+            <p key={3}>A woman starts from her home at 9.00 am, walks with a speed of 5 km h⁻¹ on a straight road up to her office 2.5 km away, stays at the office up to 5.00 pm, and returns home by an auto with a speed of 25 km h⁻¹. Choose suitable scales and plot the x–t graph of her motion.</p>,
+            <p key={4}>A drunkard walking in a narrow lane takes 5 steps forward and 3 steps backward, followed again by 5 steps forward and 3 steps backward, and so on. Each step is 1 m long and requires 1 s. Plot the x–t graph of his motion. Determine graphically and otherwise how long the drunkard takes to fall in a pit 13 m away from the start.</p>,
+            <p key={5}>A car moving along a straight highway with speed of 126 km h⁻¹ is brought to a stop within a distance of 200 m. What is the retardation of the car (assumed uniform), and how long does it take for the car to stop?</p>,
+            <p key={6}>A player throws a ball upwards with an initial speed of 29.4 m s⁻¹. (a) What is the direction of acceleration during the upward motion of the ball? (b) What are the velocity and acceleration of the ball at the highest point of its motion? (c) Choose x = 0 m and t = 0 s at the highest point with the vertically downward direction positive, and give the signs of position, velocity and acceleration of the ball during its upward and downward motion. (d) To what height does the ball rise and after how long does the ball return to the player&rsquo;s hands? (Take g = 9.8 m s⁻² and neglect air resistance.)</p>,
+            <p key={7}>Read each statement below carefully and state with reasons and examples if it is true or false. A particle in one-dimensional motion (a) with zero speed at an instant may have non-zero acceleration at that instant; (b) with zero speed may have non-zero velocity; (c) with constant speed must have zero acceleration; (d) with positive value of acceleration must be speeding up.</p>,
+            <p key={8}>A ball is dropped from a height of 90 m on a floor. At each collision with the floor, the ball loses one tenth of its speed. Plot the speed–time graph of its motion between t = 0 to 12 s.</p>,
+            <p key={9}>Explain clearly, with examples, the distinction between: (a) magnitude of displacement over an interval of time and the total length of path covered by a particle over the same interval; (b) magnitude of average velocity over an interval and the average speed over the same interval (total path length / time). Show that in both (a) and (b) the second quantity is greater than or equal to the first. When does equality hold? [One-dimensional motion only.]</p>,
+            <p key={10}>A man walks on a straight road from his home to a market 2.5 km away with a speed of 5 km h⁻¹. Finding the market closed, he instantly turns and walks back home with a speed of 7.5 km h⁻¹. What is the (a) magnitude of average velocity, and (b) average speed of the man over (i) 0 to 30 min, (ii) 0 to 50 min, (iii) 0 to 40 min? [Note: this is why average speed is defined as total path length / time, not as |average velocity| — you would not tell the tired man his average speed was zero!]</p>,
+            <p key={11}>In Exercises 2.9 and 2.10 we carefully distinguished average speed from magnitude of average velocity. No such distinction is needed for instantaneous speed and magnitude of velocity. Instantaneous speed is always equal to the magnitude of instantaneous velocity. Why?</p>,
+            <p key={12}>Look at the graphs (a) to (d) carefully and state, with reasons, which of these cannot possibly represent one-dimensional motion of a particle.</p>,
+            <p key={13}>The figure shows the x–t plot of one-dimensional motion of a particle. Is it correct to say that the particle moves in a straight line for t &lt; 0 and on a parabolic path for t &gt; 0? If not, suggest a suitable physical context for this graph.</p>,
+            <p key={14}>A police van moving on a highway with a speed of 30 km h⁻¹ fires a bullet at a thief&rsquo;s car speeding away in the same direction with a speed of 192 km h⁻¹. If the muzzle speed of the bullet is 150 m s⁻¹, with what speed does the bullet hit the thief&rsquo;s car? (Obtain the speed relevant for damaging the car.)</p>,
+            <p key={15}>Suggest a suitable physical situation for each of the graphs shown.</p>,
+            <p key={16}>The figure gives the x–t plot of a particle executing one-dimensional simple harmonic motion (Chapter 13). Give the signs of position, velocity and acceleration variables of the particle at t = 0.3 s, 1.2 s, −1.2 s.</p>,
+            <p key={17}>The figure gives the x–t plot of a particle in one-dimensional motion. Three different equal intervals of time are shown. In which interval is the average speed greatest, and in which is it the least? Give the sign of average velocity for each interval.</p>,
+            <p key={18}>The figure gives a speed–time graph of a particle in motion along a constant direction. Three equal intervals of time are shown. In which interval is the average acceleration greatest in magnitude? In which interval is the average speed greatest? Choosing the positive direction as the constant direction of motion, give the signs of v and a in the three intervals. What are the accelerations at the points A, B, C and D?</p>,
+          ]}
+          answers={[
+            <p key={1}>(a) Yes — the carriage&apos;s size is negligible compared with the distance between stations. (b) Yes — the monkey-and-man system is small compared with the track radius, so its motion can be treated point-like. (c) No — the spinning/turning ball&apos;s size and rotation matter. (d) No — the tumbling motion of the whole beaker depends on its size.</p>,
+            <p key={2}>(a) A; (b) A; (c) B; (d) same; (e) B overtakes A once. (A starts earlier and nearer; B walks faster with a steeper x–t slope and catches A on the way.)</p>,
+            <p key={3}>Graph: rising line 0 → 0.5 h (2.5 km at 9:00–9:30), horizontal until 17:00, then a steep falling line back to x = 0 at 17:06 (2.5 km at 25 km h⁻¹ = 0.1 h).</p>,
+            <p key={4}>Each 8 s cycle (5 forward, 3 backward) nets +2 m. After 4 cycles (32 s) the drunkard is at 8 m facing forward; the 5th step (at t = 37 s) takes him to 13 m — just reaching the pit. Total time ≈ 37 s.</p>,
+            <p key={5}>126 km h⁻¹ = 35 m s⁻¹. v² = u² − 2ad → 0 = 35² − 2a(200) → a ≈ 3.06 m s⁻² (retardation). t = u/a = 35/3.06 ≈ 11.4 s.</p>,
+            <p key={6}>(a) Downward (acceleration due to gravity) throughout the flight, including upward motion. (b) v = 0; a = 9.8 m s⁻² downward. (c) Upward motion: x positive, v negative, a positive; downward motion: x positive, v positive, a positive. (d) Height = (29.4)²/(2 × 9.8) = 44.1 m; total flight time = 2 × 29.4/9.8 = 6 s.</p>,
+            <p key={7}>(a) True — the top of a vertical throw is a moment of zero speed with a = g. (b) False — speed is |v|; zero speed means v = 0. (c) False — uniform circular motion has constant speed but centripetal acceleration; in 1-D, constant speed with straight-line motion does give a = 0, but the statement as given is false without that qualification. (d) False — a can be positive while the speed decreases (e.g. upward motion with upward-positive axis).</p>,
+            <p key={8}>Fall from 90 m: v = √(2 × 9.8 × 90) ≈ 42 m s⁻¹, t = 4.29 s; after each bounce v loses 10%, so successive peak speeds are 42, 37.8, 34.0, … with constant slopes g between bounces — a sawtooth speed–time graph decaying until t ≈ 12 s.</p>,
+            <p key={9}>(a) Magnitude of displacement ≤ total path length; equality when motion is along one straight line without turning back. (b) |average velocity| ≤ average speed; equality when the path length equals |displacement|, i.e. no reversal.</p>,
+            <p key={10}>(i) 0–30 min: home→market 2.5 km done in 0.5 h: avg velocity = 5 km h⁻¹, avg speed = 5 km h⁻¹. (ii) 0–50 min: returns 2.5 km in 1/3 h (20 min); net displacement 0 → avg velocity 0; total path 5 km in 5/6 h → avg speed = 6 km h⁻¹. (iii) 0–40 min: out for 30 min (2.5 km), back for 10 min at 7.5 → 1.25 km; net displacement 1.25 km, time 2/3 h → avg velocity 1.875 km h⁻¹; total path 3.75 km / (2/3) h = 5.625 km h⁻¹.</p>,
+            <p key={11}>At any instant the particle has a single velocity v, and speed is just |v| — there is no path-length vs displacement distinction at a single instant to average over.</p>,
+            <p key={12}>The graphs that imply two positions at one time, or a vertical (infinite-slope) x–t segment, or looping back in time cannot represent one-dimensional motion.</p>,
+            <p key={13}>No — being an x–t graph, the particle is always moving along the straight x-axis; the parabola merely means the acceleration (curvature) is present for t &gt; 0 and absent for t &lt; 0. Suitable context: an object at uniform motion that starts decelerating/accelerating at t = 0.</p>,
+            <p key={14}>Relative approach speed = muzzle speed against the closing ambient: bullet at 150 m s⁻¹ relative to van; van at 30 km h⁻¹ = 8.33 m s⁻¹; thief car at 192 km h⁻¹ = 53.3 m s⁻¹. Ground speed of bullet = 150 + 8.33 ≈ 158.3 m s⁻¹; relative to thief car = 158.3 − 53.3 ≈ 105 m s⁻¹.</p>,
+            <p key={15}>Suggestions: (1) horizontal line in v–t → constant velocity; falling x–t curve → acceleration; (2) the classic: a body thrown upward (v decreasing then negative); (3) a child on a swing / car braking.</p>,
+            <p key={16}>At t = 0.3 s (recently past equilibrium, moving +x): x &gt; 0, v &gt; 0, a &lt; 0. At t = 1.2 s (past positive turning point): x &gt; 0, v &lt; 0, a &lt; 0. At t = −1.2 s (mirror of +1.2 s): x &lt; 0, v &gt; 0, a &gt; 0.</p>,
+            <p key={17}>Greatest average speed where the path length per time is largest (steepest-slope majority interval); least where the curve is almost flat. Sign of average velocity is the sign of (x₁ − x₂) over the interval.</p>,
+            <p key={18}>Accelerations at A, B, C, D are 0 (slope of speed–time is zero at the flat extents); greatest |a| in the interval with the steepest slope; greatest average speed in the interval at the highest speeds; signs: v &gt; 0 throughout; a &lt; 0 where speed falls, a &gt; 0 where speed rises, a = 0 at A/B/C/D.</p>,
+          ]}
+        />
       </Expandable>
 
       <h2 id="h-revision">Quick Revision</h2>
