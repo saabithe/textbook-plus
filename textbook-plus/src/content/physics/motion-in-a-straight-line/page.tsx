@@ -5,11 +5,10 @@ import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
-import { Highlight } from "@/components/content/Highlight";
 import { Stepper } from "@/components/content/Stepper";
 import { MetricCard } from "@/components/content/study/MetricCard";
-import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
+import { KinematicsGraphs } from "@/components/content/physics/KinematicsGraphs";
 
 export default function MotionInAStraightLineChapter() {
   return (
@@ -62,55 +61,40 @@ export default function MotionInAStraightLineChapter() {
       />
 
       <h2 id="h-classification">Classification of Motion</h2>
-      <ul>
-        <li>
-          <strong>1. Uniform Motion</strong> — velocity is <strong>constant</strong>:
-          <ul>
-            <li>
-              Acceleration: <Formula>{String.raw`a = 0`}</Formula>
-            </li>
-            <li>
-              Displacement formula: <Formula>{String.raw`S = ut`}</Formula>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <strong>2. Non-Uniform Motion</strong> — velocity is <strong>changing</strong>:
-          <ul>
-            <li>
-              <strong>A. Uniformly Accelerated Motion</strong> — acceleration is constant (
-              <Formula>{String.raw`a = \text{constant}`}</Formula>). Equations of motion:
-              <Formula>{String.raw`v = u + at`}</Formula>;{" "}
-              <Formula>{String.raw`S = ut + \tfrac{1}{2}at^2`}</Formula>;{" "}
-              <Formula>{String.raw`v^2 = u^2 + 2aS`}</Formula>.
-            </li>
-            <li>
-              <strong>B. Non-Uniformly Accelerated Motion</strong> — acceleration is changing (
-              <Formula>{String.raw`a \neq \text{constant}`}</Formula>).
-            </li>
-          </ul>
-        </li>
-      </ul>
-
-      <h3 id="h-unit-conversions">Unit conversions: km/h to m/s</h3>
-      <p>
-        <strong>Conversion factor:</strong> multiply by <Formula>{String.raw`\frac{5}{18}`}</Formula>
-      </p>
-      <FormulaBlock latex={String.raw`1\ \text{km/h} = \frac{5}{18}\ \text{m/s}`} important />
-      <TableCard
-        caption="Common values (km/h → m/s)."
-        headers={["Speed (km/h)", "Speed (m/s)"]}
-        rows={[
-          { cells: ["18", "5"] },
-          { cells: ["36", "10"] },
-          { cells: ["54", "15"] },
-          { cells: ["72", "20"] },
-          { cells: ["90", "25"] },
-          { cells: ["108", "30"] },
-          { cells: ["126", "35"] },
-          { cells: ["144", "40"] },
+      <Comparison
+        columns={[
+          {
+            title: "1. Uniform Motion",
+            children: (
+              <ul>
+                <li>Velocity is <strong>constant</strong>.</li>
+                <li>Acceleration: <Formula>{String.raw`a = 0`}</Formula></li>
+                <li>Displacement: <Formula>{String.raw`S = ut`}</Formula></li>
+              </ul>
+            ),
+          },
+          {
+            title: "2. Non-Uniform Motion",
+            children: (
+              <>
+                <p><strong>A. Uniformly Accelerated</strong> — acceleration is constant (<Formula>{String.raw`a = \text{constant}`}</Formula>):</p>
+                <ul>
+                  <li><Formula>{String.raw`v = u + at`}</Formula></li>
+                  <li><Formula>{String.raw`S = ut + \tfrac{1}{2}at^2`}</Formula></li>
+                  <li><Formula>{String.raw`v^2 = u^2 + 2aS`}</Formula></li>
+                </ul>
+                <p style={{ marginTop: '0.75rem' }}><strong>B. Non-Uniformly Accelerated</strong> — acceleration is changing (<Formula>{String.raw`a \neq \text{constant}`}</Formula>).</p>
+              </>
+            ),
+          },
         ]}
       />
+
+      <h3 id="h-unit-conversions">Unit conversions: km/h to m/s</h3>
+      <Callout type="note" title="Conversion factor">
+        Multiply by <Formula>{String.raw`\frac{5}{18}`}</Formula>:
+        <FormulaBlock latex={String.raw`1\ \text{km/h} = \frac{5}{18}\ \text{m/s}`} important />
+      </Callout>
 
       <h3 id="h-speed-vs-velocity">Speed and velocity — the essentials</h3>
       <Comparison
@@ -160,50 +144,33 @@ export default function MotionInAStraightLineChapter() {
         ]}
       />
 
-      <Expandable title="Types of speed">
-        <ul>
-          <li>
-            <strong>Uniform speed:</strong> the object covers <em>equal distances in equal intervals of
-            time</em> — speed is constant throughout the motion.
-          </li>
-          <li>
-            <strong>Variable (non-uniform) speed:</strong> the object covers <em>unequal distances in equal
-            intervals of time</em> — speed keeps changing.
-          </li>
-          <li>
-            <strong>Average speed:</strong> for the whole journey, the total distance divided by the total
-            time:
-            <Formula>{String.raw`\text{Average Speed} = \frac{\text{Total Distance}}{\text{Total Time}}`}</Formula>
-            example: a distance of 10 m covered in 10 s gives an average speed of 10/10 ={" "}
-            <strong>1 m/s</strong>.
-          </li>
-          <li>
-            <strong>Instantaneous speed:</strong> the speed at a <em>specific instant</em> — how fast the
-            object is moving right now:
-            <Formula>{String.raw`v = \frac{\mathrm{d}x}{\mathrm{d}t}`}</Formula>
-          </li>
-        </ul>
-      </Expandable>
-
-      <Expandable title="Types of velocity">
-        <ul>
-          <li>
-            <strong>Uniform velocity (uniform motion):</strong> the object covers <em>equal displacements
-            in equal intervals of time</em> — velocity is constant in magnitude and direction.
-          </li>
-          <li>
-            <strong>Variable (non-uniform) velocity (non-uniform motion):</strong> the object covers{" "}
-            <em>unequal displacements in equal intervals of time</em> — velocity keeps changing.
-          </li>
-          <li>
-            <strong>Average velocity:</strong> total displacement divided by total time:
-            <Formula>{String.raw`\text{Average Velocity} = \frac{\text{Total Displacement}}{\text{Total Time}} = \frac{\Delta s}{\Delta t}`}</Formula>
-          </li>
-          <li>
-            <strong>Instantaneous velocity:</strong> the velocity at a specific instant:
-            <Formula>{String.raw`v = \frac{\mathrm{d}s}{\mathrm{d}t}`}</Formula>
-          </li>
-        </ul>
+      <Expandable title="Types of speed and velocity">
+        <Comparison
+          columns={[
+            {
+              title: "Types of Speed",
+              children: (
+                <ul>
+                  <li><strong>Uniform speed:</strong> equal distances in equal intervals — speed is constant.</li>
+                  <li><strong>Variable speed:</strong> unequal distances in equal intervals — speed keeps changing.</li>
+                  <li><strong>Average speed:</strong> total distance / total time: <Formula>{String.raw`\text{Average Speed} = \frac{\text{Total Distance}}{\text{Total Time}}`}</Formula></li>
+                  <li><strong>Instantaneous speed:</strong> speed at a specific instant: <Formula>{String.raw`v = \frac{\mathrm{d}x}{\mathrm{d}t}`}</Formula></li>
+                </ul>
+              ),
+            },
+            {
+              title: "Types of Velocity",
+              children: (
+                <ul>
+                  <li><strong>Uniform velocity:</strong> equal displacements in equal intervals — velocity is constant.</li>
+                  <li><strong>Variable velocity:</strong> unequal displacements in equal intervals — velocity keeps changing.</li>
+                  <li><strong>Average velocity:</strong> total displacement / total time: <Formula>{String.raw`\text{Average Velocity} = \frac{\Delta s}{\Delta t}`}</Formula></li>
+                  <li><strong>Instantaneous velocity:</strong> velocity at a specific instant: <Formula>{String.raw`v = \frac{\mathrm{d}s}{\mathrm{d}t}`}</Formula></li>
+                </ul>
+              ),
+            },
+          ]}
+        />
       </Expandable>
 
       <Callout type="note" title="Key notes & relationships">
@@ -215,98 +182,14 @@ export default function MotionInAStraightLineChapter() {
       </Callout>
 
       <h2 id="h-2-2">2.2 Instantaneous Velocity and Speed</h2>
-      <p>
-        Average velocity tells us how fast an object has been moving over a given interval, but not how
-        fast it moves at different instants within that interval. For that we define the{" "}
-        <strong>instantaneous velocity</strong> (or simply velocity) as the limit of the average
-        velocity as the time interval Δt becomes infinitesimally small:
-      </p>
       <FormulaBlock latex={String.raw`v = \lim_{\Delta t \to 0}\frac{\Delta x}{\Delta t} = \frac{\mathrm{d}x}{\mathrm{d}t}`} important />
-      <p>
-        In calculus terms, v is the <strong>differential coefficient of x with respect to t</strong> — the
-        rate of change of position with respect to time at that instant. It can be obtained{" "}
-        <strong>graphically</strong> or <strong>numerically</strong>.
-      </p>
-      <p>
-        Graphically, for the motion in Fig. 2.1, the slope of the chord P₁P₂ gives the average velocity
-        over the interval; as Δt → 0 the chord becomes the <strong>tangent</strong> at point P and the
-        velocity at t = 4 s is the <strong>slope of the tangent</strong> to the position–time graph at
-        that instant.
-      </p>
-      <p>
-        Numerically, for the curve x = 0.08t³ the limiting process is made clear by shrinking Δt
-        centred at t = 4.0 s:
-      </p>
-      <TableCard
-        caption="Table 2.1 — Limiting value of Δx/Δt at t = 4 s for x = 0.08t³."
-        headers={["Δt (s)", "t₁ (s)", "t₂ (s)", "x(t₁) (m)", "x(t₂) (m)", "Δx (m)", "Δx/Δt (m s⁻¹)"]}
-        rows={[
-          { cells: ["2.0", "3.0", "5.0", "2.16", "10.0", "7.84", "3.92"] },
-          { cells: ["1.0", "3.5", "4.5", "3.43", "7.29", "3.86", "3.86"] },
-          { cells: ["0.5", "3.75", "4.25", "4.22", "6.14", "1.92", "3.845"] },
-          { cells: ["0.1", "3.95", "4.05", "4.93", "5.31", "0.384", "3.840"] },
-          { cells: ["0.01", "3.995", "4.005", "5.100", "5.134", "0.0342", "3.842"] },
-        ]}
-      />
-      <p>
-        As Δt decreases from 2.0 s to 0.01 s the average velocity approaches the limiting value{" "}
-        <Highlight color="blue">3.84 m s⁻¹</Highlight>, the value of dx/dt at t = 4.0 s.
-      </p>
-
-      <Expandable title="Example 2.1 — x = a + bt²: velocity at two instants + average velocity" variant="example">
-        <ProblemSolution.Problem>
-          <p>
-            The position of an object moving along the x-axis is given by x = a + bt² where a = 8.5 m, b = 2.5 m s⁻²
-            and t is measured in seconds. What is its velocity at t = 0 s and t = 2.0 s? What is the average
-            velocity between t = 2.0 s and t = 4.0 s?
-          </p>
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>In differential-calculus notation the velocity is</p>
-          <FormulaBlock latex={String.raw`v = \frac{\mathrm{d}x}{\mathrm{d}t} = \frac{\mathrm{d}}{\mathrm{d}t}\left(a + bt^2\right) = 2b\,t = 5.0\,t\ \text{m s}^{-1}`} />
-          <ul>
-            <li>At t = 0 s: <Formula>{String.raw`v = 0\ \text{m s}^{-1}`}</Formula></li>
-            <li>At t = 2.0 s: <Formula>{String.raw`v = 10\ \text{m s}^{-1}`}</Formula></li>
-            <li>
-              Average velocity (t = 2 to 4 s):
-              <Formula>{String.raw`\frac{x(4) - x(2)}{4 - 2} = \frac{(16b) - (4b)}{2} = 6b = 15\ \text{m s}^{-1}`}</Formula>
-            </li>
-          </ul>
-          <p>
-            Note that for <strong>uniform motion</strong>, the velocity is the same as the average
-            velocity at all instants.
-          </p>
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <Callout type="important" title="Speed is magnitude">
-        <strong>Instantaneous speed</strong> = magnitude of velocity. +24.0 m s⁻¹ and −24.0 m s⁻¹ both have
-        speed 24.0 m s⁻¹.
-        <ul>
-          <li>Average speed over a finite interval ≥ magnitude of average velocity.</li>
-          <li>Instantaneous speed = magnitude of instantaneous velocity (always equal).</li>
-        </ul>
-      </Callout>
-      <MistakeCard
-        mistake="'If average speed ≥ |average velocity|, then speed must also differ from velocity at an instant.'"
-        correction="The inequality applies to the finite-intentional averages. At an instant the speed is exactly |v| — a particle has a single velocity, and speed is just its size. The asymmetry comes only from averaging over a path that can double back."
-      />
+      <KeyPoint title="Slope of the tangent = instantaneous velocity">
+        At any instant, the velocity equals the <strong>slope of the tangent</strong> to the
+        position–time (x–t) graph at that instant — the chord slope shrinks towards the tangent slope as
+        Δt → 0.
+      </KeyPoint>
 
       <h2 id="h-2-3">2.3 Acceleration</h2>
-      <p>
-        The velocity of an object generally changes during its motion. Should this change be described as
-        rate of change of velocity <em>with distance</em> or <em>with time</em>? This was a problem even
-        in Galileo&rsquo;s time.
-      </p>
-      <Callout type="didyouknow" title="Galileo's resolution">
-        Through studies of freely falling objects and motion on inclined planes, Galileo concluded the
-        rate of change of velocity with <strong>time</strong> is a constant for all objects in free fall.
-        The change with <strong>distance</strong> is not constant (it decreases with increasing distance of
-        fall). Hence <strong>acceleration</strong> is defined as the rate of change of velocity with time.
-      </Callout>
-      <p>Average acceleration over a time interval (t₁ → t₂):</p>
-      <FormulaBlock latex={String.raw`a = \frac{v_2 - v_1}{t_2 - t_1} = \frac{\Delta v}{\Delta t}`} />
-      <p>SI unit <strong>m s⁻²</strong>. On a velocity–time plot it is the slope of the line connecting (v₁, t₁) and (v₂, t₂).</p>
       <p>Instantaneous acceleration — slope of the tangent to the v–t curve:</p>
       <FormulaBlock latex={String.raw`a = \lim_{\Delta t \to 0}\frac{\Delta v}{\Delta t} = \frac{\mathrm{d}v}{\mathrm{d}t}`} important />
       <p>
@@ -392,15 +275,6 @@ export default function MotionInAStraightLineChapter() {
         Correspondingly, the <strong>x–t</strong> graph curves <em>upward</em> for positive acceleration,
         <em> downward</em> for negative acceleration, and is a straight line for zero acceleration.
       </p>
-      <KeyPoint title="Area under the v–t curve = displacement">
-        For constant velocity u over 0 → T the v–t curve is a horizontal line and the area under it is the
-        rectangle u × T = uT, which is exactly the displacement — v·t has the dimension of length.
-      </KeyPoint>
-      <Callout type="warning" title="No instantaneous jumps">
-        Real graphs are smooth: acceleration and velocity <strong>cannot change values abruptly at an
-        instant</strong>. Sharp kinks in x–t, v–t or a–t figures imply the functions are not
-        differentiable at those points — an idealization only.
-      </Callout>
       <p>For constant acceleration, with v = u at t = 0:</p>
       <FormulaBlock latex={String.raw`a = \frac{v - u}{t}\;\;\Rightarrow\;\; v = u + at`} />
 
@@ -552,6 +426,7 @@ export default function MotionInAStraightLineChapter() {
         <FormulaBlock latex={String.raw`v^2 - u^2 = 2aS`} />
         <FormulaBlock latex={String.raw`v^2 = u^2 + 2aS`} important />
       </Expandable>
+      <KinematicsGraphs />
       <p><strong>The three kinematic equations (x = 0 at t = 0):</strong></p>
       <FormulaCard>
         <ul>
