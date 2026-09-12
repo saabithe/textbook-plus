@@ -1,6 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
+import { Highlight } from "@/components/content/Highlight";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
@@ -18,13 +19,13 @@ export default function ThermalPropertiesOfMatterChapter() {
         <strong>temperature</strong> and the processes by which heat flows from one body to another. Along the
         way you will discover why blacksmiths heat the iron ring before fitting it on the rim of a wooden wheel
         of a horse cart, why the wind at the beach often reverses direction after the sun goes down, and why the
-        temperature of water does not change while it boils or freezes even though a great deal of heat flows in
+        <Highlight>temperature of water does not change while it boils or freezes</Highlight> even though a great deal of heat flows in
         or out.
       </p>
 
       <h2 id="h-temp-heat">10.2 Temperature and Heat</h2>
       <p>
-        <strong>Temperature</strong> is a relative measure (indication) of hotness or coldness. An object at a
+        <Highlight><strong>Temperature</strong> is a relative measure (indication) of hotness or coldness</Highlight>. An object at a
         higher temperature than another is said to be hotter — <em>hot</em> and <em>cold</em> are relative terms,
         like tall and short. We can perceive temperature by touch, but this temperature sense is unreliable and
         its range too limited for scientific purposes.
@@ -39,17 +40,17 @@ export default function ThermalPropertiesOfMatterChapter() {
 
       <h2 id="h-measurement">10.3 Measurement of Temperature</h2>
       <p>
-        A thermometer measures temperature using some physical property that changes with temperature — the{" "}
-        <strong>thermometric property</strong>. The commonly used property is the variation of the volume of a
+        A thermometer measures temperature using <Highlight>some physical property that changes with temperature — the{" "}
+        <strong>thermometric property</strong></Highlight>. The commonly used property is the variation of the volume of a
         liquid: in liquid-in-glass thermometers, mercury or alcohol vary linearly with temperature over a wide
         range.
       </p>
       <p>
         Any standard scale needs two fixed reference points. Since all substances change dimensions with
         temperature, no absolute reference for expansion exists — instead the fixed points are linked to physical
-        phenomena that always happen at the same temperature. The <strong>ice point</strong> (freezing point) and{" "}
+        phenomena that always happen at the same temperature. <Highlight>The <strong>ice point</strong> (freezing point) and{" "}
         <strong>steam point</strong> (boiling point) of pure water under standard pressure are the two convenient
-        fixed points. On the Fahrenheit scale they are assigned 32 °F and 212 °F (180 equal intervals); on the
+        fixed points</Highlight>. On the Fahrenheit scale they are assigned 32 °F and 212 °F (180 equal intervals); on the
         Celsius scale 0 °C and 100 °C (100 equal intervals).
       </p>
       <FormulaBlock latex={String.raw`t_F = \frac{9}{5}\, t_C + 32`} important />
@@ -63,7 +64,7 @@ export default function ThermalPropertiesOfMatterChapter() {
       <p>
         Liquid-in-glass thermometers disagree at temperatures other than the fixed points because different
         liquids expand differently. A <strong>gas thermometer</strong>, however, agrees for every gas, because
-        <strong>all gases at low densities exhibit the same expansion behaviour</strong>. The variables describing
+        <Highlight><strong>all gases at low densities exhibit the same expansion behaviour</strong></Highlight>. The variables describing
         a given quantity of gas are pressure, volume and temperature (where T = t + 273.15).
       </p>
       <Stepper
@@ -91,7 +92,7 @@ export default function ThermalPropertiesOfMatterChapter() {
         Since PV ∝ T, a gas at constant volume gives P ∝ T — a <strong>constant-volume gas thermometer</strong>{" "}
         reads temperature in terms of pressure. Extrapolating the pressure-versus-temperature lines of low-density
         gases to zero pressure gives the same interception for every gas:{" "}
-        <strong>−273.15 °C, called absolute zero</strong> — the foundation of the{" "}
+        <Highlight><strong>−273.15 °C, called absolute zero</strong></Highlight> — the foundation of the{" "}
         <strong>Kelvin scale</strong> (or absolute scale), named after Lord Kelvin. On this scale
         −273.15 °C corresponds to 0 K.
       </p>
@@ -106,7 +107,7 @@ export default function ThermalPropertiesOfMatterChapter() {
       <p>
         Most substances expand on heating and contract on cooling: a sealed metallic lid loosens in hot water, the
         mercury rises in a warm thermometer, and a balloon partially inflated in a cool room swells in warm water.
-        The increase in the dimensions of a body caused by a rise in temperature is{" "}
+        <Highlight>The increase in the dimensions of a body caused by a rise in temperature</Highlight> is{" "}
         <strong>thermal expansion</strong> — in length (<strong>linear</strong>), in area (
         <strong>area</strong>) or in volume (<strong>volume</strong>) expansion.
       </p>
@@ -117,7 +118,7 @@ export default function ThermalPropertiesOfMatterChapter() {
       </p>
       <FormulaBlock latex={String.raw`\frac{\Delta l}{l} = \alpha_l\, \Delta T`} important />
       <p>
-        α<sub>l</sub> is the <strong>coefficient of linear expansion</strong>, characteristic of the material.
+        α<sub>l</sub> is the <strong>coefficient of linear expansion</strong>, <Highlight>characteristic of the material</Highlight>.
         Metals normally expand more and have relatively high α<sub>l</sub>.
       </p>
       <TableCard
@@ -139,8 +140,8 @@ export default function ThermalPropertiesOfMatterChapter() {
       <p>Similarly, for a substance of volume V:</p>
       <FormulaBlock latex={String.raw`\frac{\Delta V}{V} = \alpha_V\, \Delta T`} important />
       <p>
-        α<sub>V</sub> is the <strong>coefficient of volume expansion</strong>. It is not strictly constant — it
-        becomes constant only at high temperature. Thermal expansion of solids and liquids is rather small, with
+        α<sub>V</sub> is the <strong>coefficient of volume expansion</strong>. <Highlight>It is not strictly constant — it
+        becomes constant only at high temperature</Highlight>. Thermal expansion of solids and liquids is rather small, with
         Pyrex glass and invar (an iron-nickel alloy) particularly low. Alcohol (ethanol) has a bigger α_V than
         mercury and expands more for the same rise.
       </p>
@@ -187,9 +188,9 @@ export default function ThermalPropertiesOfMatterChapter() {
 
       <h3 id="h-thermal-stress">Thermal stress</h3>
       <p>
-        If a rod is rigidly clamped so it cannot expand, heating it produces a{" "}
+        If a rod is rigidly clamped so it cannot expand, <Highlight>heating it produces a{" "}
         <strong>compressive strain and corresponding stress</strong> — the{" "}
-        <strong>thermal stress</strong>. For a steel rail 5 m long, area 40 cm², prevented from expanding while
+        <strong>thermal stress</strong></Highlight>. For a steel rail 5 m long, area 40 cm², prevented from expanding while
         the temperature rises 10 °C (α_l = 1.2 × 10⁻⁵ K⁻¹):
       </p>
       <FormulaBlock latex={String.raw`\frac{\Delta l}{l} = \alpha_l \Delta T = 1.2\times10^{-5}\times 10 = 1.2\times10^{-4}`} />
@@ -244,12 +245,12 @@ export default function ThermalPropertiesOfMatterChapter() {
       </p>
       <FormulaBlock latex={String.raw`S = \frac{\Delta Q}{\Delta T}`} />
       <p>
-        and the <strong>specific heat capacity</strong> s — the heat per unit mass per unit temperature change — is
+        and the <strong>specific heat capacity</strong> s — <Highlight>the heat per unit mass per unit temperature change</Highlight> — is
       </p>
       <FormulaBlock latex={String.raw`\Delta Q = m\,s\,\Delta T \qquad s = \frac{1}{m}\frac{\Delta Q}{\Delta T}`} important />
       <p>
         Its SI unit is J kg⁻¹ K⁻¹. If the amount is specified in moles μ rather than mass, we get the{" "}
-        <strong>molar specific heat capacity</strong> C = ΔQ/(μΔT), in J mol⁻¹ K⁻¹. For gases the molar specific
+        <strong>molar specific heat capacity</strong> <Highlight>C = ΔQ/(μΔT), in J mol⁻¹ K⁻¹</Highlight>. For gases the molar specific
         heat depends on the conditions — C_p at constant pressure or C_V at constant volume (Chapter 11).
       </p>
       <TableCard
@@ -286,7 +287,7 @@ export default function ThermalPropertiesOfMatterChapter() {
       <h2 id="h-calorimetry">10.7 Calorimetry</h2>
       <p>
         <strong>Calorimetry means measurement of heat.</strong> When a hot body touches a colder body in an
-        isolated system, the <strong>heat lost by the hot part equals the heat gained by the cold part</strong>.
+        isolated system, <Highlight>the <strong>heat lost by the hot part equals the heat gained by the cold part</strong></Highlight>.
         The measuring device, a <strong>calorimeter</strong>, is a metallic vessel with a stirrer of the same
         material (copper or aluminium), kept inside a wooden jacket packed with insulating material (glass wool)
         that acts as a heat shield; a thermometer dips in through an opening.
@@ -311,14 +312,14 @@ export default function ThermalPropertiesOfMatterChapter() {
       <p>
         Matter normally exists in three states — solid, liquid and gas — and a transition between them under heat
         exchange is a <strong>change of state</strong>. Heating a beaker of ice with constant stirring shows the
-        temperature <em>does not change while any ice remains</em>: the heat is being used to change the state.
+        <Highlight>temperature <em>does not change while any ice remains</em></Highlight>: the heat is being used to change the state.
       </p>
 
       <h3 id="h-melting">Melting and freezing</h3>
       <p>
         Solid → liquid is <strong>melting (fusion)</strong>; liquid → solid is <strong>freezing</strong>. During
-        the change both phases coexist in thermal equilibrium at the{" "}
-        <strong>melting point</strong>, which is characteristic of the substance and depends on pressure (the
+        the change <Highlight>both phases coexist in thermal equilibrium at the{" "}
+        <strong>melting point</strong>, which is characteristic of the substance and depends on pressure</Highlight> (the
         normal melting point is at standard atmospheric pressure). The <strong>wire-through-ice</strong> trick: a
         weighted wire passes through an ice slab without splitting it because pressure lowers ice&rsquo;s melting
         temperature just under the wire, and the water refreezes above it — <strong>regelation</strong>. Skating is
@@ -329,8 +330,8 @@ export default function ThermalPropertiesOfMatterChapter() {
       <p>
         Liquid → vapour is <strong>vaporisation</strong>; the temperature stays constant until all the liquid
         vaporises, both phases coexisting at the <strong>boiling point</strong>. Boiling water in a flask shows
-        that <strong>boiling point rises with pressure</strong> (sealing the steam outlet stops the boil) and{" "}
-        <strong>falls with reduced pressure</strong> (ice-cold water over an inverted flask makes it boil again at
+        that <Highlight><strong>boiling point rises with pressure</strong></Highlight> (sealing the steam outlet stops the boil) and{" "}
+        <Highlight><strong>falls with reduced pressure</strong></Highlight> (ice-cold water over an inverted flask makes it boil again at
         a lower temperature). Hence cooking is difficult on hills — low atmospheric pressure lowers the boiling
         point — while a pressure cooker raises it, cooking faster.
       </p>
@@ -346,14 +347,14 @@ export default function ThermalPropertiesOfMatterChapter() {
       <p>
         A <strong>phase (P–T) diagram</strong> divides the P–T plane into solid, liquid and vapour regions separated
         by the sublimation curve, fusion curve and vaporisation curve where the adjacent phases coexist. The three
-        curves meet at the <strong>triple point</strong>, where all three phases coexist at a unique temperature and
-        pressure. For water: <strong>273.16 K and 6.11 × 10⁻³ Pa</strong>. Because it is unique and reproducible,
+        curves meet at the <strong>triple point</strong>, <Highlight>where all three phases coexist at a unique temperature and
+        pressure</Highlight>. For water: <strong>273.16 K and 6.11 × 10⁻³ Pa</strong>. Because it is unique and reproducible,
         the triple point is used as the standard fixed point for thermometry.
       </p>
 
       <h3 id="h-latent-heat">10.8.1 Latent Heat</h3>
       <p>
-        The heat per unit mass transferred during a change of state is the{" "}
+        <Highlight>The heat per unit mass transferred during a change of state</Highlight> is the{" "}
         <strong>latent heat</strong>, L = Q/m, in J kg⁻¹:
       </p>
       <FormulaBlock latex={String.raw`Q = m\,L`} important />
@@ -415,14 +416,14 @@ export default function ThermalPropertiesOfMatterChapter() {
 
       <h2 id="h-heat-transfer">10.9 Heat Transfer</h2>
       <p>
-        Heat is energy transferred because of a temperature difference, through three distinct modes:{" "}
+        <Highlight>Heat is energy transferred because of a temperature difference</Highlight>, through three distinct modes:{" "}
         <strong>conduction</strong>, <strong>convection</strong> and <strong>radiation</strong>.
       </p>
 
       <h3 id="h-conduction">10.9.1 Conduction</h3>
       <p>
-        Conduction transfers heat between adjacent parts of a body by molecular collision, without any flow of
-        matter. A metallic rod held in a flame soon burns the hand: heat travels up it by conduction. Gases are
+        <Highlight>Conduction transfers heat between adjacent parts of a body by molecular collision, without any flow of
+        matter</Highlight>. A metallic rod held in a flame soon burns the hand: heat travels up it by conduction. Gases are
         poor thermal conductors; liquids fall between solids and gases. For a bar of length L and uniform
         cross-section A with sides insulated, the steady-state <strong>heat current</strong> obeys
       </p>
@@ -484,7 +485,7 @@ export default function ThermalPropertiesOfMatterChapter() {
 
       <h3 id="h-convection">10.9.2 Convection</h3>
       <p>
-        Convection transfers heat by the <strong>actual bulk motion of matter</strong> — possible only in fluids.
+        <Highlight>Convection transfers heat by the <strong>actual bulk motion of matter</strong> — possible only in fluids</Highlight>.
         In <strong>natural convection</strong> gravity drives the motion: heated fluid expands, becomes less dense,
         rises, and is replaced by cooler fluid that is heated in turn. In <strong>forced convection</strong> a pump
         or other means drives the fluid — forced-air home heating, the human circulatory system (the heart is the
@@ -513,8 +514,8 @@ export default function ThermalPropertiesOfMatterChapter() {
       <h3 id="h-radiation">10.9.3 Radiation</h3>
       <p>
         Conduction and convection need a material medium — but Earth receives heat from the Sun across empty space.
-        <strong>Radiation</strong> transfers energy by <strong>electromagnetic waves</strong>, which travel in
-        vacuum at the speed of light (3 × 10⁸ m s⁻¹). All bodies emit radiant energy; radiation emitted by virtue
+        <Highlight><strong>Radiation</strong> transfers energy by <strong>electromagnetic waves</strong>, which travel in
+        vacuum at the speed of light (3 × 10⁸ m s⁻¹)</Highlight>. All bodies emit radiant energy; radiation emitted by virtue
         of a body&rsquo;s temperature (red-hot iron, a filament lamp) is{" "}
         <strong>thermal radiation</strong>. When it falls on other bodies it is partly reflected, partly absorbed.
       </p>
@@ -530,17 +531,17 @@ export default function ThermalPropertiesOfMatterChapter() {
       <p>
         Thermal radiation has a <strong>continuous spectrum</strong>, and the energy varies with wavelength — the
         experimental blackbody curves are <strong>universal</strong>, depending only on temperature, not on size,
-        shape or material. The wavelength λ_m of maximum energy shortens as temperature rises:
+        shape or material. <Highlight>The wavelength λ_m of maximum energy shortens as temperature rises</Highlight>:
       </p>
       <FormulaBlock latex={String.raw`\lambda_m T = 2.9\times10^{-3}\;\mathrm{m\,K}`} important />
       <p>
-        This <strong>Wien's displacement law</strong> explains why iron heated in a flame turns dull red, then
+        This <strong>Wien&rsquo;s displacement law</strong> explains why iron heated in a flame turns dull red, then
         reddish-yellow, then white hot, and lets us estimate surface temperatures of stars: moonlight peaks near
         14 μm ⟹ moon surface ≈ 200 K; solar radiation peaks at 4753 Å ⟹ T ≈ 6060 K (the Sun&rsquo;s surface, not
         interior).
       </p>
       <p>
-        The total radiant energy emitted per unit time by a body is the{" "}
+        <Highlight>The total radiant energy emitted per unit time by a body</Highlight> is the{" "}
         <strong>Stefan-Boltzmann law</strong>:
       </p>
       <FormulaBlock latex={String.raw`H = A\,e\,\sigma T^4`} important />
@@ -557,11 +558,11 @@ export default function ThermalPropertiesOfMatterChapter() {
         a thin shiny metallic layer next to the skin to reflect the body&rsquo;s own radiation back.
       </Callout>
 
-      <h2 id="h-newton-cooling">10.10 Newton's Law of Cooling</h2>
+      <h2 id="h-newton-cooling">10.10 Newton&rsquo;s Law of Cooling</h2>
       <p>
         Hot water left on a table cools gradually; the rate is high initially and decreases as the temperature
-        falls. Newton&rsquo;s law of cooling says the <strong>rate of loss of heat is directly proportional to the
-        (small) temperature difference</strong> between the body (T₂) and its surroundings (T₁), for a given area
+        falls. Newton&rsquo;s law of cooling says the <Highlight><strong>rate of loss of heat is directly proportional to the
+        (small) temperature difference</strong></Highlight> between the body (T₂) and its surroundings (T₁), for a given area
         and surface nature:
       </p>
       <FormulaBlock latex={String.raw`-\frac{dQ}{dt} = k\,(T_2 - T_1)`} important />

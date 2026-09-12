@@ -1,3 +1,4 @@
+import { Highlight } from "@/components/content/Highlight";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
@@ -15,7 +16,7 @@ export default function KineticTheoryChapter() {
         Boyle discovered the law named after him in 1661. Boyle, Newton and several others tried to explain the
         behaviour of gases by considering that gases are made up of tiny atomic particles; the actual atomic theory
         was established more than 150 years later. <strong>Kinetic theory</strong> explains the behaviour of gases
-        based on the idea that a gas consists of rapidly moving atoms or molecules. This is possible because the
+        <Highlight>based on the idea that a gas consists of rapidly moving atoms or molecules</Highlight>. This is possible because the
         inter-atomic forces — which are short-range and important for solids and liquids — can be neglected for
         gases.
       </p>
@@ -42,8 +43,8 @@ export default function KineticTheoryChapter() {
         it to explain the laws of definite and multiple proportions. His picture: atoms of one element are identical
         but differ from those of other elements; a small number of atoms combine to form a molecule of a compound.
         Gay Lussac&rsquo;s law states that when gases combine chemically, their volumes are in ratios of small
-        integers. <strong>Avogadro&rsquo;s law</strong> — equal volumes of all gases at equal temperature and
-        pressure contain the same number of molecules — when combined with Dalton&rsquo;s theory explains Gay
+        integers. <strong>Avogadro&rsquo;s law</strong> — <Highlight>equal volumes of all gases at equal temperature and
+        pressure contain the same number of molecules</Highlight> — when combined with Dalton&rsquo;s theory explains Gay
         Lussac&rsquo;s law, so Dalton&rsquo;s atomic theory is also referred to as the molecular theory of matter.
       </p>
       <Callout type="note" title="Ancient atomic ideas">
@@ -56,7 +57,7 @@ export default function KineticTheoryChapter() {
       </Callout>
       <p>
         Today we know that molecules (one or more atoms) constitute matter, and electron and scanning-tunnelling
-        microscopes let us see them. The size of an atom is about an angstrom (10⁻¹⁰ m). In solids atoms are tightly
+        microscopes let us see them. <Highlight>The size of an atom is about an angstrom (10⁻¹⁰ m)</Highlight>. In solids atoms are tightly
         packed about 2 Å apart; in liquids the separation is similar but atoms can move around, which is why liquids
         flow. In gases the interatomic distances are <strong>tens of angstroms</strong>, and the average distance a
         molecule travels without colliding — the <strong>mean free path</strong> — is of the order of thousands of
@@ -86,15 +87,15 @@ export default function KineticTheoryChapter() {
       <p>
         If P, V and T are the same, then N must be the same for all gases — this is{" "}
         <strong>Avogadro&rsquo;s hypothesis</strong>: the number of molecules per unit volume is the same for all
-        gases at a fixed temperature and pressure. The number in 22.4 litres of any gas (the <em>molar volume</em>)
-        is 6.02 × 10²³, the <strong>Avogadro number</strong> N_A. The mass of 22.4 litres is equal to its molecular
+        gases at a fixed temperature and pressure. <Highlight>The number in 22.4 litres of any gas (the <em>molar volume</em>)
+        is 6.02 × 10²³, the <strong>Avogadro number</strong> N_A</Highlight>. The mass of 22.4 litres is equal to its molecular
         weight in grams — one mole.
       </p>
       <FormulaBlock latex={String.raw`PV = \mu RT,\qquad R = N_A k_B = 8.314\ \text{J mol}^{-1}\text{K}^{-1}`} important />
       <p>
         The perfect-gas equation can also be written PV = k_B NT, or P = n k_B T where n is the number density
-        (molecules per unit volume), and in terms of density ρ and molar mass M₀ as P = (ρ/M₀)RT. A gas that
-        satisfies PV = μRT exactly at all pressures and temperatures is defined to be an <strong>ideal gas</strong> —
+        (molecules per unit volume), and in terms of density ρ and molar mass M₀ as P = (ρ/M₀)RT. <Highlight>A gas that
+        satisfies PV = μRT exactly at all pressures and temperatures is defined to be an <strong>ideal gas</strong></Highlight> —
         a simple theoretical model; <em>no real gas is truly ideal</em>. Real gases approach ideal behaviour at low
         pressures and high temperatures, where molecules are far apart and interactions negligible.
       </p>
@@ -114,8 +115,8 @@ export default function KineticTheoryChapter() {
       <FormulaBlock latex={String.raw`PV = \left(\mu_1 + \mu_2 + \dots\right)RT,\qquad P = P_1 + P_2 + \dots`} />
       <p>
         P₁ = μ₁RT/V is the pressure gas 1 would exert at the same V and T if the other gases were absent — its{" "}
-        <strong>partial pressure</strong>. Thus the total pressure of a mixture of ideal gases is the sum of the
-        partial pressures: <strong>Dalton&rsquo;s law of partial pressures</strong>.
+        <strong>partial pressure</strong>. Thus <Highlight>the total pressure of a mixture of ideal gases is the sum of the
+        partial pressures</Highlight>: <strong>Dalton&rsquo;s law of partial pressures</strong>.
       </p>
 
       <h2 id="k-models">12.4 Kinetic Theory of an Ideal Gas</h2>
@@ -125,8 +126,8 @@ export default function KineticTheoryChapter() {
         distance between molecules is a factor of ten or more than the typical molecular size, so the interaction
         between molecules is negligible and they move freely in straight lines according to Newton&rsquo;s first
         law. Occasionally they come close, experience intermolecular forces, and change velocities —{" "}
-        <strong>collisions</strong>. All collisions (between molecules, or with the walls) are considered{" "}
-        <strong>elastic</strong>, so total kinetic energy and total momentum are conserved.
+        <strong>collisions</strong>. <Highlight>All collisions (between molecules, or with the walls) are considered{" "}
+        <strong>elastic</strong>, so total kinetic energy and total momentum are conserved</Highlight>.
       </p>
 
       <h3 id="k-pressure">12.4.1 Pressure of an Ideal Gas</h3>
@@ -149,7 +150,7 @@ export default function KineticTheoryChapter() {
       <p>
         Since all molecules do not have the same velocity, this holds for the group with x-component v_x; summing
         over all groups (with n the number density of each group) gives P = n m ⟨v_x²⟩. A gas in equilibrium is{" "}
-        <strong>isotropic</strong> — there is no preferred direction of molecular velocity — so by symmetry:
+        <strong>isotropic</strong> — <Highlight>there is no preferred direction of molecular velocity</Highlight> — so by symmetry:
       </p>
       <FormulaBlock latex={String.raw`\langle v_x^2\rangle = \langle v_y^2\rangle = \langle v_z^2\rangle = \frac13 \langle v^2\rangle`} important />
       <FormulaBlock latex={String.raw`P = \frac13\, n m \langle v^2\rangle`} important />
@@ -187,13 +188,13 @@ export default function KineticTheoryChapter() {
       </p>
       <p>
         From ½m⟨v²⟩ = (3/2)k_B T we get an idea of typical molecular speeds. For nitrogen at T = 300 K (molecule
-        mass m ≈ 4.65 × 10⁻²⁶ kg) the mean-square speed is ⟨v²⟩ = 3k_BT/m = (516)² m²s⁻². The square root of ⟨v²⟩ is
-        the <strong>root-mean-square (rms) speed</strong>:
+        mass m ≈ 4.65 × 10⁻²⁶ kg) the mean-square speed is ⟨v²⟩ = 3k_BT/m = (516)² m²s⁻². <Highlight>The square root of ⟨v²⟩ is
+        the <strong>root-mean-square (rms) speed</strong></Highlight>:
       </p>
       <FormulaBlock latex={String.raw`v_{rms} = \sqrt{\langle v^2\rangle} = \sqrt{\frac{3k_B T}{m}} = 516\ \text{m}\ \text{s}^{-1}`} important />
       <p>
-        This is of the order of the speed of sound in air. Since v_rms ∝ 1/√m, at the same temperature{" "}
-        <strong>lighter molecules have greater rms speed</strong>.
+        This is of the order of the speed of sound in air. Since v_rms ∝ 1/√m, <Highlight>at the same temperature{" "}
+        <strong>lighter molecules have greater rms speed</strong></Highlight>.
       </p>
 
       <h2 id="k-equip">12.5 Law of Equipartition of Energy</h2>
@@ -206,8 +207,8 @@ export default function KineticTheoryChapter() {
         Since there is no preferred direction, each term averages to ½ k_B T. A molecule free to move in space needs
         three coordinates to specify its location — it has three <strong>translational degrees of freedom</strong>;
         constrained to a plane it has two; along a line, one. Each translational degree of freedom contributes a term
-        containing the square of a variable of motion (½mv_x² and similar), and in thermal equilibrium the average
-        of each such term is ½ k_B T.
+        containing the square of a variable of motion (½mv_x² and similar), and <Highlight>in thermal equilibrium the average
+        of each such term is ½ k_B T</Highlight>.
       </p>
       <TableCard
         caption="12.1 Table — Degrees of freedom"
@@ -236,7 +237,7 @@ export default function KineticTheoryChapter() {
       </KeyPoint>
       <p>
         Notice the important feature: while each translational and rotational degree of freedom contributes only one
-        squared term, one vibrational mode contributes <strong>two</strong> squared terms — kinetic and potential.
+        squared term, <Highlight>one vibrational mode contributes <strong>two</strong> squared terms — kinetic and potential</Highlight>.
         Each quadratic term in the energy expression is a mode of absorption of energy.
       </p>
 
@@ -248,16 +249,16 @@ export default function KineticTheoryChapter() {
 
       <h3 id="k-spec-mono">12.6.1 Monatomic Gases</h3>
       <p>
-        A monatomic gas molecule has only three translational degrees of freedom, so the average energy of a
-        molecule at temperature T is (3/2)k_B T. The internal energy of one mole is:
+        A monatomic gas molecule has only three translational degrees of freedom, so <Highlight>the average energy of a
+        molecule at temperature T is (3/2)k_B T</Highlight>. The internal energy of one mole is:
       </p>
       <FormulaBlock latex={String.raw`U = \frac32 k_B T \times N_A = \frac32 RT`} />
       <FormulaBlock latex={String.raw`C_v = \frac{dU}{dT} = \frac32 R,\qquad C_p = \frac52 R,\qquad \gamma = \frac{C_p}{C_v} = \frac53 \approx 1.67`} important />
 
       <h3 id="k-spec-di">12.6.2 Diatomic Gases</h3>
       <p>
-        As a rigid rotator (dumbbell), a diatomic molecule has 5 degrees of freedom: 3 translational and 2
-        rotational. Using equipartition, the internal energy of a mole is U = (5/2)N_A k_B T = (5/2)RT:
+        As a rigid rotator (dumbbell), <Highlight>a diatomic molecule has 5 degrees of freedom: 3 translational and 2
+        rotational</Highlight>. Using equipartition, the internal energy of a mole is U = (5/2)N_A k_B T = (5/2)RT:
       </p>
       <FormulaBlock latex={String.raw`C_v = \frac52 R,\qquad C_p = \frac72 R,\qquad \gamma = \frac75 = 1.40`} important />
       <p>
@@ -267,8 +268,8 @@ export default function KineticTheoryChapter() {
 
       <h3 id="k-spec-poly">12.6.3 Polyatomic Gases</h3>
       <p>
-        In general a polyatomic molecule has 3 translational, 3 rotational degrees of freedom and a certain number f
-        of vibrational modes. One mole then has:
+        In general <Highlight>a polyatomic molecule has 3 translational, 3 rotational degrees of freedom and a certain number f
+        of vibrational modes</Highlight>. One mole then has:
       </p>
       <FormulaBlock latex={String.raw`U = \left(\frac32 k_B T + \frac32 k_B T + f\,k_B T\right)N_A`} />
       <FormulaBlock latex={String.raw`C_v = (3 + f)R,\qquad C_p = (4 + f)R,\qquad \gamma = \frac{4 + f}{3 + f}`} important />
@@ -306,8 +307,8 @@ export default function KineticTheoryChapter() {
       <h3 id="k-spec-solid">12.6.4 Specific Heat Capacity of Solids</h3>
       <p>
         Consider a solid of N atoms, each vibrating about its mean position. An oscillation in one dimension has
-        average energy 2 × ½ k_B T = k_B T; in three dimensions the average energy is 3 k_B T. For a mole of solid
-        (N = N_A), the total energy is U = 3k_B T × N_A = 3RT. At constant pressure ∆Q = ∆U + P∆V ≈ ∆U, since for a
+        average energy 2 × ½ k_B T = k_B T; in three dimensions the average energy is 3 k_B T. <Highlight>For a mole of solid
+        (N = N_A), the total energy is U = 3k_B T × N_A = 3RT</Highlight>. At constant pressure ∆Q = ∆U + P∆V ≈ ∆U, since for a
         solid ∆V is negligible:
       </p>
       <FormulaBlock latex={String.raw`C = \frac{\Delta Q}{\Delta T} = 3R , \qquad 3R \approx 24.9\ \text{J mol}^{-1}\text{K}^{-1}\ \text{(Dulong--Petit)}`} important />
@@ -362,8 +363,8 @@ export default function KineticTheoryChapter() {
       <FormulaBlock latex={String.raw`l = \frac{1}{\sqrt{2}\,\pi\, n\, d^2}`} important />
       <p>
         For air molecules with average speed ⟨v⟩ = 485 m s⁻¹ at STP: n = 0.02 × 10²³/(22.4 × 10⁻³) = 2.7 × 10²⁵
-        m⁻³; taking d = 2 × 10⁻¹⁰ m gives τ = 6.1 × 10⁻¹⁰ s and l = 2.9 × 10⁻⁷ m ≈ 1500d. The mean free path
-        depends inversely on number density and molecular size. In a highly evacuated tube n is small, so the mean
+        m⁻³; taking d = 2 × 10⁻¹⁰ m gives τ = 6.1 × 10⁻¹⁰ s and l = 2.9 × 10⁻⁷ m ≈ 1500d. <Highlight>The mean free path
+        depends inversely on number density and molecular size</Highlight>. In a highly evacuated tube n is small, so the mean
         free path can be as large as the length of the tube.
       </p>
       <KeyPoint title="Why gases behave as gases">

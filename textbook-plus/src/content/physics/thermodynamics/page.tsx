@@ -1,6 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
+import { Highlight } from "@/components/content/Highlight";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
@@ -36,8 +37,8 @@ export default function ThermodynamicsChapter() {
         energy from work to heat.
       </Callout>
       <p>
-        <strong>Thermodynamics</strong> is the branch of physics that deals with the concepts of heat and
-        temperature and the inter-conversion of heat and other forms of energy. It is a{" "}
+        <strong>Thermodynamics</strong> <Highlight>is the branch of physics that deals with the concepts of heat
+        and temperature and the inter-conversion of heat and other forms of energy</Highlight>. It is a{" "}
         <strong>macroscopic</strong> science: it deals with bulk systems and does not go into the molecular
         constitution of matter. Its laws were formulated in the nineteenth century using only a few macroscopic
         variables (pressure, volume, temperature, mass, composition) that can be measured directly.
@@ -56,8 +57,8 @@ export default function ThermodynamicsChapter() {
       <p>
         In mechanics, &ldquo;equilibrium&rdquo; means that the net external force and torque on a system are zero.
         In thermodynamics the term appears in a different context: the state of a system is an{" "}
-        <strong>equilibrium state</strong> if the macroscopic variables that characterise it do not change with
-        time. For example, a gas inside a closed rigid container, completely insulated from its surroundings, with
+        <strong>equilibrium state</strong> <Highlight>if the macroscopic variables that characterise it do not
+        change with time</Highlight>. For example, a gas inside a closed rigid container, completely insulated from its surroundings, with
         fixed values of pressure, volume, temperature, mass and composition that do not change with time, is in a
         state of thermodynamic equilibrium.
       </p>
@@ -75,8 +76,8 @@ export default function ThermodynamicsChapter() {
         variables of A and B change spontaneously until both attain equilibrium states: pressure and volume become
         (P<sub>A</sub>′, V<sub>A</sub>′) and (P<sub>B</sub>′, V<sub>B</sub>′) such that the new states are in
         equilibrium with each other and there is no more energy flow. We then say that A is in{" "}
-        <strong>thermal equilibrium</strong> with B — in thermal equilibrium, the temperatures of the two systems
-        are equal.
+        <strong>thermal equilibrium</strong> with B — in thermal equilibrium,{" "}
+        <Highlight>the temperatures of the two systems are equal</Highlight>.
       </p>
 
       <h2 id="h-zeroth-law">11.3 Zeroth Law of Thermodynamics</h2>
@@ -105,12 +106,13 @@ export default function ThermodynamicsChapter() {
       <h2 id="h-heat-internal-work">11.4 Heat, Internal Energy and Work</h2>
       <p>
         Temperature is a marker of the &ldquo;hotness&rdquo; of a body. It determines the direction of heat flow:
-        heat flows from the body at higher temperature to the one at lower temperature, and the flow stops when the
+        <Highlight>heat flows from the body at higher temperature to the one at lower temperature</Highlight>, and the flow stops when the
         temperatures equalise (thermal equilibrium).
       </p>
       <p>
-        The <strong>internal energy U</strong> of a system is the sum of the kinetic energies and potential
-        energies of its molecules, evaluated in the frame in which the centre of mass of the system is at rest. It
+        The <strong>internal energy U</strong> of a system is <Highlight>the sum of the kinetic energies and
+        potential energies of its molecules</Highlight>, evaluated in the frame in which the centre of mass of the
+        system is at rest. It
         includes only the <em>disordered</em> energy associated with the random motion of the molecules — not the
         kinetic energy of the system as a whole. If we neglect the small intermolecular forces in a gas, its
         internal energy is just the sum of the kinetic energies of the various random motions (translational,
@@ -153,8 +155,9 @@ export default function ThermodynamicsChapter() {
       <FormulaBlock latex={String.raw`\Delta Q = \Delta U + \Delta W`} important />
       <p>
         The energy supplied to the system goes partly to increase its internal energy (∆U) and the rest into work
-        on the environment (∆W). This is the <strong>First Law of Thermodynamics</strong> — the general law of
-        conservation of energy applied to a system with energy transfer through heat and work. In the alternative
+        on the environment (∆W). This is the <strong>First Law of Thermodynamics</strong> —{" "}
+        <Highlight>the general law of conservation of energy applied to a system with energy transfer through heat
+        and work</Highlight>. In the alternative
         form:
       </p>
       <FormulaBlock latex={String.raw`\Delta Q - \Delta W = \Delta U`} />
@@ -166,8 +169,8 @@ export default function ThermodynamicsChapter() {
         doing work on the environment.
       </KeyPoint>
       <p>
-        For a gas in a cylinder with a movable piston doing work against a constant pressure P, force is pressure
-        times area and area times displacement is volume, so:
+        For a gas in a cylinder with a movable piston doing work against a constant pressure P,{" "}
+        <Highlight>force is pressure times area and area times displacement is volume</Highlight>, so:
       </p>
       <FormulaBlock latex={String.raw`\Delta W = P\,\Delta V\;\;\Longrightarrow\;\;\Delta Q = \Delta U + P\,\Delta V`} important />
       <Expandable variant="default" title="Application — 1 g of water, liquid to vapour at 100 °C">
@@ -226,8 +229,9 @@ export default function ThermodynamicsChapter() {
         ]}
       />
       <p>
-        The old unit of heat was the <strong>calorie</strong>: the amount of heat required to raise the
-        temperature of 1 g of water from 14.5 °C to 15.5 °C (the specific heat of water varies slightly with
+        The old unit of heat was the <strong>calorie</strong>:{" "}
+        <Highlight>the amount of heat required to raise the temperature of 1 g of water from 14.5 °C to 15.5
+        °C</Highlight> (the specific heat of water varies slightly with
         temperature, so a precise interval was needed). Since heat is a form of energy, the joule is preferable; 1
         cal = 4.186 J. The so-called <strong>mechanical equivalent of heat</strong> is simply a conversion factor
         between the two units of energy and is now superfluous. In SI, the specific heat capacity of water is{" "}
@@ -247,16 +251,18 @@ export default function ThermodynamicsChapter() {
 
       <h2 id="h-state-vars">11.7 Thermodynamic State Variables and Equation of State</h2>
       <p>
-        Every equilibrium state of a thermodynamic system is completely described by specific values of some{" "}
-        <strong>state variables</strong>. For a gas: pressure, volume, temperature, mass (and composition if a
+        <Highlight>Every equilibrium state of a thermodynamic system is completely described by specific values of
+        some <strong>state variables</strong></Highlight>. For a gas: pressure, volume, temperature, mass (and
+        composition if a
         mixture). A system is not always in equilibrium: a gas expanding freely into vacuum, or a mixture of
         petrol vapour and air ignited by a spark, passes through states with non-uniform pressure and temperature
         that cannot be described by state variables — until the gas attains uniform temperature and pressure and
         comes to equilibrium with its surroundings.
       </p>
       <p>
-        The state variables are not necessarily independent. The connection between them is called the{" "}
-        <strong>equation of state</strong>. For an ideal gas it is the ideal-gas relation:
+        The state variables are not necessarily independent.{" "}
+        <Highlight>The connection between them is called the <strong>equation of state</strong></Highlight>. For an
+        ideal gas it is the ideal-gas relation:
       </p>
       <FormulaBlock latex={String.raw`PV = \mu RT`} important />
       <p>
@@ -293,8 +299,8 @@ export default function ThermodynamicsChapter() {
       <p>
         When external pressure is suddenly reduced (by lifting the weight on a piston), the gas passes through
         states that are not equilibrium states — non-equilibrium states do not have well-defined pressure and
-        temperature. It is convenient to imagine an idealised process in which at <strong>every stage</strong> the
-        system is in an equilibrium state. Such a process is, in principle, infinitely slow — hence{" "}
+        temperature. It is convenient to imagine <Highlight>an idealised process in which at <strong>every stage</strong> the
+        system is in an equilibrium state</Highlight>. Such a process is, in principle, infinitely slow — hence{" "}
         <strong>quasi-static</strong> (&ldquo;nearly static&rdquo;).
       </p>
       <FormulaBlock latex={String.raw`\text{quasi-static: }\;P_{\text{ext}} \simeq P,\qquad T_{\text{surr}} \simeq T\;\;(\text{infinitesimally equal})`} />
@@ -326,14 +332,15 @@ export default function ThermodynamicsChapter() {
       </p>
       <FormulaBlock latex={String.raw`W = \int_{V_1}^{V_2} P\,dV = \mu R T \int_{V_1}^{V_2}\frac{dV}{V} = \mu R T \ln\!\frac{V_2}{V_1}`} important />
       <p>
-        For an ideal gas, internal energy depends only on temperature, so in an isothermal process ∆U = 0 and the
-        First Law gives <strong>Q = W</strong>. For V₂ &gt; V₁ (expansion) W &gt; 0 — the gas absorbs heat and does
+        For an ideal gas, internal energy depends only on temperature, so{" "}
+        <Highlight>in an isothermal process ∆U = 0</Highlight> and the First Law gives <strong>Q = W</strong>. For V₂ &gt; V₁ (expansion) W &gt; 0 — the gas absorbs heat and does
         work; for V₂ &lt; V₁ (compression) W &lt; 0 — work is done on the gas and heat is released.
       </p>
 
       <h3 id="h-adiabatic">Adiabatic process</h3>
       <p>
-        The system is insulated from its surroundings, so heat absorbed or released is zero. From the First Law,
+        The system is insulated from its surroundings, so <Highlight>heat absorbed or released is zero</Highlight>.
+        From the First Law,
         work done by the gas results in a decrease in its internal energy (and hence temperature, for an ideal
         gas). For an ideal gas in an adiabatic process:
       </p>
@@ -344,14 +351,14 @@ export default function ThermodynamicsChapter() {
       <FormulaBlock latex={String.raw`P_1V_1^{\gamma} = P_2V_2^{\gamma}`} />
       <FormulaBlock latex={String.raw`W = \frac{P_2V_2 - P_1V_1}{1-\gamma} = \frac{\mu R (T_1 - T_2)}{\gamma - 1}`} />
       <p>
-        As expected: if the gas does work adiabatically (W &gt; 0), then T₂ &lt; T₁ — the gas cools; if work is
-        done on the gas (W &lt; 0), T₂ &gt; T₁ — it heats up.
+        As expected: <Highlight>if the gas does work adiabatically (W &gt; 0), then T₂ &lt; T₁ — the gas cools
+        </Highlight>; if work is done on the gas (W &lt; 0), T₂ &gt; T₁ — it heats up.
       </p>
 
       <h3 id="h-isochoric">Isochoric process</h3>
       <p>
-        Volume is constant, so no work is done on or by the gas. From the First Law, the heat absorbed goes
-        entirely to change the internal energy and the temperature. The temperature change for a given amount of
+        Volume is constant, so <Highlight>no work is done on or by the gas</Highlight>. From the First Law, the
+        heat absorbed goes entirely to change the internal energy and the temperature. The temperature change for a given amount of
         heat is determined by the specific heat at constant volume.
       </p>
 
@@ -361,15 +368,16 @@ export default function ThermodynamicsChapter() {
       </p>
       <FormulaBlock latex={String.raw`W = P(V_2 - V_1) = \mu R (T_2 - T_1)`} />
       <p>
-        Since the temperature changes, so does the internal energy: the heat absorbed goes partly to increase
-        internal energy and partly to do work. The temperature change is determined by the specific heat at
-        constant pressure.
+        Since the temperature changes, so does the internal energy:{" "}
+        <Highlight>the heat absorbed goes partly to increase internal energy and partly to do work</Highlight>. The
+        temperature change is determined by the specific heat at constant pressure.
       </p>
 
       <h3 id="h-cyclic">Cyclic process</h3>
       <p>
-        The system returns to its initial state. Since internal energy is a state variable, ∆U = 0 for a cyclic
-        process, and the total heat absorbed equals the work done by the system.
+        The system returns to its initial state. Since internal energy is a state variable,{" "}
+        <Highlight>∆U = 0 for a cyclic process, and the total heat absorbed equals the work done by the
+        system</Highlight>.
       </p>
 
       <h2 id="h-second-law">11.9 Second Law of Thermodynamics</h2>
@@ -429,7 +437,8 @@ export default function ThermodynamicsChapter() {
       <p>
         Reversibility is basic because thermodynamics seeks the efficiency with which heat converts into work. A
         heat engine based on idealised reversible processes achieves the <strong>highest efficiency possible</strong>;
-        all other engines, involving irreversibility in any way, have lower than this limiting efficiency.
+        <Highlight>all other engines, involving irreversibility in any way, have lower than this limiting
+        efficiency</Highlight>.
       </p>
 
       <h2 id="h-carnot">11.11 Carnot Engine</h2>
@@ -440,8 +449,9 @@ export default function ThermodynamicsChapter() {
         yet to be firmly established.
       </p>
       <p>
-        The ideal engine between two temperatures must be a <strong>reversible</strong> engine, so its heat
-        exchange must be isothermal (to avoid finite temperature differences), and the temperature changes from T₁
+        The ideal engine between two temperatures must be a <strong>reversible</strong> engine, so{" "}
+        <Highlight>its heat exchange must be isothermal (to avoid finite temperature differences)</Highlight>, and
+        the temperature changes from T₁
         to T₂ and back must be brought about by <strong>adiabatic</strong> processes (which involve no heat flow
         from any reservoir). The sequence of steps — the Carnot cycle, with an ideal gas as working substance — is:
       </p>
