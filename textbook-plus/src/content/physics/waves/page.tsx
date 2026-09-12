@@ -1,3 +1,4 @@
+import { Highlight } from "@/components/content/Highlight";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
@@ -20,8 +21,8 @@ export default function WavesChapter() {
         moving outward. Put some cork pieces on the disturbed surface and you will see that they bob up and down but do
         not move away from the centre of disturbance. The water mass does not flow outward with the circles — rather, a{" "}
         <em>moving disturbance</em> is created. Similarly, when we speak, sound moves outward from us without any flow
-        of air from one part of the medium to another. These patterns, which move without the actual physical transfer
-        or flow of matter as a whole, are called <strong>waves</strong>.
+        of air from one part of the medium to another. These patterns, which <Highlight>move without the actual physical transfer
+        or flow of matter as a whole</Highlight>, are called <strong>waves</strong>.
       </p>
       <p>
         Waves transport energy, and the disturbance pattern carries information that propagates from one point to
@@ -46,8 +47,9 @@ export default function WavesChapter() {
         ]}
       />
       <p>
-        In this chapter we study <strong>mechanical waves</strong>, which require a material medium for their
-        propagation. The first scientific analysis of wave motion dates back to the seventeenth century; physicists
+        In this chapter we study <strong>mechanical waves</strong>, <Highlight>which require a material medium for
+        their propagation</Highlight>. The first scientific analysis of wave motion dates back to the seventeenth
+        century; physicists
         associated with it include Christiaan Huygens (1629–1695), Robert Hooke and Isaac Newton. Waves in elastic media
         are intimately connected with harmonic oscillations — stretched strings, coiled springs and air are elastic
         media.
@@ -102,8 +104,9 @@ export default function WavesChapter() {
       </KeyPoint>
       <p>
         In transverse waves the particle motion is normal to the direction of propagation, so every element of the
-        medium undergoes a <strong>shearing strain</strong>. Transverse waves can therefore be propagated only in media
-        that can sustain shearing stress — solids, not fluids. Fluids as well as solids can sustain compressive strain,
+        medium undergoes a <strong>shearing strain</strong>. <Highlight>Transverse waves can therefore be propagated only in media
+        that can sustain shearing stress</Highlight> — solids, not fluids. Fluids as well as solids can sustain
+        compressive strain,
         so longitudinal waves propagate in all elastic media. In steel, both transverse and longitudinal waves can
         propagate, while air can sustain only longitudinal waves.
       </p>
@@ -153,8 +156,8 @@ export default function WavesChapter() {
       <h3 id="w-amp">14.3.1 Amplitude and Phase</h3>
       <p>
         Since the sine function varies between +1 and −1, the displacement y(x, t) varies between +a and −a. Taking a to
-        be a positive constant, a represents the maximum displacement of the constituents from their equilibrium
-        position; it is called the <strong>amplitude</strong> of the wave. (y may be positive or negative, but a is
+        be a positive constant, a represents <Highlight>the maximum displacement of the constituents from their equilibrium
+        position</Highlight>; it is called the <strong>amplitude</strong> of the wave. (y may be positive or negative, but a is
         positive.)
       </p>
       <p>
@@ -166,7 +169,7 @@ export default function WavesChapter() {
 
       <h3 id="w-wavelength">14.3.2 Wavelength and Angular Wave Number</h3>
       <p>
-        The minimum distance between two points having the same phase is the <strong>wavelength</strong> λ of the wave.
+        <Highlight>The minimum distance between two points having the same phase is the <strong>wavelength</strong> λ of the wave</Highlight>.
         Choosing the points of same phase to be crests (or troughs), λ is the distance between two consecutive crests
         (or troughs). Taking φ = 0 in Eq. (14.2), the displacement at t = 0 is:
       </p>
@@ -189,8 +192,8 @@ export default function WavesChapter() {
       </p>
       <FormulaBlock latex={String.raw`y(0, t) = a\,\sin(-\omega t) = -a\,\sin\omega t`} />
       <p>
-        The <strong>period of oscillation</strong> of the wave is the time an element takes to complete one full
-        oscillation. Since the sine function repeats after every 2π, ωT = 2π, giving:
+        The <strong>period of oscillation</strong> of the wave is <Highlight>the time an element takes to complete one
+        full oscillation</Highlight>. Since the sine function repeats after every 2π, ωT = 2π, giving:
       </p>
       <FormulaBlock latex={String.raw`\omega = \frac{2\pi}{T}`} important />
       <p>
@@ -237,7 +240,7 @@ export default function WavesChapter() {
       <p>
         This general relation for all progressive waves shows that in the time required for one full oscillation by any
         constituent, the wave pattern travels a distance equal to the wavelength. The speed of a mechanical wave is{" "}
-        <strong>determined by the medium</strong> — its inertial properties (linear mass density μ for strings, mass
+        <Highlight>determined by the medium</Highlight> — its inertial properties (linear mass density μ for strings, mass
         density in general) and elastic properties (Young&rsquo;s, shear or bulk modulus). The medium fixes v; Eq.
         (14.12) then relates wavelength to frequency for that speed. As noted, the same medium can support transverse
         and longitudinal waves, which travel at different speeds.
@@ -257,8 +260,9 @@ export default function WavesChapter() {
       </p>
       <FormulaBlock latex={String.raw`v = \sqrt{\frac{T}{\mu}}`} important />
       <p>
-        The speed depends only on the properties of the medium (T and μ) — not on the wavelength or frequency of the
-        wave. In higher studies you will meet waves whose speed depends on frequency; for the string it does not. Given
+        <Highlight>The speed depends only on the properties of the medium (T and μ)</Highlight> — not on the wavelength
+        or frequency of the wave. In higher studies you will meet waves whose speed depends on frequency; for the string
+        it does not. Given
         the speed and the source frequency, the wavelength is fixed by:
       </p>
       <FormulaBlock latex={String.raw`\lambda = \frac{v}{\nu}`} />
@@ -284,8 +288,9 @@ export default function WavesChapter() {
       </p>
       <FormulaBlock latex={String.raw`v = \sqrt{\frac{Y}{\rho}}`} />
       <p>
-        Liquids and solids generally have higher speeds of sound than gases because they are much harder to compress —
-        their bulk moduli are much larger. Although solids and liquids also have higher densities, the increase in B
+        <Highlight>Liquids and solids generally have higher speeds of sound than gases because they are much harder to
+        compress — their bulk moduli are much larger</Highlight>. Although solids and liquids also have higher densities,
+        the increase in B
         dominates, which is why sound travels faster in them. Table 14.1 in the NCERT text lists speeds of sound in
         various media.
       </p>
@@ -319,8 +324,9 @@ export default function WavesChapter() {
         What happens when two wave pulses travelling in opposite directions cross each other? They continue to retain
         their identities after crossing. During the time they overlap, the wave pattern is different from either pulse;
         the resultant displacement is the <strong>algebraic sum</strong> of the displacements due to each pulse. This is
-        the <strong>principle of superposition of waves</strong>: each pulse moves as if the others were not present,
-        and since displacements can be positive or negative, the net displacement is their algebraic sum. (Fig 14.9(c)
+        the <strong>principle of superposition of waves</strong>: <Highlight>each pulse moves as if the others were not
+        present</Highlight>, and since displacements can be positive or negative, the net displacement is their algebraic
+        sum. (Fig 14.9(c)
         shows the two pulses exactly cancelling, giving zero displacement throughout.)
       </p>
       <FormulaBlock latex={String.raw`y(x, t) = y_1(x, t) + y_2(x, t)`} important />
@@ -399,8 +405,8 @@ export default function WavesChapter() {
         The amplitude is 2a sin kx — it varies from point to point, while each element oscillates with the same angular
         frequency and time period. There is no phase difference between the oscillations of different elements; the
         string vibrates in phase with different amplitudes at different points. The pattern moves neither right nor
-        left — hence the name standing or stationary wave. Points where the amplitude is zero (no motion at all) are{" "}
-        <strong>nodes</strong>; points where the amplitude is largest are <strong>antinodes</strong>.
+        left — hence the name standing or stationary wave. <Highlight>Points where the amplitude is zero (no motion at all) are <strong>nodes</strong>; points where the
+        amplitude is largest are <strong>antinodes</strong></Highlight>.
       </p>
       <p>
         The most significant feature: the boundary conditions constrain the possible wavelengths and frequencies. The
@@ -430,8 +436,9 @@ export default function WavesChapter() {
       <p>
         The fundamental (n = 0) is v/(4L); the higher frequencies are <strong>odd harmonics</strong> — 3v/(4L), 5v/(4L),
         and so on. For a pipe open at both ends, each end is an antinode and all harmonics are generated, ν_n = nv/(2L).
-        Strings and air columns can also undergo forced oscillations; if the external frequency is close to a natural
-        frequency, the system shows <strong>resonance</strong>. Normal modes of a circular membrane (as in a tabla) are
+        Strings and air columns can also undergo forced oscillations; <Highlight>if the external frequency is close to a
+        natural frequency, the system shows <strong>resonance</strong></Highlight>. Normal modes of a circular membrane
+        (as in a tabla) are
         set by the same boundary-condition physics in two dimensions.
       </p>
 

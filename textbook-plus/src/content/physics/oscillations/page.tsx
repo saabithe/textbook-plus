@@ -1,4 +1,5 @@
 import { Callout } from "@/components/content/Callout";
+import { Highlight } from "@/components/content/Highlight";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
 import { FormulaBlock } from "@/components/content/Formula";
@@ -15,7 +16,7 @@ export default function OscillationsChapter() {
         In daily life we come across various kinds of motions. Rectilinear motion and the motion of a projectile are{" "}
         <strong>non-repetitive</strong>. Uniform circular motion and the orbital motion of planets are{" "}
         <strong>periodic</strong> — the motion repeats after a certain interval of time. The rocking of a cradle and
-        the swinging of a swing are also repetitive but different: the object moves to and fro about a mean position.
+        the swinging of a swing are also repetitive but different: <Highlight>the object moves to and fro about a mean position</Highlight>.
         So too the pendulum of a wall clock, a boat tossing up and down in a river, and the piston of a steam engine
         going back and forth. Such motion is called <strong>oscillatory motion</strong>.
       </p>
@@ -37,11 +38,13 @@ export default function OscillationsChapter() {
         graph as in Fig. 13.1(a). A child climbing a step, coming down and repeating gives Fig. 13.1(b); and the height
         of a ball bouncing between the palm and the ground gives Fig. 13.1(c), whose curved sections are parabolas from
         h = ut − ½gt². All three repeat at regular intervals. Thus, a motion that{" "}
-        <strong>repeats itself at regular intervals of time</strong> is called <strong>periodic motion</strong>.
+        <Highlight>
+          <strong>repeats itself at regular intervals of time</strong> is called <strong>periodic motion</strong>
+        </Highlight>.
       </p>
       <p>
         Very often the body undergoing periodic motion has an <strong>equilibrium position</strong> somewhere inside its
-        path. When the body is there, no net external force acts on it — left at rest, it stays there forever. If given
+        path. When the body is there, <Highlight>no net external force acts on it — left at rest, it stays there forever</Highlight>. If given
         a small displacement from that position, a force comes into play that tries to bring it back, giving rise to{" "}
         <strong>oscillations</strong> or <strong>vibrations</strong>. For example, a ball placed in a bowl is in
         equilibrium at the bottom; displaced a little, it oscillates in the bowl.
@@ -73,8 +76,8 @@ export default function OscillationsChapter() {
         planet Mercury is 88 earth days, and Halley&rsquo;s comet appears after every 76 years.
       </p>
       <p>
-        The reciprocal of T is the number of repetitions per unit time — the <strong>frequency</strong> of the periodic
-        motion, denoted ν (nu):
+        <Highlight>The reciprocal of T is the number of repetitions per unit time — the <strong>frequency</strong> of the{" "}
+          periodic motion, denoted ν (nu)</Highlight>:
       </p>
       <FormulaBlock latex={String.raw`\nu = \frac{1}{T}`} important />
       <p>
@@ -88,8 +91,9 @@ export default function OscillationsChapter() {
 
       <h3 id="o-displacement">13.2.2 Displacement</h3>
       <p>
-        In this chapter displacement is used in a general sense — it refers to the change with time of{" "}
-        <em>any physical property under consideration</em>. For a block attached to a spring it is the distance x from
+        In this chapter displacement is used in a general sense —{" "}
+        <Highlight>it refers to the change with time of <em>any physical property under consideration</em></Highlight>.
+        For a block attached to a spring it is the distance x from
         the equilibrium position; for an oscillating simple pendulum it is the angle θ from the vertical; other examples
         are the voltage across a capacitor in an AC circuit, pressure variations during sound propagation, and the
         changing electric and magnetic fields in a light wave.
@@ -123,8 +127,11 @@ export default function OscillationsChapter() {
       </p>
       <FormulaBlock latex={String.raw`x(t) = A \cos(\omega t + \phi)`} important />
       <p>
-        where A, ω and φ are constants. Thus, SHM is not any periodic motion but one in which displacement is a
-        sinusoidal function of time. The quantities A, ω and φ have standard names:
+        where A, ω and φ are constants. Thus,{" "}
+        <Highlight>
+          SHM is not any periodic motion but one in which displacement is a sinusoidal function of time
+        </Highlight>
+        . The quantities A, ω and φ have standard names:
       </p>
       <TableCard
         caption="13.1 Table — Symbols of Eq. (13.4)"
@@ -154,8 +161,8 @@ export default function OscillationsChapter() {
       </p>
       <FormulaBlock latex={String.raw`\omega = \frac{2\pi}{T}`} important />
       <p>
-        ω is the <strong>angular frequency</strong>, with SI unit radians per second; being 2π times the frequency of
-        oscillation, ω = 2πν. Two SHMs may have the same A and φ but different ω — one with half the period and twice
+        ω is the <strong>angular frequency</strong>, with SI unit radians per second;{" "}
+        <Highlight>being 2π times the frequency of oscillation, ω = 2πν</Highlight>. Two SHMs may have the same A and φ but different ω — one with half the period and twice
         the frequency of the other [Fig. 13.8].
       </p>
       <Callout type="note" title="Radian convention">
@@ -173,7 +180,7 @@ export default function OscillationsChapter() {
 
       <h2 id="o-circular">13.4 SHM and Uniform Circular Motion</h2>
       <p>
-        The projection of uniform circular motion on a diameter of the circle follows simple harmonic motion. Tie a
+        <Highlight>The projection of uniform circular motion on a diameter of the circle follows simple harmonic motion</Highlight>. Tie a
         ball to a string and make it move in a horizontal plane with constant angular speed; viewed sideways the ball
         appears to execute a to-and-fro motion along a horizontal line with the point of rotation as the midpoint — the
         motion of the ball on a diameter of the circle normal to the viewing direction.
@@ -212,8 +219,10 @@ export default function OscillationsChapter() {
       <FormulaBlock latex={String.raw`a(t) = -\omega^2 A \cos(\omega t + \phi) = -\omega^2 x(t)`} important />
       <p>
         The important property: <strong>acceleration is proportional to displacement</strong>. For x &gt; 0, a &lt; 0;
-        for x &lt; 0, a &gt; 0 — whatever the value of x between −A and A, the acceleration is always directed towards
-        the centre.
+        for x &lt; 0, a &gt; 0 —{" "}
+        <Highlight>
+          whatever the value of x between −A and A, the acceleration is always directed towards the centre
+        </Highlight>.
       </p>
       <p>
         For φ = 0: x(t) = A cosωt, v(t) = −ωA sinωt, a(t) = −ω²A cosωt. All quantities vary sinusoidally with the same
@@ -238,9 +247,13 @@ export default function OscillationsChapter() {
       <FormulaBlock latex={String.raw`F(t) = m a = -m\omega^2 x(t) = -k x(t)`} important />
       <FormulaBlock latex={String.raw`k = m\omega^2,\qquad \omega = \sqrt{\frac{k}{m}}`} important />
       <p>
-        Like acceleration, the force is always directed towards the mean position — it is a{" "}
-        <strong>restoring force</strong>. Simple harmonic motion can therefore be defined in two equivalent ways, by the
-        displacement equation x(t) = A cos(ωt + φ) or by the force law F = −kx; differentiating the displacement twice
+        Like acceleration, <Highlight>the force is always directed towards the mean position — it is a{" "}
+        <strong>restoring force</strong></Highlight>.{" "}
+        <Highlight>
+          Simple harmonic motion can therefore be defined in two equivalent ways, by the displacement equation x(t) = A
+          cos(ωt + φ) or by the force law F = −kx
+        </Highlight>
+        ; differentiating the displacement twice
         gives the force law, and integrating the force law twice recovers the displacement.
       </p>
       <p>
@@ -273,9 +286,9 @@ export default function OscillationsChapter() {
       </p>
       <FormulaBlock latex={String.raw`E = U + K = \frac12 kA^2 \left[\cos^2(\omega t + \phi) + \sin^2(\omega t + \phi)\right] = \frac12 kA^2`} important />
       <p>
-        The total mechanical energy of a harmonic oscillator is independent of time, as expected for any conservative
+        <Highlight>The total mechanical energy of a harmonic oscillator is independent of time</Highlight>, as expected for any conservative
         force. Kinetic and potential energies are both always positive (PE by choice of the undetermined constant); both
-        peak twice per period. At x = 0 the energy is all kinetic; at the extremes x = ±A it is all potential; in
+        peak twice per period. <Highlight>At x = 0 the energy is all kinetic; at the extremes x = ±A it is all potential</Highlight>; in
         between, kinetic energy increases at the expense of potential energy or vice-versa.
       </p>
 
@@ -299,7 +312,7 @@ export default function OscillationsChapter() {
       </p>
       <FormulaBlock latex={String.raw`I\alpha = -mgL\sin\theta,\qquad \alpha = -\frac{mgL}{I}\sin\theta`} />
       <p>
-        For small displacements, sinθ ≈ θ (in radians):
+        <Highlight>For small displacements, sinθ ≈ θ (in radians)</Highlight>:
       </p>
       <FormulaBlock latex={String.raw`\sin\theta = \theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \dots`} />
       <TableCard
@@ -315,7 +328,7 @@ export default function OscillationsChapter() {
       />
       <p>
         For θ as large as 20°, sinθ is nearly the same as θ in radians. Thus α = −(mgL/I)θ, which is mathematically
-        identical to the SHM equation with an angular displacement variable — the motion is simple harmonic for small θ.
+        identical to the SHM equation with an angular displacement variable — <Highlight>the motion is simple harmonic for small θ</Highlight>.
       </p>
       <FormulaBlock latex={String.raw`\omega = \sqrt{\frac{mgL}{I}},\qquad T = 2\pi\sqrt{\frac{I}{mgL}}`} />
       <p>
