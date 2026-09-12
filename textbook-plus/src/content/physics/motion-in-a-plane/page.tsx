@@ -1,4 +1,5 @@
 import { Callout } from "@/components/content/Callout";
+import { Comparison } from "@/components/content/Comparison";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
@@ -15,28 +16,31 @@ import { ProcessCard } from "@/components/content/process/ProcessCard";
 export default function MotionInAPlaneChapter() {
   return (
     <>
-      <h2 id="h-intro">3.1 Introduction</h2>
-      <p>
-        In Chapter 2 the directional aspect of position, displacement, velocity and acceleration was
-        handled by +/− signs — in one dimension only two directions exist. To describe motion in{" "}
-        <strong>two dimensions</strong> (a plane) or <strong>three dimensions</strong> (space) we need{" "}
-        <strong>vectors</strong>.
-      </p>
-      <KeyPoint>
-        This chapter first develops the language of vectors (scalars, addition, multiplication,
-        resolution), then applies it to motion in a plane: motion with constant acceleration,{" "}
-        <strong>projectile motion</strong> in detail, and <strong>uniform circular motion</strong>. The
-        equations extend naturally to three dimensions.
-      </KeyPoint>
-
       <h2 id="h-scalars-vectors">3.2 Scalars and Vectors</h2>
-      <Callout type="important" title="Scalar vs vector">
-        A <strong>scalar</strong> has magnitude only — a single number with the proper unit (distance,
-        mass, temperature, time); combined with the rules of ordinary algebra. A{" "}
-        <Highlight color="blue">vector</Highlight> has magnitude <em>and</em> direction and obeys the
-        <strong> triangle law</strong> (equivalently the <strong>parallelogram law</strong>) of addition —
-        examples: displacement, velocity, acceleration, force.
-      </Callout>
+      <Comparison
+        columns={[
+          {
+            title: "Scalar",
+            children: (
+              <ul className="space-y-1 list-none">
+                <li>Has <strong>magnitude only</strong> — a single number with the proper unit.</li>
+                <li>Combined with the rules of <strong>ordinary algebra</strong>.</li>
+                <li>Examples: distance, mass, temperature, time, speed, work, density, energy.</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Vector",
+            children: (
+              <ul className="space-y-1 list-none">
+                <li>Has <strong>magnitude and direction</strong>.</li>
+                <li>Obeys the <strong>triangle law</strong> (equivalently the <strong>parallelogram law</strong>) of addition.</li>
+                <li>Examples: displacement, velocity, acceleration, force, torque, momentum.</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
       <p>
         Notation: bold face <strong>v</strong> or arrow <Formula>{String.raw`\vec{v}`}</Formula>; magnitude
         |<strong>v</strong>| = v.
