@@ -100,7 +100,7 @@ This file tracks ALL user preferences, design decisions, and customization choic
 
 | Preference | Value | Date |
 |------------|-------|------|
-| Font family | Plus Jakarta Sans | Aug 2026 |
+| Font family | Plus Jakarta Sans (UI/app shell) · Georgia (notes content) | Aug 2026 · Sep 2026 |
 
 ## 8. App Shell
 
@@ -138,6 +138,10 @@ This file tracks ALL user preferences, design decisions, and customization choic
 | Avoid repetition | Do not re-state in one section content already covered in another — e.g., skip duplicate PYQ comparison when `TableCard` already answers it; add a `Callout` pointing to the table. | Aug 2026 |
 | Board PYQs | Board PYQ slides are an **optional** secondary source — render as optional `Board PYQs` section (collapsed Expandables grouped by theme) only when provided. | Aug 2026 |
 | Capture user solution steps | **Capture ALL user-provided solution steps verbatim.** When the user shares step-by-step notes/solutions, reproduce every step they give — never collapse, condense, or drop intermediate steps. Expand worked answers into full step-by-step (e.g. `Stepper` + final highlighted answer) matching the user's supplied derivation, even if a shorter version already exists. | Sep 2026 |
+| Deliberate presentation | **Never dump extracted text.** Deliberately decide the best vehicle for every piece of content: boxes (`Callout`/`KeyPoint`/`FactCard`), `TableCard`/`Comparison` for fact groups, `Stepper`/diagrams for processes, custom reusable components when a presentation recurs. Applies to all chapters and all subjects. | Sep 2026 |
+| Initial velocity notation | **Always `u`** — never `v_0`/`v0`/`v₀` — plus `uₓ = u cosθ`, `u_y = u sinθ` for components. All physics content. | Sep 2026 |
+| Formula layout | **One formula per row** (`<li>` or table row); never cram several formulas into a single line/list item. | Sep 2026 |
+| Exercise/PYQ banks | Use the `ExerciseQa` component inside an `Expandable` for ALL question banks incl. PYQs — numbered rows + emerald answer panel, chapter-agnostic. | Sep 2026 |
 
 ---
 

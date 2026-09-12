@@ -172,18 +172,18 @@ export default function DerivationSheet() {
       <FormulaBlock latex={String.raw`|\mathbf{R}| = \sqrt{A^2 + B^2 + 2AB\cos\theta}, \qquad \tan\alpha = \frac{B\sin\theta}{A + B\cos\theta}`} important />
 
       <h3 id="ds-c03-02" className="scroll-mt-24">
-        3.2 Projectile trajectory: y = x tanθ − gx²/2v₀²cos²θ
+        3.2 Projectile trajectory: y = x tanθ − gx²/2u²cos²θ
       </h3>
       <Stepper
         steps={[
-          { label: "Resolve the initial velocity", description: <>Horizontal component <Formula>{String.raw`v_x = v_0\cos\theta`}</Formula>; vertical component <Formula>{String.raw`v_y = v_0\sin\theta`}</Formula>.</> },
-          { label: "Write the horizontal motion (no acceleration)", description: <><Formula>{String.raw`x = (v_0\cos\theta)\, t`}</Formula>.</> },
-          { label: "Write the vertical motion (free fall)", description: <>Vertical displacement with initial speed v₀sinθ and acceleration −g: <Formula>{String.raw`y = (v_0\sin\theta)\, t - \tfrac12 g t^2`}</Formula>.</> },
-          { label: "Eliminate the time", description: <>From the x-equation, <Formula>{String.raw`t = \frac{x}{v_0\cos\theta}`}</Formula>. Substitute into the y-equation:</> },
-          { label: "Simplify the two terms", description: <><Formula>{String.raw`y = x\,\frac{v_0\sin\theta}{v_0\cos\theta} - \frac12 g\,\frac{x^2}{v_0^2\cos^2\theta}`}</Formula>. The ratio of the velocity components is <Formula>{String.raw`\tan\theta`}</Formula>:</> },
+          { label: "Resolve the initial velocity", description: <>Horizontal component <Formula>{String.raw`u_x = u\cos\theta`}</Formula>; vertical component <Formula>{String.raw`u_y = u\sin\theta`}</Formula>.</> },
+          { label: "Write the horizontal motion (no acceleration)", description: <><Formula>{String.raw`x = (u\cos\theta)\, t`}</Formula>.</> },
+          { label: "Write the vertical motion (free fall)", description: <>Vertical displacement with initial speed u sinθ and acceleration −g: <Formula>{String.raw`y = (u\sin\theta)\, t - \tfrac12 g t^2`}</Formula>.</> },
+          { label: "Eliminate the time", description: <>From the x-equation, <Formula>{String.raw`t = \frac{x}{u\cos\theta}`}</Formula>. Substitute into the y-equation:</> },
+          { label: "Simplify the two terms", description: <><Formula>{String.raw`y = x\,\frac{u\sin\theta}{u\cos\theta} - \frac12 g\,\frac{x^2}{u^2\cos^2\theta}`}</Formula>. The ratio of the velocity components is <Formula>{String.raw`\tan\theta`}</Formula>:</> },
         ]}
       />
-      <FormulaBlock latex={String.raw`y = x\tan\theta - \frac{g\,x^2}{2v_0^2\cos^2\theta}`} important />
+      <FormulaBlock latex={String.raw`y = x\tan\theta - \frac{g\,x^2}{2u^2\cos^2\theta}`} important />
       <KeyPoint title="Shape of the trajectory">
         Because y is quadratic in x, the path is a parabola symmetric about the vertical through
         its maximum height.
@@ -194,26 +194,26 @@ export default function DerivationSheet() {
       </h3>
       <Stepper
         steps={[
-          { label: "Find the time to reach the top", description: <>At the top the vertical velocity is zero. Using the first equation of motion for the vertical part: <Formula>{String.raw`0 = v_0\sin\theta - g\,t_{\mathrm{up}}`}</Formula>, giving <Formula>{String.raw`t_{\mathrm{up}} = \frac{v_0\sin\theta}{g}`}</Formula>.</> },
-          { label: "Double it for the total time of flight", description: <>By symmetry the descent takes the same time: <Formula>{String.raw`T = 2t_{\mathrm{up}} = \frac{2v_0\sin\theta}{g}`}</Formula>.</> },
-          { label: "Find the maximum height from the velocity–displacement relation", description: <>Vertically, with final speed 0 at height H: <Formula>{String.raw`0 = (v_0\sin\theta)^2 - 2gH`}</Formula>.</> },
-          { label: "Rearrange", description: <><Formula>{String.raw`H = \frac{v_0^2\sin^2\theta}{2g}`}</Formula>.</> },
+          { label: "Find the time to reach the top", description: <>At the top the vertical velocity is zero. Using the first equation of motion for the vertical part: <Formula>{String.raw`0 = u\sin\theta - g\,t_{\mathrm{up}}`}</Formula>, giving <Formula>{String.raw`t_{\mathrm{up}} = \frac{u\sin\theta}{g}`}</Formula>.</> },
+          { label: "Double it for the total time of flight", description: <>By symmetry the descent takes the same time: <Formula>{String.raw`T = 2t_{\mathrm{up}} = \frac{2u\sin\theta}{g}`}</Formula>.</> },
+          { label: "Find the maximum height from the velocity–displacement relation", description: <>Vertically, with final speed 0 at height H: <Formula>{String.raw`0 = (u\sin\theta)^2 - 2gH`}</Formula>.</> },
+          { label: "Rearrange", description: <><Formula>{String.raw`H = \frac{u^2\sin^2\theta}{2g}`}</Formula>.</> },
         ]}
       />
-      <FormulaBlock latex={String.raw`T = \frac{2v_0\sin\theta}{g}, \qquad H = \frac{v_0^2\sin^2\theta}{2g}`} important />
+      <FormulaBlock latex={String.raw`T = \frac{2u\sin\theta}{g}, \qquad H = \frac{u^2\sin^2\theta}{2g}`} important />
 
       <h3 id="ds-c03-04" className="scroll-mt-24">
         3.4 Horizontal range of a projectile
       </h3>
       <Stepper
         steps={[
-          { label: "Relate the range to the time of flight", description: <>Range = horizontal component of velocity × time of flight: <Formula>{String.raw`R = (v_0\cos\theta) T`}</Formula>.</> },
-          { label: "Substitute the time of flight", description: <><Formula>{String.raw`R = v_0\cos\theta \cdot \frac{2v_0\sin\theta}{g} = \frac{v_0^2 (2\sin\theta\cos\theta)}{g}`}</Formula>.</> },
+          { label: "Relate the range to the time of flight", description: <>Range = horizontal component of velocity × time of flight: <Formula>{String.raw`R = (u\cos\theta) T`}</Formula>.</> },
+          { label: "Substitute the time of flight", description: <><Formula>{String.raw`R = u\cos\theta \cdot \frac{2u\sin\theta}{g} = \frac{u^2 (2\sin\theta\cos\theta)}{g}`}</Formula>.</> },
           { label: "Use the double-angle identity", description: <>Since <Formula>{String.raw`2\sin\theta\cos\theta = \sin 2\theta`}</Formula>:</> },
-          { label: "Optimise the angle", description: <><Formula>{String.raw`\sin 2\theta`}</Formula> is maximum (equal to 1) at <Formula>{String.raw`2\theta = 90^\circ`}</Formula>, i.e. <Formula>{String.raw`\theta = 45^\circ`}</Formula>, giving <Formula>{String.raw`R_{\max} = v_0^2/g`}</Formula>. Also <Formula>{String.raw`\sin 2\theta = \sin(180^\circ - 2\theta)`}</Formula>, so angles θ and <Formula>{String.raw`90^\circ - \theta`}</Formula> give equal ranges.</> },
+          { label: "Optimise the angle", description: <><Formula>{String.raw`\sin 2\theta`}</Formula> is maximum (equal to 1) at <Formula>{String.raw`2\theta = 90^\circ`}</Formula>, i.e. <Formula>{String.raw`\theta = 45^\circ`}</Formula>, giving <Formula>{String.raw`R_{\max} = u^2/g`}</Formula>. Also <Formula>{String.raw`\sin 2\theta = \sin(180^\circ - 2\theta)`}</Formula>, so angles θ and <Formula>{String.raw`90^\circ - \theta`}</Formula> give equal ranges.</> },
         ]}
       />
-      <FormulaBlock latex={String.raw`R = \frac{v_0^2\sin 2\theta}{g}, \qquad R_{\max} = \frac{v_0^2}{g}\ \text{at } 45^\circ`} important />
+      <FormulaBlock latex={String.raw`R = \frac{u^2\sin 2\theta}{g}, \qquad R_{\max} = \frac{u^2}{g}\ \text{at } 45^\circ`} important />
 
       <h3 id="ds-c03-05" className="scroll-mt-24">
         3.5 Uniform circular motion: v = rω and centripetal acceleration a = ω²r = v²/r

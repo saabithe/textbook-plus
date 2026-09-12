@@ -34,7 +34,7 @@ No test framework. No typecheck script (TypeScript errors surface via `npm run b
 - **Tailwind CSS v4** with `@tailwindcss/postcss` — no `tailwind.config.ts`; config in `globals.css` via `@theme inline`
 - **shadcn/ui** — style `base-nova`, uses `@base-ui/react` (not Radix). Add via `npx shadcn@latest add <component>`
 - **TypeScript strict** with `@/*` → `./src/*`
-- **Font**: Plus Jakarta Sans via `next/font/google` → `--font-sans` CSS variable
+- **Font**: Plus Jakarta Sans for UI via `next/font/google` → `--font-sans` CSS variable; **notes content** (`.prose-custom`) renders in **Georgia** (`font-family: Georgia, "Times New Roman", serif`) — home page / app shell stays Jakarta.
 - **Lucide React** for icons
 - **KaTeX** for math rendering (`katex` package, imported via `@/components/content/Formula`)
 - **Supabase** for auth + cloud progress sync (`@supabase/ssr`)
@@ -203,6 +203,13 @@ These are the Plus Two maths chapters listed in `src/data/chapters.ts`. They hav
 - **Worked examples render as collapsed `Expandable`** blocks (not expanded `Example` blocks).
 - Avoid re-stating in one section content already covered elsewhere in the chapter (e.g. removing an aggregate recap/table when the same points are covered in-topic).
 - **Capture ALL user-provided solution steps verbatim.** When the user shares step-by-step notes/solutions, reproduce every step they give — never collapse, condense, or drop intermediate steps. Expand worked answers into full step-by-step (e.g. `Stepper` + final highlighted answer) matching the user's supplied derivation, even if a shorter version already exists.
+
+### Content Authoring Conventions (user mandates — apply to ALL chapters, ALL subjects)
+- **Deliberate presentation, never dumping.** Sit and think about every piece of extracted content before placing it: pick the best vehicle per piece — a box (`Callout`/`KeyPoint`/`FactCard`), a `TableCard`/`Comparison` for groups of facts, a `Stepper`/diagram for processes, a custom component when the same presentation will recur. Text walls and straight list-dumps of textbook text are rejected. Reuse existing components first; create a new component only when justified.
+- **Use `u` for initial velocity**, not `v_0`/`v0`/`v₀` (and `uₓ = u cosθ`, `u_y = u sinθ` for components). Mandatory in all physics content. (Exception: NCERT problem statements that ship with a named initial velocity may keep their symbol only when the whole problem set demands it.)
+- **Never cram multiple formulas into one line or list item.** Give each formula its own row (`<li>` or `TableCard` row), then relate them with short sentences. "Period/frequency: T=1/ν, ω=2πν, v=…" style one-liners are forbidden.
+- **Exercise/Question banks (incl. PYQs) use the `ExerciseQa` component** inside an `Expandable` — numbered rows with an emerald answer panel, not hand-rolled `<ol>`/answer paragraphs. This styling is chapter-agnostic and must be used everywhere.
+- **No repeat content.** Don't re-state in one place what is already covered in the chapter (recap boxes, duplicate facts, re-derived formulas) unless it is a genuinely new angle.
 
 ## Todo Rule
 

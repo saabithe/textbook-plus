@@ -134,6 +134,7 @@
 .prose-custom {
   @apply max-w-none text-[1.0625rem] leading-[1.75];
   overflow-wrap: anywhere;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 .prose-custom h1 {
