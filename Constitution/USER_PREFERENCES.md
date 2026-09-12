@@ -100,7 +100,7 @@ This file tracks ALL user preferences, design decisions, and customization choic
 
 | Preference | Value | Date |
 |------------|-------|------|
-| Font family | Plus Jakarta Sans (UI/app shell) · **Caveat** (handwriting — all `.prose-custom` notes content incl. headings; 1.2rem / weight 500) | Aug 2026 · Sep 2026 |
+| Font family | Plus Jakarta Sans (UI/app shell) · **Source Serif 4** (all `.prose-custom` notes content incl. headings; 1.125rem / weight 500) | Aug 2026 · Sep 2026 |
 
 ## 8. App Shell
 

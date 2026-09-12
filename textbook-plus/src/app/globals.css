@@ -132,9 +132,9 @@
 
 /* Chapter content typography */
 .prose-custom {
-  @apply max-w-none text-[1.2rem] leading-[1.75];
+  @apply max-w-none text-[1.125rem] leading-[1.75];
   overflow-wrap: anywhere;
-  font-family: var(--font-hand), "Comic Sans MS", cursive;
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
   font-weight: 500;
 }
 
