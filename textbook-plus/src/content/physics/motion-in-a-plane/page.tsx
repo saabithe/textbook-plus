@@ -4,6 +4,7 @@ import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
+import { SolvedProblem } from "@/components/content/SolvedProblem";
 import { Highlight } from "@/components/content/Highlight";
 import { Stepper } from "@/components/content/Stepper";
 import { MetricCard } from "@/components/content/study/MetricCard";
@@ -40,6 +41,19 @@ export default function MotionInAPlaneChapter() {
         Notation: bold face <strong>v</strong> or arrow <Formula>{String.raw`\vec{v}`}</Formula>; magnitude
         |<strong>v</strong>| = v.
       </p>
+      <KeyPoint title="The two tests of a vector">
+        A physical quantity is a <strong>vector</strong> only if it has <strong>both</strong> magnitude and
+        direction <em>and</em> obeys the <strong>laws of vector algebra</strong>. Scalars — mass, time, work,
+        distance, density, temperature, heat, energy — have magnitude only. Vectors — displacement, velocity,
+        acceleration, force, torque, momentum — satisfy both tests.
+      </KeyPoint>
+      <h3>Key terms in vectors</h3>
+      <ul>
+        <li><strong>Modulus of a vector</strong> — the magnitude of the vector, written <Formula>{String.raw`|\vec{A}|`}</Formula> or simply <Formula>{String.raw`A`}</Formula>.</li>
+        <li><strong>Unit vector</strong> — a vector of magnitude 1 drawn in the direction of the given vector: <Formula>{String.raw`|\hat{A}| = 1`}</Formula>. The standard unit vectors along the x-, y-, z-axes are î, ĵ, k̂.</li>
+        <li><strong>Equal vectors</strong> — two vectors with the same magnitude and the same direction: <Formula>{String.raw`\vec{A} = \vec{B}`}</Formula>.</li>
+        <li><strong>Null (zero) vector</strong> — a vector with zero magnitude and an arbitrary direction, written <Formula>{String.raw`\vec{0}`}</Formula>; e.g. the position vector of the origin.</li>
+      </ul>
       <h3>3.2.1 Position and displacement vectors</h3>
       <ul>
         <li>Position vector <strong>r</strong> of a point P with respect to origin O; at P′ it is <strong>r′</strong>.</li>
@@ -52,6 +66,34 @@ export default function MotionInAPlaneChapter() {
         direction. Vectors have no fixed location — shifting a vector parallel to itself leaves it
         unchanged (<strong>free vectors</strong>).
       </p>
+
+      <Expandable title="Important questions &amp; PYQs — Scalars &amp; Vectors" variant="exercise">
+        <ol className="space-y-3">
+          <li>
+            <p><strong>PYQ (2016) [1 Mark]</strong> — Identify the scalar quantity from: (i) momentum, (ii) work, (iii) torque, (iv) acceleration.</p>
+            <p className="mt-1"><strong>Answer:</strong> (ii) Work.</p>
+          </li>
+          <li>
+            <p><strong>PYQ (2021) [2 Marks]</strong> — What are the conditions for equality of two vectors?</p>
+            <ul className="mt-1 ml-5 list-none space-y-1">
+              <li>1. Same magnitude</li>
+              <li>2. Same direction</li>
+            </ul>
+          </li>
+          <li>
+            <p>Define the modulus of a vector.</p>
+            <p className="mt-1"><strong>Answer:</strong> The magnitude of a vector is called its modulus, <Formula>{String.raw`|\vec{A}|`}</Formula> or <Formula>{String.raw`A`}</Formula>.</p>
+          </li>
+          <li>
+            <p>What are unit vectors?</p>
+            <p className="mt-1"><strong>Answer:</strong> A vector of magnitude 1 unit drawn in the direction of a given vector — e.g. î, ĵ, k̂.</p>
+          </li>
+          <li>
+            <p>What do you mean by a null vector or zero vector? Give one example.</p>
+            <p className="mt-1"><strong>Answer:</strong> A vector with zero magnitude and an arbitrary direction (e.g. the position vector of the origin).</p>
+          </li>
+        </ol>
+      </Expandable>
 
       <h2 id="h-multiplication">3.3 Multiplication of Vectors by Real Numbers</h2>
       <FormulaCard>
@@ -68,6 +110,19 @@ export default function MotionInAPlaneChapter() {
         <strong>A</strong>&rsquo;s head; the resultant <strong>R</strong> joins <strong>A</strong>&rsquo;s
         tail to <strong>B</strong>&rsquo;s head.
       </p>
+      <p>
+        <strong>Triangle law of vector addition:</strong> if two vectors are represented in magnitude and
+        direction by two sides of a triangle taken in the <strong>same order</strong>, their resultant{" "}
+        <Formula>{String.raw`\vec{R}`}</Formula> is represented in magnitude and direction by the third side
+        taken in the <strong>opposite order</strong>:
+      </p>
+      <FormulaBlock latex={String.raw`\vec{R} = \vec{A} + \vec{B}`} important />
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Vector_addition.svg"
+        alt="Triangle (head-to-tail) law of vector addition — the resultant R closes the triangle"
+        className="w-full h-auto rounded-lg object-contain max-h-[280px] mx-auto bg-white"
+        loading="lazy"
+      />
       <FormulaCard>
         <ul>
           <li>Commutative: <Formula>{String.raw`\mathbf{A} + \mathbf{B} = \mathbf{B} + \mathbf{A}`}</Formula></li>
@@ -80,6 +135,30 @@ export default function MotionInAPlaneChapter() {
         The <strong>parallelogram method</strong> (tails at a common origin; complete the parallelogram;
         resultant along the diagonal) is equivalent to the triangle method.
       </p>
+      <p>
+        <strong>Parallelogram law of vector addition:</strong> if two vectors acting at a point are
+        represented in magnitude and direction by the two adjacent sides of a parallelogram, their resultant
+        is represented in magnitude and direction by the <strong>diagonal</strong> through that point, with
+        magnitude <Formula>{String.raw`R = \sqrt{A^2 + B^2 + 2AB\cos\theta}`}</Formula> and direction{" "}
+        <Formula>{String.raw`\tan\alpha = \frac{B\sin\theta}{A + B\cos\theta}`}</Formula> (α is the angle R
+        makes with A).
+      </p>
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Parallelogram-law-of-combination.svg"
+        alt="Parallelogram law of vector addition — the resultant R is the diagonal through the common origin"
+        className="w-full h-auto rounded-lg object-contain max-h-[340px] mx-auto bg-white"
+        loading="lazy"
+      />
+      <p>Special cases of the resultant:</p>
+      <TableCard
+        headers={["Case", "Angle θ between A and B", "Resultant", "Remark"]}
+        rows={[
+          { cells: ["Same direction", "θ = 0°", "R_max = A + B", "Maximum possible resultant"] },
+          { cells: ["Opposite direction", "θ = 180°", "R_min = |A − B|", "Minimum possible resultant"] },
+          { cells: ["Perpendicular", "θ = 90°", "R = √(A² + B²)", "cos 90° = 0 — Pythagoras"] },
+        ]}
+        caption="R = √(A² + B² + 2AB cosθ) evaluated at the three special angles."
+      />
       <Expandable title="Example 3.1 — Which way to hold the umbrella in wind?" variant="example">
         <ProblemSolution.Problem>
           <p>Rain falls vertically with a speed of 35 m s⁻¹. Wind starts blowing from east to west with a speed of 12 m s⁻¹. In which direction should a boy at a bus stop hold his umbrella?</p>
@@ -89,6 +168,36 @@ export default function MotionInAPlaneChapter() {
           <FormulaBlock latex={String.raw`|\vec{R}| = \sqrt{35^2 + 12^2} = 37\ \text{m s}^{-1}`} important />
           <p>Direction with the vertical: <Formula>{String.raw`\tan\theta = \frac{v_w}{v_r} = \frac{12}{35} = 0.343`}</Formula> → θ ≈ <strong>19°</strong> with the vertical <strong>towards the east</strong>.</p>
         </ProblemSolution.Solution>
+      </Expandable>
+      <Expandable title="Solved problems — resultant of two forces (PYQs)" variant="example">
+        <SolvedProblem
+          number={1}
+          title="Perpendicular forces — Model Exam PYQ (2021)"
+          question="Two forces A and B of magnitudes 6 N and 8 N act perpendicular to each other (θ = 90°). Find the magnitude of the resultant force."
+          given="A = 6 N, B = 8 N, θ = 90°"
+          solution={
+            <>
+              <p>With θ = 90°, cos 90° = 0, so the general formula reduces to a right triangle (Pythagoras):</p>
+              <FormulaBlock latex={String.raw`R = \sqrt{A^2 + B^2 + 2AB\cos 90^\circ} = \sqrt{A^2 + B^2}`} />
+              <FormulaBlock latex={String.raw`R = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10\ \text{N}`} important />
+            </>
+          }
+          answer="10 N"
+        />
+        <SolvedProblem
+          number={2}
+          title="Forces at 60° — Model Exam PYQ (2020)"
+          question="Two forces of 5 N and 7 N act at a point; the angle between them is 60°. Find the resultant force."
+          given="A = 5 N, B = 7 N, θ = 60°"
+          solution={
+            <>
+              <p>Substitute cos 60° = ½ into the parallelogram law:</p>
+              <FormulaBlock latex={String.raw`R = \sqrt{A^2 + B^2 + 2AB\cos \theta} = \sqrt{5^2 + 7^2 + 2(5)(7)\cos 60^\circ}`} />
+              <FormulaBlock latex={String.raw`R = \sqrt{25 + 49 + 2(5)(7)\left(\frac{1}{2}\right)} = \sqrt{25 + 49 + 35} = \sqrt{109}`} important />
+            </>
+          }
+          answer="√109 N ≈ 10.44 N"
+        />
       </Expandable>
 
       <h2 id="h-resolution">3.5 Resolution of Vectors</h2>
@@ -113,6 +222,95 @@ export default function MotionInAPlaneChapter() {
         Components are <strong>signed real numbers</strong> (Aₓ itself is not a vector; Aₓî is). The
         position vector is <Formula>{String.raw`\mathbf{r} = x\hat{\mathbf{i}} + y\hat{\mathbf{j}} + z\hat{\mathbf{k}}`}</Formula>.
       </p>
+
+      <h3>3.5.1 Vector multiplication — scalar (dot) and vector (cross) product</h3>
+      <p>
+        <strong>Scalar (dot) product</strong> — the product of the magnitudes of two vectors and the cosine of
+        the smaller angle between them:
+      </p>
+      <FormulaBlock latex={String.raw`\vec{A}\cdot\vec{B} = AB\cos\theta`} important />
+      <ul>
+        <li>The result is a <strong>scalar</strong>: A·B equals the magnitude of one vector times the component of the other along it.</li>
+        <li>Commutative: <Formula>{String.raw`\vec{A}\cdot\vec{B} = \vec{B}\cdot\vec{A}`}</Formula>. Distributive: <Formula>{String.raw`\vec{A}\cdot(\vec{B} + \vec{C}) = \vec{A}\cdot\vec{B} + \vec{A}\cdot\vec{C}`}</Formula>.</li>
+        <li>î·î = ĵ·ĵ = k̂·k̂ = 1, while î·ĵ = ĵ·k̂ = k̂·î = 0.</li>
+        <li><Formula>{String.raw`\vec{A}\cdot\vec{A} = A^2`}</Formula>; if A·B = 0 with neither vector zero, the vectors are perpendicular.</li>
+      </ul>
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Dot_Product.svg"
+        alt="Scalar (dot) product A·B = AB cosθ — the projection of B onto A"
+        className="w-full h-auto rounded-lg object-contain max-h-[280px] mx-auto bg-white"
+        loading="lazy"
+      />
+      <p>
+        <strong>Vector (cross) product</strong> — the product of the magnitudes of two vectors and the sine of
+        the smaller angle between them; the result is a vector perpendicular to both, with magnitude:
+      </p>
+      <FormulaBlock latex={String.raw`|\vec{A}\times\vec{B}| = AB\sin\theta`} important />
+      <ul>
+        <li>Direction: along the normal to the plane of A and B, fixed by the <strong>right-hand thumb rule</strong> (curl the fingers from A towards B; the thumb points along <Formula>{String.raw`\vec{A}\times\vec{B}`}</Formula>).</li>
+        <li>Anti-commutative: <Formula>{String.raw`\vec{A}\times\vec{B} = -(\vec{B}\times\vec{A})`}</Formula>; it is <strong>not</strong> associative.</li>
+        <li>Its magnitude equals the area of the parallelogram spanned by A and B.</li>
+        <li>î × î = ĵ × ĵ = k̂ × k̂ = 0; in cyclic order î × ĵ = k̂, ĵ × k̂ = î, k̂ × î = ĵ.</li>
+      </ul>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Cross_product_parallelogram.svg"
+          alt="Magnitude of the cross product equals the area of the parallelogram spanned by the two vectors"
+          className="w-full h-auto rounded-lg object-contain max-h-[260px] mx-auto bg-white"
+          loading="lazy"
+        />
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Right_hand_rule_cross_product.svg"
+          alt="Right-hand thumb rule fixes the direction of the cross product"
+          className="w-full h-auto rounded-lg object-contain max-h-[260px] mx-auto bg-white"
+          loading="lazy"
+        />
+      </div>
+      <Expandable title="Board exam PYQ (2020) [3 Marks] — position vector &amp; rectangular components" variant="example">
+        <SolvedProblem
+          number={1}
+          title="Position vector of a particle P in the x–y plane"
+          question={
+            <p>
+              The position vector <Formula>{String.raw`\vec{r}`}</Formula> of a particle P located in an x–y
+              plane is shown in the figure. (a) Redraw the figure showing the rectangular components. (b)
+              Write the position vector in terms of rectangular components. (c) Write an equation to find the
+              magnitude of the resultant of two vectors A and B.
+            </p>
+          }
+          solution={
+            <>
+              <p><strong>(a)</strong> Draw the rectangular components along the axes — <Formula>{String.raw`r_x\hat{\mathbf{i}}`}</Formula> along the x-axis and <Formula>{String.raw`r_y\hat{\mathbf{j}}`}</Formula> along the y-axis — so that <Formula>{String.raw`\vec{r}`}</Formula> is the diagonal of the rectangle.</p>
+              <p><strong>(b)</strong></p>
+              <FormulaBlock latex={String.raw`\vec{r} = r_x\hat{\mathbf{i}} + r_y\hat{\mathbf{j}}`} important />
+              <p><strong>(c)</strong> Resultant magnitude by the parallelogram law:</p>
+              <FormulaBlock latex={String.raw`R = \sqrt{A^2 + B^2 + 2AB\cos\theta}`} important />
+            </>
+          }
+          answer={<>r = rₓî + r_yĵ; R = √(A² + B² + 2AB cosθ)</>}
+        />
+      </Expandable>
+      <Expandable title="Practice problem — angle between two vectors" variant="example">
+        <SolvedProblem
+          number={2}
+          title="Angle between F = 3î + 4ĵ − 5k̂ and d = 5î + 4ĵ + 3k̂"
+          question="Find the angle between the force F = (3î + 4ĵ − 5k̂) units and the displacement d = (5î + 4ĵ + 3k̂) units."
+          given={<>F = 3î + 4ĵ − 5k̂, d = 5î + 4ĵ + 3k̂</>}
+          solution={
+            <>
+              <p><strong>Step 1 — dot product:</strong></p>
+              <FormulaBlock latex={String.raw`\vec{F}\cdot\vec{d} = (3)(5) + (4)(4) + (-5)(3) = 15 + 16 - 15 = 16`} important />
+              <p><strong>Step 2 — magnitudes:</strong></p>
+              <FormulaBlock latex={String.raw`|\vec{F}| = \sqrt{3^2 + 4^2 + (-5)^2} = \sqrt{9 + 16 + 25} = \sqrt{50} = 5\sqrt{2}`} />
+              <FormulaBlock latex={String.raw`|\vec{d}| = \sqrt{5^2 + 4^2 + 3^2} = \sqrt{25 + 16 + 9} = \sqrt{50} = 5\sqrt{2}`} />
+              <p><strong>Step 3 — angle</strong> from <Formula>{String.raw`\vec{F}\cdot\vec{d} = |\vec{F}||\vec{d}|\cos\theta`}</Formula>:</p>
+              <FormulaBlock latex={String.raw`\cos\theta = \frac{\vec{F}\cdot\vec{d}}{|\vec{F}||\vec{d}|} = \frac{16}{(5\sqrt{2})(5\sqrt{2})} = \frac{16}{50} = \frac{8}{25}`} important />
+              <FormulaBlock latex={String.raw`\theta = \cos^{-1}\left(\frac{8}{25}\right) \approx 71.33^\circ`} important />
+            </>
+          }
+          answer="θ ≈ 71.33°"
+        />
+      </Expandable>
 
       <h2 id="h-analytical">3.6 Vector Addition — Analytical Method</h2>
       <p>Add component-wise — more accurate and less tedious than the graphical method:</p>
