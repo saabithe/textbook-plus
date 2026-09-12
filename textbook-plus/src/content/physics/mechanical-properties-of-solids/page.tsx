@@ -7,6 +7,7 @@ import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
+import { Highlight } from "@/components/content/Highlight";
 
 export default function MechanicalPropertiesOfSolidsChapter() {
   return (
@@ -16,7 +17,8 @@ export default function MechanicalPropertiesOfSolidsChapter() {
         In previous chapters we studied the motion of <em>ideal</em> bodies — bodies that are assumed to be{" "}
         <strong>perfectly rigid</strong>. In reality no body is perfectly rigid: even a steel bar can be
         stretched, compressed, bent or twisted when forces are applied. Whenever such a force is removed the
-        body tends to regain its original size and shape, and this property is called <strong>elasticity</strong>.
+        <Highlight>body tends to regain its original size and shape, and this property is called{" "}
+        <strong>elasticity</strong></Highlight>.
         If a body retains its deformed shape when the deforming forces are removed, it is said to be{" "}
         <strong>plastic</strong> (putty and mud behave as ideal plastics).
       </p>
@@ -32,13 +34,14 @@ export default function MechanicalPropertiesOfSolidsChapter() {
       <h2 id="h-stress-strain">8.2 Stress and Strain</h2>
       <p>
         When a deforming force acts on a body, internal <strong>restoring forces</strong> are set up that are
-        equal and opposite to the applied force, distributed over the cross-sectional area. This restoring force
-        per unit area is the <strong>stress</strong>:
+        equal and opposite to the applied force, distributed over the cross-sectional area. <Highlight>This restoring
+        force per unit area is the <strong>stress</strong></Highlight>:
       </p>
       <FormulaBlock latex={String.raw`\mathrm{Stress} = \frac{F}{A}`} important />
       <p>
-        Stress has units N m⁻², the <strong>pascal (Pa)</strong>, and dimensions [ML⁻¹T⁻²]. The fractional
-        change in the dimension of a body is its <strong>strain</strong>, a pure (dimensionless) number equal to
+        Stress has units N m⁻², the <strong>pascal (Pa)</strong>, and dimensions [ML⁻¹T⁻²]. <Highlight>The
+        fractional change in the dimension of a body is its <strong>strain</strong></Highlight>, a pure
+        (dimensionless) number equal to
         the relative change in length, shape or volume. There are three kinds of deformation, each with its own
         stress and strain:
       </p>
@@ -76,19 +79,21 @@ export default function MechanicalPropertiesOfSolidsChapter() {
 
       <h2 id="h-hookes-law">8.3 Hooke's Law</h2>
       <p>
-        Experimentally, for <em>small</em> deformations the stress is directly proportional to the strain. This
+        Experimentally, <Highlight>for <em>small</em> deformations the stress is directly proportional to the
+        strain</Highlight>. This
         is <strong>Hooke&rsquo;s law</strong>:
       </p>
       <FormulaBlock latex={String.raw`\mathrm{stress} = k\times\mathrm{strain}`} important />
       <p>
-        The proportionality constant k is the <strong>modulus of elasticity</strong> of the material. Hooke&rsquo;s
+        <Highlight>The proportionality constant k is the <strong>modulus of elasticity</strong> of the
+        material</Highlight>. Hooke&rsquo;s
         law is an <em>empirical law</em> — it holds for most materials but is not universal.
       </p>
 
       <h2 id="h-ss-curve">8.4 Stress-Strain Curve</h2>
       <p>
-        Wire a material into a wire and load it step by step while recording the extension: a{" "}
-        <strong>stress-strain curve</strong> results. For a typical metal the key features are:
+        Wire a material into a wire and load it step by step while <Highlight>recording the extension: a{" "}
+        <strong>stress-strain curve</strong> results</Highlight>. For a typical metal the key features are:
       </p>
       <Stepper
         steps={[
@@ -130,7 +135,8 @@ export default function MechanicalPropertiesOfSolidsChapter() {
       <h3 id="h-young">8.5.1 Young's Modulus (elasticity in length)</h3>
       <p>
         For tensile and compressive stress of the same magnitude the strain of a given material is the same.
-        <strong>Young&rsquo;s modulus</strong> is the ratio of longitudinal stress to longitudinal strain:
+        <Highlight><strong>Young&rsquo;s modulus</strong> is the ratio of longitudinal stress to longitudinal
+        strain</Highlight>:
       </p>
       <FormulaBlock latex={String.raw`Y = \frac{\mathrm{tensile\;or\;compressive\;stress}}{\mathrm{longitudinal\;strain}} = \frac{\sigma}{\varepsilon}`} />
       <FormulaBlock latex={String.raw`Y = \frac{F/A}{\Delta L/L} = \frac{F\,L}{A\,\Delta L}`} important />
@@ -212,11 +218,12 @@ export default function MechanicalPropertiesOfSolidsChapter() {
 
       <h3 id="h-shear">8.5.2 Shear Modulus (rigidity modulus of elasticity)</h3>
       <p>
-        The <strong>shear modulus of rigidity</strong> is the ratio of shearing stress to shearing strain:
+        <Highlight>The <strong>shear modulus of rigidity</strong> is the ratio of shearing stress to shearing
+        strain</Highlight>:
       </p>
       <FormulaBlock latex={String.raw`G = \frac{\mathrm{shearing\;stress}}{\mathrm{shearing\;strain}} = \frac{F/A}{\Delta x/L} = \frac{F\,L}{A\,\Delta x}`} />
       <FormulaBlock latex={String.raw`G = \frac{F}{A\,\theta},\qquad \sigma_s = G\,\theta`} important />
-      <p>It has the unit Pa. Generally G &lt; Y; for most materials G ≈ Y/3.</p>
+      <p>It has the unit Pa. <Highlight>Generally G &lt; Y; for most materials G ≈ Y/3.</Highlight></p>
       <TableCard
         caption="Table 8.2 — Shear moduli of some materials (GPa)."
         headers={["Material", "G (GPa)"]}
@@ -251,8 +258,8 @@ export default function MechanicalPropertiesOfSolidsChapter() {
 
       <h3 id="h-bulk">8.5.3 Bulk Modulus (volume elasticity)</h3>
       <p>
-        When a body is fully surrounded by a fluid under pressure p, the volume strain ΔV/V follows a{" "}
-        <strong>bulk modulus</strong> B:
+        <Highlight>When a body is fully surrounded by a fluid under pressure p, the volume strain ΔV/V follows a{" "}
+        <strong>bulk modulus</strong> B</Highlight>:
       </p>
       <FormulaBlock latex={String.raw`B = -\frac{p}{\Delta V/V}`} important />
       <p>
@@ -261,8 +268,9 @@ export default function MechanicalPropertiesOfSolidsChapter() {
       </p>
       <FormulaBlock latex={String.raw`k = \frac{1}{B} = -\frac{1}{\Delta p}\,\frac{\Delta V}{V}`} important />
       <p>
-        Bulk moduli fall in the order B<sub>solids</sub> &gt;&gt; B<sub>liquids</sub> &gt;&gt; B
-        <sub>gases</sub>; air is about a million times more compressible than solids. The incompressibility of
+        <Highlight>Bulk moduli fall in the order B<sub>solids</sub> &gt;&gt; B<sub>liquids</sub> &gt;&gt; B
+        <sub>gases</sub></Highlight>; air is about a million times more compressible than solids. The
+        incompressibility of
         solids arises from the tight coupling of their atoms.
       </p>
       <TableCard
@@ -302,8 +310,9 @@ export default function MechanicalPropertiesOfSolidsChapter() {
       <h3 id="h-poisson">8.5.4 Poisson's Ratio</h3>
       <p>
         A deforming force in one direction also produces strain in the perpendicular direction: stretching a wire
-        makes it thinner. Within the elastic limit, the <strong>lateral strain</strong> is proportional to the{" "}
-        <strong>longitudinal strain</strong>; the ratio is <strong>Poisson&rsquo;s ratio</strong>:
+        makes it thinner. <Highlight>Within the elastic limit, the <strong>lateral strain</strong> is proportional to
+        the{" "}
+        <strong>longitudinal strain</strong>; the ratio is <strong>Poisson&rsquo;s ratio</strong></Highlight>:
       </p>
       <FormulaBlock latex={String.raw`\frac{\Delta d/d}{\Delta L/L} = \frac{\Delta d}{\Delta L}\,\frac{L}{d}`} important />
       <p>
@@ -312,12 +321,13 @@ export default function MechanicalPropertiesOfSolidsChapter() {
 
       <h3 id="h-penergy">8.5.5 Elastic Potential Energy in a Stretched Wire</h3>
       <p>
-        Work done against the inter-atomic forces while stretching the wire is stored as{" "}
-        <strong>elastic potential energy</strong>. With F = YAl/L, the work of a further element dl is dW = F
+        <Highlight>Work done against the inter-atomic forces while stretching the wire is stored as{" "}
+        <strong>elastic potential energy</strong></Highlight>. With F = YAl/L, the work of a further element dl
+        is dW = F
         dl, and integrating from 0 to l gives
       </p>
       <FormulaBlock latex={String.raw`W = \frac{Y\,A\,l^2}{2L} = \frac12\,Y\,(\mathrm{strain})^2\times V = \frac12\times\sigma\times\varepsilon\times V`} />
-      <p>so the elastic potential energy per unit volume is</p>
+      <p><Highlight>so the elastic potential energy per unit volume is</Highlight></p>
       <FormulaBlock latex={String.raw`u = \frac12\,\sigma\varepsilon`} important />
 
       <h2 id="h-applications">8.6 Applications of Elastic Behaviour of Materials</h2>
