@@ -3,6 +3,7 @@ import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
+import { Highlight } from "@/components/content/Highlight";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
@@ -13,9 +14,10 @@ export default function MechanicalPropertiesOfFluidsChapter() {
     <>
       <h2 id="h-intro">9.1 Introduction</h2>
       <p>
-        Liquids and gases can flow and are therefore called <strong>fluids</strong> — it is this property that
-        distinguishes them from solids in a basic way. Fluids are everywhere: an envelope of air surrounds the
-        earth, two-thirds of its surface is water, and every living process is mediated by fluids.
+        <Highlight>Liquids and gases can flow and are therefore called <strong>fluids</strong></Highlight> —
+        it is this property that distinguishes them from solids in a basic way. Fluids are everywhere: an
+        envelope of air surrounds the earth, two-thirds of its surface is water, and every living process is
+        mediated by fluids.
       </p>
       <Callout type="note" title="How fluids differ from solids">
         <p>
@@ -36,8 +38,8 @@ export default function MechanicalPropertiesOfFluidsChapter() {
       </p>
       <p>
         A fluid at rest exerts forces that are <strong>normal (perpendicular) to the surface</strong>: a
-        tangential component would set the fluid flowing, which cannot happen for a fluid at rest. The average
-        pressure is the normal force per unit area,
+        tangential component would set the fluid flowing, which cannot happen for a fluid at rest.{" "}
+        <Highlight>The average pressure is the normal force per unit area</Highlight>,
       </p>
       <FormulaBlock latex={String.raw`P_{av} = \frac{F}{A}`} />
       <p>and, taking the piston area to zero, in the limiting sense</p>
@@ -54,9 +56,9 @@ export default function MechanicalPropertiesOfFluidsChapter() {
       <FormulaBlock latex={String.raw`\rho = \frac{m}{V}`} />
       <p>
         with dimensions [ML⁻³] (SI unit kg m⁻³). A liquid is largely incompressible, so its density is nearly
-        constant at all pressures; gases vary greatly. Water at 4 °C has density 1.0 × 10³ kg m⁻³, and the{" "}
-        <strong>relative density</strong> of a substance is its density divided by this reference value
-        (e.g. aluminium: relative density 2.7 ⟹ density 2.7 × 10³ kg m⁻³).
+        constant at all pressures; gases vary greatly. Water at 4 °C has density 1.0 × 10³ kg m⁻³, and{" "}
+        <Highlight>the <strong>relative density</strong> of a substance is its density divided by this
+        reference value</Highlight> (e.g. aluminium: relative density 2.7 ⟹ density 2.7 × 10³ kg m⁻³).
       </p>
 
       <Expandable variant="example" title="Example 9.1">
@@ -72,11 +74,12 @@ export default function MechanicalPropertiesOfFluidsChapter() {
           </ProblemSolution.Solution>
         </Expandable>
 
-      <h3 id="h-pascals-law">9.2.1 Pascal's Law</h3>
+      <h3 id="h-pascals-law">9.2.1 Pascal&rsquo;s Law</h3>
       <p>
-        Pascal observed that the pressure in a fluid at rest is the same at all points which are at the same
-        height. Consider a tiny prismatic element ABC-DEF of the fluid: the forces on its faces are normal to
-        them. Equilibrium (F_b sinθ = F_c, F_b cosθ = F_a) combined with geometry (A_b sinθ = A_c, A_b cosθ =
+        Pascal observed that{" "}
+        <Highlight>the pressure in a fluid at rest is the same at all points which are at the same
+        height</Highlight>. Consider a tiny prismatic element ABC-DEF of the fluid: the forces on its faces are
+        normal to them. Equilibrium (F_b sinθ = F_c, F_b cosθ = F_a) combined with geometry (A_b sinθ = A_c, A_b cosθ =
         A_a) gives
       </p>
       <FormulaBlock latex={String.raw`P_a = P_b = P_c`} important />
@@ -94,8 +97,8 @@ export default function MechanicalPropertiesOfFluidsChapter() {
       <FormulaBlock latex={String.raw`(P_2 - P_1)A = mg = \rho h A g`} />
       <FormulaBlock latex={String.raw`P_2 - P_1 = \rho g h`} important />
       <p>
-        The pressure difference depends only on the vertical separation h, the density ρ and g —{" "}
-        <strong>not on the shape or cross-sectional area</strong> of the container. This leads to the
+        <Highlight>The pressure difference depends only on the vertical separation h, the density ρ and g</Highlight>{" "}
+        — <strong>not on the shape or cross-sectional area</strong> of the container. This leads to the
         <em>hydrostatic paradox</em>: three vessels of different shapes connected at the bottom and filled to the
         same height all have the same bottom pressure, so the level in each vessel is the same.
       </p>
@@ -152,8 +155,8 @@ export default function MechanicalPropertiesOfFluidsChapter() {
 
       <h3 id="h-atmosphere">9.2.3 Atmospheric Pressure and Gauge Pressure</h3>
       <p>
-        Atmospheric pressure at any point equals the weight of a column of air of unit cross-section reaching to
-        the top of the atmosphere — 1.013 × 10⁵ Pa at sea level. The Italian scientist{" "}
+        <Highlight>Atmospheric pressure at any point equals the weight of a column of air of unit cross-section
+        reaching to the top of the atmosphere</Highlight> — 1.013 × 10⁵ Pa at sea level. The Italian scientist{" "}
         <strong>Evangelista Torricelli</strong> (1608–1647) devised the first method to measure it: a long glass
         tube, closed at one end and filled with mercury, is inverted into a trough of mercury. Above the mercury
         column only mercury vapour remains (its negligible pressure may be ignored), so atmospheric pressure
@@ -182,7 +185,8 @@ export default function MechanicalPropertiesOfFluidsChapter() {
       </p>
       <FormulaBlock latex={String.raw`F_2 = P\,A_2 = \frac{A_2}{A_1}\,F_1`} important />
       <p>
-        The factor A₂/A₁ is the <strong>mechanical advantage</strong>. Hydraulic brakes work the same way: a
+        <Highlight>The factor A₂/A₁ is the <strong>mechanical advantage</strong></Highlight>. Hydraulic brakes
+        work the same way: a
         small pedal force drives a master piston, and the pressure is transmitted equally to the cylinders at
         all four wheels, giving equal braking effort everywhere.
       </p>
@@ -217,13 +221,15 @@ export default function MechanicalPropertiesOfFluidsChapter() {
 
       <h2 id="h-streamline">9.3 Streamline Flow</h2>
       <p>
-        The study of fluids in motion is <strong>fluid dynamics</strong>. Flow is <strong>steady</strong> if at
-        any given point the velocity of each passing fluid particle remains constant in time (the velocity may
+        The study of fluids in motion is <strong>fluid dynamics</strong>.{" "}
+        <Highlight>Flow is <strong>steady</strong> if at any given point the velocity of each passing fluid
+        particle remains constant in time</Highlight> (the velocity may
         differ from point to point, but the map of flow is stationary and particle paths do not cross).
       </p>
       <p>
-        A <strong>streamline</strong> is a curve whose tangent at any point is in the direction of the fluid
-        velocity there. No two streamlines can cross — otherwise a particle would have two possible velocities.
+        <Highlight>A <strong>streamline</strong> is a curve whose tangent at any point is in the direction of
+        the fluid velocity there</Highlight>. No two streamlines can cross — otherwise a particle would have two
+        possible velocities.
         Closely spaced streamlines mean high speed.
       </p>
       <p>
@@ -232,8 +238,9 @@ export default function MechanicalPropertiesOfFluidsChapter() {
       </p>
       <FormulaBlock latex={String.raw`\rho_P A_P v_P \Delta t = \rho_R A_R v_R \Delta t = \rho_Q A_Q v_Q \Delta t`} />
       <p>
-        For an incompressible fluid (ρ constant) this reduces to the <strong>equation of continuity</strong> —
-        a statement of conservation of mass:
+        For an incompressible fluid (ρ constant){" "}
+        <Highlight>this reduces to the <strong>equation of continuity</strong> — a statement of conservation of
+        mass</Highlight>:
       </p>
       <FormulaBlock latex={String.raw`A_P v_P = A_R v_R = A_Q v_Q \qquad\Rightarrow\qquad A v = \mathrm{constant}`} important />
       <p>
@@ -243,7 +250,7 @@ export default function MechanicalPropertiesOfFluidsChapter() {
         &ldquo;white-water rapids&rdquo;).
       </p>
 
-      <h2 id="h-bernoulli">9.4 Bernoulli's Principle</h2>
+      <h2 id="h-bernoulli">9.4 Bernoulli&rsquo;s Principle</h2>
       <p>
         Bernoulli&rsquo;s equation relates the pressure difference between two points of a pipe to the{" "}
         <em>kinetic</em> energy change and the <em>elevation (potential)</em> change. It was developed by the
@@ -285,7 +292,7 @@ export default function MechanicalPropertiesOfFluidsChapter() {
         </p>
       </Callout>
 
-      <h3 id="h-efflux">9.4.1 Speed of Efflux: Torricelli's Law</h3>
+      <h3 id="h-efflux">9.4.1 Speed of Efflux: Torricelli&rsquo;s Law</h3>
       <p>
         <em>Efflux</em> means fluid outflow. Consider a tank with a small hole at height y₁ and a liquid surface
         at height y₂ under pressure P. If the tank area is much larger than the hole, v₂ ≈ 0, and Bernoulli
@@ -298,14 +305,16 @@ export default function MechanicalPropertiesOfFluidsChapter() {
       </p>
       <FormulaBlock latex={String.raw`v = \sqrt{2gh}`} important />
       <p>
-        This is <strong>Torricelli's law</strong>: the efflux speed equals the speed a body reaches in free
-        fall from height h.
+        This is <strong>Torricelli&rsquo;s law</strong>:{" "}
+        <Highlight>the efflux speed equals the speed a body reaches in free fall from height h</Highlight>.
       </p>
 
       <h3 id="h-lift">9.4.2 Dynamic Lift</h3>
       <p>
-        <strong>Dynamic lift</strong> is the force on a body (an aeroplane wing, a hydrofoil, a spinning ball)
-        by virtue of its motion through a fluid.
+        <Highlight>
+          <strong>Dynamic lift</strong> is the force on a body (an aeroplane wing, a hydrofoil, a spinning ball)
+          by virtue of its motion through a fluid.
+        </Highlight>
       </p>
       <Stepper
         steps={[
@@ -348,8 +357,10 @@ export default function MechanicalPropertiesOfFluidsChapter() {
 
       <h2 id="h-viscosity">9.5 Viscosity</h2>
       <p>
-        Most fluids are not ideal: they offer resistance to motion, an <strong>internal friction</strong> known
-        as <strong>viscosity</strong>. Consider oil between two glass plates: the bottom is fixed, the top moves
+        Most fluids are not ideal:{" "}
+        <Highlight>they offer resistance to motion, an <strong>internal friction</strong> known as{" "}
+        <strong>viscosity</strong></Highlight>. Consider oil between two glass plates: the bottom is fixed, the
+        top moves
         with velocity v. The layer in contact with the top plate moves at v, the layer at the bottom is at rest,
         and the intermediate layers have uniformly increasing velocities — this is <em>laminar</em> flow. Each
         layer is pulled forward by its upper layer and backward by its lower one.
@@ -400,7 +411,7 @@ export default function MechanicalPropertiesOfFluidsChapter() {
           </ProblemSolution.Solution>
         </Expandable>
 
-      <h3 id="h-stokes">9.5.1 Stokes' Law</h3>
+      <h3 id="h-stokes">9.5.1 Stokes&rsquo; Law</h3>
       <p>
         A body falling through a fluid drags the fluid layer in contact with it, setting up relative motion
         between layers and hence a retarding force. For a sphere of radius a moving with velocity v through a
@@ -410,12 +421,13 @@ export default function MechanicalPropertiesOfFluidsChapter() {
       <FormulaBlock latex={String.raw`F = 6\pi\eta a v`} important />
       <p>
         A raindrop accelerates initially, but as its velocity grows the drag grows, until viscous force plus
-        buoyancy balance gravity: the drop then falls with constant <strong>terminal velocity</strong>,
+        buoyancy balance gravity: <Highlight>the drop then falls with constant <strong>terminal velocity</strong></Highlight>,
       </p>
       <FormulaBlock latex={String.raw`6\pi\eta a v_t = \frac{4\pi}{3}a^3(\rho-\sigma)g \qquad\Rightarrow\qquad v_t = \frac{2a^2(\rho-\sigma)g}{9\eta}`} important />
       <p>
-        where ρ and σ are the densities of the sphere and the fluid. The terminal velocity varies as the{" "}
-        <strong>square of the radius</strong> and inversely as the viscosity.
+        where ρ and σ are the densities of the sphere and the fluid.{" "}
+        <Highlight>The terminal velocity varies as the <strong>square of the radius</strong> and inversely as
+        the viscosity</Highlight>.
       </p>
 
       <Expandable variant="example" title="Example 9.9">
@@ -435,8 +447,9 @@ export default function MechanicalPropertiesOfFluidsChapter() {
         Oil and water do not mix; water wets you and me but not ducks; mercury does not wet glass; oil rises up
         a cotton wick and sap rises to the leaves of tall trees; wet paint-brush hairs form a fine tip when the
         brush is taken out of water. All these phenomena involve the <strong>free surface</strong> of a liquid,
-        which possesses <strong>additional energy</strong>. This extra energy is surface tension — and since
-        gases have no free surface, it is a property of liquids only.
+        which possesses <strong>additional energy</strong>.{" "}
+        <Highlight>This extra energy is surface tension — and since gases have no free surface, it is a property
+        of liquids only.</Highlight>
       </p>
 
       <h3 id="h-surface-energy">9.6.1 Surface Energy</h3>
@@ -446,7 +459,8 @@ export default function MechanicalPropertiesOfFluidsChapter() {
         disperse the liquid&rsquo;s molecules. A molecule at the surface is surrounded only on the lower side,
         so its potential energy is roughly <strong>half</strong> that of an interior molecule:{" "}
         <strong>surface molecules carry extra energy</strong>. A liquid therefore tends to have the least
-        surface area the external conditions allow, and creating surface requires energy.
+        surface area the external conditions allow, and{" "}
+        <Highlight>creating surface requires energy</Highlight>.
       </p>
 
       <h3 id="h-st-surface-energy">9.6.2 Surface Energy and Surface Tension</h3>
@@ -456,8 +470,9 @@ export default function MechanicalPropertiesOfFluidsChapter() {
       </p>
       <FormulaBlock latex={String.raw`S(2dl) = Fd \qquad\Rightarrow\qquad S = \frac{F}{2l}`} important />
       <p>
-        The quantity S — the <strong>surface tension</strong> — is the surface energy per unit area and
-        simultaneously the force per unit length exerted by the liquid on the bar, acting in the plane of the
+        <Highlight>The quantity S — the <strong>surface tension</strong> — is the surface energy per unit area
+        and simultaneously the force per unit length</Highlight> exerted by the liquid on the bar, acting in the
+        plane of the
         interface. It is really a property of the <em>interface between two materials</em>: attractive molecules
         across the interface reduce the surface energy, repulsive ones increase it.
       </p>
@@ -481,9 +496,10 @@ export default function MechanicalPropertiesOfFluidsChapter() {
 
       <h3 id="h-contact-angle">9.6.3 Angle of Contact</h3>
       <p>
-        The liquid surface near its line of contact with another medium is generally curved. The{" "}
-        <strong>angle of contact θ</strong> is the angle between the tangent to the liquid surface at the point
-        of contact and the solid surface (measured inside the liquid). It decides whether a liquid spreads or
+        The liquid surface near its line of contact with another medium is generally curved.{" "}
+        <Highlight>The <strong>angle of contact θ</strong> is the angle between the tangent to the liquid
+        surface at the point of contact and the solid surface</Highlight> (measured inside the liquid). It
+        decides whether a liquid spreads or
         forms droplets: water forms droplets on a lotus leaf but spreads over a clean plastic plate.
       </p>
       <p>
@@ -514,8 +530,8 @@ export default function MechanicalPropertiesOfFluidsChapter() {
       <h3 id="h-drops-bubbles">9.6.4 Drops and Bubbles</h3>
       <p>
         Free liquid drops and bubbles are <strong>spherical</strong> (when gravity and other forces can be
-        neglected) because a sphere has the least surface area — hence the least surface energy — for a given
-        volume, and a liquid aims at the smallest possible surface.
+        neglected) because <Highlight>a sphere has the least surface area — hence the least surface energy — for
+        a given volume</Highlight>, and a liquid aims at the smallest possible surface.
       </p>
       <p>
         Surface tension also implies that the pressure inside a spherical drop exceeds the outside pressure. If
@@ -544,7 +560,8 @@ export default function MechanicalPropertiesOfFluidsChapter() {
       </p>
       <FormulaBlock latex={String.raw`h = \frac{2S\cos\theta}{\rho g a}`} important />
       <p>
-        The rise is larger for a smaller tube radius — typically a few cm for fine capillaries. For water in a
+        <Highlight>The rise is larger for a smaller tube radius</Highlight> — typically a few cm for fine
+        capillaries. For water in a
         capillary of a = 0.05 cm with S = 0.073 N m⁻¹: h = 2(0.073)/(10³ × 9.8 × 5 × 10⁻⁴) ={" "}
         <strong>2.98 cm</strong>. If the meniscus is convex (mercury: cosθ negative), the liquid is{" "}
         <strong>depressed</strong> below its outside level.
@@ -797,7 +814,7 @@ export default function MechanicalPropertiesOfFluidsChapter() {
           = 10⁵ Pa, 1 torr = 133 Pa. Density ρ = m/V; relative density = ρ/ρ(water at 4 °C).
         </FormulaCard>
         <FormulaCard>
-          <p><strong>Pascal's law &amp; hydraulics</strong></p>
+          <p><strong>Pascal&rsquo;s law &amp; hydraulics</strong></p>
           Pressure in a fluid at rest is equal at equal heights and is transmitted undiminished in all
           directions. Hydraulic lift: F₂ = (A₂/A₁)F₁ — mechanical advantage A₂/A₁ (hydraulic brakes, car lift).
         </FormulaCard>

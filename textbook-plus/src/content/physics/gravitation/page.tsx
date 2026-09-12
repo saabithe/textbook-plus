@@ -18,9 +18,13 @@ export default function GravitationChapter() {
         Early in our lives we become aware of the tendency of all material objects to be attracted towards
         the earth: anything thrown up falls back down, going uphill is far more tiring than going downhill,
         and raindrops fall from the clouds. Historically it was the Italian physicist <strong>Galileo</strong>{" "}
-        (1564–1642) who recognised that all bodies, irrespective of their masses, are accelerated towards
-        the earth with a constant acceleration. He arrived, through incline-plane experiments, at a value of
-        the acceleration due to gravity close to the more accurate value obtained later.
+        (1564–1642) who recognised that{" "}
+        <Highlight>
+          all bodies, irrespective of their masses, are accelerated towards the earth with a constant
+          acceleration
+        </Highlight>
+        . He arrived, through incline-plane experiments, at a value of the acceleration due to gravity
+        close to the more accurate value obtained later.
       </p>
       <Callout type="didyouknow" title="Geocentric vs heliocentric models">
         <p>
@@ -44,17 +48,25 @@ export default function GravitationChapter() {
       <h3>The three laws of planetary motion</h3>
       <ol>
         <li>
-          <strong>Law of orbits:</strong> all planets move in elliptical orbits with the Sun at one of the
-          foci. The closest point <strong>P</strong> is the <em>perihelion</em> and the farthest point{" "}
+          <strong>Law of orbits:</strong>{" "}
+          <Highlight>all planets move in elliptical orbits with the Sun at one of the foci</Highlight>. The
+          closest point <strong>P</strong> is the <em>perihelion</em> and the farthest point{" "}
           <strong>A</strong> the <em>aphelion</em>; the semi-major axis is half the distance AP.
         </li>
         <li>
-          <strong>Law of areas:</strong> the line that joins any planet to the Sun sweeps out equal areas in
-          equal intervals of time — planets appear to move slower when farther from the Sun.
+          <strong>Law of areas:</strong>{" "}
+          <Highlight>
+            the line that joins any planet to the Sun sweeps out equal areas in equal intervals of time
+          </Highlight>{" "}
+          — planets appear to move slower when farther from the Sun.
         </li>
         <li>
-          <strong>Law of periods:</strong> the square of the time period of revolution is proportional to the
-          cube of the semi-major axis of the ellipse traced out by the planet.
+          <strong>Law of periods:</strong>{" "}
+          <Highlight>
+            the square of the time period of revolution is proportional to the cube of the semi-major axis
+            of the ellipse traced out by the planet
+          </Highlight>
+          .
         </li>
       </ol>
       <Callout type="tip" title="Drawing an ellipse">
@@ -126,8 +138,9 @@ export default function GravitationChapter() {
       <FormulaBlock latex={String.raw`a_m = \frac{V^2}{R_m} = \frac{4\pi^2 R_m}{T^2}`} />
       <p>
         with T ≈ 27.3 days and R<sub>m</sub> ≈ 3.84 × 10⁸ m — giving a value of a<sub>m</sub> much smaller
-        than g on the earth&rsquo;s surface. This shows the force of gravity <em>decreases with distance</em>.
-        Assuming an inverse-square decrease,
+        than g on the earth&rsquo;s surface. This shows{" "}
+        <Highlight>the force of gravity <em>decreases with distance</em></Highlight>. Assuming an
+        inverse-square decrease,
       </p>
       <FormulaBlock latex={String.raw`a_m\propto R_m^{-2},\qquad g\propto R_E^{-2}\qquad\Rightarrow\qquad \frac{a_m}{g}=\frac{R_E^2}{R_m^2}=\frac{1}{3600}`} />
       <p>in agreement with the value of a_<sub>m</sub> from the lunar data.</p>
@@ -143,8 +156,12 @@ export default function GravitationChapter() {
         <Formula>{String.raw`\mathbf{F}_{12}=-\mathbf{F}_{21}`}</Formula>.
       </p>
       <p>
-        <strong>Superposition:</strong> for a collection of point masses, the force on any one of them is the
-        vector sum of the gravitational forces exerted by all the others.
+        <strong>Superposition:</strong>{" "}
+        <Highlight>
+          for a collection of point masses, the force on any one of them is the vector sum of the
+          gravitational forces exerted by all the others
+        </Highlight>
+        .
       </p>
       <Callout type="note" title="Extended objects: two special results">
         <p>
@@ -196,10 +213,12 @@ export default function GravitationChapter() {
 
       <h2 id="h-g-constant">7.4 The Gravitational Constant</h2>
       <p>
-        The value of G was first determined experimentally by the English scientist <strong>Henry
-        Cavendish</strong> in 1798, using a torsion balance. A light bar AB carrying two small lead spheres
-        is suspended from a rigid support by a fine wire; two large lead spheres are brought close, one on
-        each side.
+        <Highlight>
+          The value of G was first determined experimentally by the English scientist <strong>Henry
+          Cavendish</strong> in 1798, using a torsion balance
+        </Highlight>
+        . A light bar AB carrying two small lead spheres is suspended from a rigid support by a fine wire;
+        two large lead spheres are brought close, one on each side.
       </p>
       <p>
         The big spheres attract the neighbouring small spheres with equal and opposite forces of magnitude F
@@ -256,13 +275,17 @@ export default function GravitationChapter() {
         The point mass is outside the earth, at distance R<sub>E</sub> + h from the centre:
       </p>
       <FormulaBlock latex={String.raw`F(h) = \frac{G M_E m}{(R_E + h)^2},\qquad g(h) = \frac{F(h)}{m} = \frac{G M_E}{(R_E+h)^2}`} />
-      <p>This is clearly less than g on the surface. For h &lt;&lt; R<sub>E</sub> we expand binomially:</p>
+      <p><Highlight>This is clearly less than g on the surface.</Highlight> For h &lt;&lt; R<sub>E</sub> we
+        expand binomially:</p>
       <FormulaBlock latex={String.raw`g(h) = g\left(1+\frac{h}{R_E}\right)^{-2} \approx g\left(1-\frac{2h}{R_E}\right)`} important />
       <h3>At a depth d below the surface</h3>
       <p>
-        The earth splits into a sphere of radius R<sub>E</sub> − d plus a shell of thickness d. The shell
-        exerts no force (inside a uniform shell); the inner sphere (mass M<sub>s</sub>) behaves as a point
-        mass at the centre:
+        The earth splits into a sphere of radius R<sub>E</sub> − d plus a shell of thickness d.{" "}
+        <Highlight>
+          The shell exerts no force (inside a uniform shell); the inner sphere (mass M<sub>s</sub>) behaves
+          as a point mass at the centre
+        </Highlight>
+        :
       </p>
       <FormulaBlock latex={String.raw`\frac{M_s}{M_E} = \frac{(R_E - d)^3}{R_E^3},\qquad F(d) = \frac{G M_s m}{(R_E-d)^2}`} />
       <FormulaBlock latex={String.raw`g(d) = \frac{G M_E}{R_E^2}\left(1-\frac{d}{R_E}\right) = g\left(1-\frac{d}{R_E}\right)`} important />
@@ -273,8 +296,8 @@ export default function GravitationChapter() {
 
       <h2 id="h-potential-energy">7.7 Gravitational Potential Energy</h2>
       <p>
-        Gravitation is a conservative force, so a potential energy function exists. Near the earth&rsquo;s
-        surface (F ≈ mg constant), lifting a particle from height h₁ to h₂ does work
+        <Highlight>Gravitation is a conservative force, so a potential energy function exists.</Highlight>{" "}
+        Near the earth&rsquo;s surface (F ≈ mg constant), lifting a particle from height h₁ to h₂ does work
       </p>
       <FormulaBlock latex={String.raw`W_{12} = mg(h_2 - h_1),\qquad W(h) = mgh + W_0`} />
       <p>
@@ -284,7 +307,8 @@ export default function GravitationChapter() {
       </p>
       <FormulaBlock latex={String.raw`W_{12} = \int_{r_1}^{r_2} G\,\frac{M_E m}{r^2}\,dr = -G\,M_E\,m\left(\frac{1}{r_2}-\frac{1}{r_1}\right)`} />
       <p>
-        We may therefore associate a potential energy at distance r, with a constant choosing the zero:
+        <Highlight>We may therefore associate a potential energy at distance r, with a constant choosing the
+        zero:</Highlight>
       </p>
       <FormulaBlock latex={String.raw`W(r) = -\frac{G M_E m}{r} + W_1`} />
       <Callout type="important" title="Convention: zero potential energy at infinity">
@@ -327,10 +351,15 @@ export default function GravitationChapter() {
       <p>From the surface of the earth (h = 0), using g = GM<sub>E</sub>/R<sub>E</sub>²:</p>
       <FormulaBlock latex={String.raw`V_e = \sqrt{\frac{2GM_E}{R_E}} = \sqrt{2gR_E} \approx 11.2\,\mathrm{km\,s^{-1}}`} important />
       <p>
-        This is the <strong>escape speed</strong> (loosely, escape velocity) — about 11.2 km/s from the
-        earth&rsquo;s surface. The same relation applies to the moon using its surface gravity and radius:
-        the escape speed of the moon is only 2.3 km/s, about five times smaller. This is why the moon has no
-        atmosphere — gas molecules with speeds above 2.3 km/s escape its pull.
+        <Highlight>
+          This is the <strong>escape speed</strong> (loosely, escape velocity) — about 11.2 km/s from the
+          earth&rsquo;s surface
+        </Highlight>
+        . The same relation applies to the moon using its surface gravity and radius:
+        the escape speed of the moon is only 2.3 km/s, about five times smaller.{" "}
+        <Highlight>
+          This is why the moon has no atmosphere — gas molecules with speeds above 2.3 km/s escape its pull.
+        </Highlight>
       </p>
 
       <Expandable variant="example" title="Example 7.4">
@@ -370,9 +399,11 @@ export default function GravitationChapter() {
       <h2 id="h-satellites">7.9 Earth Satellites</h2>
       <p>
         Earth satellites are objects that revolve around the earth; their motion is very similar to that of
-        planets around the Sun, so Kepler&rsquo;s laws apply to them equally. The moon — the only natural
-        satellite — has a near-circular orbit with a period of about 27.3 days, roughly equal to its rotation
-        period about its own axis.
+        planets around the Sun, so Kepler&rsquo;s laws apply to them equally.{" "}
+        <Highlight>
+          The moon — the only natural satellite — has a near-circular orbit with a period of about 27.3 days
+        </Highlight>
+        , roughly equal to its rotation period about its own axis.
       </p>
       <p>
         Consider a satellite of mass m in a circular orbit of radius R<sub>E</sub> + h around the earth. The
@@ -381,8 +412,9 @@ export default function GravitationChapter() {
       </p>
       <FormulaBlock latex={String.raw`V = \sqrt{\frac{G\,M_E}{R_E + h}}`} important />
       <p>
-        The orbital speed <strong>decreases as h increases</strong>. For h = 0, V(0) = √(GM<sub>E</sub>
-        /R<sub>E</sub>) = √(gR<sub>E</sub>) ≈ 7.9 km s⁻¹. The time period of revolution is
+        The orbital speed <strong>decreases as h increases</strong>.{" "}
+        <Highlight>For h = 0, V(0) = √(GM<sub>E</sub>/R<sub>E</sub>) = √(gR<sub>E</sub>) ≈ 7.9 km s⁻¹</Highlight>
+        . The time period of revolution is
       </p>
       <FormulaBlock latex={String.raw`T = \frac{2\pi(R_E+h)}{V} = 2\pi\,\frac{(R_E+h)^{3/2}}{\sqrt{GM_E}}`} />
       <FormulaBlock latex={String.raw`T^2 = k\,(R_E+h)^3,\qquad k = \frac{4\pi^2}{GM_E}`} />
@@ -470,8 +502,8 @@ export default function GravitationChapter() {
       <p>
         In an elliptical orbit both K and V vary from point to point, but the <strong>total energy remains
         constant and negative</strong>. This is as expected: if the total energy were positive or zero the
-        object would escape to infinity, but satellites are always at finite distance, so their energy is
-        negative.
+        object would escape to infinity, but{" "}
+        <Highlight>satellites are always at finite distance, so their energy is negative</Highlight>.
       </p>
 
       <Expandable variant="example" title="Example 7.8">
