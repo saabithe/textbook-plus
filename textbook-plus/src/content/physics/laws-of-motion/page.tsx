@@ -6,74 +6,24 @@ import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Highlight } from "@/components/content/Highlight";
 import { Stepper } from "@/components/content/Stepper";
-import { MetricCard } from "@/components/content/study/MetricCard";
-import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
-import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Comparison } from "@/components/content/Comparison";
-import { LevelRoadFigure, BankedRoadFigure, RecoilFigure } from "@/components/content/physics/LomFigures";
 
 export default function LawsOfMotionChapter() {
   return (
     <>
-      <h2 id="h-intro">4.1 Introduction</h2>
+      <h2 id="h-inertia">4.1 The Law of Inertia</h2>
       <p>
-        In the preceding chapter we described motion quantitatively. We have not yet asked the question:
-        <strong> what governs the motion of bodies?</strong> Common experience suggests a force is needed to
-        put a stationary body in motion, to stop a moving body, and to change its speed or direction. The
-        agency providing force may or may not be in contact with the body (gravity, magnetism act at a
-        distance).
-      </p>
-      <Callout type="note" title="The central question of this chapter">
-        But is an external force required to keep a body in <strong>uniform motion</strong> — say a skater
-        gliding with constant speed on horizontal ice? Answering this took ages; Galileo&rsquo;s answer laid
-        the foundation of Newtonian mechanics.
-      </Callout>
-
-      <h2 id="h-aristotle">4.2 Aristotle&rsquo;s Fallacy</h2>
-      <p>
-        Aristotle (384–322 B.C.) held that <em>if a body is moving, something external is required to keep it
-        moving</em> — for example an arrow is kept flying by the air pushing behind it. This is a natural
-        view from common experience: a toy car dragged on a floor stops the moment the string is released.
-      </p>
-      <KeyPoint title="Where the fallacy lies">
-        A moving toy car comes to rest because <strong>friction</strong> opposes its motion. When it moves
-        uniformly, there is <strong>no net external force</strong> — the child&rsquo;s pull cancels friction.
-        If there were no friction, no force would be needed to keep it moving. Aristotle coded the
-        ever-present effects of friction into a wrong &ldquo;law&rdquo;.
-      </KeyPoint>
-      <Expandable title="Ideas on Motion in Ancient Indian Science">
-        <p>
-          Ancient Indian thinkers developed an elaborate system of ideas on motion: force due to continuous
-          pressure (nodan), impact (abhighat), persistent tendency (sanskara) — with <em>vega</em>, the
-          tendency to move in a straight line, closest to the concept of inertia, opposed by contact with
-          objects (a parallel to friction and air resistance). They understood that translational,
-          rotational and vibrational motion of a body arise from the translational motion of its
-          constituents, and distinguished a wave from a current of water. Bhaskara (1150 A.D.) introduced
-          &ldquo;instantaneous motion&rdquo; (tatkaliki gati), anticipating the notion of instantaneous
-          velocity.
-        </p>
-      </Expandable>
-
-      <h2 id="h-inertia">4.3 The Law of Inertia</h2>
-      <p>
-        Galileo studied balls on inclined planes: motion down accelerates, up retards, horizontal motion is
-        the intermediate case. <Highlight>On a frictionless horizontal plane a ball neither accelerates nor retards —
-        it moves with <strong>constant velocity</strong>.</Highlight> The double inclined-plane experiment confirms
-        this: releasing a ball on one plane, it climbs the other to nearly the same height; as the second
-        slope is reduced, it travels farther. With the second plane horizontal and friction absent, the ball
-        travels an infinite distance — its motion never ceases.
+        Inertia is the natural tendency of matter to <strong>resist any change</strong> in its state of rest or
+        of uniform motion. Newton&rsquo;s first law — rooted in Galileo&rsquo;s demonstrations — states this
+        property rigorously.
       </p>
       <Callout type="important" title="Galileo&rsquo;s insight">
-        The state of rest and the state of uniform linear motion are <strong>equivalent</strong>: in both
-        cases there is no net force on the body. This property of a body is called{" "}
+        The state of rest and the state of uniform linear motion are <strong>equivalent</strong>: in both cases
+        there is no net force on the body. This property of a body is called{" "}
         <Highlight>inertia</Highlight> — &ldquo;resistance to change&rdquo;.
       </Callout>
-      <p>
-        In practice we still need an external force to keep a body in uniform motion — exactly to counter
-        the ever-present frictional/viscous opposition, so that the net external force is zero.
-      </p>
       <KeyPoint title="Inertia — the three faces">
         Inertia is the <Highlight>inability of a body to change its own state of rest or uniform motion</Highlight>
         by itself. Exam questions classify it by which change the body resists:
@@ -84,45 +34,41 @@ export default function LawsOfMotionChapter() {
         </ul>
       </KeyPoint>
 
-      <h2 id="h-first">4.4 Newton&rsquo;s First Law of Motion</h2>
+      <h2 id="h-first">4.2 Newton&rsquo;s First Law of Motion</h2>
       <Callout type="important" title="First Law">
         Every body continues to be in its state of rest or of uniform motion in a straight line unless
         compelled by some external force to act otherwise. Equivalently: if the net external force on a body
         is zero, its acceleration is zero.
       </Callout>
-      <p>
-        The first law is used in two ways. When we know the net force is zero (a spaceship in interstellar
-        space, rockets off), we conclude the acceleration is zero. More often we know the{" "}
-        <em>motion</em>: <Highlight>if an object on earth is at rest or in uniform motion, we infer the net
-        external force is zero</Highlight> — i.e. the various forces (weight, normal reaction, friction)
-        cancel exactly.
-      </p>
-      <MistakeCard
-        mistake="&ldquo;Since W = R, the forces cancel, therefore the book is at rest.&rdquo;"
-        correction="Incorrect order of reasoning. The correct statement is: since the book is observed to be at rest, the first law requires the net force to be zero, hence the normal force R must equal and oppose the weight W. The normal force R is a self-adjusting force."
-        example="A car picking up speed accelerates only because of an external net force — along the road this is the force of friction. Internal forces can never explain the car's own acceleration."
-      />
       <Expandable title="The bus in motion — inertia in action" variant="example">
         <p>
-          When a bus suddenly <em>starts</em>, friction accelerates your feet with the bus but the rest of
-          your (deformable) body stays back by inertia — you are thrown backward (until muscular forces move
-          it along). When the bus suddenly <em>stops</em>, your feet stop but the upper body continues
-          forward by inertia — you are thrown forward.
+          <strong>When the bus starts suddenly:</strong> friction accelerates your feet with the bus, while the
+          rest of the body resists motion by inertia — you are thrown <strong>backward</strong>.
         </p>
+        <p>
+          <strong>When the bus stops suddenly:</strong> the feet stop with the bus, but the upper body keeps
+          moving forward by inertia — you are thrown <strong>forward</strong>.
+        </p>
+        <p>Reason: inertia (Newton&rsquo;s first law of motion).</p>
       </Expandable>
+      <KeyPoint title="Key idea">
+        <Highlight>Inertia = resistance to change in motion</Highlight>. Objects stay at rest, or keep moving
+        uniformly, unless a force acts on them.
+      </KeyPoint>
       <Expandable title="Example 4.1 — Astronaut separated from his spaceship" variant="example">
         <ProblemSolution.Problem>
           <p>
-            An astronaut accidentally gets separated from his small spaceship accelerating in interstellar
-            space at a constant rate of 100 m s⁻². What is his acceleration the instant after he is outside
-            the spaceship? (No nearby stars to exert gravitational force.)
+            An astronaut accidentally gets separated from his small spaceship accelerating in interstellar space
+            at a constant rate of 100 m s⁻². What is his acceleration the instant after he is outside the
+            spaceship? (No nearby stars to exert gravitational force.)
           </p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>
-            With no nearby stars, the net force on the astronaut (once outside) is zero — the spaceship&rsquo;s
-            gravitational pull is negligible. By the first law, <strong>his acceleration is zero</strong>.
-          </p>
+          <ul className="space-y-1.5 list-none">
+            <li>Once outside the spaceship, no external force acts on the astronaut — no nearby stars, negligible gravitational pull.</li>
+            <li>Net force = 0 ⟹ by the first law, <strong>acceleration = 0</strong>.</li>
+            <li>His motion: he continues with <strong>constant velocity</strong>.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
 
@@ -170,7 +116,7 @@ export default function LawsOfMotionChapter() {
         />
       </Expandable>
 
-      <h2 id="h-second">4.5 Newton&rsquo;s Second Law of Motion</h2>
+      <h2 id="h-second">4.3 Newton&rsquo;s Second Law of Motion</h2>
       <p>
         The first law covers zero net force; <Highlight>the second law relates a net external force to the
         resulting acceleration</Highlight>.
@@ -178,29 +124,34 @@ export default function LawsOfMotionChapter() {
       <h3>Momentum</h3>
       <FormulaCard>
         <p>
-          <strong>Momentum</strong> of a body: <Formula>{String.raw`\mathbf{p} = m\mathbf{v}`}</Formula> — a
-          vector.
+          <strong>Momentum</strong> p of a body is defined as the product of its mass m and velocity v:{" "}
+          <Formula>{String.raw`\mathbf{p} = m\mathbf{v}`}</Formula>.
         </p>
-        <p>
-          Evidence it is the relevant variable: a heavier body needs a bigger force to reach the same speed
-          in the same time; a bullet&rsquo;s damage depends on its speed; the same force applied for the same
-          time gives <em>every</em> body (of any mass) the same change in momentum; rotating a stone on a
-          string needs a force to change the <em>direction</em> of momentum even though its magnitude is
-          fixed.
-        </p>
+        <ul>
+          <li>Momentum is a <strong>vector</strong> quantity.</li>
+          <li>SI unit: <strong>kg m s⁻¹</strong>; dimensional formula <Formula>{String.raw`[MLT^{-1}]`}</Formula>.</li>
+        </ul>
       </FormulaCard>
       <Callout type="important" title="Second Law">
         The rate of change of momentum of a body is directly proportional to the applied force and takes
         place in the direction in which the force acts:
-        <FormulaBlock latex={String.raw`\mathbf{F} = \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} = m\mathbf{a}`} important />
+        <FormulaBlock latex={String.raw`\mathbf{F} = \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t}`} important />
         with the SI unit of force chosen so the constant k = 1: <strong>1 N = 1 kg m s⁻²</strong>.
       </Callout>
+      <h3>Deducing F = ma from the second law</h3>
+      <Stepper
+        steps={[
+          { label: "Second law", description: "F = dp/dt — the applied force equals the rate of change of momentum." },
+          { label: "Substitute p = mv", description: "F = d(mv)/dt." },
+          { label: "Constant mass", description: "For a given body the mass m does not change, so F = m·(dv/dt)." },
+          { label: "Recognise acceleration", description: "dv/dt = a, hence F = ma." },
+        ]}
+      />
+      <FormulaBlock latex={String.raw`\mathbf{F} = m\mathbf{a}`} important />
       <FormulaCard>
         <ul>
           <li>F = 0 ⟹ a = 0 — consistent with the first law.</li>
-          <li><strong>Vector law</strong>: Fₓ = dpₓ/dt = maₓ, F_y = dp_y/dt = ma_y, F_z = dp_z/dt = ma_z. A force changes only the velocity component parallel to itself (e.g. the projectile&rsquo;s horizontal velocity stays constant under a vertical weight).</li>
           <li>F in the law is the <strong>net external force</strong>; internal forces are excluded. For a system, a is the acceleration of the centre of mass.</li>
-          <li><strong>Local law</strong>: force here and now determines acceleration here and now — no memory of prior motion. (A stone dropped out of an accelerating train has no horizontal acceleration, if air is neglected.)</li>
         </ul>
       </FormulaCard>
       <Expandable title="Example 4.2 — Bullet stopped by a wooden block" variant="example">
@@ -209,7 +160,7 @@ export default function LawsOfMotionChapter() {
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <FormulaBlock latex={String.raw`a = -\frac{u^2}{2s} = -\frac{90 \times 90}{2 \times 0.6}\ \text{m s}^{-2} = -6750\ \text{m s}^{-2}`} />
-          <FormulaBlock latex={String.raw`F = 0.04 \times 6750 = 270\ \text{N}`} important />
+          <FormulaBlock latex={String.raw`F = m a = 0.04 \times 6750 = 270\ \text{N}`} important />
           <p>The resistive force may not be uniform — this is only the <strong>average</strong> value.</p>
         </ProblemSolution.Solution>
       </Expandable>
@@ -218,19 +169,31 @@ export default function LawsOfMotionChapter() {
           <p>The motion of a particle of mass m is described by <Formula>{String.raw`y = ut + \tfrac{1}{2}gt^2`}</Formula>. Find the force acting on the particle.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
+          <Stepper
+            steps={[
+              { label: "Velocity — differentiate y", description: "v = dy/dt = d(ut + ½gt²)/dt = u·dt/dt + ½g·dt²/dt = u + gt." },
+              { label: "Acceleration — differentiate v", description: "a = dv/dt = d(u + gt)/dt = du/dt + g·dt/dt = g." },
+              { label: "Force — by the second law", description: "F = ma = m·g." },
+            ]}
+          />
           <FormulaBlock latex={String.raw`v = \frac{\mathrm{d}y}{\mathrm{d}t} = u + gt, \qquad a = \frac{\mathrm{d}v}{\mathrm{d}t} = g`} />
           <FormulaBlock latex={String.raw`F = ma = mg`} important />
-          <p>The described motion is that of a particle under uniform acceleration due to gravity, y being measured in the direction of g.</p>
+          <p>The described motion is that of a particle falling under uniform acceleration due to gravity, y being measured in the direction of g.</p>
         </ProblemSolution.Solution>
       </Expandable>
-      <h3>Impulse</h3>
+      <h3>Impulse &amp; the impulse–momentum principle</h3>
       <Callout type="note" title="Impulse">
         When a <strong>large force acts for a very short time</strong> (a ball bouncing off a wall), force and
         duration are hard to measure separately, but their product — the change in momentum — is measurable:
-        <FormulaBlock latex={String.raw`\text{Impulse} = \mathbf{F}\,\Delta t = \Delta\mathbf{p}`} important />
-        An impulsive force is not a special kind of force — Newtonian mechanics treats it like any other,
-        just large and brief.
+        <FormulaBlock latex={String.raw`\text{Impulse} = \mathbf{F}\,\Delta t`} important />
+        Unit: <strong>kg m s⁻¹</strong> (= N s). An impulsive force is not a special kind of force — Newtonian
+        mechanics treats it like any other, just large and brief.
       </Callout>
+      <KeyPoint title="Impulse–momentum principle">
+        <Highlight>Impulse is equal to the change in momentum of the body</Highlight>. Starting from the second law:
+        <FormulaBlock latex={String.raw`\mathbf{F} = \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} \;\Rightarrow\; \mathbf{F}\,\mathrm{d}t = \mathrm{d}\mathbf{p} \;\Rightarrow\; \mathbf{I} = \Delta\mathbf{p}`} />
+        <strong>Impulse = change in momentum</strong> (I = dp).
+      </KeyPoint>
       <Expandable title="Example 4.4 — Batsman hits the ball straight back" variant="example">
         <ProblemSolution.Problem>
           <p>A batsman hits back a ball straight in the direction of the bowler without changing its initial speed of 12 m s⁻¹. If the mass of the ball is 0.15 kg, determine the impulse imparted to the ball. (Assume linear motion.)</p>
@@ -291,7 +254,43 @@ export default function LawsOfMotionChapter() {
         />
       </Expandable>
 
-      <h2 id="h-third">4.6 Newton&rsquo;s Third Law of Motion</h2>
+      <h3>Weight of a body in a lift</h3>
+      <p>
+        The weight of a body is the <strong>normal reaction R exerted by the surface in contact</strong> with the
+        body — not mg itself. A person standing on a weighing scale in a lift reads the normal reaction R. Applying{" "}
+        F_net = ma to each case:
+      </p>
+      <TableCard
+        headers={["Case", "Motion of the lift", "Equation of motion", "Reading on the scale"]}
+        rows={[
+          { cells: ["1", "At rest, or moving up/down with uniform velocity (a = 0)", "R − mg = 0", "R = mg — no change in weight"] },
+          { cells: ["2", "Moving up with acceleration a", "R − mg = ma", "R = m(g + a) — weight increases"] },
+          { cells: ["3", "Moving down with acceleration a", "mg − R = ma", "R = m(g − a) — weight decreases"] },
+          { cells: ["4", "Mechanism fails — falling freely (a = g)", "R = m(g − g)", "R = 0 — weightlessness"] },
+        ]}
+        caption="Weight of a body in a lift (F_net = ma)."
+      />
+      <Expandable title="Example 4.12 — Man standing on a scale in a lift" variant="example">
+        <ProblemSolution.Problem>
+          <p>
+            A man of mass 70 kg stands on a weighing scale in a lift which is (a) moving upwards with a uniform
+            speed of 10 m s⁻¹, (b) moving downwards with a uniform acceleration of 5 m s⁻², (c) moving upwards
+            with a uniform acceleration of 5 m s⁻², (d) falling freely as the mechanism fails. What would be the
+            readings on the scale in each case? Take g = 10 m s⁻².
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <ul className="space-y-1.5 list-none">
+            <li><strong>(a)</strong> Uniform speed ⟹ a = 0: R = mg = 70 × 10 = <strong>700 N</strong>; reading = 700/10 = <strong>70 kg</strong>.</li>
+            <li><strong>(b)</strong> Downwards, a = 5 m s⁻²: R = m(g − a) = 70(10 − 5) = 70 × 5 = <strong>350 N</strong>; reading = 350/10 = <strong>35 kg</strong>.</li>
+            <li><strong>(c)</strong> Upwards, a = 5 m s⁻²: R = m(g + a) = 70(10 + 5) = 70 × 15 = <strong>1050 N</strong>; reading = 1050/10 = <strong>105 kg</strong>.</li>
+            <li><strong>(d)</strong> Free fall, a = g: R = m(g − g) = <strong>0</strong>.</li>
+          </ul>
+          <p>The scale reading in kg is R/g, so a scale calibrated in kg shows 70 kg, 35 kg, 105 kg and zero respectively.</p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <h2 id="h-third">4.4 Newton&rsquo;s Third Law of Motion</h2>
       <Callout type="important" title="Third Law">
         To every action there is always an equal and opposite reaction. Clear form:{" "}
         <Highlight>forces always occur in pairs</Highlight> — the force on A by B is equal and
@@ -327,13 +326,7 @@ export default function LawsOfMotionChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h2 id="h-momentum">4.7 Conservation of Momentum</h2>
-      <p>
-        Firing a gun: by the third law, the force on the bullet (F) and on the gun (−F) act for the same
-        interval Δt. By the second law each equals the momentum change of that body. Starting from rest,
-        <Formula>{String.raw`\mathbf{p}_g = -\mathbf{p}_b`}</Formula> — <Highlight>the total momentum of the
-        isolated (bullet + gun) system is conserved</Highlight>.
-      </p>
+      <h2 id="h-momentum">4.5 Conservation of Momentum</h2>
       <Callout type="important" title="Law of conservation of momentum">
         <FormulaBlock latex={String.raw`\mathbf{p}_A' + \mathbf{p}_B' = \mathbf{p}_A + \mathbf{p}_B`} important />
         The total momentum of an isolated system of interacting particles is conserved. Mutual forces for
@@ -341,29 +334,36 @@ export default function LawsOfMotionChapter() {
         second and third laws together, and holds for <strong>elastic and inelastic</strong> collisions
         alike (elastic collisions additionally conserve kinetic energy).
       </Callout>
+      <KeyPoint title="Proof — via the second law">
+        <Stepper
+          steps={[
+            { label: "Second law", description: "F = dp/dt for the system." },
+            { label: "No external force", description: "Isolated system: the net external force is zero, so dp/dt = 0, i.e. dp = 0." },
+            { label: "Constant momentum", description: "Hence p = constant — the total momentum of an isolated system never changes." },
+          ]}
+        />
+      </KeyPoint>
 
       <h3 id="h-recoil">Recoil of a gun</h3>
       <p>
-        When a bullet is fired, the gun exerts an <strong>action force</strong> accelerating the bullet forward; by the
-        third law the bullet pushes the gun backward with an <strong>equal and opposite reaction force</strong> — the{" "}
-        <strong>recoil</strong>. The gun (mass m_g) and bullet (mass m_b) were at rest together, so the total momentum
-        of the isolated (gun + bullet) system is zero and stays zero.
-      </p>
-      <RecoilFigure />
-      <p>
-        With the bullet moving forward at muzzle speed v_b and the gun recoiling backward at speed v_g, conservation of
-        momentum gives:
+        When a bullet is fired from a gun, the <strong>backward movement of the gun</strong> is called the{" "}
+        <strong>recoil of the gun</strong>. The (gun + bullet) system is isolated, so by the law of conservation
+        of momentum its total momentum stays constant:
       </p>
       <Stepper
         steps={[
-          { label: "Before firing", description: "Gun and bullet are both at rest — total initial momentum = 0." },
-          { label: "After firing", description: "Bullet carries m_b·v_b forward; the gun carries m_g·v_g backward — total final momentum = m_g v_g − m_b v_b." },
-          { label: "Conservation", description: "0 = m_g v_g − m_b v_b, so m_b v_b = m_g v_g. The bullet and gun have equal and opposite momenta." },
-          { label: "Recoil velocity", description: "v_g = m_b v_b / m_g — the heavier the gun, the slower (gentler) the recoil." },
+          { label: "Before firing", description: "The gun and the bullet are at rest together — initial momentum of the system = 0." },
+          { label: "After firing", description: "The bullet carries p_b = mv forward; the gun carries p_g = MV backward." },
+          { label: "Conservation requirement", description: "Initial momentum = final momentum, so p_b + p_g = 0, i.e. p_b = −p_g — the negative sign shows the gun recoils to conserve momentum." },
+          { label: "Equate magnitudes", description: "mv = MV, giving the recoil velocity of the gun: V = mv/M." },
+          { label: "Muzzle velocity", description: "Re-arranging, the muzzle velocity of the bullet is v = MV/m — the lighter bullet gets the greater speed." },
         ]}
       />
-      <FormulaBlock latex={String.raw`v_g = \frac{m_b\,v_b}{m_g}`} important />
-      <FormulaBlock latex={String.raw`v_b = \frac{m_g\,v_g}{m_b}`} />
+      <FormulaBlock latex={String.raw`V = \frac{m\,v}{M} \qquad v = \frac{M\,V}{m}`} important />
+      <p>
+        Here M = mass of the gun, V = recoil velocity of the gun, m = mass of the bullet, v = muzzle velocity of
+        the bullet (V is opposite in direction to v).
+      </p>
 
       <Expandable variant="exercise" title="PYQs — Recoil of a gun">
         <ExerciseQa
@@ -386,16 +386,16 @@ export default function LawsOfMotionChapter() {
             <div key={2}>
               <ul className="space-y-1.5 list-none">
                 <li><strong>(a)</strong> The principle of conservation of linear momentum (equivalently, Newton&rsquo;s third law of motion).</li>
-                <li><strong>(b)</strong> m_b = 15 g = 0.015 kg, v_b = 100 m s⁻¹, m_g = 2 kg.</li>
-                <li>v_g = m_b v_b / m_g = (0.015 × 100) / 2 = 1.5 / 2</li>
-                <li><strong>v_g = 0.75 m s⁻¹</strong> (backward).</li>
+                <li><strong>(b)</strong> m = 15 g = 0.015 kg, v = 100 m s⁻¹, M = 2 kg.</li>
+                <li>V = mv/M = (0.015 × 100) / 2 = 1.5 / 2</li>
+                <li><strong>V = 0.75 m s⁻¹</strong> (backward).</li>
               </ul>
             </div>,
             <div key={3}>
               <ul className="space-y-1.5 list-none">
-                <li>m_b = 0.020 kg, m_g = 100 kg, v_b = 80 m s⁻¹.</li>
-                <li>v_g = m_b v_b / m_g = (0.020 × 80) / 100 = 1.6 / 100</li>
-                <li><strong>v_g = 0.016 m s⁻¹</strong> (backward).</li>
+                <li>m = 0.020 kg, M = 100 kg, v = 80 m s⁻¹.</li>
+                <li>V = mv/M = (0.020 × 80) / 100 = 1.6 / 100</li>
+                <li><strong>V = 0.016 m s⁻¹</strong> (backward).</li>
               </ul>
             </div>,
           ]}
@@ -413,7 +413,7 @@ export default function LawsOfMotionChapter() {
         ]}
       />
 
-      <h2 id="h-equilibrium">4.8 Equilibrium of a Particle</h2>
+      <h2 id="h-equilibrium">4.6 Equilibrium of a Particle</h2>
       <p>
         <Highlight>A particle is in <strong>equilibrium</strong> when the net external force on it is
         zero</Highlight> — by the first law it is then at rest or in uniform motion. Two forces:{" "}
@@ -438,32 +438,54 @@ export default function LawsOfMotionChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h2 id="h-forces">4.9 Common Forces in Mechanics</h2>
+      <h2 id="h-forces">4.7 Common Forces in Mechanics</h2>
       <p>
         Besides the pervasive (non-contact) gravitational force, the forces common in mechanics are{" "}
         <strong>contact forces</strong>: <Highlight>the component normal to the surfaces in contact is the{" "}
         <strong>normal reaction</strong>, the component parallel to them is <strong>friction</strong>.</Highlight>
-        Buoyancy, viscous force and air resistance are also contact forces. Tension (the restoring force in
-        a string, assumed constant for a massless string) and the spring force{" "}
+        Tension (the restoring force in a string, assumed constant for a massless string) and the spring force{" "}
         <Formula>{String.raw`F = -kx`}</Formula> (k the force constant, restoring against displacement) round
         out the list.
       </p>
+      <Comparison
+        columns={[
+          {
+            title: "Contact forces",
+            children: (
+              <ul className="space-y-1.5 list-none">
+                <li>A <strong>contact force</strong> arises due to contact with some other object — solid or fluid.</li>
+                <li>Examples: frictional force, viscous force, air (fluid) resistance.</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Non-contact forces",
+            children: (
+              <ul className="space-y-1.5 list-none">
+                <li>A <strong>non-contact force</strong> acts at a distance, without the need of any intervening medium.</li>
+                <li>Example: gravitational force.</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
       <Callout type="didyouknow" title="What are contact forces really?">
         All contact forces arise ultimately from <strong>electrical forces</strong> between the charged
         constituents (nuclei and electrons) of the bodies. They are nevertheless treated as distinct forces
         in macroscopic mechanics because their microscopic origin is too complex for practical problems.
       </Callout>
 
-      <h2 id="h-friction">4.9.1 Friction</h2>
+      <h2 id="h-friction">4.7.1 Friction</h2>
       <p>
-        When a small force F is applied horizontally to a body on a table, the body stays at rest: the{" "}
-        <strong>static friction</strong> fₛ comes into play, self-adjusting to exactly match F up to a limit.
-        <Highlight>Static friction opposes <strong>impending</strong> motion (motion that would occur if
-        friction were absent)</Highlight>.
+        The force that opposes (impending or actual) relative motion between two surfaces in contact is called
+        the <strong>frictional force</strong>. <Highlight>Static friction fₛ opposes <strong>impending</strong>{" "}
+        relative motion (motion that would occur if friction were absent); kinetic friction fₖ opposes actual
+        sliding</Highlight>. When a small force F is applied horizontally to a body on a table, static friction
+        is self-adjusting and exactly matches F up to a limit:
       </p>
       <FormulaCard>
         <ul>
-          <li><Formula>{String.raw`f_s \le (f_s)_{\max} = \mu_s N`}</Formula> — independent of the area of contact; μₛ the coefficient of static friction.</li>
+          <li><Formula>{String.raw`f_s \le (f_s)_{\max} = \mu_s N`}</Formula> — the limiting value (f_s)max is <strong>independent of the area of contact</strong> and varies with the normal force N; μₛ is the <strong>coefficient of static friction</strong>, depending only on the nature of the surfaces in contact.</li>
           <li>Once sliding starts, friction drops to the <strong>kinetic friction</strong>: <Formula>{String.raw`f_k = \mu_k N`}</Formula>, with <strong>μₖ &lt; μₛ</strong>; nearly independent of area and velocity.</li>
           <li>These are <strong>empirical relations</strong>, approximately true and very useful — not fundamental laws.</li>
           <li>Friction opposes <strong>relative</strong> motion, not motion itself: a box on the floor of an accelerating train is kept accelerating with the train <em>by</em> static friction.</li>
@@ -532,11 +554,12 @@ export default function LawsOfMotionChapter() {
         </ProblemSolution.Solution>
       </Expandable>
       <Callout type="note" title="Rolling friction">
-        Without slipping, ideal rolling suffers <strong>no friction</strong> — the point of contact is
+        <strong>Rolling friction</strong> is the frictional force between the surfaces in contact when one body
+        rolls over the other. Without slipping, ideal rolling suffers no friction — the point of contact is
         momentarily at rest. In practice, momentary deformation gives a finite contact area and a rolling
-        friction that is far smaller (by 2–3 orders of magnitude) than static or sliding friction — the
-        discovery of the wheel. Ball bearings, air cushions and lubricants reduce friction; brakes, walking
-        and car acceleration <em>require</em> it.
+        friction that is <Highlight>much smaller than static or sliding friction</Highlight> — the discovery of
+        the wheel. Ball bearings, air cushions and lubricants reduce friction; brakes, walking and car
+        acceleration <em>require</em> it.
       </Callout>
 
       <Expandable variant="exercise" title="PYQs — Friction">
@@ -624,21 +647,32 @@ export default function LawsOfMotionChapter() {
         </ol>
       </Expandable>
 
-      <h2 id="h-circular">4.10 Circular Motion</h2>
+      <h2 id="h-circular">4.8 Circular Motion</h2>
       <p>
         From Chapter 3, <Highlight>a body moving uniformly on a circle of radius R has acceleration v²/R
         toward the centre</Highlight>; the <strong>centripetal force</strong> providing it is:
       </p>
       <FormulaBlock latex={String.raw`f_c = \frac{mv^2}{R}`} important />
 
-      <h3 id="h-level-road">4.10.1 Car on a level circular road</h3>
+      <figure className="my-6">
+        <img
+          src="/images/physics/laws-of-motion/fig-4.14-car-level-banked.png"
+          alt="NCERT Fig. 4.14 — Circular motion of a car on (a) a level road and (b) a banked road, showing the weight, normal reaction and friction acting on the car."
+          className="w-full h-auto rounded-lg object-contain bg-white"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          NCERT Fig. 4.14 — Circular motion of a car on (a) a level road, (b) a banked road.
+        </figcaption>
+      </figure>
+
+      <h3 id="h-level-road">4.8.1 Car on a level circular road</h3>
       <p>
         When a vehicle turns on a circular path it needs a <strong>centripetal force</strong> directed towards the
         centre of the curve. On a flat, level road{" "}
-        <Highlight>static friction between the tyres and the road is the only agency that supplies it</Highlight>. For a
-        car of mass m turning on a level circular track of radius r:
+        <Highlight>static friction between the tyres and the road is the only agency that supplies it</Highlight>{" "}
+        [Fig. 4.14(a)]. For a car of mass m turning on a level circular track of radius r:
       </p>
-      <LevelRoadFigure />
       <Stepper
         steps={[
           { label: "Vertical equilibrium", description: "The weight is balanced by the normal reaction: N = mg." },
@@ -650,19 +684,19 @@ export default function LawsOfMotionChapter() {
       />
       <FormulaBlock latex={String.raw`v_{\max} = \sqrt{\mu_s\,r\,g}`} important />
 
-      <h3 id="h-banked-road">4.10.2 Banking of roads</h3>
+      <h3 id="h-banked-road">4.8.2 Banking of roads</h3>
       <p>
         Friction alone is not a reliable source of centripetal force on curved tracks; at high speed the vehicle is
         likely to <strong>skid and go out of its track</strong>. <strong>Banking of roads</strong> is the process of{" "}
         <Highlight>raising the outer edge of the curved road above its inner edge</Highlight>, so that the normal
-        reaction itself contributes a horizontal component towards the centre. The <strong>angle of banking</strong> θ
-        is the angle through which the outer edge is raised above the inner edge.
+        reaction itself contributes a horizontal component towards the centre [Fig. 4.14(b)]. The{" "}
+        <strong>angle of banking</strong> θ is the angle through which the outer edge is raised above the inner
+        edge.
       </p>
-      <BankedRoadFigure />
       <p>
-        For a vehicle of mass m on a banked curve of radius r, three forces act: the weight W = mg vertically down, the
-        normal reaction N perpendicular to the road surface, and friction F acting along the surface. Resolving N and F
-        into horizontal and vertical components:
+        For a vehicle of mass m on a banked curve of radius r, three forces act: the weight W = mg vertically down,
+        the normal reaction N perpendicular to the road surface, and friction F acting along the surface. Resolving
+        N and F into horizontal and vertical components:
       </p>
       <Stepper
         steps={[
@@ -674,21 +708,21 @@ export default function LawsOfMotionChapter() {
           { label: "Maximum permissible speed", description: "v_max = √[ rg (μ_s + tanθ) / (1 − μ_s tanθ) ]." },
         ]}
       />
-      <FormulaBlock latex={String.raw`v_{\max} = \left[rg\,\frac{\mu_s + \tan\theta}{1 - \mu_s\tan\theta}\right]^{1/2}`} important />
+      <FormulaBlock latex={String.raw`v_{\max} = \sqrt{rg\,\frac{\mu_s + \tan\theta}{1 - \mu_s\tan\theta}}`} important />
       <p>Two special cases follow directly:</p>
       <FormulaCard>
         <ul>
-          <li><strong>Case 1 — level road</strong> (no banking, θ = 0°): the formula collapses to v_max = √(μ_s r g) — exactly the level-road result of §4.10.1.</li>
+          <li><strong>Case 1 — level road</strong> (no banking, θ = 0°): the formula collapses to v_max = √(μ_s r g) — exactly the level-road result of §4.8.1.</li>
           <li><strong>Case 2 — perfectly smooth banked road</strong> (μ_s = 0): no friction is needed, avoiding the wear and tear of tyres; this defines the <strong>optimum speed</strong>: v_o = √(rg tanθ).</li>
         </ul>
       </FormulaCard>
-      <FormulaBlock latex={String.raw`v_o = (rg\tan\theta)^{1/2}`} important />
+      <FormulaBlock latex={String.raw`v_o = \sqrt{rg\tan\theta}`} important />
       <TableCard
         headers={["On a level road", "On a banked road"]}
         rows={[
           { cells: [
             "Friction (static) alone supplies f_c: v² ≤ μₛRg, so vₘₐₓ = √(μₛRg) — independent of the car&rsquo;s mass.",
-            "Both N and friction contribute; the optimum speed needs no friction: v₀ = (Rg tanθ)^½; below v₀ friction acts up the slope; parking possible only if tanθ ≤ μₛ.",
+            "Both N and friction contribute; the optimum speed needs no friction: v₀ = √(Rg tanθ); below v₀ friction acts up the slope; parking possible only if tanθ ≤ μₛ.",
           ] },
         ]}
         caption="Car turning on a circular path of radius R (Eqs. 4.17–4.22)."
@@ -704,11 +738,24 @@ export default function LawsOfMotionChapter() {
       </Expandable>
       <Expandable title="Example 4.11 — Racetrack banked at 15°" variant="example">
         <ProblemSolution.Problem>
-          <p>A circular racetrack of radius 300 m is banked at 15°, μₛ = 0.2. Find (a) the optimum (friction-free) speed and (b) the maximum permissible speed.</p>
+          <p>
+            A circular racetrack of radius 300 m is banked at an angle of 15°. If the coefficient of friction between
+            the wheels of a race-car and the road is 0.2, what is the (a) optimum speed of the racecar to avoid wear
+            and tear on its tyres, and (b) maximum permissible speed to avoid slipping?
+          </p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex={String.raw`v_o = (Rg\tan\theta)^{1/2} = (300 \times 9.8 \times \tan 15^\circ)^{1/2} = 28.1\ \text{m s}^{-1}`} important />
-          <FormulaBlock latex={String.raw`v_{\max} = \left[300 \times 9.8 \times \frac{0.268 + 0.2}{1 - 0.2 \times 0.268}\right]^{1/2} \approx 38.1\ \text{m s}^{-1}`} important />
+          <p>Given: r = 300 m, θ = 15°, μ_s = 0.2; tan 15° = 0.2679.</p>
+          <Stepper
+            steps={[
+              { label: "(a) Optimum speed", description: "v_o = √(rg tanθ) = √(300 × 9.8 × tan 15°) = √(300 × 9.8 × 0.2679)." },
+              { label: "Evaluate", description: "v_o = √787.6 ≈ 28.1 m s⁻¹." },
+              { label: "(b) Maximum permissible speed", description: "v_max = √[ rg (tanθ + μ_s) / (1 − μ_s tanθ) ] = √[ 300 × 9.8 × (0.2679 + 0.2) / (1 − 0.2 × 0.2679) ]." },
+              { label: "Evaluate", description: "v_max = √[ 2940 × 0.4679 / 0.9464 ] ≈ √1453 ≈ 38.1 m s⁻¹." },
+            ]}
+          />
+          <FormulaBlock latex={String.raw`v_o = \sqrt{rg\tan\theta} = \sqrt{300 \times 9.8 \times \tan 15^\circ} = \sqrt{300 \times 9.8 \times 0.2679} \approx 28.1\ \text{m s}^{-1}`} important />
+          <FormulaBlock latex={String.raw`v_{\max} = \sqrt{rg\,\frac{\tan\theta + \mu_s}{1 - \mu_s\tan\theta}} = \sqrt{300 \times 9.8 \times \frac{0.4679}{0.9464}} \approx 38.1\ \text{m s}^{-1}`} important />
         </ProblemSolution.Solution>
       </Expandable>
       <Expandable variant="exercise" title="PYQs — Level circular road">
@@ -792,8 +839,8 @@ export default function LawsOfMotionChapter() {
             <div key={2}>
               <ul className="space-y-1.5 list-none">
                 <li>(a) Normal reaction N, frictional force (F_s)max, and weight W = mg.</li>
-                <li>(b) Resolve N and friction into components and balance them — see the derivation in §4.10.2: v_max = √[ rg (μ_s + tanθ) / (1 − μ_s tanθ) ].</li>
-                <li>(c) v_opt = √(r g tanθ) = √(300 × 9.8 × tan 15°) ≈ <strong>28.08 m s⁻¹</strong>.</li>
+                <li>(b) Resolve N and friction into components and balance them — see the derivation in §4.8.2: v_max = √[ rg (μ_s + tanθ) / (1 − μ_s tanθ) ].</li>
+                <li>(c) v_o = √(r g tanθ) = √(300 × 9.8 × tan 15°) ≈ <strong>28.08 m s⁻¹</strong>.</li>
               </ul>
             </div>,
             <div key={3}>
@@ -816,133 +863,173 @@ export default function LawsOfMotionChapter() {
           ]}
         />
       </Expandable>
-      <MistakeCard
-        mistake="&ldquo;The centripetal force is a new kind of force that acts on round objects.&rdquo;"
-        correction="There is no such separate force. Centripetal force is just a NAME for whatever material force (tension, gravity, friction, electrical force) supplies the inward radial acceleration mv²/R. Always look for the real agency behind it."
-      />
-
-      <h2 id="h-solving">4.11 Solving Problems in Mechanics</h2>
-      <Stepper
-        steps={[
-          { label: "Diagram", description: "Sketch the assembly of bodies, links and supports." },
-          { label: "Choose a system", description: "Pick any convenient part of the assembly and apply the laws to it, including ALL forces on it due to the rest." },
-          { label: "Free-body diagram", description: "Draw the system alone with every force on it by the environment (including other agencies). Do not draw forces the system exerts on the environment." },
-          { label: "Knowns vs unknowns", description: "Mark forces you are sure of; treat the rest as unknowns to be found from the laws of motion." },
-          { label: "Repeat with the third law", description: "If the force on A by B is F in A&rsquo;s diagram, the force on B by A is −F in B&rsquo;s diagram." },
-        ]}
-      />
-      <Expandable title="Example 4.12 — Block and cylinder on a yielding floor" variant="example">
-        <ProblemSolution.Problem>
-          <p>A wooden block of mass 2 kg rests on a soft floor. An iron cylinder of mass 25 kg is placed on top, and together they descend with acceleration 0.1 m s⁻². What is the action of the block on the floor (a) before and (b) after the floor yields? (g = 10 m s⁻².) Identify the action–reaction pairs.</p>
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>
-            (a) At rest, R = 20 N by the first law; the block&rsquo;s action on the floor is 20 N downward.
-          </p>
-          <FormulaBlock latex={String.raw`270 - R' = 27 \times 0.1 \;\Rightarrow\; R' = 267.3\ \text{N}`} important />
-          <p>(b) action of the system on the floor = 267.3 N downward.</p>
-          <p>
-            Action–reaction pairs are always mutual forces between <em>two different bodies</em>: (gravity on
-            the mass by the earth, gravity on the earth by the mass) and (force on the floor by the block/
-            system, force on the block/system by the floor). The weight mg and the normal force R are{" "}
-            <strong>not</strong> an action–reaction pair — they act on the <em>same</em> body and, as in (b),
-            may even differ (270 N vs 267.3 N).
-          </p>
-        </ProblemSolution.Solution>
-      </Expandable>
-      <KeyPoint>
-        Two forces on the same body that happen to be equal and opposite are <em>never</em> an
-        action&ndash;reaction pair.
-      </KeyPoint>
 
       <h2 id="h-exercises">Exercises 4.1 – 4.23</h2>
-      <Expandable title="Exercises 4.1 – 4.23" variant="exercise">
+      <Expandable title="Exercises 4.1 – 4.23 — answers" variant="exercise">
         <p><em>For numerical simplicity, take g = 10 m s⁻².</em></p>
-        <ol>
-          <li>Give the magnitude and direction of the net force acting on (a) a drop of rain falling with constant speed, (b) a cork of mass 10 g floating on water, (c) a kite held stationary in the sky, (d) a car moving with constant velocity 30 km/h on a rough road, (e) a high-speed electron in space far from all material objects and free of electric and magnetic fields.</li>
-          <li>A pebble of mass 0.05 kg is thrown vertically up. Give the magnitude and direction of the net force on it (a) during upward motion, (b) during downward motion, (c) at the highest point. Does the answer change if thrown at 45°? Ignore air resistance.</li>
-          <li>Net force on a stone of mass 0.1 kg (a) just after dropping from a stationary train&rsquo;s window, (b) from a window of a train at uniform 36 km/h, (c) from a window of a train accelerating at 1 m s⁻², (d) lying on the floor of that accelerating train, at rest relative to the train. Neglect air resistance.</li>
-          <li>One end of a string of length l joins a particle of mass m to a peg on a smooth table; the particle moves in a circle with speed v. The net force on the particle (toward the centre) is: (i) T, (ii) T − mv²/l, (iii) T + mv²/l, (iv) 0. Choose correctly.</li>
-          <li>A constant retarding force of 50 N acts on a 20 kg body moving at 15 m s⁻¹. How long does it take to stop?</li>
-          <li>A constant force changes a 3.0 kg body&rsquo;s speed from 2.0 to 3.5 m s⁻¹ in 25 s (direction unchanged). Magnitude and direction of the force?</li>
-          <li>A 5 kg body is acted on by two perpendicular forces 8 N and 6 N. Find the magnitude and direction of its acceleration.</li>
-          <li>A three-wheeler (vehicle 400 kg + driver 65 kg) moving at 36 km/h is brought to rest in 4.0 s. What average retarding force is needed?</li>
-          <li>Rocket with lift-off mass 20,000 kg blasted upward with initial acceleration 5.0 m s⁻². Calculate the initial thrust.</li>
-          <li>A 0.40 kg body moving at 10 m s⁻¹ north is subject to a constant 8.0 N force south for 30 s. Predict its position at t = −5 s, 25 s and 100 s (x = 0, t = 0 at the instant of applying the force).</li>
-          <li>A truck accelerating at 2.0 m s⁻² (from rest) has a stone dropped from its top (6 m high) at t = 10 s. At t = 11 s find (a) the stone&rsquo;s velocity and (b) its acceleration. Neglect air resistance.</li>
-          <li>A 0.1 kg bob on a 2 m string oscillates; its speed at the mean position is 1 m s⁻¹. What is the trajectory if the string is cut at (a) an extreme position, (b) the mean position?</li>
-          <li>A 70 kg man stands on a scale in a lift moving (a) up at uniform 10 m s⁻¹, (b) down with acceleration 5 m s⁻², (c) up with acceleration 5 m s⁻². What does the scale read in each? (d) What does it read if the lift falls freely?</li>
-          <li>The position–time graph of a 4 kg particle is: straight line (slope 3 m s⁻¹) for t &lt; 0, a parabola for 0 &lt; t &lt; 4 s (velocity 0 → −1.5 m s⁻¹), straight line (slope −1.5 m s⁻¹) for t &gt; 4 s. Find (a) the force for each interval, and (b) the impulse at t = 0 and t = 4 s.</li>
-          <li>Masses 10 kg (A) and 20 kg (B) on a smooth surface are tied by a light string. A horizontal force F = 600 N is applied to (i) A, (ii) B. Find the tension in each case.</li>
-          <li>8 kg and 12 kg masses hang from a light inextensible string over a frictionless pulley. Find the acceleration and the tension when released.</li>
-          <li>A nucleus at rest disintegrates into two smaller nuclei. Show the products must move in opposite directions.</li>
-          <li>Two billiard balls (0.05 kg each) moving in opposite directions at 6 m s⁻¹ collide and rebound with the same speed. What impulse is imparted to each ball?</li>
-          <li>A shell of mass 0.020 kg is fired from a 100 kg gun with muzzle speed 80 m s⁻¹. Recoil speed of the gun?</li>
-          <li>A batsman deflects a ball (0.15 kg, 54 km/h) by 45° without changing speed. Impulse imparted to the ball?</li>
-          <li>A 0.25 kg stone whirled on a 1.5 m string at 40 rev/min in a horizontal plane. Tension? Maximum speed if the string withstands 200 N?</li>
-          <li>If in Exercise 4.21 the speed exceeds the maximum and the string breaks, the stone: (a) moves radially outward, (b) flies off tangentially, (c) flies off at some angle with the tangent. Choose correctly.</li>
-          <li>Explain why (a) a horse cannot pull a cart in empty space, (b) passengers are thrown forward when a bus stops suddenly, (c) it is easier to pull a lawn mower than to push it, (d) a cricketer draws his hands back while holding a catch.</li>
-        </ol>
-        <Expandable title="Answer Key — Exercises 4.1 – 4.23">
-          <ol>
-            <li>Zero net force in all five cases.</li>
-            <li>mg = 0.5 N, vertically downward, in all three phases; unchanged for a 45° throw (weight is always mg downward).</li>
-            <li>(a) 1 N downward; (b) 1 N downward; (c) 1 N downward (just after release there is no horizontal force on the stone — force is not carried from history); (d) 0.1 N horizontally in the direction of the train&rsquo;s acceleration.</li>
-            <li>(i) T — the tension is the net force providing mv²/l.</li>
-            <li>t = mv/F = (20 × 15)/50 = 6 s.</li>
-            <li>0.18 N in the direction of motion (F = 3.0 × 1.5/25).</li>
-            <li>F = 10 N, a = 2 m s⁻², at tan⁻¹(6/8) ≈ 37° with the 8 N force.</li>
-            <li>F = 465 × 2.5 ≈ 1.16 × 10³ N (retarding).</li>
-            <li>Thrust = m(a + g) = 20,000 × 15 = 3.0 × 10⁵ N.</li>
-            <li>a = −20 m s⁻² (south); x = 10t − 10t²: t = −5 s → −300 m; t = 25 s → −6000 m; t = 100 s → −99,000 m (99 km south).</li>
-            <li>(a) vₓ = 20 m s⁻¹, v_y = 10 m s⁻¹ → v ≈ 22 m s⁻¹ at ≈ 63° below horizontal; (b) a = g = 10 m s⁻² downward.</li>
-            <li>(a) vertical free fall; (b) a parabola (projectile).</li>
-            <li>(a) 700 N; (b) 350 N; (c) 1050 N; (d) 0.</li>
-            <li>(a) F = 0 (t &lt; 0, t &gt; 4 s); F = 4 × (−0.375) = −1.5 N (0 &lt; t &lt; 4 s); (b) impulse at t = 0: 4(0 − 3) = −12 N s; at t = 4 s: 4(−1.5 − 0) = −6 N s.</li>
-            <li>a = 20 m s⁻²; (i) T = 20 × 20 = 400 N; (ii) T = 10 × 20 = 200 N.</li>
-            <li>a = 2 m s⁻²; T = 96 N.</li>
-            <li>Momentum conservation with zero initial momentum demands p₁ + p₂ = 0 — equal and opposite momenta along the same line.</li>
-            <li>Impulse on each = 0.05 × 12 = 0.6 N s.</li>
-            <li>v = 0.020 × 80/100 = 0.016 m s⁻¹.</li>
-            <li>J = 2mu sin(45°/2) = 2 × 0.15 × 15 × sin 22.5° ≈ 1.7 N s.</li>
-            <li>T = mω²r = 0.25 × (4.19)² × 1.5 ≈ 6.6 N; vₘₐₓ = √(200 × 1.5/0.25) ≈ 34.6 m s⁻¹.</li>
-            <li>(b) — the stone flies off tangentially (no force, uniform velocity in the last velocity direction).</li>
-            <li>(a) no external forward force exists in empty space (the horse–cart forces cancel); (b) inertia of the upper body; (c) pulling lowers N (hence friction f ≤ μN), pushing raises it; (d) longer contact time ⇒ smaller impulsive force.</li>
-          </ol>
-        </Expandable>
-      </Expandable>
-
-      <h2 id="h-revision">Quick Revision</h2>
-      <MetricCard
-        label="1 N"
-        value="1 kg m s⁻²"
-        unit="SI unit of force"
-        trend="neutral"
-        description="The force that gives a 1 kg mass an acceleration of 1 m s⁻² — the constant k in F = kma is set to 1."
-      />
-      <Expandable title="Key formulas &amp; facts — one page">
-        <ul>
-          <li>Rest and uniform linear motion are equivalent states: zero net force ⟺ zero acceleration (1st law).</li>
-          <li>Momentum p = mv; F = dp/dt = ma (2nd law); components Fₓ = maₓ, etc.</li>
-          <li>Impulse = FΔt = Δp — measurable when force/time are unknowable.</li>
-          <li>Third law: F_AB = −F_BA — forces occur in pairs, act on different bodies, simultaneous, no cause–effect.</li>
-          <li>Conservation of momentum holds for isolated systems, elastic or inelastic.</li>
-          <li>Equilibrium: F₁ + F₂ + F₃ = 0 (closed force triangle/polygon).</li>
-          <li>Static friction fₛ ≤ μₛN (self-adjusting, opposes impending motion); kinetic fₖ = μₖN; μₖ &lt; μₛ.</li>
-          <li>Centripetal force f_c = mv²/R; car on level road vₘₐₓ = √(μₛRg); banked road vₘₐₓ = √[Rg(μₛ + tanθ)/(1 − μₛ tanθ)], optimum speed v₀ = (Rg tanθ)^½.</li>
-          <li>Recoil of a gun: v_g = m_b v_b / m_g — bullet and gun carry equal and opposite momenta.</li>
-          <li>Free-body diagrams: draw the system, include every force ON it, then apply the laws.</li>
-          <li>Friction is empirical, not fundamental; contact forces are electrical in origin.</li>
-        </ul>
-      </Expandable>
-      <Expandable title="Last-minute recall — formulas only">
-        <ul>
-          <li><Formula>{String.raw`\mathbf{F} = \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} = m\mathbf{a}`}</Formula>, <Formula>{String.raw`\mathbf{p} = m\mathbf{v}`}</Formula></li>
-          <li><Formula>{String.raw`\mathbf{F}_{AB} = -\mathbf{F}_{BA}`}</Formula>, <Formula>{String.raw`\mathbf{p}_A' + \mathbf{p}_B' = \mathbf{p}_A + \mathbf{p}_B`}</Formula></li>
-          <li><Formula>{String.raw`f_s \le \mu_s N`}</Formula>, <Formula>{String.raw`f_k = \mu_k N`}</Formula>, <Formula>{String.raw`F = -kx`}</Formula></li>
-          <li><Formula>{String.raw`f_c = \frac{mv^2}{R}`}</Formula>, <Formula>{String.raw`v_{\max} = \sqrt{\mu_s R g}`}</Formula>, <Formula>{String.raw`v_o = (Rg\tan\theta)^{1/2}`}</Formula></li>
-          <li><Formula>{String.raw`v_g = \frac{m_b v_b}{m_g}`}</Formula>, <Formula>{String.raw`v_{\max} = \left[Rg\,\frac{\mu_s + \tan\theta}{1 - \mu_s\tan\theta}\right]^{1/2}`}</Formula></li>
-        </ul>
+        <ExerciseQa
+          questions={[
+            <div key={1}><p><strong>4.1</strong> Give the magnitude and direction of the net force acting on (a) a drop of rain falling with constant speed, (b) a cork of mass 10 g floating on water, (c) a kite held stationary in the sky, (d) a car moving with constant velocity 30 km/h on a rough road, (e) a high-speed electron in space far from all material objects and free of electric and magnetic fields.</p></div>,
+            <div key={2}><p><strong>4.2</strong> A pebble of mass 0.05 kg is thrown vertically up. Give the magnitude and direction of the net force on it (a) during upward motion, (b) during downward motion, (c) at the highest point. Does the answer change if thrown at 45°? Ignore air resistance.</p></div>,
+            <div key={3}><p><strong>4.3</strong> Give the net force on a stone of mass 0.1 kg (a) just after dropping from a stationary train&rsquo;s window, (b) from a window of a train at uniform 36 km/h, (c) from a window of a train accelerating at 1 m s⁻², (d) lying on the floor of that accelerating train, at rest relative to the train. Neglect air resistance.</p></div>,
+            <div key={4}><p><strong>4.4</strong> One end of a string of length l joins a particle of mass m to a peg on a smooth table; the particle moves in a circle with speed v. The net force on the particle (toward the centre) is: (i) T, (ii) T − mv²/l, (iii) T + mv²/l, (iv) 0. Choose correctly.</p></div>,
+            <div key={5}><p><strong>4.5</strong> A constant retarding force of 50 N acts on a 20 kg body moving at 15 m s⁻¹. How long does it take to stop?</p></div>,
+            <div key={6}><p><strong>4.6</strong> A constant force changes a 3.0 kg body&rsquo;s speed from 2.0 to 3.5 m s⁻¹ in 25 s (direction unchanged). Find the magnitude and direction of the force.</p></div>,
+            <div key={7}><p><strong>4.7</strong> A 5 kg body is acted on by two perpendicular forces 8 N and 6 N. Find the magnitude and direction of its acceleration.</p></div>,
+            <div key={8}><p><strong>4.8</strong> A three-wheeler (vehicle 400 kg + driver 65 kg) moving at 36 km/h is brought to rest in 4.0 s. What average retarding force is needed?</p></div>,
+            <div key={9}><p><strong>4.9</strong> A rocket with lift-off mass 20,000 kg is blasted upward with initial acceleration 5.0 m s⁻². Calculate the initial thrust.</p></div>,
+            <div key={10}><p><strong>4.10</strong> A 0.40 kg body moving at 10 m s⁻¹ north is subject to a constant 8.0 N force south for 30 s. Predict its position at t = −5 s, 25 s and 100 s (x = 0, t = 0 at the instant of applying the force).</p></div>,
+            <div key={11}><p><strong>4.11</strong> A truck accelerating at 2.0 m s⁻² (from rest) has a stone dropped from its top (6 m high) at t = 10 s. At t = 11 s find (a) the stone&rsquo;s velocity and (b) its acceleration. Neglect air resistance.</p></div>,
+            <div key={12}><p><strong>4.12</strong> A 0.1 kg bob on a 2 m string oscillates; its speed at the mean position is 1 m s⁻¹. What is the trajectory if the string is cut at (a) an extreme position, (b) the mean position?</p></div>,
+            <div key={13}><p><strong>4.13</strong> A 70 kg man stands on a scale in a lift moving (a) up at uniform 10 m s⁻¹, (b) down with acceleration 5 m s⁻², (c) up with acceleration 5 m s⁻². What does the scale read in each? (d) What does it read if the lift falls freely?</p></div>,
+            <div key={14}><p><strong>4.14</strong> The position–time graph of a 4 kg particle is: a straight line (slope 3 m s⁻¹) for t &lt; 0, a parabola for 0 &lt; t &lt; 4 s (velocity 0 → −1.5 m s⁻¹), a straight line (slope −1.5 m s⁻¹) for t &gt; 4 s. Find (a) the force for each interval, and (b) the impulse at t = 0 and t = 4 s.</p></div>,
+            <div key={15}><p><strong>4.15</strong> Masses 10 kg (A) and 20 kg (B) on a smooth surface are tied by a light string. A horizontal force F = 600 N is applied to (i) A, (ii) B. Find the tension in each case.</p></div>,
+            <div key={16}><p><strong>4.16</strong> 8 kg and 12 kg masses hang from a light inextensible string over a frictionless pulley. Find the acceleration and the tension when released.</p></div>,
+            <div key={17}><p><strong>4.17</strong> A nucleus at rest disintegrates into two smaller nuclei. Show the products must move in opposite directions.</p></div>,
+            <div key={18}><p><strong>4.18</strong> Two billiard balls (0.05 kg each) moving in opposite directions at 6 m s⁻¹ collide and rebound with the same speed. What impulse is imparted to each ball?</p></div>,
+            <div key={19}><p><strong>4.19</strong> A shell of mass 0.020 kg is fired from a 100 kg gun with muzzle speed 80 m s⁻¹. Find the recoil speed of the gun.</p></div>,
+            <div key={20}><p><strong>4.20</strong> A batsman deflects a ball (0.15 kg, 54 km/h) by 45° without changing speed. Find the impulse imparted to the ball.</p></div>,
+            <div key={21}><p><strong>4.21</strong> A 0.25 kg stone is whirled on a 1.5 m string at 40 rev/min in a horizontal plane. Find its tension. What is the maximum speed if the string withstands 200 N?</p></div>,
+            <div key={22}><p><strong>4.22</strong> If in Exercise 4.21 the speed exceeds the maximum and the string breaks, the stone: (a) moves radially outward, (b) flies off tangentially, (c) flies off at some angle with the tangent. Choose correctly.</p></div>,
+            <div key={23}><p><strong>4.23</strong> Explain why (a) a horse cannot pull a cart in empty space, (b) passengers are thrown forward when a bus stops suddenly, (c) it is easier to pull a lawn mower than to push it, (d) a cricketer draws his hands back while holding a catch.</p></div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li><strong>Zero net force in all five cases.</strong> (a) Constant speed ⟹ a = 0 ⟹ F_net = 0; (b) floating ⟹ buoyancy balances the weight; (c) held stationary ⟹ F_net = 0; (d) uniform velocity ⟹ a = 0; (e) no fields and no bodies ⟹ no force at all.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>Net force = mg = 0.05 × 10 = <strong>0.5 N, vertically downward</strong>.</li>
+                <li>(a), (b) and (c) are all the same — the only force is the weight, mg, and it never changes direction. The 45° throw changes nothing (air resistance ignored).</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li>(a) 1 N downward; (b) 1 N downward — a uniform train gives the stone no horizontal force; (c) 1 N downward just after release (the instant after dropping, the stone still has the train&rsquo;s horizontal speed but no horizontal <em>force</em>); (d) <strong>0.1 N horizontally</strong> in the direction of the train&rsquo;s acceleration — F = ma = 0.1 × 1.</li>
+              </ul>
+            </div>,
+            <div key={4}>
+              <strong>(i) T</strong> — the tension is the only horizontal force and it provides the centripetal mv²/l.
+            </div>,
+            <div key={5}>
+              <ul className="space-y-1.5 list-none">
+                <li>a = F/m = 50/20 = 2.5 m s⁻² (retarding).</li>
+                <li>t = v/a = 15/2.5 = <strong>6 s</strong>.</li>
+              </ul>
+            </div>,
+            <div key={6}>
+              <ul className="space-y-1.5 list-none">
+                <li>a = (3.5 − 2.0)/25 = 1.5/25 = 0.06 m s⁻².</li>
+                <li>F = ma = 3.0 × 0.06 = <strong>0.18 N in the direction of motion</strong>.</li>
+              </ul>
+            </div>,
+            <div key={7}>
+              <ul className="space-y-1.5 list-none">
+                <li>F = √(8² + 6²) = √100 = 10 N.</li>
+                <li>a = F/m = 10/5 = <strong>2 m s⁻²</strong> at tan⁻¹(6/8) ≈ <strong>37° with the 8 N force</strong>.</li>
+              </ul>
+            </div>,
+            <div key={8}>
+              <ul className="space-y-1.5 list-none">
+                <li>m = 400 + 65 = 465 kg; v = 36 km/h = 10 m s⁻¹.</li>
+                <li>a = v/t = 10/4 = 2.5 m s⁻² (retarding).</li>
+                <li>F = 465 × 2.5 ≈ <strong>1.16 × 10³ N</strong> (retarding).</li>
+              </ul>
+            </div>,
+            <div key={9}>
+              <ul className="space-y-1.5 list-none">
+                <li>Upward net force: Thrust − mg = ma ⟹ Thrust = m(g + a).</li>
+                <li>Thrust = 20,000 × (10 + 5) = <strong>3.0 × 10⁵ N</strong>.</li>
+              </ul>
+            </div>,
+            <div key={10}>
+              <ul className="space-y-1.5 list-none">
+                <li>a = 8.0/0.40 = 20 m s⁻² (south, i.e. negative).</li>
+                <li>x = ut + ½at² = 10t − 10t².</li>
+                <li>t = −5 s: x = −50 − 250 = −<strong>300 m</strong>; t = 25 s: 250 − 6250 = −<strong>6000 m</strong>; t = 100 s: 1000 − 100000 = −<strong>99000 m (99 km south)</strong>.</li>
+              </ul>
+            </div>,
+            <div key={11}>
+              <ul className="space-y-1.5 list-none">
+                <li>At t = 10 s the truck speed is u = 2.0 × 10 = 20 m s⁻¹ — the stone&rsquo;s horizontal velocity forever after.</li>
+                <li>(a) One second after release, vₓ = 20 m s⁻¹ and v_y = g × 1 = 10 m s⁻¹ (down).</li>
+                <li>v = √(20² + 10²) = √500 ≈ <strong>22 m s⁻¹</strong> at tan⁻¹(10/20) ≈ <strong>26.6° below the horizontal</strong> (63.4° with the direction of the truck).</li>
+                <li>(b) <strong>a = g = 10 m s⁻², vertically downward</strong> — air resistance neglected.</li>
+              </ul>
+            </div>,
+            <div key={12}>
+              <ul className="space-y-1.5 list-none">
+                <li>(a) At an extreme position the bob is momentarily at rest ⟹ <strong>vertical free fall</strong>.</li>
+                <li>(b) At the mean position the bob has the full speed 1 m s⁻¹ horizontally ⟹ <strong>a parabola</strong> (projectile motion).</li>
+              </ul>
+            </div>,
+            <div key={13}>
+              <ul className="space-y-1.5 list-none">
+                <li>Exactly as in Example 4.12: (a) <strong>700 N</strong>; (b) <strong>350 N</strong>; (c) <strong>1050 N</strong>; (d) <strong>0</strong>.</li>
+              </ul>
+            </div>,
+            <div key={14}>
+              <ul className="space-y-1.5 list-none">
+                <li>(a) t &lt; 0 and t &gt; 4 s: uniform velocity ⟹ <strong>F = 0</strong>. For 0 &lt; t &lt; 4 s: a = dv/dt = −1.5/4 = −0.375 ⟹ F = 4 × (−0.375) = <strong>−1.5 N</strong>.</li>
+                <li>(b) Impulse = Δp: at t = 0: 4(0 − 3) = <strong>−12 N s</strong>; at t = 4 s: 4(−1.5 − 0) = <strong>−6 N s</strong>.</li>
+              </ul>
+            </div>,
+            <div key={15}>
+              <ul className="space-y-1.5 list-none">
+                <li>The pair moves together: a = F/(m_A + m_B) = 600/30 = 20 m s⁻².</li>
+                <li>(i) Force applied to A: tension must accelerate B alone ⟹ T = m_B a = 20 × 20 = <strong>400 N</strong>.</li>
+                <li>(ii) Force applied to B: tension must accelerate A alone ⟹ T = m_A a = 10 × 20 = <strong>200 N</strong>.</li>
+              </ul>
+            </div>,
+            <div key={16}>
+              <ul className="space-y-1.5 list-none">
+                <li>Net force = (12 − 8)g = 4 × 10 = 40 N; total mass 20 kg.</li>
+                <li>a = 40/20 = <strong>2 m s⁻²</strong>; T = 8(g + a) = 8 × 12 = <strong>96 N</strong>.</li>
+              </ul>
+            </div>,
+            <div key={17}>
+              <ul className="space-y-1.5 list-none">
+                <li>Nucleus at rest ⟹ initial total momentum = 0. Conservation requires 0 = p₁ + p₂, so <strong>p₂ = −p₁</strong> — the two fragments have equal and opposite momenta and hence move in opposite directions.</li>
+              </ul>
+            </div>,
+            <div key={18}>
+              <ul className="space-y-1.5 list-none">
+                <li>I = m(v − u) = 0.05 × [6 − (−6)] = 0.05 × 12 = <strong>0.6 N s</strong> on each ball (opposite directions).</li>
+              </ul>
+            </div>,
+            <div key={19}>
+              <ul className="space-y-1.5 list-none">
+                <li>V = mv/M = 0.020 × 80/100 = <strong>0.016 m s⁻¹</strong> (backward).</li>
+              </ul>
+            </div>,
+            <div key={20}>
+              <ul className="space-y-1.5 list-none">
+                <li>Speed 54 km/h = 15 m s⁻¹; deflection 45° ⟹ Δp = 2mu sin(45°/2).</li>
+                <li>J = 2 × 0.15 × 15 × sin 22.5° = 4.5 × 0.3827 ≈ <strong>1.7 N s</strong> (along the bisector of the angle between the initial and final directions — the vector change of momentum).</li>
+              </ul>
+            </div>,
+            <div key={21}>
+              <ul className="space-y-1.5 list-none">
+                <li>ω = 40 × (2π/60) = 4.19 rad s⁻¹.</li>
+                <li>T = mω²r = 0.25 × (4.19)² × 1.5 ≈ <strong>6.6 N</strong>.</li>
+                <li>Maximum when T = 200 N: mv²/r = 200 ⟹ v = √(200 × 1.5/0.25) = √1200 ≈ <strong>34.6 m s⁻¹</strong>.</li>
+              </ul>
+            </div>,
+            <div key={22}>
+              <strong>(b)</strong> The stone flies off <strong>tangentially</strong> — once the string breaks there is no force, so the stone continues with uniform velocity in the direction it had at the instant of break.
+            </div>,
+            <div key={23}>
+              <ul className="space-y-1.5 list-none">
+                <li>(a) In empty space the horse has nothing to push against; the equal-and-opposite horse–cart forces are <em>internal</em> to the horse–cart system and cannot provide the external forward force needed.</li>
+                <li>(b) Inertia of the upper body — the feet stop but the upper body continues forward.</li>
+                <li>(c) Pulling gives the force an upward component that <em>reduces</em> N (hence friction f ≤ μN); pushing adds a downward component that increases N and friction.</li>
+                <li>(d) Drawing the hands back increases the impact time for the same momentum change, so the impulsive force on the hands is smaller.</li>
+              </ul>
+            </div>,
+          ]}
+        />
       </Expandable>
     </>
   );
