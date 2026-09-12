@@ -18,7 +18,7 @@ export default function UnitsAndMeasurementsChapter() {
       <Callout type="important" title="What is a physical quantity?">
         A <strong>physical quantity</strong> is any quantity that can be measured. Every measurement
         has two <strong>components</strong>: a{" "}
-        <Highlight color="blue">number (numerical measure or magnitude)</Highlight> and a{" "}
+        <Highlight>number (numerical measure or magnitude)</Highlight> and a{" "}
         <strong>unit</strong>. Measuring means comparing the quantity with a basic, arbitrarily
         chosen, internationally accepted reference standard called a <strong>unit</strong>.
       </Callout>
@@ -85,10 +85,10 @@ export default function UnitsAndMeasurementsChapter() {
       />
       <p>
         The now internationally accepted system is the <em>Système Internationale d&rsquo;unités</em>{" "}
-        (French for <strong>International System of Units</strong>), abbreviated <strong>SI</strong>.
+        <Highlight>(French for <strong>International System of Units</strong>), abbreviated <strong>SI</strong></Highlight>.
       </p>
       <ul>
-        <li>SI has <strong>seven base units</strong>, plus two supplementary units:</li>
+        <li>SI has <Highlight><strong>seven base units</strong>, plus two supplementary units</Highlight>:</li>
       </ul>
       <Comparison
         columns={[
@@ -194,7 +194,7 @@ export default function UnitsAndMeasurementsChapter() {
 
       <h3 id="h-decimal">The decimal system and conversions</h3>
       <p>
-        SI is a <strong>decimal system</strong>: every unit is a power of ten of the base unit.
+        SI is a <strong>decimal system</strong>: <Highlight>every unit is a power of ten of the base unit</Highlight>.
         Conversions are just a matter of <strong>shifting the decimal point</strong>, guided by{" "}
         <strong>prefixes</strong>.
       </p>
@@ -302,9 +302,9 @@ export default function UnitsAndMeasurementsChapter() {
       <ol>
         <li>All <strong>non-zero digits</strong> are significant.</li>
         <li>All <strong>zeros between two non-zero digits</strong> are significant, wherever the decimal point is.</li>
-        <li>For numbers less than 1, <strong>leading zeros after the decimal point</strong> (left of the first non-zero digit) are <strong>not</strong> significant. (In 0.00&nbsp;2308, the two leading zeros are not significant.)</li>
-        <li>Trailing zeros in a number <strong>without</strong> a decimal point are <strong>not</strong> significant (123 m = 12300 cm = 123000 mm &rarr; 3 sig. figs).</li>
-        <li>Trailing zeros in a number <strong>with</strong> a decimal point <strong>are</strong> significant (3.500 and 0.06900 &rarr; 4 sig. figs each).</li>
+        <li>For numbers less than 1, <Highlight><strong>leading zeros after the decimal point</strong> (left of the first non-zero digit) are <strong>not</strong> significant</Highlight>. (In 0.00&nbsp;2308, the two leading zeros are not significant.)</li>
+        <li><Highlight>Trailing zeros in a number <strong>without</strong> a decimal point are <strong>not</strong> significant</Highlight> (123 m = 12300 cm = 123000 mm &rarr; 3 sig. figs).</li>
+        <li><Highlight>Trailing zeros in a number <strong>with</strong> a decimal point <strong>are</strong> significant</Highlight> (3.500 and 0.06900 &rarr; 4 sig. figs each).</li>
       </ol>
       <MistakeCard
         mistake="Reporting 4700 mm for a 4.700 m length and calling it 2 significant figures."
@@ -313,8 +313,8 @@ export default function UnitsAndMeasurementsChapter() {
       />
       <h3 id="h-sig-arithmetic">1.3.1 Arithmetic operations with significant figures</h3>
       <p>
-        A calculated result <strong>cannot be more accurate</strong> than the least precise input on
-        which it relies.
+        A calculated result <Highlight><strong>cannot be more accurate</strong> than the least precise input on
+        which it relies</Highlight>.
       </p>
       <Comparison
         columns={[
@@ -362,8 +362,8 @@ export default function UnitsAndMeasurementsChapter() {
 
       <h3 id="h-sig-rounding">1.3.2 Rounding off the uncertain digits</h3>
       <ul>
-        <li>Drop the insignificant digit: raise the preceding digit by 1 if it is <strong>more than 5</strong>; leave it if <strong>less than 5</strong>.</li>
-        <li>If the dropped digit is exactly <strong>5</strong>: drop it when the preceding digit is <strong>even</strong>, raise by 1 when it is <strong>odd</strong>.</li>
+        <li>Drop the insignificant digit: <Highlight>raise the preceding digit by 1 if it is <strong>more than 5</strong>; leave it if <strong>less than 5</strong></Highlight>.</li>
+        <li>If the dropped digit is exactly <strong>5</strong>: <Highlight>drop it when the preceding digit is <strong>even</strong>, raise by 1 when it is <strong>odd</strong></Highlight>.</li>
       </ul>
       <TableCard
         caption="Rounding to three significant figures."
@@ -403,13 +403,13 @@ export default function UnitsAndMeasurementsChapter() {
       <h2 id="h-1-4">1.4 Dimensions of Physical Quantities</h2>
       <Callout type="important" title="Definition">
         The <strong>dimensions</strong> of a physical quantity are the{" "}
-        <Highlight color="blue">powers (exponents) to which the base quantities are raised</Highlight>{" "}
+        <Highlight>powers (exponents) to which the base quantities are raised</Highlight>{" "}
         to represent that quantity. Writing [quantity] means &ldquo;the dimensions of&rdquo; the quantity.
       </Callout>
       <ul>
-        <li>The seven base quantities form the <strong>seven dimensions</strong>: length [L], mass [M], time [T], electric current [A], thermodynamic temperature [K], luminous intensity [cd], amount of substance [mol].</li>
-        <li>In mechanics everything reduces to <strong>[L], [M], [T]</strong>.</li>
-        <li>Dimensions carry <strong>no magnitudes</strong> — only the type of quantity matters.</li>
+        <li><Highlight>The seven base quantities form the <strong>seven dimensions</strong></Highlight>: length [L], mass [M], time [T], electric current [A], thermodynamic temperature [K], luminous intensity [cd], amount of substance [mol].</li>
+        <li><Highlight>In mechanics everything reduces to <strong>[L], [M], [T]</strong></Highlight>.</li>
+        <li><Highlight>Dimensions carry <strong>no magnitudes</strong> — only the type of quantity matters</Highlight>.</li>
       </ul>
 
       <h3 id="h-dim-base">Fundamental quantities and their representations</h3>
@@ -534,10 +534,10 @@ export default function UnitsAndMeasurementsChapter() {
       <h2 id="h-1-5">1.5 Dimensional Formulae and Dimensional Equations</h2>
       <ul>
         <li>
-          <strong>Dimensional formula:</strong> how and which base quantities represent the dimensions of a quantity.
+          <strong>Dimensional formula:</strong> <Highlight>how and which base quantities represent the dimensions of a quantity</Highlight>.
         </li>
         <li>
-          <strong>Dimensional equation:</strong> the physical quantity equated to its dimensional formula.
+          <strong>Dimensional equation:</strong> <Highlight>the physical quantity equated to its dimensional formula</Highlight>.
         </li>
       </ul>
       <FormulaCard>
@@ -562,13 +562,13 @@ export default function UnitsAndMeasurementsChapter() {
       </Callout>
       <ul>
         <li>
-          <strong>Rule:</strong> only quantities having <Highlight color="blue">the same dimensions</Highlight>{" "}
+          <strong>Rule:</strong> only quantities having <Highlight>the same dimensions</Highlight>{" "}
           can be added or subtracted — velocity cannot be added to force, nor electric current
           subtracted from temperature.
         </li>
         <li>
-          <strong>Property:</strong> all terms in an equation separated by +, − or = must have the
-          same dimensions. If <Formula>{String.raw`x = a + b - ct - \frac{d}{t}`}</Formula>, then
+          <strong>Property:</strong> <Highlight>all terms in an equation separated by +, − or = must have the
+          same dimensions</Highlight>. If <Formula>{String.raw`x = a + b - ct - \frac{d}{t}`}</Formula>, then
           <FormulaBlock latex={String.raw`[x] = [a] = [b] = [ct] = \left[\frac{d}{t}\right]`} />
         </li>
       </ul>
@@ -631,7 +631,7 @@ export default function UnitsAndMeasurementsChapter() {
         </ul>
         <p>
           <Formula>{String.raw`[S] = [ut] = [\tfrac{1}{2}at^2]`}</Formula> &rarr;{" "}
-          <Highlight color="blue">[LHS] = [RHS]</Highlight>. The equation is{" "}
+          <Highlight>[LHS] = [RHS]</Highlight>. The equation is{" "}
           <strong>dimensionally correct</strong>.
         </p>
       </Expandable>
@@ -703,7 +703,7 @@ export default function UnitsAndMeasurementsChapter() {
       </Expandable>
 
       <h3 id="h-1-6-2">1.6.2 Deducing relation among physical quantities</h3>
-      <p>The method of dimensions can sometimes <strong>deduce a relation</strong> among quantities, assuming a product-type dependence (up to three linearly independent variables). The dimensionless constant k can never be found this way — it requires experiment or a deeper theory.</p>
+      <p>The method of dimensions can sometimes <strong>deduce a relation</strong> among quantities, assuming a product-type dependence (up to three linearly independent variables). <Highlight>The dimensionless constant k can never be found this way</Highlight> — it requires experiment or a deeper theory.</p>
       <ProcessCard
         title="The method of dimensions — how to deduce a relation"
         steps={[
@@ -740,7 +740,7 @@ export default function UnitsAndMeasurementsChapter() {
           />
           <p>
             The constant k cannot be obtained by this method; from the actual dynamics k = 2π, giving{" "}
-            <Formula>{String.raw`T = 2\pi\sqrt{l/g}`}</Formula>. <Highlight color="blue">The period of a simple pendulum is independent of the bob&apos;s mass.</Highlight>
+            <Formula>{String.raw`T = 2\pi\sqrt{l/g}`}</Formula>. <Highlight>The period of a simple pendulum is independent of the bob&apos;s mass.</Highlight>
           </p>
         </ProblemSolution.Solution>
       </Expandable>
@@ -930,7 +930,7 @@ export default function UnitsAndMeasurementsChapter() {
           <li><Formula>{String.raw`[x^2] = [c^2] \Rightarrow [x] = [c] = [M^0 L T^{-1}]`}</Formula></li>
         </ul>
         <p>
-          <Highlight color="blue">[x] = [M⁰ L T⁻¹]</Highlight> — x has the dimensions of velocity (in
+          <Highlight>[x] = [M⁰ L T⁻¹]</Highlight> — x has the dimensions of velocity (in
           the real relation, x is the speed v).
         </p>
       </Expandable>
@@ -952,7 +952,7 @@ export default function UnitsAndMeasurementsChapter() {
           </li>
         </ul>
         <p>
-          [LHS] = [RHS] = <Highlight color="blue">[M⁰ L T⁻¹]</Highlight> &rarr; the relation is{" "}
+          [LHS] = [RHS] = <Highlight>[M⁰ L T⁻¹]</Highlight> &rarr; the relation is{" "}
           <strong>dimensionally correct</strong>.
         </p>
       </Expandable>

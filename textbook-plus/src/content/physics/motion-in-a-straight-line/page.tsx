@@ -1,4 +1,5 @@
 import { Callout } from "@/components/content/Callout";
+import { Highlight } from "@/components/content/Highlight";
 import { Comparison } from "@/components/content/Comparison";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
@@ -16,8 +17,8 @@ export default function MotionInAStraightLineChapter() {
     <>
       <h2 id="h-intro">2.1 Introduction</h2>
       <p>
-        This chapter is confined to <strong>rectilinear motion</strong> — motion of objects along a
-        straight line.
+        This chapter is confined to <strong>rectilinear motion</strong> —{" "}
+        <Highlight>motion of objects along a straight line</Highlight>.
       </p>
       <KeyPoint title="Kinematics vs dynamics">
         <ul>
@@ -191,11 +192,12 @@ export default function MotionInAStraightLineChapter() {
       </KeyPoint>
 
       <h2 id="h-2-3">2.3 Acceleration</h2>
-      <p>Instantaneous acceleration — slope of the tangent to the v–t curve:</p>
+      <p>Instantaneous acceleration — <Highlight>slope of the tangent to the v–t curve</Highlight>:</p>
       <FormulaBlock latex={String.raw`a = \lim_{\Delta t \to 0}\frac{\Delta v}{\Delta t} = \frac{\mathrm{d}v}{\mathrm{d}t}`} important />
       <p>
-        Since velocity has magnitude <em>and</em> direction, acceleration may come from a change in
-        speed, a change in direction, or both. Acceleration can be positive, negative or zero.
+        Since velocity has magnitude <em>and</em> direction, acceleration may come from{" "}
+        <Highlight>a change in speed, a change in direction, or both</Highlight>. Acceleration can be
+        positive, negative or zero.
       </p>
       <Expandable title="Worked examples — computing acceleration" variant="example">
         <p>
@@ -273,8 +275,11 @@ export default function MotionInAStraightLineChapter() {
         ]}
       />
       <p>
-        Correspondingly, the <strong>x–t</strong> graph curves <em>upward</em> for positive acceleration,
-        <em> downward</em> for negative acceleration, and is a straight line for zero acceleration.
+        Correspondingly, the <strong>x–t</strong> graph{" "}
+        <Highlight>
+          curves <em>upward</em> for positive acceleration, <em>downward</em> for negative
+          acceleration, and is a straight line for zero acceleration
+        </Highlight>.
       </p>
       <p>For constant acceleration, with v = u at t = 0:</p>
       <FormulaBlock latex={String.raw`a = \frac{v - u}{t}\;\;\Rightarrow\;\; v = u + at`} />
@@ -286,10 +291,10 @@ export default function MotionInAStraightLineChapter() {
       <p><strong>Types of slopes:</strong></p>
       <ul>
         <li>
-          <strong>Zero slope:</strong> horizontal straight line (<Formula>{String.raw`\text{Slope} = 0`}</Formula>).
+          <strong>Zero slope:</strong> <Highlight>horizontal straight line</Highlight> (<Formula>{String.raw`\text{Slope} = 0`}</Formula>).
         </li>
         <li>
-          <strong>Constant slope:</strong> straight inclined line (<Formula>{String.raw`\text{Slope} = \text{constant}`}</Formula>).
+          <strong>Constant slope:</strong> <Highlight>straight inclined line</Highlight> (<Formula>{String.raw`\text{Slope} = \text{constant}`}</Formula>).
         </li>
         <li><strong>Increasing slope:</strong> curve bending upwards.</li>
         <li><strong>Decreasing slope:</strong> curve flattening out.</li>
@@ -385,7 +390,7 @@ export default function MotionInAStraightLineChapter() {
       </Expandable>
 
       <h2 id="h-2-4">2.4 Kinematic Equations for Uniformly Accelerated Motion</h2>
-      <p>For uniform acceleration, five quantities — displacement x, time t, initial velocity u, final velocity v and acceleration a — are related by simple equations.</p>
+      <p><Highlight>For uniform acceleration</Highlight>, five quantities — displacement x, time t, initial velocity u, final velocity v and acceleration a — are related by simple equations.</p>
       <p><strong>Deriving x from the v–t graph:</strong></p>
       <Stepper
         steps={[
@@ -427,7 +432,7 @@ export default function MotionInAStraightLineChapter() {
         <FormulaBlock latex={String.raw`v^2 = u^2 + 2aS`} important />
       </Expandable>
       <KinematicsGraphs />
-      <p><strong>The three kinematic equations (x = 0 at t = 0):</strong></p>
+      <p><strong>The three kinematic equations <Highlight>(x = 0 at t = 0)</Highlight>:</strong></p>
       <FormulaCard>
         <ul>
           <li><Formula>{String.raw`v = u + at`}</Formula></li>
@@ -535,8 +540,9 @@ export default function MotionInAStraightLineChapter() {
       <FormulaBlock latex={String.raw`0 = u^2 + 2(-a)s \;\Rightarrow\; 0 = u^2 - 2as`} />
       <FormulaBlock latex={String.raw`2as = u^2 \;\Rightarrow\; s = \frac{u^2}{2a}`} important />
       <p>
-        <strong>Key relationship:</strong> stopping distance is directly proportional to the square of the
-        initial velocity: <Formula>{String.raw`s \propto u^2`}</Formula>.
+        <strong>Key relationship:</strong>{" "}
+        <Highlight>stopping distance is directly proportional to the square of the initial velocity</Highlight>:{" "}
+        <Formula>{String.raw`s \propto u^2`}</Formula>.
       </p>
       <p>
         <strong>Stopping time (t).</strong> Using <Formula>{String.raw`v = u + at`}</Formula> with v = 0
@@ -626,7 +632,8 @@ export default function MotionInAStraightLineChapter() {
 
       <h2 id="h-motion-under-gravity">Motion Under Gravity</h2>
       <p>
-        When the only force on a body is its own weight, it moves with the acceleration due to gravity{" "}
+        <Highlight>When the only force on a body is its own weight, it moves with the acceleration due
+        to gravity</Highlight>{" "}
         <Formula>{String.raw`\pm g`}</Formula>. Choosing the upward direction as positive:
       </p>
       <Comparison

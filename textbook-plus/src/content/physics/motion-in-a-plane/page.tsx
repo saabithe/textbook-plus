@@ -72,8 +72,8 @@ export default function MotionInAPlaneChapter() {
         <Formula>{String.raw`\mathbf{r}^{\prime}`}</Formula>.
       </p>
       <p>
-        The <strong>displacement vector</strong> is the straight line joining the initial and final
-        positions — independent of the actual path taken:
+        The <strong>displacement vector</strong> is <Highlight>the straight line joining the initial and final
+        positions — independent of the actual path taken</Highlight>:
       </p>
       <FormulaBlock latex={String.raw`\Delta\mathbf{r} = \mathbf{r}^{\prime} - \mathbf{r}`} important />
       <KeyPoint title="Displacement vs path length">
@@ -83,9 +83,10 @@ export default function MotionInAPlaneChapter() {
 
       <h3>3.2.3 Equality of vectors</h3>
       <p>
-        Two vectors are equal <strong>iff</strong> they have the same magnitude <em>and</em> the same
-        direction. Vectors have no fixed location — shifting a vector parallel to itself leaves it
-        unchanged (<strong>free vectors</strong>).
+        Two vectors are equal <strong>iff</strong> <Highlight>they have the same magnitude <em>and</em>
+        the same direction</Highlight>. Vectors have no fixed location —{" "}
+        <Highlight>shifting a vector parallel to itself leaves it unchanged</Highlight> (<strong>free
+        vectors</strong>).
       </p>
 
       <Expandable title="Important questions &amp; PYQs — Scalars &amp; Vectors" variant="exercise">
@@ -134,8 +135,9 @@ export default function MotionInAPlaneChapter() {
 
       <h2 id="h-multiplication">3.3 Multiplication of Vectors by Real Numbers</h2>
       <p>
-        Multiplying a vector <Formula>{String.raw`\vec{A}`}</Formula> by a real number λ stretches or shrinks
-        its length and may flip its direction — the result is the same kind of vector:
+        Multiplying a vector <Formula>{String.raw`\vec{A}`}</Formula> by a real number λ{" "}
+        <Highlight>stretches or shrinks its length and may flip its direction — the result is the same kind
+        of vector</Highlight>:
       </p>
       <ScalarMultiplicationFigure />
       <Comparison
@@ -177,8 +179,8 @@ export default function MotionInAPlaneChapter() {
         Place <strong>B</strong>&rsquo;s tail at <strong>A</strong>&rsquo;s head; the resultant{" "}
         <strong>R</strong> joins <strong>A</strong>&rsquo;s tail to <strong>B</strong>&rsquo;s head. Stated
         as a law: if two vectors are represented in magnitude and direction by two sides of a triangle taken
-        in the <strong>same order</strong>, their resultant is represented by the third side taken in the{" "}
-        <strong>opposite order</strong>:
+        in the <strong>same order</strong>, <Highlight>their resultant is represented by the third side taken
+        in the <strong>opposite order</strong></Highlight>:
       </p>
       <FormulaBlock latex={String.raw`\vec{R} = \vec{A} + \vec{B}`} important />
       <img
@@ -190,7 +192,8 @@ export default function MotionInAPlaneChapter() {
       <h3>Method 2 — Parallelogram law</h3>
       <p>
         Place the vectors with their <strong>tails at a common origin</strong> and complete the
-        parallelogram. The resultant <strong>R</strong> is the <strong>diagonal through that origin</strong>,
+        parallelogram. The resultant <strong>R</strong> is{" "}
+        <Highlight>the <strong>diagonal through that origin</strong></Highlight>,
         with magnitude and direction (θ = angle between A and B, α = angle R makes with A):
       </p>
       <FormulaBlock latex={String.raw`R = \sqrt{A^2 + B^2 + 2AB\cos\theta}`} important />
@@ -202,7 +205,7 @@ export default function MotionInAPlaneChapter() {
         loading="lazy"
       />
       <p>
-        <strong>Subtraction</strong> — both methods subtract by adding the reversed vector:{" "}
+        <strong>Subtraction</strong> — both methods <Highlight>subtract by adding the reversed vector</Highlight>:{" "}
         <strong>A</strong> − <strong>B</strong> = <strong>A</strong> + (−<strong>B</strong>). Draw −B first,
         then use Method 1 or 2 with A and −B:
       </p>
@@ -284,14 +287,15 @@ export default function MotionInAPlaneChapter() {
         </ul>
       </FormulaCard>
       <p>
-        Components are <strong>signed real numbers</strong> (Aₓ itself is not a vector; Aₓî is). The
+        <Highlight>Components are <strong>signed real numbers</strong></Highlight> (Aₓ itself is not a vector;
+        Aₓî is). The
         position vector is <Formula>{String.raw`\mathbf{r} = x\hat{\mathbf{i}} + y\hat{\mathbf{j}} + z\hat{\mathbf{k}}`}</Formula>.
       </p>
 
       <h3>3.5.1 Vector multiplication — scalar (dot) and vector (cross) product</h3>
       <p>
-        <strong>Scalar (dot) product</strong> — the product of the magnitudes of two vectors and the cosine of
-        the smaller angle between them:
+        <strong>Scalar (dot) product</strong> — <Highlight>the product of the magnitudes of two vectors and the
+        cosine of the smaller angle between them</Highlight>:
       </p>
       <FormulaBlock latex={String.raw`\vec{A}\cdot\vec{B} = AB\cos\theta`} important />
       <ul>
@@ -308,13 +312,14 @@ export default function MotionInAPlaneChapter() {
       />
       <p>
         <strong>Vector (cross) product</strong> — the product of the magnitudes of two vectors and the sine of
-        the smaller angle between them; the result is a vector perpendicular to both, with magnitude:
+        the smaller angle between them; <Highlight>the result is a vector perpendicular to both</Highlight>,
+        with magnitude:
       </p>
       <FormulaBlock latex={String.raw`|\vec{A}\times\vec{B}| = AB\sin\theta`} important />
       <ul>
         <li>Direction: along the normal to the plane of A and B, fixed by the <strong>right-hand thumb rule</strong> (curl the fingers from A towards B; the thumb points along <Formula>{String.raw`\vec{A}\times\vec{B}`}</Formula>).</li>
         <li>Anti-commutative: <Formula>{String.raw`\vec{A}\times\vec{B} = -(\vec{B}\times\vec{A})`}</Formula>; it is <strong>not</strong> associative.</li>
-        <li>Its magnitude equals the area of the parallelogram spanned by A and B.</li>
+        <li><Highlight>Its magnitude equals the area of the parallelogram spanned by A and B</Highlight>.</li>
         <li>î × î = ĵ × ĵ = k̂ × k̂ = 0; in cyclic order î × ĵ = k̂, ĵ × k̂ = î, k̂ × î = ĵ.</li>
       </ul>
       <div className="grid gap-3 sm:grid-cols-2">
@@ -380,7 +385,8 @@ export default function MotionInAPlaneChapter() {
 
       <h2 id="h-projectile">3.6 Projectile Motion</h2>
       <p>
-        A <strong>projectile</strong> is an object in flight after being thrown or projected — a football, a
+        A <strong>projectile</strong> is <Highlight>an object in flight after being thrown or projected</Highlight>
+        — a football, a
         cricket ball, an arrow, … .
       </p>
       <FormulaCard>
@@ -401,7 +407,7 @@ export default function MotionInAPlaneChapter() {
       <FormulaBlock latex={String.raw`y = x\tan\theta_0 - \frac{gx^2}{2u^2\cos^2\theta_0}`} important />
       <p>
         Since g, θ₀ and u are constants this has the form y = ax + bx² —{" "}
-        <Highlight color="blue">the path of a projectile is a parabola</Highlight>.
+        <Highlight>the path of a projectile is a parabola</Highlight>.
       </p>
       <Stepper
         steps={[
@@ -512,11 +518,11 @@ export default function MotionInAPlaneChapter() {
 
       <h2 id="h-circular">3.7 Uniform Circular Motion</h2>
       <p>
-        An object following a circular path at <strong>constant speed</strong> is in{" "}
-        <strong>uniform circular motion</strong> (&ldquo;uniform&rdquo; refers to the speed). The
+        <Highlight>An object following a circular path at <strong>constant speed</strong> is in{" "}
+        <strong>uniform circular motion</strong></Highlight> (&ldquo;uniform&rdquo; refers to the speed). The
         velocity&rsquo;s magnitude stays constant but its <strong>direction changes continuously</strong> —
         the linear velocity is always <strong>tangential</strong> to the path and at right angles to the
-        radius. Because the direction changes, the object is accelerating.
+        radius. <Highlight>Because the direction changes, the object is accelerating</Highlight>.
       </p>
       <FormulaCard>
         <ul>
@@ -593,8 +599,9 @@ export default function MotionInAPlaneChapter() {
 
       <h3>3.7.1 Centripetal force and acceleration</h3>
       <p>
-        <strong>Centripetal acceleration</strong> — the acceleration directed towards the centre of the
-        circular path that keeps a body moving along that circle. Its magnitude has three equivalent forms:
+        <strong>Centripetal acceleration</strong> — <Highlight>the acceleration directed towards the centre of
+        the circular path</Highlight> that keeps a body moving along that circle. Its magnitude has three
+        equivalent forms:
       </p>
       <FormulaCard>
         <ul>
@@ -604,7 +611,7 @@ export default function MotionInAPlaneChapter() {
       </FormulaCard>
       <p>
         <strong>Centripetal force</strong> — by Newton&rsquo;s second law (<Formula>{String.raw`F = ma`}</Formula>),
-        the net force towards the centre that produces this acceleration:
+        <Highlight>the net force towards the centre that produces this acceleration</Highlight>:
       </p>
       <FormulaCard>
         <ul>
