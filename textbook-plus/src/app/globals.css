@@ -132,9 +132,10 @@
 
 /* Chapter content typography */
 .prose-custom {
-  @apply max-w-none text-[1.0625rem] leading-[1.75];
+  @apply max-w-none text-[1.2rem] leading-[1.75];
   overflow-wrap: anywhere;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-hand), "Comic Sans MS", cursive;
+  font-weight: 500;
 }
 
 .prose-custom h1 {
@@ -223,6 +224,17 @@
 
 .prose-custom em {
   @apply italic;
+}
+
+/* Inline math wrapper — keeps long formulas scrollable without lifting them off the text baseline */
+.prose-custom .formula-inline {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align: text-bottom;
+  padding-bottom: 0.2em;
+  margin-bottom: -0.2em;
 }
 
 /* Scrollbar — visible thin style */

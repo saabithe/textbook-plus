@@ -34,7 +34,7 @@ No test framework. No typecheck script (TypeScript errors surface via `npm run b
 - **Tailwind CSS v4** with `@tailwindcss/postcss` — no `tailwind.config.ts`; config in `globals.css` via `@theme inline`
 - **shadcn/ui** — style `base-nova`, uses `@base-ui/react` (not Radix). Add via `npx shadcn@latest add <component>`
 - **TypeScript strict** with `@/*` → `./src/*`
-- **Font**: Plus Jakarta Sans for UI via `next/font/google` → `--font-sans` CSS variable; **notes content** (`.prose-custom`) renders in **Georgia** (`font-family: Georgia, "Times New Roman", serif`) — home page / app shell stays Jakarta.
+- **Font**: Plus Jakarta Sans for UI via `next/font/google` → `--font-sans` CSS variable; **notes content** (`.prose-custom`) renders in **Caveat** (handwriting, `--font-hand` from `next/font/google`, `font-family: var(--font-hand), cursive`, 1.2rem / weight 500) — home page / app shell stays Jakarta. Code blocks stay monospace. Inline math uses `.prose-custom .formula-inline` (scroll-safe wrapper that keeps KaTeX on the text baseline).
 - **Lucide React** for icons
 - **KaTeX** for math rendering (`katex` package, imported via `@/components/content/Formula`)
 - **Supabase** for auth + cloud progress sync (`@supabase/ssr`)

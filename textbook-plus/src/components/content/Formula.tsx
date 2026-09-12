@@ -22,7 +22,7 @@ export function Formula({ children, block = false }: FormulaProps) {
   }
 
   return (
-    <span className="inline-block max-w-full overflow-x-auto align-baseline">
+    <span className="formula-inline">
       <span dangerouslySetInnerHTML={{ __html: html }} />
     </span>
   );
