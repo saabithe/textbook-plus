@@ -6,7 +6,12 @@ import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { SolvedProblem } from "@/components/content/SolvedProblem";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
+import {
+  ProjectileComponentGraphs,
+  CircularMotionVectors,
+} from "@/components/content/physics/ProjectileGraphs";
 import { Stepper } from "@/components/content/Stepper";
 import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
@@ -431,9 +436,11 @@ export default function MotionInAPlaneChapter() {
           <li><Formula>{String.raw`v_x = v_0\cos\theta_0\ (\text{constant})`}</Formula>; <Formula>{String.raw`v_y = v_0\sin\theta_0 - gt`}</Formula></li>
         </ul>
       </FormulaCard>
-      <KeyPoint>
-        The horizontal component vₓ stays <strong>constant</strong>; the vertical component behaves like free
-        fall. At the maximum height v_y = 0 — the velocity is purely horizontal there.
+      <KeyPoint title="Velocity & acceleration at the highest point">
+        The horizontal component <Formula>{String.raw`v_x = v_0\cos\theta_0`}</Formula> stays{" "}
+        <strong>constant</strong>; the vertical component behaves like free fall. At the topmost point{" "}
+        <strong>v_y = 0</strong> and the velocity is purely horizontal — but the acceleration is{" "}
+        <strong>still g downward</strong> (a = −g). Gravity does not switch off at the top.
       </KeyPoint>
       <p><strong>Equation of path (trajectory)</strong> — eliminate t between x and y:</p>
       <FormulaBlock latex={String.raw`y = x\tan\theta_0 - \frac{gx^2}{2v_0^2\cos^2\theta_0}`} important />
@@ -456,6 +463,23 @@ export default function MotionInAPlaneChapter() {
         trend="neutral"
         description="For a given launch speed, R = v₀² sin2θ₀/g is largest when sin2θ₀ = 1, i.e. θ₀ = 45°, giving R_m = v₀²/g."
       />
+      <Expandable title="Derivations — time of flight, maximum height &amp; horizontal range" variant="example">
+        <p><strong>Time of flight (T)</strong> — vertical motion up to the highest point with <Formula>{String.raw`v_y = u\sin\theta - gt`}</Formula>, where v_y = 0:</p>
+        <FormulaBlock latex={String.raw`0 = u\sin\theta - g\,t_m \;\Rightarrow\; t_m = \frac{u\sin\theta}{g}`} />
+        <FormulaBlock latex={String.raw`T = 2\,t_m = \frac{2u\sin\theta}{g}`} important />
+        <p><strong>Maximum height (H)</strong> — from <Formula>{String.raw`v_y^2 = u^2\sin^2\theta - 2gH`}</Formula> with v_y = 0 at the top:</p>
+        <FormulaBlock latex={String.raw`0 = u^2\sin^2\theta - 2gH \;\Rightarrow\; H = \frac{u^2\sin^2\theta}{2g}`} important />
+        <p>Projected straight up (θ = 90°), it reaches its greatest possible value:</p>
+        <FormulaBlock latex={String.raw`H_{\max} = \frac{u^2}{2g}`} />
+        <p><strong>Horizontal range (R)</strong> — horizontal velocity × time of flight:</p>
+        <FormulaBlock latex={String.raw`R = u\cos\theta \cdot T = u\cos\theta \cdot \frac{2u\sin\theta}{g} = \frac{u^2(2\sin\theta\cos\theta)}{g} = \frac{u^2\sin 2\theta}{g}`} important />
+        <p>Range is greatest when sin 2θ = 1, i.e. θ = 45°: <Formula>{String.raw`R_{\max} = u^2/g`}</Formula>. Comparing the two maxima:</p>
+        <FormulaBlock latex={String.raw`H_{\max} = \frac{R_{\max}}{2}`} important />
+        <p className="text-sm text-muted-foreground">
+          Notice what this last line says: for a given speed, the maximum height (reached throwing straight
+          up) is exactly half the maximum horizontal range (reached at 45°).
+        </p>
+      </Expandable>
       <Expandable title="Example 3.6 — Galileo: ranges at 45° ± α are equal" variant="example">
         <ProblemSolution.Problem>
           <p>Galileo, in Two New Sciences, stated that &ldquo;for elevations which exceed or fall short of 45° by equal amounts, the ranges are equal&rdquo;. Prove this.</p>
@@ -498,11 +522,86 @@ export default function MotionInAPlaneChapter() {
         correction="They do NOT. In UCM the magnitude of acceleration is constant but its direction keeps changing (always towards the centre), so the acceleration is not constant. The kinematic equations require constant acceleration as a vector."
       />
 
+      <Expandable title="Previous year questions — Projectile Motion" variant="exercise">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Exam 2022 · 2 marks</p>
+              <p>A javelin is projected at an angle of 30° with an initial velocity of 5 m/s from the ground. What are its velocity and acceleration at the highest point?</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Model Exam 2023 · 2 marks</p>
+              <ul className="space-y-1 list-none">
+                <li>(A) What is the shape of the path followed by a projectile?</li>
+                <li>(B) Draw the variation of the velocity components of a projectile with time.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Model Exam 2018 · 2 marks</p>
+              <p>A javelin is thrown with an initial velocity u at an angle θ with the horizontal. What are the horizontal and vertical velocities at (A) the point of projection and (B) the maximum height?</p>
+            </div>,
+            <div key={4}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Christmas Exam 2019 · 4 marks</p>
+              <p>A player kicks a football at an angle of 30° with an initial velocity of 20 m/s. Find the time of flight of the football (g = 10 m/s²).</p>
+            </div>,
+            <div key={5}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Model Exam 2022 · 3 marks</p>
+              <p>A cricket ball is thrown at a speed of 20 m/s at an angle θ = 30° with the horizontal. Calculate the maximum height (sin 30° = 0.5, g = 10 m/s²).</p>
+            </div>,
+            <div key={6}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Exam 2020 · 4 marks</p>
+              <p>Three paths are shown for a football kicked from ground level with the same velocity.</p>
+              <ul className="mt-1 ml-5 list-none space-y-1">
+                <li>(a) Derive an equation for the maximum height of the football.</li>
+                <li>(b) In which path is the horizontal component of velocity maximum?</li>
+              </ul>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1 list-none">
+                <li>Horizontal velocity at the top: <Formula>{String.raw`u_x = u\cos 30^\circ = 5 \times \frac{\sqrt{3}}{2} = \frac{5\sqrt{3}}{2}\ \text{m s}^{-1}`}</Formula> (≈ 4.3 m/s), unchanged.</li>
+                <li>Vertical velocity at the top: v_y = 0 m/s.</li>
+                <li>Acceleration: a = −g = −9.8 m/s² — still straight down.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <p>(A) A <strong>parabola</strong> — the path has the form y = ax + bx².</p>
+              <p className="mt-1"><strong>(B)</strong> The two components plotted against time:</p>
+              <ProjectileComponentGraphs />
+              <p className="mt-1">
+                vₓ vs t is a horizontal straight line (constant u cosθ); v_y vs t is a straight line of slope
+                −g, falling from +u sinθ to 0 at the top, then continuing below zero.
+              </p>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1 list-none">
+                <li>(A) At the point of projection: u_x = u cosθ, u_y = u sinθ.</li>
+                <li>(B) At maximum height: v_x = u cosθ (unchanged), v_y = 0.</li>
+              </ul>
+            </div>,
+            <div key={4}>
+              <p>T = 2u sinθ / g = 2 × 20 × sin 30° / 10 = 40 × 0.5 / 10 = <strong>2 s</strong>.</p>
+            </div>,
+            <div key={5}>
+              <p>H = u² sin²θ / (2g) = 20² × (0.5)² / (2 × 10) = 400 × 0.25 / 20 = 100 / 20 = <strong>5 m</strong>.</p>
+            </div>,
+            <div key={6}>
+              <p><strong>(a)</strong> At maximum height v_y = 0 in v² = u² − 2gS:</p>
+              <p className="mt-1">0 = u² sin²θ − 2gH <Formula>{String.raw`\Rightarrow`}</Formula> <strong>H = u² sin²θ / 2g</strong>.</p>
+              <p className="mt-1"><strong>(b)</strong> <strong>Path 3</strong> — it has the largest range R = u² sin2θ/g (the flattest, farthest-reaching trajectory), so its horizontal component u cosθ dominates.</p>
+            </div>,
+          ]}
+        />
+      </Expandable>
+
       <h2 id="h-circular">3.10 Uniform Circular Motion</h2>
       <p>
         An object following a circular path at <strong>constant speed</strong> is in{" "}
-        <strong>uniform circular motion</strong> (&ldquo;uniform&rdquo; refers to the speed). Since the
-        velocity keeps changing direction, the object is accelerating.
+        <strong>uniform circular motion</strong> (&ldquo;uniform&rdquo; refers to the speed). The
+        velocity&rsquo;s magnitude stays constant but its <strong>direction changes continuously</strong> —
+        the linear velocity is always <strong>tangential</strong> to the path and at right angles to the
+        radius. Because the direction changes, the object is accelerating.
       </p>
       <ProcessCard
         title="Where does centripetal acceleration come from?"
@@ -521,6 +620,15 @@ export default function MotionInAPlaneChapter() {
           <li>Period/frequency: <Formula>{String.raw`T = 1/\nu`}</Formula>, <Formula>{String.raw`\omega = 2\pi\nu`}</Formula>, <Formula>{String.raw`v = 2\pi R/T = 2\pi R\nu`}</Formula>, <Formula>{String.raw`a_c = 4\pi^2\nu^2 R`}</Formula></li>
         </ul>
       </FormulaCard>
+      <Expandable title="Derivation — v = ωr (arc geometry)" variant="example">
+        <p>An object sweeps out an arc AB of length s over a time t on a circle of radius r.</p>
+        <p><strong>1 · Linear distance</strong> — at constant speed v: <Formula>{String.raw`s = v\,t \qquad (1)`}</Formula></p>
+        <p><strong>2 · Angle subtended at the centre</strong> — arc over radius: <Formula>{String.raw`\theta = \frac{s}{r} \;\Rightarrow\; s = r\,\theta \qquad (2)`}</Formula></p>
+        <p><strong>3 · Equating (1) and (2)</strong>:</p>
+        <FormulaBlock latex={String.raw`r\,\theta = v\,t \;\Rightarrow\; v = r\,\frac{\theta}{t}`} />
+        <p>Since the angular velocity is, by definition, <Formula>{String.raw`\omega = \theta/t`}</Formula>:</p>
+        <FormulaBlock latex={String.raw`v = \omega r`} important />
+      </Expandable>
       <Callout type="warning" title="Constant magnitude, changing direction">
         Since v and R are constant, |a_c| is constant — but the direction is always towards the centre.{" "}
         <strong>The centripetal acceleration is not a constant vector.</strong> Likewise the resultant
@@ -540,6 +648,96 @@ export default function MotionInAPlaneChapter() {
           </p>
           <FormulaBlock latex={String.raw`a = \omega^2 R = (0.44)^2 (12) = 2.3\ \text{cm s}^{-2}`} important />
         </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="Previous year questions — Uniform Circular Motion" variant="exercise">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Christmas Exam 2018 · 1 + 2 = 3 marks</p>
+              <p>In circular motion, the direction of linear velocity changes continuously.</p>
+              <ul className="mt-1 ml-5 list-none space-y-1">
+                <li>(A) Write the direction of linear velocity.</li>
+                <li>(B) Derive the relation between linear velocity and angular velocity in uniform circular motion.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Exam 2019 · 1 + 2 = 3 marks</p>
+              <ul className="space-y-1 list-none">
+                <li>(a) The figure shows the path of an object in uniform circular motion. Mark the directions of the velocity and the centripetal acceleration of the particle at point P.</li>
+                <li>(b) An object moving uniformly on a circular path of radius 12 cm completes 7 revolutions in 100 s. Find the angular speed and the linear speed of the motion.</li>
+              </ul>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <p><strong>(A)</strong> <strong>Tangential</strong> — along the tangent to the circular path at that point.</p>
+              <p className="mt-1"><strong>(B)</strong> With the arc–radius relation s = rθ (see the &ldquo;v = ωr&rdquo; derivation box above): <strong>v = ωr</strong>.</p>
+            </div>,
+            <div key={2}>
+              <p><strong>(a)</strong></p>
+              <CircularMotionVectors />
+              <p className="mt-1"><strong>(b)</strong> r = 12 cm = 0.12 m, n = 7 revolutions in t = 100 s — the same numbers as Example 3.9:</p>
+              <ul className="mt-1 ml-5 space-y-1 list-none">
+                <li>Angular speed: ω = 2πn/t = 44/100 = <strong>0.44 rad/s</strong>.</li>
+                <li>Linear speed: v = ωr = 0.44 × 0.12 = <strong>0.0528 m/s</strong> (≈ 5.3 cm/s).</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
+
+      <h3>3.10.1 Centripetal force and acceleration</h3>
+      <p>
+        <strong>Centripetal acceleration</strong> — the acceleration directed towards the centre of the
+        circular path that keeps a body moving along that circle. Its magnitude has three equivalent forms:
+      </p>
+      <FormulaCard>
+        <ul>
+          <li><Formula>{String.raw`a_c = \frac{v^2}{r} = v\,\omega = \omega^2 r`}</Formula></li>
+          <li>v = linear velocity · r = radius · ω = angular velocity.</li>
+        </ul>
+      </FormulaCard>
+      <p>
+        <strong>Centripetal force</strong> — by Newton&rsquo;s second law (<Formula>{String.raw`F = ma`}</Formula>),
+        the net force towards the centre that produces this acceleration:
+      </p>
+      <FormulaCard>
+        <ul>
+          <li><Formula>{String.raw`F_c = \frac{m v^2}{r} = m v\,\omega = m \omega^2 r`}</Formula></li>
+          <li>m = mass of the object · v = linear velocity · r = radius · ω = angular velocity.</li>
+        </ul>
+        <p className="pt-2 text-[0.9rem] text-muted-foreground">
+          Centripetal force is <strong>not a new kind of force</strong> — it is the name given to whichever
+          inward pull does the job: tension in a string, friction of tyres, gravity in orbit.
+        </p>
+      </FormulaCard>
+      <Expandable title="Derivation — a_c = v²/r for uniform circular motion" variant="example">
+        <p>Comparing the two similar triangles formed by the displacements and by the velocities (the ProcessCard above shows the geometry):</p>
+        <FormulaBlock latex={String.raw`\frac{|\Delta\mathbf{r}|}{r} = \frac{|\Delta\mathbf{v}|}{v} \;\Rightarrow\; |\Delta\mathbf{v}| = \frac{v}{r}\,|\Delta\mathbf{r}|`} />
+        <p>Divide both sides by Δt and take the limit Δt → 0:</p>
+        <FormulaBlock latex={String.raw`a_c = \lim_{\Delta t\to 0}\frac{|\Delta\mathbf{v}|}{\Delta t} = \frac{v}{r}\,\lim_{\Delta t\to 0}\frac{|\Delta\mathbf{r}|}{\Delta t} = \frac{v}{r}\cdot v = \frac{v^2}{r}`} important />
+      </Expandable>
+      <Expandable title="Board exam questions — acceleration with constant speed" variant="exercise">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p>Uniform circular motion is a special case of two-dimensional motion having centripetal acceleration.</p>
+              <ul className="mt-1 ml-5 list-none space-y-1">
+                <li>(a) Define centripetal acceleration.</li>
+                <li>(b) Can a body have acceleration while moving with constant speed? Explain.</li>
+                <li>(c) Express angular velocity in terms of angular displacement.</li>
+              </ul>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <p><strong>(a)</strong> The acceleration directed towards the centre of the circular path in uniform circular motion, given by a_c = v²/r.</p>
+              <p className="mt-1"><strong>(b)</strong> <strong>Yes.</strong> In uniform circular motion the speed stays constant but the direction of the velocity changes continuously, so there is a centripetal acceleration towards the centre.</p>
+              <p className="mt-1"><strong>(c)</strong> ω = θ/t, where θ is the angular displacement swept out in time t.</p>
+            </div>,
+          ]}
+        />
       </Expandable>
 
       <h2 id="h-exercises">Exercises 3.1 – 3.22</h2>
