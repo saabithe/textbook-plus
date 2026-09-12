@@ -219,7 +219,7 @@
 }
 
 .prose-custom strong {
-  @apply font-semibold text-foreground;
+  @apply font-bold text-foreground;
 }
 
 .prose-custom em {
