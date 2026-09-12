@@ -11,7 +11,14 @@ import { Highlight } from "@/components/content/Highlight";
 import {
   ProjectileComponentGraphs,
   CircularMotionVectors,
+  ThreeProjectilePaths,
 } from "@/components/content/physics/ProjectileGraphs";
+import {
+  VectorTypeFigures,
+  ScalarMultiplicationFigure,
+  RectangularComponentsFigure,
+  AdditionSubtractionFigure,
+} from "@/components/content/physics/VectorFigures";
 import { Stepper } from "@/components/content/Stepper";
 import { MetricCard } from "@/components/content/study/MetricCard";
 import { TableCard } from "@/components/content/data/TableCard";
@@ -56,16 +63,7 @@ export default function MotionInAPlaneChapter() {
       </KeyPoint>
 
       <h3>3.2.1 Types of vectors</h3>
-      <TableCard
-        headers={["Type of vector", "Definition", "Example / note"]}
-        rows={[
-          { cells: ["Modulus (magnitude)", "The length of the vector — its size, regardless of direction.", "|A| or simply A"] },
-          { cells: ["Unit vector", "A vector of magnitude 1 drawn along the given direction.", "Â, with |Â| = 1 — î, ĵ, k̂ along the axes"] },
-          { cells: ["Equal vectors", "Two vectors with the same magnitude and the same direction.", "A = B"] },
-          { cells: ["Null (zero) vector", "A vector with zero magnitude and an arbitrary direction.", "e.g. the position vector of the origin"] },
-        ]}
-        caption="The four working definitions used to name and compare vectors."
-      />
+      <VectorTypeFigures />
 
       <h3>3.2.2 Position and displacement vectors</h3>
       <p>
@@ -134,17 +132,53 @@ export default function MotionInAPlaneChapter() {
         />
       </Expandable>
 
-      <h2 id="h-addition">3.3 Addition &amp; Subtraction of Vectors — Graphical Method</h2>
+      <h2 id="h-multiplication">3.3 Multiplication of Vectors by Real Numbers</h2>
       <p>
-        <strong>Head-to-tail (triangle) method:</strong> place <strong>B</strong>&rsquo;s tail at{" "}
-        <strong>A</strong>&rsquo;s head; the resultant <strong>R</strong> joins <strong>A</strong>&rsquo;s
-        tail to <strong>B</strong>&rsquo;s head.
+        Multiplying a vector <Formula>{String.raw`\vec{A}`}</Formula> by a real number λ stretches or shrinks
+        its length and may flip its direction — the result is the same kind of vector:
       </p>
+      <ScalarMultiplicationFigure />
+      <Comparison
+        columns={[
+          {
+            title: "λ > 0 — same direction",
+            children: (
+              <ul className="space-y-1 list-none">
+                <li>Magnitude becomes λ times bigger; direction stays the same.</li>
+                <li><Formula>{String.raw`2\vec{A}`}</Formula> → twice as long, same direction.</li>
+              </ul>
+            ),
+          },
+          {
+            title: "λ < 0 — direction reverses",
+            children: (
+              <ul className="space-y-1 list-none">
+                <li>Magnitude becomes |λ| times bigger; direction reverses.</li>
+                <li><Formula>{String.raw`-\vec{A}`}</Formula> → same length, opposite direction.</li>
+                <li><Formula>{String.raw`-1.5\,\vec{A}`}</Formula> → 1.5 times longer, opposite direction.</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+      <KeyPoint title="Scalar with units">
+        The result&rsquo;s units are the product of the units — (units of λ) × (units of{" "}
+        <Formula>{String.raw`\vec{A}`}</Formula>). Example: velocity × time = displacement.
+      </KeyPoint>
+      <KeyPoint title="Shortcut to remember">
+        Positive λ — stretch the <strong>same way</strong>. Negative λ — stretch the{" "}
+        <strong>opposite way</strong>.
+      </KeyPoint>
+
+      <h2 id="h-addition">3.4 Addition &amp; Subtraction of Vectors — Graphical Method</h2>
+      <p>There are two graphical methods — both handle <strong>addition and subtraction</strong>:</p>
+      <h3>Method 1 — Triangle (head-to-tail) law</h3>
       <p>
-        <strong>Triangle law of vector addition:</strong> if two vectors are represented in magnitude and
-        direction by two sides of a triangle taken in the <strong>same order</strong>, their resultant{" "}
-        <Formula>{String.raw`\vec{R}`}</Formula> is represented in magnitude and direction by the third side
-        taken in the <strong>opposite order</strong>:
+        Place <strong>B</strong>&rsquo;s tail at <strong>A</strong>&rsquo;s head; the resultant{" "}
+        <strong>R</strong> joins <strong>A</strong>&rsquo;s tail to <strong>B</strong>&rsquo;s head. Stated
+        as a law: if two vectors are represented in magnitude and direction by two sides of a triangle taken
+        in the <strong>same order</strong>, their resultant is represented by the third side taken in the{" "}
+        <strong>opposite order</strong>:
       </p>
       <FormulaBlock latex={String.raw`\vec{R} = \vec{A} + \vec{B}`} important />
       <img
@@ -153,20 +187,26 @@ export default function MotionInAPlaneChapter() {
         className="w-full h-auto rounded-lg object-contain max-h-[280px] mx-auto bg-white"
         loading="lazy"
       />
+      <h3>Method 2 — Parallelogram law</h3>
       <p>
-        <strong>Parallelogram law of vector addition:</strong> if two vectors acting at a point are
-        represented in magnitude and direction by the two adjacent sides of a parallelogram, their resultant
-        is represented in magnitude and direction by the <strong>diagonal</strong> through that point, with
-        magnitude <Formula>{String.raw`R = \sqrt{A^2 + B^2 + 2AB\cos\theta}`}</Formula> and direction{" "}
-        <Formula>{String.raw`\tan\alpha = \frac{B\sin\theta}{A + B\cos\theta}`}</Formula> (α is the angle R
-        makes with A).
+        Place the vectors with their <strong>tails at a common origin</strong> and complete the
+        parallelogram. The resultant <strong>R</strong> is the <strong>diagonal through that origin</strong>,
+        with magnitude and direction (θ = angle between A and B, α = angle R makes with A):
       </p>
+      <FormulaBlock latex={String.raw`R = \sqrt{A^2 + B^2 + 2AB\cos\theta}`} important />
+      <FormulaBlock latex={String.raw`\tan\alpha = \frac{B\sin\theta}{A + B\cos\theta}`} />
       <img
         src="https://commons.wikimedia.org/wiki/Special:FilePath/Parallelogram-law-of-combination.svg"
         alt="Parallelogram law of vector addition — the resultant R is the diagonal through the common origin"
         className="w-full h-auto rounded-lg object-contain max-h-[340px] mx-auto bg-white"
         loading="lazy"
       />
+      <p>
+        <strong>Subtraction</strong> — both methods subtract by adding the reversed vector:{" "}
+        <strong>A</strong> − <strong>B</strong> = <strong>A</strong> + (−<strong>B</strong>). Draw −B first,
+        then use Method 1 or 2 with A and −B:
+      </p>
+      <AdditionSubtractionFigure />
       <p>Special cases of the resultant:</p>
       <TableCard
         headers={["Case", "Angle θ between A and B", "Resultant", "Remark"]}
@@ -230,7 +270,7 @@ export default function MotionInAPlaneChapter() {
         />
       </Expandable>
 
-      <h2 id="h-resolution">3.4 Resolution of Vectors</h2>
+      <h2 id="h-resolution">3.5 Resolution of Vectors</h2>
       <Callout type="note" title="Unit vectors">
         î, ĵ, k̂ have magnitude 1 and point along the x-, y-, z-axes; they are dimensionless, unitless and
         mutually perpendicular. Any vector <Formula>{String.raw`\mathbf{A} = |\mathbf{A}|\,\hat{n}`}</Formula>.
@@ -248,7 +288,7 @@ export default function MotionInAPlaneChapter() {
         position vector is <Formula>{String.raw`\mathbf{r} = x\hat{\mathbf{i}} + y\hat{\mathbf{j}} + z\hat{\mathbf{k}}`}</Formula>.
       </p>
 
-      <h3>3.4.1 Vector multiplication — scalar (dot) and vector (cross) product</h3>
+      <h3>3.5.1 Vector multiplication — scalar (dot) and vector (cross) product</h3>
       <p>
         <strong>Scalar (dot) product</strong> — the product of the magnitudes of two vectors and the cosine of
         the smaller angle between them:
@@ -305,7 +345,8 @@ export default function MotionInAPlaneChapter() {
           }
           solution={
             <>
-              <p><strong>(a)</strong> Draw the rectangular components along the axes — <Formula>{String.raw`r_x\hat{\mathbf{i}}`}</Formula> along the x-axis and <Formula>{String.raw`r_y\hat{\mathbf{j}}`}</Formula> along the y-axis — so that <Formula>{String.raw`\vec{r}`}</Formula> is the diagonal of the rectangle.</p>
+              <p><strong>(a)</strong> Redraw the vector with its rectangular components — <Formula>{String.raw`r_x\hat{\mathbf{i}}`}</Formula> along the x-axis and <Formula>{String.raw`r_y\hat{\mathbf{j}}`}</Formula> along the y-axis — so that <Formula>{String.raw`\vec{r}`}</Formula> is the diagonal of the rectangle:</p>
+              <RectangularComponentsFigure />
               <p><strong>(b)</strong></p>
               <FormulaBlock latex={String.raw`\vec{r} = r_x\hat{\mathbf{i}} + r_y\hat{\mathbf{j}}`} important />
               <p><strong>(c)</strong> Resultant magnitude by the parallelogram law:</p>
@@ -337,7 +378,7 @@ export default function MotionInAPlaneChapter() {
         />
       </Expandable>
 
-      <h2 id="h-projectile">3.5 Projectile Motion</h2>
+      <h2 id="h-projectile">3.6 Projectile Motion</h2>
       <p>
         A <strong>projectile</strong> is an object in flight after being thrown or projected — a football, a
         cricket ball, an arrow, … .
@@ -462,13 +503,14 @@ export default function MotionInAPlaneChapter() {
             <div key={6}>
               <p><strong>(a)</strong> At maximum height v_y = 0 in v² = u² − 2gS:</p>
               <p className="mt-1">0 = u² sin²θ − 2gH <Formula>{String.raw`\Rightarrow`}</Formula> <strong>H = u² sin²θ / 2g</strong>.</p>
-              <p className="mt-1"><strong>(b)</strong> <strong>Path 3</strong> — it has the largest range R = u² sin2θ/g (the flattest, farthest-reaching trajectory), so its horizontal component u cosθ dominates.</p>
+              <ThreeProjectilePaths />
+              <p className="mt-1"><strong>(b)</strong> <strong>Path 3</strong> — laid the flattest (smallest θ), it has the largest horizontal component u cosθ, so it travels the farthest R = u² sin2θ/g.</p>
             </div>,
           ]}
         />
       </Expandable>
 
-      <h2 id="h-circular">3.6 Uniform Circular Motion</h2>
+      <h2 id="h-circular">3.7 Uniform Circular Motion</h2>
       <p>
         An object following a circular path at <strong>constant speed</strong> is in{" "}
         <strong>uniform circular motion</strong> (&ldquo;uniform&rdquo; refers to the speed). The
@@ -549,7 +591,7 @@ export default function MotionInAPlaneChapter() {
         />
       </Expandable>
 
-      <h3>3.6.1 Centripetal force and acceleration</h3>
+      <h3>3.7.1 Centripetal force and acceleration</h3>
       <p>
         <strong>Centripetal acceleration</strong> — the acceleration directed towards the centre of the
         circular path that keeps a body moving along that circle. Its magnitude has three equivalent forms:

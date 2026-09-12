@@ -142,6 +142,7 @@ This file tracks ALL user preferences, design decisions, and customization choic
 | Initial velocity notation | **Always `u`** — never `v_0`/`v0`/`v₀` — plus `uₓ = u cosθ`, `u_y = u sinθ` for components. All physics content. | Sep 2026 |
 | Formula layout | **One formula per row** (`<li>` or table row); never cram several formulas into a single line/list item. | Sep 2026 |
 | Exercise/PYQ banks | Use the `ExerciseQa` component inside an `Expandable` for ALL question banks incl. PYQs — numbered rows + emerald answer panel, chapter-agnostic. | Sep 2026 |
+| Diagrams on demand | Whenever a question/situation demands a visual (e.g. "shown in the figure" PYQs, types of vectors, projectile paths), create an inline SVG diagram component (like `VectorFigures.tsx`) rather than describing shapes in words. | Sep 2026 |
 
 ---
 

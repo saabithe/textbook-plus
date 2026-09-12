@@ -136,3 +136,49 @@ export function CircularMotionVectors() {
     </figure>
   );
 }
+
+export function ThreeProjectilePaths() {
+  return (
+    <figure className="my-2 w-fit max-w-full rounded-xl border border-border/70 bg-card p-3">
+      <svg
+        viewBox="0 0 240 130"
+        role="img"
+        aria-label="Three projectile paths with the same launch speed: the flattest has the largest horizontal component"
+        className="mx-auto h-auto w-full max-w-[300px]"
+      >
+        <line x1="18" y1="118" x2="228" y2="118" stroke={AXIS} strokeWidth="1.2" opacity="0.7" />
+        <text x="222" y="110" fontSize="9" fill={LABEL}>
+          ground
+        </text>
+
+        <path
+          d="M22,118 Q62,30 102,118"
+          fill="none"
+          stroke="#0284c7"
+          strokeWidth="2.4"
+        />
+        <text x="66" y="44" fontSize="11" fontWeight="700" fill="#0284c7">
+          1
+        </text>
+
+        <path d="M22,118 Q112,48 202,118" fill="none" stroke="#f59e0b" strokeWidth="2.4" />
+        <text x="110" y="50" fontSize="11" fontWeight="700" fill="#f59e0b">
+          2
+        </text>
+
+        <path
+          d="M22,118 Q62,74 102,118"
+          fill="none"
+          stroke="#10b981"
+          strokeWidth="2.4"
+        />
+        <text x="66" y="82" fontSize="11" fontWeight="700" fill="#10b981">
+          3
+        </text>
+      </svg>
+      <figcaption className="mt-1 text-center text-xs font-bold text-muted-foreground">
+        Path 3 (flattest, smallest θ) — largest horizontal component u cosθ
+      </figcaption>
+    </figure>
+  );
+}

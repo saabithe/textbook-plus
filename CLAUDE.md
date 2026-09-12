@@ -157,6 +157,7 @@ src/content/{subject-slug}/{chapter-slug}/
 - **Never cram multiple formulas into one line or list item.** Give each formula its own row (`<li>` or `TableCard` row), then relate them with short sentences. "Period/frequency: T=1/ν, ω=2πν, v=…" style one-liners are forbidden.
 - **Exercise/Question banks (incl. PYQs) use the `ExerciseQa` component** inside an `Expandable` — numbered rows with an emerald answer panel, not hand-rolled `<ol>`/answer paragraphs. This styling is chapter-agnostic and must be used everywhere.
 - **No repeat content.** Don't re-state in one place what is already covered in the chapter (recap boxes, duplicate facts, re-derived formulas) unless it is a genuinely new angle.
+- **Diagrams on demand.** Whenever a question/situation demands a visual (e.g. "shown in the figure" PYQs, types of vectors, projectile paths), create an inline SVG diagram component (like `VectorFigures.tsx`) rather than describing shapes in words.
 
 ## Todo Rule
 
