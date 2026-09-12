@@ -56,8 +56,8 @@ export default function LawsOfMotionChapter() {
       <h2 id="h-inertia">4.3 The Law of Inertia</h2>
       <p>
         Galileo studied balls on inclined planes: motion down accelerates, up retards, horizontal motion is
-        the intermediate case. On a frictionless horizontal plane a ball neither accelerates nor retards —
-        it moves with <strong>constant velocity</strong>. The double inclined-plane experiment confirms
+        the intermediate case. <Highlight>On a frictionless horizontal plane a ball neither accelerates nor retards —
+        it moves with <strong>constant velocity</strong>.</Highlight> The double inclined-plane experiment confirms
         this: releasing a ball on one plane, it climbs the other to nearly the same height; as the second
         slope is reduced, it travels farther. With the second plane horizontal and friction absent, the ball
         travels an infinite distance — its motion never ceases.
@@ -65,7 +65,7 @@ export default function LawsOfMotionChapter() {
       <Callout type="important" title="Galileo&rsquo;s insight">
         The state of rest and the state of uniform linear motion are <strong>equivalent</strong>: in both
         cases there is no net force on the body. This property of a body is called{" "}
-        <Highlight color="blue">inertia</Highlight> — &ldquo;resistance to change&rdquo;.
+        <Highlight>inertia</Highlight> — &ldquo;resistance to change&rdquo;.
       </Callout>
       <p>
         In practice we still need an external force to keep a body in uniform motion — exactly to counter
@@ -81,8 +81,9 @@ export default function LawsOfMotionChapter() {
       <p>
         The first law is used in two ways. When we know the net force is zero (a spaceship in interstellar
         space, rockets off), we conclude the acceleration is zero. More often we know the{" "}
-        <em>motion</em>: if an object on earth is at rest or in uniform motion, we infer the net external
-        force is zero — i.e. the various forces (weight, normal reaction, friction) cancel exactly.
+        <em>motion</em>: <Highlight>if an object on earth is at rest or in uniform motion, we infer the net
+        external force is zero</Highlight> — i.e. the various forces (weight, normal reaction, friction)
+        cancel exactly.
       </p>
       <MistakeCard
         mistake="&ldquo;Since W = R, the forces cancel, therefore the book is at rest.&rdquo;"
@@ -115,8 +116,8 @@ export default function LawsOfMotionChapter() {
 
       <h2 id="h-second">4.5 Newton&rsquo;s Second Law of Motion</h2>
       <p>
-        The first law covers zero net force; the second law relates a net external force to the resulting
-        acceleration.
+        The first law covers zero net force; <Highlight>the second law relates a net external force to the
+        resulting acceleration</Highlight>.
       </p>
       <h3>Momentum</h3>
       <FormulaCard>
@@ -187,7 +188,7 @@ export default function LawsOfMotionChapter() {
       <h2 id="h-third">4.6 Newton&rsquo;s Third Law of Motion</h2>
       <Callout type="important" title="Third Law">
         To every action there is always an equal and opposite reaction. Clear form:{" "}
-        <Highlight color="blue">forces always occur in pairs</Highlight> — the force on A by B is equal and
+        <Highlight>forces always occur in pairs</Highlight> — the force on A by B is equal and
         opposite to the force on B by A:
         <FormulaBlock latex={String.raw`\mathbf{F}_{AB} = -\mathbf{F}_{BA}`} important />
       </Callout>
@@ -224,8 +225,8 @@ export default function LawsOfMotionChapter() {
       <p>
         Firing a gun: by the third law, the force on the bullet (F) and on the gun (−F) act for the same
         interval Δt. By the second law each equals the momentum change of that body. Starting from rest,
-        <Formula>{String.raw`\mathbf{p}_g = -\mathbf{p}_b`}</Formula> — the total momentum of the isolated
-        (bullet + gun) system is conserved.
+        <Formula>{String.raw`\mathbf{p}_g = -\mathbf{p}_b`}</Formula> — <Highlight>the total momentum of the
+        isolated (bullet + gun) system is conserved</Highlight>.
       </p>
       <Callout type="important" title="Law of conservation of momentum">
         <FormulaBlock latex={String.raw`\mathbf{p}_A' + \mathbf{p}_B' = \mathbf{p}_A + \mathbf{p}_B`} important />
@@ -237,8 +238,8 @@ export default function LawsOfMotionChapter() {
 
       <h2 id="h-equilibrium">4.8 Equilibrium of a Particle</h2>
       <p>
-        A particle is in <strong>equilibrium</strong> when the net external force on it is zero — by the
-        first law it is then at rest or in uniform motion. Two forces:{" "}
+        <Highlight>A particle is in <strong>equilibrium</strong> when the net external force on it is
+        zero</Highlight> — by the first law it is then at rest or in uniform motion. Two forces:{" "}
         <Formula>{String.raw`\mathbf{F}_1 = -\mathbf{F}_2`}</Formula>. Three concurrent forces:
       </p>
       <FormulaBlock latex={String.raw`\mathbf{F}_1 + \mathbf{F}_2 + \mathbf{F}_3 = 0`} important />
@@ -263,8 +264,8 @@ export default function LawsOfMotionChapter() {
       <h2 id="h-forces">4.9 Common Forces in Mechanics</h2>
       <p>
         Besides the pervasive (non-contact) gravitational force, the forces common in mechanics are{" "}
-        <strong>contact forces</strong>: the component normal to the surfaces in contact is the{" "}
-        <strong>normal reaction</strong>, the component parallel to them is <strong>friction</strong>.
+        <strong>contact forces</strong>: <Highlight>the component normal to the surfaces in contact is the{" "}
+        <strong>normal reaction</strong>, the component parallel to them is <strong>friction</strong>.</Highlight>
         Buoyancy, viscous force and air resistance are also contact forces. Tension (the restoring force in
         a string, assumed constant for a massless string) and the spring force{" "}
         <Formula>{String.raw`F = -kx`}</Formula> (k the force constant, restoring against displacement) round
@@ -280,8 +281,8 @@ export default function LawsOfMotionChapter() {
       <p>
         When a small force F is applied horizontally to a body on a table, the body stays at rest: the{" "}
         <strong>static friction</strong> fₛ comes into play, self-adjusting to exactly match F up to a limit.
-        Static friction opposes <strong>impending</strong> motion (motion that would occur if friction were
-        absent).
+        <Highlight>Static friction opposes <strong>impending</strong> motion (motion that would occur if
+        friction were absent)</Highlight>.
       </p>
       <FormulaCard>
         <ul>
@@ -331,8 +332,8 @@ export default function LawsOfMotionChapter() {
 
       <h2 id="h-circular">4.10 Circular Motion</h2>
       <p>
-        From Chapter 3, a body moving uniformly on a circle of radius R has acceleration v²/R toward the
-        centre; the <strong>centripetal force</strong> providing it is:
+        From Chapter 3, <Highlight>a body moving uniformly on a circle of radius R has acceleration v²/R
+        toward the centre</Highlight>; the <strong>centripetal force</strong> providing it is:
       </p>
       <FormulaBlock latex={String.raw`f_c = \frac{mv^2}{R}`} important />
       <TableCard

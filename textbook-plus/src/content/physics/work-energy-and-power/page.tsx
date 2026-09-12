@@ -78,9 +78,9 @@ export default function WorkEnergyAndPowerChapter() {
         </p>
         <p>
           The left side is the change in <strong>½ (mass) × (speed)²</strong> — the{" "}
-          <Highlight color="blue">kinetic energy K</Highlight>. The right side — the product of
+          <Highlight>kinetic energy K</Highlight>. The right side — the product of
           displacement and the component of force along it — is called{" "}
-          <Highlight color="blue">work W</Highlight>.
+          <Highlight>work W</Highlight>.
         </p>
       </FormulaCard>
       <Callout type="important" title="Work-energy theorem">
@@ -117,7 +117,7 @@ export default function WorkEnergyAndPowerChapter() {
           <li><strong>Force is zero</strong> — a block gliding on a smooth horizontal table (no friction) undergoes a large displacement with no horizontal force.</li>
           <li><strong>Force ⟂ displacement</strong> — θ = π/2 gives cosθ = 0. Gravity does no work on a block moving on a smooth horizontal table; for a perfectly circular moon orbit, Earth&rsquo;s (radial) gravity does no work on the tangential displacement.</li>
         </ul>
-        <p>Work can be <strong>positive</strong> (0° &lt; θ &lt; 90°) or <strong>negative</strong> (90° &lt; θ &lt; 180°). Friction, opposing displacement at θ = 180°, does negative work (cos 180° = −1).</p>
+        <p><Highlight>Work is positive when 0° &lt; θ &lt; 90° and negative when 90° &lt; θ &lt; 180°.</Highlight> Friction, opposing displacement at θ = 180°, does negative work (cos 180° = −1).</p>
       </FormulaCard>
       <p>
         Work and energy share dimensions <Formula>{String.raw`[ML^2T^{-2}]`}</Formula>; the SI unit is the{" "}
@@ -174,7 +174,7 @@ export default function WorkEnergyAndPowerChapter() {
       <FormulaBlock latex={String.raw`\Delta W = F(x)\,\Delta x`} />
       <p>
         Adding successive rectangular areas (Fig. 5.3) gives the total work; letting Δx → 0, the sum
-        approaches the <strong>area under the F–x curve</strong>:
+        approaches the <Highlight>area under the F–x curve</Highlight>:
       </p>
       <Callout type="important" title="Work of a variable force (1-D)">
         <FormulaBlock latex={String.raw`W = \int_{x_i}^{x_f} F(x)\,\mathrm{d}x`} important />
@@ -220,7 +220,7 @@ export default function WorkEnergyAndPowerChapter() {
       <h2 id="h-potential">5.7 The Concept of Potential Energy</h2>
       <p>
         &ldquo;Potential&rdquo; suggests capacity for action — potential energy is{" "}
-        <strong>stored energy by virtue of position or configuration</strong>. A stretched bowstring; fault
+        <Highlight>stored energy by virtue of position or configuration</Highlight>. A stretched bowstring; fault
         lines in the earth&rsquo;s crust behave like compressed springs (earthquakes when they readjust).
         Left to itself, a body releases this stored energy as kinetic energy.
       </p>
@@ -356,8 +356,7 @@ export default function WorkEnergyAndPowerChapter() {
       <h2 id="h-power">5.10 Power</h2>
       <p>
         Often we care not just how much work is done but how <strong>fast</strong> — we call a fit person
-        one who climbs four floors <em>quickly</em>. Power is the time rate at which work is done or energy
-        is transferred.
+        one who climbs four floors <em>quickly</em>. <Highlight>Power is the time rate at which work is done or energy is transferred.</Highlight>
       </p>
       <Callout type="important" title="Power">
         Average: <Formula>{String.raw`P_{av} = \frac{W}{t}`}</Formula>; instantaneous:
@@ -365,7 +364,7 @@ export default function WorkEnergyAndPowerChapter() {
         since dW = F·dr.
       </Callout>
       <p>
-        Scalar; dimensions [ML²T⁻³]; SI unit <strong>watt (W) = 1 J s⁻¹</strong>, named after James Watt.
+        Scalar; dimensions [ML²T⁻³]; <Highlight>SI unit of power is the watt (W) = 1 J s⁻¹</Highlight>, named after James Watt.
         Horse-power: <strong>1 hp = 746 W</strong> (automobiles). Electricity bills use{" "}
         <strong>kilowatt-hour</strong>: a 100 W bulb on for 10 h uses 1 kWh = 1000 W × 3600 s = 3.6 × 10⁶ J
         — note kWh is an <em>energy</em> unit, not a power unit.
@@ -390,8 +389,7 @@ export default function WorkEnergyAndPowerChapter() {
       <h3>5.11.1 Elastic and Inelastic Collisions</h3>
       <Callout type="important" title="Momentum vs kinetic energy">
         In <strong>all</strong> collisions total linear momentum is conserved: Δp₁ = F₁₂Δt, Δp₂ = F₂₁Δt,
-        and F₁₂ = −F₂₁ (third law, true at every instant) ⟹ Δp₁ + Δp₂ = 0. But total{" "}
-        <strong>kinetic energy is not necessarily conserved</strong> — impact and deformation generate heat
+        and F₁₂ = −F₂₁ (third law, true at every instant) ⟹ Δp₁ + Δp₂ = 0. <Highlight>But total kinetic energy is not necessarily conserved</Highlight> — impact and deformation generate heat
         and sound.
       </Callout>
       <TableCard

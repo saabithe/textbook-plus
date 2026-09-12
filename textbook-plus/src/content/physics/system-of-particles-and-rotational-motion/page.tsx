@@ -19,7 +19,7 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         and applied the same results to bodies of finite size. But every real body we encounter has finite
         size, and for such <strong>extended bodies</strong> the particle model is inadequate. An extended
         body is, first of all, a <strong>system of particles</strong>. We begin with the motion of the
-        system as a whole: the <Highlight color="blue">centre of mass</Highlight> is the key concept.
+        system as a whole: the <Highlight>centre of mass</Highlight> is the key concept.
       </p>
       <KeyPoint title="Definition of a rigid body">
         An ideal rigid body has a perfectly definite and unchanging shape — the distances between all
@@ -58,12 +58,12 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
 
       <h2 id="h-com">6.2 Centre of Mass</h2>
       <p>
-        Take two particles on the x-axis, masses m₁ and m₂ at x₁ and x₂ from an origin O. The centre of
-        mass is the point C at a distance X given by
+        Take two particles on the x-axis, masses m₁ and m₂ at x₁ and x₂ from an origin O.{" "}
+        <Highlight>The centre of mass is the point C at a distance X</Highlight> given by
       </p>
       <FormulaBlock latex={String.raw`X = \frac{m_1x_1 + m_2x_2}{m_1 + m_2}`} important />
       <p>
-        X is the <strong>mass-weighted mean</strong> of x₁ and x₂. For equal masses (m₁ = m₂ = m), X = (x₁
+        <Highlight>X is the <strong>mass-weighted mean</strong> of x₁ and x₂</Highlight>. For equal masses (m₁ = m₂ = m), X = (x₁
         + x₂)/2 — the CM lies exactly midway between them. For n particles along a line, the definition
         generalises to X = Σmᵢxᵢ / Σmᵢ, where <Formula>{String.raw`M = \sum_i m_i`}</Formula> is the total
         mass.
@@ -162,8 +162,8 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         </ul>
       </FormulaCard>
       <p>
-        By Newton&rsquo;s second law, mᵢaᵢ = Fᵢ, so M A = ΣFᵢ. The internal forces occur in equal and
-        opposite pairs (third law) and cancel:
+        By Newton&rsquo;s second law, mᵢaᵢ = Fᵢ, so M A = ΣFᵢ.{" "}
+        <Highlight>The internal forces occur in equal and opposite pairs (third law) and cancel</Highlight>:
       </p>
       <Callout type="important" title="Equation governing the centre of mass">
         <FormulaBlock latex={String.raw`M\mathbf{A} = \mathbf{F}_{ext}`} important />
@@ -180,7 +180,8 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
       <h2 id="h-p-system">6.4 Linear Momentum of a System of Particles</h2>
       <p>
         Recall for a single particle: p = mv (6.12) and Newton&rsquo;s second law F = dp/dt (6.13). For a
-        system of n particles, the total linear momentum is the vector sum of the individual momenta:
+        system of n particles,{" "}
+        <Highlight>the total linear momentum is the vector sum of the individual momenta</Highlight>:
       </p>
       <FormulaBlock latex={String.raw`\mathbf{P} = \sum_i \mathbf{p}_i = \sum_i m_i\mathbf{v}_i = M\mathbf{V}`} important />
       <p>
@@ -210,8 +211,8 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
       <h2 id="h-vector-product">6.5 Vector Product of Two Vectors</h2>
       <p>
         Chapter 5 defined the scalar (dot) product. For rotational motion we need the other product — the
-        <strong>vector product</strong> or <strong>cross product</strong>: torque and angular momentum are
-        both defined as vector products.
+        <strong>vector product</strong> or <strong>cross product</strong>:{" "}
+        <Highlight>torque and angular momentum are both defined as vector products</Highlight>.
       </p>
       <Callout type="important" title="Definition of the vector product c = a × b">
         <ul>
@@ -253,10 +254,14 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
       </p>
       <FormulaBlock latex={String.raw`v_i = \omega r_i`} important />
       <p>
-        All particles of the body share the same ω — we call it the angular velocity of the whole body.
-        Particles on the axis (r = 0) are stationary, as expected for a fixed axis. ω is actually a{" "}
-        <strong>vector</strong>: directed along the axis of rotation, in the sense an advancing
-        right-handed screw would take (Fig. 6.17a). With an origin on the axis,
+        All particles of the body share the same ω —{" "}
+        <Highlight>we call it the angular velocity of the whole body</Highlight>.
+        Particles on the axis (r = 0) are stationary, as expected for a fixed axis.{" "}
+        <Highlight>
+          ω is actually a <strong>vector</strong>: directed along the axis of rotation, in the sense an
+          advancing right-handed screw would take
+        </Highlight>{" "}
+        (Fig. 6.17a). With an origin on the axis,
       </p>
       <FormulaBlock latex={String.raw`\mathbf{v} = \boldsymbol{\omega} \times \mathbf{r}`} important />
       <p>
@@ -266,8 +271,8 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
       </p>
       <h3>6.6.1 Angular acceleration</h3>
       <p>
-        By analogy with linear acceleration, the <strong>angular acceleration</strong> is the time rate of
-        change of angular velocity:
+        By analogy with linear acceleration, the <strong>angular acceleration</strong> is{" "}
+        <Highlight>the time rate of change of angular velocity</Highlight>:
       </p>
       <FormulaBlock latex={String.raw`\alpha = \frac{\mathrm{d}\omega}{\mathrm{d}t}`} important />
       <p>
@@ -284,7 +289,9 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
       </p>
       <h3>6.7.1 Moment of force (Torque)</h3>
       <p>
-        A force F acting on a particle at position r (relative to origin O) produces a moment of force
+        <Highlight>
+          A force F acting on a particle at position r (relative to origin O) produces a moment of force
+        </Highlight>
       </p>
       <FormulaBlock latex={String.raw`\boldsymbol{\tau} = \mathbf{r}\times\mathbf{F}`} important />
       <FormulaCard>
@@ -297,8 +304,8 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
       </FormulaCard>
       <h3>6.7.2 Angular momentum</h3>
       <p>
-        Angular momentum is the rotational analogue of linear momentum — the <em>moment of (linear)
-        momentum</em>. For a particle of mass m and momentum p at position r,
+        <Highlight>Angular momentum is the rotational analogue of linear momentum</Highlight> — the{" "}
+        <em>moment of (linear) momentum</em>. For a particle of mass m and momentum p at position r,
       </p>
       <FormulaBlock latex={String.raw`\mathbf{l} = \mathbf{r}\times\mathbf{p}`} important />
       <FormulaCard>
@@ -368,7 +375,8 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
       <p>
         External forces change the translational state of a body (Eq. 6.17); if the total torque does not
         vanish they also change its rotational state (Eq. 6.28b). A rigid body is in{" "}
-        <strong>mechanical equilibrium</strong> if neither its linear nor its angular momentum is changing:
+        <strong>mechanical equilibrium</strong> if{" "}
+        <Highlight>neither its linear nor its angular momentum is changing</Highlight>:
       </p>
       <Callout type="important" title="Conditions for mechanical equilibrium">
         <ul>
@@ -426,8 +434,8 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
       </FormulaCard>
       <h3>6.8.2 Centre of gravity</h3>
       <p>
-        The <strong>centre of gravity (CG)</strong> of a body is the point about which the total
-        gravitational torque is zero:
+        The <strong>centre of gravity (CG)</strong> of a body is{" "}
+        <Highlight>the point about which the total gravitational torque is zero</Highlight>:
       </p>
       <FormulaBlock latex={String.raw`\sum_i \mathbf{r}_i \times m_i\mathbf{g} = 0`} important />
       <p>
@@ -515,8 +523,8 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
       />
       <p>
         In every case I = Mk², where k has the dimension of length — the <strong>radius of
-        gyration</strong>: the distance from the axis of a point mass equal to the body&rsquo;s total mass
-        whose moment of inertia equals the body&rsquo;s. For a rod about its midpoint k = L/√12; for a
+        gyration</strong>:{" "}
+        <Highlight>the distance from the axis of a point mass equal to the body&rsquo;s total mass whose moment of inertia equals the body&rsquo;s</Highlight>. For a rod about its midpoint k = L/√12; for a
         disc about a diameter k = R/2.
       </p>
       <KeyPoint title="What determines the moment of inertia">
@@ -532,8 +540,9 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
 
       <h2 id="h-angular-kinematics">6.10 Kinematics of Rotational Motion about a Fixed Axis</h2>
       <p>
-        Rotation about a fixed axis has a single degree of freedom — one variable, the angular displacement
-        θ. The angular velocity is ω = dθ/dt and the angular acceleration is α = dω/dt; with the axis
+        <Highlight>Rotation about a fixed axis has a single degree of freedom</Highlight> — one variable,
+        the angular displacement θ. The angular velocity is ω = dθ/dt and the angular acceleration is α =
+        dω/dt; with the axis
         fixed these reduce to scalars. The kinematical equations of uniform acceleration carry over
         directly:
       </p>
@@ -589,8 +598,7 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         the exact analogues of dW = F ds and P = Fv.
       </Callout>
       <p>
-        For a rigid body no internal motion exists, so the external work goes entirely into rotational
-        kinetic energy. The rate of increase of energy is d(½Iω²)/dt = Iωα; with P = τω and α = dω/dt,
+        <Highlight>For a rigid body no internal motion exists, so the external work goes entirely into rotational kinetic energy</Highlight>. The rate of increase of energy is d(½Iω²)/dt = Iωα; with P = τω and α = dω/dt,
       </p>
       <FormulaBlock latex={String.raw`\tau = I\alpha`} important />
       <Callout type="note" title="Newton's second law for rotation">
@@ -660,7 +668,7 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
       </p>
       <FormulaBlock latex={String.raw`\frac{\mathrm{d}}{\mathrm{d}t}(I\omega) = \tau`} />
       <p>
-        The component of angular momentum perpendicular to the axis is constant. When I is constant,
+        <Highlight>The component of angular momentum perpendicular to the axis is constant</Highlight>. When I is constant,
         d(Iω)/dt = Iα, recovering τ = Iα (6.41) — consistent with the work–energy route.
       </p>
       <h3>6.12.1 Conservation of angular momentum</h3>
