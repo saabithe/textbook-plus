@@ -10,6 +10,9 @@ import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { Comparison } from "@/components/content/Comparison";
+import { LevelRoadFigure, BankedRoadFigure, RecoilFigure } from "@/components/content/physics/LomFigures";
 
 export default function LawsOfMotionChapter() {
   return (
@@ -71,6 +74,15 @@ export default function LawsOfMotionChapter() {
         In practice we still need an external force to keep a body in uniform motion — exactly to counter
         the ever-present frictional/viscous opposition, so that the net external force is zero.
       </p>
+      <KeyPoint title="Inertia — the three faces">
+        Inertia is the <Highlight>inability of a body to change its own state of rest or uniform motion</Highlight>
+        by itself. Exam questions classify it by which change the body resists:
+        <ul>
+          <li><strong>Inertia of rest</strong> — resists starting to move from rest. A book stays on the table until pushed; dust flies off when a carpet is struck.</li>
+          <li><strong>Inertia of motion</strong> — resists stopping or turning once moving. Passengers lurch forward when a bus brakes.</li>
+          <li><strong>Inertia of direction</strong> — resists a lateral change of direction. A stone thrown tangentially from a whirling sling flies off along a tangent.</li>
+        </ul>
+      </KeyPoint>
 
       <h2 id="h-first">4.4 Newton&rsquo;s First Law of Motion</h2>
       <Callout type="important" title="First Law">
@@ -112,6 +124,50 @@ export default function LawsOfMotionChapter() {
             gravitational pull is negligible. By the first law, <strong>his acceleration is zero</strong>.
           </p>
         </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable variant="exercise" title="PYQs — First law &amp; the force from momentum">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ · Board Exam 2020 · 1 mark</p>
+              <p>Newton&rsquo;s first law of motion describes: (a) energy &nbsp;(b) work &nbsp;(c) inertia &nbsp;(d) momentum.</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ · Improvement Exam 2018 / Board Exam</p>
+              <p>
+                A man jumping out of a slow-moving bus falls forward. (a) This is due to which property, and which law
+                of motion governs it? (b) State the law. (c) What should he do to land safely?
+              </p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ · Board / Model / Christmas Exam · 3 marks</p>
+              <p>
+                According to Newton&rsquo;s law of motion, force depends on the rate of change of momentum. (a) Name the
+                law that helps to measure force. (b) Deduce an expression for force.
+              </p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>(c) <strong>Inertia</strong> — the first law is the law of inertia.</div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li><strong>(a)</strong> Due to <strong>inertia of motion</strong> (Newton&rsquo;s first law of motion) — his feet stop with the ground but his upper body continues to move forward.</li>
+                <li><strong>(b)</strong> Every object continues in its state of rest or of uniform motion in a straight line unless acted upon by an external unbalanced force.</li>
+                <li><strong>(c)</strong> Run a few steps forward in the direction of motion of the bus — the feet are checked gradually and the upper body is gently brought to rest instead of stopping suddenly.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li><strong>(a)</strong> Newton&rsquo;s second law of motion.</li>
+                <li><strong>(b)</strong> Force is proportional to the rate of change of momentum; choosing the unit so that k = 1:</li>
+                <li>F = dp/dt = (mv − mu)/t = m(v − u)/t</li>
+                <li>Since a = (v − u)/t, this reduces to:</li>
+                <li><strong>F = ma</strong></li>
+              </ul>
+            </div>,
+          ]}
+        />
       </Expandable>
 
       <h2 id="h-second">4.5 Newton&rsquo;s Second Law of Motion</h2>
@@ -185,6 +241,56 @@ export default function LawsOfMotionChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
+      <Expandable variant="exercise" title="Impulse in everyday life — exam explanations">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p>Why does a cricketer move his hands backward while taking a catch?</p>
+            </div>,
+            <div key={2}>
+              <p>Why is it more dangerous to fall on frozen ice than on fresh snow?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>The momentum change of the ball is fixed (Δp = mv − mu); impulse = F·t = Δp.</li>
+                <li>Pulling the hands backward <strong>increases the impact time (t)</strong>.</li>
+                <li>Since F = Δp/t, a longer impact time means a <strong>smaller force</strong> on the hands — preventing injury.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li><strong>Frozen ice:</strong> stiff — the fall is stopped almost instantly, so the impact time t is very short and the stopping force F = Δp/t is very large.</li>
+                <li><strong>Fresh snow:</strong> yields on impact — the stopping time t increases, so the stopping force is much smaller.</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
+
+      <Expandable variant="exercise" title="PYQ 2019 · Billiard balls collide and rebound">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ 2019</p>
+              <p>Two billiard balls, each of mass 0.05 kg, moving in opposite directions with a speed of 6 m s⁻¹, collide and rebound with the same speed. What is the impulse imparted to each ball due to the other?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>For one ball: m = 0.05 kg, initial velocity u = 6 m s⁻¹, final velocity v = −6 m s⁻¹ (rebound in the opposite direction).</li>
+                <li>I = mv − mu = m(v − u)</li>
+                <li>I = 0.05 × [6 − (−6)] = 0.05 × (6 + 6) = 0.05 × 12</li>
+                <li><strong>I = 0.6 N s (or kg m s⁻¹)</strong>, directed opposite the ball&rsquo;s initial motion.</li>
+                <li>Each ball receives the same impulse in magnitude; by the third law the two impulses are equal and opposite.</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
+
       <h2 id="h-third">4.6 Newton&rsquo;s Third Law of Motion</h2>
       <Callout type="important" title="Third Law">
         To every action there is always an equal and opposite reaction. Clear form:{" "}
@@ -235,6 +341,77 @@ export default function LawsOfMotionChapter() {
         second and third laws together, and holds for <strong>elastic and inelastic</strong> collisions
         alike (elastic collisions additionally conserve kinetic energy).
       </Callout>
+
+      <h3 id="h-recoil">Recoil of a gun</h3>
+      <p>
+        When a bullet is fired, the gun exerts an <strong>action force</strong> accelerating the bullet forward; by the
+        third law the bullet pushes the gun backward with an <strong>equal and opposite reaction force</strong> — the{" "}
+        <strong>recoil</strong>. The gun (mass m_g) and bullet (mass m_b) were at rest together, so the total momentum
+        of the isolated (gun + bullet) system is zero and stays zero.
+      </p>
+      <RecoilFigure />
+      <p>
+        With the bullet moving forward at muzzle speed v_b and the gun recoiling backward at speed v_g, conservation of
+        momentum gives:
+      </p>
+      <Stepper
+        steps={[
+          { label: "Before firing", description: "Gun and bullet are both at rest — total initial momentum = 0." },
+          { label: "After firing", description: "Bullet carries m_b·v_b forward; the gun carries m_g·v_g backward — total final momentum = m_g v_g − m_b v_b." },
+          { label: "Conservation", description: "0 = m_g v_g − m_b v_b, so m_b v_b = m_g v_g. The bullet and gun have equal and opposite momenta." },
+          { label: "Recoil velocity", description: "v_g = m_b v_b / m_g — the heavier the gun, the slower (gentler) the recoil." },
+        ]}
+      />
+      <FormulaBlock latex={String.raw`v_g = \frac{m_b\,v_b}{m_g}`} important />
+      <FormulaBlock latex={String.raw`v_b = \frac{m_g\,v_g}{m_b}`} />
+
+      <Expandable variant="exercise" title="PYQs — Recoil of a gun">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ 2019</p>
+              <p>A light bullet is fired from a heavy gun. Choose the correct statement: (i) the speed of the gun and the bullet are equal; (ii) the momentum of the bullet and the gun are equal in magnitude and opposite in direction; (iii) the momentum of the gun and the bullet are equal in magnitude and in the same direction; (iv) the velocity of the gun and the bullet are equal.</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ 2022</p>
+              <p>A person firing a bullet from a gun experiences a backward jerk. (a) Write the principle behind this. (b) A bullet of mass 15 g is fired with a velocity of 100 m s⁻¹ from a gun of mass 2 kg. Find the recoil speed of the gun.</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ 2018</p>
+              <p>A shell of mass 0.020 kg is fired by a gun of mass 100 kg. If the muzzle speed of the shell is 80 m s⁻¹, what is the recoil speed of the gun?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>(ii) <strong>Momentum of the bullet and the gun are equal in magnitude and opposite in direction</strong> — the lighter bullet gets the greater speed.</div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li><strong>(a)</strong> The principle of conservation of linear momentum (equivalently, Newton&rsquo;s third law of motion).</li>
+                <li><strong>(b)</strong> m_b = 15 g = 0.015 kg, v_b = 100 m s⁻¹, m_g = 2 kg.</li>
+                <li>v_g = m_b v_b / m_g = (0.015 × 100) / 2 = 1.5 / 2</li>
+                <li><strong>v_g = 0.75 m s⁻¹</strong> (backward).</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li>m_b = 0.020 kg, m_g = 100 kg, v_b = 80 m s⁻¹.</li>
+                <li>v_g = m_b v_b / m_g = (0.020 × 80) / 100 = 1.6 / 100</li>
+                <li><strong>v_g = 0.016 m s⁻¹</strong> (backward).</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
+
+      <TableCard
+        caption="March 2013 — Matching exercise on the laws"
+        headers={["Column A", "Column B"]}
+        rows={[
+          { cells: ["Newton&rsquo;s first law", "Law of inertia"] },
+          { cells: ["Conservation of linear momentum", "Momentum before collision = momentum after collision"] },
+          { cells: ["Newton&rsquo;s third law", "Action ⇌ Reaction"] },
+          { cells: ["Impulse", "Change in momentum"] },
+        ]}
+      />
 
       <h2 id="h-equilibrium">4.8 Equilibrium of a Particle</h2>
       <p>
@@ -292,6 +469,38 @@ export default function LawsOfMotionChapter() {
           <li>Friction opposes <strong>relative</strong> motion, not motion itself: a box on the floor of an accelerating train is kept accelerating with the train <em>by</em> static friction.</li>
         </ul>
       </FormulaCard>
+      <Comparison
+        columns={[
+          {
+            title: "Laws of static friction",
+            children: (
+              <ul className="space-y-1.5 list-none">
+                <li>Friction depends only on the <strong>nature of the surfaces</strong> in contact.</li>
+                <li>The magnitude of limiting friction is <strong>independent of the area of contact</strong>.</li>
+                <li>Limiting static friction (f_s)max is directly proportional to the normal reaction N:{" "}
+                  <Formula>{String.raw`(f_s)_{\max} = \mu_s\,N`}</Formula>
+                </li>
+              </ul>
+            ),
+          },
+          {
+            title: "Laws of kinetic friction",
+            children: (
+              <ul className="space-y-1.5 list-none">
+                <li>Kinetic friction depends on the <strong>nature of the two surfaces</strong> in contact.</li>
+                <li>It is <strong>independent of the relative velocity</strong> between the surfaces.</li>
+                <li>It is directly proportional to the normal reaction N:{" "}
+                  <Formula>{String.raw`f_k = \mu_k\,N`}</Formula>
+                </li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+      <KeyPoint title="Terminology — limiting friction">
+        The <strong>limiting friction</strong> is the maximum value that static friction can reach — the boundary
+        where a body <em>just</em> begins to slide. Beyond this boundary, kinetic friction takes over.
+      </KeyPoint>
       <Expandable title="Example 4.7 — Box on an accelerating train floor" variant="example">
         <ProblemSolution.Problem>
           <p>Determine the maximum acceleration of a train in which a box on its floor will remain stationary, given μₛ = 0.15 between box and floor.</p>
@@ -330,12 +539,150 @@ export default function LawsOfMotionChapter() {
         and car acceleration <em>require</em> it.
       </Callout>
 
+      <Expandable variant="exercise" title="PYQs — Friction">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ 2021 · 1 mark</p>
+              <p>The maximum value of static friction is called ______.</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ 2021 · 3 marks</p>
+              <p>State the law of static friction.</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Model Exam 2021 · 3 marks — True or False</p>
+              <p>
+                (A) Kinetic friction depends on the velocity of the body.
+                (B) Static friction is independent of the area of contact.
+                (C) Kinetic friction is directly proportional to normal reaction.
+              </p>
+            </div>,
+            <div key={4}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ · March 2019 Board Exam</p>
+              <p>
+                (a) Write the equation connecting limiting static friction with normal reaction. (b) Both kinetic
+                friction and static friction are independent of the area of contact — True or False? (c) Show that{" "}
+                μ_s = tanθ when a block is on an inclined plane just about to slide.
+              </p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}><strong>Limiting friction</strong> — (f_s)max.</div>,
+            <div key={2}>
+              <ul className="space-y-1 list-none">
+                <li>1. Friction depends only on the <strong>nature of the surfaces</strong> in contact.</li>
+                <li>2. The magnitude of limiting friction is <strong>independent of the area of contact</strong>.</li>
+                <li>3. Limiting friction is directly proportional to the normal reaction N: (f_s)max ∝ N, so (f_s)max = μ_s N.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li>(A) <strong>False</strong> — kinetic friction is approximately independent of the relative velocity between the surfaces.</li>
+                <li>(B) <strong>True</strong> — both static and kinetic friction are independent of the area of contact.</li>
+                <li>(C) <strong>True</strong> — f_k = μ_k N by definition.</li>
+              </ul>
+            </div>,
+            <div key={4}>
+              <ul className="space-y-1.5 list-none">
+                <li><strong>(a)</strong> (f_s)max = μ_s N</li>
+                <li><strong>(b)</strong> <strong>True</strong> — both types of friction are independent of contact area.</li>
+                <li><strong>(c)</strong> For a block on an inclined plane just about to slide, resolve forces along and perpendicular to the surface:</li>
+                <li>Perpendicular to the plane: N = mg cosθ</li>
+                <li>Parallel to the plane: f = mg sinθ (the component of weight trying to move the block)</li>
+                <li>At the point of sliding, f = (f_s)max = μ_s N, so μ_s = f/N = (mg sinθ)/(mg cosθ) = tanθ</li>
+                <li>∴ <strong>μ_s = tanθ</strong></li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
+
+      <Expandable title="Friction — a necessary evil; methods to reduce it" variant="default">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <p className="mb-1 text-sm font-semibold text-muted-foreground">Why friction is evil</p>
+            <ul className="space-y-1 text-sm list-disc pl-4">
+              <li>Causes wear and tear of machinery and tools, shortening their life.</li>
+              <li>Generates heat — wasted energy and lost efficiency.</li>
+            </ul>
+          </div>
+          <div>
+            <p className="mb-1 text-sm font-semibold text-muted-foreground">Why friction is necessary</p>
+            <ul className="space-y-1 text-sm list-disc pl-4">
+              <li>Enables walking, writing, holding objects, and applying brakes.</li>
+              <li>Keeps vehicles accelerating and turning without slipping.</li>
+            </ul>
+          </div>
+        </div>
+        <p className="mt-3 text-sm font-semibold text-muted-foreground">Common methods to reduce friction:</p>
+        <ol className="mt-1 space-y-1 text-sm list-decimal pl-4">
+          <li>Using <strong>lubricants</strong> (oil, grease) to smooth the contact surfaces.</li>
+          <li>Using <strong>ball bearings</strong> to convert sliding friction into the far smaller rolling friction.</li>
+          <li><strong>Polishing</strong> surfaces to reduce roughness.</li>
+          <li><strong>Streamlining</strong> shapes of vehicles to reduce fluid drag (air resistance).</li>
+        </ol>
+      </Expandable>
+
       <h2 id="h-circular">4.10 Circular Motion</h2>
       <p>
         From Chapter 3, <Highlight>a body moving uniformly on a circle of radius R has acceleration v²/R
         toward the centre</Highlight>; the <strong>centripetal force</strong> providing it is:
       </p>
       <FormulaBlock latex={String.raw`f_c = \frac{mv^2}{R}`} important />
+
+      <h3 id="h-level-road">4.10.1 Car on a level circular road</h3>
+      <p>
+        When a vehicle turns on a circular path it needs a <strong>centripetal force</strong> directed towards the
+        centre of the curve. On a flat, level road{" "}
+        <Highlight>static friction between the tyres and the road is the only agency that supplies it</Highlight>. For a
+        car of mass m turning on a level circular track of radius r:
+      </p>
+      <LevelRoadFigure />
+      <Stepper
+        steps={[
+          { label: "Vertical equilibrium", description: "The weight is balanced by the normal reaction: N = mg." },
+          { label: "Centripetal force requirement", description: "Static friction alone must provide the inward force: (F_s)max = mv²/r." },
+          { label: "Law of static friction", description: "(F_s)max = μ_s N = μ_s mg." },
+          { label: "Equate the two", description: "μ_s mg = mv²/r ⟹ μ_s g = v²/r." },
+          { label: "Maximum safe speed", description: "v_max = √(μ_s r g) — independent of the car&rsquo;s mass." },
+        ]}
+      />
+      <FormulaBlock latex={String.raw`v_{\max} = \sqrt{\mu_s\,r\,g}`} important />
+
+      <h3 id="h-banked-road">4.10.2 Banking of roads</h3>
+      <p>
+        Friction alone is not a reliable source of centripetal force on curved tracks; at high speed the vehicle is
+        likely to <strong>skid and go out of its track</strong>. <strong>Banking of roads</strong> is the process of{" "}
+        <Highlight>raising the outer edge of the curved road above its inner edge</Highlight>, so that the normal
+        reaction itself contributes a horizontal component towards the centre. The <strong>angle of banking</strong> θ
+        is the angle through which the outer edge is raised above the inner edge.
+      </p>
+      <BankedRoadFigure />
+      <p>
+        For a vehicle of mass m on a banked curve of radius r, three forces act: the weight W = mg vertically down, the
+        normal reaction N perpendicular to the road surface, and friction F acting along the surface. Resolving N and F
+        into horizontal and vertical components:
+      </p>
+      <Stepper
+        steps={[
+          { label: "Vertical equilibrium", description: "N cosθ = mg + F sinθ — the horizontal components do not appear in the vertical balance (Eq. 1)." },
+          { label: "Horizontal (centripetal) equilibrium", description: "N sinθ + F cosθ = mv²/r (Eq. 2)." },
+          { label: "Substitute limiting friction", description: "At the maximum speed F = μ_s N. Divide Eq. (2) by Eq. (1): (N sinθ + μ_s N cosθ) / (N cosθ − μ_s N sinθ) = (mv²/r) / mg." },
+          { label: "Cancel N and m", description: "(sinθ + μ_s cosθ) / (cosθ − μ_s sinθ) = v²/rg." },
+          { label: "Divide through by cosθ", description: "(tanθ + μ_s) / (1 − μ_s tanθ) = v²/rg." },
+          { label: "Maximum permissible speed", description: "v_max = √[ rg (μ_s + tanθ) / (1 − μ_s tanθ) ]." },
+        ]}
+      />
+      <FormulaBlock latex={String.raw`v_{\max} = \left[rg\,\frac{\mu_s + \tan\theta}{1 - \mu_s\tan\theta}\right]^{1/2}`} important />
+      <p>Two special cases follow directly:</p>
+      <FormulaCard>
+        <ul>
+          <li><strong>Case 1 — level road</strong> (no banking, θ = 0°): the formula collapses to v_max = √(μ_s r g) — exactly the level-road result of §4.10.1.</li>
+          <li><strong>Case 2 — perfectly smooth banked road</strong> (μ_s = 0): no friction is needed, avoiding the wear and tear of tyres; this defines the <strong>optimum speed</strong>: v_o = √(rg tanθ).</li>
+        </ul>
+      </FormulaCard>
+      <FormulaBlock latex={String.raw`v_o = (rg\tan\theta)^{1/2}`} important />
       <TableCard
         headers={["On a level road", "On a banked road"]}
         rows={[
@@ -346,8 +693,6 @@ export default function LawsOfMotionChapter() {
         ]}
         caption="Car turning on a circular path of radius R (Eqs. 4.17–4.22)."
       />
-      <FormulaBlock latex={String.raw`v_{\max} = \sqrt{\mu_s R g} \quad\text{(level road)}`} />
-      <FormulaBlock latex={String.raw`v_{\max} = \left[Rg\, \frac{\tan\theta + \mu_s}{1 - \mu_s\tan\theta}\right]^{1/2} \quad v_o = (Rg\tan\theta)^{1/2} \quad\text{(banked road)}`} important />
       <Expandable title="Example 4.10 — Cyclist on a level turn: will he slip?" variant="example">
         <ProblemSolution.Problem>
           <p>A cyclist rides at 18 km/h (5 m s⁻¹) around a sharp circular turn of radius 3 m on a level road, μₛ = 0.1. Will he slip?</p>
@@ -365,6 +710,111 @@ export default function LawsOfMotionChapter() {
           <FormulaBlock latex={String.raw`v_o = (Rg\tan\theta)^{1/2} = (300 \times 9.8 \times \tan 15^\circ)^{1/2} = 28.1\ \text{m s}^{-1}`} important />
           <FormulaBlock latex={String.raw`v_{\max} = \left[300 \times 9.8 \times \frac{0.268 + 0.2}{1 - 0.2 \times 0.268}\right]^{1/2} \approx 38.1\ \text{m s}^{-1}`} important />
         </ProblemSolution.Solution>
+      </Expandable>
+      <Expandable variant="exercise" title="PYQs — Level circular road">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ · Christmas Exam 2019 / Board Exam 2021</p>
+              <p>
+                A cyclist travelling at 18 km/h on a level road takes a sharp circular turn of radius 3 m without
+                reducing speed. The coefficient of static friction between the tyres and the road is 0.1. (a) Calculate
+                the maximum permissible speed to avoid slipping. (b) Will the cyclist slip while taking the turn?
+              </p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ 2022 / Model Exam · 3 marks</p>
+              <p>
+                A car is moving on a circular level road. What are the three forces acting on it? Derive an expression
+                for the maximum safe speed of the car.
+              </p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>Given: radius r = 3 m, μ_s = 0.1, g = 10 m s⁻²; the cyclist&rsquo;s speed is v = 18 km/h = 18 × 5/18 = 5 m s⁻¹.</li>
+                <li>(a) v_max = √(μ_s r g) = √(0.1 × 3 × 10) = √3 ≈ <strong>1.73 m s⁻¹</strong> — the maximum permissible speed to avoid slipping.</li>
+                <li>(b) The actual speed (5 m s⁻¹) exceeds v_max (1.73 m s⁻¹); since v² = 25 &gt; μ_s r g = 3, <strong>the cyclist WILL slip</strong>.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>The three forces: weight W = mg (vertically down), normal reaction N (vertically up, N = mg), and static friction (F_s)max (horizontal, towards the centre).</li>
+                <li>(F_s)max = mv²/r and (F_s)max = μ_s N = μ_s mg, so μ_s mg = mv²/r.</li>
+                <li>v² = μ_s r g ⟹ <strong>v_max = √(μ_s r g)</strong>.</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
+      <Expandable variant="exercise" title="PYQs — Banking of roads">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ · Board Exam Sept 2021</p>
+              <p>
+                (a) Identify the forces A and B in the diagram of a car on a banked road. (b) A cyclist travelling on a
+                level road takes a sharp turn of radius 3 m with μ_s = 0.1. Calculate the maximum permissible speed.
+              </p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ · Improvement Exam 2020</p>
+              <p>
+                (a) List the forces acting on a vehicle on a banked road. (b) Derive an expression for the maximum safe
+                speed. (c) A circular road of radius 300 m is banked at an angle of 15°. If μ = 0.2 and g = 9.8 m s⁻²,
+                find the optimum speed.
+              </p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ · March 2020</p>
+              <p>Identify the forces A, B, C, D in the diagram of circular motion on a banked road.</p>
+            </div>,
+            <div key={4}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ · March 2017 · MCQ</p>
+              <p>The optimum speed of a car on a banked road that avoids wear and tear on its tyres is:</p>
+            </div>,
+            <div key={5}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ · Improvement Exam 2013</p>
+              <p>
+                A circular track of radius 400 m has its outer edge raised at an angle of 5°. The coefficient of friction
+                μ_s = 0.2. (a) Name this construction. (b) Calculate the permissible speed.
+              </p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>(a) A = <strong>N</strong> — the normal reaction, perpendicular to the road surface; B = <strong>N sinθ</strong> — its horizontal component towards the centre.</li>
+                <li>(b) v_max = √(μ_s r g) = √(0.1 × 3 × 9.8) ≈ <strong>1.714 m s⁻¹</strong>.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>(a) Normal reaction N, frictional force (F_s)max, and weight W = mg.</li>
+                <li>(b) Resolve N and friction into components and balance them — see the derivation in §4.10.2: v_max = √[ rg (μ_s + tanθ) / (1 − μ_s tanθ) ].</li>
+                <li>(c) v_opt = √(r g tanθ) = √(300 × 9.8 × tan 15°) ≈ <strong>28.08 m s⁻¹</strong>.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1 list-none">
+                <li>A → N &nbsp;&nbsp;(normal reaction)</li>
+                <li>B → W = mg &nbsp;&nbsp;(weight)</li>
+                <li>C → F cosθ + N sinθ &nbsp;&nbsp;(horizontal components of friction and normal — the centripetal force)</li>
+                <li>D → F &nbsp;&nbsp;(friction)</li>
+              </ul>
+            </div>,
+            <div key={4}>
+              <strong>√(Rg tanθ)</strong> — the friction-free (optimum) speed on a banked road.
+            </div>,
+            <div key={5}>
+              <ul className="space-y-1.5 list-none">
+                <li>(a) <strong>Banking of roads</strong>.</li>
+                <li>(b) Permissible speed: v = √[ 400 × 9.8 × (0.2 + tan 5°) / (1 − 0.2 × tan 5°) ] ≈ <strong>33.6 m s⁻¹</strong>.</li>
+              </ul>
+            </div>,
+          ]}
+        />
       </Expandable>
       <MistakeCard
         mistake="&ldquo;The centripetal force is a new kind of force that acts on round objects.&rdquo;"
@@ -479,7 +929,8 @@ export default function LawsOfMotionChapter() {
           <li>Conservation of momentum holds for isolated systems, elastic or inelastic.</li>
           <li>Equilibrium: F₁ + F₂ + F₃ = 0 (closed force triangle/polygon).</li>
           <li>Static friction fₛ ≤ μₛN (self-adjusting, opposes impending motion); kinetic fₖ = μₖN; μₖ &lt; μₛ.</li>
-          <li>Centripetal force f_c = mv²/R; car on level road vₘₐₓ = √(μₛRg); banked road v₀ = (Rg tanθ)^½.</li>
+          <li>Centripetal force f_c = mv²/R; car on level road vₘₐₓ = √(μₛRg); banked road vₘₐₓ = √[Rg(μₛ + tanθ)/(1 − μₛ tanθ)], optimum speed v₀ = (Rg tanθ)^½.</li>
+          <li>Recoil of a gun: v_g = m_b v_b / m_g — bullet and gun carry equal and opposite momenta.</li>
           <li>Free-body diagrams: draw the system, include every force ON it, then apply the laws.</li>
           <li>Friction is empirical, not fundamental; contact forces are electrical in origin.</li>
         </ul>
@@ -490,6 +941,7 @@ export default function LawsOfMotionChapter() {
           <li><Formula>{String.raw`\mathbf{F}_{AB} = -\mathbf{F}_{BA}`}</Formula>, <Formula>{String.raw`\mathbf{p}_A' + \mathbf{p}_B' = \mathbf{p}_A + \mathbf{p}_B`}</Formula></li>
           <li><Formula>{String.raw`f_s \le \mu_s N`}</Formula>, <Formula>{String.raw`f_k = \mu_k N`}</Formula>, <Formula>{String.raw`F = -kx`}</Formula></li>
           <li><Formula>{String.raw`f_c = \frac{mv^2}{R}`}</Formula>, <Formula>{String.raw`v_{\max} = \sqrt{\mu_s R g}`}</Formula>, <Formula>{String.raw`v_o = (Rg\tan\theta)^{1/2}`}</Formula></li>
+          <li><Formula>{String.raw`v_g = \frac{m_b v_b}{m_g}`}</Formula>, <Formula>{String.raw`v_{\max} = \left[Rg\,\frac{\mu_s + \tan\theta}{1 - \mu_s\tan\theta}\right]^{1/2}`}</Formula></li>
         </ul>
       </Expandable>
     </>
