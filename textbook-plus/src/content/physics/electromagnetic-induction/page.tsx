@@ -5,6 +5,7 @@ import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
 import { Stepper } from "@/components/content/Stepper";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
@@ -47,10 +48,10 @@ export default function ElectromagneticInductionChapter() {
       <h3 id="h-6-2-1">Experiment 6.1</h3>
       <p>A coil <strong>C₁</strong> is connected to a galvanometer <strong>G</strong>.</p>
       <figure className="my-6">
-        <img
+<img
           src="/images/physics/electromagnetic-induction/exp-6.1-coil-magnet.png"
-          alt="Experiment 6.1 — a bar magnet moved towards a coil C1 connected to a galvanometer G, deflecting the galvanometer pointer."
-          className="w-full h-auto rounded-lg object-contain bg-white"
+          alt="Experiment 6.1 — a bar magnet pushed towards or pulled away from a coil C1 connected to a galvanometer G."
+          className="max-w-md mx-auto w-full h-auto rounded-lg object-contain bg-white"
           loading="lazy"
         />
         <figcaption className="mt-2 text-center text-sm text-muted-foreground">
@@ -87,7 +88,7 @@ export default function ElectromagneticInductionChapter() {
         <img
           src="/images/physics/electromagnetic-induction/exp-6.2-coil-coil.png"
           alt="Experiment 6.2 — a current-carrying coil C2 moved towards or away from a coil C1 connected to a galvanometer, inducing a current."
-          className="w-full h-auto rounded-lg object-contain bg-white"
+          className="max-w-md mx-auto w-full h-auto rounded-lg object-contain bg-white"
           loading="lazy"
         />
         <figcaption className="mt-2 text-center text-sm text-muted-foreground">
@@ -112,7 +113,7 @@ export default function ElectromagneticInductionChapter() {
         <img
           src="/images/physics/electromagnetic-induction/exp-6.3-tapping-key.png"
           alt="Experiment 6.3 — two stationary coils C1 and C2, coil C2 connected to a battery through a tapping key K, coil C1 connected to a galvanometer."
-          className="w-full h-auto rounded-lg object-contain bg-white"
+          className="max-w-md mx-auto w-full h-auto rounded-lg object-contain bg-white"
           loading="lazy"
         />
         <figcaption className="mt-2 text-center text-sm text-muted-foreground">
@@ -158,8 +159,8 @@ export default function ElectromagneticInductionChapter() {
       <figure className="my-6">
         <img
           src="/images/physics/electromagnetic-induction/magnetic-flux.png"
-          alt="Magnetic flux — magnetic field lines passing normally through a surface, with the angle θ between the field and the area vector."
-          className="w-full h-auto rounded-lg object-contain bg-white"
+          alt="Magnetic flux — the number of magnetic field lines passing normally through a surface, with B at an angle θ to the area vector."
+          className="max-w-md mx-auto w-full h-auto rounded-lg object-contain bg-white"
           loading="lazy"
         />
         <figcaption className="mt-2 text-center text-sm text-muted-foreground">
@@ -278,7 +279,7 @@ export default function ElectromagneticInductionChapter() {
         <img
           src="/images/physics/electromagnetic-induction/lenz-coil-face-identification.png"
           alt="Identification of a coil face&apos;s south and north polarity from the direction of the induced current."
-          className="w-full h-auto rounded-lg object-contain bg-white"
+          className="max-w-md mx-auto w-full h-auto rounded-lg object-contain bg-white"
           loading="lazy"
         />
         <figcaption className="mt-2 text-center text-sm text-muted-foreground">
@@ -390,7 +391,7 @@ export default function ElectromagneticInductionChapter() {
         <img
           src="/images/physics/electromagnetic-induction/motional-emf.png"
           alt="Motional electromotive force — a straight rod PQ sliding on conducting rails in a uniform magnetic field B normal to the plane of the rails; moving the rod sweeps out area and induces an emf ε = Blv."
-          className="w-full h-auto rounded-lg object-contain bg-white"
+          className="max-w-md mx-auto w-full h-auto rounded-lg object-contain bg-white"
           loading="lazy"
         />
         <figcaption className="mt-2 text-center text-sm text-muted-foreground">
@@ -666,23 +667,60 @@ export default function ElectromagneticInductionChapter() {
       </Expandable>
 
       <h2 id="h-6-appendix">Key Equations — Revision Board</h2>
-      <FormulaCard>
-        <p className="text-[0.85rem] text-muted-foreground mb-2">Electromagnetic Induction — core relations</p>
-        <p className="text-[0.75rem] font-medium text-muted-foreground">Faraday&apos;s law (N turns)</p>
-        <FormulaBlock latex={String.raw`\varepsilon = -N\frac{\mathrm{d}\Phi_B}{\mathrm{d}t}`} important />
-        <p className="text-[0.75rem] font-medium text-muted-foreground">Motional emf</p>
-        <FormulaBlock latex={String.raw`\varepsilon = Blv`} important />
-        <p className="text-[0.75rem] font-medium text-muted-foreground">Mutual induction</p>
-        <FormulaBlock latex={String.raw`\varepsilon_1 = -M\frac{\mathrm{d}I_2}{\mathrm{d}t}`} important />
-        <p className="text-[0.75rem] font-medium text-muted-foreground">Self-induction</p>
-        <FormulaBlock latex={String.raw`\varepsilon = -L\frac{\mathrm{d}I}{\mathrm{d}t}`} important />
-        <p className="text-[0.75rem] font-medium text-muted-foreground">Energy stored in an inductor</p>
-        <FormulaBlock latex={String.raw`W = \frac{1}{2}LI^2`} important />
-        <p className="text-[0.75rem] font-medium text-muted-foreground">AC generator emf</p>
-        <FormulaBlock latex={String.raw`\varepsilon = \varepsilon_0\sin\omega t, \quad \varepsilon_0 = NBA\omega`} important />
-      </FormulaCard>
+      <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
+        <FormulaCard>
+          <p className="text-[0.75rem] font-medium text-muted-foreground">Faraday&apos;s law (N turns)</p>
+          <FormulaBlock latex={String.raw`\varepsilon = -N\frac{\mathrm{d}\Phi_B}{\mathrm{d}t}`} important />
+        </FormulaCard>
+        <FormulaCard>
+          <p className="text-[0.75rem] font-medium text-muted-foreground">Motional emf</p>
+          <FormulaBlock latex={String.raw`\varepsilon = Blv`} important />
+        </FormulaCard>
+        <FormulaCard>
+          <p className="text-[0.75rem] font-medium text-muted-foreground">Mutual induction</p>
+          <FormulaBlock latex={String.raw`\varepsilon_1 = -M\frac{\mathrm{d}I_2}{\mathrm{d}t}`} important />
+        </FormulaCard>
+        <FormulaCard>
+          <p className="text-[0.75rem] font-medium text-muted-foreground">Self-induction</p>
+          <FormulaBlock latex={String.raw`\varepsilon = -L\frac{\mathrm{d}I}{\mathrm{d}t}`} important />
+        </FormulaCard>
+        <FormulaCard>
+          <p className="text-[0.75rem] font-medium text-muted-foreground">Energy stored in an inductor</p>
+          <FormulaBlock latex={String.raw`W = \frac{1}{2}LI^2`} important />
+        </FormulaCard>
+        <FormulaCard>
+          <p className="text-[0.75rem] font-medium text-muted-foreground">AC generator emf</p>
+          <FormulaBlock latex={String.raw`\varepsilon = \varepsilon_0\sin\omega t, \quad \varepsilon_0 = NBA\omega`} important />
+        </FormulaCard>
+      </div>
 
       <h2 id="h-6-exercises">Back-of-Chapter Exercises</h2>
+
+      <Expandable title="Quick check — Average induced emf &amp; magnetic flux" variant="exercise">
+        <ExerciseQa
+          questions={[
+            <>A magnetic flux of 
+              <Formula>{String.raw`0.02\ \text{Wb}`}</Formula> is linked with a 300-turn coil, and it reduces to zero in 0.05 s.
+              What is the average induced emf?</>,
+            <>If the magnetic flux through a coil of 200 turns changes by 
+              <Formula>{String.raw`0.04\ \text{Wb}`}</Formula> in 2 s, what is the average induced emf?</>,
+            <>A coil of 50 turns experiences a magnetic flux change of 
+              <Formula>{String.raw`0.01\ \text{Wb}`}</Formula> in 0.1 s. What is the induced emf?</>,
+            <>A circular coil of area 
+              <Formula>{String.raw`0.5\ \text{m}^2`}</Formula> is placed in a uniform magnetic field of 2 T. If the field makes an angle of 
+              <Formula>{String.raw`60^\circ`}</Formula> with the normal to the plane of the coil, what is the magnetic flux through the coil?</>,
+          ]}
+          answers={[
+            <>Using  <Formula>{String.raw`\varepsilon = N\frac{|\Delta\Phi_B|}{\Delta t}`}</Formula>:{" "}
+              <Formula>{String.raw`\varepsilon = 300 \times \frac{0.02}{0.05} = 120\ \text{V}`}</Formula>.</>,
+            <><Formula>{String.raw`\varepsilon = N\frac{|\Delta\Phi_B|}{\Delta t} = 200 \times \frac{0.04}{2} = 4\ \text{V}`}</Formula>.</>,
+            <><Formula>{String.raw`\varepsilon = N\frac{|\Delta\Phi_B|}{\Delta t} = 50 \times \frac{0.01}{0.1} = 5\ \text{V}`}</Formula>.</>,
+            <>Using  <Formula>{String.raw`\Phi_B = BA\cos\theta`}</Formula> with 
+              <Formula>{String.raw`\theta = 60^\circ`}</Formula>:{" "}
+              <Formula>{String.raw`\Phi_B = 2 \times 0.5 \times \cos 60^\circ = 0.5\ \text{Wb}`}</Formula>.</>,
+          ]}
+        />
+      </Expandable>
 
       <Expandable title="Exercise 6.3 — Induced emf in a small loop inside a solenoid" variant="exercise">
         <ProblemSolution.Problem>
