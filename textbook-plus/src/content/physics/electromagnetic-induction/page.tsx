@@ -58,13 +58,11 @@ export default function ElectromagneticInductionChapter() {
           Experiment 6.1 — a coil C₁ connected to a galvanometer G.
         </figcaption>
       </figure>
+      <p>The key observations, in brief:</p>
       <ul>
-        <li>When the <Highlight color="pink">north-pole</Highlight> of a bar magnet is <strong>pushed towards</strong> the coil, the pointer deflects — a current flows in the coil. The deflection lasts <strong>only as long as the magnet is in motion</strong>.</li>
-        <li>The galvanometer shows <strong>no deflection</strong> when the magnet is held <em>stationary</em>.</li>
-        <li>When the magnet is <strong>pulled away</strong> from the coil, the galvanometer deflects in the <Highlight color="yellow">opposite direction</Highlight> — the current reverses.</li>
+        <li>The deflection appears <strong>only while the magnet is in motion</strong> — pushing the north-pole towards the coil, or pulling it away, deflects the galvanometer; holding it <em>stationary</em> gives no deflection.</li>
         <li>Moving the <Highlight color="blue">south-pole</Highlight> towards or away gives deflections <em>opposite</em> to those with the north-pole.</li>
         <li>The deflection is <Highlight color="green">larger when the magnet moves faster</Highlight>.</li>
-        <li>When the magnet is held fixed and the <strong>coil C₁ is moved</strong> instead, the same effects are observed.</li>
       </ul>
       <TableCard
         title="Experiment 6.1 — Coil &amp; magnet observations"
@@ -101,6 +99,17 @@ export default function ElectromagneticInductionChapter() {
         <li>The deflection lasts <strong>only while C₂ is in motion</strong>.</li>
         <li>When C₂ is fixed and C₁ is moved, the same effects are observed.</li>
       </ul>
+      <TableCard
+        title="Experiment 6.2 — two-coil observations"
+        caption="Identical physics to Experiment 6.1 — only the source of the field changes from a bar magnet to a current-carrying coil."
+        headers={["Situation", "Galvanometer"]}
+        rows={[
+          { cells: ["C₂ moved towards C₁", "Deflection (✓)"] },
+          { cells: ["C₂ held at rest", "No deflection (✗)"] },
+          { cells: ["C₂ moved away from C₁", "Deflection in the opposite direction (✓)"] },
+          { cells: ["C₂ fixed, coil C₁ moved instead", "Deflection (✓)"] },
+        ]}
+      />
       <p>Again, it is the <Highlight color="yellow">relative motion</Highlight> between the coils that induces the electric current.</p>
 
       <h3 id="h-6-2-3">Experiment 6.3</h3>
@@ -172,7 +181,7 @@ export default function ElectromagneticInductionChapter() {
       <ul>
         <li>θ is the angle between <strong>B</strong> and <strong>A</strong>.</li>
         <li>The area is treated as a <strong>vector</strong>, with direction normal to the surface (as discussed in Chapter 1).</li>
-        <li>Eq. (6.1) extends to curved surfaces and nonuniform fields.</li>
+        <li>This relation extends to curved surfaces and nonuniform fields.</li>
       </ul>
       <p>If the field varies over the surface, we sum over area elements, taking the <strong>normal component of B</strong> at each element:</p>
       <FormulaBlock latex={String.raw`\Phi_B = \int B\,\mathrm{d}A\,\cos\theta`} important />
@@ -218,6 +227,11 @@ export default function ElectromagneticInductionChapter() {
       <p>For a <Highlight color="yellow">closely wound coil of N turns</Highlight>, the flux change associated with each turn is the same, so the total induced emf is:</p>
       <FormulaBlock latex={String.raw`\varepsilon = -N\frac{\mathrm{d}\Phi_B}{\mathrm{d}t}`} important />
       <p>The induced emf can be <Highlight color="green">increased by increasing the number of turns N</Highlight> of a closed coil.</p>
+      <FactCard
+        title="SI unit of induced emf"
+        definition="One volt equals one weber per second: 1 V = 1 Wb s⁻¹. An emf of 1 V is induced in a circuit when the magnetic flux linkage changes at the rate of 1 Wb per second."
+        icon="⚡"
+      />
 
       <Expandable title="Example 6.1 — Large deflection and demonstrating induced current">
         <ProblemSolution.Problem>
@@ -271,7 +285,7 @@ export default function ElectromagneticInductionChapter() {
         <strong>opposes the change in magnetic flux</strong> that produced it.
       </Callout>
       <ul>
-        <li>The <Highlight color="blue">negative sign</Highlight> in Eq. (6.3) represents this effect.</li>
+        <li>The <Highlight color="blue">negative sign</Highlight> in Faraday&apos;s law represents this effect.</li>
       </ul>
       <p>We can understand Lenz&apos;s law by examining Experiment 6.1. First, learn to identify the polarity of a coil face from the sense{" "}
         (clockwise / counter-clockwise) of the induced current:</p>
@@ -326,30 +340,12 @@ export default function ElectromagneticInductionChapter() {
         <strong>Open-circuit case:</strong> even if an open circuit replaces the closed loop, an{" "}
         <Highlight color="yellow">emf is induced across the open ends</Highlight>. The direction of the induced emf can be found using Lenz&apos;s law.
       </Callout>
-      <Comparison
-        columns={[
-          {
-            title: "Advancing magnet",
-            children: (
-              <ul>
-                <li>Flux through the loop <strong>increases</strong></li>
-                <li>Induced current sets up an <strong>opposing magnetic field</strong> (repulsion)</li>
-                <li>The magnet is <strong>repelled</strong></li>
-              </ul>
-            ),
-          },
-          {
-            title: "Receding magnet",
-            children: (
-              <ul>
-                <li>Flux through the loop <strong>decreases</strong></li>
-                <li>Induced current tries to <strong>maintain the flux</strong> (attraction)</li>
-                <li>The magnet is <strong>attracted</strong></li>
-              </ul>
-            ),
-          },
-        ]}
-      />
+      <p>
+        Mechanically, the <Highlight color="yellow">result is repulsion of an advancing magnet</Highlight> and{" "}
+        <Highlight color="yellow">attraction of a receding one</Highlight> — the induced current resists the very motion that created it. This{" "}
+        <strong>opposing force</strong> is what you feel when pushing a magnet into a coil, and it is the hand of the conservation of energy
+        (below).
+      </p>
       <KeyPoint title="Lenz&apos;s law and energy">
         Lenz&apos;s law is a <Highlight color="yellow">direct consequence of the law of conservation of energy</Highlight>. The induced current is
         always so directed as to <strong>oppose the change in flux</strong>; the work done by the external agent appears as{" "}
@@ -412,6 +408,37 @@ export default function ElectromagneticInductionChapter() {
         The induced emf <strong>Blv</strong> is called <Highlight color="yellow">motional emf</Highlight>. We are able to produce induced emf by{" "}
         <strong>moving a conductor</strong> instead of varying the magnetic field — that is, by changing the flux enclosed by the circuit.
       </p>
+      <p>A handy mnemonic for the direction of the induced current is <Highlight color="yellow">Fleming&apos;s right-hand rule</Highlight>;</p>
+      <Comparison
+        columns={[
+          {
+            title: "Fleming&apos;s right-hand rule (generator)",
+            children: (
+              <ul>
+                <li><strong>Forefinger</strong> → direction of the magnetic field (B)</li>
+                <li><strong>Thumb</strong> → direction of the motion of the conductor (v)</li>
+                <li><strong>Middle finger</strong> → direction of the induced current (I)</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Fleming&apos;s left-hand rule (motor)",
+            children: (
+              <ul>
+                <li><strong>Forefinger</strong> → direction of the magnetic field (B)</li>
+                <li><strong>Middle finger</strong> → direction of the current (I)</li>
+                <li><strong>Thumb</strong> → direction of the force on the conductor (F)</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+      <Callout type="note">
+        <strong>Which to use when?</strong> Use the <Highlight color="yellow">right-hand rule for a generator</Highlight> — finding the{" "}
+        <em>induced current</em> caused by motion in a field. Use the <Highlight color="yellow">left-hand rule for a motor</Highlight> — finding the{" "}
+        <em>force</em> on a conductor carrying current in a field. Both encode the same physics; the generator&apos;s emf is the reverse of the
+        motor&apos;s force.
+      </Callout>
 
       <h3 id="h-6-6-1">Lorentz force explanation of motional emf</h3>
       <p>The motional emf can also be explained by the <Highlight color="yellow">Lorentz force</Highlight> acting on the free charge carriers of the conductor PQ:</p>
@@ -422,7 +449,7 @@ export default function ElectromagneticInductionChapter() {
         <li>Since emf is work done per unit charge:</li>
       </ul>
       <FormulaBlock latex={String.raw`\varepsilon = \frac{W}{q} = Blv`} important />
-      <p>This matches Eq. (6.5), helping us understand the basis of Faraday&apos;s law when the conductor moves through a uniform, time-independent field.</p>
+      <p>This matches the motional-emf expression <Formula>{String.raw`\varepsilon = Blv`}</Formula> derived above, helping us understand the basis of Faraday&apos;s law when the conductor moves through a uniform, time-independent field.</p>
 
       <h3 id="h-6-6-2">Stationary conductor, changing magnetic field</h3>
       <p>
@@ -494,6 +521,17 @@ export default function ElectromagneticInductionChapter() {
 
       <h3 id="h-6-7-1">6.7.1 Mutual inductance</h3>
       <p>Consider two long co-axial solenoids of the same length l — inner solenoid S₁ (radius r₁, turns per unit length n₁) and outer solenoid S₂ (radius r₂, turns per unit length n₂).</p>
+      <figure className="my-6">
+        <img
+          src="/images/physics/electromagnetic-induction/two-coaxial-solenoids.png"
+          alt="Two long co-axial solenoids of the same length — inner solenoid S1 of radius r1 and outer solenoid S2 of radius r2 sharing a common axis."
+          className="max-w-md mx-auto w-full h-auto rounded-lg object-contain bg-white"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          Two long co-axial solenoids of the same length l.
+        </figcaption>
+      </figure>
       <p>When a current I₂ flows through S₂, it sets up a magnetic flux through S₁. The flux linkage with S₁ is:</p>
       <FormulaBlock latex={String.raw`N_1\Phi_1 = M_{12}I_2`} />
       <ul>
@@ -548,6 +586,11 @@ export default function ElectromagneticInductionChapter() {
       <p>When the current varies, the flux linked with the coil changes and an emf is induced:</p>
       <FormulaBlock latex={String.raw`\varepsilon = -\frac{\mathrm{d}}{\mathrm{d}t}(N\Phi_B) = -L\frac{\mathrm{d}I}{\mathrm{d}t}`} important />
       <p>The <Highlight color="blue">self-induced emf always opposes any change (increase or decrease) of current</Highlight> in the coil. It is also called the <Highlight color="yellow">back emf</Highlight>.</p>
+      <FactCard
+        title="Defining the henry"
+        definition="A coil has a self-inductance of 1 H if an emf of 1 V is induced in it when the current through it changes at the rate of 1 A s⁻¹."
+        icon="🧲"
+      />
 
       <p><strong>Self-inductance of a long solenoid</strong> (cross-sectional area A, length l, n turns per unit length):</p>
       <Expandable title="Derivation — self-inductance of a long solenoid">
@@ -588,7 +631,7 @@ export default function ElectromagneticInductionChapter() {
           <FormulaBlock latex={String.raw`U_B = \frac{1}{2}LI^2 = \frac{1}{2}L\left(\frac{B}{\mu_0 n}\right)^2 = \frac{1}{2}\left(\frac{\mu_0 n^2 A l}{\mu_0^2 n^2}\right)B^2 = \frac{1}{2}\frac{B^2}{\mu_0} A l`} />
           <p>Energy per unit volume (V = Al):</p>
           <FormulaBlock latex={String.raw`u_B = \frac{U_B}{V} = \frac{1}{2}\frac{B^2}{\mu_0}`} important />
-          <p>(b) The electrostatic energy density in a parallel plate capacitor (Chapter 2, Eq. 2.73) is:</p>
+          <p>(b) The electrostatic energy density in a parallel plate capacitor (Chapter 2) is:</p>
           <FormulaBlock latex={String.raw`u_E = \frac{1}{2}\varepsilon_0 E^2`} />
           <p>
             In both cases the energy is proportional to the <Highlight color="yellow">square of the field strength</Highlight>. Although derived for
@@ -631,7 +674,7 @@ export default function ElectromagneticInductionChapter() {
         <li>With ω = 2πn (n = frequency of revolution):</li>
       </ul>
       <FormulaBlock latex={String.raw`\varepsilon = \varepsilon_0\sin 2\pi nt`} />
-      <p>Equations (6.20) and (6.21) give the <strong>instantaneous</strong> value; ε varies between +ε₀ and −ε₀ periodically. (Time-averaged values are studied in the next chapter.)</p>
+      <p>These expressions give the <strong>instantaneous</strong> value; ε varies between +ε₀ and −ε₀ periodically. (Time-averaged values are studied in the next chapter.)</p>
 
       <h3 id="h-6-8-1">Commercial generators</h3>
       <Callout type="note">
@@ -696,7 +739,7 @@ export default function ElectromagneticInductionChapter() {
 
       <h2 id="h-6-exercises">Back-of-Chapter Exercises</h2>
 
-      <Expandable title="Quick check — Average induced emf &amp; magnetic flux" variant="exercise">
+      <Expandable title="Exercises 6.1 &amp; 6.2 — Average induced emf &amp; magnetic flux" variant="exercise">
         <ExerciseQa
           questions={[
             <>A magnetic flux of 
@@ -790,6 +833,27 @@ export default function ElectromagneticInductionChapter() {
         <ProblemSolution.Solution>
           <p>Flux linkage is <Formula>{String.raw`N_2\Phi_2 = M I_1`}</Formula>, so the change is:</p>
           <FormulaBlock latex={String.raw`\Delta(N_2\Phi_2) = M\,\Delta I_1 = 1.5 \times 20 = 30\ \text{Wb}`} important />
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="Exercise 6.9 — Huge emf when the supply to a coil is cut" variant="exercise">
+        <ProblemSolution.Problem>
+          <p>A pair of adjacent coils has a mutual inductance of <Formula>{String.raw`3\ \text{H}`}</Formula>. If the current in the primary coil changes from <Formula>{String.raw`10\ \text{A}`}</Formula> to zero in <Formula>{String.raw`10^{-3}\ \text{s}`}</Formula>, what emf is induced in the secondary?</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>From <Formula>{String.raw`\varepsilon_2 = -M\frac{\mathrm{d}I_1}{\mathrm{d}t}`}</Formula>:</p>
+          <FormulaBlock latex={String.raw`|\varepsilon_2| = M\,\frac{|\Delta I_1|}{\Delta t} = 3 \times \frac{10}{10^{-3}} = 30\ \text{kV}`} important />
+          <p className="text-sm text-muted-foreground">A sudden change of current in an inductive circuit can generate a very large emf across the neighbouring coil.</p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="Exercise 6.10 — Magnetic energy stored by an inductor" variant="exercise">
+        <ProblemSolution.Problem>
+          <p>Determine the energy stored by a <Formula>{String.raw`5\ \text{H}`}</Formula> inductor when the current flowing through it is <Formula>{String.raw`6\ \text{A}`}</Formula>.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>From <Formula>{String.raw`W = \frac{1}{2}LI^2`}</Formula>:</p>
+          <FormulaBlock latex={String.raw`W = \frac{1}{2} \times 5.0 \times (6.0)^2 = \frac{1}{2} \times 5.0 \times 36 = 90\ \text{J}`} important />
         </ProblemSolution.Solution>
       </Expandable>
 
