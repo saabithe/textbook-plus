@@ -28,7 +28,7 @@
 | 5 | Magnetism and Matter | `magnetism-and-matter` | ✅ Content |
 | 6 | Electromagnetic Induction | `electromagnetic-induction` | ✅ Content |
 | 7 | Alternating Current | `alternating-current` | 🔲 Pending |
-| 8 | Electromagnetic Waves | `electromagnetic-waves` | 🔲 Pending |
+| 8 | Electromagnetic Waves | `electromagnetic-waves` | ✅ Content |
 | 9 | Ray Optics and Optical Instruments | `ray-optics-and-optical-instruments` | 🔲 Pending |
 | 10 | Wave Optics | `wave-optics` | 🔲 Pending |
 | 11 | Dual Nature of Radiation and Matter | `dual-nature-of-radiation-and-matter` | 🔲 Pending |
