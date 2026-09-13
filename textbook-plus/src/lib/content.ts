@@ -7,6 +7,7 @@ import type { Question, Flashcard } from "@/types/chapter";
 const QUESTION_KEYS = new Set([
   "magnetism-and-matter",
   "electric-charges-and-fields",
+  "electromagnetic-induction",
   "c11/maths/sets",
   "c11/maths/relations-and-functions",
   "c11/maths/trigonometric-functions",
@@ -43,6 +44,8 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
     import("@/content/physics/magnetism-and-matter/questions.json").then((m) => m.default as Question[]),
   "electric-charges-and-fields": () =>
     import("@/content/physics/electric-charges-and-fields/questions.json").then((m) => m.default as Question[]),
+  "electromagnetic-induction": () =>
+    import("@/content/physics/electromagnetic-induction/questions.json").then((m) => m.default as Question[]),
   "c11/maths/sets": () =>
     import("@/content/maths/sets/questions.json").then((m) => m.default as Question[]),
   "c11/maths/relations-and-functions": () =>
@@ -102,6 +105,8 @@ const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
     import("@/content/physics/magnetism-and-matter/flashcards.json").then((m) => m.default as Flashcard[]),
   "electric-charges-and-fields": () =>
     import("@/content/physics/electric-charges-and-fields/flashcards.json").then((m) => m.default as Flashcard[]),
+  "electromagnetic-induction": () =>
+    import("@/content/physics/electromagnetic-induction/flashcards.json").then((m) => m.default as Flashcard[]),
   "c11/maths/sets": () =>
     import("@/content/maths/sets/flashcards.json").then((m) => m.default as Flashcard[]),
   "c11/maths/relations-and-functions": () =>

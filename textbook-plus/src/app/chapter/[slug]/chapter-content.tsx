@@ -6,6 +6,7 @@ const chapterComponents: Record<string, React.ComponentType> = {
   "molecular-basis-of-inheritance": dynamic(() => import("@/content/biology/molecular-basis-of-inheritance/page")) as React.ComponentType,
   "magnetism-and-matter": dynamic(() => import("@/content/physics/magnetism-and-matter/page")) as React.ComponentType,
   "electric-charges-and-fields": dynamic(() => import("@/content/physics/electric-charges-and-fields/page")) as React.ComponentType,
+  "electromagnetic-induction": dynamic(() => import("@/content/physics/electromagnetic-induction/page")) as React.ComponentType,
   "horegallu": dynamic(() => import("@/content/english/horegallu/page")) as React.ComponentType,
   "mending-wall": dynamic(() => import("@/content/english/mending-wall/page")) as React.ComponentType,
   "amigo-brothers": dynamic(() => import("@/content/english/amigo-brothers/page")) as React.ComponentType,

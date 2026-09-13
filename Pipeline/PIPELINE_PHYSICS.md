@@ -26,7 +26,7 @@
 | 3 | Current Electricity | `current-electricity` | 🔲 Pending |
 | 4 | Moving Charges and Magnetism | `moving-charges-and-magnetism` | 🔲 Pending |
 | 5 | Magnetism and Matter | `magnetism-and-matter` | ✅ Content |
-| 6 | Electromagnetic Induction | `electromagnetic-induction` | 🔲 Pending |
+| 6 | Electromagnetic Induction | `electromagnetic-induction` | ✅ Content |
 | 7 | Alternating Current | `alternating-current` | 🔲 Pending |
 | 8 | Electromagnetic Waves | `electromagnetic-waves` | 🔲 Pending |
 | 9 | Ray Optics and Optical Instruments | `ray-optics-and-optical-instruments` | 🔲 Pending |
