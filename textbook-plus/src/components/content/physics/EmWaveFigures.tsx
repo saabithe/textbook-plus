@@ -106,6 +106,49 @@ export function SpectrumBandFigure() {
   );
 }
 
+export function MaxwellRelationshipsFigure() {
+  return (
+    <figure className="my-2 w-fit max-w-full rounded-xl border border-border/70 bg-card p-3">
+      <svg
+        viewBox="0 0 360 190"
+        role="img"
+        aria-label="Relationship between electric fields, magnetic fields and their sources"
+        className="mx-auto h-auto w-full max-w-[360px]"
+      >
+        {/* Electric field box */}
+        <rect x="70" y="12" width="220" height="40" rx="10" fill={E_COLOR} opacity="0.12" stroke={E_COLOR} strokeWidth="1.6" />
+        <text x="180" y="30" fontSize="13" fontWeight="800" fill={AXIS} textAnchor="middle">ELECTRIC FIELD</text>
+        <text x="180" y="45" fontSize="9.5" fill={LABEL} textAnchor="middle">E — from charges and changing B</text>
+
+        {/* double arrow E <-> B */}
+        <line x1="180" y1="52" x2="180" y2="80" stroke={AXIS} strokeWidth="1.6" />
+        <polygon points="180,56 174,68 186,68" fill={E_COLOR} />
+        <polygon points="180,78 174,66 186,66" fill={B_COLOR} />
+        <text x="196" y="70" fontSize="9" fill={LABEL}>interlinked</text>
+
+        {/* Magnetic field box */}
+        <rect x="70" y="82" width="220" height="40" rx="10" fill={B_COLOR} opacity="0.12" stroke={B_COLOR} strokeWidth="1.6" />
+        <text x="180" y="100" fontSize="13" fontWeight="800" fill={AXIS} textAnchor="middle">MAGNETIC FIELD</text>
+        <text x="180" y="115" fontSize="9.5" fill={LABEL} textAnchor="middle">B — from currents and changing E</text>
+
+        {/* double arrow B <-> sources */}
+        <line x1="180" y1="122" x2="180" y2="150" stroke={AXIS} strokeWidth="1.6" />
+        <polygon points="180,126 174,138 186,138" fill={B_COLOR} />
+        <polygon points="180,148 174,136 186,136" fill="#64748b" />
+        <text x="196" y="140" fontSize="9" fill={LABEL}>sources</text>
+
+        {/* Sources box */}
+        <rect x="70" y="152" width="220" height="30" rx="10" fill="#64748b" opacity="0.12" stroke="#64748b" strokeWidth="1.6" />
+        <text x="180" y="172" fontSize="12" fontWeight="800" fill={AXIS} textAnchor="middle">THEIR SOURCES</text>
+        <text x="180" y="182" fontSize="9.5" fill={LABEL} textAnchor="middle">charges &amp; currents</text>
+      </svg>
+      <figcaption className="mt-1 text-center text-xs font-bold text-muted-foreground">
+        Maxwell&apos;s equations couple electric fields, magnetic fields and their sources
+      </figcaption>
+    </figure>
+  );
+}
+
 export function ChargingCapacitorFigure() {
   return (
     <figure className="my-2 w-fit max-w-full rounded-xl border border-border/70 bg-card p-3">

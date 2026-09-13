@@ -12,44 +12,95 @@ import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
+import { ScientistCard } from "@/components/content/concept/ScientistCard";
 import { Timeline } from "@/components/content/process/Timeline";
+import { ProblemInsightSolutionCard } from "@/components/content/process/ProblemInsightSolutionCard";
 import {
   SpectrumBandFigure,
   ChargingCapacitorFigure,
+  MaxwellRelationshipsFigure,
 } from "@/components/content/physics/EmWaveFigures";
 
 export default function ElectromagneticWavesChapter() {
   return (
     <>
       <h2 id="h-8-1">8.1 Introduction</h2>
-      <Callout type="note">
-        In Chapter 4 we learnt that an <strong>electric current produces a magnetic field</strong>, and that two current-carrying wires{" "}
-        <strong>exert a magnetic force</strong> on each other. In Chapter 6 we saw that a <strong>magnetic field changing with time gives rise
-        to an electric field</strong>.
-      </Callout>
-      <p>
-        Recall from <Highlight color="yellow">Chapter 6 — Faraday&apos;s law of induction (1831)</Highlight>: a{" "}
-        <strong>changing magnetic flux produces an induced emf</strong> in a coil, i.e. a changing magnetic field gives rise to a changing
-        electric field. This is the base on which&nbsp;Maxwell&apos;s idea builds.
-      </p>
-      <p>Is the converse true — does an <Highlight color="blue">electric field changing with time</Highlight> give rise to a magnetic field?</p>
-      <ul>
-        <li><strong>James Clerk Maxwell (1831–1879)</strong> argued that this was indeed the case: not only an electric current but also a <strong>time-varying electric field</strong> generates a magnetic field.</li>
-        <li>While applying <strong>Ampere&apos;s circuital law</strong> to find the magnetic field at a point outside a capacitor connected to a time-varying current, Maxwell noticed an <Highlight color="yellow">inconsistency</Highlight> in the law.</li>
-        <li>He suggested the existence of an additional current — the <Highlight color="yellow">displacement current</Highlight> — to remove this inconsistency.</li>
-      </ul>
-      <KeyPoint title="Maxwell&apos;s crowning achievement">
-        Maxwell formulated a set of equations — <Highlight color="yellow">Maxwell&apos;s equations</Highlight> — involving electric and magnetic
-        fields and their sources. Their most important prediction is the existence of <strong>electromagnetic waves</strong>: coupled
-        time-varying electric and magnetic fields that propagate in space with{" "}
-        <Formula>{String.raw`c = 3 \times 10^8\ \text{m/s}`}</Formula> — very close to the speed of light, implying that{" "}
-        <Highlight color="green">light is an electromagnetic wave</Highlight>.
+      <ProcessCard
+        title="⚡ From Electricity &amp; Magnetism → Electromagnetic Waves"
+        steps={[
+          { label: "Chapter 4", description: "An <strong>electric current</strong> produces a magnetic field." },
+          { label: "Chapter 6", description: "A <strong>changing magnetic field</strong> produces an electric field." },
+        ]}
+      />
+      <KeyPoint title="🟨 The question Maxwell asked">
+        If a changing magnetic field can produce an electric field, can a{" "}
+        <strong>changing electric field</strong> produce a magnetic field?
       </KeyPoint>
-      <Callout type="didyouknow">
-        Maxwell&apos;s work unified the domains of <Highlight color="yellow">electricity, magnetism and light</Highlight>.{" "}
-        <strong>Hertz (1885)</strong> experimentally demonstrated the existence of electromagnetic waves; their technological use by{" "}
-        <strong>Marconi</strong> and others led to today&apos;s revolution in communication.
-      </Callout>
+      <ScientistCard
+        name="James Clerk Maxwell"
+        years="1831–1879"
+        field="Physicist"
+        keyIdea={
+          <>
+            A magnetic field can be generated not only by an <strong>electric current</strong>, but also by a{" "}
+            <strong>time-varying electric field</strong>.
+          </>
+        }
+      >
+        <p>
+          <strong>✏️ Why?</strong> Maxwell found an inconsistency when applying{" "}
+          <strong>Ampère&apos;s circuital law</strong> to a capacitor carrying a time-varying current, and resolved it by
+          introducing the concept of a <Highlight color="yellow">displacement current</Highlight> — the reasoning below.
+        </p>
+      </ScientistCard>
+      <ProblemInsightSolutionCard
+        title="Maxwell&apos;s reasoning"
+        problem={
+          <>
+            Two surfaces bounded by the same <strong>Ampère loop</strong> give different answers — one sees the conduction
+            current, the other does not, so the magnetic field at a point is ambiguous.
+          </>
+        }
+        insight={
+          <>
+            What passes between the capacitor plates is a <strong>changing electric flux</strong> — the contribution the law
+            is missing.
+          </>
+        }
+        solution={
+          <>
+            Treat the changing flux like a current: <Formula>{String.raw`I_d = \varepsilon_0\,\frac{\mathrm{d}\Phi_E}{\mathrm{d}t}`}</Formula>.{" "}
+            <Highlight color="green">Displacement current</Highlight> — now every surface gives the same answer.
+          </>
+        }
+      />
+      <MaxwellRelationshipsFigure />
+      <KeyPoint title="Maxwell&apos;s crowning achievement">
+        Maxwell wrote a full set of equations — <Highlight color="yellow">Maxwell&apos;s equations</Highlight> — describing
+        the relationship between <strong>electric fields, magnetic fields and their sources</strong>. Their most striking
+        prediction is the existence of <strong>electromagnetic waves</strong>: coupled, time-varying electric and magnetic
+        fields that propagate through space.
+      </KeyPoint>
+      <MetricCard
+        label="Speed of electromagnetic waves in vacuum"
+        value="3 × 10⁸"
+        unit="m/s"
+        description="≈ speed of light"
+      />
+      <KeyPoint title="Therefore">
+        <Highlight color="green">Light is an electromagnetic wave.</Highlight>
+      </KeyPoint>
+      <Timeline
+        title="💡 From theory to technology"
+        color="#7c3aed"
+        rtl={false}
+        events={[
+          { date: "1865", label: "Maxwell&apos;s theory", detail: "The equations unify electricity, magnetism and light into a single theory of electromagnetic waves." },
+          { date: "1885", label: "Hertz", detail: "Experimentally demonstrates electromagnetic waves, verifying Maxwell&apos;s theory." },
+          { date: "1890s", label: "Marconi &amp; others", detail: "Turn the waves into technology — long-distance wireless transmission." },
+          { date: "Today", label: "📡 Modern communication", detail: "Radio, TV, mobile telephony, radar, satellites — all ride on electromagnetic waves." },
+        ]}
+      />
       <p>The electromagnetic spectrum stretches from <strong>gamma rays (wavelength ~10⁻¹² m)</strong> to <strong>long radio waves (wavelength ~10⁶ m)</strong>.</p>
 
       <h2 id="h-8-2">8.2 Displacement Current</h2>
@@ -212,17 +263,10 @@ export default function ElectromagneticWavesChapter() {
       <Callout type="warning">
         The frequency of yellow light is about <Formula>{String.raw`6\times 10^{14}\ \text{Hz}`}</Formula>, while even modern electronic circuits
         barely reach <Formula>{String.raw`10^{11}\ \text{Hz}`}</Formula>. The first experimental demonstration therefore had to come in the{" "}
-        <strong>low frequency (radio) region</strong>.
+        <strong>low frequency (radio) region</strong>. The experimental trail — <strong>Hertz (1887)</strong>, followed by J. C. Bose&apos;s
+        still-laboratory-confined <strong>25 mm to 5 mm</strong> waves (Kolkata, 1894), and Marconi&apos;s long-distance transmission — is traced
+        in the introduction.
       </Callout>
-      <Timeline
-        title="From prediction to communication"
-        color="#7c3aed"
-        events={[
-          { date: "1887", label: "Hertz", detail: "First produces and observes electromagnetic waves in the laboratory (radio-wave region), verifying Maxwell&apos;s theory." },
-          { date: "1894", label: "J. C. Bose (Kolkata)", detail: "Produces and observes EM waves of much shorter wavelength — 25 mm to 5 mm — still laboratory-confined." },
-          { date: "Marconi (Italy)", label: "Communication era", detail: "Transmits electromagnetic waves over distances of many kilometres — the beginning of communication using electromagnetic waves." },
-        ]}
-      />
 
       <h3 id="h-8-3-2">8.3.2 Nature of electromagnetic waves</h3>
       <p>From Maxwell&apos;s equations it follows that electric and magnetic fields in an electromagnetic wave are <Highlight color="yellow">perpendicular to each other, and to the direction of propagation</Highlight>.</p>
