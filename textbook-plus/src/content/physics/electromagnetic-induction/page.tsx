@@ -46,6 +46,17 @@ export default function ElectromagneticInductionChapter() {
 
       <h3 id="h-6-2-1">Experiment 6.1</h3>
       <p>A coil <strong>C₁</strong> is connected to a galvanometer <strong>G</strong>.</p>
+      <figure className="my-6">
+        <img
+          src="/images/physics/electromagnetic-induction/exp-6.1-coil-magnet.png"
+          alt="Experiment 6.1 — a bar magnet moved towards a coil C1 connected to a galvanometer G, deflecting the galvanometer pointer."
+          className="w-full h-auto rounded-lg object-contain bg-white"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          Experiment 6.1 — a coil C₁ connected to a galvanometer G.
+        </figcaption>
+      </figure>
       <ul>
         <li>When the <Highlight color="pink">north-pole</Highlight> of a bar magnet is <strong>pushed towards</strong> the coil, the pointer deflects — a current flows in the coil. The deflection lasts <strong>only as long as the magnet is in motion</strong>.</li>
         <li>The galvanometer shows <strong>no deflection</strong> when the magnet is held <em>stationary</em>.</li>
@@ -72,6 +83,17 @@ export default function ElectromagneticInductionChapter() {
 
       <h3 id="h-6-2-2">Experiment 6.2</h3>
       <p>The bar magnet is replaced by a second coil <strong>C₂</strong> connected to a battery — a steady current in C₂ produces a steady magnetic field.</p>
+      <figure className="my-6">
+        <img
+          src="/images/physics/electromagnetic-induction/exp-6.2-coil-coil.png"
+          alt="Experiment 6.2 — a current-carrying coil C2 moved towards or away from a coil C1 connected to a galvanometer, inducing a current."
+          className="w-full h-auto rounded-lg object-contain bg-white"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          Experiment 6.2 — coil C₂ carrying a steady current, near coil C₁ connected to the galvanometer.
+        </figcaption>
+      </figure>
       <ul>
         <li>As coil C₂ is moved <strong>towards</strong> C₁, the galvanometer shows a deflection — current is induced in C₁.</li>
         <li>Moving C₂ <strong>away</strong> gives a deflection in the <Highlight color="yellow">opposite direction</Highlight>.</li>
@@ -86,6 +108,17 @@ export default function ElectromagneticInductionChapter() {
         Both coils C₁ and C₂ are held <strong>stationary</strong> — C₁ connected to the galvanometer G, C₂ connected to a battery through a{" "}
         <strong>tapping key K</strong>.
       </Callout>
+      <figure className="my-6">
+        <img
+          src="/images/physics/electromagnetic-induction/exp-6.3-tapping-key.png"
+          alt="Experiment 6.3 — two stationary coils C1 and C2, coil C2 connected to a battery through a tapping key K, coil C1 connected to a galvanometer."
+          className="w-full h-auto rounded-lg object-contain bg-white"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          Experiment 6.3 — stationary coils; C₂ connected to a battery through a tapping key K.
+        </figcaption>
+      </figure>
       <ul>
         <li>There is a <Highlight color="blue">momentary deflection when the tapping key K is pressed</Highlight>. The pointer returns to zero immediately.</li>
         <li>If the key is held pressed <strong>continuously</strong>, there is <em>no deflection</em>.</li>
@@ -122,6 +155,17 @@ export default function ElectromagneticInductionChapter() {
         The <Highlight color="yellow">magnetic flux Φ_B</Highlight> through a surface is the{" "}
         <strong>number of magnetic field lines passing normally through the surface</strong>.
       </KeyPoint>
+      <figure className="my-6">
+        <img
+          src="/images/physics/electromagnetic-induction/magnetic-flux.png"
+          alt="Magnetic flux — magnetic field lines passing normally through a surface, with the angle θ between the field and the area vector."
+          className="w-full h-auto rounded-lg object-contain bg-white"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          Magnetic flux — field lines passing normally through a surface.
+        </figcaption>
+      </figure>
       <p>For a plane surface of area <strong>A</strong> placed in a uniform magnetic field <strong>B</strong>:</p>
       <FormulaBlock latex={String.raw`\Phi_B = \mathbf{B} \cdot \mathbf{A} = BA\cos\theta`} important />
       <ul>
@@ -147,18 +191,21 @@ export default function ElectromagneticInductionChapter() {
       </div>
 
       <h2 id="h-6-4">6.4 Faraday&apos;s Law of Induction</h2>
-      <p>From the experimental observations, Faraday arrived at a conclusion:</p>
-      <Callout type="important">
-        <Highlight color="yellow">An emf is induced in a coil when magnetic flux through the coil changes with time.</Highlight>{" "}
+      <p>From the experimental observations, Faraday arrived at a conclusion, and summarised it in the form of <strong>two laws</strong>:</p>
+      <KeyPoint title="Faraday&apos;s First Law">
+        Whenever a coil is placed in a <Highlight color="yellow">changing magnetic field</Highlight>, an{" "}
+        <Highlight color="yellow">induced emf is produced</Highlight>. If the circuit is closed, an{" "}
+        <Highlight color="yellow">induced current also flows</Highlight>.
+      </KeyPoint>
+      <KeyPoint title="Faraday&apos;s Second Law">
+        The magnitude of the induced emf is <Highlight color="yellow">directly proportional to the rate of change of magnetic flux</Highlight>{" "}
+        linkages over time.
+      </KeyPoint>
+      <p>
         The motion of the magnet (Exp. 6.1), the moving current-carrying coil (Exp. 6.2), and the changing current (Exp. 6.3) all{" "}
         <strong>change the magnetic flux</strong> through the coil — and it is this change that induces the emf. The induced emf lasts{" "}
         <Highlight color="yellow">only as long as the flux is changing</Highlight>.
-      </Callout>
-      <p>Summarising the common point in all observations:</p>
-      <KeyPoint title="Faraday&apos;s law of electromagnetic induction">
-        The magnitude of the induced emf in a circuit is <Highlight color="yellow">equal to the time rate of change of magnetic flux</Highlight>{" "}
-        through the circuit.
-      </KeyPoint>
+      </p>
       <FormulaBlock latex={String.raw`\varepsilon = -\frac{\mathrm{d}\Phi_B}{\mathrm{d}t}`} important />
       <ul>
         <li>The <Highlight color="blue">negative sign</Highlight> indicates the direction of ε (and hence the direction of current in a closed loop) — discussed in Section 6.5.</li>
@@ -225,11 +272,55 @@ export default function ElectromagneticInductionChapter() {
       <ul>
         <li>The <Highlight color="blue">negative sign</Highlight> in Eq. (6.3) represents this effect.</li>
       </ul>
-      <p>We can understand Lenz&apos;s law by examining Experiment 6.1:</p>
-      <ul>
-        <li><strong>North-pole pushed towards the coil:</strong> flux through the coil <Highlight color="yellow">increases</Highlight>. The induced current <strong>opposes the increase</strong> — it flows <strong>counter-clockwise</strong> as seen from the magnet&apos;s side, giving a <Highlight color="pink">north polarity facing the approaching north pole</Highlight>.</li>
-        <li><strong>North-pole withdrawn from the coil:</strong> flux <Highlight color="yellow">decreases</Highlight>. The induced current flows <strong>clockwise</strong>, with its <Highlight color="blue">south pole facing the receding north pole</Highlight> of the bar magnet. This produces an <Highlight color="green">attractive force</Highlight> opposing the motion.</li>
-      </ul>
+      <p>We can understand Lenz&apos;s law by examining Experiment 6.1. First, learn to identify the polarity of a coil face from the sense{" "}
+        (clockwise / counter-clockwise) of the induced current:</p>
+      <figure className="my-6">
+        <img
+          src="/images/physics/electromagnetic-induction/lenz-coil-face-identification.png"
+          alt="Identification of a coil face&apos;s south and north polarity from the direction of the induced current."
+          className="w-full h-auto rounded-lg object-contain bg-white"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          Identifying the polarity of a coil face from the direction of the induced current.
+        </figcaption>
+      </figure>
+      <p>Now apply this to all four cases of Experiment 6.1:</p>
+      <TableCard
+        title="Lenz&apos;s law — the four cases"
+        caption="In every case the induced current opposes the change in flux that produced it."
+        headers={["Bar-magnet motion", "Coil face (towards the magnet)", "Current in that face"]}
+        rows={[
+          { cells: ["North-pole moved towards the coil", "North-polarity — opposes the increase in flux", "Anti-clockwise (counter-clockwise)"] },
+          { cells: ["North-pole moved away from the coil", "South-polarity — opposes the decrease in flux", "Clockwise"] },
+          { cells: ["South-pole moved towards the coil", "South-polarity — opposes the increase in flux", "Clockwise"] },
+          { cells: ["South-pole moved away from the coil", "North-polarity — opposes the decrease in flux", "Anti-clockwise (counter-clockwise)"] },
+        ]}
+      />
+      <div className="grid gap-4 sm:grid-cols-2 [&>figure]:my-0">
+        <figure className="my-6">
+          <img
+            src="/images/physics/electromagnetic-induction/lenz-north-cases.png"
+            alt="Lenz&apos;s law — North cases: north pole pushed towards the coil gives a counter-clockwise current; withdrawn from the coil gives a clockwise current."
+            className="w-full h-auto rounded-lg object-contain bg-white"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+            North-pole — towards and away from the coil.
+          </figcaption>
+        </figure>
+        <figure className="my-6">
+          <img
+            src="/images/physics/electromagnetic-induction/lenz-south-cases.png"
+            alt="Lenz&apos;s law — South cases: south pole pushed towards the coil gives a clockwise current; withdrawn from the coil gives a counter-clockwise current."
+            className="w-full h-auto rounded-lg object-contain bg-white"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+            South-pole — towards and away from the coil.
+          </figcaption>
+        </figure>
+      </div>
       <Callout type="note">
         <strong>Open-circuit case:</strong> even if an open circuit replaces the closed loop, an{" "}
         <Highlight color="yellow">emf is induced across the open ends</Highlight>. The direction of the induced emf can be found using Lenz&apos;s law.
@@ -295,6 +386,17 @@ export default function ElectromagneticInductionChapter() {
 
       <h2 id="h-6-6">6.6 Motional Electromotive Force</h2>
       <p>Consider a straight conductor moving in a <strong>uniform and time-independent</strong> magnetic field.</p>
+      <figure className="my-6">
+        <img
+          src="/images/physics/electromagnetic-induction/motional-emf.png"
+          alt="Motional electromotive force — a straight rod PQ sliding on conducting rails in a uniform magnetic field B normal to the plane of the rails; moving the rod sweeps out area and induces an emf ε = Blv."
+          className="w-full h-auto rounded-lg object-contain bg-white"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          Motional emf — a conductor moving in a uniform magnetic field.
+        </figcaption>
+      </figure>
       <Stepper
         steps={[
           { label: "Set up the circuit", description: "A rectangular conductor PQRS in a uniform field B perpendicular to its plane. The arm PQ is free to move and is pulled left with constant velocity v." },
