@@ -14,7 +14,6 @@ import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
 import { Timeline } from "@/components/content/process/Timeline";
 import {
-  PlaneWaveFigure,
   SpectrumBandFigure,
   ChargingCapacitorFigure,
 } from "@/components/content/physics/EmWaveFigures";
@@ -28,6 +27,11 @@ export default function ElectromagneticWavesChapter() {
         <strong>exert a magnetic force</strong> on each other. In Chapter 6 we saw that a <strong>magnetic field changing with time gives rise
         to an electric field</strong>.
       </Callout>
+      <p>
+        Recall from <Highlight color="yellow">Chapter 6 — Faraday&apos;s law of induction (1831)</Highlight>: a{" "}
+        <strong>changing magnetic flux produces an induced emf</strong> in a coil, i.e. a changing magnetic field gives rise to a changing
+        electric field. This is the base on which&nbsp;Maxwell&apos;s idea builds.
+      </p>
       <p>Is the converse true — does an <Highlight color="blue">electric field changing with time</Highlight> give rise to a magnetic field?</p>
       <ul>
         <li><strong>James Clerk Maxwell (1831–1879)</strong> argued that this was indeed the case: not only an electric current but also a <strong>time-varying electric field</strong> generates a magnetic field.</li>
@@ -50,10 +54,29 @@ export default function ElectromagneticWavesChapter() {
 
       <h2 id="h-8-2">8.2 Displacement Current</h2>
       <p>Maxwell showed that for <Highlight color="yellow">logical consistency</Highlight>, a changing electric field must also produce a magnetic field. This explains the existence of radio waves, gamma rays, visible light and all other electromagnetic waves.</p>
-      <p>To see how, consider the <strong>charging of a capacitor</strong> and apply Ampere&apos;s circuital law to find the magnetic field at a point outside it:</p>
-      <FormulaBlock latex={String.raw`\oint \mathbf{B}\cdot \mathrm{d}\mathbf{l} = \mu_0\, i(t)`} />
+      <p>
+        Recall the <Highlight color="yellow">base — Ampere&apos;s circuital law (Chapter 4)</Highlight>. It relates the magnetic field to the
+        current enclosed by a loop:
+      </p>
+      <FormulaBlock latex={String.raw`\oint \mathbf{B}\cdot \mathrm{d}\mathbf{l} = \mu_0 I_{\text{enclosed}}`} />
+      <ul>
+        <li>Since the tangential component of <strong>B</strong> varies linearly with distance from the axis, the magnetic field{" "}
+          <Highlight color="yellow">inside a long straight conductor is directly proportional to the distance from the axis</Highlight>.</li>
+      </ul>
+      <p>To see how the law fails, consider the <strong>charging of a capacitor</strong> and apply Ampere&apos;s circuital law to find the magnetic field at a point outside it:</p>
       <ChargingCapacitorFigure />
       <p>For a circular loop of radius r concentric with the wire, symmetry gives <Formula>{String.raw`B (2\pi r) = \mu_0 i(t)`}</Formula>.</p>
+      <figure className="my-6">
+        <img
+          src="/images/physics/electromagnetic-waves/ampere-inconsistency-displacement.png"
+          alt="The inconsistency in Ampere&apos;s circuital law applied to a charging capacitor, and how the displacement current resolves it."
+          className="max-w-md mx-auto w-full h-auto rounded-lg object-contain bg-white"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          Inconsistency in Ampere&apos;s law — resolved by the displacement current.
+        </figcaption>
+      </figure>
       <Stepper
         steps={[
           { label: "Same boundary, different surface", description: "Now take a pot-like surface that shares the loop&apos;s rim but has its bottom between the capacitor plates. A tiffin-shaped surface has a flat circular bottom between the plates." },
@@ -61,11 +84,30 @@ export default function ElectromagneticWavesChapter() {
           { label: "Find the missing term", description: "What passes through the surface S between the plates? The electric field! As the charge Q on the plates changes, the electric flux changes — this provides the missing term." },
         ]}
       />
-      <p>With plates of area A and charge Q, the field between them is <Formula>{String.raw`E = \frac{Q/A}{\varepsilon_0}`}</Formula>, perpendicular to the surface S. The electric flux through S is:</p>
+      <Stepper
+        steps={[
+          { label: "Surface charge density", description: "On each plate the charge spreads uniformly: σ = q/A." },
+          { label: "Field between the plates", description: "E = σ/ε₀ = q/(Aε₀) — uniform and perpendicular to the plates." },
+          { label: "Electric flux", description: "Φ_E = E × A = (q/(Aε₀)) × A = q/ε₀." },
+          { label: "Differentiate with time", description: "dΦ_E/dt = (1/ε₀) dq/dt, so ε₀ dΦ_E/dt = dq/dt — this is the displacement current I_d, equal to the conduction current i while charging." },
+        ]}
+      />
+      <p>Thus, for plates of area A and charge Q:</p>
       <FormulaBlock latex={String.raw`\Phi_E = E A = \frac{Q}{\varepsilon_0} \qquad (8.3)`} />
       <p>Since the charging current is <Formula>{String.raw`i = \mathrm{d}Q/\mathrm{d}t`}</Formula>:</p>
       <FormulaBlock latex={String.raw`\frac{\mathrm{d}\Phi_E}{\mathrm{d}t} = \frac{1}{\varepsilon_0}\frac{\mathrm{d}Q}{\mathrm{d}t} \;\Rightarrow\; \varepsilon_0 \frac{\mathrm{d}\Phi_E}{\mathrm{d}t} = i \qquad (8.4)`} />
       <p>This is the missing term. Adding <Formula>{String.raw`\varepsilon_0\,\mathrm{d}\Phi_E/\mathrm{d}t`}</Formula> to the total current gives the <Highlight color="yellow">same value i for all surfaces</Highlight> — the contradiction disappears, and B at P is non-zero no matter which surface is used.</p>
+      <figure className="my-6">
+        <img
+          src="/images/physics/electromagnetic-waves/maxwells-experiment.png"
+          alt="Maxwell&apos;s experiment — a charging capacitor; the magnetic needle between the plates deflects, showing a magnetic field there although no conduction current flows between the plates."
+          className="max-w-md mx-auto w-full h-auto rounded-lg object-contain bg-white"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          Maxwell&apos;s experiment — the magnetic needle deflects even between the plates, where only displacement current exists.
+        </figcaption>
+      </figure>
 
       <h3 id="h-8-2-1">Conduction vs displacement current</h3>
       <Comparison
@@ -102,6 +144,18 @@ export default function ElectromagneticWavesChapter() {
         <li>For steady fields it is zero; for a charging capacitor both may be present in different regions; and in large regions there may be <strong>no conduction current but only a displacement current</strong> — yet a magnetic field is expected there.</li>
         <li>This is verified experimentally: the magnetic field at point M between the plates equals that just outside at P.</li>
       </ul>
+      <TableCard
+        title="Properties of displacement current"
+        caption="The hypothetical current set up by a time-varying electric field."
+        headers={["Property", "Detail"]}
+        rows={[
+          { cells: ["Nature", "Not a conventional current — it is a hypothetical current that accounts for the changing electric field in a region with no actual flow of charges."] },
+          { cells: ["Origin", "Produced by a time-varying electric field / changing electric flux between the plates."] },
+          { cells: ["Expression", "I_d = ε₀ dΦ_E/dt — arises from the electric flux changing with time."] },
+          { cells: ["Steady conditions", "Does not exist under steady (DC) conditions; exists only when the electric field or flux is changing."] },
+          { cells: ["Continuity", "Together with the conduction current it satisfies continuity: I_c = I_d."] },
+        ]}
+      />
 
       <h3 id="h-8-2-2">The beautiful symmetry</h3>
       <ul>
@@ -114,16 +168,28 @@ export default function ElectromagneticWavesChapter() {
       <p className="text-sm text-muted-foreground">The symmetry is imperfect: there are no known sources of magnetic field (magnetic monopoles) analogous to electric charges.</p>
 
       <h3 id="h-8-2-3">Maxwell&apos;s equations in vacuum</h3>
-      <div className="my-2 grid gap-3 sm:grid-cols-2">
-        <FormulaBlock latex={String.raw`\oint \mathbf{E}\cdot\mathrm{d}\mathbf{A} = Q/\varepsilon_0`} />
-        <FormulaBlock latex={String.raw`\oint \mathbf{B}\cdot\mathrm{d}\mathbf{A} = 0`} />
-        <FormulaBlock latex={String.raw`\oint \mathbf{E}\cdot\mathrm{d}\mathbf{l} = -\frac{\mathrm{d}\Phi_B}{\mathrm{d}t}`} />
-        <FormulaBlock latex={String.raw`\oint \mathbf{B}\cdot\mathrm{d}\mathbf{l} = \mu_0\left(i_c + \varepsilon_0\frac{\mathrm{d}\Phi_E}{\mathrm{d}t}\right)`} />
+      <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
+        <FormulaCard>
+          <p className="text-[0.75rem] font-medium text-muted-foreground">Gauss&apos;s law in electrostatics</p>
+          <FormulaBlock latex={String.raw`\oint \mathbf{E}\cdot\mathrm{d}\mathbf{s} = \frac{q}{\varepsilon_0}`} important />
+        </FormulaCard>
+        <FormulaCard>
+          <p className="text-[0.75rem] font-medium text-muted-foreground">Gauss&apos;s law in magnetism</p>
+          <FormulaBlock latex={String.raw`\oint \mathbf{B}\cdot\mathrm{d}\mathbf{s} = 0`} important />
+        </FormulaCard>
+        <FormulaCard>
+          <p className="text-[0.75rem] font-medium text-muted-foreground">Faraday–Lenz law</p>
+          <FormulaBlock latex={String.raw`\oint \mathbf{E}\cdot\mathrm{d}\mathbf{l} = -\frac{\mathrm{d}\Phi_B}{\mathrm{d}t}`} important />
+        </FormulaCard>
+        <FormulaCard>
+          <p className="text-[0.75rem] font-medium text-muted-foreground">Ampere–Maxwell law</p>
+          <FormulaBlock latex={String.raw`\oint \mathbf{B}\cdot\mathrm{d}\mathbf{l} = \mu_0\left(i_c + \varepsilon_0\frac{\mathrm{d}\Phi_E}{\mathrm{d}t}\right)`} important />
+        </FormulaCard>
       </div>
-      <div className="my-3 grid gap-2 sm:grid-cols-2 text-xs text-muted-foreground">
-        <span>Gauss&apos;s law for electricity (left) and magnetism (right)</span>
-        <span>Faraday&apos;s law (left) and Ampere-Maxwell law (right)</span>
-      </div>
+      <p className="my-3 text-sm text-muted-foreground">
+        The modified form — <Highlight color="yellow">Ampere&apos;s law + displacement current</Highlight> — is what Maxwell added. This
+        fourth equation, together with Faraday&apos;s law, is the seed of electromagnetic waves.
+      </p>
 
       <h2 id="h-8-3">8.3 Electromagnetic Waves</h2>
 
@@ -160,8 +226,18 @@ export default function ElectromagneticWavesChapter() {
 
       <h3 id="h-8-3-2">8.3.2 Nature of electromagnetic waves</h3>
       <p>From Maxwell&apos;s equations it follows that electric and magnetic fields in an electromagnetic wave are <Highlight color="yellow">perpendicular to each other, and to the direction of propagation</Highlight>.</p>
+      <figure className="my-6">
+        <img
+          src="/images/physics/electromagnetic-waves/em-wave.png"
+          alt="An electromagnetic wave — oscillating electric and magnetic fields perpendicular to each other and to the direction of propagation."
+          className="max-w-md mx-auto w-full h-auto rounded-lg object-contain bg-white"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          Electromagnetic wave — E and B oscillate perpendicular to each other and to the direction of travel.
+        </figcaption>
+      </figure>
       <p>For a plane wave propagating along the z-direction, with <strong>E along x</strong> and <strong>B along y</strong>:</p>
-      <PlaneWaveFigure />
       <FormulaBlock latex={String.raw`E_x = E_0 \sin(kz - \omega t) \qquad [8.7\mathrm{(a)}]`} />
       <FormulaBlock latex={String.raw`B_y = B_0 \sin(kz - \omega t) \qquad [8.7\mathrm{(b)}]`} />
       <p>with the wave number <Formula>{String.raw`k = \frac{2\pi}{\lambda} \qquad (8.8)`}</Formula>, ω the angular frequency, and <strong>k</strong> the wave vector whose direction gives the direction of propagation.</p>
