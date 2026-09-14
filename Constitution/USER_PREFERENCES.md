@@ -147,4 +147,89 @@ This file tracks ALL user preferences, design decisions, and customization choic
 
 ---
 
+## 12. Content Component Design System (In-Page Apps)
+
+**Established**: Sep 2026 · **Source**: Full UI/UX overhaul audit of 57 content components
+
+All new and improved content components follow this design language. The new interactive physics components (SpectrumExplorer, OscillationPlayer, §8.3 set) are the reference standard.
+
+### 12.1 Baseline Patterns
+
+| Pattern | Class String | Notes |
+|---------|-------------|-------|
+| **Paper Card** (primary container) | `rounded-2xl border border-border/60 bg-card shadow-sm` | Subject-tinted: swap `border-border/60` for `border-{color}-500/20` |
+| **Header Bar** (inside card) | `border-b border-border/40 bg-muted/30 px-4 py-2.5` | Subject-tinted: add `bg-{color}-500/[0.06]` |
+| **Section Label** (uppercase tracker) | `text-xs font-extrabold uppercase tracking-[0.18em] text-muted-foreground` | Subject-colored: swap for `text-{color}-600 dark:text-{color}-400` |
+| **Card Title** (bold tight) | `text-sm font-extrabold tracking-tight text-foreground` | |
+| **Sub-Info Card** | `rounded-xl border border-border/40 bg-card px-3.5 py-2.5` | |
+| **Active Pill / Chip** | `rounded-xl border px-3 py-1.5 text-sm font-bold tracking-tight transition-colors` | Active: `border-{color}-500 bg-{color}-500 text-white shadow-sm shadow-{color}-500/30`; Inactive: `border-border/60 bg-muted/40 text-foreground/70 hover:bg-muted/60` |
+| **Play / Pause Button** | `rounded-xl px-4 py-1.5 text-sm font-bold tracking-tight text-white shadow-sm` | Play: `bg-blue-600`; Pause: `bg-amber-500` |
+| **Reset Button** | `rounded-xl border border-border/60 bg-muted/40 px-3 py-1.5 text-sm font-bold tracking-tight text-foreground/70` | |
+| **Answer Panel** (emerald) | `rounded-2xl border border-emerald-300/60 bg-emerald-50/40 p-4 dark:border-emerald-900/40 dark:bg-emerald-950/20` | |
+| **Question Number Badge** | `h-7 w-7 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-500 text-white text-[0.75rem] font-bold shadow-sm shadow-indigo-500/30` | |
+| **Step Number Badge** | `h-7 w-7 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 text-white text-xs font-extrabold shadow-md shadow-blue-500/30 ring-2 ring-blue-500/25` | Connector: `w-0.5 bg-gradient-to-b from-blue-500/30 to-blue-500/5` |
+| **Decorative Top Bar** (1px accent) | `absolute inset-x-0 top-0 h-px bg-gradient-to-r from-{color}-500/40 via-{color}-500/20 to-transparent` | |
+| **Icon Wrap** (gradient tile) | `h-7 w-7 rounded-xl bg-gradient-to-br from-{color}-500 to-{accent}-400 shadow-sm shadow-{color}-500/30` | Large: `h-8 w-8` |
+| **Figure Shell** (diagram wrapper) | `rounded-xl border border-border/40 bg-card overflow-hidden` | Header: `bg-muted/20 px-4 py-2.5`; Caption: `text-xs text-muted-foreground text-center` |
+
+### 12.2 Color & Token Rules
+
+| Rule | Detail |
+|------|--------|
+| **Subject colors** | Always use `--subject-*` CSS vars (defined in `globals.css`). Never inline hardcoded hex for subject accents in UI chrome. |
+| **SVG accent hex** | Allowed for semantic vector colors (`#8b5cf6` violet, `#10b981` emerald, `#e11d48` rose) — these stay consistent across themes. |
+| **Axis / label / structural lines** | Always `var(--foreground)`, `var(--muted-foreground)`, `var(--border)` — never hardcoded grey hex. |
+| **Dark mode** | Every component must use Tailwind's `dark:` prefix or CSS var tokens. No hardcoded hex for structural UI elements. |
+| **Border radius** | Content cards: `rounded-2xl`. Inner elements (pills, badges, sub-cards): `rounded-xl` or `rounded-lg`. Never `rounded-md`/`rounded-sm` for cards. |
+| **Shadows** | `shadow-sm` on outer cards. `shadow-md` on active pills. Accent shadows: `shadow-{color}-500/30`. |
+
+### 12.3 Typography Scale
+
+| Role | Classes |
+|------|---------|
+| Section label | `text-xs font-extrabold uppercase tracking-[0.14em–0.22em]` |
+| Card title | `text-sm font-extrabold tracking-tight text-foreground` |
+| Sub-label / meta | `text-[0.62rem–0.7rem] font-extrabold uppercase tracking-widest text-muted-foreground` |
+| Body text | `text-[0.95rem] leading-[1.7–1.75] text-foreground/85` |
+| Small body / caption | `text-[0.8rem–0.85rem] leading-relaxed text-foreground/75–85` |
+| Badge / chip | `text-[0.68rem–0.72rem] font-bold uppercase tracking-wider` |
+| Hint / footnote | `text-[0.7rem–0.72rem] font-semibold text-muted-foreground` |
+
+### 12.4 Mobile Rules
+
+| Rule | Detail |
+|------|--------|
+| **Touch targets** | Every interactive element (buttons, chips, checkboxes, toggles) must be ≥ 40×40px. |
+| **Hover → tap** | Any interaction triggered by `group-hover` or `:hover` must have a `:focus`/click alternative. |
+| **Grids** | Every multi-column grid must include a responsive fallback (e.g. `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`). |
+| **SVG diagrams** | Never use fixed `width` attributes without responsive wrappers. Use `viewBox` + `w-full` + `max-w-*`. |
+| **Overflow** | Wide content (tables, diagrams) must use `overflow-x-auto` on the scroll container. Never `overflow-hidden` on content that may exceed viewport. |
+| **Reduced motion** | `globals.css` already reduces all animations at `prefers-reduced-motion: reduce`. New components must respect this (no inline `<style>` keyframes without a `.anim-paused` mechanism). |
+
+### 12.5 Component Classification (Sep 2026 Audit)
+
+**57 real component files** (55 used, 1 dead). AGENTS.md's old barrel export / 30-component list is stale. The `decision/` and `system/` folders are empty. Here is the real inventory:
+
+**Core (8):** Callout, KeyPoint, Example, Comparison, Expandable, Formula/FormulaBlock, FormulaCard, Stepper, Highlight, ProblemSolution, SolvedProblem, ExerciseQa, SpeedTricks
+
+**Data (2):** TableCard, Checklist
+
+**Process (6):** ProcessCard, Timeline, CycleDiagram, EquationLadder, RevealAnswer, ProblemInsightSolutionCard
+
+**Concept (3):** FactCard, ConceptCard, ScientistCard
+
+**Study (2):** MetricCard, MistakeCard
+
+**English/Arabic (8):** AuthorCard, CharacterSketch, CharacterComparison, ContentTabs, CollapsibleSection, SummaryLevels, ReadRespond
+
+**Physics (13):** SpectrumExplorer, SpectrumTable, OscillationPlayer, PropagationExplorer, AmpereSurfaceToggle, ChargeFateTrio, TransverseLongitudinal, FormulaAnatomy, SpeedLayers, FieldRatio, VectorFigures, ProjectileGraphs, KinematicsGraphs
+
+**Maths (7):** NumberLine, FunctionGraph, VennDiagram, ArrowDiagram, UnitCircle, ArgandDiagram
+
+**Conic (1):** ConicDiagrams
+
+**Top-level diagram (1):** OrgChart
+
+**Top-level concept (1):** TreeDiagram
+
 *This file is append-only. Previous decisions are never deleted, only updated with new values when explicitly changed by the user.*

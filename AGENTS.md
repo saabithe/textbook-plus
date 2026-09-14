@@ -28,6 +28,8 @@ npm run lint         # eslint (next core-web-vitals + typescript)
 
 No test framework. No typecheck script (TypeScript errors surface via `npm run build`).
 
+**Component gallery**: `/dev/design` (`src/app/dev/design/page.tsx`) renders every content component with sample data — preview component changes there before committing.
+
 ## Tech Stack
 
 - **Next.js 16.3.1** (App Router, React 19)
@@ -54,25 +56,29 @@ src/content/{subject-slug}/{chapter-slug}/
 
 **English chapter-text.md**: Cleaned, readable version of the textbook pages. Located at `src/content/english/{slug}/chapter-text.md`. Contains the complete chapter text (story/poem/speech/play) + About the Author + Read and Respond questions. This is the single source of truth for authoring `page.tsx` content. No OCR artifacts, no interleaved activities, no supplementary readings.
 
-**Custom content components** (in `src/components/content/`):
+**Custom content components** (in `src/components/content/`) — the real inventory (57 files, Sep 2026 audit; see `Constitution/USER_PREFERENCES.md` §12 for the component design system and gallery preview):
 
-*Core (9):* Callout, Example, KeyPoint, Comparison, Expandable, Formula/FormulaBlock, FormulaCard, ProblemSolution, Stepper
+*Core:* Callout, Example, KeyPoint, Comparison, Expandable, Formula/FormulaBlock, FormulaCard, ProblemSolution, SolvedProblem, ExerciseQa, SpeedTricks, Stepper, Highlight
 
-*Data (4):* TableCard, Checklist, SortableTable, Kanban
+*Data:* TableCard, Checklist
 
-*Process (4):* ProcessCard, FlowDiagram, CycleDiagram, Timeline
+*Process:* ProcessCard, Timeline, CycleDiagram, EquationLadder, RevealAnswer, ProblemInsightSolutionCard
 
-*Concept (4):* FactCard, ConceptCard, TreeDiagram, NetworkDiagram
+*Concept:* FactCard, ConceptCard, ScientistCard
 
-*Decision (4):* DecisionTree, RiskMatrix, ScenarioCard, PerspectiveCard
+*Study:* MetricCard, MistakeCard
 
-*Study (3):* MetricCard, MistakeCard, GuidedStepper
+*English/Arabic:* AuthorCard (collapsible), CharacterSketch, CharacterComparison, ContentTabs, CollapsibleSection, SummaryLevels, ReadRespond
 
-*System (4):* ArchitectureCard, IODiagram, EventFlow, RoadmapCard
+*Physics:* SpectrumExplorer, SpectrumTable, OscillationPlayer, PropagationExplorer, AmpereSurfaceToggle, ChargeFateTrio, TransverseLongitudinal, FormulaAnatomy, SpeedLayers, FieldRatio, VectorFigures, ProjectileGraphs, KinematicsGraphs
 
-*Subject-specific (not in barrel export):* AuthorCard (collapsible), CharacterSketch, CharacterComparison, ContentTabs, SummaryLevels, ReadRespond, Highlight, CollapsibleSection
+*Maths:* NumberLine, FunctionGraph, VennDiagram, ArrowDiagram, UnitCircle, ArgandDiagram
 
-**Barrel export** (`src/components/content/index.ts`) — exports all 30 transformation components. Subject-specific components are imported directly.
+*Conic:* ConicDiagrams
+
+*Top-level:* OrgChart, TreeDiagram (in `concept/`)
+
+**There is NO barrel export** — every import is a direct file path (e.g. `import { Callout } from "@/components/content/Callout"`). Components that don't exist (do not reference them): FlowDiagram, SortableTable, Kanban, NetworkDiagram, GuidedStepper, DecisionTree, RiskMatrix, ScenarioCard, PerspectiveCard, ArchitectureCard, IODiagram, EventFlow, RoadmapCard. The `decision/` and `system/` folders are empty — keep them empty unless a real need appears.
 
 **CRITICAL — LaTeX authoring rule**: All LaTeX in content files MUST be written with **single** backslashes inside **`String.raw`** templates — e.g. `latex={String.raw`\frac{a}{b}`}` and `<Formula>{String.raw`\sum x_i`}</Formula>`. Never double backslashes: JSX attributes preserve backslashes literally (doubling breaks KaTeX), and plain `{"`...`"}` template literals strip them. Never write `latex="\frac..."`. Run `node scripts/verify-latex.cjs` after any content math change — it renders every formula through KaTeX and fails on any error.
 
@@ -106,7 +112,7 @@ src/content/{subject-slug}/{chapter-slug}/
 - Subject colors: CSS custom properties (`--subject-{name}` / `--subject-{name}-light`) in `globals.css` `:root` and `.dark`
 - Chapter data source of truth: `Developer_Deliveries/Chapter names.md`
 
-**Currently 4 chapters have content:** Physics Ch1 + Ch2, English (Horegallu + Mending Wall). All other 74 chapters show placeholder UI.
+**Currently 61 chapters/subjects have content:** all 13 Physics chapters (+ derivation sheet), 14 Class 11 Maths, English (all 16 chapters), all 6 Grammar, all 8 Discourses, 1 Biology. Other chapters show placeholder UI.
 
 ## Class 11 Maths — CRITICAL: Distinguish from Class 12
 

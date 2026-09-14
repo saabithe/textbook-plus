@@ -25,18 +25,15 @@ export function FormulaAnatomy({ title, equation, tokens }: FormulaAnatomyProps)
         <Formula block>{equation}</Formula>
       </div>
 
-      <div
-        className="grid gap-x-2 gap-y-1"
-        style={{ gridTemplateColumns: `repeat(${tokens.length}, minmax(0,1fr))` } as React.CSSProperties}
-      >
+      <div className="flex flex-wrap justify-center gap-x-4 gap-y-4 px-2 pb-2">
         {tokens.map((token, i) => (
-          <div key={i} className="flex flex-col items-center text-center">
-            <div className="flex h-10 w-full items-center justify-center rounded-xl border border-violet-500/25 bg-violet-500/[0.06] px-1">
+          <div key={i} className="flex w-[6rem] min-w-0 flex-col items-center text-center sm:w-[6.5rem]">
+            <div className="flex h-10 w-full items-center justify-center overflow-x-auto rounded-xl border border-violet-500/25 bg-violet-500/[0.06] px-1">
               <span className="whitespace-nowrap">
                 <Formula>{token.latex}</Formula>
               </span>
             </div>
-            <div className="my-1 h-3 w-px bg-violet-500/40" />
+            <div className="my-1 h-3 w-px shrink-0 bg-violet-500/40" />
             <div className="flex min-h-[2.75rem] items-start justify-center px-0.5">
               <span className="text-[0.72rem] font-semibold leading-tight text-foreground/75">
                 {token.label}

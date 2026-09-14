@@ -83,17 +83,17 @@ export function Timeline({ title, events, orientation = "horizontal", rtl = true
           <div className="flex shrink-0 items-center gap-1">
             <button
               onClick={() => scroll(-260)}
-              className="flex h-7 w-7 items-center justify-center rounded-full border border-border/60 bg-background transition-colors hover:bg-muted"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-background transition-colors hover:bg-muted"
               aria-label="Scroll to newer"
             >
-              <ChevronLeft className="h-3.5 w-3.5" />
+              <ChevronLeft className="h-4 w-4" />
             </button>
             <button
               onClick={() => scroll(260)}
-              className="flex h-7 w-7 items-center justify-center rounded-full border border-border/60 bg-background transition-colors hover:bg-muted"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-background transition-colors hover:bg-muted"
               aria-label="Scroll to older"
             >
-              <ChevronRight className="h-3.5 w-3.5" />
+              <ChevronRight className="h-4 w-4" />
             </button>
           </div>
         )}

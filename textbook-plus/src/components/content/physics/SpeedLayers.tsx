@@ -106,10 +106,18 @@ export function SpeedLayers() {
                 <p className="mb-2 hidden text-[0.68rem] font-extrabold uppercase tracking-[0.2em] text-muted-foreground lg:block">
                   Vacuum vs medium
                 </p>
+                <div className="mb-1 grid grid-cols-2 gap-x-2 px-3 lg:hidden">
+                  <span className="text-[0.62rem] font-extrabold uppercase tracking-[0.16em] text-violet-600/80 dark:text-violet-400/80">
+                    Vacuum
+                  </span>
+                  <span className="text-[0.62rem] font-extrabold uppercase tracking-[0.16em] text-muted-foreground/80">
+                    Medium
+                  </span>
+                </div>
                 <div className="space-y-1">
                   {layer.rows.map((row) => (
-                    <div key={row.label} className="grid grid-cols-[minmax(0,0.55fr)_1fr_1fr] items-start gap-2 rounded-lg border border-border/40 bg-muted/15 px-3 py-2">
-                      <span className="text-[0.7rem] font-bold uppercase tracking-wider text-muted-foreground">
+                    <div key={row.label} className="grid grid-cols-2 items-start gap-x-2 gap-y-1.5 rounded-lg border border-border/40 bg-muted/15 px-3 py-2.5 lg:grid-cols-[minmax(0,0.55fr)_1fr_1fr]">
+                      <span className="col-span-2 text-[0.7rem] font-bold uppercase tracking-wider text-muted-foreground lg:col-span-1">
                         {row.label}
                       </span>
                       <span className="font-medium text-foreground/80">

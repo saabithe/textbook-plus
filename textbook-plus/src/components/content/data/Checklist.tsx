@@ -45,14 +45,14 @@ export function Checklist({ title, items }: ChecklistProps) {
               <div
                 key={i}
                 onClick={() => toggle(i)}
-                className="flex items-center gap-3 w-full text-left group -mx-2 rounded-xl px-2 py-1.5 cursor-pointer transition-colors hover:bg-primary/[0.06]"
+                className="flex items-center gap-3 w-full text-left group -mx-2 rounded-xl px-2 py-2.5 cursor-pointer transition-colors hover:bg-primary/[0.06]"
               >
                 <Checkbox
                   checked={isChecked}
                   onCheckedChange={() => toggle(i)}
                   onClick={(e) => e.stopPropagation()}
                   aria-label={item.label}
-                  className="h-7 w-7 rounded-lg shadow-sm group-hover:border-primary/50 [&>svg]:size-3.5"
+                  className="h-8 w-8 rounded-lg shadow-sm group-hover:border-primary/50 [&>svg]:size-4"
                 />
                 <span className={cn("text-sm leading-relaxed",
                   isChecked ? "text-muted-foreground line-through" : "text-foreground"

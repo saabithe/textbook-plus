@@ -141,7 +141,7 @@ function DirMenu({ label, value, onChange }: { label: string; value: Dir; onChan
             type="button"
             onClick={() => onChange(d)}
             className={cn(
-              "rounded-lg border px-1.5 py-1 text-[0.72rem] font-bold tracking-tight transition-colors",
+              "rounded-lg border px-1.5 py-2 text-[0.72rem] font-bold tracking-tight transition-colors",
               value === d
                 ? "border-violet-500 bg-violet-500 text-white shadow-sm shadow-violet-500/30"
                 : "border-border/60 bg-muted/35 text-foreground/70 hover:bg-muted/60"

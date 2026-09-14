@@ -176,8 +176,8 @@ export function OscillationPlayer() {
         </div>
       </div>
 
-      <div className="overflow-hidden rounded-xl border border-border/40 bg-gradient-to-b from-muted/40 to-card">
-        <svg viewBox="0 0 760 250" className="w-full" role="img" aria-label="Animation of an oscillating charge emitting an electromagnetic wave">
+      <div className="overflow-x-auto overflow-y-hidden rounded-xl border border-border/40 bg-gradient-to-b from-muted/40 to-card">
+        <svg viewBox="0 0 760 250" className="w-full min-w-[560px]" role="img" aria-label="Animation of an oscillating charge emitting an electromagnetic wave">
           <defs>
             <radialGradient id="chargeGlow" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#34d399" stopOpacity="0.9" />
@@ -187,63 +187,63 @@ export function OscillationPlayer() {
           </defs>
 
           {/* propagation axis */}
-          <line x1={VISIBLE_FROM} y1="125" x2="745" y2="125" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="4 5" opacity="0.5" />
+          <line x1={VISIBLE_FROM} y1="125" x2="745" y2="125" stroke="var(--muted-foreground)" strokeOpacity="0.5" strokeWidth="2" strokeDasharray="4 5" />
           {/* axis arrow */}
-          <path d="M752 125 l-10 -6 v12 z" fill="#94a3b8" opacity="0.6" />
-          <text x="735" y="150" textAnchor="end" fontSize="12" fontWeight="700" fill="#94a3b8">
+          <path d="M752 125 l-11 -7 v14 z" fill="var(--muted-foreground)" opacity="0.6" />
+          <text x="735" y="152" textAnchor="end" fontSize="15" fontWeight="700" fill="var(--muted-foreground)">
             propagation →
           </text>
 
           {/* source antenna */}
-          <line x1="95" y1="45" x2="95" y2="205" stroke="#64748b" strokeWidth="2.5" opacity={stageOff ? 0.5 : 1} />
+          <line x1="95" y1="40" x2="95" y2="210" stroke="var(--muted-foreground)" strokeOpacity="0.6" strokeWidth="3" opacity={stageOff ? 0.5 : 1} />
           <g style={stageOff ? undefined : { animation: "chargeBob 0.9s ease-in-out infinite alternate" }}>
-            <circle cx="95" cy="125" r="20" fill="url(#chargeGlow)" />
-            <circle cx="95" cy="125" r="9" fill="#10b981" stroke="#065f46" strokeWidth="1.5" />
-            <text x="95" y="129" textAnchor="middle" fontSize="11" fontWeight="800" fill="#fff">
+            <circle cx="95" cy="125" r="24" fill="url(#chargeGlow)" />
+            <circle cx="95" cy="125" r="11" fill="#10b981" stroke="#065f46" strokeWidth="1.5" />
+            <text x="95" y="131" textAnchor="middle" fontSize="14" fontWeight="800" fill="#fff">
               +
             </text>
           </g>
-          <text x="95" y="222" textAnchor="middle" fontSize="11" fontWeight="700" fill="#10b981">
+          <text x="95" y="228" textAnchor="middle" fontSize="15" fontWeight="700" fill="#10b981">
             oscillating charge
           </text>
 
           {/* E wave (violet) — oscillates vertically */}
           <g transform={`translate(${VISIBLE_FROM},125)`} opacity={showE ? 1 : 0.12} className="osc-wave-scroll">
-            <polyline points={eWave} fill="none" stroke="#8b5cf6" strokeWidth="3" strokeLinejoin="round" />
+            <polyline points={eWave} fill="none" stroke="#8b5cf6" strokeWidth="4" strokeLinejoin="round" />
           </g>
           {/* E field tick arrows — ride the wave swill */}
           <g transform={`translate(${VISIBLE_FROM},125)`} opacity={showE ? 0.85 : 0} className="osc-e-ticks">
             {eTicks.map((t) => (
-              <line key={`${t.x}-${t.y}`} x1={t.x} y1="0" x2={t.x} y2={t.y} stroke="#c4b5fd" strokeWidth="2" />
+              <line key={`${t.x}-${t.y}`} x1={t.x} y1="0" x2={t.x} y2={t.y} stroke="#c4b5fd" strokeWidth="2.5" />
             ))}
           </g>
-          <text x={VISIBLE_FROM + 14} y="34" fontSize="12" fontWeight="800" fill="#8b5cf6" opacity={showE ? 1 : 0.3}>
+          <text x={VISIBLE_FROM + 18} y="38" fontSize="15" fontWeight="800" fill="#8b5cf6" opacity={showE ? 1 : 0.3}>
             E (electric) field
           </text>
 
           {/* B wave (amber) — perpendicular, shown as an oscillating lane */}
           <g transform={`translate(${VISIBLE_FROM},185)`} opacity={showB ? 0.95 : 0.1} className="osc-wave-scroll">
-            <polyline points={bWave} fill="none" stroke="#f59e0b" strokeWidth="3" strokeLinejoin="round" opacity="0.35" />
-            <circle cx="0" cy="0" r="4" fill="#f59e0b" />
+            <polyline points={bWave} fill="none" stroke="#f59e0b" strokeWidth="4" strokeLinejoin="round" opacity="0.35" />
+            <circle cx="0" cy="0" r="5" fill="#f59e0b" />
           </g>
           {/* B "into / out of page" dots — in phase with E */}
           <g transform={`translate(${VISIBLE_FROM},125)`} opacity={showB ? 1 : 0} className="osc-wave-scroll">
             {bTicks.map((t) => (
               <g key={t.x}>
-                <circle cx={t.x} cy="0" r={t.r} fill="none" stroke="#f59e0b" strokeWidth="2" />
+                <circle cx={t.x} cy="0" r={t.r} fill="none" stroke="#f59e0b" strokeWidth="2.5" />
                 <circle cx={t.x} cy="0" r={t.r * 0.4} fill="#f59e0b" />
               </g>
             ))}
           </g>
-          <text x={VISIBLE_FROM + 14} y="225" fontSize="12" fontWeight="800" fill="#f59e0b" opacity={showB ? 1 : 0.3}>
+          <text x={VISIBLE_FROM + 18} y="228" fontSize="15" fontWeight="800" fill="#f59e0b" opacity={showB ? 1 : 0.3}>
             B (magnetic) field ⊙ — into/out of page
           </text>
 
           {/* propagating wavefront */}
           {showFront && (
             <g className="osc-front">
-              <line x1="0" y1="115" x2="0" y2="135" stroke="#fff" strokeWidth="2.5" style={{ animation: "pulseGlow 1s ease-in-out infinite" }} />
-              <line x1="0" y1="112" x2="0" y2="138" stroke="#3b82f6" strokeWidth="1" opacity="0.6" />
+              <line x1="0" y1="113" x2="0" y2="137" stroke="#fff" strokeWidth="3" style={{ animation: "pulseGlow 1s ease-in-out infinite" }} />
+              <line x1="0" y1="110" x2="0" y2="140" stroke="#3b82f6" strokeWidth="1.5" opacity="0.6" />
             </g>
           )}
         </svg>

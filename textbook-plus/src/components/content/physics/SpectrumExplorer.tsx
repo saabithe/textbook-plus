@@ -215,7 +215,7 @@ export function SpectrumExplorer() {
               type="button"
               onClick={() => setActive(i)}
               className={cn(
-                "rounded-lg px-2.5 py-1.5 text-[0.68rem] font-bold uppercase tracking-wider transition-colors",
+                "rounded-lg px-3 py-2 text-[0.68rem] font-bold uppercase tracking-wider transition-colors",
                 active === i
                   ? "bg-gradient-to-br from-violet-600 to-purple-600 text-white shadow-md shadow-violet-500/30"
                   : "border border-border/60 bg-muted/20 text-foreground/70 hover:bg-muted/40"
@@ -245,7 +245,7 @@ export function SpectrumExplorer() {
               type="button"
               aria-label="Previous band"
               onClick={() => setActive((a) => (a - 1 + BANDS.length) % BANDS.length)}
-              className="rounded-lg border border-border/60 bg-card p-1.5 text-foreground/70 hover:text-foreground"
+              className="rounded-lg border border-border/60 bg-card p-2 text-foreground/70 hover:text-foreground"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -253,7 +253,7 @@ export function SpectrumExplorer() {
               type="button"
               aria-label="Next band"
               onClick={() => setActive((a) => (a + 1) % BANDS.length)}
-              className="rounded-lg border border-border/60 bg-card p-1.5 text-foreground/70 hover:text-foreground"
+              className="rounded-lg border border-border/60 bg-card p-2 text-foreground/70 hover:text-foreground"
             >
               <ChevronRight className="h-4 w-4" />
             </button>

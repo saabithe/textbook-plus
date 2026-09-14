@@ -50,9 +50,12 @@ export function AuthorCard({ name, children, className }: AuthorCardProps) {
             </div>
             {hasChildren && (
               <CollapsibleTrigger
-                className="shrink-0 rounded-lg p-2 text-muted-foreground hover:bg-muted/50 hover:text-foreground transition-colors"
+                className="flex shrink-0 items-center justify-center gap-1.5 rounded-xl p-2.5 text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground aria-expanded:bg-muted/50"
                 aria-label={expanded ? "Collapse author bio" : "Expand author bio"}
               >
+                <span className="text-[0.72rem] font-bold uppercase tracking-widest">
+                  {expanded ? "Hide" : "More"}
+                </span>
                 <ChevronDown
                   className={cn(
                     "h-5 w-5 transition-transform duration-200",
