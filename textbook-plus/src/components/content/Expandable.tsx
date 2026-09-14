@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronRight, BookOpen, FlaskConical, ClipboardList, Layers } from "lucide-react";
+import { ChevronRight, BookOpen, FlaskConical, ClipboardList, Layers, RotateCcw } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   Collapsible,
@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/collapsible";
 import { Badge } from "@/components/ui/badge";
 
-type ExpandableVariant = "example" | "exercise" | "misc" | "default";
+type ExpandableVariant = "example" | "exercise" | "misc" | "recall" | "default";
 
 interface ExpandableProps {
   title: string;
@@ -23,6 +23,7 @@ function inferVariant(title: string): ExpandableVariant {
   const t = title.toLowerCase();
   if (t.includes("exercise")) return "exercise";
   if (t.includes("misc")) return "misc";
+  if (t.includes("recall")) return "recall";
   if (t.includes("example")) return "example";
   return "default";
 }
@@ -54,6 +55,15 @@ const variantStyles = {
     badge: "M",
     badgeClass: "bg-slate-600 text-white",
     titleClass: "text-slate-800 dark:text-slate-100",
+  },
+  recall: {
+    wrapper: "border-indigo-500/25 shadow-sm",
+    trigger: "bg-indigo-500/[0.07] hover:bg-indigo-500/[0.11] dark:bg-indigo-500/[0.10] dark:hover:bg-indigo-500/[0.14] border-b-indigo-500/10",
+    iconWrap: "bg-gradient-to-br from-indigo-500 to-violet-400 text-white shadow-sm shadow-indigo-500/30",
+    Icon: RotateCcw,
+    badge: "RECALL",
+    badgeClass: "bg-indigo-500 text-white",
+    titleClass: "text-indigo-900 dark:text-indigo-100",
   },
   default: {
     wrapper: "border-border/60",

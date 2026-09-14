@@ -1,12 +1,10 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Highlight } from "@/components/content/Highlight";
-import { Stepper } from "@/components/content/Stepper";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
@@ -19,7 +17,11 @@ import {
   SpectrumBandFigure,
   ChargingCapacitorFigure,
   MaxwellRelationshipsFigure,
+  AmpereLoopFigure,
 } from "@/components/content/physics/EmWaveFigures";
+import { AmpereSurfaceToggle } from "@/components/content/physics/AmpereSurfaceToggle";
+import { EquationLadder } from "@/components/content/process/EquationLadder";
+import { RevealAnswer } from "@/components/content/process/RevealAnswer";
 
 export default function ElectromagneticWavesChapter() {
   return (
@@ -104,19 +106,6 @@ export default function ElectromagneticWavesChapter() {
       <p>The electromagnetic spectrum stretches from <strong>gamma rays (wavelength ~10⁻¹² m)</strong> to <strong>long radio waves (wavelength ~10⁶ m)</strong>.</p>
 
       <h2 id="h-8-2">8.2 Displacement Current</h2>
-      <p>Maxwell showed that for <Highlight color="yellow">logical consistency</Highlight>, a changing electric field must also produce a magnetic field. This explains the existence of radio waves, gamma rays, visible light and all other electromagnetic waves.</p>
-      <p>
-        Recall the <Highlight color="yellow">base — Ampere&apos;s circuital law (Chapter 4)</Highlight>. It relates the magnetic field to the
-        current enclosed by a loop:
-      </p>
-      <FormulaBlock latex={String.raw`\oint \mathbf{B}\cdot \mathrm{d}\mathbf{l} = \mu_0 I_{\text{enclosed}}`} />
-      <ul>
-        <li>Since the tangential component of <strong>B</strong> varies linearly with distance from the axis, the magnetic field{" "}
-          <Highlight color="yellow">inside a long straight conductor is directly proportional to the distance from the axis</Highlight>.</li>
-      </ul>
-      <p>To see how the law fails, consider the <strong>charging of a capacitor</strong> and apply Ampere&apos;s circuital law to find the magnetic field at a point outside it:</p>
-      <ChargingCapacitorFigure />
-      <p>For a circular loop of radius r concentric with the wire, symmetry gives <Formula>{String.raw`B (2\pi r) = \mu_0 i(t)`}</Formula>.</p>
       <figure className="my-6">
         <img
           src="/images/physics/electromagnetic-waves/ampere-inconsistency-displacement.png"
@@ -128,25 +117,55 @@ export default function ElectromagneticWavesChapter() {
           Inconsistency in Ampere&apos;s law — resolved by the displacement current.
         </figcaption>
       </figure>
-      <Stepper
-        steps={[
-          { label: "Same boundary, different surface", description: "Now take a pot-like surface that shares the loop&apos;s rim but has its bottom between the capacitor plates. A tiffin-shaped surface has a flat circular bottom between the plates." },
-          { label: "The contradiction", description: "These surfaces touch no current — the right-hand side of Ampere&apos;s law is zero, while the left side is unchanged. So the law yields B = 0 at P one way, and B ≠ 0 another way." },
-          { label: "Find the missing term", description: "What passes through the surface S between the plates? The electric field! As the charge Q on the plates changes, the electric flux changes — this provides the missing term." },
-        ]}
+      <Expandable title="↻ Recall: Ampere&apos;s circuital law (Ch. 4)" variant="recall">
+        <p>
+          Ampere&apos;s circuital law relates the magnetic field along a closed loop to the current it encloses:
+        </p>
+        <FormulaBlock latex={String.raw`\oint \mathbf{B}\cdot \mathrm{d}\mathbf{l} = \mu_0 I_{\text{enclosed}}`} />
+        <AmpereLoopFigure />
+      </Expandable>
+      <p>To see how the law fails, consider the <strong>charging of a capacitor</strong> and apply Ampere&apos;s circuital law to find the magnetic field at a point outside it:</p>
+      <ChargingCapacitorFigure />
+      <AmpereSurfaceToggle />
+      <RevealAnswer
+        title="🔎 Find the missing term"
+        question="What passes through the surface S between the capacitor plates?"
+        answer={
+          <>
+            <Highlight color="green">The electric field!</Highlight> As the charge Q on the plates changes, the electric
+            flux changes — this is the missing term the law needs.
+          </>
+        }
       />
-      <Stepper
+      <EquationLadder
+        title="Deriving the missing term"
         steps={[
-          { label: "Surface charge density", description: "On each plate the charge spreads uniformly: σ = q/A." },
-          { label: "Field between the plates", description: "E = σ/ε₀ = q/(Aε₀) — uniform and perpendicular to the plates." },
-          { label: "Electric flux", description: "Φ_E = E × A = (q/(Aε₀)) × A = q/ε₀." },
-          { label: "Differentiate with time", description: "dΦ_E/dt = (1/ε₀) dq/dt, so ε₀ dΦ_E/dt = dq/dt — this is the displacement current I_d, equal to the conduction current i while charging." },
+          {
+            label: "Surface charge density",
+            equation: String.raw`\sigma = \frac{q}{A}`,
+            note: "On each plate the charge spreads uniformly.",
+          },
+          {
+            label: "Field between the plates",
+            equation: String.raw`E = \frac{\sigma}{\varepsilon_0} = \frac{q}{A\varepsilon_0}`,
+            note: "Uniform and perpendicular to the plates.",
+          },
+          {
+            label: "Electric flux",
+            equation: String.raw`\Phi_E = E\,A = \frac{q}{\varepsilon_0}`,
+            note: "Multiplying the field by the area A gives the flux through the surface.",
+          },
+          {
+            label: "Change with time",
+            equation: String.raw`\varepsilon_0 \frac{\mathrm{d}\Phi_E}{\mathrm{d}t} = \frac{\mathrm{d}q}{\mathrm{d}t} = i`,
+            note: "Differentiating at constant ε₀ and A gives the displacement current I_d = i (the charging current).",
+          },
         ]}
       />
       <p>Thus, for plates of area A and charge Q:</p>
-      <FormulaBlock latex={String.raw`\Phi_E = E A = \frac{Q}{\varepsilon_0} \qquad (8.3)`} />
+      <FormulaBlock label="Flux through capacitor" tag="Eq. 8.3" latex={String.raw`\Phi_E = E A = \frac{Q}{\varepsilon_0}`} important />
       <p>Since the charging current is <Formula>{String.raw`i = \mathrm{d}Q/\mathrm{d}t`}</Formula>:</p>
-      <FormulaBlock latex={String.raw`\frac{\mathrm{d}\Phi_E}{\mathrm{d}t} = \frac{1}{\varepsilon_0}\frac{\mathrm{d}Q}{\mathrm{d}t} \;\Rightarrow\; \varepsilon_0 \frac{\mathrm{d}\Phi_E}{\mathrm{d}t} = i \qquad (8.4)`} />
+      <FormulaBlock label="Displacement current relation" tag="Eq. 8.4" latex={String.raw`\varepsilon_0 \frac{\mathrm{d}\Phi_E}{\mathrm{d}t} = i`} important />
       <p>This is the missing term. Adding <Formula>{String.raw`\varepsilon_0\,\mathrm{d}\Phi_E/\mathrm{d}t`}</Formula> to the total current gives the <Highlight color="yellow">same value i for all surfaces</Highlight> — the contradiction disappears, and B at P is non-zero no matter which surface is used.</p>
       <figure className="my-6">
         <img
@@ -161,52 +180,69 @@ export default function ElectromagneticWavesChapter() {
       </figure>
 
       <h3 id="h-8-2-1">Conduction vs displacement current</h3>
-      <Comparison
-        columns={[
-          {
-            title: "Conduction current i_c",
-            children: (
-              <ul>
-                <li>Carried by the actual <strong>flow of charges</strong> in conductors.</li>
-                <li>Outside the capacitor plates: <Formula>{String.raw`i_c = i,\ i_d = 0`}</Formula>.</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Displacement current i_d",
-            children: (
-              <ul>
-                <li>Due to a <strong>changing electric field</strong> — <Formula>{String.raw`i_d = \varepsilon_0\,\mathrm{d}\Phi_E/\mathrm{d}t`}</Formula>.</li>
-                <li>Inside the capacitor: <Formula>{String.raw`i_d = i,\ i_c = 0`}</Formula>.</li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-      <p>The total current is:</p>
-      <FormulaBlock latex={String.raw`i = i_c + i_d = i_c + \varepsilon_0 \frac{\mathrm{d}\Phi_E}{\mathrm{d}t} \qquad (8.5)`} important />
-      <Callout type="important">
-        The generalised law is known as the <Highlight color="yellow">Ampere-Maxwell law</Highlight>: the total current passing through any
-        surface is the sum of the conduction and displacement currents.
-      </Callout>
-      <FormulaBlock latex={String.raw`\oint \mathbf{B}\cdot \mathrm{d}\mathbf{l} = \mu_0\left(i_c + \varepsilon_0 \frac{\mathrm{d}\Phi_E}{\mathrm{d}t}\right) \qquad (8.6)`} important />
-      <ul>
-        <li>The displacement current has <Highlight color="yellow">the same physical effects as conduction current</Highlight> — in all respects it acts as a source of magnetic field.</li>
-        <li>For steady fields it is zero; for a charging capacitor both may be present in different regions; and in large regions there may be <strong>no conduction current but only a displacement current</strong> — yet a magnetic field is expected there.</li>
-        <li>This is verified experimentally: the magnetic field at point M between the plates equals that just outside at P.</li>
-      </ul>
       <TableCard
-        title="Properties of displacement current"
-        caption="The hypothetical current set up by a time-varying electric field."
-        headers={["Property", "Detail"]}
+        title="Conduction vs displacement current"
+        headers={["", "Conduction current (i_c)", "Displacement current (i_d)"]}
         rows={[
-          { cells: ["Nature", "Not a conventional current — it is a hypothetical current that accounts for the changing electric field in a region with no actual flow of charges."] },
-          { cells: ["Origin", "Produced by a time-varying electric field / changing electric flux between the plates."] },
-          { cells: ["Expression", "I_d = ε₀ dΦ_E/dt — arises from the electric flux changing with time."] },
-          { cells: ["Steady conditions", "Does not exist under steady (DC) conditions; exists only when the electric field or flux is changing."] },
-          { cells: ["Continuity", "Together with the conduction current it satisfies continuity: I_c = I_d."] },
+          { cells: ["What causes it?", "Flow of charges (moving charges)", "Changing electric field"] },
+          { cells: ["Where?", "In the conductor (wire)", "Between the capacitor plates"] },
+          { cells: ["Symbol", "i_c", "i_d"] },
+          { cells: ["Charging capacitor", "i_c = i (outside the plates)", "i_d = i (between the plates)"] },
+          { cells: ["Physical source", "Actual flow of charges", "Changing electric flux"] },
         ]}
       />
+      <EquationLadder
+        title="AMPÈRE → AMPÈRE-MAXWELL — the final form"
+        steps={[
+          {
+            label: "Original law",
+            equation: String.raw`\oint \mathbf{B}\cdot \mathrm{d}\mathbf{l} = \mu_0 I_c`,
+            note: "Only the conduction current I_c is counted — this created the contradiction.",
+          },
+          {
+            label: "Maxwell&apos;s correction",
+            equation: String.raw`i = i_c + i_d = i_c + \varepsilon_0 \frac{\mathrm{d}\Phi_E}{\mathrm{d}t}`,
+            note: "The total current now includes the displacement current.",
+          },
+          {
+            label: "Generalised law",
+            equation: String.raw`\oint \mathbf{B}\cdot \mathrm{d}\mathbf{l} = \mu_0\left(i_c + \varepsilon_0 \frac{\mathrm{d}\Phi_E}{\mathrm{d}t}\right)`,
+            note: "The Ampère-Maxwell law — every surface through the loop gives the same answer.",
+            final: true,
+            tag: "Eq. 8.6",
+          },
+        ]}
+      />
+      <KeyPoint title="Ampère-Maxwell law">
+        The total current passing through any surface is the sum of the{" "}
+        <Highlight color="yellow">conduction current</Highlight> and the{" "}
+        <Highlight color="yellow">displacement current</Highlight>.
+      </KeyPoint>
+      <h4 className="mb-3 mt-8 text-sm font-extrabold uppercase tracking-wider text-foreground">
+        Properties of displacement current
+      </h4>
+      <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
+        <FactCard
+          title="Nature"
+          icon="🌀"
+          definition="Not a conventional current — a hypothetical current that accounts for the changing electric field in a region with no actual flow of charges."
+        />
+        <FactCard
+          title="Expression"
+          icon="🧮"
+          definition="I_d = ε₀ dΦ_E/dt — it produces the same physical effects as a conduction current and acts as a source of magnetic field."
+        />
+        <FactCard
+          title="Steady conditions"
+          icon="❄️"
+          definition="Does not exist under steady (DC) conditions; measured only while the electric field or flux is changing."
+        />
+        <FactCard
+          title="Continuity"
+          icon="🔗"
+          definition="Together with the conduction current it satisfies continuity: I_c = I_d — verified experimentally, since B between the plates equals B just outside."
+        />
+      </div>
 
       <h3 id="h-8-2-2">The beautiful symmetry</h3>
       <ul>

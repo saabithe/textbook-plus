@@ -142,9 +142,6 @@ export function MaxwellRelationshipsFigure() {
         <text x="180" y="172" fontSize="12" fontWeight="800" fill={AXIS} textAnchor="middle">THEIR SOURCES</text>
         <text x="180" y="182" fontSize="9.5" fill={LABEL} textAnchor="middle">charges &amp; currents</text>
       </svg>
-      <figcaption className="mt-1 text-center text-xs font-bold text-muted-foreground">
-        Maxwell&apos;s equations couple electric fields, magnetic fields and their sources
-      </figcaption>
     </figure>
   );
 }
@@ -181,6 +178,32 @@ export function ChargingCapacitorFigure() {
       </svg>
       <figcaption className="mt-1 text-center text-xs font-bold text-muted-foreground">
         A parallel plate capacitor being charged — the Ampere loop sees different surfaces
+      </figcaption>
+    </figure>
+  );
+}
+
+export function AmpereLoopFigure() {
+  return (
+    <figure className="my-2 w-fit max-w-full rounded-xl border border-border/70 bg-card p-3">
+      <svg
+        viewBox="0 0 240 150"
+        role="img"
+        aria-label="A circular Ampere loop around a current-carrying wire carrying current i"
+        className="mx-auto h-auto w-full max-w-[240px]"
+      >
+        {/* wire carrying current */}
+        <line x1="80" y1="12" x2="80" y2="138" stroke={AXIS} strokeWidth="2.2" />
+        <polygon points="80,12 68,30 92,30" fill={AXIS} />
+        <text x="96" y="26" fontSize="12" fill={LABEL}>i</text>
+        {/* loop around the wire */}
+        <ellipse cx="150" cy="75" rx="78" ry="58" fill="none" stroke={B_COLOR} strokeWidth="1.8" strokeDasharray="6 5" />
+        {/* loop direction arrow */}
+        <polygon points="228,75 210,60 210,90" fill={B_COLOR} />
+        <text x="212" y="50" fontSize="11" fill={B_COLOR}>loop</text>
+      </svg>
+      <figcaption className="mt-1 text-center text-xs font-bold text-muted-foreground">
+        A closed loop (dashed) drawn around a current-carrying wire — Ampère's circuital law
       </figcaption>
     </figure>
   );
