@@ -355,6 +355,23 @@ export default function ElectromagneticWavesChapter() {
       </div>
       <SpeedLayers />
       <PropagationExplorer />
+      <div className="grid gap-4 sm:grid-cols-3 [&>div]:my-0">
+        <MetricCard
+          label="Phase of E & B"
+          value="Same phase"
+          description="E and B oscillate together — their maxima and minima occur at the same points in space and time."
+        />
+        <MetricCard
+          label="Wave behaviour"
+          value="Superposition"
+          description="EM waves obey the principle of superposition and exhibit reflection, refraction, interference, diffraction and polarisation."
+        />
+        <MetricCard
+          label="Frequency across media"
+          value="Unchanged"
+          description="Speed and wavelength change on entering another medium, but frequency stays the same — identical in vacuum and air."
+        />
+      </div>
 
       <Expandable title="Example 8.1 — Direction of B given E and propagation">
         <ProblemSolution.Problem>
@@ -444,7 +461,35 @@ export default function ElectromagneticWavesChapter() {
         <strong>no sharp division</strong> between one kind of wave and the next — the classification is based roughly on how the waves are{" "}
         produced and/or detected. The spectrum stretches from <strong>gamma rays (wavelength ~10⁻¹² m)</strong> to{" "}
         <strong>long radio waves (wavelength ~10⁶ m)</strong>.
-      </p>
+</p>
+      <div className="my-6 rounded-2xl border border-violet-500/25 bg-violet-500/[0.05] p-4 shadow-sm">
+        <div className="mb-3 text-[0.7rem] font-extrabold uppercase tracking-[0.2em] text-violet-600 dark:text-violet-300">
+          Spectrum order — from shortest wavelength (highest ν) to longest (lowest ν)
+        </div>
+        <div className="flex flex-wrap items-center gap-1.5">
+          {[
+            { name: "Gamma", initial: "G" },
+            { name: "X-ray", initial: "X" },
+            { name: "Ultraviolet", initial: "U" },
+            { name: "Visible", initial: "V" },
+            { name: "Infrared", initial: "I" },
+            { name: "Microwave", initial: "M" },
+            { name: "Radio", initial: "R" },
+          ].map((band, i, arr) => (
+            <div key={band.name} className="flex items-center gap-1.5">
+              <span className="rounded-xl border border-violet-500/25 bg-card px-3 py-2 text-center shadow-sm">
+                <span className="block text-base font-extrabold text-violet-600 dark:text-violet-300">{band.initial}</span>
+                <span className="block text-[0.6rem] font-semibold uppercase tracking-wide text-foreground/70">{band.name}</span>
+              </span>
+              {i < arr.length - 1 && <span className="text-muted-foreground/60">→</span>}
+            </div>
+          ))}
+        </div>
+        <p className="mt-3 text-sm leading-relaxed text-foreground/75">
+          Mnemonic: <strong className="text-foreground">GXUVIMR</strong> — reading from high frequency {`"Gamma"`} down to low frequency{" "}
+          {`"Radio"`}. Reverse it for decreasing frequency: <Formula>{String.raw`\lambda \uparrow \iff \nu \downarrow`}</Formula>.
+        </p>
+      </div>
       <figure className="my-6">
         <img
           src="/images/physics/electromagnetic-waves/em-spectrum.png"
@@ -488,8 +533,9 @@ export default function ElectromagneticWavesChapter() {
 
       <h3 id="h-8-4-2">8.4.2 Microwaves</h3>
       <ul>
-        <li>Short-wavelength radio waves with frequencies in the <Highlight color="yellow">gigahertz (GHz) range</Highlight>.</li>
+        <li>Short-wavelength radio waves with frequencies in the <Highlight color="yellow">gigahertz (GHz) range</Highlight> — about <Formula>{String.raw`3\times 10^9`}</Formula> Hz to <Formula>{String.raw`3\times 10^{11}`}</Formula> Hz.</li>
         <li>Produced by special vacuum tubes: <strong>klystrons, magnetrons and Gunn diodes</strong>.</li>
+        <li>Microwave ovens work by <Highlight color="yellow">resonance</Highlight> — the wave frequency is matched to the natural frequency of water molecules, so energy transfers efficiently into their kinetic energy and heats the food.</li>
       </ul>
       <div className="grid gap-4 sm:grid-cols-3 [&>div]:my-0">
         <MetricCard label="Radar" value="Short λ" description="Suitable for aircraft navigation and 'speed guns' for fast balls, tennis serves and automobiles." />
@@ -501,6 +547,7 @@ export default function ElectromagneticWavesChapter() {
       <ul>
         <li>Produced by <Highlight color="yellow">hot bodies and molecules</Highlight>; adjacent to the long-wavelength end of the visible spectrum.</li>
         <li>Also called <strong>heat waves</strong> — water molecules in most materials readily absorb them, heating the material and its surroundings.</li>
+        <li>Frequency range about <Formula>{String.raw`3\times 10^{11}`}</Formula> Hz to <Formula>{String.raw`4\times 10^{14}`}</Formula> Hz, wavelengths roughly <Formula>{String.raw`1000\ \mu\text{m}`}</Formula> to <Formula>{String.raw`0.7\ \mu\text{m}`}</Formula>.</li>
       </ul>
       <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
         <FactCard
@@ -527,7 +574,7 @@ export default function ElectromagneticWavesChapter() {
 
       <h3 id="h-8-4-5">8.4.5 Ultraviolet rays</h3>
       <ul>
-        <li>Covers wavelengths from about <Formula>{String.raw`4\times 10^{-7}\ \text{m (400 nm)}`}</Formula> down to <Formula>{String.raw`6\times 10^{-10}\ \text{m (0.6 nm)}`}</Formula>.</li>
+        <li>Covers wavelengths from about <Formula>{String.raw`4\times 10^{-7}\ \text{m (400 nm)}`}</Formula> down to <Formula>{String.raw`6\times 10^{-10}\ \text{m (0.6 nm)}`}</Formula> — frequencies about <Formula>{String.raw`7.5\times 10^{14}`}</Formula> Hz to <Formula>{String.raw`3\times 10^{16}`}</Formula> Hz.</li>
         <li>Produced by special lamps and very hot bodies; the <Highlight color="yellow">Sun is an important source</Highlight>.</li>
         <li>Most of the Sun&apos;s UV is absorbed in the <strong>ozone layer</strong> at an altitude of about 40–50 km.</li>
       </ul>
@@ -546,9 +593,10 @@ export default function ElectromagneticWavesChapter() {
 
       <h3 id="h-8-4-6">8.4.6 X-rays</h3>
       <ul>
-        <li>Covers wavelengths from about <Formula>{String.raw`10^{-8}\ \text{m (10 nm)}`}</Formula> down to <Formula>{String.raw`10^{-13}\ \text{m (10}^{-4}\text{ nm)}`}</Formula>.</li>
-        <li>One common way to generate them: <Highlight color="yellow">bombard a metal target with high energy electrons</Highlight>.</li>
-        <li>Used as a <strong>diagnostic tool in medicine</strong> and as a treatment for certain cancers.</li>
+        <li>Covers wavelengths from about <Formula>{String.raw`10^{-8}\ \text{m (10 nm)}`}</Formula> down to <Formula>{String.raw`10^{-13}\ \text{m (10}^{-4}\text{ nm)}`}</Formula>; frequencies <Formula>{String.raw`3\times 10^{16}`}</Formula> Hz to <Formula>{String.raw`3\times 10^{19}`}</Formula> Hz. Discovered by <strong>Roentgen</strong>.</li>
+        <li>One common way to generate them: <Highlight color="yellow">bombard a metal target with high energy electrons</Highlight> (or use X-ray/ionisation tubes).</li>
+        <li>Used as a <strong>diagnostic tool in medicine</strong> — they pass through flesh but not bone, so <strong>bone fractures</strong> show up — and to study crystal structure.</li>
+        <li>Also a treatment for certain cancers.</li>
       </ul>
       <Callout type="warning">
         X-rays <Highlight color="pink">damage or destroy living tissues</Highlight>. Care must be taken to avoid unnecessary or over exposure.
@@ -556,10 +604,53 @@ export default function ElectromagneticWavesChapter() {
 
       <h3 id="h-8-4-7">8.4.7 Gamma rays</h3>
       <ul>
-        <li>Highest frequencies of the spectrum: wavelengths from about <Formula>{String.raw`10^{-10}\ \text{m}`}</Formula> to less than <Formula>{String.raw`10^{-14}\ \text{m}`}</Formula>.</li>
+        <li>Highest frequencies of the spectrum: above about <Formula>{String.raw`3\times 10^{19}`}</Formula> Hz, wavelengths from about <Formula>{String.raw`10^{-10}\ \text{m}`}</Formula> down to less than <Formula>{String.raw`10^{-14}\ \text{m}`}</Formula>.</li>
         <li>Produced in <Highlight color="yellow">nuclear reactions</Highlight> and emitted by <strong>radioactive nuclei</strong>.</li>
-        <li>Used in medicine to <Highlight color="green">destroy cancer cells</Highlight>.</li>
+        <li>Used in medicine to <Highlight color="green">destroy cancer cells</Highlight> — their high energy gives strong penetrating power.</li>
+        <li>Soft gamma rays kill micro-organisms, so they also <strong>preserve foodstuffs</strong> for a long time.</li>
       </ul>
+
+      <Expandable title="Quick practice — spectrum order" variant="exercise">
+        <ExerciseQa
+          questions={[
+            <>Arrange the following waves in order of <strong>increasing wavelength</strong>: microwaves, X-rays, visible, gamma rays, ultraviolet, radio, infrared.</>,
+            <>Arrange the same set in order of <strong>increasing frequency</strong>.</>,
+            <>Which wave has the <strong>highest frequency</strong> and <strong>shortest wavelength</strong>? Which has the <strong>lowest frequency</strong> and <strong>longest wavelength</strong>?</>,
+          ]}
+          answers={[
+            <><Formula>{String.raw`\text{Gamma} < \text{X-rays} < \text{UV} < \text{Visible} < \text{Infrared} < \text{Microwaves} < \text{Radio}`}</Formula> — the GXUVIMR order.</>,
+            <><Formula>{String.raw`\text{Radio} < \text{Microwaves} < \text{Infrared} < \text{Visible} < \text{UV} < \text{X-rays} < \text{Gamma}`}</Formula> — the exact reverse, since <Formula>{String.raw`\nu = c/\lambda`}</Formula>.</>,
+            <>Gamma rays have the <Highlight color="yellow">highest frequency / shortest wavelength</Highlight>; radio waves have the <Highlight color="yellow">lowest frequency / longest wavelength</Highlight>.</>,
+          ]}
+        />
+      </Expandable>
+
+      <Expandable title="Quick practice — which wave for which job?" variant="exercise">
+        <ExerciseQa
+          questions={[
+            <>Which wave is used as a <strong>diagnostic tool in medicine</strong>?</>,
+            <>Which type is used to <strong>kill germs in water purifiers</strong>?</>,
+            <>Which waves power <strong>cellular phones</strong> and long-distance radio/TV communication?</>,
+            <>Which waves work in the <strong>remote switches of household electronics</strong> (TV remotes)?</>,
+            <>Which wave drives a <strong>microwave oven</strong>, and why does it heat food?</>,
+            <>Which waves are used in <strong>RADAR</strong> systems for aircraft navigation?</>,
+            <>Which are used to <strong>destroy cancer cells</strong> in medicine?</>,
+            <>Which type produces <strong>night-vision camera</strong> images and heat-wave photographs?</>,
+            <>Excessive exposure to which waves causes <strong>sunburn and skin cancer</strong>?</>,
+          ]}
+          answers={[
+            <>X-rays — they pass through flesh but not bone.</>,
+            <>Ultraviolet rays.</>,
+            <>Radio waves — 500 kHz to about 1000 MHz, including the cellular UHF band.</>,
+            <>Infrared — LEDs emit IR used in TV/video/hi-fi remotes.</>,
+            <>Microwaves — frequency matched to the resonant frequency of water molecules, so energy transfers to their kinetic energy and raises the temperature of any food containing water.</>,
+            <>Microwaves.</>,
+            <>Gamma rays — high energy gives strong penetrating power.</>,
+            <>Infrared waves.</>,
+            <>Ultraviolet rays.</>,
+          ]}
+        />
+      </Expandable>
 
       <h2 id="h-8-rev">Key Equations — Revision Board</h2>
       <FormulaCard>
