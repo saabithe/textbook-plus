@@ -91,7 +91,6 @@ export default function ElectromagneticWavesChapter() {
           { date: "Today", label: "📡 Modern communication", detail: "Radio, TV, mobile telephony, radar, satellites — all ride on electromagnetic waves." },
         ]}
       />
-      <p>The electromagnetic spectrum stretches from <strong>gamma rays (wavelength ~10⁻¹² m)</strong> to <strong>long radio waves (wavelength ~10⁶ m)</strong>.</p>
 
       <h2 id="h-8-2">8.2 Displacement Current</h2>
       <figure className="my-6">
@@ -123,17 +122,6 @@ export default function ElectromagneticWavesChapter() {
         </figure>
       </Expandable>
       <p>To see how the law fails, consider the <strong>charging of a capacitor</strong> and apply Ampere&apos;s circuital law to find the magnetic field at a point outside it:</p>
-      <figure className="my-6">
-        <img
-          src="/images/physics/electromagnetic-waves/capacitor-two-surfaces.png"
-          alt="A charging capacitor with the two surfaces S1 and S2 bounded by the same Ampere loop — S1 cuts the wire, S2 passes through the gap between the plates"
-          className="max-w-md mx-auto w-full h-auto rounded-lg object-contain bg-white"
-          loading="lazy"
-        />
-        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
-          A charging capacitor — surface S₁ sees the wire, surface S₂ passes through the gap between the plates.
-        </figcaption>
-      </figure>
       <AmpereSurfaceToggle />
       <RevealAnswer
         title="🔎 Find the missing term"
@@ -386,7 +374,8 @@ export default function ElectromagneticWavesChapter() {
         Electromagnetic waves include visible light, X-rays, gamma rays, radio waves, microwaves, ultraviolet and infrared waves. Their{" "}
         <Highlight color="yellow">classification according to frequency is the electromagnetic spectrum</Highlight>. There is{" "}
         <strong>no sharp division</strong> between one kind of wave and the next — the classification is based roughly on how the waves are{" "}
-        produced and/or detected.
+        produced and/or detected. The spectrum stretches from <strong>gamma rays (wavelength ~10⁻¹² m)</strong> to{" "}
+        <strong>long radio waves (wavelength ~10⁶ m)</strong>.
       </p>
       <figure className="my-6">
         <img
