@@ -14,6 +14,13 @@ import { Timeline } from "@/components/content/process/Timeline";
 import { ProblemInsightSolutionCard } from "@/components/content/process/ProblemInsightSolutionCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { AmpereSurfaceToggle } from "@/components/content/physics/AmpereSurfaceToggle";
+import { ChargeFateTrio } from "@/components/content/physics/ChargeFateTrio";
+import { OscillationPlayer } from "@/components/content/physics/OscillationPlayer";
+import { TransverseLongitudinal } from "@/components/content/physics/TransverseLongitudinal";
+import { FormulaAnatomy } from "@/components/content/physics/FormulaAnatomy";
+import { SpeedLayers } from "@/components/content/physics/SpeedLayers";
+import { FieldRatio } from "@/components/content/physics/FieldRatio";
+import { PropagationExplorer } from "@/components/content/physics/PropagationExplorer";
 import { EquationLadder } from "@/components/content/process/EquationLadder";
 import { RevealAnswer } from "@/components/content/process/RevealAnswer";
 
@@ -278,20 +285,8 @@ export default function ElectromagneticWavesChapter() {
       <h2 id="h-8-3">8.3 Electromagnetic Waves</h2>
 
       <h3 id="h-8-3-1">8.3.1 Sources of electromagnetic waves</h3>
-      <p>How are electromagnetic waves produced?</p>
-      <ul>
-        <li><strong>Stationary charges</strong> produce only electrostatic fields; <strong>charges in uniform motion (steady currents)</strong> produce magnetic fields that do not vary with time — <Highlight color="yellow">neither radiates</Highlight>.</li>
-        <li>It is an important result of Maxwell&apos;s theory that <Highlight color="green">accelerated charges radiate electromagnetic waves</Highlight>.</li>
-      </ul>
-      <ProcessCard
-        title="An oscillating charge produces an electromagnetic wave"
-        steps={[
-          { label: "Oscillate the charge", description: "An oscillating charge is an accelerating charge — set up with some frequency ν." },
-          { label: "Oscillating E field", description: "The charge produces an oscillating electric field in space." },
-          { label: "Oscillating B field", description: "The changing electric field produces an oscillating magnetic field, which in turn is a source of oscillating electric field." },
-          { label: "Self-regeneration", description: "The oscillating E and B regenerate each other as the wave propagates. The wave frequency equals the oscillation frequency of the charge; the energy comes from the source." },
-        ]}
-      />
+      <ChargeFateTrio />
+      <OscillationPlayer />
       <p>Why not test this with visible light directly?</p>
       <Callout type="warning">
         The frequency of yellow light is about <Formula>{String.raw`6\times 10^{14}\ \text{Hz}`}</Formula>, while even modern electronic circuits
@@ -303,11 +298,7 @@ export default function ElectromagneticWavesChapter() {
 
       <h3 id="h-8-3-2">8.3.2 Nature of electromagnetic waves</h3>
       <p>From Maxwell&apos;s equations it follows that electric and magnetic fields in an electromagnetic wave are <Highlight color="yellow">perpendicular to each other, and to the direction of propagation</Highlight>.</p>
-      <Callout type="note">
-        <strong>Transverse or longitudinal?</strong> EM waves are <strong>transverse</strong> — the field oscillations are perpendicular (⊥)
-        to the direction of propagation. In longitudinal waves (e.g. sound), the oscillations run parallel (∥) to propagation. Light / EM waves
-        are transverse, and they are <em>non-mechanical</em>: they need no material medium to travel through.
-      </Callout>
+      <TransverseLongitudinal />
       <figure className="my-6">
         <img
           src="/images/physics/electromagnetic-waves/em-wave.png"
@@ -320,13 +311,18 @@ export default function ElectromagneticWavesChapter() {
         </figcaption>
       </figure>
       <p>Every field oscillation follows the general <strong>wave equation</strong>, with the oscillating field as the wave&apos;s displacement:</p>
-      <FormulaBlock latex={String.raw`y = A \sin(kx - \omega t)`} />
-      <ul>
-        <li><strong>y</strong> — the oscillating quantity: here the electric field <strong>E</strong> or the magnetic field <strong>B</strong>.</li>
-        <li><strong>A</strong> — the amplitude: <Formula>{String.raw`E_0`}</Formula> or <Formula>{String.raw`B_0`}</Formula> (also written <Formula>{String.raw`E_m`}</Formula>, <Formula>{String.raw`B_m`}</Formula>).</li>
-        <li><strong>k</strong> — the propagation constant, <Formula>{String.raw`k = \frac{2\pi}{\lambda}`}</Formula> (8.8).</li>
-        <li><strong>ω</strong> — the angular frequency, <Formula>{String.raw`\omega = 2\pi f = \frac{2\pi}{T}`}</Formula>.</li>
-      </ul>
+      <FormulaAnatomy
+        title="Wave equation anatomy"
+        equation={String.raw`y = A \sin(kx - \omega t)`}
+        tokens={[
+          { latex: "y", label: "the oscillating quantity — here the field E or B" },
+          { latex: "A", label: <>amplitude — <Formula>{String.raw`E_0`}</Formula> or <Formula>{String.raw`B_0`}</Formula> (also <Formula>{String.raw`E_m`}</Formula>, <Formula>{String.raw`B_m`}</Formula>)</> },
+          { latex: "k", label: <>propagation constant — <Formula>{String.raw`k = 2\pi/\lambda`}</Formula> (8.8)</> },
+          { latex: "x", label: "position along the direction of travel" },
+          { latex: "\\omega", label: <>angular frequency — <Formula>{String.raw`\omega = 2\pi f = 2\pi/T`}</Formula></> },
+          { latex: "t", label: "time" },
+        ]}
+      />
       <KeyPoint title="Sign convention — direction of propagation">
         The sign between the two terms fixes the direction of travel:{" "}
         <Formula>{String.raw`(kx - \omega t)`}</Formula> → <strong>+x (positive axis)</strong>,{" "}
@@ -335,50 +331,30 @@ export default function ElectromagneticWavesChapter() {
       <p>For a plane wave propagating along the z-direction, with <strong>E along x</strong> and <strong>B along y</strong>:</p>
       <FormulaBlock latex={String.raw`E_x = E_0 \sin(kz - \omega t) \qquad [8.7\mathrm{(a)}]`} />
       <FormulaBlock latex={String.raw`B_y = B_0 \sin(kz - \omega t) \qquad [8.7\mathrm{(b)}]`} />
-      <p>with the wave number <Formula>{String.raw`k = \frac{2\pi}{\lambda} \qquad (8.8)`}</Formula>, ω the angular frequency, and <strong>k</strong> the wave vector whose direction gives the direction of propagation.</p>
-      <p>Maxwell&apos;s equations give the speed of propagation:</p>
-      <FormulaBlock latex={String.raw`\omega = ck, \qquad c = \frac{1}{\sqrt{\mu_0 \varepsilon_0}} \qquad [8.9\mathrm{(a)}]`} important />
-      <p>Equivalently, in terms of frequency ν and wavelength λ:</p>
-      <FormulaBlock latex={String.raw`\nu\lambda = c \qquad [8.9\mathrm{(b)}]`} important />
-      <p>The magnitudes of the electric and magnetic fields are related:</p>
-      <FormulaBlock latex={String.raw`B_0 = \frac{E_0}{c} \qquad (8.10)`} important />
+      <EquationLadder
+        title="The wave parameters form a network, not isolated facts"
+        steps={[
+          { label: "Wave number", equation: String.raw`k = \frac{2\pi}{\lambda}`, tag: "8.8" },
+          { label: "Angular frequency — Maxwell&apos;s relation", equation: String.raw`\omega = ck`, tag: "8.9(a)" },
+          { label: "Rearrange for c", equation: String.raw`c = \frac{\omega}{k}`, note: "Speed as angular frequency ÷ wave number." },
+          { label: "Frequency × wavelength", equation: String.raw`\nu\lambda = c`, final: true, tag: "8.9(b)" },
+        ]}
+      />
+      <FieldRatio />
       <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
-        <FactCard
-          title="Self-sustaining in vacuum"
-          definition="EM waves are self-sustaining oscillations of E and B in free space — no material medium is involved in the vibrations (unlike mechanical waves)."
-          icon="🌌"
+        <MetricCard
+          label="Momentum of an EM wave"
+          value="p = U/c"
+          description="An EM wave carrying energy U also carries momentum U/c along its direction of propagation, even though it has no mass."
         />
-        <FactCard
-          title="Speed depends on the medium"
-          definition="In a medium of permittivity ε and permeability μ, the velocity is v = 1/√(με). Refractive index = ratio of light speeds in two media."
-          icon="💧"
+        <MetricCard
+          label="Self-sustaining in vacuum"
+          value="No medium"
+          description="EM waves are self-sustaining oscillations of E and B in free space — no material medium is involved in the vibrations (unlike mechanical waves)."
         />
       </div>
-      <FormulaBlock latex={String.raw`v = \frac{1}{\sqrt{\mu\varepsilon}} \qquad (8.11)`} />
-      <p>For a medium, the effective permittivity and permeability are written in terms of the vacuum values and the medium&apos;s relative constants:</p>
-      <FormulaBlock latex={String.raw`\mu = \mu_0\mu_r, \qquad \varepsilon = \varepsilon_0\varepsilon_r`} />
-      <FormulaBlock latex={String.raw`v = \frac{1}{\sqrt{\mu_0\mu_r\,\varepsilon_0\varepsilon_r}} = \frac{1}{\sqrt{\mu_0\varepsilon_0}\cdot\sqrt{\mu_r\varepsilon_r}} = \frac{c}{\sqrt{\mu_r\varepsilon_r}}`} important />
-      <p>
-        In free space, <Formula>{String.raw`\mu_r = \varepsilon_r = 1`}</Formula>, so this reduces to{" "}
-        <Formula>{String.raw`c = 3\times 10^8\ \text{m/s}`}</Formula>.
-      </p>
-      <Callout type="note">
-        The velocity of electromagnetic waves in vacuum is <Highlight color="yellow">the same for all wavelengths</Highlight> to within a few
-        m/s of <Formula>{String.raw`3\times 10^8`}</Formula> m/s. This constant speed is so well established that it is used to{" "}
-        <strong>define a standard of length</strong>. EM waves carry energy — light from the Sun makes life on Earth possible.
-      </Callout>
-
-      <KeyPoint title="Peak values — relation between E₀ and B₀">
-        The peak electric and magnetic fields are tied to the wave speed: <Formula>{String.raw`c = \frac{E_0}{B_0}`}</Formula>. So
-        <Formula>{String.raw`\frac{B_0}{E_0} = \frac{1}{c}`}</Formula> has the <strong>dimensions of reciprocal of velocity</strong>.
-      </KeyPoint>
-
-      <KeyPoint title="Direction of propagation — the E × B rule">
-        The wave travels along the cross product of the field vectors, <Formula>{String.raw`\vec{v} = \vec{E}\times \vec{B}`}</Formula>.
-        With the cyclic order of unit vectors — <Formula>{String.raw`\hat{i}\times\hat{j}=\hat{k}`}</Formula>,{" "}
-        <Formula>{String.raw`\hat{j}\times\hat{k}=\hat{i}`}</Formula>, <Formula>{String.raw`\hat{k}\times\hat{i}=\hat{j}`}</Formula> —
-        reversing any pair flips the sign.
-      </KeyPoint>
+      <SpeedLayers />
+      <PropagationExplorer />
 
       <Expandable title="Example 8.1 — Direction of B given E and propagation">
         <ProblemSolution.Problem>
