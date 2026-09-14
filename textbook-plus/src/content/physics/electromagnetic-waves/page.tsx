@@ -12,6 +12,7 @@ import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
 import { Timeline } from "@/components/content/process/Timeline";
 import { ProblemInsightSolutionCard } from "@/components/content/process/ProblemInsightSolutionCard";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { AmpereSurfaceToggle } from "@/components/content/physics/AmpereSurfaceToggle";
 import { EquationLadder } from "@/components/content/process/EquationLadder";
 import { RevealAnswer } from "@/components/content/process/RevealAnswer";
@@ -302,6 +303,11 @@ export default function ElectromagneticWavesChapter() {
 
       <h3 id="h-8-3-2">8.3.2 Nature of electromagnetic waves</h3>
       <p>From Maxwell&apos;s equations it follows that electric and magnetic fields in an electromagnetic wave are <Highlight color="yellow">perpendicular to each other, and to the direction of propagation</Highlight>.</p>
+      <Callout type="note">
+        <strong>Transverse or longitudinal?</strong> EM waves are <strong>transverse</strong> — the field oscillations are perpendicular (⊥)
+        to the direction of propagation. In longitudinal waves (e.g. sound), the oscillations run parallel (∥) to propagation. Light / EM waves
+        are transverse, and they are <em>non-mechanical</em>: they need no material medium to travel through.
+      </Callout>
       <figure className="my-6">
         <img
           src="/images/physics/electromagnetic-waves/em-wave.png"
@@ -313,6 +319,19 @@ export default function ElectromagneticWavesChapter() {
           Electromagnetic wave — E and B oscillate perpendicular to each other and to the direction of travel.
         </figcaption>
       </figure>
+      <p>Every field oscillation follows the general <strong>wave equation</strong>, with the oscillating field as the wave&apos;s displacement:</p>
+      <FormulaBlock latex={String.raw`y = A \sin(kx - \omega t)`} />
+      <ul>
+        <li><strong>y</strong> — the oscillating quantity: here the electric field <strong>E</strong> or the magnetic field <strong>B</strong>.</li>
+        <li><strong>A</strong> — the amplitude: <Formula>{String.raw`E_0`}</Formula> or <Formula>{String.raw`B_0`}</Formula> (also written <Formula>{String.raw`E_m`}</Formula>, <Formula>{String.raw`B_m`}</Formula>).</li>
+        <li><strong>k</strong> — the propagation constant, <Formula>{String.raw`k = \frac{2\pi}{\lambda}`}</Formula> (8.8).</li>
+        <li><strong>ω</strong> — the angular frequency, <Formula>{String.raw`\omega = 2\pi f = \frac{2\pi}{T}`}</Formula>.</li>
+      </ul>
+      <KeyPoint title="Sign convention — direction of propagation">
+        The sign between the two terms fixes the direction of travel:{" "}
+        <Formula>{String.raw`(kx - \omega t)`}</Formula> → <strong>+x (positive axis)</strong>,{" "}
+        <Formula>{String.raw`(kx + \omega t)`}</Formula> → <strong>−x (negative axis)</strong>.
+      </KeyPoint>
       <p>For a plane wave propagating along the z-direction, with <strong>E along x</strong> and <strong>B along y</strong>:</p>
       <FormulaBlock latex={String.raw`E_x = E_0 \sin(kz - \omega t) \qquad [8.7\mathrm{(a)}]`} />
       <FormulaBlock latex={String.raw`B_y = B_0 \sin(kz - \omega t) \qquad [8.7\mathrm{(b)}]`} />
@@ -336,11 +355,30 @@ export default function ElectromagneticWavesChapter() {
         />
       </div>
       <FormulaBlock latex={String.raw`v = \frac{1}{\sqrt{\mu\varepsilon}} \qquad (8.11)`} />
+      <p>For a medium, the effective permittivity and permeability are written in terms of the vacuum values and the medium&apos;s relative constants:</p>
+      <FormulaBlock latex={String.raw`\mu = \mu_0\mu_r, \qquad \varepsilon = \varepsilon_0\varepsilon_r`} />
+      <FormulaBlock latex={String.raw`v = \frac{1}{\sqrt{\mu_0\mu_r\,\varepsilon_0\varepsilon_r}} = \frac{1}{\sqrt{\mu_0\varepsilon_0}\cdot\sqrt{\mu_r\varepsilon_r}} = \frac{c}{\sqrt{\mu_r\varepsilon_r}}`} important />
+      <p>
+        In free space, <Formula>{String.raw`\mu_r = \varepsilon_r = 1`}</Formula>, so this reduces to{" "}
+        <Formula>{String.raw`c = 3\times 10^8\ \text{m/s}`}</Formula>.
+      </p>
       <Callout type="note">
         The velocity of electromagnetic waves in vacuum is <Highlight color="yellow">the same for all wavelengths</Highlight> to within a few
         m/s of <Formula>{String.raw`3\times 10^8`}</Formula> m/s. This constant speed is so well established that it is used to{" "}
         <strong>define a standard of length</strong>. EM waves carry energy — light from the Sun makes life on Earth possible.
       </Callout>
+
+      <KeyPoint title="Peak values — relation between E₀ and B₀">
+        The peak electric and magnetic fields are tied to the wave speed: <Formula>{String.raw`c = \frac{E_0}{B_0}`}</Formula>. So
+        <Formula>{String.raw`\frac{B_0}{E_0} = \frac{1}{c}`}</Formula> has the <strong>dimensions of reciprocal of velocity</strong>.
+      </KeyPoint>
+
+      <KeyPoint title="Direction of propagation — the E × B rule">
+        The wave travels along the cross product of the field vectors, <Formula>{String.raw`\vec{v} = \vec{E}\times \vec{B}`}</Formula>.
+        With the cyclic order of unit vectors — <Formula>{String.raw`\hat{i}\times\hat{j}=\hat{k}`}</Formula>,{" "}
+        <Formula>{String.raw`\hat{j}\times\hat{k}=\hat{i}`}</Formula>, <Formula>{String.raw`\hat{k}\times\hat{i}=\hat{j}`}</Formula> —
+        reversing any pair flips the sign.
+      </KeyPoint>
 
       <Expandable title="Example 8.1 — Direction of B given E and propagation">
         <ProblemSolution.Problem>
@@ -367,6 +405,60 @@ export default function ElectromagneticWavesChapter() {
           <p>The electric field component is perpendicular to the direction of propagation and to B, so along the z-axis:</p>
           <FormulaBlock latex={String.raw`E_z = 60\, \sin(0.5\times 10^3 x + 1.5\times 10^{11} t)\ \text{V/m}`} important />
         </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="Example 8.3 — Writing the E expression from ν, E₀ and the direction">
+        <ProblemSolution.Problem>
+          <p>An oscillating electric field of frequency <Formula>{String.raw`3\times 10^{10}\ \text{Hz}`}</Formula> and amplitude 30 V/m propagates in free space in the positive x-direction. Write down the expression for the electric field.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p><strong>Given:</strong> <Formula>{String.raw`\nu = 3\times 10^{10}\ \text{Hz}`}</Formula>, <Formula>{String.raw`E_0 = 30\ \text{V/m}`}</Formula>, direction <strong>+x</strong>.</p>
+          <p>The general form is <Formula>{String.raw`E = E_0 \sin(kx - \omega t)`}</Formula> — with the minus sign because the wave travels toward <strong>+x</strong>.</p>
+          <p><strong>Angular frequency:</strong></p>
+          <FormulaBlock latex={String.raw`\omega = 2\pi\nu = 2\pi \times 3\times 10^{10} = 6\pi\times 10^{10}\ \text{rad/s}`} />
+          <p><strong>Wavelength:</strong></p>
+          <FormulaBlock latex={String.raw`\lambda = \frac{c}{\nu} = \frac{3\times 10^8}{3\times 10^{10}} = 10^{-2}\ \text{m}`} />
+          <p><strong>Propagation constant:</strong></p>
+          <FormulaBlock latex={String.raw`k = \frac{2\pi}{\lambda} = \frac{2\pi}{10^{-2}} = 200\pi\ \text{rad/m}`} />
+          <p><strong>Final expression:</strong></p>
+          <FormulaBlock latex={String.raw`E = 30 \sin(200\pi x - 6\pi\times 10^{10} t)\ \text{V/m}`} important />
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="Example 8.4 — Writing the B expression from a given E expression">
+        <ProblemSolution.Problem>
+          <p>An electromagnetic wave is represented by <Formula>{String.raw`E_x = E_m\sin(kz - \omega t)`}</Formula>. Write the equation for the magnetic field component.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p><strong>Direction of B:</strong> the wave travels along <strong>+z</strong> (the <Formula>{String.raw`(kz - \omega t)`}</Formula> sign) and E oscillates along <strong>+x</strong>. Using the E × B rule, <Formula>{String.raw`\hat{k} = \hat{i}\times\hat{j}`}</Formula>, so B must vibrate along <strong>+y</strong>.</p>
+          <p><strong>Amplitude of B:</strong> from <Formula>{String.raw`c = \frac{E_m}{B_m}`}</Formula>:</p>
+          <FormulaBlock latex={String.raw`B_m = \frac{E_m}{c}`} />
+          <p><strong>Final equation:</strong></p>
+          <FormulaBlock latex={String.raw`B_y = \frac{E_m}{c}\,\sin(kz - \omega t)`} important />
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="Quick practice — nature, speed, peak values &amp; direction of propagation" variant="exercise">
+        <ExerciseQa
+          questions={[
+            <>Which of the following can change the velocity of light in vacuum: (a) frequency, (b) wavelength, (c) amplitude, (d) none of these?</>,
+            <>A typical plane EM wave propagates along the z-direction with E along the x-axis and B along the y-axis. Write the equations for E and B.</>,
+            <>Which physical quantity does the ratio <Formula>{String.raw`E_0/B_0`}</Formula> represent?</>,
+            <>The ratio <Formula>{String.raw`B_0/E_0`}</Formula> has the dimensions of: (i) velocity, (ii) acceleration, (iii) reciprocal of velocity, (iv) reciprocal of acceleration.</>,
+            <>An EM wave travels in free space with <Formula>{String.raw`E_0 = 6.3\ \text{V/m}`}</Formula>. Find <Formula>{String.raw`B_0`}</Formula>.</>,
+            <>The magnetic field of an EM wave is <Formula>{String.raw`B = B_0\sin(kz - \omega t)\,\hat{j}`}</Formula>. What is the direction of wave propagation?</>,
+            <>The electric field of an EM wave is <Formula>{String.raw`E = E_0\sin(kz - \omega t)\,\hat{i}`}</Formula> with <Formula>{String.raw`k = 2\pi\times 10^6\ \text{m}^{-1}`}</Formula>. Find the wavelength.</>,
+          ]}
+          answers={[
+            <><strong>(d) None of these.</strong> In vacuum <Formula>{String.raw`c = 1/\sqrt{\mu_0\varepsilon_0}`}</Formula> is fixed once and for all — it does not depend on frequency, wavelength or amplitude.</>,
+            <><Formula>{String.raw`E_x = E_0\sin(kz - \omega t)`}</Formula> and <Formula>{String.raw`B_y = B_0\sin(kz - \omega t)`}</Formula>.</>,
+            <><Formula>{String.raw`E_0/B_0 = c`}</Formula> — the speed of light in vacuum.</>,
+            <><strong>(iii)</strong> reciprocal of velocity, since <Formula>{String.raw`B_0/E_0 = 1/c`}</Formula>.</>,
+            <><Formula>{String.raw`B_0 = \frac{E_0}{c} = \frac{6.3}{3\times 10^8} = 2.1\times 10^{-8}\ \text{T}`}</Formula>.</>,
+            <>Along <strong>+z</strong> — B oscillates along <strong>+y</strong>, and the <Formula>{String.raw`(kz - \omega t)`}</Formula> sign means the wave runs in the +z-direction.</>,
+            <><Formula>{String.raw`\lambda = \frac{2\pi}{k} = \frac{2\pi}{2\pi\times 10^6} = 10^{-6}\ \text{m} = 1\ \mu\text{m}`}</Formula>.</>,
+          ]}
+        />
       </Expandable>
 
       <h2 id="h-8-4">8.4 Electromagnetic Spectrum</h2>
