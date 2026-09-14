@@ -93,9 +93,9 @@ export default function ElectromagneticWavesChapter() {
         color="#7c3aed"
         rtl={false}
         events={[
-          { date: "1865", label: "Maxwell&apos;s theory", detail: "The equations unify electricity, magnetism and light into a single theory of electromagnetic waves." },
-          { date: "1885", label: "Hertz", detail: "Experimentally demonstrates electromagnetic waves, verifying Maxwell&apos;s theory." },
-          { date: "1890s", label: "Marconi &amp; others", detail: "Turn the waves into technology — long-distance wireless transmission." },
+          { date: "1865", label: "Maxwell's theory", detail: "The equations unify electricity, magnetism and light into a single theory of electromagnetic waves." },
+          { date: "1885", label: "Hertz", detail: "Experimentally demonstrates electromagnetic waves, verifying Maxwell's theory." },
+          { date: "1890s", label: "Marconi & others", detail: "Turn the waves into technology — long-distance wireless transmission." },
           { date: "Today", label: "📡 Modern communication", detail: "Radio, TV, mobile telephony, radar, satellites — all ride on electromagnetic waves." },
         ]}
       />
@@ -204,7 +204,7 @@ export default function ElectromagneticWavesChapter() {
             note: "Only the conduction current I_c is counted — this created the contradiction.",
           },
           {
-            label: "Maxwell&apos;s correction",
+            label: "Maxwell's correction",
             equation: String.raw`i = i_c + i_d = i_c + \varepsilon_0 \frac{\mathrm{d}\Phi_E}{\mathrm{d}t}`,
             note: "The total current now includes the displacement current.",
           },
@@ -335,7 +335,7 @@ export default function ElectromagneticWavesChapter() {
         title="The wave parameters form a network, not isolated facts"
         steps={[
           { label: "Wave number", equation: String.raw`k = \frac{2\pi}{\lambda}`, tag: "8.8" },
-          { label: "Angular frequency — Maxwell&apos;s relation", equation: String.raw`\omega = ck`, tag: "8.9(a)" },
+          { label: "Angular frequency — Maxwell's relation", equation: String.raw`\omega = ck`, tag: "8.9(a)" },
           { label: "Rearrange for c", equation: String.raw`c = \frac{\omega}{k}`, note: "Speed as angular frequency ÷ wave number." },
           { label: "Frequency × wavelength", equation: String.raw`\nu\lambda = c`, final: true, tag: "8.9(b)" },
         ]}
@@ -460,7 +460,7 @@ export default function ElectromagneticWavesChapter() {
         title="TABLE 8.1 — Different types of electromagnetic waves"
         headers={["Type", "Wavelength range", "Production", "Detection"]}
         rows={[
-          { cells: ["Radio", "> 0.1 m", "Rapid acceleration and decelerations of electrons in aerials", "Receiver&apos;s aerials"] },
+          { cells: ["Radio", "> 0.1 m", "Rapid acceleration and decelerations of electrons in aerials", "Receiver's aerials"] },
           { cells: ["Microwave", "0.1 m to 1 mm", "Klystron valve or magnetron valve", "Point contact diodes"] },
           { cells: ["Infra-red", "1 mm to 700 nm", "Vibration of atoms and molecules", "Thermopiles, Bolometer, Infrared photographic film"] },
           { cells: ["Light", "700 nm to 400 nm", "Electrons in atoms emitting when moving between energy levels", "The eye, Photocells, Photographic film"] },

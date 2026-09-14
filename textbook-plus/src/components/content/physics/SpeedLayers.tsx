@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 
 interface CompareRow {
   label: string;
-  vacuum: string;
-  medium: string;
+  vacuum: React.ReactNode;
+  medium: React.ReactNode;
 }
 
 interface SpeedLayer {
@@ -25,9 +25,9 @@ const LAYERS: SpeedLayer[] = [
     formula: String.raw`c = \frac{1}{\sqrt{\mu_0\varepsilon_0}}`,
     withnote: "Conduction and displacement — vacuum constants only.",
     rows: [
-      { label: "Permittivity", vacuum: String.raw`\varepsilon = \varepsilon_0`, medium: String.raw`\varepsilon = \varepsilon_0\varepsilon_r` },
-      { label: "Permeability", vacuum: String.raw`\mu = \mu_0`, medium: String.raw`\mu = \mu_0\mu_r` },
-      { label: "Speed", vacuum: String.raw`c = 3\times 10^8\ \text{m/s}`, medium: String.raw`v = c/\sqrt{\mu_r\varepsilon_r}` },
+      { label: "Permittivity", vacuum: <Formula>{String.raw`\varepsilon = \varepsilon_0`}</Formula>, medium: <Formula>{String.raw`\varepsilon = \varepsilon_0\varepsilon_r`}</Formula> },
+      { label: "Permeability", vacuum: <Formula>{String.raw`\mu = \mu_0`}</Formula>, medium: <Formula>{String.raw`\mu = \mu_0\mu_r`}</Formula> },
+      { label: "Speed", vacuum: <Formula>{String.raw`c = 3\times 10^8\ \text{m/s}`}</Formula>, medium: <Formula>{String.raw`v = c/\sqrt{\mu_r\varepsilon_r}`}</Formula> },
     ],
   },
   {
@@ -35,11 +35,11 @@ const LAYERS: SpeedLayer[] = [
     icon: "💧",
     formula: String.raw`v = \frac{1}{\sqrt{\mu\varepsilon}}`,
     formulaRef: "(8.11)",
-    withnote: "Replace vacuum constants with the medium's own ε and μ.",
+    withnote: "Replace the vacuum constants with the medium's own ε and μ.",
     rows: [
-      { label: "Formula", vacuum: "c depends only on μ₀, ε₀", medium: "v depends on μ, ε of the medium" },
-      { label: "Constants", vacuum: "μ₀, ε₀ — fixed in free space", medium: "μ, ε — set by the material" },
-      { label: "Typical speed", vacuum: String.raw`3\times 10^8\ \text{m/s}`, medium: String.raw`v = c/\sqrt{\mu_r\varepsilon_r}` },
+      { label: "What changes", vacuum: <><em>c</em> depends only on μ₀, ε₀</>, medium: <><em>v</em> depends on μ, ε of the medium</> },
+      { label: "Constants", vacuum: <><Formula>{String.raw`\mu_0, \varepsilon_0`}</Formula> — fixed in free space</>, medium: <><Formula>{String.raw`\mu, \varepsilon`}</Formula> — set by the material</> },
+      { label: "Typical speed", vacuum: <Formula>{String.raw`3\times 10^8\ \text{m/s}`}</Formula>, medium: <Formula>{String.raw`v = c/\sqrt{\mu_r\varepsilon_r}`}</Formula> },
     ],
   },
   {
@@ -48,9 +48,9 @@ const LAYERS: SpeedLayer[] = [
     formula: String.raw`v = \frac{c}{\sqrt{\mu_r\varepsilon_r}}`,
     withnote: "Relative permeability μᵣ and relative permittivity εᵣ measure the medium against vacuum.",
     rows: [
-      { label: "What they mean", vacuum: String.raw`\mu_r = \mu/\mu_0`, medium: String.raw`\varepsilon_r = \varepsilon/\varepsilon_0` },
-      { label: "Free space", vacuum: String.raw`\mu_r = \varepsilon_r = 1`, medium: String.raw`\mu_r, \varepsilon_r > 1` },
-      { label: "Speed", vacuum: String.raw`v = c`, medium: String.raw`v < c` },
+      { label: "What they mean", vacuum: <Formula>{String.raw`\mu_r = \mu/\mu_0`}</Formula>, medium: <Formula>{String.raw`\varepsilon_r = \varepsilon/\varepsilon_0`}</Formula> },
+      { label: "Free space", vacuum: <Formula>{String.raw`\mu_r = \varepsilon_r = 1`}</Formula>, medium: <Formula>{String.raw`\mu_r, \varepsilon_r > 1`}</Formula> },
+      { label: "Speed", vacuum: <Formula>{String.raw`v = c`}</Formula>, medium: <Formula>{String.raw`v < c`}</Formula> },
     ],
     special: true,
   },
@@ -113,10 +113,10 @@ export function SpeedLayers() {
                         {row.label}
                       </span>
                       <span className="font-medium text-foreground/80">
-                        <Formula>{row.vacuum}</Formula>
+                        {row.vacuum}
                       </span>
                       <span className="font-medium text-foreground/80">
-                        <Formula>{row.medium}</Formula>
+                        {row.medium}
                       </span>
                     </div>
                   ))}
