@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
@@ -6,7 +7,7 @@ interface MetricCardProps {
   value: string;
   unit?: string;
   trend?: "up" | "down" | "neutral";
-  description?: string;
+  description?: ReactNode;
 }
 
 export function MetricCard({ label, value, unit, trend, description }: MetricCardProps) {

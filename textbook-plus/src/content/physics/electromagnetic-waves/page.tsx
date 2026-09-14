@@ -10,15 +10,8 @@ import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
-import { ScientistCard } from "@/components/content/concept/ScientistCard";
 import { Timeline } from "@/components/content/process/Timeline";
 import { ProblemInsightSolutionCard } from "@/components/content/process/ProblemInsightSolutionCard";
-import {
-  SpectrumBandFigure,
-  ChargingCapacitorFigure,
-  MaxwellRelationshipsFigure,
-  AmpereLoopFigure,
-} from "@/components/content/physics/EmWaveFigures";
 import { AmpereSurfaceToggle } from "@/components/content/physics/AmpereSurfaceToggle";
 import { EquationLadder } from "@/components/content/process/EquationLadder";
 import { RevealAnswer } from "@/components/content/process/RevealAnswer";
@@ -30,31 +23,26 @@ export default function ElectromagneticWavesChapter() {
       <ProcessCard
         title="⚡ From Electricity &amp; Magnetism → Electromagnetic Waves"
         steps={[
-          { label: "Chapter 4", description: "An <strong>electric current</strong> produces a magnetic field." },
-          { label: "Chapter 6", description: "A <strong>changing magnetic field</strong> produces an electric field." },
+          { label: "Chapter 4", description: <>An <strong>electric current</strong> produces a magnetic field.</> },
+          { label: "Chapter 6", description: <>A <strong>changing magnetic field</strong> produces an electric field.</> },
         ]}
       />
       <KeyPoint title="🟨 The question Maxwell asked">
         If a changing magnetic field can produce an electric field, can a{" "}
         <strong>changing electric field</strong> produce a magnetic field?
       </KeyPoint>
-      <ScientistCard
-        name="James Clerk Maxwell"
-        years="1831–1879"
-        field="Physicist"
-        keyIdea={
-          <>
-            A magnetic field can be generated not only by an <strong>electric current</strong>, but also by a{" "}
-            <strong>time-varying electric field</strong>.
-          </>
-        }
-      >
+      <Callout type="note" title="James Clerk Maxwell · Physicist (1831–1879)">
         <p>
-          <strong>✏️ Why?</strong> Maxwell found an inconsistency when applying{" "}
-          <strong>Ampère&apos;s circuital law</strong> to a capacitor carrying a time-varying current, and resolved it by
-          introducing the concept of a <Highlight color="yellow">displacement current</Highlight> — the reasoning below.
+          <strong>Key idea:</strong> A magnetic field can be generated not only by an{" "}
+          <strong>electric current</strong>, but also by a <strong>time-varying electric field</strong>.
         </p>
-      </ScientistCard>
+        <p className="mt-2">
+          <strong>✏️ Why?</strong> Maxwell found an inconsistency when applying{" "}
+          <strong>Ampère&apos;s circuital law</strong> to a capacitor carrying a time-varying current, and resolved it
+          by introducing the concept of a <Highlight color="yellow">displacement current</Highlight> — the reasoning
+          below.
+        </p>
+      </Callout>
       <ProblemInsightSolutionCard
         title="Maxwell&apos;s reasoning"
         problem={
@@ -76,7 +64,6 @@ export default function ElectromagneticWavesChapter() {
           </>
         }
       />
-      <MaxwellRelationshipsFigure />
       <KeyPoint title="Maxwell&apos;s crowning achievement">
         Maxwell wrote a full set of equations — <Highlight color="yellow">Maxwell&apos;s equations</Highlight> — describing
         the relationship between <strong>electric fields, magnetic fields and their sources</strong>. Their most striking
@@ -87,11 +74,12 @@ export default function ElectromagneticWavesChapter() {
         label="Speed of electromagnetic waves in vacuum"
         value="3 × 10⁸"
         unit="m/s"
-        description="≈ speed of light"
+        description={
+          <>
+            ≈ speed of light — <Highlight color="green">Light is an electromagnetic wave.</Highlight>
+          </>
+        }
       />
-      <KeyPoint title="Therefore">
-        <Highlight color="green">Light is an electromagnetic wave.</Highlight>
-      </KeyPoint>
       <Timeline
         title="💡 From theory to technology"
         color="#7c3aed"
@@ -122,10 +110,30 @@ export default function ElectromagneticWavesChapter() {
           Ampere&apos;s circuital law relates the magnetic field along a closed loop to the current it encloses:
         </p>
         <FormulaBlock latex={String.raw`\oint \mathbf{B}\cdot \mathrm{d}\mathbf{l} = \mu_0 I_{\text{enclosed}}`} />
-        <AmpereLoopFigure />
+        <figure className="my-6">
+          <img
+            src="/images/physics/electromagnetic-waves/ampere-wire-field.png"
+            alt="A long straight wire carrying a current I, with the magnetic field curling in closed loops around it"
+            className="max-w-xs mx-auto w-full h-auto rounded-lg object-contain bg-white"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+            The magnetic field around a current-carrying wire — the closed field lines along which we integrate.
+          </figcaption>
+        </figure>
       </Expandable>
       <p>To see how the law fails, consider the <strong>charging of a capacitor</strong> and apply Ampere&apos;s circuital law to find the magnetic field at a point outside it:</p>
-      <ChargingCapacitorFigure />
+      <figure className="my-6">
+        <img
+          src="/images/physics/electromagnetic-waves/capacitor-two-surfaces.png"
+          alt="A charging capacitor with the two surfaces S1 and S2 bounded by the same Ampere loop — S1 cuts the wire, S2 passes through the gap between the plates"
+          className="max-w-md mx-auto w-full h-auto rounded-lg object-contain bg-white"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          A charging capacitor — surface S₁ sees the wire, surface S₂ passes through the gap between the plates.
+        </figcaption>
+      </figure>
       <AmpereSurfaceToggle />
       <RevealAnswer
         title="🔎 Find the missing term"
@@ -380,7 +388,17 @@ export default function ElectromagneticWavesChapter() {
         <strong>no sharp division</strong> between one kind of wave and the next — the classification is based roughly on how the waves are{" "}
         produced and/or detected.
       </p>
-      <SpectrumBandFigure />
+      <figure className="my-6">
+        <img
+          src="/images/physics/electromagnetic-waves/em-spectrum.png"
+          alt="The electromagnetic spectrum from radio waves to gamma rays, with the visible band marked"
+          className="max-w-3xl mx-auto w-full h-auto rounded-lg object-contain bg-white"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          The electromagnetic spectrum — wavelength and frequency scales for each band.
+        </figcaption>
+      </figure>
       <TableCard
         title="TABLE 8.1 — Different types of electromagnetic waves"
         headers={["Type", "Wavelength range", "Production", "Detection"]}

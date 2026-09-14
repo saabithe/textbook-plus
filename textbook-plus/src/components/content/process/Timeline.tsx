@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export interface TimelineEvent {
   date: string;
@@ -16,6 +16,10 @@ export interface TimelineProps {
   rtl?: boolean;
   /** Subject color hex (e.g. subject.color). Falls back to biology tokens when omitted. */
   color?: string;
+}
+
+function hexA(hex: string, alpha: string) {
+  return /^#[0-9a-fA-F]{6}$/.test(hex) ? `${hex}${alpha}` : undefined;
 }
 
 export function Timeline({ title, events, orientation = "horizontal", rtl = true, color }: TimelineProps) {
@@ -38,78 +42,91 @@ export function Timeline({ title, events, orientation = "horizontal", rtl = true
     scrollRef.current?.scrollBy({ left: dx, behavior: "smooth" });
   };
 
+  const soft = color ? hexA(color, "1c") : "var(--subject-biology-light)";
+  const accent = color ?? "var(--subject-biology)";
+
   if (!isHorizontal) {
     return (
-      <div className="rounded-xl border border-border/60 bg-background px-5 py-4 my-6">
-        {title && <span className="text-sm font-semibold block mb-3">{title}</span>}
-        <div className="space-y-0">
-          {ordered.map((event, i) => (
-            <div key={i} className="flex gap-3">
-              <div className="flex flex-col items-center">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">
-                  {i + 1}
+      <div className="my-6 rounded-2xl border border-border/60 bg-background px-5 py-4">
+        {title && <span className="mb-4 block text-sm font-bold tracking-tight">{title}</span>}
+        <div className="relative">
+          <div className="absolute bottom-3 left-[15px] top-3 w-0.5 rounded-full bg-gradient-to-b from-foreground/15 to-foreground/5" />
+          <div className="space-y-5">
+            {ordered.map((event, i) => (
+              <div key={i} className="relative flex gap-4">
+                <div className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 bg-card" style={{ borderColor: accent, boxShadow: `0 0 0 3px ${soft}` }}>
+                  <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: accent }} />
                 </div>
-                {i < ordered.length - 1 && <div className="w-px flex-1 bg-border/60 my-1" />}
+                <div className="pb-1 pt-0.5">
+                  <span
+                    className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-bold"
+                    style={{ backgroundColor: soft, color: accent }}
+                  >
+                    {event.date}
+                  </span>
+                  <p className="mt-1.5 text-sm font-semibold leading-snug text-foreground">{event.label}</p>
+                  {event.detail && <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">{event.detail}</p>}
+                </div>
               </div>
-              <div className="pb-4 pt-0.5">
-                <span className="text-xs font-medium text-primary">{event.date}</span>
-                <p className="text-sm font-medium text-foreground leading-snug">{event.label}</p>
-                {event.detail && <p className="text-sm text-muted-foreground mt-0.5 leading-relaxed">{event.detail}</p>}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-      <div className="relative rounded-xl border border-border/60 bg-card px-5 py-4 my-6">
-      <div className="flex items-center justify-between mb-3">
-        {title && <h3 className="text-sm font-semibold">{title}</h3>}
+    <div className="my-6 rounded-2xl border border-border/60 bg-card px-5 py-5">
+      <div className="mb-5 flex items-center justify-between gap-3">
+        {title && <h3 className="text-sm font-bold tracking-tight text-foreground">{title}</h3>}
         {canScroll && (
-          <div className="flex items-center gap-1">
+          <div className="flex shrink-0 items-center gap-1">
             <button
-              onClick={() => scroll(-200)}
-              className="h-7 w-7 rounded-full border border-border/60 bg-background flex items-center justify-center hover:bg-muted transition-colors"
+              onClick={() => scroll(-260)}
+              className="flex h-7 w-7 items-center justify-center rounded-full border border-border/60 bg-background transition-colors hover:bg-muted"
               aria-label="Scroll to newer"
             >
-              <ArrowLeft className="h-3.5 w-3.5" />
+              <ChevronLeft className="h-3.5 w-3.5" />
             </button>
             <button
-              onClick={() => scroll(200)}
-              className="h-7 w-7 rounded-full border border-border/60 bg-background flex items-center justify-center hover:bg-muted transition-colors"
+              onClick={() => scroll(260)}
+              className="flex h-7 w-7 items-center justify-center rounded-full border border-border/60 bg-background transition-colors hover:bg-muted"
               aria-label="Scroll to older"
             >
-              <ArrowRight className="h-3.5 w-3.5" />
+              <ChevronRight className="h-3.5 w-3.5" />
             </button>
           </div>
         )}
       </div>
+
       <div className="relative">
-        <div ref={scrollRef} className="overflow-x-auto overflow-y-hidden scroll-smooth flex items-center gap-0 pb-2">
-          {ordered.map((event, i) => (
-            <>
-              {i > 0 && (
-                <div className="flex-shrink-0 w-8 h-px bg-primary/20 relative flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                </div>
-              )}
-              <div className="flex-shrink-0 w-[200px] rounded-xl border border-border/60 bg-background px-3 py-3">
-                <span
-                  className="inline-block px-2 py-0.5 rounded-full text-xs font-bold"
-                  style={{
-                    backgroundColor: color ? `${color}15` : "var(--subject-biology-light)",
-                    color: color ?? "var(--subject-biology)",
-                  }}
+        <div className="pointer-events-none absolute inset-x-0 top-[9px] h-0.5 rounded-full bg-gradient-to-r from-transparent via-foreground/15 to-transparent" />
+        <div ref={scrollRef} className="overflow-x-auto overflow-y-hidden scroll-smooth pb-2">
+          <div className="flex min-w-max items-start gap-4 px-0.5 pt-0">
+            {ordered.map((event, i) => (
+              <div key={i} className="flex w-[220px] flex-shrink-0 flex-col items-center">
+                <div
+                  className="relative z-10 flex h-[22px] w-5 items-center justify-center rounded-full border-2 bg-card"
+                  style={{ borderColor: accent, boxShadow: `0 0 0 3px ${soft}` }}
                 >
-                  {event.date}
-                </span>
-                <p className="text-sm font-semibold text-foreground leading-tight mt-1.5">{event.label}</p>
-                <p className="text-xs text-muted-foreground mt-1 leading-relaxed line-clamp-3">{event.detail}</p>
+                  <span className="h-2 w-2 rounded-full" style={{ backgroundColor: accent }} />
+                </div>
+                <div className="h-3 w-px bg-border/60" />
+                <div className="w-full rounded-xl border border-border/60 bg-background p-3.5 transition-shadow hover:shadow-md">
+                  <span
+                    className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-bold"
+                    style={{ backgroundColor: soft, color: accent }}
+                  >
+                    {event.date}
+                  </span>
+                  <p className="mt-2 text-sm font-semibold leading-tight text-foreground">{event.label}</p>
+                  {event.detail && (
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground line-clamp-3">{event.detail}</p>
+                  )}
+                </div>
               </div>
-            </>
-          ))}
+            ))}
+          </div>
         </div>
         {canScroll && (
           <>
