@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Class11ChapterList } from "@/components/subject/Class11ChapterList";
+import { SubjectHeaderStats } from "@/components/subject/SubjectHeaderStats";
 import { getClass11SubjectBySlug, class11Subjects, getClass11Chapters } from "@/data/class11";
 
 export function generateStaticParams() {
@@ -51,7 +52,7 @@ export default async function Class11SubjectPage({ params }: Props) {
           </nav>
 
           {/* Subject header */}
-          <div className="mb-10 flex items-center gap-4 sm:mb-12 sm:gap-5">
+          <div className="mb-6 flex items-center gap-4 sm:mb-8 sm:gap-5">
             <div
               className="flex h-12 w-12 items-center justify-center rounded-xl sm:h-16 sm:w-16 sm:rounded-2xl"
               style={{ backgroundColor: subject.colorLight }}
@@ -70,6 +71,11 @@ export default async function Class11SubjectPage({ params }: Props) {
                 Class 11 Improvement Exam · {chapters.length} chapters
               </p>
             </div>
+          </div>
+
+          {/* Metrics */}
+          <div className="mb-6">
+            <SubjectHeaderStats subjectSlug={subject.slug} subjectColor={subject.color} />
           </div>
 
           {/* Chapter list */}

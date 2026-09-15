@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { Sun, Moon, Home, Search, Cloud, CloudOff, LogIn, LogOut, User, Settings } from "lucide-react";
+import { Sun, Moon, Home, LineChart, Search, Cloud, CloudOff, LogIn, LogOut, User, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import { useFontSize } from "@/hooks/useFontSize";
@@ -30,6 +30,7 @@ import {
 
 const navLinks = [
   { href: "/", label: "Home", icon: Home },
+  { href: "/progress", label: "Progress", icon: LineChart },
 ];
 
 export function Navbar() {
@@ -70,7 +71,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b-2 border-border/60 bg-background/80 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/75 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
@@ -102,7 +103,7 @@ export function Navbar() {
                   className={cn(
                     "flex items-center gap-1.5 rounded-full px-2.5 py-2 text-sm font-bold transition-all duration-150 sm:gap-2 sm:px-4",
                     isActive
-                      ? "bg-primary text-primary-foreground shadow-[0_3px_0_rgb(0_0_0/0.2)]"
+                      ? "bg-primary/12 text-primary"
                       : "text-muted-foreground hover:bg-muted hover:text-foreground"
                   )}
                 >

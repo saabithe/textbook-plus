@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { ChapterList } from "@/components/subject/ChapterList";
+import { SubjectHeaderStats } from "@/components/subject/SubjectHeaderStats";
 import { getSubjectBySlug, subjects } from "@/data/subjects";
 
 export function generateStaticParams() {
@@ -36,7 +37,7 @@ export default async function SubjectPage({ params }: Props) {
       <main className="flex-1">
         <section className="mx-auto max-w-6xl px-6 py-14">
           {/* Subject header */}
-          <div className="mb-10 flex items-center gap-4 sm:mb-12 sm:gap-5">
+          <div className="mb-6 flex items-center gap-4 sm:mb-8 sm:gap-5">
             <div
               className="flex h-12 w-12 items-center justify-center rounded-xl sm:h-16 sm:w-16 sm:rounded-2xl"
               style={{ backgroundColor: subject.colorLight }}
@@ -52,9 +53,14 @@ export default async function SubjectPage({ params }: Props) {
                 {subject.name}
               </h1>
               <p className="mt-1 text-base text-muted-foreground">
-                {subject.chapterCount} chapters
+                {subject.description}
               </p>
             </div>
+          </div>
+
+          {/* Metrics */}
+          <div className="mb-6">
+            <SubjectHeaderStats subjectSlug={subject.slug} subjectColor={subject.color} />
           </div>
 
           {slug === "english" && (

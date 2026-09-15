@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { useProgress } from "@/hooks/useProgress";
 import { getClass11Chapters } from "@/data/class11";
 import { hasChapterContent } from "@/lib/content";
+import { ChapterRow, type ChapterStatus } from "@/components/app/ChapterRow";
 
 interface Class11ChapterListProps {
   subjectSlug: string;
@@ -13,59 +13,49 @@ interface Class11ChapterListProps {
 
 export function Class11ChapterList({ subjectSlug, subjectColor }: Class11ChapterListProps) {
   const chapters = getClass11Chapters(subjectSlug);
+  const { isCompleted, getChapterPractice } = useProgress(subjectSlug);
 
   if (chapters.length === 0) {
-    return (
-      <p className="text-sm text-muted-foreground">Chapters coming soon.</p>
-    );
+    return <p className="text-sm text-muted-foreground">Chapters coming soon.</p>;
   }
+
+  const statusFor = (slug: string): ChapterStatus => {
+    if (isCompleted(slug)) return "done";
+    const p = getChapterPractice(slug);
+    const started =
+      p.questionsRevealed.length > 0 ||
+      p.flashcardsKnown.length > 0 ||
+      p.flashcardsUnknown.length > 0;
+    return started ? "started" : "pending";
+  };
 
   return (
     <div className="flex flex-col gap-2">
       {chapters.map((chapter) => {
         const hasContent = hasChapterContent(`c11/${subjectSlug}/${chapter.slug}`);
         return (
-          <Link
+          <ChapterRow
             key={chapter.id}
             href={`/class-11/${subjectSlug}/${chapter.slug}`}
-            className="group flex items-center gap-3 rounded-xl border border-transparent px-4 py-3 transition-all duration-200 hover:border-border/60 hover:bg-card hover:shadow-sm sm:gap-4 sm:px-5 sm:py-4"
-          >
-            {/* Chapter number */}
-            <span
-              className="flex h-9 min-w-9 items-center justify-center rounded-lg text-xs font-bold sm:h-10 sm:min-w-10 sm:text-sm"
-              style={{
-                backgroundColor: subjectColor + "15",
-                color: subjectColor,
-              }}
-            >
-              {String(chapter.number).padStart(2, "0")}
-            </span>
-
-            {/* Title + status */}
-            <div className="flex min-w-0 flex-1 flex-col items-start gap-1">
-              <span
-                className="truncate text-sm font-medium text-foreground transition-colors group-hover:text-[var(--hover-color)] sm:text-[15px]"
-                style={{ "--hover-color": subjectColor } as React.CSSProperties}
-              >
-                {chapter.title}
-              </span>
-              {hasContent ? (
-                <Badge
-                  style={{
-                    backgroundColor: subjectColor + "15",
-                    color: subjectColor,
-                  }}
-                >
-                  Explore
+            number={chapter.number}
+            title={chapter.title}
+            meta={
+              chapter.part
+                ? `Part ${chapter.part} · ${hasContent ? "Ready to explore" : "Coming soon"}`
+                : hasContent
+                  ? "Ready to explore"
+                  : "Coming soon"
+            }
+            color={subjectColor}
+            status={statusFor(chapter.slug)}
+            badge={
+              hasContent ? undefined : (
+                <Badge variant="outline" className="hidden rounded-full text-[0.68rem] font-semibold sm:inline-flex">
+                  Coming soon
                 </Badge>
-              ) : (
-                <Badge variant="outline">Coming soon</Badge>
-              )}
-            </div>
-
-            {/* Chevron */}
-            <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground/30 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-muted-foreground/70" />
-          </Link>
+              )
+            }
+          />
         );
       })}
     </div>

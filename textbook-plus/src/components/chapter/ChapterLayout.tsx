@@ -22,6 +22,7 @@ import { Badge } from "@/components/ui/badge";
 import { getAdjacentChapters } from "@/data/chapters";
 import { getAdjacentClass11Chapters, getClass11ChapterBySlugFromAll } from "@/data/class11";
 import { getQuestionsForChapter, getFlashcardsForChapter, hasQuestions, hasFlashcards } from "@/lib/content";
+import { markRecentChapter } from "@/lib/recent";
 import { useProgress } from "@/hooks/useProgress";
 import type { Chapter } from "@/data/chapters";
 import type { Class11Chapter } from "@/data/class11";
@@ -83,6 +84,17 @@ export function ChapterLayout({
     { label: chapter.title },
   ];
 
+  useEffect(() => {
+    markRecentChapter({
+      slug: chapter.slug,
+      title: chapter.title,
+      subjectSlug,
+      subjectName,
+      subjectColor,
+      href: `${navBase}/${chapter.slug}`,
+    });
+  }, [chapter.slug, chapter.title, subjectSlug, subjectName, subjectColor, navBase]);
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
       <ReadingProgress color={subjectColor} />
@@ -107,21 +119,16 @@ export function ChapterLayout({
       </Breadcrumb>
 
       {/* Chapter Header */}
-      <header
-        className="mb-8 overflow-hidden rounded-3xl border-2 p-5 sm:p-7"
-        style={{
-          borderColor: `${subjectColor}33`,
-          background: `linear-gradient(135deg, ${subjectColor}14, transparent 65%)`,
-        }}
-      >
+      <header className="relative mb-8 overflow-hidden rounded-2xl border border-border/70 bg-card p-5 shadow-sm sm:p-7">
+        <span
+          className="absolute inset-y-0 left-0 w-1"
+          style={{ background: `linear-gradient(180deg, ${subjectColor}, ${subjectColor}55)` }}
+        />
         <div className="flex items-start justify-between gap-4">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 pl-1.5">
             <span
-              className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-lg font-extrabold text-white sm:h-14 sm:w-14 sm:text-xl"
-              style={{
-                background: `linear-gradient(135deg, ${subjectColor}, ${subjectColor}B3)`,
-                boxShadow: `0 8px 20px -8px ${subjectColor}`,
-              }}
+              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-base font-extrabold sm:h-12 sm:w-12 sm:text-lg"
+              style={{ backgroundColor: `${subjectColor}15`, color: subjectColor }}
             >
               {chapter.number}
             </span>

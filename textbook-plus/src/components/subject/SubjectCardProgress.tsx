@@ -4,6 +4,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Trophy } from "lucide-react";
 import { useProgress } from "@/hooks/useProgress";
+import { ProgressRing } from "@/components/app/ProgressRing";
 
 interface SubjectProgressProps {
   slug: string;
@@ -37,6 +38,18 @@ export function SubjectProgressBadge({ slug, total, color }: SubjectProgressProp
     );
   }
   return null;
+}
+
+export function SubjectProgressRing({ slug, total, color }: SubjectProgressProps) {
+  const { done, pct } = useDone(slug, total);
+  return (
+    <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
+      <ProgressRing value={pct} size={36} strokeWidth={3} color={color}>
+        <span className="text-[0.65rem] font-bold tabular-nums text-foreground">{pct}%</span>
+      </ProgressRing>
+      <span className="font-medium tabular-nums">{done}/{total}</span>
+    </div>
+  );
 }
 
 export function SubjectProgressBar({ slug, total, color, name }: SubjectProgressProps) {

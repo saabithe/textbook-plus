@@ -69,7 +69,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 meta.name = 'theme-color';
                 document.head.appendChild(meta);
                 function sync() {
-                  meta.content = document.documentElement.classList.contains('dark') ? '#000000' : '#F3F7F1';
+                  meta.content = document.documentElement.classList.contains('dark') ? '#1B1E27' : '#FAFAFA';
                 }
                 sync();
                 new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });

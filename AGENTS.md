@@ -78,6 +78,8 @@ src/content/{subject-slug}/{chapter-slug}/
 
 *Top-level:* OrgChart, TreeDiagram (in `concept/`)
 
+**Shell/app primitives** (in `src/components/app/`, V3 "Quiet Precision" shell — see `Constitution/USER_PREFERENCES.md` §13): ProgressRing, StatPill, SectionHeading, ChapterRow, ContinueCard, ContinueStrip. Subject hubs use `src/components/subject/SubjectHeaderStats`; the progress dashboard is `src/components/progress/ProgressDashboard` at `/progress` (navbar-linked). `src/lib/recent.ts` tracks recently-viewed chapters (localStorage `recentChapters`, written from `ChapterLayout`) to power "Continue learning".
+
 **There is NO barrel export** — every import is a direct file path (e.g. `import { Callout } from "@/components/content/Callout"`). Components that don't exist (do not reference them): FlowDiagram, SortableTable, Kanban, NetworkDiagram, GuidedStepper, DecisionTree, RiskMatrix, ScenarioCard, PerspectiveCard, ArchitectureCard, IODiagram, EventFlow, RoadmapCard. The `decision/` and `system/` folders are empty — keep them empty unless a real need appears.
 
 **CRITICAL — LaTeX authoring rule**: All LaTeX in content files MUST be written with **single** backslashes inside **`String.raw`** templates — e.g. `latex={String.raw`\frac{a}{b}`}` and `<Formula>{String.raw`\sum x_i`}</Formula>`. Never double backslashes: JSX attributes preserve backslashes literally (doubling breaks KaTeX), and plain `{"`...`"}` template literals strip them. Never write `latex="\frac..."`. Run `node scripts/verify-latex.cjs` after any content math change — it renders every formula through KaTeX and fails on any error.

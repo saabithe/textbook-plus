@@ -233,3 +233,39 @@ All new and improved content components follow this design language. The new int
 **Top-level concept (1):** TreeDiagram
 
 *This file is append-only. Previous decisions are never deleted, only updated with new values when explicitly changed by the user.*
+
+### 13.1 V3 "Quiet Precision" Shell Design (Sep 2026)
+
+Replaced the flat white + loud per-element colors with a disciplined system. Rules:
+
+| Decision | Value |
+|----------|-------|
+| **Style** | Minimalism, clean, standard, professional. "Use shadcn components deliberately — which goes where." Efficiency is the principle. |
+| **Light tokens** | Neutral cool-gray surfaces (--background: oklch(0.99 0 0), --card: oklch(1 0 0)), emerald primary oklch(0.61 0.15 152) via --primary (tinted active pills primary/12, never loud fills). |
+| **Dark tokens** | Layered ink (265-hue): --background: oklch(0.155 0.012 265), --card: oklch(0.195 0.013 265), --popover: oklch(0.215 0.014 265), translucent --border: oklch(1 0 0 / 12%). Dark is a first-class showpiece. |
+| **Ambient light** | Body background uses a single faint emerald radial top-glow in light; two quieter inks (emerald + blue) in dark. No colored page washes elsewhere. |
+| **Theme color** | layout.tsx meta: light #FAFAFA, dark #1B1E27 (was #F3F7F1 / #000000). |
+| **Subject color** | Reserved for: icon medallions, progress rings/bars, hover accents, one accent line per surface. Never full-surface backgrounds (removed the loud card glow/border-2 hacks). |
+| **Surfaces** | Cards = order-border/70 bg-card shadow-sm, hover shadow-md + gentle tint. Navbar = hairline order-b panel + glass blur. Active nav = g-primary/12 text-primary (no heavy drop shadow). |
+
+### 13.2 App Primitives (src/components/app/)
+
+Reusable shell components (no barrel export; direct imports):
+
+- **ProgressRing** — SVG ring, alue/size/strokeWidth/color, centered children (percent labels), reduced-motion-safe.
+- **StatPill** — muted info pill: icon tile + value + label (subjects, chapters, completed, questions revealed).
+- **SectionHeading** — optional eyebrow/title/description/action used on every surface for consistent rhythm.
+- **ChapterRow** — chapter list row: status-aware medallion (check when done, colored number otherwise), title, meta, hidden-on-mobile status Badge (Not started / Started / Completed), chevron. done rows get an emerald tint card.
+- **ContinueCard** — continue-learning tile: subject eyebrow, title, meta, color accent bar, arrow CTA.
+- **ContinueStrip** — client; renders recent chapters (from src/lib/recent.ts, localStorage ecentChapters, max 6) with completed state from cloud progress; skeleton while loading; hidden when empty.
+
+### 13.3 Shell Surfaces (V3)
+
+- **Home** — hero eyebrow + headline + StatPill row, then ContinueStrip, then subject grid (cards now show a **ProgressRing** pct + done/total in the footer instead of the full-width bar), then Class 11 banner (quieted to 2xl border).
+- **Subject hubs / Class 11** — new SubjectHeaderStats row: chapters pill, completed pill, and a topics-count ring pill. Chapter lists now use ChapterRow with live status; Class 11 rows get a "Coming soon" badge when no content.
+- **Chapter reading room** — header flattened to a card: left accent line in subject color, tinted number chip (no gradient medallion), title + subtitle, Mark complete button.
+- **Progress dashboard (/progress, new)** — masthead card with overall ring (%, 120px), StatPills (chapters done, questions revealed, flashcards known), per-subject progress rows (icon + track in subject color + done/total), Class 11 rows included, continue-learning grid. Navbar now links to it.
+
+### 13.4 Recent-chapters tracking
+
+src/lib/recent.ts — markRecentChapter() called from ChapterLayout on mount (writes ecentChapters in localStorage, dedupes by href, caps at 6). Powers Home + /progress "Continue learning". Persisted locally only (not synced).
