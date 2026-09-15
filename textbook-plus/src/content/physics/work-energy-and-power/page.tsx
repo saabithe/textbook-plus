@@ -4,6 +4,7 @@ import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
 import { Stepper } from "@/components/content/Stepper";
 import { MetricCard } from "@/components/content/study/MetricCard";
@@ -57,11 +58,61 @@ export default function WorkEnergyAndPowerChapter() {
           </p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex={String.raw`\mathbf{F}\cdot\mathbf{d} = 3(5) + 4(4) + (-5)(3) = 16\ \text{unit}`} />
-          <FormulaBlock latex={String.raw`F^2 = 9 + 16 + 25 = 50,\qquad d^2 = 25 + 16 + 9 = 50`} />
-          <FormulaBlock latex={String.raw`\cos\theta = \frac{16}{\sqrt{50}\sqrt{50}} = 0.32,\qquad \theta = \cos^{-1}(0.32)`} important />
-          <p>Projection of F on d = <Formula>{String.raw`\frac{\mathbf{F}\cdot\mathbf{d}}{d} = \frac{16}{\sqrt{50}}`}</Formula>.</p>
+          <ul className="space-y-1.5 list-none">
+            <li><Formula>{String.raw`\mathbf{F}\cdot\mathbf{d} = 3(5) + 4(4) + (-5)(3) = 16\ \text{unit}`}</Formula>.</li>
+            <li>Magnitudes: <Formula>{String.raw`F^2 = 9 + 16 + 25 = 50`}</Formula>, <Formula>{String.raw`d^2 = 25 + 16 + 9 = 50`}</Formula>.</li>
+            <li>Thus <Formula>{String.raw`\cos\theta = \frac{16}{\sqrt{50}\sqrt{50}} = 0.32`}</Formula>, so <strong>θ = cos⁻¹(0.32)</strong>.</li>
+            <li><strong>Projection of F on d</strong> = <Formula>{String.raw`\frac{\mathbf{F}\cdot\mathbf{d}}{d} = \frac{16}{\sqrt{50}}`}</Formula>.</li>
+          </ul>
         </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable variant="exercise" title="PYQs — The scalar product">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>The magnitude of A is 2 and of B is 4. If the angle between them is 60°, find the scalar product A·B.</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>If A = 2î + 2ĵ + 2k̂ and B = 2î + 3ĵ + 4k̂, find A·B.</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>If A = 3î + 3ĵ + 3k̂ and B = 1î + 2ĵ + 2k̂, find the angle between A and B.</p>
+            </div>,
+            <div key={4}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>If A and B are perpendicular to each other, their scalar product will be…</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>A·B = AB cosθ = 2 × 4 × cos 60° = 8 × ½ = <strong>4 units</strong>.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>A·B = A_xB_x + A_yB_y + A_zB_z = (2 × 2) + (2 × 3) + (2 × 4) = 4 + 6 + 8 = <strong>18</strong>.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li>cosθ = A·B / AB, where A·B = (3 × 1) + (3 × 2) + (3 × 2) = 15.</li>
+                <li>A = √(3² + 3² + 3²) = √27 = 3√3; B = √(1 + 4 + 4) = √9 = 3.</li>
+                <li>cosθ = 15 / (3√3 × 3) = 5/3√3, so θ = cos⁻¹(5/3√3).</li>
+              </ul>
+            </div>,
+            <div key={4}>
+              <ul className="space-y-1.5 list-none">
+                <li>Zero: A·B = AB cos 90° = <strong>0</strong>.</li>
+                <li>General rule: perpendicular vectors (θ = 90°) always have a zero scalar product.</li>
+              </ul>
+            </div>,
+          ]}
+        />
       </Expandable>
 
       <h2 id="h-we">5.2 Notions of Work and Kinetic Energy — The Work-Energy Theorem</h2>
@@ -97,11 +148,12 @@ export default function WorkEnergyAndPowerChapter() {
           </p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex={String.raw`\Delta K = \tfrac{1}{2}mv^2 = \tfrac{1}{2}\times 10^{-3}\times 50 \times 50 = 1.25\ \text{J}`} important />
-          <FormulaBlock latex={String.raw`W_g = mgh = 10^{-3}\times 10 \times 10^3 = 10.0\ \text{J}`} />
-          <p>By the work-energy theorem <Formula>{String.raw`\Delta K = W_g + W_r`}</Formula>:</p>
-          <FormulaBlock latex={String.raw`W_r = 1.25 - 10 = -8.75\ \text{J}`} important />
-          <p>Negative — the resistive force opposes the motion. Here WE theorem computed a work even though the exact force is unknown.</p>
+          <ul className="space-y-1.5 list-none">
+            <li>Kf = ½mv² = ½ × 10⁻³ × 50 × 50 = <strong>1.25 J</strong> (initial KE = 0, drop starts from rest).</li>
+            <li>Work by gravity: W_g = mgh = 10⁻³ × 10 × 10³ = <strong>10.0 J</strong>.</li>
+            <li>By the work-energy theorem ΔK = W_g + W_r, so W_r = 1.25 − 10 = <strong>−8.75 J</strong>.</li>
+            <li>Negative — the resistive force opposes the motion. The WE theorem here computed a work even though the exact force is unknown.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
 
@@ -134,21 +186,114 @@ export default function WorkEnergyAndPowerChapter() {
           </p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex={String.raw`W_r = Fd\cos\theta = 200 \times 10 \times \cos\pi = -2000\ \text{J}`} important />
-          <p>This negative work is what halts the cycle, in accordance with the WE theorem.</p>
-          <p>
-            (b) By Newton&rsquo;s third law the cycle exerts an equal and opposite force (200 N) on the road —
-            but the road undergoes <strong>no displacement</strong>. Hence the work done by the cycle on
-            the road is <strong>zero</strong>.
-          </p>
+          <ul className="space-y-1.5 list-none">
+            <li>(a) The road force opposes the motion: W_r = Fd cosθ = 200 × 10 × cos 180° = <strong>−2000 J</strong>.</li>
+            <li>This negative work is what halts the cycle, in accordance with the WE theorem.</li>
+            <li>(b) By Newton&rsquo;s third law the cycle exerts an equal and opposite force (200 N) on the road — but the road undergoes <strong>no displacement</strong>. Hence the work done by the cycle on the road is <strong>zero</strong>.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
       <MistakeCard
         mistake="&ldquo;Since F₁₂ and F₂₁ are equal and opposite, the work done on A by B must equal the work done on B by A.&rdquo;"
         correction="Wrong. Mutual forces are equal and opposite, but the WORK done on A by B is not necessarily equal and opposite to the work done on B by A — the two bodies may have different displacements (Example 5.3: −2000 J vs 0)."
       />
+      <FormulaCard>
+        <p><strong>Work-done extrema (W = FS cosθ):</strong></p>
+        <ul>
+          <li><strong>Maximum work:</strong> θ = 0° ⟹ cos 0° = 1, so W_max = FS — force and displacement in the same direction.</li>
+          <li><strong>Minimum / zero work:</strong> θ = 90° ⟹ cos 90° = 0, so W_min = 0 — force perpendicular to displacement.</li>
+          <li><strong>Negative work:</strong> 90° &lt; θ ≤ 180° — W = −FS at θ = 180°.</li>
+        </ul>
+      </FormulaCard>
+      <TableCard
+        headers={["Situation", "θ", "Sign of work"]}
+        rows={[
+          { cells: ["(a) Work done by a man on an object when lifting it up", "0°", "Positive"] },
+          { cells: ["(b) Work done by gravity on an object being lifted up", "180°", "Negative"] },
+          { cells: ["(c) Work done by gravity during motion on a horizontal smooth surface", "90°", "Zero"] },
+          { cells: ["(d) Work done by centripetal force on a body moving in a circular path", "90°", "Zero"] },
+          { cells: ["(e) Work done by gravitational force on a freely falling body", "0°", "Positive"] },
+          { cells: ["(f) Work done by a person carrying a load on his head, walking along a horizontal level road", "90°", "Zero"] },
+          { cells: ["(g) Work done by frictional force when a body slides", "180°", "Negative"] },
+          { cells: ["(h) Work done by a man lifting a bucket out of a well", "0°", "Positive"] },
+          { cells: ["(i) Work done by friction on a body sliding down an inclined plane", "180°", "Negative"] },
+          { cells: ["(j) Work done by the resistive force of air on a vibrating pendulum", "180°", "Negative"] },
+          { cells: ["(k) Work done by a man pushing a wall — no displacement", "—", "Zero (S = 0)"] },
+          { cells: ["(l) Work done by a man carrying a load on his head while standing still", "—", "Zero (S = 0)"] },
+        ]}
+        caption="Sign of work done — classic board case studies."
+      />
+      <Expandable variant="exercise" title="PYQs — Work done: numericals &amp; concepts">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>A force of magnitude 4 N makes a displacement of 2 m when acted at 60°. Find the work done.</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>If force F = 3î + 3ĵ + 3k̂ makes a displacement S = 1î + 2ĵ + 2k̂, find the work done.</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>A man tries to pull a rigid wall for a long time but fails to displace it. What is the external work done by him?</p>
+            </div>,
+            <div key={4}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Suggest two conditions for the work done by a force to be zero.</p>
+            </div>,
+            <div key={5}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>A force is required to do work. The work done by a force is the product of displacement and the component of force in the direction of displacement. Prove this statement.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>W = FS cosθ = 4 × 2 × cos 60° = 8 × ½ = <strong>4 J</strong>.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>W = F·S = F_xS_x + F_yS_y + F_zS_z = (3 × 1) + (3 × 2) + (3 × 2) = 3 + 6 + 6 = <strong>15 J</strong>.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li>Zero — with S = 0, W = FS cosθ = F × 0 = <strong>0</strong>. Work is done only when there is a displacement.</li>
+              </ul>
+            </div>,
+            <div key={4}>
+              <ul className="space-y-1.5 list-none">
+                <li>(i) <strong>Displacement is zero</strong> (S = 0) — e.g. pushing a rigid wall.</li>
+                <li>(ii) <strong>Force is perpendicular to displacement</strong> (θ = 90°) — e.g. gravity on a body moving horizontally.</li>
+                <li>(iii) <strong>Force applied is zero</strong> (F = 0).</li>
+              </ul>
+            </div>,
+            <div key={5}>
+              <ul className="space-y-1.5 list-none">
+                <li>Resolve the force F into two perpendicular components: F cosθ along the displacement and F sinθ perpendicular to it.</li>
+                <li>The perpendicular component F sinθ does <strong>no work</strong> (θ = 90° to the displacement).</li>
+                <li>Only the component along the displacement does work: W = (F cosθ) × S = <strong>FS cosθ</strong>.</li>
+                <li>So the work done equals the product of the displacement and the component of the force in the direction of displacement — i.e. W = F·S.</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
 
       <h2 id="h-kinetic">5.4 Kinetic Energy</h2>
+      <Callout type="note" title="Energy — the general idea">
+        <strong>Energy</strong> is <Highlight>the capacity to do work</Highlight>. Like work it is a scalar with the
+        SI unit <strong>joule (J)</strong> and dimensions <Formula>{String.raw`[ML^2T^{-2}]`}</Formula>. Forms of
+        energy include chemical, electrical, light and mechanical energy; each can be converted into the others,
+        and the total energy of an isolated system is conserved.</Callout>
+      <FormulaCard>
+        <p>
+          The <strong>mechanical energy</strong> of a body is the sum of its kinetic and potential parts:{" "}
+          <Formula>{String.raw`ME = KE + PE`}</Formula> — e.g. a flying bird has KE from its motion and PE from its height.
+        </p>
+      </FormulaCard>
       <Callout type="important" title="Kinetic energy">
         For an object of mass m with velocity v:
         <FormulaBlock latex={String.raw`K = \tfrac{1}{2}mv^2`} important />
@@ -160,10 +305,94 @@ export default function WorkEnergyAndPowerChapter() {
           <p>A 50.0 g bullet fired at 200 m s⁻¹ passes through 2.00 cm of soft plywood and emerges with only 10% of its initial kinetic energy. What is its emergent speed?</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex={String.raw`K_i = \tfrac{1}{2}\times 0.05 \times 200^2 = 1000\ \text{J},\qquad K_f = 0.1 \times 1000 = 100\ \text{J}`} />
-          <FormulaBlock latex={String.raw`v_f = \sqrt{\frac{2\times 100}{0.05}} = 63.2\ \text{m s}^{-1}`} important />
-          <p>Speed is reduced by ≈ 68% — not 90%, since KE ∝ v².</p>
+          <ul className="space-y-1.5 list-none">
+            <li>Initial KE: K_i = ½ × 0.05 × 200² = 1000 J; emergent KE: K_f = 0.1 × 1000 = 100 J.</li>
+            <li>Emergent speed: v_f = √(2 × 100 / 0.05) = <strong>63.2 m s⁻¹</strong>.</li>
+            <li>Speed is reduced by ≈ 68% — not 90%, since KE ∝ v².</li>
+          </ul>
         </ProblemSolution.Solution>
+      </Expandable>
+      <Callout type="important" title="Kinetic energy ↔ linear momentum">
+        Two links are exam favourites. With p = mv:
+        <FormulaBlock latex={String.raw`K = \frac{p^2}{2m} \qquad p = \sqrt{2mK}`} />
+        Derivation: K = ½mv² = ½m(v²) = ½(m²v²)/m = p²/2m.
+      </Callout>
+      <Expandable variant="exercise" title="PYQs — Kinetic energy: comparisons">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>The magnitude of kinetic energy of a body is K. What is its kinetic energy if its velocity is doubled?</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Derive the relationship between kinetic energy and linear momentum (p = mv).</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>A car and a lorry have equal kinetic energy. Which one will have greater momentum? Explain.</p>
+            </div>,
+            <div key={4}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>A light body and a heavy body have equal momentum. Which one has greater kinetic energy?</p>
+            </div>,
+            <div key={5}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>An electron and a proton are projected with equal kinetic energy. What is the ratio of their linear momenta if the proton is 1830 times heavier than the electron?</p>
+            </div>,
+            <div key={6}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>If the kinetic energy of a body is doubled, what is the percentage change in its linear momentum?</p>
+            </div>,
+            <div key={7}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>A car and a truck have the same kinetic energy. (a) Which has greater momentum? (b) If the truck&rsquo;s mass is 100 times the car&rsquo;s, find the ratio of their velocities.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>K = ½mv². With velocity doubled, K&prime; = ½m(2v)² = 4(½mv²) = <strong>4K</strong> — kinetic energy is quadrupled.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>K = ½mv², and p = mv so m²v² = p².</li>
+                <li>K = ½(m²v²)/m = p²/2m ⟹ <strong>K = p²/2m</strong>, i.e. p = √(2mK).</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li>p = √(2mK). For equal K, p ∝ √m.</li>
+                <li>Since m_lorry &gt; m_car, <strong>the lorry has greater momentum</strong>.</li>
+              </ul>
+            </div>,
+            <div key={4}>
+              <ul className="space-y-1.5 list-none">
+                <li>K = p²/2m. For equal p, K ∝ 1/m.</li>
+                <li>Since m_light &lt; m_heavy, <strong>the lighter body has greater kinetic energy</strong>.</li>
+              </ul>
+            </div>,
+            <div key={5}>
+              <ul className="space-y-1.5 list-none">
+                <li>p = √(2mK); equal K gives p ∝ √m, so p_p/p_e = √(m_p/m_e) = √1830 ≈ 42.8.</li>
+                <li>The <strong>proton&rsquo;s momentum is √1830 ≈ 42.8 times</strong> the electron&rsquo;s.</li>
+              </ul>
+            </div>,
+            <div key={6}>
+              <ul className="space-y-1.5 list-none">
+                <li>p = √(2mK) ⟹ p ∝ √K. K doubled ⟹ p multiplied by √2.</li>
+                <li>Percentage increase = (√2 − 1) × 100% ≈ <strong>41.4%</strong>.</li>
+              </ul>
+            </div>,
+            <div key={7}>
+              <ul className="space-y-1.5 list-none">
+                <li>(a) p = √(2mK), equal K ⟹ p ∝ √m — <strong>the truck (heavier) has greater momentum</strong>.</li>
+                <li>(b) Equal KE: ½m_c v_c² = ½m_t v_t² ⟹ v_t/v_c = √(m_c/m_t) = √(1/100) = <strong>1/10</strong>.</li>
+              </ul>
+            </div>,
+          ]}
+        />
       </Expandable>
 
       <h2 id="h-variable">5.5 Work Done by a Variable Force</h2>
@@ -184,10 +413,78 @@ export default function WorkEnergyAndPowerChapter() {
           <p>A woman pushes a trunk on a rough platform with 100 N over 10 m; she tires, and her force drops linearly to 50 N over the next 10 m. Friction is 50 N. Calculate the work done by the two forces over the 20 m.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex={String.raw`W_F = 100 \times 10 + \tfrac{1}{2}(100 + 50)\times 10 = 1000 + 750 = 1750\ \text{J}`} important />
-          <FormulaBlock latex={String.raw`W_f = (-50)\times 20 = -1000\ \text{J}`} important />
-          <p>Areas on the negative side of the force axis carry a negative sign.</p>
+          <ul className="space-y-1.5 list-none">
+            <li>External force: W_F = 100 × 10 + ½(100 + 50) × 10 = 1000 + 750 = <strong>1750 J</strong>.</li>
+            <li>Friction: W_f = (−50) × 20 = <strong>−1000 J</strong>.</li>
+            <li>Areas on the negative side of the force axis carry a negative sign.</li>
+          </ul>
         </ProblemSolution.Solution>
+      </Expandable>
+      <Callout type="important" title="Force–displacement graph">
+        The <Highlight>area under the force–displacement (F–S) graph gives the total work done</Highlight>. For a
+        constant force the area is simply <Formula>{String.raw`F \times S`}</Formula> (a rectangle); for a variable
+        force the area is evaluated by splitting it into rectangles, triangles and trapeziums.
+      </Callout>
+      <Expandable title="Example 5.5A — Work from an F–S graph (board numericals)" variant="example">
+        <ProblemSolution.Problem>
+          <p>Plot the F–S graph from the data below, determine if the force is variable or constant, and calculate the work done.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <ul className="space-y-1.5 list-none">
+            <li>Force (increasing linearly: 2, 4, 6, 8, 10 N) against displacement (1, 2, 3, 4, 5 m) gives a straight line through the origin.</li>
+            <li>Type of force: <strong>variable force</strong> — force increases linearly with displacement.</li>
+            <li>The graph is a right triangle with base 5 m and height 10 N; work done = its area.</li>
+            <li>W = ½ × base × height = ½ × 5 × 10 = <strong>25 J</strong>.</li>
+          </ul>
+        </ProblemSolution.Solution>
+      </Expandable>
+      <Expandable variant="exercise" title="PYQs — Force–displacement graphs &amp; energy conversions">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>If &lsquo;A&rsquo; is the area of a force–displacement graph, what quantity does A indicate?</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Ramesh lifts a body of mass m to a height h near the surface of the earth in a time t. Draw the force–displacement graph for the process.</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>A ball moves along a circle under the influence of centripetal force. What is the work done by the centripetal force on the ball?</p>
+            </div>,
+            <div key={4}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>An arrow shot from a bow has kinetic energy. How does it get this kinetic energy?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>The area under the F–S graph gives the <strong>total work done</strong> by the force.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>The applied force is constant, mg, over the whole displacement h.</li>
+                <li>The graph is a <strong>rectangle</strong>: height mg (constant force), base h (displacement).</li>
+                <li>Its area = mg × h = <strong>mgh</strong>, the work done / gravitational PE gained.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li>Zero — the centripetal force is always perpendicular (θ = 90°) to the velocity/displacement.</li>
+                <li>W = F·S = FS cos 90° = <strong>0</strong>.</li>
+              </ul>
+            </div>,
+            <div key={4}>
+              <ul className="space-y-1.5 list-none">
+                <li>Drawing the bow stores elastic potential energy in the stretched string (U = ½kx²).</li>
+                <li>As the bowstring relaxes this PE is converted into the kinetic energy of the arrow.</li>
+              </ul>
+            </div>,
+          ]}
+        />
       </Expandable>
 
       <h2 id="h-we-variable">5.6 The Work-Energy Theorem for a Variable Force</h2>
@@ -211,10 +508,84 @@ export default function WorkEnergyAndPowerChapter() {
           <p>A block of mass m = 1 kg at vᵢ = 2 m s⁻¹ enters a rough patch (0.10 m &lt; x &lt; 2.01 m) where the retarding force is inversely proportional to x: F_r = −k/x with k = 0.5 J, and zero outside. Find the final kinetic energy and speed across the patch.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex={String.raw`K_f = K_i - \int_{0.1}^{2.01}\frac{k}{x}\,\mathrm{d}x = \tfrac{1}{2}\times 1\times 2^2 - 0.5\ln\frac{2.01}{0.1}`} />
-          <FormulaBlock latex={String.raw`K_f = 2 - 0.5\ln(20.1) = 2 - 1.5 = 0.5\ \text{J},\qquad v_f = \sqrt{\frac{2K_f}{m}} = 1\ \text{m s}^{-1}`} important />
-          <p>ln is the natural logarithm to base e: ln X = log_e X = 2.303 log₁₀ X.</p>
+          <ul className="space-y-1.5 list-none">
+            <li>K_f = K_i − ∫(k/x)dx = ½ × 1 × 2² − 0.5 ln(2.01/0.1).</li>
+            <li>K_f = 2 − 0.5 ln(20.1) = 2 − 1.5 = <strong>0.5 J</strong>, so v_f = √(2K_f/m) = <strong>1 m s⁻¹</strong>.</li>
+            <li>ln is the natural logarithm to base e: ln X = log_e X = 2.303 log₁₀ X.</li>
+          </ul>
         </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable variant="exercise" title="PYQs — The work-energy theorem">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical · 2 marks</p>
+              <p>Show that the change in kinetic energy is equal to the work done.</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>How much work must be done to stop a 1000 kg car moving at 20 m s⁻¹ in a straight path?</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>A body of mass 50 kg starts from rest and acquires a speed of 100 m s⁻¹. Calculate the work done.</p>
+            </div>,
+            <div key={4}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>According to the work-energy theorem, work done by a force on a body equals the change in its kinetic energy. If the kinetic energy of a body is doubled, what is the percentage change in its linear momentum?</p>
+            </div>,
+            <div key={5}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>A lorry and a car moving with the same kinetic energy are stopped by applying brakes which provide the same retardation. Which of them will come to rest in a shorter distance? Explain. Also state: &ldquo;The change in kinetic energy of a particle is equal to the work done on it by the net force&rdquo; — True or False?</p>
+            </div>,
+            <div key={6}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>A body of mass 5 kg, initially at rest, is subjected to a horizontal force of 20 N. What kinetic energy does it acquire at the end of 10 s?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>3rd equation of motion: v² = u² + 2as ⟹ v² − u² = 2as.</li>
+                <li>Change in KE: ΔK = ½m(v² − u²) = ½m(2as) = m·a·s.</li>
+                <li>By the second law F = ma, so ΔK = F·s; and W = F·s.</li>
+                <li>Hence <strong>ΔK = W</strong> — the change in kinetic energy equals the work done.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>W = ½m(v² − u²) = ½ × 1000 × (0² − 20²) = ½ × 1000 × (−400).</li>
+                <li>W = <strong>−200,000 J = −200 kJ</strong> — negative because the force opposes the motion.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li>W = ½m(v² − u²) = ½ × 50 × (100² − 0²) = 25 × 10,000.</li>
+                <li>W = <strong>+250,000 J = +250 kJ</strong>.</li>
+              </ul>
+            </div>,
+            <div key={4}>
+              <ul className="space-y-1.5 list-none">
+                <li>p = √(2mK) ⟹ p ∝ √K. K doubled ⟹ p multiplied by √2.</li>
+                <li>Percentage increase = (√2 − 1) × 100% ≈ <strong>41.4%</strong>.</li>
+              </ul>
+            </div>,
+            <div key={5}>
+              <ul className="space-y-1.5 list-none">
+                <li>By the WE theorem F·s = ΔK. With the same retardation (same stopping force F), the stopping distance s = K/F is determined by K alone.</li>
+                <li>Equal K and equal F ⟹ <strong>equal stopping distances</strong> for the lorry and the car.</li>
+                <li>Statement: <strong>TRUE</strong> — this is exactly the work-energy theorem (qualifying &ldquo;the net force&rdquo;).</li>
+              </ul>
+            </div>,
+            <div key={6}>
+              <ul className="space-y-1.5 list-none">
+                <li>a = F/m = 20/5 = 4 m s⁻²; v = at = 4 × 10 = 40 m s⁻¹.</li>
+                <li>K = ½mv² = ½ × 5 × 40² = <strong>4000 J</strong>.</li>
+              </ul>
+            </div>,
+          ]}
+        />
       </Expandable>
 
       <h2 id="h-potential">5.7 The Concept of Potential Energy</h2>
@@ -243,11 +614,124 @@ export default function WorkEnergyAndPowerChapter() {
         incline of height h at speed √(2gh), regardless of the angle of inclination. If the work depended
         on the path or on velocity, the force would be <strong>non-conservative</strong>.
       </KeyPoint>
+      <FormulaCard>
+        <p><strong>Examples.</strong></p>
+        <ul>
+          <li><strong>Conservative forces:</strong> electrostatic force, gravitational force, Lorentz force, elastic force.</li>
+          <li><strong>Non-conservative forces:</strong> frictional force, viscous force, tension, air resistance.</li>
+        </ul>
+      </FormulaCard>
+      <TableCard
+        headers={["Property", "Conservative force", "Non-conservative force"]}
+        rows={[
+          { cells: ["Work over a closed path (round trip)", "Zero (W_net = 0)", "Not zero (W_net ≠ 0)"] },
+          { cells: ["Central-force character", "Yes — they are central forces", "No — not central forces"] },
+          { cells: ["Work recovery", "Work done is completely recoverable", "Work done is non-recoverable"] },
+        ]}
+        caption="Properties of conservative vs non-conservative forces."
+      />
+      <Expandable variant="exercise" title="PYQs — Conservative forces">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Write any two properties of a conservative force.</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Write any two properties of a non-conservative force.</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Classify the following into conservative and non-conservative forces: electrostatic force, frictional force, magnetic force, viscous force.</p>
+            </div>,
+            <div key={4}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>&ldquo;Collision between two particles need not be the physical contact of two particles.&rdquo; Justify with an example.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>1. The work done over a closed (round) path is zero: W_net = 0.</li>
+                <li>2. They are central forces; the work done is completely recoverable.</li>
+                <li>3. Work depends only on the initial and final positions, never on the path taken.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>1. The work done over a closed path is not zero: W_net ≠ 0.</li>
+                <li>2. They are not central forces; the work done is non-recoverable.</li>
+                <li>3. Work depends on the path followed by the object.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li><strong>Conservative:</strong> electrostatic force, magnetic force.</li>
+                <li><strong>Non-conservative:</strong> frictional force, viscous force.</li>
+              </ul>
+            </div>,
+            <div key={4}>
+              <ul className="space-y-1.5 list-none">
+                <li>Correct — e.g. the <strong>scattering of an α-particle by a nucleus</strong>: the force acts at a distance (Coulomb), with no physical touching.</li>
+                <li>Contact during a collision is a special case; interactions of this kind are called <strong>scattering</strong>.</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
       <p>
         PE has the same dimensions as work [ML²T⁻²], unit J. The change in PE for a conservative force
         equals the negative of the work done by the force:
       </p>
       <FormulaBlock latex={String.raw`\Delta V = -F(x)\,\Delta x`} important />
+      <FormulaCard>
+        <p><strong>Types of potential energy</strong> (energy stored by virtue of position or state of strain):</p>
+        <ul>
+          <li><strong>Gravitational PE</strong> — a body at a height (U = mgh); water stored in a dam.</li>
+          <li><strong>Spring / elastic PE</strong> — a compressed spring or stretched bow (U = ½kx²).</li>
+          <li><strong>Electrostatic PE</strong> — a positive charge kept near another positive charge.</li>
+          <li><strong>Magnetic PE</strong> — energy stored in magnetic configurations.</li>
+        </ul>
+      </FormulaCard>
+      <Expandable variant="exercise" title="PYQs — Potential energy">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Write the type of energy present in each of: (i) flowing water; (ii) spring of a clock; (iii) rolling ball; (iv) raised hammer.</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Write the expression for the gravitational potential energy of a mass m raised to a height h from the earth&rsquo;s surface.</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Calculate the gravitational PE stored in a ball of mass 2 kg kept at a height of 10 m. Take g = 9.8 m s⁻².</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>(i) Flowing water — <strong>Kinetic energy</strong>.</li>
+                <li>(ii) Spring of a clock — <strong>Potential energy</strong> (elastic).</li>
+                <li>(iii) Rolling ball — <strong>Kinetic energy</strong>.</li>
+                <li>(iv) Raised hammer — <strong>Potential energy</strong> (gravitational).</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>U = mgh — the work done in raising the mass.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li>U = mgh = 2 × 9.8 × 10 = <strong>196 J</strong>.</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
 
       <h2 id="h-conservation">5.8 The Conservation of Mechanical Energy</h2>
       <p>
@@ -261,35 +745,101 @@ export default function WorkEnergyAndPowerChapter() {
         K and V may individually vary point to point, but their sum is constant. The total mechanical
         energy of a system is conserved <strong>if the forces doing work on it are conservative</strong>.
       </Callout>
-      <Expandable title="Ball dropped from a cliff of height H">
-        <p>
-          At the top the energy is purely potential, at ground level purely kinetic: E_H = mgH, E_h =
-          mgh + ½mv_h², E₀ = ½mv_f². Conservation gives v_f = √(2gH) and v_h = √(2g(H − h)) — familiar
-          kinematic results, now obtained from energy conservation.
-        </p>
+      <Expandable title="Board derivation — a body dropped from a height h (show ME is conserved)">
+        <p><strong>Points of analysis:</strong> A at height h (top, at rest); B at distance x below A; C at ground level.</p>
+        <TableCard
+          headers={["Point", "Height above ground", "PE", "KE", "Total ME"]}
+          rows={[
+            { cells: [
+              "A (top)",
+              "h",
+              "mgh (max)",
+              "0 (v = 0)",
+              "mgh",
+            ] },
+            { cells: [
+              "B (after falling x)",
+              "h − x",
+              "mg(h − x)",
+              "½mv_B² = ½m(2gx) = mgx (v_B² = 2gx)",
+              "mg(h − x) + mgx = mgh",
+            ] },
+            { cells: [
+              "C (ground)",
+              "0",
+              "0",
+              "½mv_C² = ½m(2gh) = mgh (v_C² = 2gh, max)",
+              "mgh",
+            ] },
+          ]}
+          caption="Conservation of mechanical energy during free fall (v² = u² + 2as with u = 0, s = x then h)."
+        />
+        <ul className="mt-3 space-y-1.5 list-none">
+          <li>At every point: <strong>ME = PE + KE = mgh</strong> — the total mechanical energy is constant.</li>
+          <li>Conclusion: <strong>mechanical energy is conserved during free fall</strong>; potential energy is continuously converted into kinetic energy.</li>
+        </ul>
+      </Expandable>
+      <Expandable title="Graphical interpretation — energy vs height for a falling body">
+        <ul className="space-y-1.5 list-none">
+          <li>X-axis: height h; Y-axis: energy.</li>
+          <li><strong>PE line:</strong> increases linearly (PE = mgh) from 0 at ground level to maximum at height h.</li>
+          <li><strong>KE line:</strong> decreases linearly from maximum (mgh) at ground level to 0 at height h.</li>
+          <li><strong>Total ME line (ME = PE + KE):</strong> a horizontal straight line at the constant value E = mgh.</li>
+        </ul>
+      </Expandable>
+      <Expandable variant="exercise" title="PYQs — Conservation of mechanical energy">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>A ball at rest is dropped from a height of 12 m. It loses 25% of its kinetic energy on striking the ground. Find the height to which it bounces.</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>A body of mass 5 kg is thrown vertically up with a kinetic energy of 490 J. Find the height at which the kinetic energy becomes half of the original value.</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Show that the potential energy of a body is completely converted into kinetic energy during its free fall under gravity.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>Just before striking: KE = ½mv² = mgh = 12mg (with v² = 2gh).</li>
+                <li>After impact it retains 75% of its kinetic energy: KE&prime; = 0.75 × 12mg = 9mg.</li>
+                <li>This becomes PE at the bounce height: mgh&prime; = 9mg ⟹ <strong>h&prime; = 9 m</strong>.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>Half the KE (245 J) remains and the other half (245 J) is converted to PE.</li>
+                <li>mgh = 245 J ⟹ h = 245 / (5 × 9.8) = <strong>5 m</strong> above the point of throw.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li>At the top (height h, rest): PE = mgh, KE = 0.</li>
+                <li>Falling a distance x: PE = mg(h − x), KE = ½mv² = ½m(2gx) = mgx.</li>
+                <li>At the ground (x = h): PE = 0, KE = mgh.</li>
+                <li>The initial PE mgh is regained, point for point, as KE — a complete PE → KE conversion.</li>
+              </ul>
+            </div>,
+          ]}
+        />
       </Expandable>
       <Expandable title="Example 5.7 — Bob on a string circling the top" variant="example">
         <ProblemSolution.Problem>
           <p>A bob of mass m on a light string of length L is given a horizontal velocity v₀ at the lowest point A so that it completes a semi-circular trajectory with the string slack only at the topmost point C. Find (i) v₀; (ii) the speeds at B and C; (iii) K_B/K_C. Comment on the trajectory after C.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>
-            The tension does no work (displacement always perpendicular to the string), so only gravity
-            matters and mechanical energy is conserved. Take V = 0 at A.
-          </p>
-          <FormulaBlock latex={String.raw`E_A = \tfrac{1}{2}mv_0^2,\qquad E_C = \tfrac{1}{2}mv_C^2 + 2mgL`} />
-          <p>
-            At C the string slackens (T_C = 0), so Newton&rsquo;s second law gives{" "}
-            <Formula>{String.raw`mv_C^2/L = mg`}</Formula>, i.e. v_C² = gL.
-          </p>
-          <FormulaBlock latex={String.raw`E_C = \tfrac{1}{2}mgL + 2mgL = \tfrac{5}{2}mgL`} />
-          <FormulaBlock latex={String.raw`v_0 = \sqrt{5gL},\qquad v_C = \sqrt{gL},\qquad v_B = \sqrt{3gL}`} important />
-          <FormulaBlock latex={String.raw`\frac{K_B}{K_C} = \frac{3gL}{gL} = 3`} important />
-          <p>
-            At C the string is slack; if it were cut there, the bob would leave with horizontal velocity
-            and follow a <strong>projectile trajectory</strong> (like a rock kicked horizontally off a
-            cliff). With the string intact it continues and completes the revolution.
-          </p>
+          <ul className="space-y-1.5 list-none">
+            <li>The tension does no work (displacement always perpendicular to the string), so only gravity matters and mechanical energy is conserved. Take V = 0 at A.</li>
+            <li>Energy at A: E_A = ½mv₀²; at C: E_C = ½mv_C² + 2mgL.</li>
+            <li>At C the string slackens (T_C = 0), so Newton&rsquo;s second law gives mv_C²/L = mg, i.e. v_C² = gL.</li>
+            <li>Thus E_C = ½mgL + 2mgL = 5/2 mgL; equating with E_A gives <strong>v₀ = √(5gL)</strong>, and v_C = √(gL), v_B = √(3gL), so K_B/K_C = 3.</li>
+            <li>At C the string is slack; if it were cut there, the bob would leave with horizontal velocity and follow a <strong>projectile trajectory</strong> (like a rock kicked horizontally off a cliff). With the string intact it continues and completes the revolution.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
 
@@ -321,10 +871,11 @@ export default function WorkEnergyAndPowerChapter() {
           <p>In a car-accident simulation, a car of mass 1000 kg moving at 18.0 km/h collides with a horizontally mounted spring (k = 5.25 × 10³ N m⁻¹). What is the maximum compression of the spring?</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex={String.raw`K = \tfrac{1}{2}\times 1000 \times 5^2 = 1.25\times 10^4\ \text{J}`} />
-          <p>(18 km h⁻¹ = 5 m s⁻¹; handy conversion: 36 km h⁻¹ = 10 m s⁻¹.)</p>
-          <FormulaBlock latex={String.raw`\tfrac{1}{2}kx_m^2 = K \;\Rightarrow\; x_m = 2.00\ \text{m}`} important />
-          <p>Idealised: the spring is massless and the surface friction is negligible.</p>
+          <ul className="space-y-1.5 list-none">
+            <li>Kinetic energy: K = ½ × 1000 × 5² = 1.25 × 10⁴ J (18 km h⁻¹ = 5 m s⁻¹; handy conversion: 36 km h⁻¹ = 10 m s⁻¹).</li>
+            <li>Conservation: ½kx_m² = K ⟹ x_m = 2.00 m.</li>
+            <li>Idealised: the spring is massless and the surface friction is negligible.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
       <Expandable title="Example 5.9 — Car crushing a spring with friction" variant="example">
@@ -332,11 +883,12 @@ export default function WorkEnergyAndPowerChapter() {
           <p>Repeat Example 5.8 taking coefficient of friction μ = 0.5 between car and road. What is the maximum compression now?</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>Both the spring force and friction oppose the compression, so we invoke the WE theorem rather than conservation of mechanical energy:</p>
-          <FormulaBlock latex={String.raw`\tfrac{1}{2}kx_m^2 + \mu mg x_m = \tfrac{1}{2}mv^2`} />
-          <p>μmg = 0.5 × 10³ × 10 = 5 × 10³ N (g = 10 m s⁻²).</p>
-          <FormulaBlock latex={String.raw`x_m = 1.35\ \text{m}`} important />
-          <p>Less than in Example 5.8, as expected — friction dissipates some energy.</p>
+          <ul className="space-y-1.5 list-none">
+            <li>Both the spring force and friction oppose the compression, so we invoke the WE theorem rather than conservation of mechanical energy: ½kx_m² + μmg x_m = ½mv².</li>
+            <li>μmg = 0.5 × 10³ × 10 = 5 × 10³ N (g = 10 m s⁻²).</li>
+            <li>Solving gives x_m = 1.35 m.</li>
+            <li>Less than in Example 5.8, as expected — friction dissipates some energy.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
       <FormulaCard>
@@ -352,6 +904,48 @@ export default function WorkEnergyAndPowerChapter() {
           adhered to consistently.
         </p>
       </FormulaCard>
+      <Expandable variant="exercise" title="PYQs — Energy stored in a spring">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Derive the expression for the potential energy stored in a spring of constant k stretched to a distance x.</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>A spring is applied with a force within the elastic limit. Draw the variation of the restoring force F with displacement X from the mean position. Also write the SI unit and dimensional formula of energy.</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Explain the conservation of mechanical energy in the case of a spring with the help of a graph.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>Hooke&rsquo;s law: the restoring force is F_restoring = −kx; the applied force is F_app = −F_restoring = kx.</li>
+                <li>Small work to stretch further by dx: dW = F_app dx = kx dx.</li>
+                <li>Total work from 0 to x: W = ∫₀ˣ kx dx = k[x²/2]₀ˣ = ½kx².</li>
+                <li>This work is stored as PE: <strong>U = ½kx²</strong>.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>The restoring force is proportional to the displacement: F = −kx, a <strong>straight line through the origin</strong> with slope −k (negative for restoring).</li>
+                <li>SI unit of energy: <strong>joule (J)</strong>.</li>
+                <li>Dimensional formula: <strong>[ML²T⁻²]</strong>.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li>At equilibrium (x = 0): PE is minimum (0) and KE is maximum.</li>
+                <li>At extremes x = ±x_m: KE = 0 and PE is maximum (½kx_m²).</li>
+                <li>Total energy TE = KE + PE stays constant at every position — the KE and PE plots are complementary parabolas.</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
 
       <h2 id="h-power">5.10 Power</h2>
       <p>
@@ -374,9 +968,71 @@ export default function WorkEnergyAndPowerChapter() {
           <p>An elevator (with passengers) of total mass 1800 kg moves up at a constant 2 m s⁻¹; friction opposing motion is 4000 N. Determine the minimum power the motor must deliver, in watts and horse-power.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex={String.raw`F = mg + F_f = 18000 + 4000 = 22000\ \text{N}`} />
-          <FormulaBlock latex={String.raw`P = Fv = 22000 \times 2 = 44000\ \text{W} = 59\ \text{hp}`} important />
+          <ul className="space-y-1.5 list-none">
+            <li>To move up at constant speed the motor must balance both the weight and friction: F = mg + F_f = 18000 + 4000 = 22000 N.</li>
+            <li>P = Fv = 22000 × 2 = <strong>44000 W = 59 hp</strong>.</li>
+          </ul>
         </ProblemSolution.Solution>
+      </Expandable>
+      <Expandable variant="exercise" title="PYQs — Power">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Express power in terms of force and velocity.</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>What is the SI unit of power? Express 1 kW in watts, and 5 hp in watts and kilowatts. Is kWh a unit of power or of energy?</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Calculate the energy used by a 100 W bulb that is on for 10 hours.</p>
+            </div>,
+            <div key={4}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>A machine has a power of 20 kW. How long will it take to lift a body of mass 10 kg from the ground to a height of 100 m? (g = 10 m s⁻².)</p>
+            </div>,
+            <div key={5}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">NCERT</p>
+              <p>A pump on the ground floor of a building pumps water to fill a tank of volume 30 m³ in 15 minutes. If the tank is 40 m above the ground and the pump&rsquo;s efficiency is 30%, how much electric power is consumed by the pump?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>Work done: W = F·s. Power: P = dW/dt = d(F·s)/dt.</li>
+                <li>For a constant force: P = F·(ds/dt) = <strong>P = F·v = Fv cosθ</strong>.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>SI unit: the <strong>watt (W)</strong> = 1 J s⁻¹.</li>
+                <li>1 kW = 1000 W; 1 hp = 746 W, so 5 hp = 3730 W = 3.730 kW.</li>
+                <li>kWh is a unit of <strong>energy</strong> (E = Pt), not of power.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li>E = Pt = 100 W × (10 × 3600) s = 3,600,000 J = <strong>3.6 × 10⁶ J</strong>.</li>
+                <li>In kilowatt-hours: 0.1 kW × 10 h = <strong>1 kWh</strong>.</li>
+              </ul>
+            </div>,
+            <div key={4}>
+              <ul className="space-y-1.5 list-none">
+                <li>Work to lift: W = mgh = 10 × 10 × 100 = 10,000 J.</li>
+                <li>t = W/P = 10,000 / 20,000 = <strong>0.5 s</strong>.</li>
+              </ul>
+            </div>,
+            <div key={5}>
+              <ul className="space-y-1.5 list-none">
+                <li>Mass of water = volume × density = 30 m³ × 10³ kg m⁻³ = 3 × 10⁴ kg.</li>
+                <li>Useful work: W = mgh = 3 × 10⁴ × 10 × 40 = 1.2 × 10⁷ J; useful power = 1.2 × 10⁷ / 900 ≈ 1.33 × 10⁴ W.</li>
+                <li>Efficiency 30% ⟹ electric power consumed = useful/0.3 ≈ 4.4 × 10⁴ W = <strong>44.4 kW</strong>.</li>
+              </ul>
+            </div>,
+          ]}
+        />
       </Expandable>
 
       <h2 id="h-collisions">5.11 Collisions</h2>
@@ -419,19 +1075,61 @@ export default function WorkEnergyAndPowerChapter() {
           <li><strong>Heavy target (m₂ ≫ m₁):</strong> v₁f ≈ −v₁ᵢ, v₂f ≈ 0 — the heavy mass is undisturbed and the light mass reverses at the same speed.</li>
         </ul>
       </FormulaCard>
+      <Expandable title="Board derivation — relative velocity in an elastic 1-D collision">
+        <p><em>Show that the magnitude of the relative velocity between two bodies is unchanged by an elastic 1-D collision.</em></p>
+        <Stepper
+          steps={[
+            { label: "Momentum conservation", description: "m₁(u₁ − v₁) = m₂(v₂ − u₂) — Eq. (1)." },
+            { label: "Kinetic-energy conservation", description: "m₁(u₁² − v₁²) = m₂(v₂² − u₂²); factorising: m₁(u₁ + v₁)(u₁ − v₁) = m₂(v₂ + u₂)(v₂ − u₂) — Eq. (2)." },
+            { label: "Divide Eq. (2) by Eq. (1)", description: "u₁ + v₁ = v₂ + u₂ ⟹ u₁ − u₂ = v₂ − v₁." },
+            { label: "Magnitudes", description: "|u₁ − u₂| = |v₂ − v₁| — the relative speed of approach equals the relative speed of separation." },
+          ]}
+        />
+        <ul className="mt-3 space-y-1.5 list-none">
+          <li>In vector form this is the board favourite: <strong>(u₁ − u₂) = −(v₁ − v₂)</strong> — the relative velocity reverses in sign (approach becomes separation) but keeps the same magnitude during an elastic 1-D collision.</li>
+        </ul>
+      </Expandable>
+      <Expandable variant="exercise" title="PYQs — Collisions">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>What is the quantity that remains conserved in all types of collisions?</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>Two point masses m₁ and m₂ approach each other with speeds u₁ and u₂, collide in one dimension and separate with velocities v₁ and v₂. Show that (u₁ − u₂) = −(v₁ − v₂), i.e. after the collision their relative velocities are equal in magnitude.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li><strong>Total linear momentum</strong> — conserved in elastic and inelastic collisions alike (the third law ensures Δp₁ + Δp₂ = 0 at every instant).</li>
+                <li>Total kinetic energy is conserved only in elastic collisions; total energy is always conserved.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>Momentum: m₁(u₁ − v₁) = m₂(v₂ − u₂). KE: m₁(u₁² − v₁²) = m₂(v₂² − u₂²).</li>
+                <li>Factorising: m₁(u₁ + v₁)(u₁ − v₁) = m₂(v₂ + u₂)(v₂ − u₂); dividing by the momentum equation: u₁ + v₁ = v₂ + u₂.</li>
+                <li>Rearranging: u₁ − u₂ = v₂ − v₁ ⟹ <strong>(u₁ − u₂) = −(v₁ − v₂)</strong>.</li>
+                <li>Taking magnitudes: |u₁ − u₂| = |v₁ − v₂| — the relative velocities are equal in magnitude.</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
       <Expandable title="Example 5.11 — Slowing down neutrons" variant="example">
         <ProblemSolution.Problem>
           <p>In a nuclear reactor, neutrons (~10⁷ m s⁻¹) must slow to ~10³ m s⁻¹ to fission ²³⁵U. Show that a neutron can lose most of its kinetic energy by elastic collision with light nuclei (deuterium or carbon) — the moderator (heavy water D₂O or graphite).</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>Fraction of KE retained by the neutron (Eq. 5.26):</p>
-          <FormulaBlock latex={String.raw`f_1 = \frac{K_{1f}}{K_{1i}} = \left(\frac{m_2 - m_1}{m_1 + m_2}\right)^2`} important />
-          <FormulaBlock latex={String.raw`f_2 = 1 - f_1 = \frac{4m_1m_2}{(m_1 + m_2)^2}`} />
-          <p>
-            Deuterium (m₂ = 2m₁): f₁ = 1/9, f₂ = 8/9 — almost <strong>90%</strong> of the neutron&rsquo;s
-            energy is transferred in one head-on hit. Carbon: f₁ = 71.6%, f₂ = 28.4%. In practice the
-            figure is smaller since head-on collisions are rare.
-          </p>
+          <ul className="space-y-1.5 list-none">
+            <li>Fraction of KE retained by the neutron (Eq. 5.26): f₁ = K₁f/K₁ᵢ = ((m₂ − m₁)/(m₁ + m₂))².</li>
+            <li>Fraction transferred: f₂ = 1 − f₁ = 4m₁m₂/(m₁ + m₂)².</li>
+            <li>Deuterium (m₂ = 2m₁): f₁ = 1/9, f₂ = 8/9 — almost <strong>90%</strong> of the neutron&rsquo;s energy is transferred in one head-on hit.</li>
+            <li>Carbon: f₁ = 71.6%, f₂ = 28.4%. In practice the figure is smaller since head-on collisions are rare.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
       <h3>5.11.3 Collisions in Two Dimensions</h3>
@@ -451,13 +1149,12 @@ export default function WorkEnergyAndPowerChapter() {
           <p>Equal-mass billiard balls; the target must sink at θ₂ = 37° (elastic, friction and spin ignored). Find the cue&rsquo;s deflection θ₁.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex={String.raw`v_{1i}^2 = v_{1f}^2 + v_{2f}^2 + 2v_{1f}v_{2f}\cos(\theta_1 + 37^\circ)`} />
-          <p>Elasticity with equal masses: <Formula>{String.raw`v_{1i}^2 = v_{1f}^2 + v_{2f}^2`}</Formula>. Comparing:</p>
-          <FormulaBlock latex={String.raw`\cos(\theta_1 + 37^\circ) = 0 \;\Rightarrow\; \theta_1 + 37^\circ = 90^\circ \;\Rightarrow\; \theta_1 = 53^\circ`} important />
-          <p>
-            Result: after a glancing elastic collision of two equal masses (one at rest), they leave{" "}
-            <strong>at right angles to each other</strong>.
-          </p>
+          <ul className="space-y-1.5 list-none">
+            <li>Law of cosines (Fig. 5.14): v₁ᵢ² = v₁f² + v₂f² + 2v₁fv₂f cos(θ₁ + 37°).</li>
+            <li>Elasticity with equal masses: v₁ᵢ² = v₁f² + v₂f². Comparing: cos(θ₁ + 37°) = 0.</li>
+            <li>Hence θ₁ + 37° = 90° ⟹ <strong>θ₁ = 53°</strong>.</li>
+            <li>Result: after a glancing elastic collision of two equal masses (one at rest), they leave <strong>at right angles to each other</strong>.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
       <Callout type="note" title="Collisions vs scattering">

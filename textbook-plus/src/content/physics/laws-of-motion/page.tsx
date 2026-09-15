@@ -159,9 +159,11 @@ export default function LawsOfMotionChapter() {
           <p>A bullet of mass 0.04 kg moving with a speed of 90 m s⁻¹ enters a heavy wooden block and is stopped after a distance of 60 cm. What is the average resistive force exerted by the block?</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex={String.raw`a = -\frac{u^2}{2s} = -\frac{90 \times 90}{2 \times 0.6}\ \text{m s}^{-2} = -6750\ \text{m s}^{-2}`} />
-          <FormulaBlock latex={String.raw`F = m a = 0.04 \times 6750 = 270\ \text{N}`} important />
-          <p>The resistive force may not be uniform — this is only the <strong>average</strong> value.</p>
+          <ul className="space-y-1.5 list-none">
+            <li>Find the retardation using v² = u² + 2as with v = 0: a = −u²/2s = −(90 × 90)/(2 × 0.6) = −6750 m s⁻².</li>
+            <li>Apply the second law: F = ma = 0.04 × 6750 = <strong>270 N</strong>.</li>
+            <li>The resistive force may not be uniform — this is only the <strong>average</strong> value.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
       <Expandable title="Example 4.3 — Motion y = ut + ½gt²: find the force" variant="example">
@@ -169,16 +171,12 @@ export default function LawsOfMotionChapter() {
           <p>The motion of a particle of mass m is described by <Formula>{String.raw`y = ut + \tfrac{1}{2}gt^2`}</Formula>. Find the force acting on the particle.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <Stepper
-            steps={[
-              { label: "Velocity — differentiate y", description: "v = dy/dt = d(ut + ½gt²)/dt = u·dt/dt + ½g·dt²/dt = u + gt." },
-              { label: "Acceleration — differentiate v", description: "a = dv/dt = d(u + gt)/dt = du/dt + g·dt/dt = g." },
-              { label: "Force — by the second law", description: "F = ma = m·g." },
-            ]}
-          />
-          <FormulaBlock latex={String.raw`v = \frac{\mathrm{d}y}{\mathrm{d}t} = u + gt, \qquad a = \frac{\mathrm{d}v}{\mathrm{d}t} = g`} />
-          <FormulaBlock latex={String.raw`F = ma = mg`} important />
-          <p>The described motion is that of a particle falling under uniform acceleration due to gravity, y being measured in the direction of g.</p>
+          <ul className="space-y-1.5 list-none">
+            <li><strong>Velocity</strong> — differentiate y: v = dy/dt = d(ut + ½gt²)/dt = u + gt.</li>
+            <li><strong>Acceleration</strong> — differentiate v: a = dv/dt = d(u + gt)/dt = g.</li>
+            <li><strong>Force</strong> — by the second law: F = ma = mg.</li>
+            <li>The described motion is that of a particle falling under uniform acceleration due to gravity, y being measured in the direction of g.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
       <h3>Impulse &amp; the impulse–momentum principle</h3>
@@ -199,8 +197,11 @@ export default function LawsOfMotionChapter() {
           <p>A batsman hits back a ball straight in the direction of the bowler without changing its initial speed of 12 m s⁻¹. If the mass of the ball is 0.15 kg, determine the impulse imparted to the ball. (Assume linear motion.)</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex={String.raw`\Delta p = 0.15 \times 12 - (-0.15 \times 12) = 3.6\ \text{N s}`} important />
-          <p>Impulse = 3.6 N s, in the direction from the batsman to the bowler. This is a case where the force and contact time are unknown but the impulse is readily computed.</p>
+          <ul className="space-y-1.5 list-none">
+            <li>The impulse equals the change in momentum: J = Δp = m(v − u), with v = +12 m s⁻¹ and u = −12 m s⁻¹ (direction reversed).</li>
+            <li>J = 0.15 × [12 − (−12)] = 0.15 × 24 = <strong>3.6 N s</strong>, directed from the batsman to the bowler.</li>
+            <li>Here the force and contact time are unknown, but the impulse is readily computed from Δp.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
 
@@ -309,20 +310,14 @@ export default function LawsOfMotionChapter() {
           <p>Two identical billiard balls strike a rigid wall with the same speed but at different angles and are reflected without change of speed (one normal, one at 30° to the normal). What is (i) the direction of the force on the wall due to each ball, and (ii) the ratio of the magnitudes of the impulses imparted to the balls?</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>
-            Use the second law on a ball, then the third law to answer for the wall. Choose x normal to the
-            wall. The y-component (parallel to the wall) of momentum is unchanged by the collision in both
-            cases.
-          </p>
-          <p>Case (a): impulse on the ball = −2mu (x-component), 0 (y).</p>
-          <p>Case (b): <Formula>{String.raw`\Delta p_x = -2mu\cos 30^\circ`}</Formula>, <Formula>{String.raw`\Delta p_y = 0`}</Formula>.</p>
-          <KeyPoint>
-            The force (and impulse) on the ball is normal to the wall in <strong>both</strong> cases — the
-            instinctive guess that case (b) is inclined at 30° is wrong. By the third law, the force on the
-            wall is normal too.
-          </KeyPoint>
-          <FormulaBlock latex={String.raw`\frac{|\text{impulse}(a)|}{|\text{impulse}(b)|} = \frac{2mu}{2mu\cos 30^\circ} = \frac{2}{\sqrt{3}} \approx 1.2`} important />
-          <p>The magnitudes of force cannot be found — the (small) collision time is not specified.</p>
+          <ul className="space-y-1.5 list-none">
+            <li>Use the second law on a ball, then the third law to answer for the wall. Take x normal to the wall; the y-component (parallel to the wall) of momentum is unchanged by the collision in both cases.</li>
+            <li><strong>Case (a):</strong> impulse on the ball = −2mu (x-component), 0 (y).</li>
+            <li><strong>Case (b):</strong> Δp_x = −2mu cos 30°, Δp_y = 0.</li>
+            <li><strong>Key result:</strong> the force (and impulse) on the ball is normal to the wall in <strong>both</strong> cases — the instinctive guess that case (b) is inclined at 30° is wrong. By the third law, the force on the wall is normal too.</li>
+            <li>Ratio of impulse magnitudes: |impulse(a)| / |impulse(b)| = 2mu / (2mu cos 30°) = 2/√3 ≈ 1.2.</li>
+            <li>The magnitudes of force cannot be found — the (small) collision time is not specified.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
 
@@ -431,10 +426,12 @@ export default function LawsOfMotionChapter() {
           <p>A mass of 6 kg is suspended by a rope of length 2 m from the ceiling. A force of 50 N horizontally is applied at the mid-point P. What is the angle the rope makes with the vertical in equilibrium? (g = 10 m s⁻²; rope massless.)</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>Free-body diagrams: for the weight W, <Formula>{String.raw`T_2 = 6 \times 10 = 60\ \text{N}`}</Formula>. For point P, resolve: </p>
-          <FormulaBlock latex={String.raw`T_1\cos\theta = 60\ \text{N}, \qquad T_1\sin\theta = 50\ \text{N}`} />
-          <FormulaBlock latex={String.raw`\tan\theta = \frac{50}{60} = \frac{5}{6} \;\Rightarrow\; \theta = \tan^{-1}(5/6) \approx 40^\circ`} important />
-          <p>The answer depends neither on the rope length nor on which point the horizontal force is applied.</p>
+          <ul className="space-y-1.5 list-none">
+            <li>Free-body diagrams: for the weight W, T₂ = mg = 6 × 10 = 60 N.</li>
+            <li>Resolve at point P: T₁ cosθ = 60 N and T₁ sinθ = 50 N.</li>
+            <li>Divide: tanθ = 50/60 = 5/6 ⟹ θ = tan⁻¹(5/6) ≈ 40°.</li>
+            <li>The answer depends neither on the rope length nor on which point the horizontal force is applied.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
 
@@ -528,8 +525,10 @@ export default function LawsOfMotionChapter() {
           <p>Determine the maximum acceleration of a train in which a box on its floor will remain stationary, given μₛ = 0.15 between box and floor.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <FormulaBlock latex={String.raw`ma = f_s \le \mu_s N = \mu_s m g \;\Rightarrow\; a \le \mu_s g`} />
-          <FormulaBlock latex={String.raw`a_{\max} = 0.15 \times 10 = 1.5\ \text{m s}^{-2}`} important />
+          <ul className="space-y-1.5 list-none">
+            <li>For the box to remain stationary on the train floor, friction must supply the force: ma = f_s ≤ μ_s N = μ_s mg ⟹ a ≤ μ_s g.</li>
+            <li>Hence a_max = 0.15 × 10 = <strong>1.5 m s⁻²</strong>.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
       <Expandable title="Example 4.8 — Angle of repose" variant="example">
@@ -537,10 +536,11 @@ export default function LawsOfMotionChapter() {
           <p>A mass of 4 kg rests on a horizontal plane. The plane is gradually inclined until at θ = 15° the mass just begins to slide. What is μₛ between block and surface?</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>Resolving the weight along the plane: <Formula>{String.raw`mg\sin\theta = f_s`}</Formula>, <Formula>{String.raw`mg\cos\theta = N`}</Formula>. At θ = θₘₐₓ, fₛ = μₛN, so:</p>
-          <FormulaBlock latex={String.raw`\tan\theta_{\max} = \mu_s \;\Rightarrow\; \theta_{\max} = \tan^{-1}\mu_s`} important />
-          <p>θₘₐₓ (the angle of repose) depends only on μₛ, <strong>not on the mass</strong>.</p>
-          <FormulaBlock latex={String.raw`\mu_s = \tan 15^\circ = 0.27`} important />
+          <ul className="space-y-1.5 list-none">
+            <li>Resolve weight along the plane: mg sinθ = f_s and mg cosθ = N.</li>
+            <li>At θ = θ_max (just about to slide), f_s = μ_s N ⟹ tanθ_max = μ_s ⟹ θ_max = tan⁻¹ μ_s — the <strong>angle of repose</strong>, depending only on μ_s, not on the mass.</li>
+            <li>μ_s = tan 15° = <strong>0.27</strong>.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
       <Expandable title="Example 4.9 — Block and trolley system" variant="example">
@@ -548,9 +548,12 @@ export default function LawsOfMotionChapter() {
           <p>A 3 kg block hangs by a light inextensible string over a smooth pulley, pulling a 20 kg trolley on a rough horizontal surface (μₖ = 0.04). Find the acceleration of the system and the tension in the string. (g = 10 m s⁻².)</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>Both accelerate equally. Block: <Formula>{String.raw`30 - T = 3a`}</Formula>. Trolley: <Formula>{String.raw`T - f_k = 20a`}</Formula> with <Formula>{String.raw`f_k = \mu_k N = 0.04 \times 200 = 8\ \text{N}`}</Formula>, so <Formula>{String.raw`T - 8 = 20a`}</Formula>.</p>
-          <FormulaBlock latex={String.raw`30 - T = 3a,\ T - 8 = 20a \;\Rightarrow\; a = \frac{22}{23} \approx 0.96\ \text{m s}^{-2}`} important />
-          <FormulaBlock latex={String.raw`T = 27.1\ \text{N}`} important />
+          <ul className="space-y-1.5 list-none">
+            <li>Both bodies accelerate equally. Block: 30 − T = 3a.</li>
+            <li>Trolley: T − f_k = 20a, with f_k = μ_k N = 0.04 × 200 = 8 N, so T − 8 = 20a.</li>
+            <li>Add the two equations: 30 − 8 = 23a ⟹ a = 22/23 ≈ <strong>0.96 m s⁻²</strong>.</li>
+            <li>Tension: T = 30 − 3a ≈ <strong>27.1 N</strong>.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
       <Callout type="note" title="Rolling friction">
@@ -732,8 +735,11 @@ export default function LawsOfMotionChapter() {
           <p>A cyclist rides at 18 km/h (5 m s⁻¹) around a sharp circular turn of radius 3 m on a level road, μₛ = 0.1. Will he slip?</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>Condition for no slip: <Formula>{String.raw`v^2 \le \mu_s R g`}</Formula>. Here <Formula>{String.raw`\mu_s R g = 0.1 \times 3 \times 9.8 = 2.94\ \text{m}^2\text{s}^{-2}`}</Formula> but <Formula>{String.raw`v^2 = 25\ \text{m}^2\text{s}^{-2}`}</Formula>.</p>
-          <FormulaBlock latex={String.raw`v^2 = 25 > 2.94 \;\Rightarrow\; \text{the cyclist WILL slip}`} important />
+          <ul className="space-y-1.5 list-none">
+            <li>Condition for no slip: v² ≤ μ_s R g = 0.1 × 3 × 9.8 = 2.94 m² s⁻².</li>
+            <li>But the actual speed squared is v² = 5² = 25 m² s⁻².</li>
+            <li>Since 25 &gt; 2.94, <strong>the cyclist WILL slip</strong>.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
       <Expandable title="Example 4.11 — Racetrack banked at 15°" variant="example">
@@ -745,17 +751,11 @@ export default function LawsOfMotionChapter() {
           </p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>Given: r = 300 m, θ = 15°, μ_s = 0.2; tan 15° = 0.2679.</p>
-          <Stepper
-            steps={[
-              { label: "(a) Optimum speed", description: "v_o = √(rg tanθ) = √(300 × 9.8 × tan 15°) = √(300 × 9.8 × 0.2679)." },
-              { label: "Evaluate", description: "v_o = √787.6 ≈ 28.1 m s⁻¹." },
-              { label: "(b) Maximum permissible speed", description: "v_max = √[ rg (tanθ + μ_s) / (1 − μ_s tanθ) ] = √[ 300 × 9.8 × (0.2679 + 0.2) / (1 − 0.2 × 0.2679) ]." },
-              { label: "Evaluate", description: "v_max = √[ 2940 × 0.4679 / 0.9464 ] ≈ √1453 ≈ 38.1 m s⁻¹." },
-            ]}
-          />
-          <FormulaBlock latex={String.raw`v_o = \sqrt{rg\tan\theta} = \sqrt{300 \times 9.8 \times \tan 15^\circ} = \sqrt{300 \times 9.8 \times 0.2679} \approx 28.1\ \text{m s}^{-1}`} important />
-          <FormulaBlock latex={String.raw`v_{\max} = \sqrt{rg\,\frac{\tan\theta + \mu_s}{1 - \mu_s\tan\theta}} = \sqrt{300 \times 9.8 \times \frac{0.4679}{0.9464}} \approx 38.1\ \text{m s}^{-1}`} important />
+          <ul className="space-y-1.5 list-none">
+            <li>Given: r = 300 m, θ = 15°, μ_s = 0.2; tan 15° = 0.2679.</li>
+            <li><strong>(a) Optimum speed</strong> — v_o = √(rg tanθ) = √(300 × 9.8 × 0.2679) = √787.6 ≈ <strong>28.1 m s⁻¹</strong>.</li>
+            <li><strong>(b) Maximum permissible speed</strong> — v_max = √[ rg (tanθ + μ_s) / (1 − μ_s tanθ) ] = √[ 300 × 9.8 × 0.4679 / 0.9464 ] ≈ √1453 ≈ <strong>38.1 m s⁻¹</strong>.</li>
+          </ul>
         </ProblemSolution.Solution>
       </Expandable>
       <Expandable variant="exercise" title="PYQs — Level circular road">
