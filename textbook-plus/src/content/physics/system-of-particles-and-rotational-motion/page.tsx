@@ -6,53 +6,36 @@ import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
-import { Stepper } from "@/components/content/Stepper";
+import { Derivation } from "@/components/content/process/Derivation";
 import { MetricCard } from "@/components/content/study/MetricCard";
 import { TableCard } from "@/components/content/data/TableCard";
 import { MoiDiagrams } from "@/components/content/physics/MoiDiagrams";
+import { RigidBodyMotions } from "@/components/content/physics/RigidBodyMotions";
 
 export default function SystemsOfParticlesAndRotationalMotionChapter() {
   return (
     <>
       <h2 id="h-intro">6.1 Introduction</h2>
-      <p>
-        Earlier chapters treated the motion of a single particle — ideally a point mass with no size —
-        and applied the same results to bodies of finite size. But every real body we encounter has finite
-        size, and for such <strong>extended bodies</strong> the particle model is inadequate. An extended
-        body is, first of all, a <strong>system of particles</strong>. We begin with the motion of the
-        system as a whole: the <Highlight>centre of mass</Highlight> is the key concept.
-      </p>
-      <KeyPoint title="Definition of a rigid body">
-        <strong>A body is considered rigid if the distance between any two points in the rigid body
-        always remains the same</strong>, even under the action of an external force. Key characteristics:
-        it has a definite shape and size. No real body is truly rigid (bodies deform under force), but for
-        wheels, tops, steel beams, molecules and planets the deformation is negligible, so we may treat
-        them as rigid.
+      <KeyPoint title="Key concept — rigid body">
+        <strong>A body is rigid if the distance between any two points remains constant</strong> — even
+        under the action of an external force.
       </KeyPoint>
+      <div className="my-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+        {[
+          { t: "Definite shape", d: "a fixed, unchanging form." },
+          { t: "Definite size", d: "fixed dimensions and volume." },
+          { t: "No real body is perfectly rigid", d: "bodies deform under force." },
+          { t: "Deformation is negligible → treat as rigid", d: "wheels, beams, molecules, planets." },
+        ].map((m) => (
+          <div key={m.t} className="flex flex-col gap-1 rounded-xl border border-border/50 bg-muted/20 px-3 py-2.5">
+            <span className="text-[0.72rem] font-extrabold leading-tight tracking-tight text-foreground">{m.t}</span>
+            <span className="text-[0.7rem] leading-snug text-muted-foreground">{m.d}</span>
+          </div>
+        ))}
+      </div>
 
       <h3>6.1.1 What kind of motion can a rigid body have?</h3>
-      <FormulaCard>
-        <p>A rigid body mainly has three types of motion:</p>
-        <ul>
-          <li>
-            <strong>Translational motion:</strong> particles of the body have the{" "}
-            <strong>same linear velocity</strong> at any instant (a block sliding down an inclined plane,
-            Fig. 6.1).
-          </li>
-          <li>
-            <strong>Rotational motion:</strong> particles of the body have the{" "}
-            <strong>same angular velocity</strong>; every particle moves in a circle in a plane
-            perpendicular to the axis, with its centre on the axis, and particles on the axis are
-            stationary (a ceiling fan, a potter&rsquo;s wheel, a merry-go-round).
-          </li>
-          <li>
-            <strong>Combination of translational and rotational motion (rolling):</strong> the centre of
-            mass follows the pure translational trajectory, while the points of the body rotate about it —
-            the point of contact of a rolling cylinder is instantaneously at rest when it rolls without
-            slipping (Fig. 6.2).
-          </li>
-        </ul>
-      </FormulaCard>
+      <RigidBodyMotions />
       <Expandable variant="exercise" title="PYQs — Motions of a rigid body">
         <ExerciseQa
           questions={[
@@ -81,12 +64,12 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         />
       </Expandable>
       <Callout type="note" title="The axis need not always be fixed">
-        In more general rotation only <em>one point</em> of the body is fixed: a spinning top precesses
-        about the vertical through its point of contact, and an oscillating table fan swings around its
-        pivot while the blades rotate. In this chapter we restrict ourselves to rotation about a{" "}
-        <strong>fixed axis</strong> unless stated otherwise. Rolling is then rotation about a fixed axis
-        combined with translation — the centre of mass of the body follows the pure translational
-        trajectory.
+        <ul className="space-y-1.5 list-none">
+          <li><strong>Point fixed:</strong> only <em>one point</em> of the body may be fixed — a spinning top precesses about the vertical through its point of contact.</li>
+          <li><strong>Axis moves:</strong> an oscillating table fan swings around its pivot while the blades rotate.</li>
+          <li><strong>This chapter:</strong> rotation about a <strong>fixed axis</strong> unless stated otherwise.</li>
+          <li><strong>Rolling:</strong> fixed-axis rotation + translation — the CM follows the pure translational trajectory.</li>
+        </ul>
       </Callout>
 
       <h2 id="h-com">6.2 Centre of Mass</h2>
@@ -444,12 +427,27 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
           r = 0, or the line of p passes through the origin.
         </p>
         <p><strong>Rate of change of angular momentum — derivation of τ = dl/dt:</strong></p>
-        <Stepper
+        <Derivation
+          title="Derivation — τ = dl/dt"
           steps={[
-            { label: "Start with l = r × p", description: "Differentiate both sides: dl/dt = d/dt(r × p)." },
-            { label: "Apply the product rule", description: "dl/dt = (dr/dt × p) + (r × dp/dt)." },
-            { label: "Identify the terms", description: "dr/dt = v, and p = mv ⟹ v × mv = 0 (cross product of parallel vectors vanishes)." },
-            { label: "Apply Newton&rsquo;s 2nd law", description: "dp/dt = F, so dl/dt = r × F = τ (6.27)." },
+            {
+              label: "Start with l = r × p and differentiate",
+              latex: String.raw`\frac{\mathrm{d}\mathbf{l}}{\mathrm{d}t} = \frac{\mathrm{d}}{\mathrm{d}t}(\mathbf{r}\times\mathbf{p})`,
+            },
+            {
+              label: "Apply the product rule",
+              latex: String.raw`\frac{\mathrm{d}\mathbf{l}}{\mathrm{d}t} = \left(\frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t}\times\mathbf{p}\right) + \left(\mathbf{r}\times\frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t}\right)`,
+            },
+            {
+              label: "The first term vanishes",
+              latex: String.raw`\frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = \mathbf{v},\ \ \mathbf{p} = m\mathbf{v}\quad\Longrightarrow\quad \mathbf{v}\times m\mathbf{v} = 0`,
+              note: "the cross product of parallel vectors is zero.",
+            },
+            {
+              label: "Newton&rsquo;s second law completes the result",
+              latex: String.raw`\frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} = \mathbf{F}\quad\Longrightarrow\quad \frac{\mathrm{d}\mathbf{l}}{\mathrm{d}t} = \mathbf{r}\times\mathbf{F} = \boldsymbol{\tau}`,
+              note: "Eq. (6.27).",
+            },
           ]}
         />
         <p>The rate of change of angular momentum equals the applied torque — the rotational analogue of <Formula>{String.raw`\mathbf{F} = \mathrm{d}\mathbf{p}/\mathrm{d}t`}</Formula>.</p>
@@ -459,13 +457,25 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         addition:
       </p>
       <FormulaBlock latex={String.raw`\mathbf{L} = \sum_i \mathbf{r}_i\times\mathbf{p}_i,\qquad \boldsymbol{\tau} = \sum_i \mathbf{r}_i\times\mathbf{F}_i`} />
-      <Stepper
-        steps={[
-          { label: "Separate external and internal forces", description: "τ = τ_ext + τ_int, with F_i = F_i_ext + F_i_int." },
-          { label: "Newton's third law + central forces", description: "Assuming inter-particle forces act along the line joining the particles, each action–reaction pair contributes zero torque, so τ_int = 0." },
-          { label: "Rotational second law for a system", description: "dL/dt = τ_ext (6.28b), the analogue of dP/dt = F_ext." },
-        ]}
-      />
+      <Derivation
+          title="Derivation — dL/dt = τ_ext for a system"
+          steps={[
+            {
+              label: "Separate the forces acting on each particle",
+              latex: String.raw`\mathbf{F}_i = \mathbf{F}_i^{\,\text{ext}} + \mathbf{F}_i^{\,\text{int}},\qquad \boldsymbol{\tau} = \boldsymbol{\tau}_\text{ext} + \boldsymbol{\tau}_\text{int}`,
+            },
+            {
+              label: "Internal forces contribute zero torque",
+              latex: String.raw`\boldsymbol{\tau}_\text{int} = \sum_i \mathbf{r}_i\times\mathbf{F}_i^{\,\text{int}} = 0`,
+              note: "inter-particle forces act along the line joining the particles, so each action–reaction pair produces equal-and-opposite torques that cancel.",
+            },
+            {
+              label: "Rotational second law for a system",
+              latex: String.raw`\frac{\mathrm{d}\mathbf{L}}{\mathrm{d}t} = \boldsymbol{\tau}_\text{ext}`,
+              note: "Eq. (6.28b) — the exact analogue of dP/dt = F_ext.",
+            },
+          ]}
+        />
       <Callout type="important" title="Conservation of angular momentum">
         If the total external torque is zero, <Formula>{String.raw`\frac{\mathrm{d}\mathbf{L}}{\mathrm{d}t} = 0`}</Formula>{" "}
         and <Formula>{String.raw`\mathbf{L} = \text{constant}`}</Formula> (6.29a) — each component L_x, L_y,
