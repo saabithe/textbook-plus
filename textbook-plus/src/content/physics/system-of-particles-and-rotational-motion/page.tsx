@@ -4,10 +4,10 @@ import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
 import { Stepper } from "@/components/content/Stepper";
 import { MetricCard } from "@/components/content/study/MetricCard";
-import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
 
 export default function SystemsOfParticlesAndRotationalMotionChapter() {
@@ -22,31 +22,63 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         system as a whole: the <Highlight>centre of mass</Highlight> is the key concept.
       </p>
       <KeyPoint title="Definition of a rigid body">
-        An ideal rigid body has a perfectly definite and unchanging shape — the distances between all
-        pairs of its particles never change. No real body is truly rigid (bodies deform under force), but
-        for wheels, tops, steel beams, molecules and planets the deformation is negligible, so we may
-        treat them as rigid.
+        <strong>A body is considered rigid if the distance between any two points in the rigid body
+        always remains the same</strong>, even under the action of an external force. Key characteristics:
+        it has a definite shape and size. No real body is truly rigid (bodies deform under force), but for
+        wheels, tops, steel beams, molecules and planets the deformation is negligible, so we may treat
+        them as rigid.
       </KeyPoint>
 
       <h3>6.1.1 What kind of motion can a rigid body have?</h3>
       <FormulaCard>
+        <p>A rigid body mainly has three types of motion:</p>
         <ul>
           <li>
-            <strong>Pure translation:</strong> every particle of the body has the same velocity at any
-            instant (a block sliding down an inclined plane, Fig. 6.1).
+            <strong>Translational motion:</strong> particles of the body have the{" "}
+            <strong>same linear velocity</strong> at any instant (a block sliding down an inclined plane,
+            Fig. 6.1).
           </li>
           <li>
-            <strong>Rolling motion is not pure translation:</strong> the points of a rolling cylinder have
-            different velocities at any instant; the point of contact is instantaneously at rest when it
-            rolls without slipping (Fig. 6.2).
+            <strong>Rotational motion:</strong> particles of the body have the{" "}
+            <strong>same angular velocity</strong>; every particle moves in a circle in a plane
+            perpendicular to the axis, with its centre on the axis, and particles on the axis are
+            stationary (a ceiling fan, a potter&rsquo;s wheel, a merry-go-round).
           </li>
           <li>
-            <strong>Rotation about a fixed axis:</strong> every particle moves in a circle in a plane
-            perpendicular to the axis, with its centre on the axis; particles on the axis are stationary.
-            Examples: a ceiling fan, a potter&rsquo;s wheel, a merry-go-round.
+            <strong>Combination of translational and rotational motion (rolling):</strong> the centre of
+            mass follows the pure translational trajectory, while the points of the body rotate about it —
+            the point of contact of a rolling cylinder is instantaneously at rest when it rolls without
+            slipping (Fig. 6.2).
           </li>
         </ul>
       </FormulaCard>
+      <Expandable variant="exercise" title="PYQs — Motions of a rigid body">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Fill in the Blanks</p>
+              <p>In rotational motion, particles have the same ________.</p>
+              <p className="mt-1 text-sm text-zinc-500">A) Linear velocity &nbsp; B) Angular velocity</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">True or False · Imp 2020</p>
+              <p>In pure rotational motion, every particle of the body has the same angular velocity at any instant of time. State whether this statement is True or False.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li><strong>B) Angular velocity</strong> — rotation shares a common ω across the body, not a common linear velocity.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li><strong>True</strong> — in pure rotational motion every particle rotates with the same instantaneous angular velocity (about the axis).</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
       <Callout type="note" title="The axis need not always be fixed">
         In more general rotation only <em>one point</em> of the body is fixed: a spinning top precesses
         about the vertical through its point of contact, and an oscillating table fan swings around its
@@ -302,6 +334,65 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
           <li>Reversing F reverses τ; reversing both r and F leaves τ unchanged.</li>
         </ul>
       </FormulaCard>
+      <Expandable variant="exercise" title="PYQs — Torque: concepts &amp; conditions">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Conceptual</p>
+              <p>What is the rotational analogue of force in linear motion?</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Conceptual</p>
+              <p>It is difficult to close or open a door by applying force at the hinges. Why?</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Conceptual</p>
+              <p>Suggest one method to increase the torque without changing the magnitude of force.</p>
+            </div>,
+            <div key={4}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Conceptual</p>
+              <p>Under what conditions is the torque due to an applied force zero?</p>
+            </div>,
+            <div key={5}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ 2016</p>
+              <p>The possibility of falling backward with the ladder is more when you are high up on the ladder than when you just begin to climb. Explain why.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>Torque (or moment of force): <strong>τ = r × F</strong>.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>At the hinges the perpendicular distance is r = 0, so <strong>τ = F × r = F × 0 = 0</strong>.</li>
+                <li>No torque is produced to rotate the door — the force merely presses on the hinge line.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li>Increase the distance r (the perpendicular distance of the point of application from the axis of rotation).</li>
+                <li>Alternatively, apply the force at right angles to the position vector so that sin θ → 1 — pushing the door at its outer edge rather than near the hinge.</li>
+              </ul>
+            </div>,
+            <div key={4}>
+              <ul className="space-y-1.5 list-none">
+                <li>Torque is zero when <strong>F = 0</strong> — no force applied.</li>
+                <li>Torque is zero when <strong>r = 0</strong> — the force acts at the pivot (zero perpendicular distance).</li>
+                <li>Torque is zero when the force acts along the line joining the point of origin — <strong>θ = 0° or 180°</strong> (sin θ = 0).</li>
+              </ul>
+            </div>,
+            <div key={5}>
+              <ul className="space-y-1.5 list-none">
+                <li>The weight of the person acts through the centre of gravity, at a perpendicular distance r from the ladder&rsquo;s base (pivot).</li>
+                <li>As you climb higher, r increases, so the torque about the base τ = mg r grows — <strong>τ ∝ r</strong>.</li>
+                <li>With the torque larger the ladder more easily rotates backward about its base, tipping over.</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
       <h3>6.7.2 Angular momentum</h3>
       <p>
         <Highlight>Angular momentum is the rotational analogue of linear momentum</Highlight> — the{" "}
@@ -345,6 +436,20 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         <ProblemSolution.Solution>
           <FormulaBlock latex={String.raw`\boldsymbol{\tau} = \mathbf{r}\times\mathbf{F} = \begin{vmatrix} \hat{\mathbf{i}} & \hat{\mathbf{j}} & \hat{\mathbf{k}} \\ 1 & -1 & 1 \\ 7 & 3 & -5 \end{vmatrix}`} />
           <FormulaBlock latex={String.raw`\boldsymbol{\tau} = \hat{\mathbf{i}}(5-3) - \hat{\mathbf{j}}(-5-7) + \hat{\mathbf{k}}(3+7) = 2\hat{\mathbf{i}} + 12\hat{\mathbf{j}} + 10\hat{\mathbf{k}}\ \text{N m}`} important />
+        </ProblemSolution.Solution>
+      </Expandable>
+      <Expandable title="Example 6.5A — Torque about the origin (Model 2023)" variant="example">
+        <ProblemSolution.Problem>
+          <p>
+            What is the torque of the force <Formula>{String.raw`\mathbf{F} = 2\hat{\mathbf{i}} - 5\hat{\mathbf{j}} + 4\hat{\mathbf{k}}`}</Formula>{" "}
+            acting at the point <Formula>{String.raw`\mathbf{r} = 3\hat{\mathbf{i}} + 3\hat{\mathbf{j}} + 3\hat{\mathbf{k}}`}</Formula>{" "}
+            about the origin?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <FormulaBlock latex={String.raw`\boldsymbol{\tau} = \mathbf{r}\times\mathbf{F} = \begin{vmatrix} \hat{\mathbf{i}} & \hat{\mathbf{j}} & \hat{\mathbf{k}} \\ 3 & 3 & 3 \\ 2 & -5 & 4 \end{vmatrix}`} />
+          <FormulaBlock latex={String.raw`\boldsymbol{\tau} = \hat{\mathbf{i}}(12+15) - \hat{\mathbf{j}}(12-6) + \hat{\mathbf{k}}(-15-6) = 27\hat{\mathbf{i}} - 6\hat{\mathbf{j}} - 21\hat{\mathbf{k}}`} important />
+          <p>τ = <strong>27î − 6ĵ − 21k̂ N m</strong>.</p>
         </ProblemSolution.Solution>
       </Expandable>
       <Expandable title="Example 6.6 — Constant angular momentum of a constant-velocity particle" variant="example">
