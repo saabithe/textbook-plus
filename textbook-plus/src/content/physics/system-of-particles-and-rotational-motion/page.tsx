@@ -181,6 +181,35 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
           </p>
         </ProblemSolution.Solution>
       </Expandable>
+      <Expandable variant="exercise" title="Board PYQs — Centre of mass">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">1 Mark · Board March 2023</p>
+              <p>The point at which the whole mass of the body is supposed to be concentrated is called ______.</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">1 Mark · Conceptual</p>
+              <p>The centre of mass of a system of particles depends on ______.</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">1 Mark · True/False</p>
+              <p>State true or false: the centre of mass of a uniform object is always located at its geometric centre.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <p>The <strong>centre of mass</strong> — the imaginary point at which the entire mass of the body may be assumed to be concentrated.</p>
+            </div>,
+            <div key={2}>
+              <p>On the <strong>distribution of mass</strong> in the system — that is, on the masses and their positions relative to one another.</p>
+            </div>,
+            <div key={3}>
+              <p>True. For a <strong>uniform object</strong> (constant density everywhere) the CM lies at the geometric centre — as for the uniform sphere, cube, rod and ring of §6.2. The CM may, however, lie outside the body itself (e.g. the middle of a ring or bangle).</p>
+            </div>,
+          ]}
+        />
+      </Expandable>
 
       <h2 id="h-com-motion">6.3 Motion of the Centre of Mass</h2>
       <p>Rewrite the definition of the CM as</p>
@@ -705,6 +734,10 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
               <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">1 Mark · Model PYQ 2021 / Board PYQ 2015</p>
               <p>The moment of inertia of a disc of mass M and radius R about an axis passing through its centre and perpendicular to its plane is MR²/2. What is the radius of gyration in this case?</p>
             </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">1 Mark · Conceptual</p>
+              <p>What happens to the moment of inertia of a rigid body if its mass is moved farther from the axis of rotation?</p>
+            </div>,
           ]}
           answers={[
             <div key={1}>
@@ -719,6 +752,9 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
                 <li>I = MR²/2; also I = Mk².</li>
                 <li>Mk² = MR²/2 ⟹ k² = R²/2 ⟹ <strong>k = R/√2</strong>.</li>
               </ul>
+            </div>,
+            <div key={3}>
+              <p>It <strong>increases</strong> — I = Σ mᵢrᵢ² grows with each distance rᵢ from the axis.</p>
             </div>,
           ]}
         />
@@ -739,9 +775,17 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         <Highlight>Rotation about a fixed axis has a single degree of freedom</Highlight> — one variable,
         the angular displacement θ. The angular velocity is ω = dθ/dt and the angular acceleration is α =
         dω/dt; with the axis
-        fixed these reduce to scalars. The kinematical equations of uniform acceleration carry over
-        directly:
+        fixed these reduce to scalars.
       </p>
+      <FormulaCard>
+        <p><strong>The terms of rotational motion</strong> (like their linear counterparts):</p>
+        <ul>
+          <li><strong>Angular displacement</strong> θ — the angle turned by the body; measured in radians (rad) or degrees (°).</li>
+          <li><strong>Angular velocity</strong> ω — the rate of change of angular displacement; ω = θ/t; for uniform circular motion ω = 2π/T = 2πf, measured in rad s⁻¹.</li>
+          <li><strong>Angular acceleration</strong> α — the rate of change of angular velocity; α = (ω₁ − ω₀)/t for uniform acceleration, measured in rad s⁻².</li>
+        </ul>
+      </FormulaCard>
+      <p>The kinematical equations of uniform acceleration carry over directly:</p>
       <FormulaCard>
         <ul>
           <li><Formula>{String.raw`\omega = \omega_0 + \alpha t`}</Formula> (6.36)</li>
@@ -814,6 +858,7 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
           { cells: ["Kinetic energy", "K = Mv²/2", "K = Iω²/2"] },
           { cells: ["Power", "P = Fv", "P = τω"] },
           { cells: ["Linear momentum", "p = Mv", "L = Iω"] },
+          { cells: ["Newton&rsquo;s law", "F = dp/dt", "τ = dL/dt"] },
         ]}
         caption="Table 6.2 — Comparison of translational and rotational motion."
       />
@@ -840,6 +885,33 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
             is lost to friction.
           </p>
         </ProblemSolution.Solution>
+      </Expandable>
+      <Expandable variant="exercise" title="Board PYQs — Dynamics of rotational motion">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">3 Marks · Board PYQ 2016</p>
+              <p>A wheel starting from rest acquires an angular velocity of 10 rad/s in two seconds. The moment of inertia of the wheel is 0.4 kg m². Calculate the torque acting on it.</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">2 Marks · Conceptual</p>
+              <p>The moments of inertia of two rotating bodies A and B are I_A and I_B with I_A &gt; I_B, and their angular momenta are equal (L_A = L_B). Which one has greater kinetic energy? Explain.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <p>First find the angular acceleration from the change in speed:</p>
+              <FormulaBlock latex={String.raw`\alpha = \frac{\omega_1 - \omega_0}{t} = \frac{10 - 0}{2} = 5\ \text{rad s}^{-2}`} />
+              <p>Then τ = Iα:</p>
+              <FormulaBlock latex={String.raw`\tau = I\alpha = 0.4\times 5 = 2\ \text{N m}`} important />
+            </div>,
+            <div key={2}>
+              <p>Write the kinetic energy in terms of L and I:</p>
+              <FormulaBlock latex={String.raw`K = \frac{L^2}{2I}`} />
+              <p>Since L is the same for both bodies, K ∝ 1/I. Because I_A &gt; I_B, body <strong>B</strong> (smaller moment of inertia) has the greater kinetic energy.</p>
+            </div>,
+          ]}
+        />
       </Expandable>
 
       <h2 id="h-fixed-axis-angular">6.12 Angular Momentum in the Case of Rotation about a Fixed Axis</h2>
@@ -879,6 +951,60 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         ω; folding them reverses the change. Circus acrobats, divers, skaters and dancers performing a
         pirouette exploit the same principle.
       </Callout>
+      <Expandable variant="exercise" title="PYQs — Conservation of angular momentum">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">1 Mark · Board PYQ 2017</p>
+              <p>The demonstration of conservation of angular momentum is shown schematically with two figures — a person with arms outstretched and a person with arms folded. Which figure attains the higher angular velocity, and why?</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">1 Mark · Imp PYQ</p>
+              <p>Classical dancers bring their hands closer to their body to rotate faster. Name the principle employed by them.</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">2 Marks · June 2022 / Model 2021</p>
+              <p>The angular speed of a rotating body changes from ω₁ to ω₂ without an external torque, but due to a change in its moment of inertia. Find the ratio of the radii of gyration in the two cases.</p>
+            </div>,
+            <div key={4}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Quick Practice</p>
+              <p>A diver changes his body position from a tuck to a pike during a dive. What happens to his angular velocity if his moment of inertia increases?</p>
+            </div>,
+            <div key={5}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Quick Practice</p>
+              <p>A skater with moment of inertia 2 kg m² is spinning at 5 rad/s. If she reduces her moment of inertia to 1 kg m², what is her new angular velocity?</p>
+            </div>,
+            <div key={6}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Quick Practice</p>
+              <p>A solid cylinder of mass 10 kg and radius 0.5 m rotates about its axis with an angular velocity of 4 rad/s. What is its angular momentum?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <p>
+                <strong>Arms folded</strong>. No external torque ⟹ L = Iω constant; folding the arms
+                reduces I, so ω must be larger.
+              </p>
+            </div>,
+            <div key={2}>
+              <p>The <strong>law of conservation of angular momentum</strong>.</p>
+            </div>,
+            <div key={3}>
+              <p>Conservation of angular momentum gives L₁ = L₂, i.e. I₁ω₁ = I₂ω₂. With I = M k²:</p>
+              <FormulaBlock latex={String.raw`M k_1^2 \omega_1 = M k_2^2 \omega_2 \implies \frac{k_1^2}{k_2^2} = \frac{\omega_2}{\omega_1} \implies \boxed{\frac{k_1}{k_2} = \sqrt{\frac{\omega_2}{\omega_1}}}`} important />
+            </div>,
+            <div key={4}>
+              <p>L = Iω constant⟹ if I increases, ω <strong>decreases</strong>.</p>
+            </div>,
+            <div key={5}>
+              <p>Conserving angular momentum: I₁ω₁ = I₂ω₂ ⟹ 2 × 5 = 1 × ω₂ ⟹ <strong>ω₂ = 10 rad/s</strong>.</p>
+            </div>,
+            <div key={6}>
+              <p>For a solid cylinder I = MR²/2 = ½ × 10 × 0.25 = 1.25 kg m²; L = Iω = 1.25 × 4 = <strong>5 kg m²/s</strong>.</p>
+            </div>,
+          ]}
+        />
+      </Expandable>
 
       <h2 id="h-exercises">Exercises 6.1 – 6.17</h2>
       <Expandable title="Exercises 6.1 – 6.17" variant="exercise">
