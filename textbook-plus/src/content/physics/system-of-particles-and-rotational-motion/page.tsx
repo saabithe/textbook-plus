@@ -9,6 +9,7 @@ import { Highlight } from "@/components/content/Highlight";
 import { Stepper } from "@/components/content/Stepper";
 import { MetricCard } from "@/components/content/study/MetricCard";
 import { TableCard } from "@/components/content/data/TableCard";
+import { MoiDiagrams } from "@/components/content/physics/MoiDiagrams";
 
 export default function SystemsOfParticlesAndRotationalMotionChapter() {
   return (
@@ -357,6 +358,10 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
               <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">PYQ 2016</p>
               <p>The possibility of falling backward with the ladder is more when you are high up on the ladder than when you just begin to climb. Explain why.</p>
             </div>,
+            <div key={6}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Numerical</p>
+              <p>A force of 15 N is applied at an angle of 30° to a lever arm that is 3 m long. What is the magnitude of the torque produced?</p>
+            </div>,
           ]}
           answers={[
             <div key={1}>
@@ -390,6 +395,11 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
                 <li>With the torque larger the ladder more easily rotates backward about its base, tipping over.</li>
               </ul>
             </div>,
+            <div key={6}>
+              <ul className="space-y-1.5 list-none">
+                <li>τ = rF sin θ = 3 × 15 × sin 30° = 3 × 15 × 0.5 = <strong>22.5 N m</strong>.</li>
+              </ul>
+            </div>,
           ]}
         />
       </Expandable>
@@ -404,10 +414,16 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
           Magnitude <Formula>{String.raw`l = rp\sin\theta = r_\perp p = rp_\perp`}</Formula>. Zero if p = 0,
           r = 0, or the line of p passes through the origin.
         </p>
-        <p>
-          Differentiating l = r × p: dl/dt = v × mv + r × dp/dt = 0 + r × F, hence
-        </p>
-        <p><Formula>{String.raw`\frac{\mathrm{d}\mathbf{l}}{\mathrm{d}t} = \boldsymbol{\tau}`}</Formula> (6.27) — the rotational analogue of F = dp/dt.</p>
+        <p><strong>Rate of change of angular momentum — derivation of τ = dl/dt:</strong></p>
+        <Stepper
+          steps={[
+            { label: "Start with l = r × p", description: "Differentiate both sides: dl/dt = d/dt(r × p)." },
+            { label: "Apply the product rule", description: "dl/dt = (dr/dt × p) + (r × dp/dt)." },
+            { label: "Identify the terms", description: "dr/dt = v, and p = mv ⟹ v × mv = 0 (cross product of parallel vectors vanishes)." },
+            { label: "Apply Newton&rsquo;s 2nd law", description: "dp/dt = F, so dl/dt = r × F = τ (6.27)." },
+          ]}
+        />
+        <p>The rate of change of angular momentum equals the applied torque — the rotational analogue of <Formula>{String.raw`\mathbf{F} = \mathrm{d}\mathbf{p}/\mathrm{d}t`}</Formula>.</p>
       </FormulaCard>
       <p>
         For a system of n particles, the total angular momentum and total torque are obtained by vector
@@ -426,6 +442,43 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         and <Formula>{String.raw`\mathbf{L} = \text{constant}`}</Formula> (6.29a) — each component L_x, L_y,
         L_z is separately conserved.
       </Callout>
+      <Expandable variant="exercise" title="PYQs — Angular momentum: definition &amp; units">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>What is angular momentum? What is its SI unit?</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Board Practical</p>
+              <p>If the rate of change of angular momentum is zero, what does this imply about the system?</p>
+            </div>,
+            <div key={3}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">1-Mark</p>
+              <p>The SI unit of angular momentum is</p>
+              <p className="mt-1 text-sm text-zinc-500">A) kg m² s⁻² &nbsp; B) kg m² s⁻¹ &nbsp; C) N m s &nbsp; D) J s⁻¹</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>Angular momentum is a <strong>measure of the rotational motion</strong> of a particle or body — it is the rotational analogue of linear momentum.</li>
+                <li>SI unit: <strong>kg m² s⁻¹</strong> (= J s).</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>If dL/dt = 0, the total angular momentum <strong>L is constant</strong> — the system is in <strong>rotational equilibrium</strong> with no net external torque.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li><strong>B) kg m² s⁻¹</strong> — from L = r × p = r(mv), so the dimensions are [L]·[M][L][T⁻¹] = [M L² T⁻¹].</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
       <Expandable title="Example 6.5 — Torque about the origin" variant="example">
         <ProblemSolution.Problem>
           <p>
@@ -602,8 +655,10 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
       <FormulaBlock latex={String.raw`K = \tfrac{1}{2}\left(\sum_i m_ir_i^2\right)\omega^2`} />
       <Callout type="important" title="Moment of inertia">
         <FormulaBlock latex={String.raw`I = \sum_i m_ir_i^2,\qquad K = \tfrac{1}{2}I\omega^2`} important />
-        I is a characteristic of the rigid body and of the axis about which it rotates — independent of ω.
-        It is the <strong>rotational analogue of mass</strong> (compare K = ½Mv²).
+        <strong>Moment of inertia (MI)</strong> is the property of a body in rotation due to which it is
+        unable to change its state of rest or of uniform rotational motion without the help of an external
+        torque. It is the <strong>rotational analogue of mass</strong> (compare K = ½Mv²). I is a
+        characteristic of the rigid body and of the axis about which it rotates — independent of ω.
       </Callout>
       <FormulaCard>
         <p><strong>Two simple cases:</strong></p>
@@ -612,19 +667,20 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
           <li>Light rod of length l with two masses M/2 each at distance l/2 from the CM (perpendicular axis through the CM): I = (M/2)(l/2)² + (M/2)(l/2)² = <Formula>{String.raw`Ml^2/4`}</Formula>.</li>
         </ul>
       </FormulaCard>
+      <MoiDiagrams />
       <TableCard
-        headers={["Body", "Axis", "Moment of inertia"]}
+        headers={["Body", "Axis", "Moment of inertia I", "Radius of gyration k"]}
         rows={[
-          { cells: ["Thin circular ring, radius R", "Perpendicular to plane, at centre", "MR²"] },
-          { cells: ["Thin circular ring, radius R", "Diameter", "MR²/2"] },
-          { cells: ["Thin rod, length L", "Perpendicular to rod, at midpoint", "ML²/12"] },
-          { cells: ["Circular disc, radius R", "Perpendicular to disc, at centre", "MR²/2"] },
-          { cells: ["Circular disc, radius R", "Diameter", "MR²/4"] },
-          { cells: ["Hollow cylinder, radius R", "Axis of cylinder", "MR²"] },
-          { cells: ["Solid cylinder, radius R", "Axis of cylinder", "MR²/2"] },
-          { cells: ["Solid sphere, radius R", "Diameter", "2MR²/5"] },
+          { cells: ["Thin circular ring, radius R", "Perpendicular to plane, at centre", "MR²", "R"] },
+          { cells: ["Thin circular ring, radius R", "Diameter", "MR²/2", "R/√2"] },
+          { cells: ["Thin rod, length L", "Perpendicular to rod, at midpoint", "ML²/12", "L/√12"] },
+          { cells: ["Circular disc, radius R", "Perpendicular to disc, at centre", "MR²/2", "R/√2"] },
+          { cells: ["Circular disc, radius R", "Diameter", "MR²/4", "R/2"] },
+          { cells: ["Hollow cylinder, radius R", "Axis of cylinder", "MR²", "R"] },
+          { cells: ["Solid cylinder, radius R", "Axis of cylinder", "MR²/2", "R/√2"] },
+          { cells: ["Solid sphere, radius R", "Diameter", "2MR²/5", "R·√(2/5)"] },
         ]}
-        caption="Table 6.1 — Moments of inertia of some regular shaped bodies about specific axes."
+        caption="Table 6.1 — Moments of inertia of some regular shaped bodies about specific axes, with the corresponding radius of gyration (k = √(I/M))."
       />
       <p>
         In every case I = Mk², where k has the dimension of length — the <strong>radius of
@@ -632,6 +688,41 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         <Highlight>the distance from the axis of a point mass equal to the body&rsquo;s total mass whose moment of inertia equals the body&rsquo;s</Highlight>. For a rod about its midpoint k = L/√12; for a
         disc about a diameter k = R/2.
       </p>
+      <Callout type="important" title="Radius of gyration (k)">
+        <FormulaBlock latex={String.raw`I = Mk^2`} important />
+        <Formula>{String.raw`k^2 = \frac{I}{M} \implies k = \sqrt{\frac{I}{M}}`}</Formula> — the distance
+        from the axis of rotation where the entire mass of the system is assumed to be concentrated so
+        that the moment of inertia remains the same.
+      </Callout>
+      <Expandable variant="exercise" title="PYQs — Moment of inertia &amp; radius of gyration">
+        <ExerciseQa
+          questions={[
+            <div key={1}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">3 Marks · PYQ 2021, Imp 2019, Model 2022</p>
+              <p>What are the factors on which the moment of inertia of a rigid body depends?</p>
+            </div>,
+            <div key={2}>
+              <p className="mb-1.5 inline-block rounded-full bg-amber-500/10 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">1 Mark · Model PYQ 2021 / Board PYQ 2015</p>
+              <p>The moment of inertia of a disc of mass M and radius R about an axis passing through its centre and perpendicular to its plane is MR²/2. What is the radius of gyration in this case?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li><strong>Mass of the body</strong> — I ∝ M.</li>
+                <li><strong>Distribution of mass about the axis of rotation</strong> — I = Σ mᵢrᵢ² depends on the distances rᵢ.</li>
+                <li><strong>Position/orientation of the axis of rotation</strong> — the same body has different I about different axes.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>I = MR²/2; also I = Mk².</li>
+                <li>Mk² = MR²/2 ⟹ k² = R²/2 ⟹ <strong>k = R/√2</strong>.</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
       <KeyPoint title="What determines the moment of inertia">
         I depends on the body&rsquo;s mass, its shape and size, the distribution of mass about the axis,
         and the position and orientation of the axis. Dimensions ML²; SI unit kg m². Unlike mass, I is
