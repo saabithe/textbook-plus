@@ -1,8 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
-import { Formula, FormulaBlock } from "@/components/content/Formula";
-import { FormulaCard } from "@/components/content/FormulaCard";
+import { FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
@@ -77,7 +76,16 @@ export default function MechanicalPropertiesOfSolidsChapter() {
         ]}
       />
 
-      <h2 id="h-hookes-law">8.3 Hooke's Law</h2>
+      <MistakeCard
+        mistake="Stress is a vector — it points in the direction of the applied force."
+        correction="Stress is not a vector: a force on a defined section has a definite direction, but the stress (force per unit area) has no single direction. Strains in other directions are produced even by a one-directional stress (Poisson effect)."
+      />
+      <MistakeCard
+        mistake="The tension inside a wire supports twice the applied load, so the tensile stress is 2F/A."
+        correction="At every cross-section of the wire the tension is exactly F (the applied force), so the tensile stress is F/A — the book stresses this point explicitly. Shear stress is possible only in solids because the cross-section must transmit tangential forces."
+      />
+
+      <h2 id="h-hookes-law">8.3 Hooke&rsquo;s Law</h2>
       <p>
         Experimentally, <Highlight>for <em>small</em> deformations the stress is directly proportional to the
         strain</Highlight>. This
@@ -131,8 +139,38 @@ export default function MechanicalPropertiesOfSolidsChapter() {
         for a given load — which is why it is used in heavy-duty machines and structures.
       </Callout>
 
+      <Expandable variant="exercise" title="Exercises — reading stress-strain curves">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.2 — Young&rsquo;s modulus and yield strength</h3>
+        <ProblemSolution.Problem>
+          <p>
+            The stress-strain graphs for materials A and B are in the form of straight lines up to the fracture
+            point. What is: (a) the Young&rsquo;s modulus, and (b) the approximate yield strength of each?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            (a) Y = slope of the linear part of the stress-strain graph: material A has the steeper slope, so
+            Y<sub>A</sub> ≈ 2 × 10¹¹ N m⁻² and Y<sub>B</sub> &lt; Y<sub>A</sub>. (b) The yield strength is the
+            stress at the break: A ≈ 3 × 10⁸ N m⁻², B ≈ 3 × 10⁸ N m⁻².
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.3 — Stronger material</h3>
+        <ProblemSolution.Problem>
+          <p>
+            The stress-strain graphs for two materials A and B are shown drawn on the same scale. (a) Which has
+            the greater Young&rsquo;s modulus? (b) Which is the stronger material?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            (a) <strong>A</strong> — its linear region is steeper (greater slope = greater Y). (b){" "}
+            <strong>A</strong> — it fractures at a higher stress, so its ultimate/breaking strength is larger.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
       <h2 id="h-elastic-moduli">8.5 Elastic Moduli</h2>
-      <h3 id="h-young">8.5.1 Young's Modulus (elasticity in length)</h3>
+      <h3 id="h-young">8.5.1 Young&rsquo;s Modulus (elasticity in length)</h3>
       <p>
         For tensile and compressive stress of the same magnitude the strain of a given material is the same.
         <Highlight><strong>Young&rsquo;s modulus</strong> is the ratio of longitudinal stress to longitudinal
@@ -307,7 +345,7 @@ export default function MechanicalPropertiesOfSolidsChapter() {
           </ProblemSolution.Solution>
         </Expandable>
 
-      <h3 id="h-poisson">8.5.4 Poisson's Ratio</h3>
+      <h3 id="h-poisson">8.5.4 Poisson&rsquo;s Ratio</h3>
       <p>
         A deforming force in one direction also produces strain in the perpendicular direction: stretching a wire
         makes it thinner. <Highlight>Within the elastic limit, the <strong>lateral strain</strong> is proportional to
@@ -329,6 +367,192 @@ export default function MechanicalPropertiesOfSolidsChapter() {
       <FormulaBlock latex={String.raw`W = \frac{Y\,A\,l^2}{2L} = \frac12\,Y\,(\mathrm{strain})^2\times V = \frac12\times\sigma\times\varepsilon\times V`} />
       <p><Highlight>so the elastic potential energy per unit volume is</Highlight></p>
       <FormulaBlock latex={String.raw`u = \frac12\,\sigma\varepsilon`} important />
+
+      <MistakeCard
+        mistake="The same magnitude of stress produces larger strain in steel than in aluminium."
+        correction="Steel is the most elastic of the common metals: for a given stress its strain is the SMALLEST. 'More elastic' means stretches less, not more — the steel wire needs 2000 N for a 0.1% elongation, aluminium only 690 N."
+      />
+      <MistakeCard
+        mistake="Rubber, because it stretches enormously, has a greater Young's modulus than steel."
+        correction="Ease of stretching is INVERSE to Young's modulus. Rubber's huge elongations under small forces mean a very small Y, and it does not even follow Hooke's law over most of its range. Steel's high Y is what makes it resist deformation so effectively."
+      />
+
+      <Expandable variant="exercise" title="Exercises — elastic moduli in practice">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.1 — Steel vs copper wire</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A steel wire of length 4.7 m and cross-sectional area 3.0 × 10⁻⁵ m² stretches by the same amount as
+            a copper wire of length 3.5 m and cross-sectional area 4.0 × 10⁻⁵ m² under a given load. What is the
+            ratio of the Young&rsquo;s modulus of steel to that of copper?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Equal load F and equal elongation ΔL for both wires: F = YA·ΔL/L must be the same. Hence
+          </p>
+          <FormulaBlock latex={String.raw`\frac{Y_s}{Y_c} = \frac{L_s/A_s}{L_c/A_c} = \frac{4.7/3.0\times10^{-5}}{3.5/4.0\times10^{-5}} = \frac{4.7\times4.0}{3.5\times3.0} = 1.79`} important />
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.4 — True or false</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Read the statements and judge: (a) The Young&rsquo;s modulus of rubber is greater than that of steel.
+            (b) The stretching of a coil is determined by its shear modulus.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            (a) <strong>False</strong> — Y<sub>rubber</sub> is smaller; steel is more elastic (deforms less
+            for a given load). (b) <strong>True</strong> — pulling a coil twists the wire (shear), so the
+            extension is governed by the shear modulus.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.5 — Elongations of steel and brass wires</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Two wires of equal diameter 0.25 cm, one of steel and the other of brass, are loaded as shown
+            (steel 4 kg, brass 6 kg). The unloaded steel length is 1.5 m, brass 1.0 m. Compute their
+            elongations. (Y<sub>s</sub> = 2.0 × 10¹¹, Y<sub>brass</sub> ≈ 0.91 × 10¹¹ Pa)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            A = π(1.25 × 10⁻³)² = 4.9 × 10⁻⁶ m²; ΔL = FL/(AY).
+          </p>
+          <FormulaBlock latex={String.raw`\Delta L_s = \frac{4\times9.8\times 1.5}{4.9\times10^{-6}\times 2.0\times10^{11}} = 6.0\times10^{-5}\;\mathrm{m}`} />
+          <FormulaBlock latex={String.raw`\Delta L_b = \frac{6\times9.8\times 1.0}{4.9\times10^{-6}\times 0.91\times10^{11}} = 1.3\times10^{-4}\;\mathrm{m}`} important />
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.6 — Vertical deflection of an aluminium cube</h3>
+        <ProblemSolution.Problem>
+          <p>
+            One face of an aluminium cube of edge 10 cm is firmly fixed to a vertical wall. A mass of 100 kg is
+            attached to the opposite face. What is the vertical deflection of the face? (G<sub>Al</sub> = 25 GPa)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            F = 100 × 9.8 = 980 N, A = 0.01 m², L = 0.1 m. Shearing stress = 980/0.01 = 9.8 × 10⁴ Pa.
+          </p>
+          <FormulaBlock latex={String.raw`\Delta x = \frac{\sigma_s\,L}{G} = \frac{9.8\times10^4\times 0.1}{25\times10^9} = 3.9\times10^{-7}\;\mathrm{m}`} important />
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.7 — Compressional strain of columns</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A four-column structure of hollow mild-steel columns carries a load of 50,000 kg. If the inner and
+            outer radii are 30 cm and 60 cm, what is the compressional strain of each column?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Load per column = 50,000 × 9.8/4 = 1.225 × 10⁵ N; A = π(0.60² − 0.30²) = 0.85 m².</p>
+          <FormulaBlock latex={String.raw`\mathrm{strain} = \frac{F/A}{Y} = \frac{1.225\times10^5/0.85}{2.0\times10^{11}} = 7.2\times10^{-7}`} important />
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.8 — Copper in tension</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A piece of copper having a rectangular cross-section of 15.2 × 19.1 mm is pulled in tension with a
+            force of 44,500 N. What is the strain produced? If only elastic deformation occurs, what is the
+            resulting strain? (Y<sub>Cu</sub> = 1.1 × 10¹¹ N m⁻²)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>A = 15.2 × 19.1 mm² = 2.9 × 10⁻⁴ m²; stress = 44,500/2.9 × 10⁻⁴ = 1.53 × 10⁸ Pa.</p>
+          <FormulaBlock latex={String.raw`\varepsilon = \frac{\sigma}{Y} = \frac{1.53\times10^8}{1.1\times10^{11}} = 1.4\times10^{-3}`} important />
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.10 — Diameter ratio of iron and copper wires</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A rigid bar of mass 15 kg is supported symmetrically by three wires, each 2.0 m long. Those at each
+            end are of copper and the middle one is of iron. If all three are elongated by the same amount, what
+            is the ratio of their diameters? (Y<sub>iron</sub> = 2.0 × 10¹¹, Y<sub>Cu</sub> = 1.1 × 10¹¹)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Equal tension and equal extension in each: F = Y A ΔL/L ⟹ A ∝ 1/Y, and A = πd²/4, so d²Y is the
+            same:
+          </p>
+          <FormulaBlock latex={String.raw`\frac{d_c}{d_f} = \sqrt{\frac{Y_f}{Y_c}} = \sqrt{\frac{2.0\times10^{11}}{1.1\times10^{11}}} = 1.35`} important />
+          <p>i.e. <strong>1.35 : 1 (copper : iron)</strong>.</p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.11 — Elongation of a wire while whirling a mass</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A 14.5 kg mass is attached to a steel wire of length 1.0 m and cross-sectional area 0.065 cm²; the
+            mass is whirled in a vertical circle with a uniform speed of 2 rev/s at the bottom point. What is the
+            elongation of the wire at this point? (Y<sub>s</sub> = 2.0 × 10¹¹ N m⁻²)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Tension at the bottom = weight + centripetal force. With ω = 2 × 2π = 4π rad s⁻¹:
+          </p>
+          <FormulaBlock latex={String.raw`T = mg + m\omega^2 r = 14.5(9.8 + 16\pi^2) = 2.43\times10^3\;\mathrm{N}`} />
+          <FormulaBlock latex={String.raw`\Delta L = \frac{T L}{A Y} = \frac{2.43\times10^3\times 1.0}{6.5\times10^{-6}\times 2.0\times10^{11}} = 1.9\times10^{-3}\;\mathrm{m}`} important />
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.12 — Bulk modulus of water</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Compute the bulk modulus of water from the following data: 100.0 L of water is compressed by a
+            pressure of 100 atm to a volume of 100.5 L. Compare it with the bulk modulus of air and explain why.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>ΔV = 0.5 L, p = 100 × 1.01 × 10⁵ = 1.01 × 10⁷ Pa:</p>
+          <FormulaBlock latex={String.raw`B = \frac{p}{|\Delta V|/V} = \frac{1.01\times10^7}{0.5/100} = 2.0\times10^9\;\mathrm{Pa}`} important />
+          <p>
+            Air has B ≈ 1.0 × 10⁵ Pa, so B<sub>water</sub> ≈ 2 × 10⁴ B<sub>air</sub> — water molecules are
+            tightly coupled (nearly incompressible) while the widely separated air molecules are easily pushed
+            together.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.13 — Density of water at depth</h3>
+        <ProblemSolution.Problem>
+          <p>
+            The density of water at the surface of the ocean is 1.03 × 10³ kg m⁻³ and the bulk modulus is 2.2 ×
+            10⁹ N m⁻². What is the density of water at a depth where the pressure is 80 atm?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            p = 80 × 1.013 × 10⁵ = 8.1 × 10⁶ Pa; ΔV/V = p/B = 8.1 × 10⁶/2.2 × 10⁹ = 3.7 × 10⁻³.
+          </p>
+          <FormulaBlock latex={String.raw`\rho' = \frac{\rho}{1-\Delta V/V} = \frac{1.03\times10^3}{1-3.7\times10^{-3}} = 1.03\times10^3\;\mathrm{kg\,m^{-3}}`} important />
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.14 — Fractional volume change of glass under pressure</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Compute the fractional change in volume of a glass slab when subjected to a hydraulic pressure of 10
+            atm. (B<sub>glass</sub> = 37 × 10⁹ N m⁻²)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>p = 10 atm = 1.013 × 10⁶ Pa:</p>
+          <FormulaBlock latex={String.raw`\frac{\Delta V}{V} = \frac{p}{B} = \frac{1.013\times10^6}{3.7\times10^{10}} = 2.7\times10^{-5}`} important />
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.15 — Volume contraction of a copper cube</h3>
+        <ProblemSolution.Problem>
+          <p>
+            What is the volume contraction of a 10 cm × 10 cm × 10 cm copper cube when a pressure of 7.0 × 10⁶ Pa
+            is applied on all its faces? (B<sub>Cu</sub> = 140 × 10⁹ Pa)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>V = 10⁻³ m³:</p>
+          <FormulaBlock latex={String.raw`\Delta V = \frac{p\,V}{B} = \frac{7.0\times10^6\times 10^{-3}}{1.4\times10^{11}} = 5\times10^{-8}\;\mathrm{m^3} = 0.05\;\mathrm{cm^3}`} important />
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.16 — Pressure to compress water by 0.10%</h3>
+        <ProblemSolution.Problem>
+          <p>
+            How much should the pressure on a litre of water be changed to compress it by 0.10%? (Take
+            B<sub>water</sub> = 2.2 × 10⁹ Pa)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Compression of 0.10% means ΔV/V = 10⁻³:</p>
+          <FormulaBlock latex={String.raw`\Delta p = B\,\frac{\Delta V}{V} = 2.2\times10^9\times 10^{-3} = 2.2\times10^6\;\mathrm{Pa}`} important />
+          <p>i.e. ≈ <strong>22 atm</strong> — quite a large pressure for a tiny 0.1% volume change, again
+          confirming how incompressible water is.</p>
+        </ProblemSolution.Solution>
+      </Expandable>
 
       <h2 id="h-applications">8.6 Applications of Elastic Behaviour of Materials</h2>
       <p>
@@ -368,288 +592,19 @@ export default function MechanicalPropertiesOfSolidsChapter() {
         </p>
       </Callout>
 
-      <h2 id="h-exercises">Exercises 8.1 – 8.16</h2>
-      <p>Selected exercises with hints and the essential answers.</p>
-
-      <Expandable variant="exercise" title="Exercise 8.1">
+      <Expandable variant="exercise" title="Exercise — maximum load on a steel cable">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">8.9 — Chairlift cable</h3>
         <ProblemSolution.Problem>
-            A steel wire of length 4.7 m and cross-sectional area 3.0 × 10⁻⁵ m² stretches by the same amount as
-            a copper wire of length 3.5 m and cross-sectional area 4.0 × 10⁻⁵ m² under a given load. What is the
-            ratio of the Young&rsquo;s modulus of steel to that of copper?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              Equal load F and equal elongation ΔL for both wires: F = YA·ΔL/L must be the same. Hence
-            </p>
-            <FormulaBlock latex={String.raw`\frac{Y_s}{Y_c} = \frac{L_s/A_s}{L_c/A_c} = \frac{4.7/3.0\times10^{-5}}{3.5/4.0\times10^{-5}} = \frac{4.7\times4.0}{3.5\times3.0} = 1.79`} important />
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.2">
-        <ProblemSolution.Problem>
-            The stress-strain graphs for materials A and B are in the form of straight lines up to the fracture
-            point. What is: (a) the Young&rsquo;s modulus, and (b) the approximate yield strength of each?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              (a) Y = slope of the linear part of the stress-strain graph: material A has the steeper slope, so
-              Y<sub>A</sub> ≈ 2 × 10¹¹ N m⁻² and Y<sub>B</sub> &lt; Y<sub>A</sub>. (b) The yield strength is the
-              stress at the break: A ≈ 3 × 10⁸ N m⁻², B ≈ 3 × 10⁸ N m⁻².
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.3">
-        <ProblemSolution.Problem>
-            The stress-strain graphs for two materials A and B are shown drawn on the same scale. (a) Which has
-            the greater Young&rsquo;s modulus? (b) Which is the stronger material?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              (a) <strong>A</strong> — its linear region is steeper (greater slope = greater Y). (b){" "}
-              <strong>A</strong> — it fractures at a higher stress, so its ultimate/breaking strength is larger.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.4">
-        <ProblemSolution.Problem>
-            Read the statements and judge: (a) The Young&rsquo;s modulus of rubber is greater than that of steel.
-            (b) The stretching of a coil is determined by its shear modulus.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              (a) <strong>False</strong> — Y<sub>rubber</sub> is smaller; steel is more elastic (deforms less
-              for a given load). (b) <strong>True</strong> — pulling a coil twists the wire (shear), so the
-              extension is governed by the shear modulus.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.5">
-        <ProblemSolution.Problem>
-            Two wires of equal diameter 0.25 cm, one of steel and the other of brass, are loaded as shown
-            (steel 4 kg, brass 6 kg). The unloaded steel length is 1.5 m, brass 1.0 m. Compute their
-            elongations. (Y<sub>s</sub> = 2.0 × 10¹¹, Y<sub>brass</sub> ≈ 0.91 × 10¹¹ Pa)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              A = π(1.25 × 10⁻³)² = 4.9 × 10⁻⁶ m²; ΔL = FL/(AY).
-            </p>
-            <FormulaBlock latex={String.raw`\Delta L_s = \frac{4\times9.8\times 1.5}{4.9\times10^{-6}\times 2.0\times10^{11}} = 6.0\times10^{-5}\;\mathrm{m}`} />
-            <FormulaBlock latex={String.raw`\Delta L_b = \frac{6\times9.8\times 1.0}{4.9\times10^{-6}\times 0.91\times10^{11}} = 1.3\times10^{-4}\;\mathrm{m}`} important />
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.6">
-        <ProblemSolution.Problem>
-            One face of an aluminium cube of edge 10 cm is firmly fixed to a vertical wall. A mass of 100 kg is
-            attached to the opposite face. What is the vertical deflection of the face? (G<sub>Al</sub> = 25 GPa)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              F = 100 × 9.8 = 980 N, A = 0.01 m², L = 0.1 m. Shearing stress = 980/0.01 = 9.8 × 10⁴ Pa.
-            </p>
-            <FormulaBlock latex={String.raw`\Delta x = \frac{\sigma_s\,L}{G} = \frac{9.8\times10^4\times 0.1}{25\times10^9} = 3.9\times10^{-7}\;\mathrm{m}`} important />
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.7">
-        <ProblemSolution.Problem>
-            A four-column structure of hollow mild-steel columns carries a load of 50,000 kg. If the inner and
-            outer radii are 30 cm and 60 cm, what is the compressional strain of each column?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>Load per column = 50,000 × 9.8/4 = 1.225 × 10⁵ N; A = π(0.60² − 0.30²) = 0.85 m².</p>
-            <FormulaBlock latex={String.raw`\mathrm{strain} = \frac{F/A}{Y} = \frac{1.225\times10^5/0.85}{2.0\times10^{11}} = 7.2\times10^{-7}`} important />
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.8">
-        <ProblemSolution.Problem>
-            A piece of copper having a rectangular cross-section of 15.2 × 19.1 mm is pulled in tension with a
-            force of 44,500 N. What is the strain produced? If only elastic deformation occurs, what is the
-            resulting strain? (Y<sub>Cu</sub> = 1.1 × 10¹¹ N m⁻²)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>A = 15.2 × 19.1 mm² = 2.9 × 10⁻⁴ m²; stress = 44,500/2.9 × 10⁻⁴ = 1.53 × 10⁸ Pa.</p>
-            <FormulaBlock latex={String.raw`\varepsilon = \frac{\sigma}{Y} = \frac{1.53\times10^8}{1.1\times10^{11}} = 1.4\times10^{-3}`} important />
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.9">
-        <ProblemSolution.Problem>
+          <p>
             A steel cable with a radius of 1.5 cm supports a chairlift. If the maximum stress is not to exceed
             10⁸ N m⁻², what is the maximum load the cable can support?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>A = π(0.015)² = 7.1 × 10⁻⁴ m².</p>
-            <FormulaBlock latex={String.raw`F_{\max} = \sigma\,A = 10^8\times 7.1\times10^{-4} = 7.1\times10^4\;\mathrm{N}`} important />
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.10">
-        <ProblemSolution.Problem>
-            A rigid bar of mass 15 kg is supported symmetrically by three wires, each 2.0 m long. Those at each
-            end are of copper and the middle one is of iron. If all three are elongated by the same amount, what
-            is the ratio of their diameters? (Y<sub>iron</sub> = 2.0 × 10¹¹, Y<sub>Cu</sub> = 1.1 × 10¹¹)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              Equal tension and equal extension in each: F = Y A ΔL/L ⟹ A ∝ 1/Y, and A = πd²/4, so d²Y is the
-              same:
-            </p>
-            <FormulaBlock latex={String.raw`\frac{d_c}{d_f} = \sqrt{\frac{Y_f}{Y_c}} = \sqrt{\frac{2.0\times10^{11}}{1.1\times10^{11}}} = 1.35`} important />
-            <p>i.e. <strong>1.35 : 1 (copper : iron)</strong>.</p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.11">
-        <ProblemSolution.Problem>
-            A 14.5 kg mass is attached to a steel wire of length 1.0 m and cross-sectional area 0.065 cm²; the
-            mass is whirled in a vertical circle with a uniform speed of 2 rev/s at the bottom point. What is the
-            elongation of the wire at this point? (Y<sub>s</sub> = 2.0 × 10¹¹ N m⁻²)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              Tension at the bottom = weight + centripetal force. With ω = 2 × 2π = 4π rad s⁻¹:
-            </p>
-            <FormulaBlock latex={String.raw`T = mg + m\omega^2 r = 14.5(9.8 + 16\pi^2) = 2.43\times10^3\;\mathrm{N}`} />
-            <FormulaBlock latex={String.raw`\Delta L = \frac{T L}{A Y} = \frac{2.43\times10^3\times 1.0}{6.5\times10^{-6}\times 2.0\times10^{11}} = 1.9\times10^{-3}\;\mathrm{m}`} important />
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.12">
-        <ProblemSolution.Problem>
-            Compute the bulk modulus of water from the following data: 100.0 L of water is compressed by a
-            pressure of 100 atm to a volume of 100.5 L. Compare it with the bulk modulus of air and explain why.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>ΔV = 0.5 L, p = 100 × 1.01 × 10⁵ = 1.01 × 10⁷ Pa:</p>
-            <FormulaBlock latex={String.raw`B = \frac{p}{|\Delta V|/V} = \frac{1.01\times10^7}{0.5/100} = 2.0\times10^9\;\mathrm{Pa}`} important />
-            <p>
-              Air has B ≈ 1.0 × 10⁵ Pa, so B<sub>water</sub> ≈ 2 × 10⁴ B<sub>air</sub> — water molecules are
-              tightly coupled (nearly incompressible) while the widely separated air molecules are easily pushed
-              together.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.13">
-        <ProblemSolution.Problem>
-            The density of water at the surface of the ocean is 1.03 × 10³ kg m⁻³ and the bulk modulus is 2.2 ×
-            10⁹ N m⁻². What is the density of water at a depth where the pressure is 80 atm?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              p = 80 × 1.013 × 10⁵ = 8.1 × 10⁶ Pa; ΔV/V = p/B = 8.1 × 10⁶/2.2 × 10⁹ = 3.7 × 10⁻³.
-            </p>
-            <FormulaBlock latex={String.raw`\rho' = \frac{\rho}{1-\Delta V/V} = \frac{1.03\times10^3}{1-3.7\times10^{-3}} = 1.03\times10^3\;\mathrm{kg\,m^{-3}}`} important />
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.14">
-        <ProblemSolution.Problem>
-            Compute the fractional change in volume of a glass slab when subjected to a hydraulic pressure of 10
-            atm. (B<sub>glass</sub> = 37 × 10⁹ N m⁻²)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>p = 10 atm = 1.013 × 10⁶ Pa:</p>
-            <FormulaBlock latex={String.raw`\frac{\Delta V}{V} = \frac{p}{B} = \frac{1.013\times10^6}{3.7\times10^{10}} = 2.7\times10^{-5}`} important />
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.15">
-        <ProblemSolution.Problem>
-            What is the volume contraction of a 10 cm × 10 cm × 10 cm copper cube when a pressure of 7.0 × 10⁶ Pa
-            is applied on all its faces? (B<sub>Cu</sub> = 140 × 10⁹ Pa)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>V = 10⁻³ m³:</p>
-            <FormulaBlock latex={String.raw`\Delta V = \frac{p\,V}{B} = \frac{7.0\times10^6\times 10^{-3}}{1.4\times10^{11}} = 5\times10^{-8}\;\mathrm{m^3} = 0.05\;\mathrm{cm^3}`} important />
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 8.16">
-        <ProblemSolution.Problem>
-            How much should the pressure on a litre of water be changed to compress it by 0.10%? (Take
-            B<sub>water</sub> = 2.2 × 10⁹ Pa)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>Compression of 0.10% means ΔV/V = 10⁻³:</p>
-            <FormulaBlock latex={String.raw`\Delta p = B\,\frac{\Delta V}{V} = 2.2\times10^9\times 10^{-3} = 2.2\times10^6\;\mathrm{Pa}`} important />
-            <p>i.e. ≈ <strong>22 atm</strong> — quite a large pressure for a tiny 0.1% volume change, again
-            confirming how incompressible water is.</p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <h2 id="h-revision">Quick Revision</h2>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <FormulaCard>
-          <p>
-            <strong>Stress and strain</strong>
           </p>
-          Stress = F/A (Pa = N m⁻²). Three deformations: longitudinal (tensile/compressive) with strain ΔL/L;
-          shearing with strain Δx/L = tanθ ≈ θ; hydraulic with volume strain ΔV/V. Strain is dimensionless.
-          Hooke&rsquo;s law: stress = k × strain for small deformations.
-        </FormulaCard>
-        <FormulaCard>
-          <p>
-            <strong>Young&rsquo;s modulus</strong>
-          </p>
-          <FormulaBlock latex={String.raw`Y = \frac{F/A}{\Delta L/L} = \frac{F\,L}{A\,\Delta L}`} />
-          Measured for tension and compression. Steel (200 GPa) is the most elastic of the common metals: it
-          needs the largest force for a given elongation. Validity: only in the linear (Hookean) region.
-        </FormulaCard>
-        <FormulaCard>
-          <p>
-            <strong>Shear and bulk moduli</strong>
-          </p>
-          <FormulaBlock latex={String.raw`G = \frac{F}{A\theta},\qquad B = -\frac{p}{\Delta V/V}`} />
-          G applies to solids alone; B applies to solids, liquids and gases. Compressibility k = 1/B. Generally
-          G ≈ Y/3, and B<sub>solid</sub> &gt;&gt; B<sub>liquid</sub> &gt;&gt; B<sub>gas</sub>.
-        </FormulaCard>
-        <FormulaCard>
-          <p>
-            <strong>Elastic potential energy</strong>
-          </p>
-          Work done in stretching a wire from 0 to l: W = YAl²/2L = ½σ ε V. Elastic potential energy density u =
-          ½σε — the small energy stored per unit volume under deformation.
-        </FormulaCard>
-        <FormulaCard>
-          <p>
-            <strong>Stress-strain curve features</strong>
-          </p>
-          Linear O→A (Hooke), A→B recoverable, B = yield point (σ_y), B→D plastic with permanent set, D =
-          ultimate tensile strength σ_u, beyond D fracture at E. D and E close ⟹ brittle; far apart ⟹ ductile.
-          Elastomers have huge elastic strain but no Hooke&rsquo;s law and no plastic region.
-        </FormulaCard>
-        <FormulaCard>
-          <p>
-            <strong>Engineering applications</strong>
-          </p>
-          Crane rope: A ≥ Mg/σ_y; safety factor ~10. Beam sag δ = Wl³/(4bd³Y) — doubling the depth is more
-          effective than doubling the breadth; I-sections resist buckling. Mountains cannot exceed h = σ_rock
-          /ρg ≈ 10 km.
-        </FormulaCard>
-      </div>
-
-      <MistakeCard
-        mistake="The same magnitude of stress produces larger strain in steel than in aluminium."
-        correction="Steel is the most elastic of the common metals: for a given stress its strain is the SMALLEST. 'More elastic' means stretches less, not more — the steel wire needs 2000 N for a 0.1% elongation, aluminium only 690 N."
-      />
-      <MistakeCard
-        mistake="Stress is a vector — it points in the direction of the applied force."
-        correction="Stress is not a vector: a force on a defined section has a definite direction, but the stress (force per unit area) has no single direction. Strains in other directions are produced even by a one-directional stress (Poisson effect)."
-      />
-      <MistakeCard
-        mistake="The tension inside a wire supports twice the applied load, so the tensile stress is 2F/A."
-        correction="At every cross-section of the wire the tension is exactly F (the applied force), so the tensile stress is F/A — the book stresses this point explicitly. Shear stress is possible only in solids because the cross-section must transmit tangential forces."
-      />
-      <MistakeCard
-        mistake="Rubber, because it stretches enormously, has a greater Young's modulus than steel."
-        correction="Ease of stretching is INVERSE to Young's modulus. Rubber's huge elongations under small forces mean a very small Y, and it does not even follow Hooke's law over most of its range. Steel's high Y is what makes it resist deformation so effectively."
-      />
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>A = π(0.015)² = 7.1 × 10⁻⁴ m².</p>
+          <FormulaBlock latex={String.raw`F_{\max} = \sigma\,A = 10^8\times 7.1\times10^{-4} = 7.1\times10^4\;\mathrm{N}`} important />
+        </ProblemSolution.Solution>
+      </Expandable>
     </>
   );
 }
