@@ -7,7 +7,6 @@ import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
 import { Stepper } from "@/components/content/Stepper";
-import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
 
@@ -115,6 +114,20 @@ export default function WorkEnergyAndPowerChapter() {
         />
       </Expandable>
 
+      <Expandable variant="exercise" title="Exercise — work from a scalar product">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>A body moves 4 m along the z-axis under the constant force <Formula>{String.raw`\mathbf{F} = -\hat{\mathbf{i}} + 2\hat{\mathbf{j}} + 3\hat{\mathbf{k}}`}</Formula> N. Find the work done.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>12 J (W = F·d = 3 × 4, the î, ĵ components are perpendicular to the ẑ displacement).</div>,
+          ]}
+        />
+      </Expandable>
+
       <h2 id="h-we">5.2 Notions of Work and Kinetic Energy — The Work-Energy Theorem</h2>
       <p>For rectilinear motion under constant acceleration a (Chapter 3):</p>
       <FormulaBlock latex={String.raw`v^2 - u^2 = 2as`} />
@@ -155,6 +168,20 @@ export default function WorkEnergyAndPowerChapter() {
             <li>Negative — the resistive force opposes the motion. The WE theorem here computed a work even though the exact force is unknown.</li>
           </ul>
         </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable variant="exercise" title="Exercise — work-energy theorem on a sliding body">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>A 2 kg body starts from rest under a horizontal applied force of 7 N on a table with μₖ = 0.1. Compute the work done by (a) the applied force, (b) friction, (c) the net force in 10 s, and (d) the change in kinetic energy. Interpret.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>f = 2 N, net force 5 N, a = 2.5 m s⁻², s = 125 m. (a) 875 J; (b) −250 J; (c) 625 J; (d) ΔK = 625 J = W_net. The net work equals the change in KE; the applied force supplies 875 J, friction removes 250 J.</div>,
+          ]}
+        />
       </Expandable>
 
       <h2 id="h-work">5.3 Work</h2>
@@ -282,6 +309,24 @@ export default function WorkEnergyAndPowerChapter() {
         />
       </Expandable>
 
+      <Expandable variant="exercise" title="Exercises — sign of work &amp; work in real situations">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>The sign of work done by (a) a man lifting a bucket out of a well by a rope, (b) gravity in that case, (c) friction on a body sliding down an inclined plane, (d) an applied force on a body moving with uniform velocity on a rough horizontal plane, (e) the resistive force of air on a vibrating pendulum bringing it to rest.</p>
+            </div>,
+            <div key={2}>
+              <p>A raindrop of radius 2 mm falls from 500 m, reaching terminal speed at half height. Work by gravity in the first and second halves? Work by the resistive force over the whole journey if it lands at 10 m s⁻¹?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>(a) positive; (b) negative; (c) negative; (d) positive; (e) negative — a force does negative work when it opposes the displacement.</div>,
+            <div key={2}>m = (4/3)π(2×10⁻³)³ × 10³ ≈ 3.35 × 10⁻⁵ kg. W_g per half = mg × 250 ≈ 8.4 × 10⁻² J (equal halves). W_res = ΔK − W_g(total) = ½ × 3.35 × 10⁻⁵ × 10² − 0.1675 ≈ −0.166 J.</div>,
+          ]}
+        />
+      </Expandable>
+
       <h2 id="h-kinetic">5.4 Kinetic Energy</h2>
       <Callout type="note" title="Energy — the general idea">
         <strong>Energy</strong> is <Highlight>the capacity to do work</Highlight>. Like work it is a scalar with the
@@ -395,6 +440,20 @@ export default function WorkEnergyAndPowerChapter() {
         />
       </Expandable>
 
+      <Expandable variant="exercise" title="Exercise — speed from kinetic energy">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>An electron (10 keV) and a proton (100 keV) are detected. Which is faster? Obtain the speed ratio. (m_e = 9.11 × 10⁻³¹ kg, m_p = 1.67 × 10⁻²⁷ kg, 1 eV = 1.60 × 10⁻¹⁹ J.)</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>Electron; v_e/v_p = √[(E_e/E_p)(m_p/m_e)] = √(0.1 × 1833) ≈ 13.5.</div>,
+          ]}
+        />
+      </Expandable>
+
       <h2 id="h-variable">5.5 Work Done by a Variable Force</h2>
       <p>
         A constant force is rare; variable forces are the rule. Over a small displacement Δx the force
@@ -483,6 +542,20 @@ export default function WorkEnergyAndPowerChapter() {
                 <li>As the bowstring relaxes this PE is converted into the kinetic energy of the arrow.</li>
               </ul>
             </div>,
+          ]}
+        />
+      </Expandable>
+
+      <Expandable variant="exercise" title="Exercise — work by a variable net force">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>A 0.5 kg body moves with <Formula>{String.raw`v = a\,x^{3/2}`}</Formula>, a = 5 m<sup>−1/2</sup> s⁻¹. Find the work done by the net force from x = 0 to x = 2 m.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>W = ΔK = ½ × 0.5 × (5 × 2<sup>3/2</sup>)² = <strong>50 J</strong>.</div>,
           ]}
         />
       </Expandable>
@@ -733,6 +806,24 @@ export default function WorkEnergyAndPowerChapter() {
         />
       </Expandable>
 
+      <Expandable variant="exercise" title="Exercises — potential-energy curves and turning points">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>For the potential-energy curves of Fig. 5.11 (total energy shown by a cross), specify the regions where the particle cannot be found, and the minimum total energy in each case. Think of simple physical contexts.</p>
+            </div>,
+            <div key={2}>
+              <p><Formula>{String.raw`V(x) = \tfrac{1}{2}kx^2`}</Formula> with k = 0.5 N m⁻¹ for a linear SHM. Show that a particle of total energy 1 J must &lsquo;turn back&rsquo; at x = ± 2 m.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>The particle is classically forbidden wherever E &lt; V(x). For each curve, give the forbidden regions shown in Fig. 5.11 and the minimum total energy to escape/be classically allowed (contexts: box/well, step, oscillator, free space).</div>,
+            <div key={2}>½ × 0.5 × x² = 1 ⟹ x = ±2 m: at these points K = 0 and the particle turns back.</div>,
+          ]}
+        />
+      </Expandable>
+
       <h2 id="h-conservation">5.8 The Conservation of Mechanical Energy</h2>
       <p>
         For one-dimensional motion under a conservative force F: the WE theorem gives{" "}
@@ -841,6 +932,36 @@ export default function WorkEnergyAndPowerChapter() {
             <li>At C the string is slack; if it were cut there, the bob would leave with horizontal velocity and follow a <strong>projectile trajectory</strong> (like a rock kicked horizontally off a cliff). With the string intact it continues and completes the revolution.</li>
           </ul>
         </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable variant="exercise" title="Exercises — conservation of mechanical energy">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>(a) At whose expense does a rocket casing burn up by friction? (b) Why is the work by gravity over a full comet orbit zero? (c) Why does an orbiting satellite speed up as atmospheric resistance drags it closer? (d) Which walk does greater work — carrying a 15 kg mass, or pulling a 15 kg mass up over a pulley?</p>
+            </div>,
+            <div key={2}>
+              <p>Choose the correct alternative: (a) a conservative force doing positive work increases/decreases potential energy; (b) work against friction costs kinetic/potential energy; (c) the rate of change of total momentum of a many-particle system is proportional to the external force / sum of internal forces; (d) after an inelastic collision the unchanged quantities are total kinetic energy / total linear momentum / total energy.</p>
+            </div>,
+            <div key={3}>
+              <p>A pendulum bob of length 1.5 m is released from the horizontal; 5% of its energy is lost to air resistance. What is the speed at the lowermost point?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>(a) the rocket&rsquo;s own kinetic energy; (b) gravity is conservative — closed-orbit work is zero; (c) total energy falls but PE falls more, so KE (speed) rises; (d) case (ii) — in (i) the vertical force is perpendicular to the horizontal displacement, so no work.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>(a) decreases; (b) kinetic; (c) external force; (d) total linear momentum and total energy (not kinetic energy).</li>
+              </ul>
+            </div>,
+            <div key={3}>½mv² = 0.95mgh ⟹ v = √(2 × 0.95 × 9.8 × 1.5) ≈ <strong>5.3 m s⁻¹</strong>.</div>,
+          ]}
+        />
       </Expandable>
 
       <h2 id="h-spring">5.9 The Potential Energy of a Spring</h2>
@@ -1035,6 +1156,36 @@ export default function WorkEnergyAndPowerChapter() {
         />
       </Expandable>
 
+      <Expandable variant="exercise" title="Exercises — power in engineering &amp; everyday settings">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>For a body initially at rest accelerating uniformly, the power delivered at time t is proportional to (i) t<sup>1/2</sup> (ii) t (iii) t<sup>3/2</sup> (iv) t².</p>
+            </div>,
+            <div key={2}>
+              <p>For a body moving unidirectionally under constant power, displacement is proportional to (i) t<sup>1/2</sup> (ii) t (iii) t<sup>3/2</sup> (iv) t².</p>
+            </div>,
+            <div key={3}>
+              <p>Windmill blades sweep area A. (a) Mass of air through in time t; (b) kinetic energy of air; (c) electrical power if 25% efficient, A = 30 m², v = 36 km/h, ρ = 1.2 kg m⁻³.</p>
+            </div>,
+            <div key={4}>
+              <p>A dieter lifts a 10 kg mass 1000 times to 0.5 m each time. (a) Work against gravity? (b) How much fat is used up, if fat supplies 3.8 × 10⁷ J kg⁻¹ at 20% mechanical efficiency?</p>
+            </div>,
+            <div key={5}>
+              <p>Direct solar energy arrives at 200 W m⁻²; 20% converts to electricity. What area supplies 8 kW? Compare it with a typical house roof.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>(ii) t. (P = Fv = ma·at = ma²t.)</div>,
+            <div key={2}>(iii) t<sup>3/2</sup>. (Pt = ½mv² ⟹ v ∝ t<sup>1/2</sup> ⟹ s ∝ t<sup>3/2</sup>.)</div>,
+            <div key={3}>(a) m = ρAvt; (b) KE = ½ρAv³t; (c) P = 0.25 × ½ × 1.2 × 30 × 10³ = 4500 W = <strong>4.5 kW</strong>.</div>,
+            <div key={4}>(a) 10 × 10 × 0.5 × 10³ = 5 × 10⁴ J. (b) Useful per kg = 0.2 × 3.8 × 10⁷ J; fat used = 5 × 10⁴/7.6 × 10⁶ ≈ <strong>6.6 g</strong>.</div>,
+            <div key={5}>Useful solar power = 0.2 × 200 = 40 W m⁻²; area = 8000/40 = <strong>200 m²</strong> — a few times the roof area of a typical house.</div>,
+          ]}
+        />
+      </Expandable>
+
       <h2 id="h-collisions">5.11 Collisions</h2>
       <p>
         Physics studies quantities that don&rsquo;t change in a process; momentum and energy conservation
@@ -1164,93 +1315,40 @@ export default function WorkEnergyAndPowerChapter() {
         velocities, the type of interaction, and the masses, shapes and sizes of the bodies.
       </Callout>
 
-      <h2 id="h-exercises">Exercises 5.1 – 5.23</h2>
-      <Expandable title="Exercises 5.1 – 5.23" variant="exercise">
-        <p><em>State carefully the sign of the work done in each part of Exercise 5.1; use g = 10 m s⁻² for numerical parts unless stated.</em></p>
-        <ol>
-          <li>The sign of work done by (a) a man lifting a bucket out of a well by a rope, (b) gravity in that case, (c) friction on a body sliding down an inclined plane, (d) an applied force on a body moving with uniform velocity on a rough horizontal plane, (e) the resistive force of air on a vibrating pendulum bringing it to rest.</li>
-          <li>A 2 kg body starts from rest under a horizontal applied force of 7 N on a table with μₖ = 0.1. Compute the work done by (a) the applied force, (b) friction, (c) the net force in 10 s, and (d) the change in kinetic energy. Interpret.</li>
-          <li>For the potential-energy curves of Fig. 5.11 (total energy shown by a cross), specify the regions where the particle cannot be found, and the minimum total energy in each case. Think of simple physical contexts.</li>
-          <li>V(x) = kx²/2, k = 0.5 N m⁻¹ for a linear SHM. Show that a particle of total energy 1 J must &lsquo;turn back&rsquo; at x = ± 2 m.</li>
-          <li>(a) At whose expense does a rocket casing burn up by friction? (b) Why is the work by gravity over a full comet orbit zero? (c) Why does an orbiting satellite speed up as atmospheric resistance drags it closer? (d) In Fig. 5.13 which walk does greater work — carrying 15 kg, or pulling a 15 kg mass up over a pulley? </li>
-          <li>Choose the correct alternative: (a) a conservative force doing positive work increases/decreases potential energy; (b) work against friction costs kinetic/potential energy; (c) rate of change of total momentum of a many-particle system is proportional to the external force / sum of internal forces; (d) after an inelastic collision the unchanged quantities are total kinetic energy / total linear momentum / total energy.</li>
-          <li>True or false: (a) in elastic collisions the momentum and energy of EACH body is conserved; (b) total energy of a system is always conserved; (c) work over a closed loop is zero for every force; (d) in an inelastic collision final KE is always less than initial.</li>
-          <li>(a) Is total KE conserved during the short time two billiard balls are in contact in an elastic collision? (b) Is total linear momentum conserved during that contact? (c) Same questions for an inelastic collision. (d) If the collision force has a PE depending only on separation, is the collision elastic or inelastic?</li>
-          <li>For a body initially at rest accelerating uniformly, the power delivered at time t is proportional to (i) t^½ (ii) t (iii) t^{3/2} (iv) t².</li>
-          <li>For a body moving unidirectionally under constant power, displacement is proportional to (i) t^½ (ii) t (iii) t^{3/2} (iv) t².</li>
-          <li>A body moves 4 m along the z-axis under the constant force F = −î + 2ĵ + 3k̂ N. Work done?</li>
-          <li>An electron (10 keV) and a proton (100 keV) are detected. Which is faster? Obtain the speed ratio. (m_e = 9.11 × 10⁻³¹ kg, m_p = 1.67 × 10⁻²⁷ kg, 1 eV = 1.60 × 10⁻¹⁹ J.)</li>
-          <li>A raindrop of radius 2 mm falls from 500 m, reaching terminal speed at half height. Work by gravity in the first and second halves? Work by the resistive force over the whole journey if it lands at 10 m s⁻¹?</li>
-          <li>A gas molecule hits a wall at 200 m s⁻¹, 30° with the normal, and rebounds with the same speed. Is momentum conserved in the collision? Is the collision elastic or inelastic?</li>
-          <li>A 30 m³ tank 40 m above ground is filled in 15 min by a pump of 30% efficiency. What electric power does the pump consume?</li>
-          <li>Two identical bearings at rest are hit head-on by a third identical bearing moving at V (elastic). Which of the outcomes shown in Fig. 5.14 results?</li>
-          <li>Bob A of a pendulum (released from 30°) hits an equal-mass bob B at rest (elastic). How high does A rise after the collision?</li>
-          <li>A pendulum bob of length 1.5 m is released from the horizontal; 5% of energy is lost to air resistance. What is the speed at the lowermost point?</li>
-          <li>A 300 kg trolley carrying a 25 kg sandbag moves at 27 km/h on a frictionless track; sand leaks at 0.05 kg s⁻¹. What is the trolley speed after the bag empties?</li>
-          <li>A 0.5 kg body moves with v = a x^{3/2}, a = 5 m^−1/2 s⁻¹. Work done by the net force from x = 0 to x = 2 m?</li>
-          <li>Windmill blades sweep area A. (a) Mass of air through in time t; (b) kinetic energy of air; (c) electrical power if 25% efficient, A = 30 m², v = 36 km/h, ρ = 1.2 kg m⁻³.</li>
-          <li>A dieter lifts a 10 kg mass 1000 times to 0.5 m each time. (a) Work against gravity? (b) How much fat used up, if fat supplies 3.8 × 10⁷ J kg⁻¹ at 20% mechanical efficiency?</li>
-          <li>Direct solar energy arrives at 200 W m⁻²; 20% converts to electricity. What area supplies 8 kW? Compare it with a typical house roof.</li>
-        </ol>
-        <Expandable title="Answer Key — Exercises 5.1 – 5.23">
-          <ol>
-            <li>(a) positive; (b) negative; (c) negative; (d) positive; (e) negative.</li>
-            <li>f = 2 N, net force 5 N, a = 2.5 m s⁻², s = 125 m. (a) 875 J; (b) −250 J; (c) 625 J; (d) ΔK = 625 J = W_net. The net work equals the change in KE; applied force supplies 875 J, friction removes 250 J.</li>
-            <li>The particle is classically forbidden wherever E &lt; V(x). For each curve, give the forbidden regions shown in Fig. 5.11 and the minimum total energy to escape/be classically allowed (contexts: box/well, step, oscillator, free space).</li>
-            <li>½ × 0.5 × x² = 1 ⟹ x = ±2 m: at these points K = 0 and the particle turns back.</li>
-            <li>(a) the rocket&rsquo;s own kinetic energy; (b) gravity is conservative — closed-orbit work is zero; (c) total energy falls but PE falls more, so KE (speed) rises; (d) case (ii) — in (i) the vertical force is perpendicular to the horizontal displacement, so no work.</li>
-            <li>(a) decreases; (b) kinetic; (c) external force; (d) total linear momentum and total energy (not kinetic energy).</li>
-            <li>(a) False — each BODY&rsquo;s momentum/energy is not conserved; (b) True — total energy always conserved; (c) False — only conservative forces; (d) False — KE can increase if internal energy is released (explosive/inelastic-with-spring case).</li>
-            <li>(a) No (KE of the two-ball system is not conserved during the brief contact, even in an elastic collision); (b) Yes always; (c) (a) No, (b) Yes; (d) elastic — a separation-only PE makes the interaction conservative.</li>
-            <li>(ii) t. (P = Fv = ma·at = ma²t.)</li>
-            <li>(iii) t^{3/2}. (Pt = ½mv² ⟹ v ∝ t^½ ⟹ s ∝ t^{3/2}.)</li>
-            <li>12 J (W = F·d = 3 × 4, the î, ĵ components are perpendicular to the ẑ displacement).</li>
-            <li>Electron; v_e/v_p = √[(E_e/E_p)(m_p/m_e)] = √(0.1 × 1833) ≈ 13.5.</li>
-            <li>m = (4/3)π(2×10⁻³)³ × 10³ ≈ 3.35 × 10⁻⁵ kg. W_g per half = mg × 250 ≈ 8.4 × 10⁻² J (equal halves). W_res = ΔK − W_g(total) = ½×3.35×10⁻⁵×10² − 0.1675 ≈ −0.166 J.</li>
-            <li>Momentum of the (molecule + wall) system is conserved. The collision is elastic — the molecule&rsquo;s speed (hence KE) is unchanged.</li>
-            <li>mgh = 3×10⁴×10×40 = 1.2×10⁷ J; P_out = 1.2×10⁷/900 ≈ 1.33×10⁴ W; P_in = 1.33×10⁴/0.3 ≈ 4.4×10⁴ W ≈ 44.4 kW.</li>
-            <li>The incoming bearing stops; only the LAST bearing moves off at V (momentum transfers through the chain).</li>
-            <li>A comes to rest at its collision point (transfers everything to B, equal masses elastic); it rises by 0.</li>
-            <li>½mv² = 0.95mgh ⟹ v = √(2 × 0.95 × 9.8 × 1.5) ≈ 5.3 m s⁻¹.</li>
-            <li>27 km/h (7.5 m s⁻¹) — no external horizontal force; the escaping sand carries away its own momentum, leaving the trolley speed unchanged.</li>
-            <li>W = ΔK = ½ × 0.5 × (5 × 2^{3/2})² = 50 J.</li>
-            <li>(a) m = ρAvt; (b) KE = ½ρAv³t; (c) P = 0.25 × ½ × 1.2 × 30 × 10³ = 4500 W = 4.5 kW.</li>
-            <li>(a) 10 × 10 × 0.5 × 10³ = 5 × 10⁴ J. (b) Useful per kg = 0.2 × 3.8 × 10⁷ J; fat used = 5 × 10⁴/7.6 × 10⁶ ≈ 6.6 g.</li>
-            <li>Useful solar power = 0.2 × 200 = 40 W m⁻²; area = 8000/40 = 200 m² — a few times the roof area of a typical house.</li>
-          </ol>
-        </Expandable>
+      <Expandable variant="exercise" title="Exercises — collisions, momentum &amp; energy">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>True or false: (a) in elastic collisions the momentum and energy of EACH body is conserved; (b) the total energy of a system is always conserved; (c) work over a closed loop is zero for every force; (d) in an inelastic collision the final KE is always less than the initial.</p>
+            </div>,
+            <div key={2}>
+              <p>(a) Is total KE conserved during the short time two billiard balls are in contact in an elastic collision? (b) Is total linear momentum conserved during that contact? (c) Same questions for an inelastic collision. (d) If the collision force has a PE depending only on separation, is the collision elastic or inelastic?</p>
+            </div>,
+            <div key={3}>
+              <p>A gas molecule hits a wall at 200 m s⁻¹, 30° with the normal, and rebounds with the same speed. Is momentum conserved in the collision? Is the collision elastic or inelastic?</p>
+            </div>,
+            <div key={4}>
+              <p>Two identical bearings at rest are hit head-on by a third identical bearing moving at V (elastic). Which of the outcomes shown in Fig. 5.14 results?</p>
+            </div>,
+            <div key={5}>
+              <p>Bob A of a pendulum (released from 30°) hits an equal-mass bob B at rest (elastic). How high does A rise after the collision?</p>
+            </div>,
+            <div key={6}>
+              <p>A 300 kg trolley carrying a 25 kg sandbag moves at 27 km/h on a frictionless track; sand leaks at 0.05 kg s⁻¹. What is the trolley speed after the bag empties?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>(a) False — each <em>body&rsquo;s</em> momentum/energy is not conserved; (b) True — total energy is always conserved; (c) False — only for conservative forces; (d) False — KE can increase if internal energy is released (explosive / inelastic-with-spring case).</div>,
+            <div key={2}>(a) No (KE of the two-ball system is not conserved during the brief contact, even in an elastic collision); (b) Yes, always; (c) (a) No, (b) Yes; (d) elastic — a separation-only PE makes the interaction conservative.</div>,
+            <div key={3}>Momentum of the (molecule + wall) system is conserved. The collision is <strong>elastic</strong> — the molecule&rsquo;s speed (hence KE) is unchanged.</div>,
+            <div key={4}>The incoming bearing stops; only the LAST bearing moves off at V (momentum transfers through the chain).</div>,
+            <div key={5}>A comes to rest at its collision point (transfers everything to B, equal masses elastic); it rises by 0.</div>,
+            <div key={6}>27 km/h (7.5 m s⁻¹) — no external horizontal force; the escaping sand carries away its own momentum, leaving the trolley speed unchanged.</div>,
+          ]}
+        />
       </Expandable>
 
-      <h2 id="h-revision">Quick Revision</h2>
-      <MetricCard
-        label="1 J"
-        value="1 kg m² s⁻²"
-        unit="SI unit of work / energy"
-        trend="neutral"
-        description="Work = (component of force along displacement) × displacement; 1 eV = 1.6 × 10⁻¹⁹ J; 1 kWh = 3.6 × 10⁶ J; 1 hp = 746 W."
-      />
-      <Expandable title="Key formulas &amp; facts — one page">
-        <ul>
-          <li>Scalar product A·B = AB cosθ = AₓBₓ + A_yB_y + A_zB_z; zero if perpendicular.</li>
-          <li>K = ½mv²; W = F·d; WE theorem: K_f − K_i = W (net force, holds for variable forces too: W = ∫F dx).</li>
-          <li>No work: zero displacement, zero force, or force ⟂ displacement.</li>
-          <li>Conservative force: derivable from V(x) (F = −dV/dx); work depends only on end points; closed-path work zero.</li>
-          <li>V = mgh; V_spring = ½kx²; ΔV = −F(x)Δx.</li>
-          <li>Conservation: K + V constant if only conservative forces act; E_f − E_i = W_nc otherwise.</li>
-          <li>Power P = dW/dt = F·v; 1 W = 1 J s⁻¹.</li>
-          <li>Collisions: momentum ALWAYS conserved; elastic 1-D v₁f = (m₁−m₂)/(m₁+m₂) v₁ᵢ, v₂f = 2m₁/(m₁+m₂) v₁ᵢ; equal masses exchange; m₂ ≫ m₁ reflects the light ball.</li>
-          <li>Complete inelastic: vf = m₁/(m₁+m₂) v₁ᵢ; KE loss = ½ m₁m₂/(m₁+m₂) v₁ᵢ².</li>
-          <li>Equal-mass glancing elastic collision: balls leave at right angles.</li>
-        </ul>
-      </Expandable>
-      <Expandable title="Last-minute recall — formulas only">
-        <ul>
-          <li><Formula>{String.raw`\mathbf{A}\cdot\mathbf{B} = AB\cos\theta`}</Formula>, <Formula>{String.raw`K = \tfrac{1}{2}mv^2`}</Formula>, <Formula>{String.raw`W = \mathbf{F}\cdot\mathbf{d} = \int F\,\mathrm{d}x`}</Formula></li>
-          <li><Formula>{String.raw`K_f - K_i = W`}</Formula>, <Formula>{String.raw`F = -\frac{\mathrm{d}V}{\mathrm{d}x}`}</Formula>, <Formula>{String.raw`V = mgh`}</Formula>, <Formula>{String.raw`V = \tfrac{1}{2}kx^2`}</Formula></li>
-          <li><Formula>{String.raw`K_i + V_i = K_f + V_f`}</Formula>, <Formula>{String.raw`E_f - E_i = W_{nc}`}</Formula>, <Formula>{String.raw`P = \mathbf{F}\cdot\mathbf{v}`}</Formula></li>
-          <li><Formula>{String.raw`v_f = \frac{m_1}{m_1+m_2}v_{1i}`}</Formula>, <Formula>{String.raw`v_{1f} = \frac{m_1-m_2}{m_1+m_2}v_{1i}`}</Formula>, <Formula>{String.raw`v_{2f} = \frac{2m_1}{m_1+m_2}v_{1i}`}</Formula></li>
-        </ul>
-      </Expandable>
     </>
   );
 }
