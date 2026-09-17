@@ -6,118 +6,82 @@ import { FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
+import { Comparison } from "@/components/content/Comparison";
+import { OrgChart } from "@/components/content/OrgChart";
+import { WaveTypesPanels } from "@/components/content/physics/WaveTypesPanels";
+import { WaveAnatomyDiagram } from "@/components/content/physics/WaveAnatomyDiagram";
 
 export default function WavesChapter() {
   return (
     <>
       <h2 id="w-intro">14.1 Introduction</h2>
       <p>
-        In the previous chapter we studied objects oscillating in isolation. What happens when many such objects form
-        a collection? A material medium is one such example: elastic forces bind the constituents to each other, so the
-        motion of one affects that of the other. Drop a little pebble into a pond of still water — the water surface gets
-        disturbed, and the disturbance does not stay at one place but propagates outward along a circle. Drop the
-        pebbles repeatedly and you see circles rapidly moving outward. It gives a feeling as if the water itself is
-        moving outward. Put some cork pieces on the disturbed surface and you will see that they bob up and down but do
-        not move away from the centre of disturbance. The water mass does not flow outward with the circles — rather, a{" "}
-        <em>moving disturbance</em> is created. Similarly, when we speak, sound moves outward from us without any flow
-        of air from one part of the medium to another. These patterns, which <Highlight>move without the actual physical transfer
-        or flow of matter as a whole</Highlight>, are called <strong>waves</strong>.
-      </p>
-      <p>
-        Waves transport energy, and the disturbance pattern carries information that propagates from one point to
-        another — all our communications essentially depend on transmission of signals through waves. Speech means
-        production of sound waves in air; hearing amounts to their detection. Often, communication involves different
-        kinds of waves: sound waves may be converted into an electric current signal, which in turn may generate an
-        electromagnetic wave transmitted by an optical cable or via a satellite, the original signal being recovered in
-        reverse order at the detector.
-      </p>
-      <p>
-        Not all waves require a medium for their propagation. Light waves travel through vacuum — the light of stars
-        hundreds of light years away reaches us through interstellar space, which is practically a vacuum. There are
-        three kinds of waves:
-      </p>
-      <TableCard
-        caption="14.1 Table — Kinds of waves"
-        headers={["Type", "Medium required?", "Examples"]}
-        rows={[
-          { cells: ["Mechanical", "Yes — cannot propagate through vacuum; involve oscillations of constituents, depend on elastic properties", "String, water, sound, seismic waves"] },
-          { cells: ["Electromagnetic", "No — can travel through vacuum; in vacuum all move at c = 299, 792, 458 m s⁻¹", "Light, radio waves, X-rays"] },
-          { cells: ["Matter", "Associated with constituents of matter (quantum mechanical)", "Waves of electrons, protons, atoms, molecules — used in electron microscopes"] },
-        ]}
-      />
-      <p>
-        In this chapter we study <strong>mechanical waves</strong>, <Highlight>which require a material medium for
-        their propagation</Highlight>. The first scientific analysis of wave motion dates back to the seventeenth
-        century; physicists
-        associated with it include Christiaan Huygens (1629–1695), Robert Hooke and Isaac Newton. Waves in elastic media
-        are intimately connected with harmonic oscillations — stretched strings, coiled springs and air are elastic
-        media.
-      </p>
-      <p>
-        Consider a collection of springs connected to one another (Fig 14.1): if the spring at one end is pulled
-        suddenly and released, the disturbance travels to the other end. The first spring is disturbed from its
-        equilibrium length; because the second is connected to the first, it too is stretched or compressed, and so on.
-        The disturbance moves from one end to the other, but each spring only executes small oscillations about its
-        equilibrium position. As a practical example, the bogies of a stationary train are coupled through springs: when
-        an engine gives a push to the bogie next to it, the push is transmitted from one bogie to another without the
-        entire train being bodily displaced.
-      </p>
-      <p>
-        As a sound wave passes through air, it compresses or expands small regions, changing the density δρ of that
-        region and inducing a change in pressure δp. Pressure is force per unit area, so a restoring force proportional
-        to the disturbance acts just as in a spring — the quantity analogous to extension or compression of the spring
-        is the change in density. A compressed region has its molecules packed together; they tend to move out into the
-        adjoining region, creating a compression there and leaving a rarefaction behind. Thus compression and
-        rarefaction move from region to region, making propagation possible in air. In a crystalline solid, atoms are
-        arranged in a periodic lattice; displacing one atom leads to restoring forces exactly as in a spring, so we may
-        picture the atoms of a lattice as points connected by springs.
+        A wave is a <Highlight>moving disturbance that transfers energy from one place to another without moving the
+        physical matter (particles) along with it</Highlight>. The particles of the medium only oscillate about their
+        mean positions — the disturbance, not the matter, travels outward.
       </p>
 
-      <h2 id="w-types">14.2 Transverse and Longitudinal Waves</h2>
+      <h3 id="w-classification">14.1.1 Classification of Waves</h3>
       <p>
-        Mechanical waves involve oscillations of the constituents of the medium. If the constituents oscillate{" "}
-        <strong>perpendicular</strong> to the direction of wave propagation, the wave is a{" "}
-        <strong>transverse wave</strong>; if they oscillate <strong>along</strong> the direction of propagation, it is
+        Waves are classified by whether they need a material medium to travel:
+      </p>
+      <OrgChart
+        title="Classification of waves"
+        nodes={[
+          {
+            label: "Waves",
+            children: [
+              { label: "Mechanical", detail: "need a medium — sound, string, water, seismic" },
+              { label: "Electromagnetic", detail: "no medium needed — light, radio, X-rays" },
+              { label: "Matter waves", detail: "associated with matter" },
+            ],
+          },
+        ]}
+      />
+
+      <h3 id="w-types">14.1.2 Mechanical Waves: Transverse and Longitudinal</h3>
+      <p>
+        Mechanical waves involve oscillations of the constituents of the medium. If the particles oscillate{" "}
+        <strong>perpendicular</strong> to the direction of propagation the wave is a{" "}
+        <strong>transverse wave</strong>; if they oscillate <strong>along</strong> the direction of propagation it is
         a <strong>longitudinal wave</strong>.
       </p>
-      <p>
-        A single up-and-down jerk at one end of a long string sends a single pulse along it: the elements of the string
-        oscillate about their equilibrium positions normal to the direction of wave motion (Fig 14.2). If the jerk is
-        continuous and periodic (sinusoidal), the resulting disturbance is a sinusoidal wave (Fig 14.3) — a transverse
-        wave. A wave can be looked at in two ways: fix an instant of time and picture the shape of the wave in space;
-        or fix a location and watch the oscillatory motion of a particular element in time.
-      </p>
-      <p>
-        For longitudinal waves, take the most familiar example — sound in air (Fig 14.4). A pipe filled with air has a
-        piston at one end. A single sudden push forward and pull back of the piston generates a pulse of condensations
-        (higher density) and rarefactions (lower density) in the air. If the push-pull is continuous and sinusoidal, a
-        sinusoidal longitudinal wave propagates along the length of the pipe; a volume element of air oscillates
-        parallel to the direction of propagation.
-      </p>
-      <KeyPoint title="Waves vs flow of matter">
-        The transverse and longitudinal waves considered are <strong>travelling</strong> or <strong>progressive</strong>{" "}
-        waves, since they travel from one part of the medium to another. The medium as a whole does not move. A stream
-        is motion of water as a whole; in a water wave it is the disturbance that moves, not the water. A wind (motion
-        of air as a whole) should not be confused with a sound wave, which propagates a disturbance of pressure and
-        density through air at rest on the whole.
-      </KeyPoint>
-      <p>
-        In transverse waves the particle motion is normal to the direction of propagation, so every element of the
-        medium undergoes a <strong>shearing strain</strong>. <Highlight>Transverse waves can therefore be propagated only in media
-        that can sustain shearing stress</Highlight> — solids, not fluids. Fluids as well as solids can sustain
-        compressive strain,
-        so longitudinal waves propagate in all elastic media. In steel, both transverse and longitudinal waves can
-        propagate, while air can sustain only longitudinal waves.
-      </p>
-      <p>
-        Water-surface waves are of two kinds. <strong>Capillary waves</strong> are ripples of fairly short wavelength
-        (not more than a few centimetres), restored by surface tension. <strong>Gravity waves</strong> have wavelengths
-        from several metres to several hundred metres, restored by gravity, which tends to keep the surface at its
-        lowest level. Their oscillations extend — with diminishing amplitude — to the very bottom, and the particle
-        motion is complicated: particles not only move up and down but also back and forth. Ocean waves are therefore a
-        combination of both longitudinal and transverse waves. Generally, transverse and longitudinal waves travel with
-        different speeds in the same medium.
-      </p>
+      <Comparison
+        columns={[
+          {
+            title: "Transverse (⟂)",
+            children: (
+              <>
+                Particles oscillate <strong>perpendicular</strong> to the direction of propagation.
+                <br />
+                <strong>Examples:</strong> ripples on the surface of water, water waves, light waves.
+              </>
+            ),
+          },
+          {
+            title: "Longitudinal (∥)",
+            children: (
+              <>
+                Particles oscillate <strong>parallel</strong> to the direction of propagation.
+                <br />
+                <strong>Examples:</strong> sound waves in air, vibrations in a spring.
+              </>
+            ),
+          },
+        ]}
+      />
+      <WaveTypesPanels />
+      <TableCard
+        caption="A transverse wave shows crests and troughs and needs a medium with shear strength; a longitudinal wave shows compressions and rarefactions and needs only compressibility, so it can travel through fluids."
+        headers={["", "Transverse", "Longitudinal"]}
+        rows={[
+          { cells: ["Particle motion", "⟂ propagation", "∥ propagation"] },
+          { cells: ["Characteristic pattern", "Crests / troughs", "Compressions / rarefactions"] },
+          { cells: ["Example", "String wave", "Sound in air"] },
+          { cells: ["Required medium property", "Shear strength", "Compressibility"] },
+          { cells: ["Fluids?", "No ✗", "Yes ✓"] },
+        ]}
+      />
 
       <Expandable variant="default" title="Example 14.1 — transverse, longitudinal or combined?">
         <ProblemSolution.Problem>
@@ -186,7 +150,52 @@ export default function WavesChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h2 id="w-displacement">14.3 Displacement Relation in a Progressive Wave</h2>
+      <h3 id="w-travelling-standing">14.1.3 Travelling and Standing Waves</h3>
+      <p>
+        On the basis of how they progress, waves are classified into two main types:
+      </p>
+      <Comparison
+        columns={[
+          {
+            title: "Travelling (progressive) wave",
+            children: (
+              <>
+                Any wave that travels through a medium, carrying energy from one region to another. It can be
+                transverse or longitudinal.
+              </>
+            ),
+          },
+          {
+            title: "Standing wave",
+            children: (
+              <>
+                A wave pattern formed when a wave and its reflection (travelling in opposite directions) superpose,
+                so the disturbance is confined with fixed nodes and antinodes.
+              </>
+            ),
+          },
+        ]}
+      />
+
+      <h3 id="w-parameters">14.1.4 Parameters of a Wave</h3>
+      <ul>
+        <li>
+          <strong>Mean position / equilibrium position:</strong> the horizontal line around which the wave oscillates
+          and along which energy is carried.
+        </li>
+        <li>
+          <strong>Amplitude (A):</strong> the maximum displacement of a particle from the mean position.
+        </li>
+        <li>
+          <strong>Wavelength (λ):</strong> the length of one complete wave.
+        </li>
+        <li>
+          <strong>Crest and trough:</strong> the high points (crests) and low points (troughs) of a transverse wave.
+        </li>
+      </ul>
+      <WaveAnatomyDiagram />
+
+      <h2 id="w-displacement">14.2 Displacement Relation in a Progressive Wave</h2>
       <p>
         For a mathematical description of a travelling wave we need a function of both position x and time t. At every
         instant it must give the shape of the wave in space; at every given location it must describe the motion of the
@@ -219,7 +228,7 @@ export default function WavesChapter() {
         completes one full oscillation the crest has advanced by a certain distance — the wavelength.
       </p>
 
-      <h3 id="w-amp">14.3.1 Amplitude and Phase</h3>
+      <h3 id="w-amp">14.2.1 Amplitude and Phase</h3>
       <p>
         Since the sine function varies between +1 and −1, the displacement y(x, t) varies between +a and −a. Taking a to
         be a positive constant, a represents <Highlight>the maximum displacement of the constituents from their equilibrium
@@ -233,7 +242,7 @@ export default function WavesChapter() {
         time, it is possible to have φ = 0 — so there is no loss of generality in dropping φ.
       </p>
 
-      <h3 id="w-wavelength">14.3.2 Wavelength and Angular Wave Number</h3>
+      <h3 id="w-wavelength">14.2.2 Wavelength and Angular Wave Number</h3>
       <p>
         <Highlight>The minimum distance between two points having the same phase is the <strong>wavelength</strong> λ of the wave</Highlight>.
         Choosing the points of same phase to be crests (or troughs), λ is the distance between two consecutive crests
@@ -252,7 +261,7 @@ export default function WavesChapter() {
         unit length.
       </p>
 
-      <h3 id="w-period">14.3.3 Period, Angular Frequency and Frequency</h3>
+      <h3 id="w-period">14.2.3 Period, Angular Frequency and Frequency</h3>
       <p>
         Monitor the displacement of an element at a fixed location as a function of time. With φ = 0, at x = 0,
       </p>
@@ -416,7 +425,7 @@ export default function WavesChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h2 id="w-speed">14.4 The Speed of a Travelling Wave</h2>
+      <h2 id="w-speed">14.3 The Speed of a Travelling Wave</h2>
       <p>
         To determine the speed of propagation, fix attention on a particular point of the wave (some fixed value of the
         phase — say a crest) and see how it moves in time. The motion of a fixed-phase point is given by:
@@ -440,7 +449,7 @@ export default function WavesChapter() {
         and longitudinal waves, which travel at different speeds.
       </p>
 
-      <h3 id="w-speed-string">14.4.1 Speed of a Transverse Wave on a Stretched String</h3>
+      <h3 id="w-speed-string">14.3.1 Speed of a Transverse Wave on a Stretched String</h3>
       <p>
         The speed is expected to be directly related to the restoring force and inversely to the inertial property. For
         a string, the restoring force is the tension T and the inertial property is the linear mass density μ = m/L
@@ -465,7 +474,7 @@ export default function WavesChapter() {
         simply record the answer for a tensioned string.
       </p>
 
-      <h3 id="w-speed-sound">14.4.2 Speed of a Longitudinal Wave (Speed of Sound)</h3>
+      <h3 id="w-speed-sound">14.3.2 Speed of a Longitudinal Wave (Speed of Sound)</h3>
       <p>
         Sound waves travel as compressions and rarefactions of small volume elements. The elastic property that
         determines the stress under compressional strain is the <strong>bulk modulus</strong> of the medium:
@@ -634,7 +643,7 @@ export default function WavesChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h2 id="w-superposition">14.5 The Principle of Superposition of Waves</h2>
+      <h2 id="w-superposition">14.4 The Principle of Superposition of Waves</h2>
       <p>
         What happens when two wave pulses travelling in opposite directions cross each other? They continue to retain
         their identities after crossing. During the time they overlap, the wave pattern is different from either pulse;
@@ -698,7 +707,7 @@ export default function WavesChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h2 id="w-reflection">14.6 Reflection of Waves</h2>
+      <h2 id="w-reflection">14.5 Reflection of Waves</h2>
       <p>
         So far we treated waves propagating in an unbounded medium. What happens when a pulse or wave meets a boundary?
         If the boundary is <strong>rigid</strong>, the pulse is reflected; the phenomenon of <strong>echo</strong> is an
@@ -727,7 +736,7 @@ export default function WavesChapter() {
       <FormulaBlock latex={String.raw`\text{Rigid: } y_r = a\,\sin(kx - \omega t + \pi) = -a\,\sin(kx - \omega t)\qquad \text{Open: } y_r = a\,\sin(kx - \omega t + 0)`} />
       <p>At a rigid boundary, y + y_r = 0 at all times, as required by the boundary condition.</p>
 
-      <h3 id="w-standing">14.6.1 Standing Waves and Normal Modes</h3>
+      <h3 id="w-standing">14.5.1 Standing Waves and Normal Modes</h3>
       <p>
         A string fixed at both ends (or an air column in a pipe) reflects waves at <em>two</em> boundaries. A wave going
         in one direction is reflected at one end, travels back and is reflected at the other end, and so on, until a
@@ -897,7 +906,7 @@ export default function WavesChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h2 id="w-beats">14.7 Beats</h2>
+      <h2 id="w-beats">14.6 Beats</h2>
       <p>
         When two harmonic sound waves of close (but not equal) frequencies are heard at the same time, we hear a sound
         of approximately the average of the two frequencies, together with an audibly distinct{" "}

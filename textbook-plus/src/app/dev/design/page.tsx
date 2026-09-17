@@ -33,6 +33,8 @@ import { SpeedLayers } from "@/components/content/physics/SpeedLayers";
 import { FieldRatio } from "@/components/content/physics/FieldRatio";
 import { PropagationExplorer } from "@/components/content/physics/PropagationExplorer";
 import { AmpereSurfaceToggle } from "@/components/content/physics/AmpereSurfaceToggle";
+import { WaveTypesPanels } from "@/components/content/physics/WaveTypesPanels";
+import { WaveAnatomyDiagram } from "@/components/content/physics/WaveAnatomyDiagram";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -420,6 +422,16 @@ export default function DesignGallery() {
             <div>
               <Label text="OscillationPlayer" />
               <OscillationPlayer />
+            </div>
+
+            <div>
+              <Label text="WaveTypesPanels" />
+              <WaveTypesPanels />
+            </div>
+
+            <div>
+              <Label text="WaveAnatomyDiagram" />
+              <WaveAnatomyDiagram />
             </div>
           </Section>
         </div>
