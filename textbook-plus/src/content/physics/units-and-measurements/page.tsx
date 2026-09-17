@@ -274,6 +274,118 @@ export default function UnitsAndMeasurementsChapter() {
         <FormulaBlock latex={String.raw`1\ \text{kWh} = 1000\ \text{W} \times 3600\ \text{s} = 3.6 \times 10^6\ \text{J}`} />
       </Callout>
 
+      <Expandable title="Exercises — units, conversions &amp; measurement" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.1 — Fill in the blanks
+        </h3>
+        <ProblemSolution.Problem>
+          <p>(a) Volume of a cube of side 1 cm = ..... m³; (b) surface area of a solid cylinder of radius 2.0 cm and height 10.0 cm = ..... (mm)²; (c) a vehicle moving at 18 km h⁻¹ covers ..... m in 1 s; (d) relative density of lead is 11.3, so its density is ..... g cm⁻³ or ..... kg m⁻³.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>(a) 10⁻⁶ m³; (b) 1.508 × 10⁴ (mm)²; (c) 5 m; (d) 11.3 g cm⁻³ = 1.13 × 10⁴ kg m⁻³.</p>
+        </ProblemSolution.Solution>
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.2 — Fill in the blanks by suitable conversion of units
+        </h3>
+        <ProblemSolution.Problem>
+          <p>(a) 1 kg m² s⁻² = ..... g cm² s⁻²; (b) 1 m = ..... ly; (c) 3.0 m s⁻² = ..... km h⁻²; (d) G = 6.67 × 10⁻¹¹ N m² (kg)⁻² = ..... (cm)³ s⁻² g⁻¹.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>(a) 10⁷; (b) 1.06 × 10⁻¹⁶ ly; (c) 3.9 × 10⁴ km h⁻²; (d) 6.67 × 10⁻⁸ (cm)³ s⁻² g⁻¹.</p>
+        </ProblemSolution.Solution>
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.3 — A calorie in an arbitrary system of units
+        </h3>
+        <ProblemSolution.Problem>
+          <p>A calorie equals about 4.2 J (1 J = 1 kg m² s⁻²). In a system where the unit of mass equals α kg, of length β m and of time γ s, show that a calorie has magnitude 4.2 α⁻¹ β⁻² γ².</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Convert by multiplying with the ratios <Formula>{String.raw`\left(\tfrac{\alpha\ \text{kg}}{1}\right)`}</Formula> and so on, giving a calorie = 4.2 J = 4.2 α⁻¹ β⁻² γ² in the new units.</p>
+        </ProblemSolution.Solution>
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.5 — Sun–Earth distance in a new unit of length
+        </h3>
+        <ProblemSolution.Problem>
+          <p>A new unit of length is chosen such that the speed of light in vacuum is unity. What is the Sun–Earth distance in the new unit if light takes 8 min 20 s to cover it?</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Light takes 8 min 20 s = 500 s; in the new unit c = 1 → distance = 500 (new units).</p>
+        </ProblemSolution.Solution>
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.6 — Most precise device for measuring length
+        </h3>
+        <ProblemSolution.Problem>
+          <p>Which is the most precise device for measuring length: (a) vernier callipers with 20 divisions on the sliding scale; (b) screw gauge of pitch 1 mm and 100 divisions on the circular scale; (c) an optical instrument that can measure length to within a wavelength of light?</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>(c) — an optical instrument measuring to within a wavelength of light has the greatest resolution (least count).</p>
+        </ProblemSolution.Solution>
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.7 — Thickness of a human hair
+        </h3>
+        <ProblemSolution.Problem>
+          <p>A student measures the thickness of a human hair through a microscope of magnification 100; over 20 observations the average width in the field of view is 3.5 mm. Estimate the thickness of the hair.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Thickness = 3.5 mm / 100 = 0.035 mm = 35 μm.</p>
+        </ProblemSolution.Solution>
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.8 — Thread diameter, screw gauge accuracy and repeated readings
+        </h3>
+        <ProblemSolution.Problem>
+          <p>(a) With a thread and a metre scale, how will you estimate the diameter of the thread? (b) Can you increase the accuracy of a screw gauge arbitrarily by increasing divisions on the circular scale? (c) Why is a set of 100 measurements of a brass rod&apos;s diameter more reliable than 5?</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>(a) Wind the thread tightly around a pencil and divide the length of the wound turns by the number of turns. (b) No — beyond the limit of the eyepiece resolution and thermal/mechanical effects, refining divisions adds no accuracy. (c) Averaging many readings reduces random errors; 100 readings give a more reliable estimate than 5.</p>
+        </ProblemSolution.Solution>
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.9 — Linear magnification of a projector
+        </h3>
+        <ProblemSolution.Problem>
+          <p>The photograph of a house occupies 1.75 cm² on a 35 mm slide; on the screen the house covers 1.55 m². What is the linear magnification of the projector–screen arrangement?</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Area magnification = 1.55 / (1.75 × 10⁻⁴) = 8.86 × 10³; linear magnification = √(8.86 × 10³) ≈ 94.</p>
+        </ProblemSolution.Solution>
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.14 — Atomic volume of a mole of hydrogen
+        </h3>
+        <ProblemSolution.Problem>
+          <p>1 Å = 10⁻¹⁰ m; the size of a hydrogen atom is about 0.5 Å. What is the total atomic volume in m³ of a mole of hydrogen atoms?</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Taking the hydrogen atom as a cube of side 0.5 Å ≈ 5 × 10⁻¹¹ m gives ≈ 1.6 × 10⁻³¹ m³ per atom; the atomic volume of 1 mole is ≈ 3.8 × 10⁻⁷ m³.</p>
+        </ProblemSolution.Solution>
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.15 — Molar volume versus atomic volume
+        </h3>
+        <ProblemSolution.Problem>
+          <p>One mole of an ideal gas at STP occupies 22.4 L. What is the ratio of molar volume to the atomic volume of a mole of hydrogen (molecule size ~1 Å)? Why is this ratio so large?</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Molar volume (22.4 × 10⁻³ m³) ÷ atomic volume of a mole of hydrogen (~3.8 × 10⁻⁷ m³) ≈ 6 × 10⁴ — the ratio is huge because gas molecules are far apart compared with atoms packed in a solid.</p>
+        </ProblemSolution.Solution>
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.17 — Density of the Sun
+        </h3>
+        <ProblemSolution.Problem>
+          <p>The Sun is hot plasma (core &gt; 10⁷ K, surface ~6000 K). In what density range do you expect the Sun? Check from data: mass = 2.0 × 10³⁰ kg, radius = 7.0 × 10⁸ m.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Expected: plasma gas range (orders below solids/liquids). Check: <Formula>{String.raw`\rho = \frac{M}{\frac{4}{3}\pi R^3} \approx 1.4 \times 10^3\ \text{kg m}^{-3}`}</Formula> — close to the density of liquids, because the core is enormously compressed.</p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
       <h2 id="h-sig-figs">1.3 Significant Figures</h2>
       <Callout type="important" title="Definition">
         <strong>Significant digits (significant figures)</strong> = the reliable digits plus the first
@@ -380,7 +492,10 @@ export default function UnitsAndMeasurementsChapter() {
         and round off only at the end — rounding early lets errors build up. E.g., 1/9.58 = 0.1044,
         then 1/0.1044 &rarr; 9.58 (rounded, the original value is retrieved).
       </Callout>
-      <Expandable title="Example 1.1 — Surface area and volume of a cube" variant="example">
+      <Expandable title="Examples — significant figures in practice" variant="example">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          Example 1.1 — Surface area and volume of a cube
+        </h3>
         <ProblemSolution.Problem>
           <p>Each side of a cube is measured to be 7.203 m. What are the total surface area and the volume of the cube to appropriate significant figures?</p>
         </ProblemSolution.Problem>
@@ -389,14 +504,48 @@ export default function UnitsAndMeasurementsChapter() {
           <FormulaBlock latex={String.raw`\text{Surface area} = 6(7.203)^2 = 311.299254\ \text{m}^2 = 311.3\ \text{m}^2`} important />
           <FormulaBlock latex={String.raw`\text{Volume} = (7.203)^3 = 373.714754\ \text{m}^3 = 373.7\ \text{m}^3`} important />
         </ProblemSolution.Solution>
-      </Expandable>
-      <Expandable title="Example 1.2 — Density to the correct significant figures" variant="example">
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          Example 1.2 — Density to the correct significant figures
+        </h3>
         <ProblemSolution.Problem>
           <p>5.74 g of a substance occupies 1.2 cm³. Express its density keeping the significant figures in view.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p>Mass has 3 sig. figs, volume has only <strong>2</strong> sig. figs &rarr; the density is limited to 2 sig. figs.</p>
           <FormulaBlock latex={String.raw`\rho = \frac{5.74\ \text{g}}{1.2\ \text{cm}^3} = 4.8\ \text{g cm}^{-3}`} important />
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="Exercises — significant figures" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.10 — Number of significant figures
+        </h3>
+        <ProblemSolution.Problem>
+          <p>State the number of significant figures in: (a) 0.007 m²; (b) 2.64 × 10²⁴ kg; (c) 0.2370 g cm⁻³; (d) 6.320 J; (e) 6.032 N m⁻²; (f) 0.0006032 m².</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>(a) 1; (b) 3; (c) 4; (d) 4; (e) 4; (f) 4.</p>
+        </ProblemSolution.Solution>
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.11 — Area and volume of a metal sheet
+        </h3>
+        <ProblemSolution.Problem>
+          <p>A rectangular sheet of metal has length 4.234 m, breadth 1.005 m and thickness 2.01 cm. Give the area and volume of the sheet to correct significant figures.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Area = 2(lb + bt + lt) with t = 2.01 cm = 2.010 × 10⁻² m: A ≈ 8.72 m² (3 sig. figs, limited by thickness); Volume = 4.234 × 1.005 × 0.0201 ≈ 0.0855 m³.</p>
+        </ProblemSolution.Solution>
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.12 — Total mass and mass difference to correct significant figures
+        </h3>
+        <ProblemSolution.Problem>
+          <p>A box weighs 2.30 kg on a grocer&apos;s balance. Two gold pieces of masses 20.15 g and 20.17 g are added. Find (a) total mass of the box, (b) the difference in the masses of the pieces, to correct significant figures.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>(a) Total = 2.30 kg + 0.02015 kg + 0.02017 kg = 2.34032 kg → <strong>2.34 kg</strong> (to 2 decimal places). (b) Difference = 0.02017 − 0.02015 = 0.00002 kg = <strong>2 × 10⁻⁵ kg</strong>.</p>
         </ProblemSolution.Solution>
       </Expandable>
 
@@ -471,7 +620,10 @@ export default function UnitsAndMeasurementsChapter() {
       />
 
       <h3 id="h-dim-worked">Worked derivations — step by step</h3>
-      <Expandable title="Angular velocity ω and frequency f — both [T⁻¹]" variant="default">
+      <Expandable title="Worked derivations — dimensions of derived quantities" variant="example">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          Angular velocity ω and frequency f — both [T⁻¹]
+        </h3>
         <p>
           <strong>Angular velocity:</strong> <Formula>{String.raw`\omega = \frac{\theta}{t}`}</Formula>.
           An angle in radians is dimensionless, <Formula>{String.raw`[\theta] = M^0 L^0 T^0 = 1`}</Formula>, so
@@ -481,8 +633,10 @@ export default function UnitsAndMeasurementsChapter() {
           <strong>Frequency:</strong> <Formula>{String.raw`f = \frac{1}{T}`}</Formula> gives the same
           result, agreeing with <Formula>{String.raw`\omega = 2\pi f`}</Formula> since 2π is dimensionless.
         </p>
-      </Expandable>
-      <Expandable title="Work W, energy E, momentum p and impulse J" variant="default">
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          Work W, energy E, momentum p and impulse J
+        </h3>
         <p>
           <strong>Force:</strong> <Formula>{String.raw`F = ma`}</Formula> with{" "}
           <Formula>{String.raw`[v] = L T^{-1}`}</Formula> and{" "}
@@ -505,8 +659,10 @@ export default function UnitsAndMeasurementsChapter() {
           <Formula>{String.raw`[J] = M L T^{-2} \times T = M L T^{-1} = [p]`}</Formula> — consistent
           with <Formula>{String.raw`J = \Delta p`}</Formula>.
         </p>
-      </Expandable>
-      <Expandable title="Power P — work per unit time" variant="default">
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          Power P — work per unit time
+        </h3>
         <p>
           <Formula>{String.raw`P = \frac{W}{t}`}</Formula> with{" "}
           <Formula>{String.raw`W = F \times s`}</Formula>:
@@ -530,6 +686,18 @@ export default function UnitsAndMeasurementsChapter() {
         Because dimensions ignore magnitudes, <em>speed</em>, <em>velocity</em>, and all velocity-like
         quantities are dimensionally identical — a change of position per unit time is [L T⁻¹] in every case.
       </KeyPoint>
+
+      <Expandable title="Exercise — is 'large' or 'small' meaningful for a dimensional quantity?" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.4 — A standard is needed for every comparison
+        </h3>
+        <ProblemSolution.Problem>
+          <p>Explain: &ldquo;To call a dimensional quantity &lsquo;large&rsquo; or &lsquo;small&rsquo; is meaningless without specifying a standard for comparison.&rdquo; Reframe the statements (a)–(f) wherever necessary.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Every size claim needs a reference standard. Reframe with comparisons: (a) atoms are very small compared to everyday objects; (b) jet plane speed is large relative to a bicycle; (c) Jupiter&apos;s mass is large relative to Earth&apos;s; (d) the air contains a large number of molecules relative to the number of people in the room; (e) a proton is more massive than an electron (≈1836×); (f) the speed of sound is much smaller than the speed of light (≈10⁶×).</p>
+        </ProblemSolution.Solution>
+      </Expandable>
 
       <h2 id="h-1-5">1.5 Dimensional Formulae and Dimensional Equations</h2>
       <ul>
@@ -623,7 +791,10 @@ export default function UnitsAndMeasurementsChapter() {
       />
 
       <h3 id="h-1-6-1">1.6.1 Checking the dimensional consistency of equations</h3>
-      <Expandable title="Check 1 — S = ut + ½at² is dimensionally correct" variant="default">
+      <Expandable title="Worked checks &amp; examples — dimensional consistency" variant="example">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          Check 1 — S = ut + ½at² is dimensionally correct
+        </h3>
         <ul>
           <li><Formula>{String.raw`[S] = L^1`}</Formula></li>
           <li><Formula>{String.raw`[ut] = (L^1 T^{-1})\cdot T^1 = L^1`}</Formula></li>
@@ -634,9 +805,10 @@ export default function UnitsAndMeasurementsChapter() {
           <Highlight>[LHS] = [RHS]</Highlight>. The equation is{" "}
           <strong>dimensionally correct</strong>.
         </p>
-      </Expandable>
 
-      <Expandable title="Check 2 — T = 2π√(g/l)" variant="default">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          Check 2 — T = 2π√(g/l)
+        </h3>
         <p>T → time period, g → acceleration due to gravity, l → length.</p>
         <ul>
           <li><Formula>{String.raw`[\text{LHS}] = [T] = T^1`}</Formula></li>
@@ -648,9 +820,10 @@ export default function UnitsAndMeasurementsChapter() {
           <Formula>{String.raw`T = 2\pi\sqrt{l/g}`}</Formula> — swapping l and g flips the time
           dimension, as seen in Example 1.5.)
         </p>
-      </Expandable>
 
-      <Expandable title="Check 3 — f = 2π√(l/g)" variant="default">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          Check 3 — f = 2π√(l/g)
+        </h3>
         <p>f → frequency, g → acceleration due to gravity, l → length.</p>
         <ul>
           <li><Formula>{String.raw`[f] = T^{-1}`}</Formula></li>
@@ -662,9 +835,10 @@ export default function UnitsAndMeasurementsChapter() {
           <strong>dimensionally incorrect</strong>. (Frequency actually runs as{" "}
           <Formula>{String.raw`f = \frac{1}{T} = \frac{1}{2\pi}\sqrt{g/l}`}</Formula>.)
         </p>
-      </Expandable>
 
-      <Expandable title="Example 1.3 — Is ½mv² = mgh dimensionally correct?" variant="example">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          Example 1.3 — Is ½mv² = mgh dimensionally correct?
+        </h3>
         <ProblemSolution.Problem>
           <p>Consider the equation ½mv² = mgh, where m is the mass of the body, v its velocity, g the acceleration due to gravity and h the height. Check whether the equation is dimensionally correct.</p>
         </ProblemSolution.Problem>
@@ -673,9 +847,10 @@ export default function UnitsAndMeasurementsChapter() {
           <p>RHS: <Formula>{String.raw`[M][L T^{-2}][L] = [M L^2 T^{-2}]`}</Formula></p>
           <p>LHS and RHS have the same dimensions &rarr; the equation is <strong>dimensionally correct</strong>.</p>
         </ProblemSolution.Solution>
-      </Expandable>
 
-      <Expandable title="Example 1.4 — Which kinetic-energy formulas can be ruled out?" variant="example">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          Example 1.4 — Which kinetic-energy formulas can be ruled out?
+        </h3>
         <ProblemSolution.Problem>
           <p>The SI unit of energy is J = kg m² s⁻², that of speed v is m s⁻¹ and of acceleration a is m s⁻². Which of these formulas for kinetic energy K (m = mass) can you rule out on the basis of dimensional arguments?</p>
           <ol>
@@ -713,7 +888,10 @@ export default function UnitsAndMeasurementsChapter() {
           { label: "Solve and write the relation", description: "Insert x, y, z back; the dimensionless constant k is left undetermined." },
         ]}
       />
-      <Expandable title="Example 1.5 — Period of a simple pendulum by the method of dimensions" variant="example">
+      <Expandable title="Worked examples — deducing relations by the method of dimensions" variant="example">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          Example 1.5 — Period of a simple pendulum
+        </h3>
         <ProblemSolution.Problem>
           <p>Suppose the period of oscillation T of a simple pendulum depends on its length l, mass of the bob m and acceleration due to gravity g. Derive its expression using the method of dimensions.</p>
         </ProblemSolution.Problem>
@@ -743,9 +921,10 @@ export default function UnitsAndMeasurementsChapter() {
             <Formula>{String.raw`T = 2\pi\sqrt{l/g}`}</Formula>. <Highlight>The period of a simple pendulum is independent of the bob&apos;s mass.</Highlight>
           </p>
         </ProblemSolution.Solution>
-      </Expandable>
 
-      <Expandable title="Derivation 1 — Centripetal force Fc = mv²/r (k = 1)" variant="example">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          Derivation 1 — Centripetal force Fc = mv²/r (k = 1)
+        </h3>
         <ProblemSolution.Problem>
           <p>
             Centripetal force experienced by a body in uniform circular motion relates to its mass (m),
@@ -775,9 +954,10 @@ export default function UnitsAndMeasurementsChapter() {
             ]}
           />
         </ProblemSolution.Solution>
-      </Expandable>
 
-      <Expandable title="Derivation 2 — Time period of a planet around the Sun" variant="example">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          Derivation 2 — Time period of a planet around the Sun
+        </h3>
         <ProblemSolution.Problem>
           <p>
             A planet moves around the Sun in a nearly circular orbit. Its period (T) depends on the
@@ -811,7 +991,7 @@ export default function UnitsAndMeasurementsChapter() {
 
       <h3 id="h-1-6-3">1.6.3 Practice questions — applying P.O.H</h3>
       <Expandable title="Solved practice questions on dimensions" variant="exercise">
-        <Expandable title="Q1 — A quantity has dimensions [M¹ L² T⁻²]" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">Q1 — A quantity has dimensions [M¹ L² T⁻²]</h3>
           <p>What are its SI and CGS units?</p>
           <p>Replace M, L, T by the base units of each system:</p>
           <ul>
@@ -824,19 +1004,15 @@ export default function UnitsAndMeasurementsChapter() {
               — the erg.
             </li>
           </ul>
-        </Expandable>
-        <Expandable title="Q2 — SI unit is kg m⁻². Find the dimensions" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">Q2 — SI unit is kg m⁻². Find the dimensions</h3>
           <p>Replace each unit by its dimension: kg → [M], m → [L].</p>
           <FormulaBlock latex={String.raw`\frac{\text{kg}^1}{\text{m}^2} \;\Rightarrow\; [M^1 L^{-2} T^0]`} important />
-        </Expandable>
-        <Expandable title="Q3 — Kinetic energy K = ½mv²" variant="example">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">Q3 — Kinetic energy K = ½mv²</h3>
           <FormulaBlock latex={String.raw`[K] = [\tfrac{1}{2}]\,[m]\,[v]^2 = 1 \times M \times (L T^{-1})^2 = [M L^2 T^{-2}]`} important />
-        </Expandable>
-        <Expandable title="Q4 — Gravitational constant G from F = Gm₁m₂/r²" variant="example">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">Q4 — Gravitational constant G from F = Gm₁m₂/r²</h3>
           <p>Rearrange for G, then substitute dimensions:</p>
           <FormulaBlock latex={String.raw`G = \frac{F\,r^2}{m_1 m_2} = \frac{(M L T^{-2})\,L^2}{M \times M} = [M^{-1} L^3 T^{-2}]`} important />
-        </Expandable>
-        <Expandable title="Q5 — Coefficient of viscosity, modulus of elasticity and G" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">Q5 — Coefficient of viscosity, modulus of elasticity and G</h3>
           <p>Write the dimensional formula of each quantity:</p>
           <TableCard
             headers={["Quantity", "Formula / expression", "Dimensional formula"]}
@@ -846,15 +1022,13 @@ export default function UnitsAndMeasurementsChapter() {
               { cells: ["Modulus of elasticity", "force ÷ area", "M L⁻¹ T⁻²"] },
             ]}
           />
-        </Expandable>
-        <Expandable title="Q6 — Spring constant k from F = −kx" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">Q6 — Spring constant k from F = −kx</h3>
           <p>
             The restoring force developed in a spring extended by a length x is <Formula>{String.raw`F = -kx`}</Formula>.
             What is the dimensional formula of k?
           </p>
           <FormulaBlock latex={String.raw`[k] = \frac{[F]}{[x]} = \frac{M L T^{-2}}{L} = [M L^0 T^{-2}] = [M T^{-2}]`} important />
-        </Expandable>
-        <Expandable title="P1 — Dimensions of a, b, c in x = a + bt + c/t²" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P1 — Dimensions of a, b, c in x = a + bt + c/t²</h3>
         <ProblemSolution.Problem>
           <p>
             The displacement x of a body is given by{" "}
@@ -873,9 +1047,8 @@ export default function UnitsAndMeasurementsChapter() {
             <li><Formula>{String.raw`\left[\frac{c}{t^2}\right] = [x] \Rightarrow [c] = [x] \cdot [t^2] = L^1 \cdot T^2 = [M^0 L^1 T^2]`}</Formula></li>
           </ul>
         </ProblemSolution.Solution>
-      </Expandable>
 
-      <Expandable title="P2 — Is P = Fv + Av³ρ dimensionally valid?" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P2 — Is P = Fv + Av³ρ dimensionally valid?</h3>
         <p>
           Mechanical power is represented by <Formula>{String.raw`P = Fv + Av^3 \rho`}</Formula>,
           where F is force, v velocity, A area and ρ density. Check the dimensional validity of the
@@ -894,9 +1067,8 @@ export default function UnitsAndMeasurementsChapter() {
           Every term has the dimensions of power &rarr; the equation is{" "}
           <strong>dimensionally valid</strong>.
         </p>
-      </Expandable>
 
-      <Expandable title="P3 — A pipe company&apos;s claim V = KA²ut" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P3 — A pipe company&apos;s claim V = KA²ut</h3>
         <p>
           A company manufacturing PVC pipes claims that the volume of water flowing out through a pipe
           in a given time is <Formula>{String.raw`V = K A^2 u t`}</Formula>, where A is the area of
@@ -913,9 +1085,8 @@ export default function UnitsAndMeasurementsChapter() {
           (Dimensionally sound forms are <Formula>{String.raw`V = K A u t`}</Formula> for the volume,
           or the volume flow rate <Formula>{String.raw`Q = A u`}</Formula>.)
         </p>
-      </Expandable>
 
-      <Expandable title="P4 — Relativistic mass and the dimension of x" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P4 — Relativistic mass and the dimension of x</h3>
         <p>
           A student writes the relativistic variation of mass with velocity as{" "}
           <Formula>{String.raw`m = \frac{m_0}{\sqrt{1 - \frac{x^2}{c^2}}}`}</Formula>, where m₀ is the
@@ -933,9 +1104,8 @@ export default function UnitsAndMeasurementsChapter() {
           <Highlight>[x] = [M⁰ L T⁻¹]</Highlight> — x has the dimensions of velocity (in
           the real relation, x is the speed v).
         </p>
-      </Expandable>
 
-      <Expandable title="P5 — Orbital velocity v = √(GM/R)" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P5 — Orbital velocity v = √(GM/R)</h3>
         <p>
           Check the dimensional correctness of <Formula>{String.raw`v = \sqrt{GM/R}`}</Formula>, where
           v is orbital velocity, G the gravitational constant, M the mass of Earth and R its radius.
@@ -955,9 +1125,8 @@ export default function UnitsAndMeasurementsChapter() {
           [LHS] = [RHS] = <Highlight>[M⁰ L T⁻¹]</Highlight> &rarr; the relation is{" "}
           <strong>dimensionally correct</strong>.
         </p>
-      </Expandable>
 
-      <Expandable title="P6 — Velocity as a function of time: V = At² + Bt" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P6 — Velocity as a function of time: V = At² + Bt</h3>
         <p>
           Given <Formula>{String.raw`V = At^2 + Bt`}</Formula>, where V is velocity and t is time,
           find the dimensions and SI units of A and B.
@@ -967,9 +1136,8 @@ export default function UnitsAndMeasurementsChapter() {
           <li><Formula>{String.raw`[V] = [Bt] \Rightarrow [B] = \frac{[V]}{[t]} = \frac{L T^{-1}}{T^1} = [L T^{-2}]`}</Formula></li>
         </ul>
         <p>Units: A → <strong>m·s⁻³</strong>, B → <strong>m·s⁻²</strong>.</p>
-      </Expandable>
 
-      <Expandable title="P7 — Is PV = F·x dimensionally correct?" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P7 — Is PV = F·x dimensionally correct?</h3>
         <p>
           Check <Formula>{String.raw`P V = F \cdot x`}</Formula>, where P is pressure, V volume, F
           force and x displacement.
@@ -979,9 +1147,8 @@ export default function UnitsAndMeasurementsChapter() {
           <li>RHS: <Formula>{String.raw`[F][x] = [M L T^{-2}] \times [L] = [M L^2 T^{-2}]`}</Formula></li>
         </ul>
         <p>[LHS] = [RHS] &rarr; the equation is <strong>dimensionally correct</strong>.</p>
-      </Expandable>
 
-      <Expandable title="P8 — Is v = v₀ + at dimensionally correct?" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P8 — Is v = v₀ + at dimensionally correct?</h3>
         <ul>
           <li><Formula>{String.raw`[v] = [L T^{-1}]`}</Formula></li>
           <li><Formula>{String.raw`[v_0] = [L T^{-1}]`}</Formula></li>
@@ -991,58 +1158,51 @@ export default function UnitsAndMeasurementsChapter() {
           Every term is <Formula>{String.raw`[L T^{-1}]`}</Formula> &rarr; the equation is{" "}
           <strong>dimensionally correct</strong>.
         </p>
-      </Expandable>
 
-      <Expandable title="P9 — h = F v² L where L is angular momentum" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P9 — h = F v² L where L is angular momentum</h3>
         <p>
           Find the dimensions of h if <Formula>{String.raw`h = F v^2 L`}</Formula>, where F is force,
           v is velocity and <strong>L is angular momentum</strong>{" "}
           (<Formula>{String.raw`[L] = [M L^2 T^{-1}]`}</Formula> — note: <em>not</em> length).
         </p>
         <FormulaBlock latex={String.raw`[h] = [F]\,[v]^2\,[L] = [M L T^{-2}] \times [L^2 T^{-2}] \times [M L^2 T^{-1}] = [M^2 L^5 T^{-5}]`} important />
-      </Expandable>
 
-      <Expandable title="P10 — 1 N = 10⁵ dyne (converting units)" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P10 — 1 N = 10⁵ dyne (converting units)</h3>
         <p>Show that 1 newton = 10⁵ dynes using the numerical-factor formula:</p>
         <FormulaBlock latex={String.raw`n_2 = n_1 \cdot \left(\frac{M_1}{M_2}\right)^a \left(\frac{L_1}{L_2}\right)^b \left(\frac{T_1}{T_2}\right)^c`} />
         <p>Force has dimensions <Formula>{String.raw`[M^1 L^1 T^{-2}]`}</Formula>, so</p>
         <FormulaBlock latex={String.raw`n_2 = 1 \cdot \left(\frac{1\ \text{kg}}{1\ \text{g}}\right)^1 \left(\frac{1\ \text{m}}{1\ \text{cm}}\right)^1 \left(\frac{1\ \text{s}}{1\ \text{s}}\right)^{-2} = 10^3 \times 10^2 \times 1 = 10^5\ \text{dynes}`} important />
-      </Expandable>
 
-      <Expandable title="P11 — Coefficient b in x = a + bt + ct²" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P11 — Coefficient b in x = a + bt + ct²</h3>
         <p>
           Given <Formula>{String.raw`x = a + bt + ct^2`}</Formula> (x displacement, t time), find the
           dimension of b.
         </p>
         <FormulaBlock latex={String.raw`[bt] = [x] \Rightarrow [b] = \frac{[x]}{[t]} = [L^1 T^{-1}]`} important />
-      </Expandable>
 
-      <Expandable title="P12 — Percentage error in the volume of a block" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P12 — Percentage error in the volume of a block</h3>
         <p>
           A rectangular block has percentage errors of 2%, 1% and 3% in its length, breadth and
           thickness. Since <Formula>{String.raw`V = L \times B \times H`}</Formula> is a product, the
           percentage errors add:
         </p>
         <FormulaBlock latex={String.raw`\frac{\Delta V}{V} \times 100 = 2\% + 1\% + 3\% = 6\%`} important />
-      </Expandable>
 
-      <Expandable title="P13 — Measuring the diameter of the Moon" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P13 — Measuring the diameter of the Moon</h3>
         <p>
           Direct measurement is impossible, so the <strong>parallax method</strong> is used: the Moon
           is observed from two points separated by a known baseline b, giving the parallax angle θ
           with <Formula>{String.raw`\theta = \frac{b}{D}`}</Formula>, where D is the Moon&rsquo;s
           distance. Combined with the Moon&rsquo;s angular size, this yields its diameter.
         </p>
-      </Expandable>
 
-      <Expandable title="P14 — Which of second, newton, joule is a fundamental unit?" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P14 — Which of second, newton, joule is a fundamental unit?</h3>
         <p>
           <strong>Second</strong>. Newton (force) and joule (energy) are{" "}
           <strong>derived</strong> units — each is built from the base units m, kg, s.
         </p>
-      </Expandable>
 
-      <Expandable title="P15 — Angular frequency ω from y = A sin(ωt)" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P15 — Angular frequency ω from y = A sin(ωt)</h3>
         <p>
           The displacement of an oscillating body is <Formula>{String.raw`y = A \sin(\omega t)`}</Formula>,
           where y and A are in metres and t is in seconds. Find the dimensions of the angular
@@ -1053,9 +1213,8 @@ export default function UnitsAndMeasurementsChapter() {
           <Formula>{String.raw`[\sin(\omega t)] = 1 \implies [\omega t] = 1`}</Formula>. Hence
           <FormulaBlock latex={String.raw`[\omega]\cdot[t] = 1 \implies [\omega] = \frac{1}{[t]} = [T^{-1}]`} important />
         </p>
-      </Expandable>
 
-      <Expandable title="P16 — Wave parameters k, ω, φ, A from y = A sin(kx + ωt + φ)" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P16 — Wave parameters k, ω, φ, A from y = A sin(kx + ωt + φ)</h3>
         <p>
           A wave is described by <Formula>{String.raw`y = A \sin(kx + \omega t + \phi)`}</Formula>,
           where y and x are displacements. Find the dimensions of k (wave number), ω (angular
@@ -1083,9 +1242,8 @@ export default function UnitsAndMeasurementsChapter() {
             <Formula>{String.raw`[y] = [A]`}</Formula>, we get <Formula>{String.raw`[A] = [L^1]`}</Formula>.
           </li>
         </ul>
-      </Expandable>
 
-      <Expandable title="P17 — Quantity x in the exponential law A = A₀·e^(xt)" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P17 — Quantity x in the exponential law A = A₀·e^(xt)</h3>
         <p>
           The pressure of a system falls as <Formula>{String.raw`A = A_0\,e^{xt}`}</Formula>, where A
           and A₀ are pressures and t is time. Find the dimensions of x.
@@ -1095,9 +1253,8 @@ export default function UnitsAndMeasurementsChapter() {
           be dimensionless:
           <FormulaBlock latex={String.raw`[xt] = 1 \implies [x]\cdot[t] = 1 \implies [x] = \frac{1}{[T]} = [T^{-1}]`} important />
         </p>
-      </Expandable>
 
-      <Expandable title="P18 — Constants a and b in the van der Waals equation" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">P18 — Constants a and b in the van der Waals equation</h3>
         <p>
           In the van der Waals equation{" "}
           <Formula>{String.raw`\left(P + \frac{a}{V^2}\right)(V - b) = R T`}</Formula>, find the
@@ -1114,64 +1271,18 @@ export default function UnitsAndMeasurementsChapter() {
             <FormulaBlock latex={String.raw`[a] = [P]\cdot[V]^2 = [M L^{-1} T^{-2}] \cdot (L^3)^2 = [M L^5 T^{-2}]`} important />
           </li>
         </ul>
-      </Expandable>
+
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          Exercise 1.13 — Where does the missing c go?
+        </h3>
+        <ProblemSolution.Problem>
+          <p>A famous relation relates &lsquo;moving mass&rsquo; m to &lsquo;rest mass&rsquo; m₀ in terms of speed v and speed of light c. A boy recalls m = m₀/(1 − v²)^½ but forgets where to put c. Guess where the missing c goes.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>The correct relativistic relation is <Formula>{String.raw`m = \frac{m_0}{\sqrt{1 - v^2/c^2}}`}</Formula> — the missing c appears squared under the root, dividing v², so that the bracketed term stays dimensionless.</p>
+        </ProblemSolution.Solution>
       </Expandable>
 
-      <h2 id="h-exercises">Exercises 1.1 – 1.17</h2>
-      <Expandable title="Exercises 1.1 – 1.17" variant="exercise">
-        <ol>
-          <li>Fill in the blanks: (a) volume of a cube of side 1 cm = ..... m³; (b) surface area of a solid cylinder of radius 2.0 cm and height 10.0 cm = ... (mm)²; (c) a vehicle moving at 18 km h⁻¹ covers .... m in 1 s; (d) relative density of lead is 11.3, so its density is .... g cm⁻³ or .... kg m⁻³.</li>
-          <li>Fill in the blanks by suitable conversion of units: (a) 1 kg m² s⁻² = .... g cm² s⁻²; (b) 1 m = ..... ly; (c) 3.0 m s⁻² = .... km h⁻²; (d) G = 6.67 × 10⁻¹¹ N m² (kg)⁻² = .... (cm)³ s⁻² g⁻¹.</li>
-          <li>A calorie equals about 4.2 J (1 J = 1 kg m² s⁻²). In a system where the unit of mass equals α kg, of length β m and of time γ s, show that a calorie has magnitude 4.2 α⁻¹ β⁻² γ².</li>
-          <li>Explain: &ldquo;To call a dimensional quantity &lsquo;large&rsquo; or &lsquo;small&rsquo; is meaningless without specifying a standard for comparison.&rdquo; Reframe the statements (a)–(f) wherever necessary.</li>
-          <li>A new unit of length is chosen such that the speed of light in vacuum is unity. What is the Sun–Earth distance in the new unit if light takes 8 min 20 s to cover it?</li>
-          <li>Which is the most precise device for measuring length: (a) vernier callipers with 20 divisions on the sliding scale; (b) screw gauge of pitch 1 mm and 100 divisions on the circular scale; (c) an optical instrument that can measure length to within a wavelength of light?</li>
-          <li>A student measures the thickness of a human hair through a microscope of magnification 100; over 20 observations the average width in the field of view is 3.5 mm. Estimate the thickness of the hair.</li>
-          <li>Answer: (a) with a thread and a metre scale, how will you estimate the diameter of the thread? (b) can you increase the accuracy of a screw gauge arbitrarily by increasing divisions on the circular scale? (c) why is a set of 100 measurements of a brass rod&apos;s diameter more reliable than 5?</li>
-          <li>The photograph of a house occupies 1.75 cm² on a 35 mm slide; on the screen the house covers 1.55 m². What is the linear magnification of the projector–screen arrangement?</li>
-          <li>State the number of significant figures in: (a) 0.007 m²; (b) 2.64 × 10²⁴ kg; (c) 0.2370 g cm⁻³; (d) 6.320 J; (e) 6.032 N m⁻²; (f) 0.0006032 m².</li>
-          <li>A rectangular sheet of metal has length 4.234 m, breadth 1.005 m and thickness 2.01 cm. Give the area and volume of the sheet to correct significant figures.</li>
-          <li>A box weighs 2.30 kg on a grocer&apos;s balance. Two gold pieces of masses 20.15 g and 20.17 g are added. Find (a) total mass of the box, (b) the difference in the masses of the pieces, to correct significant figures.</li>
-          <li>A famous relation relates &lsquo;moving mass&rsquo; m to &lsquo;rest mass&rsquo; m₀ in terms of speed v and speed of light c. A boy recalls m = m₀/(1 − v²)^½ but forgets where to put c. Guess where the missing c goes.</li>
-          <li>1 Å = 10⁻¹⁰ m; the size of a hydrogen atom is about 0.5 Å. What is the total atomic volume in m³ of a mole of hydrogen atoms?</li>
-          <li>One mole of an ideal gas at STP occupies 22.4 L. What is the ratio of molar volume to the atomic volume of a mole of hydrogen (molecule size ~1 Å)? Why is this ratio so large?</li>
-          <li>Explain: from a fast-moving train, nearby trees seem to move rapidly opposite to the train, while distant objects (hills, Moon, stars) seem stationary.</li>
-          <li>The Sun is hot plasma (core &gt; 10⁷ K, surface ~6000 K). In what density range do you expect the Sun? Check from data: mass = 2.0 × 10³⁰ kg, radius = 7.0 × 10⁸ m.</li>
-        </ol>
-        <Expandable title="Answer Key — Exercises 1.1 – 1.17">
-          <ol>
-            <li>(a) 10⁻⁶ m³; (b) 1.508 × 10⁴ (mm)²; (c) 5 m; (d) 11.3 g cm⁻³ = 1.13 × 10⁴ kg m⁻³.</li>
-            <li>(a) 10⁷; (b) 1.06 × 10⁻¹⁶ ly; (c) 3.9 × 10⁴ km h⁻²; (d) 6.67 × 10⁻⁸ (cm)³ s⁻² g⁻¹.</li>
-            <li>Use the conversion of units: multiplying by the ratios <Formula>{String.raw`(\tfrac{\alpha\ \text{kg}}{1})`}</Formula> etc., a calorie = 4.2 J = 4.2 α⁻¹ β⁻² γ² in the new units.</li>
-            <li>Every size claim needs a reference standard. Reframe with comparisons: (a) atoms are very small compared to everyday objects; (b) jet plane speed is large relative to a bicycle; (c) Jupiter&apos;s mass is large relative to Earth&apos;s; (d) the air contains a large number of molecules relative to the number of people in the room; (e) proton is more massive than an electron (≈1836×); (f) speed of sound is much smaller than the speed of light (≈10⁶×).</li>
-            <li>Light takes 8 min 20 s = 500 s; in the new unit c = 1 → distance = 500 (new units).</li>
-            <li>(c) — an optical instrument measuring to within a wavelength of light has the greatest resolution (least count).</li>
-            <li>Thickness = 3.5 mm / 100 = 0.035 mm = 35 μm.</li>
-            <li>(a) Wind the thread tightly around a pencil and divide the length of the wound turns by the number of turns; or measure many turns. (b) No — beyond the limit of the microscope/eyepiece resolution and thermal/mechanical effects, refining divisions adds no accuracy. (c) Averaging many readings reduces random errors; 100 readings give a more reliable estimate than 5.</li>
-            <li>Area magnification = 1.55 / (1.75 × 10⁻⁴) = 8.86 × 10³; linear magnification = √(8.86 × 10³) ≈ 94.</li>
-            <li>(a) 1; (b) 3; (c) 4; (d) 4; (e) 4; (f) 4.</li>
-            <li>Area = 2(lb + bt + lt) with t = 2.01 cm = 2.010 × 10⁻² m: A ≈ 8.72 m² (3 sig. figs, limited by thickness); Volume = 4.234 × 1.005 × 0.0201 ≈ 0.0855 m³.</li>
-            <li>(a) Total = 2.30 kg + 0.02015 kg + 0.02017 kg = 2.34032 kg → <strong>2.34 kg</strong> (to 2 decimal places). (b) Difference = 0.02017 − 0.02015 = 0.00002 kg = <strong>2 × 10⁻⁵ kg</strong>.</li>
-            <li>The correct relativistic relation is <Formula>{String.raw`m = \frac{m_0}{\sqrt{1 - v^2/c^2}}`}</Formula> — the missing c appears squared under the root dividing v².</li>
-            <li>Volume per atom ≈ (10⁻¹⁰)³ = 10⁻³⁰ m³ (taking the hydrogen atom as a cube of side 0.5 Å ≈ 5 × 10⁻¹¹ m gives ~1.6 × 10⁻³¹ m³; NCERT answer uses the atomic radius picture: atomic volume of 1 mole ≈ 3.8 × 10⁻⁷ m³).</li>
-            <li>Molar volume (22.4 × 10⁻³ m³) ÷ atomic volume of a mole of hydrogen (~3.8 × 10⁻⁷ m³) ≈ 6 × 10⁴ — the ratio is huge because gas molecules are far apart compared with atoms packed in a solid.</li>
-            <li>Apparent motion depends on distance: for a fixed observer speed, nearby objects sweep a larger angle per second (rapid relative motion); distant objects subtend nearly the same direction (appear stationary).</li>
-            <li>Expected density: plasma gas range (orders below solids/liquids). Check: <Formula>{String.raw`\rho = \frac{M}{\frac{4}{3}\pi R^3} \approx 1.4 \times 10^3\ \text{kg m}^{-3}`}</Formula> — close to the density of liquids, because the core is enormously compressed.</li>
-          </ol>
-        </Expandable>
-      </Expandable>
-
-      <h2 id="h-revision">Quick Revision</h2>
-      <Expandable title="Last-minute recall — formulas only">
-        <ul>
-          <li><Formula>{String.raw`\rho = \frac{m}{V}`}</Formula> — density (÷ : least sig. figs)</li>
-          <li><Formula>{String.raw`[F] = [M L T^{-2}]`}</Formula>, <Formula>{String.raw`[E] = [M L^2 T^{-2}]`}</Formula></li>
-          <li><Formula>{String.raw`T = 2\pi\sqrt{l/g}`}</Formula> — pendulum (k not from dimensions)</li>
-          <li>Scientific notation: <Formula>{String.raw`a \times 10^b`}</Formula>, <Formula>{String.raw`1\le a\le 10`}</Formula></li>
-          <li>1 ly = 9.46 × 10¹⁵ m; 1 Å = 10⁻¹⁰ m; 1 cal ≈ 4.2 J</li>
-          <li>N_A = 6.02 × 10²³ mol⁻¹</li>
-        </ul>
-      </Expandable>
     </>
   );
 }
