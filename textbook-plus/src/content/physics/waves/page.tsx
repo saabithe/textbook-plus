@@ -1,5 +1,4 @@
 import { Highlight } from "@/components/content/Highlight";
-import { KeyPoint } from "@/components/content/KeyPoint";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
@@ -11,7 +10,6 @@ import { OrgChart } from "@/components/content/OrgChart";
 import { WaveTypesPanels } from "@/components/content/physics/WaveTypesPanels";
 import { WaveAnatomyDiagram } from "@/components/content/physics/WaveAnatomyDiagram";
 import { DisplacementExplorer } from "@/components/content/physics/DisplacementExplorer";
-import { StandingModesDiagram } from "@/components/content/physics/StandingModesDiagram";
 
 export default function WavesChapter() {
   return (
@@ -171,28 +169,14 @@ export default function WavesChapter() {
       <DisplacementExplorer />
 
       <h3 id="w-wave-params">14.2.2 Wave Parameters and Formulas</h3>
-      <p>
-        <strong>Propagation constant (k):</strong> represents the number of wavelengths per unit distance.
-      </p>
-      <FormulaBlock latex={String.raw`k = \frac{2\pi}{\lambda}`} important />
-      <p>
-        <strong>Angular frequency (ω) and frequency (ν):</strong>
-      </p>
-      <FormulaBlock latex={String.raw`\omega = \frac{2\pi}{T} = 2\pi\nu`} important />
-      <p>
-        <strong>Time period (T):</strong>
-      </p>
-      <FormulaBlock latex={String.raw`T = \frac{2\pi}{\omega}`} />
-      <p>
-        <strong>Frequency (ν):</strong>
-      </p>
-      <FormulaBlock latex={String.raw`\nu = \frac{\omega}{2\pi}`} />
-      <p>
-        <strong>Speed of travelling wave (v):</strong>
-      </p>
-      <FormulaBlock latex={String.raw`v = \frac{\lambda}{T} = \lambda\,\nu`} important />
-      <p>Alternatively expressed as:</p>
-      <FormulaBlock latex={String.raw`v = \frac{\omega}{k}`} important />
+      <div className="grid items-start gap-x-4 sm:grid-cols-2 [&_div.my-6]:my-2">
+        <FormulaBlock label="Propagation constant (k) — wavelengths per unit distance" latex={String.raw`k = \frac{2\pi}{\lambda}`} important />
+        <FormulaBlock label="Angular frequency (ω)" latex={String.raw`\omega = \frac{2\pi}{T} = 2\pi\nu`} important />
+        <FormulaBlock label="Time period (T)" latex={String.raw`T = \frac{2\pi}{\omega}`} />
+        <FormulaBlock label="Frequency (ν)" latex={String.raw`\nu = \frac{\omega}{2\pi}`} />
+        <FormulaBlock label="Wave speed (v)" latex={String.raw`v = \frac{\lambda}{T} = \lambda\,\nu`} important />
+        <FormulaBlock label="Wave speed — from ω and k" latex={String.raw`v = \frac{\omega}{k}`} important />
+      </div>
 
       <h3 id="w-dictionary">14.2.3 Equation Dictionary</h3>
       <TableCard
@@ -572,32 +556,10 @@ export default function WavesChapter() {
 
       <h2 id="w-reflection">14.4 Reflection of Waves</h2>
       <p>
-        So far we treated waves propagating in an unbounded medium. What happens when a pulse or wave meets a boundary?
-        If the boundary is <strong>rigid</strong>, the pulse is reflected; the phenomenon of <strong>echo</strong> is an
-        example of reflection by a rigid boundary. If the boundary is an interface between two different elastic media,
-        part of the incident wave is reflected and part is <strong>transmitted</strong> into the second medium
-        (refracted, if incident obliquely; incident and refracted waves obey Snell&rsquo;s law, and incident and
-        reflected waves obey the usual laws of reflection).
+        A wave meeting a boundary is reflected — with a <strong>phase change of π</strong> at a rigid boundary and{" "}
+        <strong>no phase change</strong> at an open boundary. Repeated reflection between two boundaries sets up
+        standing waves.
       </p>
-      <p>
-        For a pulse meeting a rigid boundary the reflected wave has the same shape as the incident pulse but suffers a{" "}
-        <strong>phase change of π (180°)</strong>, because the disturbance must have zero displacement at all times at
-        the boundary. By superposition, this requires the reflected and incident waves to differ by a phase π. The same
-        conclusion follows dynamically: the pulse exerts a force on the wall, and by Newton&rsquo;s third law the wall
-        gives rise to a reflected pulse differing in phase by π.
-      </p>
-      <p>
-        If the boundary is not rigid but <em>completely free to move</em> (a string tied to a freely moving ring on a
-        rod), the reflected pulse has the <strong>same phase and amplitude</strong> as the incident pulse (assuming no
-        energy dissipation). The net maximum displacement at the boundary is then twice the amplitude of each pulse. An
-        example of a non-rigid boundary is the open end of an organ pipe.
-      </p>
-      <KeyPoint title="Phase change on reflection">
-        A travelling wave or pulse suffers a <strong>phase change of π</strong> on reflection at a rigid boundary and{" "}
-        <strong>no phase change</strong> on reflection at an open boundary. For incident y(x, t) = a sin(kx − ωt):
-      </KeyPoint>
-      <FormulaBlock latex={String.raw`\text{Rigid: } y_r = a\,\sin(kx - \omega t + \pi) = -a\,\sin(kx - \omega t)\qquad \text{Open: } y_r = a\,\sin(kx - \omega t + 0)`} />
-      <p>At a rigid boundary, y + y_r = 0 at all times, as required by the boundary condition.</p>
 
       <h3 id="w-standing">14.4.1 Standing Waves and Normal Modes</h3>
       <p>
@@ -771,30 +733,10 @@ export default function WavesChapter() {
 
       <h2 id="w-beats">14.5 Beats</h2>
       <p>
-        When two harmonic sound waves of close (but not equal) frequencies are heard at the same time, we hear a sound
-        of approximately the average of the two frequencies, together with an audibly distinct{" "}
-        <strong>waxing and waning of intensity</strong> — <strong>beats</strong>. Musicians use this while tuning: they
-        keep adjusting until a sensitive ear detects no beats.
-      </p>
-      <p>
-        Take two waves of nearly equal angular frequencies ω₁ and ω₂, at a fixed location x = 0, equal amplitudes, and a
-        choice of phase making each a cosine:
-      </p>
-      <FormulaBlock latex={String.raw`s_1 = a\,\cos\omega_1 t,\qquad s_2 = a\,\cos\omega_2 t`} />
-      <p>
-        (We use s for longitudinal displacement.) Let ω₁ be the slightly greater frequency. By superposition, using cos
-        A + cos B:
-      </p>
-      <FormulaBlock latex={String.raw`s = 2a\,\cos\!\left(\frac{\omega_1 - \omega_2}{2}\,t\right)\,\cos\!\left(\frac{\omega_1 + \omega_2}{2}\,t\right)`} important />
-      <p>
-        Writing ω_b = (ω₁ − ω₂)/2 (much less than ω₁, ω₂) and ω_a = (ω₁ + ω₂)/2, the resultant oscillates at the average
-        angular frequency ω_a, but its amplitude is not constant in time. It is largest whenever cos ω_b t is ±1, so the
-        intensity waxes and wanes with frequency 2ω_b = ω₁ − ω₂. In terms of frequencies:
+        Two sound waves of nearly equal frequency heard together produce an audibly distinct{" "}
+        <strong>waxing and waning of intensity</strong> — <strong>beats</strong>, used by musicians while tuning.
       </p>
       <FormulaBlock latex={String.raw`\nu_{\text{beat}} = \nu_1 - \nu_2`} important />
-      <p>
-        For example, two harmonic waves of frequency 11 Hz and 9 Hz produce beats at a frequency of 2 Hz.
-      </p>
       <Expandable variant="default" title="Example 14.6 — tuning sitar strings with beats">
         <ProblemSolution.Problem>
           Two sitar strings A and B playing the note &lsquo;Dha&rsquo; are slightly out of tune and produce beats of
@@ -868,7 +810,30 @@ export default function WavesChapter() {
         />
       </Expandable>
 
-      <StandingModesDiagram />
+      <div className="my-6 grid gap-4 sm:grid-cols-2">
+        <figure>
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Standing_Waves.jpg"
+            alt="Standing waves on a string fixed at both ends — fundamental frequency with one loop, 2nd harmonic with two loops, 3rd harmonic with three loops"
+            className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+            String fixed at both ends — fundamental, 2nd and 3rd harmonics (N at both ends).
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Standing_waves_in_air_column,_open_and_closed_pipes.svg"
+            alt="Standing waves in air columns — open pipe with antinodes at both ends and closed pipe with a node at the closed end"
+            className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+            Open pipe (AN at both ends) and closed pipe (N at closed end, AN at open end).
+          </figcaption>
+        </figure>
+      </div>
 
       <h3 id="w-rev-string">14.6.2 Standing Waves in a Stretched String (Fixed at Both Ends)</h3>
       <p>
@@ -908,7 +873,7 @@ export default function WavesChapter() {
             <>Standing waves produced in an open pipe contain: (i) fundamental only (ii) odd harmonics only (iii) even harmonics only (iv) all harmonics.</>,
           ]}
           answers={[
-            <>Mode 1: one loop with N at both ends and AN in the centre. Mode 2: two loops with N at the ends and centre, AN at the quarter points (see diagram above).</>,
+            <>Mode 1: one loop with N at both ends and AN in the centre. Mode 2: two loops with N at the ends and centre, AN at the quarter points (see figures above).</>,
             <><strong>(iv) all harmonics</strong> — an open pipe supports every n = 1, 2, 3, ….</>,
           ]}
         />
@@ -961,7 +926,7 @@ export default function WavesChapter() {
             <>(a) Draw the waveforms of the first two harmonics in a closed pipe. (b) Show that the first two harmonic frequencies are in the ratio 1 : 3.</>,
           ]}
           answers={[
-            <>(a) Mode 1: quarter wave with N at the closed bottom and AN at the open top. Mode 2: three-quarter wave with an additional node–antinode pair (see diagram above). (b) With <Formula>{String.raw`f_1 = \frac{v}{4l}`}</Formula> and <Formula>{String.raw`f_2 = \frac{3v}{4l}`}</Formula>, the ratio is f₁/f₂ = 1/3, i.e. <strong>1 : 3</strong>.</>,
+            <>(a) Mode 1: quarter wave with N at the closed bottom and AN at the open top. Mode 2: three-quarter wave with an additional node–antinode pair (see figures above). (b) With <Formula>{String.raw`f_1 = \frac{v}{4l}`}</Formula> and <Formula>{String.raw`f_2 = \frac{3v}{4l}`}</Formula>, the ratio is f₁/f₂ = 1/3, i.e. <strong>1 : 3</strong>.</>,
           ]}
         />
       </Expandable>

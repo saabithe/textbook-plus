@@ -36,7 +36,6 @@ import { AmpereSurfaceToggle } from "@/components/content/physics/AmpereSurfaceT
 import { WaveTypesPanels } from "@/components/content/physics/WaveTypesPanels";
 import { WaveAnatomyDiagram } from "@/components/content/physics/WaveAnatomyDiagram";
 import { DisplacementExplorer } from "@/components/content/physics/DisplacementExplorer";
-import { StandingModesDiagram } from "@/components/content/physics/StandingModesDiagram";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -441,10 +440,6 @@ export default function DesignGallery() {
               <DisplacementExplorer />
             </div>
 
-            <div>
-              <Label text="StandingModesDiagram" />
-              <StandingModesDiagram />
-            </div>
           </Section>
         </div>
       </div>
