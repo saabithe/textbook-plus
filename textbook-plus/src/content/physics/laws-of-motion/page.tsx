@@ -116,6 +116,31 @@ export default function LawsOfMotionChapter() {
         />
       </Expandable>
 
+      <Expandable variant="exercise" title="Exercises — inertia &amp; net force">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>Give the magnitude and direction of the net force acting on (a) a drop of rain falling with constant speed, (b) a cork of mass 10 g floating on water, (c) a kite held stationary in the sky, (d) a car moving with constant velocity 30 km/h on a rough road, (e) a high-speed electron in space far from all material objects and free of electric and magnetic fields.</p>
+            </div>,
+            <div key={2}>
+              <p>Explain why (a) a horse cannot pull a cart in empty space, (b) passengers are thrown forward when a bus stops suddenly, (c) it is easier to pull a lawn mower than to push it, (d) a cricketer draws his hands back while holding a catch.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>Zero net force in all five cases. (a) Constant speed ⟹ a = 0 ⟹ F_net = 0; (b) floating ⟹ buoyancy balances the weight; (c) held stationary ⟹ F_net = 0; (d) uniform velocity ⟹ a = 0; (e) no fields and no bodies ⟹ no force at all.</div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>(a) In empty space the horse has nothing to push against; the equal-and-opposite horse–cart forces are <em>internal</em> to the horse–cart system and cannot provide the external forward force needed.</li>
+                <li>(b) Inertia of the upper body — the feet stop but the upper body continues forward.</li>
+                <li>(c) Pulling gives the force an upward component that <em>reduces</em> N (hence friction f ≤ μN); pushing adds a downward component that increases N and friction.</li>
+                <li>(d) Drawing the hands back increases the impact time for the same momentum change, so the impulsive force on the hands is smaller.</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
+
       <h2 id="h-second">4.3 Newton&rsquo;s Second Law of Motion</h2>
       <p>
         The first law covers zero net force; <Highlight>the second law relates a net external force to the
@@ -178,6 +203,118 @@ export default function LawsOfMotionChapter() {
             <li>The described motion is that of a particle falling under uniform acceleration due to gravity, y being measured in the direction of g.</li>
           </ul>
         </ProblemSolution.Solution>
+      </Expandable>
+      <Expandable variant="exercise" title="Exercises — F = ma: net force, acceleration &amp; connected bodies">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>A pebble of mass 0.05 kg is thrown vertically up. Give the magnitude and direction of the net force on it (a) during upward motion, (b) during downward motion, (c) at the highest point. Does the answer change if thrown at 45°? Ignore air resistance.</p>
+            </div>,
+            <div key={2}>
+              <p>Give the net force on a stone of mass 0.1 kg (a) just after dropping from a stationary train&rsquo;s window, (b) from a window of a train at uniform 36 km/h, (c) from a window of a train accelerating at 1 m s⁻², (d) lying on the floor of that accelerating train, at rest relative to the train. Neglect air resistance.</p>
+            </div>,
+            <div key={3}>
+              <p>A constant retarding force of 50 N acts on a 20 kg body moving at 15 m s⁻¹. How long does it take to stop?</p>
+            </div>,
+            <div key={4}>
+              <p>A constant force changes a 3.0 kg body&rsquo;s speed from 2.0 to 3.5 m s⁻¹ in 25 s (direction unchanged). Find the magnitude and direction of the force.</p>
+            </div>,
+            <div key={5}>
+              <p>A 5 kg body is acted on by two perpendicular forces 8 N and 6 N. Find the magnitude and direction of its acceleration.</p>
+            </div>,
+            <div key={6}>
+              <p>A three-wheeler (vehicle 400 kg + driver 65 kg) moving at 36 km/h is brought to rest in 4.0 s. What average retarding force is needed?</p>
+            </div>,
+            <div key={7}>
+              <p>A rocket with lift-off mass 20,000 kg is blasted upward with initial acceleration 5.0 m s⁻². Calculate the initial thrust.</p>
+            </div>,
+            <div key={8}>
+              <p>A 0.40 kg body moving at 10 m s⁻¹ north is subject to a constant 8.0 N force south for 30 s. Predict its position at t = −5 s, 25 s and 100 s (x = 0, t = 0 at the instant of applying the force).</p>
+            </div>,
+            <div key={9}>
+              <p>A truck accelerating at 2.0 m s⁻² (from rest) has a stone dropped from its top (6 m high) at t = 10 s. At t = 11 s find (a) the stone&rsquo;s velocity and (b) its acceleration. Neglect air resistance.</p>
+            </div>,
+            <div key={10}>
+              <p>Masses 10 kg (A) and 20 kg (B) on a smooth surface are tied by a light string. A horizontal force F = 600 N is applied to (i) A, (ii) B. Find the tension in each case.</p>
+            </div>,
+            <div key={11}>
+              <p>8 kg and 12 kg masses hang from a light inextensible string over a frictionless pulley. Find the acceleration and the tension when released.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>Net force = mg = 0.05 × 10 = <strong>0.5 N, vertically downward</strong>.</li>
+                <li>(a), (b) and (c) are all the same — the only force is the weight, mg, and it never changes direction. The 45° throw changes nothing (air resistance ignored).</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>(a) 1 N downward; (b) 1 N downward — a uniform train gives the stone no horizontal force; (c) 1 N downward just after release (the instant after dropping, the stone still has the train&rsquo;s horizontal speed but no horizontal <em>force</em>); (d) <strong>0.1 N horizontally</strong> in the direction of the train&rsquo;s acceleration — F = ma = 0.1 × 1.</li>
+              </ul>
+            </div>,
+            <div key={3}>
+              <ul className="space-y-1.5 list-none">
+                <li>a = F/m = 50/20 = 2.5 m s⁻² (retarding).</li>
+                <li>t = v/a = 15/2.5 = <strong>6 s</strong>.</li>
+              </ul>
+            </div>,
+            <div key={4}>
+              <ul className="space-y-1.5 list-none">
+                <li>a = (3.5 − 2.0)/25 = 1.5/25 = 0.06 m s⁻².</li>
+                <li>F = ma = 3.0 × 0.06 = <strong>0.18 N in the direction of motion</strong>.</li>
+              </ul>
+            </div>,
+            <div key={5}>
+              <ul className="space-y-1.5 list-none">
+                <li>F = √(8² + 6²) = √100 = 10 N.</li>
+                <li>a = F/m = 10/5 = <strong>2 m s⁻²</strong> at tan⁻¹(6/8) ≈ <strong>37° with the 8 N force</strong>.</li>
+              </ul>
+            </div>,
+            <div key={6}>
+              <ul className="space-y-1.5 list-none">
+                <li>m = 400 + 65 = 465 kg; v = 36 km/h = 10 m s⁻¹.</li>
+                <li>a = v/t = 10/4 = 2.5 m s⁻² (retarding).</li>
+                <li>F = 465 × 2.5 ≈ <strong>1.16 × 10³ N</strong> (retarding).</li>
+              </ul>
+            </div>,
+            <div key={7}>
+              <ul className="space-y-1.5 list-none">
+                <li>Upward net force: Thrust − mg = ma ⟹ Thrust = m(g + a).</li>
+                <li>Thrust = 20,000 × (10 + 5) = <strong>3.0 × 10⁵ N</strong>.</li>
+              </ul>
+            </div>,
+            <div key={8}>
+              <ul className="space-y-1.5 list-none">
+                <li>a = 8.0/0.40 = 20 m s⁻² (south, i.e. negative).</li>
+                <li>x = ut + ½at² = 10t − 10t².</li>
+                <li>t = −5 s: x = −50 − 250 = −<strong>300 m</strong>; t = 25 s: 250 − 6250 = −<strong>6000 m</strong>; t = 100 s: 1000 − 100000 = −<strong>99000 m (99 km south)</strong>.</li>
+              </ul>
+            </div>,
+            <div key={9}>
+              <ul className="space-y-1.5 list-none">
+                <li>At t = 10 s the truck speed is u = 2.0 × 10 = 20 m s⁻¹ — the stone&rsquo;s horizontal velocity forever after.</li>
+                <li>(a) One second after release, vₓ = 20 m s⁻¹ and v_y = g × 1 = 10 m s⁻¹ (down).</li>
+                <li>v = √(20² + 10²) = √500 ≈ <strong>22 m s⁻¹</strong> at tan⁻¹(10/20) ≈ <strong>26.6° below the horizontal</strong> (63.4° with the direction of the truck).</li>
+                <li>(b) <strong>a = g = 10 m s⁻², vertically downward</strong> — air resistance neglected.</li>
+              </ul>
+            </div>,
+            <div key={10}>
+              <ul className="space-y-1.5 list-none">
+                <li>The pair moves together: a = F/(m_A + m_B) = 600/30 = 20 m s⁻².</li>
+                <li>(i) Force applied to A: tension must accelerate B alone ⟹ T = m_B a = 20 × 20 = <strong>400 N</strong>.</li>
+                <li>(ii) Force applied to B: tension must accelerate A alone ⟹ T = m_A a = 10 × 20 = <strong>200 N</strong>.</li>
+              </ul>
+            </div>,
+            <div key={11}>
+              <ul className="space-y-1.5 list-none">
+                <li>Net force = (12 − 8)g = 4 × 10 = 40 N; total mass 20 kg.</li>
+                <li>a = 40/20 = <strong>2 m s⁻²</strong>; T = 8(g + a) = 8 × 12 = <strong>96 N</strong>.</li>
+              </ul>
+            </div>,
+          ]}
+        />
       </Expandable>
       <h3>Impulse &amp; the impulse–momentum principle</h3>
       <Callout type="note" title="Impulse">
@@ -249,6 +386,34 @@ export default function LawsOfMotionChapter() {
                 <li>I = 0.05 × [6 − (−6)] = 0.05 × (6 + 6) = 0.05 × 12</li>
                 <li><strong>I = 0.6 N s (or kg m s⁻¹)</strong>, directed opposite the ball&rsquo;s initial motion.</li>
                 <li>Each ball receives the same impulse in magnitude; by the third law the two impulses are equal and opposite.</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
+
+      <Expandable variant="exercise" title="Exercises — impulse &amp; change in momentum">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>The position–time graph of a 4 kg particle is: a straight line (slope 3 m s⁻¹) for t &lt; 0, a parabola for 0 &lt; t &lt; 4 s (velocity 0 → −1.5 m s⁻¹), a straight line (slope −1.5 m s⁻¹) for t &gt; 4 s. Find (a) the force for each interval, and (b) the impulse at t = 0 and t = 4 s.</p>
+            </div>,
+            <div key={2}>
+              <p>A batsman deflects a ball (0.15 kg, 54 km/h) by 45° without changing speed. Find the impulse imparted to the ball.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>(a) t &lt; 0 and t &gt; 4 s: uniform velocity ⟹ <strong>F = 0</strong>. For 0 &lt; t &lt; 4 s: a = dv/dt = −1.5/4 = −0.375 ⟹ F = 4 × (−0.375) = <strong>−1.5 N</strong>.</li>
+                <li>(b) Impulse = Δp: at t = 0: 4(0 − 3) = <strong>−12 N s</strong>; at t = 4 s: 4(−1.5 − 0) = <strong>−6 N s</strong>.</li>
+              </ul>
+            </div>,
+            <div key={2}>
+              <ul className="space-y-1.5 list-none">
+                <li>Speed 54 km/h = 15 m s⁻¹; deflection 45° ⟹ Δp = 2mu sin(45°/2).</li>
+                <li>J = 2 × 0.15 × 15 × sin 22.5° = 4.5 × 0.3827 ≈ <strong>1.7 N s</strong> (along the bisector of the angle between the initial and final directions — the vector change of momentum).</li>
               </ul>
             </div>,
           ]}
@@ -407,6 +572,24 @@ export default function LawsOfMotionChapter() {
           { cells: ["Impulse", "Change in momentum"] },
         ]}
       />
+
+      <Expandable variant="exercise" title="Exercise — momentum conservation in nuclear disintegration">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>A nucleus at rest disintegrates into two smaller nuclei. Show that the products must move in opposite directions.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>
+              <ul className="space-y-1.5 list-none">
+                <li>Nucleus at rest ⟹ initial total momentum = 0. Conservation requires 0 = p₁ + p₂, so <strong>p₂ = −p₁</strong> — the two fragments have equal and opposite momenta and hence move in opposite directions.</li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
 
       <h2 id="h-equilibrium">4.6 Equilibrium of a Particle</h2>
       <p>
@@ -864,173 +1047,47 @@ export default function LawsOfMotionChapter() {
         />
       </Expandable>
 
-      <h2 id="h-exercises">Exercises 4.1 – 4.23</h2>
-      <Expandable title="Exercises 4.1 – 4.23 — answers" variant="exercise">
-        <p><em>For numerical simplicity, take g = 10 m s⁻².</em></p>
+      <Expandable variant="exercise" title="Exercises — circular motion &amp; centripetal force">
         <ExerciseQa
+          answersHeading="Answer key"
           questions={[
-            <div key={1}><p><strong>4.1</strong> Give the magnitude and direction of the net force acting on (a) a drop of rain falling with constant speed, (b) a cork of mass 10 g floating on water, (c) a kite held stationary in the sky, (d) a car moving with constant velocity 30 km/h on a rough road, (e) a high-speed electron in space far from all material objects and free of electric and magnetic fields.</p></div>,
-            <div key={2}><p><strong>4.2</strong> A pebble of mass 0.05 kg is thrown vertically up. Give the magnitude and direction of the net force on it (a) during upward motion, (b) during downward motion, (c) at the highest point. Does the answer change if thrown at 45°? Ignore air resistance.</p></div>,
-            <div key={3}><p><strong>4.3</strong> Give the net force on a stone of mass 0.1 kg (a) just after dropping from a stationary train&rsquo;s window, (b) from a window of a train at uniform 36 km/h, (c) from a window of a train accelerating at 1 m s⁻², (d) lying on the floor of that accelerating train, at rest relative to the train. Neglect air resistance.</p></div>,
-            <div key={4}><p><strong>4.4</strong> One end of a string of length l joins a particle of mass m to a peg on a smooth table; the particle moves in a circle with speed v. The net force on the particle (toward the centre) is: (i) T, (ii) T − mv²/l, (iii) T + mv²/l, (iv) 0. Choose correctly.</p></div>,
-            <div key={5}><p><strong>4.5</strong> A constant retarding force of 50 N acts on a 20 kg body moving at 15 m s⁻¹. How long does it take to stop?</p></div>,
-            <div key={6}><p><strong>4.6</strong> A constant force changes a 3.0 kg body&rsquo;s speed from 2.0 to 3.5 m s⁻¹ in 25 s (direction unchanged). Find the magnitude and direction of the force.</p></div>,
-            <div key={7}><p><strong>4.7</strong> A 5 kg body is acted on by two perpendicular forces 8 N and 6 N. Find the magnitude and direction of its acceleration.</p></div>,
-            <div key={8}><p><strong>4.8</strong> A three-wheeler (vehicle 400 kg + driver 65 kg) moving at 36 km/h is brought to rest in 4.0 s. What average retarding force is needed?</p></div>,
-            <div key={9}><p><strong>4.9</strong> A rocket with lift-off mass 20,000 kg is blasted upward with initial acceleration 5.0 m s⁻². Calculate the initial thrust.</p></div>,
-            <div key={10}><p><strong>4.10</strong> A 0.40 kg body moving at 10 m s⁻¹ north is subject to a constant 8.0 N force south for 30 s. Predict its position at t = −5 s, 25 s and 100 s (x = 0, t = 0 at the instant of applying the force).</p></div>,
-            <div key={11}><p><strong>4.11</strong> A truck accelerating at 2.0 m s⁻² (from rest) has a stone dropped from its top (6 m high) at t = 10 s. At t = 11 s find (a) the stone&rsquo;s velocity and (b) its acceleration. Neglect air resistance.</p></div>,
-            <div key={12}><p><strong>4.12</strong> A 0.1 kg bob on a 2 m string oscillates; its speed at the mean position is 1 m s⁻¹. What is the trajectory if the string is cut at (a) an extreme position, (b) the mean position?</p></div>,
-            <div key={13}><p><strong>4.13</strong> A 70 kg man stands on a scale in a lift moving (a) up at uniform 10 m s⁻¹, (b) down with acceleration 5 m s⁻², (c) up with acceleration 5 m s⁻². What does the scale read in each? (d) What does it read if the lift falls freely?</p></div>,
-            <div key={14}><p><strong>4.14</strong> The position–time graph of a 4 kg particle is: a straight line (slope 3 m s⁻¹) for t &lt; 0, a parabola for 0 &lt; t &lt; 4 s (velocity 0 → −1.5 m s⁻¹), a straight line (slope −1.5 m s⁻¹) for t &gt; 4 s. Find (a) the force for each interval, and (b) the impulse at t = 0 and t = 4 s.</p></div>,
-            <div key={15}><p><strong>4.15</strong> Masses 10 kg (A) and 20 kg (B) on a smooth surface are tied by a light string. A horizontal force F = 600 N is applied to (i) A, (ii) B. Find the tension in each case.</p></div>,
-            <div key={16}><p><strong>4.16</strong> 8 kg and 12 kg masses hang from a light inextensible string over a frictionless pulley. Find the acceleration and the tension when released.</p></div>,
-            <div key={17}><p><strong>4.17</strong> A nucleus at rest disintegrates into two smaller nuclei. Show the products must move in opposite directions.</p></div>,
-            <div key={18}><p><strong>4.18</strong> Two billiard balls (0.05 kg each) moving in opposite directions at 6 m s⁻¹ collide and rebound with the same speed. What impulse is imparted to each ball?</p></div>,
-            <div key={19}><p><strong>4.19</strong> A shell of mass 0.020 kg is fired from a 100 kg gun with muzzle speed 80 m s⁻¹. Find the recoil speed of the gun.</p></div>,
-            <div key={20}><p><strong>4.20</strong> A batsman deflects a ball (0.15 kg, 54 km/h) by 45° without changing speed. Find the impulse imparted to the ball.</p></div>,
-            <div key={21}><p><strong>4.21</strong> A 0.25 kg stone is whirled on a 1.5 m string at 40 rev/min in a horizontal plane. Find its tension. What is the maximum speed if the string withstands 200 N?</p></div>,
-            <div key={22}><p><strong>4.22</strong> If in Exercise 4.21 the speed exceeds the maximum and the string breaks, the stone: (a) moves radially outward, (b) flies off tangentially, (c) flies off at some angle with the tangent. Choose correctly.</p></div>,
-            <div key={23}><p><strong>4.23</strong> Explain why (a) a horse cannot pull a cart in empty space, (b) passengers are thrown forward when a bus stops suddenly, (c) it is easier to pull a lawn mower than to push it, (d) a cricketer draws his hands back while holding a catch.</p></div>,
+            <div key={1}>
+              <p>One end of a string of length l joins a particle of mass m to a peg on a smooth table; the particle moves in a circle with speed v. The net force on the particle (toward the centre) is: (i) T, (ii) T − mv²/l, (iii) T + mv²/l, (iv) 0. Choose correctly.</p>
+            </div>,
+            <div key={2}>
+              <p>A 0.1 kg bob on a 2 m string oscillates; its speed at the mean position is 1 m s⁻¹. What is the trajectory if the string is cut at (a) an extreme position, (b) the mean position?</p>
+            </div>,
+            <div key={3}>
+              <p>A 0.25 kg stone is whirled on a 1.5 m string at 40 rev/min in a horizontal plane. Find its tension. What is the maximum speed if the string withstands 200 N?</p>
+            </div>,
+            <div key={4}>
+              <p>If in the previous problem the speed exceeds the maximum and the string breaks, the stone: (a) moves radially outward, (b) flies off tangentially, (c) flies off at some angle with the tangent. Choose correctly.</p>
+            </div>,
           ]}
           answers={[
             <div key={1}>
-              <ul className="space-y-1.5 list-none">
-                <li><strong>Zero net force in all five cases.</strong> (a) Constant speed ⟹ a = 0 ⟹ F_net = 0; (b) floating ⟹ buoyancy balances the weight; (c) held stationary ⟹ F_net = 0; (d) uniform velocity ⟹ a = 0; (e) no fields and no bodies ⟹ no force at all.</li>
-              </ul>
-            </div>,
-            <div key={2}>
-              <ul className="space-y-1.5 list-none">
-                <li>Net force = mg = 0.05 × 10 = <strong>0.5 N, vertically downward</strong>.</li>
-                <li>(a), (b) and (c) are all the same — the only force is the weight, mg, and it never changes direction. The 45° throw changes nothing (air resistance ignored).</li>
-              </ul>
-            </div>,
-            <div key={3}>
-              <ul className="space-y-1.5 list-none">
-                <li>(a) 1 N downward; (b) 1 N downward — a uniform train gives the stone no horizontal force; (c) 1 N downward just after release (the instant after dropping, the stone still has the train&rsquo;s horizontal speed but no horizontal <em>force</em>); (d) <strong>0.1 N horizontally</strong> in the direction of the train&rsquo;s acceleration — F = ma = 0.1 × 1.</li>
-              </ul>
-            </div>,
-            <div key={4}>
               <strong>(i) T</strong> — the tension is the only horizontal force and it provides the centripetal mv²/l.
             </div>,
-            <div key={5}>
-              <ul className="space-y-1.5 list-none">
-                <li>a = F/m = 50/20 = 2.5 m s⁻² (retarding).</li>
-                <li>t = v/a = 15/2.5 = <strong>6 s</strong>.</li>
-              </ul>
-            </div>,
-            <div key={6}>
-              <ul className="space-y-1.5 list-none">
-                <li>a = (3.5 − 2.0)/25 = 1.5/25 = 0.06 m s⁻².</li>
-                <li>F = ma = 3.0 × 0.06 = <strong>0.18 N in the direction of motion</strong>.</li>
-              </ul>
-            </div>,
-            <div key={7}>
-              <ul className="space-y-1.5 list-none">
-                <li>F = √(8² + 6²) = √100 = 10 N.</li>
-                <li>a = F/m = 10/5 = <strong>2 m s⁻²</strong> at tan⁻¹(6/8) ≈ <strong>37° with the 8 N force</strong>.</li>
-              </ul>
-            </div>,
-            <div key={8}>
-              <ul className="space-y-1.5 list-none">
-                <li>m = 400 + 65 = 465 kg; v = 36 km/h = 10 m s⁻¹.</li>
-                <li>a = v/t = 10/4 = 2.5 m s⁻² (retarding).</li>
-                <li>F = 465 × 2.5 ≈ <strong>1.16 × 10³ N</strong> (retarding).</li>
-              </ul>
-            </div>,
-            <div key={9}>
-              <ul className="space-y-1.5 list-none">
-                <li>Upward net force: Thrust − mg = ma ⟹ Thrust = m(g + a).</li>
-                <li>Thrust = 20,000 × (10 + 5) = <strong>3.0 × 10⁵ N</strong>.</li>
-              </ul>
-            </div>,
-            <div key={10}>
-              <ul className="space-y-1.5 list-none">
-                <li>a = 8.0/0.40 = 20 m s⁻² (south, i.e. negative).</li>
-                <li>x = ut + ½at² = 10t − 10t².</li>
-                <li>t = −5 s: x = −50 − 250 = −<strong>300 m</strong>; t = 25 s: 250 − 6250 = −<strong>6000 m</strong>; t = 100 s: 1000 − 100000 = −<strong>99000 m (99 km south)</strong>.</li>
-              </ul>
-            </div>,
-            <div key={11}>
-              <ul className="space-y-1.5 list-none">
-                <li>At t = 10 s the truck speed is u = 2.0 × 10 = 20 m s⁻¹ — the stone&rsquo;s horizontal velocity forever after.</li>
-                <li>(a) One second after release, vₓ = 20 m s⁻¹ and v_y = g × 1 = 10 m s⁻¹ (down).</li>
-                <li>v = √(20² + 10²) = √500 ≈ <strong>22 m s⁻¹</strong> at tan⁻¹(10/20) ≈ <strong>26.6° below the horizontal</strong> (63.4° with the direction of the truck).</li>
-                <li>(b) <strong>a = g = 10 m s⁻², vertically downward</strong> — air resistance neglected.</li>
-              </ul>
-            </div>,
-            <div key={12}>
+            <div key={2}>
               <ul className="space-y-1.5 list-none">
                 <li>(a) At an extreme position the bob is momentarily at rest ⟹ <strong>vertical free fall</strong>.</li>
                 <li>(b) At the mean position the bob has the full speed 1 m s⁻¹ horizontally ⟹ <strong>a parabola</strong> (projectile motion).</li>
               </ul>
             </div>,
-            <div key={13}>
-              <ul className="space-y-1.5 list-none">
-                <li>Exactly as in Example 4.12: (a) <strong>700 N</strong>; (b) <strong>350 N</strong>; (c) <strong>1050 N</strong>; (d) <strong>0</strong>.</li>
-              </ul>
-            </div>,
-            <div key={14}>
-              <ul className="space-y-1.5 list-none">
-                <li>(a) t &lt; 0 and t &gt; 4 s: uniform velocity ⟹ <strong>F = 0</strong>. For 0 &lt; t &lt; 4 s: a = dv/dt = −1.5/4 = −0.375 ⟹ F = 4 × (−0.375) = <strong>−1.5 N</strong>.</li>
-                <li>(b) Impulse = Δp: at t = 0: 4(0 − 3) = <strong>−12 N s</strong>; at t = 4 s: 4(−1.5 − 0) = <strong>−6 N s</strong>.</li>
-              </ul>
-            </div>,
-            <div key={15}>
-              <ul className="space-y-1.5 list-none">
-                <li>The pair moves together: a = F/(m_A + m_B) = 600/30 = 20 m s⁻².</li>
-                <li>(i) Force applied to A: tension must accelerate B alone ⟹ T = m_B a = 20 × 20 = <strong>400 N</strong>.</li>
-                <li>(ii) Force applied to B: tension must accelerate A alone ⟹ T = m_A a = 10 × 20 = <strong>200 N</strong>.</li>
-              </ul>
-            </div>,
-            <div key={16}>
-              <ul className="space-y-1.5 list-none">
-                <li>Net force = (12 − 8)g = 4 × 10 = 40 N; total mass 20 kg.</li>
-                <li>a = 40/20 = <strong>2 m s⁻²</strong>; T = 8(g + a) = 8 × 12 = <strong>96 N</strong>.</li>
-              </ul>
-            </div>,
-            <div key={17}>
-              <ul className="space-y-1.5 list-none">
-                <li>Nucleus at rest ⟹ initial total momentum = 0. Conservation requires 0 = p₁ + p₂, so <strong>p₂ = −p₁</strong> — the two fragments have equal and opposite momenta and hence move in opposite directions.</li>
-              </ul>
-            </div>,
-            <div key={18}>
-              <ul className="space-y-1.5 list-none">
-                <li>I = m(v − u) = 0.05 × [6 − (−6)] = 0.05 × 12 = <strong>0.6 N s</strong> on each ball (opposite directions).</li>
-              </ul>
-            </div>,
-            <div key={19}>
-              <ul className="space-y-1.5 list-none">
-                <li>V = mv/M = 0.020 × 80/100 = <strong>0.016 m s⁻¹</strong> (backward).</li>
-              </ul>
-            </div>,
-            <div key={20}>
-              <ul className="space-y-1.5 list-none">
-                <li>Speed 54 km/h = 15 m s⁻¹; deflection 45° ⟹ Δp = 2mu sin(45°/2).</li>
-                <li>J = 2 × 0.15 × 15 × sin 22.5° = 4.5 × 0.3827 ≈ <strong>1.7 N s</strong> (along the bisector of the angle between the initial and final directions — the vector change of momentum).</li>
-              </ul>
-            </div>,
-            <div key={21}>
+            <div key={3}>
               <ul className="space-y-1.5 list-none">
                 <li>ω = 40 × (2π/60) = 4.19 rad s⁻¹.</li>
                 <li>T = mω²r = 0.25 × (4.19)² × 1.5 ≈ <strong>6.6 N</strong>.</li>
                 <li>Maximum when T = 200 N: mv²/r = 200 ⟹ v = √(200 × 1.5/0.25) = √1200 ≈ <strong>34.6 m s⁻¹</strong>.</li>
               </ul>
             </div>,
-            <div key={22}>
+            <div key={4}>
               <strong>(b)</strong> The stone flies off <strong>tangentially</strong> — once the string breaks there is no force, so the stone continues with uniform velocity in the direction it had at the instant of break.
-            </div>,
-            <div key={23}>
-              <ul className="space-y-1.5 list-none">
-                <li>(a) In empty space the horse has nothing to push against; the equal-and-opposite horse–cart forces are <em>internal</em> to the horse–cart system and cannot provide the external forward force needed.</li>
-                <li>(b) Inertia of the upper body — the feet stop but the upper body continues forward.</li>
-                <li>(c) Pulling gives the force an upward component that <em>reduces</em> N (hence friction f ≤ μN); pushing adds a downward component that increases N and friction.</li>
-                <li>(d) Drawing the hands back increases the impact time for the same momentum change, so the impulsive force on the hands is smaller.</li>
-              </ul>
             </div>,
           ]}
         />
       </Expandable>
+
     </>
   );
 }
