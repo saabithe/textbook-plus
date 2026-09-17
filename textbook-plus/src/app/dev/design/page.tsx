@@ -35,6 +35,7 @@ import { PropagationExplorer } from "@/components/content/physics/PropagationExp
 import { AmpereSurfaceToggle } from "@/components/content/physics/AmpereSurfaceToggle";
 import { WaveTypesPanels } from "@/components/content/physics/WaveTypesPanels";
 import { WaveAnatomyDiagram } from "@/components/content/physics/WaveAnatomyDiagram";
+import { DisplacementExplorer } from "@/components/content/physics/DisplacementExplorer";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -432,6 +433,11 @@ export default function DesignGallery() {
             <div>
               <Label text="WaveAnatomyDiagram" />
               <WaveAnatomyDiagram />
+            </div>
+
+            <div>
+              <Label text="DisplacementExplorer" />
+              <DisplacementExplorer />
             </div>
           </Section>
         </div>

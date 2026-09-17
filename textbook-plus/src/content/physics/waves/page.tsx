@@ -10,6 +10,7 @@ import { Comparison } from "@/components/content/Comparison";
 import { OrgChart } from "@/components/content/OrgChart";
 import { WaveTypesPanels } from "@/components/content/physics/WaveTypesPanels";
 import { WaveAnatomyDiagram } from "@/components/content/physics/WaveAnatomyDiagram";
+import { DisplacementExplorer } from "@/components/content/physics/DisplacementExplorer";
 
 export default function WavesChapter() {
   return (
@@ -195,136 +196,99 @@ export default function WavesChapter() {
       </ul>
       <WaveAnatomyDiagram />
 
-      <h2 id="w-displacement">14.2 Displacement Relation in a Progressive Wave</h2>
+      <h2 id="w-displacement">14.2 Displacement of a Travelling Wave</h2>
+      <h3 id="w-equation">14.2.1 Reading the Wave Equation</h3>
       <p>
-        For a mathematical description of a travelling wave we need a function of both position x and time t. At every
-        instant it must give the shape of the wave in space; at every given location it must describe the motion of the
-        constituent of the medium. For a sinusoidal travelling wave the corresponding function must also be sinusoidal.
-        Take the wave to be transverse, with x the position of the constituents and y the displacement from equilibrium.
-        A sinusoidal travelling wave is then described by:
+        For a mathematical description of a travelling wave we need a function of both position x and time t: at every
+        instant it must give the shape of the wave in space, and at every location it must describe the motion of the
+        medium there. For a sinusoidal travelling wave that function is:
       </p>
       <FormulaBlock latex={String.raw`y(x, t) = a\,\sin(kx - \omega t + \phi)`} important />
       <p>
-        The phase constant φ in the argument means equivalently that we are considering a linear combination of sine and
-        cosine functions:
+        Don&rsquo;t memorise it as a blob — deconstruct it. Tap each coloured term to see what it controls on the wave:
       </p>
-      <FormulaBlock latex={String.raw`y(x, t) = A\,\sin(kx - \omega t) + B\,\cos(kx - \omega t)`} />
-      <p>From these two equations,</p>
-      <FormulaBlock latex={String.raw`a = \sqrt{A^2 + B^2},\qquad \tan\phi = \frac{B}{A}`} />
-      <p>
-        To understand why Eq. (14.2) represents a travelling wave, fix an instant, say t = t₀: the argument of the sine
-        is simply kx + a constant, so the shape of the wave at that instant is a sine wave in x. Fix a location, say x =
-        x₀: the argument becomes a constant − ωt, so the displacement at that location varies sinusoidally with time —
-        the constituents execute simple harmonic motion. Finally, as t increases, x must increase in the positive
-        direction to keep kx − ωt + φ constant. Eq. (14.2) therefore represents a sinusoidal (harmonic) wave travelling
-        along the <strong>positive</strong> direction of the x-axis, whereas
-      </p>
-      <FormulaBlock latex={String.raw`y(x, t) = a\,\sin(kx + \omega t + \phi)`} />
-      <p>represents a wave travelling in the <strong>negative</strong> direction of the x-axis.</p>
-      <p>
-        In a wave, a <strong>crest</strong> is a point of maximum positive displacement and a{" "}
-        <strong>trough</strong> a point of maximum negative displacement. If we mark a crest and watch how it progresses
-        with time, and also mark a fixed element (say at the origin), the plots show that in the time the marked element
-        completes one full oscillation the crest has advanced by a certain distance — the wavelength.
-      </p>
+      <DisplacementExplorer />
 
-      <h3 id="w-amp">14.2.1 Amplitude and Phase</h3>
+      <h3 id="w-parameters">14.2.2 Wave Parameters and Formulas</h3>
       <p>
-        Since the sine function varies between +1 and −1, the displacement y(x, t) varies between +a and −a. Taking a to
-        be a positive constant, a represents <Highlight>the maximum displacement of the constituents from their equilibrium
-        position</Highlight>; it is called the <strong>amplitude</strong> of the wave. (y may be positive or negative, but a is
-        positive.)
+        The general equations of a travelling wave are:
       </p>
+      <FormulaBlock label="travelling along +x" latex={String.raw`y(x, t) = a\,\sin(kx - \omega t + \phi)`} important />
+      <FormulaBlock label="travelling along −x" latex={String.raw`y(x, t) = a\,\sin(kx + \omega t + \phi)`} important />
+      <p>Where:</p>
+      <ul>
+        <li>
+          <strong>a</strong> = Amplitude
+        </li>
+        <li>
+          <strong>k</strong> = Propagation constant (angular wave number)
+        </li>
+        <li>
+          <strong>ω</strong> = Angular frequency
+        </li>
+        <li>
+          <strong>φ</strong> = Initial phase angle
+        </li>
+      </ul>
       <p>
-        The quantity (kx − ωt + φ) is called the <strong>phase</strong> of the wave. Given the amplitude a, the phase
-        determines the displacement at any position and at any instant. The constant φ is the phase at x = 0 and t = 0,
-        called the <strong>initial phase angle</strong>. By a suitable choice of origin on the x-axis and of initial
-        time, it is possible to have φ = 0 — so there is no loss of generality in dropping φ.
+        <strong>Propagation constant (k):</strong> represents the number of wavelengths per unit distance.
       </p>
+      <FormulaBlock latex={String.raw`k = \frac{2\pi}{\lambda}`} important />
+      <p>
+        <strong>Angular frequency (ω) and frequency (ν):</strong>
+      </p>
+      <FormulaBlock latex={String.raw`\omega = \frac{2\pi}{T} = 2\pi\nu`} important />
+      <p>
+        <strong>Time period (T):</strong>
+      </p>
+      <FormulaBlock latex={String.raw`T = \frac{2\pi}{\omega}`} />
+      <p>
+        <strong>Frequency (ν):</strong>
+      </p>
+      <FormulaBlock latex={String.raw`\nu = \frac{\omega}{2\pi}`} />
+      <p>
+        <strong>Speed of travelling wave (v):</strong>
+      </p>
+      <FormulaBlock latex={String.raw`v = \frac{\lambda}{T} = \lambda\,\nu`} important />
+      <p>Alternatively expressed as:</p>
+      <FormulaBlock latex={String.raw`v = \frac{\omega}{k}`} important />
 
-      <h3 id="w-wavelength">14.2.2 Wavelength and Angular Wave Number</h3>
-      <p>
-        <Highlight>The minimum distance between two points having the same phase is the <strong>wavelength</strong> λ of the wave</Highlight>.
-        Choosing the points of same phase to be crests (or troughs), λ is the distance between two consecutive crests
-        (or troughs). Taking φ = 0 in Eq. (14.2), the displacement at t = 0 is:
-      </p>
-      <FormulaBlock latex={String.raw`y(x, 0) = a\,\sin kx`} />
-      <p>
-        Since the sine function repeats its value after every 2π change in its argument, the displacements at points x
-        and x + 2πn/k are the same (n = 1, 2, 3, …). The least distance between points with the same displacement at any
-        given instant is obtained by taking n = 1:
-      </p>
-      <FormulaBlock latex={String.raw`k = \frac{2\pi}{\lambda}\qquad\text{or}\qquad \lambda = \frac{2\pi}{k}`} important />
-      <p>
-        k is the <strong>angular wave number</strong> or <strong>propagation constant</strong>; its SI unit is radian
-        per metre (rad m⁻¹), or simply m⁻¹. It represents 2π times the number of waves (total phase difference) per
-        unit length.
-      </p>
-
-      <h3 id="w-period">14.2.3 Period, Angular Frequency and Frequency</h3>
-      <p>
-        Monitor the displacement of an element at a fixed location as a function of time. With φ = 0, at x = 0,
-      </p>
-      <FormulaBlock latex={String.raw`y(0, t) = a\,\sin(-\omega t) = -a\,\sin\omega t`} />
-      <p>
-        The <strong>period of oscillation</strong> of the wave is <Highlight>the time an element takes to complete one
-        full oscillation</Highlight>. Since the sine function repeats after every 2π, ωT = 2π, giving:
-      </p>
-      <FormulaBlock latex={String.raw`\omega = \frac{2\pi}{T}`} important />
-      <p>
-        ω is the <strong>angular frequency</strong> of the wave, with SI unit rad s⁻¹. The <strong>frequency</strong> ν
-        is the number of oscillations per second:
-      </p>
-      <FormulaBlock latex={String.raw`\nu = \frac{1}{T} = \frac{\omega}{2\pi}`} />
-      <p>
-        measured in hertz. In a longitudinal wave, the displacement of an element is parallel to the direction of
-        propagation, and the displacement function is written as:
-      </p>
-      <FormulaBlock latex={String.raw`s(x, t) = a\,\sin(kx - \omega t + \phi)`} />
-      <p>
-        where s(x, t) is the displacement of an element in the direction of propagation at position x and time t; all
-        other quantities have the same meaning as for a transverse wave.
-      </p>
+      <h3 id="w-dictionary">14.2.3 Equation Dictionary</h3>
       <TableCard
-        caption="14.2 Table — Standard symbols of Eq. (14.2)"
+        caption="Standard symbols of the travelling-wave equation"
         headers={["Symbol", "Meaning"]}
         rows={[
-          { cells: ["y(x, t) / s(x, t)", "Displacement as a function of position x and time t"] },
-          { cells: ["a", "Amplitude of the wave (maximum displacement)"] },
-          { cells: ["ω", "Angular frequency of the wave (rad s⁻¹), ω = 2π/T"] },
-          { cells: ["k", "Angular wave number (rad m⁻¹), k = 2π/λ"] },
-          { cells: ["kx − ωt + φ", "Phase; φ is the initial phase angle (at x = 0, t = 0)"] },
+          { cells: ["y(x, t) / s(x, t)", "Displacement at position x, time t"] },
+          { cells: ["a", "Amplitude"] },
+          { cells: ["k", "Angular wave number"] },
+          { cells: ["ω", "Angular frequency"] },
+          { cells: ["φ", "Initial phase angle"] },
+          { cells: ["kx − ωt + φ", "Phase"] },
+          { cells: ["λ", "Wavelength"] },
+          { cells: ["T", "Period"] },
+          { cells: ["ν", "Frequency"] },
         ]}
       />
 
-      <Expandable variant="default" title="Example 14.2 — parameters of a wave along a string">
+      <Expandable variant="default" title="Board Exam Numerical (Sep 2021) — parameters of a travelling wave">
         <ProblemSolution.Problem>
-          A wave travelling along a string is described by y(x, t) = 0.005 sin(80.0x − 3.0t), with the numerical
-          constants in SI units (0.005 m, 80.0 rad m⁻¹, and 3.0 rad s⁻¹). Calculate (a) the amplitude, (b) the
-          wavelength, (c) the period and frequency of the wave. Also calculate the displacement y of the wave at a
-          distance x = 30.0 cm and time t = 20 s.
+          A wave travelling along a string is described by y(x, t) = 0.005 sin(80.0x − 3.0t), in which the numerical
+          constants are in SI units. Calculate: the amplitude (A); the wavelength (λ); the period (T) and frequency
+          (f) of the wave; speed of wave (v).
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>
-            Comparing with y(x, t) = a sin(kx − ωt): (a) the amplitude of the wave is{" "}
-            <strong>0.005 m = 5 mm</strong>.
-          </p>
-          <p>
-            (b) k = 80.0 m⁻¹ and ω = 3.0 s⁻¹. The wavelength follows from λ = 2π/k:
-          </p>
-          <FormulaBlock latex={String.raw`\lambda = \frac{2\pi}{80.0\ \text{m}^{-1}} = 7.85 \times 10^{-2}\ \text{m} = 7.85\ \text{cm}`} />
-          <p>
-            (c) The period is T = 2π/ω = 2π/(3.0 s⁻¹) = <strong>2.09 s</strong>, and the frequency ν = 1/T ={" "}
-            <strong>0.48 Hz</strong>.
-          </p>
-          <p>
-            The displacement at x = 30.0 cm and t = 20 s is y = 0.005 sin(80.0 × 0.3 – 3.0 × 20)
-          </p>
-          <FormulaBlock latex={String.raw`y = (0.005\ \text{m})\,\sin(24 - 60) = (0.005\ \text{m})\,\sin(-36 + 12\pi) = (0.005\ \text{m})\,\sin(1.699)`} />
-          <p>
-            = <strong>≈ 5 mm</strong> — the displacement is approximately the amplitude, since the phase 1.699 rad is
-            near π/2.
-          </p>
+          <p>Comparing with standard equation y(x, t) = A sin(kx − ωt):</p>
+          <p>(a) Amplitude (A):</p>
+          <FormulaBlock latex={String.raw`A = 0.005\ \text{m}`} />
+          <p>(b) Wavelength (λ): Given k = 80.0 rad/m</p>
+          <FormulaBlock latex={String.raw`k = \frac{2\pi}{\lambda} \implies \lambda = \frac{2\pi}{k} = \frac{2\pi}{80} = \frac{\pi}{40}\ \text{m}`} important />
+          <p>(c) Period (T) and Frequency (f): Given ω = 3.0 rad/s</p>
+          <p>Time Period (T):</p>
+          <FormulaBlock latex={String.raw`T = \frac{2\pi}{\omega} = \frac{2\pi}{3}\ \text{s}`} />
+          <p>Frequency (f):</p>
+          <FormulaBlock latex={String.raw`f = \frac{\omega}{2\pi} = \frac{3}{2\pi}\ \text{Hz}`} />
+          <p>(d) Speed of Wave (v):</p>
+          <FormulaBlock latex={String.raw`v = \frac{\omega}{k} = \frac{3.0}{80.0} = \frac{3}{80}\ \text{m/s}`} important />
         </ProblemSolution.Solution>
       </Expandable>
 
