@@ -7,7 +7,6 @@ import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
 import { Derivation } from "@/components/content/process/Derivation";
-import { MetricCard } from "@/components/content/study/MetricCard";
 import { TableCard } from "@/components/content/data/TableCard";
 import { MoiDiagrams } from "@/components/content/physics/MoiDiagrams";
 import { RigidBodyMotions } from "@/components/content/physics/RigidBodyMotions";
@@ -194,6 +193,28 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         />
       </Expandable>
 
+      <Expandable variant="exercise" title="Exercises — locating the centre of mass">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>Give the location of the centre of mass of (i) a sphere, (ii) a cylinder, (iii) a ring, and (iv) a cube, each of uniform mass density. Does the centre of mass of a body necessarily lie inside the body?</p>
+            </div>,
+            <div key={2}>
+              <p>In the HCl molecule, the separation between the nuclei of the two atoms is about 1.27 Å (1 Å = 10⁻¹⁰ m). Find the approximate location of the CM of the molecule, given that a chlorine atom is about 35.5 times as massive as a hydrogen atom and nearly all the mass of an atom is concentrated in its nucleus.</p>
+            </div>,
+            <div key={3}>
+              <p>From a uniform disk of radius R, a circular hole of radius R/2 is cut out. The centre of the hole is at R/2 from the centre of the original disc. Locate the centre of gravity of the resulting flat body.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>(i) geometric centre; (ii) mid-point of the axis (geometric centre); (iii) centre of the ring; (iv) geometric centre. The CM need not lie inside the body — e.g. for a ring or bangle it is in empty space.</div>,
+            <div key={2}>x_CM = (35.5 × 1.27)/(35.5 + 1) ≈ <strong>1.24 Å from the hydrogen atom</strong>, toward the chlorine atom.</div>,
+            <div key={3}>The CG is at a distance <strong>R/6 from the centre of the original disc</strong>, on the side opposite the hole. (Hole mass = M/4; remaining mass = 3M/4; (3M/4)x = −(M/4)(R/2).)</div>,
+          ]}
+        />
+      </Expandable>
+
       <h2 id="h-com-motion">6.3 Motion of the Centre of Mass</h2>
       <p>Rewrite the definition of the CM as</p>
       <FormulaBlock latex={String.raw`M\mathbf{R} = m_1\mathbf{r}_1 + m_2\mathbf{r}_2 + \cdots`} />
@@ -221,6 +242,20 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         are internal — they contribute nothing to the CM&rsquo;s motion. Gravity, the only external force,
         is unchanged, so the CM continues along the same parabola it would have followed with no explosion.
       </Callout>
+
+      <Expandable variant="exercise" title="Exercise — motion of the centre of mass">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>A child sits stationary at one end of a long trolley moving uniformly with speed V on a smooth horizontal floor. If the child gets up and runs about on the trolley in any manner, what is the speed of the CM of the (trolley + child) system?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}><strong>V — unchanged.</strong> The child&rsquo;s running is internal to the system; with no external horizontal force the CM&rsquo;s velocity is constant.</div>,
+          ]}
+        />
+      </Expandable>
 
       <h2 id="h-p-system">6.4 Linear Momentum of a System of Particles</h2>
       <p>
@@ -289,6 +324,24 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
           <FormulaBlock latex={String.raw`\mathbf{a}\times\mathbf{b} = \begin{vmatrix} \hat{\mathbf{i}} & \hat{\mathbf{j}} & \hat{\mathbf{k}} \\ 3 & -4 & 5 \\ -2 & 1 & -3 \end{vmatrix} = 7\hat{\mathbf{i}} - \hat{\mathbf{j}} - 5\hat{\mathbf{k}}`} important />
           <FormulaBlock latex={String.raw`\mathbf{b}\times\mathbf{a} = -(\mathbf{a}\times\mathbf{b}) = -7\hat{\mathbf{i}} + \hat{\mathbf{j}} + 5\hat{\mathbf{k}}`} />
         </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable variant="exercise" title="Exercises — area, volume and the vector product">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>Show that the area of the triangle contained between the vectors a and b is one half of the magnitude of a × b.</p>
+            </div>,
+            <div key={2}>
+              <p>Show that a&middot;(b × c) is equal in magnitude to the volume of the parallelepiped formed on the three vectors a, b and c.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>The parallelogram spanned by a and b has area |a × b|; the triangle contained by them is half of it, so area = <strong>½|a × b|</strong>.</div>,
+            <div key={2}>|b × c| is the base-area of the parallelepiped and |a|cos θ its height onto that base; the scalar triple product a&middot;(b × c) equals base × height = <strong>volume</strong>.</div>,
+          ]}
+        />
       </Expandable>
 
       <h2 id="h-angular-velocity">6.6 Angular Velocity and its Relation with Linear Velocity</h2>
@@ -568,6 +621,24 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         angular momentum, making it precess about an axis perpendicular to both L and τ.
       </Callout>
 
+      <Expandable variant="exercise" title="Exercises — angular momentum and torque">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>Find the components along the x, y, z axes of the angular momentum l of a particle whose position vector is r with components x, y, z and momentum p with components p_x, p_y, p_z. Show that if the particle moves only in the x-y plane the angular momentum has only a z-component.</p>
+            </div>,
+            <div key={2}>
+              <p>Two particles, each of mass m and speed v, travel in opposite directions along parallel lines separated by a distance d. Show that the angular momentum vector of the two-particle system is the same whatever be the point about which the angular momentum is taken.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>l_x = y p_z − z p_y, l_y = z p_x − x p_z, l_z = x p_y − y p_x. For x-y plane motion: z = 0 and p_z = 0 ⟹ l_x = l_y = 0; only <strong>l_z survives</strong>.</div>,
+            <div key={2}>About any chosen point, L = <strong>mvd</strong> (the sum of the angular momenta of the two opposite-moving particles); compute it about any origin and the perpendicular distances always add to d, so L is point-independent.</div>,
+          ]}
+        />
+      </Expandable>
+
       <h2 id="h-equilibrium">6.8 Equilibrium of a Rigid Body</h2>
       <p>
         External forces change the translational state of a body (Eq. 6.17); if the total torque does not
@@ -683,6 +754,28 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
             F₂ makes angle α with the horizontal where tanα = N/F = 4√2, so α ≈ 80°.
           </p>
         </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable variant="exercise" title="Exercises — equilibrium and the centre of gravity">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>A non-uniform bar of weight W is suspended at rest by two strings of negligible weight. The angles made by the strings with the vertical are 36.9° and 53.1° respectively. The bar is 2 m long. Calculate the distance d of the centre of gravity of the bar from its left end.</p>
+            </div>,
+            <div key={2}>
+              <p>A car weighs 1800 kg. The distance between its front and back axles is 1.8 m. Its centre of gravity is 1.05 m behind the front axle. Determine the force exerted by the level ground on each front wheel and each back wheel.</p>
+            </div>,
+            <div key={3}>
+              <p>A metre stick is balanced on a knife edge at its centre. When two coins, each of mass 5 g, are put one on top of the other at the 12.0 cm mark, the stick is found to be balanced at 45.0 cm. What is the mass of the metre stick?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>d = <strong>0.72 m</strong> from the left end.</div>,
+            <div key={2}>Front wheels: <strong>7350 N total</strong> (3675 N each); back wheels: <strong>10290 N total</strong> (5145 N each). R_p = (1800 × 9.8 × 1.05)/1.8 = 10290 N.</div>,
+            <div key={3}>Moments about the 45 cm balance point: m × 5 = 10 × 33 ⟹ m = <strong>66 g</strong>.</div>,
+          ]}
+        />
       </Expandable>
 
       <h2 id="h-moment-inertia">6.9 Moment of Inertia</h2>
@@ -924,6 +1017,28 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         />
       </Expandable>
 
+      <Expandable variant="exercise" title="Exercises — rotational dynamics and power">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>Torques of equal magnitude are applied to a hollow cylinder and a solid sphere, both having the same mass and radius. The cylinder is free to rotate about its standard axis of symmetry, and the sphere about an axis through its centre. Which will acquire the greater angular speed after a given time?</p>
+            </div>,
+            <div key={2}>
+              <p>A rope of negligible mass is wound round a hollow cylinder of mass 3 kg and radius 40 cm. What is the angular acceleration of the cylinder if the rope is pulled with a force of 30 N? What is the linear acceleration of the rope? Assume that there is no slipping.</p>
+            </div>,
+            <div key={3}>
+              <p>To maintain a rotor at a uniform angular speed of 200 rad s⁻¹, an engine needs to transmit a torque of 180 N m. What is the power required by the engine? (Uniform angular velocity in the absence of friction implies zero torque; in practice, applied torque is needed to counter frictional torque.) Assume the engine is 100% efficient.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}><strong>Solid sphere</strong> — I = (2/5)MR² is smaller than I = MR² of the hollow cylinder; equal torque gives larger α = τ/I, hence larger ω after the same time.</div>,
+            <div key={2}>I = MR² = 3 × 0.16 = 0.48 kg m²; τ = FR = 30 × 0.4 = 12 N m; α = 12/0.48 = <strong>25 rad s⁻²</strong>; linear acceleration of the rope a = Rα = 0.4 × 25 = <strong>10 m s⁻²</strong>.</div>,
+            <div key={3}>P = τω = 180 × 200 = 36000 W = <strong>36 kW</strong>.</div>,
+          ]}
+        />
+      </Expandable>
+
       <h2 id="h-fixed-axis-angular">6.12 Angular Momentum in the Case of Rotation about a Fixed Axis</h2>
       <p>
         We now specialise L = Σ rᵢ × pᵢ (6.25b) to rotation about a fixed axis. For a particle at P with r =
@@ -1016,80 +1131,28 @@ export default function SystemsOfParticlesAndRotationalMotionChapter() {
         />
       </Expandable>
 
-      <h2 id="h-exercises">Exercises 6.1 – 6.17</h2>
-      <Expandable title="Exercises 6.1 – 6.17" variant="exercise">
-        <p><em>Use g = 9.8 m s⁻² where a value of g is required.</em></p>
-        <ol>
-          <li>Give the location of the centre of mass of (i) a sphere, (ii) a cylinder, (iii) a ring, and (iv) a cube, each of uniform mass density. Does the centre of mass of a body necessarily lie inside the body?</li>
-          <li>In the HCl molecule, the separation between the nuclei of the two atoms is about 1.27 Å (1 Å = 10⁻¹⁰ m). Find the approximate location of the CM of the molecule, given that a chlorine atom is about 35.5 times as massive as a hydrogen atom and nearly all the mass of an atom is concentrated in its nucleus.</li>
-          <li>A child sits stationary at one end of a long trolley moving uniformly with speed V on a smooth horizontal floor. If the child gets up and runs about on the trolley in any manner, what is the speed of the CM of the (trolley + child) system?</li>
-          <li>Show that the area of the triangle contained between the vectors a and b is one half of the magnitude of a × b.</li>
-          <li>Show that a·(b × c) is equal in magnitude to the volume of the parallelepiped formed on the three vectors a, b and c.</li>
-          <li>Find the components along the x, y, z axes of the angular momentum l of a particle whose position vector is r with components x, y, z and momentum p with components p_x, p_y, p_z. Show that if the particle moves only in the x-y plane the angular momentum has only a z-component.</li>
-          <li>Two particles, each of mass m and speed v, travel in opposite directions along parallel lines separated by a distance d. Show that the angular momentum vector of the two-particle system is the same whatever be the point about which the angular momentum is taken.</li>
-          <li>A non-uniform bar of weight W is suspended at rest by two strings of negligible weight. The angles made by the strings with the vertical are 36.9° and 53.1° respectively. The bar is 2 m long. Calculate the distance d of the centre of gravity of the bar from its left end.</li>
-          <li>A car weighs 1800 kg. The distance between its front and back axles is 1.8 m. Its centre of gravity is 1.05 m behind the front axle. Determine the force exerted by the level ground on each front wheel and each back wheel.</li>
-          <li>Torques of equal magnitude are applied to a hollow cylinder and a solid sphere, both having the same mass and radius. The cylinder is free to rotate about its standard axis of symmetry, and the sphere about an axis through its centre. Which will acquire the greater angular speed after a given time?</li>
-          <li>A solid cylinder of mass 20 kg rotates about its axis with angular speed 100 rad s⁻¹. The radius of the cylinder is 0.25 m. What is the kinetic energy associated with the rotation of the cylinder? What is the magnitude of the angular momentum of the cylinder about its axis?</li>
-          <li>(a) A child stands at the centre of a turntable with his two arms outstretched. The turntable is set rotating with an angular speed of 40 rev/min. How much is the angular speed of the child if he folds his hands back and thereby reduces his moment of inertia to 2/5 times the initial value? (Assume the turntable rotates without friction.) (b) Show that the child&rsquo;s new kinetic energy of rotation is more than the initial kinetic energy of rotation. How do you account for this increase in kinetic energy?</li>
-          <li>A rope of negligible mass is wound round a hollow cylinder of mass 3 kg and radius 40 cm. What is the angular acceleration of the cylinder if the rope is pulled with a force of 30 N? What is the linear acceleration of the rope? Assume that there is no slipping.</li>
-          <li>To maintain a rotor at a uniform angular speed of 200 rad s⁻¹, an engine needs to transmit a torque of 180 N m. What is the power required by the engine? (Note: uniform angular velocity in the absence of friction implies zero torque. In practice, applied torque is needed to counter frictional torque.) Assume the engine is 100% efficient.</li>
-          <li>From a uniform disk of radius R, a circular hole of radius R/2 is cut out. The centre of the hole is at R/2 from the centre of the original disc. Locate the centre of gravity of the resulting flat body.</li>
-          <li>A metre stick is balanced on a knife edge at its centre. When two coins, each of mass 5 g, are put one on top of the other at the 12.0 cm mark, the stick is found to be balanced at 45.0 cm. What is the mass of the metre stick?</li>
-          <li>The oxygen molecule has a mass of 5.30 × 10⁻²⁶ kg and a moment of inertia of 1.94 × 10⁻⁴⁶ kg m² about an axis through its centre perpendicular to the line joining the two atoms. Suppose the mean speed of such a molecule in a gas is 500 m/s and its kinetic energy of rotation is two thirds of its kinetic energy of translation. Find the average angular velocity of the molecule.</li>
-        </ol>
-        <Expandable title="Answer Key — Exercises 6.1 – 6.17">
-          <ol>
-            <li>(i) geometric centre; (ii) mid-point of the axis (geometric centre); (iii) centre of the ring; (iv) geometric centre. The CM need not lie inside the body — e.g. for a ring or bangle it is in empty space.</li>
-            <li>x_CM = (35.5 × 1.27)/(35.5 + 1) ≈ 1.24 Å from the hydrogen atom, toward the chlorine atom.</li>
-            <li>V — unchanged. The child&rsquo;s running is internal to the system; with no external horizontal force the CM&rsquo;s velocity is constant.</li>
-            <li>The parallelogram spanned by a and b has area |a × b|; the triangle contained by them is half of it, so area = ½|a × b|.</li>
-            <li>|b × c| is the base-area of the parallelepiped and |a|cosθ its height onto that base; the scalar triple product a·(b × c) equals base × height = volume.</li>
-            <li>l_x = y p_z − z p_y, l_y = z p_x − x p_z, l_z = x p_y − y p_x. For x-y plane motion: z = 0 and p_z = 0 ⟹ l_x = l_y = 0; only l_z survives.</li>
-            <li>About any chosen point, L = mvd (the sum of the angular momenta of the two opposite-moving particles); compute it about any origin and the perpendicular distances always add to d, so L is point-independent.</li>
-            <li>d = 0.72 m from the left end.</li>
-            <li>Front wheels: 7350 N total (3675 N each); back wheels: 10290 N total (5145 N each). R_p = (1800 × 9.8 × 1.05)/1.8 = 10290 N.</li>
-            <li>Solid sphere — I = (2/5)MR² is smaller than I = MR² of the hollow cylinder; equal torque gives larger α = τ/I, hence larger ω after the same time.</li>
-            <li>I = ½ × 20 × 0.25² = 0.625 kg m²; K = ½Iω² = 3125 J; L = Iω = 62.5 kg m² s⁻¹.</li>
-            <li>(a) ω₂ = I₁ω₁/I₂ = 40/(2/5) = 100 rev/min. (b) K₂/K₁ = (2/5)(100/40)² = 2.5 — the new KE is 2.5 times the initial. Angular momentum is conserved (no external torque), so the increase comes from the work done by the child&rsquo;s muscles as he folds his arms.</li>
-            <li>I = MR² = 3 × 0.16 = 0.48 kg m²; τ = FR = 30 × 0.4 = 12 N m; α = 12/0.48 = 25 rad s⁻²; linear acceleration of the rope a = Rα = 0.4 × 25 = 10 m s⁻².</li>
-            <li>P = τω = 180 × 200 = 36000 W = 36 kW.</li>
-            <li>CG at a distance R/6 from the centre of the original disc, on the side opposite the hole. (Hole mass = M/4; remaining mass = 3M/4; (3M/4)x = −(M/4)(R/2).)</li>
-            <li>Moments about the 45 cm balance point: m × 5 = 10 × 33 ⟹ m = 66 g.</li>
-            <li>K_t = ½ × 5.30×10⁻²⁶ × 500² = 6.63×10⁻²¹ J; K_r = (2/3)K_t = ½Iω² ⟹ ω = √(2K_r/I) ≈ 6.7 × 10¹² rad/s.</li>
-          </ol>
-        </Expandable>
+      <Expandable variant="exercise" title="Exercises — rotational kinetic energy and angular momentum">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>A solid cylinder of mass 20 kg rotates about its axis with angular speed 100 rad s⁻¹. The radius of the cylinder is 0.25 m. What is the kinetic energy associated with the rotation of the cylinder? What is the magnitude of the angular momentum of the cylinder about its axis?</p>
+            </div>,
+            <div key={2}>
+              <p>(a) A child stands at the centre of a turntable with his two arms outstretched. The turntable is set rotating with an angular speed of 40 rev/min. How much is the angular speed of the child if he folds his hands back and thereby reduces his moment of inertia to 2/5 times the initial value? (b) Show that the child&rsquo;s new kinetic energy of rotation is more than the initial kinetic energy of rotation. How do you account for this increase in kinetic energy?</p>
+            </div>,
+            <div key={3}>
+              <p>The oxygen molecule has a mass of 5.30 × 10⁻²⁶ kg and a moment of inertia of 1.94 × 10⁻⁴⁶ kg m² about an axis through its centre perpendicular to the line joining the two atoms. Suppose the mean speed of such a molecule in a gas is 500 m/s and its kinetic energy of rotation is two thirds of its kinetic energy of translation. Find the average angular velocity of the molecule.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>I = ½ × 20 × 0.25² = 0.625 kg m²; K = ½Iω² = <strong>3125 J</strong>; L = Iω = <strong>62.5 kg m² s⁻¹</strong>.</div>,
+            <div key={2}>(a) ω₂ = I₁ω₁/I₂ = 40/(2/5) = <strong>100 rev/min</strong>. (b) K₂/K₁ = (2/5)(100/40)² = 2.5 — the new KE is 2.5 times the initial. Angular momentum is conserved (no external torque), so the increase comes from the work done by the child&rsquo;s muscles as he folds his arms.</div>,
+            <div key={3}>K_t = ½ × 5.30×10⁻²⁶ × 500² = 6.63×10⁻²¹ J; K_r = (2/3)K_t = ½Iω² ⟹ ω = √(2K_r/I) ≈ <strong>6.7 × 10¹² rad/s</strong>.</div>,
+          ]}
+        />
       </Expandable>
 
-      <h2 id="h-revision">Quick Revision</h2>
-      <MetricCard
-        label="I = Σ mᵢrᵢ²"
-        value="kg m²"
-        unit="Moment of inertia — rotational analogue of mass"
-        trend="neutral"
-        description="K = ½Iω²; τ = Iα; L = Iω. For a fixed axis, torque, work dW = τ dθ and power P = τω mirror their linear counterparts."
-      />
-      <Expandable title="Key formulas &amp; facts — one page">
-        <ul>
-          <li>Centre of mass: R = Σmᵢrᵢ/M; continuous body R = (1/M)∫r dm; Σmᵢrᵢ = 0 when the origin is at the CM.</li>
-          <li>CM motion: M A = F_ext — internal forces never matter; P = M V, and dP/dt = F_ext; P constant (CM uniform) if F_ext = 0.</li>
-          <li>Cross product: |a × b| = ab sinθ, right-hand/screw rule; a × b = −b × a; distributive; î×ĵ = k̂ (cyclic).</li>
-          <li>v = ω × r; vᵢ = ωrᵢ; α = dω/dt.</li>
-          <li>Torque τ = r × F (τ = r⊥F); angular momentum l = r × p; dl/dt = τ; dL/dt = τ_ext; L constant if τ_ext = 0.</li>
-          <li>Equilibrium: ΣF = 0 and Στ = 0 (six scalar conditions; three for coplanar forces). Load arm × load = effort arm × effort.</li>
-          <li>Kinematics: ω = ω₀ + αt; θ = θ₀ + ω₀t + ½αt²; ω² = ω₀² + 2α(θ − θ₀).</li>
-          <li>Table 6.1 moments of inertia: ring MR²; disc MR²/2; rod ML²/12; solid sphere 2MR²/5; I = Mk² defines the radius of gyration.</li>
-          <li>Fixed axis: L_z = Iω (symmetric bodies L = Iω); conservation: Iω = constant if τ_ext = 0.</li>
-        </ul>
-      </Expandable>
-      <Expandable title="Last-minute recall — formulas only">
-        <ul>
-          <li><Formula>{String.raw`\mathbf{R} = \frac{\sum_i m_i\mathbf{r}_i}{M}`}</Formula>, <Formula>{String.raw`M\mathbf{A} = \mathbf{F}_{ext}`}</Formula>, <Formula>{String.raw`\mathbf{P} = M\mathbf{V}`}</Formula></li>
-          <li><Formula>{String.raw`\boldsymbol{\tau} = \mathbf{r}\times\mathbf{F}`}</Formula>, <Formula>{String.raw`\mathbf{l} = \mathbf{r}\times\mathbf{p}`}</Formula>, <Formula>{String.raw`\frac{\mathrm{d}\mathbf{L}}{\mathrm{d}t} = \boldsymbol{\tau}_{ext}`}</Formula></li>
-          <li><Formula>{String.raw`I = \sum_i m_ir_i^2`}</Formula>, <Formula>{String.raw`K = \tfrac{1}{2}I\omega^2`}</Formula>, <Formula>{String.raw`\tau = I\alpha`}</Formula>, <Formula>{String.raw`L_z = I\omega`}</Formula></li>
-          <li><Formula>{String.raw`\omega = \omega_0 + \alpha t`}</Formula>, <Formula>{String.raw`\theta = \theta_0 + \omega_0 t + \tfrac{1}{2}\alpha t^2`}</Formula>, <Formula>{String.raw`\omega^2 = \omega_0^2 + 2\alpha(\theta - \theta_0)`}</Formula></li>
-        </ul>
-      </Expandable>
     </>
   );
 }
