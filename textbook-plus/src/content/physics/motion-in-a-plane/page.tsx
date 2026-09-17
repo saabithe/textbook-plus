@@ -133,6 +133,52 @@ export default function MotionInAPlaneChapter() {
         />
       </Expandable>
 
+      <Expandable title="Exercises — scalars, vectors &amp; displacement" variant="exercise">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>State, for each of the following physical quantities, if it is a scalar or a vector: volume, mass, speed, acceleration, density, number of moles, velocity, angular frequency, displacement, angular velocity.</p>
+            </div>,
+            <div key={2}>
+              <p>Pick out the two scalar quantities in the following list: force, angular momentum, work, current, linear momentum, electric field, average velocity, magnetic moment, relative velocity.</p>
+            </div>,
+            <div key={3}>
+              <p>Pick out the only vector quantity in the following list: temperature, pressure, impulse, time, power, total path length, energy, gravitational potential, coefficient of friction, charge.</p>
+            </div>,
+            <div key={4}>
+              <p>State with reasons whether the following algebraic operations with scalar and vector quantities are meaningful: (a) adding any two scalars; (b) adding a scalar to a vector of the same dimensions; (c) multiplying any vector by any scalar; (d) multiplying any two scalars; (e) adding any two vectors; (f) adding a component of a vector to the same vector.</p>
+            </div>,
+            <div key={5}>
+              <p>Read each statement carefully and state, with reasons, if it is true or false: (a) the magnitude of a vector is always a scalar; (b) each component of a vector is always a scalar; (c) total path length is always equal to the magnitude of the displacement vector; (d) average speed is either greater or equal to |average velocity|; (e) three vectors not lying in a plane can never add up to a null vector.</p>
+            </div>,
+            <div key={6}>
+              <p>Three girls skating on a circular ice ground of radius 200 m start from a point P on the edge and reach a point Q diametrically opposite to P following different paths. What is the magnitude of the displacement vector for each? For which girl is this equal to the actual length of path skated?</p>
+            </div>,
+            <div key={7}>
+              <p>A cyclist starts from the centre O of a circular park of radius 1 km, reaches the edge P, cycles along the circumference, and returns to the centre along QO as shown. If the round trip takes 10 min, what are the (a) net displacement, (b) average velocity, and (c) average speed?</p>
+            </div>,
+            <div key={8}>
+              <p>A passenger arriving in a new town wishes to go from the station to a hotel 10 km away on a straight road. A dishonest cabman takes him along a circuitous path 23 km long, reaching the hotel in 28 min. What are (a) the average speed of the taxi and (b) the magnitude of average velocity? Are the two equal?</p>
+            </div>,
+            <div key={9}>
+              <p>Read each statement carefully. A scalar quantity is one that (a) is conserved in a process; (b) can never take negative values; (c) must be dimensionless; (d) does not vary from one point to another in space; (e) has the same value for observers with different orientations of axes.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>Scalars: volume, mass, speed, density, number of moles, angular frequency. Vectors: acceleration, velocity, displacement, angular velocity.</div>,
+            <div key={2}>Scalars: work, current.</div>,
+            <div key={3}>Vector: impulse.</div>,
+            <div key={4}>(a) Yes, if the scalars have the same units; (b) no — a scalar and a vector cannot be added; (c) yes; (d) yes — product of two scalars is a scalar; (e) yes; (f) no — a component is not a vector.</div>,
+            <div key={5}>(a) True; (b) True — a component is a signed number, hence a scalar; (c) False — only for motion without reversal; (d) True; (e) True — their sum would have a component perpendicular to the plane left unbalanced.</div>,
+            <div key={6}>|displacement| = 400 m (the diameter) for each girl. It equals the path length for the girl who skates straight along the diameter.</div>,
+            <div key={7}>(a) 0; (b) 0; (c) path ≈ 1 + π(1) + 1 ≈ 5.14 km in 10 min ≈ 8.6 m s⁻¹.</div>,
+            <div key={8}>(a) Average speed = 23/28 × 60 ≈ 49.3 km h⁻¹. (b) |average velocity| = 10/28 × 60 ≈ 21.4 km h⁻¹. Not equal (path ≠ |displacement|).</div>,
+            <div key={9}>Only (e) is true — scalars like work (not conserved, dimensional) or pressure (varies in space) break the others.</div>,
+          ]}
+        />
+      </Expandable>
+
       <h2 id="h-multiplication">3.3 Multiplication of Vectors by Real Numbers</h2>
       <p>
         Multiplying a vector <Formula>{String.raw`\vec{A}`}</Formula> by a real number λ{" "}
@@ -273,6 +319,28 @@ export default function MotionInAPlaneChapter() {
         />
       </Expandable>
 
+      <Expandable title="Exercises — vector addition, subtraction &amp; inequalities" variant="exercise">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>Establish the following vector inequalities geometrically or otherwise: (a) |a + b| ≤ |a| + |b|; (b) |a + b| ≥ ||a| − |b||; (c) |a − b| ≤ |a| + |b|; (d) |a − b| ≥ ||a| − |b||. When does the equality sign apply?</p>
+            </div>,
+            <div key={2}>
+              <p>Given a + b + c + d = 0, which of the following statements are correct: (a) a, b, c, d must each be a null vector; (b) the magnitude of (a + c) equals the magnitude of (b + d); (c) the magnitude of a can never be greater than the sum of the magnitudes of b, c and d; (d) b + c must lie in the plane of a and d if a and d are not collinear, and in the line of a and d if they are collinear?</p>
+            </div>,
+            <div key={3}>
+              <p>On an open ground, a motorist follows a track that turns left by 60° after every 500 m. Starting from a given turn, specify the displacement at the third, sixth and eighth turn. Compare with the total path length in each case.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>Equalities: in (a) and (c) when a and b are parallel and in the same direction; in (b) and (d) when they are parallel and opposite.</div>,
+            <div key={2}>Correct: (b), (c), (d). (a) is wrong — e.g. a + b = −(c + d) with all non-zero.</div>,
+            <div key={3}>Third turn: displacement 500 m (path 1500 m). Sixth turn: 0 (six turns × 60° = 360°; path 3000 m). Eighth turn: 500 m, path 4000 m — the motorist is two steps back from the start.</div>,
+          ]}
+        />
+      </Expandable>
+
       <h2 id="h-resolution">3.5 Resolution of Vectors</h2>
       <Callout type="note" title="Unit vectors">
         î, ĵ, k̂ have magnitude 1 and point along the x-, y-, z-axes; they are dimensionless, unitless and
@@ -380,6 +448,36 @@ export default function MotionInAPlaneChapter() {
             </>
           }
           answer="θ ≈ 71.33°"
+        />
+      </Expandable>
+
+      <Expandable title="Exercises — resolution, components &amp; vector kinematics" variant="exercise">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>The position of a particle is given by <Formula>{String.raw`\mathbf{r} = 3.0t^2\hat{\mathbf{i}} - 2.0t\hat{\mathbf{j}} + 4.0t\hat{\mathbf{k}}`}</Formula> m where t is in seconds. (a) Find v and a. (b) What are the magnitude and direction of the velocity at t = 2.0 s?</p>
+            </div>,
+            <div key={2}>
+              <p>A particle starts from the origin at t = 0 with a velocity of 10.0 ĵ m s⁻¹ and moves in the x–y plane with constant acceleration (8.0î + 2.0ĵ) m s⁻². (a) At what time is the x-coordinate 16 m, and what is the y-coordinate then? (b) What is the speed at that time?</p>
+            </div>,
+            <div key={3}>
+              <p>î and ĵ are unit vectors along x- and y-axes. What are the magnitude and direction of the vectors î + ĵ and î − ĵ? What are the components of a vector A = 2î + 3ĵ along the directions of î + ĵ and î − ĵ? [You may use the graphical method.]</p>
+            </div>,
+            <div key={4}>
+              <p>For any arbitrary motion in space, which of the following relations are true: (a) v_avg = ½[v(t₁) + v(t₂)]; (b) v_avg = [r(t₂) − r(t₁)]/(t₂ − t₁); (c) v(t) = v(0) + at; (d) r(t) = r(0) + v(0)t + ½at²; (e) a_avg = [v(t₂) − v(t₁)]/(t₂ − t₁)?</p>
+            </div>,
+            <div key={5}>
+              <p>An aircraft is flying at a height of 3400 m above the ground. If the angle subtended at a ground observation point by the aircraft positions 10.0 s apart is 30°, what is the speed of the aircraft?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>v = 6.0tî − 2.0ĵ + 4.0k̂; a = 6.0î m s⁻². At t = 2.0 s: v = 12î − 2ĵ + 4k̂, |v| = √(144 + 4 + 16) ≈ 12.8 m s⁻¹.</div>,
+            <div key={2}>(a) x = ½aₓt² = 4t² = 16 → t = 2 s; y = u_y t + ½a_yt² = 20 + 4 = 24 m. (b) vₓ = 16, v_y = 14 → speed = √(256 + 196) ≈ 21.3 m s⁻¹.</div>,
+            <div key={3}>î + ĵ: √2 at 45°; î − ĵ: √2 at −45°. A = 2î + 3ĵ: component along (î+ĵ)/√2 = (5/√2) ≈ 3.54; along (î−ĵ)/√2 = (−1/√2) ≈ −0.71.</div>,
+            <div key={4}>Only (b) and (e) are always true; (c) and (d) hold only for constant acceleration.</div>,
+            <div key={5}>Level flight at 3400 m, chord subtends 30°: s ≈ h tan 30° = 3400/√3 ≈ 1963 m in 10 s → v ≈ 196 m s⁻¹ (≈ 706 km h⁻¹).</div>,
+          ]}
         />
       </Expandable>
 
@@ -512,6 +610,24 @@ export default function MotionInAPlaneChapter() {
               <ThreeProjectilePaths />
               <p className="mt-1"><strong>(b)</strong> <strong>Path 3</strong> — laid the flattest (smallest θ), it has the largest horizontal component u cosθ, so it travels the farthest R = u² sin2θ/g.</p>
             </div>,
+          ]}
+        />
+      </Expandable>
+
+      <Expandable title="Exercises — projectile motion" variant="exercise">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>The ceiling of a long hall is 25 m high. What is the maximum horizontal distance a ball thrown with a speed of 40 m s⁻¹ can go without hitting the ceiling?</p>
+            </div>,
+            <div key={2}>
+              <p>A cricketer can throw a ball to a maximum horizontal distance of 100 m. How high above the ground can the cricketer throw the same ball?</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>Projection must satisfy h_m = u²sin²θ/2g ≤ 25 m with u = 40 m s⁻¹: sinθ ≤ √(2gh/u²) = √(490/1600) → θ ≈ 33.6°. R = (1600 sin 67.2°)/9.8 ≈ <strong>150 m</strong>.</div>,
+            <div key={2}>R_m = u²/g = 100 m → u² = 980. Max height (vertical throw) = u²/2g = 980/19.6 = <strong>50 m</strong>.</div>,
           ]}
         />
       </Expandable>
@@ -655,71 +771,28 @@ export default function MotionInAPlaneChapter() {
         />
       </Expandable>
 
-      <h2 id="h-exercises">Exercises 3.1 – 3.22</h2>
-      <Expandable title="Exercises 3.1 – 3.22" variant="exercise">
-        <ol>
-          <li>State, for each of the following physical quantities, if it is a scalar or a vector: volume, mass, speed, acceleration, density, number of moles, velocity, angular frequency, displacement, angular velocity.</li>
-          <li>Pick out the two scalar quantities in the following list: force, angular momentum, work, current, linear momentum, electric field, average velocity, magnetic moment, relative velocity.</li>
-          <li>Pick out the only vector quantity in the following list: temperature, pressure, impulse, time, power, total path length, energy, gravitational potential, coefficient of friction, charge.</li>
-          <li>State with reasons whether the following algebraic operations with scalar and vector quantities are meaningful: (a) adding any two scalars; (b) adding a scalar to a vector of the same dimensions; (c) multiplying any vector by any scalar; (d) multiplying any two scalars; (e) adding any two vectors; (f) adding a component of a vector to the same vector.</li>
-          <li>Read each statement carefully and state, with reasons, if it is true or false: (a) the magnitude of a vector is always a scalar; (b) each component of a vector is always a scalar; (c) total path length is always equal to the magnitude of the displacement vector; (d) average speed is either greater or equal to |average velocity|; (e) three vectors not lying in a plane can never add up to a null vector.</li>
-          <li>Establish the following vector inequalities geometrically or otherwise: (a) |a + b| ≤ |a| + |b|; (b) |a + b| ≥ ||a| − |b||; (c) |a − b| ≤ |a| + |b|; (d) |a − b| ≥ ||a| − |b||. When does the equality sign apply?</li>
-          <li>Given a + b + c + d = 0, which of the following statements are correct: (a) a, b, c, d must each be a null vector; (b) the magnitude of (a + c) equals the magnitude of (b + d); (c) the magnitude of a can never be greater than the sum of the magnitudes of b, c and d; (d) b + c must lie in the plane of a and d if a and d are not collinear, and in the line of a and d if they are collinear?</li>
-          <li>Three girls skating on a circular ice ground of radius 200 m start from a point P on the edge and reach a point Q diametrically opposite to P following different paths. What is the magnitude of the displacement vector for each? For which girl is this equal to the actual length of path skated?</li>
-          <li>A cyclist starts from the centre O of a circular park of radius 1 km, reaches the edge P, cycles along the circumference, and returns to the centre along QO as shown. If the round trip takes 10 min, what are the (a) net displacement, (b) average velocity, and (c) average speed?</li>
-          <li>On an open ground, a motorist follows a track that turns left by 60° after every 500 m. Starting from a given turn, specify the displacement at the third, sixth and eighth turn. Compare with the total path length in each case.</li>
-          <li>A passenger arriving in a new town wishes to go from the station to a hotel 10 km away on a straight road. A dishonest cabman takes him along a circuitous path 23 km long, reaching the hotel in 28 min. What are (a) the average speed of the taxi and (b) the magnitude of average velocity? Are the two equal?</li>
-          <li>The ceiling of a long hall is 25 m high. What is the maximum horizontal distance a ball thrown with a speed of 40 m s⁻¹ can go without hitting the ceiling?</li>
-          <li>A cricketer can throw a ball to a maximum horizontal distance of 100 m. How high above the ground can the cricketer throw the same ball?</li>
-          <li>A stone tied to the end of a string 80 cm long is whirled in a horizontal circle with a constant speed; it makes 14 revolutions in 25 s. What is the magnitude and direction of the acceleration?</li>
-          <li>An aircraft executes a horizontal loop of radius 1.00 km with a steady speed of 900 km h⁻¹. Compare its centripetal acceleration with g.</li>
-          <li>Read each statement carefully and state, with reasons, if it is true or false: (a) the net acceleration of a particle in circular motion is always along the radius towards the centre; (b) the velocity vector of a particle at a point is always along the tangent to the path at that point; (c) the acceleration vector of a particle in uniform circular motion averaged over one cycle is a null vector.</li>
-          <li>The position of a particle is given by <Formula>{String.raw`\mathbf{r} = 3.0t^2\hat{\mathbf{i}} - 2.0t\hat{\mathbf{j}} + 4.0t\hat{\mathbf{k}}`}</Formula> m where t is in seconds. (a) Find v and a. (b) What are the magnitude and direction of the velocity at t = 2.0 s?</li>
-          <li>A particle starts from the origin at t = 0 with a velocity of 10.0 ĵ m s⁻¹ and moves in the x–y plane with constant acceleration (8.0î + 2.0ĵ) m s⁻². (a) At what time is the x-coordinate 16 m, and what is the y-coordinate then? (b) What is the speed at that time?</li>
-          <li>î and ĵ are unit vectors along x- and y-axes. What are the magnitude and direction of the vectors î + ĵ and î − ĵ? What are the components of a vector A = 2î + 3ĵ along the directions of î + ĵ and î − ĵ? [You may use the graphical method.]</li>
-          <li>For any arbitrary motion in space, which of the following relations are true: (a) v_avg = ½[v(t₁) + v(t₂)]; (b) v_avg = [r(t₂) − r(t₁)]/(t₂ − t₁); (c) v(t) = v(0) + at; (d) r(t) = r(0) + v(0)t + ½at²; (e) a_avg = [v(t₂) − v(t₁)]/(t₂ − t₁)?</li>
-          <li>Read each statement carefully. A scalar quantity is one that (a) is conserved in a process; (b) can never take negative values; (c) must be dimensionless; (d) does not vary from one point to another in space; (e) has the same value for observers with different orientations of axes.</li>
-          <li>An aircraft is flying at a height of 3400 m above the ground. If the angle subtended at a ground observation point by the aircraft positions 10.0 s apart is 30°, what is the speed of the aircraft?</li>
-        </ol>
-        <Expandable title="Answer Key — Exercises 3.1 – 3.22">
-          <ol>
-            <li>Scalars: volume, mass, speed, density, number of moles, angular frequency. Vectors: acceleration, velocity, displacement, angular velocity.</li>
-            <li>Scalars: work, current.</li>
-            <li>Vector: impulse.</li>
-            <li>(a) Yes, if the scalars have the same units; (b) no — a scalar and a vector cannot be added; (c) yes; (d) yes — product of two scalars is a scalar; (e) yes; (f) no — a component is not a vector.</li>
-            <li>(a) True; (b) True — a component is a signed number, hence a scalar; (c) False — only for motion without reversal; (d) True; (e) True — their sum would have a component perpendicular to the plane left unbalanced.</li>
-            <li>Equalities: in (a) and (c) when a and b are parallel and in the same direction; in (b) and (d) when they are parallel and opposite.</li>
-            <li>Correct: (b), (c), (d). (a) is wrong — e.g. a + b = −(c + d) with all non-zero.</li>
-            <li>|displacement| = 400 m (the diameter) for each girl. It equals the path length for the girl who skates straight along the diameter.</li>
-            <li>(a) 0; (b) 0; (c) path ≈ 1 + π(1) + 1 ≈ 5.14 km in 10 min ≈ 8.6 m s⁻¹.</li>
-            <li>Third turn: displacement 500 m (path 1500 m). Sixth turn: 0 (six turns × 60° = 360°; path 3000 m). Eighth turn: 500 m, path 4000 m — the motorist is two steps back from the start.</li>
-            <li>(a) Average speed = 23/28 × 60 ≈ 49.3 km h⁻¹. (b) |average velocity| = 10/28 × 60 ≈ 21.4 km h⁻¹. Not equal (path ≠ |displacement|).</li>
-            <li>Projection must satisfy h_m = u²sin²θ/2g ≤ 25 m with u = 40 m s⁻¹: sinθ ≤ √(2gh/u²) = √(490/1600) → θ ≈ 33.6°. R = (1600 sin 67.2°)/9.8 ≈ <strong>150 m</strong>.</li>
-            <li>R_m = u²/g = 100 m → u² = 980. Max height (vertical throw) = u²/2g = 980/19.6 = <strong>50 m</strong>.</li>
-            <li>a = ω²R = (2π × 14/25)² × 0.80 ≈ <strong>9.9 m s⁻²</strong>, always directed towards the centre of the circle.</li>
-            <li>v = 250 m s⁻¹; a_c = v²/R = 250²/1000 = 62.5 m s⁻² ≈ <strong>6.4 g</strong>.</li>
-            <li>(a) False — true only for uniform circular motion; (b) True; (c) True — average acceleration over a full cycle is zero (the velocity vectors average out).</li>
-            <li>v = 6.0tî − 2.0ĵ + 4.0k̂; a = 6.0î m s⁻². At t = 2.0 s: v = 12î − 2ĵ + 4k̂, |v| = √(144 + 4 + 16) ≈ <strong>12.8 m s⁻¹</strong>.</li>
-            <li>(a) x = ½aₓt² = 4t² = 16 → t = 2 s; y = u_y t + ½a_yt² = 20 + 4 = <strong>24 m</strong>. (b) vₓ = 16, v_y = 14 → speed = √(256 + 196) ≈ <strong>21.3 m s⁻¹</strong>.</li>
-            <li>î + ĵ: √2 at 45°; î − ĵ: √2 at −45°. A = 2î + 3ĵ: component along (î+ĵ)/√2 = (5/√2) ≈ 3.54; along (î−ĵ)/√2 = (−1/√2) ≈ −0.71.</li>
-            <li>Only (b) and (e) are always true; (c) and (d) hold only for constant acceleration.</li>
-            <li>Only (e) is true — scalars like work (not conserved, dimensional) or pressure (varies in space) break the others.</li>
-            <li>Level flight at 3400 m, chord subtends 30°: s ≈ h tan 30° = 3400/√3 ≈ 1963 m in 10 s → <strong>v ≈ 196 m s⁻¹</strong> (≈ 706 km h⁻¹).</li>
-          </ol>
-        </Expandable>
+      <Expandable title="Exercises — uniform circular motion" variant="exercise">
+        <ExerciseQa
+          answersHeading="Answer key"
+          questions={[
+            <div key={1}>
+              <p>A stone tied to the end of a string 80 cm long is whirled in a horizontal circle with a constant speed; it makes 14 revolutions in 25 s. What is the magnitude and direction of the acceleration?</p>
+            </div>,
+            <div key={2}>
+              <p>An aircraft executes a horizontal loop of radius 1.00 km with a steady speed of 900 km h⁻¹. Compare its centripetal acceleration with g.</p>
+            </div>,
+            <div key={3}>
+              <p>Read each statement carefully and state, with reasons, if it is true or false: (a) the net acceleration of a particle in circular motion is always along the radius towards the centre; (b) the velocity vector of a particle at a point is always along the tangent to the path at that point; (c) the acceleration vector of a particle in uniform circular motion averaged over one cycle is a null vector.</p>
+            </div>,
+          ]}
+          answers={[
+            <div key={1}>a = ω²R = (2π × 14/25)² × 0.80 ≈ <strong>9.9 m s⁻²</strong>, always directed towards the centre of the circle.</div>,
+            <div key={2}>v = 250 m s⁻¹; a_c = v²/R = 250²/1000 = 62.5 m s⁻² ≈ <strong>6.4 g</strong>.</div>,
+            <div key={3}>(a) False — true only for uniform circular motion; (b) True; (c) True — average acceleration over a full cycle is zero (the velocity vectors average out).</div>,
+          ]}
+        />
       </Expandable>
 
-      <h2 id="h-revision">Quick Revision</h2>
-      <Expandable title="Last-minute recall — formulas only">
-        <ul>
-          <li><Formula>{String.raw`\mathbf{R} = \mathbf{A} + \mathbf{B}`}</Formula>, <Formula>{String.raw`|\mathbf{R}| = \sqrt{A^2 + B^2 + 2AB\cos\theta}`}</Formula></li>
-          <li><Formula>{String.raw`\mathbf{v} = \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t}`}</Formula>, <Formula>{String.raw`\mathbf{a} = \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t}`}</Formula></li>
-          <li><Formula>{String.raw`\mathbf{r} = \mathbf{r}_0 + \mathbf{u} t + \tfrac{1}{2}\mathbf{a}t^2`}</Formula></li>
-          <li><Formula>{String.raw`h_m = \frac{u^2\sin^2\theta_0}{2g}`}</Formula></li>
-          <li><Formula>{String.raw`R = \frac{u^2\sin2\theta_0}{g}`}</Formula>, maximum <Formula>{String.raw`R_m = \frac{u^2}{g}`}</Formula> at 45°</li>
-          <li><Formula>{String.raw`a_c = \frac{v^2}{R} = \omega^2 R = 4\pi^2\nu^2 R`}</Formula>, <Formula>{String.raw`v = R\omega`}</Formula></li>
-        </ul>
-      </Expandable>
     </>
   );
 }
