@@ -1,6 +1,6 @@
 import { Highlight } from "@/components/content/Highlight";
-import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
@@ -11,6 +11,7 @@ import { OrgChart } from "@/components/content/OrgChart";
 import { WaveTypesPanels } from "@/components/content/physics/WaveTypesPanels";
 import { WaveAnatomyDiagram } from "@/components/content/physics/WaveAnatomyDiagram";
 import { DisplacementExplorer } from "@/components/content/physics/DisplacementExplorer";
+import { StandingModesDiagram } from "@/components/content/physics/StandingModesDiagram";
 
 export default function WavesChapter() {
   return (
@@ -41,36 +42,6 @@ export default function WavesChapter() {
       />
 
       <h3 id="w-types">14.1.2 Mechanical Waves: Transverse and Longitudinal</h3>
-      <p>
-        Mechanical waves involve oscillations of the constituents of the medium. If the particles oscillate{" "}
-        <strong>perpendicular</strong> to the direction of propagation the wave is a{" "}
-        <strong>transverse wave</strong>; if they oscillate <strong>along</strong> the direction of propagation it is
-        a <strong>longitudinal wave</strong>.
-      </p>
-      <Comparison
-        columns={[
-          {
-            title: "Transverse (⟂)",
-            children: (
-              <>
-                Particles oscillate <strong>perpendicular</strong> to the direction of propagation.
-                <br />
-                <strong>Examples:</strong> ripples on the surface of water, water waves, light waves.
-              </>
-            ),
-          },
-          {
-            title: "Longitudinal (∥)",
-            children: (
-              <>
-                Particles oscillate <strong>parallel</strong> to the direction of propagation.
-                <br />
-                <strong>Examples:</strong> sound waves in air, vibrations in a spring.
-              </>
-            ),
-          },
-        ]}
-      />
       <WaveTypesPanels />
       <TableCard
         caption="A transverse wave shows crests and troughs and needs a medium with shear strength; a longitudinal wave shows compressions and rarefactions and needs only compressibility, so it can travel through fluids."
@@ -78,7 +49,7 @@ export default function WavesChapter() {
         rows={[
           { cells: ["Particle motion", "⟂ propagation", "∥ propagation"] },
           { cells: ["Characteristic pattern", "Crests / troughs", "Compressions / rarefactions"] },
-          { cells: ["Example", "String wave", "Sound in air"] },
+          { cells: ["Examples", "Ripples on water, water waves, light waves, string wave", "Sound in air, spring vibrations"] },
           { cells: ["Required medium property", "Shear strength", "Compressibility"] },
           { cells: ["Fluids?", "No ✗", "Yes ✓"] },
         ]}
@@ -105,16 +76,6 @@ export default function WavesChapter() {
           />
         </ProblemSolution.Solution>
       </Expandable>
-
-      <MistakeCard
-        mistake="Thinking a wave involves movement of the medium itself."
-        correction="A wave is a moving disturbance; the medium as a whole does not flow. A wind is motion of air, but a sound wave is propagation of compressions and rarefactions through air; cork bobs float up and down without travelling outward with the ripple."
-      />
-
-      <MistakeCard
-        mistake="Classifying a wave by how it looks rather than by the particle motion relative to propagation."
-        correction="Transverse: particles oscillate perpendicular to propagation (string wave). Longitudinal: parallel to propagation (sound in a pipe). Ocean surface waves look up-and-down, but the water particles also move back and forth — ocean waves are a combination of both."
-      />
 
       <Expandable variant="exercise" title="Exercises — wave types and the nature of waves">
         <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">14.19 — Explain why (five questions)</h3>
@@ -209,27 +170,7 @@ export default function WavesChapter() {
       </p>
       <DisplacementExplorer />
 
-      <h3 id="w-parameters">14.2.2 Wave Parameters and Formulas</h3>
-      <p>
-        The general equations of a travelling wave are:
-      </p>
-      <FormulaBlock label="travelling along +x" latex={String.raw`y(x, t) = a\,\sin(kx - \omega t + \phi)`} important />
-      <FormulaBlock label="travelling along −x" latex={String.raw`y(x, t) = a\,\sin(kx + \omega t + \phi)`} important />
-      <p>Where:</p>
-      <ul>
-        <li>
-          <strong>a</strong> = Amplitude
-        </li>
-        <li>
-          <strong>k</strong> = Propagation constant (angular wave number)
-        </li>
-        <li>
-          <strong>ω</strong> = Angular frequency
-        </li>
-        <li>
-          <strong>φ</strong> = Initial phase angle
-        </li>
-      </ul>
+      <h3 id="w-wave-params">14.2.2 Wave Parameters and Formulas</h3>
       <p>
         <strong>Propagation constant (k):</strong> represents the number of wavelengths per unit distance.
       </p>
@@ -629,71 +570,7 @@ export default function WavesChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h2 id="w-superposition">14.4 The Principle of Superposition of Waves</h2>
-      <p>
-        What happens when two wave pulses travelling in opposite directions cross each other? They continue to retain
-        their identities after crossing. During the time they overlap, the wave pattern is different from either pulse;
-        the resultant displacement is the <strong>algebraic sum</strong> of the displacements due to each pulse. This is
-        the <strong>principle of superposition of waves</strong>: <Highlight>each pulse moves as if the others were not
-        present</Highlight>, and since displacements can be positive or negative, the net displacement is their algebraic
-        sum. (Fig 14.9(c)
-        shows the two pulses exactly cancelling, giving zero displacement throughout.)
-      </p>
-      <FormulaBlock latex={String.raw`y(x, t) = y_1(x, t) + y_2(x, t)`} important />
-      <p>
-        More generally, if the moving waves are y₁ = f₁(x − vt), y₂ = f₂(x − vt), …, yn = fn(x − vt), the wave function
-        describing the disturbance is:
-      </p>
-      <FormulaBlock latex={String.raw`y = f_1(x-vt) + f_2(x-vt) + \dots + f_n(x-vt) = \sum_{i=1}^{n} f_i(x-vt)`} />
-      <p>The principle of superposition is basic to the phenomenon of <strong>interference</strong>.</p>
-      <p>
-        Consider two harmonic travelling waves on a string, both with the same ω (angular frequency) and k (wave
-        number), hence the same wavelength and speed, with equal amplitudes, travelling in the positive x-direction,
-        differing only in initial phase:
-      </p>
-      <FormulaBlock latex={String.raw`y_1(x, t) = a\,\sin(kx - \omega t),\qquad y_2(x, t) = a\,\sin(kx - \omega t + \phi)`} />
-      <p>By superposition and the identity sin A + sin B = 2 sin[(A+B)/2] cos[(A−B)/2]:</p>
-      <FormulaBlock latex={String.raw`y(x, t) = 2a\,\cos\!\left(\frac{\phi}{2}\right)\,\sin\!\left(kx - \omega t + \frac{\phi}{2}\right)`} important />
-      <p>
-        This is a harmonic travelling wave with the same frequency and wavelength, initial phase φ/2, and — the
-        significant point — an amplitude that depends on the phase difference φ between the constituent waves:
-      </p>
-      <FormulaBlock latex={String.raw`A(\phi) = 2a\,\cos\!\left(\frac{\phi}{2}\right)`} />
-      <p>
-        For <strong>φ = 0</strong>, the waves are in phase and the resultant has amplitude <strong>2a</strong> — the
-        largest possible value; this is <strong>constructive interference</strong>. For <strong>φ = π</strong>, the
-        waves are completely out of phase and the resultant displacement is zero everywhere at all times —{" "}
-        <strong>destructive interference</strong>.
-      </p>
-      <Callout type="note" title="Constructive and destructive interference">
-        y(x, t) = 2a sin(kx − ωt) for in-phase waves (φ = 0, amplitudes add). y(x, t) = 0 for out-of-phase waves
-        (φ = π, amplitudes subtract). The amplitude of the resultant lies between these two extremes for intermediate
-        phase differences.
-      </Callout>
-
-      <Expandable variant="exercise" title="Exercise — travelling, stationary or neither">
-        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">14.13 — Classify the displacement functions</h3>
-        <ProblemSolution.Problem>
-          Given below are some functions of x and t to represent the displacement (transverse or longitudinal) of an
-          elastic wave. State which of these represent (i) a travelling wave, (ii) a stationary wave or (iii) none at
-          all: (a) y = 2 cos(3x) sin(10t); (b) y = 2√(x − vt); (c) y = 3 sin(5x − 0.5t) + 4 cos(5x − 0.5t); (d) y = cos
-          x sin t + cos 2x sin 2t.
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>(a) y = 2 cos(3x) sin(10t) — <strong>stationary wave</strong> (x and t separate).</p>
-          <p>(b) y = 2√(x − vt) — <strong>none</strong>; undefined for x − vt &lt; 0.</p>
-          <p>
-            (c) y = 3 sin(5x − 0.5t) + 4 cos(5x − 0.5t) — a single travelling wave (one k = 5, one ω = 0.5) with amplitude
-            √(3² + 4²) = 5.
-          </p>
-          <p>
-            (d) y = cos x sin t + cos 2x sin 2t — a superposition of two stationary waves, hence a{" "}
-            <strong>stationary</strong> wave.
-          </p>
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <h2 id="w-reflection">14.5 Reflection of Waves</h2>
+      <h2 id="w-reflection">14.4 Reflection of Waves</h2>
       <p>
         So far we treated waves propagating in an unbounded medium. What happens when a pulse or wave meets a boundary?
         If the boundary is <strong>rigid</strong>, the pulse is reflected; the phenomenon of <strong>echo</strong> is an
@@ -722,7 +599,7 @@ export default function WavesChapter() {
       <FormulaBlock latex={String.raw`\text{Rigid: } y_r = a\,\sin(kx - \omega t + \pi) = -a\,\sin(kx - \omega t)\qquad \text{Open: } y_r = a\,\sin(kx - \omega t + 0)`} />
       <p>At a rigid boundary, y + y_r = 0 at all times, as required by the boundary condition.</p>
 
-      <h3 id="w-standing">14.5.1 Standing Waves and Normal Modes</h3>
+      <h3 id="w-standing">14.4.1 Standing Waves and Normal Modes</h3>
       <p>
         A string fixed at both ends (or an air column in a pipe) reflects waves at <em>two</em> boundaries. A wave going
         in one direction is reflected at one end, travels back and is reflected at the other end, and so on, until a
@@ -892,7 +769,7 @@ export default function WavesChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h2 id="w-beats">14.6 Beats</h2>
+      <h2 id="w-beats">14.5 Beats</h2>
       <p>
         When two harmonic sound waves of close (but not equal) frequencies are heard at the same time, we hear a sound
         of approximately the average of the two frequencies, together with an audibly distinct{" "}
@@ -918,17 +795,6 @@ export default function WavesChapter() {
       <p>
         For example, two harmonic waves of frequency 11 Hz and 9 Hz produce beats at a frequency of 2 Hz.
       </p>
-      <Callout type="note" title="Musical pillars of Nellaiappar temple">
-        Temples often have pillars portraying figures playing musical instruments, but seldom do the pillars themselves
-        produce music. At the Nellaiappar temple in Tamil Nadu, gentle taps on a cluster of pillars carved from a single
-        piece of rock produce the basic notes of Indian classical music — Sa, Re, Ga, Ma, Pa, Dha, Ni, Sa. Vibrations
-        depend on the elasticity of the stone, its density and shape. Three types exist: <strong>Shruti pillars</strong>{" "}
-        (produce the basic notes — the swaras), <strong>Gana Thoongal</strong> (the ragas), and{" "}
-        <strong>Laya Thoongal</strong> (the taal — beats — when tapped). The pillars at Nellaiappar are a combination of
-        Shruti and Laya types. The temple dates from the 7th century and was built by successive rulers of the Pandyan
-        dynasty; similar pillars exist at Hampi, Kanyakumari and Thiruvananthapuram.
-      </Callout>
-
       <Expandable variant="default" title="Example 14.6 — tuning sitar strings with beats">
         <ProblemSolution.Problem>
           Two sitar strings A and B playing the note &lsquo;Dha&rsquo; are slightly out of tune and produce beats of
@@ -963,6 +829,169 @@ export default function WavesChapter() {
           <p>
             ν_B = 324 − 6 = <strong>318 Hz</strong>.
           </p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <h2 id="w-board-revision">14.6 Board Revision — Standing Waves, Pipes &amp; Beats</h2>
+
+      <h3 id="w-rev-standing">14.6.1 Standing / Stationary Waves</h3>
+      <p>
+        When <strong>two waves of the same amplitude, frequency, and wavelength</strong> traveling in{" "}
+        <strong>opposite directions</strong> interfere with each other, they produce standing waves.
+      </p>
+      <p>
+        <strong>Nodes (N):</strong> points in a stationary wave where the displacement is{" "}
+        <strong>minimum (zero)</strong>. <strong>Antinodes (AN):</strong> points where the displacement is{" "}
+        <strong>maximum</strong>.
+      </p>
+      <TableCard
+        caption="Distances between nodes and antinodes"
+        headers={["Separation", "Distance"]}
+        rows={[
+          { cells: ["Consecutive nodes (N − N)", "λ/2"] },
+          { cells: ["Consecutive antinodes (AN − AN)", "λ/2"] },
+          { cells: ["Node to adjacent antinode (N − AN)", "λ/4"] },
+        ]}
+      />
+      <Expandable variant="exercise" title="Board questions — standing waves">
+        <ExerciseQa
+          questions={[
+            <>How are standing waves produced? (March 2023)</>,
+            <>Where will a man hear a louder sound in a stationary wave — node or antinode? (March 2023)</>,
+            <>What are nodes and antinodes?</>,
+          ]}
+          answers={[
+            <>By the interference of two waves of the same amplitude, frequency, and wavelength traveling in opposite directions.</>,
+            <>At the <strong>antinode</strong>, because the displacement and sound intensity are maximum.</>,
+            <><strong>Nodes:</strong> points of zero displacement. <strong>Antinodes:</strong> points of maximum displacement.</>,
+          ]}
+        />
+      </Expandable>
+
+      <StandingModesDiagram />
+
+      <h3 id="w-rev-string">14.6.2 Standing Waves in a Stretched String (Fixed at Both Ends)</h3>
+      <p>
+        <strong>Mode 1 (fundamental frequency / first harmonic):</strong> 2 nodes (N) at the fixed ends and 1 antinode
+        (AN) in the middle.
+      </p>
+      <FormulaBlock latex={String.raw`l = \frac{\lambda_1}{2} \implies \lambda_1 = 2l`} />
+      <FormulaBlock latex={String.raw`f_1 = \frac{v}{\lambda_1} = \frac{v}{2l}`} important />
+      <p>
+        <strong>Mode 2 (second harmonic / first overtone):</strong> 3 nodes and 2 antinodes.
+      </p>
+      <FormulaBlock latex={String.raw`l = \lambda_2`} />
+      <FormulaBlock latex={String.raw`f_2 = \frac{v}{\lambda_2} = \frac{v}{l} = 2\left(\frac{v}{2l}\right) = 2f_1`} important />
+      <p>
+        <strong>Mode 3 (third harmonic / second overtone):</strong> 4 nodes and 3 antinodes.
+      </p>
+      <FormulaBlock latex={String.raw`l = \frac{3\lambda_3}{2} \implies \lambda_3 = \frac{2l}{3}`} />
+      <FormulaBlock latex={String.raw`f_3 = \frac{v}{\lambda_3} = \frac{3v}{2l} = 3f_1`} important />
+      <p>The frequencies form the ratio:</p>
+      <FormulaBlock latex={String.raw`f_1 : f_2 : f_3 = 1 : 2 : 3`} important />
+
+      <h3 id="w-rev-open">14.6.3 Standing Waves in an Open Organ Pipe</h3>
+      <p>
+        An open organ pipe is open at both ends, so <strong>antinodes (AN)</strong> form at both ends. Its equations
+        and frequency modes are identical to those of a stretched string fixed at both ends:
+      </p>
+      <FormulaBlock latex={String.raw`f_1 = \frac{v}{2l}`} />
+      <FormulaBlock latex={String.raw`f_2 = 2f_1 = \frac{v}{l}`} />
+      <FormulaBlock latex={String.raw`f_3 = 3f_1 = \frac{3v}{2l}`} />
+      <p>General formula for the n-th harmonic:</p>
+      <FormulaBlock latex={String.raw`f_n = n \times \frac{v}{2l} \qquad (n = 1, 2, 3, \dots)`} important />
+      <FormulaBlock latex={String.raw`f_1 : f_2 : f_3 = 1 : 2 : 3`} />
+      <Expandable variant="exercise" title="Board questions & practice — open pipe">
+        <ExerciseQa
+          questions={[
+            <>Draw the first two harmonics of a stretched string fixed at both ends and mark nodes and antinodes.</>,
+            <>Standing waves produced in an open pipe contain: (i) fundamental only (ii) odd harmonics only (iii) even harmonics only (iv) all harmonics.</>,
+          ]}
+          answers={[
+            <>Mode 1: one loop with N at both ends and AN in the centre. Mode 2: two loops with N at the ends and centre, AN at the quarter points (see diagram above).</>,
+            <><strong>(iv) all harmonics</strong> — an open pipe supports every n = 1, 2, 3, ….</>,
+          ]}
+        />
+        <ProblemSolution.Problem>
+          Which harmonic mode of the pipe is resonantly excited by 1.1 kHz in an open pipe of length 30 cm? (Velocity
+          of sound v = 330 m/s.)
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Given: frequency f_n = 1.1 kHz = 1.1 × 10³ Hz = 1100 Hz; length l = 30 cm = 0.3 m; velocity v = 330 m/s.
+            Using the formula:
+          </p>
+          <FormulaBlock latex={String.raw`f_n = n \times \frac{v}{2l}`} />
+          <FormulaBlock latex={String.raw`1100 = n \times \frac{330}{2 \times 0.3} = n \times \frac{330}{0.6} = n \times 550`} />
+          <FormulaBlock latex={String.raw`n = \frac{1100}{550} = 2`} important />
+          <p>
+            Equivalently: 1.1 × 10³ = n × 330/(2 × 30 × 10⁻²) ⟹ n = 2. The pipe is excited in the{" "}
+            <strong>2nd harmonic</strong> mode.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <h3 id="w-rev-closed">14.6.4 Standing Waves in a Closed Organ Pipe</h3>
+      <p>
+        A closed organ pipe is closed at one end and open at the other: a <strong>node (N)</strong> at the closed end
+        and an <strong>antinode (AN)</strong> at the open end.
+      </p>
+      <p>
+        <strong>Mode 1 (fundamental / first harmonic):</strong> 1 node at the closed end, 1 antinode at the open end.
+      </p>
+      <FormulaBlock latex={String.raw`l = \frac{\lambda_1}{4} \implies \lambda_1 = 4l`} />
+      <FormulaBlock latex={String.raw`f_1 = \frac{v}{\lambda_1} = \frac{v}{4l}`} important />
+      <p>
+        <strong>Mode 2 (third harmonic / first overtone):</strong> 2 nodes and 2 antinodes.
+      </p>
+      <FormulaBlock latex={String.raw`l = \frac{3\lambda_2}{4} \implies \lambda_2 = \frac{4l}{3}`} />
+      <FormulaBlock latex={String.raw`f_2 = \frac{v}{\lambda_2} = \frac{3v}{4l} = 3f_1`} important />
+      <p>
+        <strong>Mode 3 (fifth harmonic / second overtone):</strong> 3 nodes and 3 antinodes.
+      </p>
+      <FormulaBlock latex={String.raw`l = \frac{5\lambda_3}{4} \implies \lambda_3 = \frac{4l}{5}`} />
+      <FormulaBlock latex={String.raw`f_3 = \frac{v}{\lambda_3} = \frac{5v}{4l} = 5f_1`} important />
+      <FormulaBlock latex={String.raw`f_1 : f_2 : f_3 = 1 : 3 : 5`} important />
+      <p>
+        Only <strong>odd harmonics</strong> are present in a closed organ pipe.
+      </p>
+      <Expandable variant="exercise" title="Board question — closed pipe (June 2022, 4 marks)">
+        <ExerciseQa
+          questions={[
+            <>(a) Draw the waveforms of the first two harmonics in a closed pipe. (b) Show that the first two harmonic frequencies are in the ratio 1 : 3.</>,
+          ]}
+          answers={[
+            <>(a) Mode 1: quarter wave with N at the closed bottom and AN at the open top. Mode 2: three-quarter wave with an additional node–antinode pair (see diagram above). (b) With <Formula>{String.raw`f_1 = \frac{v}{4l}`}</Formula> and <Formula>{String.raw`f_2 = \frac{3v}{4l}`}</Formula>, the ratio is f₁/f₂ = 1/3, i.e. <strong>1 : 3</strong>.</>,
+          ]}
+        />
+      </Expandable>
+
+      <h3 id="w-rev-beats">14.6.5 Beats — Board Capsule</h3>
+      <p>
+        A phenomenon caused by the interference of <strong>two sound waves of nearly the same frequency and
+        amplitude</strong> traveling in the <strong>same direction</strong>.
+      </p>
+      <FormulaBlock latex={String.raw`\text{Beat frequency} = f_2 - f_1`} important />
+      <p>
+        Used in the <strong>tuning of musical instruments</strong>.
+      </p>
+
+      <h3 id="w-rev-speed">14.6.6 Speed Drill</h3>
+      <Expandable variant="default" title="Speed drill — wave velocity problems">
+        <ProblemSolution.Problem>
+          A wave is described by y(x, t) = 0.02 sin(4πx − 200πt). What is the velocity of the wave?
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Comparing with y(x, t) = a sin(kx − ωt): k = 4π rad m⁻¹ and ω = 200π rad s⁻¹.</p>
+          <FormulaBlock latex={String.raw`v = \frac{\omega}{k} = \frac{200\pi}{4\pi} = 50\ \text{m s}^{-1}`} important />
+          <p>The minus sign gives propagation along <strong>+x</strong>.</p>
+        </ProblemSolution.Solution>
+        <ProblemSolution.Problem>
+          Find the velocity of a transverse wave in a stretched string if the tension is 100 N and the linear mass
+          density is 0.04 kg/m.
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <FormulaBlock latex={String.raw`v = \sqrt{\frac{T}{\mu}} = \sqrt{\frac{100}{0.04}} = \sqrt{2500} = 50\ \text{m s}^{-1}`} important />
         </ProblemSolution.Solution>
       </Expandable>
 
