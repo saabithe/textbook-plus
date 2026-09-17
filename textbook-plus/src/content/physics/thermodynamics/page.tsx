@@ -3,7 +3,6 @@ import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
 import { Highlight } from "@/components/content/Highlight";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
-import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
@@ -150,6 +149,11 @@ export default function ThermodynamicsChapter() {
         that change its internal energy, which is a state variable.
       </Callout>
 
+      <MistakeCard
+        mistake="Thinking heat, work and internal energy are the same kind of quantity — e.g. &ldquo;a hot gas has a lot of heat&rdquo;."
+        correction="Heat and work are energy IN TRANSIT, not properties of a state — a gas in a given state has a definite internal energy U, but no &ldquo;amount of heat&rdquo; or &ldquo;amount of work&rdquo;. It is meaningful to say &ldquo;heat was supplied&rdquo; or &ldquo;work was done&rdquo;, never that the state <em>contains</em> heat."
+      />
+
       <h2 id="h-first-law">11.5 First Law of Thermodynamics</h2>
       <p>Let ∆Q = heat supplied to the system by the surroundings, ∆W = work done by the system on the surroundings, and ∆U = change in internal energy. Conservation of energy then gives:</p>
       <FormulaBlock latex={String.raw`\Delta Q = \Delta U + \Delta W`} important />
@@ -188,6 +192,45 @@ export default function ThermodynamicsChapter() {
           <p>
             Most of the heat goes to increase the internal energy of the water in the transition — only about 7.5%
             is used to push back the atmosphere.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <MistakeCard
+        mistake="Applying ∆Q = ∆U + P∆V with signs flipped, or treating ∆U as path-dependent."
+        correction="First law: ∆Q is heat INTO the system and ∆W is work done BY the system. ∆U depends only on the initial and final states (state variable); ∆Q and ∆W depend on the path, but their difference is path-independent. In adiabatic work-on-gas problems, W_by is negative."
+      />
+
+      <Expandable variant="exercise" title="Exercises — the first law">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">11.5 — Path-independent ∆U</h3>
+        <ProblemSolution.Problem>
+          <p>
+            In changing the state of a gas adiabatically from state A to state B, an amount of work equal to 22.3 J
+            is done <em>on</em> the system. If the gas is taken from A to B via a process in which the net heat
+            absorbed is 9.35 cal, how much is the net work done <em>by</em> the system in the latter case? (1 cal =
+            4.19 J)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Adiabatic path: Q = 0, and work done on the gas = 22.3 J means W<sub>by</sub> = −22.3 J. First Law: 0
+            = ∆U + W<sub>by</sub> = ∆U − 22.3 ⟹ <strong>∆U = 22.3 J</strong>, a property of the change A→B.
+          </p>
+          <p>
+            Second path: Q = 9.35 × 4.19 = 39.2 J. First Law: ∆U = Q − W<sub>by</sub>, so W<sub>by</sub> = 39.2 −
+            22.3 = <strong>16.9 J</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">11.7 — Rate of internal-energy increase</h3>
+        <ProblemSolution.Problem>
+          <p>
+            An electric heater supplies heat to a system at a rate of 100 W. If the system performs work at a rate of
+            75 joules per second, at what rate is the internal energy increasing?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            dU/dt = dQ/dt − dW/dt = 100 − 75 = <strong>25 J s⁻¹ (25 W)</strong>.
           </p>
         </ProblemSolution.Solution>
       </Expandable>
@@ -248,6 +291,59 @@ export default function ThermodynamicsChapter() {
         only on T. Hence C<sub>p</sub> − C<sub>v</sub> = R — a mole of gas at constant pressure must absorb extra
         heat to do the work of expansion.
       </p>
+
+      <Expandable variant="exercise" title="Exercises — specific heat capacity">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">11.1 — Geyser fuel consumption</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A geyser heats water flowing at the rate of 3.0 litres per minute from 27 °C to 77 °C. If the geyser
+            operates on a gas burner, what is the rate of consumption of the fuel if its heat of combustion is 4.0 ×
+            10⁴ J/g?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Heat needed per minute: m s ∆T = (3.0 kg) × (4.186 × 10³ J kg⁻¹ K⁻¹) × (77 − 27) K = 6.279 × 10⁵
+            J/min. Fuel burned per minute: 6.279 × 10⁵ / (4.0 × 10⁴) = <strong>15.7 ≈ 16 g min⁻¹</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">11.2 — Heating nitrogen at constant pressure</h3>
+        <ProblemSolution.Problem>
+          <p>
+            What amount of heat must be supplied to 2.0 × 10⁻² kg of nitrogen (at room temperature) to raise its
+            temperature by 45 °C at constant pressure? (Molecular mass of N₂ = 28; R = 8.3 J mol⁻¹ K⁻¹.)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Moles: μ = 20 g / 28 g mol⁻¹ = 0.714 mol. N₂ is diatomic, so C<sub>p</sub> = (7/2)R = 29.05 J mol⁻¹ K⁻¹.
+            At constant pressure Q = μ C<sub>p</sub> ∆T = 0.714 × 29.05 × 45 ={" "}
+            <strong>≈ 933 J</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">11.3 — Explain why</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Explain why: (a) two bodies at different temperatures T₁ and T₂, brought into thermal contact, do not
+            necessarily settle to the mean temperature (T₁ + T₂)/2; (b) the coolant in a chemical or nuclear plant
+            should have high specific heat; (c) the air pressure in a car tyre increases during driving; (d) the
+            climate of a harbour town is more temperate than that of a town in a desert at the same latitude.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            (a) The final temperature is set by <strong>energy conservation weighted by the heat capacities</strong>:
+            m₁s₁(T − T₁) = m₂s₂(T₂ − T), which gives (T₁ + T₂)/2 only when m₁s₁ = m₂s₂. Bodies with different
+            masses and specific heats settle to a capacity-weighted value. <br />
+            (b) A <strong>high specific heat</strong> removes the most heat per unit temperature rise for a given
+            mass of coolant, keeping the plant&rsquo;s parts from overheating. <br />
+            (c) While driving, the tyres heat up (friction with the road and flexing). At roughly constant volume PV
+            = μRT, so as temperature rises the <strong>pressure rises</strong>. <br />
+            (d) The sea has a high specific heat, so it warms and cools slowly, moderating the harbour town&rsquo;s
+            temperature swings; desert land heats and cools quickly, giving extreme temperatures.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
 
       <h2 id="h-state-vars">11.7 Thermodynamic State Variables and Equation of State</h2>
       <p>
@@ -380,6 +476,64 @@ export default function ThermodynamicsChapter() {
         system</Highlight>.
       </p>
 
+      <Expandable variant="exercise" title="Exercises — thermodynamic processes">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">11.4 — Adiabatic compression factor</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A cylinder with a movable piston contains 3 moles of hydrogen at standard temperature and pressure. The
+            walls are heat insulators and the piston is insulated by a pile of sand. By what factor does the
+            pressure increase if the gas is compressed to half its original volume?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            The sand-cover makes the process <strong>adiabatic</strong>: P₁V₁^γ = P₂V₂^γ with V₂ = V₁/2, so P₂
+            /P₁ = (V₁/V₂)^γ = 2^γ. Hydrogen (H₂) is diatomic: γ = C<sub>p</sub>/C<sub>v</sub> = 7/5 = 1.4. Hence
+            P₂/P₁ = 2^1.4 = <strong>2.64</strong> — the pressure increases by about 2.6 times.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">11.6 — Free expansion through a stopcock</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Two cylinders A and B of equal capacity are connected via a stopcock. A contains gas at STP; B is
+            completely evacuated. The entire system is thermally insulated and the stopcock is suddenly opened. (a)
+            What is the final pressure in A and B? (b) What is the change in internal energy of the gas? (c) What is
+            the change in temperature? (d) Do the intermediate states lie on the P-V-T surface?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            (a) The gas expands freely into twice the volume; no work is done (it expands into vacuum), so the
+            temperature stays at its initial value and by Boyle&rsquo;s law the pressure halves:{" "}
+            <strong>P/2 (0.5 atm) in each cylinder</strong>. <br />
+            (b) <strong>∆U = 0</strong> — no heat (insulated) and no work (free expansion). <br />
+            (c) <strong>No change in temperature</strong> (ideal gas; ∆U = 0 ⟹ T constant). <br />
+            (d) <strong>No</strong> — this free expansion is rapid; the intermediate states are non-equilibrium
+            states that do not satisfy the gas equation and do not lie on the P-V-T surface. The system eventually
+            settles to a new equilibrium state.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">11.8 — Work from D to E to F</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A thermodynamic system is taken from its original state D to an intermediate state E by the linear
+            process shown in the figure (Fig. 11.13: D = (V 2.0 m³, P 300 N/m²), E = (V 5.0 m³, P 600 N/m²)). Its
+            volume is then reduced from E back to the original value by an isobaric process to F. Calculate the total
+            work done by the gas from D to E to F.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Work on a P-V diagram is the area under the curve. D→E is linear (trapezium under it) and E→F is
+            isobaric at P = 600 N/m² back to V = 2.0 m³, so the region bounded by D→E→F→(2.0, 300) is a triangle:
+          </p>
+          <p>
+            Area = ½ × (V<sub>E</sub> − V<sub>F</sub>) × (P<sub>E</sub> − P<sub>D</sub>) = ½ × (5.0 − 2.0) × (600
+            − 300) = ½ × 3.0 × 300 = <strong>450 J</strong>.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
       <h2 id="h-second-law">11.9 Second Law of Thermodynamics</h2>
       <p>
         The First Law is the principle of conservation of energy. But common experience shows there are many
@@ -441,6 +595,11 @@ export default function ThermodynamicsChapter() {
         efficiency</Highlight>.
       </p>
 
+      <MistakeCard
+        mistake="Believing a slow process is automatically reversible, or that free expansion is quasi-static."
+        correction="Reversibility requires quasi-static behaviour AND zero dissipative effects (friction, viscosity). Free expansion into vacuum is irreversible however slow it is perceived — the gas passes through non-equilibrium states with no well-defined P and T, so work W = 0 but the process cannot be turned back."
+      />
+
       <h2 id="h-carnot">11.11 Carnot Engine</h2>
       <p>
         Suppose we have a hot reservoir at temperature T₁ and a cold reservoir at T₂. What is the maximum
@@ -497,197 +656,9 @@ export default function ThermodynamicsChapter() {
         no refrigerator can have co-efficient of performance α = ∞.
       </Callout>
 
-      <h2 id="h-exercises">Exercises 11.1 – 11.8</h2>
-      <p>NCERT<sup>Reprint 2025-26</sup> exercises with hints and the essential answers.</p>
-
-      <Expandable variant="exercise" title="Exercise 11.1 — geyser fuel consumption">
-        <ProblemSolution.Problem>
-          A geyser heats water flowing at the rate of 3.0 litres per minute from 27 °C to 77 °C. If the geyser
-          operates on a gas burner, what is the rate of consumption of the fuel if its heat of combustion is 4.0 ×
-          10⁴ J/g?
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>
-            Heat needed per minute: m s ∆T = (3.0 kg) × (4.186 × 10³ J kg⁻¹ K⁻¹) × (77 − 27) K = 6.279 × 10⁵
-            J/min. Fuel burned per minute: 6.279 × 10⁵ / (4.0 × 10⁴) = <strong>15.7 ≈ 16 g min⁻¹</strong>.
-          </p>
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 11.2 — heating nitrogen at constant pressure">
-        <ProblemSolution.Problem>
-          What amount of heat must be supplied to 2.0 × 10⁻² kg of nitrogen (at room temperature) to raise its
-          temperature by 45 °C at constant pressure? (Molecular mass of N₂ = 28; R = 8.3 J mol⁻¹ K⁻¹.)
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>
-            Moles: μ = 20 g / 28 g mol⁻¹ = 0.714 mol. N₂ is diatomic, so C<sub>p</sub> = (7/2)R = 29.05 J mol⁻¹ K⁻¹.
-            At constant pressure Q = μ C<sub>p</sub> ∆T = 0.714 × 29.05 × 45 ={" "}
-            <strong>≈ 933 J</strong>.
-          </p>
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 11.3 — explain why">
-        <ProblemSolution.Problem>
-          Explain why: (a) two bodies at different temperatures T₁ and T₂, brought into thermal contact, do not
-          necessarily settle to the mean temperature (T₁ + T₂)/2; (b) the coolant in a chemical or nuclear plant
-          should have high specific heat; (c) the air pressure in a car tyre increases during driving; (d) the
-          climate of a harbour town is more temperate than that of a town in a desert at the same latitude.
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>
-            (a) The final temperature is set by <strong>energy conservation weighted by the heat capacities</strong>:
-            m₁s₁(T − T₁) = m₂s₂(T₂ − T), which gives (T₁ + T₂)/2 only when m₁s₁ = m₂s₂. Bodies with different
-            masses and specific heats settle to a capacity-weighted value. <br />
-            (b) A <strong>high specific heat</strong> removes the most heat per unit temperature rise for a given
-            mass of coolant, keeping the plant&rsquo;s parts from overheating. <br />
-            (c) While driving, the tyres heat up (friction with the road and flexing). At roughly constant volume PV
-            = μRT, so as temperature rises the <strong>pressure rises</strong>. <br />
-            (d) The sea has a high specific heat, so it warms and cools slowly, moderating the harbour town&rsquo;s
-            temperature swings; desert land heats and cools quickly, giving extreme temperatures.
-          </p>
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 11.4 — adiabatic compression factor">
-        <ProblemSolution.Problem>
-          A cylinder with a movable piston contains 3 moles of hydrogen at standard temperature and pressure. The
-          walls are heat insulators and the piston is insulated by a pile of sand. By what factor does the
-          pressure increase if the gas is compressed to half its original volume?
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>
-            The sand-cover makes the process <strong>adiabatic</strong>: P₁V₁^γ = P₂V₂^γ with V₂ = V₁/2, so P₂
-            /P₁ = (V₁/V₂)^γ = 2^γ. Hydrogen (H₂) is diatomic: γ = C<sub>p</sub>/C<sub>v</sub> = 7/5 = 1.4. Hence
-            P₂/P₁ = 2^1.4 = <strong>2.64</strong> — the pressure increases by about 2.6 times.
-          </p>
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 11.5 — path-independent ∆U">
-        <ProblemSolution.Problem>
-          In changing the state of a gas adiabatically from state A to state B, an amount of work equal to 22.3 J
-          is done <em>on</em> the system. If the gas is taken from A to B via a process in which the net heat
-          absorbed is 9.35 cal, how much is the net work done <em>by</em> the system in the latter case? (1 cal =
-          4.19 J)
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>
-            Adiabatic path: Q = 0, and work done on the gas = 22.3 J means W<sub>by</sub> = −22.3 J. First Law: 0
-            = ∆U + W<sub>by</sub> = ∆U − 22.3 ⟹ <strong>∆U = 22.3 J</strong>, a property of the change A→B.
-          </p>
-          <p>
-            Second path: Q = 9.35 × 4.19 = 39.2 J. First Law: ∆U = Q − W<sub>by</sub>, so W<sub>by</sub> = 39.2 −
-            22.3 = <strong>16.9 J</strong>.
-          </p>
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 11.6 — free expansion through a stopcock">
-        <ProblemSolution.Problem>
-          Two cylinders A and B of equal capacity are connected via a stopcock. A contains gas at STP; B is
-          completely evacuated. The entire system is thermally insulated and the stopcock is suddenly opened. (a)
-          What is the final pressure in A and B? (b) What is the change in internal energy of the gas? (c) What is
-          the change in temperature? (d) Do the intermediate states lie on the P-V-T surface?
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>
-            (a) The gas expands freely into twice the volume; no work is done (it expands into vacuum), so the
-            temperature stays at its initial value and by Boyle&rsquo;s law the pressure halves:{" "}
-            <strong>P/2 (0.5 atm) in each cylinder</strong>. <br />
-            (b) <strong>∆U = 0</strong> — no heat (insulated) and no work (free expansion). <br />
-            (c) <strong>No change in temperature</strong> (ideal gas; ∆U = 0 ⟹ T constant). <br />
-            (d) <strong>No</strong> — this free expansion is rapid; the intermediate states are non-equilibrium
-            states that do not satisfy the gas equation and do not lie on the P-V-T surface. The system eventually
-            settles to a new equilibrium state.
-          </p>
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 11.7 — rate of internal energy increase">
-        <ProblemSolution.Problem>
-          An electric heater supplies heat to a system at a rate of 100 W. If the system performs work at a rate of
-          75 joules per second, at what rate is the internal energy increasing?
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>
-            dU/dt = dQ/dt − dW/dt = 100 − 75 = <strong>25 J s⁻¹ (25 W)</strong>.
-          </p>
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 11.8 — work from D to E to F">
-        <ProblemSolution.Problem>
-          A thermodynamic system is taken from its original state D to an intermediate state E by the linear
-          process shown in the figure (Fig. 11.13: D = (V 2.0 m³, P 300 N/m²), E = (V 5.0 m³, P 600 N/m²)). Its
-          volume is then reduced from E back to the original value by an isobaric process to F. Calculate the total
-          work done by the gas from D to E to F.
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p>
-            Work on a P-V diagram is the area under the curve. D→E is linear (trapezium under it) and E→F is
-            isobaric at P = 600 N/m² back to V = 2.0 m³, so the region bounded by D→E→F→(2.0, 300) is a triangle:
-          </p>
-          <p>
-            Area = ½ × (V<sub>E</sub> − V<sub>F</sub>) × (P<sub>E</sub> − P<sub>D</sub>) = ½ × (5.0 − 2.0) × (600
-            − 300) = ½ × 3.0 × 300 = <strong>450 J</strong>.
-          </p>
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <h2 id="h-revision">Quick Revision</h2>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <FormulaCard>
-          <p><strong>First law &amp; sign convention</strong></p>
-          ∆Q = ∆U + ∆W (heat in; work by system, positive out). At constant pressure ∆W = P∆V. Q &gt; 0 heat in,
-          Q &lt; 0 heat out; W &gt; 0 work by system, W &lt; 0 work on system. ∆U is path independent; ∆Q, ∆W are
-          not.
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Heat capacities</strong></p>
-          Specific s = (1/m)∆Q/∆T; molar C = (1/μ)∆Q/∆T. Solids: C ≈ 3R (equipartition; carbon excepted). Ideal
-          gas: C_p − C_v = R. Water: 4186 J kg⁻¹K⁻¹; 1 cal = 4.186 J.
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Special processes</strong></p>
-          Isothermal: PV = const, W = μRT ln(V₂/V₁), Q = W (∆U = 0). Adiabatic: PV^γ = const, γ = C_p/C_v, W =
-          μR(T₁ − T₂)/(γ − 1). Isochoric: W = 0. Isobaric: W = P∆V = μR∆T. Cyclic: ∆U = 0, Q = W.
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Equilibrium &amp; state variables</strong></p>
-          Zeroth law: two systems each in equilibrium with a third are in equilibrium with each other — defines
-          temperature. State variables (P, V, T, U) vs path quantities (Q, W). Equation of state: PV = μRT.
-          Intensive (P, T, ρ) vs extensive (U, V, M).
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Carnot engine</strong></p>
-          Reversible, operating between T₁ (source) and T₂ (sink): two isotherms joined by two adiabats. η = 1 −
-          T₂/T₁; Q₁/Q₂ = T₁/T₂. No engine is more efficient; efficiency independent of working substance.
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Second law &amp; reversibility</strong></p>
-          Kelvin-Planck: no process with sole result heat→work from one reservoir. Clausius: no process with sole
-          result cold→hot heat flow. Reversible = quasi-static + no dissipation; natural processes are
-          irreversible.
-        </FormulaCard>
-      </div>
-
-      <MistakeCard
-        mistake="Thinking heat, work and internal energy are the same kind of quantity — e.g. &ldquo;a hot gas has a lot of heat&rdquo;."
-        correction="Heat and work are energy IN TRANSIT, not properties of a state — a gas in a given state has a definite internal energy U, but no &ldquo;amount of heat&rdquo; or &ldquo;amount of work&rdquo;. It is meaningful to say &ldquo;heat was supplied&rdquo; or &ldquo;work was done&rdquo;, never that the state <em>contains</em> heat."
-      />
-      <MistakeCard
-        mistake="Applying ∆Q = ∆U + P∆V with signs flipped, or treating ∆U as path-dependent."
-        correction="First law: ∆Q is heat INTO the system and ∆W is work done BY the system. ∆U depends only on the initial and final states (state variable); ∆Q and ∆W depend on the path, but their difference is path-independent. In adiabatic work-on-gas problems, W_by is negative."
-      />
       <MistakeCard
         mistake="Using an isochoric or any non-adiabatic step to move between the two reservoirs in a Carnot engine."
         correction="Between two fixed temperatures only two reversible paths exist: an isothermal (heat exchange, no temperature change) and an adiabatic (temperature change, no heat exchange). Any other quasi-static path would demand a continuous series of reservoirs, so it is not a two-temperature reversible engine."
-      />
-      <MistakeCard
-        mistake="Believing a slow process is automatically reversible, or that free expansion is quasi-static."
-        correction="Reversibility requires quasi-static behaviour AND zero dissipative effects (friction, viscosity). Free expansion into vacuum is irreversible however slow it is perceived — the gas passes through non-equilibrium states with no well-defined P and T, so work W = 0 but the process cannot be turned back."
       />
       <MistakeCard
         mistake="Plugging °C into η = 1 − T₂/T₁ or into PV=μRT, which need absolute temperatures."
