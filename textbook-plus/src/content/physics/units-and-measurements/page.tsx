@@ -73,6 +73,18 @@ export default function UnitsAndMeasurementsChapter() {
         ]}
       />
 
+      <Expandable title="Exercise — apparent motion of near and far objects" variant="exercise">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">
+          1.16 — From a fast-moving train
+        </h3>
+        <ProblemSolution.Problem>
+          <p>Explain, giving examples: from a fast-moving train, nearby trees seem to move rapidly in the opposite direction, while distant objects such as hills, the Moon and stars seem stationary.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Apparent motion depends on distance: for a fixed observer speed, nearby objects sweep a larger angle per second (rapid relative motion); distant objects subtend nearly the same direction and so appear stationary.</p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
       <h2 id="h-1-2">1.2 The International System of Units (SI)</h2>
       <TableCard
         caption="Base units of length, mass and time in the three older systems."
