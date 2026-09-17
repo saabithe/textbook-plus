@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 const G = 6.67e-11;
 const VIEW_W = 460;
-const VIEW_H = 210;
+const VIEW_H = 170;
 const MAX_SPAN = 5; // m, for the slider range
 
 function toSci(x: number): string {
@@ -73,69 +73,67 @@ export function UniversalLawExplorer() {
 
   return (
     <div className="my-6 overflow-hidden rounded-2xl border border-violet-500/25 bg-card shadow-sm">
-      <div className="flex items-center gap-2 border-b border-violet-500/10 bg-violet-500/[0.06] px-4 py-2.5 text-[0.7rem] font-extrabold uppercase tracking-[0.2em] text-violet-600 dark:text-violet-400">
-        <Hand className="h-4 w-4" />
+      <div className="flex items-center gap-2 border-b border-violet-500/10 bg-violet-500/[0.06] px-4 py-2 text-[0.65rem] font-extrabold uppercase tracking-[0.18em] text-violet-600 dark:text-violet-400">
+        <Hand className="h-3.5 w-3.5" />
         Universal law — drag to feel the force
       </div>
 
-      <div className="grid gap-4 p-5 lg:grid-cols-[minmax(0,1fr)_240px]">
-        <div>
-          <svg viewBox={`0 0 ${VIEW_W} ${VIEW_H}`} className="w-full" role="img" aria-label="Two point masses attract with force F">
-            <line
-              x1={x1}
-              y1={y}
-              x2={x2}
-              y2={y}
-              stroke="var(--muted-foreground)"
-              strokeOpacity="0.35"
-              strokeWidth="1.5"
-              strokeDasharray="4 4"
-            />
-            {/* force arrows  */}
-            <g stroke="var(--foreground)" strokeWidth="2.2" strokeLinecap="round">
-              <line x1={x2 - R2} y1={y} x2={x2 - R2 - arrow} y2={y} markerEnd="url(#ulArrowL)" />
-              <line x1={x1 + R1} y1={y} x2={x1 + R1 + arrow} y2={y} markerEnd="url(#ulArrowR)" />
-            </g>
-            <defs>
-              <marker id="ulArrowL" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-                <path d="M0,0 L10,5 L0,10 z" fill="var(--foreground)" />
-              </marker>
-              <marker id="ulArrowR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-                <path d="M0,0 L10,5 L0,10 z" fill="var(--foreground)" />
-              </marker>
-            </defs>
+      <div className="grid gap-3 p-3">
+        <svg viewBox={`0 0 ${VIEW_W} ${VIEW_H}`} className="w-full" role="img" aria-label="Two point masses attract with force F">
+          <line
+            x1={x1}
+            y1={y}
+            x2={x2}
+            y2={y}
+            stroke="var(--muted-foreground)"
+            strokeOpacity="0.35"
+            strokeWidth="1.5"
+            strokeDasharray="4 4"
+          />
+          {/* force arrows  */}
+          <g stroke="var(--foreground)" strokeWidth="2.2" strokeLinecap="round">
+            <line x1={x2 - R2} y1={y} x2={x2 - R2 - arrow} y2={y} markerEnd="url(#ulArrowL)" />
+            <line x1={x1 + R1} y1={y} x2={x1 + R1 + arrow} y2={y} markerEnd="url(#ulArrowR)" />
+          </g>
+          <defs>
+            <marker id="ulArrowL" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--foreground)" />
+            </marker>
+            <marker id="ulArrowR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--foreground)" />
+            </marker>
+          </defs>
 
-            <circle cx={x1} cy={y} r={R1} fill="#8b5cf6" fillOpacity="0.22" stroke="#8b5cf6" strokeWidth="2.5" />
-            <circle cx={x2} cy={y} r={R2} fill="#06b6d4" fillOpacity="0.22" stroke="#06b6d4" strokeWidth="2.5" />
+          <circle cx={x1} cy={y} r={R1} fill="#8b5cf6" fillOpacity="0.22" stroke="#8b5cf6" strokeWidth="2.5" />
+          <circle cx={x2} cy={y} r={R2} fill="#06b6d4" fillOpacity="0.22" stroke="#06b6d4" strokeWidth="2.5" />
 
-            <text x={x1} y={y - R1 - 10} textAnchor="middle" fontSize="15" fontWeight="800" fill="var(--foreground)">m₁</text>
-            <text x={x2} y={y - R2 - 10} textAnchor="middle" fontSize="15" fontWeight="800" fill="var(--foreground)">m₂</text>
-            <text x={cx} y={y + 34} textAnchor="middle" fontSize="13" fontWeight="700" fill="var(--muted-foreground)">r = {r} m</text>
-          </svg>
+          <text x={x1} y={y - R1 - 10} textAnchor="middle" fontSize="14" fontWeight="800" fill="var(--foreground)">m₁</text>
+          <text x={x2} y={y - R2 - 10} textAnchor="middle" fontSize="14" fontWeight="800" fill="var(--foreground)">m₂</text>
+          <text x={cx} y={y + 34} textAnchor="middle" fontSize="12" fontWeight="700" fill="var(--muted-foreground)">r = {r} m</text>
+        </svg>
 
-          <div className="mt-3 rounded-xl border border-border/40 bg-muted/15 px-4 py-3 text-center">
-            <p className="mb-1 text-[0.68rem] font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
-              Force on each mass
-            </p>
-            <p className="text-lg font-black text-violet-800 dark:text-violet-200">
-              F = <Formula>{String.raw`\frac{G\,m_1 m_2}{r^2}`}</Formula>
-              {" "}= <span className="text-emerald-600 dark:text-emerald-400">{toSci(F)} N</span>
-            </p>
-          </div>
+        <div className="rounded-xl border border-border/40 bg-muted/15 px-3 py-2 text-center">
+          <p className="mb-0.5 text-[0.62rem] font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
+            Force on each mass
+          </p>
+          <p className="text-base font-black text-violet-800 dark:text-violet-200">
+            F = <Formula>{String.raw`\frac{G\,m_1 m_2}{r^2}`}</Formula>
+            {" "}= <span className="text-emerald-600 dark:text-emerald-400">{toSci(F)} N</span>
+          </p>
         </div>
 
-        <div className="flex flex-col gap-3 rounded-xl border border-border/40 bg-muted/20 p-4 lg:self-stretch">
+        <div className="flex flex-col gap-2.5 rounded-xl border border-border/40 bg-muted/20 p-3">
           <Slider label="Mass m₁" value={m1} min={0.5} max={10} step={0.5} unit="kg" onChange={setM1} />
           <Slider label="Mass m₂" value={m2} min={0.5} max={10} step={0.5} unit="kg" onChange={setM2} />
           <Slider label="Distance r" value={r} min={0.5} max={5} step={0.5} unit="m" onChange={setR} />
-          <div className={cn(
-            "mt-auto rounded-lg px-3 py-2 text-[0.72rem] leading-snug",
-            "border border-violet-500/30 bg-violet-500/[0.08] text-violet-900 dark:text-violet-100"
-          )}>
-            <strong>Doubling m</strong> doubles F; <strong>halving r</strong> quadruples F.
-            Even at 10 kg, 60 cm apart the force is ~2 × 10⁻⁹ N — gravity is the weakest force.
-          </div>
         </div>
+        <p className={cn(
+          "rounded-lg px-3 py-2 text-[0.7rem] leading-snug",
+          "border border-violet-500/30 bg-violet-500/[0.08] text-violet-900 dark:text-violet-100"
+        )}>
+          <strong>Doubling m</strong> doubles F; <strong>halving r</strong> quadruples F.
+          Even at 10 kg, 60 cm apart the force is ~2 × 10⁻⁹ N — gravity is the weakest force.
+        </p>
       </div>
     </div>
   );
