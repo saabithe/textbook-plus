@@ -2,7 +2,7 @@ import { Highlight } from "@/components/content/Highlight";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
-import { FormulaBlock } from "@/components/content/Formula";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
@@ -391,100 +391,122 @@ export default function WavesChapter() {
 
       <h2 id="w-speed">14.3 The Speed of a Travelling Wave</h2>
       <p>
-        To determine the speed of propagation, fix attention on a particular point of the wave (some fixed value of the
-        phase — say a crest) and see how it moves in time. The motion of a fixed-phase point is given by:
-      </p>
-      <FormulaBlock latex={String.raw`kx - \omega t = \text{constant}`} />
-      <p>
-        As t changes, x must change so the phase remains constant. Two instants separated by a small time ∆t find the
-        same phase point displaced by ∆x, with k∆x − ω∆t = 0. In the limit of vanishingly small intervals:
-      </p>
-      <FormulaBlock latex={String.raw`v = \frac{\mathrm{d}x}{\mathrm{d}t} = \frac{\omega}{k}`} important />
-      <p>
-        Relating ω to T and k to λ:
-      </p>
-      <FormulaBlock latex={String.raw`v = \frac{\lambda}{T} = \lambda\,\nu`} important />
-      <p>
-        This general relation for all progressive waves shows that in the time required for one full oscillation by any
-        constituent, the wave pattern travels a distance equal to the wavelength. The speed of a mechanical wave is{" "}
-        <Highlight>determined by the medium</Highlight> — its inertial properties (linear mass density μ for strings, mass
-        density in general) and elastic properties (Young&rsquo;s, shear or bulk modulus). The medium fixes v; Eq.
-        (14.12) then relates wavelength to frequency for that speed. As noted, the same medium can support transverse
-        and longitudinal waves, which travel at different speeds.
+        The speed of a mechanical wave is <Highlight>determined by the medium</Highlight> — its inertial properties and
+        its elastic properties. The medium fixes the speed v; the source fixes the frequency ν; the wavelength then
+        follows from λ = v/ν. Transverse and longitudinal waves in the same medium travel at different speeds, because
+        they involve different elastic moduli.
       </p>
 
-      <h3 id="w-speed-string">14.3.1 Speed of a Transverse Wave on a Stretched String</h3>
+      <h3 id="w-speed-string">14.3.1 Speed of Transverse Wave in a Stretched String</h3>
       <p>
-        The speed is expected to be directly related to the restoring force and inversely to the inertial property. For
-        a string, the restoring force is the tension T and the inertial property is the linear mass density μ = m/L
-        (mass of the string divided by its length). The exact formula follows from Newton&rsquo;s laws, but a
-        dimensional analysis suffices: [μ] = ML⁻¹, [T] = MLT⁻², and the quantity T/μ has dimension L²T⁻². Dimensional
-        analysis leaves a constant C undetermined;
+        Factors affecting speed:
       </p>
-      <FormulaBlock latex={String.raw`v = C\sqrt{\frac{T}{\mu}}`} />
-      <p>
-        The exact derivation gives C = 1, so the speed of transverse waves on a stretched string is:
-      </p>
+      <ul>
+        <li>
+          Mass per unit length (μ)
+        </li>
+        <li>
+          Tension (T)
+        </li>
+      </ul>
       <FormulaBlock latex={String.raw`v = \sqrt{\frac{T}{\mu}}`} important />
       <p>
-        <Highlight>The speed depends only on the properties of the medium (T and μ)</Highlight> — not on the wavelength
-        or frequency of the wave. In higher studies you will meet waves whose speed depends on frequency; for the string
-        it does not. Given
-        the speed and the source frequency, the wavelength is fixed by:
+        (where mass per unit length <Formula>{String.raw`\mu = \frac{m}{L}`}</Formula>)
       </p>
-      <FormulaBlock latex={String.raw`\lambda = \frac{v}{\nu}`} />
       <p>
-        A string&rsquo;s frequent phrase: is it transverse or longitudinal? — a question that belongs to §14.2; here we
-        simply record the answer for a tensioned string.
+        <Highlight>The speed depends only on the properties of the medium (T and μ)</Highlight> — not on the wavelength
+        or frequency of the wave.
       </p>
 
-      <h3 id="w-speed-sound">14.3.2 Speed of a Longitudinal Wave (Speed of Sound)</h3>
+      <h3 id="w-speed-sound">14.3.2 Speed of Longitudinal Waves</h3>
       <p>
-        Sound waves travel as compressions and rarefactions of small volume elements. The elastic property that
-        determines the stress under compressional strain is the <strong>bulk modulus</strong> of the medium:
+        In solids:
       </p>
-      <FormulaBlock latex={String.raw`B = -\frac{\Delta P}{\Delta V/V}`} />
+      <FormulaBlock latex={String.raw`v = \sqrt{\frac{Y}{\rho}}`} important />
       <p>
-        with B measured in pascals. The inertial property relevant for propagation is the mass density ρ (ML⁻³). The
-        quantity B/ρ has dimensions L²T⁻², so the speed is:
+        (where Y = Young&rsquo;s modulus, ρ = density)
+      </p>
+      <p>
+        In fluids:
       </p>
       <FormulaBlock latex={String.raw`v = \sqrt{\frac{B}{\rho}}`} important />
       <p>
-        For a linear medium, like a solid bar with negligible lateral expansion, the relevant modulus is{" "}
-        <strong>Young&rsquo;s modulus</strong> Y (same dimension as the bulk modulus):
+        (where B = bulk modulus, ρ = density)
       </p>
-      <FormulaBlock latex={String.raw`v = \sqrt{\frac{Y}{\rho}}`} />
       <p>
-        <Highlight>Liquids and solids generally have higher speeds of sound than gases because they are much harder to
-        compress — their bulk moduli are much larger</Highlight>. Although solids and liquids also have higher densities,
-        the increase in B
-        dominates, which is why sound travels faster in them. Table 14.1 in the NCERT text lists speeds of sound in
-        various media.
+        <strong>Newton&rsquo;s assumption (isothermal process):</strong> Newton assumed sound wave propagation in gases
+        to be an <strong>isothermal</strong> process. Formula given by Newton:
       </p>
-      <TableCard
-        caption="Values quoted in this chapter (NCERT Table 14.1 / exercises)"
-        headers={["Medium", "Speed of sound (m s⁻¹)"]}
-        rows={[
-          { cells: ["Air at STP (0 °C)", "331"] },
-          { cells: ["Dry air at 20 °C", "343"] },
-          { cells: ["Water", "1486"] },
-          { cells: ["Steel (from Ex 14.16)", "5060"] },
-        ]}
-      />
-      <p>In the ideal-gas approximation, PV = Nk_BT. For an isothermal change, ∆(PV) = 0, so B = P, giving:</p>
       <FormulaBlock latex={String.raw`v = \sqrt{\frac{P}{\rho}}`} />
+
+      <h3 id="w-laplace">14.3.3 Laplace Correction</h3>
       <p>
-        This relation is known as <strong>Newton&rsquo;s formula</strong>. Newton assumed the pressure variations in a
-        sound wave to be isothermal; the value it gives for air at STP is about 280 m s⁻¹ — nearly 15% lower than the
-        experimental 331 m s⁻¹. <strong>Laplace</strong> pointed out the flaw: the pressure variations in sound are so
-        fast that there is little time for heat flow, so they are <strong>adiabatic</strong>, not isothermal. For an
-        adiabatic process PV^γ = constant, giving B_ad = γP, and:
+        Sound wave propagation is rapid, making it a heat-insulated (<strong>adiabatic</strong>) process rather than
+        isothermal. Laplace corrected Newton&rsquo;s formula by introducing the adiabatic exponent (γ).
       </p>
       <FormulaBlock latex={String.raw`v = \sqrt{\frac{\gamma P}{\rho}}`} important />
       <p>
-        This modification is the <strong>Laplace correction</strong>. For air γ = 7/5, and the formula gives 331.3 m
-        s⁻¹ — in agreement with measurement.
+        Here γP is the adiabatic elasticity (Newton used the isothermal elasticity P). Laplace&rsquo;s relation is more
+        accurate than Newton&rsquo;s formula and agrees with experimental results.
       </p>
+
+      <Expandable variant="default" title="Board Exam Questions & Problems — wave speed">
+        <ProblemSolution.Problem>
+          A steel wire 100 cm long has a mass of 10 gm. If the wire is under a tension of 400 N, what is the speed of
+          transverse waves in the wire? (Imp 2020)
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Length L = 100 cm = 1 m; mass m = 10 gm = 0.01 kg. Mass per unit length:
+          </p>
+          <FormulaBlock latex={String.raw`\mu = \frac{m}{L} = \frac{0.01}{1} = 0.01\ \text{kg/m}`} />
+          <p>Tension T = 400 N. Speed:</p>
+          <FormulaBlock latex={String.raw`v = \sqrt{\frac{T}{\mu}} = \sqrt{\frac{400}{0.01}} = \sqrt{40000} = 200\ \text{m/s}`} important />
+        </ProblemSolution.Solution>
+
+        <ProblemSolution.Problem>
+          What were the corrections made by Laplace in the formula of velocity of sound?
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            1. Considered the process to be <strong>adiabatic</strong> instead of isothermal.
+          </p>
+          <p>
+            2. Introduced γP instead of P (<Formula>{String.raw`\sqrt{\frac{\gamma P}{\rho}}`}</Formula>).
+          </p>
+        </ProblemSolution.Solution>
+
+        <ProblemSolution.Problem>
+          Transverse waves cannot be propagated through gases. Why?
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            A transverse wave needs a restoring force against shear (shearing stress). Gases have no shear strength —
+            only solids do — so only longitudinal waves (which need just compressibility) can propagate in gases.
+          </p>
+        </ProblemSolution.Solution>
+
+        <ProblemSolution.Problem>
+          Explain the speed of longitudinal wave and write the value of speed of sound at 0 °C after Laplace
+          correction.
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            In a fluid the speed of sound depends on the bulk modulus of elasticity{" "}
+            <Formula>{String.raw`B = -\frac{\Delta P}{\Delta V / V}`}</Formula> and the density ρ:{" "}
+            <Formula>{String.raw`v = \sqrt{\frac{B}{\rho}}`}</Formula>. In a solid bar the relevant modulus is
+            Young&rsquo;s modulus Y: <Formula>{String.raw`v = \sqrt{\frac{Y}{\rho}}`}</Formula>. For air Newton&rsquo;s
+            (isothermal) formula <Formula>{String.raw`v = \sqrt{\frac{P}{\rho}}`}</Formula> gives only ≈ 280 m s⁻¹;
+            Laplace&rsquo;s (adiabatic) correction <Formula>{String.raw`v = \sqrt{\frac{\gamma P}{\rho}}`}</Formula>{" "}
+            gives <strong>331 m s⁻¹ at 0 °C</strong>, in agreement with experiment.
+          </p>
+        </ProblemSolution.Solution>
+
+        <p>
+          The 12.0 m / 2.10 kg steel-wire tension problem (v = 343 m s⁻¹) is worked below as{" "}
+          <strong>Exercise 14.3</strong> — T = 2.06 × 10⁴ N.
+        </p>
+      </Expandable>
 
       <Expandable variant="default" title="Example 14.3 — speed of a transverse wave on a wire">
         <ProblemSolution.Problem>
