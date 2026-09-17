@@ -2,8 +2,7 @@ import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
 import { Highlight } from "@/components/content/Highlight";
-import { Formula, FormulaBlock } from "@/components/content/Formula";
-import { FormulaCard } from "@/components/content/FormulaCard";
+import { FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
@@ -60,6 +59,72 @@ export default function ThermalPropertiesOfMatterChapter() {
         example 77 °F = (77 − 32) × 5/9 = 25 °C.
       </Callout>
 
+      <MistakeCard
+        mistake="Assuming the ice and steam points are perfect fixed points of the modern Celsius scale."
+        correction="They depend on pressure and are not exactly reproducible. The standard fixed point is the TRIPLE point of water (273.16 K), the unique state where all three phases coexist; the ice point lies 0.01 K below it, which is why t_C = T − 273.15."
+      />
+
+      <Expandable variant="exercise" title="Exercises — temperature scales">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.1 — Triple points on the Celsius and Fahrenheit scales</h3>
+        <ProblemSolution.Problem>
+          <p>
+            The triple points of neon and carbon dioxide are 24.57 K and 216.55 K respectively. Express these
+            temperatures on the Celsius and Fahrenheit scales.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            t_C = T − 273.15; t_F = (9/5)t_C + 32. Neon: <strong>−248.58 °C, −415.44 °F</strong>. CO₂:{" "}
+            <strong>−56.60 °C, −69.88 °F</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.2 — Two absolute scales</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Two absolute scales A and B have triple points of water defined to be 200 A and 350 B. What is the
+            relation between T_A and T_B?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            The triple point = 273.16 K = 200 A = 350 B, so 1 A = 273.16/200 = 1.366 K and 1 B = 273.16/350
+            = 0.780 K. For the same temperature T_A&middot;(273.16/200) = T_B&middot;(273.16/350), hence{" "}
+            <strong>T_A = (4/7) T_B</strong> (check on the triple point: 200 = (4/7) × 350). The A scale has
+            larger degrees, so it reads fewer of them.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.3 — Resistance thermometer</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A thermometer&rsquo;s resistance follows R = R₀[1 + α(T − T₀)]: 101.6 Ω at the triple point
+            (273.16 K) and 165.5 Ω at lead&rsquo;s normal melting point (600.5 K). What temperature corresponds to
+            R = 123.4 Ω?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            α = (165.5/101.6 − 1)/(600.5 − 273.16) = 0.6289/327.34 = 1.92 × 10⁻³ K⁻¹. For 123.4 Ω: ΔT =
+            (123.4/101.6 − 1)/1.92 × 10⁻³ = 111.7 K ⟹ <strong>T ≈ 385 K</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.4 — Fixed points of the Kelvin scale</h3>
+        <ProblemSolution.Problem>
+          <p>
+            (a) Why is the triple point the standard fixed point, and what is wrong with the ice/steam points?
+            (b) What is the other fixed point on the Kelvin scale? (c) Why does t_C = T − 273.15 and not 273.16?
+            (d) What is the triple point on an absolute scale with Fahrenheit-size units?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            (a) The triple point is the <em>unique</em> reproducible state where all three phases coexist;
+            ice and steam points depend on (variable) pressure. (b) <strong>Absolute zero (0 K)</strong>. (c) The
+            Kelvin scale sets the triple point at exactly 273.16 K; the ice point lies 0.01 K below it at
+            273.15 K. (d) <strong>491.69</strong> (273.16 × 9/5, the Rankine-style scale).
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
       <h2 id="h-ideal-gas">10.4 Ideal-Gas Equation and Absolute Temperature</h2>
       <p>
         Liquid-in-glass thermometers disagree at temperatures other than the fixed points because different
@@ -102,6 +167,30 @@ export default function ThermalPropertiesOfMatterChapter() {
         They differ only in their origin (zero point). Because absolute temperatures enter the gas laws
         (T ∝ P, T ∝ V), kelvin must always be used in PV = μRT and similar relations.
       </KeyPoint>
+
+      <MistakeCard
+        mistake="Plugging °C directly into PV = μRT or into Stefan-Boltzmann H = eσAT⁴."
+        correction="Both require the ABSOLUTE temperature T = t_C + 273.15 (kelvin). Gas-law ratios like P₁T₂ = P₂T₁ and T⁴ scaling are meaningless unless T is in kelvin. In expansions, ΔT in length problems may be in °C or K — the size of the unit is the same."
+      />
+
+      <Expandable variant="exercise" title="Exercise — ideal-gas thermometer">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.5 — Two ideal-gas thermometers</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Ideal-gas thermometers A (oxygen) and B (hydrogen): at the triple point A reads 1.250 × 10⁵ Pa and
+            B reads 0.200 × 10⁵ Pa; at sulphur&rsquo;s melting point A reads 1.797 × 10⁵ Pa and B reads 0.287 ×
+            10⁵ Pa. (a) What absolute temperature does each read for the melting point? (b) Why the slight
+            difference, and how is it reduced?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            T = 273.16 × P/P_triple. (a) A: 273.16 × 1.797/1.250 = <strong>392.7 K</strong>; B: 273.16 ×
+            0.287/0.200 = <strong>392.0 K</strong>. (b) Real gases deviate slightly from ideal behaviour at finite
+            pressure; measure at progressively lower densities and extrapolate to zero pressure.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
 
       <h2 id="h-expansion">10.5 Thermal Expansion</h2>
       <p>
@@ -236,6 +325,76 @@ export default function ThermalPropertiesOfMatterChapter() {
           </ProblemSolution.Solution>
         </Expandable>
 
+      <MistakeCard
+        mistake="Thinking α_V = 3α_l holds for liquids or that α_V is a constant for a given material."
+        correction="α_V = 3α_l assumes an isotropic SOLID expanding equally in all directions. For liquids α_V ∝ 1/T (ideal gas) or is tabulated; water even contracts between 0 and 4 °C. α_V for a real material varies with temperature and becomes constant only at high T."
+      />
+
+      <Expandable variant="exercise" title="Exercises — thermal expansion">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.6 — Steel tape measuring a rod</h3>
+        <ProblemSolution.Problem>
+          <p>A 1 m steel tape calibrated at 27.0 °C measures a steel rod as 63.0 cm at 45.0 °C. What are the actual lengths at 45.0 °C and at 27.0 °C? (α_steel = 1.20 × 10⁻⁵ K⁻¹)</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            The tape&rsquo;s metre expands too: its true metre length at 45 °C = 1 + 1.2 × 10⁻⁵ × 18 =
+            1.000216 m. Actual length at 45 °C = 63.0 × 1.000216 = <strong>63.014 cm</strong>; at 27 °C =
+            63.014/1.000216 = <strong>63.0 cm</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.7 — Wheel and shaft fit</h3>
+        <ProblemSolution.Problem>
+          <p>A large steel wheel (hole 8.69 cm) must fit a steel shaft (8.70 cm) at 27 °C. The shaft is cooled with dry ice. At what shaft temperature does the wheel slip on? (α_steel = 1.20 × 10⁻⁵ K⁻¹)</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Shrink needed: ΔL/L = 0.01/8.70 = 1.149 × 10⁻³. ΔT = 1.149 × 10⁻³/1.2 × 10⁻⁵ = 95.8 °C. Cool
+            from 27 °C to <strong>−68.8 °C ≈ −69 °C</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.8 — Hole in a copper sheet</h3>
+        <ProblemSolution.Problem>
+          <p>A hole drilled in copper sheet is 4.24 cm at 27.0 °C. What is the change in its diameter when the sheet is heated to 227 °C? (α_copper = 1.70 × 10⁻⁵ K⁻¹)</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            The hole expands like the sheet: Δd = d α ΔT = 4.24 × 1.7 × 10⁻⁵ × 200 ={" "}
+            <strong>1.44 × 10⁻² cm (~0.014 cm)</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.9 — Tension in a cooled brass wire</h3>
+        <ProblemSolution.Problem>
+          <p>A 1.8 m brass wire (diameter 2.0 mm) held taut with little tension between rigid supports is cooled from 27 °C to −39 °C. What tension develops? (α_brass = 2.0 × 10⁻⁵ K⁻¹, Y = 0.91 × 10¹¹ Pa)</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Thermal strain = αΔT = 2.0 × 10⁻⁵ × 66 = 1.32 × 10⁻³; stress = Y × strain = 1.20 × 10⁸ Pa.
+            Tension F = stress × π(2 × 10⁻³)²/4 (area 3.14 × 10⁻⁶ m²) ≈ <strong>3.8 × 10² N</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.10 — Brass and steel rods joined</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A brass rod of length 50 cm (diameter 3.0 mm) joined to a steel rod of the same dimensions. What
+            is the change in length of the combined rod at 250 °C, original at 40.0 °C? Is thermal stress
+            developed? (α_brass = 2.0 × 10⁻⁵, α_steel = 1.2 × 10⁻⁵ K⁻¹)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            ΔL_brass = 0.5 × 2.0 × 10⁻⁵ × 210 = 2.10 mm; ΔL_steel = 0.5 × 1.2 × 10⁻⁵ × 210 = 1.26 mm.
+            Total <strong>ΔL ≈ 3.36 mm</strong>. <strong>No thermal stress</strong> — the ends are free to expand.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.11 — Density change of glycerine</h3>
+        <ProblemSolution.Problem>
+          <p>The coefficient of volume expansion of glycerine is 49 × 10⁻⁵ K⁻¹. What is the fractional change in its density for a 30 °C rise?</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Δρ/ρ = −βΔT = −49 × 10⁻⁵ × 30 = <strong>−1.47 × 10⁻² (about 1.5% decrease)</strong>.</p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
       <h2 id="h-specific-heat">10.6 Specific Heat Capacity</h2>
       <p>
         Experiment shows that the heat needed to warm a substance depends on its mass m, the temperature change ΔT
@@ -284,6 +443,38 @@ export default function ThermalPropertiesOfMatterChapter() {
         a heater in hot-water bags.
       </KeyPoint>
 
+      <Expandable variant="exercise" title="Exercises — specific heat capacity">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.12 — Drilling an aluminium block</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A 10 kW drilling machine drills a bore in an 8.0 kg aluminium block. How much does the block
+            temperature rise in 2.5 minutes if 50% of the power goes into heating the machine or is lost?
+            (s_aluminium = 0.91 J g⁻¹ K⁻¹)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Energy into the block = ½ × 10⁴ × 150 = 7.5 × 10⁵ J. s = 910 J kg⁻¹ K⁻¹; ΔT = Q/(ms) =
+            7.5 × 10⁵/(8 × 910) = <strong>103 °C</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.15 — Molar specific heats of gases</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Measured molar specific heats (C_V, cal mol⁻¹ K⁻¹): H₂ 4.87, N₂ 4.97, O₂ 5.02, NO 4.99, CO 5.01,
+            Cl₂ 6.17 — versus 2.92 for monatomic gases. Explain, and what does chlorine&rsquo;s larger value imply?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Monatomic gases: C_V = 3/2 R ≈ 2.98 cal; diatomic molecules <strong>add rotational degrees of
+            freedom</strong>, giving C_V = 5/2 R ≈ 4.97 cal. Chlorine&rsquo;s larger 6.17 cal/mol K shows its{" "}
+            <strong>vibrational modes also contribute at room temperature</strong> (it is heavy and easily
+            excited).
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
       <h2 id="h-calorimetry">10.7 Calorimetry</h2>
       <p>
         <strong>Calorimetry means measurement of heat.</strong> When a hot body touches a colder body in an
@@ -307,6 +498,38 @@ export default function ThermalPropertiesOfMatterChapter() {
             <FormulaBlock latex={String.raw`s_{\mathrm{Al}} = \frac{3301.6}{0.047\times 77} = 912\;\mathrm{J\,kg^{-1}\,K^{-1}} \approx 0.91\;\mathrm{kJ\,kg^{-1}\,K^{-1}}`} important />
           </ProblemSolution.Solution>
         </Expandable>
+
+      <Expandable variant="exercise" title="Exercises — calorimetry">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.13 — Copper block melting ice</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A 2.5 kg copper block heated to 500 °C is placed on a large ice block. What is the maximum amount
+            of ice that can melt? (s_copper = 0.39 J g⁻¹ K⁻¹, L_f = 335 J g⁻¹)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Q = m c ΔT = 2.5 × 390 × 500 = 4.875 × 10⁵ J. Ice melted = 4.875 × 10⁵/(335 × 10³) ={" "}
+            <strong>1.46 kg (≈ 1.45 kg)</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.14 — Metal block in a calorimeter</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A 0.20 kg metal block at 150 °C is dropped into a copper calorimeter (water equivalent 0.025 kg)
+            containing 150 cm³ of water at 27 °C; final temperature 40 °C. Compute the metal&rsquo;s specific heat.
+            If heat losses are not negligible, is your answer greater or smaller than the true value?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Heat gained = (0.150 + 0.025) × 4186 × 13 = 9.52 × 10³ J. s = 9.52 × 10³/(0.20 × 110) ={" "}
+            <strong>4.33 × 10² ≈ 0.43 × 10³ J kg⁻¹ K⁻¹</strong>. With heat losses the computed s is{" "}
+            <strong>smaller</strong> than the true value (measured heat gained undercounts the heat actually
+            lost).
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
 
       <h2 id="h-change-of-state">10.8 Change of State</h2>
       <p>
@@ -413,6 +636,28 @@ export default function ThermalPropertiesOfMatterChapter() {
             <FormulaBlock latex={String.raw`Q = Q_1+Q_2+Q_3+Q_4 = 9.1\times10^6\;\mathrm{J}`} important />
           </ProblemSolution.Solution>
         </Expandable>
+
+      <MistakeCard
+        mistake="Adding the steam&rsquo;s latent heat to a temperature rise as if they were both sensible-heat steps."
+        correction="During melting or vaporisation the temperature is CONSTANT — all supplied heat goes into the phase change (Q = mL), not into warming. In multi-stage problems (ice → steam) you must sum separate terms: warm, melt, warm, vaporise — never collapse them."
+      />
+
+      <Expandable variant="exercise" title="Exercise — evaporative cooling of a fever">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.16 — Sweat evaporation rate</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A 30 kg child&rsquo;s fever falls from 101 °F to 98 °F in 20 minutes by extra sweat evaporation
+            (the only heat-loss mechanism). What is the average extra evaporation rate? (s_body ≈ s_water; L_v ≈
+            580 cal g⁻¹)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            ΔT = 3 °F = (5/9)×3 = 1.67 °C. Q = 30 × 4186 × 1.67 = 2.09 × 10⁵ J = 5.0 × 10⁴ cal. Vapour
+            mass = 5.0 × 10⁴/580 = 86 g in 20 min ⟹ <strong>≈ 4.3 g min⁻¹</strong>.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
 
       <h2 id="h-heat-transfer">10.9 Heat Transfer</h2>
       <p>
@@ -558,6 +803,60 @@ export default function ThermalPropertiesOfMatterChapter() {
         a thin shiny metallic layer next to the skin to reflect the body&rsquo;s own radiation back.
       </Callout>
 
+      <MistakeCard
+        mistake="Forgetting that conduction problems like steel A₂ twice copper need equal heat-current arithmetic, or using gauge readings that skip the tape's own expansion."
+        correction="In the steady state the SAME H passes every cross-section — write K₁A₁(T₁−T)/L₁ = K₂A₂(T−T₂)/L₂ and solve. For a hot-day measurement with a calibrated steel tape, the tape expands too: true length = reading × (tape&rsquo;s expanded metre)."
+      />
+
+      <Expandable variant="exercise" title="Exercises — heat transfer">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.17 — Icebox melting</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A cubical thermacole icebox (side 30 cm, wall thickness 5.0 cm) holds 4.0 kg of ice. Estimate the
+            ice remaining after 6 h if the outside is 45 °C. (K_thermacole = 0.01 J s⁻¹ m⁻¹ K⁻¹; L_f = 335 × 10³ J
+            kg⁻¹)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            All six faces conduct: A = 6 × 0.09 = 0.54 m². H = K A ΔT/L = 0.01 × 0.54 × 45/0.05 = 4.86 W;
+            Q in 6 h = 4.86 × 21,600 = 1.05 × 10⁵ J. Ice melted = 1.05 × 10⁵/335 × 10³ = 0.31 kg ⟹{" "}
+            <strong>≈ 3.7 kg remaining</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.18 — Flame temperature of a boiler</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A brass boiler (base 0.15 m², thickness 1.0 cm) boils water at 6.0 kg/min. Estimate the flame
+            contact temperature. (K_brass = 109 J s⁻¹ m⁻¹ K⁻¹; L_v water = 2256 × 10³ J kg⁻¹)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            H = 0.1 × 2256 × 10³ = 2.256 × 10⁵ W. ΔT = H L/(K A) = 2.256 × 10⁵ × 0.01/(109 × 0.15) = 138 °C
+            above the boiling water ⟹ flame temperature ≈ <strong>238 °C</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.19 — Radiation &amp; thermal insights</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Explain why (a) a body with large reflectivity is a poor emitter; (b) a brass tumbler feels colder
+            than a wooden tray on a chilly day; (c) an optical pyrometer reads low for red-hot iron in the open but
+            correctly inside the furnace; (d) the earth without its atmosphere would be inhospitably cold; (e)
+            steam-based heating warms a building more efficiently than hot water.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            (a) Reflectors absorb (and therefore emit) little radiation. (b) Brass conducts heat away from
+            the hand far better than wood. (c) Iron in the open has e &lt; 1, so a blackbody-calibrated pyrometer
+            reads low; inside the furnace the iron is in a near-blackbody enclosure. (d) The atmosphere traps
+            outgoing radiation (greenhouse effect) and stores heat. (e) Steam releases the large latent heat of
+            vaporisation (22.6 × 10⁵ J kg⁻¹) when it condenses — far more than hot water&rsquo;s sensible heat.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
       <h2 id="h-newton-cooling">10.10 Newton&rsquo;s Law of Cooling</h2>
       <p>
         Hot water left on a table cools gradually; the rate is high initially and decreases as the temperature
@@ -589,280 +888,18 @@ export default function ThermalPropertiesOfMatterChapter() {
           </ProblemSolution.Solution>
         </Expandable>
 
-      <h2 id="h-exercises">Exercises 10.1 – 10.20</h2>
-      <p>Selected exercises with hints and the essential answers.</p>
-
-      <Expandable variant="exercise" title="Exercises 10.1 &amp; 10.2">
+      <Expandable variant="exercise" title="Exercise — Newton&rsquo;s law of cooling">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">10.20 — Cooling from 60 °C to 30 °C</h3>
         <ProblemSolution.Problem>
-            10.1 The triple points of neon and carbon dioxide are 24.57 K and 216.55 K respectively. Express these
-            temperatures on the Celsius and Fahrenheit scales. <br />
-            10.2 Two absolute scales A and B have triple points of water defined to be 200 A and 350 B. What is the
-            relation between T_A and T_B?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              10.1 t_C = T − 273.15; t_F = (9/5)t_C + 32. Neon: <strong>−248.58 °C, −415.44 °F</strong>. CO₂:{" "}
-              <strong>−56.60 °C, −69.88 °F</strong>.
-            </p>
-            <p>
-              10.2 The triple point = 273.16 K = 200 A = 350 B, so 1 A = 273.16/200 = 1.366 K and 1 B = 273.16/350
-              = 0.780 K. For the same temperature T_A·(273.16/200) = T_B·(273.16/350), hence{" "}
-              <strong>T_A = (4/7) T_B</strong> (check on the triple point: 200 = (4/7) × 350). The A scale has
-              larger degrees, so it reads fewer of them.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 10.3 &amp; 10.4">
-        <ProblemSolution.Problem>
-            10.3 A thermometer&rsquo;s resistance follows R = R₀[1 + α(T − T₀)]: 101.6 Ω at the triple point
-            (273.16 K) and 165.5 Ω at lead&rsquo;s normal melting point (600.5 K). What temperature corresponds to
-            R = 123.4 Ω? <br />
-            10.4 (a) Why is the triple point the standard fixed point, and what is wrong with the ice/steam points?
-            (b) What is the other fixed point on the Kelvin scale? (c) Why does t_C = T − 273.15 and not 273.16?
-            (d) What is the triple point on an absolute scale with Fahrenheit-size units?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              10.3 α = (165.5/101.6 − 1)/(600.5 − 273.16) = 0.6289/327.34 = 1.92 × 10⁻³ K⁻¹. For 123.4 Ω: ΔT =
-              (123.4/101.6 − 1)/1.92 × 10⁻³ = 111.7 K ⟹ <strong>T ≈ 385 K</strong>.
-            </p>
-            <p>
-              10.4 (a) The triple point is the <em>unique</em> reproducible state where all three phases coexist;
-              ice and steam points depend on (variable) pressure. (b) <strong>Absolute zero (0 K)</strong>. (c) The
-              Kelvin scale sets the triple point at exactly 273.16 K; the ice point lies 0.01 K below it at
-              273.15 K. (d) <strong>491.69</strong> (273.16 × 9/5, the Rankine-style scale).
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 10.5 &amp; 10.6">
-        <ProblemSolution.Problem>
-            10.5 Ideal-gas thermometers A (oxygen) and B (hydrogen): at the triple point A reads 1.250 × 10⁵ Pa and
-            B reads 0.200 × 10⁵ Pa; at sulphur&rsquo;s melting point A reads 1.797 × 10⁵ Pa and B reads 0.287 ×
-            10⁵ Pa. (a) What absolute temperature does each read for the melting point? (b) Why the slight
-            difference, and how is it reduced? <br />
-            10.6 A 1 m steel tape calibrated at 27.0 °C measures a steel rod as 63.0 cm at 45.0 °C. What are the
-            actual lengths at 45.0 °C and at 27.0 °C? (α_steel = 1.20 × 10⁻⁵ K⁻¹)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              10.5 T = 273.16 × P/P_triple. (a) A: 273.16 × 1.797/1.250 = <strong>392.7 K</strong>; B: 273.16 ×
-              0.287/0.200 = <strong>392.0 K</strong>. (b) Real gases deviate slightly from ideal behaviour at finite
-              pressure; measure at progressively lower densities and extrapolate to zero pressure.
-            </p>
-            <p>
-              10.6 The tape&rsquo;s metre expands too: its true metre length at 45 °C = 1 + 1.2 × 10⁻⁵ × 18 =
-              1.000216 m. Actual length at 45 °C = 63.0 × 1.000216 = <strong>63.014 cm</strong>; at 27 °C =
-              63.014/1.000216 = <strong>63.0 cm</strong>.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 10.7 &amp; 10.8">
-        <ProblemSolution.Problem>
-            10.7 A large steel wheel (hole 8.69 cm) must fit a steel shaft (8.70 cm) at 27 °C. The shaft is cooled
-            with dry ice. At what shaft temperature does the wheel slip on? (α_steel = 1.20 × 10⁻⁵ K⁻¹) <br />
-            10.8 A hole drilled in copper sheet is 4.24 cm at 27.0 °C. What is the change in its diameter when the
-            sheet is heated to 227 °C? (α_copper = 1.70 × 10⁻⁵ K⁻¹)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              10.7 Shrink needed: ΔL/L = 0.01/8.70 = 1.149 × 10⁻³. ΔT = 1.149 × 10⁻³/1.2 × 10⁻⁵ = 95.8 °C. Cool
-              from 27 °C to <strong>−68.8 °C ≈ −69 °C</strong>.
-            </p>
-            <p>
-              10.8 The hole expands like the sheet: Δd = d α ΔT = 4.24 × 1.7 × 10⁻⁵ × 200 ={" "}
-              <strong>1.44 × 10⁻² cm (~0.014 cm)</strong>.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 10.9 &amp; 10.10">
-        <ProblemSolution.Problem>
-            10.9 A 1.8 m brass wire (diameter 2.0 mm) held taut with little tension between rigid supports is cooled
-            from 27 °C to −39 °C. What tension develops? (α_brass = 2.0 × 10⁻⁵ K⁻¹, Y = 0.91 × 10¹¹ Pa) <br />
-            10.10 A brass rod of length 50 cm (diameter 3.0 mm) joined to a steel rod of the same dimensions. What
-            is the change in length of the combined rod at 250 °C, original at 40.0 °C? Is thermal stress
-            developed? (α_brass = 2.0 × 10⁻⁵, α_steel = 1.2 × 10⁻⁵ K⁻¹)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              10.9 Thermal strain = αΔT = 2.0 × 10⁻⁵ × 66 = 1.32 × 10⁻³; stress = Y × strain = 1.20 × 10⁸ Pa.
-              Tension F = stress × π(2 × 10⁻³)²/4 (area 3.14 × 10⁻⁶ m²) ≈ <strong>3.8 × 10² N</strong>.
-            </p>
-            <p>
-              10.10 ΔL_brass = 0.5 × 2.0 × 10⁻⁵ × 210 = 2.10 mm; ΔL_steel = 0.5 × 1.2 × 10⁻⁵ × 210 = 1.26 mm.
-              Total <strong>ΔL ≈ 3.36 mm</strong>. <strong>No thermal stress</strong> — the ends are free to expand,
-              so nothing constrains the rods.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 10.11 &amp; 10.12">
-        <ProblemSolution.Problem>
-            10.11 The coefficient of volume expansion of glycerine is 49 × 10⁻⁵ K⁻¹. What is the fractional change
-            in its density for a 30 °C rise? <br />
-            10.12 A 10 kW drilling machine drills a bore in an 8.0 kg aluminium block. How much does the block
-            temperature rise in 2.5 minutes if 50% of the power goes into heating the machine or is lost?
-            (s_aluminium = 0.91 J g⁻¹ K⁻¹)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              10.11 Δρ/ρ = −βΔT = −49 × 10⁻⁵ × 30 = <strong>−1.47 × 10⁻² (about 1.5% decrease)</strong>.
-            </p>
-            <p>
-              10.12 Energy into the block = ½ × 10⁴ × 150 = 7.5 × 10⁵ J. s = 910 J kg⁻¹ K⁻¹; ΔT = Q/(ms) =
-              7.5 × 10⁵/(8 × 910) = <strong>103 °C</strong>.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 10.13 &amp; 10.14">
-        <ProblemSolution.Problem>
-            10.13 A 2.5 kg copper block heated to 500 °C is placed on a large ice block. What is the maximum amount
-            of ice that can melt? (s_copper = 0.39 J g⁻¹ K⁻¹, L_f = 335 J g⁻¹) <br />
-            10.14 A 0.20 kg metal block at 150 °C is dropped into a copper calorimeter (water equivalent 0.025 kg)
-            containing 150 cm³ of water at 27 °C; final temperature 40 °C. Compute the metal&rsquo;s specific heat.
-            If heat losses are not negligible, is your answer greater or smaller than the true value?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              10.13 Q = m c ΔT = 2.5 × 390 × 500 = 4.875 × 10⁵ J. Ice melted = 4.875 × 10⁵/(335 × 10³) ={" "}
-              <strong>1.46 kg (≈ 1.45 kg)</strong>.
-            </p>
-            <p>
-              10.14 Heat gained = (0.150 + 0.025) × 4186 × 13 = 9.52 × 10³ J. s = 9.52 × 10³/(0.20 × 110) ={" "}
-              <strong>4.33 × 10² ≈ 0.43 × 10³ J kg⁻¹ K⁻¹</strong>. With heat losses the computed s is{" "}
-              <strong>smaller</strong> than the true value (measured heat gained undercounts the heat actually
-              lost).
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 10.15 &amp; 10.16">
-        <ProblemSolution.Problem>
-            10.15 Measured molar specific heats (C_V, cal mol⁻¹ K⁻¹): H₂ 4.87, N₂ 4.97, O₂ 5.02, NO 4.99, CO 5.01,
-            Cl₂ 6.17 — versus 2.92 for monatomic gases. Explain, and what does chlorine&rsquo;s larger value imply?
-            <br />
-            10.16 A 30 kg child&rsquo;s fever falls from 101 °F to 98 °F in 20 minutes by extra sweat evaporation
-            (the only heat-loss mechanism). What is the average extra evaporation rate? (s_body ≈ s_water; L_v ≈
-            580 cal g⁻¹)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              10.15 Monatomic gases: C_V = 3/2 R ≈ 2.98 cal; diatomic molecules <strong>add rotational degrees of
-              freedom</strong>, giving C_V = 5/2 R ≈ 4.97 cal. Chlorine&rsquo;s larger 6.17 cal/mol K shows its{" "}
-              <strong>vibrational modes also contribute at room temperature</strong> (it is heavy and easily
-              excited).
-            </p>
-            <p>
-              10.16 ΔT = 3 °F = (5/9)×3 = 1.67 °C. Q = 30 × 4186 × 1.67 = 2.09 × 10⁵ J = 5.0 × 10⁴ cal. Vapour
-              mass = 5.0 × 10⁴/580 = 86 g in 20 min ⟹ <strong>≈ 4.3 g min⁻¹</strong>.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 10.17 &amp; 10.18">
-        <ProblemSolution.Problem>
-            10.17 A cubical thermacole icebox (side 30 cm, wall thickness 5.0 cm) holds 4.0 kg of ice. Estimate the
-            ice remaining after 6 h if the outside is 45 °C. (K_thermacole = 0.01 J s⁻¹ m⁻¹ K⁻¹; L_f = 335 × 10³ J
-            kg⁻¹) <br />
-            10.18 A brass boiler (base 0.15 m², thickness 1.0 cm) boils water at 6.0 kg/min. Estimate the flame
-            contact temperature. (K_brass = 109 J s⁻¹ m⁻¹ K⁻¹; L_v water = 2256 × 10³ J kg⁻¹)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              10.17 All six faces conduct: A = 6 × 0.09 = 0.54 m². H = K A ΔT/L = 0.01 × 0.54 × 45/0.05 = 4.86 W;
-              Q in 6 h = 4.86 × 21,600 = 1.05 × 10⁵ J. Ice melted = 1.05 × 10⁵/335 × 10³ = 0.31 kg ⟹{" "}
-              <strong>≈ 3.7 kg remaining</strong>.
-            </p>
-            <p>
-              10.18 H = 0.1 × 2256 × 10³ = 2.256 × 10⁵ W. ΔT = H L/(K A) = 2.256 × 10⁵ × 0.01/(109 × 0.15) = 138 °C
-              above the boiling water ⟹ flame temperature ≈ <strong>238 °C</strong>.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 10.19 &amp; 10.20">
-        <ProblemSolution.Problem>
-            10.19 Explain why (a) a body with large reflectivity is a poor emitter; (b) a brass tumbler feels colder
-            than a wooden tray on a chilly day; (c) an optical pyrometer reads low for red-hot iron in the open but
-            correctly inside the furnace; (d) the earth without its atmosphere would be inhospitably cold; (e)
-            steam-based heating warms a building more efficiently than hot water. <br />
-            10.20 A body cools from 80 °C to 50 °C in 5 minutes. Calculate the time to cool from 60 °C to 30 °C.
-            Surroundings at 20 °C.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              10.19 (a) Reflectors absorb (and therefore emit) little radiation. (b) Brass conducts heat away from
-              the hand far better than wood. (c) Iron in the open has e &lt; 1, so a blackbody-calibrated pyrometer
-              reads low; inside the furnace the iron is in a near-blackbody enclosure. (d) The atmosphere traps
-              outgoing radiation (greenhouse effect) and stores heat. (e) Steam releases the large latent heat of
-              vaporisation (22.6 × 10⁵ J kg⁻¹) when it condenses — far more than hot water&rsquo;s sensible heat.
-            </p>
-            <p>
-              10.20 Using the mean-temperature form: (80 − 50)/5 = K(65 − 20) ⟹ K = 0.1333 min⁻¹; then (60 − 30)/t
-              = K(45 − 20) ⟹ 30/t = 3.333 ⟹ <strong>t = 9 min</strong>.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <h2 id="h-revision">Quick Revision</h2>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <FormulaCard>
-          <p><strong>Temperatures &amp; gas law</strong></p>
-          t_F = (9/5)t_C + 32; T = t_C + 273.15; absolute zero = −273.15 °C. Ideal gas: PV = μRT, R = 8.31 J
-          mol⁻¹K⁻¹; triple point of water = 273.16 K.
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Thermal expansion</strong></p>
-          Δl/l = α_l ΔT; ΔV/V = α_V ΔT; α_V = 3α_l (solid). Water is densest at 4 °C. Thermal stress = Y Δl/l
-          when expansion is blocked (a clamped steel rod can exert ~10⁵ N).
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Heat capacities</strong></p>
-          ΔQ = msΔT (specific heat, J kg⁻¹K⁻¹); molar C = ΔQ/(μΔT). Phase changes: Q = mL with L_f = 3.33 × 10⁵
-          and L_V = 22.6 × 10⁵ J kg⁻¹ for water. Steam carries ~2.2 MJ kg⁻¹ more heat than boiling water.
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Conduction</strong></p>
-          H = KA(T_C − T_D)/L; K in W m⁻¹K⁻¹. Silver 406, copper 385, air 0.024. Series compound bar: same heat
-          current in steady state; junction T = (K₁T₁ + K₂T₂)/(K₁ + K₂) for equal A, L.
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Radiation</strong></p>
-          Wien: λ_m T = 2.9 × 10⁻³ m K. Stefan-Boltzmann: H = eσA(T⁴ − T_s⁴), σ = 5.67 × 10⁻⁸ W m⁻²K⁻⁴, e = 1 for
-          a perfect radiator. Use kelvin; a body both emits and absorbs.
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Key physical insights</strong></p>
-          Heat is energy transferred <em>by virtue of temperature difference</em>. Temperature is constant during a
-          phase change (latent heat). Convection needs fluids; radiation needs no medium. Newton&rsquo;s cooling:
-          rate ∝ small ΔT, giving ln(ΔT) a straight line. Boiling point rises with pressure, falls at altitude.
-        </FormulaCard>
-      </div>
-
-      <MistakeCard
-        mistake="Plugging °C directly into PV = μRT or into Stefan-Boltzmann H = eσAT⁴."
-        correction="Both require the ABSOLUTE temperature T = t_C + 273.15 (kelvin). Gas-law ratios like P₁T₂ = P₂T₁ and T⁴ scaling are meaningless unless T is in kelvin. In expansions, ΔT in length problems may be in °C or K — the size of the unit is the same."
-      />
-      <MistakeCard
-        mistake="Assuming the ice and steam points are perfect fixed points of the modern Celsius scale."
-        correction="They depend on pressure and are not exactly reproducible. The standard fixed point is the TRIPLE point of water (273.16 K), the unique state where all three phases coexist; the ice point lies 0.01 K below it, which is why t_C = T − 273.15."
-      />
-      <MistakeCard
-        mistake="Thinking α_V = 3α_l holds for liquids or that α_V is a constant for a given material."
-        correction="α_V = 3α_l assumes an isotropic SOLID expanding equally in all directions. For liquids α_V ∝ 1/T (ideal gas) or is tabulated; water even contracts between 0 and 4 °C. α_V for a real material varies with temperature and becomes constant only at high T."
-      />
-      <MistakeCard
-        mistake="Adding the steam&rsquo;s latent heat to a temperature rise as if they were both sensible-heat steps."
-        correction="During melting or vaporisation the temperature is CONSTANT — all supplied heat goes into the phase change (Q = mL), not into warming. In multi-stage problems (ice → steam) you must sum separate terms: warm, melt, warm, vaporise — never collapse them."
-      />
-      <MistakeCard
-        mistake="Forgetting that conduction problems like steel A₂ twice copper need equal heat-current arithmetic, or using gauge readings that skip the tape's own expansion."
-        correction="In the steady state the SAME H passes every cross-section — write K₁A₁(T₁−T)/L₁ = K₂A₂(T−T₂)/L₂ and solve. For a hot-day measurement with a calibrated steel tape, the tape expands too: true length = reading × (tape&rsquo;s expanded metre)."
-      />
+          <p>A body cools from 80 °C to 50 °C in 5 minutes. Calculate the time to cool from 60 °C to 30 °C. Surroundings at 20 °C.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Using the mean-temperature form: (80 − 50)/5 = K(65 − 20) ⟹ K = 0.1333 min⁻¹; then (60 − 30)/t
+            = K(45 − 20) ⟹ 30/t = 3.333 ⟹ <strong>t = 9 min</strong>.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
     </>
   );
 }
