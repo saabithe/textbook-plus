@@ -1,8 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
-import { Formula, FormulaBlock } from "@/components/content/Formula";
-import { FormulaCard } from "@/components/content/FormulaCard";
+import { FormulaBlock } from "@/components/content/Formula";
 import { Highlight } from "@/components/content/Highlight";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
@@ -219,6 +218,89 @@ export default function MechanicalPropertiesOfFluidsChapter() {
           </ProblemSolution.Solution>
         </Expandable>
 
+      <MistakeCard
+        mistake="Pressure is a vector; it acts in the direction of the applied force."
+        correction="Pressure is a SCALAR. Only the component of force normal to the area enters F/A, and the force on any area (or wall) is normal to it whatever its orientation. Gauge pressure P_g = P − P_a is what tyre and blood-pressure gauges read."
+      />
+      <MistakeCard
+        mistake="The bottom pressure in a container depends on how much liquid it holds (wide vs narrow vessels)."
+        correction="P = P_a + ρgh depends only on the depth h, density and g — not on the amount, cross-section or shape of the container. This is the hydrostatic paradox: equal depths give equal pressures."
+      />
+      <MistakeCard
+        mistake="An atmosphere would have roughly the same pressure at 6 km as at sea level because it is 100 km tall."
+        correction="Air is compressible: density falls rapidly with altitude, so most of the atmosphere's mass (and hence most of the pressure) is near the ground — pressure is already halved by ~6 km, even though the envelope extends beyond 100 km."
+      />
+
+      <Expandable variant="exercise" title="Exercises — pressure in fluids">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.1 — Blood pressure, atmosphere &amp; scalar pressure</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Explain why: (a) blood pressure in humans is greater at the feet than at the brain; (b)
+            atmospheric pressure at ~6 km is nearly half its sea-level value though the atmosphere is over 100
+            km high; (c) hydrostatic pressure is a scalar though it is force divided by area.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            (a) Hydrostatic ρgh adds to the pressure: the blood column above the feet is taller. (b) Air
+            is compressible — its density falls rapidly with height, so most of the atmosphere&rsquo;s mass
+            lies close to the ground. (c) The numerator is the <em>normal component</em> of the force; pressure
+            has no direction — the force on any area is normal to it.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.5 — High heel on the floor</h3>
+        <ProblemSolution.Problem>
+          <p>A 50 kg girl in high heels balances on a single heel of diameter 1.0 cm. What is the pressure on the floor?</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>A = π(0.01)²/4 = 7.85 × 10⁻⁵ m²; P = (50 × 9.8)/7.85 × 10⁻⁵ = <strong>6.24 × 10⁶ ≈ 6 × 10⁶ Pa</strong>.</p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.6 — Wine barometer</h3>
+        <ProblemSolution.Problem>
+          <p>Pascal duplicated the mercury barometer using French wine (ρ = 984 kg m⁻³). What height of wine corresponds to normal atmospheric pressure?</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>h = P_atm/(ρg) = 1.013 × 10⁵/(984 × 9.8) = <strong>10.5 m</strong>.</p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.7 — Offshore structure at 3 km depth</h3>
+        <ProblemSolution.Problem>
+          <p>A vertical offshore structure can withstand a maximum stress of 10⁹ Pa. Is it suitable for a 3 km deep ocean oil well?</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Pressure at 3 km ≈ ρgh = 1.03 × 10³ × 9.8 × 3000 ≈ <strong>3 × 10⁷ Pa</strong>, far below 10⁹ Pa ⟹ <strong>suitable</strong>.</p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.8 — Hydraulic lift</h3>
+        <ProblemSolution.Problem>
+          <p>A hydraulic automobile lift lifts cars up to 3000 kg; the load piston area is 425 cm². What maximum pressure must the smaller piston bear?</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>A = 4.25 × 10⁻² m²; P = (3000 × 9.8)/4.25 × 10⁻² = <strong>6.9 × 10⁵ ≈ 7 × 10⁵ Pa</strong>.</p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.9 — U-tube: specific gravity of spirit</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A U-tube contains water and methylated spirit separated by mercury; the mercury columns are level
+            with 10.0 cm of water in one arm and 12.5 cm of spirit in the other. What is the specific gravity of
+            spirit?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Equal mercury levels: ρ_w g(0.10) = ρ_s g(0.125) ⟹ ρ_s = 0.8 × 10³ kg m⁻³ ⟹ <strong>specific gravity = 0.8</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.10 — Adding more liquid to the U-tube arms</h3>
+        <ProblemSolution.Problem>
+          <p>If 15.0 cm of water and spirit each are further poured into the arms, what is the difference in the mercury levels? (s.g. of mercury = 13.6)</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            New columns: water 25.0 cm, spirit 27.5 cm. ΔP = g(10³ × 0.250 − 0.8 × 10³ × 0.275) = 9.8 ×
+            30 = 294 Pa. Mercury: Δh = 294/(13.6 × 10³ × 9.8) = <strong>2.2 × 10⁻³ m ≈ 0.22 cm</strong>.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
       <h2 id="h-streamline">9.3 Streamline Flow</h2>
       <p>
         The study of fluids in motion is <strong>fluid dynamics</strong>.{" "}
@@ -249,6 +331,23 @@ export default function MechanicalPropertiesOfFluidsChapter() {
         speed the flow becomes <strong>turbulent</strong> (fast streams striking rocks produce the foamy
         &ldquo;white-water rapids&rdquo;).
       </p>
+
+      <Expandable variant="exercise" title="Exercise — continuity in a spray pump">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.16 — Ejection speed through the holes</h3>
+        <ProblemSolution.Problem>
+          <p>
+            The tube of a spray pump has cross-section 8.0 cm²; one end has 40 fine holes of diameter 1.0
+            mm each. If the liquid flows in the tube at 1.5 m min⁻¹, what is the ejection speed through the
+            holes?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Volume flow Q = 8 × 10⁻⁴ × (1.5/60) = 2 × 10⁻⁵ m³ s⁻¹; total hole area = 40 × π(0.5 × 10⁻³)²
+            = 3.14 × 10⁻⁵ m²; v = Q/A = <strong>0.64 m s⁻¹</strong>.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
 
       <h2 id="h-bernoulli">9.4 Bernoulli&rsquo;s Principle</h2>
       <p>
@@ -355,6 +454,82 @@ export default function MechanicalPropertiesOfFluidsChapter() {
           </ProblemSolution.Solution>
         </Expandable>
 
+      <MistakeCard
+        mistake="Bernoulli's equation applies to any real fluid flow."
+        correction="It requires a steady, non-viscous (ideal), incompressible fluid. Real viscous flow loses kinetic energy to heat (internal friction), and turbulent/non-steady flows violate it. For a resting fluid it reduces to hydrostatics."
+      />
+
+      <Expandable variant="exercise" title="Exercises — Bernoulli in everyday settings">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.4 — Paper, taps, syringes &amp; spinning balls</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Explain briefly: (a) to keep a piece of paper horizontal you should blow over, not under, it; (b)
+            closing a water tap with your fingers makes fast jets gush through the openings; (c) the needle of a
+            syringe controls flow rate better than thumb pressure; (d) fluid flowing out of a small hole results
+            in a backward thrust on the vessel; (e) a spinning cricket ball in air does not follow a parabolic
+            trajectory.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            (a) Fast air above the paper has lower pressure (Bernoulli); higher pressure below lifts it. (b)
+            The narrow gaps force the speed to rise (continuity: Av = constant). (c) The outflow speed/rate is
+            set by the needle&rsquo;s small cross-section; thumb pressure mainly sets the driving pressure. (d)
+            Momentum conservation: the expelled stream carries forward momentum, so the vessel recoils
+            backward (rocket principle). (e) The spin drags air, creating a pressure difference (Magnus effect)
+            that deflects the ball.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.11 — Bernoulli over a rapid</h3>
+        <ProblemSolution.Problem>
+          <p>Can Bernoulli&rsquo;s equation describe the flow of water through a rapid in a river?</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            <strong>No</strong> — Bernoulli holds only for steady (streamline) flow of a non-viscous,
+            incompressible fluid; rapids are turbulent and unsteady.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.12 — Gauge vs absolute pressures</h3>
+        <ProblemSolution.Problem>
+          <p>Does it matter if one uses gauge instead of absolute pressures in applying Bernoulli&rsquo;s equation?</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            <strong>No</strong> — adding the same (uniform) atmospheric pressure to every term adds a
+            constant that cancels, so gauge pressures give the same pressure differences as absolute ones as
+            long as the surrounding pressure is the same.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.14 — Lift on a model wing</h3>
+        <ProblemSolution.Problem>
+          <p>
+            In a wind-tunnel test the flow speeds on the upper and lower surfaces of a model wing (area 2.5
+            m²) are 70 m s⁻¹ and 63 m s⁻¹. What is the lift? (ρ_air = 1.3 kg m⁻³)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            ΔP = ½ρ(v_u² − v_l²) = ½ × 1.3 × (70² − 63²) ≈ 605 Pa; Lift = ΔP × 2.5 ={" "}
+            <strong>1.51 × 10³ N</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.15 — Which pipe figure is wrong</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Figures (a) and (b) show the steady flow of a non-viscous liquid in pipes with vertical pressure
+            tubes. Which figure is incorrect and why?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            The figure that shows a <em>higher</em> liquid column at the constriction is incorrect: at the
+            constriction the speed is higher (continuity) so the pressure — and hence the column height — must
+            be <strong>lower</strong> (Bernoulli).
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
       <h2 id="h-viscosity">9.5 Viscosity</h2>
       <p>
         Most fluids are not ideal:{" "}
@@ -441,6 +616,41 @@ export default function MechanicalPropertiesOfFluidsChapter() {
             <FormulaBlock latex={String.raw`\eta = 9.9\times10^{-1}\;\mathrm{kg\,m^{-1}\,s^{-1}}`} important />
           </ProblemSolution.Solution>
         </Expandable>
+
+      <Expandable variant="exercise" title="Exercises — viscosity and viscous flow">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.3 — Fill in the blanks</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Fill in the blanks: (a) Surface tension of liquids generally ___ with temperature. (b) Viscosity of
+            gases ___ with temperature, while viscosity of liquids ___ with temperature. (c) For solids the
+            shearing force is proportional to ___, while for fluids it is proportional to ___. (d) For a fluid
+            in steady flow, the increase in flow speed at a constriction follows ___. (e) For a model plane in a
+            wind tunnel, turbulence occurs at a ___ speed than for an actual plane.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            (a) decreases; (b) increases, decreases; (c) shear strain, rate of shear strain (v/l); (d)
+            conservation of mass (continuity: Av = constant); (e) greater — the model is smaller, and the
+            critical speed scales as 1/L, so turbulence needs a higher speed to set in.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.13 — Glycerine flowing in a tube</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Glycerine flows steadily through a horizontal tube (length 1.5 m, radius 1.0 cm). If 4.0 × 10⁻³
+            kg is collected per second, what pressure difference exists between the ends? (ρ = 1.3 × 10³ kg m⁻³,
+            η = 0.83 Pa s) Also check the laminar-flow assumption.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Using the Poiseuille-type relation ΔP = 8ηlm&prime;/(ρπr⁴) with m&prime; = 4.0 × 10⁻³ kg s⁻¹:
+            ΔP = <strong>9.75 × 10² Pa</strong>. For laminar check: v ≈ 9.8 × 10⁻³ m s⁻¹, so Re ≈ ρv(2r)/η ≈
+            0.3 &lt;&lt; 1000 ⟹ the assumption holds.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
 
       <h2 id="h-surface-tension">9.6 Surface Tension</h2>
       <p>
@@ -586,284 +796,87 @@ export default function MechanicalPropertiesOfFluidsChapter() {
           </ProblemSolution.Solution>
         </Expandable>
 
-      <h2 id="h-exercises">Exercises 9.1 – 9.20</h2>
-      <p>Selected exercises with hints and the essential answers.</p>
-
-      <Expandable variant="exercise" title="Exercises 9.1 &amp; 9.2">
-        <ProblemSolution.Problem>
-            9.1 Explain why: (a) blood pressure in humans is greater at the feet than at the brain; (b)
-            atmospheric pressure at ~6 km is nearly half its sea-level value though the atmosphere is over 100
-            km high; (c) hydrostatic pressure is a scalar though it is force divided by area. <br />
-            9.2 Explain why: (a) the angle of contact of mercury with glass is obtuse while that of water with
-            glass is acute; (b) water on a clean glass surface spreads while mercury forms drops; (c) surface
-            tension is independent of the area of the surface; (d) water with detergent should have small angles
-            of contact; (e) a drop of liquid under no external forces is always spherical.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              9.1 (a) Hydrostatic ρgh adds to the pressure: the blood column above the feet is taller. (b) Air
-              is compressible — its density falls rapidly with height, so most of the atmosphere&rsquo;s mass
-              lies close to the ground. (c) The numerator is the <em>normal component</em> of the force; pressure
-              has no direction — the force on any area is normal to it.
-            </p>
-            <p>
-              9.2 (a) Mercury molecules attract each other more strongly than glass attracts them (S_sl &gt;
-              S_la) ⟹ obtuse θ; water is strongly pulled by glass ⟹ acute θ. (b) Water-to-glass adhesion exceeds
-              water cohesion; for mercury cohesion dominates. (c) S is an interface property (force/length or
-              energy/area), not an extent of surface. (d) Detergents lower the angle of contact so the solution
-              penetrates and acts well. (e) A sphere has the least area (hence least surface energy) for a given
-              volume.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 9.3">
-        <ProblemSolution.Problem>
-            Fill in the blanks: (a) Surface tension of liquids generally ___ with temperature. (b) Viscosity of
-            gases ___ with temperature, while viscosity of liquids ___ with temperature. (c) For solids the
-            shearing force is proportional to ___, while for fluids it is proportional to ___. (d) For a fluid
-            in steady flow, the increase in flow speed at a constriction follows ___. (e) For a model plane in a
-            wind tunnel, turbulence occurs at a ___ speed than for an actual plane.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              (a) decreases; (b) increases, decreases; (c) shear strain, rate of shear strain (v/l); (d)
-              conservation of mass (continuity: Av = constant); (e) greater — the model is smaller, and the
-              critical speed scales as 1/L, so turbulence needs a higher speed to set in.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercise 9.4">
-        <ProblemSolution.Problem>
-            Explain briefly: (a) to keep a piece of paper horizontal you should blow over, not under, it; (b)
-            closing a water tap with your fingers makes fast jets gush through the openings; (c) the needle of a
-            syringe controls flow rate better than thumb pressure; (d) fluid flowing out of a small hole results
-            in a backward thrust on the vessel; (e) a spinning cricket ball in air does not follow a parabolic
-            trajectory.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              (a) Fast air above the paper has lower pressure (Bernoulli); higher pressure below lifts it. (b)
-              The narrow gaps force the speed to rise (continuity: Av = constant). (c) The outflow speed/rate is
-              set by the needle&rsquo;s small cross-section; thumb pressure mainly sets the driving pressure. (d)
-              Momentum conservation: the expelled stream carries forward momentum, so the vessel recoils
-              backward (rocket principle). (e) The spin drags air, creating a pressure difference (Magnus effect)
-              that deflects the ball.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 9.5 – 9.8">
-        <ProblemSolution.Problem>
-            9.5 A 50 kg girl in high heels balances on a single heel of diameter 1.0 cm. What is the pressure on
-            the floor? <br />
-            9.6 Pascal duplicated the mercury barometer using French wine (ρ = 984 kg m⁻³). What height of wine
-            corresponds to normal atmospheric pressure? <br />
-            9.7 A vertical offshore structure can withstand a maximum stress of 10⁹ Pa. Is it suitable for a 3 km
-            deep ocean oil well? <br />
-            9.8 A hydraulic automobile lift lifts cars up to 3000 kg; the load piston area is 425 cm². What
-            maximum pressure must the smaller piston bear?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              9.5 A = π(0.01)²/4 = 7.85 × 10⁻⁵ m²; P = (50 × 9.8)/7.85 × 10⁻⁵ ={" "}
-              <strong>6.24 × 10⁶ ≈ 6 × 10⁶ Pa</strong>.
-            </p>
-            <p>
-              9.6 h = P_atm/(ρg) = 1.013 × 10⁵/(984 × 9.8) = <strong>10.5 m</strong>.
-            </p>
-            <p>
-              9.7 Pressure at 3 km ≈ ρgh = 1.03 × 10³ × 9.8 × 3000 ≈ <strong>3 × 10⁷ Pa</strong>, far below 10⁹
-              Pa ⟹ <strong>suitable</strong>.
-            </p>
-            <p>
-              9.8 A = 4.25 × 10⁻² m²; P = (3000 × 9.8)/4.25 × 10⁻² ={" "}
-              <strong>6.9 × 10⁵ ≈ 7 × 10⁵ Pa</strong>.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 9.9 &amp; 9.10">
-        <ProblemSolution.Problem>
-            9.9 A U-tube contains water and methylated spirit separated by mercury; the mercury columns are level
-            with 10.0 cm of water in one arm and 12.5 cm of spirit in the other. What is the specific gravity of
-            spirit? <br />
-            9.10 If 15.0 cm of water and spirit each are further poured into the arms, what is the difference in
-            the mercury levels? (s.g. of mercury = 13.6)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              9.9 Equal mercury levels: ρ_w g(0.10) = ρ_s g(0.125) ⟹ ρ_s = 0.8 × 10³ kg m⁻³ ⟹{" "}
-              <strong>specific gravity = 0.8</strong>.
-            </p>
-            <p>
-              9.10 New columns: water 25.0 cm, spirit 27.5 cm. ΔP = g(10³ × 0.250 − 0.8 × 10³ × 0.275) = 9.8 ×
-              30 = 294 Pa. Mercury: Δh = 294/(13.6 × 10³ × 9.8) = <strong>2.2 × 10⁻³ m ≈ 0.22 cm</strong>.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 9.11 &amp; 9.12">
-        <ProblemSolution.Problem>
-            9.11 Can Bernoulli&rsquo;s equation describe the flow of water through a rapid in a river? <br />
-            9.12 Does it matter if one uses gauge instead of absolute pressures in applying Bernoulli&rsquo;s
-            equation?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              9.11 <strong>No</strong> — Bernoulli holds only for steady (streamline) flow of a non-viscous,
-              incompressible fluid; rapids are turbulent and unsteady.
-            </p>
-            <p>
-              9.12 <strong>No</strong> — adding the same (uniform) atmospheric pressure to every term adds a
-              constant that cancels, so gauge pressures give the same pressure differences as absolute ones as
-              long as the surrounding pressure is the same.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 9.13 &amp; 9.14">
-        <ProblemSolution.Problem>
-            9.13 Glycerine flows steadily through a horizontal tube (length 1.5 m, radius 1.0 cm). If 4.0 × 10⁻³
-            kg is collected per second, what pressure difference exists between the ends? (ρ = 1.3 × 10³ kg m⁻³,
-            η = 0.83 Pa s) Also check the laminar-flow assumption. <br />
-            9.14 In a wind-tunnel test the flow speeds on the upper and lower surfaces of a model wing (area 2.5
-            m²) are 70 m s⁻¹ and 63 m s⁻¹. What is the lift? (ρ_air = 1.3 kg m⁻³)
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              9.13 Using the Poiseuille-type relation ΔP = 8ηlm&prime;/(ρπr⁴) with m&prime; = 4.0 × 10⁻³ kg s⁻¹:
-              ΔP = <strong>9.75 × 10² Pa</strong>. For laminar check: v ≈ 9.8 × 10⁻³ m s⁻¹, so Re ≈ ρv(2r)/η ≈
-              0.3 &lt;&lt; 1000 ⟹ the assumption holds.
-            </p>
-            <p>
-              9.14 ΔP = ½ρ(v_u² − v_l²) = ½ × 1.3 × (70² − 63²) ≈ 605 Pa; Lift = ΔP × 2.5 ={" "}
-              <strong>1.51 × 10³ N</strong>.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 9.15 &amp; 9.16">
-        <ProblemSolution.Problem>
-            9.15 Figures (a) and (b) show the steady flow of a non-viscous liquid in pipes with vertical pressure
-            tubes. Which figure is incorrect and why? <br />
-            9.16 The tube of a spray pump has cross-section 8.0 cm²; one end has 40 fine holes of diameter 1.0
-            mm each. If the liquid flows in the tube at 1.5 m min⁻¹, what is the ejection speed through the
-            holes?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              9.15 The figure that shows a <em>higher</em> liquid column at the constriction is incorrect: at the
-              constriction the speed is higher (continuity) so the pressure — and hence the column height — must
-              be <strong>lower</strong> (Bernoulli).
-            </p>
-            <p>
-              9.16 Volume flow Q = 8 × 10⁻⁴ × (1.5/60) = 2 × 10⁻⁵ m³ s⁻¹; total hole area = 40 × π(0.5 × 10⁻³)²
-              = 3.14 × 10⁻⁵ m²; v = Q/A = <strong>0.64 m s⁻¹</strong>.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 9.17 &amp; 9.18">
-        <ProblemSolution.Problem>
-            9.17 A U-shaped wire dipped in soap solution forms a film between the wire and a 30 cm slider that
-            supports a weight of 1.5 × 10⁻² N. What is the surface tension of the film? <br />
-            9.18 A thin film supports a weight 4.5 × 10⁻² N [Fig (a)]. What weight is supported by films of the
-            same liquid at the same temperature in Figs (b) and (c)? Explain physically.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              9.17 A soap film has two surfaces: S = W/(2l) = 1.5 × 10⁻²/(2 × 0.30) ={" "}
-              <strong>2.5 × 10⁻² N m⁻¹</strong>.
-            </p>
-            <p>
-              9.18 The supported weight balances the surface-tension force, which depends only on the slider edge
-              length and the liquid&rsquo;s surface tension — both unchanged — so the same <strong>4.5 × 10⁻²
-              N</strong> is supported in (b) and (c).
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <Expandable variant="exercise" title="Exercises 9.19 &amp; 9.20">
-        <ProblemSolution.Problem>
-            9.19 What is the pressure inside a mercury drop of radius 3.00 mm at 20 °C, and what is the excess
-            pressure? (S = 4.65 × 10⁻¹ N m⁻¹, P_atm = 1.01 × 10⁵ Pa) <br />
-            9.20 What is the excess pressure inside a soap bubble of radius 5.00 mm (S = 2.50 × 10⁻² N m⁻¹)? If
-            an air bubble of the same size forms at 40.0 cm depth in the solution (relative density 1.20), what
-            pressure is inside it?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              9.19 Excess = 2S/r = 2 × 0.465/(3.00 × 10⁻³) = <strong>310 Pa</strong>; total pressure = 1.01 ×
-              10⁵ + 310 = <strong>1.01 × 10⁵ Pa</strong>.
-            </p>
-            <p>
-              9.20 Excess in the soap bubble = 4S/r = 4 × 0.025/(5 × 10⁻³) = <strong>20 Pa</strong>. In the
-              liquid at 40.0 cm depth: P_o = 1.01 × 10⁵ + 1200 × 9.8 × 0.40 ≈ 1.057 × 10⁵ Pa; excess for the
-              single liquid surface 2S/r = 10 Pa ⟹ P_i ≈ <strong>1.057 × 10⁵ Pa</strong>.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <h2 id="h-revision">Quick Revision</h2>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <FormulaCard>
-          <p><strong>Pressure &amp; density</strong></p>
-          P = F/A (Pa); scalar. P(depth) = P_a + ρgh; gauge pressure = ρgh. Units: 1 atm = 1.01 × 10⁵ Pa, 1 bar
-          = 10⁵ Pa, 1 torr = 133 Pa. Density ρ = m/V; relative density = ρ/ρ(water at 4 °C).
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Pascal&rsquo;s law &amp; hydraulics</strong></p>
-          Pressure in a fluid at rest is equal at equal heights and is transmitted undiminished in all
-          directions. Hydraulic lift: F₂ = (A₂/A₁)F₁ — mechanical advantage A₂/A₁ (hydraulic brakes, car lift).
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Continuity &amp; Bernoulli</strong></p>
-          <FormulaBlock latex={String.raw`A v = \mathrm{constant}`} />
-          <FormulaBlock latex={String.raw`P + \frac12\rho v^2 + \rho g h = \mathrm{constant}`} />
-          Valid for steady, non-viscous, incompressible flow. Speed of efflux (open tank): v = √(2gh)
-          (Torricelli).
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Viscosity &amp; Stokes</strong></p>
-          η = (F/A)/(v/l), SI unit Pl = Pa s. Liquids: η falls with T; gases: η rises. Stokes: F = 6πηav;
-          terminal velocity v_t = 2a²(ρ − σ)g/(9η).
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Surface tension</strong></p>
-          S = force/length = energy/area (F/2l for a film). Angle of contact: S_la cosθ + S_sl = S_sa. Drop:
-          excess = 2S/r; soap bubble: 4S/r. Capillary rise: h = 2S cosθ/(ρga); mercury (cosθ &lt; 0) is
-          depressed.
-        </FormulaCard>
-        <FormulaCard>
-          <p><strong>Key physical insights</strong></p>
-          Pressure exists throughout a fluid, not just on walls. Streamlines never cross in steady flow.
-          Dynamic lift: fast airflow ⟹ low pressure (aerofoil, Magnus effect). Surface energy of molecules is
-          what drives drops to be spherical.
-        </FormulaCard>
-      </div>
-
-      <MistakeCard
-        mistake="Pressure is a vector; it acts in the direction of the applied force."
-        correction="Pressure is a SCALAR. Only the component of force normal to the area enters F/A, and the force on any area (or wall) is normal to it whatever its orientation. Gauge pressure P_g = P − P_a is what tyre and blood-pressure gauges read."
-      />
-      <MistakeCard
-        mistake="The bottom pressure in a container depends on how much liquid it holds (wide vs narrow vessels)."
-        correction="P = P_a + ρgh depends only on the depth h, density and g — not on the amount, cross-section or shape of the container. This is the hydrostatic paradox: equal depths give equal pressures."
-      />
-      <MistakeCard
-        mistake="Bernoulli's equation applies to any real fluid flow."
-        correction="It requires a steady, non-viscous (ideal), incompressible fluid. Real viscous flow loses kinetic energy to heat (internal friction), and turbulent/non-steady flows violate it. For a resting fluid it reduces to hydrostatics."
-      />
-      <MistakeCard
-        mistake="An atomosphere would have roughly the same pressure at 6 km as at sea level because it is 100 km tall."
-        correction="Air is compressible: density falls rapidly with altitude, so most of the atmosphere's mass (and hence most of the pressure) is near the ground — pressure is already halved by ~6 km, even though the envelope extends beyond 100 km."
-      />
       <MistakeCard
         mistake="A soap bubble and an air bubble in a liquid need the same excess pressure for the same radius."
         correction="A soap bubble has TWO liquid-air interfaces: excess = 4S/r; an air bubble inside a liquid has ONE: excess = 2S/r. Using the wrong factor is a classic error (Example 9.10 highlights the one-surface case)."
       />
+
+      <Expandable variant="exercise" title="Exercises — surface tension and films">
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.2 — Angle of contact, spreading &amp; spherical drops</h3>
+        <ProblemSolution.Problem>
+          <p>
+            Explain why: (a) the angle of contact of mercury with glass is obtuse while that of water with
+            glass is acute; (b) water on a clean glass surface spreads while mercury forms drops; (c) surface
+            tension is independent of the area of the surface; (d) water with detergent should have small angles
+            of contact; (e) a drop of liquid under no external forces is always spherical.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            (a) Mercury molecules attract each other more strongly than glass attracts them (S_sl &gt;
+            S_la) ⟹ obtuse θ; water is strongly pulled by glass ⟹ acute θ. (b) Water-to-glass adhesion exceeds
+            water cohesion; for mercury cohesion dominates. (c) S is an interface property (force/length or
+            energy/area), not an extent of surface. (d) Detergents lower the angle of contact so the solution
+            penetrates and acts well. (e) A sphere has the least area (hence least surface energy) for a given
+            volume.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.17 — Surface tension of a soap film</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A U-shaped wire dipped in soap solution forms a film between the wire and a 30 cm slider that
+            supports a weight of 1.5 × 10⁻² N. What is the surface tension of the film?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            A soap film has two surfaces: S = W/(2l) = 1.5 × 10⁻²/(2 × 0.30) ={" "}
+            <strong>2.5 × 10⁻² N m⁻¹</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.18 — Same liquid, different geometries</h3>
+        <ProblemSolution.Problem>
+          <p>
+            A thin film supports a weight of 4.5 × 10⁻² N [Fig (a)]. What weight is supported by films of the
+            same liquid at the same temperature in Figs (b) and (c)? Explain physically.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            The supported weight balances the surface-tension force, which depends only on the slider edge
+            length and the liquid&rsquo;s surface tension — both unchanged — so the same <strong>4.5 × 10⁻²
+            N</strong> is supported in (b) and (c).
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.19 — Pressure inside a mercury drop</h3>
+        <ProblemSolution.Problem>
+          <p>
+            What is the pressure inside a mercury drop of radius 3.00 mm at 20 °C, and what is the excess
+            pressure? (S = 4.65 × 10⁻¹ N m⁻¹, P_atm = 1.01 × 10⁵ Pa)
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Excess = 2S/r = 2 × 0.465/(3.00 × 10⁻³) = <strong>310 Pa</strong>; total pressure = 1.01 ×
+            10⁵ + 310 = <strong>1.01 × 10⁵ Pa</strong>.
+          </p>
+        </ProblemSolution.Solution>
+        <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">9.20 — Soap bubble and submerged bubble</h3>
+        <ProblemSolution.Problem>
+          <p>
+            What is the excess pressure inside a soap bubble of radius 5.00 mm (S = 2.50 × 10⁻² N m⁻¹)? If
+            an air bubble of the same size forms at 40.0 cm depth in the solution (relative density 1.20), what
+            pressure is inside it?
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Excess in the soap bubble = 4S/r = 4 × 0.025/(5 × 10⁻³) = <strong>20 Pa</strong>. In the
+            liquid at 40.0 cm depth: P_o = 1.01 × 10⁵ + 1200 × 9.8 × 0.40 ≈ 1.057 × 10⁵ Pa; excess for the
+            single liquid surface 2S/r = 10 Pa ⟹ P_i ≈ <strong>1.057 × 10⁵ Pa</strong>.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
     </>
   );
 }
