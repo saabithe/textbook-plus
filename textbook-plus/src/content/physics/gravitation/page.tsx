@@ -3,166 +3,119 @@ import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Highlight } from "@/components/content/Highlight";
 import { Stepper } from "@/components/content/Stepper";
-import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
+import { Derivation } from "@/components/content/process/Derivation";
+import { GravityGGraph } from "@/components/content/physics/GravityGGraph";
+import { UniversalLawExplorer } from "@/components/content/physics/UniversalLawExplorer";
 
 export default function GravitationChapter() {
   return (
     <>
-      <h2 id="h-intro">7.1 Introduction</h2>
-      <p>
-        Early in our lives we become aware of the tendency of all material objects to be attracted towards
-        the earth: anything thrown up falls back down, going uphill is far more tiring than going downhill,
-        and raindrops fall from the clouds. Historically it was the Italian physicist <strong>Galileo</strong>{" "}
-        (1564–1642) who recognised that{" "}
-        <Highlight>
-          all bodies, irrespective of their masses, are accelerated towards the earth with a constant
-          acceleration
-        </Highlight>
-        . He arrived, through incline-plane experiments, at a value of the acceleration due to gravity
-        close to the more accurate value obtained later.
-      </p>
-      <Callout type="didyouknow" title="Geocentric vs heliocentric models">
-        <p>
-          Ptolemy (&asymp;2000 years ago) built a <strong>geocentric</strong> model — stars, sun and planets
-          all revolving around the earth in circles, with the circle centres themselves moving in larger
-          circles (epicycles). Indian astronomers advanced similar theories some 400 years later, but{" "}
-          <strong>Aryabhatta</strong> (5th century A.D.) had already mentioned the{" "}
-          <strong>heliocentric</strong> (sun-centred) model in his treatise. A thousand years later{" "}
-          <strong>Copernicus</strong> (1473–1543) proposed planets moving in circles around a fixed central
-          sun — discredited by the church, but supported by Galileo.
-        </p>
-      </Callout>
-      <p>
-        Around Galileo&rsquo;s time the nobleman <strong>Tycho Brahe</strong> (1546–1601) spent his entire
-        lifetime recording naked-eye observations of the planets. His data were analysed by his assistant{" "}
-        <strong>Johannes Kepler</strong> (1571–1640), who extracted three elegant laws. These laws were known
-        to Newton and enabled his great leap — the <em>universal law of gravitation</em>.
-      </p>
-
-      <h2 id="h-kepler">7.2 Kepler&rsquo;s Laws</h2>
-      <h3>The three laws of planetary motion</h3>
-      <ol>
-        <li>
-          <strong>Law of orbits:</strong>{" "}
-          <Highlight>all planets move in elliptical orbits with the Sun at one of the foci</Highlight>. The
-          closest point <strong>P</strong> is the <em>perihelion</em> and the farthest point{" "}
-          <strong>A</strong> the <em>aphelion</em>; the semi-major axis is half the distance AP.
-        </li>
-        <li>
-          <strong>Law of areas:</strong>{" "}
-          <Highlight>
-            the line that joins any planet to the Sun sweeps out equal areas in equal intervals of time
-          </Highlight>{" "}
-          — planets appear to move slower when farther from the Sun.
-        </li>
-        <li>
-          <strong>Law of periods:</strong>{" "}
-          <Highlight>
-            the square of the time period of revolution is proportional to the cube of the semi-major axis
-            of the ellipse traced out by the planet
-          </Highlight>
-          .
-        </li>
-      </ol>
-      <Callout type="tip" title="Drawing an ellipse">
-        Fix the ends of a string at two points <Formula>{String.raw`F_1`}</Formula> and{" "}
-        <Formula>{String.raw`F_2`}</Formula> (the foci) with pins. Stretch the string taut with a pencil tip
-        and move it around. For any point T on the curve, the sum of distances from F₁ and F₂ is constant.
-        A circle is the special case where the two foci merge and the semi-major axis becomes the radius.
-      </Callout>
-      <p>
-        The <strong>law of areas</strong> is a consequence of conservation of angular momentum, valid for any{" "}
-        <em>central force</em> (a force along the line joining the Sun and the planet). With the Sun at the
-        origin and planet position and momentum r and p, the area swept in time Δt is
-      </p>
-      <FormulaBlock latex={String.raw`\Delta A = \tfrac12\,(\mathbf{r}\times\mathbf{v}\,\Delta t)`} />
-      <FormulaBlock
-        latex={String.raw`\frac{\Delta A}{\Delta t}=\frac{1}{2m}(\mathbf{r}\times\mathbf{p})=\frac{L}{2m}`}
-      />
-      <p>
-        For a central force directed along r, L = r × p is constant as the planet goes around, so ΔA/Δt is
-        constant — the law of areas. Gravitation is a central force, hence the law follows.
-      </p>
-      <TableCard
-        caption="Table 7.1 — Data confirming Kepler's Law of Periods. a ≡ semi-major axis in units of 10¹⁰ m, T ≡ period in years, Q ≡ T²/a³ in units of 10⁻³⁴ y² m⁻³."
-        headers={["Planet", "a", "T", "Q"]}
-        rows={[
-          { cells: ["Mercury", "5.79", "0.24", "2.95"] },
-          { cells: ["Venus", "10.8", "0.615", "3.00"] },
-          { cells: ["Earth", "15.0", "1", "2.96"] },
-          { cells: ["Mars", "22.8", "1.88", "2.98"] },
-          { cells: ["Jupiter", "77.8", "11.9", "3.01"] },
-          { cells: ["Saturn", "143", "29.5", "2.98"] },
-          { cells: ["Uranus", "287", "84", "2.98"] },
-          { cells: ["Neptune", "450", "165", "2.99"] },
-        ]}
-      />
-      <p>
-        The quotient Q is very nearly constant across all eight planets — a direct confirmation of the law of
-        periods.
-      </p>
-
-      <Expandable variant="example" title="Example 7.1">
-        <ProblemSolution.Problem>
-            Let the speed of the planet at the perihelion P be v<sub>P</sub> and the Sun–planet distance SP be
-            r<sub>P</sub>. Relate &#123;r<sub>P</sub>, v<sub>P</sub>&#125; to the corresponding quantities at the
-            aphelion &#123;r<sub>A</sub>, v<sub>A</sub>&#125;. Will the planet take equal times to traverse the arcs BAC
-            and CPB?
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              At both P and A, r and v are mutually perpendicular. The magnitude of angular momentum at P is
-              L<sub>P</sub> = m<sub>P</sub> r<sub>P</sub> v<sub>P</sub>, and L<sub>A</sub> = m<sub>P</sub>{" "}
-              r<sub>A</sub> v<sub>A</sub>. Conservation of angular momentum gives
-            </p>
-            <FormulaBlock latex={String.raw`m_p r_p v_p = m_p r_A v_A \quad\Rightarrow\quad \frac{v_p}{v_A}=\frac{r_A}{r_p}`} />
-            <p>
-              Since r<sub>A</sub> &gt; r<sub>P</sub>, we have v<sub>P</sub> &gt; v<sub>A</sub>. The area SBAC
-              bounded by the ellipse and the radius vectors SB and SC is larger than SBPC, so by the law of
-              equal areas the planet takes a <strong>longer</strong> time to traverse BAC than CPB.
-            </p>
-          </ProblemSolution.Solution>
-        </Expandable>
-
-      <h2 id="h-universal-law">7.3 Universal Law of Gravitation</h2>
-      <p>
-        Legend has it that an apple falling from a tree inspired Newton to arrive at a universal law
-        explaining terrestrial gravitation as well as Kepler&rsquo;s laws. Newton reasoned that the moon,
-        orbiting at radius R<sub>m</sub>, undergoes a centripetal acceleration due to earth&rsquo;s gravity:
-      </p>
-      <FormulaBlock latex={String.raw`a_m = \frac{V^2}{R_m} = \frac{4\pi^2 R_m}{T^2}`} />
-      <p>
-        with T ≈ 27.3 days and R<sub>m</sub> ≈ 3.84 × 10⁸ m — giving a value of a<sub>m</sub> much smaller
-        than g on the earth&rsquo;s surface. This shows{" "}
-        <Highlight>the force of gravity <em>decreases with distance</em></Highlight>. Assuming an
-        inverse-square decrease,
-      </p>
-      <FormulaBlock latex={String.raw`a_m\propto R_m^{-2},\qquad g\propto R_E^{-2}\qquad\Rightarrow\qquad \frac{a_m}{g}=\frac{R_E^2}{R_m^2}=\frac{1}{3600}`} />
-      <p>in agreement with the value of a_<sub>m</sub> from the lunar data.</p>
+      <h2 id="h-universal-law">7.1 Universal Law of Gravitation</h2>
       <Callout type="important" title="Newton's Universal Law of Gravitation">
         Every body in the universe attracts every other body with a force which is directly proportional to
         the product of their masses and inversely proportional to the square of the distance between them.
       </Callout>
       <p>The force on a point mass m₂ due to another point mass m₁ has magnitude</p>
       <FormulaBlock latex={String.raw`F = G\,\frac{m_1 m_2}{r^2}`} important />
-      <p>
-        In vector form, with r̂ the unit vector from m₁ to m₂ and r = r₂ − r₁, the force on m₂ is F = −G m₁
-        m₂ r̂/r² — attractive, along −r̂. The force on m₁ due to m₂ is −F by Newton&rsquo;s third law:{" "}
-        <Formula>{String.raw`\mathbf{F}_{12}=-\mathbf{F}_{21}`}</Formula>.
-      </p>
-      <p>
-        <strong>Superposition:</strong>{" "}
-        <Highlight>
-          for a collection of point masses, the force on any one of them is the vector sum of the
-          gravitational forces exerted by all the others
-        </Highlight>
-        .
-      </p>
+
+      <UniversalLawExplorer />
+
+      <KeyPoint title="Properties of gravitational force">
+        <ol className="space-y-1.5">
+          <li>
+            <strong>Always attractive</strong> — gravitational force is never repulsive; it pulls every mass
+            towards every other.
+          </li>
+          <li>
+            <strong>Very weak</strong> — G = 6.67 × 10⁻¹¹ is tiny, so gravitational forces are usually far
+            smaller than everyday forces (a magnet, friction, or electrostatic attraction easily overpowers
+            them).
+          </li>
+          <li>
+            <strong>Long range</strong> — it extends to infinity (<Formula>{String.raw`r \to \infty`}</Formula>),
+            weakening as 1/r².
+          </li>
+          <li>
+            <strong>Independent of the intervening medium</strong> — the force between two bodies is exactly
+            the same through vacuum, air, water, or glass.
+          </li>
+        </ol>
+      </KeyPoint>
+
+      <Derivation
+        title="Board exam — mass doubled, distance halved (F′ = 8F)"
+        highlightResult
+        steps={[
+          {
+            label: "Write the original force",
+            latex: String.raw`F = G\,\frac{m_1 m_2}{r^2}`,
+          },
+          {
+            label: "New mass and new separation",
+            latex: String.raw`m_1' = 2 m_1, \qquad r' = \frac{r}{2}`,
+            note: "One mass is doubled and the separation is halved.",
+          },
+          {
+            label: "Substitute into the universal law",
+            latex: String.raw`F' = G\,\frac{(2 m_1)\, m_2}{(r/2)^2} = G\,\frac{2 m_1 m_2}{r^2/4}`,
+            note: "Halving r squares to ¼ in the denominator, which multiplies F by 4.",
+          },
+          {
+            label: "Simplify",
+            latex: String.raw`F' = 8\,G\,\frac{m_1 m_2}{r^2} = 8F`,
+            note: "Doubling a mass alone gives 2F; halving the distance alone gives 4F; together → 8F.",
+          },
+        ]}
+      />
+
+      <Expandable variant="exercise" title="Quick questions — the universal law">
+        <ExerciseQa
+          questions={[
+            <>Who formulated the universal law of gravitation?</>,
+            <>
+              Two bodies attract each other with force F at a separation of 1 m. If the distance is reduced to
+              0.5 m, the force becomes ___
+            </>,
+            <>
+              If the mass of the earth were doubled (radius unchanged), the acceleration due to gravity on its
+              surface would ___
+            </>,
+            <>
+              The moon revolves at distance r with force F. If the moon were twice as far from the earth, the
+              gravitational force on it would be ___
+            </>,
+            <>
+              An astronaut measures the gravitational force between two masses on the earth. If the same two
+              masses at the same separation were taken to the moon, the force between them would be ___
+            </>,
+          ]}
+          answers={[
+            <>
+              <strong>Sir Isaac Newton</strong> formulated the universal law of gravitation (1687).
+            </>,
+            <>
+              <strong>4F</strong> — force ∝ 1/distance², so halving the distance multiplies the force by 4.
+            </>,
+            <>
+              <strong>Double</strong> — g = GM/R² is directly proportional to the earth&rsquo;s mass M.
+            </>,
+            <>
+              <strong>F/4</strong> — force inversely proportional to the square of the distance.
+            </>,
+            <>
+              <strong>Exactly the same</strong> — the force depends only on the two masses and their
+              separation, not on the location; G is universal.
+            </>,
+          ]}
+        />
+      </Expandable>
+
       <Callout type="note" title="Extended objects: two special results">
         <p>
           The law as written applies to point masses; for an extended object (like the earth) each point mass
@@ -182,63 +135,45 @@ export default function GravitationChapter() {
         </ol>
       </Callout>
 
-      <Expandable variant="example" title="Example 7.2">
-        <ProblemSolution.Problem>
-            Three equal masses of m kg each are fixed at the vertices of an equilateral triangle ABC.
-            (a) What is the force acting on a mass 2m placed at the centroid G of the triangle? (b) What is
-            the force if the mass at the vertex A is doubled? Take AG = BG = CG = 1 m.
-          </ProblemSolution.Problem>
-          <ProblemSolution.Solution>
-            <p>
-              Take G as the origin, GA along +ŷ. Then GB is at 30° below the negative x-axis and GC at 30°
-              above the positive x-axis. The three individual forces (magnitude 2Gm² each) are:
-            </p>
-            <FormulaBlock latex={String.raw`\mathbf{F}_{GA}=2Gm^2\hat{\mathbf{j}}`} />
-            <FormulaBlock latex={String.raw`\mathbf{F}_{GB}=2Gm^2(-\cos30°\,\hat{\mathbf{i}}-\sin30°\,\hat{\mathbf{j}})`} />
-            <FormulaBlock latex={String.raw`\mathbf{F}_{GC}=2Gm^2(\cos30°\,\hat{\mathbf{i}}-\sin30°\,\hat{\mathbf{j}})`} />
-            <p>
-              (a) By the principle of superposition and vector addition the î components cancel and the ĵ
-              components give 2Gm² − 2Gm²·½ − 2Gm²·½ = 0. The resultant force is{" "}
-              <strong>F<sub>R</sub> = 0</strong> — as expected from symmetry.
-            </p>
-            <p>
-              (b) Doubling the mass at A makes F<sub>GA</sub> = G(2m)(2m)/1² = 4Gm² along +ŷ, while F
-              <sub>GB</sub> and F<sub>GC</sub> are unchanged. The x-components still cancel and the net force
-              is
-            </p>
-            <FormulaBlock latex={String.raw`\mathbf{F}_R = (4Gm^2 - Gm^2 - Gm^2)\hat{\mathbf{j}} = 2Gm^2\,\hat{\mathbf{j}}`} important />
-            <p>i.e. magnitude <strong>2 Gm² directed along GA</strong> (towards A).</p>
-          </ProblemSolution.Solution>
-        </Expandable>
+      <h2 id="h-g-constant">7.2 The Gravitational Constant</h2>
+      <p>
+        The constant G fixes the <em>strength</em> of gravity in the universal law and is the same
+        everywhere in the universe — for every pair of bodies:
+      </p>
+      <div className="my-6 grid gap-4 sm:grid-cols-3">
+        <div className="rounded-2xl border border-violet-500/25 bg-violet-500/[0.07] px-4 py-4 shadow-sm">
+          <p className="mb-1 text-xs font-extrabold uppercase tracking-[0.16em] text-violet-600 dark:text-violet-300">
+            Numerical value
+          </p>
+          <p className="text-lg font-black text-foreground">6.67 × 10⁻¹¹</p>
+        </div>
+        <div className="rounded-2xl border border-violet-500/25 bg-violet-500/[0.07] px-4 py-4 shadow-sm">
+          <p className="mb-1 text-xs font-extrabold uppercase tracking-[0.16em] text-violet-600 dark:text-violet-300">
+            Unit (SI)
+          </p>
+          <p className="text-lg font-black text-foreground">N m² kg⁻²</p>
+        </div>
+        <div className="rounded-2xl border border-violet-500/25 bg-violet-500/[0.07] px-4 py-4 shadow-sm">
+          <p className="mb-1 text-xs font-extrabold uppercase tracking-[0.16em] text-violet-600 dark:text-violet-300">
+            Dimensions
+          </p>
+          <p className="text-lg font-black text-foreground">[M⁻¹ L³ T⁻²]</p>
+        </div>
+      </div>
 
-      <h2 id="h-g-constant">7.4 The Gravitational Constant</h2>
-      <p>
-        <Highlight>
-          The value of G was first determined experimentally by the English scientist <strong>Henry
-          Cavendish</strong> in 1798, using a torsion balance
-        </Highlight>
-        . A light bar AB carrying two small lead spheres is suspended from a rigid support by a fine wire;
-        two large lead spheres are brought close, one on each side.
-      </p>
-      <p>
-        The big spheres attract the neighbouring small spheres with equal and opposite forces of magnitude F
-        = G Mm/d² (with d the separation of the centres — the spheres attract as if their masses were
-        concentrated at their centres). There is no net force on the bar, only a <strong>torque F × L</strong>.
-        The wire twists until its restoring torque equals the gravitational torque:
-      </p>
-      <FormulaBlock latex={String.raw`\tau\theta = G\,\frac{Mm}{d^2}\,L`} />
-      <p>
-        where τ is the restoring couple per unit angle of twist (measured independently). Observing the angle
-        of twist θ thus enables one to compute G. Refined measurements give the currently accepted value
-      </p>
-      <FormulaBlock latex={String.raw`G = 6.67 \times 10^{-11}\,\mathrm{N\,m^2\,kg^{-2}}`} important />
-      <Callout type="didyouknow" title="Cavendish weighed the earth">
-        The measurement of G, combined with knowledge of g and R<sub>E</sub>, enables the mass of the earth
-        M<sub>E</sub> to be estimated from g = GM<sub>E</sub>/R<sub>E</sub>² — which is why the famous
-        statement is made that &ldquo;Cavendish weighed the earth&rdquo;.
+      <h2 id="h-g-earth">7.3 Acceleration due to Gravity of the Earth</h2>
+      <Callout type="important" title="Definition of g">
+        <p>
+          <Highlight>
+            The acceleration with which a body falls freely towards the earth, under the influence of the
+            earth&rsquo;s gravity alone
+          </Highlight>
+          , is called the <strong>acceleration due to gravity</strong> and is denoted by g. Its average value
+          on the earth&rsquo;s surface is <strong>g ≈ 9.8 m s⁻²</strong>. It equals the gravitational force on
+          a unit mass:
+        </p>
+        <Formula>{String.raw`g = \frac{F}{m}`}</Formula>
       </Callout>
-
-      <h2 id="h-g-earth">7.5 Acceleration due to Gravity of the Earth</h2>
       <p>
         Imagine the earth as a sphere of many concentric shells, the smallest at the centre and the largest
         at the surface.
@@ -269,7 +204,7 @@ export default function GravitationChapter() {
         measurable and R<sub>E</sub> is known, so measuring G fixes the earth&rsquo;s mass M<sub>E</sub>.
       </Callout>
 
-      <h2 id="h-g-below-above">7.6 Acceleration due to Gravity below and above the Surface of Earth</h2>
+      <h2 id="h-g-below-above">7.4 Acceleration due to Gravity below and above the Surface of Earth</h2>
       <h3>At a height h above the surface</h3>
       <p>
         The point mass is outside the earth, at distance R<sub>E</sub> + h from the centre:
@@ -294,7 +229,121 @@ export default function GravitationChapter() {
         <strong>decreases whether you go up or go down</strong>.
       </KeyPoint>
 
-      <h2 id="h-potential-energy">7.7 Gravitational Potential Energy</h2>
+      <h3>Variation with the shape of the earth</h3>
+      <p>
+        The earth is not a perfect sphere — it is slightly <strong>flattened at the poles</strong> and bulges
+        at the equator (an oblate spheroid). The polar radius is about 21 km smaller than the equatorial
+        radius, and since
+      </p>
+      <FormulaBlock latex={String.raw`g = \frac{GM_E}{R^2}`} />
+      <p>
+        <Highlight>g is maximum at the poles and minimum at the equator</Highlight>:{" "}
+        g<sub>pole</sub> ≈ 9.83 m s⁻² versus g<sub>equator</sub> ≈ 9.78 m s⁻².
+      </p>
+
+      <GravityGGraph />
+
+      <Expandable variant="exercise" title="Board numericals — variations of g">
+        <ExerciseQa
+          questions={[
+            <>
+              At what height above the earth&rsquo;s surface (R<sub>E</sub> = 6371 km) is g reduced to 8.57 m
+              s⁻²? (Board, class work: h = 400 km.)
+            </>,
+            <>
+              How does g compare at a height h = R<sub>E</sub> above the surface? Compute g(h).
+            </>,
+            <>
+              At what height is the value of g halved? (Answer in terms of R<sub>E</sub>.)
+            </>,
+            <>
+              What is g at a depth of 400 km below the surface (R<sub>E</sub> = 6371 km)?
+            </>,
+            <>
+              What is g at the centre of the earth? What would a body weigh there?
+            </>,
+            <>
+              At what depth does g equal its value at a height of 50 km above the surface?
+            </>,
+          ]}
+          answers={[
+            <>
+              Using <Formula>{String.raw`g_h = g\left(1-\frac{2h}{R_E}\right)`}</Formula> with 2h/R<sub>E</sub>{" "}
+              = 800/6371 ≈ 0.1256: g_h = 9.8 × (1 − 0.1256) = 9.8 × 0.8744 ≈ <strong>8.57 m s⁻²</strong>.
+              Height h = 400 km above ground.
+            </>,
+            <>
+              At h = R<sub>E</sub>, r = 2R<sub>E</sub>, so the exact formula gives g<sub>h</sub> = g(R
+              <sub>E</sub>/2R<sub>E</sub>)² = g/4 = 9.8/4 = <strong>2.45 m s⁻²</strong>.
+            </>,
+            <>
+              Solve g/2 = g(1 − 2h/R<sub>E</sub>): 1/2 = 1 − 2h/R<sub>E</sub> → h = R<sub>E</sub>/4 (approx). The
+              exact inverse-square answer is h = (√2 − 1)R<sub>E</sub> ≈ <strong>0.414 R<sub>E</sub></strong>.
+            </>,
+            <>
+              g<sub>d</sub> = g(1 − d/R<sub>E</sub>) = 9.8(1 − 400/6371) = 9.8 × 0.9372 ≈{" "}
+              <strong>9.18 m s⁻²</strong>.
+            </>,
+            <>
+              At the centre d = R<sub>E</sub>: g<sub>d</sub> = g(1 − 1) = <strong>0 m s⁻²</strong>. A body
+              there is <strong>weightless</strong> — apparent weight zero (exactly at the centre every pull is
+              balanced).
+            </>,
+            <>
+              Depth and height give the same g when g(1 − d/R<sub>E</sub>) = g(1 − 2h/R<sub>E</sub>), i.e. d =
+              2h = 2 × 50 = <strong>100 km</strong>. So g at 100 km depth ≈ g at 50 km height.
+            </>,
+          ]}
+        />
+      </Expandable>
+
+      <Expandable variant="exercise" title="Quick questions — acceleration due to gravity">
+        <ExerciseQa
+          questions={[
+            <>Which of these does <em>not</em> affect the value of g: the earth&rsquo;s mass, the earth&rsquo;s radius, the mass of the falling body, altitude? </>,
+            <>Where is g a maximum on the earth, and where is it a minimum at the surface? </>
+            ,
+            <>If the earth had twice its present radius but the same mass, how would g change?</>,
+            <>Why does g decrease as we go deeper into the earth?</>,
+            <>
+              A person weighs 70 kgf at the surface. What is his weight at a height h = R<sub>E</sub>?
+            </>,
+            <>
+              A planet has g = 2.45 m s⁻² on its surface and a radius equal to the earth&rsquo;s. How does its
+              mass compare with the earth&rsquo;s?
+            </>,
+          ]}
+          answers={[
+            <>
+              <strong>The mass of the falling body</strong> — g = GM<sub>E</sub>/R<sub>E</sub>² depends only on
+              the earth (its mass and radius), never on the body that falls.
+            </>,
+            <>
+              g is maximum at the <strong>poles</strong> (g ≈ 9.83 m s⁻²) and minimum at the{" "}
+              <strong>equator</strong> (g ≈ 9.78 m s⁻²) — the flattening makes R<sub>pole</sub> &lt; R
+              <sub>equator</sub>.
+            </>,
+            <>
+              g ∝ 1/R², so doubling R would divide g by <strong>4</strong>: g&prime; = 9.8/4 = 2.45 m s⁻².
+            </>,
+            <>
+              At depth d, only the sphere of radius R − d contributes (the outer shell exerts no force). Its
+              mass shrinks as (1 − d/R)³, so g<sub>d</sub> = g(1 − d/R) — a straight-line decrease to 0 at the
+              centre.
+            </>,
+            <>
+              At h = R<sub>E</sub>, g&prime; = g/4, so weight W&prime; = W/4 = 70/4 ={" "}
+              <strong>17.5 kgf</strong>.
+            </>,
+            <>
+              g&prime;/g = 2.45/9.8 = 1/4. Same radius ⟹ M&prime; = (g&prime;/g)·M<sub>E</sub> = M
+              <sub>E</sub>/4 — the planet&rsquo;s mass is <strong>one-fourth</strong> of the earth&rsquo;s.
+            </>,
+          ]}
+        />
+      </Expandable>
+
+      <h2 id="h-potential-energy">7.5 Gravitational Potential Energy</h2>
       <p>
         <Highlight>Gravitation is a conservative force, so a potential energy function exists.</Highlight>{" "}
         Near the earth&rsquo;s surface (F ≈ mg constant), lifting a particle from height h₁ to h₂ does work
@@ -336,7 +385,7 @@ export default function GravitationChapter() {
           </ProblemSolution.Solution>
         </Expandable>
 
-      <h2 id="h-escape">7.8 Escape Speed</h2>
+      <h2 id="h-escape">7.6 Escape Speed</h2>
       <p>
         Can we throw an object with such a high initial speed that it does not fall back to the earth? Energy
         conservation answers the question. Suppose the object reaches infinity with speed V<sub>f</sub>; its
@@ -396,7 +445,7 @@ export default function GravitationChapter() {
           </ProblemSolution.Solution>
         </Expandable>
 
-      <h2 id="h-satellites">7.9 Earth Satellites</h2>
+      <h2 id="h-satellites">7.7 Earth Satellites</h2>
       <p>
         Earth satellites are objects that revolve around the earth; their motion is very similar to that of
         planets around the Sun, so Kepler&rsquo;s laws apply to them equally.{" "}
@@ -478,7 +527,7 @@ export default function GravitationChapter() {
           </ProblemSolution.Solution>
         </Expandable>
 
-      <h2 id="h-satellite-energy">7.10 Energy of an Orbiting Satellite</h2>
+      <h2 id="h-satellite-energy">7.8 Energy of an Orbiting Satellite</h2>
       <Stepper
         steps={[
           {
@@ -535,6 +584,110 @@ export default function GravitationChapter() {
             </p>
           </ProblemSolution.Solution>
         </Expandable>
+
+      <h2 id="h-kepler">7.9 Kepler&rsquo;s Laws</h2>
+      <p>
+        The Danish astronomer <strong>Tycho Brahe</strong> recorded planetary positions for over twenty years;
+        his assistant <strong>Johannes Kepler</strong> used those measurements to establish three empirical
+        laws of planetary motion (1609–1619) — derived purely from observation, without any theory of why the
+        planets move this way.
+      </p>
+      <ol className="list-decimal space-y-3 pl-5">
+        <li>
+          <strong>Law of orbits.</strong>{" "}
+          <Highlight>
+            Every planet moves in an <em>ellipse</em> with the sun at one of the foci.
+          </Highlight>
+        </li>
+        <li>
+          <strong>Law of areas.</strong>{" "}
+          <Highlight>
+            The line joining a planet to the sun sweeps out <em>equal areas in equal intervals of time</em>.
+          </Highlight>
+        </li>
+        <li>
+          <strong>Law of periods (Kepler&rsquo;s third law).</strong>{" "}
+          <Highlight>The square of the orbital period of a planet is proportional to the cube of the semi-major axis of its ellipse.</Highlight>
+        </li>
+      </ol>
+      <Callout type="didyouknow" title="Why the orbits are ellipses — clocks and symbols">
+        An ellipse is the set of points whose distances from two fixed points (the <strong>foci</strong>) add
+        up to a constant. For nearly circular orbits the focus is very close to the centre, which is why early
+        astronomers assumed circular (and then epicycle-upon-epicycle) paths — the deviation is tiny. Kepler,
+        by insisting the data was right, heard the real music.
+      </Callout>
+      <TableCard
+        title="Kepler&rsquo;s third law in practice"
+        headers={["Planet", "T (years)", "a (AU)", "T²/a³"]}
+        rows={[
+          { cells: ["Mercury", "0.241", "0.387", "1.002"] },
+          { cells: ["Venus", "0.615", "0.723", "1.000"] },
+          { cells: ["Earth", "1.000", "1.000", "1.000"] },
+          { cells: ["Mars", "1.881", "1.524", "1.001"] },
+          { cells: ["Jupiter", "11.86", "5.203", "0.994"] },
+        ]}
+      />
+      <p>
+        The last column is nearly constant — the same number for every planet — which is exactly what the
+        third law <em>predicts</em>: the square of the period divided by the cube of the semi-major axis is a
+        universal constant for the whole solar system.
+      </p>
+      <p>For the second law, now with a derivation:</p>
+      <Derivation
+        title="Board exam — Kepler&rsquo;s law of areas (conservation of angular momentum)"
+        steps={[
+          {
+            label: "Angular momentum of a planet at position r",
+            latex: String.raw`\vec L = \vec r \times m \vec v = m\,(\vec r \times \vec v)`
+          },
+          {
+            label: "Areal velocity — area swept per unit time",
+            latex: String.raw`\frac{dA}{dt} = \frac12\,|\vec r \times \vec v|`
+          },
+          {
+            label: "Linking dA/dt to L",
+            latex: String.raw`\frac{dA}{dt} = \frac{1}{2m}\,|\vec L|`
+          },
+          {
+            label: "Gravity is central, so L is conserved",
+            latex: String.raw`\vec r \parallel \vec F \implies \frac{d\vec L}{dt} = 0 \implies \frac{dA}{dt} = \text{const}`
+          },
+          {
+            label: "Result",
+            latex: String.raw`\frac{dA}{dt} = \frac{L}{2m}\ \text{(constant)}\implies A_1 = A_2\ \text{in equal times}`
+          },
+        ]}
+        highlightResult
+      />
+      <Callout type="important" title="Kepler&rsquo;s third law fixes the sun&rsquo;s mass">
+        For a planet of mass m at mean distance a from the sun of mass M, equating the centripetal force with
+        gravity gives:
+      </Callout>
+      <FormulaBlock latex={String.raw`\frac{4\pi^2 a}{T^2} = \frac{GM}{a^2} \implies T^2 = \frac{4\pi^2}{GM}\,a^3`} />
+      <p>
+        so T² ∝ a³ with the proportionality constant set by the sun&rsquo;s mass — agreeing with the table
+        column T²/a³ ≈ 1. This law also lets us <em>weigh</em> planetary systems: with T and a measured, M is
+        known.
+      </p>
+      <Expandable variant="exercise" title="Example 7.1 — perihelion and aphelion">
+        <ProblemSolution.Problem>
+          A planet has perihelion distance r<sub>p</sub> and aphelion distance r<sub>a</sub>. Given that the
+          solar gravitational force does not do any work on the planet between the perihelion and aphelion
+          (gravitation is conservative and the motion is symmetric about the sun along the major axis), verify
+          that v<sub>p</sub>r<sub>p</sub> = v<sub>a</sub>r<sub>a</sub> — where v<sub>p</sub> and v
+          <sub>a</sub> are the speeds at the perihelion and aphelion respectively.
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Perihelion and aphelion are the points of closest and farthest approach, so</p>
+          <FormulaBlock latex={String.raw`\frac{1}{2}m v_p^2 - \frac{GMm}{r_p} = \frac{1}{2}m v_a^2 - \frac{GMm}{r_a}`} />
+          <p>Also, both points lie on the major axis, so the position and velocity are perpendicular there:</p>
+          <FormulaBlock latex={String.raw`m v_p r_p = m v_a r_a \implies v_p r_p = v_a r_a`} />
+          <p>
+            (Equivalently, the law of areas gives the same relation — the planet moves fastest at perihelion,
+            slowest at aphelion.)
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
 
       <h2 id="h-exercises">Exercises 7.1 – 7.21</h2>
       <p>Selected exercises with hints and the essential answers.</p>
