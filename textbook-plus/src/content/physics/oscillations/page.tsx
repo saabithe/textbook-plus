@@ -1,8 +1,9 @@
 import { Callout } from "@/components/content/Callout";
+import { Comparison } from "@/components/content/Comparison";
 import { Highlight } from "@/components/content/Highlight";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
-import { FormulaBlock } from "@/components/content/Formula";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
@@ -11,11 +12,6 @@ export default function OscillationsChapter() {
   return (
     <>
       <h2 id="o-intro">13.1 Introduction</h2>
-      <p>
-        In daily life we come across various kinds of motions. To study oscillatory motion we first sort all motion into{" "}
-        <strong>non-periodic</strong> and <strong>periodic</strong> types — the flow chart below shows how they are
-        related.
-      </p>
       <figure className="my-6 rounded-xl border border-border/60 bg-white p-4 dark:bg-zinc-900">
         <svg viewBox="0 0 720 640" className="w-full max-w-[720px] h-auto" role="img" aria-labelledby="motionFlowTitle motionFlowDesc">
           <title id="motionFlowTitle">Types of motion — flow chart</title>
@@ -87,84 +83,48 @@ export default function OscillationsChapter() {
         </ul>
       </KeyPoint>
 
-      <h2 id="o-periodic">13.2 Periodic and Oscillatory Motions</h2>
-      <p>
-        An insect climbing up a ramp and falling down, then repeating the process identically, has a height-versus-time
-        graph as in Fig. 13.1(a). A child climbing a step, coming down and repeating gives Fig. 13.1(b); and the height
-        of a ball bouncing between the palm and the ground gives Fig. 13.1(c), whose curved sections are parabolas from
-        h = ut − ½gt². All three are periodic motions of the type classified in the flow chart above — each repeats at{" "}
-        <strong>regular intervals of time</strong>.
-      </p>
-      <p>
-        Very often the body undergoing periodic motion has an <strong>equilibrium position</strong> somewhere inside its
-        path. When the body is there, <Highlight>no net external force acts on it — left at rest, it stays there forever</Highlight>. If given
-        a small displacement from that position, a force comes into play that tries to bring it back, giving rise to{" "}
-        <strong>oscillations</strong> or <strong>vibrations</strong>. For example, a ball placed in a bowl is in
-        equilibrium at the bottom; displaced a little, it oscillates in the bowl.
-      </p>
-      <p>
-        <strong>Simple harmonic motion (SHM)</strong> is the simplest form of oscillatory motion: the force on the
-        oscillating body is directly proportional to its displacement from the mean (equilibrium) position, and at any
-        point of the oscillation it is directed towards the mean position. In practice, oscillating bodies eventually
-        come to rest at their equilibrium positions because of damping due to friction and other dissipative causes,
-        though they can be forced to keep oscillating by an external periodic agency (damped and forced oscillations).
-      </p>
-      <p>
-        Any material medium can be pictured as a collection of a large number of coupled oscillators; their collective
-        oscillations manifest as waves — water waves, seismic waves, electromagnetic waves. Waves are studied in the
-        next chapter.
-      </p>
+      <h2 id="o-periodic">13.2 Period, Frequency, Displacement and Amplitude</h2>
 
       <h3 id="o-freq">13.2.1 Period and Frequency</h3>
       <p>
-        The smallest interval of time after which the motion is repeated is called its <strong>period</strong>,
-        denoted T; its SI unit is the second. For motions too fast or too slow on the scale of seconds, other convenient
-        units are used: the period of a quartz crystal is expressed in microseconds (10⁻⁶ s), the orbital period of the
-        planet Mercury is 88 earth days, and Halley&rsquo;s comet appears after every 76 years.
+        Two quantities together tell us how a periodic motion repeats itself — its <strong>period</strong> and its{" "}
+        <strong>frequency</strong>:
       </p>
-      <p>
-        <Highlight>The reciprocal of T is the number of repetitions per unit time — the <strong>frequency</strong> of the{" "}
-          periodic motion, denoted ν (nu)</Highlight>:
-      </p>
-      <FormulaBlock latex={String.raw`\nu = \frac{1}{T}`} important />
-      <p>
-        The unit of ν is s⁻¹. After Heinrich Rudolph Hertz (1857–1894), the discoverer of radio waves, this unit is
-        called the <strong>hertz</strong> (Hz):
-      </p>
-      <FormulaBlock latex={String.raw`1\ \text{hertz} = 1\ \text{Hz} = 1\ \text{oscillation per second} = 1\ \text{s}^{-1}`} />
-      <p>
-        Note that the frequency ν is not necessarily an integer.
-      </p>
-
-      <h3 id="o-displacement">13.2.2 Displacement</h3>
-      <p>
-        In this chapter displacement is used in a general sense —{" "}
-        <Highlight>it refers to the change with time of <em>any physical property under consideration</em></Highlight>.
-        For a block attached to a spring it is the distance x from
-        the equilibrium position; for an oscillating simple pendulum it is the angle θ from the vertical; other examples
-        are the voltage across a capacitor in an AC circuit, pressure variations during sound propagation, and the
-        changing electric and magnetic fields in a light wave.
-      </p>
-      <p>
-        The displacement variable may take both positive and negative values, and in periodic motions it is a periodic
-        function of time. One of the simplest periodic functions is:
-      </p>
-      <FormulaBlock latex={String.raw`f(t) = A \cos \omega t`} />
-      <p>
-        If the argument ωt is increased by an integral multiple of 2π radians the value of the function is unchanged, so
-        f(t) is periodic with period:
-      </p>
-      <FormulaBlock latex={String.raw`T = \frac{2\pi}{\omega},\qquad f(t) = f(t + T)`} />
-      <p>
-        The same holds for a sine function f(t) = A sinωt. A linear combination f(t) = A sinωt + B cosωt is also
-        periodic with the same period T. With A = D cosφ and B = D sinφ it can be written as:
-      </p>
-      <FormulaBlock latex={String.raw`f(t) = D \sin(\omega t + \phi),\qquad D = \sqrt{A^2 + B^2},\quad \tan\phi = \frac{B}{A}`} />
-      <Callout type="note" title="The importance of sine and cosine functions">
-        A remarkable result proved by the French mathematician Jean Baptiste Joseph Fourier (1768–1830): any periodic
-        function can be expressed as a <strong>superposition of sine and cosine functions</strong> of different time
-        periods with suitable coefficients.
-      </Callout>
+      <Comparison
+        columns={[
+          {
+            title: "Period (T)",
+            children: (
+              <>
+                <p>
+                  <Highlight>The time required for one complete oscillation, or cycle</Highlight> is called the{" "}
+                  <strong>period</strong>.
+                </p>
+                <p>Its SI unit is the <strong>second</strong> (s).</p>
+              </>
+            ),
+          },
+          {
+            title: "Frequency (ν)",
+            children: (
+              <>
+                <p>
+                  The <strong>number of oscillations per unit time</strong> is the frequency — the reciprocal of the
+                  period:
+                </p>
+                <p className="my-2 text-center">
+                  <Formula>{String.raw`\nu = \frac{1}{T}`}</Formula>
+                </p>
+                <p>
+                  Its SI unit is the <strong>hertz</strong> (Hz), named after Heinrich Rudolph Hertz (1857–1894), the
+                  discoverer of radio waves:
+                </p>
+                <p className="text-center">1 Hz = 1 oscillation per second = 1 s⁻¹</p>
+              </>
+            ),
+          },
+        ]}
+      />
 
       <Expandable variant="default" title="Example 13.1 — heart beat frequency and period">
         <ProblemSolution.Problem>
@@ -172,11 +132,48 @@ export default function OscillationsChapter() {
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p>
-            Beat frequency = 75/(1 min) = 75/(60 s) = <strong>1.25 s⁻¹ = 1.25 Hz</strong>. The time period T = 1/(1.25
-            s⁻¹) = <strong>0.8 s</strong>.
+            The beat frequency of the heart:{" "}
+            <Formula>{String.raw`\nu = \frac{75}{1\ \text{min}} = \frac{75}{60\ \text{s}} = 1.25\ \text{s}^{-1} = 1.25\ \text{Hz}`}</Formula>
+          </p>
+          <p>
+            The time period: <Formula>{String.raw`T = \frac{1}{1.25} = 0.8\ \text{s}`}</Formula>
           </p>
         </ProblemSolution.Solution>
       </Expandable>
+
+      <h3 id="o-displacement">13.2.2 Displacement</h3>
+      <p>
+        <Highlight>
+          The distance of the oscillating body from its mean (equilibrium) position is called its{" "}
+          <strong>displacement</strong> (x)
+        </Highlight>
+        . At the mean position the displacement is <strong>x = 0</strong>, and at the extreme positions of the
+        oscillation it is <strong>x = ±A</strong>.
+      </p>
+
+      <h3 id="o-amplitude">13.2.3 Amplitude</h3>
+      <p>
+        <Highlight>
+          The maximum displacement from the mean position is called the <strong>amplitude</strong> (A) of the
+          oscillation
+        </Highlight>
+        . The displacement stays within the limits −A and +A as the motion repeats.
+      </p>
+
+      <h3 id="o-expression">13.2.4 Mathematical Expression for Displacement</h3>
+      <p>
+        The displacement can be represented by a <strong>mathematical function of time</strong> — a sine function, a
+        cosine function, or a linear combination of sine and cosine functions:
+      </p>
+      <FormulaBlock latex={String.raw`f(t) = A \cos \omega t \qquad \text{or} \qquad f(t) = A \sin \omega t`} />
+      <p>
+        A linear combination of sine and cosine functions:
+      </p>
+      <FormulaBlock latex={String.raw`f(t) = A \sin \omega t + B \cos \omega t`} />
+      <p>
+        Here <strong>A is the amplitude</strong> and <strong>ω is the angular frequency</strong> of the oscillation:
+      </p>
+      <FormulaBlock latex={String.raw`\omega = \frac{2\pi}{T} = 2\pi\nu`} important />
 
       <Expandable variant="default" title="Example 13.2 — periodic vs non-periodic functions">
         <ProblemSolution.Problem>
