@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MoveLeftRight, Ruler } from "lucide-react";
+import { ArrowLeftRight, Ruler } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const CENTER = 260; // equilibrium position in SVG px
@@ -43,7 +43,7 @@ export function ShmDisplacementDiagram() {
     <div className="my-6 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
       <div className="border-b border-border/40 bg-muted/30 px-4 py-3">
         <p className="text-center text-sm font-extrabold tracking-tight text-foreground">
-          <MoveLeftRight className="mr-1.5 inline h-4 w-4 text-violet-500" />
+          <ArrowLeftRight className="mr-1.5 inline h-4 w-4 text-violet-500" />
           Displacement from equilibrium — the particle swept across −A → +A
         </p>
       </div>
