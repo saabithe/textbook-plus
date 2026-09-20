@@ -303,8 +303,13 @@ export default function OscillationsChapter() {
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p>
-            (1) sinωt − cosωt = √2 cos(π/4) sin(ωt − π/4) = <strong>√2 sin(ωt − π/4)</strong> — SHM of amplitude √2,
-            period 2π/ω, and phase angle (−π/4) or (7π/4).
+            (1) Combining the two terms into a single sine:{" "}
+            <Formula>{String.raw`y = \sin\omega t - \cos\omega t = \sqrt{2}\sin\!\left(\omega t - \frac{\pi}{4}\right)`}</Formula>,
+            because{" "}
+            <Formula>{String.raw`\sin\!\left(\omega t - \frac{\pi}{4}\right) = \frac{1}{\sqrt{2}}\sin\omega t - \frac{1}{\sqrt{2}}\cos\omega t`}</Formula>.
+            This is exactly the standard solution of SHM, y = A sin(ωt ± φ), with A = √2 and φ = π/4 — so the function{" "}
+            <strong>represents simple harmonic motion</strong> of amplitude √2, period 2π/ω and initial phase −π/4 (or
+            equivalently 7π/4).
           </p>
           <p>
             (2) sin²ωt = <strong>½ − ½ cos2ωt</strong> — periodic with period π/ω, and it is harmonic but not simple
@@ -312,6 +317,24 @@ export default function OscillationsChapter() {
           </p>
         </ProblemSolution.Solution>
       </Expandable>
+
+      <KeyPoint title="Periodic but not simple harmonic">
+        <ul className="space-y-2">
+          <li>
+            <strong>Motion of the Earth around the Sun</strong> — the orbit repeats every year, but the displacement is
+            not sinusoidal, and the acceleration (inverse-square gravitational force) is not proportional to
+            displacement from a mean position.
+          </li>
+          <li>
+            <strong>A pendulum displaced through a large angle</strong> — strictly periodic, but only for small
+            displacements does it reduce to SHM: the restoring force is mg sinθ, not −kx.
+          </li>
+          <li>
+            <strong>Uniform circular motion</strong> — periodic, and although its projection on a diameter is SHM, the
+            motion itself does not to-and-fro about a mean position.
+          </li>
+        </ul>
+      </KeyPoint>
 
       <MistakeCard
         mistake="Thinking that any oscillatory motion is simple harmonic motion, or that in SHM the acceleration is constant."
@@ -526,6 +549,23 @@ export default function OscillationsChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
+      <Expandable variant="default" title="Example 13.6 — amplitude and period from the SHM equation">
+        <ProblemSolution.Problem>
+          The displacement y (in cm) of an oscillating particle varies with time t (in s) according to the equation y =
+          2cos(0.5πt + π/3). Find the amplitude and period of the particle.
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            Comparing with the standard SHM form y = A cos(ωt + φ): <strong>amplitude A = 2 cm</strong>, angular
+            frequency ω = 0.5π rad s⁻¹, and phase constant φ = π/3.
+          </p>
+          <FormulaBlock latex={String.raw`T = \frac{2\pi}{\omega} = \frac{2\pi}{0.5\pi} = 4\ \text{s}`} />
+          <p>
+            The particle oscillates with <strong>amplitude 2 cm</strong> and <strong>period 4 s</strong>.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
       <Expandable variant="exercise" title="Exercises — displacement, velocity and acceleration">
         <h3 className="my-4 text-sm font-extrabold uppercase tracking-wide text-foreground">13.5 — Signs of velocity, acceleration and force</h3>
         <ProblemSolution.Problem>
@@ -656,7 +696,7 @@ export default function OscillationsChapter() {
         with angular frequency ω = √(k/m) and period T = 2π√(m/k). The period is independent of the amplitude.
       </KeyPoint>
 
-      <Expandable variant="default" title="Example 13.6 — two springs attached to a block">
+      <Expandable variant="default" title="Example 13.7 — two springs attached to a block">
         <ProblemSolution.Problem>
           Two identical springs of spring constant k are attached to a block of mass m and to fixed supports on either
           side. Show that when the mass is displaced from its equilibrium position on either side, it executes simple
@@ -794,7 +834,7 @@ export default function OscillationsChapter() {
         between, kinetic energy increases at the expense of potential energy or vice-versa.
       </p>
 
-      <Expandable variant="default" title="Example 13.7 — kinetic, potential and total energy of a block">
+      <Expandable variant="default" title="Example 13.8 — kinetic, potential and total energy of a block">
         <ProblemSolution.Problem>
           A block of mass 1 kg is fastened to a spring of spring constant 50 N m⁻¹. The block is pulled to a distance x
           = 10 cm from its equilibrium position (x = 0) on a frictionless surface, from rest at t = 0. Calculate the
@@ -873,7 +913,7 @@ export default function OscillationsChapter() {
         angles) not on the amplitude. This is why a pendulum is the heart of a clock: its period is a reliable constant.
       </KeyPoint>
 
-      <Expandable variant="default" title="Example 13.8 — length of a seconds pendulum">
+      <Expandable variant="default" title="Example 13.9 — length of a seconds pendulum">
         <ProblemSolution.Problem>
           What is the length of a simple pendulum which ticks seconds?
         </ProblemSolution.Problem>
