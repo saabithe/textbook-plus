@@ -60,7 +60,7 @@ Types live in `src/types/chapter.ts`.
 
 **English chapter-text.md**: cleaned, readable version of the textbook pages at `src/content/english/{slug}/chapter-text.md` — complete chapter text (story/poem/speech/play) + About the Author + Read and Respond questions. Single source of truth for authoring `page.tsx`. No OCR artifacts, interleaved activities, or supplementary readings.
 
-**Custom content components** (`src/components/content/`, 65 files; canonical inventory in `Constitution/USER_PREFERENCES.md` §12):
+**Custom content components** (`src/components/content/`, 66 files; canonical inventory in `Constitution/USER_PREFERENCES.md` §12):
 
 *Core:* Callout, Example, KeyPoint, Comparison, Expandable, Formula (exports `Formula` + `FormulaBlock`), FormulaCard, ProblemSolution, SolvedProblem, ExerciseQa, SpeedTricks, Stepper, Highlight
 
@@ -74,7 +74,7 @@ Types live in `src/types/chapter.ts`.
 
 *English/Arabic:* AuthorCard, CharacterSketch, CharacterComparison, ContentTabs, CollapsibleSection, SummaryLevels, ReadRespond
 
-*Physics:* SpectrumExplorer, SpectrumTable, OscillationPlayer, PropagationExplorer, AmpereSurfaceToggle, ChargeFateTrio, TransverseLongitudinal, FormulaAnatomy, SpeedLayers, FieldRatio, VectorFigures, ProjectileGraphs, KinematicsGraphs, DisplacementExplorer, WaveTypesPanels, WaveAnatomyDiagram, MoiDiagrams, RigidBodyMotions, GravityGGraph, UniversalLawExplorer, PeriodFrequencyExplorer, ShmDisplacementDiagram
+*Physics:* SpectrumExplorer, SpectrumTable, OscillationPlayer, PropagationExplorer, AmpereSurfaceToggle, ChargeFateTrio, TransverseLongitudinal, FormulaAnatomy, SpeedLayers, FieldRatio, VectorFigures, ProjectileGraphs, KinematicsGraphs, DisplacementExplorer, WaveTypesPanels, WaveAnatomyDiagram, MoiDiagrams, RigidBodyMotions, GravityGGraph, UniversalLawExplorer, ShmEquationAnatomy, ShmGraphs, ShmDisplacementDiagram
 
 *Maths:* NumberLine, FunctionGraph, VennDiagram, ArrowDiagram, UnitCircle, ArgandDiagram
 

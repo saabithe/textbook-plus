@@ -1,14 +1,30 @@
 import { Callout } from "@/components/content/Callout";
 import { Comparison } from "@/components/content/Comparison";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
+import { Derivation } from "@/components/content/process/Derivation";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
-import { PeriodFrequencyExplorer } from "@/components/content/physics/PeriodFrequencyExplorer";
+import { ShmEquationAnatomy } from "@/components/content/physics/ShmEquationAnatomy";
 import { ShmDisplacementDiagram } from "@/components/content/physics/ShmDisplacementDiagram";
+import { ShmGraphs } from "@/components/content/physics/ShmGraphs";
+
+/** Sample one period of sin(2πt) / cos(2πt) into an SVG polyline (used in the v–t exam answer). */
+function examCurve(kind: "sin" | "cos"): string {
+  const pts: string[] = [];
+  for (let i = 0; i <= 120; i++) {
+    const t = i / 120;
+    const px = 30 + t * 425;
+    const val = kind === "sin" ? Math.sin(2 * Math.PI * t) : Math.cos(2 * Math.PI * t);
+    const py = 85 - val * 40;
+    pts.push(`${px.toFixed(1)},${py.toFixed(1)}`);
+  }
+  return pts.join(" ");
+}
 
 export default function OscillationsChapter() {
   return (
@@ -88,10 +104,6 @@ export default function OscillationsChapter() {
       <h2 id="o-periodic">13.2 Period, Frequency, Displacement and Amplitude</h2>
 
       <h3 id="o-freq">13.2.1 Period and Frequency</h3>
-      <p>
-        Two quantities together tell us how a periodic motion repeats itself — its <strong>period</strong> and its{" "}
-        <strong>frequency</strong>:
-      </p>
       <Comparison
         columns={[
           {
@@ -118,8 +130,7 @@ export default function OscillationsChapter() {
                   <strong>Meaning</strong> — <Highlight>Number of cycles per unit time</Highlight>.
                 </p>
                 <p>
-                  <strong>SI unit</strong> — the <strong>hertz</strong> (Hz), named after Heinrich Rudolph Hertz
-                  (1857–1894), the discoverer of radio waves; 1 Hz = 1 oscillation per second = 1 s⁻¹.
+                  <strong>SI unit</strong> — the <strong>hertz</strong> (Hz); 1 Hz = 1 oscillation per second = 1 s⁻¹.
                 </p>
                 <p>
                   <strong>Relationship</strong> — the reciprocal of the period:{" "}
@@ -133,8 +144,6 @@ export default function OscillationsChapter() {
           },
         ]}
       />
-
-      <PeriodFrequencyExplorer />
 
       <Expandable variant="default" title="Example 13.1 — heart beat frequency and period">
         <ProblemSolution.Problem>
@@ -250,15 +259,55 @@ export default function OscillationsChapter() {
       </Expandable>
 
       <h2 id="o-shm">13.3 Simple Harmonic Motion</h2>
+      <Callout type="important" title="Definition — simple harmonic motion">
+        <p>
+          A particle is said to be in simple harmonic motion if the force acting on the particle is{" "}
+          <strong>proportional to its displacement</strong> and is <strong>directed towards the mean position</strong>.
+        </p>
+      </Callout>
       <p>
-        Simple harmonic motion is the simplest form of oscillatory motion. Consider a particle oscillating back and
-        forth about the origin of an x-axis between the limits +A and −A. The motion is said to be{" "}
-        <strong>simple harmonic</strong> if{" "}
-        <Highlight>
-          the force acting on the particle is proportional to its displacement and is directed towards the mean
-          position
-        </Highlight>
-        , in which case the displacement x from the origin varies with time as:
+        Notice what the definition is <em>not</em> — SHM is more than &ldquo;an oscillation described by a cosine&rdquo;.{" "}
+        <strong>Two conditions must act together:</strong>
+      </p>
+      <Comparison
+        columns={[
+          {
+            title: "1 · Proportionality",
+            children: (
+              <>
+                <p>The magnitude of the restoring force grows linearly with the displacement:</p>
+                <p className="text-center">
+                  <Formula>{String.raw`|F| \propto |x|`}</Formula>
+                </p>
+              </>
+            ),
+          },
+          {
+            title: "2 · Opposite direction",
+            children: (
+              <>
+                <p>The force always points back towards the equilibrium (mean) position:</p>
+                <p className="text-center">
+                  <Formula>{String.raw`F \rightarrow \text{mean position}`}</Formula>
+                </p>
+              </>
+            ),
+          },
+        ]}
+      />
+      <p>
+        Both conditions together — the minus sign in F ∝ −x is the whole point:
+      </p>
+      <FormulaBlock latex={String.raw`F \propto -x`} important />
+      <KeyPoint title="Key lock">
+        The minus sign represents the restoring direction — it is what turns a mere oscillation into simple harmonic
+        motion.
+      </KeyPoint>
+
+      <h3 id="o-shm-eq">The central SHM equation</h3>
+      <p>
+        Consider a particle vibrating back and forth about the origin of an x-axis between the limits +A and −A. If the
+        motion is simple harmonic, its position can be represented as a function of time:
       </p>
       <FormulaBlock latex={String.raw`x(t) = A \cos(\omega t + \phi)`} important />
       <p>
@@ -266,32 +315,27 @@ export default function OscillationsChapter() {
         <Highlight>
           SHM is not any periodic motion but one in which displacement is a sinusoidal function of time
         </Highlight>
-        . The quantities A, ω and φ have standard names:
+        . The equation carries every piece of the motion inside it — click each term to see what it does:
       </p>
-      <TableCard
-        caption="13.1 Table — Symbols of Eq. (13.4)"
-        headers={["Quantity", "Definition"]}
-        rows={[
-          { cells: ["x(t)", "Displacement as a function of time t"] },
-          { cells: ["A", "Amplitude — the magnitude of the maximum displacement"] },
-          { cells: ["ω", "Angular frequency — determines the time period T = 2π/ω"] },
-          { cells: ["ωt + φ", "Phase — the time-dependent state (position and velocity)"] },
-          { cells: ["φ", "Phase constant — the value of the phase at t = 0"] },
-        ]}
-      />
+      <ShmEquationAnatomy />
       <p>
         As the cosine function varies from +1 to −1, the displacement varies between the extremes A and −A. The speed
         of the particle is <strong>maximum at zero displacement</strong> (x = 0) and <strong>zero at the extremes</strong>{" "}
         of motion; the period T remains fixed no matter which location you choose as the initial (t = 0) location.
       </p>
+      <KeyPoint title="Phase constant φ — &ldquo;where did the motion start?&rdquo;">
+        The time-varying quantity (ωt + φ) is the <strong>phase</strong> of the motion — it describes the state of
+        motion (position and velocity) at any given time. At t = 0 the phase reduces to φ, the{" "}
+        <strong>phase constant</strong> (or phase angle). Its value is fixed by the initial conditions — the
+        displacement and velocity of the particle at t = 0 — so the phase constant tells you exactly where the motion
+        began.
+      </KeyPoint>
       <p>
-        While A is fixed for a given SHM, the state of motion (position and velocity) at any time t is determined by the{" "}
-        <strong>phase</strong>, (ωt + φ). Two SHMs may have the same ω and φ but different amplitudes A and B
-        [Fig. 13.7(a)]; or the same A and ω but different phase angles φ [Fig. 13.7(b)]. The constant φ is the{" "}
-        <strong>phase constant</strong> (or phase angle): its value depends on the displacement and velocity of the
-        particle at t = 0, and it signifies the <strong>initial conditions</strong> of the motion. If the amplitude is
-        known, φ can be determined from the displacement at t = 0.
+        Two SHMs may have the same ω and φ but different amplitudes A and B; or the same amplitude A and frequency ω
+        but different phase angles φ; or the same φ = 0 but different periods. The plots below show all three
+        situations:
       </p>
+      <ShmGraphs />
       <p>
         For simplicity set φ = 0: x(t) = A cosωt. Since the motion has a period T, x(t) = x(t + T), i.e. A cosωt =
         A cosω(t + T). The cosine function first repeats itself when its argument changes by 2π, so ω(t + T) = ωt + 2π:
@@ -302,18 +346,6 @@ export default function OscillationsChapter() {
         <Highlight>being 2π times the frequency of oscillation, ω = 2πν</Highlight>. Two SHMs may have the same A and φ but different ω — one with half the period and twice
         the frequency of the other [Fig. 13.8].
       </p>
-      <Callout type="note" title="Radian convention">
-        The radian is a dimensionless unit defined through the ratio of arc to radius, so it is not always necessary to
-        state it. If the argument of a trigonometric function is written without units, it is understood to be radians;
-        if degrees are used, they must be shown explicitly. For example, sin(150°) means sine of 15 degrees, but sin(15)
-        means sine of 15 radians.
-      </Callout>
-      <KeyPoint title="Fourier idea in SHM">
-        Any periodic function can be expressed as a sum of sine and cosine functions of different time periods.
-        Conversely, a function that is a sum of several SHMs of arbitrary amplitudes and phases is{" "}
-        <strong>not necessarily periodic</strong> — it repeats only if the frequencies are commensurate (one an integral
-        multiple of another).
-      </KeyPoint>
 
       <Expandable variant="default" title="Example 13.3 — SHM vs periodic but not SHM">
         <ProblemSolution.Problem>
@@ -545,6 +577,71 @@ export default function OscillationsChapter() {
         ]}
       />
 
+      <h3 id="o-deriv">13.5.1 Deriving velocity and acceleration by differentiation</h3>
+      <p>
+        The geometric route above gives the answers; the calculus route is the one to use in exams. Differentiate the
+        displacement equation — with v = dx/dt and a = dv/dt:
+      </p>
+      <Derivation
+        title="Case 1 — x = A cos(ωt): velocity and acceleration"
+        steps={[
+          {
+            label: "Velocity is the time rate of change of displacement:",
+            latex: String.raw`v = \frac{dx}{dt}`,
+          },
+          {
+            label:
+              "Substitute x = A cos(ωt) and pull the constant A out. Using d/dt[cos θ] = −sin θ · dθ/dt:",
+            latex: String.raw`v = \frac{d}{dt}\left[A\cos(\omega t)\right] = -A\sin(\omega t)\cdot\frac{d}{dt}(\omega t)`,
+          },
+          {
+            label: "Since d(ωt)/dt = ω:",
+            latex: String.raw`v = -A\omega\sin(\omega t)`,
+          },
+          {
+            label: "Acceleration is the time rate of change of velocity:",
+            latex: String.raw`a = \frac{dv}{dt} = \frac{d}{dt}\left[-A\omega\sin(\omega t)\right] = -A\omega^2\cos(\omega t)`,
+          },
+          {
+            label: "Group the terms to recover the displacement x = A cos(ωt):",
+            latex: String.raw`a = -\omega^2\left[A\cos(\omega t)\right] = -\omega^2 x`,
+          },
+        ]}
+      />
+      <Derivation
+        title="Case 2 — x = A sin(ωt): velocity and acceleration"
+        steps={[
+          {
+            label: "Differentiate x = A sin(ωt), using d/dt[sin θ] = cos θ · dθ/dt:",
+            latex: String.raw`v = \frac{d}{dt}\left[A\sin(\omega t)\right] = A\omega\cos(\omega t)`,
+          },
+          {
+            label: "Differentiate again for the acceleration:",
+            latex: String.raw`a = \frac{dv}{dt} = \frac{d}{dt}\left[A\omega\cos(\omega t)\right] = -A\omega^2\sin(\omega t)`,
+          },
+          {
+            label: "Group the terms to recover x = A sin(ωt):",
+            latex: String.raw`a = -\omega^2\left[A\sin(\omega t)\right] = -\omega^2 x`,
+          },
+        ]}
+      />
+      <p>
+        In both cases the result is the same: <strong>a = −ω²x</strong>. Since ω² is a positive constant for a given
+        oscillator, <strong>acceleration is directly proportional to displacement</strong> — restating, in kinematic
+        form, the two-condition definition of §13.3 — and the negative sign keeps the acceleration always directed
+        towards the mean position.
+      </p>
+
+      <h3 id="o-diffeq">13.5.2 The differential equation of SHM</h3>
+      <p>
+        Writing the acceleration as d²x/dt² combines everything into a single compact statement — the differential
+        equation every SHM satisfies, whatever the physical system:
+      </p>
+      <FormulaBlock latex={String.raw`\frac{\mathrm{d}^2x}{\mathrm{d}t^2} + \omega^2 x = 0`} important />
+      <p>
+        Its general solution is x(t) = A cos(ωt + φ) — or, equivalently, x(t) = A sin(ωt + φ).
+      </p>
+
       <Expandable variant="default" title="Example 13.5 — displacement, speed and acceleration at a given time">
         <ProblemSolution.Problem>
           A body oscillates with SHM according to the equation (in SI units) x = 5 cos[2πt + π/4]. At t = 1.5 s calculate
@@ -583,6 +680,111 @@ export default function OscillationsChapter() {
             The particle oscillates with <strong>amplitude 2 cm</strong> and <strong>period 4 s</strong>.
           </p>
         </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable variant="exercise" title="Exam questions — displacement, velocity and acceleration">
+        <ExerciseQa
+          questions={[
+            <>
+              A simple harmonic motion is represented as x = A cos(ωt). Obtain the expression for the velocity and
+              acceleration of the object and hence prove that acceleration is directly proportional to the displacement.{" "}
+              <span className="ml-1 rounded-md bg-muted px-1.5 py-0.5 text-[0.7rem] font-bold text-muted-foreground">
+                March 2018
+              </span>
+            </>,
+            <>
+              A simple harmonic motion is represented as x = A sin(ωt). Obtain the expression for the velocity and
+              acceleration of the object and hence prove that acceleration is directly proportional to the displacement.{" "}
+              <span className="ml-1 rounded-md bg-muted px-1.5 py-0.5 text-[0.7rem] font-bold text-muted-foreground">
+                March 2018
+              </span>
+            </>,
+            <>
+              For a simple harmonic motion, the time period T = 2 s. If the displacement from the mean position is 10
+              cm, calculate the instantaneous acceleration.{" "}
+              <span className="ml-1 rounded-md bg-muted px-1.5 py-0.5 text-[0.7rem] font-bold text-muted-foreground">
+                Imp 2016
+              </span>
+            </>,
+            <>
+              A particle executing SHM is an example of acceleration of changing magnitude and direction. Explain.{" "}
+              <span className="ml-1 rounded-md bg-muted px-1.5 py-0.5 text-[0.7rem] font-bold text-muted-foreground">
+                March 2015
+              </span>
+            </>,
+            <>At which point in an SHM is the speed half its maximum speed?</>,
+            <>
+              The velocity of a simple harmonic motion is V(t) = −ωA sin(ωt + φ). Find the expression for the
+              acceleration of the simple harmonic motion.
+            </>,
+            <>
+              The displacement of a particle executing SHM is y = A sinωt, where A is the amplitude and ω the angular
+              frequency. Draw the variation of the velocity of the particle with time.
+            </>,
+          ]}
+          answers={[
+            <>
+              v = dx/dt = −Aω sin(ωt) and a = dv/dt = −ω²A cos(ωt) = −ω²[A cos(ωt)] = <strong>−ω²x</strong>. Since ω²
+              is a constant, <strong>a ∝ x</strong> — the minus sign shows the acceleration is directed opposite to the
+              displacement, towards the mean position.
+            </>,
+            <>
+              v = dx/dt = Aω cos(ωt) and a = dv/dt = −ω²A sin(ωt) = −ω²[A sin(ωt)] = <strong>−ω²x</strong>, so again{" "}
+              <strong>a ∝ x</strong> for the sine form.
+            </>,
+            <>
+              ω = 2π/T = 2π/2 = π rad s⁻¹. Taking magnitudes, a = ω²x = π² × 10 = <strong>10π² cm s⁻²</strong> (≈ 98.7
+              cm s⁻²), directed towards the mean position.
+            </>,
+            <>
+              In SHM, a = −ω²x: both the magnitude and the direction change with the displacement — zero at the mean
+              position, maximum at the extremes (±ω²A), always pointing towards the mean position, and reversing sign
+              every half cycle. It is never constant.
+            </>,
+            <>
+              v = ω√(A² − x²) and v_max = ωA. Setting v = v_max/2: ω√(A² − x²) = ½ωA ⟹ A² − x² = A²/4 ⟹ x² = 3A²/4.
+              So the speed is half its maximum at <strong>x = ±(√3/2)A ≈ ±0.866A</strong> — the two symmetric points
+              0.866 of the amplitude away from the mean position.
+            </>,
+            <>
+              a = dV/dt = d/dt[−ωA sin(ωt + φ)] = −ω²A cos(ωt + φ) = <strong>−ω²x</strong> — the same relation as
+              before, with the phase φ carried along.
+            </>,
+            <>
+              v = dy/dt = Aω cos(ωt) — a cosine curve of amplitude ωA leading the displacement by π/2: the velocity is
+              maximum at the mean position (y = 0) and zero at the extremes ±A:
+              <svg
+                viewBox="0 0 480 170"
+                className="my-3 h-auto w-full rounded-xl border border-border/50 bg-white p-2 dark:bg-zinc-900"
+                role="img"
+                aria-label="Graph of y = A sin omega t and its velocity v = A omega cos omega t against time over one period"
+              >
+                <line x1="30" y1="85" x2="455" y2="85" stroke="var(--muted-foreground)" strokeWidth="1.5" />
+                <line x1="30" y1="35" x2="30" y2="135" stroke="var(--muted-foreground)" strokeWidth="1.5" />
+                <text x="26" y="39" textAnchor="end" fontSize="10" fontWeight="700" fill="var(--foreground)">
+                  +A, +Aω
+                </text>
+                <text x="26" y="131" textAnchor="end" fontSize="10" fontWeight="700" fill="var(--foreground)">
+                  −A, −Aω
+                </text>
+                <polyline points={examCurve("sin")} fill="none" stroke="#f43f5e" strokeWidth="2.5" />
+                <polyline points={examCurve("cos")} fill="none" stroke="#6366f1" strokeWidth="2.5" />
+                <text x="455" y="100" textAnchor="end" fontSize="10.5" fontWeight="700" fill="var(--muted-foreground)">
+                  t
+                </text>
+                <text x="300" y="22" fontSize="10.5" fontWeight="700" fill="#f43f5e">
+                  y = A sin ωt
+                </text>
+                <text x="300" y="36" fontSize="10.5" fontWeight="700" fill="#6366f1">
+                  v = Aω cos ωt
+                </text>
+                <text x="242" y="158" textAnchor="middle" fontSize="10" fontWeight="700" fill="var(--muted-foreground)">
+                  T — one period
+                </text>
+              </svg>
+            </>,
+          ]}
+        />
       </Expandable>
 
       <Expandable variant="exercise" title="Exercises — displacement, velocity and acceleration">
