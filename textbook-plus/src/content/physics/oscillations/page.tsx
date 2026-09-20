@@ -12,34 +12,88 @@ export default function OscillationsChapter() {
     <>
       <h2 id="o-intro">13.1 Introduction</h2>
       <p>
-        In daily life we come across various kinds of motions. Rectilinear motion and the motion of a projectile are{" "}
-        <strong>non-repetitive</strong>. Uniform circular motion and the orbital motion of planets are{" "}
-        <strong>periodic</strong> — the motion repeats after a certain interval of time. The rocking of a cradle and
-        the swinging of a swing are also repetitive but different: <Highlight>the object moves to and fro about a mean position</Highlight>.
-        So too the pendulum of a wall clock, a boat tossing up and down in a river, and the piston of a steam engine
-        going back and forth. Such motion is called <strong>oscillatory motion</strong>.
+        In daily life we come across various kinds of motions. To study oscillatory motion we first sort all motion into{" "}
+        <strong>non-periodic</strong> and <strong>periodic</strong> types — the flow chart below shows how they are
+        related.
       </p>
-      <p>
-        The study of oscillatory motion is basic to physics. In musical instruments (sitar, guitar, violin) we have
-        vibrating strings; drum membranes and telephone/speaker diaphragms vibrate about their mean positions; the
-        vibrations of air molecules make the propagation of sound possible; in a solid, atoms vibrate about their
-        equilibrium positions, the average energy of vibrations being proportional to temperature; and an AC power
-        supply gives a voltage that oscillates, alternately going positive and negative about the mean value zero.
-      </p>
-      <p>
-        Describing such motion requires fundamental concepts — period, frequency, displacement, amplitude and phase —
-        which we develop next.
-      </p>
+      <figure className="my-6 rounded-xl border border-border/60 bg-white p-4 dark:bg-zinc-900">
+        <svg viewBox="0 0 720 640" className="w-full max-w-[720px] h-auto" role="img" aria-labelledby="motionFlowTitle motionFlowDesc">
+          <title id="motionFlowTitle">Types of motion — flow chart</title>
+          <desc id="motionFlowDesc">
+            Motion splits into non-periodic motion (non-repetitive; e.g. rectilinear motion, motion of a projectile)
+            and periodic motion (repeats at regular intervals; e.g. uniform circular motion, orbital motion of
+            planets). Oscillatory motion is periodic to and fro motion (e.g. cradle, swing, pendulum of a wall clock),
+            and it further splits into oscillation (low frequency) and vibration (high frequency).
+          </desc>
+          <defs>
+            <marker id="motionFlowArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#818cf8" />
+            </marker>
+          </defs>
+          {/* connectors */}
+          <line x1="360" y1="70" x2="200" y2="122" stroke="#818cf8" strokeWidth="1.8" markerEnd="url(#motionFlowArrow)" />
+          <line x1="360" y1="70" x2="520" y2="122" stroke="#818cf8" strokeWidth="1.8" markerEnd="url(#motionFlowArrow)" />
+          <path d="M 532 240 L 532 272 L 360 272 L 360 302" fill="none" stroke="#818cf8" strokeWidth="1.8" markerEnd="url(#motionFlowArrow)" />
+          <line x1="360" y1="424" x2="230" y2="484" stroke="#818cf8" strokeWidth="1.8" markerEnd="url(#motionFlowArrow)" />
+          <line x1="360" y1="424" x2="490" y2="484" stroke="#818cf8" strokeWidth="1.8" markerEnd="url(#motionFlowArrow)" />
+          {/* Motion (root) */}
+          <rect x="250" y="16" width="220" height="54" rx="12" fill="#ffffff" stroke="#c7d2fe" strokeWidth="1.5" />
+          <text x="360" y="40" textAnchor="middle" fontSize="15" fontWeight="700" fill="#4338ca">Motion</text>
+          <text x="360" y="58" textAnchor="middle" fontSize="11" fill="#6b7280">kinds of motion in daily life</text>
+          {/* Non-Periodic */}
+          <rect x="36" y="124" width="304" height="116" rx="10" fill="#ffffff" stroke="#c7d2fe" strokeWidth="1.5" />
+          <text x="188" y="152" textAnchor="middle" fontSize="13.5" fontWeight="700" fill="#4338ca">Non-Periodic Motion</text>
+          <text x="188" y="176" textAnchor="middle" fontSize="11.5" fill="#374151">The motion which is non-repetitive.</text>
+          <text x="188" y="200" textAnchor="middle" fontSize="11" fill="#6b7280">e.g. rectilinear motion,</text>
+          <text x="188" y="216" textAnchor="middle" fontSize="11" fill="#6b7280">motion of a projectile</text>
+          {/* Periodic */}
+          <rect x="380" y="124" width="304" height="116" rx="10" fill="#ffffff" stroke="#c7d2fe" strokeWidth="1.5" />
+          <text x="532" y="152" textAnchor="middle" fontSize="13.5" fontWeight="700" fill="#4338ca">Periodic Motion</text>
+          <text x="532" y="176" textAnchor="middle" fontSize="11.5" fill="#374151">A motion that repeats itself at regular</text>
+          <text x="532" y="190" textAnchor="middle" fontSize="11.5" fill="#374151">intervals of time is called periodic motion.</text>
+          <text x="532" y="213" textAnchor="middle" fontSize="11" fill="#6b7280">e.g. uniform circular motion, orbital</text>
+          <text x="532" y="229" textAnchor="middle" fontSize="11" fill="#6b7280">motion of planets in the solar system</text>
+          {/* Oscillatory */}
+          <rect x="140" y="304" width="440" height="120" rx="10" fill="#ffffff" stroke="#c7d2fe" strokeWidth="1.5" />
+          <text x="360" y="330" textAnchor="middle" fontSize="13.5" fontWeight="700" fill="#4338ca">Oscillatory Motion</text>
+          <text x="360" y="354" textAnchor="middle" fontSize="11.5" fill="#374151">Periodic to and fro motion is called oscillatory motion.</text>
+          <text x="360" y="378" textAnchor="middle" fontSize="11" fill="#6b7280">e.g. motion of a cradle, motion of a swing,</text>
+          <text x="360" y="396" textAnchor="middle" fontSize="11" fill="#6b7280">motion of the pendulum of a wall clock</text>
+          {/* Oscillation / Vibration */}
+          <rect x="60" y="486" width="280" height="96" rx="10" fill="#ffffff" stroke="#c7d2fe" strokeWidth="1.5" />
+          <text x="200" y="512" textAnchor="middle" fontSize="13.5" fontWeight="700" fill="#4338ca">Oscillation</text>
+          <text x="200" y="536" textAnchor="middle" fontSize="11.5" fill="#374151">frequency is small</text>
+          <text x="200" y="560" textAnchor="middle" fontSize="10.5" fill="#6b7280">e.g. oscillation of a branch of a tree</text>
+          <rect x="380" y="486" width="280" height="96" rx="10" fill="#ffffff" stroke="#c7d2fe" strokeWidth="1.5" />
+          <text x="520" y="512" textAnchor="middle" fontSize="13.5" fontWeight="700" fill="#4338ca">Vibration</text>
+          <text x="520" y="536" textAnchor="middle" fontSize="11.5" fill="#374151">frequency is high</text>
+          <text x="520" y="560" textAnchor="middle" fontSize="10.5" fill="#6b7280">e.g. vibration of a string of a musical instrument</text>
+        </svg>
+        <figcaption className="mt-3 text-center text-xs text-muted-foreground">
+          Types of motion — oscillatory motion is a sub-class of periodic motion.
+        </figcaption>
+      </figure>
+      <KeyPoint title="Oscillations and Vibration">
+        <ul className="space-y-2">
+          <li>
+            <Highlight>Every oscillatory motion is periodic, but every periodic motion need not be oscillatory</Highlight>{" "}
+            — circular motion, for instance, is periodic but not oscillatory.
+          </li>
+          <li>
+            There is <strong>no significant difference</strong> between oscillations and vibrations — the same to and
+            fro motion is called an <strong>oscillation</strong> when the frequency is small and a{" "}
+            <strong>vibration</strong> when the frequency is high (examples in the chart above).
+          </li>
+        </ul>
+      </KeyPoint>
 
       <h2 id="o-periodic">13.2 Periodic and Oscillatory Motions</h2>
       <p>
         An insect climbing up a ramp and falling down, then repeating the process identically, has a height-versus-time
         graph as in Fig. 13.1(a). A child climbing a step, coming down and repeating gives Fig. 13.1(b); and the height
         of a ball bouncing between the palm and the ground gives Fig. 13.1(c), whose curved sections are parabolas from
-        h = ut − ½gt². All three repeat at regular intervals. Thus, a motion that{" "}
-        <Highlight>
-          <strong>repeats itself at regular intervals of time</strong> is called <strong>periodic motion</strong>
-        </Highlight>.
+        h = ut − ½gt². All three are periodic motions of the type classified in the flow chart above — each repeats at{" "}
+        <strong>regular intervals of time</strong>.
       </p>
       <p>
         Very often the body undergoing periodic motion has an <strong>equilibrium position</strong> somewhere inside its
@@ -48,12 +102,6 @@ export default function OscillationsChapter() {
         <strong>oscillations</strong> or <strong>vibrations</strong>. For example, a ball placed in a bowl is in
         equilibrium at the bottom; displaced a little, it oscillates in the bowl.
       </p>
-      <KeyPoint title="Oscillatory vs periodic">
-        Every oscillatory motion is periodic, but <strong>every periodic motion need not be oscillatory</strong>.
-        Circular motion is periodic but not oscillatory. There is no significant difference between oscillations and
-        vibrations — when the frequency is small we call it oscillation (a branch of a tree), when it is high we call it
-        vibration (a string of a musical instrument).
-      </KeyPoint>
       <p>
         <strong>Simple harmonic motion (SHM)</strong> is the simplest form of oscillatory motion: the force on the
         oscillating body is directly proportional to its displacement from the mean (equilibrium) position, and at any
