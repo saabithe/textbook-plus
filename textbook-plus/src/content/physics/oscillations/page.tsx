@@ -7,6 +7,8 @@ import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
+import { PeriodFrequencyExplorer } from "@/components/content/physics/PeriodFrequencyExplorer";
+import { ShmDisplacementDiagram } from "@/components/content/physics/ShmDisplacementDiagram";
 
 export default function OscillationsChapter() {
   return (
@@ -95,36 +97,44 @@ export default function OscillationsChapter() {
           {
             title: "Period (T)",
             children: (
-              <>
+              <div className="space-y-2.5">
                 <p>
-                  <Highlight>The time required for one complete oscillation, or cycle</Highlight> is called the{" "}
-                  <strong>period</strong>.
+                  <strong>Meaning</strong> — <Highlight>Time for one complete cycle</Highlight>.
                 </p>
-                <p>Its SI unit is the <strong>second</strong> (s).</p>
-              </>
+                <p>
+                  <strong>SI unit</strong> — the <strong>second</strong> (s).
+                </p>
+                <p>
+                  <strong>Think of it as</strong> — <em>time per cycle</em>.
+                </p>
+              </div>
             ),
           },
           {
             title: "Frequency (ν)",
             children: (
-              <>
+              <div className="space-y-2.5">
                 <p>
-                  The <strong>number of oscillations per unit time</strong> is the frequency — the reciprocal of the
-                  period:
-                </p>
-                <p className="my-2 text-center">
-                  <Formula>{String.raw`\nu = \frac{1}{T}`}</Formula>
+                  <strong>Meaning</strong> — <Highlight>Number of cycles per unit time</Highlight>.
                 </p>
                 <p>
-                  Its SI unit is the <strong>hertz</strong> (Hz), named after Heinrich Rudolph Hertz (1857–1894), the
-                  discoverer of radio waves:
+                  <strong>SI unit</strong> — the <strong>hertz</strong> (Hz), named after Heinrich Rudolph Hertz
+                  (1857–1894), the discoverer of radio waves; 1 Hz = 1 oscillation per second = 1 s⁻¹.
                 </p>
-                <p className="text-center">1 Hz = 1 oscillation per second = 1 s⁻¹</p>
-              </>
+                <p>
+                  <strong>Relationship</strong> — the reciprocal of the period:{" "}
+                  <Formula>{String.raw`\nu = \frac{1}{T}`}</Formula>.
+                </p>
+                <p>
+                  <strong>Think of it as</strong> — <em>cycles per time</em>.
+                </p>
+              </div>
             ),
           },
         ]}
       />
+
+      <PeriodFrequencyExplorer />
 
       <Expandable variant="default" title="Example 13.1 — heart beat frequency and period">
         <ProblemSolution.Problem>
@@ -150,6 +160,8 @@ export default function OscillationsChapter() {
         . At the mean position the displacement is <strong>x = 0</strong>, and at the extreme positions of the
         oscillation it is <strong>x = ±A</strong>.
       </p>
+
+      <ShmDisplacementDiagram />
 
       <h3 id="o-amplitude">13.2.3 Amplitude</h3>
       <p>
@@ -239,9 +251,14 @@ export default function OscillationsChapter() {
 
       <h2 id="o-shm">13.3 Simple Harmonic Motion</h2>
       <p>
-        Consider a particle oscillating back and forth about the origin of an x-axis between the limits +A and −A. The
-        oscillatory motion is said to be <strong>simple harmonic</strong> if the displacement x from the origin varies
-        with time as:
+        Simple harmonic motion is the simplest form of oscillatory motion. Consider a particle oscillating back and
+        forth about the origin of an x-axis between the limits +A and −A. The motion is said to be{" "}
+        <strong>simple harmonic</strong> if{" "}
+        <Highlight>
+          the force acting on the particle is proportional to its displacement and is directed towards the mean
+          position
+        </Highlight>
+        , in which case the displacement x from the origin varies with time as:
       </p>
       <FormulaBlock latex={String.raw`x(t) = A \cos(\omega t + \phi)`} important />
       <p>
@@ -270,8 +287,10 @@ export default function OscillationsChapter() {
       <p>
         While A is fixed for a given SHM, the state of motion (position and velocity) at any time t is determined by the{" "}
         <strong>phase</strong>, (ωt + φ). Two SHMs may have the same ω and φ but different amplitudes A and B
-        [Fig. 13.7(a)]; or the same A and ω but different phase angles φ [Fig. 13.7(b)]. If the amplitude is known, φ
-        can be determined from the displacement at t = 0.
+        [Fig. 13.7(a)]; or the same A and ω but different phase angles φ [Fig. 13.7(b)]. The constant φ is the{" "}
+        <strong>phase constant</strong> (or phase angle): its value depends on the displacement and velocity of the
+        particle at t = 0, and it signifies the <strong>initial conditions</strong> of the motion. If the amplitude is
+        known, φ can be determined from the displacement at t = 0.
       </p>
       <p>
         For simplicity set φ = 0: x(t) = A cosωt. Since the motion has a period T, x(t) = x(t + T), i.e. A cosωt =
