@@ -5,7 +5,6 @@ import Link from "next/link";
 import { LockOpen, Layers, CheckCircle2, ArrowRight } from "lucide-react";
 import { useSync } from "@/components/auth/SyncProvider";
 import { subjects } from "@/data/subjects";
-import { class11Subjects, getClass11Chapters } from "@/data/class11";
 import { getChaptersBySubject } from "@/data/chapters";
 import { SectionHeading } from "@/components/app/SectionHeading";
 import { StatPill } from "@/components/app/StatPill";
@@ -74,29 +73,8 @@ export function ProgressDashboard() {
     });
   }, [ready, getAllProgress, loadPractice]);
 
-  const class11Rows = useMemo(() => {
-    if (!ready) return EMPTY_SUBJECT_PROGRESS;
-    const complete = getAllProgress() ?? {};
-    return class11Subjects.map((s) => {
-      const chapters = getClass11Chapters(s.slug);
-      const doneSet = new Set(complete[s.slug] ?? []);
-      const done = chapters.filter((c) => doneSet.has(c.slug)).length;
-      return {
-        name: `${s.name} (Class 11)`,
-        slug: s.slug,
-        color: s.color,
-        icon: s.icon,
-        total: chapters.length,
-        done,
-        questionsRevealed: 0,
-        flashcardsKnown: 0,
-        href: `/class-11/${s.slug}`,
-      };
-    });
-  }, [ready, getAllProgress]);
-
   const totals = useMemo(() => {
-    const all = [...rows, ...class11Rows];
+    const all = rows;
     const chapters = all.reduce((n, r) => n + r.total, 0);
     const done = all.reduce((n, r) => n + r.done, 0);
     return {
@@ -107,7 +85,7 @@ export function ProgressDashboard() {
       questionsRevealed: all.reduce((n, r) => n + r.questionsRevealed, 0),
       flashcardsKnown: all.reduce((n, r) => n + r.flashcardsKnown, 0),
     };
-  }, [rows, class11Rows]);
+  }, [rows]);
 
   if (!ready) {
     return (
@@ -174,7 +152,7 @@ export function ProgressDashboard() {
           description="Reading and practice across every subject."
         />
         <div className="mt-5 space-y-2.5">
-          {[...rows, ...class11Rows].map((row) => {
+          {rows.map((row) => {
             const pct = row.total > 0 ? Math.round((row.done / row.total) * 100) : 0;
             return (
               <Link

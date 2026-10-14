@@ -262,10 +262,10 @@ Reusable shell components (no barrel export; direct imports):
 
 ### 13.3 Shell Surfaces (V3)
 
-- **Home** — hero eyebrow + headline + StatPill row, then ContinueStrip, then subject grid (cards now show a **ProgressRing** pct + done/total in the footer instead of the full-width bar), then Class 11 banner (quieted to 2xl border).
-- **Subject hubs / Class 11** — new SubjectHeaderStats row: chapters pill, completed pill, and a topics-count ring pill. Chapter lists now use ChapterRow with live status; Class 11 rows get a "Coming soon" badge when no content.
+- **Home** — hero eyebrow + headline + StatPill row, then ContinueStrip, then subject grid (cards now show a **ProgressRing** pct + done/total in the footer instead of the full-width bar).
+- **Subject hubs** — new SubjectHeaderStats row: chapters pill, completed pill, and a topics-count ring pill. Chapter lists now use ChapterRow with live status; rows get a "Coming soon" badge when no content.
 - **Chapter reading room** — header flattened to a card: left accent line in subject color, tinted number chip (no gradient medallion), title + subtitle, Mark complete button.
-- **Progress dashboard (/progress, new)** — masthead card with overall ring (%, 120px), StatPills (chapters done, questions revealed, flashcards known), per-subject progress rows (icon + track in subject color + done/total), Class 11 rows included, continue-learning grid. Navbar now links to it.
+- **Progress dashboard (/progress, new)** — masthead card with overall ring (%, 120px), StatPills (chapters done, questions revealed, flashcards known), per-subject progress rows (icon + track in subject color + done/total), continue-learning grid. Navbar now links to it.
 
 ### 13.4 Recent-chapters tracking
 

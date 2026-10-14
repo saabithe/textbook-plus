@@ -13,33 +13,10 @@ while ((match = slugRegex.exec(subjectsContent)) !== null) {
   slugs.push(match[1]);
 }
 
-// Read class-11 data
-const class11Path = path.join(__dirname, "..", "src", "data", "class11.ts");
-const class11Content = fs.readFileSync(class11Path, "utf-8");
-
-// Extract class-11 subject slugs
-const class11SubjectSlugs = [];
-const class11SubjectRegex = /slug:\s*"([^"]+)"/g;
-let class11Match;
-while ((class11Match = class11SubjectRegex.exec(class11Content)) !== null) {
-  class11SubjectSlugs.push(class11Match[1]);
-}
-
-// Extract class-11 chapter slugs
-const class11ChapterSlugs = [];
-const class11ChapterRegex = /slug:\s*"([^"]+)"/g;
-let class11ChapterMatch;
-while ((class11ChapterMatch = class11ChapterRegex.exec(class11Content)) !== null) {
-  class11ChapterSlugs.push(class11ChapterMatch[1]);
-}
-
 // Deduplicate precache URLs
 const precacheUrls = [...new Set([
   "/",
   ...slugs.map((s) => `/subjects/${s}`),
-  "/class-11",
-  ...class11SubjectSlugs.map((s) => `/class-11/${s}`),
-  ...class11ChapterSlugs.map((s) => `/class-11/${s}`),
   "/icon.svg",
   "/icon-192.png",
   "/icon-512.png",

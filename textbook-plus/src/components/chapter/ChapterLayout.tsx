@@ -20,12 +20,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getAdjacentChapters } from "@/data/chapters";
-import { getAdjacentClass11Chapters, getClass11ChapterBySlugFromAll } from "@/data/class11";
 import { getQuestionsForChapter, getFlashcardsForChapter, hasQuestions, hasFlashcards } from "@/lib/content";
 import { markRecentChapter } from "@/lib/recent";
 import { useProgress } from "@/hooks/useProgress";
 import type { Chapter } from "@/data/chapters";
-import type { Class11Chapter } from "@/data/class11";
 import type { Question, Flashcard } from "@/types/chapter";
 
 export interface Crumb {
@@ -33,19 +31,14 @@ export interface Crumb {
   href?: string;
 }
 
-type ChapterLike = Chapter | Class11Chapter;
-
 interface ChapterLayoutProps {
-  chapter: ChapterLike;
+  chapter: Chapter;
   subjectName: string;
   subjectSlug: string;
   subjectColor: string;
   children: React.ReactNode;
   breadcrumb?: Crumb[];
   subtitle?: string;
-  contentKey?: string;
-  prevNext?: { prev?: ChapterLike | null; next?: ChapterLike | null };
-  navBasePath?: string;
 }
 
 export function ChapterLayout({
@@ -56,23 +49,10 @@ export function ChapterLayout({
   children,
   breadcrumb,
   subtitle,
-  contentKey,
-  prevNext,
-  navBasePath,
 }: ChapterLayoutProps) {
-  const adjacent = (() => {
-    if (prevNext) return prevNext as { prev: Chapter | null; next: Chapter | null };
-    const main = getAdjacentChapters(chapter as Chapter);
-    if (main.prev || main.next) return main;
-    const class11 = getClass11ChapterBySlugFromAll(chapter.slug);
-    if (class11) {
-      const c = getAdjacentClass11Chapters(class11);
-      return { prev: c.prev as unknown as Chapter | null, next: c.next as unknown as Chapter | null };
-    }
-    return main;
-  })();
-  const registryKey = contentKey ?? chapter.slug;
-  const navBase = navBasePath ?? (getClass11ChapterBySlugFromAll(chapter.slug) ? `/class-11/${chapter.subjectSlug}` : "/chapter");
+  const adjacent = getAdjacentChapters(chapter);
+  const registryKey = chapter.slug;
+  const navBase = "/chapter";
   const { isCompleted, toggle } = useProgress(subjectSlug);
   const completed = isCompleted(chapter.slug);
   const [activeTab, setActiveTab] = useState("learning");

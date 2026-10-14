@@ -4,8 +4,7 @@ import { ContinueStrip } from "@/components/app/ContinueStrip";
 import { SectionHeading } from "@/components/app/SectionHeading";
 import { StatPill } from "@/components/app/StatPill";
 import { subjects } from "@/data/subjects";
-import Link from "next/link";
-import { GraduationCap, ChevronRight, BookOpen, Layers, Brain } from "lucide-react";
+import { BookOpen, Layers, Brain } from "lucide-react";
 
 export default function HomePage() {
   const totalChapters = subjects.reduce((n, s) => n + s.chapterCount, 0);
@@ -53,37 +52,6 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-
-          {/* Class 11 Improvement Exam tab */}
-          <Link
-            href="/class-11"
-            className="group mt-6 flex w-full items-center justify-between gap-4 rounded-2xl border border-border/70 bg-card p-5 shadow-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[var(--subject-mathematics)] hover:shadow-[0_12px_32px_-14px_var(--subject-mathematics)] sm:p-6"
-          >
-            <div className="flex items-center gap-4 sm:gap-5">
-              <div
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 sm:h-12 sm:w-12"
-                style={{
-                  background: `linear-gradient(135deg, var(--subject-mathematics), var(--subject-mathematics-light))`,
-                }}
-              >
-                <GraduationCap
-                  className="h-6 w-6 text-white"
-                  strokeWidth={2}
-                />
-              </div>
-              <div className="flex flex-col gap-0.5">
-                <h3 className="text-base font-bold tracking-tight text-foreground sm:text-lg">
-                  Class 11 Improvement Exam
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Mathematics &amp; Physics — preparational notes for the improvement exam
-                </p>
-              </div>
-            </div>
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-muted transition-all duration-300 group-hover:bg-[var(--subject-mathematics)] group-hover:text-white">
-              <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5" />
-            </span>
-          </Link>
         </section>
       </main>
     </>

@@ -114,7 +114,6 @@ A web application that converts each NCERT chapter into an **interactive learnin
 - [ ] Custom note-taking by students
 - [ ] Social features (sharing, leaderboards)
 - [ ] JEE/NEET specific content (may come in v2.0)
-- [ ] Class 11 content
 
 ---
 

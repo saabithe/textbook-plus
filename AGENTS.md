@@ -8,8 +8,7 @@ Root-level docs:
 - `Constitution/PRD.md` — full product spec, database schema, content pipeline, site map
 - `Constitution/USER_PREFERENCES.md` — design decisions; §11 content preferences, §12 content-component design system + gallery, §13 shell
 - `Pipeline/CHAPTER_PIPELINE.md` + `Pipeline/PIPELINE_{SUBJECT}.md` — content pipeline (NCERT PDF → live chapter). Per-subject files are self-contained with dynamic steps and component suggestions.
-- `PIPELINE_STATUS.md` — Class 11 Maths tracker. Manually maintained; **can drift from code** — trust registry keys in `src/lib/content.ts` and the router maps over its checkmarks.
-- `Developer_Deliveries/` — user-provided assets (gitignored): `Chapter names.md` (chapter-list source of truth), `Class 11/Maths|Physics/` (PDFs `kemh1XX.pdf`, `keph1XX/keph2XX.pdf`), `Chapters/` (working folders + images).
+- `Developer_Deliveries/` — user-provided assets (gitignored): `Chapter names.md` (chapter-list source of truth), `Chapters/` (working folders + images). Class 12 Physics PDFs are `leph1XX.pdf`.
 - `Pending/` (`plan_NNNN.md`) and `.opencode/plans/` (`plan_00NN.md`) — saved work-in-progress plans. When the user says "continue plan_NNNN.md", resume and delete when done.
 - `Archive/` — old copy of the app; ignore. `workspace/` — scratch.
 - `CLAUDE.md` — **outdated mirror of this file.** It still describes a removed `/admin` page, a `src/components/content/index.ts` barrel export, `SECTIONS_MAP`, and two-column chapter pages. Trust `AGENTS.md` and the code, not `CLAUDE.md`.
@@ -89,13 +88,11 @@ Types live in `src/types/chapter.ts`.
 
 **Practice-data registry** (`src/lib/content.ts`) — single source of truth for the Practice tab:
 - `QUESTION_KEYS` (Set) + `questionLoaders` / `flashcardLoaders` (dynamic-import Records)
-- Registry keys: bare slug for the main system (`magnetism-and-matter`), `c11/{subject}/{slug}` for Class 11 (`c11/maths/sets`)
-- `hasQuestions(key)` / `hasFlashcards(key)` take the **registry key**, not the slug. `hasChapterContent(key)` derives from QUESTION_KEYS (practice data) and drives the content badges in `components/subject/Class11ChapterList`.
-- **Known gaps (Oct 2026)**: `c11/maths/conic-sections` has content + JSON but no registry keys (content badge shows "Coming soon", Practice tab shows placeholder); `c11/maths/introduction-to-three-dimensional-geometry` is in `QUESTION_KEYS` but has no question loader, so its Practice questions load as empty. Keep keys and loaders in sync when adding practice data.
+- Registry keys: the chapter slug (e.g. `magnetism-and-matter`).
+- `hasQuestions(key)` / `hasFlashcards(key)` take the **registry key**, not the slug. Keep `QUESTION_KEYS` and the loaders in sync when adding practice data.
 
 **Content routing** — three dynamic-import maps, each wrapped in `<div className="prose-custom">`:
-- `src/app/chapter/[slug]/chapter-content.tsx` — main system (Class 12): 4 physics + 16 english + 1 biology registered
-- `src/app/class-11/[subject]/[slug]/class-11-chapter-content.tsx` — keys `"maths/{slug}"` / `"physics/{slug}"`; all 28 chapters registered
+- `src/app/chapter/[slug]/chapter-content.tsx` — main system: 4 physics + 16 english + 1 biology registered
 - `src/app/grammar/[topic]/grammar-content.tsx` and `src/app/discourses/[topic]/discourse-content.tsx`
 
 Chapters not registered show "Content coming soon...".
@@ -103,34 +100,16 @@ Chapters not registered show "Content coming soon...".
 **Adding content for a new chapter:**
 1. Create `src/content/{subject}/{slug}/page.tsx` (default-export component using content primitives)
 2. Create `questions.json` / `flashcards.json` (skip for English/Arabic — no Practice tab)
-3. Register the dynamic import in the matching router map (chapter-content.tsx / class-11-chapter-content.tsx / grammar-content.tsx / discourse-content.tsx)
-4. Add the registry key to `QUESTION_KEYS` + `questionLoaders` + `flashcardLoaders` in `src/lib/content.ts` (enables Practice tab + content badges)
+3. Register the dynamic import in the matching router map (chapter-content.tsx / grammar-content.tsx / discourse-content.tsx)
+4. Add the registry key to `QUESTION_KEYS` + `questionLoaders` + `flashcardLoaders` in `src/lib/content.ts` (enables the Practice tab)
 5. Run `node scripts/verify-latex.cjs` and `npm run build`
 
 ## Data Model
 
 - **Main system (Class 12 / Plus Two)**: `src/data/subjects.ts` (6 subjects) + `src/data/chapters.ts` (78 chapters: Physics 14, Chemistry 10, Mathematics 13, Biology 13, English 16, Arabic 12). Subject colors: CSS custom props `--subject-{name}` / `--subject-{name}-light` in `globals.css` `:root` and `.dark`. Chapter list source of truth: `Developer_Deliveries/Chapter names.md`.
-- **Class 11 Improvement Exam**: separate catalog in `src/data/class11.ts` — 2 subjects (Mathematics 14, Physics 14), distinct routers, slugs, and registry keys.
 - **Grammar / Discourses**: `src/data/grammar.ts` (6 topics) and `src/data/discourses.ts` (7 topics), routed at `/grammar/{topic}` and `/discourses/{topic}`.
 
-**Chapters with content** (63 `page.tsx` files, incl. the physics derivation sheet): Class 11 — all 14 Maths + 14 Physics; main — 4 Physics (electric-charges-and-fields, magnetism-and-matter, electromagnetic-induction, electromagnetic-waves), all 16 English, 1 Biology (molecular-basis-of-inheritance); Grammar all 6; Discourses all 7. Other chapters show placeholder UI. `PIPELINE_STATUS.md` tracks Class 11 Maths per-chapter (14/14 done) but still lists a `SECTIONS_MAP` column that no longer exists — trust the code.
-
-## Class 11 Maths — CRITICAL: Distinguish from Class 12
-
-**⚠ DO NOT CONFUSE the two systems.** They are completely separate catalogs with different chapter lists, routing, and data sources.
-
-| | Class 11 Maths | Class 12 Maths |
-|---|---|---|
-| Data source | `src/data/class11.ts` | `src/data/chapters.ts` (`mathematics`) |
-| Chapter count | 14 | 13 |
-| PDFs | `Developer_Deliveries/Class 11/Maths/kemh101–kemh114.pdf` | None provided |
-| Content dirs | `src/content/maths/{slug}/` | Same dirs (currently unused) |
-| Router | `/class-11/maths/{slug}` → keys `"maths/{slug}"` | `/chapter/{slug}` → bare slug |
-| Registry keys | `"c11/maths/{slug}"` in content.ts | Bare slug in content.ts |
-
-Class 11 chapters map 1:1 to `kemh1XX.pdf` by chapter number (no ch4/ch5 mismatch). Class 12 chapters (Relations and Functions, Inverse Trigonometric Functions, Matrices, Determinants, Continuity and Differentiability, Application of Derivatives, Integrals, Application of Integrals, Differential Equations, Vector Algebra, Three Dimensional Geometry, Linear Programming, Probability) have **no PDFs and no content yet** — never treat them as Class 11 work.
-
-**If the user asks to process "maths chapters", always clarify whether they mean Class 11 or Class 12.** Available PDFs are Class 11 only.
+**Chapters with content** (34 `page.tsx` files): main — 4 Physics (electric-charges-and-fields, magnetism-and-matter, electromagnetic-induction, electromagnetic-waves), all 16 English, 1 Biology (molecular-basis-of-inheritance); Grammar all 6; Discourses all 7. Other chapters show placeholder UI.
 
 ## Supabase (Auth + Cloud Sync)
 
@@ -146,7 +125,7 @@ Class 11 chapters map 1:1 to `kemh1XX.pdf` by chapter number (no ch4/ch5 mismatc
 - Chapter pages are **single-column — no sidebar/ToC**: `ChapterLayout` renders breadcrumb + header (number, title, mark-complete button) + content at `max-w-3xl`, with `ReadingProgress` on top and prev/next `ChapterNav` cards at the bottom. Sections are plain headings inside each page.
 - Chapter tabs (non-English/Arabic): **Learning** (JSX content) and **Practice** (questions + flashcards with sub-tabs). Practice availability comes from the `content.ts` registry keys, not the router or the JSON files' existence.
 - English pages: **Read** / **Discourses** tabs rendered inside the page by `ContentTabs` (client-side state; dispatches a `content-tab-change` event with no listener left). No Practice tab for English/Arabic. Grammar and Discourses are separate top-level sections.
-- Subject hubs in `src/components/subject/` (SubjectCard, SubjectHeaderStats, Class11ChapterList); progress dashboard `src/components/progress/ProgressDashboard` at `/progress` (navbar-linked); `src/lib/recent.ts` powers "Continue learning" (localStorage `recentChapters`, written from `ChapterLayout`).
+- Subject hubs in `src/components/subject/` (SubjectCard, SubjectHeaderStats); progress dashboard `src/components/progress/ProgressDashboard` at `/progress` (navbar-linked); `src/lib/recent.ts` powers "Continue learning" (localStorage `recentChapters`, written from `ChapterLayout`).
 - Search: `Ctrl+K` via `src/components/search/SearchModal.tsx`. Dark mode via next-themes, flash-prevention script in `layout.tsx`.
 - PWA: `manifest.ts`, `public/sw.js` (generated on build), icons, `_offline` page. Scrollbar hidden globally via CSS.
 - **There is no `/admin` page** anymore.
@@ -187,3 +166,7 @@ This is mandatory — never leave stale todos behind.
 
 - **Always push.** Commit and push after every change by default (user policy change, 11 Sep 2026).
 - **Shorthand**: `p` means commit + push.
+
+## History
+
+- A separate Class 11 "Improvement Exam" catalog (Maths + Physics; routes `/class-11/*`, registry keys `c11/*`, content under `src/content/maths/` + 14 `physics/` chapters) existed briefly and was **removed in Oct 2026 when the exam finished**. Git history preserves it — do not reintroduce it.
