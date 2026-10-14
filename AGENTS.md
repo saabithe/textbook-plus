@@ -12,6 +12,7 @@ Root-level docs:
 - `Developer_Deliveries/` — user-provided assets (gitignored): `Chapter names.md` (chapter-list source of truth), `Class 11/Maths|Physics/` (PDFs `kemh1XX.pdf`, `keph1XX/keph2XX.pdf`), `Chapters/` (working folders + images).
 - `Pending/` (`plan_NNNN.md`) and `.opencode/plans/` (`plan_00NN.md`) — saved work-in-progress plans. When the user says "continue plan_NNNN.md", resume and delete when done.
 - `Archive/` — old copy of the app; ignore. `workspace/` — scratch.
+- `CLAUDE.md` — **outdated mirror of this file.** It still describes a removed `/admin` page, a `src/components/content/index.ts` barrel export, `SECTIONS_MAP`, and two-column chapter pages. Trust `AGENTS.md` and the code, not `CLAUDE.md`.
 
 **Two-folder convention** (preference): keep raw PDF inputs in `Chapters/{Subject} Textbooks/` (e.g. `Chapters/Physics Textbooks/` holds only `leph1XX.pdf`). Keep extraction outputs in a separate subject folder `Chapters/{Subject}/` (no "Textbooks"). Per `Pipeline/CHAPTER_PIPELINE.md`, extractions live at `Chapters/{Subject}/{slug}-extracted.md`; also `-raw.md`, `-clean.md`, `pdf-page-*.png`, and `{slug}-backup/` (practice-data JSON backups) go there. Never dump extraction files into the `Textbooks/` input folder.
 
@@ -82,7 +83,7 @@ Types live in `src/types/chapter.ts`.
 
 *Top-level:* OrgChart
 
-**There is NO barrel export** — every import is a direct file path (`import { Callout } from "@/components/content/Callout"`). Do NOT reference components that don't exist: FlowDiagram, SortableTable, Kanban, NetworkDiagram, GuidedStepper, DecisionTree, RiskMatrix, ScenarioCard, PerspectiveCard, ArchitectureCard, IODiagram, EventFlow, RoadmapCard. There is no `decision/` or `system/` folder.
+**There is NO barrel export** — every import is a direct file path (`import { Callout } from "@/components/content/Callout"`). Do NOT reference components that don't exist: FlowDiagram, SortableTable, Kanban, NetworkDiagram, GuidedStepper, DecisionTree, RiskMatrix, ScenarioCard, PerspectiveCard, ArchitectureCard, IODiagram, EventFlow, RoadmapCard. The `decision/` and `system/` folders exist but are empty — treat them as having no components.
 
 **CRITICAL — LaTeX authoring rule**: All LaTeX in content files MUST be written with **single** backslashes inside **`String.raw`** templates — `latex={String.raw`\frac{a}{b}`}` and `<Formula>{String.raw`\sum x_i`}</Formula>`. Never double backslashes: JSX attributes preserve backslashes literally (doubling breaks KaTeX), and plain `{"`...`"}` template literals strip them. Never write `latex="\frac..."`. Run `node scripts/verify-latex.cjs` after any content-math change.
 
@@ -90,7 +91,7 @@ Types live in `src/types/chapter.ts`.
 - `QUESTION_KEYS` (Set) + `questionLoaders` / `flashcardLoaders` (dynamic-import Records)
 - Registry keys: bare slug for the main system (`magnetism-and-matter`), `c11/{subject}/{slug}` for Class 11 (`c11/maths/sets`)
 - `hasQuestions(key)` / `hasFlashcards(key)` take the **registry key**, not the slug. `hasChapterContent(key)` derives from QUESTION_KEYS (practice data) and drives the content badges in `components/subject/Class11ChapterList`.
-- **Known gaps (Sep 2026)**: `c11/maths/conic-sections` has content + JSON but no registry keys (Practice tab shows placeholder); `c11/maths/introduction-to-three-dimensional-geometry` has a flashcard loader but no question loader. Keep keys and loaders in sync when adding practice data.
+- **Known gaps (Oct 2026)**: `c11/maths/conic-sections` has content + JSON but no registry keys (content badge shows "Coming soon", Practice tab shows placeholder); `c11/maths/introduction-to-three-dimensional-geometry` is in `QUESTION_KEYS` but has no question loader, so its Practice questions load as empty. Keep keys and loaders in sync when adding practice data.
 
 **Content routing** — three dynamic-import maps, each wrapped in `<div className="prose-custom">`:
 - `src/app/chapter/[slug]/chapter-content.tsx` — main system (Class 12): 4 physics + 16 english + 1 biology registered
@@ -110,9 +111,9 @@ Chapters not registered show "Content coming soon...".
 
 - **Main system (Class 12 / Plus Two)**: `src/data/subjects.ts` (6 subjects) + `src/data/chapters.ts` (78 chapters: Physics 14, Chemistry 10, Mathematics 13, Biology 13, English 16, Arabic 12). Subject colors: CSS custom props `--subject-{name}` / `--subject-{name}-light` in `globals.css` `:root` and `.dark`. Chapter list source of truth: `Developer_Deliveries/Chapter names.md`.
 - **Class 11 Improvement Exam**: separate catalog in `src/data/class11.ts` — 2 subjects (Mathematics 14, Physics 14), distinct routers, slugs, and registry keys.
-- **Grammar / Discourses**: `src/data/grammar.ts` (6 topics) and `src/data/discourses.ts` (8 topics), routed at `/grammar/{topic}` and `/discourses/{topic}`.
+- **Grammar / Discourses**: `src/data/grammar.ts` (6 topics) and `src/data/discourses.ts` (7 topics), routed at `/grammar/{topic}` and `/discourses/{topic}`.
 
-**Chapters with content** (63 content pages + derivation sheet): Class 11 — all 14 Maths + 14 Physics; main — 4 Physics (electric-charges-and-fields, magnetism-and-matter, electromagnetic-induction, electromagnetic-waves), all 16 English, 1 Biology (molecular-basis-of-inheritance); Grammar all 6; Discourses all 8. Other chapters show placeholder UI. `PIPELINE_STATUS.md` tracks Class 11 Maths per-chapter (14/14 done).
+**Chapters with content** (63 `page.tsx` files, incl. the physics derivation sheet): Class 11 — all 14 Maths + 14 Physics; main — 4 Physics (electric-charges-and-fields, magnetism-and-matter, electromagnetic-induction, electromagnetic-waves), all 16 English, 1 Biology (molecular-basis-of-inheritance); Grammar all 6; Discourses all 7. Other chapters show placeholder UI. `PIPELINE_STATUS.md` tracks Class 11 Maths per-chapter (14/14 done) but still lists a `SECTIONS_MAP` column that no longer exists — trust the code.
 
 ## Class 11 Maths — CRITICAL: Distinguish from Class 12
 
