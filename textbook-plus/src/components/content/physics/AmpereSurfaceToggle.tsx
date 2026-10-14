@@ -81,7 +81,7 @@ export function AmpereSurfaceToggle() {
         </div>
         <div>
           <p className="mb-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-            Ampère's law
+            Ampère&apos;s law
           </p>
           <div className="text-sm font-semibold text-foreground">
             <Formula>{String.raw`${surface.integral}`}</Formula>
@@ -97,7 +97,7 @@ export function AmpereSurfaceToggle() {
         <span>
           ⚠️ Same loop → two different answers. The magnetic field at P is{" "}
           <strong>B ≠ 0</strong> with the flat surface, but <strong>B = 0</strong> with the pot
-          surface — Ampère's law as stated is inconsistent.
+          surface — Ampère&apos;s law as stated is inconsistent.
         </span>
       </div>
     </div>

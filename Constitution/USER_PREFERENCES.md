@@ -43,6 +43,7 @@ This file tracks ALL user preferences, design decisions, and customization choic
 | Color Theme | Light Mode | Aug 2026 |
 | Card Style | Color-coded (each subject has unique accent color) | Aug 2026 |
 | Content | Subjects only (no stats, no recent activity yet) | Aug 2026 |
+| Hero (Oct 2026) | Home-page hero removed — plain subject grid with a slim section heading. No continue-learning strip. | Oct 2026 |
 
 ### 3.1 Subject Color Assignments
 
@@ -109,6 +110,7 @@ This file tracks ALL user preferences, design decisions, and customization choic
 | App name | Textbook++ | Aug 2026 |
 | Navbar | App name (left) + Nav Links (center) + Theme Toggle (right) | Aug 2026 |
 | Spacing | Spacious — lots of whitespace, airy feel | Aug 2026 |
+| Navbar (Oct 2026) | App name + Home link + Search (Ctrl+K) · font-size stepper · theme toggle. No progress/auth/sync UI. | Oct 2026 |
 
 ## 9. Animations & Transitions
 
@@ -233,6 +235,10 @@ All new and improved content components follow this design language. The new int
 
 **Top-level concept (1):** TreeDiagram
 
+### 12.6 Oct 2026 removal
+
+The following content components were deleted as orphans (they only existed for the removed Class 11 catalog): **Maths (7)** NumberLine, FunctionGraph, VennDiagram, ArrowDiagram, UnitCircle, ArgandDiagram; **Conic (1)** ConicDiagrams; **Physics (10)** VectorFigures, ProjectileGraphs, KinematicsGraphs, MoiDiagrams, RigidBodyMotions, GravityGGraph, UniversalLawExplorer, ShmEquationAnatomy, ShmGraphs, ShmDisplacementDiagram; plus **ScientistCard** and **Derivation**. The empty `decision/` and `system/` folders, the unused `mafs` dependency, and the orphaned maths/conic/laws-of-motion images were removed too. Current inventory: **47 files** (see AGENTS.md, the live source of truth).
+
 *This file is append-only. Previous decisions are never deleted, only updated with new values when explicitly changed by the user.*
 
 ### 13.1 V3 "Quiet Precision" Shell Design (Sep 2026)
@@ -270,3 +276,9 @@ Reusable shell components (no barrel export; direct imports):
 ### 13.4 Recent-chapters tracking
 
 src/lib/recent.ts — markRecentChapter() called from ChapterLayout on mount (writes ecentChapters in localStorage, dedupes by href, caps at 6). Powers Home + /progress "Continue learning". Persisted locally only (not synced).
+
+### 13.5 Oct 2026 — Progress system removed, ReadingProgress upgraded
+
+The entire progress/auth/cloud-sync layer was removed: home hero + ContinueStrip, the `/progress` dashboard, the navbar Progress link + sync/auth menus, the chapter mark-complete button, and the `ProgressRing` / `StatPill` / `ContinueCard` / `ContinueStrip` / `SubjectHeaderStats` / `SubjectCardProgress` primitives (plus `useProgress`, `useSync`, `lib/recent.ts`, and the Supabase providers/auth pages/middleware/migrations). Home is now a plain subject grid; subject hubs are header + `ChapterList`; chapter headers have no mark-complete; `ChapterRow` dropped its status badge; Practice is now session-only.
+
+`ReadingProgress` was rewritten: a 3px bar pinned under the sticky navbar (`top: 64px`) that fills via a subject-color `transform: scaleX(...)` gradient with a leading-edge glow, plus a floating `NN%` chip (bottom-right) that doubles as a back-to-top button. Honors `prefers-reduced-motion`.

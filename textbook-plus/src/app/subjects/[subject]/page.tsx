@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { ChapterList } from "@/components/subject/ChapterList";
-import { SubjectHeaderStats } from "@/components/subject/SubjectHeaderStats";
 import { getSubjectBySlug, subjects } from "@/data/subjects";
 
 export function generateStaticParams() {
@@ -56,11 +55,6 @@ export default async function SubjectPage({ params }: Props) {
                 {subject.description}
               </p>
             </div>
-          </div>
-
-          {/* Metrics */}
-          <div className="mb-6">
-            <SubjectHeaderStats subjectSlug={subject.slug} subjectColor={subject.color} />
           </div>
 
           {slug === "english" && (

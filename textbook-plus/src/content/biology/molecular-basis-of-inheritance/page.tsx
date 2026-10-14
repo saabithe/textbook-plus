@@ -914,7 +914,7 @@ export default function MolecularBasisOfInheritanceChapter() {
 
       <h2 id="h-5-11">5.11 Key Scientists of This Chapter</h2>
       <p className="text-sm text-muted-foreground">
-        This chapter traces a chain of discoveries. Read it in order — each scientist's contribution only makes sense after the one before.
+        This chapter traces a chain of discoveries. Read it in order — each scientist&apos;s contribution only makes sense after the one before.
       </p>
       <Timeline
         title="Who did what, and when"

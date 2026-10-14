@@ -3,43 +3,23 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
-import { Sun, Moon, Home, LineChart, Search, Cloud, CloudOff, LogIn, LogOut, User, Settings } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Sun, Moon, Home, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import { useFontSize } from "@/hooks/useFontSize";
-import { useSync } from "@/components/auth/SyncProvider";
-import { useAuth } from "@/components/auth/AuthProvider";
 import { SearchModal } from "@/components/search/SearchModal";
 import { Button } from "@/components/ui/button";
-import { Spinner } from "@/components/ui/spinner";
 import { Kbd } from "@/components/ui/kbd";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-} from "@/components/ui/tooltip";
 
 const navLinks = [
   { href: "/", label: "Home", icon: Home },
-  { href: "/progress", label: "Progress", icon: LineChart },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
   const { theme, toggle } = useTheme();
   const { decrease, increase, canDecrease, canIncrease } = useFontSize();
-  const { status } = useSync();
-  const { user, isAnonymous, supabase } = useAuth();
   const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
@@ -52,22 +32,6 @@ export function Navbar() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
-
-  async function handleSignOut() {
-    try {
-      await supabase.auth.signOut();
-    } catch {}
-    router.push("/");
-  }
-
-  const syncLabel =
-    status === "syncing"
-      ? "Syncing progress..."
-      : status === "error"
-      ? "Sync failed — will retry"
-      : status === "offline"
-      ? "Offline — changes saved locally"
-      : "Progress synced";
 
   return (
     <>
@@ -91,10 +55,7 @@ export function Navbar() {
           {/* Nav Links — Center */}
           <nav className="flex items-center gap-0.5 sm:gap-1">
             {navLinks.map((link) => {
-              const isActive =
-                link.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(link.href);
+              const isActive = pathname === link.href;
               const Icon = link.icon;
               return (
                 <Link
@@ -152,75 +113,6 @@ export function Navbar() {
                 A+
               </Button>
             </div>
-
-            {/* Sync Status */}
-            <Tooltip>
-              <TooltipTrigger
-                render={
-                  <div
-                    className={cn(
-                      "hidden h-9 w-9 items-center justify-center rounded-lg border border-border/60 bg-muted/50 transition-all duration-200 sm:flex",
-                      status === "syncing" && "text-blue-500",
-                      status === "error" && "text-amber-500",
-                      status === "idle" && "text-muted-foreground",
-                      status === "offline" && "text-muted-foreground"
-                    )}
-                  />
-                }
-              >
-                {status === "syncing" ? (
-                  <Spinner className="h-4 w-4" />
-                ) : status === "error" ? (
-                  <CloudOff className="h-4 w-4" />
-                ) : (
-                  <Cloud className="h-4 w-4" />
-                )}
-              </TooltipTrigger>
-              <TooltipContent>{syncLabel}</TooltipContent>
-            </Tooltip>
-
-            {/* Auth Menu */}
-            {isAnonymous || !user ? (
-              <Button
-                variant="outline"
-                size="icon-lg"
-                render={<Link href="/login" />}
-                className="rounded-full border-border/60 bg-muted/50 px-0 text-muted-foreground hover:text-foreground sm:w-auto sm:px-3"
-              >
-                <LogIn className="h-4 w-4" />
-                <span className="hidden sm:inline">Sign In</span>
-              </Button>
-            ) : (
-              <DropdownMenu>
-                <DropdownMenuTrigger
-                  render={
-                    <Button
-                      variant="outline"
-                      size="icon-lg"
-                      aria-label="Account menu"
-                      className="border-border/60 bg-muted/50 px-0 text-muted-foreground hover:text-foreground sm:w-auto sm:px-3"
-                    />
-                  }
-                >
-                  <User className="h-4 w-4" />
-                  <span className="hidden sm:inline max-w-[100px] truncate">{user.email}</span>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-48">
-                  <DropdownMenuLabel className="truncate">
-                    {user.email}
-                  </DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem render={<Link href="/account" />}>
-                    <Settings className="h-4 w-4" />
-                    Account
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleSignOut}>
-                    <LogOut className="h-4 w-4" />
-                    Sign Out
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            )}
 
             {/* Theme Toggle */}
             <Button

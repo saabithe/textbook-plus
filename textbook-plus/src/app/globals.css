@@ -2,8 +2,6 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "katex/dist/katex.min.css";
-@import "mafs/core.css";
-@import "mafs/font.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -265,19 +263,6 @@ html {
 
 *::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--muted-foreground) / 0.4);
-}
-
-/* Mafs theme — follow app light/dark, transparent canvas */
-.MafsView {
-  --mafs-bg: transparent;
-  --mafs-fg: var(--foreground);
-  --mafs-line-color: #d4d4d8;
-  --grid-line-subdivision-color: #ececee;
-}
-
-.dark .MafsView {
-  --mafs-line-color: #3f3f46;
-  --grid-line-subdivision-color: #27272a;
 }
 
 /* Reduced motion: honor user preference for transitions/animations */

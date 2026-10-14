@@ -1,11 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Source_Serif_4 } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
-import { AuthProvider } from "@/components/auth/AuthProvider";
-import { SyncProvider } from "@/components/auth/SyncProvider";
-import { MigrateBanner } from "@/components/auth/MigrateBanner";
 import { ErrorBoundary } from "@/components/auth/ErrorBoundary";
 import { ServiceWorkerRegistration } from "@/components/layout/ServiceWorkerRegistration";
 import { UpdateBanner } from "@/components/layout/UpdateBanner";
@@ -80,19 +76,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full flex flex-col font-sans">
         <ThemeProvider>
-          <TooltipProvider>
-            <AuthProvider>
-              <SyncProvider>
-                <MigrateBanner />
-                <ServiceWorkerRegistration />
-                <UpdateBanner />
-                <ErrorBoundary>
-                  {children}
-                </ErrorBoundary>
-                <Toaster position="bottom-center" richColors closeButton />
-              </SyncProvider>
-            </AuthProvider>
-          </TooltipProvider>
+          <ServiceWorkerRegistration />
+          <UpdateBanner />
+          <ErrorBoundary>
+            {children}
+          </ErrorBoundary>
+          <Toaster position="bottom-center" richColors closeButton />
         </ThemeProvider>
       </body>
     </html>

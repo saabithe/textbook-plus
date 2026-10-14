@@ -6,6 +6,14 @@
 **Date**: August 2026
 **Status**: Draft
 
+**Implementation status (Oct 2026)** — this PRD captures the original vision and is partly aspirational. The shipped app differs materially:
+- Content is **TSX `page.tsx` components**, not MDX. Math is **KaTeX via a `Formula` component** (no rehype-katex); diagrams are **inline SVG React components** (no Mermaid).
+- Flashcards are a simple session deck (no SM-2 spaced repetition). **Practice (questions + flashcards) is session-only** — nothing is persisted.
+- The **auth + progress/cloud-sync system was removed**. There is no Supabase Auth, no `/progress` dashboard, and no cross-device persistence. So §5.4 (Progress Tracking) and §5.5 (Authentication) and the Supabase rows in §7 are **not implemented**; the remote Supabase tables may still exist but the app no longer talks to them.
+- The home-page hero was removed; the app is a plain subject grid.
+
+See `AGENTS.md` for the current architecture.
+
 ---
 
 ## 1. Product Overview
@@ -442,9 +450,9 @@ Before publishing any chapter, verify:
 | Content | MDX (@next/mdx) | Markdown + React components |
 | Math | KaTeX (rehype-katex) | Mathematical formula rendering |
 | Diagrams | Mermaid.js | Text-based diagram rendering |
-| Auth | Supabase Auth | Email/password + OAuth |
-| Database | Supabase (PostgreSQL) | Progress storage, user data |
-| ORM | Supabase JS SDK | Database queries |
+| Auth | — (removed Oct 2026) | Supabase Auth was built, then removed |
+| Database | — (removed Oct 2026) | Supabase progress storage was built, then removed |
+| ORM | — (removed Oct 2026) | Supabase JS SDK was built, then removed |
 | Hosting | Vercel | Frontend deployment |
 | PDF Conversion | Marker (Python) | Offline content pipeline |
 

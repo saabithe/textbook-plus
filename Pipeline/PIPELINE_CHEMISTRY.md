@@ -128,4 +128,4 @@ Practice content is **dynamic** — AI decides per chapter, user approves.
 - AI suggests adding practice content after learning content is complete
 - User approves whether to add practice for each chapter
 - Not every chapter needs practice — only when it genuinely helps learning
-- Keep file format (questions.json + flashcards.json) — migrate to Supabase when backend is activated
+- Keep file format (questions.json + flashcards.json) — a shared backend may be added later

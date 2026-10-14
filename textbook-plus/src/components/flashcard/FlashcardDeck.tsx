@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import type { CSSProperties } from "react";
 import { ChevronLeft, ChevronRight, RotateCcw, Trophy } from "lucide-react";
 import { FlashcardCard } from "./FlashcardCard";
@@ -13,24 +13,15 @@ import type { Flashcard } from "@/types/chapter";
 interface FlashcardDeckProps {
   cards: Flashcard[];
   subjectColor: string;
-  initialKnown?: string[];
-  initialUnknown?: string[];
-  onProgressUpdate?: (known: string[], unknown: string[]) => void;
 }
 
-export function FlashcardDeck({ cards, subjectColor, initialKnown = [], initialUnknown = [], onProgressUpdate }: FlashcardDeckProps) {
+export function FlashcardDeck({ cards, subjectColor }: FlashcardDeckProps) {
   const [current, setCurrent] = useState(0);
-  const [knownIds, setKnownIds] = useState<Set<string>>(() => new Set(initialKnown));
-  const [unknownIds, setUnknownIds] = useState<Set<string>>(() => new Set(initialUnknown));
+  // Session-only: which cards have been marked known/unknown in this visit.
+  const [knownIds, setKnownIds] = useState<Set<string>>(() => new Set());
+  const [unknownIds, setUnknownIds] = useState<Set<string>>(() => new Set());
 
   const card = cards[current];
-
-  const notify = useCallback(
-    (k: Set<string>, u: Set<string>) => {
-      onProgressUpdate?.([...k], [...u]);
-    },
-    [onProgressUpdate]
-  );
 
   function handleKnown() {
     const nextKnown = new Set(knownIds);
@@ -39,7 +30,6 @@ export function FlashcardDeck({ cards, subjectColor, initialKnown = [], initialU
     nextUnknown.delete(card.id);
     setKnownIds(nextKnown);
     setUnknownIds(nextUnknown);
-    notify(nextKnown, nextUnknown);
     goNext();
   }
 
@@ -50,7 +40,6 @@ export function FlashcardDeck({ cards, subjectColor, initialKnown = [], initialU
     nextKnown.delete(card.id);
     setUnknownIds(nextUnknown);
     setKnownIds(nextKnown);
-    notify(nextKnown, nextUnknown);
     goNext();
   }
 
@@ -66,7 +55,6 @@ export function FlashcardDeck({ cards, subjectColor, initialKnown = [], initialU
     setCurrent(0);
     setKnownIds(new Set());
     setUnknownIds(new Set());
-    notify(new Set(), new Set());
   }
 
   if (cards.length === 0) {

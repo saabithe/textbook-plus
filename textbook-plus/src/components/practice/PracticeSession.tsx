@@ -12,16 +12,16 @@ import type { Question } from "@/types/chapter";
 interface PracticeSessionProps {
   questions: Question[];
   subjectColor: string;
-  revealedIds?: string[];
-  onQuestionRevealed?: (questionId: string) => void;
 }
 
 type Difficulty = "all" | "easy" | "medium" | "hard";
 
-export function PracticeSession({ questions, subjectColor, revealedIds = [], onQuestionRevealed }: PracticeSessionProps) {
+export function PracticeSession({ questions, subjectColor }: PracticeSessionProps) {
   const [difficulty, setDifficulty] = useState<Difficulty>("all");
   const [current, setCurrent] = useState(0);
   const [showList, setShowList] = useState(false);
+  // Session-only: which questions have been revealed in this visit.
+  const [revealedIds, setRevealedIds] = useState<string[]>([]);
 
   const filtered = useMemo(() => {
     if (difficulty === "all") return questions;
@@ -166,7 +166,9 @@ export function PracticeSession({ questions, subjectColor, revealedIds = [], onQ
           index={current + 1}
           subjectColor={subjectColor}
           isRevealed={revealedIds.includes(question.id)}
-          onReveal={() => onQuestionRevealed?.(question.id)}
+          onReveal={() =>
+            setRevealedIds((p) => (p.includes(question.id) ? p : [...p, question.id]))
+          }
         />
       )}
 

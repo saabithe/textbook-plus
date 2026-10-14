@@ -8,9 +8,8 @@ Root-level docs:
 - `Constitution/PRD.md` — full product spec, database schema, content pipeline, site map
 - `Constitution/USER_PREFERENCES.md` — design decisions; §11 content preferences, §12 content-component design system + gallery, §13 shell
 - `Pipeline/CHAPTER_PIPELINE.md` + `Pipeline/PIPELINE_{SUBJECT}.md` — content pipeline (NCERT PDF → live chapter). Per-subject files are self-contained with dynamic steps and component suggestions.
-- `Developer_Deliveries/` — user-provided assets (gitignored): `Chapter names.md` (chapter-list source of truth), `Chapters/` (working folders + images). Class 12 Physics PDFs are `leph1XX.pdf`.
+- `Developer_Deliveries/` — user-provided assets (gitignored): `Chapter names.md` (chapter-list source of truth), `Chapters/{Subject} Textbooks/` (source PDF inputs, e.g. Class 12 Physics `leph1XX.pdf`), and `Images/` (source figures). Derived extraction outputs (`*-raw.md`, `*-extracted.md`, `pdf-page-*.png`, `{slug}-backup/`) are working files and are periodically cleaned.
 - `Pending/` (`plan_NNNN.md`) and `.opencode/plans/` (`plan_00NN.md`) — saved work-in-progress plans. When the user says "continue plan_NNNN.md", resume and delete when done.
-- `Archive/` — old copy of the app; ignore. `workspace/` — scratch.
 - `CLAUDE.md` — **outdated mirror of this file.** It still describes a removed `/admin` page, a `src/components/content/index.ts` barrel export, `SECTIONS_MAP`, and two-column chapter pages. Trust `AGENTS.md` and the code, not `CLAUDE.md`.
 
 **Two-folder convention** (preference): keep raw PDF inputs in `Chapters/{Subject} Textbooks/` (e.g. `Chapters/Physics Textbooks/` holds only `leph1XX.pdf`). Keep extraction outputs in a separate subject folder `Chapters/{Subject}/` (no "Textbooks"). Per `Pipeline/CHAPTER_PIPELINE.md`, extractions live at `Chapters/{Subject}/{slug}-extracted.md`; also `-raw.md`, `-clean.md`, `pdf-page-*.png`, and `{slug}-backup/` (practice-data JSON backups) go there. Never dump extraction files into the `Textbooks/` input folder.
@@ -42,7 +41,7 @@ No test framework. No typecheck script (TypeScript errors surface via `npm run b
 - **shadcn/ui** — style `base-nova`, uses `@base-ui/react` (not Radix). Add via `npx shadcn@latest add <component>`
 - **TypeScript strict** with `@/*` → `./src/*`
 - **Fonts**: Plus Jakarta Sans for UI via `next/font/google` → `--font-sans`; notes content (`.prose-custom`) renders in **Source Serif 4** (`--font-serif`, 1.125rem / weight 500) — app shell stays Jakarta. Inline math uses `.prose-custom .formula-inline` (scroll-safe wrapper keeping KaTeX on the text baseline).
-- **Lucide React** for icons; **KaTeX** for math (`katex`, imported via `@/components/content/Formula`); **Supabase** for auth + cloud sync (`@supabase/ssr`)
+- **Lucide React** for icons; **KaTeX** for math (`katex`, imported via `@/components/content/Formula`)
 
 ## Content System (JSX)
 
@@ -60,29 +59,25 @@ Types live in `src/types/chapter.ts`.
 
 **English chapter-text.md**: cleaned, readable version of the textbook pages at `src/content/english/{slug}/chapter-text.md` — complete chapter text (story/poem/speech/play) + About the Author + Read and Respond questions. Single source of truth for authoring `page.tsx`. No OCR artifacts, interleaved activities, or supplementary readings.
 
-**Custom content components** (`src/components/content/`, 66 files; canonical inventory in `Constitution/USER_PREFERENCES.md` §12):
+**Custom content components** (`src/components/content/`, 47 files; canonical inventory in `Constitution/USER_PREFERENCES.md` §12):
 
 *Core:* Callout, Example, KeyPoint, Comparison, Expandable, Formula (exports `Formula` + `FormulaBlock`), FormulaCard, ProblemSolution, SolvedProblem, ExerciseQa, SpeedTricks, Stepper, Highlight
 
 *Data:* TableCard, Checklist
 
-*Process:* ProcessCard, Timeline, CycleDiagram, EquationLadder, RevealAnswer, ProblemInsightSolutionCard, Derivation
+*Process:* ProcessCard, Timeline, CycleDiagram, EquationLadder, RevealAnswer, ProblemInsightSolutionCard
 
-*Concept:* FactCard, ConceptCard, ScientistCard, TreeDiagram
+*Concept:* FactCard, ConceptCard, TreeDiagram
 
 *Study:* MetricCard, MistakeCard
 
 *English/Arabic:* AuthorCard, CharacterSketch, CharacterComparison, ContentTabs, CollapsibleSection, SummaryLevels, ReadRespond
 
-*Physics:* SpectrumExplorer, SpectrumTable, OscillationPlayer, PropagationExplorer, AmpereSurfaceToggle, ChargeFateTrio, TransverseLongitudinal, FormulaAnatomy, SpeedLayers, FieldRatio, VectorFigures, ProjectileGraphs, KinematicsGraphs, DisplacementExplorer, WaveTypesPanels, WaveAnatomyDiagram, MoiDiagrams, RigidBodyMotions, GravityGGraph, UniversalLawExplorer, ShmEquationAnatomy, ShmGraphs, ShmDisplacementDiagram
-
-*Maths:* NumberLine, FunctionGraph, VennDiagram, ArrowDiagram, UnitCircle, ArgandDiagram
-
-*Conic:* ConicDiagrams
+*Physics:* SpectrumExplorer, SpectrumTable, OscillationPlayer, PropagationExplorer, AmpereSurfaceToggle, ChargeFateTrio, TransverseLongitudinal, FormulaAnatomy, SpeedLayers, FieldRatio, DisplacementExplorer, WaveTypesPanels, WaveAnatomyDiagram
 
 *Top-level:* OrgChart
 
-**There is NO barrel export** — every import is a direct file path (`import { Callout } from "@/components/content/Callout"`). Do NOT reference components that don't exist: FlowDiagram, SortableTable, Kanban, NetworkDiagram, GuidedStepper, DecisionTree, RiskMatrix, ScenarioCard, PerspectiveCard, ArchitectureCard, IODiagram, EventFlow, RoadmapCard. The `decision/` and `system/` folders exist but are empty — treat them as having no components.
+**There is NO barrel export** — every import is a direct file path (`import { Callout } from "@/components/content/Callout"`). Do NOT reference components that don't exist: FlowDiagram, SortableTable, Kanban, NetworkDiagram, GuidedStepper, DecisionTree, RiskMatrix, ScenarioCard, PerspectiveCard, ArchitectureCard, IODiagram, EventFlow, RoadmapCard. (The Class 11 maths/conic/SHM diagram components were removed in Oct 2026 — see History.)
 
 **CRITICAL — LaTeX authoring rule**: All LaTeX in content files MUST be written with **single** backslashes inside **`String.raw`** templates — `latex={String.raw`\frac{a}{b}`}` and `<Formula>{String.raw`\sum x_i`}</Formula>`. Never double backslashes: JSX attributes preserve backslashes literally (doubling breaks KaTeX), and plain `{"`...`"}` template literals strip them. Never write `latex="\frac..."`. Run `node scripts/verify-latex.cjs` after any content-math change.
 
@@ -111,21 +106,16 @@ Chapters not registered show "Content coming soon...".
 
 **Chapters with content** (34 `page.tsx` files): main — 4 Physics (electric-charges-and-fields, magnetism-and-matter, electromagnetic-induction, electromagnetic-waves), all 16 English, 1 Biology (molecular-basis-of-inheritance); Grammar all 6; Discourses all 7. Other chapters show placeholder UI.
 
-## Supabase (Auth + Cloud Sync)
+## Auth, Progress & Sync (removed Oct 2026)
 
-- **Auth**: Anonymous sign-in on first visit. Email/password signup, login, password reset.
-- **Cloud progress**: Progress synced to Supabase PostgreSQL; localStorage (`progress:{subject}`, `practice:{subject}`) is the offline fallback. Writes queue offline and flush on reconnect (`SyncProvider`).
-- **Middleware**: `src/middleware.ts` refreshes Supabase sessions on every request (also `src/lib/supabase/middleware.ts`).
-- **Env vars** (in `textbook-plus/.env.local`, gitignored): `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` — real values configured.
-- **Auth pages**: `/login`, `/signup`, `/reset-password`, `/update-password`, `/account`, `/auth/callback`, `/auth/auth-code-error`
-- **Providers**: `AuthProvider` (auth state) → `SyncProvider` (cloud sync) → `MigrateBanner` (anonymous→account prompt). `useProgress` (`src/hooks/useProgress.ts`) reads cloud-first, falls back to localStorage.
+There is **no auth, no cloud sync, and no progress persistence**. The former Supabase-based `AuthProvider` → `SyncProvider` → `MigrateBanner` stack, `useProgress` / `useSync` hooks, the `/progress` dashboard, the `/login`, `/signup`, `/reset-password`, `/update-password`, `/account`, `/auth/*` routes, `src/middleware.ts`, `src/lib/supabase/`, `src/lib/recent.ts`, and the `supabase/` migrations were all deleted. The features were intentionally dropped as a maintenance burden and may be revisited later. Practice (questions + flashcards) is now **session-only** — no data leaves the browser. The remote Supabase project/tables were left untouched.
 
 ## Key Architecture
 
-- Chapter pages are **single-column — no sidebar/ToC**: `ChapterLayout` renders breadcrumb + header (number, title, mark-complete button) + content at `max-w-3xl`, with `ReadingProgress` on top and prev/next `ChapterNav` cards at the bottom. Sections are plain headings inside each page.
-- Chapter tabs (non-English/Arabic): **Learning** (JSX content) and **Practice** (questions + flashcards with sub-tabs). Practice availability comes from the `content.ts` registry keys, not the router or the JSON files' existence.
+- Chapter pages are **single-column — no sidebar/ToC**: `ChapterLayout` renders breadcrumb + header (number, title) + content at `max-w-3xl`, with `ReadingProgress` on top and prev/next `ChapterNav` cards at the bottom. Sections are plain headings inside each page.
+- Chapter tabs (non-English/Arabic): **Learning** (JSX content) and **Practice** (questions + flashcards with sub-tabs). Practice availability comes from the `content.ts` registry keys, not the router or the JSON files' existence. Practice state (revealed questions, known cards) is per-session only.
 - English pages: **Read** / **Discourses** tabs rendered inside the page by `ContentTabs` (client-side state; dispatches a `content-tab-change` event with no listener left). No Practice tab for English/Arabic. Grammar and Discourses are separate top-level sections.
-- Subject hubs in `src/components/subject/` (SubjectCard, SubjectHeaderStats); progress dashboard `src/components/progress/ProgressDashboard` at `/progress` (navbar-linked); `src/lib/recent.ts` powers "Continue learning" (localStorage `recentChapters`, written from `ChapterLayout`).
+- Subject hubs in `src/components/subject/` (`SubjectCard`, `ChapterList`); home page is a plain subject grid (no hero, no continue-learning strip).
 - Search: `Ctrl+K` via `src/components/search/SearchModal.tsx`. Dark mode via next-themes, flash-prevention script in `layout.tsx`.
 - PWA: `manifest.ts`, `public/sw.js` (generated on build), icons, `_offline` page. Scrollbar hidden globally via CSS.
 - **There is no `/admin` page** anymore.
@@ -134,7 +124,7 @@ Chapters not registered show "Content coming soon...".
 
 - UI language: English only
 - Cards use CSS custom property shadows/borders via inline `style` (see `SubjectCard.tsx`); `cn()` utility from `src/lib/utils.ts` (clsx + tailwind-merge)
-- Pages align to `max-w-6xl` (matching navbar width); nav: Home `/`, Progress `/progress`, Search `Ctrl+K`
+- Pages align to `max-w-6xl` (matching navbar width); nav: Home `/`, Search `Ctrl+K`
 - Chapter content uses `.prose-custom` class for typography (defined in `globals.css`)
 
 ### Content Preferences (see `Constitution/USER_PREFERENCES.md` §11)
@@ -149,7 +139,7 @@ Chapters not registered show "Content coming soon...".
 - **Never cram multiple formulas into one line or list item.** Give each formula its own row (`<li>` or `TableCard` row), then relate them with short sentences. "Period/frequency: T=1/ν, ω=2πν, v=…" style one-liners are forbidden.
 - **Exercise/Question banks (incl. PYQs) use the `ExerciseQa` component** inside an `Expandable` — numbered rows with an emerald answer panel, not hand-rolled `<ol>`/answer paragraphs. This styling is chapter-agnostic and must be used everywhere.
 - **No repeat content.** Don't re-state in one place what is already covered in the chapter (recap boxes, duplicate facts, re-derived formulas) unless it is a genuinely new angle.
-- **Diagrams on demand.** Whenever a question/situation demands a visual (e.g. "shown in the figure" PYQs, types of vectors, projectile paths), create an inline SVG diagram component (like `VectorFigures.tsx`) rather than describing shapes in words.
+- **Diagrams on demand.** Whenever a question/situation demands a visual (e.g. "shown in the figure" PYQs, wave anatomy), create an inline SVG diagram component (like `WaveAnatomyDiagram.tsx`) rather than describing shapes in words.
 - **Emphasis convention.** `<Highlight>` (yellow default) for definitions, laws, must-memorize results — max ~1–3 per section, never whole paragraphs. `<strong>` (bold) for key terms on first introduction. `KeyPoint`/`Callout` for laws and exam traps (already the pattern). Applies to all chapters, all subjects.
 
 ## Todo Rule
@@ -170,3 +160,4 @@ This is mandatory — never leave stale todos behind.
 ## History
 
 - A separate Class 11 "Improvement Exam" catalog (Maths + Physics; routes `/class-11/*`, registry keys `c11/*`, content under `src/content/maths/` + 14 `physics/` chapters) existed briefly and was **removed in Oct 2026 when the exam finished**. Git history preserves it — do not reintroduce it.
+- Also in Oct 2026: the Supabase auth/cloud-sync stack and the entire progress system (progress dashboard, mark-complete, continue-learning, recent-chapters) were **removed**, and the home-page hero was dropped — see "Auth, Progress & Sync" above. The orphaned Class 11 content components (maths/conic/SHM/vector diagrams, `ScientistCard`, `Derivation`) and their images were deleted along with the `mafs` dependency.

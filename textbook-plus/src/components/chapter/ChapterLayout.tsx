@@ -2,7 +2,7 @@
 
 import { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
-import { CheckCircle2, Circle, Brain, Layers } from "lucide-react";
+import { Brain, Layers } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ChapterNav } from "./ChapterNav";
 import { ChapterTabs, PracticePlaceholder } from "./ChapterTabs";
@@ -21,8 +21,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getAdjacentChapters } from "@/data/chapters";
 import { getQuestionsForChapter, getFlashcardsForChapter, hasQuestions, hasFlashcards } from "@/lib/content";
-import { markRecentChapter } from "@/lib/recent";
-import { useProgress } from "@/hooks/useProgress";
 import type { Chapter } from "@/data/chapters";
 import type { Question, Flashcard } from "@/types/chapter";
 
@@ -53,8 +51,6 @@ export function ChapterLayout({
   const adjacent = getAdjacentChapters(chapter);
   const registryKey = chapter.slug;
   const navBase = "/chapter";
-  const { isCompleted, toggle } = useProgress(subjectSlug);
-  const completed = isCompleted(chapter.slug);
   const [activeTab, setActiveTab] = useState("learning");
   const showPractice = subjectSlug !== "english" && subjectSlug !== "arabic";
 
@@ -63,17 +59,6 @@ export function ChapterLayout({
     { label: subjectName, href: `/subjects/${subjectSlug}` },
     { label: chapter.title },
   ];
-
-  useEffect(() => {
-    markRecentChapter({
-      slug: chapter.slug,
-      title: chapter.title,
-      subjectSlug,
-      subjectName,
-      subjectColor,
-      href: `${navBase}/${chapter.slug}`,
-    });
-  }, [chapter.slug, chapter.title, subjectSlug, subjectName, subjectColor, navBase]);
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
@@ -104,42 +89,20 @@ export function ChapterLayout({
           className="absolute inset-y-0 left-0 w-1"
           style={{ background: `linear-gradient(180deg, ${subjectColor}, ${subjectColor}55)` }}
         />
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex items-center gap-4 pl-1.5">
-            <span
-              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-base font-extrabold sm:h-12 sm:w-12 sm:text-lg"
-              style={{ backgroundColor: `${subjectColor}15`, color: subjectColor }}
-            >
-              {chapter.number}
-            </span>
-            <div className="space-y-1">
-              <h1 className="text-2xl font-extrabold tracking-tight sm:text-4xl">
-                {chapter.title}
-              </h1>
-              <p className="text-sm font-semibold text-muted-foreground">
-                {subtitle ?? `${chapter.topicCount} topics`}
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 shrink-0">
-            {/* Mark complete button */}
-            <Button
-              variant={completed ? "default" : "outline"}
-              onClick={() => toggle(chapter.slug)}
-              className={cn(
-                "h-9 rounded-full px-3 sm:px-4",
-                !completed && "bg-muted/50 text-muted-foreground hover:text-foreground"
-              )}
-            >
-              {completed ? (
-                <CheckCircle2 className="h-4 w-4" />
-              ) : (
-                <Circle className="h-4 w-4" />
-              )}
-              <span className="hidden sm:inline">
-                {completed ? "Completed" : "Mark complete"}
-              </span>
-            </Button>
+        <div className="flex items-center gap-4 pl-1.5">
+          <span
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-base font-extrabold sm:h-12 sm:w-12 sm:text-lg"
+            style={{ backgroundColor: `${subjectColor}15`, color: subjectColor }}
+          >
+            {chapter.number}
+          </span>
+          <div className="space-y-1">
+            <h1 className="text-2xl font-extrabold tracking-tight sm:text-4xl">
+              {chapter.title}
+            </h1>
+            <p className="text-sm font-semibold text-muted-foreground">
+              {subtitle ?? `${chapter.topicCount} topics`}
+            </p>
           </div>
         </div>
       </header>
@@ -164,9 +127,7 @@ export function ChapterLayout({
         /* Practice tab */
         <div className="mx-auto max-w-3xl">
           <PracticeTabContent
-            chapterSlug={chapter.slug}
             registryKey={registryKey}
-            subjectSlug={subjectSlug}
             subjectColor={subjectColor}
           />
 
@@ -178,23 +139,17 @@ export function ChapterLayout({
 }
 
 function PracticeTabContent({
-  chapterSlug,
   registryKey,
-  subjectSlug,
   subjectColor,
 }: {
-  chapterSlug: string;
   registryKey: string;
-  subjectSlug: string;
   subjectColor: string;
 }) {
-  const { getChapterPractice, updateFlashcardProgress, markQuestionRevealed } = useProgress(subjectSlug);
   const hasQ = hasQuestions(registryKey);
   const hasFC = hasFlashcards(registryKey);
   const [subTab, setSubTab] = useState<"questions" | "flashcards">(hasQ ? "questions" : "flashcards");
   const [questions, setQuestions] = useState<Question[]>([]);
   const [flashcards, setFlashcards] = useState<Flashcard[]>([]);
-  const practice = getChapterPractice(chapterSlug);
 
   useEffect(() => {
     let cancelled = false;
@@ -256,17 +211,12 @@ function PracticeTabContent({
         <PracticeSession
           questions={questions}
           subjectColor={subjectColor}
-          revealedIds={practice.questionsRevealed}
-          onQuestionRevealed={(id) => markQuestionRevealed(chapterSlug, id)}
         />
       )}
       {subTab === "flashcards" && hasFC && (
         <FlashcardDeck
           cards={flashcards}
           subjectColor={subjectColor}
-          initialKnown={practice.flashcardsKnown}
-          initialUnknown={practice.flashcardsUnknown}
-          onProgressUpdate={(known, unknown) => updateFlashcardProgress(chapterSlug, known, unknown)}
         />
       )}
       {subTab === "questions" && !hasQ && (
