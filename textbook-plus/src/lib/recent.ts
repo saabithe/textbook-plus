@@ -11,11 +11,20 @@ export interface RecentChapter {
 const KEY = "recentChapters";
 const MAX = 6;
 
+// Retired catalogs whose stored entries must never render again (e.g. the
+// Class 11 Improvement Exam, removed Oct 2026). Their pages now 404.
+const RETIRED_HREF_PREFIXES = ["/class-11"];
+
+function isRetired(href: string): boolean {
+  return RETIRED_HREF_PREFIXES.some((prefix) => href.startsWith(prefix));
+}
+
 function read(): RecentChapter[] {
   if (typeof window === "undefined") return [];
   try {
     const raw = window.localStorage.getItem(KEY);
-    return raw ? (JSON.parse(raw) as RecentChapter[]) : [];
+    if (!raw) return [];
+    return (JSON.parse(raw) as RecentChapter[]).filter((r) => !isRetired(r.href));
   } catch {
     return [];
   }
