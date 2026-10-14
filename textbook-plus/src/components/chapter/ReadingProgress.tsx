@@ -70,8 +70,8 @@ export function ReadingProgress({
           style={
             {
               transform: `scaleX(${progress})`,
-              background: `linear-gradient(90deg, ${color}, ${color}AA)`,
-              boxShadow: `0 0 10px ${color}66`,
+              background: `linear-gradient(90deg, ${color}, color-mix(in srgb, ${color} 67%, transparent))`,
+              boxShadow: `0 0 10px color-mix(in srgb, ${color} 40%, transparent)`,
             } as CSSProperties
           }
         />

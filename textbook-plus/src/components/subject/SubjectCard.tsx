@@ -28,7 +28,7 @@ export function SubjectCard({ subject }: SubjectCardProps) {
           <div
             className="flex h-14 w-14 items-center justify-center rounded-2xl shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:-rotate-6 sm:h-16 sm:w-16"
             style={{
-              background: `linear-gradient(135deg, ${subject.color}, ${subject.color}B3)`,
+              background: `linear-gradient(135deg, ${subject.color}, color-mix(in srgb, ${subject.color} 70%, transparent))`,
               boxShadow: `0 8px 20px -8px ${subject.color}`,
             }}
           >

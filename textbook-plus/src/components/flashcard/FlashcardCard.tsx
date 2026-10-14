@@ -59,7 +59,7 @@ export function FlashcardCard({ card, subjectColor, onKnown, onUnknown }: Flashc
           <Card
             aria-hidden={flipped}
             className="absolute inset-0 items-center justify-center rounded-2xl border border-border/60 p-6 sm:p-8 [backface-visibility:hidden]"
-            style={{ backgroundColor: `${subjectColor}08` }}
+            style={{ backgroundColor: `color-mix(in srgb, ${subjectColor} 3%, transparent)` }}
           >
             <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: subjectColor }}>
               Question
@@ -74,7 +74,7 @@ export function FlashcardCard({ card, subjectColor, onKnown, onUnknown }: Flashc
           <Card
             aria-hidden={!flipped}
             className="absolute inset-0 items-center justify-center rounded-2xl border border-border/60 p-6 sm:p-8 [backface-visibility:hidden] [transform:rotateY(180deg)]"
-            style={{ backgroundColor: `${subjectColor}10` }}
+            style={{ backgroundColor: `color-mix(in srgb, ${subjectColor} 6%, transparent)` }}
           >
             <p className="text-xs font-semibold uppercase tracking-widest text-green-600 dark:text-green-400">
               Answer

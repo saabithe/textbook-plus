@@ -95,7 +95,7 @@ export function TableCard({
           <TableHeader>
             <TableRow
               className="border-b bg-muted/60 hover:bg-muted/60"
-              style={color ? { backgroundColor: `${color}14` } : undefined}
+              style={color ? { backgroundColor: `color-mix(in srgb, ${color} 8%, transparent)` } : undefined}
             >
               {headers.map((h, j) => (
                 <TableHead
@@ -111,7 +111,7 @@ export function TableCard({
                   )}
                   style={
                     sticky && j === 0 && color
-                      ? { backgroundColor: `${color}26` }
+                      ? { backgroundColor: `color-mix(in srgb, ${color} 15%, transparent)` }
                       : undefined
                   }
                 >

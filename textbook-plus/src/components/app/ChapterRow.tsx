@@ -31,7 +31,7 @@ export function ChapterRow({
     >
       <span
         className="flex h-9 min-w-9 items-center justify-center rounded-lg text-xs font-bold transition-colors sm:h-10 sm:min-w-10 sm:text-sm"
-        style={{ backgroundColor: `${color}15`, color }}
+        style={{ backgroundColor: `color-mix(in srgb, ${color} 8%, transparent)`, color }}
       >
         {String(number).padStart(2, "0")}
       </span>

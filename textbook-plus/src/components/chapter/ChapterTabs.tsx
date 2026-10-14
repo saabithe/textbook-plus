@@ -50,8 +50,8 @@ export function PracticePlaceholder({ subjectColor }: { subjectColor: string }) 
           variant="icon"
           className="size-16 rounded-2xl text-white"
           style={{
-            background: `linear-gradient(135deg, ${subjectColor}, ${subjectColor}B3)`,
-            boxShadow: `0 10px 25px -5px ${subjectColor}55`,
+            background: `linear-gradient(135deg, ${subjectColor}, color-mix(in srgb, ${subjectColor} 70%, transparent))`,
+            boxShadow: `0 10px 25px -5px color-mix(in srgb, ${subjectColor} 33%, transparent)`,
           }}
         >
           <BookOpen className="size-8" />
@@ -67,7 +67,7 @@ export function PracticePlaceholder({ subjectColor }: { subjectColor: string }) 
       <EmptyContent>
         <Badge
           variant="secondary"
-          style={{ color: subjectColor, backgroundColor: `${subjectColor}15` }}
+          style={{ color: subjectColor, backgroundColor: `color-mix(in srgb, ${subjectColor} 8%, transparent)` }}
         >
           Coming soon
         </Badge>
@@ -83,7 +83,7 @@ export function PracticePlaceholder({ subjectColor }: { subjectColor: string }) 
               <span
                 key={tool.label}
                 className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold"
-                style={{ color: subjectColor, backgroundColor: `${subjectColor}12` }}
+                style={{ color: subjectColor, backgroundColor: `color-mix(in srgb, ${subjectColor} 7%, transparent)` }}
               >
                 <Icon className="h-3.5 w-3.5" />
                 {tool.label}

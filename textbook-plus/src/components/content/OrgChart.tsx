@@ -35,7 +35,7 @@ function OrgChartNodeComponent({
         {depth === 0 && (
           <span
             className="absolute inset-x-0 top-0 h-[2px]"
-            style={{ background: `linear-gradient(90deg, ${accent}, ${accent}33)` }}
+            style={{ background: `linear-gradient(90deg, ${accent}, color-mix(in srgb, ${accent} 20%, transparent))` }}
           />
         )}
         <div className="text-sm font-extrabold tracking-tight text-foreground">
@@ -46,11 +46,11 @@ function OrgChartNodeComponent({
 
       {hasChildren && (
         <div className="flex flex-col items-center">
-          <div className="h-4 w-px" style={{ background: `linear-gradient(180deg, ${accent}66, ${accent}22)` }} />
-          <div className="flex border-t pt-4" style={{ borderColor: `${accent}33` }}>
+          <div className="h-4 w-px" style={{ background: `linear-gradient(180deg, color-mix(in srgb, ${accent} 40%, transparent), color-mix(in srgb, ${accent} 13%, transparent))` }} />
+          <div className="flex border-t pt-4" style={{ borderColor: `color-mix(in srgb, ${accent} 20%, transparent)` }}>
             {node.children!.map((child, i) => (
               <div key={i} className="flex flex-col items-center">
-                <div className="h-4 w-px" style={{ background: `linear-gradient(180deg, ${accent}66, ${accent}22)` }} />
+                <div className="h-4 w-px" style={{ background: `linear-gradient(180deg, color-mix(in srgb, ${accent} 40%, transparent), color-mix(in srgb, ${accent} 13%, transparent))` }} />
                 <OrgChartNodeComponent node={child} accent={accent} depth={depth + 1} />
               </div>
             ))}

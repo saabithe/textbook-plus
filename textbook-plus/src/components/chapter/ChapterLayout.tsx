@@ -87,12 +87,12 @@ export function ChapterLayout({
       <header className="relative mb-8 overflow-hidden rounded-2xl border border-border/70 bg-card p-5 shadow-sm sm:p-7">
         <span
           className="absolute inset-y-0 left-0 w-1"
-          style={{ background: `linear-gradient(180deg, ${subjectColor}, ${subjectColor}55)` }}
+          style={{ background: `linear-gradient(180deg, ${subjectColor}, color-mix(in srgb, ${subjectColor} 33%, transparent))` }}
         />
         <div className="flex items-center gap-4 pl-1.5">
           <span
             className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-base font-extrabold sm:h-12 sm:w-12 sm:text-lg"
-            style={{ backgroundColor: `${subjectColor}15`, color: subjectColor }}
+            style={{ backgroundColor: `color-mix(in srgb, ${subjectColor} 8%, transparent)`, color: subjectColor }}
           >
             {chapter.number}
           </span>

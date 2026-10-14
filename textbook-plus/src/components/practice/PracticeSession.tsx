@@ -69,7 +69,7 @@ export function PracticeSession({ questions, subjectColor }: PracticeSessionProp
       {allRevealed && (
         <Card
           className="flex items-center gap-3 rounded-2xl border-2 p-4"
-          style={{ borderColor: `${subjectColor}55`, backgroundColor: `${subjectColor}12` }}
+          style={{ borderColor: `color-mix(in srgb, ${subjectColor} 33%, transparent)`, backgroundColor: `color-mix(in srgb, ${subjectColor} 7%, transparent)` }}
         >
           <span
             className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-white"
