@@ -1,17 +1,47 @@
-"use client"
-
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-function Table({ className, ...props }: React.ComponentProps<"table">) {
+/**
+ * A single, accessible table primitive.
+ *
+ * Design notes:
+ * - No `"use client"` — the markup is static, so it can render on the server.
+ * - Cells are left to wrap by default; consumers opt into `whitespace-nowrap`
+ *   instead of having to opt out of it (the previous behaviour forced every
+ *   table into horizontal overflow).
+ * - `Table` renders one scroll container (labelled `role="region"` and
+ *   keyboard-focusable) so wide tables are reachable without a mouse.
+ * - Pass `label` to give the table its accessible name; it is applied to both
+ *   the scroll region and the `<table>` itself.
+ */
+function Table({
+  className,
+  containerClassName,
+  label,
+  ...props
+}: React.ComponentProps<"table"> & {
+  /** Class names for the scroll container wrapping the table. */
+  containerClassName?: string
+  /** Accessible name for the table and its scroll region. */
+  label?: string
+}) {
+  const accessibleLabel = label ?? "Table"
+
   return (
     <div
       data-slot="table-container"
-      className="relative w-full overflow-x-auto"
+      role="region"
+      aria-label={accessibleLabel}
+      tabIndex={0}
+      className={cn(
+        "relative w-full overflow-x-auto rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring/50",
+        containerClassName
+      )}
     >
       <table
         data-slot="table"
-        className={cn("w-full caption-bottom text-sm", className)}
+        aria-label={accessibleLabel}
+        className={cn("w-full caption-bottom border-collapse text-sm", className)}
         {...props}
       />
     </div>
@@ -42,10 +72,7 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
   return (
     <tfoot
       data-slot="table-footer"
-      className={cn(
-        "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
-        className
-      )}
+      className={cn("border-t bg-muted/50 font-medium", className)}
       {...props}
     />
   )
@@ -56,7 +83,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
     <tr
       data-slot="table-row"
       className={cn(
-        "border-b transition-colors hover:bg-muted/50 has-aria-expanded:bg-muted/50 data-[state=selected]:bg-muted",
+        "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
         className
       )}
       {...props}
@@ -68,8 +95,9 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
   return (
     <th
       data-slot="table-head"
+      scope="col"
       className={cn(
-        "h-10 px-2 text-left align-middle font-medium whitespace-nowrap text-foreground [&:has([role=checkbox])]:pr-0",
+        "h-10 px-4 text-left align-middle font-semibold whitespace-normal text-muted-foreground",
         className
       )}
       {...props}
@@ -81,10 +109,7 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
   return (
     <td
       data-slot="table-cell"
-      className={cn(
-        "p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0",
-        className
-      )}
+      className={cn("px-4 py-3 align-top whitespace-normal", className)}
       {...props}
     />
   )

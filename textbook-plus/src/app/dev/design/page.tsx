@@ -235,6 +235,21 @@ export default function DesignGallery() {
             </div>
 
             <div>
+              <Label text="TableCard · numeric + wide + rich cells" />
+              <TableCard
+                title="Hydrogen energy levels"
+                headers={["n", "Energy (eV)", "Radius (a₀)", "Series", "Region"]}
+                rows={[
+                  { cells: [1, "-13.60", "1.00", <strong key="1">Lyman</strong>, "Ultraviolet"] },
+                  { cells: [2, "-3.40", "4.00", "Balmer", "Visible"] },
+                  { cells: [3, "-1.51", "9.00", "Paschen", "Infrared"] },
+                  { cells: [4, "-0.85", "16.00", "Brackett", "Infrared"] },
+                ]}
+                caption="Numeric columns are right-aligned automatically; the first column stays pinned while the table scrolls; cells may contain JSX."
+              />
+            </div>
+
+            <div>
               <Label text="Checklist" />
               <Checklist
                 title="Study Checklist"

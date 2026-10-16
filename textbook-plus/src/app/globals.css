@@ -191,24 +191,10 @@
   @apply border-l-4 border-primary/40 pl-4 pr-4 py-2 my-5 text-foreground/80 italic rounded-r-2xl bg-primary/[0.05];
 }
 
-.prose-custom table {
-  @apply w-full text-sm border-collapse my-6;
-  display: block;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.prose-custom thead {
-  @apply border-b border-border/60;
-}
-
-.prose-custom th {
-  @apply text-left font-semibold px-4 py-2 text-muted-foreground;
-}
-
-.prose-custom td {
-  @apply px-4 py-2 border-b border-border/30;
-}
+/* Tables are rendered exclusively by the `TableCard`/`ui/table` components, so
+   they own their own styling. Global element selectors here previously
+   overrode the component (via higher specificity) and forced a second scroll
+   container, so they were removed. */
 
 .prose-custom code {
   @apply rounded bg-muted px-1.5 py-0.5 text-sm font-mono;
