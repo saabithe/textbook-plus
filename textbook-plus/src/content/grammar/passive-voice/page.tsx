@@ -1,11 +1,14 @@
 "use client";
 
+import { useState } from "react";
+
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -45,8 +48,14 @@ const QUESTIONS: GrammarQuestion[] = [
 ];
 
 export default function PassiveVoicePage() {
+  const [tab, setTab] = useState<GrammarTab>("concept");
+
   return (
     <>
+      <GrammarTabs tab={tab} onTabChange={setTab} />
+
+      {tab === "concept" ? (
+        <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
           <Highlight color="yellow">Passive voice</Highlight> is used when the focus is on the action, not the person who did it. The object of the active sentence becomes the subject of the passive sentence.
@@ -105,16 +114,16 @@ export default function PassiveVoicePage() {
         />
       </section>
 
-      <section id="practice" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Practice</h2>
-        <GrammarQuiz questions={QUESTIONS} />
-      </section>
-
       <section id="key-takeaway" className="scroll-mt-24 mt-14">
         <KeyPoint>
           Passive voice = <strong>object + correct form of &lsquo;to be&rsquo; + past participle</strong>. Use it when the agent is unknown, unimportant, or when you want to focus on the action itself. Always match the tense of &lsquo;to be&rsquo; to the original sentence.
         </KeyPoint>
       </section>
+
+        </>
+      ) : (
+        <GrammarQuiz questions={QUESTIONS} />
+      )}
     </>
   );
 }

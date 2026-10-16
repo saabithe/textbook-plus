@@ -1,11 +1,14 @@
 "use client";
 
+import { useState } from "react";
+
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -74,8 +77,14 @@ const SEPARABLE_TABLE = [
 ];
 
 export default function PhrasalVerbsPage() {
+  const [tab, setTab] = useState<GrammarTab>("concept");
+
   return (
     <>
+      <GrammarTabs tab={tab} onTabChange={setTab} />
+
+      {tab === "concept" ? (
+        <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
           A <Highlight color="yellow">phrasal verb</Highlight> is a verb combined with a small word (a particle) such as <em>up</em>, <em>off</em>, <em>out</em> or <em>after</em>. The combination usually has a meaning you cannot guess from the two words alone &mdash; <em>give up</em> does not mean &ldquo;give upwards&rdquo;.
@@ -119,16 +128,16 @@ export default function PhrasalVerbsPage() {
         />
       </section>
 
-      <section id="practice" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Practice</h2>
-        <GrammarQuiz questions={QUESTIONS} />
-      </section>
-
       <section id="key-takeaway" className="scroll-mt-24 mt-14">
         <KeyPoint>
           Learn phrasal verbs as fixed units with their meaning. Check whether the verb is <em>separable</em> (object can sit in the middle) or <em>inseparable</em> (object must follow) &mdash; and remember that a pronoun in a separable verb always goes in the middle.
         </KeyPoint>
       </section>
+
+        </>
+      ) : (
+        <GrammarQuiz questions={QUESTIONS} />
+      )}
     </>
   );
 }

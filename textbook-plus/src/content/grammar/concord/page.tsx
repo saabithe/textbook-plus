@@ -1,11 +1,14 @@
 "use client";
 
+import { useState } from "react";
+
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -50,8 +53,14 @@ const RULES = [
 ];
 
 export default function ConcordPage() {
+  const [tab, setTab] = useState<GrammarTab>("concept");
+
   return (
     <>
+      <GrammarTabs tab={tab} onTabChange={setTab} />
+
+      {tab === "concept" ? (
+        <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
           <Highlight color="yellow">Concord</Highlight> (also called subject-verb agreement) means the subject and verb must agree in number. A singular subject takes a singular verb; a plural subject takes a plural verb. This seems simple, but several tricky cases trip up even advanced learners.
@@ -97,16 +106,16 @@ export default function ConcordPage() {
         />
       </section>
 
-      <section id="practice" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Practice</h2>
-        <GrammarQuiz questions={QUESTIONS} />
-      </section>
-
       <section id="key-takeaway" className="scroll-mt-24 mt-14">
         <KeyPoint>
           The verb agrees with the <strong>actual subject</strong>, not with words between the subject and verb. Indefinite pronouns (<em>everyone, each, nobody</em>) and uncountable nouns are always <strong>singular</strong>. Collective nouns can be singular or plural depending on context.
         </KeyPoint>
       </section>
+
+        </>
+      ) : (
+        <GrammarQuiz questions={QUESTIONS} />
+      )}
     </>
   );
 }

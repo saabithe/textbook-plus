@@ -1,11 +1,14 @@
 "use client";
 
+import { useState } from "react";
+
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -40,8 +43,14 @@ const QUESTIONS: GrammarQuestion[] = [
 ];
 
 export default function TensesPage() {
+  const [tab, setTab] = useState<GrammarTab>("concept");
+
   return (
     <>
+      <GrammarTabs tab={tab} onTabChange={setTab} />
+
+      {tab === "concept" ? (
+        <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
           Tenses tell us <em>when</em> an action takes place — past, present, or future — and <em>how</em> it takes place — once, ongoing, or completed. Mastering tenses is essential for clear, accurate writing and speaking.
@@ -107,16 +116,16 @@ export default function TensesPage() {
         />
       </section>
 
-      <section id="practice" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Practice</h2>
-        <GrammarQuiz questions={QUESTIONS} />
-      </section>
-
       <section id="key-takeaway" className="scroll-mt-24 mt-14">
         <KeyPoint>
           Tenses tell <em>when</em> and <em>how</em> an action happens. Pay special attention to auxiliary verbs (has/had/will), subject-verb agreement, and which tense to use after time markers like <em>since</em>, <em>for</em>, <em>already</em>, and <em>yet</em>.
         </KeyPoint>
       </section>
+
+        </>
+      ) : (
+        <GrammarQuiz questions={QUESTIONS} />
+      )}
     </>
   );
 }

@@ -1,11 +1,14 @@
 "use client";
 
+import { useState } from "react";
+
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -51,8 +54,14 @@ const MODALS_TABLE = [
 ];
 
 export default function ModalAuxiliariesPage() {
+  const [tab, setTab] = useState<GrammarTab>("concept");
+
   return (
     <>
+      <GrammarTabs tab={tab} onTabChange={setTab} />
+
+      {tab === "concept" ? (
+        <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
           <Highlight color="yellow">Modal auxiliaries</Highlight> are special verbs that add meaning like ability, permission, obligation, or possibility to the main verb. They never change form — no -s, no -ing, no past participle.
@@ -98,16 +107,16 @@ export default function ModalAuxiliariesPage() {
         />
       </section>
 
-      <section id="practice" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Practice</h2>
-        <GrammarQuiz questions={QUESTIONS} />
-      </section>
-
       <section id="key-takeaway" className="scroll-mt-24 mt-14">
         <KeyPoint>
           Modals never change form (no -s, no -ing) and are always followed by the base verb. The key distinction is <em>meaning</em>: ability (can), permission (may), obligation (must), advice (should), possibility (might), politeness (would).
         </KeyPoint>
       </section>
+
+        </>
+      ) : (
+        <GrammarQuiz questions={QUESTIONS} />
+      )}
     </>
   );
 }

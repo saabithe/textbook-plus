@@ -1,11 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
+import { Comparison } from "@/components/content/Comparison";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
+import { Badge } from "@/components/ui/badge";
+import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
 import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
 
 const QUESTIONS: GrammarQuestion[] = [
@@ -71,6 +75,34 @@ const QUESTIONS: GrammarQuestion[] = [
     answer: 1,
     explanation: "A prohibition is reported with \u201cwarned + object + not to + verb\u201d.",
   },
+  {
+    id: "rs10", type: "mcq",
+    question: "Direct: \u201cI am busy.\u201d \u2014 Reported: He ______ me that he was busy.",
+    options: ["said", "told", "spoke", "replied"],
+    answer: 1,
+    explanation: "\u201cTold\u201d takes a direct object (me); \u201csaid\u201d cannot be followed by an object here.",
+  },
+  {
+    id: "rs11", type: "mcq",
+    question: "Direct: \u201cI will come.\u201d \u2014 Reported: She ______ to him that she would come.",
+    options: ["said", "told", "asked", "spoke"],
+    answer: 0,
+    explanation: "With \u201cto + person\u201d, use \u201csaid\u201d \u2014 \u201ctold\u201d never takes \u201cto\u201d.",
+  },
+  {
+    id: "rs12", type: "mcq",
+    question: "Direct: Doctor: \u201cDon\u2019t smoke.\u201d \u2014 Reported: The doctor ______ him not to smoke.",
+    options: ["said", "advised", "spoke", "replied"],
+    answer: 1,
+    explanation: "Advice is reported with \u201cadvised + object + (not) to + verb\u201d.",
+  },
+  {
+    id: "rs13", type: "mcq",
+    question: "Direct: Witness: \u201cI saw the theft.\u201d \u2014 Reported: The witness ______ the theft to the police.",
+    options: ["reported", "said", "told", "asked"],
+    answer: 0,
+    explanation: "\u201cReport\u201d is an advanced reporting verb used for official statements.",
+  },
 ];
 
 const OVERVIEW = [
@@ -109,7 +141,7 @@ const TENSE_SHIFT = [
 ];
 
 const AUXILIARIES = [
-  { cells: ["am / is", "was"] },
+  { cells: ["\u2605 am / is", "was"] },
   { cells: ["are", "were"] },
   { cells: ["do / does", "did"] },
   { cells: ["has / have", "had"] },
@@ -118,8 +150,17 @@ const AUXILIARIES = [
   { cells: ["can", "could"] },
   { cells: ["may", "might"] },
   { cells: ["shall", "should"] },
-  { cells: ["will", "would"] },
-  { cells: ["must", "had to"] },
+  { cells: ["\u2605 will", "would"] },
+  { cells: ["\u2605 must", "had to"] },
+];
+
+const ADVANCED_VERBS = [
+  "add", "admit", "advise", "offer", "announce", "answer", "ask", "agree",
+  "claim", "protest", "state", "order", "proclaimed", "Point out", "comment",
+  "wonder", "promise", "continue", "explain", "interrupt", "complain",
+  "Cry (shout)", "hint", "confess", "confirm", "demand", "inform", "Enquire",
+  "insist", "respond", "repeat", "report", "shout", "Was like (inf)", "reply",
+  "persuade", "maintain", "note", "observe", "suggest", "threaten", "warn",
 ];
 
 const WH_QUESTIONS = [
@@ -155,184 +196,252 @@ const POLITENESS = [
   { cells: ["Maggie: \u201cExcuse me, are you a vegetarian?\u201d", "Maggie asked him to excuse her and asked if he was a vegetarian."] },
 ];
 
-const COMMAND_VERBS = [
-  { cells: ["Order", "ordered", "ordered + object + to + V1"] },
-  { cells: ["Request", "requested", "requested + object + to + V1"] },
-  { cells: ["Advice", "advised", "advised + object + to / not to + V1"] },
-  { cells: ["Warning", "warned", "warned + object + not to + V1"] },
-];
-
-const COMMAND_EXAMPLES = [
-  { cells: ["Order", "Officer: \u201cHalt and show your ID.\u201d", "The officer ordered him to halt and show his ID."] },
-  { cells: ["Order", "Mother: \u201cClean your room right now!\u201d", "The mother ordered her son to clean his room right then."] },
-  { cells: ["Request", "Passenger: \u201cCould you please help me with this suitcase?\u201d", "The passenger requested the stranger to help him with that suitcase."] },
-  { cells: ["Request", "Librarian: \u201cPlease maintain silence in the hall.\u201d", "The librarian requested the students to maintain silence in the hall."] },
-  { cells: ["Advice", "Doctor: \u201cTake this medicine twice a day.\u201d", "The doctor advised the patient to take that medicine twice a day."] },
-  { cells: ["Advice", "Friend: \u201cDon\u2019t rush into decisions without thinking.\u201d", "The friend advised him not to rush into decisions without thinking."] },
-  { cells: ["Warning", "Guard: \u201cDon\u2019t touch the electric fence!\u201d", "The guard warned the children not to touch the electric fence."] },
+const COMMANDS_MERGED = [
+  { cells: ["Order", "ordered + object + to + V1", "Officer: \u201cHalt and show your ID.\u201d", "The officer ordered him to halt and show his ID."] },
+  { cells: ["Order", "ordered + object + to + V1", "Mother: \u201cClean your room right now!\u201d", "The mother ordered her son to clean his room right then."] },
+  { cells: ["Request", "requested + object + to + V1", "Passenger: \u201cCould you please help me with this suitcase?\u201d", "The passenger requested the stranger to help him with that suitcase."] },
+  { cells: ["Request", "requested + object + to + V1", "Librarian: \u201cPlease maintain silence in the hall.\u201d", "The librarian requested the students to maintain silence in the hall."] },
+  { cells: ["Advice", "advised + object + to / not to + V1", "Doctor: \u201cTake this medicine twice a day.\u201d", "The doctor advised the patient to take that medicine twice a day."] },
+  { cells: ["Advice", "advised + object + to / not to + V1", "Friend: \u201cDon\u2019t rush into decisions without thinking.\u201d", "The friend advised him not to rush into decisions without thinking."] },
+  { cells: ["Warning", "warned + object + not to + V1", "Guard: \u201cDon\u2019t touch the electric fence!\u201d", "The guard warned the children not to touch the electric fence."] },
 ];
 
 export default function ReportedSpeechPage() {
+  const [tab, setTab] = useState<GrammarTab>("concept");
+
   return (
     <>
-      <section id="introduction" className="scroll-mt-24">
-        <Callout type="note">
-          <Highlight color="yellow">Reported speech</Highlight> (also called indirect speech) reports what someone said without using their exact words. The tense, pronouns and time or place words change so that the meaning stays true from the reporter&rsquo;s point of view. Sentences are reported in three ways &mdash; statements, questions, and commands or requests.
-        </Callout>
-        <TableCard
-          title="The three types at a glance"
-          headers={["Sentence type", "Reporting verb", "Linker", "Example"]}
-          rows={OVERVIEW}
-        />
-      </section>
+      <GrammarTabs tab={tab} onTabChange={setTab} />
 
-      <section id="framework" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Step-by-Step Framework</h2>
-        <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] mb-2">
-          Whatever the sentence, convert it the same way every time. Work through these seven steps in order.
-        </p>
-        <ProcessCard
-          title="How to build reported speech"
-          steps={[
-            { label: "Identify the type of sentence", description: "Is it a statement, a question, or a command / request / advice / warning? The type decides everything that follows." },
-            { label: "Remove the quotation marks and the comma", description: "Drop the inverted commas and the comma after the reporting verb." },
-            { label: "Choose the reporting verb", description: "said (statements), asked / enquired (questions), ordered / requested / advised / warned (commands and requests)." },
-            { label: "Add the linker", description: "that (statements); if / whether or the wh-word (questions); to / not to (commands)." },
-            { label: "Back-shift the tense", description: "V1 \u2192 V2, and V2 \u2192 had + V3. Keep the tense unchanged only for universal truths and still-true facts." },
-            { label: "Change the pronouns, time and place words", description: "I \u2192 he / she, we \u2192 they; today \u2192 that day, here \u2192 there." },
-            { label: "Check the finished sentence", description: "Use statement word order, remove the question mark, and end with a full stop." },
-          ]}
-        />
-      </section>
+      {tab === "concept" ? (
+        <>
+          <section id="introduction" className="scroll-mt-24">
+            <Callout type="note">
+              <Highlight color="yellow">Reported speech</Highlight> (also called indirect speech) reports what someone said without using their exact words. The tense, pronouns and time or place words change so that the meaning stays true from the reporter&rsquo;s point of view. Sentences are reported in three ways &mdash; statements, questions, and commands or requests.
+            </Callout>
+            <TableCard
+              title="The three types at a glance"
+              headers={["Sentence type", "Reporting verb", "Linker", "Example"]}
+              rows={OVERVIEW}
+            />
+            <Callout type="important" title="Exam focus \u2014 the most-used linkers">
+              Almost every question runs on three linkers: <Highlight color="yellow">that</Highlight> (statements), <Highlight color="blue">if / whether</Highlight> (yes/no questions) and <Highlight color="green">to / not to</Highlight> (commands). Master these three and the reporting verbs <em>said, told</em> and <em>asked</em> before touching anything else.
+            </Callout>
+          </section>
 
-      <section id="word-changes" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">What Changes</h2>
-        <TableCard
-          title="Pronouns"
-          headers={["Direct", "Reported"]}
-          rows={PRONOUNS}
-          caption="Pronouns change to match the reporter, not the original speaker."
-        />
-        <TableCard
-          title="Time & place words"
-          headers={["Direct", "Reported"]}
-          rows={TIME_PLACE}
-          caption="Words pointing to \u201chere and now\u201d shift to \u201cthere and then\u201d."
-        />
-        <TableCard
-          title="Tense back-shift"
-          headers={["Direct", "Reported"]}
-          rows={TENSE_SHIFT}
-          caption="Every tense moves one step into the past."
-        />
-        <TableCard
-          title="Auxiliaries & modals"
-          headers={["Direct", "Reported"]}
-          rows={AUXILIARIES}
-          caption="The verb or auxiliary also shifts: am / is \u2192 was, must \u2192 had to."
-        />
-        <div className="mt-6 space-y-4">
-          <Callout type="important" title="The back-shift chain">
-            V1 &rarr; V2 &nbsp;(<em>go &rarr; went</em>); &nbsp;V2 &rarr; had + V3 &nbsp;(<em>went &rarr; had gone</em>); &nbsp;did + V1 &rarr; had + V3 &nbsp;(<em>did become &rarr; had become</em>).
-          </Callout>
-          <Callout type="note">
-            <strong>No back-shift needed</strong> when the statement is still true: <em>He said the Earth is round.</em> The past simple may also stay as past simple instead of becoming past perfect.
-          </Callout>
-        </div>
-      </section>
+          <section id="framework" className="scroll-mt-24 mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5">Step-by-Step Framework</h2>
+            <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] mb-2">
+              Whatever the sentence, convert it the same way every time. Work through these seven steps in order.
+            </p>
+            <ProcessCard
+              title="How to build reported speech"
+              steps={[
+                { label: "Identify the type of sentence", description: "Is it a statement, a question, or a command / request / advice / warning? The type decides everything that follows." },
+                { label: "Remove the quotation marks and the comma", description: "Drop the inverted commas and the comma after the reporting verb." },
+                { label: "Choose the reporting verb", description: "said (statements), asked / enquired (questions), ordered / requested / advised / warned (commands and requests)." },
+                { label: "Add the linker", description: "that (statements); if / whether or the wh-word (questions); to / not to (commands)." },
+                { label: "Back-shift the tense", description: "V1 \u2192 V2, and V2 \u2192 had + V3. Keep the tense unchanged only for universal truths and still-true facts." },
+                { label: "Change the pronouns, time and place words", description: "I \u2192 he / she, we \u2192 they; today \u2192 that day, here \u2192 there." },
+                { label: "Check the finished sentence", description: "Use statement word order, remove the question mark, and end with a full stop." },
+              ]}
+            />
+          </section>
 
-      <section id="questions" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Type 1 &mdash; Questions</h2>
-        <Callout type="note">
-          Questions are reported in two ways. <Highlight color="yellow">Wh-questions</Highlight> keep the question word; <Highlight color="blue">Yes/No questions</Highlight> take <em>if</em> or <em>whether</em>. In both cases the word order becomes <strong>statement order</strong> (subject + verb) and there is <strong>no question mark</strong>.
-        </Callout>
+          <section id="said-told" className="scroll-mt-24 mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5">Said vs. Told &mdash; Quick Rule</h2>
+            <Comparison
+              columns={[
+                {
+                  title: "Told + object (listener) + that",
+                  children: (
+                    <>
+                      <p><strong>Rule:</strong> a direct object is mandatory immediately after <em>told</em>.</p>
+                      <p className="mt-2">Example: Gupta <Highlight color="yellow">told Maggie</Highlight> that he would use that shilling to buy flowers.</p>
+                    </>
+                  ),
+                },
+                {
+                  title: "Said + (to + object) + that",
+                  children: (
+                    <>
+                      <p><strong>Rule:</strong> no direct object immediately after <em>said</em> (a person can follow only with <em>to</em>).</p>
+                      <p className="mt-2">Example: Young Seagull <Highlight color="blue">said</Highlight> that he didn&rsquo;t think he could fly. / He <Highlight color="blue">said to me</Highlight> that he would come.</p>
+                    </>
+                  ),
+                },
+              ]}
+            />
+          </section>
 
-        <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] mt-6 mb-1">
-          <strong>Wh-questions</strong> begin with a question word &mdash; <em>where, what, why, which, who, when, how much, how many, how old</em> &mdash; and the question word is kept.
-        </p>
-        <TableCard headers={["Direct Speech", "Reported Speech"]} rows={WH_QUESTIONS} />
+          <section id="advanced-verbs" className="scroll-mt-24 mt-14">
+            <div className="flex items-center gap-3 mb-5">
+              <h2 className="text-2xl font-bold tracking-tight">Advanced Reporting Verbs</h2>
+              <Badge variant="secondary" className="rounded-full font-bold">Advanced</Badge>
+            </div>
+            <Callout type="note">
+              Beyond <em>said, told</em> and <em>asked</em>, examiners expect precise reporting verbs. Learn these as vocabulary &mdash; each one already carries the sentence type (statement, question or command) inside it.
+            </Callout>
+            <div className="flex flex-wrap gap-2 mt-4">
+              {ADVANCED_VERBS.map((verb) => (
+                <Badge key={verb} variant="outline" className="rounded-full px-3 py-1 text-sm font-semibold">
+                  {verb}
+                </Badge>
+              ))}
+            </div>
+          </section>
 
-        <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] mt-8 mb-1">
-          <strong>Yes/No questions</strong> begin with an auxiliary &mdash; <em>am, is, are, was, were, do, does, did, has, have, had, will, would, shall, should, can, could, may, might, must, need, dare, ought to, used to</em> &mdash; and are linked with <em>if</em> or <em>whether</em>.
-        </p>
-        <TableCard headers={["Direct Speech", "Reported Speech"]} rows={YESNO_QUESTIONS} />
+          <section id="word-changes" className="scroll-mt-24 mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5">What Changes</h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              <TableCard
+                title="Pronouns"
+                headers={["Direct", "Reported"]}
+                rows={PRONOUNS}
+                caption="Pronouns change to match the reporter, not the original speaker."
+              />
+              <TableCard
+                title="Time & place words"
+                headers={["Direct", "Reported"]}
+                rows={TIME_PLACE}
+                caption="Words pointing to \u201chere and now\u201d shift to \u201cthere and then\u201d."
+              />
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 mt-2">
+              <TableCard
+                title="Tense back-shift"
+                headers={["Direct", "Reported"]}
+                rows={TENSE_SHIFT}
+                caption="Every tense moves one step into the past."
+              />
+              <TableCard
+                title="Auxiliaries & modals"
+                headers={["Direct", "Reported"]}
+                rows={AUXILIARIES}
+                caption="\u2605 marks the most common exam shifts \u2014 am/is \u2192 was, will \u2192 would, must \u2192 had to."
+              />
+            </div>
+            <div className="mt-6 space-y-4">
+              <Callout type="important" title="The back-shift chain">
+                V1 &rarr; V2 &nbsp;(<em>go &rarr; went</em>); &nbsp;V2 &rarr; had + V3 &nbsp;(<em>went &rarr; had gone</em>); &nbsp;did + V1 &rarr; had + V3 &nbsp;(<em>did become &rarr; had become</em>).
+              </Callout>
+              <Callout type="note">
+                <strong>No back-shift needed</strong> when the statement is still true: <em>He said the Earth is round.</em> The past simple may also stay as past simple instead of becoming past perfect.
+              </Callout>
+            </div>
+          </section>
 
-        <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] mt-8 mb-1">
-          <strong>Special case &mdash; politeness words.</strong> A phrase like <em>Excuse me</em> is not part of the question. It is a polite request, so it becomes its own clause (<em>asked &hellip; to excuse</em>) joined to the reported question by <em>and</em>.
-        </p>
-        <TableCard headers={["Direct Speech", "Reported Speech"]} rows={POLITENESS} />
-      </section>
+          <section id="questions" className="scroll-mt-24 mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5">Type 1 &mdash; Questions</h2>
+            <Callout type="note">
+              Questions are reported in two ways. <Highlight color="yellow">Wh-questions</Highlight> keep the question word; <Highlight color="blue">Yes/No questions</Highlight> take <em>if</em> or <em>whether</em>. In both cases the word order becomes <strong>statement order</strong> (subject + verb) and there is <strong>no question mark</strong>.
+            </Callout>
 
-      <section id="statements" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Type 2 &mdash; Statements</h2>
-        <Callout type="important" title="Core formula">
-          <strong>Speaker + said / told / replied + (that) + Subject + Converted Verb</strong> &mdash; use <em>that</em> to join the clauses, back-shift the tense, and change the pronouns and time/place words.
-        </Callout>
-        <TableCard
-          title="Varieties of statements"
-          headers={["Variety", "Direct Speech", "Reported Speech"]}
-          rows={STATEMENT_VARIETIES}
-          caption="The formula never changes — only the reporting verb and the details of the sentence do."
-        />
-      </section>
+            <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] mt-6 mb-1">
+              <strong>Wh-questions</strong> begin with a question word &mdash; <em>where, what, why, which, who, when, how much, how many, how old</em> &mdash; and the question word is kept.
+            </p>
+            <TableCard headers={["Direct Speech", "Reported Speech"]} rows={WH_QUESTIONS} />
 
-      <section id="imperatives" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Type 3 &mdash; Commands, Requests, Advice &amp; Warnings</h2>
-        <Callout type="note">
-          Commands and requests are reported with the <Highlight color="green">to-infinitive</Highlight>, and negative ones with <Highlight color="pink">not to</Highlight>. The reporting verb (<em>ordered, requested, advised, warned</em>) tells the reader what kind of instruction it was.
-        </Callout>
-        <TableCard
-          title="Reporting verbs"
-          headers={["Type", "Reporting verb", "Pattern"]}
-          rows={COMMAND_VERBS}
-        />
-        <TableCard
-          title="Examples"
-          headers={["Type", "Direct Speech", "Reported Speech"]}
-          rows={COMMAND_EXAMPLES}
-          caption="Every example follows the same shape: reporting verb + object + to / not to + verb."
-        />
-      </section>
+            <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] mt-8 mb-1">
+              <strong>Yes/No questions</strong> begin with an auxiliary &mdash; <em>am, is, are, was, were, do, does, did, has, have, had, will, would, shall, should, can, could, may, might, must, need, dare, ought to, used to</em> &mdash; and are linked with <em>if</em> or <em>whether</em>.
+            </p>
+            <TableCard headers={["Direct Speech", "Reported Speech"]} rows={YESNO_QUESTIONS} />
 
-      <section id="common-mistakes" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Common Mistakes</h2>
-        <MistakeCard
-          mistake="He said me that he was busy."
-          correction="He told me that he was busy."
-          example="'Said' is not followed by an indirect object. Use 'told + object' or 'said + to + object'."
-        />
-        <MistakeCard
-          mistake="She asked where do I live."
-          correction="She asked where I lived."
-          example="Reported questions do not use question word order — use statement order after wh-words."
-        />
-        <MistakeCard
-          mistake="He said that he will come tomorrow."
-          correction="He said that he would come the next day."
-          example="Both the verb and the time expression must shift: will → would, tomorrow → the next day."
-        />
-        <MistakeCard
-          mistake="The doctor advised him take the medicine."
-          correction="The doctor advised him to take the medicine."
-          example="Reported commands and advice always take 'to' before the verb."
-        />
-        <MistakeCard
-          mistake="She asked me that whether I was ready."
-          correction="She asked me whether I was ready."
-          example="Do not use 'that' together with 'if / whether' — one linker is enough."
-        />
-      </section>
+            <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] mt-8 mb-1">
+              <strong>Special case &mdash; politeness words.</strong> A phrase like <em>Excuse me</em> is not part of the question. It is a polite request, so it becomes its own clause (<em>asked &hellip; to excuse</em>) joined to the reported question by <em>and</em>.
+            </p>
+            <TableCard headers={["Direct Speech", "Reported Speech"]} rows={POLITENESS} />
+          </section>
 
-      <section id="practice" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Practice</h2>
+          <section id="statements" className="scroll-mt-24 mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5">Type 2 &mdash; Statements</h2>
+            <Callout type="important" title="Core formula">
+              <strong>Speaker + said / told / replied + (that) + Subject + Converted Verb</strong> &mdash; use <em>that</em> to join the clauses, back-shift the tense, and change the pronouns and time/place words.
+            </Callout>
+            <TableCard
+              title="Varieties of statements"
+              headers={["Variety", "Direct Speech", "Reported Speech"]}
+              rows={STATEMENT_VARIETIES}
+              caption="The formula never changes — only the reporting verb and the details of the sentence do."
+            />
+          </section>
+
+          <section id="imperatives" className="scroll-mt-24 mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5">Type 3 &mdash; Commands, Requests, Advice &amp; Warnings</h2>
+            <Callout type="note">
+              Commands and requests are reported with the <Highlight color="green">to-infinitive</Highlight>, and negative ones with <Highlight color="pink">not to</Highlight>. The reporting verb (<em>ordered, requested, advised, warned</em>) tells the reader what kind of instruction it was.
+            </Callout>
+            <TableCard
+              title="Pattern + examples in one table"
+              headers={["Type", "Pattern", "Direct Speech", "Reported Speech"]}
+              rows={COMMANDS_MERGED}
+              caption="Every example follows the same shape: reporting verb + object + to / not to + verb."
+            />
+          </section>
+
+          <section id="common-mistakes" className="scroll-mt-24 mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5">Common Mistakes</h2>
+            <MistakeCard
+              mistake="He said me that he was busy."
+              correction="He told me that he was busy."
+              example="'Said' is not followed by an indirect object. Use 'told + object' or 'said + to + object'."
+            />
+            <MistakeCard
+              mistake="He told that he was busy."
+              correction="He said that he was busy. / He told me that he was busy."
+              example="'Told' always needs a listener. Without one, switch back to 'said'."
+            />
+            <MistakeCard
+              mistake="He told to me that he would come."
+              correction="He said to me that he would come."
+              example="'Told' never takes 'to' — only 'said' pairs with 'to + person'."
+            />
+            <MistakeCard
+              mistake="They said us to leave the room."
+              correction="They told us to leave the room."
+              example="With an object + to-infinitive (orders, requests), the verb must be 'told / asked / ordered' — never bare 'said'."
+            />
+            <MistakeCard
+              mistake="The guard warned not to touch the fence."
+              correction="The guard warned the children not to touch the fence."
+              example="'Warned / ordered / advised' all need the person warned — never drop the object."
+            />
+            <MistakeCard
+              mistake="She asked where do I live."
+              correction="She asked where I lived."
+              example="Reported questions do not use question word order — use statement order after wh-words."
+            />
+            <MistakeCard
+              mistake="He asked to me where I lived."
+              correction="He asked me where I lived."
+              example="'Asked' takes the person directly — no 'to' between the verb and the listener."
+            />
+            <MistakeCard
+              mistake="He said that he will come tomorrow."
+              correction="He said that he would come the next day."
+              example="Both the verb and the time expression must shift: will → would, tomorrow → the next day."
+            />
+            <MistakeCard
+              mistake="The doctor advised him take the medicine."
+              correction="The doctor advised him to take the medicine."
+              example="Reported commands and advice always take 'to' before the verb."
+            />
+            <MistakeCard
+              mistake="She asked me that whether I was ready."
+              correction="She asked me whether I was ready."
+              example="Do not use 'that' together with 'if / whether' — one linker is enough."
+            />
+          </section>
+
+          <section id="key-takeaway" className="scroll-mt-24 mt-14">
+            <KeyPoint>
+              First decide the <em>type</em>: statements join with <em>that</em>, questions with <em>if / whether</em> or the wh-word, and commands with <em>to / not to</em>. Then back-shift the tense, change the pronouns, and change the time and place words. Reported questions always use statement word order &mdash; and no question mark.
+            </KeyPoint>
+          </section>
+        </>
+      ) : (
         <GrammarQuiz questions={QUESTIONS} />
-      </section>
-
-      <section id="key-takeaway" className="scroll-mt-24 mt-14">
-        <KeyPoint>
-          First decide the <em>type</em>: statements join with <em>that</em>, questions with <em>if / whether</em> or the wh-word, and commands with <em>to / not to</em>. Then back-shift the tense, change the pronouns, and change the time and place words. Reported questions always use statement word order &mdash; and no question mark.
-        </KeyPoint>
-      </section>
+      )}
     </>
   );
 }

@@ -1,11 +1,14 @@
 "use client";
 
+import { useState } from "react";
+
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -67,8 +70,14 @@ const FUNCTIONS_TABLE = [
 ];
 
 export default function CohesiveDevicesPage() {
+  const [tab, setTab] = useState<GrammarTab>("concept");
+
   return (
     <>
+      <GrammarTabs tab={tab} onTabChange={setTab} />
+
+      {tab === "concept" ? (
+        <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
           <Highlight color="yellow">Cohesive devices</Highlight> (also called linkers, connectives, or discourse markers) are the words that hold a text together. They signal the relationship between one idea and the next, so the reader can follow your argument without guessing.
@@ -112,16 +121,16 @@ export default function CohesiveDevicesPage() {
         />
       </section>
 
-      <section id="practice" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Practice</h2>
-        <GrammarQuiz questions={QUESTIONS} />
-      </section>
-
       <section id="key-takeaway" className="scroll-mt-24 mt-14">
         <KeyPoint>
           Choose a linker by the <em>relationship</em> you want to show (addition, contrast, cause, result&hellip;). Then punctuate it correctly: coordinating conjunctions take a comma, but conjunctive adverbs such as <em>however</em> and <em>therefore</em> take a semicolon before and a comma after.
         </KeyPoint>
       </section>
+
+        </>
+      ) : (
+        <GrammarQuiz questions={QUESTIONS} />
+      )}
     </>
   );
 }

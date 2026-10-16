@@ -1,11 +1,14 @@
 "use client";
 
+import { useState } from "react";
+
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -68,8 +71,14 @@ const ADVICE_TABLE = [
 ];
 
 export default function SuggestionsAdvicePage() {
+  const [tab, setTab] = useState<GrammarTab>("concept");
+
   return (
     <>
+      <GrammarTabs tab={tab} onTabChange={setTab} />
+
+      {tab === "concept" ? (
+        <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
           A <Highlight color="yellow">suggestion</Highlight> proposes an idea for doing something together; <Highlight color="green">advice</Highlight> tells someone what <em>they</em> should do. Both use special patterns, and the pattern decides how formal or forceful you sound.
@@ -121,16 +130,16 @@ export default function SuggestionsAdvicePage() {
         />
       </section>
 
-      <section id="practice" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Practice</h2>
-        <GrammarQuiz questions={QUESTIONS} />
-      </section>
-
       <section id="key-takeaway" className="scroll-mt-24 mt-14">
         <KeyPoint>
           Suggestions &amp; advice depend on the pattern: base verb after <em>let&rsquo;s / shall we / why don&rsquo;t we / had better</em>, but <em>-ing</em> after <em>how about / what about / advise / recommend</em>. Choose <em>should</em> for gentle advice and <em>must</em> for strong advice.
         </KeyPoint>
       </section>
+
+        </>
+      ) : (
+        <GrammarQuiz questions={QUESTIONS} />
+      )}
     </>
   );
 }
