@@ -224,7 +224,7 @@ export default function ReportedSpeechPage() {
               headers={["Sentence type", "Reporting verb", "Linker", "Example"]}
               rows={OVERVIEW}
             />
-            <Callout type="important" title="Exam focus \u2014 the most-used linkers">
+            <Callout type="important" title="Exam focus &mdash; the most-used linkers">
               Almost every question runs on three linkers: <Highlight color="yellow">that</Highlight> (statements), <Highlight color="blue">if / whether</Highlight> (yes/no questions) and <Highlight color="green">to / not to</Highlight> (commands). Master these three and the reporting verbs <em>said, told</em> and <em>asked</em> before touching anything else.
             </Callout>
           </section>
@@ -304,7 +304,7 @@ export default function ReportedSpeechPage() {
                 title="Time & place words"
                 headers={["Direct", "Reported"]}
                 rows={TIME_PLACE}
-                caption="Words pointing to \u201chere and now\u201d shift to \u201cthere and then\u201d."
+                caption="Words pointing to &ldquo;here and now&rdquo; shift to &ldquo;there and then&rdquo;."
               />
             </div>
             <div className="grid gap-6 md:grid-cols-2 mt-2">
@@ -318,7 +318,7 @@ export default function ReportedSpeechPage() {
                 title="Auxiliaries & modals"
                 headers={["Direct", "Reported"]}
                 rows={AUXILIARIES}
-                caption="\u2605 marks the most common exam shifts \u2014 am/is \u2192 was, will \u2192 would, must \u2192 had to."
+                caption="&#9733; marks the most common exam shifts &mdash; am/is &rarr; was, will &rarr; would, must &rarr; had to."
               />
             </div>
             <div className="mt-6 space-y-4">

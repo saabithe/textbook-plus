@@ -164,15 +164,15 @@ export default function EditingPage() {
           </section>
 
           <section id="subject-verb-agreement" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Subject\u2013Verb Agreement</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-5">Subject&ndash;Verb Agreement</h2>
             <TableCard
               title="Agreement rules"
               headers={["Rule", "Examples"]}
               rows={SVA_RULES}
               caption="A singular subject takes a singular verb (V1 + s); a plural subject takes the base verb (V1)."
             />
-            <Callout type="important" title="Exam traps \u2014 the three most-tested patterns">
-              <Highlight color="yellow">One of...</Highlight> + plural noun still takes a <em>singular</em> verb (the subject is <em>One</em>). Phrases like <Highlight color="blue">together with / as well as / along with</Highlight> never change the subject \u2014 agree with the first noun. With <Highlight color="green">neither... nor / either... or</Highlight>, the verb follows <em>proximity</em> and agrees with the closest subject.
+            <Callout type="important" title="Exam traps &mdash; the three most-tested patterns">
+              <Highlight color="yellow">One of...</Highlight> + plural noun still takes a <em>singular</em> verb (the subject is <em>One</em>). Phrases like <Highlight color="blue">together with / as well as / along with</Highlight> never change the subject &mdash; agree with the first noun. With <Highlight color="green">neither... nor / either... or</Highlight>, the verb follows <em>proximity</em> and agrees with the closest subject.
             </Callout>
             <ExerciseQa
               questions={[
@@ -181,19 +181,19 @@ export default function EditingPage() {
                 <span key="q3">Fill in the blank: Neither the teacher nor the students _________ (has / have) gone for a walk.</span>,
               ]}
               answers={[
-                <span key="a1"><strong>has</strong> \u2014 When a sentence begins with \u201cOne of...\u201d followed by a plural noun, the true subject is the singular word \u201cOne.\u201d Therefore, it always takes a singular verb.</span>,
-                <span key="a2"><strong>has</strong> \u2014 When a singular subject is connected to other nouns using parenthetical phrases like \u201ctogether with,\u201d \u201cas well as,\u201d or \u201calong with,\u201d these additions do not alter the number of the subject. The verb must strictly agree with the first singular subject.</span>,
-                <span key="a3"><strong>have</strong> \u2014 When two subjects are connected using the correlative conjunction \u201cneither... nor\u201d (or either... or), the verb follows the rule of proximity. This means the verb must agree with the closest subject noun to the blank (in this case, the plural noun \u201cstudents\u201d).</span>,
+                <span key="a1"><strong>has</strong> &mdash; When a sentence begins with &ldquo;One of...&rdquo; followed by a plural noun, the true subject is the singular word &ldquo;One.&rdquo; Therefore, it always takes a singular verb.</span>,
+                <span key="a2"><strong>has</strong> &mdash; When a singular subject is connected to other nouns using parenthetical phrases like &ldquo;together with,&rdquo; &ldquo;as well as,&rdquo; or &ldquo;along with,&rdquo; these additions do not alter the number of the subject. The verb must strictly agree with the first singular subject.</span>,
+                <span key="a3"><strong>have</strong> &mdash; When two subjects are connected using the correlative conjunction &ldquo;neither... nor&rdquo; (or either... or), the verb follows the rule of proximity. This means the verb must agree with the closest subject noun to the blank (in this case, the plural noun &ldquo;students&rdquo;).</span>,
               ]}
             />
           </section>
 
           <section id="prepositions-core" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Prepositions \u2014 Core Meanings</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-5">Prepositions &mdash; Core Meanings</h2>
             <TableCard
               headers={["Preposition", "Core meaning", "Example"]}
               rows={PREPOSITIONS}
-              caption="Most preposition errors are wrong choices between these core meanings \u2014 especially in / on / at and to / into."
+              caption="Most preposition errors are wrong choices between these core meanings &mdash; especially in / on / at and to / into."
             />
           </section>
 
@@ -214,10 +214,10 @@ export default function EditingPage() {
                 <span key="q4">Look, the snow __________________ (fall)!</span>,
               ]}
               answers={[
-                <span key="a1"><strong>had escaped</strong> \u2014 When two actions happened in the past, the earlier action takes the Past Perfect tense (had + V3) and the later action takes the Simple Past tense. The thief ran away before the police arrived, so \u201chad escaped\u201d is correct.</span>,
-                <span key="a2"><strong>walked</strong> \u2014 The phrase \u201cLast year\u201d establishes a past timeframe. A past habit or regular routine that happened in the past is expressed using the Simple Past tense (V2).</span>,
-                <span key="a3"><strong>is wearing</strong> \u2014 While \u201cusually\u201d marks a permanent routine, the word \u201cnow\u201d shifts the action to a temporary event happening at the exact moment of speaking. This requires the Present Continuous tense (is/am/are + verb-ing).</span>,
-                <span key="a4"><strong>is falling</strong> \u2014 Imperative attention-grabbers like \u201cLook!\u201d or \u201cListen!\u201d mean the action is actively unfolding right before your eyes. Any live action happening right now requires the Present Continuous tense.</span>,
+                <span key="a1"><strong>had escaped</strong> &mdash; When two actions happened in the past, the earlier action takes the Past Perfect tense (had + V3) and the later action takes the Simple Past tense. The thief ran away before the police arrived, so &ldquo;had escaped&rdquo; is correct.</span>,
+                <span key="a2"><strong>walked</strong> &mdash; The phrase &ldquo;Last year&rdquo; establishes a past timeframe. A past habit or regular routine that happened in the past is expressed using the Simple Past tense (V2).</span>,
+                <span key="a3"><strong>is wearing</strong> &mdash; While &ldquo;usually&rdquo; marks a permanent routine, the word &ldquo;now&rdquo; shifts the action to a temporary event happening at the exact moment of speaking. This requires the Present Continuous tense (is/am/are + verb-ing).</span>,
+                <span key="a4"><strong>is falling</strong> &mdash; Imperative attention-grabbers like &ldquo;Look!&rdquo; or &ldquo;Listen!&rdquo; mean the action is actively unfolding right before your eyes. Any live action happening right now requires the Present Continuous tense.</span>,
               ]}
             />
           </section>
@@ -225,99 +225,99 @@ export default function EditingPage() {
           <section id="worked-passages" className="scroll-mt-24 mt-14">
             <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Passages</h2>
 
-            <Expandable title="Passage 1 \u2014 Hands raised to ask questions" variant="exercise">
+            <Expandable title="Passage 1 &mdash; Hands raised to ask questions" variant="exercise">
               <p><strong>Original passage:</strong></p>
-              <p>\u201cAfter my address, hundreds of hands was raised to asking questions. Due to the limited availability time, I selected twelve students on random to ask questions.\u201d</p>
+              <p>&ldquo;After my address, hundreds of hands was raised to asking questions. Due to the limited availability time, I selected twelve students on random to ask questions.&rdquo;</p>
               <p className="mt-3"><strong>Errors &amp; corrections:</strong></p>
               <ul>
-                <li><strong>was raised \u2192 were raised.</strong> Subject-verb agreement. The subject \u201chundreds of hands\u201d is plural, so it requires the plural verb were instead of the singular was.</li>
-                <li><strong>to asking \u2192 to ask.</strong> Infinitives. Use to + base verb (to ask) rather than a gerund after \u201cto\u201d in this structure.</li>
-                <li><strong>availability time \u2192 availability of time (or time availability).</strong> Prepositions / Association. Insert the preposition of to correctly link the nouns.</li>
-                <li><strong>on random \u2192 at random.</strong> Fixed prepositions / Idiomatic usage. The correct idiom is \u201cat random\u201d (not on).</li>
+                <li><strong>was raised &rarr; were raised.</strong> Subject-verb agreement. The subject &ldquo;hundreds of hands&rdquo; is plural, so it requires the plural verb were instead of the singular was.</li>
+                <li><strong>to asking &rarr; to ask.</strong> Infinitives. Use to + base verb (to ask) rather than a gerund after &ldquo;to&rdquo; in this structure.</li>
+                <li><strong>availability time &rarr; availability of time (or time availability).</strong> Prepositions / Association. Insert the preposition of to correctly link the nouns.</li>
+                <li><strong>on random &rarr; at random.</strong> Fixed prepositions / Idiomatic usage. The correct idiom is &ldquo;at random&rdquo; (not on).</li>
               </ul>
               <p className="mt-3"><strong>Fully corrected passage:</strong></p>
-              <p>\u201cAfter my address, hundreds of hands were raised to ask questions. Due to the limited availability of time, I selected twelve students at random to ask questions.\u201d</p>
+              <p>&ldquo;After my address, hundreds of hands were raised to ask questions. Due to the limited availability of time, I selected twelve students at random to ask questions.&rdquo;</p>
             </Expandable>
 
-            <Expandable title="Passage 2 \u2014 Greta and the blackberries" variant="exercise">
+            <Expandable title="Passage 2 &mdash; Greta and the blackberries" variant="exercise">
               <ExerciseQa
                 questions={[
-                  <span key="q1">\u201cHis wife (a) (was/were) cutting blackberries in the garden, and Greta was already (b) (slide/sliding) from the chair to help her. Greta would never (c) (has/have) a house of her own. She would live (d) (on/in) a group house with other people like her.\u201d</span>,
+                  <span key="q1">&ldquo;His wife (a) (was/were) cutting blackberries in the garden, and Greta was already (b) (slide/sliding) from the chair to help her. Greta would never (c) (has/have) a house of her own. She would live (d) (on/in) a group house with other people like her.&rdquo;</span>,
                 ]}
                 answers={[
-                  <span key="a1"><strong>(a) was, (b) sliding, (c) have, (d) in.</strong> Always use the base form of a verb (V1) after modal auxiliary verbs like would, could, or should \u2014 hence \u201cwould have\u201d, not \u201cwould has\u201d.</span>,
+                  <span key="a1"><strong>(a) was, (b) sliding, (c) have, (d) in.</strong> Always use the base form of a verb (V1) after modal auxiliary verbs like would, could, or should &mdash; hence &ldquo;would have&rdquo;, not &ldquo;would has&rdquo;.</span>,
                 ]}
               />
             </Expandable>
 
-            <Expandable title="Passage 3 \u2014 Hawking at the borderline" variant="exercise">
+            <Expandable title="Passage 3 &mdash; Hawking at the borderline" variant="exercise">
               <ExerciseQa
                 questions={[
-                  <span key="q1">\u201cHawking was confident that he (a) (can/could) get through successfully. But he ended up disastrously (b) (on/in) the borderline between a first and a second.\u201d</span>,
+                  <span key="q1">&ldquo;Hawking was confident that he (a) (can/could) get through successfully. But he ended up disastrously (b) (on/in) the borderline between a first and a second.&rdquo;</span>,
                 ]}
                 answers={[
-                  <span key="a1"><strong>(a) could, (b) on.</strong> Use the preposition \u201con\u201d when referring to a position on a dividing line, scale, or borderline (e.g., on the borderline).</span>,
+                  <span key="a1"><strong>(a) could, (b) on.</strong> Use the preposition &ldquo;on&rdquo; when referring to a position on a dividing line, scale, or borderline (e.g., on the borderline).</span>,
                 ]}
               />
             </Expandable>
 
-            <Expandable title="Passage 4 \u2014 Hawking goes to Oxford" variant="exercise">
+            <Expandable title="Passage 4 &mdash; Hawking goes to Oxford" variant="exercise">
               <p><strong>Original passage:</strong></p>
-              <p>\u201cOn 1959, in the age of seventeen, Hawking went to Oxford to study natural science and to specialize on physics. He joined University College in Oxford and took his degree.\u201d</p>
+              <p>&ldquo;On 1959, in the age of seventeen, Hawking went to Oxford to study natural science and to specialize on physics. He joined University College in Oxford and took his degree.&rdquo;</p>
               <p className="mt-3"><strong>Error breakdown &amp; analysis (4 marks):</strong></p>
               <ul>
-                <li><strong>On 1959 \u2192 In 1959.</strong> Preposition of time (year). For specific calendar years, centuries, and months, the preposition \u201cin\u201d must be used. \u201cOn\u201d is reserved strictly for specific dates and days (e.g., on Monday, on 8 January).</li>
-                <li><strong>in the age of \u2192 at the age of.</strong> Idiomatic prepositional phrase. The standard, grammatically fixed English idiom used to denote a specific point in someone\u2019s life timeline is strictly \u201cat the age of [number]\u201d.</li>
-                <li><strong>specialize on \u2192 specialize in.</strong> Preposition paired with verb (collocation). The verb specialize is a dependent verb that collocates strictly with the preposition \u201cin\u201d when referencing an academic field, subject, or professional domain.</li>
-                <li><strong>University College in Oxford \u2192 University College at Oxford.</strong> Preposition of place (institutions). While you live in a city, when referring to an individual\u2019s academic attendance at a specific university or campus hub as an institution, the preposition \u201cat\u201d is used (e.g., at Oxford, at Harvard).</li>
+                <li><strong>On 1959 &rarr; In 1959.</strong> Preposition of time (year). For specific calendar years, centuries, and months, the preposition &ldquo;in&rdquo; must be used. &ldquo;On&rdquo; is reserved strictly for specific dates and days (e.g., on Monday, on 8 January).</li>
+                <li><strong>in the age of &rarr; at the age of.</strong> Idiomatic prepositional phrase. The standard, grammatically fixed English idiom used to denote a specific point in someone&rsquo;s life timeline is strictly &ldquo;at the age of [number]&rdquo;.</li>
+                <li><strong>specialize on &rarr; specialize in.</strong> Preposition paired with verb (collocation). The verb specialize is a dependent verb that collocates strictly with the preposition &ldquo;in&rdquo; when referencing an academic field, subject, or professional domain.</li>
+                <li><strong>University College in Oxford &rarr; University College at Oxford.</strong> Preposition of place (institutions). While you live in a city, when referring to an individual&rsquo;s academic attendance at a specific university or campus hub as an institution, the preposition &ldquo;at&rdquo; is used (e.g., at Oxford, at Harvard).</li>
               </ul>
             </Expandable>
 
-            <Expandable title="Passage 5 \u2014 The young seagull" variant="exercise">
+            <Expandable title="Passage 5 &mdash; The young seagull" variant="exercise">
               <p><strong>Original passage:</strong></p>
-              <p>\u201cThe young Seagull was not confident to flying. It is his mother who helped him atleast. After make his first flight, he realised his strength.\u201d</p>
+              <p>&ldquo;The young Seagull was not confident to flying. It is his mother who helped him atleast. After make his first flight, he realised his strength.&rdquo;</p>
               <p className="mt-3"><strong>Error breakdown &amp; analysis (4 marks):</strong></p>
               <ul>
-                <li><strong>confident to flying \u2192 confident of flying.</strong> Preposition after an adjective. The adjective confident is a dependent adjective that always collocates with the preposition \u201cof\u201d followed by a gerund (verb-ing). Alternatively, if an infinitive is used, it must be followed by a base verb (e.g., confident to fly).</li>
-                <li><strong>It is \u2192 It was.</strong> Past tense consistency. The entire narrative is set in the past tense, as established by the first verb (was not confident). Therefore, the present tense verb is must be changed to the past tense \u201cwas\u201d to maintain structural consistency.</li>
-                <li><strong>atleast \u2192 at last.</strong> Incorrect word choice (spelling/meaning). At least (written as two words) means \u201cnot less than\u201d. The context of the story requires the adverbial phrase \u201cat last\u201d (also two separate words), which means \u201cfinally\u201d or \u201cin the end\u201d after a long period of struggle.</li>
-                <li><strong>After make \u2192 After making.</strong> Verb form after a preposition. In English grammar, when a verb immediately follows a preposition like after, before, or by, it must be written in its gerund form (verb-ing).</li>
+                <li><strong>confident to flying &rarr; confident of flying.</strong> Preposition after an adjective. The adjective confident is a dependent adjective that always collocates with the preposition &ldquo;of&rdquo; followed by a gerund (verb-ing). Alternatively, if an infinitive is used, it must be followed by a base verb (e.g., confident to fly).</li>
+                <li><strong>It is &rarr; It was.</strong> Past tense consistency. The entire narrative is set in the past tense, as established by the first verb (was not confident). Therefore, the present tense verb is must be changed to the past tense &ldquo;was&rdquo; to maintain structural consistency.</li>
+                <li><strong>atleast &rarr; at last.</strong> Incorrect word choice (spelling/meaning). At least (written as two words) means &ldquo;not less than&rdquo;. The context of the story requires the adverbial phrase &ldquo;at last&rdquo; (also two separate words), which means &ldquo;finally&rdquo; or &ldquo;in the end&rdquo; after a long period of struggle.</li>
+                <li><strong>After make &rarr; After making.</strong> Verb form after a preposition. In English grammar, when a verb immediately follows a preposition like after, before, or by, it must be written in its gerund form (verb-ing).</li>
               </ul>
             </Expandable>
 
-            <Expandable title="Passage 6 \u2014 Pay him a visit" variant="exercise">
+            <Expandable title="Passage 6 &mdash; Pay him a visit" variant="exercise">
               <p><strong>Original passage:</strong></p>
-              <p>\u201cLast year, I pay him a visit. I thought I\u2019d go and see how things was with him. On his letters, my brother called his estate Tchimbarshov corner, or Himalayskoe. I arrived at Himalayskoe in afternoon.\u201d</p>
+              <p>&ldquo;Last year, I pay him a visit. I thought I&rsquo;d go and see how things was with him. On his letters, my brother called his estate Tchimbarshov corner, or Himalayskoe. I arrived at Himalayskoe in afternoon.&rdquo;</p>
               <p className="mt-3"><strong>Error breakdown &amp; analysis:</strong></p>
               <ul>
-                <li><strong>pay \u2192 paid.</strong> Verb tense. The time frame indicator \u201cLast year\u201d places the event in the past. Therefore, the base verb must shift to the Simple Past tense (paid).</li>
-                <li><strong>things was \u2192 things were.</strong> Subject-verb agreement. The subject \u201cthings\u201d is a plural noun. A plural subject must always be paired with a plural verb (\u201cwere\u201d instead of the singular \u201cwas\u201d).</li>
-                <li><strong>On his letters \u2192 In his letters.</strong> Preposition usage. Written correspondence takes the preposition \u201cin\u201d to denote that the information is contained inside the body of the text (e.g., in a letter, in a book).</li>
-                <li><strong>in afternoon \u2192 in the afternoon.</strong> Article omission. Specific periods of the day preceded by the preposition \u201cin\u201d strictly require the definite article \u201cthe\u201d (in the morning, in the afternoon, in the evening).</li>
+                <li><strong>pay &rarr; paid.</strong> Verb tense. The time frame indicator &ldquo;Last year&rdquo; places the event in the past. Therefore, the base verb must shift to the Simple Past tense (paid).</li>
+                <li><strong>things was &rarr; things were.</strong> Subject-verb agreement. The subject &ldquo;things&rdquo; is a plural noun. A plural subject must always be paired with a plural verb (&ldquo;were&rdquo; instead of the singular &ldquo;was&rdquo;).</li>
+                <li><strong>On his letters &rarr; In his letters.</strong> Preposition usage. Written correspondence takes the preposition &ldquo;in&rdquo; to denote that the information is contained inside the body of the text (e.g., in a letter, in a book).</li>
+                <li><strong>in afternoon &rarr; in the afternoon.</strong> Article omission. Specific periods of the day preceded by the preposition &ldquo;in&rdquo; strictly require the definite article &ldquo;the&rdquo; (in the morning, in the afternoon, in the evening).</li>
               </ul>
             </Expandable>
 
-            <Expandable title="Passage 7 \u2014 The legend of the turtles" variant="exercise">
+            <Expandable title="Passage 7 &mdash; The legend of the turtles" variant="exercise">
               <p><strong>Original passage:</strong></p>
-              <p>\u201cYou may doubts the truth of the legend, but you cannot doubt the fact that the chanting of this strange song do, In fact, lure the giant turtles into the surface of the blue waters of the bay, near Namuana village, in the island of Kadavu.\u201d</p>
+              <p>&ldquo;You may doubts the truth of the legend, but you cannot doubt the fact that the chanting of this strange song do, In fact, lure the giant turtles into the surface of the blue waters of the bay, near Namuana village, in the island of Kadavu.&rdquo;</p>
               <p className="mt-3"><strong>Error breakdown &amp; analysis:</strong></p>
               <ul>
-                <li><strong>may doubts \u2192 may doubt.</strong> Verb form after a modal auxiliary. Modal verbs like may, can, should, and will must always be followed by the base form of the verb (infinitive without \u2018to\u2019). Adding an \u2018s\u2019 to make it \u201cdoubts\u201d is grammatically incorrect.</li>
-                <li><strong>chanting... do \u2192 chanting... does.</strong> Subject-verb agreement. The true subject of the clause is the gerund \u201cchanting\u201d, which is singular. Therefore, it requires the singular verb \u201cdoes\u201d instead of the plural \u201cdo\u201d.</li>
-                <li><strong>into the surface \u2192 to the surface.</strong> Preposition of direction/movement. \u201cInto\u201d implies moving inside something enclosed. Since the turtles are rising from under the water up to the top layer, the correct prepositional phrase is \u201cto the surface\u201d.</li>
-                <li><strong>in the island \u2192 on the island.</strong> Preposition of place (islands). When referring to a specific island, the preposition \u201con\u201d must be used because an island is viewed as a surface platform rather than an enclosed boundary (e.g., on the island of Kadavu, on an island).</li>
+                <li><strong>may doubts &rarr; may doubt.</strong> Verb form after a modal auxiliary. Modal verbs like may, can, should, and will must always be followed by the base form of the verb (infinitive without &lsquo;to&rsquo;). Adding an &lsquo;s&rsquo; to make it &ldquo;doubts&rdquo; is grammatically incorrect.</li>
+                <li><strong>chanting... do &rarr; chanting... does.</strong> Subject-verb agreement. The true subject of the clause is the gerund &ldquo;chanting&rdquo;, which is singular. Therefore, it requires the singular verb &ldquo;does&rdquo; instead of the plural &ldquo;do&rdquo;.</li>
+                <li><strong>into the surface &rarr; to the surface.</strong> Preposition of direction/movement. &ldquo;Into&rdquo; implies moving inside something enclosed. Since the turtles are rising from under the water up to the top layer, the correct prepositional phrase is &ldquo;to the surface&rdquo;.</li>
+                <li><strong>in the island &rarr; on the island.</strong> Preposition of place (islands). When referring to a specific island, the preposition &ldquo;on&rdquo; must be used because an island is viewed as a surface platform rather than an enclosed boundary (e.g., on the island of Kadavu, on an island).</li>
               </ul>
             </Expandable>
 
-            <Expandable title="Passage 8 \u2014 Manipur" variant="exercise">
+            <Expandable title="Passage 8 &mdash; Manipur" variant="exercise">
               <p><strong>Original passage:</strong></p>
-              <p>\u201cManipur is a land of several possibility, especially for adventurous activities. The topography of Manipur offer opportunities for caving, rafting paragliding, rock climbing and wind surfing. Shirui Hills is one of the most famous treks in Manipur, and nature lovers throngs the roads leading in the range during the Shirui Lily festival.\u201d</p>
+              <p>&ldquo;Manipur is a land of several possibility, especially for adventurous activities. The topography of Manipur offer opportunities for caving, rafting paragliding, rock climbing and wind surfing. Shirui Hills is one of the most famous treks in Manipur, and nature lovers throngs the roads leading in the range during the Shirui Lily festival.&rdquo;</p>
               <p className="mt-3"><strong>Error breakdown &amp; analysis:</strong></p>
               <ul>
-                <li><strong>several possibility \u2192 several possibilities.</strong> Noun number (singular/plural). The quantifier several indicates more than two items, so it must always be followed by a plural countable noun.</li>
-                <li><strong>topography of Manipur offer \u2192 topography of Manipur offers.</strong> Subject-verb agreement (singular subject). The true subject of the sentence is \u201ctopography\u201d, which is a singular abstract noun. A singular subject requires a singular verb ending in \u2018s\u2019 (\u201coffers\u201d instead of the plural \u201coffer\u201d).</li>
-                <li><strong>nature lovers throngs \u2192 nature lovers throng.</strong> Subject-verb agreement (plural subject). The subject \u201cnature lovers\u201d is a plural noun phrase. Therefore, it requires the base plural form of the verb (\u201cthrong\u201d without the \u2018s\u2019).</li>
-                <li><strong>leading in the range \u2192 leading to the range (or into).</strong> Preposition of direction. The word leading implies movement or direction toward a destination, requiring the preposition \u201cto\u201d or \u201cinto\u201d rather than the static preposition of location \u201cin.\u201d</li>
+                <li><strong>several possibility &rarr; several possibilities.</strong> Noun number (singular/plural). The quantifier several indicates more than two items, so it must always be followed by a plural countable noun.</li>
+                <li><strong>topography of Manipur offer &rarr; topography of Manipur offers.</strong> Subject-verb agreement (singular subject). The true subject of the sentence is &ldquo;topography&rdquo;, which is a singular abstract noun. A singular subject requires a singular verb ending in &lsquo;s&rsquo; (&ldquo;offers&rdquo; instead of the plural &ldquo;offer&rdquo;).</li>
+                <li><strong>nature lovers throngs &rarr; nature lovers throng.</strong> Subject-verb agreement (plural subject). The subject &ldquo;nature lovers&rdquo; is a plural noun phrase. Therefore, it requires the base plural form of the verb (&ldquo;throng&rdquo; without the &lsquo;s&rsquo;).</li>
+                <li><strong>leading in the range &rarr; leading to the range (or into).</strong> Preposition of direction. The word leading implies movement or direction toward a destination, requiring the preposition &ldquo;to&rdquo; or &ldquo;into&rdquo; rather than the static preposition of location &ldquo;in.&rdquo;</li>
               </ul>
             </Expandable>
           </section>
@@ -373,7 +373,7 @@ export default function EditingPage() {
 
           <section id="key-takeaway" className="scroll-mt-24 mt-14">
             <KeyPoint>
-              Editing is a <em>search</em>, not a rewrite. Work through a fixed checklist \u2014 agreement, tense, articles, prepositions, word form, spelling and punctuation \u2014 and change only what is wrong.
+              Editing is a <em>search</em>, not a rewrite. Work through a fixed checklist &mdash; agreement, tense, articles, prepositions, word form, spelling and punctuation &mdash; and change only what is wrong.
             </KeyPoint>
           </section>
         </>

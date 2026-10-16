@@ -42,7 +42,7 @@ export default function AppreciationContent() {
           { cells: ["Rhyme", "Words ending in the same sound, usually at line ends", "\u201cstar / are\u201d, \u201cwall / call\u201d"] },
           { cells: ["Refrain", "A line repeated at intervals, often ending each stanza", "\u201cGood fences make good neighbours\u201d (Frost)"] },
         ]}
-        caption="Sound devices work on the ear \u2014 read the lines aloud to hear them."
+        caption="Sound devices work on the ear &mdash; read the lines aloud to hear them."
       />
 
       <h3>Figures of Speech</h3>
@@ -58,7 +58,7 @@ export default function AppreciationContent() {
           { cells: ["Symbolism", "An object or image standing for a larger idea", "The stone wall in \u201cMending Wall\u201d = human barriers"] },
           { cells: ["Allusion", "A reference to a well-known person, text, place or event", "\u201cThou whom a woman laid in a manger\u201d (Tynan)"] },
         ]}
-        caption="Figures of speech work on the mind \u2014 they build pictures and ideas."
+        caption="Figures of speech work on the mind &mdash; they build pictures and ideas."
       />
 
       <h3>Contrast &amp; Word-play</h3>
@@ -86,7 +86,7 @@ export default function AppreciationContent() {
           { cells: ["Enjambment", "A sentence or idea running past the end of a line into the next", "\u201cSomething there is that doesn\u2019t love a wall, / That sends the frozen-ground-swell under it\u201d (Frost)"] },
           { cells: ["Caesura", "A pause within a line, usually marked by punctuation", "\u201cTo be, or not to be: that is the question\u201d"] },
         ]}
-        caption="Form devices work on structure \u2014 how the poem is built on the page."
+        caption="Form devices work on structure &mdash; how the poem is built on the page."
       />
 
       <h3>Putting It Together</h3>
