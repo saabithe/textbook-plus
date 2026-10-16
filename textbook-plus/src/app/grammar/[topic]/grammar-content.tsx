@@ -9,6 +9,13 @@ const grammarComponents: Record<string, React.ComponentType> = {
   "modal-auxiliaries": dynamic(() => import("@/content/grammar/modal-auxiliaries/page")) as React.ComponentType,
   "prepositions": dynamic(() => import("@/content/grammar/prepositions/page")) as React.ComponentType,
   "concord": dynamic(() => import("@/content/grammar/concord/page")) as React.ComponentType,
+  "if-clause": dynamic(() => import("@/content/grammar/if-clause/page")) as React.ComponentType,
+  "editing": dynamic(() => import("@/content/grammar/editing/page")) as React.ComponentType,
+  "had-better": dynamic(() => import("@/content/grammar/had-better/page")) as React.ComponentType,
+  "suggestions-advice": dynamic(() => import("@/content/grammar/suggestions-advice/page")) as React.ComponentType,
+  "phrasal-verbs": dynamic(() => import("@/content/grammar/phrasal-verbs/page")) as React.ComponentType,
+  "cohesive-devices": dynamic(() => import("@/content/grammar/cohesive-devices/page")) as React.ComponentType,
+  "articles": dynamic(() => import("@/content/grammar/articles/page")) as React.ComponentType,
 };
 
 export function GrammarContent({ slug }: { slug: string }) {

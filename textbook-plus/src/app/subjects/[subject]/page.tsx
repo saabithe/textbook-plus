@@ -74,7 +74,7 @@ export default async function SubjectPage({ params }: Props) {
                     Grammar
                   </h2>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    6 core topics — Tenses, Reported Speech, Passive Voice, Modals, Prepositions, Concord
+                    13 core topics — Tenses, Reported Speech, Voice, If Clauses, Modals, Articles, Prepositions, Concord, Phrasal Verbs, Editing &amp; more
                   </p>
                 </div>
               </Link>
