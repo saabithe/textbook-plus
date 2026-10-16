@@ -93,7 +93,7 @@ export default async function SubjectPage({ params }: Props) {
                     Discourses
                   </h2>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    7 writing formats — Letters, Articles, Speeches, Reports, Reviews, Profiles, Notices
+                    8 writing formats — Letters, Articles, Speeches, Reports, Reviews, Profiles, Notices, Appreciation
                   </p>
                 </div>
               </Link>

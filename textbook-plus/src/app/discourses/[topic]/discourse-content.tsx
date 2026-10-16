@@ -10,6 +10,7 @@ const discourseComponents: Record<string, React.ComponentType> = {
   "review": dynamic(() => import("@/content/discourses/review/page")) as React.ComponentType,
   "profile-bio-sketch": dynamic(() => import("@/content/discourses/profile-bio-sketch/page")) as React.ComponentType,
   "poster-notice-email": dynamic(() => import("@/content/discourses/poster-notice-email/page")) as React.ComponentType,
+  "appreciation": dynamic(() => import("@/content/discourses/appreciation/page")) as React.ComponentType,
 };
 
 export function DiscourseContent({ slug }: { slug: string }) {
