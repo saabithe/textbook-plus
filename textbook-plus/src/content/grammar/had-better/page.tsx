@@ -6,6 +6,7 @@ import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
+import { Expandable } from "@/components/content/Expandable";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
 import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
@@ -60,6 +61,13 @@ const QUESTIONS: GrammarQuestion[] = [
     answer: 1,
     explanation: "\u201cShould have + past participle\u201d expresses past advice or regret; \u201chad better\u201d has no past form.",
   },
+  {
+    id: "hb6", type: "mcq",
+    question: "\"You'd better ________ away from drug usage to avoid permanent damage.\"",
+    options: ["stay", "stayed", "staying", "to stay"],
+    answer: 0,
+    explanation: "\u201cYou'd better\u201d (you had better) is strong, urgent advice \u2014 always followed by the base verb, never \u201cto\u201d.",
+  },
 ];
 
 const HAD_BETTER_TABLE = [
@@ -103,6 +111,15 @@ export default function HadBetterPage() {
           <p><strong>Negative:</strong> put <em>not</em> after <em>better</em> &mdash; <em>You&rsquo;d better not touch it.</em></p>
           <p><strong>Tone:</strong> it can sound firm or even threatening, so it is common in warnings: <em>You&rsquo;d better be on time.</em></p>
         </div>
+      </section>
+
+      <section id="worked-example" className="scroll-mt-24 mt-14">
+        <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Example</h2>
+        <Expandable title="Worked example — warning drug abusers" variant="exercise">
+          <p><strong>Task:</strong> <em>The drug abusers must be warned of the ill effects of intoxicants. Give advice beginning with &ldquo;You&rsquo;d better&rdquo;.</em></p>
+          <p className="mt-3"><strong>Answer:</strong> <em>You&rsquo;d better stay away from drug usage to avoid permanent physical and mental damage.</em></p>
+          <p className="mt-3"><strong>Rule:</strong> &ldquo;You&rsquo;d better&rdquo; (You had better) is used for strong, urgent advice where negative consequences will follow if ignored. It must strictly be followed by a base verb (infinitive without &lsquo;to&rsquo;).</p>
+        </Expandable>
       </section>
 
       <section id="common-mistakes" className="scroll-mt-24 mt-14">

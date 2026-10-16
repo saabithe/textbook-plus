@@ -6,6 +6,7 @@ import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
+import { Expandable } from "@/components/content/Expandable";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
 import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
@@ -44,6 +45,27 @@ const QUESTIONS: GrammarQuestion[] = [
     question: "Fill in: \"________ you hurry, you will miss the bus.\" (one word meaning \u201cif not\u201d)",
     answer: "Unless",
     explanation: "\u201cUnless\u201d means \u201cif not\u201d \u2014 and it already carries the negative, so no extra \u201cnot\u201d is needed.",
+  },
+  {
+    id: "ic6", type: "mcq",
+    question: "\"If the United Nations ________ the war beforehand, so many children would not have suffered.\"",
+    options: ["had stopped", "stopped", "will stop", "would stop"],
+    answer: 0,
+    explanation: "\u201cWould not have suffered\u201d marks a Type 3 (third) conditional \u2014 an imaginary past. The if-clause strictly takes the past perfect (had + V3).",
+  },
+  {
+    id: "ic7", type: "mcq",
+    question: "\"If the situation continues the same, too many lives ________.\"",
+    options: ["will be lost", "will lose", "would lost", "are lost"],
+    answer: 0,
+    explanation: "Present-simple if-clause \u2192 Type 1 (first) conditional: will + base verb. Lives cannot lose themselves, so the passive is needed: will be + lost (V3).",
+  },
+  {
+    id: "ic8", type: "mcq",
+    question: "\"If I were you, I ________ the offer.\"",
+    options: ["would accept", "will accept", "accepted", "accept"],
+    answer: 0,
+    explanation: "\u201cIf I were you\u201d is Type 2 advice: if + simple past \u2192 would + base verb.",
   },
 ];
 
@@ -98,6 +120,26 @@ export default function IfClausePage() {
           <p className="ml-4"><em>Were I you</em>, I would apologise. (= If I were you&hellip;)</p>
           <p className="ml-4"><em>Should you need</em> help, call me. (= If you should need&hellip;)</p>
         </div>
+      </section>
+
+      <section id="advice" className="scroll-mt-24 mt-14">
+        <h2 className="text-2xl font-bold tracking-tight mb-5">Type 2 for Advice &mdash; If I Were You</h2>
+        <Callout type="important" title="The advice formula">
+          <strong>If + Simple Past &rarr; would + base verb.</strong> <em>If I were you, I would accept the offer.</em> / <em>If I were you, I would study hard for the exam.</em>
+        </Callout>
+        <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75] mt-4">
+          <p><Highlight color="yellow">If I were you</Highlight> gives advice by putting yourself in the other person&rsquo;s shoes. It describes an imaginary, impossible situation &mdash; since you can never actually become them.</p>
+          <p><strong>Why <em>were</em> and not <em>was</em>?</strong> In hypothetical or imaginary situations (the subjunctive mood), English uses <em>were</em> for all pronouns &mdash; even singular ones like <em>I, he, she</em> and <em>it</em> (e.g. <em>If she were here&hellip;</em>).</p>
+        </div>
+      </section>
+
+      <section id="worked-example" className="scroll-mt-24 mt-14">
+        <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Example</h2>
+        <Expandable title="Worked example — a mixed conditional passage" variant="exercise">
+          <p><strong>Passage:</strong> <em>If United Nations &hellip;(stop) the war between two countries beforehand, so many children and the old would not have suffered from hunger and cold. If the situation continues the same, too many lives &hellip;(lose).</em></p>
+          <p className="mt-3"><strong>Blank 1 &mdash; Third Conditional (past unfulfilled action):</strong> <em>had stopped</em>. The phrase &ldquo;would not have suffered&rdquo; in the main clause establishes this as a Type 3 conditional. It describes an imaginary past situation that never actually occurred. The formula strictly requires the Past Perfect tense (had + V3) inside the if-clause.</p>
+          <p className="mt-3"><strong>Blank 2 &mdash; First Conditional in the passive (future probability):</strong> <em>will be lost</em>. The phrase &ldquo;If the situation continues&rdquo; uses the Present Simple, which sets up a Type 1 structure for a highly possible future outcome &mdash; the result clause requires will + base verb. Since lives cannot actively lose themselves, it must be passive: will be + the past participle <em>lost</em>.</p>
+        </Expandable>
       </section>
 
       <section id="common-mistakes" className="scroll-mt-24 mt-14">

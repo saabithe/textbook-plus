@@ -6,6 +6,7 @@ import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
 import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
@@ -55,6 +56,27 @@ const QUESTIONS: GrammarQuestion[] = [
     answer: "gave up",
     explanation: "\u201cGive up\u201d means to stop doing something.",
   },
+  {
+    id: "pv6", type: "mcq",
+    question: "\"The flight will ________ in 5 minutes.\"",
+    options: ["take off", "take for", "give up", "speak up"],
+    answer: 0,
+    explanation: "\u201cTake off\u201d = ascend (of an aircraft).",
+  },
+  {
+    id: "pv7", type: "mcq",
+    question: "\"He didn't want to attend the meeting, so he decided to ________ at the last moment.\"",
+    options: ["show up", "give up", "turn up", "take off"],
+    answer: 3,
+    explanation: "\u201cTake off\u201d = leave suddenly \u2014 he walked out instead of attending.",
+  },
+  {
+    id: "pv8", type: "mcq",
+    question: "\"She always tries to ________ the needs of her team members during discussions.\"",
+    options: ["speak up", "take after", "stand up for", "look after"],
+    answer: 2,
+    explanation: "\u201cStand up for\u201d = defend or support \u2014 she advocates for her team's needs.",
+  },
 ];
 
 const PHRASAL_TABLE = [
@@ -74,6 +96,54 @@ const SEPARABLE_TABLE = [
   { cells: ["Separable", "The object may go between the verb and the particle", "turn off the light / turn the light off"] },
   { cells: ["Inseparable", "The object must follow the particle", "look after the baby (not \u201clook the baby after\u201d)"] },
   { cells: ["Separable + pronoun", "A pronoun object must go in the middle", "turn it off (not \u201cturn off it\u201d)"] },
+];
+
+const GO_TABLE = [
+  { cells: ["Go on", "to continue"] },
+  { cells: ["Go off", "to explode or make a noise"] },
+  { cells: ["Go up", "to increase in price, level, or intensity"] },
+  { cells: ["Go out", "to leave or socialize"] },
+  { cells: ["Go through", "to experience or examine in detail"] },
+];
+
+const COME_TABLE = [
+  { cells: ["Come in", "to enter"] },
+  { cells: ["Come across", "to find or meet unexpectedly"] },
+  { cells: ["Come up with", "to think of an idea or solution"] },
+  { cells: ["Come back", "to return"] },
+  { cells: ["Come down with", "to become ill with something"] },
+];
+
+const PUT_TABLE = [
+  { cells: ["Put off", "to postpone"] },
+  { cells: ["Put up with", "to tolerate"] },
+  { cells: ["Put out", "to extinguish (a fire or light)"] },
+  { cells: ["Put down", "to place on the ground or criticize"] },
+  { cells: ["Put across", "to express or communicate effectively"] },
+];
+
+const TAKE_TABLE = [
+  { cells: ["Take off", "to ascend (in an aircraft) or become successful"] },
+  { cells: ["Take up", "to begin a hobby or activity"] },
+  { cells: ["Take over", "to assume control"] },
+  { cells: ["Take in", "to absorb or understand information"] },
+  { cells: ["Take back", "to return something or withdraw a statement"] },
+];
+
+const GIVE_TABLE = [
+  { cells: ["Give up", "to quit or surrender"] },
+  { cells: ["Give in", "to yield or concede"] },
+  { cells: ["Give out", "to distribute or run out"] },
+  { cells: ["Give off", "to emit or release (a smell, heat, etc.)"] },
+  { cells: ["Give away", "to donate or reveal something"] },
+];
+
+const MAKE_TABLE = [
+  { cells: ["Make up", "to invent or reconcile after an argument"] },
+  { cells: ["Make out", "to distinguish or decipher"] },
+  { cells: ["Make for", "to move towards or result in"] },
+  { cells: ["Make off", "to escape or run away"] },
+  { cells: ["Make do", "to manage with what is available"] },
 ];
 
 export default function PhrasalVerbsPage() {
@@ -106,6 +176,28 @@ export default function PhrasalVerbsPage() {
           headers={["Type", "Rule", "Example"]}
           rows={SEPARABLE_TABLE}
           caption="When in doubt, keep the verb and particle together — that order is almost always safe."
+        />
+      </section>
+
+      <section id="families" className="scroll-mt-24 mt-14">
+        <h2 className="text-2xl font-bold tracking-tight mb-5">Phrasal Verbs by Family</h2>
+        <TableCard title="Go" headers={["Phrasal verb", "Meaning"]} rows={GO_TABLE} />
+        <TableCard title="Come" headers={["Phrasal verb", "Meaning"]} rows={COME_TABLE} />
+        <TableCard title="Put" headers={["Phrasal verb", "Meaning"]} rows={PUT_TABLE} />
+        <TableCard title="Take" headers={["Phrasal verb", "Meaning"]} rows={TAKE_TABLE} />
+        <TableCard title="Give" headers={["Phrasal verb", "Meaning"]} rows={GIVE_TABLE} />
+        <TableCard title="Make" headers={["Phrasal verb", "Meaning"]} rows={MAKE_TABLE} />
+      </section>
+
+      <section id="choose-right" className="scroll-mt-24 mt-14">
+        <h2 className="text-2xl font-bold tracking-tight mb-5">Choose the Right Phrasal Verb</h2>
+        <ExerciseQa
+          questions={[
+            <span key="q1">Complete with a phrasal verb from the brackets (speak up, take for, give up, speak for, take off): a) The flight will &hellip; in 5 minutes. b) Work hard. Don&rsquo;t &hellip; your bold steps.</span>,
+          ]}
+          answers={[
+            <span key="a1"><strong>a) take off, b) give up.</strong> The flight will <em>take off</em> in 5 minutes. Work hard &mdash; don&rsquo;t <em>give up</em> your bold steps.</span>,
+          ]}
         />
       </section>
 

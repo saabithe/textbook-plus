@@ -6,6 +6,8 @@ import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
+import { Expandable } from "@/components/content/Expandable";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
 import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
@@ -44,6 +46,24 @@ const QUESTIONS: GrammarQuestion[] = [
       "Passive sentences never include agents",
     ],
     answer: 1, explanation: "We omit the by-agent when the agent is unknown (we don't know who broke the window) or unimportant (it doesn't matter who did it).",
+  },
+  {
+    id: "pv6", type: "mcq",
+    question: "\"Hasan assisted Dr. Cronin to help the patients.\" The passive form is:",
+    options: ["Dr. Cronin was assisted by Hasan to help the patients.", "Dr. Cronin is assisted by Hasan to help the patients.", "Dr. Cronin assisted Hasan to help the patients.", "Hasan was assisted by Dr. Cronin to help the patients."],
+    answer: 0, explanation: "Simple past passive: was/were + past participle. The infinitive purpose clause (\u201cto help the patients\u201d) stays at the end.",
+  },
+  {
+    id: "pv7", type: "mcq",
+    question: "\"The teacher explained the lesson to the students.\" The passive form is:",
+    options: ["The lesson is explained to the students by the teacher.", "The lesson was explained to the students by the teacher.", "The lesson has explained to the students by the teacher.", "The lesson explains to the students by the teacher."],
+    answer: 1, explanation: "Simple past (\u201cexplained\u201d) \u2192 was + explained (V3). The \u201cto the students\u201d phrase can sit before or after the by-agent.",
+  },
+  {
+    id: "pv8", type: "mcq",
+    question: "\"The company launched a new product last week.\" The passive form is:",
+    options: ["A new product is launched by the company last week.", "A new product was launched by the company last week.", "A new product has launched by the company last week.", "A new product launches by the company last week."],
+    answer: 1, explanation: "\u201cLast week\u201d fixes the past: was + launched (V3), with the agent at the end.",
   },
 ];
 
@@ -93,6 +113,36 @@ export default function PassiveVoicePage() {
           <p><strong>Formal / scientific writing:</strong> <em>The experiment was conducted over three months.</em></p>
           <p><strong>To be diplomatic:</strong> <em>Mistakes were made.</em> (Avoids pointing fingers.)</p>
         </div>
+      </section>
+
+      <section id="worked-transformation" className="scroll-mt-24 mt-14">
+        <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Transformation</h2>
+        <Expandable title="Worked example — Hasan assisted Dr. Cronin" variant="exercise">
+          <p><strong>Active:</strong> <em>Hasan assisted Dr. Cronin to help the patients.</em></p>
+          <p className="mt-3"><strong>Passive:</strong> <em>Dr. Cronin was assisted by Hasan to help the patients.</em></p>
+          <p className="mt-3"><strong>Why the sentence changed:</strong></p>
+          <ul>
+            <li><strong>Identify the core object &amp; subject:</strong> Hasan is the subject performing the action, and Dr. Cronin is the direct object receiving the action. The remaining phrase (&ldquo;to help the patients&rdquo;) is an infinitive purpose clause that stays at the end.</li>
+            <li><strong>Shift the object to the front:</strong> Dr. Cronin moves to the beginning of the sentence as the new grammatical subject.</li>
+            <li><strong>Tense transformation:</strong> the original verb &ldquo;assisted&rdquo; is in the Simple Past tense. In the passive voice, the Simple Past is formed using was/were + past participle (V3). Since Dr. Cronin is singular, we use &ldquo;was assisted&rdquo;.</li>
+            <li><strong>Add the agent:</strong> the original subject is placed at the end preceded by &ldquo;by&rdquo; (&ldquo;by Hasan&rdquo;).</li>
+          </ul>
+          <p className="mt-3"><strong>Formula:</strong> Subject + was/were + past participle + by + agent.</p>
+        </Expandable>
+      </section>
+
+      <section id="worked-questions" className="scroll-mt-24 mt-14">
+        <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Questions</h2>
+        <ExerciseQa
+          questions={[
+            <span key="q1">Active Voice: The teacher explained the lesson to the students. &mdash; Write the Passive Voice.</span>,
+            <span key="q2">Active Voice: The company launched a new product last week. &mdash; Write the Passive Voice.</span>,
+          ]}
+          answers={[
+            <span key="a1"><strong>The lesson was explained to the students by the teacher.</strong> (Alternative: The lesson was explained by the teacher to the students.)</span>,
+            <span key="a2"><strong>A new product was launched by the company last week.</strong> (Alternative: A new product was launched last week by the company.)</span>,
+          ]}
+        />
       </section>
 
       <section id="common-mistakes" className="scroll-mt-24 mt-14">
