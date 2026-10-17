@@ -1,11 +1,50 @@
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
-import { grammarTopics } from "@/data/grammar";
+import { coreGrammarTopics, moreGrammarTopics, type GrammarTopic } from "@/data/grammar";
 
 export const metadata = {
   title: "Grammar — Textbook++",
   description: "Core English grammar topics for Kerala Board Class 12",
 };
+
+function TopicGrid({ topics }: { topics: GrammarTopic[] }) {
+  return (
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {topics.map((topic) => {
+        const Icon = topic.icon;
+        return (
+          <Link
+            key={topic.slug}
+            href={`/grammar/${topic.slug}`}
+            className="group flex flex-col gap-3 rounded-2xl border border-border/60 bg-card p-5 transition-all duration-200 hover:border-border hover:shadow-md"
+          >
+            <div
+              className="flex h-10 w-10 items-center justify-center rounded-xl"
+              style={{ backgroundColor: "var(--subject-english-light)" }}
+            >
+              <Icon
+                className="h-5 w-5"
+                style={{ color: "var(--subject-english)" }}
+                strokeWidth={1.8}
+              />
+            </div>
+            <div>
+              <h2 className="text-base font-bold text-foreground group-hover:text-[var(--subject-english)] transition-colors">
+                {topic.title}
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                {topic.tagline}
+              </p>
+            </div>
+            <span className="mt-auto text-xs text-muted-foreground/60">
+              {topic.sectionCount} sections
+            </span>
+          </Link>
+        );
+      })}
+    </div>
+  );
+}
 
 export default function GrammarPage() {
   return (
@@ -38,46 +77,24 @@ export default function GrammarPage() {
                 Grammar
               </h1>
               <p className="mt-1 text-base text-muted-foreground">
-                {grammarTopics.length} core topics — rules, examples &amp; practice
+                {coreGrammarTopics.length + moreGrammarTopics.length} core topics — rules, examples &amp; practice
               </p>
             </div>
           </div>
 
-          {/* Topic grid */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {grammarTopics.map((topic) => {
-              const Icon = topic.icon;
-              return (
-                <Link
-                  key={topic.slug}
-                  href={`/grammar/${topic.slug}`}
-                  className="group flex flex-col gap-3 rounded-2xl border border-border/60 bg-card p-5 transition-all duration-200 hover:border-border hover:shadow-md"
-                >
-                  <div
-                    className="flex h-10 w-10 items-center justify-center rounded-xl"
-                    style={{ backgroundColor: "var(--subject-english-light)" }}
-                  >
-                    <Icon
-                      className="h-5 w-5"
-                      style={{ color: "var(--subject-english)" }}
-                      strokeWidth={1.8}
-                    />
-                  </div>
-                  <div>
-                    <h2 className="text-base font-bold text-foreground group-hover:text-[var(--subject-english)] transition-colors">
-                      {topic.title}
-                    </h2>
-                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                      {topic.tagline}
-                    </p>
-                  </div>
-                  <span className="mt-auto text-xs text-muted-foreground/60">
-                    {topic.sectionCount} sections
-                  </span>
-                </Link>
-              );
-            })}
+          {/* Core topics */}
+          <TopicGrid topics={coreGrammarTopics} />
+
+          {/* Divider */}
+          <div className="mt-12 mb-6">
+            <div className="h-[5px] w-full rounded-full bg-border" />
+            <h2 className="mt-5 text-lg font-extrabold tracking-tight text-foreground">
+              More Grammar Topics
+            </h2>
           </div>
+
+          {/* More topics */}
+          <TopicGrid topics={moreGrammarTopics} />
         </section>
       </main>
     </>
