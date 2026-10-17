@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { ChapterList } from "@/components/subject/ChapterList";
 import { getSubjectBySlug, subjects } from "@/data/subjects";
+import { grammarTopics } from "@/data/grammar";
+import { discourseTopics } from "@/data/discourses";
 
 export function generateStaticParams() {
   return subjects.map((s) => ({ subject: s.slug }));
@@ -74,7 +76,7 @@ export default async function SubjectPage({ params }: Props) {
                     Grammar
                   </h2>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    12 topics — rules, examples &amp; practice
+                    {grammarTopics.length} topics — rules, examples &amp; practice
                   </p>
                 </div>
               </Link>
@@ -93,7 +95,7 @@ export default async function SubjectPage({ params }: Props) {
                     Discourses
                   </h2>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    8 writing formats — structure, tips &amp; samples
+                    {discourseTopics.length} writing formats — structure, tips &amp; samples
                   </p>
                 </div>
               </Link>
