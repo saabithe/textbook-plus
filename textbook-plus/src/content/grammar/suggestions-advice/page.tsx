@@ -77,6 +77,62 @@ const QUESTIONS: GrammarQuestion[] = [
     answer: 1,
     explanation: "For urgent advice carrying a warning, use \u201chad better + base verb\u201d \u2014 never with \u201cto\u201d.",
   },
+  {
+    id: "hb1", type: "mcq",
+    question: "\"You ________ better see a doctor.\"",
+    options: ["had", "have", "has", "would"],
+    answer: 0,
+    explanation: "\u201cHad better\u201d is a fixed expression meaning strong advice.",
+  },
+  {
+    id: "hb2", type: "mcq",
+    question: "Choose the correct sentence.",
+    options: [
+      "You had better to rest.",
+      "You had better rest.",
+      "You had better resting.",
+      "You have better rest.",
+    ],
+    answer: 1,
+    explanation: "\u201cHad better\u201d is followed by the base verb, with no \u201cto\u201d.",
+  },
+  {
+    id: "hb3", type: "fill-blank",
+    question: "Make it negative \u2014 type the two missing words: \"You'd better ________ ________ late again.\" (not / be)",
+    answer: "not be",
+    explanation: "The negative is \u201chad better not + base verb\u201d.",
+  },
+  {
+    id: "hb4", type: "mcq",
+    question: "Which sentence expresses the strongest advice or warning?",
+    options: [
+      "You could see a doctor.",
+      "You might see a doctor.",
+      "You'd better see a doctor.",
+      "You may see a doctor.",
+    ],
+    answer: 2,
+    explanation: "\u201cHad better\u201d warns of a bad result if ignored \u2014 stronger than could / might / may.",
+  },
+  {
+    id: "hb5", type: "mcq",
+    question: "Choose the correct form to talk about advice you did NOT take in the past.",
+    options: [
+      "You had better saw a doctor.",
+      "You should have seen a doctor.",
+      "You had better seen a doctor.",
+      "You would better see a doctor.",
+    ],
+    answer: 1,
+    explanation: "\u201cShould have + past participle\u201d expresses past advice or regret; \u201chad better\u201d has no past form.",
+  },
+  {
+    id: "hb6", type: "mcq",
+    question: "\"You'd better ________ away from drug usage to avoid permanent damage.\"",
+    options: ["stay", "stayed", "staying", "to stay"],
+    answer: 0,
+    explanation: "\u201cYou'd better\u201d (you had better) is strong, urgent advice \u2014 always followed by the base verb, never \u201cto\u201d.",
+  },
 ];
 
 const SUGGESTIONS_TABLE = [
@@ -95,6 +151,14 @@ const ADVICE_TABLE = [
   { cells: ["If I were you, I would + base verb", "If I were you, I would wait."] },
   { cells: ["I advise / recommend + -ing", "I advise waiting a day."] },
   { cells: ["must / have to (strong)", "You must finish it today."] },
+];
+
+const HAD_BETTER_TABLE = [
+  { cells: ["had better + base verb", "Strong advice / warning \u2014 there is a bad result if ignored", "You'd better hurry or we'll miss the train."] },
+  { cells: ["should + base verb", "General advice, milder in tone", "You should take some rest."] },
+  { cells: ["ought to + base verb", "Moral duty or advice", "You ought to apologise."] },
+  { cells: ["would rather + base verb", "Preference, not advice", "I'd rather stay at home."] },
+  { cells: ["had better not + base verb", "Negative advice / warning", "You'd better not be late."] },
 ];
 
 export default function SuggestionsAdvicePage() {
@@ -136,6 +200,25 @@ export default function SuggestionsAdvicePage() {
         </div>
       </section>
 
+      <section id="had-better" className="scroll-mt-24 mt-14">
+        <h2 className="text-2xl font-bold tracking-tight mb-5">Had Better &mdash; Strong Advice</h2>
+        <Callout type="note">
+          <Highlight color="yellow">Had better</Highlight> gives strong advice with a hint of warning: if you ignore it, something unpleasant will follow. It looks like the past tense, but it always refers to the <em>present or future</em>.
+        </Callout>
+        <TableCard
+          headers={["Form", "Strength & meaning", "Example"]}
+          rows={HAD_BETTER_TABLE}
+          caption="Learn the contrast: had better warns, should advises, would rather prefers."
+        />
+        <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75] mt-4">
+          <p><strong>Contraction:</strong> in speech, <em>had</em> is shortened to <em>&rsquo;d</em> &mdash; <em>I&rsquo;d better go</em>, <em>You&rsquo;d better ask</em>.</p>
+          <p><strong>No past form:</strong> for past advice or regret, use <em>should have + past participle</em> &mdash; <em>You should have called me.</em></p>
+          <p><strong>It is followed by the base verb</strong>, never <em>to</em> and never <em>-ing</em>: <em>We&rsquo;d better leave now.</em></p>
+          <p><strong>Negative:</strong> put <em>not</em> after <em>better</em> &mdash; <em>You&rsquo;d better not touch it.</em></p>
+          <p><strong>Tone:</strong> it can sound firm or even threatening, so it is common in warnings: <em>You&rsquo;d better be on time.</em></p>
+        </div>
+      </section>
+
       <section id="responding" className="scroll-mt-24 mt-14">
         <h2 className="text-2xl font-bold tracking-tight mb-5">Responding to a Suggestion</h2>
         <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
@@ -150,6 +233,11 @@ export default function SuggestionsAdvicePage() {
           <p><strong>Context:</strong> <em>Advising a friend addicted to mobile phones.</em></p>
           <p className="mt-3"><strong>Advice 1:</strong> <em>You should really set a daily screen-time limit.</em> (Direct advice with <em>should</em> + base verb.)</p>
           <p className="mt-3"><strong>Advice 2:</strong> <em>If I were you, I would turn off non-essential notifications.</em> (Hypothetical advice: <em>would</em> + base verb.)</p>
+        </Expandable>
+        <Expandable title="Worked example — advising drug abusers (You'd better)" variant="exercise">
+          <p><strong>Task:</strong> <em>The drug abusers must be warned of the ill effects of intoxicants. Give advice beginning with &ldquo;You&rsquo;d better&rdquo;.</em></p>
+          <p className="mt-3"><strong>Answer:</strong> <em>You&rsquo;d better stay away from drug usage to avoid permanent physical and mental damage.</em></p>
+          <p className="mt-3"><strong>Rule:</strong> &ldquo;You&rsquo;d better&rdquo; (You had better) is used for strong, urgent advice where negative consequences will follow if ignored. It must strictly be followed by a base verb (infinitive without &lsquo;to&rsquo;).</p>
         </Expandable>
         <Expandable title="Worked example — advising drug abusers (If I were you)" variant="exercise">
           <p><strong>Task:</strong> <em>Give advice beginning with &ldquo;If I were you&rdquo;.</em></p>
@@ -179,6 +267,21 @@ export default function SuggestionsAdvicePage() {
           mistake="Why don't we to start?"
           correction="Why don't we start?"
           example="'Why don't we' is followed by the base verb, with no 'to'."
+        />
+        <MistakeCard
+          mistake="You had better to study."
+          correction="You had better study."
+          example="'Had better' is followed directly by the base verb — don't add 'to'."
+        />
+        <MistakeCard
+          mistake="He has better go now."
+          correction="He had better go now."
+          example="The form is fixed: it is always 'had better', never 'has better' or 'have better'."
+        />
+        <MistakeCard
+          mistake="You had better not to be late."
+          correction="You had better not be late."
+          example="In the negative, 'not' comes after 'better' and the verb stays in the base form."
         />
       </section>
 

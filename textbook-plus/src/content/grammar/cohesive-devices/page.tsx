@@ -58,11 +58,13 @@ const QUESTIONS: GrammarQuestion[] = [
 ];
 
 const FUNCTIONS_TABLE = [
-  { cells: ["Addition", "and, also, moreover, furthermore, in addition", "Moreover, the plan saves money."] },
-  { cells: ["Contrast", "but, however, although, nevertheless, whereas", "It was late; however, we continued."] },
-  { cells: ["Cause / Reason", "because, since, as, due to", "He left because he was tired."] },
-  { cells: ["Effect / Result", "so, therefore, thus, consequently, as a result", "It rained; therefore, we stayed in."] },
-  { cells: ["Purpose", "so that, in order that, to", "She spoke slowly so that all could hear."] },
+  { cells: ["Reason", "because, since, as, due to, because of", "He was very strong since he used to take care of his health very well."] },
+  { cells: ["Outcome / Result", "so, therefore, as a result", "She forgot her umbrella and therefore got wet in the rain."] },
+  { cells: ["Purpose", "in order to, so that", "I worked hard in order to crack that exam."] },
+  { cells: ["Contrast", "even though, but, however, yet, although, still, nevertheless", "He loves playing soccer; however, he doesn't enjoy watching it on TV."] },
+  { cells: ["Contradicting", "on the contrary, even so", "She expected the movie to be boring, but on the contrary, it was quite entertaining."] },
+  { cells: ["Adding", "moreover, and, in addition to, also, too, furthermore", "The weather was sunny; moreover, it was pleasantly warm outside."] },
+  { cells: ["Comparing", "similarly, like, likewise, whereas", "She enjoys reading; similarly, her brother loves books as well."] },
   { cells: ["Sequence", "first, then, next, after that, finally", "First, mix the flour; then add water."] },
   { cells: ["Condition", "if, unless, provided that, in case", "We'll go unless it rains."] },
   { cells: ["Example", "for example, for instance, such as", "Citrus fruits, such as oranges, are rich in vitamin C."] },
@@ -80,7 +82,7 @@ export default function CohesiveDevicesPage() {
         <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
-          <Highlight color="yellow">Cohesive devices</Highlight> (also called linkers, connectives, or discourse markers) are the words that hold a text together. They signal the relationship between one idea and the next, so the reader can follow your argument without guessing.
+          <Highlight color="yellow">Cohesive devices</Highlight> &mdash; conjunctions, connectives and pronouns &mdash; are the words that link the parts of a sentence and hold a text together. They signal the relationship between one idea and the next, so the reader can follow your argument without guessing.
         </Callout>
       </section>
 

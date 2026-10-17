@@ -139,6 +139,12 @@ const PREPOSITIONS = [
   { cells: ["Into", "Movement toward the inside", "into the pool"] },
 ];
 
+const CHECK_TIERS = [
+  { cells: ["1 \u2014 Highest impact", "Always \u2014 sweep these first", "Subject\u2013verb agreement \u2022 tense consistency \u2022 base verb after a modal / auxiliary"] },
+  { cells: ["2 \u2014 Very common", "Nearly every passage", "Articles (a / an / the) \u2022 prepositions & fixed phrases \u2022 noun number after quantifiers"] },
+  { cells: ["3 \u2014 Quick wins", "Final read-through", "Word form (adjective vs adverb) \u2022 spelling \u2022 punctuation & capitals \u2022 redundancy"] },
+];
+
 export default function EditingPage() {
   const [tab, setTab] = useState<GrammarTab>("concept");
 
@@ -160,6 +166,32 @@ export default function EditingPage() {
               headers={["Error type", "What to check", "Wrong \u2192 Right"]}
               rows={ERROR_TYPES}
               caption="Scan the passage for these eight categories — most editing tasks test nothing else."
+            />
+          </section>
+
+          <section id="checklist-framework" className="scroll-mt-24 mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5">Editing Framework &mdash; Ordered by Impact</h2>
+            <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] mb-2">
+              Not every mistake is worth the same. Work in tiers, ranked by <strong>importance</strong> (the marks at stake), <strong>probability</strong> (how often the error shows up in passages) and <strong>effectiveness</strong> (how quickly the check pays off).
+            </p>
+            <TableCard
+              headers={["Tier", "When to check", "What to check"]}
+              rows={CHECK_TIERS}
+              caption="Sweep the passage tier by tier &mdash; never line by line &mdash; so the highest-yield checks are never crowded out."
+            />
+            <Checklist
+              items={[
+                { label: "Check every verb against its subject (agreement)" },
+                { label: "Keep the tense and time frame consistent" },
+                { label: "After a modal or auxiliary (may, did, would), use the base verb" },
+                { label: "Look at every noun: does it need a / an / the?" },
+                { label: "Check prepositions in fixed phrases (depend on, married to, specialize in)" },
+                { label: "Check noun number after quantifiers (several, many, one of)" },
+                { label: "Watch word forms: adjective vs adverb" },
+                { label: "Fix spelling slips on a read-through" },
+                { label: "Fix punctuation and capitalisation" },
+                { label: "Trim redundancy (return back \u2192 return)" },
+              ]}
             />
           </section>
 
@@ -320,21 +352,6 @@ export default function EditingPage() {
                 <li><strong>leading in the range &rarr; leading to the range (or into).</strong> Preposition of direction. The word leading implies movement or direction toward a destination, requiring the preposition &ldquo;to&rdquo; or &ldquo;into&rdquo; rather than the static preposition of location &ldquo;in.&rdquo;</li>
               </ul>
             </Expandable>
-          </section>
-
-          <section id="editing-steps" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Editing Checklist</h2>
-            <Checklist
-              items={[
-                { label: "Read the whole passage once for meaning before changing anything" },
-                { label: "Check every verb against its subject (agreement)" },
-                { label: "Keep the tense and time frame consistent" },
-                { label: "Look at every noun: does it need a / an / the?" },
-                { label: "Check prepositions in fixed phrases (depend on, married to)" },
-                { label: "Watch word forms: adjective vs adverb" },
-                { label: "Read aloud to catch spelling and punctuation slips" },
-              ]}
-            />
           </section>
 
           <section id="common-mistakes" className="scroll-mt-24 mt-14">
