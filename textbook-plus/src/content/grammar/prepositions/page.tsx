@@ -15,7 +15,7 @@ const QUESTIONS: GrammarQuestion[] = [
     id: "pr1", type: "mcq",
     question: "Choose the correct preposition: \"The meeting is ______ 3 o'clock.\"",
     options: ["in", "on", "at", "by"],
-    answer: 2, explanation: "Use 'at' with specific times: at 3 o'clock, at noon, at midnight.",
+    answer: 2, explanation: "Use 'at' with specific times: at 3 o'clock, at noon, at midnight. 'On' is for a day or date, 'in' for a month, year or season.",
   },
   {
     id: "pr2", type: "mcq",
@@ -26,7 +26,7 @@ const QUESTIONS: GrammarQuestion[] = [
   {
     id: "pr3", type: "fill-blank",
     question: "Fill in: \"He is interested ______ learning French.\"",
-    answer: "in", explanation: "\"Interested in\" is the correct preposition搭配 — memorise it as a fixed phrase.",
+    answer: "in", explanation: "\"Interested in\" is a fixed phrase — memorise it as one.",
   },
   {
     id: "pr4", type: "mcq",
@@ -58,7 +58,7 @@ export default function PrepositionsPage() {
         <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
-          <Highlight color="yellow">Prepositions</Highlight> show the relationship between a noun (or pronoun) and other words in a sentence — time, place, direction, or manner. They are small words (in, on, at, by, with) but choosing the right one is crucial.
+          <Highlight color="yellow">Prepositions</Highlight> show the relationship between a noun and the words around it &mdash; time, place, direction or manner.
         </Callout>
       </section>
 
@@ -116,9 +116,9 @@ export default function PrepositionsPage() {
           example="Use 'for' with duration, not 'from'. 'Since' is used with a starting point."
         />
         <MistakeCard
-          mistake="The movie is different from the book."
+          mistake="The movie is different than the book."
           correction="The movie is different from the book."
-          example="'Different from' is correct in most formal writing. 'Different to' (British) and 'different than' (American) exist but 'from' is safest."
+          example="In formal British English, use 'different from'. 'Different than' is American, and 'different to' is informal British."
         />
       </section>
 

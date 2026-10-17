@@ -6,6 +6,8 @@ import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { Checklist } from "@/components/content/data/Checklist";
+import { Expandable } from "@/components/content/Expandable";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Comparison } from "@/components/content/Comparison";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
@@ -181,6 +183,60 @@ const QUESTIONS: GrammarQuestion[] = [
     answer: 1,
     explanation: "The pattern is \u201cwarned someone against + -ing\u201d (or \u201cwarned someone not to do something\u201d).",
   },
+  {
+    id: "rs25", type: "mcq",
+    question: "Direct: \u201cI am reading a book,\u201d he said. \u2014 Reported: He said that he ______ a book.",
+    options: ["is reading", "was reading", "has read", "would read"],
+    answer: 1,
+    explanation: "Present continuous back-shifts to past continuous (am reading \u2192 was reading).",
+  },
+  {
+    id: "rs26", type: "mcq",
+    question: "Direct: \u201cWe have finished the work,\u201d they said. \u2014 Reported: They said that they ______ the work.",
+    options: ["have finished", "had finished", "finish", "were finishing"],
+    answer: 1,
+    explanation: "Present perfect back-shifts to past perfect (have finished \u2192 had finished).",
+  },
+  {
+    id: "rs27", type: "mcq",
+    question: "Direct: \u201cCan you swim?\u201d he asked. \u2014 Reported: He asked ______ I could swim.",
+    options: ["that", "if", "to", "which"],
+    answer: 1,
+    explanation: "A yes/no question becomes a reported clause with \u201cif\u201d or \u201cwhether\u201d; \u201ccan\u201d back-shifts to \u201ccould\u201d.",
+  },
+  {
+    id: "rs28", type: "mcq",
+    question: "Direct: \u201cPlease help me,\u201d she said. \u2014 Reported: She ______ me to help her.",
+    options: ["said", "requested", "told", "replied"],
+    answer: 1,
+    explanation: "A polite request is reported with \u201crequested / asked + object + to + verb\u201d.",
+  },
+  {
+    id: "rs29", type: "mcq",
+    question: "Direct: \u201cHow clever you are!\u201d he said. \u2014 Reported: He exclaimed that I ______ very clever.",
+    options: ["am", "was", "has been", "will be"],
+    answer: 1,
+    explanation: "Exclamations are turned into a that-clause, and the verb back-shifts (are \u2192 was).",
+  },
+  {
+    id: "rs30", type: "fill-blank",
+    question: "Direct: \u201cI will call you tomorrow,\u201d he said. \u2014 Reported: He said that he would call me ______.",
+    answer: "the next day",
+    explanation: "\u201ctomorrow\u201d changes to \u201cthe next day\u201d (or \u201cthe following day\u201d).",
+  },
+  {
+    id: "rs31", type: "fill-blank",
+    question: "Direct: \u201cI am busy now,\u201d she said. \u2014 Reported: She said that she was busy ______.",
+    answer: "then",
+    explanation: "\u201cnow\u201d changes to \u201cthen\u201d (or \u201cat that time\u201d).",
+  },
+  {
+    id: "rs32", type: "mcq",
+    question: "Direct: \u201cDid you finish the work?\u201d \u2014 Reported: He asked ______ I had finished the work.",
+    options: ["that", "if", "to", "what"],
+    answer: 1,
+    explanation: "A yes/no question is reported with \u201cif\u201d or \u201cwhether\u201d.",
+  },
 ];
 
 const OVERVIEW = [
@@ -346,7 +402,7 @@ export default function ReportedSpeechPage() {
         <>
           <section id="introduction" className="scroll-mt-24">
             <Callout type="note">
-              <Highlight color="yellow">Reported speech</Highlight> (also called indirect speech) reports what someone said without using their exact words. The tense, pronouns and time or place words change so that the meaning stays true from the reporter&rsquo;s point of view. There are <strong>four types</strong> of reported speech: statements, questions, commands and requests, and exclamations.
+              <Highlight color="yellow">Reported speech</Highlight> (indirect speech) reports what someone said without using their exact words, in one of <strong>four types</strong>: statements, questions, commands and exclamations.
             </Callout>
             <TableCard
               title="The four types at a glance"
@@ -519,6 +575,62 @@ export default function ReportedSpeechPage() {
               headers={["Feeling", "Direct Speech", "Reported Speech"]}
               rows={EXCLAMATIONS}
               caption="Interjections (Hurrah!, Alas!) are reported by their meaning, not their sound."
+            />
+          </section>
+
+          <section id="worked-examples" className="scroll-mt-24 mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Examples &mdash; One Per Type</h2>
+            <Expandable title="Worked example — a statement" variant="exercise">
+              <p><strong>Direct:</strong> Ravi said, <em>&ldquo;I am going to the market now.&rdquo;</em></p>
+              <p className="mt-3"><strong>Step 1 &mdash; Reporting verb:</strong> a statement takes <em>said</em> (or <em>told + person</em>). Keep <em>that</em>.</p>
+              <p><strong>Step 2 &mdash; Pronoun:</strong> the speaker <em>I</em> &rarr; <em>he</em> (because the reporter is talking about Ravi).</p>
+              <p><strong>Step 3 &mdash; Tense:</strong> <em>am going</em> &rarr; <em>was going</em> (present continuous &rarr; past continuous).</p>
+              <p><strong>Step 4 &mdash; Time word:</strong> <em>now</em> &rarr; <em>then</em>.</p>
+              <p className="mt-3"><strong>Reported:</strong> <em>Ravi said that he <strong>was going</strong> to the market <strong>then</strong>.</em></p>
+            </Expandable>
+            <Expandable title="Worked example — a question" variant="exercise">
+              <p><strong>Direct:</strong> She asked, <em>&ldquo;Where have you kept my keys?&rdquo;</em></p>
+              <p className="mt-3"><strong>Step 1 &mdash; Reporting verb:</strong> a wh-question keeps <em>asked</em> and the question word <em>where</em>.</p>
+              <p><strong>Step 2 &mdash; Word order:</strong> a reported question returns to statement order (no auxiliary inversion).</p>
+              <p><strong>Step 3 &mdash; Pronouns:</strong> <em>you</em> (the listener) &rarr; <em>I</em>; <em>my</em> &rarr; <em>her</em>.</p>
+              <p><strong>Step 4 &mdash; Tense:</strong> <em>have kept</em> &rarr; <em>had kept</em>.</p>
+              <p className="mt-3"><strong>Reported:</strong> <em>She asked where I <strong>had kept</strong> her keys.</em></p>
+            </Expandable>
+            <Expandable title="Worked example — a command / request" variant="exercise">
+              <p><strong>Direct:</strong> The teacher said to the boys, <em>&ldquo;Please stand up.&rdquo;</em></p>
+              <p className="mt-3"><strong>Step 1 &mdash; Reporting verb:</strong> <em>Please</em> marks a request, so <em>said</em> becomes <em>requested</em> (or <em>asked</em>).</p>
+              <p><strong>Step 2 &mdash; Object:</strong> name the listener &mdash; <em>the boys</em>.</p>
+              <p><strong>Step 3 &mdash; Verb form:</strong> use the to-infinitive &mdash; <em>to stand up</em> (a negative would be <em>not to stand up</em>).</p>
+              <p className="mt-3"><strong>Reported:</strong> <em>The teacher requested the boys <strong>to stand up</strong>.</em></p>
+            </Expandable>
+            <Expandable title="Worked example — an exclamation" variant="exercise">
+              <p><strong>Direct:</strong> <em>&ldquo;What a wonderful performance!&rdquo;</em> said the audience.</p>
+              <p className="mt-3"><strong>Step 1 &mdash; Reporting verb:</strong> an exclamation takes <em>exclaimed</em> (never bare <em>said</em>).</p>
+              <p><strong>Step 2 &mdash; Emotion:</strong> the feeling here is admiration &rarr; <em>with admiration</em>.</p>
+              <p><strong>Step 3 &mdash; Become a statement:</strong> <em>What a&hellip;!</em> is rewritten as <em>that it was a very + adjective + noun</em> &mdash; <em>that it was a wonderful performance</em>.</p>
+              <p className="mt-3"><strong>Reported:</strong> <em>The audience exclaimed <strong>with admiration</strong> that it was a wonderful performance.</em></p>
+            </Expandable>
+          </section>
+
+          <section id="try-these" className="scroll-mt-24 mt-14">
+            <h2 className="text-2xl font-bold tracking-tight mb-5">Try These</h2>
+            <ExerciseQa
+              questions={[
+                <span key="q1">Direct: He said, &ldquo;I have finished my homework.&rdquo;</span>,
+                <span key="q2">Direct: &ldquo;Do you like coffee?&rdquo; she asked.</span>,
+                <span key="q3">Direct: The officer said to them, &ldquo;Leave the room at once.&rdquo;</span>,
+                <span key="q4">Direct: &ldquo;Alas! I am ruined,&rdquo; he said.</span>,
+                <span key="q5">Direct: Mother said, &ldquo;Don&rsquo;t waste your time.&rdquo;</span>,
+                <span key="q6">Direct: &ldquo;Where is the station?&rdquo; the stranger asked.</span>,
+              ]}
+              answers={[
+                <span key="a1"><strong>He said that he had finished his homework.</strong> (Present perfect &rarr; past perfect; pronoun I &rarr; he.)</span>,
+                <span key="a2"><strong>She asked if I liked coffee.</strong> (Yes/no question &rarr; if + statement order; present &rarr; past.)</span>,
+                <span key="a3"><strong>The officer ordered them to leave the room at once.</strong> (Command &rarr; ordered + object + to-infinitive.)</span>,
+                <span key="a4"><strong>He exclaimed with sorrow that he was ruined.</strong> (&ldquo;Alas!&rdquo; signals sorrow; the exclamation becomes a that-clause.)</span>,
+                <span key="a5"><strong>Mother advised me not to waste my time.</strong> (A negative instruction &rarr; advised + object + not to + verb.)</span>,
+                <span key="a6"><strong>The stranger asked where the station was.</strong> (Wh-question &rarr; statement order; the verb back-shifts.)</span>,
+              ]}
             />
           </section>
 

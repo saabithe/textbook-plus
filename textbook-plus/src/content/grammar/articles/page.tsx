@@ -73,7 +73,7 @@ export default function ArticlesPage() {
         <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
-          <Highlight color="yellow">Articles</Highlight> are the little words <em>a</em>, <em>an</em> and <em>the</em>. They tell the reader whether a noun is being mentioned for the first time (<em>a / an</em>) or is already known and specific (<em>the</em>) &mdash; and sometimes no article is needed at all.
+          <Highlight color="yellow">Articles</Highlight> are the words <em>a</em>, <em>an</em> and <em>the</em>, used to mark a noun as either new (<em>a / an</em>) or already known (<em>the</em>).
         </Callout>
       </section>
 

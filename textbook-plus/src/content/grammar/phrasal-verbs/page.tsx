@@ -54,21 +54,21 @@ const QUESTIONS: GrammarQuestion[] = [
     id: "pv5", type: "fill-blank",
     question: "Replace the words in brackets with a phrasal verb: \"He ______ smoking last year. (stopped)\"",
     answer: "gave up",
-    explanation: "\u201cGive up\u201d means to stop doing something.",
+    explanation: "\u201cGive up\u201d means to stop doing something (past tense: \u201cgave up\u201d).",
   },
   {
     id: "pv6", type: "mcq",
     question: "\"The flight will ________ in 5 minutes.\"",
     options: ["take off", "take for", "give up", "speak up"],
     answer: 0,
-    explanation: "\u201cTake off\u201d = ascend (of an aircraft).",
+    explanation: "\u201cTake off\u201d = rise into the air (of an aircraft).",
   },
   {
     id: "pv7", type: "mcq",
-    question: "\"He didn't want to attend the meeting, so he decided to ________ at the last moment.\"",
-    options: ["show up", "give up", "turn up", "take off"],
-    answer: 3,
-    explanation: "\u201cTake off\u201d = leave suddenly \u2014 he walked out instead of attending.",
+    question: "\"They offered him the job, but he ________ it.\"",
+    options: ["turned down", "turned off", "turned up", "turned on"],
+    answer: 0,
+    explanation: "\u201cTurn down\u201d = reject or refuse an offer. \u201cTurn off\u201d and \u201cturn on\u201d are used for devices, and \u201cturn up\u201d means to arrive.",
   },
   {
     id: "pv8", type: "mcq",
@@ -102,7 +102,7 @@ const GO_TABLE = [
   { cells: ["Go on", "to continue"] },
   { cells: ["Go off", "to explode or make a noise"] },
   { cells: ["Go up", "to increase in price, level, or intensity"] },
-  { cells: ["Go out", "to leave or socialize"] },
+  { cells: ["Go out", "to leave or socialise"] },
   { cells: ["Go through", "to experience or examine in detail"] },
 ];
 
@@ -118,7 +118,7 @@ const PUT_TABLE = [
   { cells: ["Put off", "to postpone"] },
   { cells: ["Put up with", "to tolerate"] },
   { cells: ["Put out", "to extinguish (a fire or light)"] },
-  { cells: ["Put down", "to place on the ground or criticize"] },
+  { cells: ["Put down", "to place on the ground or criticise"] },
   { cells: ["Put across", "to express or communicate effectively"] },
 ];
 
@@ -157,7 +157,7 @@ export default function PhrasalVerbsPage() {
         <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
-          A <Highlight color="yellow">phrasal verb</Highlight> is a verb combined with a small word (a particle) such as <em>up</em>, <em>off</em>, <em>out</em> or <em>after</em>. The combination usually has a meaning you cannot guess from the two words alone &mdash; <em>give up</em> does not mean &ldquo;give upwards&rdquo;.
+          A <Highlight color="yellow">phrasal verb</Highlight> is a verb combined with a particle such as <em>up</em>, <em>off</em> or <em>out</em>, whose meaning cannot be guessed from the two words alone.
         </Callout>
       </section>
 

@@ -36,9 +36,6 @@ function TopicGrid({ topics }: { topics: GrammarTopic[] }) {
                 {topic.tagline}
               </p>
             </div>
-            <span className="mt-auto text-xs text-muted-foreground/60">
-              {topic.sectionCount} sections
-            </span>
           </Link>
         );
       })}
@@ -77,7 +74,7 @@ export default function GrammarPage() {
                 Grammar
               </h1>
               <p className="mt-1 text-base text-muted-foreground">
-                {coreGrammarTopics.length + moreGrammarTopics.length} core topics — rules, examples &amp; practice
+                {coreGrammarTopics.length + moreGrammarTopics.length} topics — rules, examples &amp; practice
               </p>
             </div>
           </div>

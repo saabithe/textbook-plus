@@ -64,7 +64,7 @@ export default function ModalAuxiliariesPage() {
         <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
-          <Highlight color="yellow">Modal auxiliaries</Highlight> are special verbs that add meaning like ability, permission, obligation, or possibility to the main verb. They never change form — no -s, no -ing, no past participle.
+          <Highlight color="yellow">Modal auxiliaries</Highlight> are special verbs that add ability, permission, obligation or possibility to the main verb, and they never change form.
         </Callout>
       </section>
 

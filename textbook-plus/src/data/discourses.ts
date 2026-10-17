@@ -7,7 +7,6 @@ export interface DiscourseTopic {
   title: string;
   tagline: string;
   icon: LucideIcon;
-  sectionCount: number;
 }
 
 export const discourseTopics: DiscourseTopic[] = [
@@ -17,7 +16,6 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Letter Writing",
     tagline: "Formal & informal letter structures — complaints, requests, enquiries & personal letters",
     icon: Mail,
-    sectionCount: 4,
   },
   {
     id: "article-essay",
@@ -25,7 +23,6 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Article & Essay",
     tagline: "Title/byline/hook/body/conclusion — how essays differ from articles, with samples",
     icon: Newspaper,
-    sectionCount: 4,
   },
   {
     id: "speech",
@@ -33,7 +30,6 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Speech",
     tagline: "Salutation → hook → 3-point body → call to action — plus vote of thanks",
     icon: Mic,
-    sectionCount: 4,
   },
   {
     id: "news-report",
@@ -41,7 +37,6 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "News Report",
     tagline: "Headline, lead (5 Ws), inverted pyramid — write clear, factual reports",
     icon: Globe,
-    sectionCount: 4,
   },
   {
     id: "review",
@@ -49,7 +44,6 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Review",
     tagline: "Book & film review criteria — rating systems, balanced criticism, samples",
     icon: Star,
-    sectionCount: 4,
   },
   {
     id: "profile-bio-sketch",
@@ -57,7 +51,6 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Profile & Bio-Sketch",
     tagline: "Bio-sketch template — chronological + thematic structure with worked samples",
     icon: UserRound,
-    sectionCount: 4,
   },
   {
     id: "poster-notice-email",
@@ -65,7 +58,6 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Poster, Notice & Email",
     tagline: "3 mini-formats — layout rules, word limits, 3 worked samples",
     icon: Megaphone,
-    sectionCount: 4,
   },
   {
     id: "appreciation",
@@ -73,7 +65,6 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Appreciation",
     tagline: "Poem appreciation — the 4-part format & the poetic devices that build meaning and effect",
     icon: Sparkles,
-    sectionCount: 4,
   },
 ];
 

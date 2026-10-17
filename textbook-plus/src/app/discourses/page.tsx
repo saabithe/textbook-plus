@@ -68,9 +68,6 @@ export default function DiscoursesPage() {
                       {topic.tagline}
                     </p>
                   </div>
-                  <span className="mt-auto text-xs text-muted-foreground/60">
-                    {topic.sectionCount} sections
-                  </span>
                 </Link>
               );
             })}

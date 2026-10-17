@@ -53,7 +53,7 @@ export default function TensesPage() {
         <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
-          Tenses tell us <em>when</em> an action takes place — past, present, or future — and <em>how</em> it takes place — once, ongoing, or completed. Mastering tenses is essential for clear, accurate writing and speaking.
+          <Highlight color="yellow">Tenses</Highlight> tell us <em>when</em> an action takes place &mdash; past, present or future &mdash; and <em>how</em> it takes place: once, ongoing or completed.
         </Callout>
       </section>
 
@@ -107,7 +107,7 @@ export default function TensesPage() {
         <MistakeCard
           mistake="She has been went to school."
           correction="She has gone to school."
-          example="'Been' is never followed by a past simple form. Use 'been + past participle' (has gone) or 'been + verb-ing' (has been going)."
+          example="'Been' is never followed by a past tense form. Use has/have + past participle (has gone), or been + verb-ing (has been going)."
         />
         <MistakeCard
           mistake="He did not went home."

@@ -172,7 +172,7 @@ export default function ConcordPage() {
         <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
-          <Highlight color="yellow">Concord</Highlight> (also called subject-verb agreement) means the subject and verb must agree in number. A singular subject takes a singular verb; a plural subject takes a plural verb. This seems simple, but several tricky cases trip up even advanced learners.
+          <Highlight color="yellow">Concord</Highlight> (subject-verb agreement) means the subject and verb must agree in number.
         </Callout>
       </section>
 

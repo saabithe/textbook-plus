@@ -172,7 +172,7 @@ export default function PassiveVoicePage() {
         <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
-          <Highlight color="yellow">Passive voice</Highlight> is used when the focus is on the action, not the person who did it. The object of the active sentence becomes the subject of the passive sentence.
+          <Highlight color="yellow">Passive voice</Highlight> is used when the focus is on the action, not on who did it.
         </Callout>
       </section>
 

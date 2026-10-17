@@ -115,7 +115,7 @@ const QUESTIONS: GrammarQuestion[] = [
     question: "\"If they had left earlier, they ________ the train.\"",
     options: ["would catch", "will catch", "would have caught", "caught"],
     answer: 2,
-    explanation: "Third conditional main clause: would have + past participle (\u201ccaugh\u201d is wrong; use \u201ccaught\u201d).",
+    explanation: "Third conditional main clause needs would have + past participle. The bare \u201ccaught\u201d is wrong because it is missing \u201cwould have\u201d.",
   },
   {
     id: "ic17", type: "mcq",
@@ -179,7 +179,7 @@ export default function IfClausePage() {
         <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
-          An <Highlight color="yellow">if clause</Highlight> (a conditional clause) shows that one action depends on another. The tense you choose for the if-clause and for the main clause tells the reader whether the situation is real, imaginary, or impossible.
+          An <Highlight color="yellow">if clause</Highlight> (a conditional clause) shows that one action depends on another.
         </Callout>
       </section>
 
@@ -190,7 +190,7 @@ export default function IfClausePage() {
           rows={CONDITIONALS_TABLE}
           caption="Match the two halves: the if-clause and the main clause must belong to the same type."
         />
-        <Callout type="important" title="The golden rule" className="mt-4">
+        <Callout type="important" title="The golden rule">
           The if-clause <strong>never</strong> takes <em>will</em> or <em>would</em>. Real future &rarr; present simple in the if-clause; unreal &rarr; past or past perfect.
         </Callout>
       </section>

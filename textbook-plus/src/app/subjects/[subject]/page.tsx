@@ -74,7 +74,7 @@ export default async function SubjectPage({ params }: Props) {
                     Grammar
                   </h2>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    13 core topics — Tenses, Reported Speech, Voice, If Clauses, Modals, Articles, Prepositions, Concord, Phrasal Verbs, Editing &amp; more
+                    12 topics — rules, examples &amp; practice
                   </p>
                 </div>
               </Link>
@@ -93,7 +93,7 @@ export default async function SubjectPage({ params }: Props) {
                     Discourses
                   </h2>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    8 writing formats — Letters, Articles, Speeches, Reports, Reviews, Profiles, Notices, Appreciation
+                    8 writing formats — structure, tips &amp; samples
                   </p>
                 </div>
               </Link>

@@ -20,7 +20,6 @@ export interface GrammarTopic {
   title: string;
   tagline: string;
   icon: LucideIcon;
-  sectionCount: number;
   group: "core" | "more";
 }
 
@@ -32,7 +31,6 @@ export const grammarTopics: GrammarTopic[] = [
     title: "Reported Speech",
     tagline: "Transforming direct speech to indirect speech — tense shifts, pronoun changes & reporting verbs",
     icon: MessageSquare,
-    sectionCount: 5,
     group: "core",
   },
   {
@@ -41,7 +39,6 @@ export const grammarTopics: GrammarTopic[] = [
     title: "Editing",
     tagline: "Spot and correct errors — tense, agreement, articles, prepositions, spelling & punctuation",
     icon: SpellCheck,
-    sectionCount: 5,
     group: "core",
   },
   {
@@ -50,7 +47,6 @@ export const grammarTopics: GrammarTopic[] = [
     title: "If Clauses",
     tagline: "Zero, first, second, third & mixed conditionals — form, meaning & advice",
     icon: GitBranch,
-    sectionCount: 5,
     group: "core",
   },
   {
@@ -59,7 +55,6 @@ export const grammarTopics: GrammarTopic[] = [
     title: "Active & Passive Voice",
     tagline: "Active ↔ passive transformation across all tenses — when to use & when to avoid",
     icon: ArrowLeftRight,
-    sectionCount: 5,
     group: "core",
   },
   {
@@ -68,7 +63,6 @@ export const grammarTopics: GrammarTopic[] = [
     title: "Cohesive Devices",
     tagline: "Linkers & connectives for addition, contrast, cause, sequence, purpose & summary",
     icon: Link2,
-    sectionCount: 5,
     group: "core",
   },
   {
@@ -77,7 +71,6 @@ export const grammarTopics: GrammarTopic[] = [
     title: "Concord",
     tagline: "Subject-verb agreement — singular/plural subjects & tricky cases",
     icon: Scale,
-    sectionCount: 5,
     group: "core",
   },
 
@@ -88,7 +81,6 @@ export const grammarTopics: GrammarTopic[] = [
     title: "Suggestions & Advice",
     tagline: "Let's, shall we, you should, had better — making suggestions & giving advice",
     icon: Lightbulb,
-    sectionCount: 6,
     group: "more",
   },
   {
@@ -97,7 +89,6 @@ export const grammarTopics: GrammarTopic[] = [
     title: "Phrasal Verbs",
     tagline: "Verb + particle combinations — separable, inseparable & their idiomatic meanings",
     icon: Puzzle,
-    sectionCount: 5,
     group: "more",
   },
   {
@@ -106,7 +97,6 @@ export const grammarTopics: GrammarTopic[] = [
     title: "Tenses",
     tagline: "Present, past & future forms — simple, continuous, perfect & perfect continuous",
     icon: Clock,
-    sectionCount: 5,
     group: "more",
   },
   {
@@ -115,7 +105,6 @@ export const grammarTopics: GrammarTopic[] = [
     title: "Prepositions",
     tagline: "In, on, at, by, with & more — time, place, direction & common confusions",
     icon: Link,
-    sectionCount: 5,
     group: "more",
   },
   {
@@ -124,7 +113,6 @@ export const grammarTopics: GrammarTopic[] = [
     title: "Articles",
     tagline: "a, an, the & the zero article — countable/uncountable, unique nouns & fixed phrases",
     icon: Type,
-    sectionCount: 5,
     group: "more",
   },
   {
@@ -133,7 +121,6 @@ export const grammarTopics: GrammarTopic[] = [
     title: "Modal Auxiliaries",
     tagline: "Can, could, would, should, may, might, must — ability, permission, obligation & possibility",
     icon: ToggleRight,
-    sectionCount: 5,
     group: "more",
   },
 ];

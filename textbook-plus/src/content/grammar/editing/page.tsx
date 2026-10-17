@@ -92,7 +92,7 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "ed10", type: "mcq",
-    question: "Choose the right preposition: \"He wants to specialize _________ physics.\"",
+    question: "Choose the right preposition: \"He wants to specialise _________ physics.\"",
     options: ["on", "in", "at", "for"],
     answer: 1,
     explanation: "\u201cSpecialize\u201d collocates strictly with \u201cin\u201d for a field or subject.",
@@ -103,6 +103,120 @@ const QUESTIONS: GrammarQuestion[] = [
     options: ["on", "at", "in", "by"],
     answer: 1,
     explanation: "The fixed idiom is \u201cat random\u201d \u2014 never \u201con random\u201d.",
+  },
+  {
+    id: "ed12", type: "mcq",
+    question: "Correct the punctuation: \"Its raining heavily, so take you're umbrella.\"",
+    options: [
+      "Its raining heavily, so take you're umbrella.",
+      "It's raining heavily, so take your umbrella.",
+      "Its raining heavily, so take your umbrella.",
+      "It's raining heavily, so take you're umbrella.",
+    ],
+    answer: 1,
+    explanation: "\u201cIt's\u201d = it is; \u201cyour\u201d is the possessive. \u201cIts\u201d and \u201cyou're\u201d are both wrong here.",
+  },
+  {
+    id: "ed13", type: "mcq",
+    question: "Remove the redundancy: \"He returned back to his hometown after many years.\"",
+    options: [
+      "He returned back to his hometown after many years.",
+      "He returned to his hometown after many years.",
+      "He returned back again to his hometown after many years.",
+      "He went back returned to his hometown after many years.",
+    ],
+    answer: 1,
+    explanation: "\u201cReturn\u201d already means \u201cgo back\u201d, so \u201creturned back\u201d is redundant.",
+  },
+  {
+    id: "ed14", type: "mcq",
+    question: "Choose the correct word: \"She completed the project ________.\"",
+    options: ["successful", "successfully", "success", "succeed"],
+    answer: 1,
+    explanation: "An adverb (\u201csuccessfully\u201d) modifies the verb \u201ccompleted\u201d; \u201csuccessful\u201d is an adjective.",
+  },
+  {
+    id: "ed15", type: "fill-blank",
+    question: "Correct the spelling \u2014 type the right word: \"I will recieve the parcel tomorrow.\"",
+    answer: "receive",
+    explanation: "The rule \u201ci before e except after c\u201d applies: rec-ei-ve \u2192 \u201creceive\u201d.",
+  },
+  {
+    id: "ed16", type: "mcq",
+    question: "Choose the corrected sentence: \"He is best student in the class.\"",
+    options: [
+      "He is best student in the class.",
+      "He is the best student in the class.",
+      "He is a best student in the class.",
+      "He is an best student in the class.",
+    ],
+    answer: 1,
+    explanation: "Superlatives take the definite article \u201cthe\u201d.",
+  },
+  {
+    id: "ed17", type: "mcq",
+    question: "Choose the correct sentence.",
+    options: [
+      "I have less books than you.",
+      "I have fewer books than you.",
+      "I have lesser books than you.",
+      "I have few books than you.",
+    ],
+    answer: 1,
+    explanation: "Use \u201cfewer\u201d with countable nouns (books); use \u201cless\u201d with uncountable nouns (water).",
+  },
+  {
+    id: "ed18", type: "mcq",
+    question: "Correct the error: \"She don't like tea.\"",
+    options: ["She don't like tea.", "She doesn't like tea.", "She don't likes tea.", "She not like tea."],
+    answer: 1,
+    explanation: "Third-person singular \u201cshe\u201d takes \u201cdoesn't\u201d.",
+  },
+  {
+    id: "ed19", type: "mcq",
+    question: "Choose the correct verb: \"The scenery of the hills ________ beautiful.\"",
+    options: ["are", "were", "is", "have been"],
+    answer: 2,
+    explanation: "\u201cScenery\u201d is uncountable and always singular.",
+  },
+  {
+    id: "ed20", type: "mcq",
+    question: "Choose the correct sentence.",
+    options: [
+      "I am looking forward to meet you.",
+      "I am looking forward to meeting you.",
+      "I am looking forward meet you.",
+      "I am looking forward to met you.",
+    ],
+    answer: 1,
+    explanation: "In \u201clook forward to\u201d, \u201cto\u201d is a preposition, so it takes the -ing form.",
+  },
+  {
+    id: "ed21", type: "mcq",
+    question: "Correct the error: \"He is senior than me.\"",
+    options: ["He is senior than me.", "He is senior to me.", "He is more senior than me.", "He is senior from me."],
+    answer: 1,
+    explanation: "Latin comparatives (senior, junior, superior, inferior) take \u201cto\u201d, not \u201cthan\u201d.",
+  },
+  {
+    id: "ed22", type: "mcq",
+    question: "Choose the correct verb: \"Each of the players ________ tired after the match.\"",
+    options: ["were", "was", "are", "have been"],
+    answer: 1,
+    explanation: "\u201cEach of + plural noun\u201d is singular \u2014 \u201cwas\u201d.",
+  },
+  {
+    id: "ed23", type: "fill-blank",
+    question: "Correct the spelling \u2014 type the right word: \"We booked our accomodation online.\"",
+    answer: "accommodation",
+    explanation: "\u201cAccommodation\u201d has two c's and two m's.",
+  },
+  {
+    id: "ed24", type: "mcq",
+    question: "Choose the correct verb: \"Neither of the two answers ________ correct.\"",
+    options: ["are", "were", "is", "have been"],
+    answer: 2,
+    explanation: "\u201cNeither of + plural noun\u201d is singular \u2014 \u201cis\u201d.",
   },
 ];
 
@@ -156,7 +270,7 @@ export default function EditingPage() {
         <>
           <section id="introduction" className="scroll-mt-24">
             <Callout type="note">
-              <Highlight color="yellow">Editing</Highlight> means finding and correcting the errors in a given passage. You are usually asked to edit <em>one</em> error per line or to rewrite a short passage correctly. The errors almost always come from a small, predictable set of grammar points.
+              <Highlight color="yellow">Editing</Highlight> means finding and correcting the errors in a given passage.
             </Callout>
           </section>
 
@@ -185,7 +299,7 @@ export default function EditingPage() {
                 { label: "Keep the tense and time frame consistent" },
                 { label: "After a modal or auxiliary (may, did, would), use the base verb" },
                 { label: "Look at every noun: does it need a / an / the?" },
-                { label: "Check prepositions in fixed phrases (depend on, married to, specialize in)" },
+                { label: "Check prepositions in fixed phrases (depend on, married to, specialise in)" },
                 { label: "Check noun number after quantifiers (several, many, one of)" },
                 { label: "Watch word forms: adjective vs adverb" },
                 { label: "Fix spelling slips on a read-through" },
@@ -295,12 +409,12 @@ export default function EditingPage() {
 
             <Expandable title="Passage 4 &mdash; Hawking goes to Oxford" variant="exercise">
               <p><strong>Original passage:</strong></p>
-              <p>&ldquo;On 1959, in the age of seventeen, Hawking went to Oxford to study natural science and to specialize on physics. He joined University College in Oxford and took his degree.&rdquo;</p>
+              <p>&ldquo;On 1959, in the age of seventeen, Hawking went to Oxford to study natural science and to specialise on physics. He joined University College in Oxford and took his degree.&rdquo;</p>
               <p className="mt-3"><strong>Error breakdown &amp; analysis (4 marks):</strong></p>
               <ul>
                 <li><strong>On 1959 &rarr; In 1959.</strong> Preposition of time (year). For specific calendar years, centuries, and months, the preposition &ldquo;in&rdquo; must be used. &ldquo;On&rdquo; is reserved strictly for specific dates and days (e.g., on Monday, on 8 January).</li>
                 <li><strong>in the age of &rarr; at the age of.</strong> Idiomatic prepositional phrase. The standard, grammatically fixed English idiom used to denote a specific point in someone&rsquo;s life timeline is strictly &ldquo;at the age of [number]&rdquo;.</li>
-                <li><strong>specialize on &rarr; specialize in.</strong> Preposition paired with verb (collocation). The verb specialize is a dependent verb that collocates strictly with the preposition &ldquo;in&rdquo; when referencing an academic field, subject, or professional domain.</li>
+                <li><strong>specialise on &rarr; specialise in.</strong> Preposition paired with verb (collocation). The verb specialise is a dependent verb that collocates strictly with the preposition &ldquo;in&rdquo; when referencing an academic field, subject, or professional domain.</li>
                 <li><strong>University College in Oxford &rarr; University College at Oxford.</strong> Preposition of place (institutions). While you live in a city, when referring to an individual&rsquo;s academic attendance at a specific university or campus hub as an institution, the preposition &ldquo;at&rdquo; is used (e.g., at Oxford, at Harvard).</li>
               </ul>
             </Expandable>
@@ -352,6 +466,32 @@ export default function EditingPage() {
                 <li><strong>leading in the range &rarr; leading to the range (or into).</strong> Preposition of direction. The word leading implies movement or direction toward a destination, requiring the preposition &ldquo;to&rdquo; or &ldquo;into&rdquo; rather than the static preposition of location &ldquo;in.&rdquo;</li>
               </ul>
             </Expandable>
+
+            <Expandable title="Passage 9 &mdash; The North Wind and the Sun" variant="exercise">
+              <p><strong>Original passage:</strong></p>
+              <p>&ldquo;The North Wind and the Sun was arguing about who was the stronger. They agreed that the one who can make the traveller to remove his coat would be the winner. The Wind blew hardly, but the traveller only held his coat tightly. Then the Sun shine gently, and the traveller took off his coat immediate.&rdquo;</p>
+              <p className="mt-3"><strong>Error breakdown &amp; analysis:</strong></p>
+              <ul>
+                <li><strong>was arguing &rarr; were arguing.</strong> Subject-verb agreement (compound subject). Two subjects joined by &ldquo;and&rdquo; (the Wind and the Sun) form a plural subject, so the verb must be plural.</li>
+                <li><strong>make the traveller to remove &rarr; make the traveller remove.</strong> Verb pattern. The causative verb &ldquo;make&rdquo; takes an object followed by the bare infinitive (object + base verb) &mdash; never &ldquo;to + verb&rdquo;.</li>
+                <li><strong>blew hardly &rarr; blew hard.</strong> Word choice (adverb). &ldquo;Hardly&rdquo; means &ldquo;scarcely, almost not&rdquo;; the meaning here is &ldquo;with great force&rdquo;, which is the adverb &ldquo;hard&rdquo;.</li>
+                <li><strong>shine &rarr; shone.</strong> Verb tense. The narrative is in the past, so the past form of &ldquo;shine&rdquo; is required: &ldquo;shone&rdquo;.</li>
+                <li><strong>immediate &rarr; immediately.</strong> Word form (adverb). It modifies the verb &ldquo;took off&rdquo;, so the adverb &ldquo;immediately&rdquo; is needed, not the adjective.</li>
+              </ul>
+            </Expandable>
+
+            <Expandable title="Passage 10 &mdash; The honest woodcutter" variant="exercise">
+              <p><strong>Original passage:</strong></p>
+              <p>&ldquo;Once upon a time there lived a honest woodcutter. One day, his axe fell in the river. He was very upset because it is his only means of livelihood. A fairy appeared, and after hear his story, she offered him a golden axe; but he refuse to take it.&rdquo;</p>
+              <p className="mt-3"><strong>Error breakdown &amp; analysis:</strong></p>
+              <ul>
+                <li><strong>a honest &rarr; an honest.</strong> Article by sound. The &lsquo;h&rsquo; in &ldquo;honest&rdquo; is silent, so the word begins with a vowel sound and takes &ldquo;an&rdquo;.</li>
+                <li><strong>fell in the river &rarr; fell into the river.</strong> Preposition of movement. &ldquo;Into&rdquo; shows movement from outside to inside; &ldquo;in&rdquo; only states position.</li>
+                <li><strong>it is his only means &rarr; it was his only means.</strong> Tense consistency. The whole story is in the past, so the present verb &ldquo;is&rdquo; must become &ldquo;was&rdquo;.</li>
+                <li><strong>after hear &rarr; after hearing.</strong> Verb form after a preposition. A verb following a preposition (after, before, by) takes the -ing form.</li>
+                <li><strong>he refuse &rarr; he refused.</strong> Verb tense. The past-tense narrative requires &ldquo;refused&rdquo;.</li>
+              </ul>
+            </Expandable>
           </section>
 
           <section id="common-mistakes" className="scroll-mt-24 mt-14">
@@ -377,8 +517,8 @@ export default function EditingPage() {
               example="Modal verbs (may, can, should, will) always take the base verb — never add 's'."
             />
             <MistakeCard
-              mistake="He wants to specialize on physics."
-              correction="He wants to specialize in physics."
+              mistake="He wants to specialise on physics."
+              correction="He wants to specialise in physics."
               example="'Specialize' collocates with 'in' for a field or subject — never 'on'."
             />
             <MistakeCard

@@ -207,7 +207,7 @@ export default function CohesiveDevicesPage() {
         <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
-          <Highlight color="yellow">Cohesive devices</Highlight> &mdash; conjunctions, connectives and pronouns &mdash; are the words that link the parts of a sentence and hold a text together. They signal the relationship between one idea and the next, so the reader can follow your argument without guessing.
+          <Highlight color="yellow">Cohesive devices</Highlight> are the words that link the parts of a sentence and hold a text together.
         </Callout>
       </section>
 

@@ -62,10 +62,10 @@ const QUESTIONS: GrammarQuestion[] = [
     id: "sa7", type: "mcq",
     question: "Which sentence makes a gentle, non-threatening suggestion?",
     options: [
-      "You must join a rehabilitation program.",
-      "You could join a rehabilitation program.",
-      "You join a rehabilitation program.",
-      "You had better join a rehabilitation program.",
+      "You must join a rehabilitation programme.",
+      "You could join a rehabilitation programme.",
+      "You join a rehabilitation programme.",
+      "You had better join a rehabilitation programme.",
     ],
     answer: 1,
     explanation: "\u201cCould\u201d works as a modal making a helpful suggestion or alternative \u2014 followed by the base verb.",
@@ -172,7 +172,7 @@ export default function SuggestionsAdvicePage() {
         <>
       <section id="introduction" className="scroll-mt-24">
         <Callout type="note">
-          A <Highlight color="yellow">suggestion</Highlight> proposes an idea for doing something together; <Highlight color="green">advice</Highlight> tells someone what <em>they</em> should do. Both use special patterns, and the pattern decides how formal or forceful you sound.
+          A <Highlight color="yellow">suggestion</Highlight> proposes an idea for doing something together; <Highlight color="green">advice</Highlight> tells someone what <em>they</em> should do.
         </Callout>
       </section>
 
@@ -246,7 +246,7 @@ export default function SuggestionsAdvicePage() {
         </Expandable>
         <Expandable title="Worked example — advising drug abusers (You could)" variant="exercise">
           <p><strong>Task:</strong> <em>Give advice beginning with &ldquo;You could&rdquo;.</em></p>
-          <p className="mt-3"><strong>Answer:</strong> <em>You could join a rehabilitation program and pick up healthy sports habits instead.</em></p>
+          <p className="mt-3"><strong>Answer:</strong> <em>You could join a rehabilitation programme and pick up healthy sports habits instead.</em></p>
           <p className="mt-3"><strong>Rule:</strong> &ldquo;Could&rdquo; functions here as a modal auxiliary to make a helpful, non-threatening suggestion or outline a positive alternative path. It must be followed by a base verb.</p>
         </Expandable>
       </section>
