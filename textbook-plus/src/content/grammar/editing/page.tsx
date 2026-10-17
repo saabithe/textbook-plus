@@ -95,7 +95,7 @@ const QUESTIONS: GrammarQuestion[] = [
     question: "Choose the right preposition: \"He wants to specialise _________ physics.\"",
     options: ["on", "in", "at", "for"],
     answer: 1,
-    explanation: "\u201cSpecialize\u201d collocates strictly with \u201cin\u201d for a field or subject.",
+    explanation: "\u201cSpecialise\u201d collocates strictly with \u201cin\u201d for a field or subject.",
   },
   {
     id: "ed11", type: "mcq",
@@ -174,10 +174,15 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "ed19", type: "mcq",
-    question: "Choose the correct verb: \"The scenery of the hills ________ beautiful.\"",
-    options: ["are", "were", "is", "have been"],
-    answer: 2,
-    explanation: "\u201cScenery\u201d is uncountable and always singular.",
+    question: "A student wrote: \u201cThe scenery of the hills are beautiful, and each of the visitors take photographs.\u201d Choose the fully corrected version.",
+    options: [
+      "The scenery of the hills are beautiful, and each of the visitors takes photographs.",
+      "The scenery of the hills is beautiful, and each of the visitors takes photographs.",
+      "The scenery of the hills is beautiful, and each of the visitors take photographs.",
+      "The scenery of the hills are beautiful, and each of the visitors take photographs.",
+    ],
+    answer: 1,
+    explanation: "Two errors: \u201cscenery\u201d is uncountable \u2192 \u201cis\u201d; and \u201ceach of the visitors\u201d is singular \u2192 \u201ctakes\u201d.",
   },
   {
     id: "ed20", type: "mcq",
@@ -213,10 +218,10 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "ed24", type: "mcq",
-    question: "Choose the correct verb: \"Neither of the two answers ________ correct.\"",
-    options: ["are", "were", "is", "have been"],
-    answer: 2,
-    explanation: "\u201cNeither of + plural noun\u201d is singular \u2014 \u201cis\u201d.",
+    question: "Cloze: \u201cNeither of the boys ________ the answer, and neither the teacher nor the students ________ ready.\u201d",
+    options: ["know / are", "knows / are", "knows / is", "know / is"],
+    answer: 1,
+    explanation: "\u201cNeither of + plural noun\u201d is singular \u2192 \u201cknows\u201d. With \u201cneither\u2026nor\u201d the verb follows proximity to the nearer subject \u2014 \u201cstudents\u201d (plural) \u2192 \u201care\u201d.",
   },
 ];
 
@@ -519,7 +524,7 @@ export default function EditingPage() {
             <MistakeCard
               mistake="He wants to specialise on physics."
               correction="He wants to specialise in physics."
-              example="'Specialize' collocates with 'in' for a field or subject — never 'on'."
+              example="'Specialise' collocates with 'in' for a field or subject — never 'on'."
             />
             <MistakeCard
               mistake="The students were selected on random."

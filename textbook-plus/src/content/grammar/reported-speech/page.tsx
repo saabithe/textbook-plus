@@ -52,10 +52,15 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "rs6", type: "mcq",
-    question: "Direct: \u201cWill you help me?\u201d \u2014 Reported: She asked if I ______ help her.",
-    options: ["will", "would", "would have", "had"],
-    answer: 1,
-    explanation: "\u201cwill\u201d back-shifts to \u201cwould\u201d even inside a reported question.",
+    question: "Only one of these reported questions is correct. Which?",
+    options: [
+      "He asked if I would help him.",
+      "He asked if I will help him.",
+      "He asked if would I help him.",
+      "He asked that I would help him.",
+    ],
+    answer: 0,
+    explanation: "A yes/no question is reported with \u201cif\u201d (not \u201cthat\u201d), in statement order, and \u201cwill\u201d back-shifts to \u201cwould\u201d. Only the first sentence does all three.",
   },
   {
     id: "rs7", type: "mcq",
@@ -66,10 +71,15 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "rs8", type: "mcq",
-    question: "Direct: She said, \u201cI will meet you tomorrow.\u201d \u2014 Reported: She said that she would meet me ______.",
-    options: ["tomorrow", "the next day", "the previous day", "that day"],
-    answer: 1,
-    explanation: "The time word must change too: \u201ctomorrow\u201d \u2192 \u201cthe next day\u201d.",
+    question: "Which reported sentence contains an error?",
+    options: [
+      "He said that he was tired.",
+      "She said that she had seen him the previous day.",
+      "They said that they will finish the work.",
+      "He asked if I could swim.",
+    ],
+    answer: 2,
+    explanation: "\u201cWill\u201d must back-shift to \u201cwould\u201d: \u201cThey said that they would finish the work.\u201d The other three sentences are correct.",
   },
   {
     id: "rs9", type: "mcq",
@@ -122,10 +132,15 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "rs16", type: "mcq",
-    question: "Direct: \u201cAlas! I have lost my purse.\u201d \u2014 Reported: She exclaimed with ______ that she had lost her purse.",
-    options: ["joy", "sorrow", "surprise", "admiration"],
-    answer: 1,
-    explanation: "\u201cAlas!\u201d signals sorrow (or regret), so it becomes \u201cexclaimed with sorrow\u201d.",
+    question: "Cloze: \u201c\u2018I have lost my keys,\u2019 she said. \u2014 Reported: She exclaimed with ________ that she ________ her keys.\u201d",
+    options: [
+      "sorrow / had lost",
+      "joy / had lost",
+      "surprise / has lost",
+      "sorrow / has lost",
+    ],
+    answer: 0,
+    explanation: "Losing keys is a mishap, so the emotion is \u201csorrow\u201d (not joy); and the present perfect back-shifts to the past perfect (\u201chas lost\u201d \u2192 \u201chad lost\u201d).",
   },
   {
     id: "rs17", type: "mcq",
@@ -151,9 +166,9 @@ const QUESTIONS: GrammarQuestion[] = [
   {
     id: "rs20", type: "mcq",
     question: "She ______ for being late to the meeting.",
-    options: ["apologized", "excused", "regretted", "sorry"],
+    options: ["apologised", "excused", "regretted", "sorry"],
     answer: 0,
-    explanation: "The pattern is \u201capologized for + -ing\u201d (or \u201capologized to someone\u201d).",
+    explanation: "The pattern is \u201capologised for + -ing\u201d (or \u201capologised to someone\u201d).",
   },
   {
     id: "rs21", type: "mcq",
@@ -221,21 +236,26 @@ const QUESTIONS: GrammarQuestion[] = [
   {
     id: "rs30", type: "fill-blank",
     question: "Direct: \u201cI will call you tomorrow,\u201d he said. \u2014 Reported: He said that he would call me ______.",
-    answer: "the next day",
+    answer: "the next day", accepted: ["the following day", "next day"],
     explanation: "\u201ctomorrow\u201d changes to \u201cthe next day\u201d (or \u201cthe following day\u201d).",
   },
   {
     id: "rs31", type: "fill-blank",
     question: "Direct: \u201cI am busy now,\u201d she said. \u2014 Reported: She said that she was busy ______.",
-    answer: "then",
+    answer: "then", accepted: ["at that time", "that time"],
     explanation: "\u201cnow\u201d changes to \u201cthen\u201d (or \u201cat that time\u201d).",
   },
   {
     id: "rs32", type: "mcq",
-    question: "Direct: \u201cDid you finish the work?\u201d \u2014 Reported: He asked ______ I had finished the work.",
-    options: ["that", "if", "to", "what"],
-    answer: 1,
-    explanation: "A yes/no question is reported with \u201cif\u201d or \u201cwhether\u201d.",
+    question: "Report using a reporting verb: \u201cYou stole my wallet!\u201d he said to her.",
+    options: [
+      "He accused her of stealing his wallet.",
+      "He accused her to steal his wallet.",
+      "He accused her for stealing his wallet.",
+      "He accused that she stole his wallet.",
+    ],
+    answer: 0,
+    explanation: "The pattern is \u201caccused someone of + -ing\u201d. \u201cOf\u201d is the fixed preposition, so the other options break the pattern.",
   },
 ];
 
@@ -331,7 +351,7 @@ const VERB_PATTERNS = [
   { cells: ["explained + clause / explained something to someone", "He explained that he was late. / He explained the delay to the class."] },
   { cells: ["suggested + -ing or that-clause", "He suggested going for a walk. / He suggested that we should go for a walk."] },
   { cells: ["admitted / denied + -ing or that-clause", "He admitted taking the money. / He denied that he had taken the money."] },
-  { cells: ["apologized for + -ing / apologized to someone", "She apologized for being late. / She apologized to the teacher for being late."] },
+  { cells: ["apologised for + -ing / apologised to someone", "She apologised for being late. / She apologised to the teacher for being late."] },
   { cells: ["accused someone of + -ing", "They accused him of cheating."] },
   { cells: ["congratulated someone on + noun / -ing", "We congratulated her on her success. / We congratulated her on winning the prize."] },
   { cells: ["thanked someone for + noun / -ing", "He thanked me for my help. / He thanked me for helping him."] },

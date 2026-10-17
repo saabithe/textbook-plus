@@ -67,21 +67,36 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "pv9", type: "mcq",
-    question: "\"Someone has stolen my bike.\" The passive form is:",
-    options: ["My bike has stolen.", "My bike has been stolen.", "My bike is stolen by someone.", "My bike was being stolen."],
-    answer: 1, explanation: "Present perfect passive: has/have + been + past participle.",
+    question: "Which passive sentence contains an error?",
+    options: [
+      "My bike has been stolen.",
+      "The report has been submitted on time.",
+      "The letter has wrote by the manager.",
+      "All the tickets have been sold.",
+    ],
+    answer: 2, explanation: "\u201cHas wrote\u201d is wrong \u2014 the passive needs been + past participle: \u201cThe letter has been written by the manager.\u201d",
   },
   {
     id: "pv10", type: "mcq",
-    question: "\"They are building a new school.\" The passive form is:",
-    options: ["A new school is built.", "A new school is being built.", "A new school has been built.", "A new school was built."],
-    answer: 1, explanation: "Present continuous passive: is/are + being + past participle.",
+    question: "Which sentence correctly uses the present continuous passive?",
+    options: [
+      "A new school is being built in our town.",
+      "A new school is building in our town.",
+      "A new school is been built in our town.",
+      "A new school being built in our town.",
+    ],
+    answer: 0, explanation: "The present continuous passive is is/are + being + past participle: \u201cis being built\u201d. \u201cIs building\u201d is active, \u201cis been\u201d uses the wrong auxiliary form, and \u201cbeing built\u201d alone is missing the auxiliary verb.",
   },
   {
     id: "pv11", type: "mcq",
-    question: "\"He gave me a book.\" Choose the correct passive form.",
-    options: ["I was given a book.", "I was given a book by he.", "Me was given a book.", "A book was gave to me."],
-    answer: 0, explanation: "With two objects, either becomes the subject: \u201cI was given a book\u201d or \u201cA book was given to me\u201d.",
+    question: "Rewrite in the passive: \u201cThey sent her an invitation.\u201d",
+    options: [
+      "She was sent an invitation.",
+      "She is sent an invitation.",
+      "Her was sent an invitation.",
+      "An invitation was sent her by they.",
+    ],
+    answer: 0, explanation: "With two objects, the indirect object often becomes the subject: \u201cShe was sent an invitation\u201d (past passive: was + sent). The alternative \u201cAn invitation was sent to her\u201d is also correct.",
   },
   {
     id: "pv12", type: "mcq",
@@ -92,7 +107,7 @@ const QUESTIONS: GrammarQuestion[] = [
   {
     id: "pv13", type: "fill-blank",
     question: "Fill in the passive: \"The road ________ (repair) at the moment.\"",
-    answer: "is being repaired",
+    answer: "is being repaired", accepted: ["is getting repaired"],
     explanation: "Present continuous passive: is/are + being + past participle.",
   },
   {
@@ -103,9 +118,14 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "pv15", type: "mcq",
-    question: "\"The chef cooked the meal.\" The passive form is:",
-    options: ["The meal is cooked by the chef.", "The meal was cooked by the chef.", "The meal has cooked by the chef.", "The meal cooks by the chef."],
-    answer: 1, explanation: "Simple past: was/were + past participle.",
+    question: "Cloze: \u201cThe bridge ________ in 1905, but it ________ repaired several times since then.\u201d",
+    options: [
+      "was built / has been",
+      "is built / was",
+      "has been built / is",
+      "built / has been",
+    ],
+    answer: 0, explanation: "\u201cIn 1905\u201d fixes a finished past action \u2192 simple past passive (\u201cwas built\u201d). \u201cSince then\u201d links to the present \u2192 present perfect passive (\u201chas been repaired\u201d), so the two halves cannot be reversed.",
   },
   {
     id: "pv16", type: "mcq",

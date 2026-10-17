@@ -40,7 +40,7 @@ const QUESTIONS: GrammarQuestion[] = [
   {
     id: "ar4", type: "fill-blank",
     question: "Fill in (one word): \"I saw a dog. ________ dog was very friendly.\"",
-    answer: "The",
+    answer: "The", accepted: ["the"],
     explanation: "Use \u201cthe\u201d for a noun that has already been mentioned.",
   },
   {

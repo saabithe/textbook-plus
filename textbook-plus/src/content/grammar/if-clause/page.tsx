@@ -15,10 +15,15 @@ import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
 const QUESTIONS: GrammarQuestion[] = [
   {
     id: "ic1", type: "mcq",
-    question: "\"If you heat ice, it ________.\"",
-    options: ["will melt", "melts", "melted", "would melt"],
+    question: "Which sentence contains a conditional error?",
+    options: [
+      "If you heat ice, it melts.",
+      "If it will rain tomorrow, we will cancel the trip.",
+      "If I were rich, I would travel the world.",
+      "If she had studied, she would have passed.",
+    ],
     answer: 1,
-    explanation: "This is a zero conditional (a general truth): if + present simple \u2192 present simple.",
+    explanation: "The first conditional never uses \u201cwill\u201d in the if-clause: \u201cIf it rains tomorrow, we will cancel the trip.\u201d The other three sentences are correct.",
   },
   {
     id: "ic2", type: "mcq",
@@ -71,17 +76,27 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "ic10", type: "mcq",
-    question: "\"If she ________ harder, she would pass the exam.\"",
-    options: ["studies", "studied", "had studied", "will study"],
-    answer: 1,
-    explanation: "Second conditional: if + past simple (\u201cstudied\u201d) \u2192 would + base verb.",
+    question: "Rewrite as a second conditional: \u201cShe doesn't study hard, so she doesn't pass the exam.\u201d",
+    options: [
+      "If she studied hard, she would pass the exam.",
+      "If she studies hard, she will pass the exam.",
+      "If she had studied hard, she would have passed the exam.",
+      "If she would study hard, she passed the exam.",
+    ],
+    answer: 0,
+    explanation: "An unreal present uses if + past simple \u2192 would + base verb. Option 2 is a real (first) conditional; option 3 is an unreal past (third conditional).",
   },
   {
     id: "ic11", type: "mcq",
-    question: "\"Water boils if you ________ it to 100\u00b0C.\"",
-    options: ["will heat", "heated", "heat", "would heat"],
-    answer: 2,
-    explanation: "Zero conditional for a scientific fact: if + present simple \u2192 present simple.",
+    question: "Cloze: \u201cPlants die if they ________ water. If you watered them daily, they ________ healthy.\u201d",
+    options: [
+      "don't get / would stay",
+      "won't get / will stay",
+      "didn't get / would have stayed",
+      "don't get / stayed",
+    ],
+    answer: 0,
+    explanation: "The first sentence is a zero conditional (present simple in both halves). The second is a second conditional: if + past simple (\u201cwatered\u201d) \u2192 would + base verb (\u201cwould stay\u201d).",
   },
   {
     id: "ic12", type: "mcq",
@@ -146,10 +161,15 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "ic21", type: "mcq",
-    question: "\"If the weather ________ fine, we will go out.\"",
-    options: ["will be", "is", "was", "were"],
-    answer: 1,
-    explanation: "First conditional if-clause uses the present simple (\u201cis\u201d).",
+    question: "Which sentence expresses a past condition with a present result?",
+    options: [
+      "If I had taken the job, I would be living in Delhi now.",
+      "If I took the job, I would have lived in Delhi now.",
+      "If I had taken the job, I will live in Delhi now.",
+      "If I take the job, I would have lived in Delhi now.",
+    ],
+    answer: 0,
+    explanation: "A mixed conditional joins a third-conditional if-clause (had + V3) to a second-conditional main clause (would + base verb) when the result is present: \u201cI would be living in Delhi now.\u201d",
   },
   {
     id: "ic22", type: "mcq",

@@ -74,21 +74,36 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "co11", type: "mcq",
-    question: "\"Ten kilometres ________ a long walk.\" Choose the correct verb:",
-    options: ["are", "is", "were", "have"],
-    answer: 1, explanation: "A distance, sum of money or period of time counts as one amount \u2014 singular.",
+    question: "Which sentence has a subject-verb agreement error?",
+    options: [
+      "The quality of the mangoes are not good.",
+      "Each of the students has a book.",
+      "Neither of the answers is correct.",
+      "The number of accidents is rising.",
+    ],
+    answer: 0, explanation: "The subject is \u201cquality\u201d (singular), not \u201cmangoes\u201d: \u201cThe quality of the mangoes is not good.\u201d An \u201cof-phrase\u201d after the subject never changes the verb.",
   },
   {
     id: "co12", type: "mcq",
-    question: "\"Both the sisters ________ doctors.\" Choose the correct verb:",
-    options: ["is", "are", "was", "has"],
-    answer: 1, explanation: "\u201cBoth\u201d is always plural.",
+    question: "Cloze: \u201cThe committee ________ its report yesterday. The members ________ to publish it next month.\u201d",
+    options: [
+      "has finished / decides",
+      "finished / plan",
+      "have finished / plans",
+      "finishes / decided",
+    ],
+    answer: 1, explanation: "\u201cThe committee\u201d acting as a single body takes a singular verb, and \u201cyesterday\u201d demands the simple past: \u201cfinished\u201d. \u201cThe members\u201d is plural \u2192 \u201cplan\u201d (not \u201cplans\u201d).",
   },
   {
     id: "co13", type: "mcq",
-    question: "\"Neither of the answers ________ correct.\" Choose the correct verb:",
-    options: ["are", "is", "were", "have"],
-    answer: 1, explanation: "\u201cNeither of + plural noun\u201d is singular.",
+    question: "Choose the correct sentence.",
+    options: [
+      "Neither the boys nor the girl were selected.",
+      "Neither the boys nor the girl was selected.",
+      "Neither the boys nor the girl are selected.",
+      "Neither the boys nor the girl have selected.",
+    ],
+    answer: 1, explanation: "With \u201cneither\u2026nor\u201d the verb agrees with the nearer subject \u2014 \u201cthe girl\u201d is singular \u2192 \u201cwas\u201d.",
   },
   {
     id: "co14", type: "fill-blank",
@@ -138,9 +153,14 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "co22", type: "mcq",
-    question: "\"Everyone in the class ________ the answer.\" Choose the correct verb:",
-    options: ["know", "knows", "are knowing", "have known"],
-    answer: 1, explanation: "Indefinite pronouns (everyone, someone, nobody, anybody) are always singular.",
+    question: "How would you correctly rewrite: \u201cEach of the students have submitted their work.\u201d?",
+    options: [
+      "Each of the students have submitted their work.",
+      "Each of the students has submitted their work.",
+      "Each of the students are submitting their work.",
+      "Each students has submitted their work.",
+    ],
+    answer: 1, explanation: "\u201cEach of + plural noun\u201d is singular \u2192 \u201chas\u201d (not \u201chave\u201d). \u201cEach students\u201d is also wrong: \u201ceach\u201d cannot directly precede a plural noun without \u201cof\u201d.",
   },
 ];
 
@@ -190,6 +210,7 @@ export default function ConcordPage() {
         <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
           <p><Highlight color="yellow">Uncountable nouns</Highlight> are always singular: <em>The information <strong>is</strong> correct.</em> (Not &ldquo;the information are&rdquo;)</p>
           <p><Highlight color="blue">Indefinite pronouns</Highlight> (<em>everyone, someone, nobody, anything</em>) are always singular: <em>Everyone <strong>is</strong> here.</em></p>
+          <p><Highlight color="orange">Both, all, most</Highlight> followed by <em>of + plural noun</em> take a plural verb: <em>Both <strong>are</strong> correct.</em> / <em>Most of the students <strong>are</strong> present.</em></p>
           <p><Highlight color="green">Plural-form, singular-meaning nouns</Highlight> (<em>news, physics, mathematics, politics</em>) take singular verbs: <em>Mathematics <strong>is</strong> difficult.</em></p>
           <p><Highlight color="pink">Subject after verb</Highlight> &mdash; the verb still agrees with the subject: <em>There <strong>is</strong> a book on the table.</em> / <em>There <strong>are</strong> books on the table.</em></p>
           <p><strong>Percentages &amp; fractions:</strong> singular if the noun is uncountable, plural if countable: <em>Fifty percent of the water <strong>is</strong> gone.</em> / <em>Fifty percent of the students <strong>are</strong> present.</em></p>

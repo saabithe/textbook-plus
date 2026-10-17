@@ -16,7 +16,25 @@ export interface GrammarQuestion {
   question: string;
   options?: string[];
   answer: number | string;
+  /** Extra acceptable fill-blank answers (the model answer in `answer` is always accepted). */
+  accepted?: string[];
   explanation: string;
+}
+
+/** Normalise a typed answer so harmless differences don't mark it wrong. */
+function normalise(s: string): string {
+  return s
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, " ")
+    .replace(/[.!?,;]+$/g, "");
+}
+
+function matchFill(input: string, q: GrammarQuestion): boolean {
+  const guess = normalise(input);
+  if (!guess) return false;
+  const answers = [q.answer as string, ...(q.accepted ?? [])].map(normalise);
+  return answers.includes(guess);
 }
 
 interface GrammarQuizProps {
@@ -90,14 +108,14 @@ function QuizItem({ question: q, index, onResult, onRetry }: { question: Grammar
 
   const isCorrect = q.type === "mcq"
     ? selected === q.answer
-    : textInput.trim().toLowerCase() === (q.answer as string).toLowerCase();
+    : matchFill(textInput, q);
 
   const handleCheck = () => {
     if (q.type === "mcq" && selected === null) return;
     if (q.type === "fill-blank" && textInput.trim() === "") return;
     const correct = q.type === "mcq"
       ? selected === q.answer
-      : textInput.trim().toLowerCase() === (q.answer as string).toLowerCase();
+      : matchFill(textInput, q);
     setRevealed(true);
     onResult(q.id, correct);
   };

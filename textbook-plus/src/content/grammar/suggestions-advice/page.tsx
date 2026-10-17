@@ -41,7 +41,7 @@ const QUESTIONS: GrammarQuestion[] = [
   {
     id: "sa4", type: "fill-blank",
     question: "Fill in (one word): \"Why ________ you ask your teacher for help?\"",
-    answer: "don't",
+    answer: "don't", accepted: ["do not"],
     explanation: "\u201cWhy don't you\u2026?\u201d is a common informal way of making a suggestion.",
   },
   {

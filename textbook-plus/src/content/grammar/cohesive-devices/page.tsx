@@ -15,10 +15,15 @@ import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
 const QUESTIONS: GrammarQuestion[] = [
   {
     id: "cd1", type: "mcq",
-    question: "\"It was raining heavily; ________, we decided to stay indoors.\"",
-    options: ["however", "therefore", "although", "for example"],
-    answer: 1,
-    explanation: "The second clause is the result of the first, so \u201ctherefore\u201d fits.",
+    question: "Which sentence uses its cohesive device illogically?",
+    options: [
+      "Although she was exhausted, she finished the report.",
+      "Because of the heavy rain, the match was cancelled.",
+      "She was exhausted; therefore, she finished the report.",
+      "In short, the experiment was a success.",
+    ],
+    answer: 2,
+    explanation: "\u201cTherefore\u201d asserts a result, but being exhausted cannot cause finishing a report \u2014 the ideas clash. A concession linker such as \u201cnevertheless\u201d is needed here.",
   },
   {
     id: "cd2", type: "mcq",
@@ -94,10 +99,15 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "cd11", type: "mcq",
-    question: "\"The plan is cheap; ________, it is quick to build.\"",
-    options: ["moreover", "similarly", "unless", "whereas"],
+    question: "Combine these two ideas correctly: \u201cThe plan is cheap. It is quick to build.\u201d",
+    options: [
+      "The plan is cheap; moreover, it is quick to build.",
+      "The plan is cheap; whereas it is quick to build.",
+      "The plan is cheap; unless it is quick to build.",
+      "The plan is cheap; similarly, it is quick to build.",
+    ],
     answer: 0,
-    explanation: "\u201cMoreover\u201d adds a further point in the same direction.",
+    explanation: "Both clauses praise the plan, so a linker that adds a further point in the same direction (\u201cmoreover\u201d) is correct. \u201cWhereas\u201d and \u201cunless\u201d impose a contrast or condition the ideas do not have, and \u201csimilarly\u201d would need two separate things to compare.",
   },
   {
     id: "cd12", type: "mcq",
@@ -116,7 +126,7 @@ const QUESTIONS: GrammarQuestion[] = [
   {
     id: "cd14", type: "fill-blank",
     question: "Fill in (one word): \"First we went shopping; ________ we had lunch.\"",
-    answer: "then",
+    answer: "then", accepted: ["next", "afterwards"],
     explanation: "\u201cThen\u201d marks the next step in a sequence.",
   },
   {
@@ -128,10 +138,15 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "cd16", type: "mcq",
-    question: "\"________, the trip was a great success.\"",
-    options: ["In short", "However", "Unless", "Because"],
+    question: "Cloze: \u201cMeera practises the violin every evening. ________, she can now play three sonatas. ________, she still finds the fast passages difficult.\u201d",
+    options: [
+      "As a result / Nevertheless",
+      "In short / Nevertheless",
+      "For example / Similarly",
+      "On the contrary / Therefore",
+    ],
     answer: 0,
-    explanation: "\u201cIn short\u201d signals a summary.",
+    explanation: "Daily practice causes her progress, so the first blank takes a result linker (\u201cas a result\u201d). The second clause admits a weakness despite that progress, so a concession linker is needed (\u201cnevertheless\u201d). \u201cIn short\u201d can only open a sentence that sums up a whole passage.",
   },
   {
     id: "cd17", type: "mcq",
@@ -150,15 +165,20 @@ const QUESTIONS: GrammarQuestion[] = [
   {
     id: "cd19", type: "fill-blank",
     question: "Fill in (one word): \"He is rich; ________, he is not happy.\"",
-    answer: "however",
+    answer: "however", accepted: ["nevertheless"],
     explanation: "\u201cHowever\u201d introduces a contrast \u2014 note the semicolon before and comma after it.",
   },
   {
     id: "cd20", type: "mcq",
-    question: "\"The weather was sunny; ________, it was pleasantly warm.\"",
-    options: ["moreover", "therefore", "although", "unless"],
-    answer: 0,
-    explanation: "\u201cMoreover\u201d adds a further, consistent point.",
+    question: "Which sentence uses its cohesive device correctly?",
+    options: [
+      "The car is inexpensive; whereas it is fuel-efficient.",
+      "The car is inexpensive; for example, it is fuel-efficient.",
+      "The car is inexpensive; nevertheless, it is fuel-efficient.",
+      "The car is inexpensive; otherwise, it is fuel-efficient.",
+    ],
+    answer: 2,
+    explanation: "A cheap car is usually <em>not</em> expected to be efficient, so the second point concedes the opposite of expectation \u2014 \u201cnevertheless\u201d. \u201cWhereas\u201d and \u201cotherwise\u201d express a contrast or condition the ideas do not carry, and \u201cfor example\u201d would need the second clause to illustrate the first.",
   },
   {
     id: "cd21", type: "mcq",

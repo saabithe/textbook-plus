@@ -26,7 +26,7 @@ const QUESTIONS: GrammarQuestion[] = [
   {
     id: "t3", type: "fill-blank",
     question: "Fill in: \"I ________ (live) here since 2015.\"",
-    answer: "have lived", explanation: "\"Since 2015\" indicates a period continuing to the present — use present perfect.",
+    answer: "have lived", accepted: ["have been living"], explanation: "\"Since 2015\" indicates a period continuing to the present — use present perfect.",
   },
   {
     id: "t4", type: "mcq",
