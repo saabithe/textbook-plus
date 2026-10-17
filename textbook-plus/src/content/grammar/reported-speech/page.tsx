@@ -357,7 +357,7 @@ export default function ReportedSpeechPage() {
               title="Sentence structure shortcuts"
               headers={["Direct speech", "Reported speech"]}
               rows={SHORTCUTS}
-              caption="The quickest way to recognise the type \u2014 and what it turns into."
+              caption="The quickest way to recognise the type &mdash; and what it turns into."
             />
             <Callout type="important" title="Exam focus &mdash; the most-used linkers">
               Almost every question runs on three linkers: <Highlight color="yellow">that</Highlight> (statements and exclamations), <Highlight color="blue">if / whether</Highlight> (yes/no questions) and <Highlight color="green">to / not to</Highlight> (commands). Master these three and the reporting verbs <em>said, told</em> and <em>asked</em> before touching anything else.
@@ -427,16 +427,16 @@ export default function ReportedSpeechPage() {
               />
             </div>
             <TableCard
-              title="Tense back-shift \u2014 with examples"
+              title="Tense back-shift &mdash; with examples"
               headers={["Direct tense", "Reported tense", "Example"]}
               rows={TENSE_BACKSHIFT}
               caption="Every tense moves one step into the past. The last two have no further shift."
             />
             <TableCard
-              title="Modals \u2014 with examples"
+              title="Modals &mdash; with examples"
               headers={["Direct", "Reported", "Example"]}
               rows={MODALS}
-              caption="\u2605 The most common exam shifts are will \u2192 would and must \u2192 had to."
+              caption="&#9733; The most common exam shifts are will &rarr; would and must &rarr; had to."
             />
             <div className="mt-6 space-y-4">
               <Callout type="important" title="The back-shift chain">
@@ -466,7 +466,7 @@ export default function ReportedSpeechPage() {
               title="Varieties of statements"
               headers={["Variety", "Direct Speech", "Reported Speech"]}
               rows={STATEMENT_VARIETIES}
-              caption="The formula never changes \u2014 only the reporting verb and the details of the sentence do."
+              caption="The formula never changes &mdash; only the reporting verb and the details of the sentence do."
             />
           </section>
 
