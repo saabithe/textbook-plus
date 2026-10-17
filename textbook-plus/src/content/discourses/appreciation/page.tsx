@@ -2,29 +2,6 @@ import { Callout } from "@/components/content/Callout";
 import { TableCard } from "@/components/content/data/TableCard";
 import { Highlight } from "@/components/content/Highlight";
 
-const APPRECIATION_TEMPLATE = `# Appreciation of the Poem *[Name of the Poem]*
-
-### I. Introduction — Poet, Title, Mood and Theme
-
-The poem *[Name of the Poem]*, written by *[Name of the Poet]*, is a beautiful, thought-provoking and inspiring poem. Through this poem, the poet presents a deep insight into *[central theme or idea]*. The poem explores *[main subject or concern]* and expresses the poet's thoughts and feelings about it. The title itself serves as a gateway to the poet's central idea and reflects the significance of the poem.
-
-### II. Summary and Central Idea
-
-The poem revolves around *[briefly explain the main idea of the poem]*. The poet beautifully portrays *[important events, images, emotions or experiences]* to convey the message that *[central message]*. Through these ideas, the poet encourages readers to think about *[relevant issue, human experience or value]*. The poem's central idea is meaningful because it connects with our lives and helps us understand *[insight gained from the poem]*.
-
-### III. Poetic Devices, Language, Tone and Style
-
-The poet uses various literary devices to make the poem more engaging and effective. Vivid imagery helps readers create clear mental pictures of *[describe the image or scene]*. Personification is used to give human qualities to *[object, animal or natural element]*, making the description more lively. The poet also employs *[metaphor/simile]* in the expression *"[relevant word or line]"* to highlight *[meaning or effect]*.
-
-The use of alliteration in *"[example]"* adds a musical quality to the poem. Repetition of *"[word or line]"* emphasises *[idea or emotion]* and may contribute to the poem's rhythm. Other devices, such as *[symbolism/irony/contrast/onomatopoeia, as applicable]*, further strengthen the central theme.
-
-The language of the poem is *[simple/descriptive/figurative/emotional]* yet expressive. The tone is *[hopeful/sad/reflective/critical/humorous, as applicable]*, which suits the subject of the poem. The use of *[rhyme/rhythm/free verse/repetition, as applicable]* contributes to its overall effect. The poem is organised into *[number of stanzas, if relevant]* stanzas, and its structure supports the development of the central idea.
-
-### IV. Conclusion — Message, Personal Response and Favourite Lines
-
-In conclusion, *[Name of the Poem]* is a meaningful and memorable poem that leaves a lasting impression on the reader's mind. Its message that *[central message]* is timeless and thought-provoking. The poem encourages readers to reflect on their own lives and gain a deeper understanding of *[theme or value]*. My favourite lines are *"[favourite line or phrase]"* because they beautifully express *[reason for choosing the lines]*. Overall, the poem is an inspiring and worthwhile piece of literature that deserves appreciation.
-`;
-
 export default function AppreciationContent() {
   return (
     <>
@@ -103,48 +80,73 @@ export default function AppreciationContent() {
         caption="Imagery creates clear mental pictures through the senses."
       />
 
-      <h2>How to Write an Appreciation</h2>
+      <h2>Appreciation Template</h2>
       <p>
-        An appreciation follows a four-part structure. Poetic devices belong in
-        <Highlight color="pink">Part III only</Highlight> &mdash; they are
-        evidence, not the whole answer.
-      </p>
-
-      <h3>I. Introduction &mdash; Poet, Title, Mood and Theme</h3>
-      <p>
-        Name the poem and poet, give the mood and theme, and say what the title
-        signals. Frame: <em>&ldquo;The poem *[Name of the Poem]*, written by *[Name
-        of the Poet]*, presents a deep insight into *[central theme]*&rdquo;</em>
-      </p>
-
-      <h3>II. Summary and Central Idea</h3>
-      <p>
-        Say what the poem is about, what it conveys, and why its message
-        matters. Frame: <em>&ldquo;The poem revolves around *[main idea]* and conveys
-        that *[central message]*&rdquo;</em>
-      </p>
-
-      <h3>III. Poetic Devices, Language, Tone and Style</h3>
-      <p>
-        Name a device, quote the exact words, then explain the effect. Note the
-        language (*<Highlight color="green">simple/descriptive/figurative</Highlight>*), the
-        tone (*hopeful/sad/reflective/critical*) and the structure (number of
-        stanzas, rhyme scheme).
-      </p>
-
-      <h3>IV. Conclusion &mdash; Message, Personal Response and Favourite Lines</h3>
-      <p>
-        Sum up the message, share your response, and pick a favourite line with
-        a reason. Frame: <em>&ldquo;My favourite line is *[line]* because
-        *[reason]*&rdquo;</em>
-      </p>
-
-      <h3>Copy-Paste Template</h3>
-      <p>
-        Use this frame for any poem. Replace the <em>*[...]*</em> placeholders
+        Use this frame for any poem — replace the <em>*[...]*</em> placeholders
         with your own words.
       </p>
-      <pre className="bg-muted p-4 rounded-lg text-sm overflow-x-auto my-4">{APPRECIATION_TEMPLATE}</pre>
+
+      <h3># Appreciation of the Poem *[Name of the Poem]*</h3>
+
+      <h4>I. Introduction — Poet, Title, Mood and Theme</h4>
+      <p>
+        The poem *[Name of the Poem]*, written by *[Name of the Poet]*, is a
+        beautiful, thought-provoking and inspiring poem. Through this poem, the
+        poet presents a deep insight into *[central theme or idea]*. The poem
+        explores *[main subject or concern]* and expresses the poet&rsquo;s thoughts
+        and feelings about it. The title itself serves as a gateway to the
+        poet&rsquo;s central idea and reflects the significance of the poem.
+      </p>
+
+      <h4>II. Summary and Central Idea</h4>
+      <p>
+        The poem revolves around *[briefly explain the main idea of the poem]*.
+        The poet beautifully portrays *[important events, images, emotions or
+        experiences]* to convey the message that *[central message]*. Through
+        these ideas, the poet encourages readers to think about *[relevant
+        issue, human experience or value]*. The poem&rsquo;s central idea is
+        meaningful because it connects with our lives and helps us understand
+        *[insight gained from the poem]*.
+      </p>
+
+      <h4>III. Poetic Devices, Language, Tone and Style</h4>
+      <p>
+        The poet uses various literary devices to make the poem more engaging
+        and effective. Vivid imagery helps readers create clear mental pictures
+        of *[describe the image or scene]*. Personification is used to give
+        human qualities to *[object, animal or natural element]*, making the
+        description more lively. The poet also employs *[metaphor/simile]* in
+        the expression &ldquo;[relevant word or line]&rdquo; to highlight *[meaning or
+        effect]*.
+      </p>
+      <p>
+        The use of alliteration in &ldquo;[example]&rdquo; adds a musical quality to the
+        poem. Repetition of &ldquo;[word or line]&rdquo; emphasises *[idea or emotion]*
+        and may contribute to the poem&rsquo;s rhythm. Other devices, such as
+        *[symbolism/irony/contrast/onomatopoeia, as applicable]*, further
+        strengthen the central theme.
+      </p>
+      <p>
+        The language of the poem is *[simple/descriptive/figurative/emotional]*
+        yet expressive. The tone is *[hopeful/sad/reflective/critical/humorous,
+        as applicable]*, which suits the subject of the poem. The use of
+        *[rhyme/rhythm/free verse/repetition, as applicable]* contributes to
+        its overall effect. The poem is organised into *[number of stanzas, if
+        relevant]* stanzas, and its structure supports the development of the
+        central idea.
+      </p>
+
+      <h4>IV. Conclusion — Message, Personal Response and Favourite Lines</h4>
+      <p>
+        In conclusion, *[Name of the Poem]* is a meaningful and memorable poem
+        that leaves a lasting impression on the reader&rsquo;s mind. Its message that
+        *[central message]* is timeless and thought-provoking. The poem
+        encourages readers to reflect on their own lives and gain a deeper
+        understanding of *[theme or value]*. My favourite lines are
+        &ldquo;[favourite line or phrase]&rdquo; because they beautifully express
+        *[reason for choosing the lines]*. Overall, the poem is an inspiring
+        and worthwhile piece of literature that deserves appreciation.
+      </p>
 
       <p>
         <Highlight color="yellow">Remember:</Highlight> appreciation is
