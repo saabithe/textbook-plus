@@ -1,14 +1,12 @@
 "use client";
 
-import { useState } from "react";
-
-import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
-import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
+import { type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarSection } from "@/components/grammar/GrammarSection";
+import { GrammarTopicLayout } from "@/components/grammar/GrammarTopicLayout";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -54,31 +52,21 @@ const MODALS_TABLE = [
 ];
 
 export default function ModalAuxiliariesPage() {
-  const [tab, setTab] = useState<GrammarTab>("concept");
-
   return (
-    <>
-      <GrammarTabs tab={tab} onTabChange={setTab} />
+    <GrammarTopicLayout
+      questions={QUESTIONS}
+      intro={<><Highlight color="yellow">Modal auxiliaries</Highlight> are special verbs that add ability, permission, obligation or possibility to the main verb, and they never change form.</>}
+    >
 
-      {tab === "concept" ? (
-        <>
-      <section id="introduction" className="scroll-mt-24">
-        <Callout type="note">
-          <Highlight color="yellow">Modal auxiliaries</Highlight> are special verbs that add ability, permission, obligation or possibility to the main verb, and they never change form.
-        </Callout>
-      </section>
-
-      <section id="rules" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Modal Meanings</h2>
+      <GrammarSection id="rules" title={<>Modal Meanings</>}>
         <TableCard
           headers={["Modal", "Uses", "Examples"]}
           rows={MODALS_TABLE}
           caption="Every modal has multiple uses — context determines which one is intended."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="must-vs-have-to" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Must vs Have To</h2>
+      <GrammarSection id="must-vs-have-to" title={<>Must vs Have To</>}>
         <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
           <p><Highlight color="blue">Must</Highlight> — speaker&rsquo;s own obligation or strong belief: <em>I must finish this today.</em></p>
           <p><Highlight color="green">Have to</Highlight> — external obligation (rules, laws): <em>You have to wear a uniform at school.</em></p>
@@ -86,10 +74,9 @@ export default function ModalAuxiliariesPage() {
           <p className="ml-4"><em>Must not</em> = prohibition: <em>You must not cheat.</em></p>
           <p className="ml-4"><em>Don&rsquo;t have to</em> = not necessary: <em>You don&rsquo;t have to come if you&rsquo;re busy.</em></p>
         </div>
-      </section>
+      </GrammarSection>
 
-      <section id="common-mistakes" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Common Mistakes</h2>
+      <GrammarSection id="common-mistakes" title={<>Common Mistakes</>}>
         <MistakeCard
           mistake="She musts go now."
           correction="She must go now."
@@ -105,18 +92,12 @@ export default function ModalAuxiliariesPage() {
           correction="She must study hard."
           example="Modals are followed directly by the base verb — no 'to' in between."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="key-takeaway" className="scroll-mt-24 mt-14">
-        <KeyPoint>
+      <GrammarSection id="key-takeaway"><KeyPoint>
           Modals never change form (no -s, no -ing) and are always followed by the base verb. The key distinction is <em>meaning</em>: ability (can), permission (may), obligation (must), advice (should), possibility (might), politeness (would).
         </KeyPoint>
-      </section>
-
-        </>
-      ) : (
-        <GrammarQuiz questions={QUESTIONS} />
-      )}
-    </>
+      </GrammarSection>
+    </GrammarTopicLayout>
   );
 }

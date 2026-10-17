@@ -1,14 +1,12 @@
 "use client";
 
-import { useState } from "react";
-
-import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
-import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
+import { type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarSection } from "@/components/grammar/GrammarSection";
+import { GrammarTopicLayout } from "@/components/grammar/GrammarTopicLayout";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -48,22 +46,13 @@ const QUESTIONS: GrammarQuestion[] = [
 ];
 
 export default function PrepositionsPage() {
-  const [tab, setTab] = useState<GrammarTab>("concept");
-
   return (
-    <>
-      <GrammarTabs tab={tab} onTabChange={setTab} />
+    <GrammarTopicLayout
+      questions={QUESTIONS}
+      intro={<><Highlight color="yellow">Prepositions</Highlight> show the relationship between a noun and the words around it &mdash; time, place, direction or manner.</>}
+    >
 
-      {tab === "concept" ? (
-        <>
-      <section id="introduction" className="scroll-mt-24">
-        <Callout type="note">
-          <Highlight color="yellow">Prepositions</Highlight> show the relationship between a noun and the words around it &mdash; time, place, direction or manner.
-        </Callout>
-      </section>
-
-      <section id="time-prepositions" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Prepositions of Time</h2>
+      <GrammarSection id="time-prepositions" title={<>Prepositions of Time</>}>
         <TableCard
           headers={["Preposition", "Use", "Examples"]}
           rows={[
@@ -76,10 +65,9 @@ export default function PrepositionsPage() {
           ]}
           caption="The three big ones: at (time), on (day), in (period)"
         />
-      </section>
+      </GrammarSection>
 
-      <section id="place-prepositions" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Prepositions of Place</h2>
+      <GrammarSection id="place-prepositions" title={<>Prepositions of Place</>}>
         <TableCard
           headers={["Preposition", "Use", "Examples"]}
           rows={[
@@ -90,10 +78,9 @@ export default function PrepositionsPage() {
             { cells: ["Among", "Three or more things", "among the students"] },
           ]}
         />
-      </section>
+      </GrammarSection>
 
-      <section id="common-prepositions" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Fixed Prepositions (Learn These!)</h2>
+      <GrammarSection id="common-prepositions" title={<>Fixed Prepositions (Learn These!)</>}>
         <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
           <p><Highlight color="yellow">Interested in</Highlight> &bull; <Highlight color="blue">Good at</Highlight> &bull; <Highlight color="green">Afraid of</Highlight></p>
           <p><Highlight color="yellow">Fond of</Highlight> &bull; <Highlight color="blue">Depend on</Highlight> &bull; <Highlight color="green">Look after</Highlight></p>
@@ -101,10 +88,9 @@ export default function PrepositionsPage() {
           <p><Highlight color="yellow">Apologise for</Highlight> &bull; <Highlight color="blue">Wait for</Highlight> &bull; <Highlight color="green">Consist of</Highlight></p>
           <p className="mt-3 text-sm text-muted-foreground">These must be memorised — no shortcut rule. Each verb/adjective pairs with a specific preposition.</p>
         </div>
-      </section>
+      </GrammarSection>
 
-      <section id="common-mistakes" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Common Mistakes</h2>
+      <GrammarSection id="common-mistakes" title={<>Common Mistakes</>}>
         <MistakeCard
           mistake="She arrived to school late."
           correction="She arrived at school late."
@@ -120,18 +106,12 @@ export default function PrepositionsPage() {
           correction="The movie is different from the book."
           example="In formal British English, use 'different from'. 'Different than' is American, and 'different to' is informal British."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="key-takeaway" className="scroll-mt-24 mt-14">
-        <KeyPoint>
+      <GrammarSection id="key-takeaway"><KeyPoint>
           Prepositions of time: <strong>at</strong> (specific time), <strong>on</strong> (days), <strong>in</strong> (periods). Prepositions of place: <strong>at</strong> (point), <strong>on</strong> (surface), <strong>in</strong> (enclosed space). Fixed phrases (interested in, good at, depend on) must be memorised individually.
         </KeyPoint>
-      </section>
-
-        </>
-      ) : (
-        <GrammarQuiz questions={QUESTIONS} />
-      )}
-    </>
+      </GrammarSection>
+    </GrammarTopicLayout>
   );
 }

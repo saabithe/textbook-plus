@@ -1,16 +1,14 @@
 "use client";
 
-import { useState } from "react";
-
-import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
-import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
+import { type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarSection } from "@/components/grammar/GrammarSection";
+import { GrammarTopicLayout } from "@/components/grammar/GrammarTopicLayout";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -182,31 +180,21 @@ const RULES = [
 ];
 
 export default function ConcordPage() {
-  const [tab, setTab] = useState<GrammarTab>("concept");
-
   return (
-    <>
-      <GrammarTabs tab={tab} onTabChange={setTab} />
+    <GrammarTopicLayout
+      questions={QUESTIONS}
+      intro={<><Highlight color="yellow">Concord</Highlight> (subject-verb agreement) means the subject and verb must agree in number.</>}
+    >
 
-      {tab === "concept" ? (
-        <>
-      <section id="introduction" className="scroll-mt-24">
-        <Callout type="note">
-          <Highlight color="yellow">Concord</Highlight> (subject-verb agreement) means the subject and verb must agree in number.
-        </Callout>
-      </section>
-
-      <section id="rules" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Rules at a Glance</h2>
+      <GrammarSection id="rules" title={<>Rules at a Glance</>}>
         <TableCard
           headers={["Rule", "Pattern", "Example"]}
           rows={RULES}
           caption="The verb always agrees with the actual subject, not with words that come between."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="tricky-cases" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Tricky Cases</h2>
+      <GrammarSection id="tricky-cases" title={<>Tricky Cases</>}>
         <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
           <p><Highlight color="yellow">Uncountable nouns</Highlight> are always singular: <em>The information <strong>is</strong> correct.</em> (Not &ldquo;the information are&rdquo;)</p>
           <p><Highlight color="blue">Indefinite pronouns</Highlight> (<em>everyone, someone, nobody, anything</em>) are always singular: <em>Everyone <strong>is</strong> here.</em></p>
@@ -216,10 +204,9 @@ export default function ConcordPage() {
           <p><strong>Percentages &amp; fractions:</strong> singular if the noun is uncountable, plural if countable: <em>Fifty percent of the water <strong>is</strong> gone.</em> / <em>Fifty percent of the students <strong>are</strong> present.</em></p>
           <p><strong>Beware the <em>of</em> phrase:</strong> the verb agrees with the noun <em>before</em> <em>of</em>, not after it: <em>The box of chocolates <strong>is</strong> on the shelf.</em></p>
         </div>
-      </section>
+      </GrammarSection>
 
-      <section id="worked-examples" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Examples</h2>
+      <GrammarSection id="worked-examples" title={<>Worked Examples</>}>
         <Expandable title="Worked example — 'Each of the students…'">
           <p><strong>Sentence:</strong> <em>Each of the students have submitted the assignment.</em></p>
           <p className="mt-3"><strong>Correct:</strong> <em>Each of the students <strong>has</strong> submitted the assignment.</em></p>
@@ -240,10 +227,9 @@ export default function ConcordPage() {
           <p className="mt-3"><strong>Correct:</strong> <em>Mathematics <strong>is</strong> difficult, but the news <strong>is</strong> encouraging.</em></p>
           <p className="mt-3"><strong>Why:</strong> both <em>mathematics</em> and <em>news</em> end in <em>-s</em> but are singular in meaning &mdash; each names one subject or one piece of information.</p>
         </Expandable>
-      </section>
+      </GrammarSection>
 
-      <section id="try-these" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Try These</h2>
+      <GrammarSection id="try-these" title={<>Try These</>}>
         <ExerciseQa
           questions={[
             <span key="q1">The jury ________ (be) divided in its verdict.</span>,
@@ -260,10 +246,9 @@ export default function ConcordPage() {
             <span key="a5"><strong>is.</strong> &ldquo;The poet and philosopher&rdquo; (one person holding both roles) takes a singular verb. If it were two people, it would be &ldquo;The poet and the philosopher <em>are</em> dead.&rdquo;</span>,
           ]}
         />
-      </section>
+      </GrammarSection>
 
-      <section id="common-mistakes" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Common Mistakes</h2>
+      <GrammarSection id="common-mistakes" title={<>Common Mistakes</>}>
         <MistakeCard
           mistake="Each of the students have a book."
           correction="Each of the students has a book."
@@ -289,18 +274,12 @@ export default function ConcordPage() {
           correction="The police are investigating."
           example="'Police' and 'cattle' are plural-only nouns — they always take a plural verb."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="key-takeaway" className="scroll-mt-24 mt-14">
-        <KeyPoint>
+      <GrammarSection id="key-takeaway"><KeyPoint>
           The verb agrees with the <strong>actual subject</strong>, not with words between the subject and verb. Indefinite pronouns (<em>everyone, each, nobody</em>) and uncountable nouns are always <strong>singular</strong>. Collective nouns can be singular or plural depending on context.
         </KeyPoint>
-      </section>
-
-        </>
-      ) : (
-        <GrammarQuiz questions={QUESTIONS} />
-      )}
-    </>
+      </GrammarSection>
+    </GrammarTopicLayout>
   );
 }

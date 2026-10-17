@@ -1,14 +1,12 @@
 "use client";
 
-import { useState } from "react";
-
-import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
-import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
+import { type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarSection } from "@/components/grammar/GrammarSection";
+import { GrammarTopicLayout } from "@/components/grammar/GrammarTopicLayout";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -43,22 +41,13 @@ const QUESTIONS: GrammarQuestion[] = [
 ];
 
 export default function TensesPage() {
-  const [tab, setTab] = useState<GrammarTab>("concept");
-
   return (
-    <>
-      <GrammarTabs tab={tab} onTabChange={setTab} />
+    <GrammarTopicLayout
+      questions={QUESTIONS}
+      intro={<><Highlight color="yellow">Tenses</Highlight> tell us <em>when</em> an action takes place &mdash; past, present or future &mdash; and <em>how</em> it takes place: once, ongoing or completed.</>}
+    >
 
-      {tab === "concept" ? (
-        <>
-      <section id="introduction" className="scroll-mt-24">
-        <Callout type="note">
-          <Highlight color="yellow">Tenses</Highlight> tell us <em>when</em> an action takes place &mdash; past, present or future &mdash; and <em>how</em> it takes place: once, ongoing or completed.
-        </Callout>
-      </section>
-
-      <section id="rules" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Tense Chart</h2>
+      <GrammarSection id="rules" title={<>Tense Chart</>}>
         <TableCard
           headers={["Tense", "Affirmative", "Negative", "Question"]}
           rows={[
@@ -77,10 +66,9 @@ export default function TensesPage() {
           ]}
           caption="12 English tenses — affirmative, negative and question forms"
         />
-      </section>
+      </GrammarSection>
 
-      <section id="when-to-use" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">When to Use Each Tense</h2>
+      <GrammarSection id="when-to-use" title={<>When to Use Each Tense</>}>
         <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
           <p><Highlight color="yellow">Simple Present</Highlight> — habits, routines, facts, timetables. <em>She reads every evening.</em></p>
           <p><Highlight color="blue">Present Continuous</Highlight> — actions happening now or temporary. <em>She is reading a novel.</em></p>
@@ -95,10 +83,9 @@ export default function TensesPage() {
           <p><Highlight color="green">Future Perfect</Highlight> — actions completed before a future time. <em>She will have finished by Friday.</em></p>
           <p><Highlight color="pink">Future Perfect Continuous</Highlight> — duration of an action up to a future point. <em>She will have been reading for a year by June.</em></p>
         </div>
-      </section>
+      </GrammarSection>
 
-      <section id="common-mistakes" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Common Mistakes</h2>
+      <GrammarSection id="common-mistakes" title={<>Common Mistakes</>}>
         <MistakeCard
           mistake="I am knowing the answer."
           correction="I know the answer."
@@ -114,18 +101,12 @@ export default function TensesPage() {
           correction="He did not go home."
           example="After 'did not', use the base form of the verb — not the past tense."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="key-takeaway" className="scroll-mt-24 mt-14">
-        <KeyPoint>
+      <GrammarSection id="key-takeaway"><KeyPoint>
           Tenses tell <em>when</em> and <em>how</em> an action happens. Pay special attention to auxiliary verbs (has/had/will), subject-verb agreement, and which tense to use after time markers like <em>since</em>, <em>for</em>, <em>already</em>, and <em>yet</em>.
         </KeyPoint>
-      </section>
-
-        </>
-      ) : (
-        <GrammarQuiz questions={QUESTIONS} />
-      )}
-    </>
+      </GrammarSection>
+    </GrammarTopicLayout>
   );
 }

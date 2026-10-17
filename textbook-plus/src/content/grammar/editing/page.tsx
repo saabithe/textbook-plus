@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
@@ -9,8 +8,9 @@ import { Checklist } from "@/components/content/data/Checklist";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
-import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarSection } from "@/components/grammar/GrammarSection";
+import { GrammarTopicLayout } from "@/components/grammar/GrammarTopicLayout";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -265,31 +265,21 @@ const CHECK_TIERS = [
 ];
 
 export default function EditingPage() {
-  const [tab, setTab] = useState<GrammarTab>("concept");
-
   return (
-    <>
-      <GrammarTabs tab={tab} onTabChange={setTab} />
+    <GrammarTopicLayout
+      questions={QUESTIONS}
+      intro={<><Highlight color="yellow">Editing</Highlight> means finding and correcting the errors in a given passage.</>}
+    >
 
-      {tab === "concept" ? (
-        <>
-          <section id="introduction" className="scroll-mt-24">
-            <Callout type="note">
-              <Highlight color="yellow">Editing</Highlight> means finding and correcting the errors in a given passage.
-            </Callout>
-          </section>
-
-          <section id="rules" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Common Error Types</h2>
+          <GrammarSection id="rules" title={<>Common Error Types</>}>
             <TableCard
               headers={["Error type", "What to check", "Wrong \u2192 Right"]}
               rows={ERROR_TYPES}
               caption="Scan the passage for these eight categories — most editing tasks test nothing else."
             />
-          </section>
+          </GrammarSection>
 
-          <section id="checklist-framework" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Editing Framework &mdash; Ordered by Impact</h2>
+          <GrammarSection id="checklist-framework" title={<>Editing Framework &mdash; Ordered by Impact</>}>
             <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] mb-2">
               Not every mistake is worth the same. Work in tiers, ranked by <strong>importance</strong> (the marks at stake), <strong>probability</strong> (how often the error shows up in passages) and <strong>effectiveness</strong> (how quickly the check pays off).
             </p>
@@ -312,10 +302,9 @@ export default function EditingPage() {
                 { label: "Trim redundancy (return back \u2192 return)" },
               ]}
             />
-          </section>
+          </GrammarSection>
 
-          <section id="subject-verb-agreement" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Subject&ndash;Verb Agreement</h2>
+          <GrammarSection id="subject-verb-agreement" title={<>Subject&ndash;Verb Agreement</>}>
             <TableCard
               title="Agreement rules"
               headers={["Rule", "Examples"]}
@@ -337,19 +326,17 @@ export default function EditingPage() {
                 <span key="a3"><strong>have</strong> &mdash; When two subjects are connected using the correlative conjunction &ldquo;neither... nor&rdquo; (or either... or), the verb follows the rule of proximity. This means the verb must agree with the closest subject noun to the blank (in this case, the plural noun &ldquo;students&rdquo;).</span>,
               ]}
             />
-          </section>
+          </GrammarSection>
 
-          <section id="prepositions-core" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Prepositions &mdash; Core Meanings</h2>
+          <GrammarSection id="prepositions-core" title={<>Prepositions &mdash; Core Meanings</>}>
             <TableCard
               headers={["Preposition", "Core meaning", "Example"]}
               rows={PREPOSITIONS}
               caption="Most preposition errors are wrong choices between these core meanings &mdash; especially in / on / at and to / into."
             />
-          </section>
+          </GrammarSection>
 
-          <section id="tenses-infinitives" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Tenses &amp; Infinitives</h2>
+          <GrammarSection id="tenses-infinitives" title={<>Tenses &amp; Infinitives</>}>
             <TableCard
               headers={["Point", "Rule", "Example"]}
               rows={[
@@ -371,10 +358,9 @@ export default function EditingPage() {
                 <span key="a4"><strong>is falling</strong> &mdash; Imperative attention-grabbers like &ldquo;Look!&rdquo; or &ldquo;Listen!&rdquo; mean the action is actively unfolding right before your eyes. Any live action happening right now requires the Present Continuous tense.</span>,
               ]}
             />
-          </section>
+          </GrammarSection>
 
-          <section id="worked-passages" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Passages</h2>
+          <GrammarSection id="worked-passages" title={<>Worked Passages</>}>
 
             <Expandable title="Passage 1 &mdash; Hands raised to ask questions" variant="exercise">
               <p><strong>Original passage:</strong></p>
@@ -497,10 +483,30 @@ export default function EditingPage() {
                 <li><strong>he refuse &rarr; he refused.</strong> Verb tense. The past-tense narrative requires &ldquo;refused&rdquo;.</li>
               </ul>
             </Expandable>
-          </section>
+          </GrammarSection>
 
-          <section id="common-mistakes" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Common Mistakes</h2>
+          <GrammarSection id="try-these" title={<>Try These</>}>
+            <p className="text-muted-foreground mb-5">
+              Each short passage below hides four errors. Find and correct them before revealing the answer key.
+            </p>
+            <Expandable title="Try These — three mini-passages" variant="exercise">
+              <ExerciseQa
+                answersHeading="Answer key"
+                questions={[
+                  <span key="t1"><strong>Passage A:</strong> &ldquo;The boys was playing in the garden when a dog run in. Each of them have a ball, and they did not noticed the dog until it barked loudly.&rdquo;</span>,
+                  <span key="t2"><strong>Passage B:</strong> &ldquo;My sister is married with a doctor. She is senior than me by five years, and she always gives me a good advices. Last week she suggested me to join a music class.&rdquo;</span>,
+                  <span key="t3"><strong>Passage C:</strong> &ldquo;The mountain scenery were beautiful, and we could see the sun set over the lake. It was one of the most memorable trip of our life. We should have went earlier, but we definitely enjoyed every moment.&rdquo;</span>,
+                ]}
+                answers={[
+                  <span key="a1"><strong>Passage A:</strong> (1) <em>was playing &rarr; were playing</em> — the subject &ldquo;the boys&rdquo; is plural. (2) <em>run &rarr; ran</em> — the narrative is in the past. (3) <em>Each&hellip;have &rarr; has</em> — &ldquo;each&rdquo; is singular. (4) <em>did not noticed &rarr; did not notice</em> — the base verb follows &ldquo;did not&rdquo;.</span>,
+                  <span key="a2"><strong>Passage B:</strong> (1) <em>married with &rarr; married to</em> — fixed collocation. (2) <em>senior than &rarr; senior to</em> — Latin comparatives take &ldquo;to&rdquo;. (3) <em>a good advices &rarr; good advice</em> — &ldquo;advice&rdquo; is uncountable. (4) <em>suggested me to join &rarr; suggested that I join</em> (or <em>advised me to join</em>) — &ldquo;suggest&rdquo; does not take an object + infinitive.</span>,
+                  <span key="a3"><strong>Passage C:</strong> (1) <em>scenery were &rarr; scenery was</em> — the subject is uncountable. (2) <em>one of the most memorable trip &rarr; trips</em> — &ldquo;one of&rdquo; takes a plural noun. (3) <em>should have went &rarr; should have gone</em> — a past participle follows &ldquo;have&rdquo;. (4) <em>definately &rarr; definitely</em> — spelling.</span>,
+                ]}
+              />
+            </Expandable>
+          </GrammarSection>
+
+          <GrammarSection id="common-mistakes" title={<>Common Mistakes</>}>
             <MistakeCard
               mistake="The number of students are increasing."
               correction="The number of students is increasing."
@@ -531,17 +537,12 @@ export default function EditingPage() {
               correction="The students were selected at random."
               example="The fixed idiom is 'at random' — never 'on random'."
             />
-          </section>
+          </GrammarSection>
 
-          <section id="key-takeaway" className="scroll-mt-24 mt-14">
-            <KeyPoint>
+          <GrammarSection id="key-takeaway"><KeyPoint>
               Editing is a <em>search</em>, not a rewrite. Work through a fixed checklist &mdash; agreement, tense, articles, prepositions, word form, spelling and punctuation &mdash; and change only what is wrong.
             </KeyPoint>
-          </section>
-        </>
-      ) : (
-        <GrammarQuiz questions={QUESTIONS} />
-      )}
-    </>
+          </GrammarSection>
+    </GrammarTopicLayout>
   );
 }

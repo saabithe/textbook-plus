@@ -1,16 +1,14 @@
 "use client";
 
-import { useState } from "react";
-
-import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
-import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
+import { type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarSection } from "@/components/grammar/GrammarSection";
+import { GrammarTopicLayout } from "@/components/grammar/GrammarTopicLayout";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -217,31 +215,21 @@ const PUNCTUATION_TABLE = [
 ];
 
 export default function CohesiveDevicesPage() {
-  const [tab, setTab] = useState<GrammarTab>("concept");
-
   return (
-    <>
-      <GrammarTabs tab={tab} onTabChange={setTab} />
+    <GrammarTopicLayout
+      questions={QUESTIONS}
+      intro={<><Highlight color="yellow">Cohesive devices</Highlight> are the words that link the parts of a sentence and hold a text together.</>}
+    >
 
-      {tab === "concept" ? (
-        <>
-      <section id="introduction" className="scroll-mt-24">
-        <Callout type="note">
-          <Highlight color="yellow">Cohesive devices</Highlight> are the words that link the parts of a sentence and hold a text together.
-        </Callout>
-      </section>
-
-      <section id="rules" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Linkers by Function</h2>
+      <GrammarSection id="rules" title={<>Linkers by Function</>}>
         <TableCard
           headers={["Function", "Linkers", "Example"]}
           rows={FUNCTIONS_TABLE}
           caption="Identify the relationship you want first, then pick a linker from that row."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="punctuation" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Punctuation &amp; Position</h2>
+      <GrammarSection id="punctuation" title={<>Punctuation &amp; Position</>}>
         <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
           <p><strong>Coordinating conjunctions</strong> (<em>and, but, or, so, for, nor, yet</em>) join two clauses with just a comma: <em>It was late, but we continued.</em></p>
           <p><strong>Conjunctive adverbs</strong> (<em>however, therefore, moreover, nevertheless, thus</em>) need a semicolon before and a comma after: <em>It was late; however, we continued.</em></p>
@@ -252,10 +240,9 @@ export default function CohesiveDevicesPage() {
           rows={PUNCTUATION_TABLE}
           caption="Getting the punctuation right is half the marks in linking exercises."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="worked-examples" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Examples</h2>
+      <GrammarSection id="worked-examples" title={<>Worked Examples</>}>
         <Expandable title="Worked example — punctuating 'however'">
           <p><strong>Wrong:</strong> <em>It was late, however we continued.</em></p>
           <p className="mt-3"><strong>Right:</strong> <em>It was late<strong>;</strong> however<strong>,</strong> we continued.</em></p>
@@ -278,10 +265,9 @@ export default function CohesiveDevicesPage() {
           <p className="mt-3"><strong>Mid position (no comma needed):</strong> <em>We went out <strong>although</strong> it was raining.</em></p>
           <p className="mt-3"><strong>Why:</strong> subordinating conjunctions can move, but when they start the sentence the dependent clause is followed by a comma. Conjunctive adverbs such as <em>however</em> can also move (<em>We, however, went out</em>), but they still need their commas.</p>
         </Expandable>
-      </section>
+      </GrammarSection>
 
-      <section id="try-these" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Try These</h2>
+      <GrammarSection id="try-these" title={<>Try These</>}>
         <ExerciseQa
           questions={[
             <span key="q1">Join with &ldquo;so&rdquo;: &ldquo;It was very hot. We stayed inside.&rdquo;</span>,
@@ -298,10 +284,9 @@ export default function CohesiveDevicesPage() {
             <span key="a5"><strong>moreover</strong> (or <em>furthermore</em>) &mdash; it adds a further point.</span>,
           ]}
         />
-      </section>
+      </GrammarSection>
 
-      <section id="common-mistakes" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Common Mistakes</h2>
+      <GrammarSection id="common-mistakes" title={<>Common Mistakes</>}>
         <MistakeCard
           mistake="It was late, however we continued."
           correction="It was late; however, we continued."
@@ -322,18 +307,12 @@ export default function CohesiveDevicesPage() {
           correction="Because of the rain, we stayed in."
           example="'Because of' takes a noun phrase; use 'because' before a full clause."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="key-takeaway" className="scroll-mt-24 mt-14">
-        <KeyPoint>
+      <GrammarSection id="key-takeaway"><KeyPoint>
           Choose a linker by the <em>relationship</em> you want to show (addition, contrast, cause, result&hellip;). Then punctuate it correctly: coordinating conjunctions take a comma, but conjunctive adverbs such as <em>however</em> and <em>therefore</em> take a semicolon before and a comma after.
         </KeyPoint>
-      </section>
-
-        </>
-      ) : (
-        <GrammarQuiz questions={QUESTIONS} />
-      )}
-    </>
+      </GrammarSection>
+    </GrammarTopicLayout>
   );
 }

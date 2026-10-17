@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
@@ -12,8 +11,9 @@ import { Comparison } from "@/components/content/Comparison";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { Badge } from "@/components/ui/badge";
-import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
-import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarSection } from "@/components/grammar/GrammarSection";
+import { GrammarTopicLayout } from "@/components/grammar/GrammarTopicLayout";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -412,19 +412,11 @@ const COMMANDS_MERGED = [
 ];
 
 export default function ReportedSpeechPage() {
-  const [tab, setTab] = useState<GrammarTab>("concept");
-
   return (
-    <>
-      <GrammarTabs tab={tab} onTabChange={setTab} />
-
-      {tab === "concept" ? (
-        <>
-          <section id="introduction" className="scroll-mt-24">
-            <Callout type="note">
-              <Highlight color="yellow">Reported speech</Highlight> (indirect speech) reports what someone said without using their exact words, in one of <strong>four types</strong>: statements, questions, commands and exclamations.
-            </Callout>
-            <TableCard
+    <GrammarTopicLayout
+      questions={QUESTIONS}
+      intro={<><Highlight color="yellow">Reported speech</Highlight> (indirect speech) reports what someone said without using their exact words, in one of <strong>four types</strong>: statements, questions, commands and exclamations.</>}
+      introExtra={<><TableCard
               title="The four types at a glance"
               headers={["Type", "Reporting verbs", "Linkers", "Structure", "Example"]}
               rows={OVERVIEW}
@@ -437,11 +429,10 @@ export default function ReportedSpeechPage() {
             />
             <Callout type="important" title="Exam focus &mdash; the most-used linkers">
               Almost every question runs on three linkers: <Highlight color="yellow">that</Highlight> (statements and exclamations), <Highlight color="blue">if / whether</Highlight> (yes/no questions) and <Highlight color="green">to / not to</Highlight> (commands). Master these three and the reporting verbs <em>said, told</em> and <em>asked</em> before touching anything else.
-            </Callout>
-          </section>
+            </Callout></>}
+    >
 
-          <section id="framework" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Step-by-Step Framework</h2>
+          <GrammarSection id="framework" title={<>Step-by-Step Framework</>}>
             <p className="text-foreground/90 text-[1.0625rem] leading-[1.75] mb-2">
               Whatever the sentence, convert it the same way every time. Work through these steps in order.
             </p>
@@ -458,10 +449,9 @@ export default function ReportedSpeechPage() {
                 { label: "Check the finished sentence", description: "Use statement word order, remove the question or exclamation mark, and end with a full stop." },
               ]}
             />
-          </section>
+          </GrammarSection>
 
-          <section id="said-told" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Said vs. Told &mdash; Quick Rule</h2>
+          <GrammarSection id="said-told" title={<>Said vs. Told &mdash; Quick Rule</>}>
             <Comparison
               columns={[
                 {
@@ -484,10 +474,9 @@ export default function ReportedSpeechPage() {
                 },
               ]}
             />
-          </section>
+          </GrammarSection>
 
-          <section id="word-changes" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">What Changes</h2>
+          <GrammarSection id="word-changes" title={<>What Changes</>}>
             <div className="grid gap-6 md:grid-cols-2">
               <TableCard
                 title="Pronouns"
@@ -519,10 +508,9 @@ export default function ReportedSpeechPage() {
                 V1 &rarr; V2 &nbsp;(<em>go &rarr; went</em>); &nbsp;V2 &rarr; had + V3 &nbsp;(<em>went &rarr; had gone</em>); &nbsp;did + V1 &rarr; had + V3 &nbsp;(<em>did become &rarr; had become</em>).
               </Callout>
             </div>
-          </section>
+          </GrammarSection>
 
-          <section id="exceptions" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Exceptions to the Back-shift</h2>
+          <GrammarSection id="exceptions" title={<>Exceptions to the Back-shift</>}>
             <Callout type="note">
               The back-shift is the <em>default</em>, not a law. When the original words are still true, or the reporter is speaking in the present, the tense often stays put &mdash; shifting it would actually change the meaning.
             </Callout>
@@ -531,10 +519,9 @@ export default function ReportedSpeechPage() {
               headers={["Exception", "Example"]}
               rows={BACKSHIFT_EXCEPTIONS}
             />
-          </section>
+          </GrammarSection>
 
-          <section id="statements" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Type 1 &mdash; Statements</h2>
+          <GrammarSection id="statements" title={<>Type 1 &mdash; Statements</>}>
             <Callout type="important" title="Core formula">
               <strong>Speaker + said / told / replied + (that) + Subject + Converted Verb</strong> &mdash; use <em>that</em> to join the clauses, back-shift the tense, and change the pronouns and time/place words.
             </Callout>
@@ -544,10 +531,9 @@ export default function ReportedSpeechPage() {
               rows={STATEMENT_VARIETIES}
               caption="The formula never changes &mdash; only the reporting verb and the details of the sentence do."
             />
-          </section>
+          </GrammarSection>
 
-          <section id="questions" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Type 2 &mdash; Questions</h2>
+          <GrammarSection id="questions" title={<>Type 2 &mdash; Questions</>}>
             <Callout type="note">
               Questions are reported in two ways. <Highlight color="yellow">Wh-questions</Highlight> keep the question word; <Highlight color="blue">Yes/No questions</Highlight> take <em>if</em> or <em>whether</em>. In both cases the word order becomes <strong>statement order</strong> (subject + verb) and there is <strong>no question mark</strong>.
             </Callout>
@@ -566,10 +552,9 @@ export default function ReportedSpeechPage() {
               <strong>Special case &mdash; politeness words.</strong> A phrase like <em>Excuse me</em> is not part of the question. It is a polite request, so it becomes its own clause (<em>asked &hellip; to excuse</em>) joined to the reported question by <em>and</em>.
             </p>
             <TableCard headers={["Direct Speech", "Reported Speech"]} rows={POLITENESS} />
-          </section>
+          </GrammarSection>
 
-          <section id="imperatives" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Type 3 &mdash; Commands, Requests, Advice &amp; Warnings</h2>
+          <GrammarSection id="imperatives" title={<>Type 3 &mdash; Commands, Requests, Advice &amp; Warnings</>}>
             <Callout type="note">
               Commands and requests are reported with the <Highlight color="green">to-infinitive</Highlight>, and negative ones with <Highlight color="pink">not to</Highlight>. The reporting verb (<em>ordered, requested, advised, warned</em>) tells the reader what kind of instruction it was.
             </Callout>
@@ -579,10 +564,9 @@ export default function ReportedSpeechPage() {
               rows={COMMANDS_MERGED}
               caption="Every example follows the same shape: reporting verb + object + to / not to + verb."
             />
-          </section>
+          </GrammarSection>
 
-          <section id="exclamations" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Type 4 &mdash; Exclamations</h2>
+          <GrammarSection id="exclamations" title={<>Type 4 &mdash; Exclamations</>}>
             <Callout type="note">
               An exclamation expresses strong feeling. To report it, <Highlight color="yellow">name the emotion</Highlight> and turn the exclamation into an ordinary statement joined with <em>that</em> &mdash; the exclamation mark disappears.
             </Callout>
@@ -596,10 +580,9 @@ export default function ReportedSpeechPage() {
               rows={EXCLAMATIONS}
               caption="Interjections (Hurrah!, Alas!) are reported by their meaning, not their sound."
             />
-          </section>
+          </GrammarSection>
 
-          <section id="worked-examples" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Examples &mdash; One Per Type</h2>
+          <GrammarSection id="worked-examples" title={<>Worked Examples &mdash; One Per Type</>}>
             <Expandable title="Worked example — a statement" variant="exercise">
               <p><strong>Direct:</strong> Ravi said, <em>&ldquo;I am going to the market now.&rdquo;</em></p>
               <p className="mt-3"><strong>Step 1 &mdash; Reporting verb:</strong> a statement takes <em>said</em> (or <em>told + person</em>). Keep <em>that</em>.</p>
@@ -630,10 +613,9 @@ export default function ReportedSpeechPage() {
               <p><strong>Step 3 &mdash; Become a statement:</strong> <em>What a&hellip;!</em> is rewritten as <em>that it was a very + adjective + noun</em> &mdash; <em>that it was a wonderful performance</em>.</p>
               <p className="mt-3"><strong>Reported:</strong> <em>The audience exclaimed <strong>with admiration</strong> that it was a wonderful performance.</em></p>
             </Expandable>
-          </section>
+          </GrammarSection>
 
-          <section id="try-these" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Try These</h2>
+          <GrammarSection id="try-these" title={<>Try These</>}>
             <ExerciseQa
               questions={[
                 <span key="q1">Direct: He said, &ldquo;I have finished my homework.&rdquo;</span>,
@@ -652,10 +634,9 @@ export default function ReportedSpeechPage() {
                 <span key="a6"><strong>The stranger asked where the station was.</strong> (Wh-question &rarr; statement order; the verb back-shifts.)</span>,
               ]}
             />
-          </section>
+          </GrammarSection>
 
-          <section id="verb-patterns" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Reporting Verb Patterns</h2>
+          <GrammarSection id="verb-patterns" title={<>Reporting Verb Patterns</>}>
             <Callout type="note">
               Examiners reward the <em>precise</em> verb. Each pattern below fixes which preposition or form the verb takes &mdash; get the pattern right and the sentence writes itself.
             </Callout>
@@ -664,10 +645,9 @@ export default function ReportedSpeechPage() {
               headers={["Pattern", "Example"]}
               rows={VERB_PATTERNS}
             />
-          </section>
+          </GrammarSection>
 
-          <section id="advanced-verbs" className="scroll-mt-24 mt-14">
-            <div className="flex items-center gap-3 mb-5">
+          <GrammarSection id="advanced-verbs"><div className="flex items-center gap-3 mb-5">
               <h2 className="text-2xl font-bold tracking-tight">Advanced Reporting Verbs</h2>
               <Badge variant="secondary" className="rounded-full font-bold">Advanced</Badge>
             </div>
@@ -681,10 +661,9 @@ export default function ReportedSpeechPage() {
                 </Badge>
               ))}
             </div>
-          </section>
+          </GrammarSection>
 
-          <section id="common-mistakes" className="scroll-mt-24 mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5">Common Mistakes</h2>
+          <GrammarSection id="common-mistakes" title={<>Common Mistakes</>}>
             <MistakeCard
               mistake="He said me that he was busy."
               correction="He told me that he was busy."
@@ -745,17 +724,12 @@ export default function ReportedSpeechPage() {
               correction="He wished that I might live long."
               example="'Wished' takes a that-clause directly — it does not take an indirect object the way 'told' does."
             />
-          </section>
+          </GrammarSection>
 
-          <section id="key-takeaway" className="scroll-mt-24 mt-14">
-            <KeyPoint>
+          <GrammarSection id="key-takeaway"><KeyPoint>
               First decide the <em>type</em>: statements and exclamations join with <em>that</em>, questions with <em>if / whether</em> or the wh-word, and commands with <em>to / not to</em>. Then back-shift the tense, change the pronouns, and change the time and place words &mdash; unless the statement is still true. Reported questions always use statement word order &mdash; and no question mark.
             </KeyPoint>
-          </section>
-        </>
-      ) : (
-        <GrammarQuiz questions={QUESTIONS} />
-      )}
-    </>
+          </GrammarSection>
+    </GrammarTopicLayout>
   );
 }

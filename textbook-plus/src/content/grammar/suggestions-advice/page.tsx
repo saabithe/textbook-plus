@@ -1,15 +1,14 @@
 "use client";
 
-import { useState } from "react";
-
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { Expandable } from "@/components/content/Expandable";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
-import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
+import { type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarSection } from "@/components/grammar/GrammarSection";
+import { GrammarTopicLayout } from "@/components/grammar/GrammarTopicLayout";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -162,31 +161,21 @@ const HAD_BETTER_TABLE = [
 ];
 
 export default function SuggestionsAdvicePage() {
-  const [tab, setTab] = useState<GrammarTab>("concept");
-
   return (
-    <>
-      <GrammarTabs tab={tab} onTabChange={setTab} />
+    <GrammarTopicLayout
+      questions={QUESTIONS}
+      intro={<>A <Highlight color="yellow">suggestion</Highlight> proposes an idea for doing something together; <Highlight color="green">advice</Highlight> tells someone what <em>they</em> should do.</>}
+    >
 
-      {tab === "concept" ? (
-        <>
-      <section id="introduction" className="scroll-mt-24">
-        <Callout type="note">
-          A <Highlight color="yellow">suggestion</Highlight> proposes an idea for doing something together; <Highlight color="green">advice</Highlight> tells someone what <em>they</em> should do.
-        </Callout>
-      </section>
-
-      <section id="suggestions" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Making Suggestions</h2>
+      <GrammarSection id="suggestions" title={<>Making Suggestions</>}>
         <TableCard
           headers={["Structure", "Example", "Register"]}
           rows={SUGGESTIONS_TABLE}
           caption="Notice the verb forms: base verb after 'let's / shall we / why don't', but -ing after 'how about'."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="advice" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Giving Advice</h2>
+      <GrammarSection id="advice" title={<>Giving Advice</>}>
         <TableCard
           headers={["Structure", "Example"]}
           rows={ADVICE_TABLE}
@@ -198,10 +187,9 @@ export default function SuggestionsAdvicePage() {
           <p><strong>If I were you</strong> gives hypothetical advice by putting yourself in their shoes, followed by <em>would</em> + V1: <em>If I were you, I would limit screen time.</em></p>
           <p><strong>Handy starters:</strong> direct advice &mdash; <em>You should really&hellip;</em>, <em>You ought to&hellip;</em>, <em>You&rsquo;d better&hellip;</em>; hypothetical advice &mdash; <em>If I were you, I would&hellip;</em>; advisory verbs &mdash; <em>advise, suggest, recommend</em>.</p>
         </div>
-      </section>
+      </GrammarSection>
 
-      <section id="had-better" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Had Better &mdash; Strong Advice</h2>
+      <GrammarSection id="had-better" title={<>Had Better &mdash; Strong Advice</>}>
         <Callout type="note">
           <Highlight color="yellow">Had better</Highlight> gives strong advice with a hint of warning: if you ignore it, something unpleasant will follow. It looks like the past tense, but it always refers to the <em>present or future</em>.
         </Callout>
@@ -217,18 +205,16 @@ export default function SuggestionsAdvicePage() {
           <p><strong>Negative:</strong> put <em>not</em> after <em>better</em> &mdash; <em>You&rsquo;d better not touch it.</em></p>
           <p><strong>Tone:</strong> it can sound firm or even threatening, so it is common in warnings: <em>You&rsquo;d better be on time.</em></p>
         </div>
-      </section>
+      </GrammarSection>
 
-      <section id="responding" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Responding to a Suggestion</h2>
+      <GrammarSection id="responding" title={<>Responding to a Suggestion</>}>
         <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
           <p><strong>Accepting:</strong> <em>That&rsquo;s a good idea.</em> / <em>Sounds great.</em> / <em>Sure, let&rsquo;s do that.</em></p>
           <p><strong>Declining politely:</strong> <em>I&rsquo;d rather not, thanks.</em> / <em>I&rsquo;m not sure about that.</em> / <em>Maybe another time.</em></p>
         </div>
-      </section>
+      </GrammarSection>
 
-      <section id="worked-examples" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Examples</h2>
+      <GrammarSection id="worked-examples" title={<>Worked Examples</>}>
         <Expandable title="Worked example — advising a friend addicted to phones" variant="exercise">
           <p><strong>Context:</strong> <em>Advising a friend addicted to mobile phones.</em></p>
           <p className="mt-3"><strong>Advice 1:</strong> <em>You should really set a daily screen-time limit.</em> (Direct advice with <em>should</em> + base verb.)</p>
@@ -249,10 +235,9 @@ export default function SuggestionsAdvicePage() {
           <p className="mt-3"><strong>Answer:</strong> <em>You could join a rehabilitation programme and pick up healthy sports habits instead.</em></p>
           <p className="mt-3"><strong>Rule:</strong> &ldquo;Could&rdquo; functions here as a modal auxiliary to make a helpful, non-threatening suggestion or outline a positive alternative path. It must be followed by a base verb.</p>
         </Expandable>
-      </section>
+      </GrammarSection>
 
-      <section id="common-mistakes" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Common Mistakes</h2>
+      <GrammarSection id="common-mistakes" title={<>Common Mistakes</>}>
         <MistakeCard
           mistake="I suggest him to study."
           correction="I suggest that he study. / I suggest studying."
@@ -283,18 +268,12 @@ export default function SuggestionsAdvicePage() {
           correction="You had better not be late."
           example="In the negative, 'not' comes after 'better' and the verb stays in the base form."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="key-takeaway" className="scroll-mt-24 mt-14">
-        <KeyPoint>
+      <GrammarSection id="key-takeaway"><KeyPoint>
           Suggestions &amp; advice depend on the pattern: base verb after <em>let&rsquo;s / shall we / why don&rsquo;t we / had better</em>, but <em>-ing</em> after <em>how about / what about / advise / recommend</em>. Choose <em>should</em> for gentle advice and <em>must</em> for strong advice.
         </KeyPoint>
-      </section>
-
-        </>
-      ) : (
-        <GrammarQuiz questions={QUESTIONS} />
-      )}
-    </>
+      </GrammarSection>
+    </GrammarTopicLayout>
   );
 }

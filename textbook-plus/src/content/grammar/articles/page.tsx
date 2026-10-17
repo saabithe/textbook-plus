@@ -1,14 +1,12 @@
 "use client";
 
-import { useState } from "react";
-
-import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
-import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
+import { type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarSection } from "@/components/grammar/GrammarSection";
+import { GrammarTopicLayout } from "@/components/grammar/GrammarTopicLayout";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -63,50 +61,38 @@ const RULES_TABLE = [
 ];
 
 export default function ArticlesPage() {
-  const [tab, setTab] = useState<GrammarTab>("concept");
-
   return (
-    <>
-      <GrammarTabs tab={tab} onTabChange={setTab} />
+    <GrammarTopicLayout
+      questions={QUESTIONS}
+      intro={<><Highlight color="yellow">Articles</Highlight> are the words <em>a</em>, <em>an</em> and <em>the</em>, used to mark a noun as either new (<em>a / an</em>) or already known (<em>the</em>).</>}
+    >
 
-      {tab === "concept" ? (
-        <>
-      <section id="introduction" className="scroll-mt-24">
-        <Callout type="note">
-          <Highlight color="yellow">Articles</Highlight> are the words <em>a</em>, <em>an</em> and <em>the</em>, used to mark a noun as either new (<em>a / an</em>) or already known (<em>the</em>).
-        </Callout>
-      </section>
-
-      <section id="rules" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Rules at a Glance</h2>
+      <GrammarSection id="rules" title={<>Rules at a Glance</>}>
         <TableCard
           headers={["Rule", "Example"]}
           rows={RULES_TABLE}
           caption="Ask two questions: is the noun countable? and is it specific? The answers decide the article."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="a-vs-an" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">a or an?</h2>
+      <GrammarSection id="a-vs-an" title={<>a or an?</>}>
         <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
           <p>The choice depends on the <strong>sound</strong>, not the letter.</p>
           <p><strong>a</strong> before a consonant sound: <em>a university</em>, <em>a European</em>, <em>a one-way street</em>.</p>
           <p><strong>an</strong> before a vowel sound: <em>an hour</em>, <em>an MBA</em>, <em>an honest man</em>.</p>
         </div>
-      </section>
+      </GrammarSection>
 
-      <section id="zero-article" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">When to Use No Article</h2>
+      <GrammarSection id="zero-article" title={<>When to Use No Article</>}>
         <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
           <p><strong>General plurals and uncountables:</strong> <em>Books are expensive. Water is precious.</em></p>
           <p><strong>Most proper nouns:</strong> <em>India, Chennai, Mount Everest</em> (but <em>the Himalayas, the Ganges</em>).</p>
           <p><strong>Meals, languages and games:</strong> <em>have breakfast, speak English, play cricket</em>.</p>
           <p><strong>Means of transport:</strong> <em>by bus, by train</em> (but <em>on the bus, in the car</em>).</p>
         </div>
-      </section>
+      </GrammarSection>
 
-      <section id="common-mistakes" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Common Mistakes</h2>
+      <GrammarSection id="common-mistakes" title={<>Common Mistakes</>}>
         <MistakeCard
           mistake="He is a honest man."
           correction="He is an honest man."
@@ -122,18 +108,12 @@ export default function ArticlesPage() {
           correction="Both sisters are doctors."
           example="'Both' already makes the noun specific — do not add 'the' before it."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="key-takeaway" className="scroll-mt-24 mt-14">
-        <KeyPoint>
+      <GrammarSection id="key-takeaway"><KeyPoint>
           <em>a / an</em> for a first, non-specific mention (chosen by <em>sound</em>: a university, an hour); <em>the</em> for something specific or unique; and <em>no article</em> for general plurals, uncountables, most proper nouns, meals, languages and games.
         </KeyPoint>
-      </section>
-
-        </>
-      ) : (
-        <GrammarQuiz questions={QUESTIONS} />
-      )}
-    </>
+      </GrammarSection>
+    </GrammarTopicLayout>
   );
 }

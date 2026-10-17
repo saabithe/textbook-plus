@@ -1,15 +1,13 @@
 "use client";
 
-import { useState } from "react";
-
-import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
-import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
+import { type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarSection } from "@/components/grammar/GrammarSection";
+import { GrammarTopicLayout } from "@/components/grammar/GrammarTopicLayout";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -76,6 +74,96 @@ const QUESTIONS: GrammarQuestion[] = [
     options: ["speak up", "take after", "stand up for", "look after"],
     answer: 2,
     explanation: "\u201cStand up for\u201d = defend or support \u2014 she advocates for her team's needs.",
+  },
+  {
+    id: "pv9", type: "mcq",
+    question: "Choose the correct sentence (separable phrasal verb with a pronoun).",
+    options: [
+      "Can you pick up me at six?",
+      "Can you pick me up at six?",
+      "Can you pick up at six me?",
+      "Can you me pick up at six?",
+    ],
+    answer: 1,
+    explanation: "\u201cPick up\u201d is separable, so a pronoun object must sit between the verb and the particle: \u201cpick me up\u201d.",
+  },
+  {
+    id: "pv10", type: "fill-blank",
+    question: "Replace the italicised phrase with a phrasal verb: \"After the argument, they finally agreed and became friends again.\" \u2192 They finally ________.",
+    answer: "made up",
+    accepted: ["made it up", "made up again"],
+    explanation: "\u201cMake up\u201d means to reconcile after a quarrel (past form: \u201cmade up\u201d).",
+  },
+  {
+    id: "pv11", type: "mcq",
+    question: "\"The fire brigade arrived quickly and ________ the fire.\"",
+    options: ["put out", "put off", "put up", "put on"],
+    answer: 0,
+    explanation: "\u201cPut out\u201d = extinguish (a fire or light).",
+  },
+  {
+    id: "pv12", type: "mcq",
+    question: "\"Our old car finally ________ on the highway.\" (stopped working)",
+    options: ["gave in", "gave off", "gave out", "gave up"],
+    answer: 2,
+    explanation: "\u201cGive out\u201d = stop working or run out. (\u201cGive up\u201d means to quit; \u201cgive off\u201d means to emit; \u201cgive in\u201d means to concede.)",
+  },
+  {
+    id: "pv13", type: "mcq",
+    question: "Which sentence uses its phrasal verb correctly?",
+    options: [
+      "I ran into my teacher at the market yesterday.",
+      "I ran my teacher into at the market yesterday.",
+      "I ran into at the market my teacher yesterday.",
+      "I into ran my teacher at the market yesterday.",
+    ],
+    answer: 0,
+    explanation: "\u201cRun into\u201d (= meet by chance) is inseparable \u2014 the object must follow the particle, so only the first sentence is correct.",
+  },
+  {
+    id: "pv14", type: "mcq",
+    question: "Cloze: \u201cI can\u2019t ________ your rudeness any longer, so I refuse to ________ my decision again.\u201d",
+    options: [
+      "put up with / put off",
+      "put off / put up with",
+      "put up / put off",
+      "put across / put down",
+    ],
+    answer: 0,
+    explanation: "\u201cPut up with\u201d = tolerate; \u201cput off\u201d = postpone. Option 3 drops the particle \u201cwith\u201d, and options 2 and 4 do not fit the meanings required.",
+  },
+  {
+    id: "pv15", type: "mcq",
+    question: "\"She ________ swimming to stay fit after work.\"",
+    options: ["took up", "took off", "took over", "took in"],
+    answer: 0,
+    explanation: "\u201cTake up\u201d = begin a hobby or activity.",
+  },
+  {
+    id: "pv16", type: "mcq",
+    question: "\"The new manager will ________ the project next month.\"",
+    options: ["take over", "take after", "take in", "take back"],
+    answer: 0,
+    explanation: "\u201cTake over\u201d = assume control of something.",
+  },
+  {
+    id: "pv17", type: "mcq",
+    question: "\"Can you ________ what this old letter says? The handwriting is hard to read.\"",
+    options: ["make out", "make up", "make for", "make off"],
+    answer: 0,
+    explanation: "\u201cMake out\u201d = distinguish or decipher (something hard to read or see).",
+  },
+  {
+    id: "pv18", type: "mcq",
+    question: "Which sentence contains a phrasal-verb error?",
+    options: [
+      "He turned down the job offer.",
+      "He turned the job offer down.",
+      "He turned it down.",
+      "He turned down it.",
+    ],
+    answer: 3,
+    explanation: "\u201cTurn down\u201d is separable, so a pronoun must go in the middle: \u201cHe turned it down\u201d \u2014 never \u201cturned down it\u201d.",
   },
 ];
 
@@ -147,50 +235,38 @@ const MAKE_TABLE = [
 ];
 
 export default function PhrasalVerbsPage() {
-  const [tab, setTab] = useState<GrammarTab>("concept");
-
   return (
-    <>
-      <GrammarTabs tab={tab} onTabChange={setTab} />
+    <GrammarTopicLayout
+      questions={QUESTIONS}
+      intro={<>A <Highlight color="yellow">phrasal verb</Highlight> is a verb combined with a particle such as <em>up</em>, <em>off</em> or <em>out</em>, whose meaning cannot be guessed from the two words alone.</>}
+    >
 
-      {tab === "concept" ? (
-        <>
-      <section id="introduction" className="scroll-mt-24">
-        <Callout type="note">
-          A <Highlight color="yellow">phrasal verb</Highlight> is a verb combined with a particle such as <em>up</em>, <em>off</em> or <em>out</em>, whose meaning cannot be guessed from the two words alone.
-        </Callout>
-      </section>
-
-      <section id="rules" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Common Phrasal Verbs</h2>
+      <GrammarSection id="rules" title={<>Common Phrasal Verbs</>}>
         <TableCard
           headers={["Phrasal verb", "Meaning", "Example"]}
           rows={PHRASAL_TABLE}
           caption="Learn phrasal verbs as whole units, in a sentence — never word by word."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="separable" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Separable or Inseparable?</h2>
+      <GrammarSection id="separable" title={<>Separable or Inseparable?</>}>
         <TableCard
           headers={["Type", "Rule", "Example"]}
           rows={SEPARABLE_TABLE}
           caption="When in doubt, keep the verb and particle together — that order is almost always safe."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="families" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Phrasal Verbs by Family</h2>
+      <GrammarSection id="families" title={<>Phrasal Verbs by Family</>}>
         <TableCard title="Go" headers={["Phrasal verb", "Meaning"]} rows={GO_TABLE} />
         <TableCard title="Come" headers={["Phrasal verb", "Meaning"]} rows={COME_TABLE} />
         <TableCard title="Put" headers={["Phrasal verb", "Meaning"]} rows={PUT_TABLE} />
         <TableCard title="Take" headers={["Phrasal verb", "Meaning"]} rows={TAKE_TABLE} />
         <TableCard title="Give" headers={["Phrasal verb", "Meaning"]} rows={GIVE_TABLE} />
         <TableCard title="Make" headers={["Phrasal verb", "Meaning"]} rows={MAKE_TABLE} />
-      </section>
+      </GrammarSection>
 
-      <section id="choose-right" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Choose the Right Phrasal Verb</h2>
+      <GrammarSection id="choose-right" title={<>Choose the Right Phrasal Verb</>}>
         <ExerciseQa
           questions={[
             <span key="q1">Complete with a phrasal verb from the brackets (speak up, take for, give up, speak for, take off): a) The flight will &hellip; in 5 minutes. b) Work hard. Don&rsquo;t &hellip; your bold steps.</span>,
@@ -199,10 +275,9 @@ export default function PhrasalVerbsPage() {
             <span key="a1"><strong>a) take off, b) give up.</strong> The flight will <em>take off</em> in 5 minutes. Work hard &mdash; don&rsquo;t <em>give up</em> your bold steps.</span>,
           ]}
         />
-      </section>
+      </GrammarSection>
 
-      <section id="common-mistakes" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Common Mistakes</h2>
+      <GrammarSection id="common-mistakes" title={<>Common Mistakes</>}>
         <MistakeCard
           mistake="I look forward to see you."
           correction="I look forward to seeing you."
@@ -218,18 +293,12 @@ export default function PhrasalVerbsPage() {
           correction="She looks after the baby."
           example="'Look after' is inseparable — the object comes after the particle."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="key-takeaway" className="scroll-mt-24 mt-14">
-        <KeyPoint>
+      <GrammarSection id="key-takeaway"><KeyPoint>
           Learn phrasal verbs as fixed units with their meaning. Check whether the verb is <em>separable</em> (object can sit in the middle) or <em>inseparable</em> (object must follow) &mdash; and remember that a pronoun in a separable verb always goes in the middle.
         </KeyPoint>
-      </section>
-
-        </>
-      ) : (
-        <GrammarQuiz questions={QUESTIONS} />
-      )}
-    </>
+      </GrammarSection>
+    </GrammarTopicLayout>
   );
 }

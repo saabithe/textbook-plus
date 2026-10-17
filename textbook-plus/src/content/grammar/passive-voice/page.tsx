@@ -1,16 +1,14 @@
 "use client";
 
-import { useState } from "react";
-
-import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
-import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
+import { type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarSection } from "@/components/grammar/GrammarSection";
+import { GrammarTopicLayout } from "@/components/grammar/GrammarTopicLayout";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -182,22 +180,13 @@ const SPECIAL_TABLE = [
 ];
 
 export default function PassiveVoicePage() {
-  const [tab, setTab] = useState<GrammarTab>("concept");
-
   return (
-    <>
-      <GrammarTabs tab={tab} onTabChange={setTab} />
+    <GrammarTopicLayout
+      questions={QUESTIONS}
+      intro={<><Highlight color="yellow">Passive voice</Highlight> is used when the focus is on the action, not on who did it.</>}
+    >
 
-      {tab === "concept" ? (
-        <>
-      <section id="introduction" className="scroll-mt-24">
-        <Callout type="note">
-          <Highlight color="yellow">Passive voice</Highlight> is used when the focus is on the action, not on who did it.
-        </Callout>
-      </section>
-
-      <section id="structure" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Structure</h2>
+      <GrammarSection id="structure" title={<>Structure</>}>
         <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
           <p><strong>Active:</strong> Subject + Verb + Object</p>
           <p><strong>Passive:</strong> Object + <Highlight color="blue">to be (conjugated)</Highlight> + <Highlight color="green">past participle</Highlight> + (by + agent)</p>
@@ -217,19 +206,17 @@ export default function PassiveVoicePage() {
             { cells: ["Modal", "She can write a letter.", "A letter can be written by her."] },
           ]}
         />
-      </section>
+      </GrammarSection>
 
-      <section id="special-passives" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Special Passives</h2>
+      <GrammarSection id="special-passives" title={<>Special Passives</>}>
         <TableCard
           headers={["Type", "Rule", "Example"]}
           rows={SPECIAL_TABLE}
           caption="These are the transformations that most often carry extra marks in exams."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="when-to-use" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">When to Use Passive Voice</h2>
+      <GrammarSection id="when-to-use" title={<>When to Use Passive Voice</>}>
         <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
           <p><strong>Agent unknown:</strong> <em>The window was broken.</em> (We don&rsquo;t know who did it.)</p>
           <p><strong>Agent unimportant:</strong> <em>The road is being repaired.</em> (By whom is irrelevant.)</p>
@@ -237,10 +224,9 @@ export default function PassiveVoicePage() {
           <p><strong>Formal / scientific writing:</strong> <em>The experiment was conducted over three months.</em></p>
           <p><strong>To be diplomatic:</strong> <em>Mistakes were made.</em> (Avoids pointing fingers.)</p>
         </div>
-      </section>
+      </GrammarSection>
 
-      <section id="worked-transformation" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Examples</h2>
+      <GrammarSection id="worked-transformation" title={<>Worked Examples</>}>
         <Expandable title="Worked example — Hasan assisted Dr. Cronin" variant="exercise">
           <p><strong>Active:</strong> <em>Hasan assisted Dr. Cronin to help the patients.</em></p>
           <p className="mt-3"><strong>Passive:</strong> <em>Dr. Cronin was assisted by Hasan to help the patients.</em></p>
@@ -269,10 +255,9 @@ export default function PassiveVoicePage() {
           <p className="mt-3"><strong>Passive question:</strong> <em>Was the plan approved by the committee?</em></p>
           <p className="mt-3"><strong>Why:</strong> form the passive as usual (was + approved), then put the auxiliary <em>was</em> before the subject to keep it a question.</p>
         </Expandable>
-      </section>
+      </GrammarSection>
 
-      <section id="worked-questions" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Try These</h2>
+      <GrammarSection id="worked-questions" title={<>Try These</>}>
         <ExerciseQa
           questions={[
             <span key="q1">Active Voice: The teacher explained the lesson to the students. &mdash; Write the Passive Voice.</span>,
@@ -289,10 +274,9 @@ export default function PassiveVoicePage() {
             <span key="a5"><strong>The report must be submitted today.</strong> (Modal passive: modal + be + V3.)</span>,
           ]}
         />
-      </section>
+      </GrammarSection>
 
-      <section id="common-mistakes" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Common Mistakes</h2>
+      <GrammarSection id="common-mistakes" title={<>Common Mistakes</>}>
         <MistakeCard
           mistake="The book was wrote by her."
           correction="The book was written by her."
@@ -313,18 +297,12 @@ export default function PassiveVoicePage() {
           correction="The letter was written by her."
           example="The agent in a passive sentence is introduced by 'by', never 'from'."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="key-takeaway" className="scroll-mt-24 mt-14">
-        <KeyPoint>
+      <GrammarSection id="key-takeaway"><KeyPoint>
           Passive voice = <strong>object + correct form of &lsquo;to be&rsquo; + past participle</strong>. Use it when the agent is unknown, unimportant, or when you want to focus on the action itself. Always match the tense of &lsquo;to be&rsquo; to the original sentence.
         </KeyPoint>
-      </section>
-
-        </>
-      ) : (
-        <GrammarQuiz questions={QUESTIONS} />
-      )}
-    </>
+      </GrammarSection>
+    </GrammarTopicLayout>
   );
 }

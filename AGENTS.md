@@ -30,7 +30,7 @@ node scripts/verify-latex.cjs   # run after any content-math change: renders eve
 
 No test framework. No typecheck script (TypeScript errors surface via `npm run build`).
 
-**Scripts** (`textbook-plus/scripts/`): `extract-pdf.mjs` / `clean-extract.mjs` / `render-pdf.mjs` — PDF extraction pipeline (step 2 of CHAPTER_PIPELINE); `unescape-latex.cjs` — codemod rewriting doubled-backslash LaTeX into single-backslash `String.raw` (`node scripts/unescape-latex.cjs <page.tsx> [...]`); `generate-sw.js` / `generate-icons.js` — build-time PWA assets.
+**Scripts** (`textbook-plus/scripts/`): `extract-pdf.mjs` / `clean-extract.mjs` / `render-pdf.mjs` — PDF extraction pipeline (step 2 of CHAPTER_PIPELINE); `unescape-latex.cjs` — codemod rewriting doubled-backslash LaTeX into single-backslash `String.raw` (`node scripts/unescape-latex.cjs <page.tsx> [...]`); `audit-grammar.cjs` — static checks over the 12 grammar topics (duplicate ids, MCQ answer-index range, duplicate options, fill-blank answer present in explanation, `MistakeCard` mistake === correction, stray non-ASCII, type mix); `generate-sw.js` / `generate-icons.js` — build-time PWA assets.
 
 **Component gallery**: `/dev/design` (`src/app/dev/design/page.tsx`) renders every content component with sample data — preview component changes there before committing.
 
@@ -102,7 +102,7 @@ Chapters not registered show "Content coming soon...".
 ## Data Model
 
 - **Main system (Class 12 / Plus Two)**: `src/data/subjects.ts` (6 subjects) + `src/data/chapters.ts` (78 chapters: Physics 14, Chemistry 10, Mathematics 13, Biology 13, English 16, Arabic 12). Subject colors: CSS custom props `--subject-{name}` / `--subject-{name}-light` in `globals.css` `:root` and `.dark`. Chapter list source of truth: `Developer_Deliveries/Chapter names.md`.
-- **Grammar / Discourses**: `src/data/grammar.ts` (12 topics) and `src/data/discourses.ts` (8 topics), routed at `/grammar/{topic}` and `/discourses/{topic}`.
+- **Grammar / Discourses**: `src/data/grammar.ts` (12 topics, each tagged `group: "core" | "more"`; the six **core** topics — reported-speech, editing, if-clause, passive-voice, cohesive-devices, concord — render above a labelled 5px divider, the rest under "More Grammar Topics") and `src/data/discourses.ts` (8 topics), routed at `/grammar/{topic}` and `/discourses/{topic}`.
 
 **Chapters with content** (41 `page.tsx` files): main — 4 Physics (electric-charges-and-fields, magnetism-and-matter, electromagnetic-induction, electromagnetic-waves), all 16 English, 1 Biology (molecular-basis-of-inheritance); Grammar all 12; Discourses all 8. Other chapters show placeholder UI.
 
@@ -115,6 +115,7 @@ There is **no auth, no cloud sync, and no progress persistence**. The former Sup
 - Chapter pages are **single-column — no sidebar/ToC**: `ChapterLayout` renders breadcrumb + header (number, title) + content at `max-w-3xl`, with `ReadingProgress` on top and prev/next `ChapterNav` cards at the bottom. Sections are plain headings inside each page.
 - Chapter tabs (non-English/Arabic): **Learning** (JSX content) and **Practice** (questions + flashcards with sub-tabs). Practice availability comes from the `content.ts` registry keys, not the router or the JSON files' existence. Practice state (revealed questions, known cards) is per-session only.
 - English pages: **Read** / **Discourses** tabs rendered inside the page by `ContentTabs` (client-side state; dispatches a `content-tab-change` event with no listener left). No Practice tab for English/Arabic. Grammar and Discourses are separate top-level sections.
+- Grammar topics (12 `page.tsx` files in `src/content/grammar/{slug}/`) are built on `GrammarTopicLayout` (`src/components/grammar/`), which owns the **Concept / Practice** tab state and the one-sentence intro callout; each concept section is a `GrammarSection` (`{ id, title?, children }`; heading-less for the key takeaway) and the Practice tab renders `GrammarQuiz`. `GrammarTopicLayout` takes `intro` (the definition, wrapped in a note `Callout`) plus optional `introExtra` (extra intro blocks, e.g. reported-speech's overview tables). `GrammarQuiz` accepts `accepted?: string[]` so alternative fill-blank answers grade as correct (`answer` remains the model answer).
 - Subject hubs in `src/components/subject/` (`SubjectCard`, `ChapterList`); home page is a plain subject grid (no hero, no continue-learning strip).
 - Search: `Ctrl+K` via `src/components/search/SearchModal.tsx`. Dark mode via next-themes, flash-prevention script in `layout.tsx`.
 - PWA: `manifest.ts`, `public/sw.js` (generated on build), icons, `_offline` page. Scrollbar hidden globally via CSS.

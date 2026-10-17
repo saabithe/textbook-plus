@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
@@ -9,8 +7,9 @@ import { TableCard } from "@/components/content/data/TableCard";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
-import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
+import { type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { GrammarSection } from "@/components/grammar/GrammarSection";
+import { GrammarTopicLayout } from "@/components/grammar/GrammarTopicLayout";
 
 const QUESTIONS: GrammarQuestion[] = [
   {
@@ -189,22 +188,13 @@ const CONDITIONALS_TABLE = [
 ];
 
 export default function IfClausePage() {
-  const [tab, setTab] = useState<GrammarTab>("concept");
-
   return (
-    <>
-      <GrammarTabs tab={tab} onTabChange={setTab} />
+    <GrammarTopicLayout
+      questions={QUESTIONS}
+      intro={<>An <Highlight color="yellow">if clause</Highlight> (a conditional clause) shows that one action depends on another.</>}
+    >
 
-      {tab === "concept" ? (
-        <>
-      <section id="introduction" className="scroll-mt-24">
-        <Callout type="note">
-          An <Highlight color="yellow">if clause</Highlight> (a conditional clause) shows that one action depends on another.
-        </Callout>
-      </section>
-
-      <section id="rules" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Types of Conditionals</h2>
+      <GrammarSection id="rules" title={<>Types of Conditionals</>}>
         <TableCard
           headers={["Type", "If-clause", "Main clause", "When we use it", "Example"]}
           rows={CONDITIONALS_TABLE}
@@ -213,10 +203,9 @@ export default function IfClausePage() {
         <Callout type="important" title="The golden rule">
           The if-clause <strong>never</strong> takes <em>will</em> or <em>would</em>. Real future &rarr; present simple in the if-clause; unreal &rarr; past or past perfect.
         </Callout>
-      </section>
+      </GrammarSection>
 
-      <section id="advice" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Type 2 for Advice &mdash; If I Were You</h2>
+      <GrammarSection id="advice" title={<>Type 2 for Advice &mdash; If I Were You</>}>
         <Callout type="important" title="The advice formula">
           <strong>If + Simple Past &rarr; would + base verb.</strong> <em>If I were you, I would accept the offer.</em> / <em>If I were you, I would study hard for the exam.</em>
         </Callout>
@@ -224,10 +213,9 @@ export default function IfClausePage() {
           <p><Highlight color="yellow">If I were you</Highlight> gives advice by putting yourself in the other person&rsquo;s shoes. It describes an imaginary, impossible situation &mdash; since you can never actually become them.</p>
           <p><strong>Why <em>were</em> and not <em>was</em>?</strong> In hypothetical or imaginary situations (the subjunctive mood), English uses <em>were</em> for all pronouns &mdash; even singular ones like <em>I, he, she</em> and <em>it</em> (e.g. <em>If she were here&hellip;</em>).</p>
         </div>
-      </section>
+      </GrammarSection>
 
-      <section id="worked-examples" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Examples</h2>
+      <GrammarSection id="worked-examples" title={<>Worked Examples</>}>
         <Expandable title="Worked example — a mixed conditional passage" variant="exercise">
           <p><strong>Passage:</strong> <em>If United Nations &hellip;(stop) the war between two countries beforehand, so many children and the old would not have suffered from hunger and cold. If the situation continues the same, too many lives &hellip;(lose).</em></p>
           <p className="mt-3"><strong>Blank 1 &mdash; Third Conditional (past unfulfilled action):</strong> <em>had stopped</em>. The phrase &ldquo;would not have suffered&rdquo; in the main clause establishes this as a Type 3 conditional. It describes an imaginary past situation that never actually occurred. The formula strictly requires the Past Perfect tense (had + V3) inside the if-clause.</p>
@@ -248,10 +236,9 @@ export default function IfClausePage() {
           <p className="mt-3"><strong>Answer:</strong> <em>If she <strong>had taken</strong> the medicine, she <strong>would have recovered</strong> quickly.</em></p>
           <p className="mt-3"><strong>Why:</strong> the action is in the unchangeable past, so it is a Type 3 conditional. The if-clause needs the past perfect (<em>had taken</em>) and the main clause needs <em>would have</em> + past participle.</p>
         </Expandable>
-      </section>
+      </GrammarSection>
 
-      <section id="try-these" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Try These</h2>
+      <GrammarSection id="try-these" title={<>Try These</>}>
         <ExerciseQa
           questions={[
             <span key="q1">If you study regularly, you ________ (pass) easily.</span>,
@@ -268,10 +255,9 @@ export default function IfClausePage() {
             <span key="a5"><strong>mix</strong> &mdash; Type 0: a general truth, present simple in both halves.</span>,
           ]}
         />
-      </section>
+      </GrammarSection>
 
-      <section id="common-mistakes" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Common Mistakes</h2>
+      <GrammarSection id="common-mistakes" title={<>Common Mistakes</>}>
         <MistakeCard
           mistake="If it will rain, we will cancel."
           correction="If it rains, we will cancel."
@@ -292,18 +278,12 @@ export default function IfClausePage() {
           correction="If I were you, I would apologise."
           example="In imaginary situations (the subjunctive), use 'were' for every subject — including 'I'."
         />
-      </section>
+      </GrammarSection>
 
-      <section id="key-takeaway" className="scroll-mt-24 mt-14">
-        <KeyPoint>
+      <GrammarSection id="key-takeaway"><KeyPoint>
           The if-clause never takes <em>will</em> or <em>would</em> &mdash; it takes the present simple (real) or the past/perfect (unreal). The main clause carries the modal: <em>will</em> for real future, <em>would</em> for unreal present, <em>would have</em> for unreal past.
         </KeyPoint>
-      </section>
-
-        </>
-      ) : (
-        <GrammarQuiz questions={QUESTIONS} />
-      )}
-    </>
+      </GrammarSection>
+    </GrammarTopicLayout>
   );
 }
