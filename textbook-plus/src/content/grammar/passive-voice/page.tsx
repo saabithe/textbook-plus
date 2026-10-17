@@ -17,7 +17,7 @@ const QUESTIONS: GrammarQuestion[] = [
     id: "pv1", type: "mcq",
     question: "\"The letter was written by her.\" The active form is:",
     options: ["She wrote the letter.", "She has written the letter.", "The letter wrote her.", "She is writing the letter."],
-    answer: 0, explanation: "Active: subject + verb + object → Passive: object + was/were + past participle + by + subject.",
+    answer: 0, explanation: "Active: subject + verb + object \u2192 Passive: object + was/were + past participle + by + subject.",
   },
   {
     id: "pv2", type: "mcq",
@@ -27,7 +27,7 @@ const QUESTIONS: GrammarQuestion[] = [
   },
   {
     id: "pv3", type: "fill-blank",
-    question: "Convert to passive: \"They will announce the results tomorrow.\" → The results ______ announced tomorrow.",
+    question: "Convert to passive: \"They will announce the results tomorrow.\" \u2192 The results ______ announced tomorrow.",
     answer: "will be", explanation: "Future passive: will + be + past participle.",
   },
   {
@@ -65,6 +65,100 @@ const QUESTIONS: GrammarQuestion[] = [
     options: ["A new product is launched by the company last week.", "A new product was launched by the company last week.", "A new product has launched by the company last week.", "A new product launches by the company last week."],
     answer: 1, explanation: "\u201cLast week\u201d fixes the past: was + launched (V3), with the agent at the end.",
   },
+  {
+    id: "pv9", type: "mcq",
+    question: "\"Someone has stolen my bike.\" The passive form is:",
+    options: ["My bike has stolen.", "My bike has been stolen.", "My bike is stolen by someone.", "My bike was being stolen."],
+    answer: 1, explanation: "Present perfect passive: has/have + been + past participle.",
+  },
+  {
+    id: "pv10", type: "mcq",
+    question: "\"They are building a new school.\" The passive form is:",
+    options: ["A new school is built.", "A new school is being built.", "A new school has been built.", "A new school was built."],
+    answer: 1, explanation: "Present continuous passive: is/are + being + past participle.",
+  },
+  {
+    id: "pv11", type: "mcq",
+    question: "\"He gave me a book.\" Choose the correct passive form.",
+    options: ["I was given a book.", "I was given a book by he.", "Me was given a book.", "A book was gave to me."],
+    answer: 0, explanation: "With two objects, either becomes the subject: \u201cI was given a book\u201d or \u201cA book was given to me\u201d.",
+  },
+  {
+    id: "pv12", type: "mcq",
+    question: "\"Open the door.\" Choose the correct passive form of this imperative.",
+    options: ["The door is opened.", "Let the door be opened.", "The door was opened.", "The door opens."],
+    answer: 1, explanation: "Imperative passive: Let + object + be + past participle.",
+  },
+  {
+    id: "pv13", type: "fill-blank",
+    question: "Fill in the passive: \"The road ________ (repair) at the moment.\"",
+    answer: "is being repaired",
+    explanation: "Present continuous passive: is/are + being + past participle.",
+  },
+  {
+    id: "pv14", type: "mcq",
+    question: "\"Did she write the letter?\" The passive question is:",
+    options: ["Was the letter written by her?", "The letter was written by her?", "Did the letter written by her?", "Is the letter written by her?"],
+    answer: 0, explanation: "Passive questions move the auxiliary to the front: Was + subject + past participle + by-agent?",
+  },
+  {
+    id: "pv15", type: "mcq",
+    question: "\"The chef cooked the meal.\" The passive form is:",
+    options: ["The meal is cooked by the chef.", "The meal was cooked by the chef.", "The meal has cooked by the chef.", "The meal cooks by the chef."],
+    answer: 1, explanation: "Simple past: was/were + past participle.",
+  },
+  {
+    id: "pv16", type: "mcq",
+    question: "\"People speak English all over the world.\" The passive form is:",
+    options: ["English is spoken all over the world.", "English was spoken all over the world.", "English speaks all over the world.", "English has been speaking all over the world."],
+    answer: 0, explanation: "Simple present passive: is/are + past participle. The vague agent \u201cpeople\u201d is dropped.",
+  },
+  {
+    id: "pv17", type: "fill-blank",
+    question: "Fill in the passive: \"The results ________ (announce) tomorrow.\"",
+    answer: "will be announced",
+    explanation: "Future passive: will + be + past participle.",
+  },
+  {
+    id: "pv18", type: "mcq",
+    question: "\"The window got broken.\" This is an example of:",
+    options: ["An active sentence", "The get-passive (informal)", "A future passive", "A grammatical error"],
+    answer: 1, explanation: "\u201cGet + past participle\u201d is the informal get-passive, common in speech.",
+  },
+  {
+    id: "pv19", type: "mcq",
+    question: "\"She was given a prize.\" The active form is:",
+    options: ["They gave her a prize.", "She gave a prize.", "A prize was given to them.", "They were given a prize."],
+    answer: 0, explanation: "The indirect object \u201cshe\u201d was the passive subject; restore it as the object in the active voice.",
+  },
+  {
+    id: "pv20", type: "mcq",
+    question: "\"You must finish the homework tonight.\" The passive form is:",
+    options: ["The homework must be finished tonight.", "The homework must finished tonight.", "The homework is must finished tonight.", "The homework must being finished tonight."],
+    answer: 0, explanation: "Modal passive: modal + be + past participle.",
+  },
+  {
+    id: "pv21", type: "fill-blank",
+    question: "Fill in the passive: \"A new bridge ________ (build) last year.\"",
+    answer: "was built",
+    explanation: "Simple past passive: was/were + past participle. Base verb \u201cbuild\u201d \u2192 participle \u201cbuilt\u201d.",
+  },
+  {
+    id: "pv22", type: "mcq",
+    question: "\"Someone must have taken it.\" The passive form is:",
+    options: ["It must have been taken.", "It must be taken.", "It must have taken.", "It was must taken."],
+    answer: 0, explanation: "Modal perfect passive: must have been + past participle.",
+  },
+];
+
+const SPECIAL_TABLE = [
+  { cells: ["Imperative", "Let + object + be + V3", "Open the door. \u2192 Let the door be opened."] },
+  { cells: ["Two objects", "Either object becomes the subject", "He gave me a book. \u2192 I was given a book. / A book was given to me."] },
+  { cells: ["Negative", "'not' goes after the auxiliary", "She did not write it. \u2192 It was not written by her."] },
+  { cells: ["Question", "Auxiliary before the subject", "Did she write it? \u2192 Was it written by her?"] },
+  { cells: ["With a modal", "modal + be + V3", "You must finish it. \u2192 It must be finished."] },
+  { cells: ["Modal perfect", "modal + have been + V3", "They must have taken it. \u2192 It must have been taken."] },
+  { cells: ["Get-passive (informal)", "get + V3", "The window got broken."] },
 ];
 
 export default function PassiveVoicePage() {
@@ -99,8 +193,18 @@ export default function PassiveVoicePage() {
             { cells: ["Past Continuous", "She was writing a letter.", "A letter was being written by her."] },
             { cells: ["Past Perfect", "She had written a letter.", "A letter had been written by her."] },
             { cells: ["Simple Future", "She will write a letter.", "A letter will be written by her."] },
+            { cells: ["Future Perfect", "She will have written a letter.", "A letter will have been written by her."] },
             { cells: ["Modal", "She can write a letter.", "A letter can be written by her."] },
           ]}
+        />
+      </section>
+
+      <section id="special-passives" className="scroll-mt-24 mt-14">
+        <h2 className="text-2xl font-bold tracking-tight mb-5">Special Passives</h2>
+        <TableCard
+          headers={["Type", "Rule", "Example"]}
+          rows={SPECIAL_TABLE}
+          caption="These are the transformations that most often carry extra marks in exams."
         />
       </section>
 
@@ -116,7 +220,7 @@ export default function PassiveVoicePage() {
       </section>
 
       <section id="worked-transformation" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Transformation</h2>
+        <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Examples</h2>
         <Expandable title="Worked example — Hasan assisted Dr. Cronin" variant="exercise">
           <p><strong>Active:</strong> <em>Hasan assisted Dr. Cronin to help the patients.</em></p>
           <p className="mt-3"><strong>Passive:</strong> <em>Dr. Cronin was assisted by Hasan to help the patients.</em></p>
@@ -129,18 +233,40 @@ export default function PassiveVoicePage() {
           </ul>
           <p className="mt-3"><strong>Formula:</strong> Subject + was/were + past participle + by + agent.</p>
         </Expandable>
+        <Expandable title="Worked example — two objects (direct + indirect)">
+          <p><strong>Active:</strong> <em>The teacher gave the students a prize.</em></p>
+          <p className="mt-3"><strong>Passive (indirect object first):</strong> <em>The students were given a prize by the teacher.</em></p>
+          <p className="mt-3"><strong>Passive (direct object first):</strong> <em>A prize was given to the students by the teacher.</em></p>
+          <p className="mt-3"><strong>Why:</strong> with two objects, either one can become the subject. When the direct object leads, keep the preposition <em>to</em> before the remaining object.</p>
+        </Expandable>
+        <Expandable title="Worked example — an imperative">
+          <p><strong>Active (command):</strong> <em>Switch off the lights.</em></p>
+          <p className="mt-3"><strong>Passive:</strong> <em>Let the lights be switched off.</em></p>
+          <p className="mt-3"><strong>Why:</strong> a command has no subject, so the passive uses the fixed pattern <em>Let + object + be + past participle</em>.</p>
+        </Expandable>
+        <Expandable title="Worked example — a question">
+          <p><strong>Active question:</strong> <em>Did the committee approve the plan?</em></p>
+          <p className="mt-3"><strong>Passive question:</strong> <em>Was the plan approved by the committee?</em></p>
+          <p className="mt-3"><strong>Why:</strong> form the passive as usual (was + approved), then put the auxiliary <em>was</em> before the subject to keep it a question.</p>
+        </Expandable>
       </section>
 
       <section id="worked-questions" className="scroll-mt-24 mt-14">
-        <h2 className="text-2xl font-bold tracking-tight mb-5">Worked Questions</h2>
+        <h2 className="text-2xl font-bold tracking-tight mb-5">Try These</h2>
         <ExerciseQa
           questions={[
             <span key="q1">Active Voice: The teacher explained the lesson to the students. &mdash; Write the Passive Voice.</span>,
             <span key="q2">Active Voice: The company launched a new product last week. &mdash; Write the Passive Voice.</span>,
+            <span key="q3">Active Voice: Someone has broken the window. &mdash; Write the Passive Voice.</span>,
+            <span key="q4">Active Voice: They are repairing the road. &mdash; Write the Passive Voice.</span>,
+            <span key="q5">Active Voice: You must submit the report today. &mdash; Write the Passive Voice.</span>,
           ]}
           answers={[
             <span key="a1"><strong>The lesson was explained to the students by the teacher.</strong> (Alternative: The lesson was explained by the teacher to the students.)</span>,
             <span key="a2"><strong>A new product was launched by the company last week.</strong> (Alternative: A new product was launched last week by the company.)</span>,
+            <span key="a3"><strong>The window has been broken.</strong> (Present perfect passive: has/have + been + V3. The unknown agent &ldquo;someone&rdquo; is dropped.)</span>,
+            <span key="a4"><strong>The road is being repaired.</strong> (Present continuous passive: is/are + being + V3.)</span>,
+            <span key="a5"><strong>The report must be submitted today.</strong> (Modal passive: modal + be + V3.)</span>,
           ]}
         />
       </section>
@@ -161,6 +287,11 @@ export default function PassiveVoicePage() {
           mistake="The ball is hit by him yesterday."
           correction="The ball was hit by him yesterday."
           example="'Yesterday' signals past tense — use 'was' not 'is'."
+        />
+        <MistakeCard
+          mistake="The letter was written from her."
+          correction="The letter was written by her."
+          example="The agent in a passive sentence is introduced by 'by', never 'from'."
         />
       </section>
 
