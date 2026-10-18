@@ -53,10 +53,10 @@ export const discourseTopics: DiscourseTopic[] = [
     icon: Star,
   },
   {
-    id: "profile-bio-sketch",
-    slug: "profile-bio-sketch",
-    title: "Profile & Bio-Sketch",
-    tagline: "Bio-sketch template — chronological + thematic structure with worked samples",
+    id: "character-sketch",
+    slug: "character-sketch",
+    title: "Character Sketch",
+    tagline: "Traits with evidence — introduction, incidents, development & overall assessment",
     icon: UserRound,
   },
   {
