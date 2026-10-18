@@ -24,7 +24,7 @@ const MIND_MAP = [
     part: "Action",
     flow: "Eligibility → Instructions → Registration → Deadline → Contact",
   },
-  { part: "Announcement", flow: "Attention, please! → Participation appeal → Sign-off" },
+  { part: "Announcement", flow: "Reporting line → Greeting → Participation appeal → Thank you & sign-off" },
   { part: "Notice", flow: "Direct information → Formal sign-off" },
 ];
 
@@ -74,20 +74,15 @@ export default function AnnouncementNoticeContent() {
 
         <div className="px-5 py-4">
           <h3 className="!mt-0">
-            <Slot>[NAME OF THE INSTITUTION / ORGANISATION]</Slot>
+            <Slot>[TITLE / NAME OF THE EVENT]</Slot>
           </h3>
           <p>
-            <strong>ANNOUNCEMENT</strong>
+            <Slot>[Name of the Issuing Authority]</Slot>,{" "}
+            <Slot>[Designation]</Slot>, <Slot>[Institution / Organisation]</Slot>{" "}
+            makes this announcement.
           </p>
           <p>
-            Date: <Slot>[Date of Announcement]</Slot>
-          </p>
-
-          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
-            <Slot>[TITLE / NAME OF THE EVENT]</Slot>
-          </h4>
-          <p>
-            <strong>Attention, please!</strong>
+            <strong>Good morning everyone. Attention, please!</strong>
           </p>
           <p>
             This is to inform all{" "}
@@ -110,7 +105,7 @@ export default function AnnouncementNoticeContent() {
           </p>
           <p>
             Everyone is requested to participate enthusiastically and make the
-            programme a success.
+            programme a success. <strong>Thank you.</strong>
           </p>
           <p className="text-right">
             <Slot>[Name of the Issuing Authority]</Slot>
@@ -233,11 +228,10 @@ export default function AnnouncementNoticeContent() {
       </Expandable>
 
       <KeyPoint>
-        A notice and an announcement carry the same core — institution, event,
-        date, time, venue, and a call to action with a deadline and contact.
-        The announcement adds an attention call and a participation appeal; the
-        notice stays brief, boxed, dated at the top-left and signed at the
-        bottom-right.
+        A notice and an announcement carry the same core — event, date, time,
+        venue, and a call to action with a deadline and contact. The
+        announcement is a spoken script: announcer, greeting, appeal, thank
+        you. The notice is written: brief, boxed, dated and signed.
       </KeyPoint>
     </>
   );
