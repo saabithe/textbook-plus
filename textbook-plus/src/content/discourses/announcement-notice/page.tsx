@@ -1,6 +1,9 @@
 import type { ReactNode } from "react";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
+import { Highlight } from "@/components/content/Highlight";
+import { Expandable } from "@/components/content/Expandable";
+import { ProcessCard } from "@/components/content/process/ProcessCard";
 
 /** A fill-in field inside an announcement / notice template. */
 function Slot({ children }: { children: ReactNode }) {
@@ -172,6 +175,20 @@ export default function AnnouncementNoticeContent() {
         </div>
       </div>
 
+      <h2>Notice Format at a Glance</h2>
+
+      <ProcessCard
+        title="Notice Format"
+        steps={[
+          { label: "Issuing Organisation", description: "Name at the top centre. E.g. \"GOVERNMENT MODEL HIGHER SECONDARY SCHOOL\"" },
+          { label: "Notice (heading)", description: "\"NOTICE\" in capital letters, centred, below the organisation name." },
+          { label: "Date", description: "Top-right corner. Format: 15 August 2026." },
+          { label: "Subject Line", description: "Clear, concise. What is the notice about?" },
+          { label: "Body", description: "Who, what, when, where. Formal tone. 50-80 words." },
+          { label: "Signature + Designation", description: "Name and designation of the issuing authority at the bottom-right." },
+        ]}
+      />
+
       <h2>Mind Map — for memorisation</h2>
       <MindMapGrid items={MIND_MAP} />
 
@@ -197,6 +214,23 @@ export default function AnnouncementNoticeContent() {
         <li>Write at the left hand side top / bottom, the date.</li>
         <li>It is better to put the whole thing in a box.</li>
       </ul>
+
+      <Highlight color="orange">
+        A notice without a date and signature loses marks. Always include both — even if the question does not explicitly ask for them.
+      </Highlight>
+
+      <h2>Sample</h2>
+
+      <Expandable title="Notice — Cultural Fest" variant="example">
+        <div className="border border-foreground/20 rounded-xl p-5">
+          <p className="text-center font-bold">GOVERNMENT MODEL HIGHER SECONDARY SCHOOL</p>
+          <p className="text-center font-bold mt-1">NOTICE</p>
+          <p className="text-right text-sm mt-2">12 September 2026</p>
+          <p className="font-semibold mt-3">Annual Cultural Fest — &quot;Kalotsavam 2026&quot;</p>
+          <p className="mt-2 text-sm">All students are informed that the Annual Cultural Fest will be held on 25 September 2026 in the school auditorium from 9:00 AM to 4:00 PM. Events include dance, music, drama, and art competitions. Interested students may register with their class teachers before 20 September 2026.</p>
+          <p className="mt-3 text-right text-sm">Suresh K.<br />Cultural Secretary</p>
+        </div>
+      </Expandable>
 
       <KeyPoint>
         A notice and an announcement carry the same core — institution, event,

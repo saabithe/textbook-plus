@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { Highlight } from "@/components/content/Highlight";
 import { Expandable } from "@/components/content/Expandable";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { Checklist } from "@/components/content/data/Checklist";
@@ -46,7 +45,7 @@ export default function PosterNoticeEmailContent() {
   return (
     <>
       <Callout type="note">
-        Posters, notices, and emails are three compact writing formats tested in the Kerala Board exam. Each has strict layout rules and word limits. Getting the format right is half the marks — content comes after.
+        Posters and emails are compact writing formats tested in the Kerala Board exam. Each has strict layout rules and word limits. Getting the format right is half the marks — content comes after.
       </Callout>
 
       <h2>Poster</h2>
@@ -72,31 +71,6 @@ export default function PosterNoticeEmailContent() {
           <p className="mt-2 text-sm">Entry Free | Open 10 AM – 8 PM</p>
           <p className="mt-3 text-xs italic">Books are the quietest and most constant of friends.</p>
           <p className="mt-2 text-xs">For details: 9876543210 | keralalibrary@gmail.com</p>
-        </div>
-      </Expandable>
-
-      <h2>Notice</h2>
-
-      <ProcessCard
-        title="Notice Format"
-        steps={[
-          { label: "Issuing Organisation", description: "Name at the top centre. E.g. \"GOVERNMENT MODEL HIGHER SECONDARY SCHOOL\"" },
-          { label: "Notice (heading)", description: "\"NOTICE\" in capital letters, centred, below the organisation name." },
-          { label: "Date", description: "Top-right corner. Format: 15 August 2026." },
-          { label: "Subject Line", description: "Clear, concise. What is the notice about?" },
-          { label: "Body", description: "Who, what, when, where. Formal tone. 50-80 words." },
-          { label: "Signature + Designation", description: "Name and designation of the issuing authority at the bottom-right." },
-        ]}
-      />
-
-      <Expandable title="Notice — Cultural Fest" variant="example">
-        <div className="border border-foreground/20 rounded-xl p-5">
-          <p className="text-center font-bold">GOVERNMENT MODEL HIGHER SECONDARY SCHOOL</p>
-          <p className="text-center font-bold mt-1">NOTICE</p>
-          <p className="text-right text-sm mt-2">12 September 2026</p>
-          <p className="font-semibold mt-3">Annual Cultural Fest — &quot;Kalotsavam 2026&quot;</p>
-          <p className="mt-2 text-sm">All students are informed that the Annual Cultural Fest will be held on 25 September 2026 in the school auditorium from 9:00 AM to 4:00 PM. Events include dance, music, drama, and art competitions. Interested students may register with their class teachers before 20 September 2026.</p>
-          <p className="mt-3 text-right text-sm">Suresh K.<br />Cultural Secretary</p>
         </div>
       </Expandable>
 
@@ -214,21 +188,15 @@ export default function PosterNoticeEmailContent() {
       <Checklist
         items={[
           { label: "Poster: visual appeal matters — use borders, capitalisation, slogans" },
-          { label: "Notice: always include date, subject, and signature with designation" },
-          { label: "Notice: keep it under 80 words — factual and formal" },
           { label: "Email: subject line must be specific, not vague (\"Leave Application\" not \"Important\")" },
           { label: "Email: formal emails use Dear Sir/Madam; informal use first name" },
-          { label: "All three: word limits are strict — do not exceed them" },
-          { label: "All three: format marks are separate from content marks — get the layout right first" },
+          { label: "Both: word limits are strict — do not exceed them" },
+          { label: "Both: format marks are separate from content marks — get the layout right first" },
         ]}
       />
 
-      <Highlight color="orange">
-        A notice without a date and signature loses marks. Always include both — even if the question does not explicitly ask for them.
-      </Highlight>
-
       <KeyPoint>
-        Posters persuade, notices inform, and emails communicate. Each has a fixed format that examiners check first. Master the layout, then fill in the content. A well-formatted answer with average content scores higher than brilliant content in the wrong format.
+        Posters persuade and emails communicate. Each has a fixed format that examiners check first. Master the layout, then fill in the content. A well-formatted answer with average content scores higher than brilliant content in the wrong format.
       </KeyPoint>
     </>
   );

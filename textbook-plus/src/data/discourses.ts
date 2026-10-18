@@ -1,4 +1,4 @@
-import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2 } from "lucide-react";
+import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2, BookOpen } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface DiscourseTopic {
@@ -62,8 +62,8 @@ export const discourseTopics: DiscourseTopic[] = [
   {
     id: "poster-notice-email",
     slug: "poster-notice-email",
-    title: "Poster, Notice & Email",
-    tagline: "3 mini-formats — layout rules, word limits, 3 worked samples",
+    title: "Poster & Email",
+    tagline: "2 mini-formats — layout rules, word limits, 2 worked samples",
     icon: Megaphone,
   },
   {
@@ -79,6 +79,13 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Announcement & Notice",
     tagline: "Announcement script + boxed notice — shared event details, 50-word rules & guidelines",
     icon: Volume2,
+  },
+  {
+    id: "book-play-blurb",
+    slug: "book-play-blurb",
+    title: "Book / Play Blurb",
+    tagline: "Hook → plot without spoilers → appeal → recommendation — plus publisher & price block",
+    icon: BookOpen,
   },
 ];
 
