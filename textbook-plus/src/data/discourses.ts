@@ -11,6 +11,13 @@ export interface DiscourseTopic {
 
 export const discourseTopics: DiscourseTopic[] = [
   {
+    id: "appreciation",
+    slug: "appreciation",
+    title: "Appreciation",
+    tagline: "Poem appreciation — the 4-part format & the poetic devices that build meaning and effect",
+    icon: Sparkles,
+  },
+  {
     id: "letter-writing",
     slug: "letter-writing",
     title: "Letter Writing",
@@ -58,13 +65,6 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Poster, Notice & Email",
     tagline: "3 mini-formats — layout rules, word limits, 3 worked samples",
     icon: Megaphone,
-  },
-  {
-    id: "appreciation",
-    slug: "appreciation",
-    title: "Appreciation",
-    tagline: "Poem appreciation — the 4-part format & the poetic devices that build meaning and effect",
-    icon: Sparkles,
   },
 ];
 
