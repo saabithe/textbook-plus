@@ -1,5 +1,5 @@
 import { Callout } from "@/components/content/Callout";
-import { Example } from "@/components/content/Example";
+import { Expandable } from "@/components/content/Expandable";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
@@ -73,20 +73,20 @@ export default function ArticleEssayContent() {
 
       <h2>Samples</h2>
 
-      <Example title="Article — Environmental Awareness">
+      <Expandable title="Article — Environmental Awareness" variant="example">
         <p><strong>Why Our Schools Need Rainwater Harvesting</strong></p>
         <p>By Priya Menon, Class XII Student</p>
         <p>Did you know that a single school building can collect over 50,000 litres of rainwater during the monsoon? Yet most schools in Kerala let this precious resource flow straight into storm drains.</p>
         <p>Rainwater harvesting is not just an environmental necessity — it is an economic opportunity. Schools that have installed basic harvesting systems report a 40% reduction in their water bills. More importantly, students learn sustainability by seeing it in practice.</p>
         <p>The government has already made harvesting mandatory for buildings above 100 sq metres. It is time our schools led by example. A small investment today ensures water security for tomorrow.</p>
-      </Example>
+      </Expandable>
 
-      <Example title="Essay — The Value of Reading">
+      <Expandable title="Essay — The Value of Reading" variant="example">
         <p>Reading is the foundation of all learning. It expands our vocabulary, sharpens our thinking, and connects us to ideas beyond our immediate experience. In an age dominated by screens, the habit of reading books has become more important — and more endangered — than ever.</p>
         <p>Studies consistently show that students who read regularly perform better across all subjects. Reading improves concentration, builds empathy through exposure to different perspectives, and strengthens analytical thinking. A student who reads for 30 minutes a day processes information 25% faster than one who does not.</p>
         <p>However, the rise of social media has fragmented attention spans. Many students now prefer short videos to long-form text. This shift has consequences: shallow reading leads to shallow thinking.</p>
         <p>In conclusion, reading is not merely a hobby — it is a discipline that shapes the mind. Schools must create reading-friendly environments, and students must make reading a daily habit. The rewards, both academic and personal, are immeasurable.</p>
-      </Example>
+      </Expandable>
 
       <KeyPoint>
         Articles hook the reader with a headline and engaging opening; essays establish credibility with definitions and structured arguments. Know which format the question demands, and follow its structure precisely.

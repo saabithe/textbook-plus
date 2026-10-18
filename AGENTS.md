@@ -130,7 +130,7 @@ There is **no auth, no cloud sync, and no progress persistence**. The former Sup
 
 ### Content Preferences (see `Constitution/USER_PREFERENCES.md` §11)
 - **No Summary section** and **no "Points to Ponder" section** in chapters — do not add these.
-- **Worked examples render as collapsed `Expandable`** blocks (not expanded `Example` blocks).
+- **Worked examples render as collapsed `Expandable`** blocks (not expanded `Example` blocks) — **every sample on every page, no exceptions** (user: "every sample should be in collapsible — I don't want to say it every time"). `Example` is acceptable only when it sits inside an already-collapsed `Expandable`.
 - Avoid re-stating in one section content already covered elsewhere in the chapter (e.g. removing an aggregate recap/table when the same points are covered in-topic).
 - **Capture ALL user-provided solution steps verbatim.** When the user shares step-by-step notes/solutions, reproduce every step they give — never collapse, condense, or drop intermediate steps. Expand worked answers into full step-by-step (e.g. `Stepper` + final highlighted answer) matching the user's supplied derivation, even if a shorter version already exists.
 
@@ -142,6 +142,7 @@ There is **no auth, no cloud sync, and no progress persistence**. The former Sup
 - **No repeat content.** Don't re-state in one place what is already covered in the chapter (recap boxes, duplicate facts, re-derived formulas) unless it is a genuinely new angle.
 - **Diagrams on demand.** Whenever a question/situation demands a visual (e.g. "shown in the figure" PYQs, wave anatomy), create an inline SVG diagram component (like `WaveAnatomyDiagram.tsx`) rather than describing shapes in words.
 - **Emphasis convention.** `<Highlight>` (yellow default) for definitions, laws, must-memorize results — max ~1–3 per section, never whole paragraphs. `<strong>` (bold) for key terms on first introduction. `KeyPoint`/`Callout` for laws and exam traps (already the pattern). Applies to all chapters, all subjects.
+- **Fill-in template sections carry example cues.** Each section of a template card (discourses etc.) gets a muted italic example line (`<div className="mt-1 text-sm italic text-muted-foreground">e.g. …</div>`) showing that section filled in, so the `[...]` fields are self-explanatory (user: "add examples in the structure so we can understand more effectively").
 
 ## Todo Rule
 

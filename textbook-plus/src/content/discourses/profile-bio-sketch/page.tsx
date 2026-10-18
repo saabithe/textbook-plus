@@ -1,5 +1,5 @@
 import { Callout } from "@/components/content/Callout";
-import { Example } from "@/components/content/Example";
+import { Expandable } from "@/components/content/Expandable";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
@@ -72,19 +72,19 @@ export default function ProfileBioSketchContent() {
 
       <h2>Samples</h2>
 
-      <Example title="Bio-Sketch — APJ Abdul Kalam">
+      <Expandable title="Bio-Sketch — APJ Abdul Kalam" variant="example">
         <p>Dr. Avul Pakir Jainulabdeen Abdul Kalam (1931-2015) was an Indian aerospace scientist and the 11th President of India, popularly known as the &quot;Missile Man of India.&quot;</p>
         <p>Born in Rameswaram, Tamil Nadu, Kalam studied physics at St. Joseph&apos;s College, Tiruchirappalli, and aerospace engineering at the Madras Institute of Technology. He joined the Defence Research and Development Organisation (DRDO) and later the Indian Space Research Organisation (ISRO).</p>
         <p>Kalam played a pivotal role in India&apos;s Pokhran-II nuclear tests in 1998 and the development of the Agni and Prithvi missiles. He was awarded the Bharat Ratna in 1997.</p>
         <p>As President (2002-2007), he was known as the &quot;People&apos;s President&quot; for his outreach to students and youth. His books, including Wings of Fire and Ignited Minds, continue to inspire millions. He passed away on 27 July 2015 while delivering a lecture at IIM Shillong.</p>
-      </Example>
+      </Expandable>
 
-      <Example title="Profile — Kerala Sahitya Akademi">
+      <Expandable title="Profile — Kerala Sahitya Akademi" variant="example">
         <p>The Kerala Sahitya Akademi, established in 1956, is the apex body for the promotion of Malayalam literature and culture. Headquartered in Thrissur, it operates under the Department of Cultural Affairs, Government of Kerala.</p>
         <p>The Akademi was founded with the vision of nurturing Malayalam literary talent and preserving Kerala&apos;s rich literary heritage. It publishes a literary magazine, organises book fairs, and conducts literary festivals across the state.</p>
         <p>Its most prestigious honour, the Kerala Sahitya Akademi Award, has been given annually since 1958 to outstanding works in Malayalam across categories including poetry, fiction, drama, and criticism.</p>
         <p>Over the decades, the Akademi has become a cornerstone of Kerala&apos;s cultural identity, supporting thousands of writers and translators and making Malayalam literature accessible to a wider audience.</p>
-      </Example>
+      </Expandable>
 
       <KeyPoint>
         A bio-sketch tells a life in miniature; a profile tells a story of place or institution. Both require specific facts, clear structure, and a memorable closing. Know the difference, and handle any question on either with confidence.

@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { Callout } from "@/components/content/Callout";
-import { Example } from "@/components/content/Example";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { Expandable } from "@/components/content/Expandable";
@@ -63,7 +62,7 @@ export default function PosterNoticeEmailContent() {
         ]}
       />
 
-      <Example title="Poster — Book Fair">
+      <Expandable title="Poster — Book Fair" variant="example">
         <div className="border-2 border-foreground/20 rounded-xl p-5 text-center">
           <p className="text-lg font-bold uppercase tracking-wide">BOOK FAIR 2026</p>
           <p className="mt-2 text-sm">Organised by: Kerala Library Association</p>
@@ -74,7 +73,7 @@ export default function PosterNoticeEmailContent() {
           <p className="mt-3 text-xs italic">Books are the quietest and most constant of friends.</p>
           <p className="mt-2 text-xs">For details: 9876543210 | keralalibrary@gmail.com</p>
         </div>
-      </Example>
+      </Expandable>
 
       <h2>Notice</h2>
 
@@ -90,7 +89,7 @@ export default function PosterNoticeEmailContent() {
         ]}
       />
 
-      <Example title="Notice — Cultural Fest">
+      <Expandable title="Notice — Cultural Fest" variant="example">
         <div className="border border-foreground/20 rounded-xl p-5">
           <p className="text-center font-bold">GOVERNMENT MODEL HIGHER SECONDARY SCHOOL</p>
           <p className="text-center font-bold mt-1">NOTICE</p>
@@ -99,7 +98,7 @@ export default function PosterNoticeEmailContent() {
           <p className="mt-2 text-sm">All students are informed that the Annual Cultural Fest will be held on 25 September 2026 in the school auditorium from 9:00 AM to 4:00 PM. Events include dance, music, drama, and art competitions. Interested students may register with their class teachers before 20 September 2026.</p>
           <p className="mt-3 text-right text-sm">Suresh K.<br />Cultural Secretary</p>
         </div>
-      </Example>
+      </Expandable>
 
       <h2>Email</h2>
       <p>

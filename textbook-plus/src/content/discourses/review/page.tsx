@@ -1,5 +1,5 @@
 import { Callout } from "@/components/content/Callout";
-import { Example } from "@/components/content/Example";
+import { Expandable } from "@/components/content/Expandable";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
@@ -72,19 +72,19 @@ export default function ReviewContent() {
 
       <h2>Samples</h2>
 
-      <Example title="Book Review — The Old Man and the Sea">
+      <Expandable title="Book Review — The Old Man and the Sea" variant="example">
         <p><strong>The Old Man and the Sea</strong> by Ernest Hemingway is a slim, powerful novella about Santiago, an aging Cuban fisherman who hooks the biggest marlin of his life — and loses it to sharks on the journey home.</p>
         <p>Hemingway&apos;s prose is deceptively simple. Every sentence carries weight. Santiago&apos;s battle with the marlin is both physical and philosophical — a meditation on perseverance, dignity, and the meaning of defeat.</p>
         <p>The characters are few but memorable. Santiago is one of literature&apos;s great underdogs — beaten but never broken. His quiet determination is deeply moving.</p>
         <p><strong>Rating:</strong> 4.5/5. A masterpiece of minimalist storytelling. Essential reading for anyone who believes that less is more.</p>
-      </Example>
+      </Expandable>
 
-      <Example title="Film Review — Drishyam">
+      <Expandable title="Film Review — Drishyam" variant="example">
         <p><strong>Drishyam (2013)</strong>, directed by Jeethu Joseph, is a masterclass in suspense. Mohanlal delivers one of his finest performances as Georgekutty, a man who will do anything to protect his family.</p>
         <p>The screenplay is razor-sharp. Every scene has a purpose, every conversation hides a clue. Joseph builds tension slowly, letting the audience&apos;s imagination do the work. The climax is both shocking and deeply satisfying.</p>
         <p>The technical aspects — cinematography by Sujith Vaassudev, music by Anil Johnson — complement the narrative perfectly without overshadowing it.</p>
         <p><strong>Verdict:</strong> A must-watch for fans of intelligent thrillers. Drishyam proves that great cinema needs no special effects — just a brilliant story told with precision.</p>
-      </Example>
+      </Expandable>
 
       <KeyPoint>
         A good review is balanced, specific, and well-reasoned. It summarises enough to provide context, evaluates with evidence, and recommends with clarity. Practice writing reviews of books and films you know well — it sharpens critical thinking.

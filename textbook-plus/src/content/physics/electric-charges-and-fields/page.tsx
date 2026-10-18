@@ -468,17 +468,17 @@ export default function ElectricChargesChapter() {
       </KeyPoint>
 
       <h2 id="h-1-examples">Worked Examples</h2>
-      <Example title="Example 1.1 — Time to Accumulate 1 Coulomb">
+      <Expandable title="Example 1.1 — Time to Accumulate 1 Coulomb">
         <p>If 10⁹ electrons move out of a body every second, how much time to get 1 C?</p>
         <p>Charge per second = 1.6 × 10⁻¹⁹ × 10⁹ = 1.6 × 10⁻¹⁰ C</p>
         <p>Time = 1 C ÷ 1.6 × 10⁻¹⁰ C/s = 6.25 × 10⁹ s ≈ 198 years</p>
         <p>One coulomb is a very large unit.</p>
-      </Example>
-      <Example title="Example 1.2 — Charge in a Cup of Water">
+      </Expandable>
+      <Expandable title="Example 1.2 — Charge in a Cup of Water">
         <p>Mass = 250 g, molecular mass = 18 g. Molecules = (250/18) × 6.02 × 10²³. Each has 10 electrons + 10 protons.</p>
         <p>Total charge = (250/18) × 6.02 × 10²³ × 10 × 1.6 × 10⁻¹⁹ = 1.34 × 10⁷ C</p>
-      </Example>
-      <Example title="Example 1.3 — Coulomb's Law vs Gravitational Force">
+      </Expandable>
+      <Expandable title="Example 1.3 — Coulomb's Law vs Gravitational Force">
         <p>
           Coulomb&apos;s law for electrostatic force between two point charges and Newton&apos;s law
           for gravitational force between two stationary point masses, both have inverse-square
@@ -531,9 +531,9 @@ export default function ElectricChargesChapter() {
         </p>
         <p>The value for acceleration of the proton is:</p>
         <FormulaBlock latex={String.raw`a = \frac{2.3 \times 10^{-8}}{1.67 \times 10^{-27}} = 1.4 \times 10^{19} \text{ m/s}^2`} />
-      </Example>
+      </Expandable>
 
-      <Example title="Example 1.4 — Charge Sharing and Coulomb's Law">
+      <Expandable title="Example 1.4 — Charge Sharing and Coulomb's Law">
         <p>
           A charged metallic sphere A is suspended by a nylon thread. Another charged metallic
           sphere B held by an insulating handle is brought close to A such that the distance
@@ -567,34 +567,34 @@ export default function ElectricChargesChapter() {
         </p>
         <FormulaBlock latex={String.raw`F' = \frac{1}{4\pi\varepsilon_0} \frac{(q/2)(q'/2)}{(r/2)^2} = \frac{1}{4\pi\varepsilon_0} \frac{qq'/4}{r^2/4} = \frac{1}{4\pi\varepsilon_0} \frac{qq'}{r^2} = F`} important />
         <p>Thus the electrostatic force on A, due to B, remains unaltered.</p>
-      </Example>
-      <Example title="Example 1.5 — Force at Centroid of Equilateral Triangle">
+      </Expandable>
+      <Expandable title="Example 1.5 — Force at Centroid of Equilateral Triangle">
         <p>Three charges q at vertices, charge Q at centroid.</p>
         <p>By symmetry, the three forces sum to zero.</p>
         <p>Total force on Q = 0</p>
-      </Example>
-      <Example title="Example 1.7 — Electron and Proton in Electric Field">
+      </Expandable>
+      <Expandable title="Example 1.7 — Electron and Proton in Electric Field">
         <p>Electron falls 1.5 cm in E = 2.0 × 10⁴ N/C.</p>
         <FormulaBlock latex={String.raw`t_e = \sqrt{\frac{2hm_e}{eE}} = 2.9 \times 10^{-9} \text{ s}`} />
         <FormulaBlock latex={String.raw`t_p = \sqrt{\frac{2hm_p}{eE}} = 1.3 \times 10^{-7} \text{ s}`} />
         <p>Heavier particle takes greater time. Contrasts with gravity where time is mass-independent.</p>
-      </Example>
-      <Example title="Example 1.8 — Electric Field at Three Points">
+      </Expandable>
+      <Expandable title="Example 1.8 — Electric Field at Three Points">
         <p>Two charges ±10⁻⁸ C at 0.1 m apart.</p>
         <p>E_A = 7.2 × 10⁴ N/C (right)</p>
         <p>E_B = 3.2 × 10⁴ N/C (left)</p>
         <p>E_C = 9 × 10³ N/C (right)</p>
-      </Example>
-      <Example title="Example 1.10 — Flux through a Cube">
+      </Expandable>
+      <Expandable title="Example 1.10 — Flux through a Cube">
         <p>E_x = αx^(1/2), α = 800, cube side 0.1 m.</p>
         <FormulaBlock latex={String.raw`\Phi = \alpha a^{5/2}(\sqrt{2} - 1) = 1.05\ \text{N m}^2\text{/C}`} />
         <p>q = Φε₀ = 9.27 × 10⁻¹² C</p>
-      </Example>
-      <Example title="Example 1.12 — Atom Model (Gauss's Law)">
+      </Expandable>
+      <Expandable title="Example 1.12 — Atom Model (Gauss's Law)">
         <p>Nucleus Ze, uniform negative charge to radius R.</p>
         <p>r &lt; R: E = (1/4πε₀)(Ze/r²)(1 − r³/R³)</p>
         <p>r &gt; R: E = 0 (atom is neutral)</p>
-      </Example>
+      </Expandable>
 
       <h2 id="h-1-summary">Summary</h2>
       <ul>
