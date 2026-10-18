@@ -1,4 +1,4 @@
-import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles } from "lucide-react";
+import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface DiscourseTopic {
@@ -65,6 +65,13 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Poster, Notice & Email",
     tagline: "3 mini-formats — layout rules, word limits, 3 worked samples",
     icon: Megaphone,
+  },
+  {
+    id: "interview",
+    slug: "interview",
+    title: "Interview",
+    tagline: "Question–answer format — open-ended questions, master template & a worked sample",
+    icon: MessagesSquare,
   },
 ];
 
