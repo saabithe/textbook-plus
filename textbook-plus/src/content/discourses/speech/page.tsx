@@ -150,40 +150,6 @@ export default function SpeechContent() {
         ))}
       </div>
 
-      <h2>Guidelines</h2>
-
-      <Checklist
-        items={[
-          { label: "Address the audience" },
-          {
-            label:
-              "Open with expressions like \u201cLadies and Gentlemen,\u201d \u201cRespected teacher and my dear friends,\u201d or \u201cRespected dignitaries on the dais and my dear friends,\u201d etc.",
-          },
-          {
-            label:
-              "The first paragraph of the speech should give a clear idea of its content",
-          },
-          { label: "Mention the important points you would like to highlight" },
-          {
-            label:
-              "Begin with quotations, a few lines of a poem, rhetorical questions etc.",
-          },
-          {
-            label:
-              "Take the important points separately and discuss each one elaborately in the next paragraph — cite data, give anecdotes and examples, and use as many rhetorical expressions as possible",
-          },
-          {
-            label:
-              "In the concluding paragraph, summarise the main points",
-          },
-          {
-            label:
-              "Express your gratitude for being given a chance to speak",
-          },
-          { label: "Thank your audience for listening at the end" },
-        ]}
-      />
-
       <h2>Structures at a Glance</h2>
 
       <div className="my-6 grid items-start gap-4 lg:grid-cols-2">
@@ -211,10 +177,31 @@ export default function SpeechContent() {
         />
       </div>
 
-      <h2>Tips</h2>
+      <h2>Tips &amp; Guidelines</h2>
 
       <Checklist
         items={[
+          { label: "Address the audience" },
+          {
+            label:
+              "Open with expressions like \u201cLadies and Gentlemen,\u201d \u201cRespected teacher and my dear friends,\u201d or \u201cRespected dignitaries on the dais and my dear friends,\u201d etc.",
+          },
+          {
+            label:
+              "The first paragraph of the speech should give a clear idea of its content",
+          },
+          { label: "Mention the important points you would like to highlight" },
+          {
+            label:
+              "Begin with quotations, a few lines of a poem, rhetorical questions etc.",
+          },
+          {
+            label:
+              "Take the important points separately and discuss each one elaborately in the next paragraph — cite data, give anecdotes and examples, and use as many rhetorical expressions as possible",
+          },
+          { label: "In the concluding paragraph, summarise the main points" },
+          { label: "Express your gratitude for being given a chance to speak" },
+          { label: "Thank your audience for listening at the end" },
           { label: "Write as you would speak — short, punchy sentences" },
           { label: "Use rhetorical questions: \"Have you ever wondered why...?\"" },
           { label: "Repetition is powerful in speeches: \"We must act. We must act now.\"" },
