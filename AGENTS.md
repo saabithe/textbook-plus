@@ -30,7 +30,7 @@ node scripts/verify-latex.cjs   # run after any content-math change: renders eve
 
 No test framework. No typecheck script (TypeScript errors surface via `npm run build`).
 
-**Scripts** (`textbook-plus/scripts/`): `extract-pdf.mjs` / `clean-extract.mjs` / `render-pdf.mjs` — PDF extraction pipeline (step 2 of CHAPTER_PIPELINE); `unescape-latex.cjs` — codemod rewriting doubled-backslash LaTeX into single-backslash `String.raw` (`node scripts/unescape-latex.cjs <page.tsx> [...]`); `audit-grammar.cjs` — static checks over the 12 grammar topics (duplicate ids, MCQ answer-index range, duplicate options, fill-blank answer present in explanation, `MistakeCard` mistake === correction, stray non-ASCII, type mix); `generate-sw.js` / `generate-icons.js` — build-time PWA assets.
+**Scripts** (`textbook-plus/scripts/`): `extract-pdf.mjs` / `clean-extract.mjs` / `render-pdf.mjs` — PDF extraction pipeline (step 2 of CHAPTER_PIPELINE); `unescape-latex.cjs` — codemod rewriting doubled-backslash LaTeX into single-backslash `String.raw` (`node scripts/unescape-latex.cjs <page.tsx> [...]`); `audit-grammar.cjs` — static checks over the 12 grammar topics (duplicate ids, MCQ answer-index range, duplicate options, fill-blank answer present in explanation, `MistakeCard` mistake === correction, stray non-ASCII, type mix) — run `node scripts/audit-grammar.cjs` after editing any `src/content/grammar/*/page.tsx`; `generate-sw.js` / `generate-icons.js` — build-time PWA assets.
 
 **Component gallery**: `/dev/design` (`src/app/dev/design/page.tsx`) renders every content component with sample data — preview component changes there before committing.
 
@@ -59,21 +59,21 @@ Types live in `src/types/chapter.ts`.
 
 **English chapter-text.md**: cleaned, readable version of the textbook pages at `src/content/english/{slug}/chapter-text.md` — complete chapter text (story/poem/speech/play) + About the Author + Read and Respond questions. Single source of truth for authoring `page.tsx`. No OCR artifacts, interleaved activities, or supplementary readings.
 
-**Custom content components** (`src/components/content/`, 47 files; canonical inventory in `Constitution/USER_PREFERENCES.md` §12):
+**Custom content components** (`src/components/content/`, 47 files; canonical inventory in `Constitution/USER_PREFERENCES.md` §12). **They live in category subfolders** — Core/English-Arabic/`OrgChart` are flat at the top level, the rest are in `data/`, `process/`, `concept/`, `study/`, `physics/`. Import path follows the folder: `@/components/content/Callout` but `@/components/content/data/TableCard` / `@/components/content/physics/WaveAnatomyDiagram`.
 
-*Core:* Callout, Example, KeyPoint, Comparison, Expandable, Formula (exports `Formula` + `FormulaBlock`), FormulaCard, ProblemSolution, SolvedProblem, ExerciseQa, SpeedTricks, Stepper, Highlight
+*Core (top-level):* Callout, Example, KeyPoint, Comparison, Expandable, Formula (exports `Formula` + `FormulaBlock`), FormulaCard, ProblemSolution, SolvedProblem, ExerciseQa, SpeedTricks, Stepper, Highlight
 
-*Data:* TableCard, Checklist
+*Data (`data/`):* TableCard, Checklist
 
-*Process:* ProcessCard, Timeline, CycleDiagram, EquationLadder, RevealAnswer, ProblemInsightSolutionCard
+*Process (`process/`):* ProcessCard, Timeline, CycleDiagram, EquationLadder, RevealAnswer, ProblemInsightSolutionCard
 
-*Concept:* FactCard, ConceptCard, TreeDiagram
+*Concept (`concept/`):* FactCard, ConceptCard, TreeDiagram
 
-*Study:* MetricCard, MistakeCard
+*Study (`study/`):* MetricCard, MistakeCard
 
-*English/Arabic:* AuthorCard, CharacterSketch, CharacterComparison, ContentTabs, CollapsibleSection, SummaryLevels, ReadRespond
+*English/Arabic (top-level):* AuthorCard, CharacterSketch, CharacterComparison, ContentTabs, CollapsibleSection, SummaryLevels, ReadRespond
 
-*Physics:* SpectrumExplorer, SpectrumTable, OscillationPlayer, PropagationExplorer, AmpereSurfaceToggle, ChargeFateTrio, TransverseLongitudinal, FormulaAnatomy, SpeedLayers, FieldRatio, DisplacementExplorer, WaveTypesPanels, WaveAnatomyDiagram
+*Physics (`physics/`):* SpectrumExplorer, SpectrumTable, OscillationPlayer, PropagationExplorer, AmpereSurfaceToggle, ChargeFateTrio, TransverseLongitudinal, FormulaAnatomy, SpeedLayers, FieldRatio, DisplacementExplorer, WaveTypesPanels, WaveAnatomyDiagram
 
 *Top-level:* OrgChart
 
