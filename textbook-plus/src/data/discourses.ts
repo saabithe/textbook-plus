@@ -1,4 +1,4 @@
-import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2, BookOpen, Swords, IdCard, ClipboardList, Briefcase, MessageCircle, Radio } from "lucide-react";
+import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2, BookOpen, Swords, IdCard, ClipboardList, Briefcase, MessageCircle, Radio, Map } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface DiscourseTopic {
@@ -128,6 +128,13 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Conversation",
     tagline: "Phrase banks for every move — open, ask, respond, agree, suggest, decide, close",
     icon: MessageCircle,
+  },
+  {
+    id: "travel-writing",
+    slug: "travel-writing",
+    title: "Travelogue, Brochure & Travel Info",
+    tagline: "Narrate, promote or inform — the three travel forms with frames, guidelines & samples",
+    icon: Map,
   },
 ];
 
