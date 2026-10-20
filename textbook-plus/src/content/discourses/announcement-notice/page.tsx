@@ -4,6 +4,9 @@ import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { Expandable } from "@/components/content/Expandable";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
+import { TableCard } from "@/components/content/data/TableCard";
+import { TopicSwitch } from "@/components/content/TopicSwitch";
+import PosterPane from "./panes/poster";
 
 /** A fill-in field inside an announcement / notice template. */
 function Slot({ children }: { children: ReactNode }) {
@@ -48,17 +51,9 @@ function MindMapGrid({ items }: { items: { part: string; flow: string }[] }) {
   );
 }
 
-export default function AnnouncementNoticeContent() {
+function AnnouncementPane() {
   return (
     <>
-      <Callout type="note">
-        A notice is written in order to inform people or pupils (in a school)
-        about an event or an activity. A notice is a formal means of
-        communication. It can be to issue certain instructions or to make an
-        announcement of any event / activity such as a competition, an
-        exhibition, an inauguration, an excursion, a meeting or a show.
-      </Callout>
-
       <h2>Announcement Script Template</h2>
       <p>
         Use this frame for any announcement — read it out over the PA system or
@@ -116,7 +111,13 @@ export default function AnnouncementNoticeContent() {
           </p>
         </div>
       </div>
+    </>
+  );
+}
 
+function NoticePane() {
+  return (
+    <>
       <h2>Notice Template</h2>
       <p>
         Use this frame for any notice — keep it inside a box, within the word
@@ -231,8 +232,61 @@ export default function AnnouncementNoticeContent() {
           <p className="mt-3 text-right text-sm">Suresh K.<br />Cultural Secretary</p>
         </div>
       </Expandable>
+    </>
+  );
+}
 
-      <KeyPoint>
+export default function AnnouncementNoticeContent() {
+  return (
+    <>
+      <Callout type="note">
+        A notice is written in order to inform people or pupils (in a school)
+        about an event or an activity. A notice is a formal means of
+        communication. It can be to issue certain instructions or to make an
+        announcement of any event / activity such as a competition, an
+        exhibition, an inauguration, an excursion, a meeting or a show.
+      </Callout>
+
+      <h2>Difference at a Glance</h2>
+
+      <TableCard
+        title="The three short formats"
+        headers={["Format", "What it does", "Key parts"]}
+        rows={[
+          {
+            cells: [
+              "Announcement",
+              "A script read aloud over the public-address system",
+              "Announcer → greeting → event details (date, time, venue) → appeal to take part → deadline, contact & thank you",
+            ],
+          },
+          {
+            cells: [
+              "Notice",
+              "A short boxed intimation put up on the notice board",
+              "Name of the institution → NOTICE → date → title of the event → body in 50-80 words → name & designation of the issuing authority",
+            ],
+          },
+          {
+            cells: [
+              "Poster",
+              "A visual notice meant for a wall — persuasive, not merely informative",
+              "Bold headline → date, time, venue, organiser → two or three persuasive lines → visual appeal → contact",
+            ],
+          },
+        ]}
+      />
+
+      <TopicSwitch
+        label="Short formats"
+        panes={[
+            { id: "announcement", label: "Announcement", content: <AnnouncementPane /> },
+            { id: "notice", label: "Notice", content: <NoticePane /> },
+            { id: "poster", label: "Poster", content: <PosterPane /> },
+        ]}
+      />
+
+<KeyPoint>
         A notice and an announcement carry the same core — event, date, time,
         venue, and a call to action with a deadline and contact. The
         announcement is a spoken script: announcer, greeting, appeal, thank

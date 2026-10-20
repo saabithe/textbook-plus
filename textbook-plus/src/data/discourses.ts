@@ -1,4 +1,4 @@
-import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2, BookOpen, Swords, ClipboardList, Briefcase, MessageCircle, Radio, Map, Scissors } from "lucide-react";
+import { Mail, Newspaper, Mic, Globe, Sparkles, UserRound, Megaphone, Scissors, Map } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface DiscourseTopic {
@@ -7,141 +7,144 @@ export interface DiscourseTopic {
   title: string;
   tagline: string;
   icon: LucideIcon;
+  /** The writing formats this page teaches (its toggle tabs). */
+  formats: string[];
+}
+
+export interface DiscourseGroup {
+  label: string;
+  topics: DiscourseTopic[];
 }
 
 /**
  * Hub order = priority order: highest-frequency, highest-format-benefit
  * discourses first, then the narrower format tasks, then the occasional and
- * reference-heavy pages last.
+ * reference-heavy pages last. Look-alike formats that a question paper can ask
+ * for in the same sitting share one page with a toggle at the top.
  */
-export const discourseTopics: DiscourseTopic[] = [
+export const discourseGroups: DiscourseGroup[] = [
   {
-    id: "letter-writing",
-    slug: "letter-writing",
-    title: "Letter Writing",
-    tagline: "Formal & informal letter structures — complaints, requests, enquiries & personal letters",
-    icon: Mail,
+    label: "Correspondence",
+    topics: [
+      {
+        id: "letter-writing",
+        slug: "letter-writing",
+        title: "Letter Writing & Applications",
+        tagline:
+          "Formal & informal letters, email and the job application with its résumé — frames, rules & samples",
+        icon: Mail,
+        formats: ["Formal letter", "Informal letter", "Email", "Job application + résumé"],
+      },
+    ],
   },
   {
-    id: "essay-article-paragraph",
-    slug: "essay-article-paragraph",
-    title: "Essay, Article, Paragraph & Write-up",
-    tagline: "The look-alike prose forms compared — cues, structures, samples & the Idea Elaboration frame",
-    icon: Newspaper,
+    label: "Prose & text response",
+    topics: [
+      {
+        id: "essay-article-paragraph",
+        slug: "essay-article-paragraph",
+        title: "Essay, Article, Paragraph & Write-up",
+        tagline:
+          "The look-alike prose forms compared — cues, structures, samples & the Idea Elaboration frame",
+        icon: Newspaper,
+        formats: ["Idea elaboration", "Essay", "Article", "Paragraph", "Write-up"],
+      },
+      {
+        id: "precis-review-blurb",
+        slug: "precis-review-blurb",
+        title: "Precis, Review & Blurb",
+        tagline:
+          "Compress a passage, judge a book or a film, or sell one from the back cover",
+        icon: Scissors,
+        formats: ["Precis", "Book / film review", "Book / play blurb"],
+      },
+    ],
   },
   {
-    id: "speech",
-    slug: "speech",
-    title: "Speech",
-    tagline: "Salutation → hook → 3-point body → call to action — plus vote of thanks",
-    icon: Mic,
+    label: "Reports & broadcast",
+    topics: [
+      {
+        id: "reports",
+        slug: "reports",
+        title: "News, Event & Live TV Reports",
+        tagline:
+          "Report an event after it is over, record a programme, or speak from the scene as it happens",
+        icon: Globe,
+        formats: ["News report", "Event / seminar report", "Live TV reporting"],
+      },
+    ],
   },
   {
-    id: "news-report",
-    slug: "news-report",
-    title: "News Report",
-    tagline: "Headline, lead (5 Ws), inverted pyramid — write clear, factual reports",
-    icon: Globe,
+    label: "Spoken & dialogue",
+    topics: [
+      {
+        id: "spoken-english",
+        slug: "spoken-english",
+        title: "Speech, Interview, Debate & Conversation",
+        tagline:
+          "Four spoken forms — one voice, two voices, or two sides of a motion",
+        icon: Mic,
+        formats: ["Speech", "Interview", "Debate", "Conversation"],
+      },
+    ],
   },
   {
-    id: "precis-writing",
-    slug: "precis-writing",
-    title: "Precis Writing",
-    tagline: "The intelligent summary — master template, 5-step method, mind map, rules & a model precis",
-    icon: Scissors,
+    label: "Literature response",
+    topics: [
+      {
+        id: "character-sketch",
+        slug: "character-sketch",
+        title: "Character Sketch & Profile",
+        tagline:
+          "Sketch a character from the text or build a profile from the hints — frames, evidence rules & sentence bank",
+        icon: UserRound,
+        formats: ["Character sketch", "Profile"],
+      },
+      {
+        id: "appreciation",
+        slug: "appreciation",
+        title: "Appreciation",
+        tagline:
+          "Poem appreciation — the 4-part format, comparative appreciation & the poetic devices",
+        icon: Sparkles,
+        formats: ["Poem appreciation"],
+      },
+    ],
   },
   {
-    id: "character-sketch",
-    slug: "character-sketch",
-    title: "Character Sketch & Profile",
-    tagline: "Sketch a character from the text or build a profile from the hints — frames, evidence rules & sentence bank",
-    icon: UserRound,
+    label: "Short formats",
+    topics: [
+      {
+        id: "announcement-notice",
+        slug: "announcement-notice",
+        title: "Announcement, Notice & Poster",
+        tagline:
+          "The short formats — a spoken announcement, a boxed notice and a wall poster",
+        icon: Megaphone,
+        formats: ["Announcement", "Notice", "Poster"],
+      },
+    ],
   },
   {
-    id: "review",
-    slug: "review",
-    title: "Review",
-    tagline: "Book & film review criteria — rating systems, balanced criticism, samples",
-    icon: Star,
-  },
-  {
-    id: "event-seminar-report",
-    slug: "event-seminar-report",
-    title: "Event / Seminar Report",
-    tagline: "Report on a programme — details, activities, key ideas, outcome & close",
-    icon: ClipboardList,
-  },
-  {
-    id: "job-application-resume",
-    slug: "job-application-resume",
-    title: "Job Application & Resume",
-    tagline: "Covering letter plus resume/CV in full — fill-in frames & page rules",
-    icon: Briefcase,
-  },
-  {
-    id: "interview",
-    slug: "interview",
-    title: "Interview",
-    tagline: "Question–answer format — open-ended questions, master template & a worked sample",
-    icon: MessagesSquare,
-  },
-  {
-    id: "appreciation",
-    slug: "appreciation",
-    title: "Appreciation",
-    tagline: "Poem appreciation — the 4-part format, comparative appreciation & the poetic devices",
-    icon: Sparkles,
-  },
-  {
-    id: "announcement-notice",
-    slug: "announcement-notice",
-    title: "Announcement & Notice",
-    tagline: "Announcement script + boxed notice — shared event details, 50-word rules & guidelines",
-    icon: Volume2,
-  },
-  {
-    id: "poster-notice-email",
-    slug: "poster-notice-email",
-    title: "Poster & Email",
-    tagline: "2 mini-formats — layout rules, word limits, 2 worked samples",
-    icon: Megaphone,
-  },
-  {
-    id: "debate",
-    slug: "debate",
-    title: "Debate",
-    tagline: "For & against the motion — four arguments each side, strongest first, plus a conclusion",
-    icon: Swords,
-  },
-  {
-    id: "book-play-blurb",
-    slug: "book-play-blurb",
-    title: "Book / Play Blurb",
-    tagline: "Hook → plot without spoilers → appeal → recommendation — plus publisher & price block",
-    icon: BookOpen,
-  },
-  {
-    id: "conversation",
-    slug: "conversation",
-    title: "Conversation",
-    tagline: "Phrase banks for every move — open, ask, respond, agree, suggest, decide, close",
-    icon: MessageCircle,
-  },
-  {
-    id: "live-tv-reporting",
-    slug: "live-tv-reporting",
-    title: "Live TV Reporting",
-    tagline: "Reporter's script for the scene — live phrases, mind map & 8 exam rules",
-    icon: Radio,
-  },
-  {
-    id: "travel-writing",
-    slug: "travel-writing",
-    title: "Travelogue, Brochure & Travel Info",
-    tagline: "Narrate, promote or inform — the three travel forms with frames, guidelines & samples",
-    icon: Map,
+    label: "Travel writing",
+    topics: [
+      {
+        id: "travel-writing",
+        slug: "travel-writing",
+        title: "Travelogue, Brochure & Travel Info",
+        tagline:
+          "Narrate, promote or inform — the three travel forms with frames, guidelines & samples",
+        icon: Map,
+        formats: ["Travel essay / travelogue", "Travel brochure", "Travel information"],
+      },
+    ],
   },
 ];
+
+/** Flat list — keep in the same order as `discourseGroups`. */
+export const discourseTopics: DiscourseTopic[] = discourseGroups.flatMap(
+  (group) => group.topics,
+);
 
 export function getDiscourseTopicBySlug(slug: string): DiscourseTopic | undefined {
   return discourseTopics.find((t) => t.slug === slug);

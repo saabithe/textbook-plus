@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Callout } from "@/components/content/Callout";
+import { Expandable } from "@/components/content/Expandable";
 import { KeyPoint } from "@/components/content/KeyPoint";
 
 /** A fill-in field inside a phrase. */
@@ -38,17 +39,6 @@ function PhraseList({ items }: { items: string[] }) {
     </ul>
   );
 }
-
-/** The shape of the conversation — the map to the phrase banks below. */
-const QUICK_FORMULA = [
-  "Opening",
-  "Topic",
-  "Questions and Answers",
-  "Opinions / Reasons",
-  "Suggestions / Reactions",
-  "Decision or Understanding",
-  "Closing",
-];
 
 interface PhraseSection {
   title: string;
@@ -309,6 +299,41 @@ const SECTIONS: PhraseSection[] = [
   },
 ];
 
+/**
+ * The seven moves of the formula — each stage carries the pocket of phrases
+ * that belong to it. Every phrase appears under exactly one stage.
+ */
+const STAGES: { title: string; groups: PhraseSection["groups"] }[] = [
+  { title: "Opening", groups: [SECTIONS[0].groups[0]] },
+  { title: "Topic", groups: [SECTIONS[0].groups[1]] },
+  {
+    title: "Questions and Answers",
+    groups: [SECTIONS[1].groups[0], SECTIONS[2].groups[0]],
+  },
+  {
+    title: "Opinions / Reasons",
+    groups: [SECTIONS[3].groups[0], SECTIONS[4].groups[0], SECTIONS[4].groups[1]],
+  },
+  {
+    title: "Suggestions / Reactions",
+    groups: [SECTIONS[5].groups[0], SECTIONS[6].groups[0], SECTIONS[6].groups[1]],
+  },
+  {
+    title: "Decision or Understanding",
+    groups: [SECTIONS[7].groups[0], SECTIONS[9].groups[0]],
+  },
+  {
+    title: "Closing",
+    groups: [
+      SECTIONS[8].groups[0],
+      SECTIONS[8].groups[1],
+      SECTIONS[8].groups[2],
+      SECTIONS[8].groups[3],
+      SECTIONS[10].groups[0],
+    ],
+  },
+];
+
 const USAGE_RULES = [
   "Select only the phrases that fit the given situation.",
   "Replace every bracketed placeholder with relevant information.",
@@ -330,30 +355,32 @@ export default function ConversationContent() {
       </Callout>
 
       <h2>Quick Formula</h2>
-      <div className="my-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {QUICK_FORMULA.map((step, index) => (
+      <p>
+        Each stage of the formula carries its own pocket of phrases — open only
+        the stages the given situation needs.
+      </p>
+      <div className="my-6 grid items-start gap-3 sm:grid-cols-2">
+        {STAGES.map((stage, index) => (
           <div
-            key={step}
-            className="rounded-2xl border border-border/60 bg-card px-4 py-3 shadow-sm"
+            key={stage.title}
+            className="rounded-2xl border border-border/60 bg-card px-4 py-4 shadow-sm"
           >
             <p className="text-sm font-bold tracking-tight text-foreground">
-              {index + 1}. {step}
+              {index + 1}. {stage.title}
             </p>
+            <div className="mt-3">
+              <Expandable title="Phrase pocket" variant="example">
+                {stage.groups.map((group, groupIndex) => (
+                  <div key={group.label ?? groupIndex}>
+                    {group.label && <h3>{group.label}</h3>}
+                    <PhraseList items={group.items} />
+                  </div>
+                ))}
+              </Expandable>
+            </div>
           </div>
         ))}
       </div>
-
-      {SECTIONS.map((section) => (
-        <div key={section.title}>
-          <h2>{section.title}</h2>
-          {section.groups.map((group, index) => (
-            <div key={group.label ?? index}>
-              {group.label && <h3>{group.label}</h3>}
-              <PhraseList items={group.items} />
-            </div>
-          ))}
-        </div>
-      ))}
 
       <h2>Usage Rules</h2>
       <ol>

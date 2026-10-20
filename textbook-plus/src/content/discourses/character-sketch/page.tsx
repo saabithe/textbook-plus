@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { TableCard } from "@/components/content/data/TableCard";
+import { TopicSwitch } from "@/components/content/TopicSwitch";
 
 /** A fill-in field inside a character sketch or profile template. */
 function Slot({ children }: { children: ReactNode }) {
@@ -65,41 +66,9 @@ function MindMapGrid({ items }: { items: { part: string; flow: string }[] }) {
   );
 }
 
-export default function CharacterSketchContent() {
+function CharacterSketchPane() {
   return (
     <>
-      <Callout type="note">
-        These are the two look-alike person-tasks. A{" "}
-        <strong>character sketch</strong> describes a character from a text —
-        who they are, which traits the text reveals, and how they grow or stay
-        the same. A <strong>profile</strong> presents a real person&rsquo;s life
-        and achievements from the hints supplied in the question. Read the
-        question to see which one is being asked.
-      </Callout>
-
-      <h2>Difference at a Glance</h2>
-
-      <TableCard
-        title="Sketch or profile?"
-        headers={["Task", "Where the details come from", "The rule"]}
-        rows={[
-          {
-            cells: [
-              "Character Sketch",
-              "The text — the character's words, actions, decisions, and relationships",
-              "Every trait must be proved with an incident or statement from the text. Never invent a trait the text does not show.",
-            ],
-          },
-          {
-            cells: [
-              "Profile",
-              "The hints given in the question — dates, places, education, career, awards",
-              "Turn each hint into a complete sentence, in a short connected paragraph. Never invent a fact the question did not supply.",
-            ],
-          },
-        ]}
-      />
-
       <h2>1. Character Sketch — From a Text</h2>
       <p>
         Use this frame for any character — fill in every <Slot>[...]</Slot>{" "}
@@ -233,7 +202,13 @@ export default function CharacterSketchContent() {
 
       <h3>Mind Map — for memorisation</h3>
       <MindMapGrid items={CHARACTER_MIND_MAP} />
+    </>
+  );
+}
 
+function ProfilePane() {
+  return (
+    <>
       <h2>2. Profile — From the Given Hints</h2>
       <p>
         A profile presents a person&rsquo;s life and achievements in a short,
@@ -386,8 +361,54 @@ export default function CharacterSketchContent() {
           [his/her/their] contributions
         </li>
       </ul>
+    </>
+  );
+}
 
-      <KeyPoint>
+export default function CharacterSketchContent() {
+  return (
+    <>
+      <Callout type="note">
+        These are the two look-alike person-tasks. A{" "}
+        <strong>character sketch</strong> describes a character from a text —
+        who they are, which traits the text reveals, and how they grow or stay
+        the same. A <strong>profile</strong> presents a real person&rsquo;s life
+        and achievements from the hints supplied in the question. Read the
+        question to see which one is being asked.
+      </Callout>
+
+      <h2>Difference at a Glance</h2>
+
+      <TableCard
+        title="Sketch or profile?"
+        headers={["Task", "Where the details come from", "The rule"]}
+        rows={[
+          {
+            cells: [
+              "Character Sketch",
+              "The text — the character's words, actions, decisions, and relationships",
+              "Every trait must be proved with an incident or statement from the text. Never invent a trait the text does not show.",
+            ],
+          },
+          {
+            cells: [
+              "Profile",
+              "The hints given in the question — dates, places, education, career, awards",
+              "Turn each hint into a complete sentence, in a short connected paragraph. Never invent a fact the question did not supply.",
+            ],
+          },
+        ]}
+      />
+
+      <TopicSwitch
+        label="Person formats"
+        panes={[
+            { id: "character-sketch", label: "Character Sketch", content: <CharacterSketchPane /> },
+            { id: "profile", label: "Profile", content: <ProfilePane /> },
+        ]}
+      />
+
+<KeyPoint>
         Both tasks are built on evidence, never invention. A character sketch
         names a trait and proves it with an incident from the text; a profile
         turns each supplied hint into a complete sentence, joins the sentences

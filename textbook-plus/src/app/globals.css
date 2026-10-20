@@ -227,6 +227,18 @@
   margin-bottom: -0.2em;
 }
 
+/* Merged topic pages (TopicSwitch): inactive panes are hidden on screen only, so
+   printing a page still prints every form in order. */
+.prose-custom .topic-pane-hidden {
+  display: none;
+}
+
+@media print {
+  .prose-custom .topic-pane-hidden {
+    display: block !important;
+  }
+}
+
 /* Scrollbar — visible thin style */
 html {
   scrollbar-width: thin;

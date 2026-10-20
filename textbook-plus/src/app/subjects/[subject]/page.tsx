@@ -95,7 +95,7 @@ export default async function SubjectPage({ params }: Props) {
                     Discourses
                   </h2>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    {discourseTopics.length} writing formats — structure, tips &amp; samples
+                    {discourseTopics.reduce((total, topic) => total + topic.formats.length, 0)} writing formats — structure, tips &amp; samples
                   </p>
                 </div>
               </Link>

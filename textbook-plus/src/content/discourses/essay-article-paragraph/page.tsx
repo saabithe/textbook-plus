@@ -5,6 +5,7 @@ import { Highlight } from "@/components/content/Highlight";
 import { Expandable } from "@/components/content/Expandable";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { TableCard } from "@/components/content/data/TableCard";
+import { TopicSwitch } from "@/components/content/TopicSwitch";
 
 /** A fill-in field inside the idea elaboration frame. */
 function Slot({ children }: { children: ReactNode }) {
@@ -58,100 +59,9 @@ function MindMapGrid({ items }: { items: { part: string; flow: string }[] }) {
   );
 }
 
-export default function EssayArticleParagraphContent() {
+function IdeaElaborationPane() {
   return (
     <>
-      <Callout type="note">
-        Idea elaboration, write-up, essay, paragraph writing and article writing
-        all look like the same question — a block of prose to produce. They are
-        not. Each form has its own purpose, its own structure and its own
-        give-away cue. Read the columns below before you start writing.
-      </Callout>
-
-      <h2>Difference at a Glance</h2>
-
-      <TableCard
-        title="The look-alike prose forms"
-        headers={["Discourse", "What it does", "Structure"]}
-        rows={[
-          {
-            cells: [
-              "Idea Elaboration",
-              "Interpret and develop a given quotation, proverb, or idea",
-              "Meaning → Explanation → Example → Wider application → Message",
-            ],
-          },
-          {
-            cells: [
-              "Write-up",
-              "Present information about a person, event, programme, issue, or experience",
-              "Title → Introduction → Details → Significance → Conclusion",
-            ],
-          },
-          {
-            cells: [
-              "Essay",
-              "Explore a topic through explanation, arguments, and supporting examples",
-              "Title → Introduction → Body paragraphs → Conclusion",
-            ],
-          },
-          {
-            cells: [
-              "Paragraph Writing",
-              "Explain one central idea concisely and coherently",
-              "Topic sentence → Supporting details → Example → Closing sentence",
-            ],
-          },
-          {
-            cells: [
-              "Article Writing",
-              "Inform, explain, discuss, or persuade a defined readership",
-              "Headline → Introduction → Main body → Conclusion",
-            ],
-          },
-        ]}
-      />
-
-      <h2>How to Tell Them Apart</h2>
-      <ul>
-        <li>
-          <strong>The opening element gives it away.</strong> A{" "}
-          <strong>headline</strong> means an article; a <strong>title</strong>{" "}
-          means an essay or a write-up; a <strong>topic sentence</strong> means
-          paragraph writing; and when the question itself hands you the{" "}
-          <strong>idea</strong> — a quotation, proverb or saying — it is idea
-          elaboration.
-        </li>
-        <li>
-          <strong>One idea or several.</strong> Paragraph writing and idea
-          elaboration carry one central idea; the write-up, the essay and the
-          article are developed across several paragraphs.
-        </li>
-        <li>
-          <strong>What you do with the topic.</strong> Interpret a given idea
-          (idea elaboration) · present information (write-up) · explore the topic
-          with arguments and examples (essay) · explain one idea concisely
-          (paragraph writing) · inform or persuade a defined readership
-          (article).
-        </li>
-        <li>
-          <strong>Where it ends.</strong> On the message (idea elaboration) · on
-          the significance (write-up) · on a closing sentence (paragraph writing)
-          · on the conclusion after the body paragraphs (essay) · on the
-          conclusion after the main body (article).
-        </li>
-        <li>
-          <strong>Who it is written for.</strong> Only the article names a
-          defined readership — newspaper or magazine readers. The other four are
-          written for the examiner in front of you.
-        </li>
-      </ul>
-
-      <Highlight>
-        Headline → article. Title → essay or write-up. Topic sentence →
-        paragraph writing. Given idea → idea elaboration.
-      </Highlight>
-
       <h2>Idea Elaboration — Master Frame</h2>
       <p>
         Use this frame for any given idea — fill in every <Slot>[...]</Slot>{" "}
@@ -263,15 +173,37 @@ export default function EssayArticleParagraphContent() {
           title when appropriate or when the question requires one.
         </li>
       </ul>
+    </>
+  );
+}
 
-      <h2>Essay &amp; Article — Step by Step</h2>
-      <p>
-        The write-up and paragraph writing follow the chains shown in the table
-        above. Article and essay carry a few extra format rules, so they are
-        spelled out here.
-      </p>
+function EssayPane() {
+  return (
+    <>
+<ProcessCard
+        title="How to Write an Essay"
+        steps={[
+          { label: "Introduction", description: "Define the topic. Give context. State your thesis (main argument) clearly." },
+          { label: "Body Paragraphs (3-4)", description: "Each paragraph: topic sentence → evidence → analysis. Use transitions (however, moreover, furthermore)." },
+          { label: "Counter-argument (optional)", description: "Acknowledge the opposing view, then refute it. Shows depth of thinking." },
+          { label: "Conclusion", description: "Restate thesis in new words. Connect back to introduction. No new information." },
+        ]}
+      />
 
-      <ProcessCard
+<Expandable title="Essay — The Value of Reading" variant="example">
+        <p>Reading is the foundation of all learning. It expands our vocabulary, sharpens our thinking, and connects us to ideas beyond our immediate experience. In an age dominated by screens, the habit of reading books has become more important — and more endangered — than ever.</p>
+        <p>Studies consistently show that students who read regularly perform better across all subjects. Reading improves concentration, builds empathy through exposure to different perspectives, and strengthens analytical thinking. A student who reads for 30 minutes a day processes information 25% faster than one who does not.</p>
+        <p>However, the rise of social media has fragmented attention spans. Many students now prefer short videos to long-form text. This shift has consequences: shallow reading leads to shallow thinking.</p>
+        <p>In conclusion, reading is not merely a hobby — it is a discipline that shapes the mind. Schools must create reading-friendly environments, and students must make reading a daily habit. The rewards, both academic and personal, are immeasurable.</p>
+      </Expandable>
+    </>
+  );
+}
+
+function ArticlePane() {
+  return (
+    <>
+<ProcessCard
         title="How to Write an Article"
         steps={[
           { label: "Headline", description: "Catchy, specific. Answers: what is this about? Example: \"Why Our Libraries Need a Revival\"" },
@@ -282,13 +214,130 @@ export default function EssayArticleParagraphContent() {
         ]}
       />
 
-      <ProcessCard
-        title="How to Write an Essay"
-        steps={[
-          { label: "Introduction", description: "Define the topic. Give context. State your thesis (main argument) clearly." },
-          { label: "Body Paragraphs (3-4)", description: "Each paragraph: topic sentence → evidence → analysis. Use transitions (however, moreover, furthermore)." },
-          { label: "Counter-argument (optional)", description: "Acknowledge the opposing view, then refute it. Shows depth of thinking." },
-          { label: "Conclusion", description: "Restate thesis in new words. Connect back to introduction. No new information." },
+<Expandable title="Article — Environmental Awareness" variant="example">
+        <p><strong>Why Our Schools Need Rainwater Harvesting</strong></p>
+        <p>By Priya Menon, Class XII Student</p>
+        <p>Did you know that a single school building can collect over 50,000 litres of rainwater during the monsoon? Yet most schools in Kerala let this precious resource flow straight into storm drains.</p>
+        <p>Rainwater harvesting is not just an environmental necessity — it is an economic opportunity. Schools that have installed basic harvesting systems report a 40% reduction in their water bills. More importantly, students learn sustainability by seeing it in practice.</p>
+        <p>The government has already made harvesting mandatory for buildings above 100 sq metres. It is time our schools led by example. A small investment today ensures water security for tomorrow.</p>
+      </Expandable>
+    </>
+  );
+}
+
+export default function EssayArticleParagraphContent() {
+  return (
+    <>
+      <Callout type="note">
+        Idea elaboration, write-up, essay, paragraph writing and article writing
+        all look like the same question — a block of prose to produce. They are
+        not. Each form has its own purpose, its own structure and its own
+        give-away cue. Read the columns below before you start writing.
+      </Callout>
+
+      <h2>Difference at a Glance</h2>
+
+      <TableCard
+        title="The look-alike prose forms"
+        headers={["Discourse", "What it does", "Structure"]}
+        rows={[
+          {
+            cells: [
+              "Idea Elaboration",
+              "Interpret and develop a given quotation, proverb, or idea",
+              "Meaning → Explanation → Example → Wider application → Message",
+            ],
+          },
+          {
+            cells: [
+              "Write-up",
+              "Present information about a person, event, programme, issue, or experience",
+              "Title → Introduction → Details → Significance → Conclusion",
+            ],
+          },
+          {
+            cells: [
+              "Essay",
+              "Explore a topic through explanation, arguments, and supporting examples",
+              "Title → Introduction → Body paragraphs → Conclusion",
+            ],
+          },
+          {
+            cells: [
+              "Paragraph Writing",
+              "Explain one central idea concisely and coherently",
+              "Topic sentence → Supporting details → Example → Closing sentence",
+            ],
+          },
+          {
+            cells: [
+              "Article Writing",
+              "Inform, explain, discuss, or persuade a defined readership",
+              "Headline → Introduction → Main body → Conclusion",
+            ],
+          },
+        ]}
+      />
+
+      <h2>How to Tell Them Apart</h2>
+      <ul>
+        <li>
+          <strong>The opening element gives it away.</strong> A{" "}
+          <strong>headline</strong> means an article; a <strong>title</strong>{" "}
+          means an essay or a write-up; a <strong>topic sentence</strong> means
+          paragraph writing; and when the question itself hands you the{" "}
+          <strong>idea</strong> — a quotation, proverb or saying — it is idea
+          elaboration.
+        </li>
+        <li>
+          <strong>One idea or several.</strong> Paragraph writing and idea
+          elaboration carry one central idea; the write-up, the essay and the
+          article are developed across several paragraphs.
+        </li>
+        <li>
+          <strong>What you do with the topic.</strong> Interpret a given idea
+          (idea elaboration) · present information (write-up) · explore the topic
+          with arguments and examples (essay) · explain one idea concisely
+          (paragraph writing) · inform or persuade a defined readership
+          (article).
+        </li>
+        <li>
+          <strong>Where it ends.</strong> On the message (idea elaboration) · on
+          the significance (write-up) · on a closing sentence (paragraph writing)
+          · on the conclusion after the body paragraphs (essay) · on the
+          conclusion after the main body (article).
+        </li>
+        <li>
+          <strong>Who it is written for.</strong> Only the article names a
+          defined readership — newspaper or magazine readers. The other four are
+          written for the examiner in front of you.
+        </li>
+      </ul>
+
+      <Highlight>
+        Headline → article. Title → essay or write-up. Topic sentence →
+        paragraph writing. Given idea → idea elaboration.
+      </Highlight>
+
+      <h2>Essay &amp; Article — Step by Step</h2>
+      <p>
+        The write-up and paragraph writing follow the chains shown in the table
+        above. Article and essay carry a few extra format rules, so they are
+        spelled out here.
+      </p>
+
+      <h2>Samples — Spot the Difference</h2>
+      <p>
+        Compare the openings. The article announces itself with a headline and a
+        byline; the essay walks straight into its topic.
+      </p>
+
+      <TopicSwitch
+        label="Prose forms"
+        panes={[
+            { id: "idea-elaboration", label: "Idea Elaboration", content: <IdeaElaborationPane /> },
+            { id: "essay", label: "Essay", content: <EssayPane /> },
+            { id: "article", label: "Article", content: <ArticlePane /> },
         ]}
       />
 
@@ -318,28 +367,7 @@ export default function EssayArticleParagraphContent() {
         </li>
       </ul>
 
-      <h2>Samples — Spot the Difference</h2>
-      <p>
-        Compare the openings. The article announces itself with a headline and a
-        byline; the essay walks straight into its topic.
-      </p>
-
-      <Expandable title="Article — Environmental Awareness" variant="example">
-        <p><strong>Why Our Schools Need Rainwater Harvesting</strong></p>
-        <p>By Priya Menon, Class XII Student</p>
-        <p>Did you know that a single school building can collect over 50,000 litres of rainwater during the monsoon? Yet most schools in Kerala let this precious resource flow straight into storm drains.</p>
-        <p>Rainwater harvesting is not just an environmental necessity — it is an economic opportunity. Schools that have installed basic harvesting systems report a 40% reduction in their water bills. More importantly, students learn sustainability by seeing it in practice.</p>
-        <p>The government has already made harvesting mandatory for buildings above 100 sq metres. It is time our schools led by example. A small investment today ensures water security for tomorrow.</p>
-      </Expandable>
-
-      <Expandable title="Essay — The Value of Reading" variant="example">
-        <p>Reading is the foundation of all learning. It expands our vocabulary, sharpens our thinking, and connects us to ideas beyond our immediate experience. In an age dominated by screens, the habit of reading books has become more important — and more endangered — than ever.</p>
-        <p>Studies consistently show that students who read regularly perform better across all subjects. Reading improves concentration, builds empathy through exposure to different perspectives, and strengthens analytical thinking. A student who reads for 30 minutes a day processes information 25% faster than one who does not.</p>
-        <p>However, the rise of social media has fragmented attention spans. Many students now prefer short videos to long-form text. This shift has consequences: shallow reading leads to shallow thinking.</p>
-        <p>In conclusion, reading is not merely a hobby — it is a discipline that shapes the mind. Schools must create reading-friendly environments, and students must make reading a daily habit. The rewards, both academic and personal, are immeasurable.</p>
-      </Expandable>
-
-      <KeyPoint>
+<KeyPoint>
         Same family, different jobs — the paragraph explains one idea, idea
         elaboration interprets a given saying, the write-up reports information,
         the essay argues a topic, and the article addresses a readership. Let

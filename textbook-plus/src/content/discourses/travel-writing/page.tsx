@@ -4,6 +4,7 @@ import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { Expandable } from "@/components/content/Expandable";
 import { TableCard } from "@/components/content/data/TableCard";
+import { TopicSwitch } from "@/components/content/TopicSwitch";
 
 /** A fill-in field inside a travel frame. */
 function Slot({ children }: { children: ReactNode }) {
@@ -246,82 +247,9 @@ const INFO_NOTES = [
   "A complete sentence pattern is not expected here.",
 ];
 
-export default function TravelWritingContent() {
+function TraveloguePane() {
   return (
     <>
-      <Callout type="note">
-        Three travel forms share one subject — a place — but do different jobs. A
-        <strong> travelogue</strong> (travel essay) narrates a journey, a
-        <strong> travel brochure</strong> advertises a destination, and
-        <strong> travel information</strong> sets out the practical facts a
-        traveller needs. Read the purpose before you choose the form.
-      </Callout>
-
-      <h2>Difference at a Glance</h2>
-
-      <TableCard
-        title="The three travel forms"
-        headers={["Form", "What it does", "Structure"]}
-        rows={[
-          {
-            cells: [
-              "Travel Essay / Travelogue",
-              "Inform as well as entertain — a personal account of a journey",
-              "Title → Introduction (destination + purpose) → Journey (route + scenery) → Exploration (places + activities + memorable incident) → Reflection (feelings + discoveries) → Conclusion (overall impression + lesson)",
-            ],
-          },
-          {
-            cells: [
-              "Travel Brochure",
-              "Promote a destination and persuade the reader to visit",
-              "Catchy title + tagline → Welcome + destination overview → Attractions → Activities → Travel facilities + visitor information → Reasons to visit → Call to action",
-            ],
-          },
-          {
-            cells: [
-              "Travel Information",
-              "Inform travellers with accurate, practical facts",
-              "Destination + location → Overview → Attractions → Transport → Accommodation + facilities → Practical tips → Summary",
-            ],
-          },
-        ]}
-      />
-
-      <h2>How to Tell Them Apart</h2>
-      <ul>
-        <li>
-          <strong>The job decides the form.</strong> The travelogue{" "}
-          <em>narrates</em> a journey you made; the brochure <em>promotes</em> a
-          destination; travel information <em>informs</em> with facts.
-        </li>
-        <li>
-          <strong>Who is speaking.</strong> Only the travelogue is in the first
-          person (I, we) and the past tense; the brochure and the travel
-          information speak to the reader about the place.
-        </li>
-        <li>
-          <strong>The opening element.</strong> A title over a story →
-          travelogue. A catchy title with a tagline and &ldquo;Discover…&rdquo;
-          → brochure. A destination name followed by basic facts in bullet
-          points → travel information.
-        </li>
-        <li>
-          <strong>The language.</strong> Descriptive and emotional
-          (travelogue) · persuasive, appealing to the five senses, ending in a
-          call to action (brochure) · plain and factual, in headings and bullets
-          (travel information).
-        </li>
-        <li>
-          <strong>The facts rule.</strong> None of the three may invent details:
-          the brochure and the travel information must not invent prices,
-          contact numbers, transport services or timings either.
-        </li>
-      </ul>
-
-      <Highlight>
-        Travelogue narrates · brochure promotes · travel information informs.
-      </Highlight>
-
       <h2>1. Travel Essay / Travelogue</h2>
 
       <FrameCard>
@@ -405,7 +333,13 @@ export default function TravelWritingContent() {
           <p key={paragraph}>{paragraph}</p>
         ))}
       </Expandable>
+    </>
+  );
+}
 
+function TravelBrochurePane() {
+  return (
+    <>
       <h2>2. Travel Brochure</h2>
       <p>
         A travel brochure is a pamphlet advertising holidays, trips etc. and
@@ -546,7 +480,13 @@ export default function TravelWritingContent() {
           </p>
         ))}
       </Expandable>
+    </>
+  );
+}
 
+function TravelInfoPane() {
+  return (
+    <>
       <h2>3. Travel Information</h2>
       <p>
         Travel info is meant to entice travellers to visit an area and to inform
@@ -728,8 +668,96 @@ export default function TravelWritingContent() {
         ))}
         <p>{MALAMPUZHA.closing}</p>
       </Expandable>
+    </>
+  );
+}
 
-      <KeyPoint>
+export default function TravelWritingContent() {
+  return (
+    <>
+      <Callout type="note">
+        Three travel forms share one subject — a place — but do different jobs. A
+        <strong> travelogue</strong> (travel essay) narrates a journey, a
+        <strong> travel brochure</strong> advertises a destination, and
+        <strong> travel information</strong> sets out the practical facts a
+        traveller needs. Read the purpose before you choose the form.
+      </Callout>
+
+      <h2>Difference at a Glance</h2>
+
+      <TableCard
+        title="The three travel forms"
+        headers={["Form", "What it does", "Structure"]}
+        rows={[
+          {
+            cells: [
+              "Travel Essay / Travelogue",
+              "Inform as well as entertain — a personal account of a journey",
+              "Title → Introduction (destination + purpose) → Journey (route + scenery) → Exploration (places + activities + memorable incident) → Reflection (feelings + discoveries) → Conclusion (overall impression + lesson)",
+            ],
+          },
+          {
+            cells: [
+              "Travel Brochure",
+              "Promote a destination and persuade the reader to visit",
+              "Catchy title + tagline → Welcome + destination overview → Attractions → Activities → Travel facilities + visitor information → Reasons to visit → Call to action",
+            ],
+          },
+          {
+            cells: [
+              "Travel Information",
+              "Inform travellers with accurate, practical facts",
+              "Destination + location → Overview → Attractions → Transport → Accommodation + facilities → Practical tips → Summary",
+            ],
+          },
+        ]}
+      />
+
+      <h2>How to Tell Them Apart</h2>
+      <ul>
+        <li>
+          <strong>The job decides the form.</strong> The travelogue{" "}
+          <em>narrates</em> a journey you made; the brochure <em>promotes</em> a
+          destination; travel information <em>informs</em> with facts.
+        </li>
+        <li>
+          <strong>Who is speaking.</strong> Only the travelogue is in the first
+          person (I, we) and the past tense; the brochure and the travel
+          information speak to the reader about the place.
+        </li>
+        <li>
+          <strong>The opening element.</strong> A title over a story →
+          travelogue. A catchy title with a tagline and &ldquo;Discover…&rdquo;
+          → brochure. A destination name followed by basic facts in bullet
+          points → travel information.
+        </li>
+        <li>
+          <strong>The language.</strong> Descriptive and emotional
+          (travelogue) · persuasive, appealing to the five senses, ending in a
+          call to action (brochure) · plain and factual, in headings and bullets
+          (travel information).
+        </li>
+        <li>
+          <strong>The facts rule.</strong> None of the three may invent details:
+          the brochure and the travel information must not invent prices,
+          contact numbers, transport services or timings either.
+        </li>
+      </ul>
+
+      <Highlight>
+        Travelogue narrates · brochure promotes · travel information informs.
+      </Highlight>
+
+      <TopicSwitch
+        label="Travel formats"
+        panes={[
+            { id: "travelogue", label: "Travel Essay / Travelogue", content: <TraveloguePane /> },
+            { id: "travel-brochure", label: "Travel Brochure", content: <TravelBrochurePane /> },
+            { id: "travel-info", label: "Travel Information", content: <TravelInfoPane /> },
+        ]}
+      />
+
+<KeyPoint>
         Same destination, three jobs — the travelogue tells the story of your
         journey in the first person and the past tense, the brochure sells the
         place with catchy headings and a call to action, and the travel

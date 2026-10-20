@@ -6,6 +6,9 @@ import { Expandable } from "@/components/content/Expandable";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { TableCard } from "@/components/content/data/TableCard";
 import { Checklist } from "@/components/content/data/Checklist";
+import { TopicSwitch } from "@/components/content/TopicSwitch";
+import EmailPane from "./panes/email";
+import JobApplicationPane from "./panes/job-application";
 
 /** A fill-in field inside a letter template. */
 function Slot({ children }: { children: ReactNode }) {
@@ -50,13 +53,9 @@ function MindMapGrid({ items }: { items: { part: string; flow: string }[] }) {
   );
 }
 
-export default function LetterWritingContent() {
+function FormalLetterPane() {
   return (
     <>
-      <Callout type="note">
-        Letter writing appears regularly in the Kerala Board English exam (typically 5 marks). Know both formal and informal formats — the board expects precise structure and appropriate tone.
-      </Callout>
-
       <h2>Formal Letter Template</h2>
       <p>
         Use this frame for any formal letter — fill in every <Slot>[...]</Slot>{" "}
@@ -167,6 +166,40 @@ export default function LetterWritingContent() {
       <h3>Mind Map — for memorisation</h3>
       <MindMapGrid items={FORMAL_MIND_MAP} />
 
+<ProcessCard
+          title="Structure of a Formal Letter"
+          steps={[
+            { label: "Sender's Address", description: "Top-left corner. House number, street, city, pincode. No name." },
+            { label: "Date", description: "Below address. Format: 15 August 2026 (no commas)." },
+            { label: "Recipient's Designation & Address", description: "The designation first, then the organisation and address." },
+            { label: "Subject Line", description: "Short, clear. Prefixed with \"Subject:\" — e.g. Subject: Complaint Regarding Water Supply." },
+            { label: "Salutation", description: "Sir/Madam (formal). Always followed by a comma." },
+            { label: "Body", description: "3 paragraphs — purpose, details, expected action. Polite, concise, factual." },
+            { label: "Closing", description: "Yours faithfully (if Sir/Madam), Yours sincerely (if named). Comma after." },
+            { label: "Sender's Name & Signature", description: "Full name below closing. Signature above name." },
+          ]}
+        />
+
+<Highlight color="orange">
+        Never use first name in the salutation of a formal letter. Always use Sir/Madam.
+      </Highlight>
+
+<Expandable title="Sample 1 — Formal Letter: Complaint" variant="example">
+        <p>12, Green Avenue<br />Kochi 682011<br />15 August 2026</p>
+        <p>The Electricity Board Officer<br />Ernakulam Division<br />Kochi 682018</p>
+        <p><strong>Subject:</strong> Complaint Regarding Frequent Power Cuts</p>
+        <p>Sir/Madam,</p>
+        <p>I wish to bring to your notice the frequent power cuts in our area for the past two weeks. The supply is interrupted almost daily between 6 pm and 10 pm, causing severe inconvenience to residents and students preparing for examinations.</p>
+        <p>I request you to look into this matter and take necessary corrective action at the earliest.</p>
+        <p>Yours faithfully,<br />Rajesh Menon</p>
+      </Expandable>
+    </>
+  );
+}
+
+function InformalLetterPane() {
+  return (
+    <>
       <h2>Informal Letter Template</h2>
       <p>
         Use this frame for a letter to a friend or family member — fill in every{" "}
@@ -267,24 +300,7 @@ export default function LetterWritingContent() {
       <h3>Mind Map — for memorisation</h3>
       <MindMapGrid items={INFORMAL_MIND_MAP} />
 
-      <h2>Structures at a Glance</h2>
-
-      <div className="my-6 grid items-start gap-4 lg:grid-cols-2">
-        <ProcessCard
-          title="Structure of a Formal Letter"
-          steps={[
-            { label: "Sender's Address", description: "Top-left corner. House number, street, city, pincode. No name." },
-            { label: "Date", description: "Below address. Format: 15 August 2026 (no commas)." },
-            { label: "Recipient's Designation & Address", description: "The designation first, then the organisation and address." },
-            { label: "Subject Line", description: "Short, clear. Prefixed with \"Subject:\" — e.g. Subject: Complaint Regarding Water Supply." },
-            { label: "Salutation", description: "Sir/Madam (formal). Always followed by a comma." },
-            { label: "Body", description: "3 paragraphs — purpose, details, expected action. Polite, concise, factual." },
-            { label: "Closing", description: "Yours faithfully (if Sir/Madam), Yours sincerely (if named). Comma after." },
-            { label: "Sender's Name & Signature", description: "Full name below closing. Signature above name." },
-          ]}
-        />
-
-        <ProcessCard
+<ProcessCard
           title="Structure of an Informal Letter"
           steps={[
             { label: "Sender's Address (optional)", description: "City and date are sufficient. Full address not required." },
@@ -294,7 +310,62 @@ export default function LetterWritingContent() {
             { label: "Signature", description: "First name only. No designation." },
           ]}
         />
-      </div>
+
+<Expandable title="Sample 2 — Informal Letter: To a Friend" variant="example">
+        <p>Kozhikode<br />12 September 2026</p>
+        <p>Dear Meera,</p>
+        <p>I hope you are doing well. I am writing to tell you about the science exhibition held at our school last week. It was a wonderful event with over 30 models on display.</p>
+        <p>My group presented a working model of a rainwater harvesting system. We won the second prize! I wish you could have been there.</p>
+        <p>Do write back soon. I miss our long walks after school.</p>
+        <p>With love,<br />Anjali</p>
+      </Expandable>
+    </>
+  );
+}
+
+export default function LetterWritingContent() {
+  return (
+    <>
+      <Callout type="note">
+        Letter writing appears regularly in the Kerala Board English exam (typically 5 marks). Know both formal and informal formats — the board expects precise structure and appropriate tone.
+      </Callout>
+
+      <h2>Difference at a Glance</h2>
+
+      <TableCard
+        title="The four letter-shaped tasks"
+        headers={["Format", "What it does", "Key parts"]}
+        rows={[
+          {
+            cells: [
+              "Formal Letter",
+              "Writes to an officer, an institution or a newspaper — a complaint, a request, an enquiry, a suggestion or an opinion",
+              "Sender's address → Date → Designation & address → Subject → Sir / Madam → three-part body → Yours faithfully",
+            ],
+          },
+          {
+            cells: [
+              "Informal Letter",
+              "Writes to a friend or a relative — news to share, advice, an invitation, an experience",
+              "Place & date → Dear [Name], → conversational body → With love / Take care",
+            ],
+          },
+          {
+            cells: [
+              "Email",
+              "Sends the same message electronically — formal in tone, read on a screen, often copied to several readers",
+              "To / Cc / Bcc → Subject → Dear …, → three-part body → Best regards",
+            ],
+          },
+          {
+            cells: [
+              "Job Application + Résumé",
+              "Applies for a post — a covering letter in the formal letter format, plus a résumé that sets out the facts",
+              "Letter: the formal frame, stating the post applied for and the applicant's suitability → Résumé: personal details, qualifications, experience, skills, referees",
+            ],
+          },
+        ]}
+      />
 
       <h2>Formal vs Informal Letters</h2>
 
@@ -308,6 +379,16 @@ export default function LetterWritingContent() {
           { cells: ["Salutation", "Sir / Madam", "Dear Ramya, / Hi Aman,"] },
           { cells: ["Closing", "Yours faithfully", "With love, / Take care,"] },
           { cells: ["Address", "Full sender address on top", "Optional — city/date enough"] },
+        ]}
+      />
+
+      <TopicSwitch
+        label="Letter formats"
+        panes={[
+            { id: "formal-letter", label: "Formal Letter", content: <FormalLetterPane /> },
+            { id: "informal-letter", label: "Informal Letter", content: <InformalLetterPane /> },
+            { id: "email", label: "Email", content: <EmailPane /> },
+            { id: "job-application", label: "Job Application + Résumé", content: <JobApplicationPane /> },
         ]}
       />
 
@@ -328,32 +409,7 @@ export default function LetterWritingContent() {
         ]}
       />
 
-      <Highlight color="orange">
-        Never use first name in the salutation of a formal letter. Always use Sir/Madam.
-      </Highlight>
-
-      <h2>Samples</h2>
-
-      <Expandable title="Sample 1 — Formal Letter: Complaint" variant="example">
-        <p>12, Green Avenue<br />Kochi 682011<br />15 August 2026</p>
-        <p>The Electricity Board Officer<br />Ernakulam Division<br />Kochi 682018</p>
-        <p><strong>Subject:</strong> Complaint Regarding Frequent Power Cuts</p>
-        <p>Sir/Madam,</p>
-        <p>I wish to bring to your notice the frequent power cuts in our area for the past two weeks. The supply is interrupted almost daily between 6 pm and 10 pm, causing severe inconvenience to residents and students preparing for examinations.</p>
-        <p>I request you to look into this matter and take necessary corrective action at the earliest.</p>
-        <p>Yours faithfully,<br />Rajesh Menon</p>
-      </Expandable>
-
-      <Expandable title="Sample 2 — Informal Letter: To a Friend" variant="example">
-        <p>Kozhikode<br />12 September 2026</p>
-        <p>Dear Meera,</p>
-        <p>I hope you are doing well. I am writing to tell you about the science exhibition held at our school last week. It was a wonderful event with over 30 models on display.</p>
-        <p>My group presented a working model of a rainwater harvesting system. We won the second prize! I wish you could have been there.</p>
-        <p>Do write back soon. I miss our long walks after school.</p>
-        <p>With love,<br />Anjali</p>
-      </Expandable>
-
-      <KeyPoint>
+<KeyPoint>
         The key difference between formal and informal letters is tone and structure — formal letters are structured and impersonal; informal letters are conversational and personal. Master both formats and you will handle any letter-writing question confidently.
       </KeyPoint>
     </>

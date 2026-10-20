@@ -36,6 +36,7 @@ import { AmpereSurfaceToggle } from "@/components/content/physics/AmpereSurfaceT
 import { WaveTypesPanels } from "@/components/content/physics/WaveTypesPanels";
 import { WaveAnatomyDiagram } from "@/components/content/physics/WaveAnatomyDiagram";
 import { DisplacementExplorer } from "@/components/content/physics/DisplacementExplorer";
+import { TopicSwitch } from "@/components/content/TopicSwitch";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -398,6 +399,51 @@ export default function DesignGallery() {
                   { label: "Role", values: ["Observer", "Catalyst"] },
                   { label: "Personality", values: ["Reflective, detached", "Stubborn, traditional"] },
                   { label: "Key Quote", values: [<em key="n">{"I wandered..."}</em>, <em key="o">{"I'll mend this wall"}</em>] },
+                ]}
+              />
+            </div>
+          </Section>
+
+          {/* ── NAVIGATION ──────────────────────────────────────── */}
+          <Section title="Navigation">
+            <div>
+              <Label text="TopicSwitch — pane switcher for the merged discourse pages (hash deep links; every pane prints)" />
+              <TopicSwitch
+                label="Demo formats"
+                panes={[
+                  {
+                    id: "demo-term-paper",
+                    label: "First Format",
+                    content: (
+                      <p>
+                        Pane one. The tab bar sticks under the navbar ({" "}
+                        <code>top-16 z-30</code>) and deep-links with{" "}
+                        <code>#demo-term-paper</code>; arrow / Home / End keys move
+                        between tabs.
+                      </p>
+                    ),
+                  },
+                  {
+                    id: "demo-lab-report",
+                    label: "Second Format",
+                    content: (
+                      <p>
+                        Pane two. Inactive panes are hidden with{" "}
+                        <code>.topic-pane-hidden</code> but stay in the DOM.
+                      </p>
+                    ),
+                  },
+                  {
+                    id: "demo-field-report",
+                    label: "Third Format",
+                    content: (
+                      <p>
+                        Pane three. The <code>@media print</code> rule restores{" "}
+                        <code>display: block</code>, so printing the page prints
+                        all three panes in order.
+                      </p>
+                    ),
+                  },
                 ]}
               />
             </div>

@@ -235,9 +235,11 @@ All new and improved content components follow this design language. The new int
 
 **Top-level concept (1):** TreeDiagram
 
+**Navigation (1):** TopicSwitch — the horizontal pane switcher used by the merged discourse pages (Oct 2026): custom tablist with hash deep links, sticky under the navbar, and every pane hidden-but-present in the DOM so all of them print. Not a content primitive — it wraps `panes={[{ id, label, content }]}`.
+
 ### 12.6 Oct 2026 removal
 
-The following content components were deleted as orphans (they only existed for the removed Class 11 catalog): **Maths (7)** NumberLine, FunctionGraph, VennDiagram, ArrowDiagram, UnitCircle, ArgandDiagram; **Conic (1)** ConicDiagrams; **Physics (10)** VectorFigures, ProjectileGraphs, KinematicsGraphs, MoiDiagrams, RigidBodyMotions, GravityGGraph, UniversalLawExplorer, ShmEquationAnatomy, ShmGraphs, ShmDisplacementDiagram; plus **ScientistCard** and **Derivation**. The empty `decision/` and `system/` folders, the unused `mafs` dependency, and the orphaned maths/conic/laws-of-motion images were removed too. Current inventory: **47 files** (see AGENTS.md, the live source of truth).
+The following content components were deleted as orphans (they only existed for the removed Class 11 catalog): **Maths (7)** NumberLine, FunctionGraph, VennDiagram, ArrowDiagram, UnitCircle, ArgandDiagram; **Conic (1)** ConicDiagrams; **Physics (10)** VectorFigures, ProjectileGraphs, KinematicsGraphs, MoiDiagrams, RigidBodyMotions, GravityGGraph, UniversalLawExplorer, ShmEquationAnatomy, ShmGraphs, ShmDisplacementDiagram; plus **ScientistCard** and **Derivation**. The empty `decision/` and `system/` folders, the unused `mafs` dependency, and the orphaned maths/conic/laws-of-motion images were removed too. Current inventory: **48 files** (see AGENTS.md, the live source of truth — the 47 components plus `TopicSwitch`, added Oct 2026 for the merged discourse pages).
 
 *This file is append-only. Previous decisions are never deleted, only updated with new values when explicitly changed by the user.*
 

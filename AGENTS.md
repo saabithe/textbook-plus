@@ -59,7 +59,7 @@ Types live in `src/types/chapter.ts`.
 
 **English chapter-text.md**: cleaned, readable version of the textbook pages at `src/content/english/{slug}/chapter-text.md` — complete chapter text (story/poem/speech/play) + About the Author + Read and Respond questions. Single source of truth for authoring `page.tsx`. No OCR artifacts, interleaved activities, or supplementary readings.
 
-**Custom content components** (`src/components/content/`, 47 files; canonical inventory in `Constitution/USER_PREFERENCES.md` §12). **They live in category subfolders** — Core/English-Arabic/`OrgChart` are flat at the top level, the rest are in `data/`, `process/`, `concept/`, `study/`, `physics/`. Import path follows the folder: `@/components/content/Callout` but `@/components/content/data/TableCard` / `@/components/content/physics/WaveAnatomyDiagram`.
+**Custom content components** (`src/components/content/`, 48 files; canonical inventory in `Constitution/USER_PREFERENCES.md` §12). **They live in category subfolders** — Core/English-Arabic/`OrgChart` are flat at the top level, the rest are in `data/`, `process/`, `concept/`, `study/`, `physics/`. Import path follows the folder: `@/components/content/Callout` but `@/components/content/data/TableCard` / `@/components/content/physics/WaveAnatomyDiagram`.
 
 *Core (top-level):* Callout, Example, KeyPoint, Comparison, Expandable, Formula (exports `Formula` + `FormulaBlock`), FormulaCard, ProblemSolution, SolvedProblem, ExerciseQa, SpeedTricks, Stepper, Highlight
 
@@ -75,7 +75,7 @@ Types live in `src/types/chapter.ts`.
 
 *Physics (`physics/`):* SpectrumExplorer, SpectrumTable, OscillationPlayer, PropagationExplorer, AmpereSurfaceToggle, ChargeFateTrio, TransverseLongitudinal, FormulaAnatomy, SpeedLayers, FieldRatio, DisplacementExplorer, WaveTypesPanels, WaveAnatomyDiagram
 
-*Top-level:* OrgChart
+*Top-level:* OrgChart, TopicSwitch (navigation — horizontal pane switcher used by the merged discourse pages; see Key Architecture)
 
 **There is NO barrel export** — every import is a direct file path (`import { Callout } from "@/components/content/Callout"`). Do NOT reference components that don't exist: FlowDiagram, SortableTable, Kanban, NetworkDiagram, GuidedStepper, DecisionTree, RiskMatrix, ScenarioCard, PerspectiveCard, ArchitectureCard, IODiagram, EventFlow, RoadmapCard. (The Class 11 maths/conic/SHM diagram components were removed in Oct 2026 — see History.)
 
@@ -102,9 +102,9 @@ Chapters not registered show "Content coming soon...".
 ## Data Model
 
 - **Main system (Class 12 / Plus Two)**: `src/data/subjects.ts` (6 subjects) + `src/data/chapters.ts` (78 chapters: Physics 14, Chemistry 10, Mathematics 13, Biology 13, English 16, Arabic 12). Subject colors: CSS custom props `--subject-{name}` / `--subject-{name}-light` in `globals.css` `:root` and `.dark`. Chapter list source of truth: `Developer_Deliveries/Chapter names.md`.
-- **Grammar / Discourses**: `src/data/grammar.ts` (12 topics, each tagged `group: "core" | "more"`; the six **core** topics — reported-speech, editing, if-clause, passive-voice, cohesive-devices, concord — render above a labelled 5px divider, the rest under "More Grammar Topics") and `src/data/discourses.ts` (18 topics, listed in priority order — exam-frequency & format benefit first), routed at `/grammar/{topic}` and `/discourses/{topic}`.
+- **Grammar / Discourses**: `src/data/grammar.ts` (12 topics, each tagged `group: "core" | "more"`; the six **core** topics — reported-speech, editing, if-clause, passive-voice, cohesive-devices, concord — render above a labelled 5px divider, the rest under "More Grammar Topics") and `src/data/discourses.ts` (**9 merged pages covering 28 writing formats**, grouped into 7 labelled exam-priority sections via `discourseGroups` + a flat `discourseTopics` for routing), routed at `/grammar/{topic}` and `/discourses/{topic}`.
 
-**Chapters with content** (51 `page.tsx` files): main — 4 Physics (electric-charges-and-fields, magnetism-and-matter, electromagnetic-induction, electromagnetic-waves), all 16 English, 1 Biology (molecular-basis-of-inheritance); Grammar all 12; Discourses all 18 (character-sketch covers profile writing too). Other chapters show placeholder UI.
+**Chapters with content** (42 `page.tsx` files): main — 4 Physics (electric-charges-and-fields, magnetism-and-matter, electromagnetic-induction, electromagnetic-waves), all 16 English, 1 Biology (molecular-basis-of-inheritance); Grammar all 12; Discourses all 9 merged pages (28 formats — see "Discourse pages are merged" below). Other chapters show placeholder UI.
 
 ## Auth, Progress & Sync (removed Oct 2026)
 
@@ -116,6 +116,7 @@ There is **no auth, no cloud sync, and no progress persistence**. The former Sup
 - Chapter tabs (non-English/Arabic): **Learning** (JSX content) and **Practice** (questions + flashcards with sub-tabs). Practice availability comes from the `content.ts` registry keys, not the router or the JSON files' existence. Practice state (revealed questions, known cards) is per-session only.
 - English pages: **Read** / **Discourses** tabs rendered inside the page by `ContentTabs` (client-side state; dispatches a `content-tab-change` event with no listener left). No Practice tab for English/Arabic. Grammar and Discourses are separate top-level sections.
 - Grammar topics (12 `page.tsx` files in `src/content/grammar/{slug}/`) are built on `GrammarTopicLayout` (`src/components/grammar/`), which owns the **Concept / Practice** tab state and the one-sentence intro callout; each concept section is a `GrammarSection` (`{ id, title?, children }`; heading-less for the key takeaway) and the Practice tab renders `GrammarQuiz`. `GrammarTopicLayout` takes `intro` (the definition, wrapped in a note `Callout`) plus optional `introExtra` (extra intro blocks, e.g. reported-speech's overview tables). `GrammarQuiz` accepts `accepted?: string[]` so alternative fill-blank answers grade as correct (`answer` remains the model answer).
+- **Discourse pages are merged (Oct 2026)**: the 18 original topics were consolidated into **9 pages covering 28 writing formats** — look-alike formats that a question paper can ask for in the same sitting share one page (e.g. `letter-writing` now holds formal letter, informal letter, email and the job application + résumé). Each merged page renders the family intro + a "Difference at a Glance" `TableCard`, then `TopicSwitch` (`src/components/content/TopicSwitch.tsx`) toggles the format panes. `TopicSwitch` is custom (not base-ui): own state, hash deep links via `history.replaceState` + `hashchange`, roving arrow/Home/End keys, `role="tablist"/"tab"/"tabpanel"`, sticky `top-16 z-30` (the navbar is `h-16`). Inactive panes are hidden by `.topic-pane-hidden` (`globals.css`), whose `@media print` rule restores `display: block` so **every pane prints**. Pane components live in `src/content/discourses/{page}/panes/` and whole-page panes are verbatim copies of the retired topic pages. The 12 retired slugs 308-redirect to their new page + tab in `next.config.ts` (`redirects()`).
 - Subject hubs in `src/components/subject/` (`SubjectCard`, `ChapterList`); home page is a plain subject grid (no hero, no continue-learning strip).
 - Search: `Ctrl+K` via `src/components/search/SearchModal.tsx`. Dark mode via next-themes, flash-prevention script in `layout.tsx`.
 - PWA: `manifest.ts`, `public/sw.js` (generated on build), icons, `_offline` page. Scrollbar hidden globally via CSS.
