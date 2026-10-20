@@ -183,6 +183,11 @@ export default function AnnouncementNoticeContent() {
           { label: "Signature + Designation", description: "Name and designation of the issuing authority at the bottom-right." },
         ]}
       />
+      <div className="-mt-4 text-sm italic text-muted-foreground">
+        Either placement is accepted — the date may sit in the top-right corner
+        or on the left-hand side (top / bottom). What matters is that the notice
+        carries a date.
+      </div>
 
       <h2>Mind Map — for memorisation</h2>
       <MindMapGrid items={MIND_MAP} />
