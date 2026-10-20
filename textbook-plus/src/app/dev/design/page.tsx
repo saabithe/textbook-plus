@@ -407,7 +407,7 @@ export default function DesignGallery() {
           {/* ── NAVIGATION ──────────────────────────────────────── */}
           <Section title="Navigation">
             <div>
-              <Label text="TopicSwitch — pane switcher for the merged discourse pages (hash deep links; every pane prints)" />
+              <Label text="TopicSwitch — card list for the merged discourse pages (one card open at a time, hash deep links)" />
               <TopicSwitch
                 label="Demo formats"
                 panes={[
@@ -416,10 +416,9 @@ export default function DesignGallery() {
                     label: "First Format",
                     content: (
                       <p>
-                        Pane one. The tab bar sticks under the navbar ({" "}
-                        <code>top-16 z-30</code>) and deep-links with{" "}
-                        <code>#demo-term-paper</code>; arrow / Home / End keys move
-                        between tabs.
+                        Pane one. Clicking a card opens its pane and deep-links
+                        with <code>#demo-term-paper</code>; arrow keys move between
+                        the cards, and clicking the open card again closes it.
                       </p>
                     ),
                   },
@@ -428,8 +427,8 @@ export default function DesignGallery() {
                     label: "Second Format",
                     content: (
                       <p>
-                        Pane two. Inactive panes are hidden with{" "}
-                        <code>.topic-pane-hidden</code> but stay in the DOM.
+                        Pane two. The open pane sits inside the same card as its
+                        heading, so the form and its label never separate.
                       </p>
                     ),
                   },
@@ -438,9 +437,8 @@ export default function DesignGallery() {
                     label: "Third Format",
                     content: (
                       <p>
-                        Pane three. The <code>@media print</code> rule restores{" "}
-                        <code>display: block</code>, so printing the page prints
-                        all three panes in order.
+                        Pane three. Only the open pane is rendered, so printing a
+                        page prints the form the reader had open.
                       </p>
                     ),
                   },

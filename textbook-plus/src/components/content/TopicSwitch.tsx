@@ -1,32 +1,34 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface TopicPane {
   /** Hash id — deep links look like /discourses/reports#news-report */
   id: string;
-  /** Label shown on the tab, and printed above the pane. */
+  /** Label shown on the card, and printed above the pane. */
   label: string;
   content: ReactNode;
 }
 
 interface TopicSwitchProps {
   panes: TopicPane[];
-  /** Accessible name for the tab list, e.g. "Report formats". */
+  /** Accessible name for the card list, e.g. "Report formats". */
   label: string;
   className?: string;
 }
 
 /**
- * Horizontal switch used by the merged discourse pages: one pill per writing
- * form, sticky under the navbar, with hash deep links.
+ * Card list used by the merged discourse pages: one card per writing form,
+ * and the open card carries its pane below the card.
  *
- * Every pane stays in the DOM — inactive ones are hidden on screen only
- * (`.topic-pane-hidden`), so printing a page prints every form in order.
+ * One card is open at a time (accordion). Opening a card deep-links with
+ * `#<pane id>`, and a card that is already open prints expanded, so printing
+ * the page by hand prints only the form that is open.
  */
 export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
-  const [active, setActive] = useState(() => panes[0]?.id ?? "");
+  const [active, setActive] = useState<string | null>(() => panes[0]?.id ?? null);
   const listRef = useRef<HTMLDivElement>(null);
 
   // Honour the hash on load and on back/forward navigation.
@@ -59,8 +61,8 @@ export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
     if (index < 0) return;
 
     let next = index;
-    if (event.key === "ArrowRight") next = (index + 1) % panes.length;
-    else if (event.key === "ArrowLeft") next = (index - 1 + panes.length) % panes.length;
+    if (event.key === "ArrowDown" || event.key === "ArrowRight") next = (index + 1) % panes.length;
+    else if (event.key === "ArrowUp" || event.key === "ArrowLeft") next = (index - 1 + panes.length) % panes.length;
     else if (event.key === "Home") next = 0;
     else if (event.key === "End") next = panes.length - 1;
     else return;
@@ -70,54 +72,60 @@ export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
   }
 
   return (
-    <div className={cn("my-8", className)}>
-      <div className="sticky top-16 z-30 mb-8 rounded-2xl border border-border/60 bg-background/85 p-1.5 shadow-sm backdrop-blur-xl print:static print:mb-6 print:border-0 print:bg-transparent print:p-0 print:shadow-none">
-        <div
-          ref={listRef}
-          role="tablist"
-          aria-label={label}
-          onKeyDown={handleKeyDown}
-          className="flex items-center gap-1.5 overflow-x-auto"
-        >
-          {panes.map((pane) => {
-            const isActive = pane.id === active;
-            return (
-              <button
-                key={pane.id}
-                type="button"
-                role="tab"
-                id={`tab-${pane.id}`}
-                data-pane-tab={pane.id}
-                aria-selected={isActive}
-                aria-controls={pane.id}
-                tabIndex={isActive ? 0 : -1}
-                onClick={() => select(pane.id)}
-                className={cn(
-                  "shrink-0 rounded-xl px-3.5 py-2 text-sm font-medium transition-colors sm:px-4",
-                  isActive
-                    ? "bg-card font-bold text-foreground shadow-md"
-                    : "text-muted-foreground hover:text-foreground",
-                )}
-              >
-                {pane.label}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
+    <div
+      className={cn("my-8 flex flex-col gap-3", className)}
+      role="group"
+      aria-label={label}
+      onKeyDown={handleKeyDown}
+    >
       {panes.map((pane) => {
         const isActive = pane.id === active;
         return (
-          <section
+          <div
             key={pane.id}
             id={pane.id}
-            role="tabpanel"
-            aria-labelledby={`tab-${pane.id}`}
-            className={cn("scroll-mt-32", !isActive && "topic-pane-hidden")}
+            className={cn(
+              "overflow-hidden rounded-2xl border transition-colors",
+              isActive ? "border-border bg-card shadow-sm" : "border-border/60 bg-card/60",
+            )}
           >
-            {pane.content}
-          </section>
+            <h3>
+              <button
+                type="button"
+                id={`tab-${pane.id}`}
+                data-pane-tab={pane.id}
+                aria-expanded={isActive}
+                aria-controls={`panel-${pane.id}`}
+                onClick={() => select(isActive ? "" : pane.id)}
+                className={cn(
+                  "flex w-full items-center justify-between gap-3 px-5 py-4 text-left transition-colors",
+                  isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                )}
+              >
+                <span className="text-base font-bold tracking-tight">
+                  {pane.label}
+                </span>
+                <ChevronDown
+                  className={cn(
+                    "h-4 w-4 shrink-0 transition-transform duration-200 print:hidden",
+                    isActive && "rotate-180",
+                  )}
+                  strokeWidth={2}
+                  aria-hidden
+                />
+              </button>
+            </h3>
+
+            {isActive && (
+              <section
+                id={`panel-${pane.id}`}
+                aria-labelledby={`tab-${pane.id}`}
+                className="border-t border-border/60 px-5 py-5"
+              >
+                {pane.content}
+              </section>
+            )}
+          </div>
         );
       })}
     </div>

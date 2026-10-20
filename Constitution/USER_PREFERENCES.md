@@ -235,7 +235,7 @@ All new and improved content components follow this design language. The new int
 
 **Top-level concept (1):** TreeDiagram
 
-**Navigation (1):** TopicSwitch — the horizontal pane switcher used by the merged discourse pages (Oct 2026): custom tablist with hash deep links, sticky under the navbar, and every pane hidden-but-present in the DOM so all of them print. Not a content primitive — it wraps `panes={[{ id, label, content }]}`.
+**Navigation (1):** TopicSwitch — the card list used by the merged discourse pages (Oct 2026): one card per writing format, one open at a time, with hash deep links and only the open pane rendered. Not a content primitive — it wraps `panes={[{ id, label, content }]}`.
 
 ### 12.6 Oct 2026 removal
 
