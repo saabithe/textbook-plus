@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
-import { discourseGroups, discourseTopics, type DiscourseTopic } from "@/data/discourses";
+import { discourseTopics, type DiscourseTopic } from "@/data/discourses";
 
 export const metadata = {
   title: "Discourses — Textbook++",
@@ -91,18 +91,7 @@ export default function DiscoursesPage() {
             </div>
           </div>
 
-          {/* Priority groups — formats a question paper can ask for in the same sitting share a page */}
-          {discourseGroups.map((group, index) => (
-            <div key={group.label}>
-              {index > 0 && (
-                <div className="mt-12 h-[5px] w-full rounded-full bg-border" />
-              )}
-              <h2 className="mb-6 mt-6 text-lg font-extrabold tracking-tight text-foreground first:mt-0">
-                {group.label}
-              </h2>
-              <TopicGrid topics={group.topics} />
-            </div>
-          ))}
+          <TopicGrid topics={discourseTopics} />
         </section>
       </main>
     </>
