@@ -1,4 +1,4 @@
-import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2, BookOpen, Swords, IdCard } from "lucide-react";
+import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2, BookOpen, Swords, IdCard, ClipboardList } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface DiscourseTopic {
@@ -44,6 +44,13 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "News Report",
     tagline: "Headline, lead (5 Ws), inverted pyramid — write clear, factual reports",
     icon: Globe,
+  },
+  {
+    id: "event-seminar-report",
+    slug: "event-seminar-report",
+    title: "Event / Seminar Report",
+    tagline: "Report on a programme — details, activities, key ideas, outcome & close",
+    icon: ClipboardList,
   },
   {
     id: "review",
