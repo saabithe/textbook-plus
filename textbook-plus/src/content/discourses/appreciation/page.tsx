@@ -12,6 +12,13 @@ function Slot({ children }: { children: ReactNode }) {
   );
 }
 
+/** A guidance line inside a format frame. */
+function Cue({ children }: { children: ReactNode }) {
+  return (
+    <div className="mt-1 text-sm italic text-muted-foreground">{children}</div>
+  );
+}
+
 export default function AppreciationContent() {
   return (
     <>
@@ -132,6 +139,77 @@ export default function AppreciationContent() {
         Devices are only the evidence — the marks come from showing how each
         one shapes the poem&apos;s meaning, mood and message.
       </Callout>
+
+      <h2>Comparative Poetry Appreciation</h2>
+      <p>
+        When the question gives you <strong>two poems</strong>, appreciate them
+        together — the shared theme first, then what the poems share and where
+        they differ, then the devices, the style and an overall comparison.
+      </p>
+
+      <div className="my-6 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+        <div className="border-b border-border/50 bg-muted/40 px-5 py-3">
+          <span className="text-sm font-bold tracking-tight text-foreground">
+            Fill-in frame — copy this structure
+          </span>
+        </div>
+
+        <div className="px-5 py-4">
+          <h3 className="!mt-0">Comparative Poetry Appreciation</h3>
+
+          <p>
+            <strong>Poems:</strong>
+            <br />
+            &ldquo;<Slot>[Poem 1]</Slot>&rdquo; — <Slot>[Poet]</Slot>
+            <br />
+            &ldquo;<Slot>[Poem 2]</Slot>&rdquo; — <Slot>[Poet]</Slot>
+          </p>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            Theme
+          </h4>
+          <Cue>Explain the common theme in both poems.</Cue>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            Similarities
+          </h4>
+          <ul className="text-sm italic text-muted-foreground">
+            <li>Explain how both poems deal with the same idea.</li>
+            <li>Compare their message and feelings.</li>
+            <li>Mention similar images/ideas if important.</li>
+          </ul>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            Differences
+          </h4>
+          <ul className="text-sm italic text-muted-foreground">
+            <li>Explain how the poems present the theme differently.</li>
+            <li>Compare the tone, images or approach.</li>
+            <li>Mention important differences in the poets&apos; ideas.</li>
+          </ul>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            Poetic Devices
+          </h4>
+          <Cue>
+            Mention important metaphors, imagery, rhyme, symbols or other
+            devices.
+          </Cue>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            Language and Style
+          </h4>
+          <Cue>Briefly compare the language and style of both poems.</Cue>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            Conclusion
+          </h4>
+          <Cue>
+            Explain what makes both poems meaningful and give an overall
+            comparison.
+          </Cue>
+        </div>
+      </div>
 
       <h2>Appreciation vs Review</h2>
       <TableCard

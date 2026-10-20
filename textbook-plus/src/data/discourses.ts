@@ -1,4 +1,4 @@
-import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2, BookOpen, Swords } from "lucide-react";
+import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2, BookOpen, Swords, IdCard } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface DiscourseTopic {
@@ -14,7 +14,7 @@ export const discourseTopics: DiscourseTopic[] = [
     id: "appreciation",
     slug: "appreciation",
     title: "Appreciation",
-    tagline: "Poem appreciation — the 4-part format & the poetic devices that build meaning and effect",
+    tagline: "Poem appreciation — the 4-part format, comparative appreciation & the poetic devices",
     icon: Sparkles,
   },
   {
@@ -58,6 +58,13 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Character Sketch",
     tagline: "Traits with evidence — introduction, incidents, development & overall assessment",
     icon: UserRound,
+  },
+  {
+    id: "profile-writing",
+    slug: "profile-writing",
+    title: "Profile Writing",
+    tagline: "A person's life from the hints — sentence frames, prepositions & linking phrases",
+    icon: IdCard,
   },
   {
     id: "poster-notice-email",
