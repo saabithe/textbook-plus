@@ -1,4 +1,4 @@
-import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2, BookOpen } from "lucide-react";
+import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2, BookOpen, Swords } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface DiscourseTopic {
@@ -86,6 +86,13 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Book / Play Blurb",
     tagline: "Hook → plot without spoilers → appeal → recommendation — plus publisher & price block",
     icon: BookOpen,
+  },
+  {
+    id: "debate",
+    slug: "debate",
+    title: "Debate",
+    tagline: "For & against the motion — four arguments each side, strongest first, plus a conclusion",
+    icon: Swords,
   },
 ];
 
