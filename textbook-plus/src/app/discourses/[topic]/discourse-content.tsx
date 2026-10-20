@@ -9,6 +9,7 @@ const discourseComponents: Record<string, React.ComponentType> = {
   "speech": dynamic(() => import("@/content/discourses/speech/page")) as React.ComponentType,
   "news-report": dynamic(() => import("@/content/discourses/news-report/page")) as React.ComponentType,
   "event-seminar-report": dynamic(() => import("@/content/discourses/event-seminar-report/page")) as React.ComponentType,
+  "live-tv-reporting": dynamic(() => import("@/content/discourses/live-tv-reporting/page")) as React.ComponentType,
   "review": dynamic(() => import("@/content/discourses/review/page")) as React.ComponentType,
   "character-sketch": dynamic(() => import("@/content/discourses/character-sketch/page")) as React.ComponentType,
   "profile-writing": dynamic(() => import("@/content/discourses/profile-writing/page")) as React.ComponentType,
