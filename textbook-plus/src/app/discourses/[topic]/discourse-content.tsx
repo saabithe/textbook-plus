@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 const discourseComponents: Record<string, React.ComponentType> = {
   "letter-writing": dynamic(() => import("@/content/discourses/letter-writing/page")) as React.ComponentType,
-  "article-essay": dynamic(() => import("@/content/discourses/article-essay/page")) as React.ComponentType,
+  "essay-article-paragraph": dynamic(() => import("@/content/discourses/essay-article-paragraph/page")) as React.ComponentType,
   "speech": dynamic(() => import("@/content/discourses/speech/page")) as React.ComponentType,
   "news-report": dynamic(() => import("@/content/discourses/news-report/page")) as React.ComponentType,
   "review": dynamic(() => import("@/content/discourses/review/page")) as React.ComponentType,
@@ -14,7 +14,6 @@ const discourseComponents: Record<string, React.ComponentType> = {
   "interview": dynamic(() => import("@/content/discourses/interview/page")) as React.ComponentType,
   "announcement-notice": dynamic(() => import("@/content/discourses/announcement-notice/page")) as React.ComponentType,
   "book-play-blurb": dynamic(() => import("@/content/discourses/book-play-blurb/page")) as React.ComponentType,
-  "idea-elaboration": dynamic(() => import("@/content/discourses/idea-elaboration/page")) as React.ComponentType,
 };
 
 export function DiscourseContent({ slug }: { slug: string }) {
