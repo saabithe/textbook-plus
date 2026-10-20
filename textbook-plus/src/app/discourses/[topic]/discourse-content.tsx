@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 
 const discourseComponents: Record<string, React.ComponentType> = {
   "letter-writing": dynamic(() => import("@/content/discourses/letter-writing/page")) as React.ComponentType,
+  "job-application-resume": dynamic(() => import("@/content/discourses/job-application-resume/page")) as React.ComponentType,
   "essay-article-paragraph": dynamic(() => import("@/content/discourses/essay-article-paragraph/page")) as React.ComponentType,
   "speech": dynamic(() => import("@/content/discourses/speech/page")) as React.ComponentType,
   "news-report": dynamic(() => import("@/content/discourses/news-report/page")) as React.ComponentType,

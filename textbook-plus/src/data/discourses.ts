@@ -1,4 +1,4 @@
-import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2, BookOpen, Swords, IdCard, ClipboardList } from "lucide-react";
+import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2, BookOpen, Swords, IdCard, ClipboardList, Briefcase } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface DiscourseTopic {
@@ -23,6 +23,13 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Letter Writing",
     tagline: "Formal & informal letter structures — complaints, requests, enquiries & personal letters",
     icon: Mail,
+  },
+  {
+    id: "job-application-resume",
+    slug: "job-application-resume",
+    title: "Job Application & Resume",
+    tagline: "Covering letter plus resume/CV in full — fill-in frames & page rules",
+    icon: Briefcase,
   },
   {
     id: "essay-article-paragraph",
