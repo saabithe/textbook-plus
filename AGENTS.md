@@ -102,9 +102,9 @@ Chapters not registered show "Content coming soon...".
 ## Data Model
 
 - **Main system (Class 12 / Plus Two)**: `src/data/subjects.ts` (6 subjects) + `src/data/chapters.ts` (78 chapters: Physics 14, Chemistry 10, Mathematics 13, Biology 13, English 16, Arabic 12). Subject colors: CSS custom props `--subject-{name}` / `--subject-{name}-light` in `globals.css` `:root` and `.dark`. Chapter list source of truth: `Developer_Deliveries/Chapter names.md`.
-- **Grammar / Discourses**: `src/data/grammar.ts` (12 topics, each tagged `group: "core" | "more"`; the six **core** topics — reported-speech, editing, if-clause, passive-voice, cohesive-devices, concord — render above a labelled 5px divider, the rest under "More Grammar Topics") and `src/data/discourses.ts` (18 topics), routed at `/grammar/{topic}` and `/discourses/{topic}`.
+- **Grammar / Discourses**: `src/data/grammar.ts` (12 topics, each tagged `group: "core" | "more"`; the six **core** topics — reported-speech, editing, if-clause, passive-voice, cohesive-devices, concord — render above a labelled 5px divider, the rest under "More Grammar Topics") and `src/data/discourses.ts` (19 topics), routed at `/grammar/{topic}` and `/discourses/{topic}`.
 
-**Chapters with content** (51 `page.tsx` files): main — 4 Physics (electric-charges-and-fields, magnetism-and-matter, electromagnetic-induction, electromagnetic-waves), all 16 English, 1 Biology (molecular-basis-of-inheritance); Grammar all 12; Discourses all 18. Other chapters show placeholder UI.
+**Chapters with content** (52 `page.tsx` files): main — 4 Physics (electric-charges-and-fields, magnetism-and-matter, electromagnetic-induction, electromagnetic-waves), all 16 English, 1 Biology (molecular-basis-of-inheritance); Grammar all 12; Discourses all 19. Other chapters show placeholder UI.
 
 ## Auth, Progress & Sync (removed Oct 2026)
 

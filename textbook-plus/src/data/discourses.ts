@@ -1,4 +1,4 @@
-import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2, BookOpen, Swords, IdCard, ClipboardList, Briefcase, MessageCircle, Radio, Map } from "lucide-react";
+import { Mail, Newspaper, Mic, Globe, Star, UserRound, Megaphone, Sparkles, MessagesSquare, Volume2, BookOpen, Swords, IdCard, ClipboardList, Briefcase, MessageCircle, Radio, Map, Scissors } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface DiscourseTopic {
@@ -135,6 +135,13 @@ export const discourseTopics: DiscourseTopic[] = [
     title: "Travelogue, Brochure & Travel Info",
     tagline: "Narrate, promote or inform — the three travel forms with frames, guidelines & samples",
     icon: Map,
+  },
+  {
+    id: "precis-writing",
+    slug: "precis-writing",
+    title: "Precis Writing",
+    tagline: "The intelligent summary — master template, 5-step method, mind map, rules & a model precis",
+    icon: Scissors,
   },
 ];
 

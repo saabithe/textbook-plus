@@ -21,6 +21,7 @@ const discourseComponents: Record<string, React.ComponentType> = {
   "debate": dynamic(() => import("@/content/discourses/debate/page")) as React.ComponentType,
   "conversation": dynamic(() => import("@/content/discourses/conversation/page")) as React.ComponentType,
   "travel-writing": dynamic(() => import("@/content/discourses/travel-writing/page")) as React.ComponentType,
+  "precis-writing": dynamic(() => import("@/content/discourses/precis-writing/page")) as React.ComponentType,
 };
 
 export function DiscourseContent({ slug }: { slug: string }) {
