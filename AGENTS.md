@@ -23,12 +23,13 @@ npm install          # install deps
 npm run dev          # dev server (port 3000) — uses --webpack (Windows SWC fix)
 npm run build        # production build — runs scripts/generate-sw.js then next build --webpack
 npm run lint         # eslint
+npm run typecheck    # tsc --noEmit — fast type check, no build needed
 node scripts/verify-latex.cjs   # run after any content-math change: renders every formula through KaTeX, fails on error
 ```
 
 **Note**: `dev` and `build` both use `--webpack` (Windows SWC binary workaround). Vercel/Linux also needs it.
 
-No test framework. No typecheck script (TypeScript errors surface via `npm run build`).
+No test framework. TypeScript errors surface via `npm run typecheck` (fast) or `npm run build` (which also type-checks). **While iterating, run `npm run typecheck` — not a full build, and not the dev server.** Build once at the end of a batch, before a push.
 
 **Scripts** (`textbook-plus/scripts/`): `extract-pdf.mjs` / `clean-extract.mjs` / `render-pdf.mjs` — PDF extraction pipeline (step 2 of CHAPTER_PIPELINE); `unescape-latex.cjs` — codemod rewriting doubled-backslash LaTeX into single-backslash `String.raw` (`node scripts/unescape-latex.cjs <page.tsx> [...]`); `audit-grammar.cjs` — static checks over the 12 grammar topics (duplicate ids, MCQ answer-index range, duplicate options, fill-blank answer present in explanation, `MistakeCard` mistake === correction, stray non-ASCII, type mix) — run `node scripts/audit-grammar.cjs` after editing any `src/content/grammar/*/page.tsx`; `generate-sw.js` / `generate-icons.js` — build-time PWA assets.
 
