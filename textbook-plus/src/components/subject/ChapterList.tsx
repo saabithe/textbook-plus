@@ -36,11 +36,16 @@ export function ChapterList({ subjectSlug, subjectColor }: ChapterListProps) {
 
         return (
           <section key={unit.unit}>
-            <h2 className="flex items-baseline gap-2.5 text-xs font-extrabold uppercase tracking-[0.14em] text-muted-foreground">
+            <h2 className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1 text-xs font-extrabold uppercase tracking-[0.14em] text-muted-foreground">
               <span>{unit.label}</span>
               {unit.labelArabic && (
-                <span dir="rtl" className="text-sm font-bold normal-case tracking-normal text-foreground/80">
+                <span dir="rtl" className="arabic-font text-sm font-bold normal-case tracking-normal text-foreground/80">
                   {unit.labelArabic}
+                </span>
+              )}
+              {unit.labelEnglish && (
+                <span className="text-sm font-bold normal-case tracking-normal text-foreground/80">
+                  {unit.labelEnglish}
                 </span>
               )}
             </h2>
@@ -52,6 +57,7 @@ export function ChapterList({ subjectSlug, subjectColor }: ChapterListProps) {
                   number={chapter.number}
                   title={chapter.titleArabic ?? chapter.title}
                   meta={chapter.titleArabic ? chapter.title : `${chapter.topicCount} topics`}
+                  titleDir={chapter.titleArabic ? "rtl" : "ltr"}
                   color={subjectColor}
                 />
               ))}

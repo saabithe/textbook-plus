@@ -10,6 +10,27 @@ export interface Chapter {
   topicCount: number;
   /** Unit number — set for subjects organised into units (Arabic). */
   unit?: number;
+  /** Author / orator (Arabic subject). */
+  author?: string;
+  /** Author / orator in Arabic script. */
+  authorArabic?: string;
+  /** Genre / lesson type (Arabic subject). */
+  genre?: string;
+  /** Genre / lesson type in Arabic script. */
+  genreArabic?: string;
+  /** Extra facts about the author — shown inside the collapsed card dropdown. */
+  authorDetails?: AuthorDetail[];
+}
+
+export interface AuthorDetail {
+  /** Label in English, e.g. "Birthplace". */
+  label: string;
+  /** Label in Arabic script. */
+  labelArabic?: string;
+  /** Value in English, e.g. "Kadavathoor, Kannur District". */
+  value: string;
+  /** Value in Arabic script. */
+  valueArabic?: string;
 }
 
 export interface SubjectUnit {
@@ -17,6 +38,8 @@ export interface SubjectUnit {
   label: string;
   /** Native-script unit name (Arabic subject). */
   labelArabic?: string;
+  /** English gloss of the unit name. */
+  labelEnglish?: string;
 }
 
 /**
@@ -25,11 +48,11 @@ export interface SubjectUnit {
  */
 export const subjectUnits: Record<string, SubjectUnit[]> = {
   arabic: [
-    { unit: 1, label: "Unit 1", labelArabic: "الوحدة الأولى" },
-    { unit: 2, label: "Unit 2", labelArabic: "الوحدة الثانية" },
-    { unit: 3, label: "Unit 3", labelArabic: "الوحدة الثالثة" },
-    { unit: 4, label: "Unit 4", labelArabic: "الوحدة الرابعة" },
-    { unit: 5, label: "Unit 5", labelArabic: "نافذة إلى الفرص" },
+    { unit: 1, label: "Unit 1", labelArabic: "لغة الله في بلد الله", labelEnglish: "God's Language in God's Country" },
+    { unit: 2, label: "Unit 2", labelArabic: "إلى السعادة", labelEnglish: "Towards Happiness" },
+    { unit: 3, label: "Unit 3", labelArabic: "حلاوة العربية", labelEnglish: "The Sweetness of Arabic" },
+    { unit: 4, label: "Unit 4", labelArabic: "إلى شاطئ الأماني", labelEnglish: "To the Shore of Hopes" },
+    { unit: 5, label: "Unit 5", labelArabic: "نافذة إلى الفرص", labelEnglish: "Window to Opportunities" },
   ],
 };
 
@@ -111,20 +134,38 @@ export const chapters: Record<string, Chapter[]> = {
     { id: "en-16", subjectSlug: "english", number: 16, title: "Crime and Punishment", slug: "crime-and-punishment", topicCount: 4 },
   ],
   arabic: [
-    { id: "ar-01", subjectSlug: "arabic", unit: 1, number: 1, title: "Khairullah", titleArabic: "خير الله", slug: "khairullah", topicCount: 4 },
-    { id: "ar-02", subjectSlug: "arabic", unit: 1, number: 2, title: "Abqariyyun min Abna'i Kerala", titleArabic: "عبقريّ من أبناء كيرالا", slug: "abqariyyun-min-abna'i-kerala", topicCount: 4 },
-    { id: "ar-03", subjectSlug: "arabic", unit: 1, number: 3, title: "Kerala... Wa Ni'amullahi allatee la Tuhsa", titleArabic: "كيرالا ... ونعم الله التي لاتحصى", slug: "kerala-wa-ni'amullahi", topicCount: 4 },
-    { id: "ar-04", subjectSlug: "arabic", unit: 2, number: 1, title: "Naamu wa la Tastaiqidhoo", titleArabic: "ناموا ولا تستيقظوا", slug: "naamu-wa-la-tastaiqidhoo", topicCount: 4 },
-    { id: "ar-05", subjectSlug: "arabic", unit: 2, number: 2, title: "Shurtiyyul Muroor", titleArabic: "شرطي المرور", slug: "shurtiyyul-muroor", topicCount: 4 },
-    { id: "ar-06", subjectSlug: "arabic", unit: 2, number: 3, title: "Keemiya'us Sa'adah", titleArabic: "كيمياء السعادة", slug: "keemiya'us-sa'adah", topicCount: 4 },
-    { id: "ar-07", subjectSlug: "arabic", unit: 3, number: 1, title: "Lughatud Dhaad", titleArabic: "لغة الضاد", slug: "lughatud-dhaad", topicCount: 4 },
-    { id: "ar-08", subjectSlug: "arabic", unit: 3, number: 2, title: "La Talumnee", titleArabic: "لا تلمني", slug: "la-talumnee", topicCount: 4 },
-    { id: "ar-09", subjectSlug: "arabic", unit: 3, number: 3, title: "La'ali'u Lughawiyyah", titleArabic: "لآلئ لغويّة", slug: "la'ali'u-lughawiyyah", topicCount: 4 },
-    { id: "ar-10", subjectSlug: "arabic", unit: 4, number: 1, title: "Hal Anti Waheedah", titleArabic: "هل أنتِ وحيدة...؟", slug: "hal-anti-waheedah", topicCount: 4 },
-    { id: "ar-11", subjectSlug: "arabic", unit: 4, number: 2, title: "La Taqtuloo Anfusakum", titleArabic: "لا تقتلوا أنفسكم", slug: "la-taqtuloo-anfusakum", topicCount: 4 },
-    { id: "ar-12", subjectSlug: "arabic", unit: 4, number: 3, title: "Wasiyyatun minal Vadood", titleArabic: "وصيّة من الودود", slug: "wasiyyatun-minal-vadood", topicCount: 4 },
-    { id: "ar-13", subjectSlug: "arabic", unit: 5, number: 1, title: "Ayna al-Mafarr...?", titleArabic: "أين المَفَرُّ ؟", slug: "ayna-al-mafarr", topicCount: 4 },
-    { id: "ar-14", subjectSlug: "arabic", unit: 5, number: 2, title: "Akhbar al-Yawm", titleArabic: "أخبار اليوم", slug: "akhbar-al-yawm", topicCount: 4 },
+    { id: "ar-01", subjectSlug: "arabic", unit: 1, number: 1, title: "Khairullah", titleArabic: "خير الله", slug: "khairullah", topicCount: 4,
+      author: "N. K. Ahmed Moulavi", authorArabic: "ن. ك. أَحْمَدُ الْمَوْلَوِي", genre: "Descriptive Poem", genreArabic: "مَنْظُومٌ",
+      authorDetails: [
+        { label: "Name", labelArabic: "الاسم", value: "N. K. Ahmed Moulavi", valueArabic: "ن. ك. أَحْمَدُ الْمَوْلَوِي" },
+        { label: "Birthplace", labelArabic: "مكان الميلاد", value: "Kadavathoor, Kannur District", valueArabic: "كَدَوَتُور بِمُقاطَعَةِ كَنُور" },
+      ] },
+    { id: "ar-02", subjectSlug: "arabic", unit: 1, number: 2, title: "Abqariyyun min Abna'i Kerala", titleArabic: "عبقريّ من أبناء كيرالا", slug: "abqariyyun-min-abna'i-kerala", topicCount: 4,
+      author: "Dr. Muhyiddin Al-Alwaye", authorArabic: "د. محي الدين الآلوائي", genre: "Biographical Essay", genreArabic: "سِيرة ذاتية" },
+    { id: "ar-03", subjectSlug: "arabic", unit: 1, number: 3, title: "Kerala... Wa Ni'amullahi allatee la Tuhsa", titleArabic: "كيرالا ... ونعم الله التي لاتحصى", slug: "kerala-wa-ni'amullahi", topicCount: 4,
+      author: "Abu Al-Yazi", authorArabic: "أبو اليازي", genre: "Travelogue", genreArabic: "أدب الرحلة" },
+    { id: "ar-04", subjectSlug: "arabic", unit: 2, number: 1, title: "Naamu wa la Tastaiqidhoo", titleArabic: "ناموا ولا تستيقظوا", slug: "naamu-wa-la-tastaiqidhoo", topicCount: 4,
+      author: "Ma'ruf Al-Rasafi", authorArabic: "معروف الرصافي", genre: "Satirical / Political Poem", genreArabic: "مَنْظُوم" },
+    { id: "ar-05", subjectSlug: "arabic", unit: 2, number: 2, title: "Shurtiyyul Muroor", titleArabic: "شرطي المرور", slug: "shurtiyyul-muroor", topicCount: 4,
+      author: "Mahmud Taymur", authorArabic: "محمود تيمور", genre: "Short Story", genreArabic: "قِصَّة قَصِيرَة" },
+    { id: "ar-06", subjectSlug: "arabic", unit: 2, number: 3, title: "Keemiya'us Sa'adah", titleArabic: "كيمياء السعادة", slug: "keemiya'us-sa'adah", topicCount: 4,
+      author: "Curriculum Text", genre: "Motivational / Self-Development Article", genreArabic: "مَقَالَة إِرْشَادِيَّة" },
+    { id: "ar-07", subjectSlug: "arabic", unit: 3, number: 1, title: "Lughatud Dhaad", titleArabic: "لغة الضاد", slug: "lughatud-dhaad", topicCount: 4,
+      author: "Curriculum Text", genre: "Informative / Language Essay", genreArabic: "مَقَالَة" },
+    { id: "ar-08", subjectSlug: "arabic", unit: 3, number: 2, title: "La Talumnee", titleArabic: "لا تلمني", slug: "la-talumnee", topicCount: 4,
+      author: "Halim Dammus", authorArabic: "حليم دمّوس", genre: "Lyrical Poem", genreArabic: "مَنْظُوم" },
+    { id: "ar-09", subjectSlug: "arabic", unit: 3, number: 3, title: "La'ali'u Lughawiyyah", titleArabic: "لآلئ لغويّة", slug: "la'ali'u-lughawiyyah", topicCount: 4,
+      author: "Traditional Heritage Texts", genre: "Proverbs, Maxims & Parables", genreArabic: "حِكَمٌ وَأَمْثال" },
+    { id: "ar-10", subjectSlug: "arabic", unit: 4, number: 1, title: "Hal Anti Waheedah", titleArabic: "هل أنتِ وحيدة...؟", slug: "hal-anti-waheedah", topicCount: 4,
+      author: "Umm Salamah", authorArabic: "أم سلمة", genre: "Historical / Islamic Narrative", genreArabic: "قِصَّة تَارِيخِيَّة" },
+    { id: "ar-11", subjectSlug: "arabic", unit: 4, number: 2, title: "La Taqtuloo Anfusakum", titleArabic: "لا تقتلوا أنفسكم", slug: "la-taqtuloo-anfusakum", topicCount: 4,
+      author: "Curriculum Text & Prophetic Hadith", genre: "Awareness & Social Guidance Article", genreArabic: "مَقَالَة تَوْعَوِيَّة" },
+    { id: "ar-12", subjectSlug: "arabic", unit: 4, number: 3, title: "Wasiyyatun minal Vadood", titleArabic: "وصيّة من الودود", slug: "wasiyyatun-minal-vadood", topicCount: 4,
+      author: "Divine Revelation (Surah Al-An'am)", genre: "Qur'anic Precepts & Preachment", genreArabic: "نَصٌّ قُرْآنِي" },
+    { id: "ar-13", subjectSlug: "arabic", unit: 5, number: 1, title: "Ayna al-Mafarr...?", titleArabic: "أين المَفَرُّ ؟", slug: "ayna-al-mafarr", topicCount: 4,
+      author: "Tariq ibn Ziyad", authorArabic: "طارق بن زياد", genre: "Historical Oration", genreArabic: "خُطْبَة تَارِيخِيَّة" },
+    { id: "ar-14", subjectSlug: "arabic", unit: 5, number: 2, title: "Akhbar al-Yawm", titleArabic: "أخبار اليوم", slug: "akhbar-al-yawm", topicCount: 4,
+      author: "Media / Journalistic Feature (Al-Watan)", genre: "News Report & Feature Article", genreArabic: "تقرير إخباري" },
   ],
 };
 

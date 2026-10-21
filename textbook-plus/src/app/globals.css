@@ -227,6 +227,63 @@
   margin-bottom: -0.2em;
 }
 
+/* ── Arabic / RTL ────────────────────────────────────────────────
+   Arabic chapter pages run right-to-left: the container carries
+   `dir="rtl"`, these rules swap the Latin serif for the Arabic naskh
+   face and give the tashkeel (diacritics) the vertical room it needs. */
+.prose-ar {
+  font-family: var(--font-arabic), "Noto Naskh Arabic", "Segoe UI", serif;
+  font-weight: 400;
+  line-height: 2.05;
+}
+
+.prose-ar h1,
+.prose-ar h2,
+.prose-ar h3 {
+  font-family: var(--font-arabic), "Noto Naskh Arabic", "Segoe UI", serif;
+  line-height: 1.7;
+}
+
+/* Arabic body copy — set by BilingualParagraph */
+.arabic-font {
+  font-family: var(--font-arabic), "Noto Naskh Arabic", "Segoe UI", serif;
+}
+
+.arabic-font-ui {
+  font-family: var(--font-arabic-ui), var(--font-sans), sans-serif;
+}
+
+.arabic-body {
+  font-family: var(--font-arabic), "Noto Naskh Arabic", "Segoe UI", serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 2.05;
+}
+
+.prose-ar p.arabic-body {
+  margin-bottom: 0.35rem;
+}
+
+/* English translations inside an Arabic page keep the Latin reading face */
+.prose-ar p.translation {
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  margin-bottom: 1.75rem;
+}
+
+/* RTL mirrors for the shared prose elements */
+[dir="rtl"] .prose-custom ul,
+[dir="rtl"] .prose-custom ol {
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+[dir="rtl"] .prose-custom blockquote {
+  border-left-width: 0;
+  border-right: 4px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
+  border-radius: 0.75rem 0 0 0.75rem;
+}
+
 /* Scrollbar — visible thin style */
 html {
   scrollbar-width: thin;

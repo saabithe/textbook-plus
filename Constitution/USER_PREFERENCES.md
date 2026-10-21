@@ -130,6 +130,18 @@ This file tracks ALL user preferences, design decisions, and customization choic
 | Sidebar behavior | Shows only sections for the active tab (Read or Discourses). Clicking a section scrolls to visible content. | Aug 2026 |
 | No auto-creating content | Always ask user via question tool before adding new Discourses sections | Aug 2026 |
 
+## 10.1 Arabic Chapter Page Design
+
+| Preference | Value | Date |
+|------------|-------|------|
+| Direction | Arabic chapter pages render right-to-left — the content wrapper carries `dir="rtl"` + `prose-ar` | Oct 2026 |
+| Opening card | Every Arabic chapter opens with an **ArabicChapterCard**: role (Author / Orator), author name (Arabic script + transliteration), genre / lesson type (Arabic + English), and the finer author facts behind a **collapsed "More" dropdown** | Oct 2026 |
+| Author details | Live on `Chapter.authorDetails` in `src/data/chapters.ts` (`label` / `labelArabic` / `value` / `valueArabic`). Chapters without them show the placeholder "Author details to be added" — to be filled in chapter by chapter | Oct 2026 |
+| Arabic type | **Amiri** (`--font-arabic`) for body text — naskh, handles tashkeel; **IBM Plex Sans Arabic** (`--font-arabic-ui`) for cards/UI inside Arabic pages | Oct 2026 |
+| Bilingual pairing | `BilingualParagraph` — Arabic paragraph with its English translation directly beneath, muted and inset by a logical (direction-aware) rule; optional point number for numbered passages | Oct 2026 |
+| Practice | **None.** Arabic has no Practice tab, no `questions.json`, no `flashcards.json` | Oct 2026 |
+| Tabs | Arabic pages are a single continuous page (no Read/Discourses tabs, no practice) | Oct 2026 |
+
 ## 11. Chapter Content Preferences
 
 | Preference | Value | Date |
@@ -223,7 +235,7 @@ All new and improved content components follow this design language. The new int
 
 **Study (2):** MetricCard, MistakeCard
 
-**English/Arabic (8):** AuthorCard, CharacterSketch, CharacterComparison, ContentTabs, CollapsibleSection, SummaryLevels, ReadRespond
+**English/Arabic (10):** AuthorCard, ArabicChapterCard, BilingualParagraph, CharacterSketch, CharacterComparison, ContentTabs, CollapsibleSection, SummaryLevels, ReadRespond
 
 **Physics (13):** SpectrumExplorer, SpectrumTable, OscillationPlayer, PropagationExplorer, AmpereSurfaceToggle, ChargeFateTrio, TransverseLongitudinal, FormulaAnatomy, SpeedLayers, FieldRatio, VectorFigures, ProjectileGraphs, KinematicsGraphs
 
@@ -242,6 +254,10 @@ All new and improved content components follow this design language. The new int
 The following content components were deleted as orphans (they only existed for the removed Class 11 catalog): **Maths (7)** NumberLine, FunctionGraph, VennDiagram, ArrowDiagram, UnitCircle, ArgandDiagram; **Conic (1)** ConicDiagrams; **Physics (10)** VectorFigures, ProjectileGraphs, KinematicsGraphs, MoiDiagrams, RigidBodyMotions, GravityGGraph, UniversalLawExplorer, ShmEquationAnatomy, ShmGraphs, ShmDisplacementDiagram; plus **ScientistCard** and **Derivation**. The empty `decision/` and `system/` folders, the unused `mafs` dependency, and the orphaned maths/conic/laws-of-motion images were removed too. Current inventory: **48 files** (see AGENTS.md, the live source of truth — the 47 components plus `TopicSwitch`, added Oct 2026 for the merged discourse pages).
 
 *This file is append-only. Previous decisions are never deleted, only updated with new values when explicitly changed by the user.*
+
+### 12.7 Oct 2026 — Arabic (RTL) components
+
+Added `ArabicChapterCard` (the opening card on every Arabic chapter: author/orator, genre, collapsed author details) and `BilingualParagraph` (one Arabic paragraph + its English translation). `AuthorCard` gained optional `subname`, `role`, `genre`, `genreArabic`, `initials` and `dir` props — the 16 English pages are unchanged. Inventory: **50 files**.
 
 ### 13.1 V3 "Quiet Precision" Shell Design (Sep 2026)
 

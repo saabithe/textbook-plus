@@ -1,6 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { ArabicChapterCard } from "@/components/content/ArabicChapterCard";
+import { getChapterBySlugFromAll } from "@/data/chapters";
 
 const chapterComponents: Record<string, React.ComponentType> = {
   "molecular-basis-of-inheritance": dynamic(() => import("@/content/biology/molecular-basis-of-inheritance/page")) as React.ComponentType,
@@ -24,14 +26,26 @@ const chapterComponents: Record<string, React.ComponentType> = {
   "post-early-for-christmas": dynamic(() => import("@/content/english/post-early-for-christmas/page")) as React.ComponentType,
   "this-is-going-to-hurt": dynamic(() => import("@/content/english/this-is-going-to-hurt/page")) as React.ComponentType,
   "crime-and-punishment": dynamic(() => import("@/content/english/crime-and-punishment/page")) as React.ComponentType,
+  "khairullah": dynamic(() => import("@/content/arabic/khairullah/page")) as React.ComponentType,
 };
 
 export function ChapterContent({ slug }: { slug: string }) {
   const Component = chapterComponents[slug];
-  if (!Component) return <div className="text-muted-foreground py-12 text-center">Content coming soon...</div>;
+  const chapter = getChapterBySlugFromAll(slug);
+  const isArabic = chapter?.subjectSlug === "arabic";
+
   return (
-    <div className="prose-custom">
-      <Component />
+    <div
+      className={isArabic ? "prose-custom prose-ar" : "prose-custom"}
+      dir={isArabic ? "rtl" : undefined}
+    >
+      {/* Every Arabic chapter opens with its author / genre card. */}
+      {isArabic && chapter && <ArabicChapterCard chapter={chapter} />}
+      {Component ? (
+        <Component />
+      ) : (
+        <div className="text-muted-foreground py-12 text-center">Content coming soon...</div>
+      )}
     </div>
   );
 }

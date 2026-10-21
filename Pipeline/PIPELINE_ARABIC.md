@@ -22,7 +22,7 @@
 
 | Unit | # | Chapter | Slug | Type | Status |
 |------|---|---------|------|------|--------|
-| 1 | 1 | خَيْرُ الله | `khairullah` | Poem | 🔲 Pending |
+| 1 | 1 | خَيْرُ الله | `khairullah` | Poem | ✅ Content live |
 | 1 | 2 | عَبْقَرِيٌّ مِنْ أَبْنَاءِ كِيرَلا | `abqariyyun-min-abna'i-kerala` | Essay | 🔲 Pending |
 | 1 | 3 | كِيرَلا وَنِعَمُ اللهِ | `kerala-wa-ni'amullahi` | Essay | 🔲 Pending |
 | 2 | 1 | نَامُوا وَلا تَسْتَيْقِظُوا | `naamu-wa-la-tastaiqidhoo` | Poem | 🔲 Pending |
@@ -39,13 +39,33 @@
 
 **Unit names**
 
-| Unit | Arabic | Transliteration |
-|------|--------|-----------------|
-| 1 | الوِحْدَةُ الأُولَى | Al-Wiḥdatu Al-Ūlā |
-| 2 | الوِحْدَةُ الثَّانِيَةُ | Al-Wiḥdatu At-Thāniyah |
-| 3 | الوِحْدَةُ الثَّالِثَةُ | Al-Wiḥdatu At-Thālithah |
-| 4 | الوِحْدَةُ الرَّابِعَةُ | Al-Wiḥdatu Ar-Rābiʿah |
-| 5 | نافذة إلى الفرص | Nāfidhatun ilā Al-Furūq (Window to Opportunities) |
+| Unit | Arabic | English |
+|------|--------|---------|
+| 1 | لغة الله في بلد الله | God's Language in God's Country |
+| 2 | إلى السعادة | Towards Happiness |
+| 3 | حلاوة العربية | The Sweetness of Arabic |
+| 4 | إلى شاطئ الأماني | To the Shore of Hopes |
+| 5 | نافذة إلى الفرص | Window to Opportunities |
+
+**Authors & genres** — stored on each `Chapter` in `src/data/chapters.ts` and shown in the
+`ArabicChapterCard` that opens every Arabic chapter.
+
+| # | Chapter | Author / Orator | Genre / Lesson Type |
+|---|---------|-----------------|---------------------|
+| 1 | Khayrullah | N. K. Ahmed Moulavi (ن. ك. أَحْمَدُ الْمَوْلَوِي) | Descriptive Poem (مَنْظُومٌ) |
+| 2 | Abqariyyun min Abna' Kerala | Dr. Muhyiddin Al-Alwaye (د. محي الدين الآلوائي) | Biographical Essay (سيرة ذاتية) |
+| 3 | Kerala... wa Ni'amullah... | Abu Al-Yazi (أبو اليازي) | Travelogue (أدب الرحلة) |
+| 4 | Namu wa la Tastayqidhu | Maroof Al-Rasafi (معروف الرصافي) | Satirical / Political Poem (مَنْظُوم) |
+| 5 | Shurtiyy al-Murur | Mahmud Taymur (محمود تيمور) | Short Story (قصة قصيرة) |
+| 6 | Kimiya' al-Sa'adah | Curriculum Text | Motivational / Self-Development Article (مقالة) |
+| 7 | Lughat al-Dhad | Curriculum Text | Informative / Language Essay (مقالة) |
+| 8 | La Talamni | Halim Dammus (حليم دمّوس) | Lyrical Poem (مَنْظُوم) |
+| 9 | La'ali' Lughawiyyah | Traditional Heritage Texts | Proverbs, Maxims & Parables (حكم وأمثال) |
+| 10 | Hal Anti Waheedatun...? | Umm Salamah (أم سلمة) | Historical / Islamic Narrative (قصة تاريخية) |
+| 11 | La Taqtulu Anfusakum | Curriculum Text & Prophetic Hadith | Awareness & Social Guidance Article (مقالة توعوية) |
+| 12 | Wasiyyatun min al-Wadud | Divine Revelation (Surah Al-An'am) | Qur'anic Precepts & Preachment (نص قرآني) |
+| 13 | Ayna al-Mafarr...? | Tariq ibn Ziyad (طارق بن زياد) | Historical Oration (خطبة تاريخية) |
+| 14 | Akhbar al-Yawm | Media / Journalistic Feature (Al-Watan) | News Report & Feature Article (تقرير إخباري) |
 
 Slugs are the live URLs — `src/data/chapters.ts` is authoritative.
 

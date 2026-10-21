@@ -9,6 +9,8 @@ interface ChapterRowProps {
   meta?: string;
   color: string;
   badge?: React.ReactNode;
+  /** Text direction of the title — "rtl" for native-script titles. */
+  titleDir?: "ltr" | "rtl";
   className?: string;
 }
 
@@ -19,6 +21,7 @@ export function ChapterRow({
   meta,
   color,
   badge,
+  titleDir = "ltr",
   className,
 }: ChapterRowProps) {
   return (
@@ -38,7 +41,11 @@ export function ChapterRow({
 
       <div className="flex min-w-0 flex-1 flex-col gap-0.5">
         <span
-          className="truncate text-sm font-medium text-foreground transition-colors group-hover:text-[var(--hover-color)] sm:text-[15px]"
+          dir={titleDir}
+          className={cn(
+            "truncate text-sm font-medium text-foreground transition-colors group-hover:text-[var(--hover-color)] sm:text-[15px]",
+            titleDir === "rtl" && "arabic-font"
+          )}
           style={{ "--hover-color": color } as React.CSSProperties}
         >
           {title}
