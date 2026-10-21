@@ -77,7 +77,7 @@ export const subjects: Subject[] = [
     icon: Languages,
     color: "var(--subject-arabic)",
     colorLight: "var(--subject-arabic-light)",
-    chapterCount: 12,
+    chapterCount: 14,
     description: "Kerala Board SCERT Plus Two",
   },
 ];

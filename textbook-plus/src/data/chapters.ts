@@ -1,11 +1,37 @@
 export interface Chapter {
   id: string;
   subjectSlug: string;
+  /** Chapter number within its unit. */
   number: number;
   title: string;
+  /** Native-script title (Arabic subject). Rendered as the chapter heading. */
+  titleArabic?: string;
   slug: string;
   topicCount: number;
+  /** Unit number — set for subjects organised into units (Arabic). */
+  unit?: number;
 }
+
+export interface SubjectUnit {
+  unit: number;
+  label: string;
+  /** Native-script unit name (Arabic subject). */
+  labelArabic?: string;
+}
+
+/**
+ * Units per subject. Only subjects whose syllabus is split into units
+ * (Arabic) list them here; other subjects fall back to a flat chapter list.
+ */
+export const subjectUnits: Record<string, SubjectUnit[]> = {
+  arabic: [
+    { unit: 1, label: "Unit 1", labelArabic: "الوحدة الأولى" },
+    { unit: 2, label: "Unit 2", labelArabic: "الوحدة الثانية" },
+    { unit: 3, label: "Unit 3", labelArabic: "الوحدة الثالثة" },
+    { unit: 4, label: "Unit 4", labelArabic: "الوحدة الرابعة" },
+    { unit: 5, label: "Unit 5", labelArabic: "نافذة إلى الفرص" },
+  ],
+};
 
 export const chapters: Record<string, Chapter[]> = {
   physics: [
@@ -85,18 +111,20 @@ export const chapters: Record<string, Chapter[]> = {
     { id: "en-16", subjectSlug: "english", number: 16, title: "Crime and Punishment", slug: "crime-and-punishment", topicCount: 4 },
   ],
   arabic: [
-    { id: "ar-01", subjectSlug: "arabic", number: 1, title: "Khairullah", slug: "khairullah", topicCount: 4 },
-    { id: "ar-02", subjectSlug: "arabic", number: 2, title: "Abqariyyun min Abna'i Kerala", slug: "abqariyyun-min-abna'i-kerala", topicCount: 4 },
-    { id: "ar-03", subjectSlug: "arabic", number: 3, title: "Kerala... Wa Ni'amullahi allatee la Tuhsa", slug: "kerala-wa-ni'amullahi", topicCount: 4 },
-    { id: "ar-04", subjectSlug: "arabic", number: 4, title: "Naamu wa la Tastaiqidhoo", slug: "naamu-wa-la-tastaiqidhoo", topicCount: 4 },
-    { id: "ar-05", subjectSlug: "arabic", number: 5, title: "Shurtiyyul Muroor", slug: "shurtiyyul-muroor", topicCount: 4 },
-    { id: "ar-06", subjectSlug: "arabic", number: 6, title: "Keemiya'us Sa'adah", slug: "keemiya'us-sa'adah", topicCount: 4 },
-    { id: "ar-07", subjectSlug: "arabic", number: 7, title: "Lughatud Dhaad", slug: "lughatud-dhaad", topicCount: 4 },
-    { id: "ar-08", subjectSlug: "arabic", number: 8, title: "La Talumnee", slug: "la-talumnee", topicCount: 4 },
-    { id: "ar-09", subjectSlug: "arabic", number: 9, title: "La'ali'u Lughawiyyah", slug: "la'ali'u-lughawiyyah", topicCount: 4 },
-    { id: "ar-10", subjectSlug: "arabic", number: 10, title: "Hal Anti Waheedah", slug: "hal-anti-waheedah", topicCount: 4 },
-    { id: "ar-11", subjectSlug: "arabic", number: 11, title: "La Taqtuloo Anfusakum", slug: "la-taqtuloo-anfusakum", topicCount: 4 },
-    { id: "ar-12", subjectSlug: "arabic", number: 12, title: "Wasiyyatun minal Vadood", slug: "wasiyyatun-minal-vadood", topicCount: 4 },
+    { id: "ar-01", subjectSlug: "arabic", unit: 1, number: 1, title: "Khairullah", titleArabic: "خير الله", slug: "khairullah", topicCount: 4 },
+    { id: "ar-02", subjectSlug: "arabic", unit: 1, number: 2, title: "Abqariyyun min Abna'i Kerala", titleArabic: "عبقريّ من أبناء كيرالا", slug: "abqariyyun-min-abna'i-kerala", topicCount: 4 },
+    { id: "ar-03", subjectSlug: "arabic", unit: 1, number: 3, title: "Kerala... Wa Ni'amullahi allatee la Tuhsa", titleArabic: "كيرالا ... ونعم الله التي لاتحصى", slug: "kerala-wa-ni'amullahi", topicCount: 4 },
+    { id: "ar-04", subjectSlug: "arabic", unit: 2, number: 1, title: "Naamu wa la Tastaiqidhoo", titleArabic: "ناموا ولا تستيقظوا", slug: "naamu-wa-la-tastaiqidhoo", topicCount: 4 },
+    { id: "ar-05", subjectSlug: "arabic", unit: 2, number: 2, title: "Shurtiyyul Muroor", titleArabic: "شرطي المرور", slug: "shurtiyyul-muroor", topicCount: 4 },
+    { id: "ar-06", subjectSlug: "arabic", unit: 2, number: 3, title: "Keemiya'us Sa'adah", titleArabic: "كيمياء السعادة", slug: "keemiya'us-sa'adah", topicCount: 4 },
+    { id: "ar-07", subjectSlug: "arabic", unit: 3, number: 1, title: "Lughatud Dhaad", titleArabic: "لغة الضاد", slug: "lughatud-dhaad", topicCount: 4 },
+    { id: "ar-08", subjectSlug: "arabic", unit: 3, number: 2, title: "La Talumnee", titleArabic: "لا تلمني", slug: "la-talumnee", topicCount: 4 },
+    { id: "ar-09", subjectSlug: "arabic", unit: 3, number: 3, title: "La'ali'u Lughawiyyah", titleArabic: "لآلئ لغويّة", slug: "la'ali'u-lughawiyyah", topicCount: 4 },
+    { id: "ar-10", subjectSlug: "arabic", unit: 4, number: 1, title: "Hal Anti Waheedah", titleArabic: "هل أنتِ وحيدة...؟", slug: "hal-anti-waheedah", topicCount: 4 },
+    { id: "ar-11", subjectSlug: "arabic", unit: 4, number: 2, title: "La Taqtuloo Anfusakum", titleArabic: "لا تقتلوا أنفسكم", slug: "la-taqtuloo-anfusakum", topicCount: 4 },
+    { id: "ar-12", subjectSlug: "arabic", unit: 4, number: 3, title: "Wasiyyatun minal Vadood", titleArabic: "وصيّة من الودود", slug: "wasiyyatun-minal-vadood", topicCount: 4 },
+    { id: "ar-13", subjectSlug: "arabic", unit: 5, number: 1, title: "Ayna al-Mafarr...?", titleArabic: "أين المَفَرُّ ؟", slug: "ayna-al-mafarr", topicCount: 4 },
+    { id: "ar-14", subjectSlug: "arabic", unit: 5, number: 2, title: "Akhbar al-Yawm", titleArabic: "أخبار اليوم", slug: "akhbar-al-yawm", topicCount: 4 },
   ],
 };
 

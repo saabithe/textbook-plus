@@ -7,6 +7,8 @@ import { getSubjectBySlug } from "@/data/subjects";
 export interface SearchResult {
   chapterSlug: string;
   chapterTitle: string;
+  /** Native-script title — searched alongside the transliterated title. */
+  chapterTitleArabic?: string;
   chapterNumber: number;
   subjectName: string;
   subjectSlug: string;
@@ -25,6 +27,7 @@ export function useSearch() {
         flat.push({
           chapterSlug: ch.slug,
           chapterTitle: ch.title,
+          chapterTitleArabic: ch.titleArabic,
           chapterNumber: ch.number,
           subjectName: subject.name,
           subjectSlug: subject.slug,
@@ -41,6 +44,7 @@ export function useSearch() {
     return allChapters.filter(
       (ch) =>
         ch.chapterTitle.toLowerCase().includes(q) ||
+        ch.chapterTitleArabic?.toLowerCase().includes(q) ||
         ch.subjectName.toLowerCase().includes(q) ||
         ch.chapterSlug.toLowerCase().includes(q)
     );

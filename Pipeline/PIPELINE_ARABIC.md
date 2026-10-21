@@ -1,6 +1,6 @@
 # PIPELINE_ARABIC.md
 
-> Kerala Board Class 12 Arabic — 12 chapters. RTL layout required, grammar + vocabulary + literary analysis.
+> Kerala Board Class 12 Arabic — 14 chapters in 5 units. RTL layout required, grammar + vocabulary + literary analysis. No practice.
 
 ---
 
@@ -10,58 +10,74 @@
 |----------|-------|
 | Subject | Arabic |
 | Slug | `arabic` |
-| Chapters | 12 |
+| Chapters | 14 (5 units) |
 | Color | `--subject-arabic` (red) |
 | Content type | Arabic literature, grammar, vocabulary, poetry, essays (RTL) |
-| Practice types | MCQs, grammar exercises, vocabulary, flashcards |
+| Practice | **None** — Arabic has no Practice tab, no `questions.json` / `flashcards.json` |
 | **RTL** | **Yes — full right-to-left layout support** |
 
 ---
 
 ## Chapter List
 
-| # | Chapter | Slug | Type | Status |
-|---|---------|------|------|--------|
-| 1 | خَيْرُ الله | `khairullah` | Poem | 🔲 Pending |
-| 2 | عَبْقَرِيٌّ مِنْ أَبْنَاءِ كِيرَلا | `abqariyyun-min-abna'i-kerala` | Essay | 🔲 Pending |
-| 3 | كِيرَلا وَنِعَمُ اللهِ | `kerala-wa-ni'amullah` | Essay | 🔲 Pending |
-| 4 | نَامُوا وَلا تَسْتَيْقِظُوا | `naamu-wa-la-tastaiqidhoo` | Poem | 🔲 Pending |
-| 5 | شُرْطِيُّ المُرُورِ | `shurtiyyul-muroor` | Story | 🔲 Pending |
-| 6 | كِيمْيَاءُ السَّعَادَةِ | `keemiyaus-saadah` | Essay | 🔲 Pending |
-| 7 | لُغَةُ الضَّادِ | `lughatud-dhaad` | Essay | 🔲 Pending |
-| 8 | لا تَلُمْنِي | `la-talumnee` | Poem | 🔲 Pending |
-| 9 | لَآلِئُ لُغَوِيَّةٌ | `laaliu-lughawiyyah` | Essay | 🔲 Pending |
-| 10 | هَلْ أَنْتِ وَحِيدَةٌ | `hal-anti-waheedah` | Poem | 🔲 Pending |
-| 11 | لا تَقْتُلُوا أَنْفُسَكُمْ | `la-taqtuloo-anfusakum` | Essay | 🔲 Pending |
-| 12 | وَصِيَّةٌ مِنَ الوَدُودِ | `wasiyyatun-minal-vadood` | Essay | 🔲 Pending |
+| Unit | # | Chapter | Slug | Type | Status |
+|------|---|---------|------|------|--------|
+| 1 | 1 | خَيْرُ الله | `khairullah` | Poem | 🔲 Pending |
+| 1 | 2 | عَبْقَرِيٌّ مِنْ أَبْنَاءِ كِيرَلا | `abqariyyun-min-abna'i-kerala` | Essay | 🔲 Pending |
+| 1 | 3 | كِيرَلا وَنِعَمُ اللهِ | `kerala-wa-ni'amullahi` | Essay | 🔲 Pending |
+| 2 | 1 | نَامُوا وَلا تَسْتَيْقِظُوا | `naamu-wa-la-tastaiqidhoo` | Poem | 🔲 Pending |
+| 2 | 2 | شُرْطِيُّ المُرُورِ | `shurtiyyul-muroor` | Story | 🔲 Pending |
+| 2 | 3 | كِيمْيَاءُ السَّعَادَةِ | `keemiya'us-sa'adah` | Essay | 🔲 Pending |
+| 3 | 1 | لُغَةُ الضَّادِ | `lughatud-dhaad` | Essay | 🔲 Pending |
+| 3 | 2 | لا تَلُمْنِي | `la-talumnee` | Poem | 🔲 Pending |
+| 3 | 3 | لَآلِئُ لُغَوِيَّةٌ | `la'ali'u-lughawiyyah` | Essay | 🔲 Pending |
+| 4 | 1 | هَلْ أَنْتِ وَحِيدَةٌ | `hal-anti-waheedah` | Poem | 🔲 Pending |
+| 4 | 2 | لا تَقْتُلُوا أَنْفُسَكُمْ | `la-taqtuloo-anfusakum` | Essay | 🔲 Pending |
+| 4 | 3 | وَصِيَّةٌ مِنَ الوَدُودِ | `wasiyyatun-minal-vadood` | Essay | 🔲 Pending |
+| 5 | 1 | أَيْنَ الْمَفَرُّ ؟ | `ayna-al-mafarr` | TBD | 🔲 Pending |
+| 5 | 2 | أَخْبَارُ الْيَوْمِ | `akhbar-al-yawm` | TBD | 🔲 Pending |
+
+**Unit names**
+
+| Unit | Arabic | Transliteration |
+|------|--------|-----------------|
+| 1 | الوِحْدَةُ الأُولَى | Al-Wiḥdatu Al-Ūlā |
+| 2 | الوِحْدَةُ الثَّانِيَةُ | Al-Wiḥdatu At-Thāniyah |
+| 3 | الوِحْدَةُ الثَّالِثَةُ | Al-Wiḥdatu At-Thālithah |
+| 4 | الوِحْدَةُ الرَّابِعَةُ | Al-Wiḥdatu Ar-Rābiʿah |
+| 5 | نافذة إلى الفرص | Nāfidhatun ilā Al-Furūq (Window to Opportunities) |
+
+Slugs are the live URLs — `src/data/chapters.ts` is authoritative.
 
 ---
 
 ## Pipeline Steps (Dynamic — 16 steps)
 
-Arabic follows the **master 16-step pipeline** with subject-specific content rules, component suggestions, and practice ratios.
+Arabic follows the **master 16-step pipeline** with subject-specific content rules and component suggestions.
 
 ### Analysis Phase (Steps 1–7)
 
 | Step | Name | Description | Input | Output |
 |------|------|-------------|-------|--------|
-| 1 | Input | Provide Kerala Board Arabic textbook PDF | PDF file | Source file |
-| 2 | Extract | Complete exhaustive extraction → markdown | PDF | `{slug}-extracted.md` |
+| 1 | Input | Receive the chapter material | User-supplied text / notes | Source text |
+| 2 | Extract | Transcribe the supplied material → markdown | Source text | `{slug}-extracted.md` |
 | 3 | Clean/Reformat | Tool + AI → clean markdown (ALL content preserved) | Extraction | Clean markdown |
-| 4 | Verify | Automated comparison against PDF | Extraction + PDF | Gap-filled extraction |
+| 4 | Verify | Automated comparison against the source | Extraction + Source | Gap-filled extraction |
 | 5 | Structure | Reconstruct chapter hierarchy from extraction | Extraction | Topic tree |
 | 6 | Decompose + Map | Break into knowledge units + source traceability | Extraction | Unit list + refs |
 | 7 | Audit | Automated completeness check against extraction | Units + extraction | Gap report |
 
-**Step 1 note:** PDF location: TBD — create folder in `Developer_Deliveries/Chapters/`
+**Step 1 note:** no textbook PDF is provided for Arabic — chapter material is
+supplied by the user, so `Developer_Deliveries/Chapters/Arabic Textbooks/`
+stays empty. Nothing is authored that the user has not supplied.
 
 ### Content Creation Phase (Steps 8–12)
 
 | Step | Name | Description | Component Suggestions |
 |------|------|-------------|----------------------|
 | 8 | Understanding | Auto-generate foundation → bridge → content | Callout, KeyPoint, FactCard |
-| 9 | Transform + Exam | Auto-suggest components, user approves | **Comparison**, **PerspectiveCard**, **Timeline**, Checklist, TableCard, MistakeCard |
-| 10 | Learning | Auto-generate practice content | GuidedStepper, ConceptCard, FactCard |
+| 9 | Transform + Exam | Auto-suggest components, user approves | **Comparison**, **ConceptCard**, **Timeline**, Checklist, TableCard, MistakeCard |
+| 10 | Learning | Generate vocabulary + grammar content | ConceptCard, FactCard, TableCard |
 | 11 | Revision | Generate 3 views (Full → Revision → Last-Minute) | Expandable, Checklist |
 | 12 | Validate | Automated accuracy + completeness check | — |
 
@@ -71,15 +87,15 @@ Arabic follows the **master 16-step pipeline** with subject-specific content rul
 |------|------|-------------|
 | **12a** | **RTL Validate** | Verify all components render correctly in RTL context |
 
-**Step 9 component suggestions:** Arabic chapters typically need Comparison (character analysis, grammar rule comparisons), PerspectiveCard (themes with multiple interpretations), Timeline (historical context), Checklist (grammar checklists), TableCard (vocabulary lists), MistakeCard (common grammar errors). AI suggests per chapter, user approves.
+**Step 9 component suggestions:** Arabic chapters typically need Comparison (character analysis, grammar rule comparisons), ConceptCard (themes with multiple angles), Timeline (historical context), Checklist (grammar checklists), TableCard (vocabulary lists), MistakeCard (common grammar errors). AI suggests per chapter, user approves.
 
-**Step 10 notes:** Include comprehension questions, literary device identification, grammar exercises, and vocabulary practice. Mix is AI-decided per chapter based on content.
+**Step 10 notes:** Include literary device identification, grammar tables, and vocabulary lists. No practice files are produced for Arabic.
 
 ### Output & Registration Phase (Steps 13–16)
 
 | Step | Name | Description |
 |------|------|-------------|
-| 13 | Output | Create `page.tsx` + optional `questions.json`, `flashcards.json` |
+| 13 | Output | Create `page.tsx` only — no practice files for Arabic |
 | 14 | Verify Subject | Confirm `arabic` exists in `src/data/subjects.ts` |
 | 15 | Register | Auto-register chapter + sections |
 | 16 | Build | `npm run build` — 0 errors, chapter live |
@@ -99,7 +115,6 @@ Every content component must be checked for RTL compatibility:
 
 | Component | RTL Issue | Fix |
 |-----------|----------|-----|
-| FlowDiagram | Arrow direction | Flip arrows in RTL mode |
 | ProcessCard | Step numbers | Keep numbers on right side |
 | CycleDiagram | Loop direction | Flip cycle direction |
 | Timeline | Event alignment | Events on right, timeline on left |
@@ -113,7 +128,6 @@ Every content component must be checked for RTL compatibility:
 
 Add to `globals.css`:
 ```css
-[dir="rtl"] .flow-arrow { transform: scaleX(-1); }
 [dir="rtl"] .cycle-direction { direction: rtl; }
 [dir="rtl"] .tree-indent { margin-right: 1rem; margin-left: 0; }
 [dir="rtl"] .timeline-events { text-align: right; }
@@ -142,7 +156,7 @@ Add to `globals.css`:
 
 ### Poetry
 - Use `KeyPoint` for themes and imagery
-- Use `PerspectiveCard` for multiple interpretations
+- Use `ConceptCard` for multiple interpretations
 - Use `Comparison` for contrasting stanzas
 - Use `Timeline` for historical context
 
@@ -159,23 +173,11 @@ Add to `globals.css`:
 
 ---
 
-## Practice Rules (Arabic)
+## Practice — None (Arabic)
 
-Practice content is **dynamic** — AI decides per chapter, user approves.
+Arabic has **no practice**. There is no Practice tab, no `questions.json`, no
+`flashcards.json`, and no entries in the `src/lib/content.ts` registry for any
+Arabic chapter. `ChapterLayout` already hides the Learning/Practice tab bar for
+Arabic. Comprehension, grammar and vocabulary work lives inside the chapter
+content itself (vocabulary tables, grammar tables, worked examples).
 
-### Questions (`questions.json`)
-- **Format:** 4 options (MCQs) or open-ended (short answer, grammar)
-- **Question types:** MCQs, comprehension, short answer, grammar exercises, vocabulary
-- **Mix:** AI decides per chapter based on content type and complexity
-- **Trigger:** AI suggests generating practice when content is substantial enough
-
-### Flashcards (`flashcards.json`)
-- **Front**: Arabic vocabulary / literary device / grammar rule
-- **Back**: English meaning / example / explanation
-- **Tags**: `vocabulary`, `literary-device`, `grammar`, `theme`, `character`
-
-### Practice Generation
-- AI suggests adding practice content after learning content is complete
-- User approves whether to add practice for each chapter
-- Not every chapter needs practice — only when it genuinely helps learning
-- Keep file format (questions.json + flashcards.json) — a shared backend may be added later

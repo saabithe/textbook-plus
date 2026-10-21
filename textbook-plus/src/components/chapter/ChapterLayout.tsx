@@ -98,10 +98,19 @@ export function ChapterLayout({
           </span>
           <div className="space-y-1">
             <h1 className="text-2xl font-extrabold tracking-tight sm:text-4xl">
-              {chapter.title}
+              {chapter.titleArabic ? (
+                <span dir="rtl">{chapter.titleArabic}</span>
+              ) : (
+                chapter.title
+              )}
             </h1>
             <p className="text-sm font-semibold text-muted-foreground">
-              {subtitle ?? `${chapter.topicCount} topics`}
+              {subtitle ??
+                (chapter.titleArabic
+                  ? [chapter.title, chapter.unit ? `Unit ${chapter.unit}` : null]
+                      .filter(Boolean)
+                      .join(" · ")
+                  : `${chapter.topicCount} topics`)}
             </p>
           </div>
         </div>

@@ -16,7 +16,9 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
     const subject = getSubjectBySlug(chapter.subjectSlug);
     return {
       title: `${chapter.title} — ${subject?.name ?? ""} | Textbook++`,
-      description: `Chapter ${chapter.number}: ${chapter.title}`,
+      description: chapter.unit
+        ? `Unit ${chapter.unit}, Chapter ${chapter.number}: ${chapter.title}`
+        : `Chapter ${chapter.number}: ${chapter.title}`,
     };
   });
 }
