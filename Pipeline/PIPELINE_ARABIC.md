@@ -193,6 +193,20 @@ Add to `globals.css`:
 
 ---
 
+## Arabic Discourses (`/arabic/discourses`)
+
+The Arabic counterpart of the English Discourses section — the writing frames
+an Arabic question paper can ask for. Topics live in
+`src/data/arabic-discourses.ts`, page bodies in
+`src/content/arabic/discourses/{slug}/page.tsx`, hub at `/arabic/discourses`
+(a plain card grid like the English hub), linked from the Arabic subject hub.
+
+| # | Page | Arabic | Status |
+|---|------|--------|--------|
+| 1 | The Central Message (Modular Template) | الرِّسَالَةُ الْمَرْكَزِيَّةُ | ✅ Live |
+
+---
+
 ## Practice — None (Arabic)
 
 Arabic has **no practice**. There is no Practice tab, no `questions.json`, no

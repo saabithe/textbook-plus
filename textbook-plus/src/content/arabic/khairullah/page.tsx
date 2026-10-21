@@ -1,4 +1,8 @@
 import { BilingualParagraph } from "@/components/content/BilingualParagraph";
+import { Callout } from "@/components/content/Callout";
+import { KeyPoint } from "@/components/content/KeyPoint";
+import { TableCard } from "@/components/content/data/TableCard";
+import { Checklist } from "@/components/content/data/Checklist";
 
 /**
  * Chapter 1 — خير الله / Khairullah
@@ -112,6 +116,53 @@ const KHAIRULLAH_INTRO = [
   },
 ];
 
+const VERSES = [
+  {
+    arabic:
+      "١) فِيكِ الزُّرُوعُ كَأَنَّمَا هِيَ كِسْوَةٌ مِنْ سُنْدُسٍ خُضْرٌ كُسِيتِ تَجَمُّلًا",
+    english:
+      "1) In you are crops as if they are a garment of green silk, you were dressed in beauty.",
+    explanationArabic:
+      "يَقُولُ الشَّاعِرُ فِي هَذَا السَّطْرِ عَنْ مَزَارِعِ كَيْرَالا الْخَضْرَةِ، كَأَنَّهَا هِيَ كِسْوَةٌ جَمِيلَةٌ مِنْ سُنْدُسٍ، وَهَذِهِ الْمَزَارِعُ وَخُضْرَتُهَا جَعَلَتْ كَيْرَالا مَكَانًا جَمِيلًا فِي الْأَرْضِ.",
+    explanationEnglish:
+      "The poet says in this line about the green farms of Kerala: they are as if they are a beautiful garment of green silk (sundus), and these farms along with their greenery have made Kerala a beautiful place on earth.",
+  },
+  {
+    arabic:
+      "٢) كَمْ مَسْجِدٍ وَكَنِيسَةٍ قَدْ عَانَقَا يَا كَيْرَالَا الْحَسَنَاءُ فِيكِ الْهَيْكَلَا",
+    english:
+      "2) How many a mosque and church have embraced each other, O beautiful Kerala, within you are structures.",
+    explanationArabic:
+      "يَقُولُ الشَّاعِرُ فِي هَذَا السَّطْرِ: يُوجَدُ فِي كَيْرَالا مَعَابِدُ مُخْتَلِفَةٌ كَمَسَاجِدِ الْمُسْلِمِينَ وَكَنَائِسِ النَّصَارَى وَهَيَاكِلِ الْهُنُودِ. وَهَذِهِ الْمَعَابِدُ تُوحِي رِسَالَةً قَيِّمَةً حَوْلَ أُخُوَّةِ أَهْلِ كَيْرَالا وَتَسَامُحِهِمْ.",
+    explanationEnglish:
+      "The poet says in this line: There are various places of worship in Kerala, such as Muslim mosques, Christian churches, and Hindu temples. These places of worship inspire a valuable message regarding the brotherhood and tolerance of the people of Kerala.",
+  },
+  {
+    arabic: "٣) يَا كَيْرَالَا نَهْوَاكِ حُبًّا صَادِقًا",
+    english: "3) O Kerala, we love you with a sincere love.",
+    explanationArabic:
+      "يَقُولُ الشَّاعِرُ فِي هَذَا السَّطْرِ: إِنَّ أَهْلَ كَيْرَالا وَهُمْ يُحِبُّونَ وِلَايَتَهُمْ كَيْرَالا حُبًّا صَادِقًا كَمَا يُحِبُّ الظَّامِئُ الْمَاءَ وَمَنَاهِلَهُ.",
+    explanationEnglish:
+      "The poet says in this line: Indeed, the people of Kerala love their state Kerala with a sincere love, just as a thirsty person loves water and its sources.",
+  },
+];
+
+const CENTRAL_MESSAGE_ARABIC =
+  "هَذَا السَّطْرُ مِنْ مَنْظُومِ خَيْرِ اللَّهِ لِلشَّاعِرِ الْمَشْهُورِ ن. ك. أَحْمَدِ الْمَوْلَوِي، يَقُولُ الشَّاعِرُ فِي هَذَا الْمَنْظُومِ عَنْ وِلَايَةِ كَيْرَالا وَطَبِيعَتِهَا الْجَمِيلَةِ.";
+
+const CENTRAL_MESSAGE_ENGLISH =
+  'This line is from the poem "Khairullah" by the famous poet N.K. Ahmed Moulavi. The poet speaks in this poem about the state of Kerala and its beautiful nature.';
+
+const PREPOSITIONS = [
+  { arabic: "فِي", translit: "Fi", meaning: "In", example: "فِي الْمَهْدِ", exampleEnglish: "In the cradle" },
+  { arabic: "عَلَى", translit: "Ala", meaning: "On", example: "عَلَى الْكُرْسِيِّ", exampleEnglish: "On the chair" },
+  { arabic: "مِنْ", translit: "Min", meaning: "From", example: "مِنَ الْكُلِّيَةِ", exampleEnglish: "From the college" },
+  { arabic: "إِلَى", translit: "Ila", meaning: "To / Towards", example: "إِلَى الْمَدْرَسَةِ", exampleEnglish: "To the school" },
+  { arabic: "عَنْ", translit: "An", meaning: "About / From", example: "عَنِ الْعَلَاقَاتِ", exampleEnglish: "About the relations" },
+  { arabic: "بِـ", translit: "Bi", meaning: "With / By / At", example: "بِمَدْرَسَةٍ", exampleEnglish: "At a school" },
+  { arabic: "لِـ", translit: "Li", meaning: "For / Belonging to", example: "لِلطَّالِبِ", exampleEnglish: "For the student" },
+];
+
 export default function KhairullahPage() {
   return (
     <div dir="rtl">
@@ -153,6 +204,124 @@ export default function KhairullahPage() {
           number={i + 1}
         />
       ))}
+
+      {/* ── Verses and their central message ─────────────────────────── */}
+      <Callout type="note" title="نَكْتُبُ الرِّسَالَةَ الْمَرْكَزِيَّةَ لِلْبَيْتِ الْآتِي">
+        <p dir="ltr" className="translation !mb-0">
+          We write the central message for the following verse.
+        </p>
+      </Callout>
+
+      {VERSES.map((verse, i) => (
+        <div key={i}>
+          {/* The verse itself */}
+          <div className="my-6 rounded-2xl border border-border/60 bg-muted/25 px-5 py-4">
+            <p dir="rtl" className="arabic-body !text-[1.35rem] font-bold text-foreground">
+              {verse.arabic}
+            </p>
+            <p dir="ltr" className="translation mt-2 !mb-0 text-muted-foreground">
+              {verse.english}
+            </p>
+          </div>
+
+          {/* The central message written for this verse */}
+          <Callout type="important" title="الرسالة المركزية · Central Message">
+            <p dir="rtl" className="arabic-body !mb-1.5 text-foreground">
+              {CENTRAL_MESSAGE_ARABIC}
+            </p>
+            <p dir="ltr" className="translation !mb-0">
+              {CENTRAL_MESSAGE_ENGLISH}
+            </p>
+          </Callout>
+
+          {/* What the line means */}
+          <BilingualParagraph
+            arabic={verse.explanationArabic}
+            english={verse.explanationEnglish}
+          />
+        </div>
+      ))}
+
+      {/* ── Grammar Note: Prepositions ───────────────────────────────── */}
+      <h2 id="prepositions" className="arabic-body !text-3xl !font-bold !mt-14 !mb-1 text-foreground">
+        حُرُوفُ الْجَرِّ
+      </h2>
+      <p dir="ltr" className="translation !mb-6 !font-semibold !text-foreground/80">
+        Grammar Note: Prepositions
+      </p>
+
+      <Callout type="note" title="المفهوم الأساسي · Core Concept">
+        <ul className="mb-0 space-y-2 ps-5 list-disc">
+          <li>
+            <strong>Definition:</strong> <span dir="rtl" className="arabic-body !text-[1.1rem]">حُرُوفُ الْجَرِّ</span>{" "}
+            (Huruf al-Jarr) are particles (prepositions) that exclusively precede nouns.
+          </li>
+          <li>
+            <strong>The Rule:</strong> Any noun that comes immediately after a preposition is
+            forced into the <strong>Genitive Case</strong> (مَجْرُورٌ — Majrour).
+          </li>
+          <li>
+            <strong>Visual Mark:</strong> The primary sign of the genitive case in writing is a{" "}
+            <strong>Kasrah</strong> at the end of the noun.
+          </li>
+        </ul>
+      </Callout>
+
+      <h3 id="seven-prepositions" className="arabic-body !mt-10 !mb-3 !text-lg !font-bold text-foreground">
+        حُرُوفُ الْجَرِّ الْكَبِيرَةُ السَبْعَةُ
+      </h3>
+      <p dir="ltr" className="translation !mb-4 !font-semibold !text-foreground/80">
+        The 7 Major Prepositions
+      </p>
+
+      <TableCard
+        title="حُرُوفُ الْجَرِّ — The 7 Major Prepositions"
+        headers={[
+          "Arabic Particle",
+          "Transliteration",
+          "Meaning",
+          "Example usage",
+        ]}
+        rows={PREPOSITIONS.map((p) => ({
+          cells: [
+            <span key="a" dir="rtl" className="arabic-body !text-[1.15rem] font-bold">
+              {p.arabic}
+            </span>,
+            <span key="t" className="italic">
+              {p.translit}
+            </span>,
+            p.meaning,
+            <span key="e" dir="rtl" className="arabic-body !text-[1.05rem]">
+              {p.example}
+            </span>,
+          ],
+        }))}
+        caption={
+          <>
+            The example in each row shows the noun after the preposition taking the{" "}
+            <strong>Kasrah</strong> (مَجْرُورٌ).
+          </>
+        }
+      />
+
+      <Checklist
+        title="⚠️ Quick Exam Application Checklist"
+        items={[
+          { label: "Spot the Preposition: Look for Fi, Ala, Min, Ila, An, Bi, Li right before a noun." },
+          { label: "Check the Ending: Ensure the noun following it takes a Kasrah." },
+          { label: "Common Trap: If an exam question asks to correct a sentence (e.g. changing ‘Jalasa al-walidu ala al-kursiyyu’ to ‘al-kursiyyi’), always apply the Kasrah to the noun following the preposition." },
+        ]}
+      />
+
+      {/* ── Exam note ─────────────────────────────────────────────────── */}
+      <KeyPoint title="ملاحظة الامتحان · Exam Note">
+        <p dir="rtl" className="arabic-body !mb-1.5 text-foreground">
+          عِنْدَ سُؤَالٍ عَنْ جَمَالِ كَيْرَالا، اسْتَخْدِمِ النُّقَاطَ ١، ٢، ٣، ٤، ٥.
+        </p>
+        <p dir="ltr" className="translation !mb-0">
+          If the question asks about the beauty of Kerala, use points 1, 2, 3, 4 and 5.
+        </p>
+      </KeyPoint>
     </div>
   );
 }

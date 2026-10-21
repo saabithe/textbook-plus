@@ -5,6 +5,7 @@ import { ChapterList } from "@/components/subject/ChapterList";
 import { getSubjectBySlug, subjects } from "@/data/subjects";
 import { grammarTopics } from "@/data/grammar";
 import { discourseTopics } from "@/data/discourses";
+import { arabicDiscourseTopics } from "@/data/arabic-discourses";
 
 export function generateStaticParams() {
   return subjects.map((s) => ({ subject: s.slug }));
@@ -96,6 +97,30 @@ export default async function SubjectPage({ params }: Props) {
                   </h2>
                   <p className="mt-0.5 text-sm text-muted-foreground">
                     {discourseTopics.reduce((total, topic) => total + topic.formats.length, 0)} writing formats — structure, tips &amp; samples
+                  </p>
+                </div>
+              </Link>
+            </div>
+          )}
+
+          {slug === "arabic" && (
+            <div className="mb-6 grid gap-4 sm:grid-cols-2">
+              <Link
+                href="/arabic/discourses"
+                className="group flex items-center gap-4 rounded-2xl border border-border/60 bg-card p-5 transition-all duration-200 hover:border-border hover:shadow-md"
+              >
+                <div
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
+                  style={{ backgroundColor: subject.colorLight }}
+                >
+                  <span className="text-lg font-bold" style={{ color: subject.color }}>D</span>
+                </div>
+                <div>
+                  <h2 className="text-base font-bold text-foreground group-hover:text-[var(--subject-arabic)] transition-colors">
+                    Discourses
+                  </h2>
+                  <p className="mt-0.5 text-sm text-muted-foreground">
+                    {arabicDiscourseTopics.length} writing {arabicDiscourseTopics.length === 1 ? "frame" : "frames"} — templates &amp; structures
                   </p>
                 </div>
               </Link>

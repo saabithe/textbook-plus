@@ -137,7 +137,6 @@ export const chapters: Record<string, Chapter[]> = {
     { id: "ar-01", subjectSlug: "arabic", unit: 1, number: 1, title: "Khairullah", titleArabic: "خير الله", slug: "khairullah", topicCount: 4,
       author: "N. K. Ahmed Moulavi", authorArabic: "ن. ك. أَحْمَدُ الْمَوْلَوِي", genre: "Descriptive Poem", genreArabic: "مَنْظُومٌ",
       authorDetails: [
-        { label: "Name", labelArabic: "الاسم", value: "N. K. Ahmed Moulavi", valueArabic: "ن. ك. أَحْمَدُ الْمَوْلَوِي" },
         { label: "Birthplace", labelArabic: "مكان الميلاد", value: "Kadavathoor, Kannur District", valueArabic: "كَدَوَتُور بِمُقاطَعَةِ كَنُور" },
       ] },
     { id: "ar-02", subjectSlug: "arabic", unit: 1, number: 2, title: "Abqariyyun min Abna'i Kerala", titleArabic: "عبقريّ من أبناء كيرالا", slug: "abqariyyun-min-abna'i-kerala", topicCount: 4,

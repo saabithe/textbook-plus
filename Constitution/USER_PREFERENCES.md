@@ -141,6 +141,7 @@ This file tracks ALL user preferences, design decisions, and customization choic
 | Bilingual pairing | `BilingualParagraph` — Arabic paragraph with its English translation directly beneath, muted and inset by a logical (direction-aware) rule; optional point number for numbered passages | Oct 2026 |
 | Practice | **None.** Arabic has no Practice tab, no `questions.json`, no `flashcards.json` | Oct 2026 |
 | Tabs | Arabic pages are a single continuous page (no Read/Discourses tabs, no practice) | Oct 2026 |
+| Discourses | Arabic has its own discourses section at `/arabic/discourses` (hub) + `/arabic/discourses/{topic}` — the Arabic counterpart of the English Discourses, linked from the Arabic subject hub | Oct 2026 |
 
 ## 11. Chapter Content Preferences
 
