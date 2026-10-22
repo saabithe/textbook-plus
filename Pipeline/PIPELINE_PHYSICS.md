@@ -22,19 +22,19 @@
 | # | Chapter | Slug | Status |
 |---|---------|------|--------|
 | 1 | Electric Charges and Fields | `electric-charges-and-fields` | ✅ Content |
-| 2 | Electrostatic Potential and Capacitance | `electrostatic-potential-and-capacitance` | 🔲 Pending |
-| 3 | Current Electricity | `current-electricity` | 🔲 Pending |
-| 4 | Moving Charges and Magnetism | `moving-charges-and-magnetism` | 🔲 Pending |
+| 2 | Electrostatic Potential and Capacitance | `electrostatic-potential-and-capacitance` | ✅ Content |
+| 3 | Current Electricity | `current-electricity` | ✅ Content |
+| 4 | Moving Charges and Magnetism | `moving-charges-and-magnetism` | ✅ Content |
 | 5 | Magnetism and Matter | `magnetism-and-matter` | ✅ Content |
 | 6 | Electromagnetic Induction | `electromagnetic-induction` | ✅ Content |
-| 7 | Alternating Current | `alternating-current` | 🔲 Pending |
+| 7 | Alternating Current | `alternating-current` | ✅ Content |
 | 8 | Electromagnetic Waves | `electromagnetic-waves` | ✅ Content |
-| 9 | Ray Optics and Optical Instruments | `ray-optics-and-optical-instruments` | 🔲 Pending |
-| 10 | Wave Optics | `wave-optics` | 🔲 Pending |
-| 11 | Dual Nature of Radiation and Matter | `dual-nature-of-radiation-and-matter` | 🔲 Pending |
-| 12 | Atoms | `atoms` | 🔲 Pending |
-| 13 | Nuclei | `nuclei` | 🔲 Pending |
-| 14 | Semiconductor Electronics | `semiconductor-electronics` | 🔲 Pending |
+| 9 | Ray Optics and Optical Instruments | `ray-optics-and-optical-instruments` | ✅ Content |
+| 10 | Wave Optics | `wave-optics` | ✅ Content |
+| 11 | Dual Nature of Radiation and Matter | `dual-nature-of-radiation-and-matter` | ✅ Content |
+| 12 | Atoms | `atoms` | ✅ Content |
+| 13 | Nuclei | `nuclei` | ✅ Content |
+| 14 | Semiconductor Electronics | `semiconductor-electronics` | ✅ Content |
 
 ---
 
