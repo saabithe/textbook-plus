@@ -338,6 +338,52 @@ export default function AlternatingCurrentChapter() {
         transformer — which is what makes long-distance transmission economical.
       </KeyPoint>
 
+      <h3 id="h-7-1-waveform">What an ac waveform looks like</h3>
+      <p>
+        Both the mains voltage and the current it drives rise and fall in a <em>sinusoidal</em> pattern — the value
+        increases and decreases smoothly, reversing direction every half-cycle:
+      </p>
+      <div className="grid gap-4 sm:grid-cols-2 [&>figure]:my-0">
+        <figure className="overflow-hidden rounded-xl border border-border/40 bg-card">
+          <div className="border-b border-border/40 bg-muted/20 px-4 py-2.5 text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
+            Alternating voltage
+          </div>
+          <img
+            src="/images/physics/alternating-current/ac-sinusoidal-alternating-voltage-graph.png"
+            alt="Sinusoidal graph of alternating voltage v against time, rising to the peak value v_m and dipping to −v_m"
+            className="mx-auto w-full h-auto object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="px-4 py-2.5 text-center text-xs leading-relaxed text-muted-foreground">
+            Voltage v oscillates between the +v<sub>m</sub> and −v<sub>m</sub> limits as time advances.
+          </figcaption>
+        </figure>
+        <figure className="overflow-hidden rounded-xl border border-border/40 bg-card">
+          <div className="border-b border-border/40 bg-muted/20 px-4 py-2.5 text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
+            Alternating current
+          </div>
+          <img
+            src="/images/physics/alternating-current/ac-sinusoidal-alternating-current-graph.png"
+            alt="Sinusoidal graph of alternating current i against time, rising to the peak value i_m and dipping to −i_m"
+            className="mx-auto w-full h-auto object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="px-4 py-2.5 text-center text-xs leading-relaxed text-muted-foreground">
+            The driven current i oscillates between +i<sub>m</sub> and −i<sub>m</sub> with the same period.
+          </figcaption>
+        </figure>
+      </div>
+      <p>Reading any source equation of the form <Formula>{String.raw`v = v_m \sin \omega t`}</Formula> — the parts to name:</p>
+      <ul>
+        <li><Formula>{String.raw`v_m`}</Formula> (or <Formula>{String.raw`i_m`}</Formula>) — the <strong>peak / maximum value</strong>, the amplitude of the oscillation.</li>
+        <li><Formula>{String.raw`\omega`}</Formula> — the <strong>angular frequency</strong> of the supply (rad s<sup>−1</sup>), related to the ordinary frequency <Formula>{String.raw`\nu`}</Formula> and the period by:</li>
+      </ul>
+      <FormulaBlock tag="Eq. 7.0" latex={String.raw`\omega = 2\pi \nu = \frac{2\pi}{T}`} important />
+      <ul>
+        <li><Formula>{String.raw`\omega t`}</Formula> — the <strong>phase angle</strong> — it says <em>where in the cycle</em> the quantity is at time <Formula>{String.raw`t`}</Formula>.</li>
+        <li><Formula>{String.raw`t`}</Formula> — the instantaneous time.</li>
+      </ul>
+
       <h2 id="h-7-2">7.2 AC Voltage Applied to a Resistor</h2>
       <p>A resistor connected to a source of ac voltage is the simplest ac circuit. Take a source that produces a sinusoidally varying potential difference across its terminals:</p>
       <FormulaBlock tag="Eq. 7.1" latex={String.raw`v = v_m \sin \omega t`} important />
@@ -404,6 +450,84 @@ export default function AlternatingCurrentChapter() {
           <p><strong>(c)</strong> Since <Formula>{String.raw`P = IV`}</Formula>, the rms current is</p>
           <FormulaBlock latex={String.raw`I = \frac{P}{V} = \frac{100\ \text{W}}{220\ \text{V}} = 0.454\ \text{A}`} important />
         </ProblemSolution.Solution>
+      </Expandable>
+
+      <h3 id="h-7-2-drills">Exam drills — reading an ac equation</h3>
+      <p>
+        Every drill below is answered by direct comparison with{" "}
+        <Formula>{String.raw`V = V_0\sin \omega t`}</Formula> (the chapter writes the same thing as{" "}
+        <Formula>{String.raw`v = v_m\sin \omega t`}</Formula>).
+      </p>
+
+      <Expandable title="Drill — An ac source is given by V = 20 sin(10πt): find everything" variant="example">
+        <ProblemSolution.Problem>
+          <p>Identify (a) the peak voltage, (b) the angular frequency, (c) the time period and (d) the frequency.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p><strong>(a) Peak voltage</strong> — compare with <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula>:</p>
+          <FormulaBlock latex={String.raw`V_0 = 20\ \text{V}`} important />
+          <p><strong>(b) Angular frequency</strong> — the coefficient of <Formula>{String.raw`t`}</Formula>:</p>
+          <FormulaBlock latex={String.raw`\omega = 10\pi\ \text{rad\,s}^{-1}`} important />
+          <p><strong>(c) Time period</strong>:</p>
+          <FormulaBlock latex={String.raw`T = \frac{2\pi}{\omega} = \frac{2\pi}{10\pi} = 0.2\ \text{s}`} important />
+          <p><strong>(d) Frequency</strong>:</p>
+          <FormulaBlock latex={String.raw`\nu = \frac{1}{T} = \frac{1}{0.2} = 5\ \text{Hz}`} important />
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="Drill — V = 100 sin(2πt): peak, ω, T, ν and V_rms" variant="example">
+        <ProblemSolution.Problem>
+          <p>An ac source is <Formula>{String.raw`V = 100 \sin(2\pi t)`}</Formula>. Find the peak voltage, angular frequency, time period, frequency and the rms (effective) voltage.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p><strong>(a) Peak voltage</strong> — compare with <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula>:</p>
+          <FormulaBlock latex={String.raw`V_0 = 100\ \text{V}`} important />
+          <p><strong>(b) Angular frequency</strong>:</p>
+          <FormulaBlock latex={String.raw`\omega = 2\pi\ \text{rad\,s}^{-1}`} />
+          <p><strong>(c) Time period</strong>:</p>
+          <FormulaBlock latex={String.raw`T = \frac{2\pi}{\omega} = \frac{2\pi}{2\pi} = 1\ \text{s}`} />
+          <p><strong>(d) Frequency</strong>:</p>
+          <FormulaBlock latex={String.raw`\nu = \frac{1}{T} = \frac{1}{1} = 1\ \text{Hz}`} />
+          <p><strong>(e) rms / effective voltage</strong>:</p>
+          <FormulaBlock latex={String.raw`V_{\text{rms}} = 0.707 \times V_0 = 0.707 \times 100 = 70.7\ \text{V}`} important />
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="Drill — I = 10 sin(314t): effective current" variant="example">
+        <ProblemSolution.Problem>
+          <p>The instantaneous current from an ac source is <Formula>{String.raw`I = 10 \sin(314t)`}</Formula> A. Find the peak current and the effective (rms) current.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>Compare with <Formula>{String.raw`I = I_0 \sin \omega t`}</Formula> — the peak current:</p>
+          <FormulaBlock latex={String.raw`I_0 = 10\ \text{A}`} />
+          <p>The effective / rms current is then:</p>
+          <FormulaBlock latex={String.raw`I_{\text{rms}} = \frac{I_0}{\sqrt{2}} = 0.707 \times 10 = 7.07\ \text{A}`} important />
+          <Callout type="note" title="Spot the mains">
+            <Formula>{String.raw`\omega = 314`}</Formula> is not a random number:{" "}
+            <Formula>{String.raw`\nu = \omega/2\pi = 314/2\pi \approx 50\ \text{Hz}`}</Formula> — the ordinary mains
+            frequency. Whenever an ac equation carries 314 or 100π, the source is the standard 50 Hz supply.
+          </Callout>
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="Q: Why is a shock from 220 V ac more fatal than from 220 V dc?" variant="recall">
+        <p>
+          For domestic ac supplies, the stated 220 V is the <strong>rms value</strong> —{" "}
+          <Formula>{String.raw`V_{\text{rms}} = 220\ \text{V}`}</Formula>. The actual{" "}
+          <strong>peak voltage</strong> is significantly higher:
+        </p>
+        <FormulaBlock latex={String.raw`V_0 = \sqrt{2}\,V_{\text{rms}} = 220 \times 1.414 = 311\ \text{V}`} important />
+        <p>
+          Because the voltage swings up to <Formula>{String.raw`311\ \text{V}`}</Formula> during every cycle, a
+          220 V ac source delivers a much higher peak stress across the victim than a steady 220 V dc source.
+          (So it is the <em>peak</em>, not the nameplate 220 V, that does the damage.)
+        </p>
+      </Expandable>
+
+      <Expandable title="Q: What is the rms voltage of a household ac supply whose peak voltage is 311 V?" variant="recall">
+        <p>Run the rms relation the other way:</p>
+        <FormulaBlock latex={String.raw`V_{\text{rms}} = \frac{V_0}{\sqrt{2}} = \frac{311}{1.414} = 220\ \text{V}`} important />
+        <p>This is exactly the nameplate value of the Indian mains supply — the 311 V figure was derived from it.</p>
       </Expandable>
 
       <h2 id="h-7-3">7.3 Representation of AC Current and Voltage by Rotating Vectors — Phasors</h2>
