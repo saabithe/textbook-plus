@@ -1,0 +1,127 @@
+[
+  {
+    "id": "ch10-f01",
+    "front": "Wavefront",
+    "back": "A surface of constant phase. All points on a wavefront oscillate in phase, being at the same distance from the source. The energy travels perpendicular to the wavefront, along a ray."
+  },
+  {
+    "id": "ch10-f02",
+    "front": "Spherical vs plane wavefront",
+    "back": "A point source gives spherical wavefronts centred on it. At a large distance a small patch of the sphere is practically flat - a plane wavefront. A point source at the focus of a convex lens gives a plane wavefront."
+  },
+  {
+    "id": "ch10-f03",
+    "front": "Huygens principle",
+    "back": "Each point of the wavefront is the source of a secondary disturbance; the wavelets spread out in all directions with the wave speed. The common forward tangent (envelope) of the spheres of radius v*tau drawn from each point is the wavefront at the later time tau."
+  },
+  {
+    "id": "ch10-f04",
+    "front": "The backwave problem",
+    "back": "The construction also gives a backward envelope D1D2. Huygens made the ad hoc assumption that the amplitude of the secondary wavelets is maximum forward and zero backward; the real justification comes from rigorous wave theory."
+  },
+  {
+    "id": "ch10-f05",
+    "front": "Refraction from Huygens principle",
+    "back": "sin i / sin r = v1/v2, obtained from the two right triangles in the construction. With n = c/v this becomes Snell's law, n1 sin i = n2 sin r."
+  },
+  {
+    "id": "ch10-f06",
+    "front": "What the wave model predicted about speeds",
+    "back": "If the ray bends towards the normal, light is slower in the second medium (v2 < v1). This is the opposite of the corpuscular prediction; Foucault's 1850 experiment on water confirmed the wave model."
+  },
+  {
+    "id": "ch10-f07",
+    "front": "Wavelength and frequency on refraction",
+    "back": "lambda1/lambda2 = v1/v2, so going into a denser medium the wavelength and the speed both decrease. The frequency nu = v/lambda stays the same - colour does not change."
+  },
+  {
+    "id": "ch10-f08",
+    "front": "Critical angle",
+    "back": "sin i_c = n2/n1 for light going from the denser medium (n1) to the rarer one (n2). At i = i_c, r = 90 degrees; for i > i_c there is no refracted wave and the light is totally internally reflected."
+  },
+  {
+    "id": "ch10-f09",
+    "front": "Law of reflection from Huygens principle",
+    "back": "While B travels to C (BC = v*tau), the wavelet from A grows to AE = v*tau. Triangles EAC and BAC are right-angled with equal hypotenuse and equal leg, hence congruent, so i = r."
+  },
+  {
+    "id": "ch10-f10",
+    "front": "Principle of superposition",
+    "back": "At a particular point in the medium, the resultant displacement produced by a number of waves is the vector sum of the displacements produced by each of the waves."
+  },
+  {
+    "id": "ch10-f11",
+    "front": "Coherent sources",
+    "back": "Two sources are coherent when the phase difference between the displacements they produce at a point does not change with time. The interference pattern is then stable - maxima and minima stay fixed."
+  },
+  {
+    "id": "ch10-f12",
+    "front": "Constructive and destructive interference",
+    "back": "Constructive: path difference = n*lambda, intensity 4I0. Destructive: path difference = (n + 1/2)*lambda, intensity zero. In phase-difference language: 2*n*pi for maxima, odd multiples of pi for minima."
+  },
+  {
+    "id": "ch10-f13",
+    "front": "Intensity at an arbitrary point",
+    "back": "I = 4 I0 cos^2(phi/2), where phi is the phase difference and I0 the intensity of one source. Phi = 0 gives 4I0, phi = pi gives zero."
+  },
+  {
+    "id": "ch10-f14",
+    "front": "Path difference and phase difference",
+    "back": "Delta phi = (2 pi / lambda) * Delta x. One wavelength of path difference is 2*pi of phase difference, not pi. Example: Delta x = 2.5 lambda gives Delta phi = 5 pi - destructive."
+  },
+  {
+    "id": "ch10-f15",
+    "front": "Incoherent sources",
+    "back": "If the phase difference changes rapidly with time, the pattern shifts rapidly and the time-averaged intensity is the sum of the separate intensities, I = 2 I0. Two independent lamps behave this way (phase changes in about 10^-10 s)."
+  },
+  {
+    "id": "ch10-f16",
+    "front": "Young's trick for coherence",
+    "back": "Two pinholes S1 and S2 on an opaque screen are illuminated by a third pinhole S lit by a bright source. Any abrupt phase change in S appears identically in both pinholes, so S1 and S2 are locked in phase."
+  },
+  {
+    "id": "ch10-f17",
+    "front": "Fringe positions in Young's experiment",
+    "back": "Bright: x = n*lambda*D/d. Dark: x = (n + 1/2)*lambda*D/d. Here d is the slit separation, D the slit-to-screen distance and x the distance from the centre of the pattern."
+  },
+  {
+    "id": "ch10-f18",
+    "front": "Fringe width",
+    "back": "beta = lambda*D/d. It is the same for bright and dark fringes, so all fringes are equally spaced. beta grows with lambda and D, and shrinks as d grows."
+  },
+  {
+    "id": "ch10-f19",
+    "front": "Fringe width does not depend on...",
+    "back": "...the intensity of the source. A brighter source raises every fringe to 4I0 but does not change the spacing, which contains only lambda, D and d."
+  },
+  {
+    "id": "ch10-f20",
+    "front": "Single-slit diffraction minima",
+    "back": "a sin(theta) = n*lambda, i.e. theta roughly n*lambda/a with n = +/-1, +/-2, ... The central maximum is at theta = 0; the secondary maxima lie near (n + 1/2)*lambda/a and get weaker as n grows."
+  },
+  {
+    "id": "ch10-f21",
+    "front": "Width of the central maximum",
+    "back": "w = 2*lambda*D/a, twice the distance lambda*D/a of the first minimum from the centre. A narrower slit gives a broader pattern; red light gives a broader pattern than blue."
+  },
+  {
+    "id": "ch10-f22",
+    "front": "Interference vs diffraction",
+    "back": "Interference: a few coherent sources, equally intense equally spaced fringes, perfectly dark minima. Diffraction: many secondary wavelets from one wavefront, a bright broad central maximum, much weaker secondary maxima on either side."
+  },
+  {
+    "id": "ch10-f23",
+    "front": "Malus' law",
+    "back": "I = I0 cos^2(theta), where I0 is the intensity of the polarised light after the first polaroid and theta is the angle between the two pass-axes. A single polaroid halves the intensity of unpolarised light; crossed polaroids transmit nothing."
+  },
+  {
+    "id": "ch10-f24",
+    "front": "Polaroid and pass-axis",
+    "back": "A polaroid has long chain molecules aligned in one direction; electric vectors along those molecules are absorbed. The transmitted light is linearly polarised perpendicular to the molecules - along the pass-axis."
+  },
+  {
+    "id": "ch10-f25",
+    "front": "Polarisation and transverse nature",
+    "back": "Only transverse waves can be polarised, so polarisation proves that the electric field of a light wave is perpendicular to the direction of propagation. Uses: sunglasses, windowpanes, photographic cameras, 3D movie cameras."
+  }
+]
