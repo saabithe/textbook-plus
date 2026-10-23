@@ -5,7 +5,22 @@ import { ArabicChapterCard } from "@/components/content/ArabicChapterCard";
 import { getChapterBySlugFromAll } from "@/data/chapters";
 
 const chapterComponents: Record<string, React.ComponentType> = {
+  "relations-and-functions": dynamic(() => import("@/content/mathematics/relations-and-functions/page")) as React.ComponentType,
+  "inverse-trigonometric-functions": dynamic(() => import("@/content/mathematics/inverse-trigonometric-functions/page")) as React.ComponentType,
+  "matrices": dynamic(() => import("@/content/mathematics/matrices/page")) as React.ComponentType,
+  "determinants": dynamic(() => import("@/content/mathematics/determinants/page")) as React.ComponentType,
   "molecular-basis-of-inheritance": dynamic(() => import("@/content/biology/molecular-basis-of-inheritance/page")) as React.ComponentType,
+  "solutions": dynamic(() => import("@/content/chemistry/solutions/page")) as React.ComponentType,
+  "electrochemistry": dynamic(() => import("@/content/chemistry/electrochemistry/page")) as React.ComponentType,
+  "chemical-kinetics": dynamic(() => import("@/content/chemistry/chemical-kinetics/page")) as React.ComponentType,
+  "d-and-f-block-elements": dynamic(() => import("@/content/chemistry/d-and-f-block-elements/page")) as React.ComponentType,
+  "coordination-compounds": dynamic(() => import("@/content/chemistry/coordination-compounds/page")) as React.ComponentType,
+  "haloalkanes-and-haloarenes": dynamic(() => import("@/content/chemistry/haloalkanes-and-haloarenes/page")) as React.ComponentType,
+  "alcohols-phenols-and-ethers": dynamic(() => import("@/content/chemistry/alcohols-phenols-and-ethers/page")) as React.ComponentType,
+  "amines": dynamic(() => import("@/content/chemistry/amines/page")) as React.ComponentType,
+  "aldehydes-ketones-and-carboxylic-acids": dynamic(() => import("@/content/chemistry/aldehydes-ketones-and-carboxylic-acids/page")) as React.ComponentType,
+  "biomolecules": dynamic(() => import("@/content/chemistry/biomolecules/page")) as React.ComponentType,
+  // Remaining chemistry chapters will be added in future batches
   "magnetism-and-matter": dynamic(() => import("@/content/physics/magnetism-and-matter/page")) as React.ComponentType,
   "electric-charges-and-fields": dynamic(() => import("@/content/physics/electric-charges-and-fields/page")) as React.ComponentType,
   "electrostatic-potential-and-capacitance": dynamic(() => import("@/content/physics/electrostatic-potential-and-capacitance/page")) as React.ComponentType,
