@@ -5,6 +5,10 @@ import type { Question, Flashcard } from "@/types/chapter";
 // download every chapter's questions/flashcards. Keys are static (sync
 // hasQuestions/hasFlashcards); data arrives via dynamic import.
 const QUESTION_KEYS = new Set([
+  "relations-and-functions",
+  "inverse-trigonometric-functions",
+  "matrices",
+  "determinants",
   "electric-charges-and-fields",
   "electrostatic-potential-and-capacitance",
   "current-electricity",
@@ -24,8 +28,14 @@ const QUESTION_KEYS = new Set([
 const FLASHCARD_KEYS = new Set(QUESTION_KEYS);
 
 const questionLoaders: Record<string, () => Promise<Question[]>> = {
-  "electric-charges-and-fields": () =>
-    import("@/content/physics/electric-charges-and-fields/questions.json").then((m) => m.default as Question[]),
+  "relations-and-functions": () =>
+    import("@/content/mathematics/relations-and-functions/questions.json").then((m) => m.default as Question[]),
+  "inverse-trigonometric-functions": () =>
+    import("@/content/mathematics/inverse-trigonometric-functions/questions.json").then((m) => m.default as Question[]),
+  "matrices": () =>
+    import("@/content/mathematics/matrices/questions.json").then((m) => m.default as Question[]),
+  "determinants": () =>
+    import("@/content/mathematics/determinants/questions.json").then((m) => m.default as Question[]),
   "electrostatic-potential-and-capacitance": () =>
     import("@/content/physics/electrostatic-potential-and-capacitance/questions.json").then((m) => m.default as Question[]),
   "current-electricity": () =>
@@ -55,8 +65,14 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
 };
 
 const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
-  "electric-charges-and-fields": () =>
-    import("@/content/physics/electric-charges-and-fields/flashcards.json").then((m) => m.default as Flashcard[]),
+  "relations-and-functions": () =>
+    import("@/content/mathematics/relations-and-functions/flashcards.json").then((m) => m.default as Flashcard[]),
+  "inverse-trigonometric-functions": () =>
+    import("@/content/mathematics/inverse-trigonometric-functions/flashcards.json").then((m) => m.default as Flashcard[]),
+  "matrices": () =>
+    import("@/content/mathematics/matrices/flashcards.json").then((m) => m.default as Flashcard[]),
+  "determinants": () =>
+    import("@/content/mathematics/determinants/flashcards.json").then((m) => m.default as Flashcard[]),
   "electrostatic-potential-and-capacitance": () =>
     import("@/content/physics/electrostatic-potential-and-capacitance/flashcards.json").then((m) => m.default as Flashcard[]),
   "current-electricity": () =>
