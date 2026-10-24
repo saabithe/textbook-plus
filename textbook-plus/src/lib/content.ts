@@ -121,6 +121,8 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
     import("@/content/biology/human-health-and-diseases/questions.json").then((m) => m.default as Question[]),
   "biotechnology-principles-and-processes": () =>
     import("@/content/biology/biotechnology-principles-and-processes/questions.json").then((m) => m.default as Question[]),
+  "microbes-in-human-welfare": () =>
+    import("@/content/biology/microbes-in-human-welfare/questions.json").then((m) => m.default as Question[]),
   "biotechnology-and-its-applications": () =>
     import("@/content/biology/biotechnology-and-its-applications/questions.json").then((m) => m.default as Question[]),
 };
@@ -198,6 +200,8 @@ const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
     import("@/content/biology/human-health-and-diseases/flashcards.json").then((m) => m.default as Flashcard[]),
   "biotechnology-principles-and-processes": () =>
     import("@/content/biology/biotechnology-principles-and-processes/flashcards.json").then((m) => m.default as Flashcard[]),
+  "microbes-in-human-welfare": () =>
+    import("@/content/biology/microbes-in-human-welfare/flashcards.json").then((m) => m.default as Flashcard[]),
   "biotechnology-and-its-applications": () =>
     import("@/content/biology/biotechnology-and-its-applications/flashcards.json").then((m) => m.default as Flashcard[]),
 };
