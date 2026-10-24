@@ -23,7 +23,7 @@
 | Unit | # | Chapter | Slug | Type | Status |
 |------|---|---------|------|------|--------|
 | 1 | 1 | خَيْرُ الله | `khairullah` | Poem | ✅ Content live |
-| 1 | 2 | عَبْقَرِيٌّ مِنْ أَبْنَاءِ كِيرَلا | `abqariyyun-min-abna'i-kerala` | Essay | 🔲 Pending |
+| 1 | 2 | عَبْقَرِيٌّ مِنْ أَبْنَاءِ كِيرَلا | `abqariyyun-min-abna'i-kerala` | Essay | ✅ Content live |
 | 1 | 3 | كِيرَلا وَنِعَمُ اللهِ | `kerala-wa-ni'amullahi` | Essay | 🔲 Pending |
 | 2 | 1 | نَامُوا وَلا تَسْتَيْقِظُوا | `naamu-wa-la-tastaiqidhoo` | Poem | 🔲 Pending |
 | 2 | 2 | شُرْطِيُّ المُرُورِ | `shurtiyyul-muroor` | Story | 🔲 Pending |
