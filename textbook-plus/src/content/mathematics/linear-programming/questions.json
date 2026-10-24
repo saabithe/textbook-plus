@@ -1,0 +1,188 @@
+[
+  {
+    "id": "lp-q1",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "In an LPP there must always be",
+    "options": [
+      "an objective function",
+      "a constraint f(x)=0",
+      "two variables",
+      "a thousand constraints"
+    ],
+    "answer": 0,
+    "explanation": "An LP problem needs an objective (linear) plus linear constraints, including non-negativity."
+  },
+  {
+    "id": "lp-q2",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The feasible region of an LPP with two variables is",
+    "options": [
+      "always unbounded",
+      "a polygon (possibly empty)",
+      "a single point",
+      "a circle"
+    ],
+    "answer": 1,
+    "explanation": "Intersection of half-planes gives a convex polygon (possibly empty or unbounded)."
+  },
+  {
+    "id": "lp-q3",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "By the corner-point theorem, the optimal value of a linear objective over a bounded feasible region is attained at",
+    "options": [
+      "an interior point",
+      "a corner (vertex)",
+      "a midpoint of an edge only",
+      "a boundary point chosen at random"
+    ],
+    "answer": 1,
+    "explanation": "A linear function attains its max/min at a vertex of the feasible polygon."
+  },
+  {
+    "id": "lp-q4",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "An LPP with no intersection of its constraints has",
+    "options": [
+      "an optimal solution",
+      "infinite solutions",
+      "a feasible region that is empty",
+      "a degenerate solution"
+    ],
+    "answer": 2,
+    "explanation": "No region satisfying all constraints \u2192 infeasible problem."
+  },
+  {
+    "id": "lp-q5",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If the level lines of Z are parallel to an edge of the feasible region and Z is constant along that edge, then",
+    "options": [
+      "no optimum exists",
+      "there are multiple optima",
+      "the region is unbounded",
+      "the problem is infeasible"
+    ],
+    "answer": 1,
+    "explanation": "Every point on that edge gives the same optimal value \u2014 multiple optima."
+  },
+  {
+    "id": "lp-q6",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In a two-variable LPP with constraints, objective Z = 5x + 3y: if maximum occurs at (2,4), the value is",
+    "options": [
+      "10",
+      "12",
+      "22",
+      "23"
+    ],
+    "answer": 2,
+    "explanation": "Z = 5(2)+3(4) = 10+12 = 22."
+  },
+  {
+    "id": "lp-q7",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "A non-linear objective together with linear constraints forms",
+    "options": [
+      "an LP (extra terms are allowed)",
+      "not an LP \u2014 objectives must be linear",
+      "a degenerate LP",
+      "an infeasible LP"
+    ],
+    "answer": 1,
+    "explanation": "Both objective and constraints must be linear for it to be an LPP."
+  },
+  {
+    "id": "lp-q8",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Maximise Z = 3x + 2y subject to x+y \u2264 5, x,y \u2265 0. The optimal (x,y) is",
+    "options": [
+      "(5,0)",
+      "(0,5)",
+      "(2.5,2.5)",
+      "(3,2)"
+    ],
+    "answer": 0,
+    "explanation": "Vertices: (0,0)\u21920, (5,0)\u219215, (0,5)\u219210; max = 15 at (5,0)."
+  },
+  {
+    "id": "lp-q9",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "State the corner-point method for solving a 2-variable LPP.",
+    "answer": "Draw each constraint half-plane, find their intersection polygon, list its vertices, evaluate Z at each, pick the largest (max) or smallest (min).",
+    "explanation": "Corner theorem guarantees optimum at a vertex for bounded region."
+  },
+  {
+    "id": "lp-q10",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Write the standard form of an LPP with two variables and m constraints.",
+    "answer": "Max (or min) Z = c\u2081x\u2081+c\u2082x\u2082 s.t. a_{i1}x\u2081+a_{i2}x\u2082 \u2264 (\u2265,=) b\u1d62 (i=1..m) and x\u2081,x\u2082 \u2265 0.",
+    "explanation": "Non-negativity is a standard constraint in every LP."
+  },
+  {
+    "id": "lp-q11",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "A factory makes product X (profit \u20b920/unit) and Y (profit \u20b930/unit); capacity for X alone is 40, for Y alone 30. Formulate the objective and one of the constraints.",
+    "answer": "Max Z = 20x + 30y subject to a constraint such as 3x + 4y \u2264 ... (from combined machine hours).",
+    "explanation": "Identify variables, objective, scarcity."
+  },
+  {
+    "id": "lp-q12",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "If a linear objective is constant along an edge shared by two vertices both giving the maximum, what follows?",
+    "answer": "Every point on that edge is optimal \u2014 multiple (infinitely many) optima.",
+    "explanation": "The level set coincides with the binding edge."
+  },
+  {
+    "id": "lp-q13",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The feasible region for x \u2265 0, y \u2265 0, x + y \u2265 1, x + y \u2264 1 is",
+    "options": [
+      "a strip",
+      "a single line segment",
+      "a single point",
+      "empty"
+    ],
+    "answer": 1,
+    "explanation": "The intersection forces x+y=1 (with x,y \u2265 0), a line segment? Wait both upper and lower on x+y equal 1, so it is the segment from (1,0) to (0,1). Should be line segment. Correct answer would be 1. Set answer to 1."
+  },
+  {
+    "id": "lp-q14",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which statement is false about LP?",
+    "options": [
+      "constraints are linear",
+      "objective is linear",
+      "decision variables can be negative in standard form",
+      "feasible region is convex"
+    ],
+    "answer": 2,
+    "explanation": "Standard form requires x\u1d62 \u2265 0; negative variables are not allowed as-is."
+  },
+  {
+    "id": "lp-q15",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Minimise Z = 2x + 5y subject to 3x+4y \u2265 60, x+y \u2264 30, x,y \u2265 0. The vertex values include",
+    "options": [
+      "at (0,15) Z=75",
+      "at (20,0) Z=40",
+      "at (30,0) Z=60",
+      "all of the above where feasible"
+    ],
+    "answer": 3,
+    "explanation": "Evaluate at all feasible vertices and take the minimum."
+  }
+]

@@ -1,0 +1,17 @@
+[
+  { "id": "lp-f1", "front": "Decision variables", "back": "Unknowns x₁, …, xₙ that control the outcome." },
+  { "id": "lp-f2", "front": "Objective function", "back": "Z = c₁x₁ + … + cₙxₙ, linear — to be maximised or minimised." },
+  { "id": "lp-f3", "front": "Constraints", "back": "Linear inequalities/equalities like a_{i1}x₁ + a_{i2}x₂ ≤ bᵢ (resource limits)." },
+  { "id": "lp-f4", "front": "Non-negativity", "back": "xⱼ ≥ 0 — quantities cannot be negative." },
+  { "id": "lp-f5", "front": "Feasible solution", "back": "A solution satisfying all constraints." },
+  { "id": "lp-f6", "front": "Feasible region", "back": "Set of all feasible solutions (a convex polygon/polyhedron)." },
+  { "id": "lp-f7", "front": "Optimal solution", "back": "A feasible solution giving the best (max/min) objective value." },
+  { "id": "lp-f8", "front": "Corner-point theorem", "back": "For a bounded feasible region, the optimum occurs at a vertex (corner point)." },
+  { "id": "lp-f9", "front": "Half-plane test", "back": "Substitute (0,0) to decide which side of each constraint line is feasible." },
+  { "id": "lp-f10", "front": "Slack / surplus", "back": "Slack = bᵢ − (sum) for ≤ constraints (unused resource); surplus for ≥ (excess)." },
+  { "id": "lp-f11", "front": "Multiple optima", "back": "If two adjacent vertices have the same optimum Z, the whole connecting edge is optimal." },
+  { "id": "lp-f12", "front": "Infeasible", "back": "Constraints have no common point — feasible region is empty." },
+  { "id": "lp-f13", "front": "Unbounded", "back": "Feasible region extends to infinity in the direction of optimisation — the objective may be unbounded." },
+  { "id": "lp-f14", "front": "Degenerate LPP", "back": "Optimum at a single point or degenerate vertex." },
+  { "id": "lp-f15", "front": "Vertex evaluation", "back": "List all vertices, compute Z at each, pick largest (max) or smallest (min) — then state the corresponding values of decision variables." }
+]

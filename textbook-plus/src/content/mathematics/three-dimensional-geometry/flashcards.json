@@ -1,0 +1,22 @@
+[
+  { "id": "3d-f1", "front": "Direction cosines (dc's)", "back": "For a line making angles α, β, γ with the axes: l = cos α, m = cos β, n = cos γ; l² + m² + n² = 1." },
+  { "id": "3d-f2", "front": "Direction ratios (dr's)", "back": "Any (a, b, c) proportional to the dc's. dc's = (a, b, c) / √(a²+b²+c²)." },
+  { "id": "3d-f3", "front": "Line through a point with given dr's", "back": "(x−x₁)/a = (y−y₁)/b = (z−z₁)/c = λ." },
+  { "id": "3d-f4", "front": "Vector form of a line", "back": "r = a + λ b (a = position vector of a point on the line, b = direction vector)." },
+  { "id": "3d-f5", "front": "Plane: general form", "back": "Ax + By + Cz + D = 0, with normal n = (A, B, C)." },
+  { "id": "3d-f6", "front": "Plane: point-normal form", "back": "A(x − x₀) + B(y − y₀) + C(z − z₀) = 0." },
+  { "id": "3d-f7", "front": "Plane: intercept form", "back": "x/a + y/b + z/c = 1, with intercepts a, b, c on the axes." },
+  { "id": "3d-f8", "front": "Angle between two lines", "back": "cos θ = |a₁a₂ + b₁b₂ + c₁c₂| / (|a₁||a₂| + ...). Acute angle." },
+  { "id": "3d-f9", "front": "Angle between two planes", "back": "Angle between their normal vectors (use absolute value for acute angle)." },
+  { "id": "3d-f10", "front": "Line and plane angle", "back": "If a line has direction d and plane has normal n, the acute angle θ satisfies sin θ = |d · n| / (|d||n|)." },
+  { "id": "3d-f11", "front": "Point to plane distance", "back": "|A x₁ + B y₁ + C z₁ + D| / √(A²+B²+C²)." },
+  { "id": "3d-f12", "front": "Parallel line distance", "back": "d = |(a − c) × b| / |b| for parallel lines with direction b." },
+  { "id": "3d-f13", "front": "Skew line distance", "back": "d = |(c − a) · (b × d)| / |b × d|." },
+  { "id": "3d-f14", "front": "Coplanar lines", "back": "Two lines are coplanar iff the scalar triple product (c − a) · (b × d) = 0." },
+  { "id": "3d-f15", "front": "Parallel planes distance", "back": "For Ax+By+Cz+D₁=0 and ...+D₂=0: |D₂−D₁|/√(A²+B²+C²)." },
+  { "id": "3d-f16", "front": "Plane through three non-collinear points", "back": "Determinant form: |x − x₁, y − y₁, z − z₁; x₂−x₁, ...; x₃−x₁, ...| = 0." },
+  { "id": "3d-f17", "front": "Distance between parallel lines", "back": "Use perpendicular from a point on one line to the other: formula d = |(a − c) × b| / |b|." },
+  { "id": "3d-f18", "front": "Lies in plane", "back": "A point P lies in plane Ax+By+Cz+D=0 iff A x_P + B y_P + C z_P + D = 0." },
+  { "id": "3d-f19", "front": "Condition for two lines perpendicular", "back": "Direction ratios satisfy a₁a₂ + b₁b₂ + c₁c₂ = 0." },
+  { "id": "3d-f20", "front": "Foot of the perpendicular", "back": "Parametrize line through point along normal, impose plane equation, solve for parameter." }
+]

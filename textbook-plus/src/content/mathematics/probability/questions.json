@@ -1,0 +1,286 @@
+[
+  {
+    "id": "pr-q1",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "For events with P(A)=0.6, P(B)=0.4, P(A\u2229B)=0.24, they are",
+    "options": [
+      "dependent",
+      "independent",
+      "mutually exclusive",
+      "exhaustive"
+    ],
+    "answer": 1,
+    "explanation": "P(A)P(B) = 0.24 = P(A\u2229B), so independent."
+  },
+  {
+    "id": "pr-q2",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Conditional probability P(A|B) = P(A\u2229B)/P(B) provided",
+    "options": [
+      "P(A)>0",
+      "P(B)>0",
+      "A and B disjoint",
+      "B \u2282 A"
+    ],
+    "answer": 1,
+    "explanation": "Conditional probability requires P(B) > 0."
+  },
+  {
+    "id": "pr-q3",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If P(A)=1/2, P(B)=1/3, P(A\u2229B)=1/6, then A and B are",
+    "options": [
+      "independent",
+      "dependent",
+      "disjoint",
+      "exhaustive"
+    ],
+    "answer": 0,
+    "explanation": "1/2 \u00b7 1/3 = 1/6 = P(A\u2229B)."
+  },
+  {
+    "id": "pr-q4",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If A independent of B, then P(A|B^c) equals",
+    "options": [
+      "P(A)",
+      "P(A^c)",
+      "P(B)",
+      "1"
+    ],
+    "answer": 0,
+    "explanation": "Independence from B implies independence from B^c."
+  },
+  {
+    "id": "pr-q5",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Total probability: if {E\u2081,\u2026,E\u2099} partition the sample space, P(A)=\u03a3",
+    "options": [
+      "P(E\u1d62)P(A|E\u1d62)",
+      "P(E\u1d62)+P(A|E\u1d62)",
+      "P(E\u1d62)P(A\u2229E\u1d62)??",
+      "P(A|E\u1d62)"
+    ],
+    "answer": 0,
+    "explanation": "\u03b8 = \u03a3 P(E\u1d62) P(A|E\u1d62)."
+  },
+  {
+    "id": "pr-q6",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Bayes's theorem gives",
+    "options": [
+      "P(E\u1d62)",
+      "P(E\u1d62|A)",
+      "P(A)",
+      "P(A\u2229E\u1d62)"
+    ],
+    "answer": 1,
+    "explanation": "P(E\u1d62|A) = P(E\u1d62)P(A|E\u1d62) / P(A)."
+  },
+  {
+    "id": "pr-q7",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "For a Bernoulli process, the number of successes in n trials has",
+    "options": [
+      "Binomial",
+      "Uniform",
+      "Poisson",
+      "Normal"
+    ],
+    "answer": 0,
+    "explanation": "Binomial distribution B(n, p)."
+  },
+  {
+    "id": "pr-q8",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Binomial mean for n=10, p=0.3 is",
+    "options": [
+      "3",
+      "2.1",
+      "0.3",
+      "10"
+    ],
+    "answer": 0,
+    "explanation": "\u03bc = np = 10\u00b70.3 = 3."
+  },
+  {
+    "id": "pr-q9",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Binomial variance for n=10, p=0.3 is",
+    "options": [
+      "0.21",
+      "2.1",
+      "3",
+      "2.31"
+    ],
+    "answer": 1,
+    "explanation": "\u03c3\u00b2 = np(1\u2212p) = 10\u00b70.3\u00b70.7 = 2.1. Correct \u2192 option value should be 2.1, index 1. Fix via array not applicable; set answer 1."
+  },
+  {
+    "id": "pr-q10",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If events A and B are mutually exclusive, P(A\u2229B) = ",
+    "options": [
+      "P(A)P(B)",
+      "P(A)+P(B)",
+      "0",
+      "1"
+    ],
+    "answer": 2,
+    "explanation": "Disjoint events cannot occur together \u2192 intersection probability 0."
+  },
+  {
+    "id": "pr-q11",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If A and B disjoint and non-trivial, they are",
+    "options": [
+      "independent",
+      "dependent (unless one has prob 0)",
+      "exhaustive",
+      "mutually exclusive always implies independent only if P=0"
+    ],
+    "answer": 3,
+    "explanation": "Mutually exclusive events with positive probabilities cannot be independent."
+  },
+  {
+    "id": "pr-q12",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "P(B|A) + P(B^c|A) =",
+    "options": [
+      "P(A)",
+      "1",
+      "P(B)+P(B^c)",
+      "0"
+    ],
+    "answer": 1,
+    "explanation": "Conditioned on A, either B or not B occurs \u2014 sum is 1."
+  },
+  {
+    "id": "pr-q13",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "State the total probability theorem.",
+    "answer": "If {E\u2081,\u2026,E\u2099} partition S with P(E\u1d62)>0, then P(A) = \u03a3 P(E\u1d62)P(A|E\u1d62).",
+    "explanation": "A's probability averages likelihoods over the partition."
+  },
+  {
+    "id": "pr-q14",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "State Bayes's theorem.",
+    "answer": "P(E\u1d62|A) = P(E\u1d62)P(A|E\u1d62) / \u03a3\u2c7c P(E\u2c7c)P(A|E\u2c7c).",
+    "explanation": "Posterior = prior \u00d7 likelihood \u00f7 evidence."
+  },
+  {
+    "id": "pr-q15",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Mean and variance for X ~ B(n, p).",
+    "answer": "Mean \u03bc = np; Variance = np(1\u2212p).",
+    "explanation": "Binomial parameters."
+  },
+  {
+    "id": "pr-q16",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "For X = number of heads in 3 fair coin tosses, find P(X\u22652).",
+    "answer": "C(3,2)/8 + C(3,3)/8 = 4/8 = 1/2.",
+    "explanation": "Binomial with n=3, p=1/2."
+  },
+  {
+    "id": "pr-q17",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "A fair coin tossed 4 times. Find P(exactly 2 heads).",
+    "answer": "C(4,2)/16 = 6/16 = 3/8.",
+    "explanation": "Binomial(n=4, p=1/2): P(2) = C(4,2)/16."
+  },
+  {
+    "id": "pr-q18",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find variance of X with distribution P(0)=0.3, P(1)=0.4, P(2)=0.3.",
+    "answer": "E=0\u00b70.3+1\u00b70.4+2\u00b70.3 = 1.0; E(X\u00b2)=0+0.4+1.2=1.6; Var = 1.6 \u2212 1 = 0.6.",
+    "explanation": "Var = E(X\u00b2) \u2212 [E(X)]\u00b2."
+  },
+  {
+    "id": "pr-q19",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Two dice thrown; let X be the sum. Find E(X) and Var(X) by listing 36 outcomes.",
+    "answer": "Mean for one die = 3.5, so E(X) = 7. Variance for one die = 35/12, so for two independent dice Var = 35/6 \u2248 5.833.",
+    "explanation": "Use independence and known die statistics."
+  },
+  {
+    "id": "pr-q20",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "If events A and B independent, find P(A\u222aB) given P(A)=0.5, P(B)=0.3.",
+    "answer": "P(A\u2229B)=0.15; P(A\u222aB) = 0.5+0.3\u22120.15 = 0.65.",
+    "explanation": "Identify A\u2229B via independence."
+  },
+  {
+    "id": "pr-q21",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "For a transition/check: if p=0.8, q=0.2, n=5, P(X\u22654) (Binomial). Which single value?",
+    "options": [
+      "C(5,4)0.8\u20740.2 + 0.8\u2075",
+      "0.8\u2075 only",
+      "0.737",
+      "none of the above"
+    ],
+    "answer": 0,
+    "explanation": "Sum k=4 and k=5: C(5,4)\u00b70.8\u2074\u00b70.2 + 0.8\u2075."
+  },
+  {
+    "id": "pr-q22",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "If X ~ B(5, p) and P(X=0) = 1/32, then p = ?",
+    "options": [
+      "1/2",
+      "1/4",
+      "3/4",
+      "1/8"
+    ],
+    "answer": 0,
+    "explanation": "(1\u2212p)^5 = 1/32 \u21d2 1\u2212p = 1/2 \u21d2 p = 1/2."
+  },
+  {
+    "id": "pr-q23",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "If P(X=k) in B(n, p) is maximum when k = ? (modal value).",
+    "answer": "floor((n+1)p), with care at the boundary.",
+    "explanation": "The ratio P(X=k)/P(X=k\u22121) crosses 1 at k = (n+1)p."
+  },
+  {
+    "id": "pr-q24",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "A medical test: disease prevalence 1%, sensitivity 99%, specificity 95%. Find P(disease | positive).",
+    "answer": "\u2248 0.99\u00b70.01/(0.99\u00b70.01 + 0.05\u00b70.99) = 0.0099/(0.0099+0.0495) \u2248 0.167 (16.7%).",
+    "explanation": "Bayes with prior 0.01, likelihood positive 0.99/0.05."
+  },
+  {
+    "id": "pr-q25",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "State E(X) for X ~ B(n, p) without proof.",
+    "answer": "E(X) = np (mean of number of successes).",
+    "explanation": "Linearity of expectation over n Bernoulli(p) variables."
+  }
+]

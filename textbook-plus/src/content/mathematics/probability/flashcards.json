@@ -1,0 +1,22 @@
+[
+  { "id": "pr-f1", "front": "Conditional probability", "back": "P(A | B) = P(A ∩ B)/P(B), with P(B) > 0." },
+  { "id": "pr-f2", "front": "Multiplication theorem", "back": "P(A∩B) = P(A) P(B|A) = P(B) P(A|B)." },
+  { "id": "pr-f3", "front": "Independence (2 events)", "back": "P(A∩B) = P(A) P(B); then P(A|B) = P(A)." },
+  { "id": "pr-f4", "front": "Mutually exclusive vs independent", "back": "Mutually exclusive → P(A∩B)=0; incompatible with independence unless one probability is 0." },
+  { "id": "pr-f5", "front": "Total probability theorem", "back": "P(A) = Σ P(Eᵢ) P(A|Eᵢ) where {Eᵢ} partitions S." },
+  { "id": "pr-f6", "front": "Bayes's theorem", "back": "P(Eᵢ|A) = P(Eᵢ) P(A|Eᵢ) / P(A), with P(A) from the total probability theorem." },
+  { "id": "pr-f7", "front": "Random variable", "back": "A real-valued function defined on the sample space; its distribution assigns probabilities to each value." },
+  { "id": "pr-f8", "front": "Mean of a discrete RV", "back": "E(X) = Σ xᵢ P(X = xᵢ)." },
+  { "id": "pr-f9", "front": "Variance of a discrete RV", "back": "Var(X) = E(X²) − [E(X)]², where E(X²) = Σ xᵢ² P(X=xᵢ)." },
+  { "id": "pr-f10", "front": "Bernoulli trial", "back": "Two outcomes (success S with prob p, failure with prob q=1−p); used to build Binomial." },
+  { "id": "pr-f11", "front": "Binomial distribution B(n, p)", "back": "P(X=k)= C(n,k) p^k q^{n−k}; k=0..n." },
+  { "id": "pr-f12", "front": "Binomial mean", "back": "μ = np." },
+  { "id": "pr-f13", "front": "Binomial variance", "back": "σ² = np(1−p) = npq." },
+  { "id": "pr-f14", "front": "Binomial conditions", "back": "Fixed n, constant p, independent trials, two outcomes per trial." },
+  { "id": "pr-f15", "front": "Mutual vs pairwise independence", "back": "Three events are mutually independent iff P(A∩B∩C)=P(A)P(B)P(C) AND all pairwise products hold." },
+  { "id": "pr-f16", "front": "Law of complements", "back": "P(A^c|B) = 1 − P(A|B)." },
+  { "id": "pr-f17", "front": "Independence of complements", "back": "If A and B independent, then so are A^c, B, A, B^c, A^c, B^c (all four combos)." },
+  { "id": "pr-f18", "front": "P(A ∪ B)", "back": "P(A) + P(B) − P(A∩B)." },
+  { "id": "pr-f19", "front": "Clinical/Bayes setup", "back": "Prior (prevalence) × likelihood (test accuracy) divided by total; beware base rate fallacy." },
+  { "id": "pr-f20", "front": "Linearity of expectation", "back": "E(X+Y) = E(X) + E(Y), always, whether independent or not." }
+]
