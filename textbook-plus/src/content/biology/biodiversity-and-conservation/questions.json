@@ -1,0 +1,165 @@
+[
+  {
+    "id": "bi13-q01",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What are the three most important levels of biodiversity?",
+    "options": ["Genetic, species and ecological", "Molecular, cellular and organismal", "Species, population and community", "Prokaryotic, eukaryotic and archaeal"],
+    "answer": 0,
+    "explanation": "NCERT identifies genetic diversity, species diversity and ecological diversity as the three key levels of biodiversity."
+  },
+  {
+    "id": "bi13-q02",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "According to IUCN (2004), roughly how many plant and animal species have been described so far?",
+    "options": ["0.7 million", "1.5 million", "7 million", "50 million"],
+    "answer": 1,
+    "explanation": "IUCN 2004 records slightly more than 1.5 million described plant and animal species; 7 million is Robert May's estimate of the true total."
+  },
+  {
+    "id": "bi13-q03",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which group makes up more than 70 per cent of recorded animals?",
+    "options": ["Fungi", "Mammals", "Insects", "Fish"],
+    "answer": 2,
+    "explanation": "Insects are the most species-rich taxonomic group, accounting for over 70 per cent of all animal species."
+  },
+  {
+    "id": "bi13-q04",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "India holds about 8.1 per cent of global species diversity on what share of the world's land area?",
+    "options": ["2.4 per cent", "8.1 per cent", "14 per cent", "50 per cent"],
+    "answer": 0,
+    "explanation": "India has only 2.4 per cent of land area but 8.1 per cent of global species diversity, making it a mega-diversity country."
+  },
+  {
+    "id": "bi13-q05",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is the latitudinal range of the tropics?",
+    "options": ["0 to 30° N/S", "23.5° N to 23.5° S", "40° N to 40° S", "66.5° N to 66.5° S"],
+    "answer": 1,
+    "explanation": "Tropics span 23.5° N to 23.5° S; species diversity generally decreases from equator to poles."
+  },
+  {
+    "id": "bi13-q06",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Give three hypotheses explaining higher species richness in the tropics.",
+    "answer": "More evolutionary time (less disturbance/glaciation), less seasonal and more predictable environment promoting niche specialisation, and greater solar energy leading to higher productivity.",
+    "explanation": "NCERT lists these three hypotheses for tropical richness."
+  },
+  {
+    "id": "bi13-q07",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "In the species-area equation log S = log C + Z log A, what does Z represent?",
+    "options": ["Species richness", "Area studied", "Slope of the regression line", "Y-intercept"],
+    "answer": 2,
+    "explanation": "Z is the slope (regression coefficient); S is species richness, A is area, C is the Y-intercept."
+  },
+  {
+    "id": "bi13-q08",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "For most taxa across small regions, Z in the species-area relationship lies in the range:",
+    "options": ["0.6 to 1.2", "0.1 to 0.2", "1.0 to 2.0", "0.0 to 0.05"],
+    "answer": 1,
+    "explanation": "Small regions show Z of 0.1-0.2; continents show 0.6-1.2."
+  },
+  {
+    "id": "bi13-q09",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which ecologist's long-term experiments linked higher species richness to higher productivity and lower year-to-year biomass variation?",
+    "options": ["Paul Ehrlich", "David Tilman", "Robert May", "Edward Wilson"],
+    "answer": 1,
+    "explanation": "David Tilman's outdoor-plot experiments showed that species-rich communities varied less in biomass and were more productive."
+  },
+  {
+    "id": "bi13-q10",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The 'revet popper' analogy compares an ecosystem to:",
+    "options": ["A library", "An aeroplane", "A forest", "A web"],
+    "answer": 1,
+    "explanation": "Paul Ehrlich compared an ecosystem to an aeroplane whose rivets (species) gradually being popped risks catastrophic failure."
+  },
+  {
+    "id": "bi13-q11",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Name the four major causes of biodiversity loss, collectively called the 'Evil Quartet'.",
+    "answer": "Habitat loss and fragmentation, over-exploitation, alien species invasion and co-extinctions.",
+    "explanation": "NCERT groups the four major causes of accelerated species extinction as the 'Evil Quartet'."
+  },
+  {
+    "id": "bi13-q12",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Tropical rain forests once covered over 14 per cent of land; how much do they cover now?",
+    "options": ["About 10 per cent", "No more than 6 per cent", "About 2 per cent", "About 1 per cent"],
+    "answer": 1,
+    "explanation": "Tropical rain forests decreased from over 14 per cent to no more than 6 per cent of the earth's land surface."
+  },
+  {
+    "id": "bi13-q13",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which three arguments support conserving biodiversity?",
+    "options": [
+      "Narrowly utilitarian, broadly utilitarian and ethical",
+      "Economic, genetic and aesthetic",
+      "Utilitarian, legal and political",
+      "Scientific, cultural and religious"
+    ],
+    "answer": 0,
+    "explanation": "NCERT groups the reasons for conservation as narrowly utilitarian, broadly utilitarian and ethical."
+  },
+  {
+    "id": "bi13-q14",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Distinguish in situ and ex situ conservation with one example of each.",
+    "answer": "In situ protects species in their natural habitat (e.g. national parks, sanctuaries, sacred groves); ex situ protects them in off-site settings (e.g. zoos, botanical gardens, seed banks, cryopreservation).",
+    "explanation": "In situ saves the whole ecosystem; ex situ is used when urgent species rescue is needed."
+  },
+  {
+    "id": "bi13-q15",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "How many biodiversity hotspots exist world-wide, and how many cover India?",
+    "options": ["25 hotspots, five in India", "34 hotspots, three in India", "36 hotspots, four in India", "40 hotspots, two in India"],
+    "answer": 1,
+    "explanation": "The list now stands at 34 hotspots, of which three (Western Ghats and Sri Lanka, Indo-Burma, Himalaya) cover India."
+  },
+  {
+    "id": "bi13-q16",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which of the following is an example of ex situ conservation method described by NCERT?",
+    "options": ["National park", "Biosphere reserve", "Cryopreservation of gametes", "Sacred grove"],
+    "answer": 2,
+    "explanation": "Cryopreservation, in-vitro fertilisation, tissue culture and seed banks are ex situ methods."
+  },
+  {
+    "id": "bi13-q17",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "What are sacred groves and where are they found in India?",
+    "answer": "Sacred groves are forest tracts set aside and totally protected under Indian religious and cultural traditions; examples occur in the Khasi and Jaintia Hills (Meghalaya), Aravalli Hills (Rajasthan), Western Ghats of Karnataka and Maharashtra, and Sarguja, Chanda and Bastar (Madhya Pradesh).",
+    "explanation": "Sacred groves are a cultural in situ conservation practice; those in Meghalaya are last refuges for many rare plants."
+  },
+  {
+    "id": "bi13-q18",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Present extinction rates are estimated to be how many times faster than pre-human rates?",
+    "options": ["10 to 100 times", "100 to 1,000 times", "1,000 to 10,000 times", "A million times"],
+    "answer": 1,
+    "explanation": "The current Sixth Extinction rate is estimated at 100 to 1,000 times faster than pre-human extinction rates."
+  }
+]

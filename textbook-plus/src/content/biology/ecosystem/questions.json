@@ -1,0 +1,164 @@
+[
+  {
+    "id": "bi12-q01",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "An ecosystem is best described as:",
+    "options": [
+      "A group of individuals of a single species",
+      "A functional unit of nature where organisms interact with each other and the physical environment",
+      "All the populations of an area",
+      "The physical (abiotic) environment only"
+    ],
+    "answer": 1,
+    "explanation": "An ecosystem is a functional unit combining biotic and abiotic components; a population is a single species, a community is all populations, and abiotic alone ignores the living part."
+  },
+  {
+    "id": "bi12-q02",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The vertical distribution of species occupying different levels in an ecosystem is called:",
+    "options": ["Species composition", "Stratification", "Decomposition", "Productivity"],
+    "answer": 1,
+    "explanation": "Stratification refers to the vertical layering (trees → shrubs → herbs/grasses); species composition is the list of species present."
+  },
+  {
+    "id": "bi12-q03",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which of the following is NOT one of the four basic functional components of an ecosystem?",
+    "options": ["Productivity", "Decomposition", "Nutrient cycling", "Evolution"],
+    "answer": 3,
+    "explanation": "The four functional components are productivity, decomposition, energy flow and nutrient cycling; evolution is not among them."
+  },
+  {
+    "id": "bi12-q04",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Net primary productivity (NPP) equals:",
+    "options": ["GPP + R", "GPP – R", "R – GPP", "GPP × R"],
+    "answer": 1,
+    "explanation": "GPP is total photosynthetic production; plants use part of it in respiration (R), so NPP = GPP – R."
+  },
+  {
+    "id": "bi12-q05",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Secondary productivity is:",
+    "options": [
+      "The rate of organic matter production by autotrophs",
+      "The rate of formation of new organic matter by consumers",
+      "The respiration loss of producers",
+      "The 10% energy transferred to decomposers"
+    ],
+    "answer": 1,
+    "explanation": "Secondary productivity is the rate at which consumers convert ingested food energy into new body mass; it is consumption-based, not photosynthesis-based."
+  },
+  {
+    "id": "bi12-q06",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The annual net primary productivity of the whole biosphere is approximately:",
+    "options": ["55 billion tons", "170 billion tons", "70 billion tons", "2-10 billion tons"],
+    "answer": 1,
+    "explanation": "The biosphere's annual NPP is about 170 billion tons dry weight; oceans contribute about 55 billion tons despite covering ~70% of surface."
+  },
+  {
+    "id": "bi12-q07",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The dark-coloured amorphous substance that acts as a reservoir of nutrients during decomposition is called:",
+    "options": ["Detritus", "Humus", "Litter", "Biomass"],
+    "answer": 1,
+    "explanation": "Humus is formed during humification; it is colloidal and highly resistant to microbial action, serving as a nutrient reservoir."
+  },
+  {
+    "id": "bi12-q08",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of the following climatic condition would most favour decomposition?",
+    "options": ["Cold and dry", "Warm and moist", "Cold and waterlogged", "Hot and arid"],
+    "answer": 1,
+    "explanation": "Warm and moist environments favour the activity of soil microbes; low temperature and anaerobiosis inhibit decomposition."
+  },
+  {
+    "id": "bi12-q09",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which step of decomposition involves water-soluble inorganic nutrients moving down the soil horizon?",
+    "options": ["Fragmentation", "Leaching", "Catabolism", "Humification"],
+    "answer": 1,
+    "explanation": "Leaching is the downward movement of water-soluble inorganic nutrients, which may precipitate as unavailable salts."
+  },
+  {
+    "id": "bi12-q10",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Approximately what percentage of photosynthetically active radiation (PAR) is captured by plants?",
+    "options": ["Less than 50%", "2-10%", "100%", "50%"],
+    "answer": 1,
+    "explanation": "Less than 50% of incident solar radiation is PAR, and plants capture only 2-10% of that PAR."
+  },
+  {
+    "id": "bi12-q11",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In an aquatic ecosystem, the major conduit for energy flow is the:",
+    "options": ["Detritus food chain", "Grazing food chain", "Parasitic food chain", "Omnivore food chain"],
+    "answer": 1,
+    "explanation": "GFC dominates in aquatic ecosystems, whereas in terrestrial ecosystems a much larger fraction flows through the DFC."
+  },
+  {
+    "id": "bi12-q12",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The 10 per cent law states that:",
+    "options": [
+      "Only 10% of the energy at a trophic level is transferred to the next level",
+      "Decomposers capture 10% of total energy",
+      "Producers capture 10% of PAR",
+      "Herbivores convert 10% of food into biomass"
+    ],
+    "answer": 0,
+    "explanation": "Only about 10% of the energy of one trophic level is passed to the next; the rest is lost, mostly as heat."
+  },
+  {
+    "id": "bi12-q13",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Which ecological pyramid can never be inverted?",
+    "options": ["Pyramid of numbers", "Pyramid of biomass", "Pyramid of energy", "All of them can be inverted"],
+    "answer": 2,
+    "explanation": "Pyramid of energy is always upright because energy is lost as heat at every transfer; biomass and number pyramids can be inverted."
+  },
+  {
+    "id": "bi12-q14",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The inverted pyramid of biomass in the sea occurs because:",
+    "options": [
+      "Phytoplankton are very large",
+      "A small standing crop of fast-reproducing phytoplankton supports a large fish biomass",
+      "Fish are decomposers",
+      "Energy increases up the trophic levels"
+    ],
+    "answer": 1,
+    "explanation": "Phytoplankton reproduce and are consumed so fast that their standing crop stays small while fish accumulate biomass; energy still decreases upward."
+  },
+  {
+    "id": "bi12-q15",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Define detritus and state what constitutes it.",
+    "answer": "Detritus is the raw material for decomposition, consisting of dead plant remains (leaves, bark, flowers) and dead remains of animals, including faecal matter.",
+    "explanation": "Dead plant and animal remains (including faeces) constitute detritus, which decomposers break down."
+  },
+  {
+    "id": "bi12-q16",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Why is measurement of biomass in terms of dry weight more accurate than fresh weight?",
+    "answer": "Fresh weight varies with the water content of the organism, which fluctuates; dry weight removes water and so reflects the actual organic mass.",
+    "explanation": "Water content varies; dry weight (after removing water) gives a more consistent measure of living (organic) material."
+  }
+]

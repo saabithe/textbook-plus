@@ -1,0 +1,22 @@
+[
+  { "id": "bi12-f01", "front": "Ecosystem", "back": "A functional unit of nature in which living organisms interact among themselves and with the surrounding physical environment." },
+  { "id": "bi12-f02", "front": "Stratification", "back": "The vertical distribution of different species occupying different levels in an ecosystem (e.g., trees → shrubs → herbs)." },
+  { "id": "bi12-f03", "front": "Gross primary productivity (GPP)", "back": "The rate of production of organic matter by autotrophs during photosynthesis." },
+  { "id": "bi12-f04", "front": "Net primary productivity (NPP)", "back": "GPP minus respiration losses (GPP – R); the biomass available to heterotrophs." },
+  { "id": "bi12-f05", "front": "Secondary productivity", "back": "The rate of formation of new organic matter by consumers (assimilation of ingested food energy)." },
+  { "id": "bi12-f06", "front": "Detritus", "back": "Dead plant remains (leaves, bark, flowers) plus dead animal remains and faecal matter; the raw material for decomposition." },
+  { "id": "bi12-f07", "front": "Fragmentation", "back": "Breakdown of detritus into smaller particles by detritivores such as earthworms." },
+  { "id": "bi12-f08", "front": "Leaching", "back": "Movement of water-soluble inorganic nutrients down the soil horizon, where they may precipitate as unavailable salts." },
+  { "id": "bi12-f09", "front": "Catabolism (in decomposition)", "back": "Degradation of detritus into simpler inorganic substances by bacterial and fungal enzymes." },
+  { "id": "bi12-f10", "front": "Humification / Humus", "back": "Formation of a dark, colloidal, microbe-resistant humus that acts as a nutrient reservoir; decomposes very slowly." },
+  { "id": "bi12-f11", "front": "Mineralisation", "back": "Further microbial degradation of humus, releasing inorganic nutrients back for reuse by producers." },
+  { "id": "bi12-f12", "front": "Producers", "back": "Green plants (and photosynthetic bacteria) that fix solar energy to make food; first trophic level." },
+  { "id": "bi12-f13", "front": "Primary consumers", "back": "Herbivores that feed directly on producers (second trophic level)." },
+  { "id": "bi12-f14", "front": "Secondary consumers", "back": "Carnivores that eat primary consumers (third trophic level)." },
+  { "id": "bi12-f15", "front": "Detritus food chain (DFC)", "back": "A food chain beginning with dead organic matter and driven by decomposers (saprotrophs)." },
+  { "id": "bi12-f16", "front": "Standing crop", "back": "The mass of living organisms (biomass) or number present in a unit area at a given time." },
+  { "id": "bi12-f17", "front": "10 per cent law", "back": "Only about 10% of the energy of one trophic level is transferred to the next; the rest is lost, mostly as heat." },
+  { "id": "bi12-f18", "front": "Ecological pyramid", "back": "A graphical representation of the food/energy relationship between trophic levels in terms of number, biomass or energy." },
+  { "id": "bi12-f19", "front": "Inverted pyramid of biomass", "back": "Consumer biomass exceeds producer biomass, e.g., in the sea where phytoplankton standing crop is small but fish biomass is large." },
+  { "id": "bi12-f20", "front": "Nutrient cycling", "back": "Storage and movement of nutrient elements through ecosystem components; gaseous (carbon, reservoir atmosphere) or sedimentary (phosphorus, reservoir Earth's crust)." }
+]

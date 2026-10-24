@@ -1,0 +1,23 @@
+[
+  { "id": "bi11-f01", "front": "Population (definition)", "back": "A group of individuals of a given species, sharing or competing for similar resources in a well-defined geographical area, potentially interbreeding." },
+  { "id": "bi11-f02", "front": "Birth rate (natality)", "back": "Per capita number of births during a given period added to the population." },
+  { "id": "bi11-f03", "front": "Death rate (mortality)", "back": "Per capita number of deaths during a given period in the population." },
+  { "id": "bi11-f04", "front": "Sex ratio", "back": "The proportion of males and females in a population (e.g. 60% female, 40% male)." },
+  { "id": "bi11-f05", "front": "Age pyramid", "back": "Graphical representation of the age distribution of a population; shape indicates growing, stable or declining status." },
+  { "id": "bi11-f06", "front": "Population density (N)", "back": "Size of a population; can be numbers, biomass or per cent cover depending on the species." },
+  { "id": "bi11-f07", "front": "Natality (B) / Mortality (D)", "back": "B increases density, D decreases density." },
+  { "id": "bi11-f08", "front": "Immigration (I) / Emigration (E)", "back": "I increases density (dominates early colonisation), E decreases it." },
+  { "id": "bi11-f09", "front": "Population change equation", "back": "N_(t+1) = N_t + [(B + I) - (D + E)]" },
+  { "id": "bi11-f10", "front": "Intrinsic rate of natural increase (r)", "back": "r = b - d; governs exponential growth dN/dt = rN." },
+  { "id": "bi11-f11", "front": "Exponential growth", "back": "Unlimited resources; J-shaped curve; N_t = N_0 e^(rt)." },
+  { "id": "bi11-f12", "front": "Carrying capacity (K)", "back": "Maximum population a given habitat can support." },
+  { "id": "bi11-f13", "front": "Logistic growth", "back": "Limited resources; sigmoid curve; dN/dt = rN(1 - N/K)." },
+  { "id": "bi11-f14", "front": "Predation (+, -)", "back": "One species (predator) benefits, the other (prey) is harmed; transfers energy to higher trophic levels." },
+  { "id": "bi11-f15", "front": "Competition (-, -)", "back": "Both species suffer reduced fitness from shared limiting resources." },
+  { "id": "bi11-f16", "front": "Competitive Exclusion Principle (Gause)", "back": "Two closely related species competing for the same limiting resources cannot coexist indefinitely; the inferior one is eliminated." },
+  { "id": "bi11-f17", "front": "Resource partitioning", "back": "Coexistence mechanism: competing species avoid overlap by using different times/foraging patterns." },
+  { "id": "bi11-f18", "front": "Parasitism (+, -)", "back": "Parasite benefits at host's expense; ectoparasites (surface) vs endoparasites (inside body)." },
+  { "id": "bi11-f19", "front": "Commensalism (+, 0)", "back": "One species benefits; other unaffected (orchid on mango, cattle egret with cattle, clown fish with anemone)." },
+  { "id": "bi11-f20", "front": "Mutualism (+, +)", "back": "Both species benefit (lichens, mycorrhizae, fig-wasp, orchids-bees)." },
+  { "id": "bi11-f21", "front": "Amensalism (-, 0)", "back": "One species is harmed; the other is unaffected." }
+]

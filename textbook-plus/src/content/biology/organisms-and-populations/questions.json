@@ -1,0 +1,230 @@
+[
+  {
+    "id": "bi11-q01",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which of these is an attribute of a population but NOT of an individual organism?",
+    "options": [
+      "Birth rate",
+      "Sex",
+      "Body size",
+      "Age"
+    ],
+    "answer": 0,
+    "explanation": "An individual has births, deaths, sex, body size and an age; only the population has birth rates and death rates (per capita), sex ratio, age distribution and density."
+  },
+  {
+    "id": "bi11-q02",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In a pond with 20 lotus plants, 8 new plants are added by reproduction. What is the birth rate?",
+    "options": [
+      "0.4 offspring per lotus per year",
+      "8 offspring per lotus per year",
+      "28 offspring per lotus per year",
+      "0.04 offspring per lotus per year"
+    ],
+    "answer": 0,
+    "explanation": "Birth rate is the number of births per individual: 8 / 20 = 0.4 offspring per lotus per year."
+  },
+  {
+    "id": "bi11-q03",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A sample age pyramid has a wide base and a narrow top. What does it indicate?",
+    "options": [
+      "Growing population",
+      "Stable population",
+      "Declining population",
+      "Zero population growth"
+    ],
+    "answer": 0,
+    "explanation": "A wide base means large young age classes, hence a high birth rate relative to death rate — a growing population."
+  },
+  {
+    "id": "bi11-q04",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Population density (N) can be best measured as which of the following?",
+    "options": [
+      "Only as total number of individuals",
+      "Numbers, biomass or per cent cover, depending on the species",
+      "Only by counting individuals directly",
+      "Only by the sex ratio"
+    ],
+    "answer": 1,
+    "explanation": "Total number may be meaningless or impossible; biomass or per cent cover is more meaningful for organisms like a single large banyan tree or a dense bacterial culture."
+  },
+  {
+    "id": "bi11-q05",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of the four processes contributes to an INCREASE in population density?",
+    "options": [
+      "Mortality and emigration",
+      "Natality and immigration",
+      "Mortality and immigration",
+      "Natality and emigration"
+    ],
+    "answer": 1,
+    "explanation": "Natality (births) and immigration increase density; mortality and emigration decrease it."
+  },
+  {
+    "id": "bi11-q06",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The logistic growth equation is dN/dt = rN(1 - N/K). What does K represent?",
+    "options": [
+      "Intrinsic rate of natural increase",
+      "Carrying capacity of the habitat",
+      "Population density at time zero",
+      "Per capita birth rate"
+    ],
+    "answer": 1,
+    "explanation": "K is the maximum number a given habitat can support — nature's carrying capacity for that species."
+  },
+  {
+    "id": "bi11-q07",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "In exponential growth, the curve is:",
+    "options": [
+      "Sigmoid, asymptoting at K",
+      "J-shaped, with unlimited resources assumed",
+      "A straight line",
+      "U-shaped"
+    ],
+    "answer": 1,
+    "explanation": "Unlimited resources produce exponential/geometric growth, plotting as a J-shaped curve: N_t = N_0 e^(rt)."
+  },
+  {
+    "id": "bi11-q08",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which interaction is described as (+, 0)?",
+    "options": [
+      "Mutualism",
+      "Commensalism",
+      "Amensalism",
+      "Competition"
+    ],
+    "answer": 1,
+    "explanation": "In commensalism one species benefits while the other is neither benefited nor harmed (+, 0)."
+  },
+  {
+    "id": "bi11-q09",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "An interaction where both species are harmed is:",
+    "options": [
+      "Mutualism",
+      "Commensalism",
+      "Competition",
+      "Predation"
+    ],
+    "answer": 2,
+    "explanation": "Competition is the (−, −) interaction: both species suffer reduced fitness."
+  },
+  {
+    "id": "bi11-q10",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which of the following is an example of mutualism?",
+    "options": [
+      "Lichens (fungus + alga/cyanobacterium)",
+      "Cuscuta on a hedge plant",
+      "Cattle egret following cattle",
+      "Cuckoo laying eggs in a crow's nest"
+    ],
+    "answer": 0,
+    "explanation": "Lichens represent mutualism — both partners benefit. The others are parasitism (Cuscuta, brood parasitism) or commensalism (egret)."
+  },
+  {
+    "id": "bi11-q11",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The competitive exclusion principle (Gause) states that:",
+    "options": [
+      "Two species always coexist by resource partitioning",
+      "Two closely related species competing for the same limiting resources cannot coexist indefinitely",
+      "Predators always exclude prey",
+      "Competition never occurs in nature"
+    ],
+    "answer": 1,
+    "explanation": "When resources are limiting, the competitively superior species eventually eliminates the inferior one; this can be bypassed by coexistence mechanisms like resource partitioning."
+  },
+  {
+    "id": "bi11-q12",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Biological control of agricultural pests relies on:",
+    "options": [
+      "Parasitism",
+      "Predation, predators regulating prey populations",
+      "Mutualism",
+      "Commensalism"
+    ],
+    "answer": 1,
+    "explanation": "Predators keep prey populations under control; introducing a natural predator (e.g. cactus-eating moth in Australia) brings an invasive prey under control."
+  },
+  {
+    "id": "bi11-q13",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Brood parasitism is best illustrated by:",
+    "options": [
+      "A louse feeding on human blood",
+      "A cuckoo laying its eggs in a crow's nest",
+      "A tick feeding on a dog",
+      "An orchid growing on a mango branch"
+    ],
+    "answer": 1,
+    "explanation": "Brood parasitism: the parasitic bird lays eggs in the host's nest and exploits incubation; eggs evolved to resemble host eggs."
+  },
+  {
+    "id": "bi11-q14",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "What is amensalism? Give an example based on the interaction table.",
+    "answer": "Amensalism is a (−, 0) interaction: one species is harmed while the other is unaffected.",
+    "explanation": "It is the interaction in which one species suffers and the other experiences neither benefit nor harm."
+  },
+  {
+    "id": "bi11-q15",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "A population doubles in 3 years under exponential growth. Calculate r.",
+    "answer": "r = ln 2 / 3 ≈ 0.231 per year",
+    "explanation": "Doubling implies e^(3r) = 2, so r = ln(2)/3 ≈ 0.693/3 = 0.231 yr^-1."
+  },
+  {
+    "id": "bi11-q16",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "List two plant morphological and two chemical defences against herbivores.",
+    "answer": "Morphological: thorns (Acacia, Cactus). Chemical: toxic secondary compounds (Calotropis cardiac glycosides, nicotine, caffeine, quinine, strychnine, opium).",
+    "explanation": "Plants cannot flee herbivores, so they evolved thorns and chemical defences that sicken or kill the grazer."
+  },
+  {
+    "id": "bi11-q17",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which organism is NOT considered a parasite?",
+    "options": [
+      "Cuscuta",
+      "Lice on humans",
+      "Tick on a dog",
+      "Female mosquito feeding on human blood"
+    ],
+    "answer": 3,
+    "explanation": "NCERT notes the female mosquito needs blood for reproduction but is not considered a parasite."
+  },
+  {
+    "id": "bi11-q18",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Why is the logistic growth model considered more realistic than the exponential model?",
+    "answer": "Because resources in any habitat are finite and become limiting, so growth decelerates and stabilises at carrying capacity K (sigmoid curve) rather than growing without bound.",
+    "explanation": "No population has unlimited resources; the logistic equation dN/dt = rN(1 - N/K) incorporates the limiting factor K."
+  }
+]

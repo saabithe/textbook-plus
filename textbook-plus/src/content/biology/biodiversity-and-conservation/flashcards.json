@@ -1,0 +1,22 @@
+[
+  { "id": "bi13-f01", "front": "Biodiversity", "back": "Combined diversity at all levels of biological organisation, from macromolecules to biomes (term popularised by Edward Wilson)." },
+  { "id": "bi13-f02", "front": "Genetic diversity", "back": "Diversity at the genetic level within a species over its distributional range; e.g. Rauwolfia vomitoria reserpine variation, 50,000 rice strains." },
+  { "id": "bi13-f03", "front": "Species diversity", "back": "Diversity at the species level in a region, e.g. Western Ghats have greater amphibian species diversity than Eastern Ghats." },
+  { "id": "bi13-f04", "front": "Ecological diversity", "back": "Diversity at the ecosystem level; India exceeds a Scandinavian country because of its variety of biomes." },
+  { "id": "bi13-f05", "front": "Described species (IUCN 2004)", "back": "Slightly more than 1.5 million plant and animal species described so far." },
+  { "id": "bi13-f06", "front": "Robert May's estimate", "back": "Global species diversity is about 7 million (conservative, scientifically sound)." },
+  { "id": "bi13-f07", "front": "India's mega-diversity", "back": "8.1% of global species diversity on only 2.4% of land area; ~45,000 plant + ~90,000 animal species." },
+  { "id": "bi13-f08", "front": "Insect dominance", "back": "More than 70% of animal species are insects — 7 out of every 10 animals." },
+  { "id": "bi13-f09", "front": "Latitudinal gradient", "back": "Species diversity generally decreases from equator towards poles; tropics (23.5° N to 23.5° S) harbour the most." },
+  { "id": "bi13-f10", "front": "Tropics richness hypotheses", "back": "More evolutionary time (undisturbed), less seasonal/predictable environment (niche specialisation), more solar energy (higher productivity)." },
+  { "id": "bi13-f11", "front": "Species-area relationship", "back": "log S = log C + Z log A (rectangular hyperbola); Z 0.1-0.2 for small regions, 0.6-1.2 for continents." },
+  { "id": "bi13-f12", "front": "Tilman's result", "back": "Plots with more species showed less year-to-year variation in total biomass and higher productivity." },
+  { "id": "bi13-f13", "front": "Rivet-popper hypothesis", "back": "Paul Ehrlich's analogy: removing too many species (rivets) weakens the ecosystem (aeroplane); key species are critical." },
+  { "id": "bi13-f14", "front": "Evil Quartet", "back": "Four major causes of biodiversity loss: habitat loss/fragmentation, over-exploitation, alien species invasion, co-extinctions." },
+  { "id": "bi13-f15", "front": "In situ conservation", "back": "Conserving the whole ecosystem to protect biodiversity at all levels (save the entire forest to save the tiger)." },
+  { "id": "bi13-f16", "front": "Ex situ conservation", "back": "Removing threatened species to off-site settings: zoos, botanical gardens, cryopreservation, in-vitro fertilisation, tissue culture, seed banks." },
+  { "id": "bi13-f17", "front": "Biodiversity hotspots", "back": "34 world-wide (originally 25); cover <2% land but harbour huge species richness; 3 (Western Ghats-Sri Lanka, Indo-Burma, Himalaya) in India; strict protection could cut extinction by ~30%." },
+  { "id": "bi13-f18", "front": "In situ India", "back": "14 biosphere reserves, 90 national parks, 448 wildlife sanctuaries and many sacred groves." },
+  { "id": "bi13-f19", "front": "Sacred groves", "back": "Forest tracts set aside and totally protected under cultural/religious traditions; last refuges for rare plants (e.g. Meghalaya)." },
+  { "id": "bi13-f20", "front": "Sixth Extinction", "back": "Present extinction rates are 100 to 1,000 times faster than pre-human times; if trends continue ~half of species may be wiped out in 100 years." }
+]

@@ -35,6 +35,9 @@ const QUESTION_KEYS = new Set([
   "sexual-reproduction-in-flowering-plants",
   "human-reproduction",
   "reproductive-health",
+  "organisms-and-populations",
+  "ecosystem",
+  "biodiversity-and-conservation",
   "principles-of-inheritance-and-variation",
   "evolution",
   "human-health-and-diseases",
@@ -104,6 +107,12 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
     import("@/content/biology/human-reproduction/questions.json").then((m) => m.default as Question[]),
   "reproductive-health": () =>
     import("@/content/biology/reproductive-health/questions.json").then((m) => m.default as Question[]),
+  "organisms-and-populations": () =>
+    import("@/content/biology/organisms-and-populations/questions.json").then((m) => m.default as Question[]),
+  "ecosystem": () =>
+    import("@/content/biology/ecosystem/questions.json").then((m) => m.default as Question[]),
+  "biodiversity-and-conservation": () =>
+    import("@/content/biology/biodiversity-and-conservation/questions.json").then((m) => m.default as Question[]),
   "principles-of-inheritance-and-variation": () =>
     import("@/content/biology/principles-of-inheritance-and-variation/questions.json").then((m) => m.default as Question[]),
   "evolution": () =>
@@ -175,6 +184,12 @@ const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
     import("@/content/biology/human-reproduction/flashcards.json").then((m) => m.default as Flashcard[]),
   "reproductive-health": () =>
     import("@/content/biology/reproductive-health/flashcards.json").then((m) => m.default as Flashcard[]),
+  "organisms-and-populations": () =>
+    import("@/content/biology/organisms-and-populations/flashcards.json").then((m) => m.default as Flashcard[]),
+  "ecosystem": () =>
+    import("@/content/biology/ecosystem/flashcards.json").then((m) => m.default as Flashcard[]),
+  "biodiversity-and-conservation": () =>
+    import("@/content/biology/biodiversity-and-conservation/flashcards.json").then((m) => m.default as Flashcard[]),
   "principles-of-inheritance-and-variation": () =>
     import("@/content/biology/principles-of-inheritance-and-variation/flashcards.json").then((m) => m.default as Flashcard[]),
   "evolution": () =>
