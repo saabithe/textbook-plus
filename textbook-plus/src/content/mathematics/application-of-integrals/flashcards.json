@@ -1,0 +1,112 @@
+[
+  {
+    "id": "ai-strip-vertical",
+    "front": "Area under y = f(x) from x = a to x = b when f(x) ≥ 0",
+    "back": "A = ∫[a→b] y dx = ∫[a→b] f(x) dx — add up vertical strips of height y and width dx."
+  },
+  {
+    "id": "ai-elementary-area",
+    "front": "Elementary area of a vertical strip",
+    "back": "dA = y dx = f(x) dx, where y is the height of the strip at position x."
+  },
+  {
+    "id": "ai-strip-horizontal",
+    "front": "Area bounded by x = g(y), the y-axis and the lines y = c, y = d",
+    "back": "A = ∫[c→d] x dy = ∫[c→d] g(y) dy — horizontal strips of length x and thickness dy."
+  },
+  {
+    "id": "ai-negative-area",
+    "front": "Curve lies below the x-axis on [a, b] — what is the area?",
+    "back": "Take the numerical value: A = |∫[a→b] f(x) dx| = −∫[a→b] f(x) dx, because f(x) < 0 there."
+  },
+  {
+    "id": "ai-crossing-axis",
+    "front": "Curve crosses the x-axis inside [a, b] — how is the area found?",
+    "back": "Split at the zeros and add magnitudes: A = |A₁| + A₂. A single integral silently cancels parts (e.g. ∫[0→2π] cos x dx = 0 but the area is 4)."
+  },
+  {
+    "id": "ai-circle-area",
+    "front": "Area enclosed by the circle x² + y² = a²",
+    "back": "πa². Because of symmetry, integrate one quarter (∫[0→a] √(a² − x²) dx = πa²/4) and multiply by 4."
+  },
+  {
+    "id": "ai-ellipse-area",
+    "front": "Area enclosed by the ellipse x²/a² + y²/b² = 1",
+    "back": "πab. Take 4 × the first-quadrant area ∫[0→a] (b/a)√(a² − x²) dx = 4 × (b/a)(πa²/4)."
+  },
+  {
+    "id": "ai-between-curves",
+    "front": "Area between y = f(x) (upper) and y = g(x) (lower) from x = a to x = b",
+    "back": "A = ∫[a→b] (f − g) dx, with a and b normally the points where f(x) = g(x)."
+  },
+  {
+    "id": "ai-limits",
+    "front": "How are the limits for a region between two curves obtained?",
+    "back": "Solve f(x) = g(x) simultaneously; each intersection point is a limit of integration or a split point."
+  },
+  {
+    "id": "ai-crossing-split",
+    "front": "Two curves cross at x = c inside [a, b] — what must be done?",
+    "back": "Split at c and reverse the subtraction: ∫[a→c](f − g) dx + ∫[c→b](g − f) dx. Integrating straight across the crossing cancels area."
+  },
+  {
+    "id": "ai-strip-choice",
+    "front": "When are horizontal strips the better choice?",
+    "back": "When a boundary is given as x = g(y) (like y² = 4x) or when the region is naturally bounded left and right; each boundary then becomes a single-valued function of y."
+  },
+  {
+    "id": "ai-parabola-line",
+    "front": "Area between y = x² and y = x",
+    "back": "1/6 sq units — intersections at 0 and 1, ∫[0→1](x − x²) dx = 1/2 − 1/3."
+  },
+  {
+    "id": "ai-y2-4x-y3",
+    "front": "Area bounded by y² = 4x, the y-axis and y = 3",
+    "back": "9/4 sq units — ∫[0→3] (y²/4) dy = [y³/12] from 0 to 3 = 27/12."
+  },
+  {
+    "id": "ai-two-parabolas",
+    "front": "Area between the parabolas y² = 4x and x² = 4y",
+    "back": "16/3 sq units — intersections x = 0, 4; ∫[0→4](2√x − x²/4) dx = 32/3 − 16/3."
+  },
+  {
+    "id": "ai-parabola-parabola-ex",
+    "front": "Area enclosed by x² = y and y = x + 2",
+    "back": "9/2 sq units — intersections at x = −1 and x = 2; ∫[−1→2](x + 2 − x²) dx = 10/3 + 7/6."
+  },
+  {
+    "id": "ai-x-cubed",
+    "front": "Area bounded by y = x³, the x-axis and x = −2, x = 1",
+    "back": "17/4 sq units — |∫[−2→0] x³ dx| = 4 and ∫[0→1] x³ dx = 1/4; the raw integral is −15/4."
+  },
+  {
+    "id": "ai-x-mod-x",
+    "front": "Area bounded by y = x|x|, the x-axis and x = −1, x = 1",
+    "back": "2/3 sq units — y = −x² for x < 0 and x² for x > 0, so 1/3 + 1/3."
+  },
+  {
+    "id": "ai-circle-line",
+    "front": "Smaller area enclosed by x² + y² = 4 and x + y = 2",
+    "back": "π − 2 sq units — quarter circle of radius 2 (area π) minus the right triangle with legs 2 and 2 (area 2)."
+  },
+  {
+    "id": "ai-ellipse-line",
+    "front": "Smaller region between x²/9 + y²/4 = 1 and x/3 + y/2 = 1",
+    "back": "3(π − 2)/2 sq units — quarter ellipse 3π/2 minus the triangle with legs 3 and 2 (area 3)."
+  },
+  {
+    "id": "ai-symmetry",
+    "front": "Shortcut for a region symmetric about an axis",
+    "back": "Integrate over one half (or one quarter) and multiply by 2 (or 4). This is how the circle and ellipse areas are derived."
+  },
+  {
+    "id": "ai-x2y232-line",
+    "front": "Area in the first quadrant enclosed by the x-axis, y = x and x² + y² = 32",
+    "back": "4π sq units — split at (4, 4): ∫[0→4] x dx = 8 and ∫[4→4√2] √(32 − x²) dx = 4π − 8."
+  },
+  {
+    "id": "ai-scaling",
+    "front": "How does scaling the curves affect the enclosed area?",
+    "back": "If every length is multiplied by k, the area is multiplied by k². So y = x² and y = x give 1/6, while y = 2x² and y = 2x give 1/3."
+  }
+]

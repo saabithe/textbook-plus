@@ -1,0 +1,22 @@
+[
+  { "id": "de-f1", "front": "Order of a DE", "back": "Order = highest order of derivative present." },
+  { "id": "de-f2", "front": "Degree of a DE", "back": "Degree = power of the highest-order derivative, provided the equation is polynomial in derivatives." },
+  { "id": "de-f3", "front": "General solution", "back": "An n-th-order DE has a general solution with n arbitrary constants." },
+  { "id": "de-f4", "front": "Particular solution", "back": "A specific solution satisfying given initial/boundary conditions; constants are then fixed." },
+  { "id": "de-f5", "front": "Variable separable", "back": "dy/dx = f(x)g(y) ⇒ (1/g) dy = f dx; integrate both sides independently." },
+  { "id": "de-f6", "front": "Homogeneous equation", "back": "dy/dx = F(y/x). Substitute y = vx, reduce to a separable equation in v and x." },
+  { "id": "de-f7", "front": "Linear first-order form", "back": "dy/dx + P(x) y = Q(x). Solution via integrating factor μ = e^{∫P dx}; then (μ y)' = μ Q, integrate." },
+  { "id": "de-f8", "front": "Integrating factor formula", "back": "μ(x) = e^{∫ P(x) dx}; multiply through by μ to get (μ y)' = μ Q." },
+  { "id": "de-f9", "front": "Bernoulli equation", "back": "dy/dx + P(x) y = Q(x) yⁿ; substitute v = y^{1−n} to make it linear." },
+  { "id": "de-f10", "front": "Exact equation", "back": "M dx + N dy = 0 is exact if ∂M/∂y = ∂N/∂x. Then solution: ∫ M dx + ∫(N − ∂/∂y∫ M dx) dy = C." },
+  { "id": "de-f11", "front": "Homogeneous function of degree n", "back": "f(tx, ty) = tⁿ f(x, y) — needed to recognise and solve homogeneous DEs." },
+  { "id": "de-f12", "front": "Solution of y'' + a y' + b y = 0", "back": "Form the characteristic equation r² + a r + b = 0. Real distinct roots ⇒ exponential sum; repeated ⇒ t e^(rt); complex α ± iβ ⇒ e^(αt)(C₁ cos βt + C₂ sin βt)." },
+  { "id": "de-f13", "front": "Second-order DE with g(x)", "back": "Find the complementary function from the homogeneous part, then a particular integral (PI) by a suitable trial using undetermined coefficients." },
+  { "id": "de-f14", "front": "Formation of DE (geometric curves)", "back": "Differentiate the family equation n times (once per arbitrary constant) and eliminate constants to obtain the DE of order n." },
+  { "id": "de-f15", "front": "dx/dy form: x as function of y", "back": "If the equation gives dx/dy more easily, solve for x(y) by treating it as a first-order linear/separable equation in y." },
+  { "id": "de-f16", "front": "Orthogonal trajectories", "back": "Replace dy/dx by −dx/dy in the DE of the given family." },
+  { "id": "de-f17", "front": "Newton's law of cooling", "back": "dT/dt = −k(T − T_s): the temperature difference decreases by 1/k; solve by separation." },
+  { "id": "de-f18", "front": "Population growth", "back": "dN/dt = kN: solution N = N₀ e^{kt}; solve with initial N(0) = N₀." },
+  { "id": "de-f19", "front": "Velocity/displacement problems", "back": "v = dx/dt, a = dv/dt = x''(t); integrate twice and use initial position and velocity." },
+  { "id": "de-f20", "front": "Growth-decay half-life", "back": "For N = N₀ e^{−kt}, the half-life is t_{1/2} = (ln 2)/k." }
+]

@@ -1,0 +1,230 @@
+[
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "For f(x) ≥ 0 on [a, b], the area of the region bounded by y = f(x), the x-axis and the ordinates x = a, x = b is",
+    "options": [
+      "∫[a→b] f(x) dx",
+      "f(b) − f(a)",
+      "f′(b) − f′(a)",
+      "f(a) + f(b)"
+    ],
+    "answer": 0,
+    "explanation": "The area is the sum of vertical strips of height f(x) and width dx, i.e. the definite integral of f from a to b."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The area of the region bounded by the curve x = g(y), the y-axis and the lines y = c, y = d (with x ≥ 0) is",
+    "options": [
+      "∫[c→d] g(y) dy",
+      "∫[c→d] y dy",
+      "g(d) − g(c)",
+      "2∫[c→d] g(y) dy"
+    ],
+    "answer": 0,
+    "explanation": "Horizontal strips of length x = g(y) and thickness dy add up to ∫[c→d] x dy = ∫[c→d] g(y) dy."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The area enclosed by the circle x² + y² = 9 is",
+    "options": ["9π", "3π", "6π", "18π"],
+    "answer": 0,
+    "explanation": "Area of x² + y² = a² is πa²; here a = 3, so the area is 9π."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The area of the region bounded by the ellipse x²/16 + y²/9 = 1 is",
+    "options": ["12π", "6π", "24π", "144π"],
+    "answer": 0,
+    "explanation": "Area of an ellipse is πab with a = 4, b = 3, so π × 4 × 3 = 12π."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The area under the curve y = x² between x = 1 and x = 2 (above the x-axis) is",
+    "options": ["1/3", "7/3", "8/3", "3"],
+    "answer": 1,
+    "explanation": "∫[1→2] x² dx = [x³/3] from 1 to 2 = 8/3 − 1/3 = 7/3."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The area under y = cos x from x = 0 to x = π/2 is",
+    "options": ["0", "1", "2", "π/2"],
+    "answer": 1,
+    "explanation": "∫[0→π/2] cos x dx = [sin x] from 0 to π/2 = 1 − 0 = 1."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "If f(x) ≤ 0 on [a, b], the area bounded by y = f(x), the x-axis and the ordinates x = a, x = b is",
+    "options": [
+      "∫[a→b] f(x) dx",
+      "−∫[a→b] f(x) dx",
+      "f(a) − f(b)",
+      "0"
+    ],
+    "answer": 1,
+    "explanation": "Below the x-axis the integral is negative, so the numerical (positive) area is |∫[a→b] f(x) dx| = −∫[a→b] f(x) dx."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The area bounded by the curve y = sin x between x = 0 and x = 2π is",
+    "options": ["0", "2", "4", "2π"],
+    "answer": 2,
+    "explanation": "∫[0→π] sin x dx = 2 and |∫[π→2π] sin x dx| = 2, so the area is 4. The single integral ∫[0→2π] sin x dx = 0 is not the area."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The area of the region bounded by the curve y² = 4x, the y-axis and the line y = 3 is",
+    "options": ["9/4", "9/2", "3", "27/4"],
+    "answer": 0,
+    "explanation": "Use horizontal strips with x = y²/4: ∫[0→3] (y²/4) dy = [y³/12] from 0 to 3 = 27/12 = 9/4."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The area of the region enclosed between the curves y = x² and y = x is",
+    "options": ["1/6", "1/3", "1/2", "1/12"],
+    "answer": 0,
+    "explanation": "The curves meet at x = 0 and x = 1, and x ≥ x² there: ∫[0→1] (x − x²) dx = 1/2 − 1/3 = 1/6."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The area lying between the curves y² = 4x and y = 2x is",
+    "options": ["2/3", "1/3", "1/4", "3/4"],
+    "answer": 1,
+    "explanation": "They meet at x = 0 and x = 1, with 2√x ≥ 2x on (0, 1): ∫[0→1] (2√x − 2x) dx = 4/3 − 1 = 1/3."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The area bounded by the curve y = x³, the x-axis and the ordinates x = −2 and x = 1 is",
+    "options": ["−9", "−15/4", "15/4", "17/4"],
+    "answer": 3,
+    "explanation": "|∫[−2→0] x³ dx| = |−4| = 4 and ∫[0→1] x³ dx = 1/4, so the area is 4 + 1/4 = 17/4. The raw integral (−15/4) is not the area."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The area bounded by the curve y = x|x|, the x-axis and the ordinates x = −1 and x = 1 is",
+    "options": ["0", "1/3", "2/3", "4/3"],
+    "answer": 2,
+    "explanation": "y = −x² for x < 0 and y = x² for x > 0, so area = ∫[−1→0](−x²)dx + ∫[0→1]x² dx = 1/3 + 1/3 = 2/3."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The smaller area enclosed by the circle x² + y² = 4 and the line x + y = 2 is",
+    "options": ["2(π − 2)", "π − 2", "2π − 1", "2(π + 2)"],
+    "answer": 1,
+    "explanation": "The line cuts off the circular segment: quarter circle (π) minus the right triangle with legs 2 and 2 (area 2), giving π − 2."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The area lying in the first quadrant, bounded by the circle x² + y² = 4 and the lines x = 0 and x = 2, is",
+    "options": ["π", "2π", "π/2", "4π"],
+    "answer": 0,
+    "explanation": "This is a quarter of the circle of radius 2: (1/4)(π × 4) = π."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The area of the region enclosed by the parabola x² = y and the line y = x + 2 is",
+    "options": ["9/2", "7/2", "4", "5"],
+    "answer": 0,
+    "explanation": "Intersections: x² = x + 2 gives x = −1, 2. Then ∫[−1→2] (x + 2 − x²) dx = 10/3 + 7/6 = 9/2."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The area of the region bounded by the parabolas y² = 4x and x² = 4y is",
+    "options": ["16/3", "8/3", "4", "32/3"],
+    "answer": 0,
+    "explanation": "Intersections at (0, 0) and (4, 4). ∫[0→4] (2√x − x²/4) dx = 32/3 − 16/3 = 16/3."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The area of the smaller region bounded by the ellipse x²/9 + y²/4 = 1 and the line x/3 + y/2 = 1 is",
+    "options": ["3(π − 2)/2", "3π/2", "π − 2", "3(π + 2)/2"],
+    "answer": 0,
+    "explanation": "Quarter ellipse (3π/2) minus the right triangle with legs 3 and 2 (area 3): 3π/2 − 3 = 3(π − 2)/2."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Two curves y = f(x) and y = g(x) meet at x = a, x = c and x = b with a < c < b. If f ≥ g on [a, c] and g ≥ f on [c, b], the area of the enclosed region is",
+    "options": [
+      "∫[a→b] (f − g) dx",
+      "∫[a→c] (f − g) dx + ∫[c→b] (g − f) dx",
+      "|∫[a→b] (f − g) dx|",
+      "∫[a→c] (g − f) dx + ∫[c→b] (f − g) dx"
+    ],
+    "answer": 1,
+    "explanation": "The top curve changes at c, so the region must be split there and the subtraction reversed on the second piece."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the area of the region bounded by the line y = 3x + 2, the x-axis and the ordinates x = −1 and x = 1.",
+    "answer": "13/3 sq units",
+    "explanation": "The line crosses the axis at x = −2/3. |∫[−1→−2/3](3x+2)dx| = 1/6 and ∫[−2/3→1](3x+2)dx = 25/6, so the area is 1/6 + 25/6 = 13/3."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the area of the region bounded by the parabola y² = 4x and the line x = 4.",
+    "answer": "64/3 sq units",
+    "explanation": "At a given x the strip runs from y = −2√x to y = 2√x, so height is 4√x: ∫[0→4] 4√x dx = 4 × (2/3) × 8 = 64/3."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the area enclosed between the curves y = x² and y = 4x.",
+    "answer": "32/3 sq units",
+    "explanation": "They meet at x = 0 and x = 4, with 4x above x²: ∫[0→4](4x − x²)dx = 32 − 64/3 = 32/3."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Set up and evaluate the integral for the area enclosed by y = x² and y = √x.",
+    "answer": "∫[0→1](√x − x²) dx = 1/3 sq units",
+    "explanation": "Intersections at x = 0, 1; on (0, 1) √x lies above x², so the area is [2x^(3/2)/3 − x³/3] from 0 to 1 = 2/3 − 1/3 = 1/3."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the area of the region bounded by the parabola x² = 4y and the line y = 3.",
+    "answer": "8√3 sq units",
+    "explanation": "Intersections at x = ±2√3. Area = ∫[−2√3→2√3](3 − x²/4)dx = 2[3x − x³/12] from 0 to 2√3 = 2(6√3 − 2√3) = 8√3."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Using integration, find the area of the triangle with vertices (0, 0), (2, 3) and (4, 1).",
+    "answer": "5 sq units",
+    "explanation": "Sides: y = 3x/2 from (0,0) to (2,3), y = x/4 from (0,0) to (4,1), y = 5 − x from (2,3) to (4,1). Area = ∫[0→2](3x/2 − x/4)dx + ∫[2→4](5 − x − x/4)dx = 5/2 + 5/2 = 5."
+  },
+  {
+    "type": "short",
+    "difficulty": "easy",
+    "question": "Find the area under the curve y = x⁴, the x-axis and the ordinates x = 1 and x = 5.",
+    "answer": "3124/5 sq units",
+    "explanation": "∫[1→5] x⁴ dx = [x⁵/5] from 1 to 5 = (3125 − 1)/5 = 3124/5."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Evaluate ∫[−6→0] |x + 3| dx and state what it represents.",
+    "answer": "9",
+    "explanation": "Split at x = −3 where |x + 3| changes sign: ∫[−6→−3] −(x+3)dx + ∫[−3→0](x+3)dx = 9/2 + 9/2 = 9. It is the area between y = |x + 3|, the x-axis and the ordinates x = −6 and x = 0."
+  }
+]

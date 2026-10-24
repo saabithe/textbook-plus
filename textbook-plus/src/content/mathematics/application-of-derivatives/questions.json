@@ -1,0 +1,223 @@
+[
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The rate of change of the area of a circle with respect to its radius r, when r = 5 cm, is",
+    "options": ["5π cm²/cm", "10π cm²/cm", "25π cm²/cm", "2π cm²/cm"],
+    "answer": 1,
+    "explanation": "A = πr², so dA/dr = 2πr. At r = 5 this is 10π."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The volume of a cube increases at 9 cm³/s. The rate at which the surface area increases when the edge is 10 cm is",
+    "options": ["3.6 cm²/s", "0.9 cm²/s", "36 cm²/s", "360 cm²/s"],
+    "answer": 0,
+    "explanation": "V = x³ gives dx/dt = 3/x², and S = 6x² gives dS/dt = 12x·dx/dt = 36/x. At x = 10, dS/dt = 3.6 cm²/s."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "If f is continuous on [a, b] and differentiable on (a, b), then f is increasing on [a, b] provided",
+    "options": ["f'(x) > 0 for all x in (a, b)", "f'(x) < 0 for all x in (a, b)", "f'(x) = 0 for all x in (a, b)", "f''(x) > 0 for all x in (a, b)"],
+    "answer": 0,
+    "explanation": "This is the first derivative test for monotonicity; f'(x) < 0 would make f decreasing and f'(x) = 0 constant."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The function f(x) = x² − 4x + 6 is decreasing in the interval",
+    "options": ["(−∞, 2)", "(2, ∞)", "(−∞, ∞)", "(0, 4)"],
+    "answer": 0,
+    "explanation": "f'(x) = 2x − 4 < 0 when x < 2, so f is decreasing on (−∞, 2) and increasing on (2, ∞)."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The intervals in which f(x) = 2x³ − 3x² − 36x + 7 is increasing are",
+    "options": ["(−∞, −2) ∪ (3, ∞)", "(−2, 3)", "(−∞, 3) ∪ (2, ∞)", "(−∞, ∞)"],
+    "answer": 0,
+    "explanation": "f'(x) = 6x² − 6x − 36 = 6(x − 3)(x + 2), which is positive outside the roots −2 and 3."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The number of critical points of f(x) = 2x³ − 6x² + 6x + 5 is",
+    "options": ["0", "1", "2", "3"],
+    "answer": 1,
+    "explanation": "f'(x) = 6x² − 12x + 6 = 6(x − 1)², which vanishes only at x = 1. It is a point of inflexion, not an extremum."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The local maximum value of f(x) = x³ − 3x + 3 is",
+    "options": ["2", "−2", "1", "5"],
+    "answer": 3,
+    "explanation": "f'(x) = 3(x − 1)(x + 1). At x = −1 the derivative changes from positive to negative, so f(−1) = −1 + 3 + 3 = 5 is the local maximum."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "For f(x) = 3x⁴ + 4x³ − 12x² + 12, the local maximum value is",
+    "options": ["12", "7", "−20", "0"],
+    "answer": 0,
+    "explanation": "f'(x) = 12x(x − 1)(x + 2) and f''(x) = 36x² + 24x − 24. Since f''(0) = −24 < 0, x = 0 gives the local maximum f(0) = 12."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The absolute maximum value of f(x) = 2x³ − 15x² + 36x + 1 on [1, 5] is",
+    "options": ["24", "29", "56", "28"],
+    "answer": 2,
+    "explanation": "The critical points are x = 2, 3. Comparing f(1) = 24, f(2) = 29, f(3) = 28 and f(5) = 56 gives an absolute maximum of 56 at x = 5."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The absolute minimum value of f(x) = 12x^(4/3) − 6x^(1/3) on [−1, 1] is",
+    "options": ["−9/4", "0", "6", "18"],
+    "answer": 0,
+    "explanation": "f'(x) = 2(8x − 1)/x^(2/3) gives critical points x = 0 and x = 1/8. The values are f(−1) = 18, f(0) = 0, f(1/8) = −9/4, f(1) = 6, so the minimum is −9/4."
+  },
+  {
+    "type": "short",
+    "difficulty": "easy",
+    "question": "Write the equation of the tangent to the curve y = f(x) at the point (x₀, y₀).",
+    "answer": "y − y₀ = f'(x₀)(x − x₀)",
+    "explanation": "The slope of the tangent at the point is f'(x₀), so the point-slope form gives the equation."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the slope of the normal to y = 2x² + 3 sin x at x = 0.",
+    "answer": "−1/3",
+    "explanation": "dy/dx = 4x + 3cos x, which is 3 at x = 0. The normal slope is the negative reciprocal, −1/3."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the points on the curve y = x³ − 3x at which the tangent is parallel to the line 3x − y + 5 = 0.",
+    "answer": "(√2, −√2) and (−√2, √2)",
+    "explanation": "The line has slope 3, so 3x² − 3 = 3, i.e. x = ±√2. Substituting into the curve gives the two points."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The tangent to the curve y = f(x) at a point is parallel to the x-axis exactly when",
+    "options": ["f'(x₀) = 0", "f'(x₀) = 1", "f'(x₀) is undefined", "f''(x₀) = 0"],
+    "answer": 0,
+    "explanation": "A horizontal tangent has slope zero, and the slope of the tangent is f'(x₀)."
+  },
+  {
+    "type": "short",
+    "difficulty": "easy",
+    "question": "Using differentials, find the approximate value of √25.3.",
+    "answer": "5.03",
+    "explanation": "Take f(x) = √x, x = 25, Δx = 0.3. Then dy = (1/(2√25))(0.3) = 0.03, so √25.3 ≈ 5 + 0.03 = 5.03."
+  },
+  {
+    "type": "short",
+    "difficulty": "easy",
+    "question": "Using differentials, find the approximate value of (1.999)⁵.",
+    "answer": "31.92",
+    "explanation": "With f(x) = x⁵, x = 2 and Δx = −0.001, dy = 5(2)⁴(−0.001) = −0.08, so the value is 32 − 0.08 = 31.92."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "The radius of a sphere is measured as 7 m with an error of 0.02 m. Find the approximate error in its volume.",
+    "answer": "3.92π m³ ≈ 12.31 m³",
+    "explanation": "V = (4/3)πr³ gives dV = 4πr² dr = 4π(49)(0.02) = 3.92π m³."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If R(x) = 3x² + 36x + 5 is the total revenue from x units, the marginal revenue at x = 15 is",
+    "options": ["116", "96", "90", "126"],
+    "answer": 3,
+    "explanation": "MR = dR/dx = 6x + 36, so at x = 15, MR = 90 + 36 = 126."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If f'(c) = 0 and f''(c) > 0, then at x = c the function f has",
+    "options": ["a point of local maxima", "a point of local minima", "a point of inflexion", "no conclusion possible"],
+    "answer": 1,
+    "explanation": "This is part (ii) of the second derivative test: a negative second derivative would give a local maximum."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find two positive numbers whose sum is 15 and the sum of whose squares is minimum.",
+    "answer": "15/2 and 15/2",
+    "explanation": "S(x) = x² + (15 − x)² has S'(x) = 4x − 30, so x = 15/2; S'' = 4 > 0 confirms a minimum."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "A square piece of tin of side 18 cm is made into an open box by cutting a square from each corner and folding the flaps. What should be the side of the square cut off for maximum volume?",
+    "answer": "3 cm",
+    "explanation": "V = x(18 − 2x)², so V' = (18 − 2x)(18 − 6x) = 0 giving x = 3 (x = 9 makes the base zero)."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "For all real x, the minimum value of (x² − x + 1)/(x² + x + 1) is",
+    "options": ["0", "1", "3", "1/3"],
+    "answer": 3,
+    "explanation": "Putting the value 1/3 gives 3x² − 3x + 3 = x² + x + 1, i.e. 2(x − 1)² = 0, which is possible at x = 1; the minimum is 1/3."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The maximum value of [x(x − 1) + 1]^(1/3), 0 ≤ x ≤ 1, is",
+    "options": ["(1/3)^(1/3)", "1/2", "1", "0"],
+    "answer": 2,
+    "explanation": "The derivative vanishes at x = 1/2, where the value is (3/4)^(1/3) — a minimum. The end points x = 0 and x = 1 both give 1, the maximum."
+  },
+  {
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Find the points at which f(x) = (x − 2)⁴(x + 1)³ has a local maximum, a local minimum and a point of inflexion.",
+    "answer": "Local maximum at x = 2/7, local minimum at x = 2, point of inflexion at x = −1",
+    "explanation": "f'(x) = (x − 2)³(x + 1)²(7x − 2). The factor 7x − 2 changes sign from + to − at 2/7 (maximum), (x − 2)³ changes from − to + at 2 (minimum), and (x + 1)² does not change sign at −1 (inflexion)."
+  },
+  {
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Find the shortest distance of the point (0, c) from the parabola y = x², where 1/2 ≤ c ≤ 5.",
+    "answer": "(1/2)√(4c − 1)",
+    "explanation": "With k = h², D² = k + (k − c)² and D'(k) = 0 gives k = (2c − 1)/2. Substituting gives D = √((2c − 1)/2 + 1/4) = (1/2)√(4c − 1)."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The point on the curve x² = 2y which is nearest to the point (0, 5) is",
+    "options": ["(2√2, 4)", "(2√2, 0)", "(0, 0)", "(2, 2)"],
+    "answer": 0,
+    "explanation": "Minimise x² + (y − 5)² = 2y + (y − 5)². The derivative 2 + 2(y − 5) vanishes at y = 4, giving x² = 8, i.e. (2√2, 4)."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the maximum profit a company can make if its profit function is p(x) = 41 − 72x − 18x².",
+    "answer": "113",
+    "explanation": "p'(x) = −72 − 36x = 0 gives x = −2, and p''(x) = −36 < 0, so the maximum profit is p(−2) = 41 + 144 − 72 = 113."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The semi-vertical angle of the cone of maximum volume with a given slant height is",
+    "options": ["tan⁻¹(1/√2)", "tan⁻¹√2", "sin⁻¹(1/3)", "tan⁻¹(1/3)"],
+    "answer": 1,
+    "explanation": "Maximising V = (π/3)l³ sin²α cos α gives tan²α = 2, so the semi-vertical angle is tan⁻¹√2."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The function y = x²e^(−x) is increasing in the interval",
+    "options": ["(−∞, ∞)", "(−2, 0)", "(2, ∞)", "(0, 2)"],
+    "answer": 3,
+    "explanation": "dy/dx = x(2 − x)e^(−x), which is positive exactly when 0 < x < 2."
+  }
+]

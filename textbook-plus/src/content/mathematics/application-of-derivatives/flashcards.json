@@ -1,0 +1,22 @@
+[
+  { "id": "ad-f1", "front": "Rate of change", "back": "If y = f(x) varies with time, dy/dt = f'(x) dx/dt. Always link quantities through a relation first, then differentiate." },
+  { "id": "ad-f2", "front": "Increasing function", "back": "f is increasing on I if f'(x) ≥ 0 for all x in I (strictly increasing if > 0). Decreasing if f'(x) ≤ 0." },
+  { "id": "ad-f3", "front": "First derivative test (local max)", "back": "f'(c) = 0 and f' changes from + to − at c ⇒ c is a local maximum of f." },
+  { "id": "ad-f4", "front": "First derivative test (local min)", "back": "f'(c) = 0 and f' changes from − to + at c ⇒ c is a local minimum of f." },
+  { "id": "ad-f5", "front": "Second derivative test", "back": "If f'(c) = 0 and f''(c) < 0 ⇒ local maximum; f''(c) > 0 ⇒ local minimum." },
+  { "id": "ad-f6", "front": "Occurrence of inflection point", "back": "If f''(c) = 0 alone, use the sign chart of f' to decide; no sign change ⇒ point of inflexion, not an extremum." },
+  { "id": "ad-f7", "front": "Absolute extrema on [a, b]", "back": "Evaluate f at all critical points inside [a,b] AND at the endpoints x = a, x = b; pick largest/smallest." },
+  { "id": "ad-f8", "front": "Tangent line", "back": "At (x₀, y₀) on y = f(x): y − y₀ = f'(x₀)(x − x₀)." },
+  { "id": "ad-f9", "front": "Normal line", "back": "Slope of normal = −1/f'(x₀) when f'(x₀) ≠ 0. Equation: y − y₀ = (−1/f'(x₀))(x − x₀)." },
+  { "id": "ad-f10", "front": "Parallel / perpendicular tangents", "back": "Tangents parallel to a given line have slope m: f'(x₀) = m. Perpendicular: f'(x₀)·m = −1." },
+  { "id": "ad-f11", "front": "Horizontal tangent", "back": "A horizontal tangent occurs where f'(x₀) = 0 (slope zero)." },
+  { "id": "ad-f12", "front": "Differential approximation", "back": "f(x + Δx) ≈ f(x) + f'(x) Δx. Use when Δx is small; the new value is the old plus the tangent's change." },
+  { "id": "ad-f13", "front": "Differentials and error", "back": "dy = f'(x) dx; absolute error Δy, relative error Δy/y, percentage error 100·Δy/y." },
+  { "id": "ad-f14", "front": "Constrained optimisation", "back": "Express everything in a single variable using the constraint, find critical points, and check the admissible range and the value at endpoints." },
+  { "id": "ad-f15", "front": "Mean value theorem (differentiability)", "back": "If f continuous on [a,b], differentiable on (a,b), ∃ c with f'(c) = (f(b)−f(a))/(b−a)." },
+  { "id": "ad-f16", "front": "Inflection point", "back": "A point where f'' changes sign (concavity changes); solve f''(x) = 0 and verify the sign change." },
+  { "id": "ad-f17", "front": "Rolle's theorem application", "back": "If f(a) = f(b), then between them lies a point with f' = 0; useful for locating extrema." },
+  { "id": "ad-f18", "front": "Speed of related rates", "back": "Typical mistake: differentiating the numbers instead of the variables. Keep the variables symbolic until the end." },
+  { "id": "ad-f19", "front": "Optimisation curve family", "back": "Volume of box: V = x(a − 2x)(b − 2x). Surface area of cylinder: S = 2πrh + 2πr². Use these templates." },
+  { "id": "ad-f20", "front": "Linear approximation exponent", "back": "For (1 + x)^n with small x, ≈ 1 + n x. A 1% change in x gives an n% change approximately." }
+]

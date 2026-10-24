@@ -1,0 +1,22 @@
+[
+  { "id": "cd-f1", "front": "Continuity at a point", "back": "f is continuous at x = a when f(a) is defined, the limit lim_{x→a} f(x) exists, and the two are equal." },
+  { "id": "cd-f2", "front": "Left / right continuity", "back": "Continuous from the right at a if lim_{x→a⁺} f(x) = f(a); from the left if lim_{x→a⁻} f(x) = f(a)." },
+  { "id": "cd-f3", "front": "Intermediate Value Theorem", "back": "If f is continuous on [a, b], then every value between f(a) and f(b) is attained somewhere in [a, b]." },
+  { "id": "cd-f4", "front": "Differentiability implies", "back": "Every differentiable function is continuous. The converse is false: |x| is continuous but not differentiable at 0." },
+  { "id": "cd-f5", "front": "Derivative of e^x", "back": "d/dx e^x = e^x." },
+  { "id": "cd-f6", "front": "Derivative of a^x", "back": "d/dx a^x = a^x ln a." },
+  { "id": "cd-f7", "front": "Derivative of log_a x", "back": "d/dx log_a x = 1/(x ln a)." },
+  { "id": "cd-f8", "front": "Derivative of ln x", "back": "d/dx ln x = 1/x." },
+  { "id": "cd-f9", "front": "Logarithmic differentiation", "back": "For y = u(x)^{v(x)} or a product, take ln y, differentiate implicitly: y'/y = (u'/u)v + v' ln u." },
+  { "id": "cd-f10", "front": "Exponential/log derivative chain", "back": "d/dx [e^{f(x)}] = e^{f(x)} f'(x). d/dx [ln f(x)] = f'(x)/f(x)." },
+  { "id": "cd-f11", "front": "Parametric derivative dy/dx", "back": "dy/dx = (dy/dθ)/(dx/dθ), provided dx/dθ ≠ 0." },
+  { "id": "cd-f12", "front": "Second derivative (parametric)", "back": "d²y/dx² = [d/dθ(dy/dx)] / (dx/dθ)." },
+  { "id": "cd-f13", "front": "Lagrange MVT", "back": "If f is continuous on [a,b] and differentiable on (a,b), then ∃ c ∈ (a,b) with f'(c) = [f(b)−f(a)]/(b−a)." },
+  { "id": "cd-f14", "front": "Rolle's theorem", "back": "If f is continuous on [a,b], differentiable on (a,b), and f(a)=f(b), then ∃ c with f'(c)=0." },
+  { "id": "cd-f15", "front": "Cauchy MVT", "back": "For f,g both continuous on [a,b] and differentiable on (a,b), ∃ c with (f(b)−f(a))g'(c) = (g(b)−g(a))f'(c)." },
+  { "id": "cd-f16", "front": "Derivative of sin⁻¹ x", "back": "d/dx sin⁻¹ x = 1/√(1 − x²)." },
+  { "id": "cd-f17", "front": "Derivative of cos⁻¹ x", "back": "d/dx cos⁻¹ x = −1/√(1 − x²)." },
+  { "id": "cd-f18", "front": "Derivative of tan⁻¹ x", "back": "d/dx tan⁻¹ x = 1/(1 + x²)." },
+  { "id": "cd-f19", "front": "Leibniz chain — nested", "back": "f(g(h(x)))' = f'(g(h(x))) · g'(h(x)) · h'(x)." },
+  { "id": "cd-f20", "front": "x^x derivative", "back": "d/dx x^x = x^x(1 + ln x)." }
+]

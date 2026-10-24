@@ -1,0 +1,309 @@
+[
+  {
+    "id": "de-q1",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The order of the differential equation d\u00b2y/dx\u00b2 + 3 dy/dx + 2y = sin x is",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 1,
+    "explanation": "The order is the highest derivative present, here d\u00b2y/dx\u00b2, so it is 2."
+  },
+  {
+    "id": "de-q2",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The degree of the differential equation (dy/dx)\u00b2 + y\u00b2 = a\u00b2 is",
+    "options": [
+      "1",
+      "2",
+      "4",
+      "undefined"
+    ],
+    "answer": 1,
+    "explanation": "The DE is polynomial in the derivatives; the degree is the power on the highest derivative, which is 2."
+  },
+  {
+    "id": "de-q3",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "A general solution of a first-order differential equation contains",
+    "options": [
+      "no arbitrary constant",
+      "one arbitrary constant",
+      "two arbitrary constants",
+      "infinite arbitrary constants"
+    ],
+    "answer": 1,
+    "explanation": "A first-order DE has a one-parameter family of solutions: y = \u03c6(x, C)."
+  },
+  {
+    "id": "de-q4",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The differential equation dy/dx = y/x is",
+    "options": [
+      "linear",
+      "homogeneous",
+      "separable? yes, also homogeneous",
+      "exact"
+    ],
+    "answer": 1,
+    "explanation": "dy/dx = y/x can be written as dy/dx = F(y/x), so it is homogeneous. It is also separable (dy/y = dx/x)."
+  },
+  {
+    "id": "de-q5",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The equation dy/dx + P(x) y = Q(x) is called",
+    "options": [
+      "a Bernoulli equation",
+      "a linear differential equation",
+      "a homogeneous equation",
+      "a separable equation"
+    ],
+    "answer": 1,
+    "explanation": "This is the standard linear form of a first-order differential equation."
+  },
+  {
+    "id": "de-q6",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The integrating factor of dy/dx + P(x) y = Q(x) is",
+    "options": [
+      "e^{\u222b P(x) dx}",
+      "e^{\u222b Q(x) dx}",
+      "\u222b P(x) dx",
+      "e^{P(x)}"
+    ],
+    "answer": 0,
+    "explanation": "Multiplying by e^{\u222b P dx} makes the left side (e^{\u222bP}y)'."
+  },
+  {
+    "id": "de-q7",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Separation of variables applies when the equation can be written as",
+    "options": [
+      "dy/dx = f(x)g(y)",
+      "dy/dx = f(x) + g(y)",
+      "dy/dx = P(x)y + Q(x)",
+      "dy/dx = f(x/y)"
+    ],
+    "answer": 0,
+    "explanation": "Writing dy/dx = f(x)g(y) gives (1/g(y)) dy = f(x) dx, which integrates on each side."
+  },
+  {
+    "id": "de-q8",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The integrating factor of x dy/dx + 2y = x\u00b2 (after dividing by x) is",
+    "options": [
+      "x",
+      "x\u00b2",
+      "e^x",
+      "1/x"
+    ],
+    "answer": 1,
+    "explanation": "dy/dx + (2/x)y = x. Here P(x) = 2/x, so IF = e^{\u222b 2/x dx} = x\u00b2."
+  },
+  {
+    "id": "de-q9",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "For a homogeneous equation dy/dx = F(y/x), the substitution is",
+    "options": [
+      "y = vx",
+      "x = vy",
+      "u = x + y",
+      "y = x\u00b2 v"
+    ],
+    "answer": 0,
+    "explanation": "Putting y = vx (so dy/dx = v + x dv/dx) reduces the equation to a separable one in v and x."
+  },
+  {
+    "id": "de-q10",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The solution of dy/dx = (sin x)/y is",
+    "options": [
+      "y\u00b2 = 2 cos x + C? or y\u00b2/2 = \u2212cos x + C",
+      "y = \u2212cos x + C",
+      "y\u00b2 = 2 sin x + C",
+      "y = sin x + C"
+    ],
+    "answer": 0,
+    "explanation": "Separating: y dy = sin x dx, so y\u00b2/2 = \u2212cos x + C, i.e. y\u00b2 + 2 cos x = C."
+  },
+  {
+    "id": "de-q11",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Solve the differential equation dy/dx = 1/(x log x).",
+    "answer": "dy = dx/(x log x); integrate: y = ln|log x| + C.",
+    "explanation": "Substitute u = log x, du = dx/x: \u222b du/u = ln|u| + C."
+  },
+  {
+    "id": "de-q12",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Solve dy/dx + (1/x) y = 1/x.",
+    "answer": "Integrating factor is e^{\u222b1/x dx} = x. Multiply: (x y)' = 1, integrate: x y = x + C, so y = 1 + C/x.",
+    "explanation": "This is a linear first-order equation solved with the integrating factor x."
+  },
+  {
+    "id": "de-q13",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Solve dy/dx = (2\u2212y)/x? Actually solve dy/dx = (y \u2212 2x)? Standard: solve dy/dx \u2212 cot x \u00b7 y = sin 2x? Solve instead dy/dx = (1+x)/(1+y): xy + y\u00b2/2 = x + x\u00b2/2 + C.",
+    "answer": "(1+y) dy = (1+x) dx \u21d2 \u222b(1+y) dy = \u222b(1+x) dx \u21d2 y + y\u00b2/2 = x + x\u00b2/2 + C.",
+    "explanation": "Directly integrable by separation of variables."
+  },
+  {
+    "id": "de-q14",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Solve (x\u00b2 + y\u00b2) dx = 2xy dy (a homogeneous equation).",
+    "answer": "Substitute y = vx: (x\u00b2 + v\u00b2x\u00b2) dx = 2x(vx) v dx + 2x\u00b2 v dv? Better: (1+v\u00b2) = 2vx dv/dx + 2v\u00b2 \u21d2 2vx dv/dx = 1 \u2212 v\u00b2 \u21d2 \u222b 2v/(1\u2212v\u00b2) dv = \u222b dx/x \u21d2 \u2212ln|1\u2212v\u00b2| = ln|x| + C \u21d2 v\u00b2 \u2212 1 = C/x\u00b2 \u21d2 (y/x)\u00b2 \u2212 1 = C/x\u00b2 \u21d2 x\u00b2 y\u00b2? Finally: x\u00b2 \u2212 y\u00b2 = C x.",
+    "explanation": "Divide by x\u00b2 and integrate."
+  },
+  {
+    "id": "de-q15",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The number of arbitrary constants in the general solution of an n-th order differential equation is",
+    "options": [
+      "n",
+      "n \u2212 1",
+      "n + 1",
+      "2n"
+    ],
+    "answer": 0,
+    "explanation": "An n-th order differential equation has an n-parameter family of solutions."
+  },
+  {
+    "id": "de-q16",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The differential equation (y')^3 + (y')^3 sin y + (y')^5 = 0 has order and degree",
+    "options": [
+      "1 and 3",
+      "1 and 5",
+      "3 and 5",
+      "1 and 6"
+    ],
+    "answer": 1,
+    "explanation": "Highest derivative is y' (order 1); highest power of y' is 5, so degree is 5."
+  },
+  {
+    "id": "de-q17",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Solve the Bernoulli equation dy/dx + P(x) y = Q(x) y\u207f (linearised with the substituting v = y^{1\u2212n}.",
+    "answer": "Divide by y\u207f: y^{\u2212n} dy/dx + P(x) y^{1\u2212n} = Q(x). Put v = y^{1\u2212n}; then dv/dx = (1\u2212n)y^{\u2212n} dy/dx. The equation becomes (1/(1\u2212n)) dv/dx + P(x) v = Q(x), a linear equation in v, solved by an integrating factor."
+  },
+  {
+    "id": "de-q18",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If y = e\u207b^x (C\u2082 cos 3x + C\u2081 sin 3x) solves y'' + 2y' + 10y = 0, then the characteristic roots are",
+    "options": [
+      "\u22121 \u00b1 3i",
+      "1 \u00b1 3i",
+      "\u22122 \u00b1 3i",
+      "\u22121 \u00b1 i"
+    ],
+    "answer": 0,
+    "explanation": "y = e^{\u2212x}(C\u2081 cos 3x + C\u2082 sin 3x) corresponds to roots r = \u22121 \u00b1 3i."
+  },
+  {
+    "id": "de-q19",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the particular solution of dy/dx = (1 + x\u00b2 + y\u00b2)/(2xy) with y = 1 when x = 1.",
+    "answer": "x\u00b2 + y\u00b2 = 2xy + C. At x = y = 1, C = 0, so (x \u2212 y)\u00b2 = 0, i.e. y = x.",
+    "explanation": "The RHS is (1 + (y/x)\u00b2)/(2(y/x)), a homogeneous equation; separate in v = y/x."
+  },
+  {
+    "id": "de-q20",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The equation dy/dx + (sec\u00b2 x)/y = 0 is linear in",
+    "options": [
+      "y but not y\u00b2",
+      "y\u00b2",
+      "ln y",
+      "1/y"
+    ],
+    "answer": 1,
+    "explanation": "Multiplying by y gives y dy/dx + sec\u00b2 x = 0, i.e. (1/2)(y\u00b2)' = \u2212sec\u00b2 x, integrable directly."
+  },
+  {
+    "id": "de-q21",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Form the differential equation whose general solution is y = Ax + B, where A, B are arbitrary constants.",
+    "answer": "Differentiate twice: y' = A and y'' = 0. Hence the required DE is y'' = 0 (second order, degree 1).",
+    "explanation": "Eliminating the two constants A, B by differentiation twice gives one second-order equation."
+  },
+  {
+    "id": "de-q22",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The equation y'' + 4y = 0 has order",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 1,
+    "explanation": "The highest derivative is y'', so the order is 2."
+  },
+  {
+    "id": "de-q23",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The integrating factor of x dy/dx + y = x sin x (after dividing by x) is",
+    "options": [
+      "x",
+      "e^x",
+      "sin x",
+      "1/x"
+    ],
+    "answer": 0,
+    "explanation": "dy/dx + (1/x)y = sin x, so P(x) = 1/x and IF = e^{\u222b1/x dx} = x."
+  },
+  {
+    "id": "de-q24",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Convert the Cartesian equation dy/dx + y/x = 1 to standard linear form and state its integrating factor.",
+    "answer": "Already in standard linear form dy/dx + (1/x)y = 1, with integrating factor e^{\u222b(1/x)dx} = x."
+  },
+  {
+    "id": "de-q25",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Solve dy/dx = (2xy + y\u00b2? x\u00b2)/(x\u00b2 + y\u00b2) \u2014 replace with: solve dy/dx = (x + y)/(x \u2212 y).",
+    "answer": "Homogeneous: y = vx, dy/dx = v + x dv/dx = (x + vx)/(x \u2212 vx) = (1+v)/(1\u2212v), so x dv/dx = [(1+v)/(1\u2212v)] \u2212 v = (1+v \u2212 v + v\u00b2)/(1\u2212v) = (1+v\u00b2)/(1\u2212v), hence (1\u2212v)/(1+v\u00b2) dv = dx/x. Integrating gives tan\u207b\u00b9 v \u2212 (1/2) ln(1+v\u00b2) = ln|x| + C."
+  },
+  {
+    "id": "de-q26",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A homogeneous function of degree n satisfies f(tx, ty) = ",
+    "options": [
+      "t\u207f f(x,y)",
+      "f(x,y)",
+      "t f(x,y)",
+      "t\u00b2 f(x,y)"
+    ],
+    "answer": 0,
+    "explanation": "That is the definition: scaling inputs by t scales the output by t\u207f."
+  }
+]
