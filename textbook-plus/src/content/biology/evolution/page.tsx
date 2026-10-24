@@ -149,8 +149,23 @@ export default function EvolutionChapter() {
           <div>
             <p className="font-semibold">Biogenesis</p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Core principle <strong>&quot;Omnis vivum ex ovo or vivo&quot;</strong>: new life can originate on earth only from pre-existing life.</li>
-              <li>Pasteur's flask: boiled broth stayed free of microorganisms until the curved neck was removed.</li>
+              <li>
+                Core maxim: <strong>&quot;Omnis vivum ex ovo or vivo&quot;</strong> — new life can originate only from
+                pre-existing life. The experiment here set out to disprove abiogenesis (spontaneous generation from
+                mud, straw, etc.).
+              </li>
+              <li>
+                <strong>Swan-neck flask experiment:</strong> Louis Pasteur boiled nutrient broth in swan-neck flasks
+                to kill existing microbes; the curved neck allowed air in but trapped airborne dust and spores.
+              </li>
+              <li>
+                <strong>Results:</strong> broth in the curved flask stayed sterile (free of life); once the neck was
+                removed or opened, microbial growth appeared.
+              </li>
+              <li>
+                <strong>Conclusion and limitation:</strong> it permanently rejected spontaneous generation without
+                explaining how the very first life itself emerged on earth.
+              </li>
             </ul>
           </div>
           <div>
@@ -170,13 +185,7 @@ export default function EvolutionChapter() {
           </div>
         </div>
       </Expandable>
-      <Callout type="important" title="Pasteur: life comes only from pre-existing life">
-        Louis Pasteur, by careful experimentation, demonstrated that life comes only from pre-existing life. He
-        showed that in pre-sterilised flasks, life did not come from killed yeast, while in another flask open to air,
-        new living organisms arose from &apos;killed yeast&apos;. The theory of spontaneous generation was dismissed
-        once and for all — but{" "}
-        <Highlight color="yellow">this did not answer how the first life form came on earth</Highlight>.
-      </Callout>
+
       <MistakeCard
         mistake="Pasteur's experiment explained how the very first life form arose on earth."
         correction="Pasteur only showed that life does not arise from non-living matter today. How the first life form came on earth remained an open question."
