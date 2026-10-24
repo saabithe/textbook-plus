@@ -3,6 +3,7 @@ import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { TableCard } from "@/components/content/data/TableCard";
 import { Checklist } from "@/components/content/data/Checklist";
+import { RevealAnswer } from "@/components/content/process/RevealAnswer";
 
 /**
  * Chapter 1 — خير الله / Khairullah
@@ -153,6 +154,42 @@ const CENTRAL_MESSAGE_ARABIC =
 const CENTRAL_MESSAGE_ENGLISH =
   'This line is from the poem "Khairullah" by the famous poet N.K. Ahmed Moulavi. The poet speaks in this poem about the state of Kerala and its beautiful nature.';
 
+const TASREEH_PAIRS = [
+  {
+    verseArabic:
+      "كَمْ مَسْجِدٍ وَكَنِيسَةٍ قَدْ عَانَقَا ... يَا كَيْرَلَا الْحَسْنَاءُ فِيكِ الْهَيْكَلَا",
+    verseEnglish:
+      "How many mosques and churches have embraced Hindu temples within you, O beautiful Kerala!",
+    tasreehArabic:
+      "فِي كِيرَالَا مَعَابِدُ الْمُسْلِمِينَ وَالنَّصَارَى وَالْهَنَادِكِ وَهَذِهِ شَعَائِرُ التَّسَامُحِ وَالأُخُوَّةِ الإِنْسَانِيَّةِ.",
+    tasreehEnglish:
+      "In Kerala there are places of worship of Muslims, Christians and Hindus, and these are the emblems of tolerance and human brotherhood.",
+  },
+  {
+    verseArabic:
+      "فِيكِ الزُّرُوعُ كَأَنَّمَا هِيَ كِسْوَةٌ ... مِنْ سُنْدُسٍ خُضْرٌ كُسِيتِ تَجَمُّلَا",
+    verseEnglish:
+      "The green crops across your fields are as if a fine garment of green silk adorns you for beauty!",
+    tasreehArabic:
+      "قَدْ أَنْعَمَكِ اللهُ بِنِعَمٍ كَثِيرَةٍ بِمُخْتَلِفِ الْجِنَانِ الْجَمِيلَةِ وَالْمَوَارِدِ وَغَيْرِهَا.",
+    tasreehEnglish:
+      "God has blessed you abundantly with various beautiful gardens, natural resources and other things.",
+  },
+  {
+    verseArabic:
+      "يَا كَيْرَلَا نَهْوَاكِ حُبًّا صَادِقًا ... كَالظَّامِئِ الصَّدْيَانِ يَهْوَى الْمَنْهَلَا",
+    verseEnglish:
+      "O Kerala, we love you with sincere affection — just as a parched, thirsty traveller longs for a water spring!",
+    tasreehArabic:
+      "يَقُولُ الشَّاعِرُ عَلَى لِسَانِ أَهْلِ كِيرَالَا إِنَّا نُحِبُّكِ مَحَبَّةً خَالِصَةً.",
+    tasreehEnglish:
+      "The poet says, on the tongue of the people of Kerala: we love you with a pure love.",
+  },
+];
+
+/** Ordinal labels used by the tasreeh section, in order. */
+const VERSE_ORDINALS = ["الأَوَّلُ", "الثَّانِي", "الثَّالِثُ"];
+
 const PREPOSITIONS = [
   { arabic: "فِي", translit: "Fi", meaning: "In", example: "فِي الْمَهْدِ", exampleEnglish: "In the cradle" },
   { arabic: "عَلَى", translit: "Ala", meaning: "On", example: "عَلَى الْكُرْسِيِّ", exampleEnglish: "On the chair" },
@@ -240,6 +277,49 @@ export default function KhairullahPage() {
             english={verse.explanationEnglish}
           />
         </div>
+      ))}
+
+      {/* ── التصريح المناسب for each verse ────────────────────────────── */}
+      <h2 id="tasreeh" className="arabic-body !text-3xl !font-bold !mt-14 !mb-1 text-foreground">
+        التَّصْرِيحُ الْمُنَاسِبُ لِلْأَبْيَاتِ
+      </h2>
+      <p dir="ltr" className="translation !mb-2 !font-semibold !text-foreground/80">
+        The Appropriate Prose Statement (at-Taṣrīḥ) for Each Verse
+      </p>
+      <p dir="ltr" className="translation !mb-6">
+        Read the verse, then write the prose statement — التَّصْرِيحُ الْمُنَاسِبُ — that brings out
+        its meaning. Reveal the answer to check yours.
+      </p>
+
+      {TASREEH_PAIRS.map((pair, i) => (
+        <RevealAnswer
+          key={i}
+          title={`الْبَيْتُ ${VERSE_ORDINALS[i]} · Verse ${i + 1}`}
+          question={
+            <span className="block">
+              <span
+                dir="rtl"
+                className="arabic-body block !text-[1.3rem] font-bold text-foreground"
+              >
+                {pair.verseArabic}
+              </span>
+              <span dir="ltr" className="translation mt-1 block !mb-0">
+                {pair.verseEnglish}
+              </span>
+            </span>
+          }
+          buttonLabel="التصريح المناسب — Reveal the answer"
+          answer={
+            <>
+              <span dir="rtl" className="arabic-body block !text-[1.15rem] !font-normal">
+                {pair.tasreehArabic}
+              </span>
+              <span dir="ltr" className="translation mt-1 block !mb-0 !font-normal">
+                {pair.tasreehEnglish}
+              </span>
+            </>
+          }
+        />
       ))}
 
       {/* ── Grammar Note: Prepositions ───────────────────────────────── */}

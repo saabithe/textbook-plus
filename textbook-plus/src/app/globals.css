@@ -265,7 +265,8 @@
 }
 
 /* English translations inside an Arabic page keep the Latin reading face */
-.prose-ar p.translation {
+.prose-ar p.translation,
+.prose-ar span.translation {
   font-family: var(--font-serif), Georgia, "Times New Roman", serif;
   font-weight: 500;
   margin-bottom: 1.75rem;
