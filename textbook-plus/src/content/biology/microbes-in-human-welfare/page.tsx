@@ -1,0 +1,1186 @@
+import { Callout } from "@/components/content/Callout";
+import { KeyPoint } from "@/components/content/KeyPoint";
+import { Comparison } from "@/components/content/Comparison";
+import { Expandable } from "@/components/content/Expandable";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { Highlight } from "@/components/content/Highlight";
+import { ProcessCard } from "@/components/content/process/ProcessCard";
+import { TableCard } from "@/components/content/data/TableCard";
+import { FactCard } from "@/components/content/concept/FactCard";
+import { TreeDiagram } from "@/components/content/concept/TreeDiagram";
+import { MistakeCard } from "@/components/content/study/MistakeCard";
+
+export default function MicrobesInHumanWelfareChapter() {
+  return (
+    <>
+      <p>
+        Besides macroscopic plants and animals, <strong>microbes are the major components of biological
+        systems</strong> on this earth. Microbes are present everywhere — in soil, water, air, inside our bodies
+        and that of other animals and plants. They are present even at sites where no other life-form could
+        possibly exist: deep inside the geysers (thermal vents) where the temperature may be as high as{" "}
+        <strong>100 °C</strong>, deep in the soil, under the layers of snow several metres thick, and in highly
+        acidic environments.
+      </p>
+      <p>
+        Microbes are diverse — protozoa, bacteria, fungi and microscopic animal and plant viruses, viroids and
+        also prions. Microbes like bacteria and many fungi can be grown on{" "}
+        <strong>nutritive media</strong> to form colonies that can be seen with the naked eyes. Such cultures
+        are useful in studies on micro-organisms.
+      </p>
+      <Callout type="note" title="Extreme addresses">
+        <ul className="list-disc pl-5 space-y-1.5">
+          <li>Deep inside the geysers (thermal vents), at temperatures up to <strong>100 °C</strong>.</li>
+          <li>Deep in the soil.</li>
+          <li>Under layers of snow several metres thick.</li>
+          <li>In highly acidic environments.</li>
+        </ul>
+      </Callout>
+      <FactCard
+        title="Prions"
+        definition="Proteinacious infectious agents — the last of the microscopic entities NCERT lists alongside bacteria, fungi, viruses and viroids."
+        icon="🧬"
+      />
+      <TableCard
+        title="The microscopic world the chapter opens with"
+        headers={["Figure", "What it shows"]}
+        rows={[
+          {
+            cells: [
+              "8.1 — Bacteria",
+              "Rod-shaped bacteria and spherical bacteria (both magnified 1500X); a rod-shaped bacterium showing flagella (magnified 50,000X).",
+            ],
+          },
+          {
+            cells: [
+              "8.2 — Viruses",
+              "A bacteriophage; an adenovirus which causes respiratory infections; a rod-shaped Tobacco Mosaic Virus (TMV), magnified about 1,00,000–1,50,000X.",
+            ],
+          },
+          {
+            cells: [
+              "8.3 — Colonies",
+              "Colonies of bacteria and a fungal colony growing in petri dishes — these are the colonies that become visible to the naked eye on nutritive media.",
+            ],
+          },
+        ]}
+      />
+      <Callout type="important" title="Not all microbes are harmful">
+        In the previous chapter you read that microbes cause a large number of diseases in human beings, and
+        that they also cause diseases in animals and plants. That should not make you think all microbes are
+        harmful: <Highlight color="yellow">several microbes are useful to man in diverse ways</Highlight>. This
+        chapter is about those contributions to human welfare.
+      </Callout>
+
+      <h2 id="h-8-1">8.1 Microbes in Household Products</h2>
+      <p>
+        We use microbes, or products derived from them, every day. The most familiar example is the production
+        of <strong>curd</strong> from milk.
+      </p>
+      <Callout type="important" title="Lactic acid bacteria (LAB)">
+        Micro-organisms such as <em>Lactobacillus</em> and others commonly called lactic acid bacteria (LAB)
+        grow in milk and convert it to curd. During growth, the LAB produce acids that coagulate and partially
+        digest the milk proteins.
+      </Callout>
+      <ProcessCard
+        title="Milk to curd, step by step"
+        steps={[
+          {
+            label: "A starter goes in",
+            description:
+              "A small amount of curd is added to the fresh milk as inoculum or starter — it contains millions of LAB.",
+          },
+          {
+            label: "The LAB multiply",
+            description: "At suitable temperatures the bacteria in the starter multiply in the milk.",
+          },
+          {
+            label: "Acids act on the proteins",
+            description:
+              "During growth the LAB produce acids, which coagulate and partially digest the milk proteins.",
+          },
+          {
+            label: "Curd, with better nutrition",
+            description:
+              "Milk is converted to curd, which also improves its nutritional quality by increasing vitamin B₁₂.",
+          },
+        ]}
+      />
+      <Callout type="note" title="The same bacteria inside you">
+        In our stomach too, the LAB play a very beneficial role in <strong>checking disease-causing
+        microbes</strong>. Curd is not only a food — it is a supply of those bacteria.
+      </Callout>
+      <p>
+        The dough used for making foods such as <strong>dosa</strong> and <strong>idli</strong> is also
+        fermented by bacteria. The puffed-up appearance of the dough is due to the production of{" "}
+        <strong>CO₂ gas</strong>.
+      </p>
+      <Expandable title="In-text question — which metabolic pathway produces the CO₂?">
+        <p>
+          The bacteria break down the sugars of the dough <strong>anaerobically</strong> — fermentation. In
+          this pathway the sugar is not fully oxidised, and CO₂ is released as a gaseous end-product. It is
+          the same kind of anaerobic breakdown that raises bread dough and produces ethanol in fermented
+          beverages.
+        </p>
+      </Expandable>
+      <Expandable title="In-text question — where do the bacteria for these fermentations come from?">
+        <p>
+          They are not added as a pure laboratory culture. The bacteria are already present in the ingredients
+          and in the surroundings, and the dough is simply left at a suitable temperature so that these
+          naturally occurring microbes multiply and ferment it.
+        </p>
+      </Expandable>
+      <p>
+        The dough used for making <strong>bread</strong> is fermented using <strong>baker’s yeast</strong> (
+        <em>Saccharomyces cerevisiae</em>). A number of traditional drinks and foods are also made by
+        fermentation by microbes: <strong>toddy</strong>, a traditional drink of some parts of southern India,
+        is made by fermenting sap from palms, and microbes are also used to ferment fish, soyabean and
+        bamboo-shoots to make foods.
+      </p>
+      <TableCard
+        title="Cheese: the microbe decides the variety"
+        headers={["Cheese", "Microbe", "What the microbe does"]}
+        rows={[
+          {
+            cells: [
+              "Swiss cheese",
+              <em key="swiss">Propionibacterium sharmanii</em>,
+              "Produces a large amount of CO₂ — that is what makes the large holes.",
+            ],
+          },
+          {
+            cells: [
+              "Roquefort cheese",
+              "A specific fungus grown on the cheese",
+              "Ripens the cheese and gives it a particular flavour.",
+            ],
+          },
+        ]}
+        caption="Cheese is one of the oldest food items in which microbes were used. Different varieties are known by their characteristic texture, flavour and taste, and the specificity comes from the microbes used."
+      />
+      <KeyPoint title="Everyday microbes">
+        Curd at lunch, idli at breakfast, bread in the evening, cheese on the table — all four are microbial
+        products, and none of them needs a factory.
+      </KeyPoint>
+
+      <h2 id="h-8-2">8.2 Microbes in Industrial Products</h2>
+      <p>
+        Even in industry, microbes are used to synthesise a number of products valuable to human beings.
+        Beverages and antibiotics are some examples.
+      </p>
+      <FactCard
+        title="Fermentor"
+        definition="Production on an industrial scale requires growing microbes in very large vessels called fermentors."
+        icon="🏭"
+      />
+
+      <h3 id="h-8-2-beverages">8.2.1 Fermented Beverages</h3>
+      <p>
+        Microbes, especially yeasts, have been used from time immemorial for the production of beverages like
+        wine, beer, whisky, brandy or rum.
+      </p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>
+          The same yeast <em>Saccharomyces cerevisiae</em> used for bread-making — commonly called{" "}
+          <strong>brewer’s yeast</strong> — is used for fermenting malted cereals and fruit juices.
+        </li>
+        <li>
+          The product of that fermentation is <strong>ethanol</strong>.
+        </li>
+        <li>
+          Depending on the raw material used for fermentation and the type of processing, different types of
+          alcoholic drinks are obtained.
+        </li>
+      </ul>
+      <Expandable title="In-text question — which metabolic reactions give ethanol in yeast?">
+        <p>
+          Yeast ferments the sugars of the malted cereal or the fruit juice <strong>anaerobically</strong>. In
+          this pathway a sugar such as glucose is converted into <strong>ethanol and carbon dioxide</strong>.
+          The very same reaction releases the CO₂ that raises bread dough — the difference is only in what is
+          being fermented and what is collected.
+        </p>
+      </Expandable>
+      <Comparison
+        columns={[
+          {
+            title: "Produced without distillation",
+            children: (
+              <ul className="list-disc pl-5 space-y-1.5">
+                <li>
+                  <strong>Wine</strong>
+                </li>
+                <li>
+                  <strong>Beer</strong>
+                </li>
+                <li>The fermented broth itself is the drink.</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Produced by distillation",
+            children: (
+              <ul className="list-disc pl-5 space-y-1.5">
+                <li>
+                  <strong>Whisky</strong>
+                </li>
+                <li>
+                  <strong>Brandy</strong>
+                </li>
+                <li>
+                  <strong>Rum</strong>
+                </li>
+                <li>These are produced by distillation of the fermented broth.</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+
+      <h3 id="h-8-2-antibiotics">8.2.2 Antibiotics</h3>
+      <p>
+        Antibiotics produced by microbes are regarded as one of the most significant discoveries of the
+        twentieth century, and have greatly contributed towards the welfare of human society.
+      </p>
+      <Callout type="important" title="Antibiotics">
+        Antibiotics are <strong>chemical substances, which are produced by some microbes and can kill or retard
+        the growth of other (disease-causing) microbes</strong>.
+      </Callout>
+      <Callout type="note" title="The word itself">
+        <em>Anti</em> is a Greek word that means “against”, and <em>bio</em> means “life”; together they mean
+        “against life” — in the context of disease-causing organisms. With reference to human beings they are{" "}
+        <Highlight color="yellow">“pro life” and not against</Highlight>.
+      </Callout>
+      <p>
+        Penicillin is the antibiotic everyone knows. It was the <strong>first antibiotic to be discovered</strong>,
+        and it was a <strong>chance discovery</strong>.
+      </p>
+      <ProcessCard
+        title="The chance discovery of penicillin"
+        steps={[
+          {
+            label: "An unwashed culture plate",
+            description: "Alexander Fleming was working on Staphylococci bacteria.",
+          },
+          {
+            label: "A mould appears",
+            description: "He once observed a mould growing in one of his unwashed culture plates.",
+          },
+          {
+            label: "A clear ring around it",
+            description: "Staphylococci could not grow around the mould.",
+          },
+          {
+            label: "The cause identified",
+            description: "He found out that it was due to a chemical produced by the mould.",
+          },
+          {
+            label: "Named Penicillin",
+            description: "He named the chemical after the mould — Penicillium notatum.",
+          },
+          {
+            label: "Full potential established",
+            description:
+              "Much later, Ernest Chain and Howard Florey established its full potential as an effective antibiotic.",
+          },
+          {
+            label: "World War II",
+            description: "This antibiotic was extensively used to treat American soldiers wounded in World War II.",
+          },
+          {
+            label: "Nobel Prize, 1945",
+            description: "Fleming, Chain and Florey were awarded the Nobel Prize in 1945 for this discovery.",
+          },
+        ]}
+      />
+      <p>After penicillin, other antibiotics were also purified from other microbes.</p>
+      <Expandable title="In-text question — name some other antibiotics and their sources">
+        <p>
+          Penicillin was only the first. <strong>Streptomycin</strong> comes from{" "}
+          <em>Streptomyces griseus</em>, <strong>erythromycin</strong> from <em>Streptomyces erythraeus</em>, and
+          the <strong>tetracyclines</strong> from other <em>Streptomyces</em> species. NCERT asks you to find
+          these out for yourself — keep adding to the list from your library.
+        </p>
+      </Expandable>
+      <p>Antibiotics have greatly improved our capacity to treat deadly diseases such as:</p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>Plague.</li>
+        <li>
+          Whooping cough (<em>kali khansi</em>).
+        </li>
+        <li>
+          Diphtheria (<em>gal ghotu</em>).
+        </li>
+        <li>
+          Leprosy (<em>kusht rog</em>).
+        </li>
+      </ul>
+      <p>
+        These diseases used to kill millions all over the globe.{" "}
+        <Highlight color="yellow">Today, we cannot imagine a world without antibiotics.</Highlight>
+      </p>
+
+      <h3 id="h-8-2-chemicals">8.2.3 Chemicals, Enzymes and other Bioactive Molecules</h3>
+      <p>
+        Microbes are also used for commercial and industrial production of certain chemicals like organic
+        acids, alcohols and enzymes.
+      </p>
+      <TableCard
+        title="Organic acids and the microbes that make them"
+        headers={["Acid", "Microbe", "Kind of microbe"]}
+        rows={[
+          {
+            cells: [
+              "Citric acid",
+              <em key="an">Aspergillus niger</em>,
+              "A fungus",
+            ],
+          },
+          {
+            cells: [
+              "Acetic acid",
+              <em key="aa">Acetobacter aceti</em>,
+              "A bacterium",
+            ],
+          },
+          {
+            cells: [
+              "Butyric acid",
+              <em key="cb">Clostridium butylicum</em>,
+              "A bacterium",
+            ],
+          },
+          {
+            cells: [
+              "Lactic acid",
+              <em key="lb">Lactobacillus</em>,
+              "A bacterium",
+            ],
+          },
+        ]}
+      />
+      <p>
+        Yeast (<em>Saccharomyces cerevisiae</em>) is used for commercial production of{" "}
+        <strong>ethanol</strong>. Microbes are also used for production of <strong>enzymes</strong>.
+      </p>
+      <TableCard
+        title="Enzymes and other bioactive molecules from microbes"
+        headers={["Molecule", "Microbe", "Where it is used"]}
+        rows={[
+          {
+            cells: [
+              "Lipases",
+              "Microbes grown for the enzyme",
+              "Used in detergent formulations; helpful in removing oily stains from the laundry.",
+            ],
+          },
+          {
+            cells: [
+              "Pectinases and proteases",
+              "Microbes grown for the enzymes",
+              "Clarify bottled fruit juices — that is why bottled juice is clearer than juice made at home.",
+            ],
+          },
+          {
+            cells: [
+              "Streptokinase",
+              <span key="sk">
+                <em>Streptococcus</em> (modified by genetic engineering)
+              </span>,
+              "Used as a “clot buster” for removing clots from the blood vessels of patients who have undergone myocardial infarction leading to heart attack.",
+            ],
+          },
+          {
+            cells: [
+              "Cyclosporin A",
+              <span key="cy">
+                <em>Trichoderma polysporum</em> (a fungus)
+              </span>,
+              "An immunosuppressive agent used in organ-transplant patients.",
+            ],
+          },
+          {
+            cells: [
+              "Statins",
+              <span key="st">
+                <em>Monascus purpureus</em> (a yeast)
+              </span>,
+              "Commercialised as blood-cholesterol lowering agents; acts by competitively inhibiting the enzyme responsible for synthesis of cholesterol.",
+            ],
+          },
+        ]}
+      />
+      <MistakeCard
+        mistake="Every medically useful molecule that microbes make is an antibiotic."
+        correction="Antibiotics kill or retard other microbes. Cyclosporin A (immunosuppressive), statins (cholesterol-lowering) and streptokinase (clot buster) are bioactive molecules with entirely different jobs."
+        example="Cyclosporin A comes from a fungus and statins from a yeast — neither is used to kill bacteria."
+      />
+      <KeyPoint title="Microbes are chemical factories">
+        Organic acids, ethanol, enzymes, a clot buster, an immunosuppressant and a cholesterol-lowering drug —
+        all six come out of microbial cultures, and all six are industrial products.
+      </KeyPoint>
+
+      <h2 id="h-8-3">8.3 Microbes in Sewage Treatment</h2>
+      <p>
+        Large quantities of waste water are generated every day in cities and towns. A major component of this
+        waste water is human excreta.
+      </p>
+      <FactCard
+        title="Sewage"
+        definition="This municipal waste-water is also called sewage. It contains large amounts of organic matter and microbes, many of which are pathogenic."
+        icon="🚰"
+      />
+      <p>
+        This huge quantity of sewage cannot be discharged into natural water bodies like rivers and streams
+        directly. Before disposal, therefore, sewage is treated in <strong>sewage treatment plants (STPs)</strong>{" "}
+        to make it less polluting.
+      </p>
+      <Callout type="important" title="Who does the work">
+        Treatment of waste water is done by the <strong>heterotrophic microbes naturally present in the
+        sewage</strong>. This treatment is carried out in <strong>two stages</strong>.
+      </Callout>
+
+      <h3 id="h-8-3-primary">Primary treatment — physical removal</h3>
+      <p>
+        These treatment steps basically involve physical removal of particles — large and small — from the
+        sewage through <strong>filtration</strong> and <strong>sedimentation</strong>.
+      </p>
+      <ProcessCard
+        title="Primary treatment"
+        steps={[
+          {
+            label: "Sequential filtration",
+            description: "Initially, floating debris is removed by sequential filtration.",
+          },
+          {
+            label: "Sedimentation of grit",
+            description: "Then the grit — soil and small pebbles — is removed by sedimentation.",
+          },
+          {
+            label: "Primary sludge and effluent",
+            description:
+              "All solids that settle form the primary sludge, and the supernatant forms the effluent.",
+          },
+          {
+            label: "The effluent moves on",
+            description:
+              "The effluent from the primary settling tank is taken for secondary treatment.",
+          },
+        ]}
+      />
+      <MistakeCard
+        mistake="Primary treatment kills the microbes in the sewage."
+        correction="Primary treatment is purely physical — filtration and sedimentation. Nothing is killed; the biological work of consuming the organic matter happens in secondary treatment."
+        example="Primary treatment removes particles, not pollution load: the BOD is still high when the effluent leaves the primary settling tank."
+      />
+
+      <h3 id="h-8-3-secondary">Secondary treatment — biological treatment</h3>
+      <p>
+        The primary effluent is passed into large <strong>aeration tanks</strong>, where it is constantly
+        agitated mechanically and air is pumped into it.
+      </p>
+      <FactCard
+        title="Flocs"
+        definition="Masses of bacteria associated with fungal filaments to form mesh like structures — the useful aerobic microbes that grow vigorously in the aerated tank."
+        icon="🫧"
+      />
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>
+          While growing, these microbes consume the <strong>major part of the organic matter</strong> in the
+          effluent.
+        </li>
+        <li>This significantly reduces the BOD of the effluent.</li>
+        <li>The sewage water is treated till the BOD is reduced.</li>
+      </ul>
+      <Callout type="important" title="BOD — biochemical oxygen demand">
+        BOD refers to the <strong>amount of the oxygen that would be consumed if all the organic matter in one
+        liter of water were oxidised by bacteria</strong>.
+      </Callout>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>
+          The BOD test measures the <strong>rate of uptake of oxygen</strong> by micro-organisms in a sample of
+          water.
+        </li>
+        <li>Thus, indirectly, BOD is a measure of the organic matter present in the water.</li>
+        <li>
+          The <Highlight color="yellow">greater the BOD of waste water, the more is its polluting
+          potential</Highlight>.
+        </li>
+      </ul>
+      <ProcessCard
+        title="After the aeration tank"
+        steps={[
+          {
+            label: "Settling tank",
+            description:
+              "Once the BOD is reduced significantly, the effluent is passed into a settling tank where the bacterial flocs are allowed to sediment.",
+          },
+          {
+            label: "Activated sludge",
+            description: "This sediment is called activated sludge.",
+          },
+          {
+            label: "Inoculum recycled",
+            description:
+              "A small part of the activated sludge is pumped back into the aeration tank to serve as the inoculum.",
+          },
+          {
+            label: "Anaerobic sludge digesters",
+            description:
+              "The remaining major part of the sludge is pumped into large tanks called anaerobic sludge digesters.",
+          },
+          {
+            label: "Anaerobic digestion",
+            description:
+              "Here other kinds of bacteria, which grow anaerobically, digest the bacteria and the fungi in the sludge.",
+          },
+          {
+            label: "Biogas",
+            description:
+              "During this digestion the bacteria produce a mixture of gases such as methane, hydrogen sulphide and carbon dioxide. These gases form biogas and can be used as a source of energy, as it is inflammable.",
+          },
+          {
+            label: "Effluent released",
+            description:
+              "The effluent from the secondary treatment plant is generally released into natural water bodies like rivers and streams.",
+          },
+        ]}
+      />
+      <Comparison
+        columns={[
+          {
+            title: "Primary treatment",
+            children: (
+              <ul className="list-disc pl-5 space-y-1.5">
+                <li>
+                  <strong>Physical</strong> removal of particles.
+                </li>
+                <li>Filtration removes floating debris; sedimentation removes grit.</li>
+                <li>Settled solids form the primary sludge; the supernatant is the effluent.</li>
+                <li>The effluent still carries most of the organic matter — and a high BOD.</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Secondary treatment",
+            children: (
+              <ul className="list-disc pl-5 space-y-1.5">
+                <li>
+                  <strong>Biological</strong> treatment by aerobic microbes.
+                </li>
+                <li>Microbes grow as flocs in aerated tanks and consume the organic matter.</li>
+                <li>Settled flocs form the activated sludge; part of it is recycled as inoculum.</li>
+                <li>BOD falls significantly, so the effluent can be released into rivers and streams.</li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+      <Callout type="didyouknow" title="A century old, still unmatched">
+        Microbes treat millions of gallons of waste water every day across the globe, and the methodology has
+        been practised for more than a century in almost all parts of the world. Till date, no man-made
+        technology has been able to rival the microbial treatment of sewage.
+      </Callout>
+      <p>
+        Increasing urbanisation means sewage is produced in much larger quantities than ever before, while the
+        number of sewage treatment plants has not increased enough to treat it. So untreated sewage is often
+        discharged directly into rivers, leading to their pollution and an increase in water-borne diseases.
+      </p>
+      <Callout type="note" title="Ganga and Yamuna Action Plans">
+        The <strong>Ministry of Environment and Forests</strong> has initiated the Ganga Action Plan and the
+        Yamuna Action Plan to save these major rivers from pollution. Under these plans it is proposed to build
+        a large number of sewage treatment plants, so that only treated sewage may be discharged into the
+        rivers.
+      </Callout>
+
+      <h2 id="h-8-4">8.4 Microbes in Production of Biogas</h2>
+      <Callout type="important" title="Biogas">
+        Biogas is a <strong>mixture of gases (containing predominantly methane) produced by microbial
+        activity</strong> and which may be used as fuel.
+      </Callout>
+      <p>
+        Microbes produce different types of gaseous end-products during growth and metabolism, and the type of
+        gas produced depends upon the microbes and the organic substrates they utilise. In the fermentations
+        met so far — dough, cheese making and production of beverages — the main gas produced was{" "}
+        <strong>CO₂</strong>.
+      </p>
+      <Comparison
+        columns={[
+          {
+            title: "The fermentations of sections 8.1 and 8.2",
+            children: (
+              <ul className="list-disc pl-5 space-y-1.5">
+                <li>Dough making, cheese making and beverage production.</li>
+                <li>
+                  Main gas produced: <strong>CO₂</strong>.
+                </li>
+              </ul>
+            ),
+          },
+          {
+            title: "Methanogens",
+            children: (
+              <ul className="list-disc pl-5 space-y-1.5">
+                <li>Certain bacteria that grow anaerobically on cellulosic material.</li>
+                <li>
+                  Produce a large amount of <strong>methane</strong>, along with CO₂ and H₂.
+                </li>
+                <li>
+                  Collectively called methanogens; one common bacterium is <em>Methanobacterium</em>.
+                </li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>Methanogens are commonly found in the anaerobic sludge during sewage treatment.</li>
+        <li>
+          They are also present in the <strong>rumen</strong> (a part of the stomach) of cattle.
+        </li>
+        <li>
+          In the rumen they help in the breakdown of cellulose, and play an important role in the nutrition of
+          cattle.
+        </li>
+        <li>
+          The excreta (dung) of cattle, commonly called <strong>gobar</strong>, is therefore rich in these
+          bacteria.
+        </li>
+        <li>
+          Dung can be used for generation of biogas, commonly called <strong>gobar gas</strong>.
+        </li>
+      </ul>
+      <Expandable title="In-text question — can human beings digest the cellulose in our foods?">
+        <p>
+          No. Cellulose is broken down by the methanogens that live in the rumen of cattle, not by anything in
+          the human gut, so the cellulosic part of our food passes through undigested.
+        </p>
+      </Expandable>
+      <TableCard
+        title="A biogas plant — what each part does"
+        headers={["Part", "What it does"]}
+        rows={[
+          {
+            cells: [
+              "Concrete tank (10–15 feet deep)",
+              "Bio-wastes are collected in it and a slurry of dung is fed.",
+            ],
+          },
+          {
+            cells: [
+              "Floating cover",
+              "Placed over the slurry; it keeps rising as the gas is produced in the tank due to microbial activity.",
+            ],
+          },
+          {
+            cells: [
+              "Gas outlet",
+              "Connected to a pipe that supplies biogas to nearby houses.",
+            ],
+          },
+          {
+            cells: [
+              "Slurry outlet",
+              "The spent slurry is removed through it and may be used as fertiliser.",
+            ],
+          },
+        ]}
+      />
+      <p>
+        Cattle dung is available in large quantities in rural areas, where cattle are used for a variety of
+        purposes, so biogas plants are more often built in rural areas. The biogas produced is used for{" "}
+        <strong>cooking and lighting</strong>.
+      </p>
+      <Callout type="didyouknow" title="Who built the technology in India">
+        The technology of biogas production was developed in India mainly due to the efforts of the{" "}
+        <strong>Indian Agricultural Research Institute (IARI)</strong> and the{" "}
+        <strong>Khadi and Village Industries Commission (KVIC)</strong>.
+      </Callout>
+      <KeyPoint title="Two products, one plant">
+        Gas for cooking and lighting out of one outlet; spent slurry as fertiliser out of the other. Nothing is
+        wasted — the fuel and the manure come from the same digestion.
+      </KeyPoint>
+
+      <h2 id="h-8-5">8.5 Microbes as Biocontrol Agents</h2>
+      <Callout type="important" title="Biocontrol">
+        Biocontrol refers to the <strong>use of biological methods for controlling plant diseases and
+        pests</strong>.
+      </Callout>
+      <p>
+        In modern society these problems have been tackled increasingly by the use of chemicals — insecticides
+        and pesticides. Those chemicals are toxic and extremely harmful, to human beings and animals alike, and
+        have been polluting our environment (soil, ground water), fruits, vegetables and crop plants. Our soil
+        is also polluted through the use of <strong>weedicides</strong> to remove weeds.
+      </p>
+
+      <h3 id="h-8-5-organic">Biological control of pests and diseases</h3>
+      <p>
+        In agriculture there is a method of controlling pests that relies on <strong>natural
+        predation</strong> rather than introduced chemicals.
+      </p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>A key belief of the organic farmer is that biodiversity furthers health.</li>
+        <li>The more variety a landscape has, the more sustainable it is.</li>
+        <li>
+          The organic farmer works to create a system where the insects sometimes called pests are{" "}
+          <strong>not eradicated</strong>, but kept at manageable levels by a complex system of checks and
+          balances within a living and vibrant ecosystem.
+        </li>
+        <li>
+          Conventional farming often uses chemical methods that kill both useful and harmful life forms
+          indiscriminately.
+        </li>
+        <li>
+          Biocontrol is a holistic approach: it seeks to understand the webs of interaction between the many
+          organisms that make up the field fauna and flora.
+        </li>
+        <li>
+          Eradication of pests is not only possible but also <em>undesirable</em> — without them, the
+          beneficial predatory and parasitic insects that depend on them as food or hosts could not survive.
+        </li>
+        <li>
+          Biocontrol measures therefore greatly reduce our dependence on toxic chemicals and pesticides.
+        </li>
+        <li>
+          An important part of biological farming is to know the life forms of the field — predators as well as
+          pests — along with their life cycles, feeding patterns and preferred habitats.
+        </li>
+      </ul>
+      <TableCard
+        title="Predators that work for the farmer"
+        headers={["Predator", "Pest it gets rid of"]}
+        rows={[
+          {
+            cells: [
+              "Ladybird — the familiar beetle with red and black markings",
+              "Aphids",
+            ],
+          },
+          {
+            cells: ["Dragonflies", "Mosquitoes"],
+          },
+        ]}
+      />
+
+      <h3 id="h-8-5-microbial">Microbial biocontrol agents</h3>
+      <TableCard
+        title="The four microbial agents of this section"
+        headers={["Agent", "Target", "How it works"]}
+        rows={[
+          {
+            cells: [
+              <span key="bt">
+                <em>Bacillus thuringiensis</em> (Bt)
+              </span>,
+              "Butterfly caterpillars",
+              "Available in sachets as dried spores which are mixed with water and sprayed onto vulnerable plants such as brassicas and fruit trees. They are eaten by the insect larvae, the toxin is released in the gut, and the larvae get killed. The bacterial disease kills the caterpillars but leaves other insects unharmed.",
+            ],
+          },
+          {
+            cells: [
+              "Bt-cotton",
+              "Insect pests of the plant",
+              "Methods of genetic engineering have introduced B. thuringiensis toxin genes into plants, making them resistant to attack by insect pests. Bt-cotton is being cultivated in some states of our country.",
+            ],
+          },
+          {
+            cells: [
+              <span key="tri">
+                <em>Trichoderma</em>
+              </span>,
+              "Several plant pathogens",
+              "Free-living fungi that are very common in the root ecosystems; they are effective biocontrol agents, and a biological control being developed for use in the treatment of plant disease.",
+            ],
+          },
+          {
+            cells: [
+              "Baculoviruses, mostly genus Nucleopolyhedrovirus",
+              "Insects and other arthropods",
+              "Pathogens that attack insects and other arthropods — excellent candidates for species-specific, narrow spectrum insecticidal applications, with no negative impacts shown on plants, mammals, birds, fish or even non-target insects.",
+            ],
+          },
+        ]}
+      />
+      <Callout type="note" title="Why narrow spectrum matters">
+        A narrow spectrum agent is especially desirable when beneficial insects are being conserved to aid in an
+        overall <strong>integrated pest management (IPM)</strong> programme, or when an ecologically sensitive
+        area is being treated.
+      </Callout>
+      <MistakeCard
+        mistake="A Bt spray kills every insect that lands on the crop."
+        correction="The Bt toxin kills the larvae that actually eat it — caterpillars. The bacterial disease leaves other insects unharmed, which is exactly why it fits an IPM programme."
+        example="The same toxin gene put into the plant itself gives Bt-cotton, where the pest is stopped before it can do damage."
+      />
+      <KeyPoint title="Not a poison, a pathogen">
+        Biocontrol replaces chemicals with natural predation and microbial pathogens. The aim is not to wipe a
+        pest out, but to hold it at a manageable level while the rest of the ecosystem keeps working.
+      </KeyPoint>
+
+      <h2 id="h-8-6">8.6 Microbes as Biofertilisers</h2>
+      <p>
+        Environmental pollution is a major cause of concern. The use of chemical fertilisers to meet the
+        ever-increasing demand of agricultural produce has contributed significantly to this pollution. We have
+        now realised the problems associated with the overuse of chemical fertilisers, and there is a large
+        pressure to switch to organic farming — the use of <strong>biofertilisers</strong>.
+      </p>
+      <Callout type="important" title="Biofertilisers">
+        Biofertilisers are <strong>organisms that enrich the nutrient quality of the soil</strong>. The main
+        sources of biofertilisers are <strong>bacteria, fungi and cyanobacteria</strong>.
+      </Callout>
+      <TreeDiagram
+        title="Three sources of biofertilisers"
+        defaultExpanded
+        nodes={[
+          {
+            label: "Bacteria",
+            children: [
+              {
+                label: "Rhizobium",
+                detail:
+                  "Forms nodules on the roots of leguminous plants in a symbiotic association; fixes atmospheric nitrogen into organic forms, which the plant uses as nutrient.",
+              },
+              {
+                label: "Azospirillum",
+                detail:
+                  "Fixes atmospheric nitrogen while free-living in the soil, thus enriching the nitrogen content of the soil.",
+              },
+              {
+                label: "Azotobacter",
+                detail:
+                  "Another free-living nitrogen-fixing bacterium that enriches the nitrogen content of the soil.",
+              },
+            ],
+          },
+          {
+            label: "Fungi",
+            children: [
+              {
+                label: "Glomus — mycorrhiza",
+                detail:
+                  "Many members of the genus Glomus form mycorrhiza, a symbiotic association with plants. The fungal symbiont absorbs phosphorus from the soil and passes it to the plant.",
+              },
+            ],
+          },
+          {
+            label: "Cyanobacteria",
+            children: [
+              {
+                label: "Anabaena, Nostoc, Oscillatoria",
+                detail:
+                  "Autotrophic microbes widely distributed in aquatic and terrestrial environments, many of which can fix atmospheric nitrogen. In paddy fields, cyanobacteria serve as an important biofertiliser.",
+              },
+            ],
+          },
+        ]}
+      />
+      <p>Plants having mycorrhizal associations show other benefits as well:</p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>Resistance to root-borne pathogens.</li>
+        <li>Tolerance to salinity and drought.</li>
+        <li>An overall increase in plant growth and development.</li>
+      </ul>
+      <Expandable title="In-text question — what advantage does the fungus derive from mycorrhiza?">
+        <p>
+          The association is a trade, not charity. The fungus supplies the plant with phosphorus; in return the
+          plant supplies the fungus with the sugars and other organic food that the fungus, having no
+          chlorophyll, cannot make for itself.
+        </p>
+      </Expandable>
+      <Callout type="note" title="Blue green algae in the paddy field">
+        Cyanobacteria — the blue green algae — also <strong>add organic matter to the soil and increase its
+        fertility</strong>, on top of fixing atmospheric nitrogen.
+      </Callout>
+      <p>
+        Currently, in our country, a number of biofertilisers are available commercially in the market, and
+        farmers use these regularly in their fields to <strong>replenish soil nutrients</strong> and to{" "}
+        <strong>reduce dependence on chemical fertilisers</strong>.
+      </p>
+      <KeyPoint title="Three sources, three jobs">
+        Bacteria fix nitrogen, fungi deliver phosphorus, cyanobacteria do both — fix nitrogen and add organic
+        matter. All three enrich the soil instead of polluting it.
+      </KeyPoint>
+
+      <h2 id="h-8-exercises">Exercises</h2>
+      <Expandable title="Exercises — all questions with answers" variant="exercise">
+        <ExerciseQa
+          questions={[
+            "Bacteria cannot be seen with the naked eyes, but these can be seen with the help of a microscope. If you have to carry a sample from your home to your biology laboratory to demonstrate the presence of microbes with the help of a microscope, which sample would you carry and why?",
+            "Give examples to prove that microbes release gases during metabolism.",
+            "In which food would you find lactic acid bacteria? Mention some of their useful applications.",
+            "Name some traditional Indian foods made of wheat, rice and Bengal gram (or their products) which involve use of microbes.",
+            "In which way have microbes played a major role in controlling diseases caused by harmful bacteria?",
+            "Name any two species of fungus, which are used in the production of the antibiotics.",
+            "What is sewage? In which way can sewage be harmful to us?",
+            "What is the key difference between primary and secondary sewage treatment?",
+            "Do you think microbes can also be used as source of energy? If yes, how?",
+            "Microbes can be used to decrease the use of chemical fertilisers and pesticides. Explain how this can be accomplished.",
+            "Three water samples namely river water, untreated sewage water and secondary effluent discharged from a sewage treatment plant were subjected to BOD test. The samples were labelled A, B and C; but the laboratory attendant did not note which was which. The BOD values of the three samples A, B and C were recorded as 20mg/L, 8mg/L and 400mg/L, respectively. Which sample of the water is most polluted? Can you assign the correct label to each assuming the river water is relatively clean?",
+            "Find out the name of the microbes from which Cyclosporin A (an immunosuppressive drug) and Statins (blood cholesterol lowering agents) are obtained.",
+            <div key="q13">
+              <p>Find out the role of microbes in the following and discuss it with your teacher.</p>
+              <ul className="mt-1.5 space-y-1">
+                <li>(a) Single cell protein (SCP)</li>
+                <li>(b) Soil</li>
+              </ul>
+            </div>,
+            <div key="q14">
+              <p>
+                Arrange the following in the decreasing order (most important first) of their importance, for
+                the welfare of human society. Give reasons for your answer.
+              </p>
+              <p className="mt-1">Biogas, Citric acid, Penicillin and Curd</p>
+            </div>,
+            "How do biofertilisers enrich the fertility of the soil?",
+          ]}
+          answers={[
+            <div key="a1">
+              <p>
+                Carry a small sample of <strong>curd</strong> (or buttermilk).
+              </p>
+              <p className="mt-1">
+                Curd contains millions of lactic acid bacteria, so a single drop spread on a slide shows the
+                bacteria clearly under a microscope. Pond water or a mould growing on stale bread would also
+                serve the purpose.
+              </p>
+            </div>,
+            <div key="a2">
+              <ul className="space-y-1">
+                <li>
+                  The dough of dosa and idli puffs up because bacteria release <strong>CO₂</strong> during
+                  fermentation.
+                </li>
+                <li>
+                  The large holes in Swiss cheese are due to a large amount of <strong>CO₂</strong> released
+                  by <em>Propionibacterium sharmanii</em>.
+                </li>
+                <li>
+                  Bread dough rises because <strong>CO₂</strong> is released by baker’s yeast.
+                </li>
+                <li>
+                  Anaerobic sludge digesters produce <strong>methane, hydrogen sulphide and carbon
+                  dioxide</strong> — the gases that form biogas.
+                </li>
+              </ul>
+            </div>,
+            <div key="a3">
+              <p>
+                Lactic acid bacteria are found in <strong>curd</strong> and in other fermented milk foods.
+              </p>
+              <p className="mt-1">Useful applications:</p>
+              <ul className="mt-1 space-y-1">
+                <li>They convert milk into curd, coagulating and partially digesting the milk proteins.</li>
+                <li>They improve the nutritional quality of curd by increasing vitamin B₁₂.</li>
+                <li>In the stomach they check disease-causing microbes.</li>
+                <li>
+                  <em>Lactobacillus</em> is also used for the industrial production of lactic acid.
+                </li>
+              </ul>
+            </div>,
+            <div key="a4">
+              <ul className="space-y-1">
+                <li>
+                  <strong>Idli</strong> — rice and Bengal gram (urad dal), fermented by bacteria.
+                </li>
+                <li>
+                  <strong>Dosa</strong> — rice and Bengal gram, fermented by bacteria; the CO₂ released puffs
+                  the batter up.
+                </li>
+                <li>
+                  <strong>Bread</strong> — wheat flour fermented by baker’s yeast, <em>Saccharomyces
+                  cerevisiae</em>.
+                </li>
+                <li>
+                  <strong>Dhokla and khaman</strong> — made from Bengal gram (besan) by fermentation.
+                </li>
+              </ul>
+            </div>,
+            <div key="a5">
+              <p>
+                Microbes produce <strong>antibiotics</strong> — chemical substances that kill or retard the
+                growth of other disease-causing microbes.
+              </p>
+              <ul className="mt-1.5 space-y-1">
+                <li>
+                  Penicillin, discovered by Fleming from the mould <em>Penicillium notatum</em>, was the first
+                  antibiotic.
+                </li>
+                <li>
+                  Chain and Florey established its full potential, and it was used to treat wounded soldiers in
+                  World War II.
+                </li>
+                <li>
+                  Antibiotics have greatly improved our capacity to treat deadly diseases such as plague,
+                  whooping cough, diphtheria and leprosy.
+                </li>
+              </ul>
+            </div>,
+            <div key="a6">
+              <p>
+                <em>Penicillium notatum</em> and <em>Penicillium chrysogenum</em> — both fungi, both used in
+                the production of penicillin.
+              </p>
+              <p className="mt-1">
+                (<em>Streptomyces</em> species, the source of streptomycin, are bacteria, not fungi.)
+              </p>
+            </div>,
+            <div key="a7">
+              <p>
+                <strong>Sewage</strong> is municipal waste water, a major component of which is human excreta.
+                It contains large amounts of organic matter and microbes, many of which are pathogenic.
+              </p>
+              <p className="mt-1">Sewage is harmful because:</p>
+              <ul className="mt-1 space-y-1">
+                <li>It cannot be discharged directly into rivers and streams without polluting them.</li>
+                <li>Its high organic load gives it a high BOD, so it has a high polluting potential.</li>
+                <li>
+                  Untreated sewage in rivers increases water-borne diseases, and its pathogenic microbes are a
+                  direct health hazard.
+                </li>
+              </ul>
+            </div>,
+            <div key="a8">
+              <p>
+                <strong>Primary treatment is physical; secondary treatment is biological.</strong>
+              </p>
+              <ul className="mt-1.5 space-y-1">
+                <li>
+                  Primary treatment removes particles — floating debris by sequential filtration and grit by
+                  sedimentation — forming primary sludge and an effluent.
+                </li>
+                <li>
+                  Secondary treatment passes that effluent into aeration tanks, where aerobic microbes grow as
+                  flocs, consume the organic matter and reduce the BOD.
+                </li>
+              </ul>
+            </div>,
+            <div key="a9">
+              <p>Yes. Microbes are already used as a source of energy.</p>
+              <ul className="mt-1.5 space-y-1">
+                <li>
+                  Methanogens growing anaerobically on cellulosic material produce methane along with CO₂ and
+                  H₂ — the mixture called biogas.
+                </li>
+                <li>
+                  Cattle dung (gobar) is rich in these bacteria, and dung-based biogas plants supply gobar gas
+                  for cooking and lighting in rural areas.
+                </li>
+                <li>
+                  The anaerobic sludge digesters of a sewage treatment plant also produce biogas, since it is
+                  inflammable and can be used as a source of energy.
+                </li>
+              </ul>
+            </div>,
+            <div key="a10">
+              <ul className="space-y-1">
+                <li>
+                  <strong>Biofertilisers</strong> enrich the nutrient quality of the soil — Rhizobium in
+                  legume root nodules, free-living <em>Azospirillum</em> and <em>Azotobacter</em>, mycorrhizal
+                  fungi such as <em>Glomus</em>, and cyanobacteria such as <em>Anabaena</em>,{" "}
+                  <em>Nostoc</em> and <em>Oscillatoria</em>. They replenish soil nutrients, so less chemical
+                  fertiliser is needed.
+                </li>
+                <li>
+                  <strong>Biocontrol agents</strong> control pests without toxic chemicals — Bt for butterfly
+                  caterpillars, <em>Trichoderma</em> against several plant pathogens, baculoviruses against
+                  insects and other arthropods, and predators such as the ladybird and the dragonfly. This
+                  reduces the use of insecticides and pesticides.
+                </li>
+              </ul>
+            </div>,
+            <div key="a11">
+              <p>
+                The <strong>most polluted sample is C</strong>, with a BOD of <strong>400 mg/L</strong> — the
+                greater the BOD, the more is the polluting potential.
+              </p>
+              <p className="mt-1.5">The labels are therefore:</p>
+              <ul className="mt-1 space-y-1">
+                <li>
+                  <strong>A — secondary effluent</strong> (20 mg/L): treated water, still carrying some organic
+                  matter.
+                </li>
+                <li>
+                  <strong>B — river water</strong> (8 mg/L): the lowest BOD, as expected for relatively clean
+                  water.
+                </li>
+                <li>
+                  <strong>C — untreated sewage</strong> (400 mg/L): the highest organic load.
+                </li>
+              </ul>
+            </div>,
+            <div key="a12">
+              <ul className="space-y-1">
+                <li>
+                  <strong>Cyclosporin A</strong> — the fungus <em>Trichoderma polysporum</em>.
+                </li>
+                <li>
+                  <strong>Statins</strong> — the yeast <em>Monascus purpureus</em>.
+                </li>
+              </ul>
+            </div>,
+            <div key="a13">
+              <ul className="space-y-1.5">
+                <li>
+                  <strong>(a) Single cell protein (SCP):</strong> microbes such as the cyanobacterium{" "}
+                  <em>Spirulina</em> and various yeasts are grown in large cultures on cheap substrates, and
+                  their cells are harvested as a protein-rich supplement for animal feed and human food.
+                </li>
+                <li>
+                  <strong>(b) Soil:</strong> microbes decompose dead organic matter and release nutrients back
+                  into the soil, fix atmospheric nitrogen, form mycorrhizal associations that supply
+                  phosphorus, and help in the formation and fertility of soil.
+                </li>
+              </ul>
+            </div>,
+            <div key="a14">
+              <p>
+                Decreasing order of importance: <strong>Penicillin → Curd → Biogas → Citric acid</strong>.
+              </p>
+              <ul className="mt-1.5 space-y-1">
+                <li>
+                  <strong>Penicillin</strong> — first antibiotic; it saves lives from diseases such as
+                  diphtheria, whooping cough and plague, so nothing else on the list can match it.
+                </li>
+                <li>
+                  <strong>Curd</strong> — a cheap, everyday food with improved nutritional quality (vitamin
+                  B₁₂) and useful bacteria for the gut, reaching millions of households daily.
+                </li>
+                <li>
+                  <strong>Biogas</strong> — a renewable fuel for cooking and lighting in rural areas, and the
+                  spent slurry is fertiliser.
+                </li>
+                <li>
+                  <strong>Citric acid</strong> — valuable to industry and to food processing, but a chemical
+                  of narrower daily importance than the other three.
+                </li>
+              </ul>
+              <p className="mt-1.5">
+                (The order is a reasoned judgement; a different order can be defended if the reasons are
+                given.)
+              </p>
+            </div>,
+            <div key="a15">
+              <ul className="space-y-1">
+                <li>
+                  <em>Rhizobium</em> lives symbiotically in the root nodules of leguminous plants and fixes
+                  atmospheric nitrogen into organic forms the plant can use.
+                </li>
+                <li>
+                  Free-living bacteria such as <em>Azospirillum</em> and <em>Azotobacter</em> fix atmospheric
+                  nitrogen in the soil itself, enriching its nitrogen content.
+                </li>
+                <li>
+                  Mycorrhizal fungi such as <em>Glomus</em> absorb phosphorus from the soil and pass it to the
+                  plant, and also give resistance to root-borne pathogens and tolerance to salinity and
+                  drought.
+                </li>
+                <li>
+                  Cyanobacteria such as <em>Anabaena</em>, <em>Nostoc</em> and <em>Oscillatoria</em> fix
+                  atmospheric nitrogen — an important biofertiliser in paddy fields — and the blue green algae
+                  add organic matter to the soil and increase its fertility.
+                </li>
+              </ul>
+            </div>,
+          ]}
+        />
+      </Expandable>
+    </>
+  );
+}
