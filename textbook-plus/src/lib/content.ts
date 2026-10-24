@@ -23,6 +23,9 @@ const QUESTION_KEYS = new Set([
   "atoms",
   "nuclei",
   "semiconductor-electronics",
+  "sexual-reproduction-in-flowering-plants",
+  "human-reproduction",
+  "reproductive-health",
 ]);
 
 const FLASHCARD_KEYS = new Set(QUESTION_KEYS);
@@ -62,6 +65,12 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
     import("@/content/physics/nuclei/questions.json").then((m) => m.default as Question[]),
   "semiconductor-electronics": () =>
     import("@/content/physics/semiconductor-electronics/questions.json").then((m) => m.default as Question[]),
+  "sexual-reproduction-in-flowering-plants": () =>
+    import("@/content/biology/sexual-reproduction-in-flowering-plants/questions.json").then((m) => m.default as Question[]),
+  "human-reproduction": () =>
+    import("@/content/biology/human-reproduction/questions.json").then((m) => m.default as Question[]),
+  "reproductive-health": () =>
+    import("@/content/biology/reproductive-health/questions.json").then((m) => m.default as Question[]),
 };
 
 const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
@@ -99,6 +108,12 @@ const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
     import("@/content/physics/nuclei/flashcards.json").then((m) => m.default as Flashcard[]),
   "semiconductor-electronics": () =>
     import("@/content/physics/semiconductor-electronics/flashcards.json").then((m) => m.default as Flashcard[]),
+  "sexual-reproduction-in-flowering-plants": () =>
+    import("@/content/biology/sexual-reproduction-in-flowering-plants/flashcards.json").then((m) => m.default as Flashcard[]),
+  "human-reproduction": () =>
+    import("@/content/biology/human-reproduction/flashcards.json").then((m) => m.default as Flashcard[]),
+  "reproductive-health": () =>
+    import("@/content/biology/reproductive-health/flashcards.json").then((m) => m.default as Flashcard[]),
 };
 
 export async function getQuestionsForChapter(slug: string): Promise<Question[]> {
