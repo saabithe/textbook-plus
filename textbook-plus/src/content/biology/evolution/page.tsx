@@ -16,23 +16,13 @@ export default function EvolutionChapter() {
     <>
       <FactCard
         title="Evolutionary biology"
-        definition="The study of history of life forms on earth."
+        definition="The study of history of life forms on earth. An orderly change from one form to another."
         icon="🧬"
       />
-      <p>
-        To understand the changes in flora and fauna that have occurred over millions of years on earth, we must
-        first understand the context of origin of life — the evolution of earth, of stars, and indeed of the
-        universe itself. What follows is the longest of all the construed and conjectured stories: the story of the
-        origin of life and the evolution of life forms, or biodiversity, on planet earth.
-      </p>
+
 
       <h2 id="h-6-1">6.1 Origin of Life</h2>
-      <Callout type="didyouknow" title="Looking at stars is looking back in time">
-        Stellar distances are measured in <strong>light years</strong>. The light from a star we see tonight started
-        its journey millions of years back, from trillions of kilometres away, and reaches our eyes only now. Objects
-        in our immediate surroundings, by contrast, are seen instantly — and hence in the present. So when we see
-        stars, we are peeping into the past.
-      </Callout>
+
       <p>
         The origin of life is considered a unique event in the history of the universe. The universe is vast, and
         relatively speaking the earth itself is almost only a speck.
