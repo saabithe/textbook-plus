@@ -88,33 +88,88 @@ export default function EvolutionChapter() {
 
       <h3 id="h-6-1-origin-ideas">Where did the first life come from?</h3>
       <TableCard
-        title="Three answers to the same question"
-        headers={["Idea", "What it claims", "Present status"]}
+        title="Five answers to one question: where did the first life come from?"
+        headers={["Theory", "Claim", "Present status"]}
         rows={[
           {
             cells: [
-              "Panspermia",
-              "Units of life called spores were transferred to different planets, including earth, from outer space — a view of early Greek thinkers.",
-              "Still a favourite idea for some astronomers.",
+              "Special creation",
+              "Life created by a supernatural power (by God); earth only about 4,000 years old. Diversity fixed since then and forever.",
+              "Mythological; rejected by science.",
             ],
           },
           {
             cells: [
-              "Spontaneous generation",
-              "Life came out of decaying and rotting matter like straw, mud, etc.",
+              "Panspermia",
+              "Life came to earth as spores from outer space (early Greek thinkers and astronomers).",
+              "Still a favourite idea for some.",
+            ],
+          },
+          {
+            cells: [
+              "Abiogenesis (spontaneous generation)",
+              "Life came from decaying/rotting matter such as straw, mud, etc.",
               "Dismissed once and for all by Louis Pasteur.",
             ],
           },
           {
             cells: [
+              "Biogenesis",
+              "\"Omnis vivum ex ovo\": new life only from pre-existing life.",
+              "Accepted as a working principle.",
+            ],
+          },
+          {
+            cells: [
               "Chemical evolution",
-              "The first form of life came from pre-existing non-living organic molecules (e.g. RNA, protein, etc.), and formation of life was preceded by chemical evolution.",
-              "Proposed by Oparin and Haldane; chemical evolution is more or less accepted.",
+              "The first life came from pre-existing non-living organic molecules (RNA, proteins, etc.) under early-earth conditions; Oparin & Haldane.",
+              "More or less accepted.",
             ],
           },
         ]}
-        caption="Pasteur's experiment settled the second claim; the third is the version this chapter develops."
+        caption="Pasteur settled the spontaneous-generation claim; chemical evolution is the version the chapter develops."
       />
+
+      <Expandable title="The five theories, in detail">
+        <div className="space-y-3">
+          <div>
+            <p className="font-semibold">Special creation</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Life was created by a supernatural power — God (mythological; associated with Father Suarez).</li>
+              <li>Three connotations: all present creatures were created as such; diversity never changes; earth about 4,000 years old.</li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-semibold">Abiogenesis (spontaneous generation)</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Life arose from decaying matter — straw, mud, etc. (living from non-living).</li>
+              <li>Rejected by Louis Pasteur via the swan-neck flask experiment (sterile broth, no growth; growth appeared only when the neck was removed).</li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-semibold">Biogenesis</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Core principle <strong>&quot;Omnis vivum ex ovo or vivo&quot;</strong>: new life can originate on earth only from pre-existing life.</li>
+              <li>Pasteur's flask: boiled broth stayed free of microorganisms until the curved neck was removed.</li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-semibold">Panspermia (cosmic theory)</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Early Greek astronomers suggested units of life called <em>spores</em> were transferred from outer space to earth and other planets.</li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-semibold">Chemical evolution (modern theory)</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Proposed by <strong>Oparin</strong> (Russia) and <strong>Haldane</strong> (England); principle: <em>&quot;abiogenesis first, but biogenesis ever since&quot;</em>.</li>
+              <li>Evolutionary sequence: inorganic constituents (NH₃, CH₄, etc.) → organic molecules (RNA, proteins) → life.</li>
+              <li>Conditions: high temperature, volcanic storms, reducing atmosphere of methane and ammonia.</li>
+              <li>Key note: first life originated in <strong>water</strong>; water is therefore essential for the origin of life.</li>
+            </ul>
+          </div>
+        </div>
+      </Expandable>
       <Callout type="important" title="Pasteur: life comes only from pre-existing life">
         Louis Pasteur, by careful experimentation, demonstrated that life comes only from pre-existing life. He
         showed that in pre-sterilised flasks, life did not come from killed yeast, while in another flask open to air,
