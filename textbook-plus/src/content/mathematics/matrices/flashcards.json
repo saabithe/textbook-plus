@@ -1,1 +1,152 @@
-[]
+[
+  {
+    "id": "matrix-definition",
+    "front": "What is a matrix?",
+    "back": "An ordered rectangular array of numbers or functions. Elements/entries are the numbers or functions.",
+    "tags": ["definition", "basics"]
+  },
+  {
+    "id": "matrix-order",
+    "front": "What is the order of a matrix?",
+    "back": "A matrix with m rows and n columns is of order m × n.",
+    "tags": ["definition", "order"]
+  },
+  {
+    "id": "matrix-square",
+    "front": "When is a matrix square?",
+    "back": "When number of rows = number of columns (m = n), order n × n.",
+    "tags": ["types", "square"]
+  },
+  {
+    "id": "matrix-column-row",
+    "front": "Column vs row matrix",
+    "back": "Column matrix: only one column (m × 1). Row matrix: only one row (1 × n).",
+    "tags": ["types", "row-column"]
+  },
+  {
+    "id": "matrix-diagonal",
+    "front": "What is a diagonal matrix?",
+    "back": "A square matrix where all non-diagonal elements are zero: a_ij = 0 for i != j.",
+    "tags": ["types", "diagonal"]
+  },
+  {
+    "id": "matrix-scalar",
+    "front": "What is a scalar matrix?",
+    "back": "A diagonal matrix with equal diagonal elements: a_ii = k, a_ij = 0 for i != j.",
+    "tags": ["types", "scalar"]
+  },
+  {
+    "id": "matrix-identity",
+    "front": "What is an identity matrix?",
+    "back": "A scalar matrix with k=1. a_ii = 1, a_ij = 0 for i != j. Denoted I_n or I.",
+    "tags": ["types", "identity"]
+  },
+  {
+    "id": "matrix-zero",
+    "front": "What is a zero/null matrix?",
+    "back": "A matrix in which all elements are zero. Denoted O.",
+    "tags": ["types", "zero"]
+  },
+  {
+    "id": "matrix-equality",
+    "front": "When are two matrices equal?",
+    "back": "Same order and corresponding elements equal: A=[a_ij], B=[b_ij], A=B iff a_ij = b_ij for all i,j.",
+    "tags": ["equality", "definition"]
+  },
+  {
+    "id": "matrix-addition",
+    "front": "How is A+B defined?",
+    "back": "If A=[a_ij], B=[b_ij] same order m×n, A+B = [a_ij + b_ij]_{m×n}.",
+    "tags": ["operations", "addition"]
+  },
+  {
+    "id": "matrix-scalar-mul",
+    "front": "Scalar multiplication kA",
+    "back": "kA = k[a_ij] = [k a_ij] for every element.",
+    "tags": ["operations", "scalar"]
+  },
+  {
+    "id": "matrix-add-props",
+    "front": "Properties of matrix addition",
+    "back": "Commutative: A+B=B+A. Associative: (A+B)+C=A+(B+C). Identity: A+O=A. Inverse: A+(-A)=O.",
+    "tags": ["properties", "addition"]
+  },
+  {
+    "id": "matrix-mul-condition",
+    "front": "When is AB defined?",
+    "back": "A is m×n, B is n×p => AB is defined and is m×p (columns of A = rows of B).",
+    "tags": ["operations", "multiplication"]
+  },
+  {
+    "id": "matrix-mul-noncommutative",
+    "front": "Is matrix multiplication commutative?",
+    "back": "No. AB != BA in general even if both are defined.",
+    "tags": ["properties", "multiplication"]
+  },
+  {
+    "id": "matrix-zero-divisors",
+    "front": "Can AB = O with A!=O, B!=O?",
+    "back": "Yes, matrix multiplication has zero divisors (unlike real numbers).",
+    "tags": ["properties", "multiplication"]
+  },
+  {
+    "id": "matrix-mul-props",
+    "front": "Properties of matrix multiplication",
+    "back": "(AB)C = A(BC) (associative). A(B+C)=AB+AC, (A+B)C=AC+BC (distributive). AI=IA=A.",
+    "tags": ["properties", "multiplication"]
+  },
+  {
+    "id": "matrix-transpose",
+    "front": "What is transpose A'?",
+    "back": "Interchange rows and columns of A: if A=[a_ij]_{m×n}, A'=[a_ji]_{n×m}.",
+    "tags": ["transpose", "definition"]
+  },
+  {
+    "id": "matrix-transpose-props",
+    "front": "Properties of transpose",
+    "back": "(A')'=A, (kA)'=kA', (A+B)'=A'+B', (AB)' = B'A' (reversal law).",
+    "tags": ["transpose", "properties"]
+  },
+  {
+    "id": "matrix-symmetric",
+    "front": "Symmetric matrix",
+    "back": "A square matrix A is symmetric if A' = A, i.e. a_ji = a_ij.",
+    "tags": ["symmetric-skew", "symmetric"]
+  },
+  {
+    "id": "matrix-skew-symmetric",
+    "front": "Skew symmetric matrix",
+    "back": "A square matrix A is skew symmetric if A' = -A, i.e. a_ji = -a_ij. All diagonal elements are zero.",
+    "tags": ["symmetric-skew", "skew"]
+  },
+  {
+    "id": "matrix-sum-decomp",
+    "front": "Decomposition into symmetric and skew symmetric",
+    "back": "For any square matrix A, A = (A+A')/2 + (A-A')/2, where (A+A')/2 is symmetric and (A-A')/2 is skew symmetric.",
+    "tags": ["symmetric-skew", "decomposition"]
+  },
+  {
+    "id": "matrix-invertible",
+    "front": "When is A invertible?",
+    "back": "A square matrix A is invertible if there exists B with AB = BA = I. B is A^{-1}.",
+    "tags": ["inverse", "definition"]
+  },
+  {
+    "id": "matrix-inverse-unique",
+    "front": "Is inverse unique?",
+    "back": "Yes. If A is invertible, its inverse is unique.",
+    "tags": ["inverse", "properties"]
+  },
+  {
+    "id": "matrix-inverse-product",
+    "front": "(AB)^{-1}",
+    "back": "(AB)^{-1} = B^{-1}A^{-1} (reversal law).",
+    "tags": ["inverse", "properties"]
+  },
+  {
+    "id": "matrix-identity-mul",
+    "front": "Multiplicative identity",
+    "back": "For any square matrix A, AI = IA = A where I is identity matrix of same order.",
+    "tags": ["identity", "multiplication"]
+  }
+]

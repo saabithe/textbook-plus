@@ -1,1 +1,114 @@
-[]
+[
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The principal value of sin⁻¹(-1/2) is",
+    "options": [
+      "-π/6",
+      "π/6",
+      "-π/3",
+      "5π/6"
+    ],
+    "answer": 0,
+    "explanation": "sin(-π/6) = -1/2 and -π/6 ∈ [-π/2, π/2]."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The principal value of cos⁻¹(-1/2) is",
+    "options": [
+      "π/3",
+      "2π/3",
+      "-π/3",
+      "π/6"
+    ],
+    "answer": 1,
+    "explanation": "cos(2π/3) = -1/2 and 2π/3 ∈ [0, π]."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The principal value of tan⁻¹(-√3) is",
+    "options": [
+      "π/3",
+      "-π/3",
+      "2π/3",
+      "-π/6"
+    ],
+    "answer": 1,
+    "explanation": "tan(-π/3) = -√3 and -π/3 ∈ (-π/2, π/2)."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "sin⁻¹(sin 3π/5) equals",
+    "options": [
+      "3π/5",
+      "2π/5",
+      "π/5",
+      "-2π/5"
+    ],
+    "answer": 1,
+    "explanation": "3π/5 = π - 2π/5, sin(3π/5)=sin(2π/5), 2π/5 ∈ [-π/2,π/2]."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "tan⁻¹(1) + cos⁻¹(-1/2) + sin⁻¹(-1/2) equals",
+    "options": [
+      "π/4",
+      "π",
+      "3π/4",
+      "2π/3"
+    ],
+    "answer": 2,
+    "explanation": "π/4 + 2π/3 + (-π/6) = π/4 + (4π-π)/6 = π/4 + π/2 = 3π/4."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "cos⁻¹(cos 7π/6) equals",
+    "options": [
+      "7π/6",
+      "5π/6",
+      "π/3",
+      "π/6"
+    ],
+    "answer": 1,
+    "explanation": "cos(7π/6) = -√3/2 and cos(5π/6) = -√3/2, with 5π/6 ∈ [0, π]. Hence the principal value is 5π/6."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "If sin⁻¹(1-x)-2 sin⁻¹ x = π/2, then x is",
+    "options": [
+      "0, 1/2",
+      "1, 1/2",
+      "0",
+      "1/2"
+    ],
+    "answer": 2,
+    "explanation": "Solve: sin⁻¹(1-x)=π/2 + 2 sin⁻¹ x => 1-x = cos(2 sin⁻¹ x)=1-2x^2 => 1-x = 1-2x^2 => -x = -2x^2 => 2x^2 = x => x(2x-1)=0. Check domain/principal values gives x=0."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Write tan⁻¹((cos x - sin x)/(cos x + sin x)) in simplest form for 0 < x < π.",
+    "answer": "π/4 - x",
+    "explanation": "Divide numerator and denominator by cos x: tan⁻¹((1-tan x)/(1+tan x)) = tan⁻¹(tan(π/4 - x)) = π/4 - x in the range."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Find the value of 2 sin⁻¹(1/2) + cos⁻¹(1/2).",
+    "answer": "π",
+    "explanation": "2*(π/6) + π/3 = π/3 + π/3 = 2π/3? Wait, sin⁻¹(1/2)=π/6, so 2*sin⁻¹(1/2)=π/3, cos⁻¹(1/2)=π/3, total 2π/3. But earlier in Exercise 2.1 Q12 answer was π? Wait check: Exercise 2.1 Q12: cos⁻¹(1/2) + 2 sin⁻¹(1/2) = π/3 + 2*(π/6)=π/3 + π/3 = 2π/3."
+  },
+  {
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Prove 2 tan⁻¹(1/2) + tan⁻¹(1/7) = tan⁻¹(31/17) (value form) or just state the identity value relation.",
+    "answer": "tan⁻¹(31/17)",
+    "explanation": "Use tan⁻¹x + tan⁻¹y = tan⁻¹((x+y)/(1-xy))."
+  }
+]

@@ -1,1 +1,220 @@
-[]
+[
+  {
+    "id": "rf-q1",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "A relation R on a set A is a subset of",
+    "options": ["A", "A × A", "A ∪ A", "the power set of A"],
+    "answer": 1,
+    "explanation": "A relation from A to A is a subset of the Cartesian product A × A."
+  },
+  {
+    "id": "rf-q2",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The relation R = ∅ on a non-empty set A is called",
+    "options": ["universal relation", "empty relation", "identity relation", "equivalence relation"],
+    "answer": 1,
+    "explanation": "The empty relation has no ordered pairs at all."
+  },
+  {
+    "id": "rf-q3",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The relation R = A × A on a set A is called",
+    "options": ["empty relation", "identity relation", "universal relation", "reflexive only"],
+    "answer": 2,
+    "explanation": "When every possible ordered pair belongs to R, the relation is universal."
+  },
+  {
+    "id": "rf-q4",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "R is reflexive on A if",
+    "options": ["(a, b) ∈ R for all a, b", "(a, a) ∈ R for all a ∈ A", "(a, b) ∈ R implies (b, a) ∈ R", "(a, b), (b, c) ∈ R implies (a, c) ∈ R"],
+    "answer": 1,
+    "explanation": "Reflexivity requires every element to be related to itself."
+  },
+  {
+    "id": "rf-q5",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A relation R on A is symmetric if",
+    "options": ["(a, a) ∈ R for all a", "(a, b) ∈ R implies (b, a) ∈ R", "(a, b) ∈ R implies (a, c) ∈ R", "R = A × A"],
+    "answer": 1,
+    "explanation": "Symmetric means the reverse of every pair is also in R."
+  },
+  {
+    "id": "rf-q6",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A relation is called an equivalence relation when it is",
+    "options": ["reflexive only", "symmetric and transitive", "reflexive, symmetric and transitive", "reflexive and symmetric only"],
+    "answer": 2,
+    "explanation": "All three properties — reflexive, symmetric, transitive — are required."
+  },
+  {
+    "id": "rf-q7",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The relation R = {(1,1), (2,2), (3,3), (1,2), (2,1)} on A = {1,2,3} is",
+    "options": ["reflexive and symmetric but not transitive", "reflexive, symmetric and transitive", "only symmetric", "only reflexive"],
+    "answer": 1,
+    "explanation": "All diagonal pairs are present, (1,2) and (2,1) come together, and the only new compositions (1,1), (2,2) are already there. It is an equivalence relation."
+  },
+  {
+    "id": "rf-q8",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The number of equivalence relations on the set {1, 2, 3} is",
+    "options": ["2", "3", "4", "5"],
+    "answer": 3,
+    "explanation": "Equivalence relations correspond to partitions of {1,2,3}: one part (1), a pair plus a singleton (3), or three singletons (1). Total 5."
+  },
+  {
+    "id": "rf-q9",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A function f : A → B is one-one (injective) if",
+    "options": ["different elements of A have different images", "every element of B has a preimage", "f is onto", "f(a) = f(b) for all a, b"],
+    "answer": 0,
+    "explanation": "Injectivity means f(a₁) = f(a₂) forces a₁ = a₂."
+  },
+  {
+    "id": "rf-q10",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A function f : A → B is onto (surjective) if",
+    "options": ["f is one-one", "every element of B is the image of some element of A", "A and B have the same number of elements", "the range is a subset of B"],
+    "answer": 1,
+    "explanation": "Surjectivity means the range equals the codomain B."
+  },
+  {
+    "id": "rf-q11",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "f : N → N, f(x) = 2x is",
+    "options": ["one-one and onto", "one-one but not onto", "onto but not one-one", "neither one-one nor onto"],
+    "answer": 1,
+    "explanation": "Distinct naturals give distinct doubles, but odd numbers have no preimage, so f is not onto."
+  },
+  {
+    "id": "rf-q12",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "f : R → R, f(x) = x² is",
+    "options": ["bijective", "one-one only", "onto only", "neither one-one nor onto"],
+    "answer": 3,
+    "explanation": "f(1) = f(−1) breaks injectivity and negative reals have no preimage, so it is neither."
+  },
+  {
+    "id": "rf-q13",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If f : R → R, f(x) = 3x + 2, then f is",
+    "options": ["one-one but not onto", "onto but not one-one", "bijective", "neither one-one nor onto"],
+    "answer": 2,
+    "explanation": "f is linear with non-zero slope: injective, and for any y, x = (y − 2)/3 is a real preimage, so it is onto."
+  },
+  {
+    "id": "rf-q14",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "If f : R → R and g : R → R are given by f(x) = x² and g(x) = x + 1, then (g ∘ f)(x) equals",
+    "options": ["x² + 1", "(x + 1)²", "x² − 1", "x + 1"],
+    "answer": 0,
+    "explanation": "(g ∘ f)(x) = g(f(x)) = g(x²) = x² + 1."
+  },
+  {
+    "id": "rf-q15",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "A function f : X → Y is invertible if and only if",
+    "options": ["f is one-one", "f is onto", "f is bijective", "X and Y are finite"],
+    "answer": 2,
+    "explanation": "An inverse exists exactly when f is both one-one and onto."
+  },
+  {
+    "id": "rf-q16",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Show that the relation R = {(a, b) : a − b is an integer} on the set of real numbers is an equivalence relation.",
+    "answer": "Reflexive: a − a = 0 is an integer. Symmetric: if a − b is an integer then b − a = −(a − b) is an integer. Transitive: if a − b and b − c are integers, their sum a − c is an integer. Hence R is an equivalence relation.",
+    "explanation": "Check the three defining properties one at a time."
+  },
+  {
+    "id": "rf-q17",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Let R be the relation on Z given by R = {(a, b) : a − b is divisible by 5}. Show that R is an equivalence relation.",
+    "answer": "a − a = 0 is divisible by 5, so R is reflexive. If 5 | (a − b) then 5 | (b − a), so R is symmetric. If 5 | (a − b) and 5 | (b − c) then 5 | (a − c), so R is transitive. Hence R is an equivalence relation.",
+    "explanation": "Divisibility arguments are inherited by negation and addition."
+  },
+  {
+    "id": "rf-q18",
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Prove that f : R → R, f(x) = 2x + 3 is a bijection.",
+    "answer": "One-one: f(x₁) = f(x₂) gives 2x₁ + 3 = 2x₂ + 3, hence x₁ = x₂. Onto: for any y ∈ R choose x = (y − 3)/2; then f(x) = y. Therefore f is bijective.",
+    "explanation": "Solve f(x) = y explicitly to prove surjectivity."
+  },
+  {
+    "id": "rf-q19",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Find the number of one-one functions from {1, 2, 3} to {1, 2, 3}.",
+    "answer": "A one-one function on a 3-element set is a permutation, so the number is 3! = 6.",
+    "explanation": "Count ordered arrangements of three distinct images."
+  },
+  {
+    "id": "rf-q20",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "If f : R → R, f(x) = x² − 3x + 2, find f ∘ f and hence f(f(1)).",
+    "answer": "f(f(x)) = (x² − 3x + 2)² − 3(x² − 3x + 2) + 2. Since f(1) = 0, f(f(1)) = f(0) = 2.",
+    "explanation": "Substitute the output of the inner function into the same rule, or evaluate step by step."
+  },
+  {
+    "id": "rf-q21",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Show that f : N → N defined by f(x) = x² is one-one but not onto.",
+    "answer": "If x₁² = x₂² with x₁, x₂ ∈ N then x₁ = x₂, so f is one-one. But 2 ∈ N is not a perfect square, so no natural number maps to 2; f is not onto.",
+    "explanation": "Injectivity from positivity; surjectivity fails at non-squares."
+  },
+  {
+    "id": "rf-q22",
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Let f : {1, 2, 3} → {a, b, c} and g : {a, b, c} → {apple, ball, cat} be f = {(1,a),(2,b),(3,c)}, g = {(a,apple),(b,ball),(c,cat)}. Find g ∘ f.",
+    "answer": "g ∘ f = {(1, apple), (2, ball), (3, cat)}.",
+    "explanation": "Apply f first, then g, to each element of the domain."
+  },
+  {
+    "id": "rf-q23",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The relation R on A = {1, 2, 3, 4} given by R = {(1,2), (2,2), (1,1), (4,4), (1,3), (3,3), (3,2)} is",
+    "options": ["reflexive and symmetric", "reflexive, transitive but not symmetric", "symmetric and transitive", "only reflexive"],
+    "answer": 1,
+    "explanation": "All diagonal pairs are present, and compositions stay inside R, so it is reflexive and transitive. But (1,2) ∈ R while (2,1) ∉ R, so it is not symmetric."
+  },
+  {
+    "id": "rf-q24",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "If f : R → R is defined by f(x) = |x|, then f is",
+    "options": ["one-one", "onto", "neither one-one nor onto", "bijective"],
+    "answer": 2,
+    "explanation": "f(1) = f(−1) = 1 so f is not one-one, and negative reals have no preimage, so f is not onto."
+  },
+  {
+    "id": "rf-q25",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Given a non-empty set X, the relation R = {(A, B) : A ⊆ B} on the power set P(X) is",
+    "options": ["equivalence relation", "reflexive only", "transitive only", "reflexive and transitive but not symmetric"],
+    "answer": 3,
+    "explanation": "A ⊆ A holds, and A ⊆ B, B ⊆ C gives A ⊆ C. But A ⊆ B does not imply B ⊆ A, so R is not symmetric."
+  }
+]

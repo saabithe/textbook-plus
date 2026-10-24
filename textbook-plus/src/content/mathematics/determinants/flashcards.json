@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "id": "det-1x1",
+    "front": "Determinant of a 1×1 matrix [a]",
+    "back": "|a| = a"
+  },
+  {
+    "id": "det-2x2",
+    "front": "|[[a,b],[c,d]]|",
+    "back": "ad - bc"
+  },
+  {
+    "id": "det-expansion",
+    "front": "Expansion along first row of 3×3",
+    "back": "a_{11}M_{11} - a_{12}M_{12} + a_{13}M_{13} (or with (-1)^{1+j}A_{ij})"
+  },
+  {
+    "id": "minor",
+    "front": "Minor M_{ij}",
+    "back": "Determinant obtained by deleting i^{th} row and j^{th} column"
+  },
+  {
+    "id": "cofactor",
+    "front": "Cofactor A_{ij}",
+    "back": "A_{ij} = (-1)^{i+j} M_{ij}"
+  },
+  {
+    "id": "area-triangle",
+    "front": "Area of triangle with vertices (x1,y1),(x2,y2),(x3,y3)",
+    "back": "(1/2)| [[x1,y1,1],[x2,y2,1],[x3,y3,1]] |"
+  },
+  {
+    "id": "collinear",
+    "front": "Three points are collinear iff",
+    "back": "Area of triangle = 0 (determinant = 0)"
+  },
+  {
+    "id": "adjoint",
+    "front": "Adjoint of a matrix",
+    "back": "Transpose of the matrix of cofactors: adj A = ( [A_{ij}] )^T"
+  },
+  {
+    "id": "inv-formula",
+    "front": "Inverse of a non-singular square matrix A",
+    "back": "A^{-1} = (1/|A|) adj A, |A| != 0"
+  },
+  {
+    "id": "matrix-solution",
+    "front": "Solution of AX = B (|A| != 0)",
+    "back": "X = A^{-1}B"
+  }
+]

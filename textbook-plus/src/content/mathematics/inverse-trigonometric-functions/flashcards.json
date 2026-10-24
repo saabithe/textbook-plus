@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "id": "itf-dom-sin",
+    "front": "Domain and range of sin⁻¹ x (principal)",
+    "back": "Domain: [-1,1], Range: [-π/2, π/2]"
+  },
+  {
+    "id": "itf-dom-cos",
+    "front": "Domain and range of cos⁻¹ x (principal)",
+    "back": "Domain: [-1,1], Range: [0, π]"
+  },
+  {
+    "id": "itf-dom-tan",
+    "front": "Domain and range of tan⁻¹ x (principal)",
+    "back": "Domain: ℝ, Range: (-π/2, π/2)"
+  },
+  {
+    "id": "itf-dom-cot",
+    "front": "Domain and range of cot⁻¹ x (principal)",
+    "back": "Domain: ℝ, Range: (0, π)"
+  },
+  {
+    "id": "itf-dom-sec",
+    "front": "Domain and range of sec⁻¹ x (principal)",
+    "back": "Domain: ℝ - (-1,1), Range: [0,π] - {π/2}"
+  },
+  {
+    "id": "itf-dom-cosec",
+    "front": "Domain and range of cosec⁻¹ x (principal)",
+    "back": "Domain: ℝ - (-1,1), Range: [-π/2, π/2] - {0}"
+  },
+  {
+    "id": "itf-id-1",
+    "front": "sin(sin⁻¹ x) and sin⁻¹(sin x)",
+    "back": "sin(sin⁻¹ x)=x, x∈[-1,1]; sin⁻¹(sin x)=x, x∈[-π/2,π/2]"
+  },
+  {
+    "id": "itf-id-2",
+    "front": "Complementary: sin⁻¹ x + cos⁻¹ x",
+    "back": "sin⁻¹ x + cos⁻¹ x = π/2, x∈[-1,1]"
+  },
+  {
+    "id": "itf-id-3",
+    "front": "tan⁻¹ x + tan⁻¹ y",
+    "back": "tan⁻¹ x + tan⁻¹ y = tan⁻¹((x+y)/(1-xy)), xy < 1 (with principal value adjustment if needed)"
+  },
+  {
+    "id": "itf-id-4",
+    "front": "2 tan⁻¹ x forms",
+    "back": "2 tan⁻¹ x = sin⁻¹(2x/(1+x^2)) = cos⁻¹((1-x^2)/(1+x^2)) = tan⁻¹(2x/(1-x^2)), |x|≤1"
+  },
+  {
+    "id": "itf-id-5",
+    "front": "Triple angle for inverse sine",
+    "back": "3 sin⁻¹ x = sin⁻¹(3x - 4x^3), x ∈ [-1/2, 1/2]"
+  },
+  {
+    "id": "itf-id-6",
+    "front": "Negative arguments",
+    "back": "sin⁻¹(-x)=-sin⁻¹ x, tan⁻¹(-x)=-tan⁻¹ x, cosec⁻¹(-x)=-cosec⁻¹ x; cos⁻¹(-x)=π-cos⁻¹ x, sec⁻¹(-x)=π-sec⁻¹ x, cot⁻¹(-x)=π-cot⁻¹ x"
+  }
+]

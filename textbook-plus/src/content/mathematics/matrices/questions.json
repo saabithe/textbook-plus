@@ -1,1 +1,197 @@
-[]
+[
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "A matrix is a/an",
+    "options": ["ordered rectangular array of numbers or functions", "set of equations", "geometric figure", "sequence"],
+    "answer": 0,
+    "explanation": "Definition: ordered rectangular array of numbers or functions."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "A matrix with m rows and n columns has order",
+    "options": ["n × m", "m × n", "m+n", "mn"],
+    "answer": 1,
+    "explanation": "Order is number of rows × number of columns."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "A square matrix has",
+    "options": ["m < n", "m > n", "m = n", "only one row"],
+    "answer": 2,
+    "explanation": "Square matrix means equal number of rows and columns."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "In a diagonal matrix, all non-diagonal elements are",
+    "options": ["one", "zero", "equal", "arbitrary"],
+    "answer": 1,
+    "explanation": "Diagonal matrix: a_ij = 0 for i != j."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Identity matrix I_n has",
+    "options": ["all zeros", "diagonal 1 and rest 0", "all equal", "first row all ones"],
+    "answer": 1,
+    "explanation": "a_ii = 1, a_ij = 0 for i != j."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Two matrices A,B are equal if",
+    "options": ["same number of elements only", "same order and corresponding elements equal", "both square", "determinants equal"],
+    "answer": 1,
+    "explanation": "Definition of equality of matrices."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If A,B are of the same order, A+B is defined as",
+    "options": ["[a_ij * b_ij]", "[a_ij + b_ij]", "[a_ij / b_ij]", "[max(a_ij,b_ij)]"],
+    "answer": 1,
+    "explanation": "Elementwise addition."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "kA is obtained by",
+    "options": ["adding k to each element", "multiplying each element by k", "multiplying rows by k", "taking transpose"],
+    "answer": 1,
+    "explanation": "Scalar multiplication multiplies every element by scalar k."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Matrix addition is",
+    "options": ["commutative only", "associative only", "commutative and associative", "neither"],
+    "answer": 2,
+    "explanation": "A+B = B+A and (A+B)+C = A+(B+C)."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "AB is defined if",
+    "options": ["rows of A = columns of B", "columns of A = rows of B", "orders equal", "always"],
+    "answer": 1,
+    "explanation": "Inner dimensions must be equal: A_{m×n}, B_{n×p} => AB_{m×p}."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Matrix multiplication is",
+    "options": ["always commutative", "not commutative in general", "commutative for square matrices", "commutative if one is identity"],
+    "answer": 1,
+    "explanation": "AB != BA in general even if both defined."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If AB = O, it implies",
+    "options": ["A=O or B=O", "A=O and B=O", "neither necessarily zero", "always A=O"],
+    "answer": 2,
+    "explanation": "Zero divisors exist in matrix multiplication."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "(AB)' equals",
+    "options": ["A'B'", "B'A'", "AB", "(BA)'"],
+    "answer": 1,
+    "explanation": "Reversal law: (AB)' = B'A'."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A square matrix is symmetric if",
+    "options": ["A' = -A", "A' = A", "A^2 = I", "AB=BA"],
+    "answer": 1,
+    "explanation": "Symmetric: A' = A."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A square matrix is skew symmetric if",
+    "options": ["A' = A", "A' = -A", "all elements 1", "diagonal nonzero"],
+    "answer": 1,
+    "explanation": "Skew symmetric: A' = -A; diagonal elements are zero."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "For skew symmetric matrix, diagonal elements are",
+    "options": ["arbitrary", "one", "zero", "equal to off-diagonal"],
+    "answer": 2,
+    "explanation": "a_ii = -a_ii => 2a_ii = 0 => a_ii = 0."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Any square matrix A can be written as",
+    "options": ["sum of diagonal and scalar", "(A+A')/2 + (A-A')/2", "product of symmetric matrices", "difference of identity matrices"],
+    "answer": 1,
+    "explanation": "Sum of symmetric (A+A')/2 and skew symmetric (A-A')/2."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A is invertible if there exists B with",
+    "options": ["AB != BA", "AB = BA = I", "AB = O", "A+B = I"],
+    "answer": 1,
+    "explanation": "Definition of invertible matrix."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Inverse of a square matrix (if exists) is",
+    "options": ["not unique", "unique", "always identity", "always zero"],
+    "answer": 1,
+    "explanation": "Uniqueness of inverse (Theorem 3)."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "(AB)^{-1} equals",
+    "options": ["A^{-1}B^{-1}", "B^{-1}A^{-1}", "(BA)^{-1}", "AB"],
+    "answer": 1,
+    "explanation": "Reversal law: (AB)^{-1} = B^{-1}A^{-1}."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "If a matrix has 24 elements, list possible orders (natural number pairs).",
+    "answer": "(1,24),(24,1),(2,12),(12,2),(3,8),(8,3),(4,6),(6,4).",
+    "explanation": "All factor pairs (m,n) with mn=24."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "State commutative and associative laws of matrix addition.",
+    "answer": "A+B = B+A; (A+B)+C = A+(B+C) for matrices of same order.",
+    "explanation": "Properties of matrix addition."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "When does BA exist given AB exists?",
+    "answer": "If A is m×n, B is n×p, AB exists (m×p). BA exists only if p = m (A square) giving B_{n×m}, A_{m×n}, BA_{n×n}.",
+    "explanation": "Order condition for both products."
+  },
+  {
+    "type": "short",
+    "difficulty": "medium",
+    "question": "Write (A+B)' and (kA)' in terms of A', B'.",
+    "answer": "(A+B)' = A'+B', (kA)' = kA'.",
+    "explanation": "Properties of transpose."
+  },
+  {
+    "type": "short",
+    "difficulty": "hard",
+    "question": "Show that for any square matrix, A+A' is symmetric and A-A' is skew symmetric.",
+    "answer": "(A+A')' = A'+(A')'=A'+A = A+A'; (A-A')' = A' - (A')' = A'-A = -(A-A').",
+    "explanation": "Using (A')'=A and (A+B)'=A'+B'."
+  }
+]

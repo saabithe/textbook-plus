@@ -1,1 +1,102 @@
-[]
+[
+  {
+    "id": "rf-f1",
+    "front": "Definition of a relation from A to B",
+    "back": "A relation R from A to B is a subset of A × B. We write a R b when (a, b) ∈ R."
+  },
+  {
+    "id": "rf-f2",
+    "front": "Empty relation",
+    "back": "A relation R on A with no ordered pairs at all: R = ∅ ⊂ A × A."
+  },
+  {
+    "id": "rf-f3",
+    "front": "Universal relation",
+    "back": "A relation R on A containing every ordered pair: R = A × A."
+  },
+  {
+    "id": "rf-f4",
+    "front": "Reflexive relation",
+    "back": "R is reflexive on A if (a, a) ∈ R for every a ∈ A."
+  },
+  {
+    "id": "rf-f5",
+    "front": "Symmetric relation",
+    "back": "R is symmetric if (a₁, a₂) ∈ R implies (a₂, a₁) ∈ R for all a₁, a₂ ∈ A."
+  },
+  {
+    "id": "rf-f6",
+    "front": "Transitive relation",
+    "back": "R is transitive if (a₁, a₂) ∈ R and (a₂, a₃) ∈ R imply (a₁, a₃) ∈ R for all a₁, a₂, a₃ ∈ A."
+  },
+  {
+    "id": "rf-f7",
+    "front": "Equivalence relation",
+    "back": "A relation that is reflexive, symmetric and transitive. Every equivalence relation partitions its set into disjoint classes."
+  },
+  {
+    "id": "rf-f8",
+    "front": "One-one (injective) function",
+    "back": "f : A → B is one-one if f(a₁) = f(a₂) implies a₁ = a₂ — different inputs give different outputs."
+  },
+  {
+    "id": "rf-f9",
+    "front": "Onto (surjective) function",
+    "back": "f : A → B is onto if every element of B is the image of at least one element of A, i.e. range(f) = B."
+  },
+  {
+    "id": "rf-f10",
+    "front": "Bijective function",
+    "back": "A function that is both one-one and onto. Bijections are exactly the invertible functions."
+  },
+  {
+    "id": "rf-f11",
+    "front": "Composition of functions",
+    "back": "For f : A → B and g : B → C, the composite is (g ∘ f)(x) = g(f(x)), a function from A to C."
+  },
+  {
+    "id": "rf-f12",
+    "front": "Inverse of a function",
+    "back": "If f : X → Y is bijective, its inverse f⁻¹ : Y → X satisfies f⁻¹(y) = x exactly when f(x) = y. Then f⁻¹ ∘ f = I_X and f ∘ f⁻¹ = I_Y."
+  },
+  {
+    "id": "rf-f13",
+    "front": "When does f⁻¹ exist?",
+    "back": "f is invertible if and only if f is bijective (one-one and onto)."
+  },
+  {
+    "id": "rf-f14",
+    "front": "Number of one-one functions from a set of m elements to a set of n elements",
+    "back": "If n ≥ m, it is n(n − 1)(n − 2)⋯(n − m + 1); it is 0 when n < m."
+  },
+  {
+    "id": "rf-f15",
+    "front": "Equality of two functions",
+    "back": "f = g when they have the same domain and codomain, and f(x) = g(x) for every x in the domain."
+  },
+  {
+    "id": "rf-f16",
+    "front": "Identity relation vs identity function",
+    "back": "I_A = {(a, a) : a ∈ A} is the identity relation on A; I_A(x) = x is the corresponding identity function on A."
+  },
+  {
+    "id": "rf-f17",
+    "front": "How many equivalence relations on a 3-element set?",
+    "back": "5 — one for each partition of a 3-element set (Bell number B₃ = 5)."
+  },
+  {
+    "id": "rf-f18",
+    "front": "Relation R = {(a, b) : a − b is an integer} on R",
+    "back": "An equivalence relation: reflexive (a − a = 0), symmetric (−(a − b) is an integer) and transitive (sum of integers is an integer)."
+  },
+  {
+    "id": "rf-f19",
+    "front": "Relation of congruence modulo 5 on Z",
+    "back": "R = {(a, b) : 5 divides (a − b)} is an equivalence relation; its classes are the five residue classes 0, 1, 2, 3, 4 mod 5."
+  },
+  {
+    "id": "rf-f20",
+    "front": "Subset relation on a power set",
+    "back": "R = {(A, B) : A ⊆ B} on P(X) is reflexive and transitive but not symmetric, so it is not an equivalence relation."
+  }
+]

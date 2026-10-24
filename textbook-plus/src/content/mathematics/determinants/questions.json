@@ -1,1 +1,97 @@
-[]
+[
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "If A is a square matrix of order 1, [a], then |A| is",
+    "options": ["0", "a", "1", "-a"],
+    "answer": 1,
+    "explanation": "|[a]| = a."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "For A = [[2,4],[-1,2]], the value of |A| is",
+    "options": ["0", "4", "8", "-8"],
+    "answer": 2,
+    "explanation": "2(2) - 4(-1) = 4 + 4 = 8."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If |A| = 0 for a square matrix A, then A is called",
+    "options": ["non-singular", "singular", "orthogonal", "invertible"],
+    "answer": 1,
+    "explanation": "A is singular if |A| = 0."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The area of the triangle with vertices (x1,y1),(x2,y2),(x3,y3) is",
+    "options": [
+      "(1/2)|determinant of [[x1,y1,1],[x2,y2,1],[x3,y3,1]]|",
+      "|[[x1,y1],[x2,y2]]|",
+      "sum of squares",
+      "none"
+    ],
+    "answer": 0,
+    "explanation": "Area = (1/2)|Δ| where Δ is the 3×3 determinant with third column 1."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If A is invertible, then A^{-1} is equal to",
+    "options": [
+      "adj A",
+      "(1/|A|) adj A",
+      "|A| adj A",
+      "(adj A)/A (symbolically)"
+    ],
+    "answer": 1,
+    "explanation": "A^{-1} = (1/|A|) adj A when |A| != 0."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "For a square matrix of order n, |adj A| is equal to",
+    "options": ["|A|", "|A|^n", "|A|^{n-1}", "n|A|"],
+    "answer": 2,
+    "explanation": "|adj A| = |A|^{n-1}."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "If |AB| = 0 and A,B are square matrices of same order, then",
+    "options": [
+      "A must be zero matrix",
+      "B must be zero matrix",
+      "at least one of A or B is singular",
+      "both are non-singular"
+    ],
+    "answer": 2,
+    "explanation": "|AB| = |A||B| = 0 implies |A|=0 or |B|=0 (or both)."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The system AX = B has a unique solution if",
+    "options": ["|A| = 0", "|A| != 0", "A is singular", "(adj A)B != 0"],
+    "answer": 1,
+    "explanation": "Unique solution exists iff A is non-singular (|A| != 0), given by X = A^{-1}B."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If two rows of a determinant are identical, the value is",
+    "options": ["1", "-1", "0", "twice"],
+    "answer": 2,
+    "explanation": "Swapping identical rows changes sign but determinant unchanged => 2Δ = 0 => Δ = 0."
+  },
+  {
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "For a 2x2 matrix, |kA| (k scalar) equals",
+    "options": ["k|A|", "k^2|A|", "2k|A|", "|A|"],
+    "answer": 1,
+    "explanation": "|kA| = k^2 |A| for order 2; in general k^n |A|."
+  }
+]
