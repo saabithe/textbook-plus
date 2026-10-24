@@ -85,7 +85,7 @@ export function Expandable({ title, id, variant, children }: ExpandableProps) {
     <Collapsible open={open} onOpenChange={setOpen}>
       <div id={id} className={cn("my-6 rounded-2xl border overflow-hidden", v.wrapper)}>
         <CollapsibleTrigger
-          className={cn("group flex items-center gap-2.5 w-full px-4 py-3 text-left transition-colors border-b", open ? "border-border/30" : "border-transparent", v.trigger)}
+          className={cn("group flex items-center gap-2.5 w-full px-4 py-3 text-start transition-colors border-b", open ? "border-border/30" : "border-transparent", v.trigger)}
         >
           <span className={cn("flex h-7 w-7 shrink-0 items-center justify-center rounded-xl transition-transform duration-200 group-hover:-rotate-6", v.iconWrap)}>
             <VariantIcon className="h-3.5 w-3.5" />
@@ -99,7 +99,7 @@ export function Expandable({ title, id, variant, children }: ExpandableProps) {
           />
           <span className={cn("text-sm font-extrabold tracking-wide", v.titleClass)}>{title}</span>
           {v.badge && (
-            <Badge className={cn("ml-auto text-xs font-extrabold tracking-widest", v.badgeClass)}>
+            <Badge className={cn("ms-auto text-xs font-extrabold tracking-widest", v.badgeClass)}>
               {v.badge}
             </Badge>
           )}
