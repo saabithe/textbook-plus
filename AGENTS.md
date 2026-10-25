@@ -161,6 +161,15 @@ When starting any multi-step task:
 
 This is mandatory — never leave stale todos behind.
 
+## Parallel Batch Rule (mandatory)
+
+When the user drops a **batch with more than one independent job** (e.g. "new chapter + fix the discourses page + update Q&As"), do **not** work through them one after another. Split the batch into independent units and **launch one subagent per unit in parallel, in the background**, then integrate and verify their output yourself. Use `subagent` with `background: true` for units that do not touch the same files; run dependent units sequentially.
+
+- Give each subagent a complete, self-contained brief — it starts with fresh context: exact file paths, the content to add (verbatim if the user supplied it), the components to use, and the conventions to follow (see Content Authoring Conventions above, and the LaTeX rule).
+- Never let two subagents edit the same file at once — split by file, not by topic.
+- Migrations, cross-file renames, the chapter/discourse router registrations and the final `npm run typecheck` + `npm run build` stay with you.
+- Report the split you used, so the user knows what ran in parallel.
+
 ## Git Rules
 
 - **Always push.** Commit and push after every change by default (user policy change, 11 Sep 2026).
