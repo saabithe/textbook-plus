@@ -745,19 +745,6 @@ export default function PostEarlyForChristmasPage() {
               under counters. The Policeman arrives to find them all cowering
               &mdash; a satire on how easily rational people are swept into panic.
             </p>
-            <h3
-              id="everyday-absurdity"
-              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-            >
-              Everyday Absurdity
-            </h3>
-            <p>
-              The post office becomes a microcosm of human folly. Each character
-              arrives with a mundane purpose &mdash; stamps, parcels, a pension
-              &mdash; and the accumulated small absurdities build to a
-              catastrophic misunderstanding. The play suggests that ordinary life
-              is already absurd; we just need the right trigger to notice.
-            </p>
           </div>
 
           {/* Key Takeaway */}
