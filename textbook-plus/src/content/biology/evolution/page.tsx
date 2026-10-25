@@ -192,45 +192,52 @@ export default function EvolutionChapter() {
         example="The very next step in the chapter — chemical evolution — exists precisely because Pasteur left this gap."
       />
 
-      <h3 id="h-6-1-chemical">Chemical evolution and Miller's experiment</h3>
+      <h3 id="h-6-1-chemical">Chemical evolution and the Urey-Miller experiment</h3>
       <p>
-        Oparin of Russia and Haldane of England proposed that the first form of life could have come from
-        pre-existing non-living organic molecules (e.g. RNA, protein, etc.), and that formation of life was preceded
-        by <strong>chemical evolution</strong> — the formation of diverse organic molecules from inorganic
-        constituents. The conditions on earth then were high temperature, volcanic storms, and a reducing atmosphere
-        containing CH₄, NH₃, etc.
+        <strong>Oparin</strong> (Russia) and <strong>Haldane</strong> (England) proposed that the first form of life
+        could have come from pre-existing non-living organic molecules (e.g. RNA, protein, etc.), and that the
+        formation of life was preceded by <strong>chemical evolution</strong> — the stepwise formation of diverse
+        organic molecules from inorganic constituents. Early earth had a high temperature, volcanic storms and a
+        reducing atmosphere of CH₄, NH₃ and water vapour.
+      </p>
+      <p className="text-sm italic text-muted-foreground">
+        Experiment to prove: the theory of chemical evolution.
       </p>
       <ProcessCard
-        title="Miller's experiment, 1953"
+        title="Urey-Miller experiment (1953)"
         steps={[
           {
-            label: "Copy the early earth in the laboratory",
+            label: "Early earth in the laboratory",
             description:
-              "S.L. Miller, an American scientist, created conditions similar to those of the early earth on a laboratory scale.",
+              "S.L. Miller, working with H.C. Urey, created conditions similar to those of the early earth on a laboratory scale.",
           },
           {
-            label: "The flask",
+            label: "The flask and its gas mixture",
             description:
-              "A closed flask containing CH₄, H₂, NH₃ and water vapour at 800 °C.",
+              "A closed flask containing CH₄, H₂, NH₃ and water vapour at 800 °C, in the ratio CH₄ : NH₃ : H₂ = 2 : 1 : 2.",
           },
           {
             label: "The spark",
-            description: "He created electric discharge in the flask.",
+            description: "Electric discharge (spark) passed through the flask to mimic lightning on early earth.",
+          },
+          {
+            label: "The condenser and trap",
+            description:
+              "A condenser cooled and condensed the circulating gases and water vapour; the water (collecting in the trap at the bottom) carried the organic compounds produced.",
           },
           {
             label: "What appeared",
-            description: "He observed formation of amino acids.",
+            description: "Amino acids formed in the flask; later, similar experiments produced sugars, nitrogen bases, pigments and fats.",
           },
         ]}
       />
       <ul className="list-disc pl-5 space-y-1.5">
-        <li>In similar experiments, others observed formation of sugars, nitrogen bases, pigment and fats.</li>
         <li>
-          Analysis of meteorite content also revealed similar compounds, indicating that similar processes are
-          occurring elsewhere in space.
+          Meteorites also carry such organic compounds, indicating that similar processes are occurring elsewhere in
+          space.
         </li>
         <li>
-          With this limited evidence, the first part of the conjectured story — chemical evolution — was{" "}
+          With this limited evidence, the first part of the conjectured story - chemical evolution - was{" "}
           <strong>more or less accepted</strong>.
         </li>
       </ul>
