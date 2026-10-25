@@ -11,6 +11,7 @@ const discourseComponents: Record<string, React.ComponentType> = {
   "character-sketch": dynamic(() => import("@/content/discourses/character-sketch/page")) as React.ComponentType,
   "appreciation": dynamic(() => import("@/content/discourses/appreciation/page")) as React.ComponentType,
   "announcement-notice": dynamic(() => import("@/content/discourses/announcement-notice/page")) as React.ComponentType,
+  "script-writing": dynamic(() => import("@/content/discourses/script-writing/page")) as React.ComponentType,
   "travel-writing": dynamic(() => import("@/content/discourses/travel-writing/page")) as React.ComponentType,
 };
 

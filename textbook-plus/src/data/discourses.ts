@@ -1,4 +1,4 @@
-import { Mail, Newspaper, Mic, Globe, Sparkles, UserRound, Megaphone, Scissors, Map } from "lucide-react";
+import { Mail, Newspaper, Mic, Globe, Sparkles, UserRound, Megaphone, Scissors, Map, Clapperboard } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface DiscourseTopic {
@@ -90,6 +90,15 @@ export const discourseTopics: DiscourseTopic[] = [
       "The short formats — a spoken announcement, a boxed notice and a wall poster",
     icon: Megaphone,
     formats: ["Announcement", "Notice", "Poster"],
+  },
+  {
+    id: "script-writing",
+    slug: "script-writing",
+    title: "Script Writing",
+    tagline:
+      "A stage script on the page — scene heading, action, character cues, dialogue, parentheticals & extensions",
+    icon: Clapperboard,
+    formats: ["Script writing"],
   },
   {
     id: "travel-writing",

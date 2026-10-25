@@ -108,7 +108,7 @@ const QUESTIONS: GrammarQuestion[] = [
     id: "ic13", type: "fill-blank",
     question: "Fill in the correct form of the verb: \"If it ________ (rain) tomorrow, we will stay at home.\"",
     answer: "rains",
-    explanation: "First conditional \u2014 the if-clause takes the present simple, never \u201cwill rain\u201d.",
+    explanation: "First conditional \u2014 the if-clause takes the present simple (\u201crains\u201d), never \u201cwill rain\u201d.",
   },
   {
     id: "ic14", type: "mcq",
@@ -177,6 +177,31 @@ const QUESTIONS: GrammarQuestion[] = [
     answer: 0,
     explanation: "Mixed conditional: a past condition (had studied) with a present result (would be).",
   },
+  {
+    id: "ic23", type: "mcq",
+    question: "\u201cHe talks as if he ________ everything.\u201d Which form fits, and why?",
+    options: [
+      "knew \u2014 a past tense after \u201cas if\u201d carries a present meaning and marks the situation as untrue",
+      "knows \u2014 the situation is true, so the present tense is needed",
+      "had known \u2014 \u201cas if\u201d always takes the past perfect",
+      "will know \u2014 \u201cas if\u201d is followed by a future form",
+    ],
+    answer: 0,
+    explanation: "After \u201cas if\u201d a past tense verb carries a present meaning: he does not know everything. The past form itself signals that the situation is unreal.",
+  },
+  {
+    id: "ic24", type: "mcq",
+    question: "\u201cShe behaved as if she ________ a queen.\u201d",
+    options: ["is", "was", "were", "has been"],
+    answer: 2,
+    explanation: "In formal English \u201cwere\u201d is used after \u201cas if\u201d for every subject, including singular ones like she, he and it: as if she were a queen.",
+  },
+  {
+    id: "ic25", type: "fill-blank",
+    question: "Fill in the correct form of the verb: \u201cHe welcomed her as if she ________ (be) the chief guest.\u201d",
+    answer: "were",
+    explanation: "An unreal present situation after \u201cas if\u201d takes the past form were, even with a singular subject: as if she were the chief guest.",
+  },
 ];
 
 const CONDITIONALS_TABLE = [
@@ -212,6 +237,65 @@ export default function IfClausePage() {
         <div className="space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75] mt-4">
           <p><Highlight color="yellow">If I were you</Highlight> gives advice by putting yourself in the other person&rsquo;s shoes. It describes an imaginary, impossible situation &mdash; since you can never actually become them.</p>
           <p><strong>Why <em>were</em> and not <em>was</em>?</strong> In hypothetical or imaginary situations (the subjunctive mood), English uses <em>were</em> for all pronouns &mdash; even singular ones like <em>I, he, she</em> and <em>it</em> (e.g. <em>If she were here&hellip;</em>).</p>
+        </div>
+
+        <div className="mt-8 mb-5 text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
+          The same job after a verb
+        </div>
+
+        <Callout type="important" title="As if / As though">
+          <em>If I were you</em> treats the present as untrue. <em>As if</em> and its twin <em>as though</em> do exactly the same job after a verb: they express imaginary, hypothetical or unreal situations &mdash; something that is <strong>contrary to fact</strong>, which the speaker does not believe.
+        </Callout>
+
+        <div className="rounded-2xl border border-border/60 bg-muted/40 px-5 py-4">
+          <div className="text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
+            Structure
+          </div>
+          <p className="mt-2 text-[1.0625rem] font-semibold leading-[1.7] text-foreground">
+            Main clause&nbsp;+&nbsp;<em>as if</em> / <em>as though</em>&nbsp;+&nbsp;subject&nbsp;+&nbsp;<em>were</em> / past tense
+          </p>
+        </div>
+
+        <div className="mt-5 space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+          <p><Highlight color="blue">After <em>as if</em>, a past tense verb carries a present meaning</Highlight> &mdash; the past form itself is the signal that the situation is untrue or hypothetical. <em>He talks as if he knew all the answers</em> means he does <strong>not</strong> know them: <em>knew</em> is past in form, present in meaning.</p>
+        </div>
+
+        <TableCard
+          headers={["What the sentence says", "What it means"]}
+          rows={[
+            { cells: ["He talks as if he knew everything.", "He does not know everything \u2014 the past form marks it as untrue."] },
+            { cells: ["She behaves as if she were a queen.", "She is not a queen."] },
+            { cells: [<>If he studies, he will pass. <span className="text-muted-foreground">(a plain if-clause)</span></>, "Possible \u2014 he really may pass."] },
+            { cells: [<>He talks as if he had passed. <span className="text-muted-foreground">(an as-if clause)</span></>, "Unreal \u2014 he did not pass."] },
+          ]}
+          caption="A plain if-clause leaves the possibility open; as if / as though shuts it."
+        />
+
+        <div className="mt-5 space-y-2.5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+          <p><Highlight color="yellow">In formal English, <em>were</em> is preferred over <em>was</em> for every subject after <em>as if</em> &mdash; I, he, she, it, they.</Highlight></p>
+        </div>
+
+        <Callout type="warning" title="Formal was or were?">
+          <em>As if he was</em> is heard in relaxed speech, but the formal &mdash; and examinable &mdash; form is <em>as if he were</em>. The subjunctive <em>were</em> is correct for every subject.
+        </Callout>
+
+        <div className="mt-6 space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+          <p><strong>From the textbook</strong> (R. K. Narayan, <em>&ldquo;Crime and Punishment&rdquo;</em>):</p>
+          <ul className="list-disc space-y-1.5 ps-5">
+            <li>&ldquo;he felt as if his finger were releasing the trigger.&rdquo;</li>
+            <li>&ldquo;wanted him to deal with the boy as if he were made up of thin glass.&rdquo;</li>
+          </ul>
+        </div>
+
+        <div className="mt-5 space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+          <p><strong>More practice</strong> &mdash; each line states something that is not true:</p>
+          <ul className="list-disc space-y-1.5 ps-5">
+            <li>She behaved as if she were a queen.</li>
+            <li>He walked as if he were a king.</li>
+            <li>He welcomed her as if she were the chief guest.</li>
+            <li>He talks as if he knew all the answers.</li>
+            <li>They looked at him as if he were a stranger.</li>
+          </ul>
         </div>
       </GrammarSection>
 

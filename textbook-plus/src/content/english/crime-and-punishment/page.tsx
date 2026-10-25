@@ -6,6 +6,7 @@ import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
+import { Expandable } from "@/components/content/Expandable";
 import { Highlight } from "@/components/content/Highlight";
 import { CharacterSketch } from "@/components/content/CharacterSketch";
 import { CharacterComparison } from "@/components/content/CharacterComparison";
@@ -74,6 +75,141 @@ const QA_ITEMS = [
         games</Highlight> &mdash; station master, storyteller, chase
         partner. The roles are reversed: the punished becomes the punisher,
         and the teacher becomes the servant of his own student.
+      </>
+    ),
+  },
+];
+
+const MORE_QA_ITEMS = [
+  {
+    question: "Do you think the boy made the mistake purposefully? Why?",
+    answer: (
+      <>
+        <p>
+          Yes, the mistake was deliberate. The teacher had corrected the error
+          repeatedly, yet the boy obstinately repeated &ldquo;twenty-four&rdquo;
+          for sixteen multiplied by three, and he said it with a{" "}
+          <Highlight color="yellow">wicked smile</Highlight> on his lips. A child
+          who had genuinely forgotten the answer would look puzzled or ashamed;
+          this child looked pleased with himself.
+        </p>
+        <p>
+          The repetition was therefore a game with a purpose: he wanted to see
+          the tired man&rsquo;s blood rush to his head, and he enjoyed the power
+          of refusing the one thing the teacher was paid to obtain from him.
+        </p>
+      </>
+    ),
+  },
+  {
+    question:
+      "How do the parents try to bring up their child as a healthy citizen?",
+    answer: (
+      <>
+        <p>
+          They bring him up by theory rather than by discipline. Both of them
+          have studied infant psychology &mdash; the father even wrote a thesis
+          on it for his M.A. &mdash; and they lecture the teacher daily on the
+          need to avoid any sort of &ldquo;contrariness or repression&rdquo; in
+          the child&rsquo;s mind, believing that correction would
+          &ldquo;damage him for life.&rdquo;
+        </p>
+        <p>
+          In practice their method is to give him everything and deny him
+          nothing: a nursery of his own at a distance from the main house,
+          expensive toys, miniature furniture, a pedal motor car for the garden
+          and a cupboard stocked with sweets and biscuits, which he is trusted to
+          eat &ldquo;moderately.&rdquo; They are convinced that this indulgence
+          is what will make him a <strong>healthy citizen</strong>.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "How does the boy blackmail the teacher throughout the story?",
+    answer: (
+      <>
+        <p>
+          He uses the slap as a permanent lever. Whenever the teacher refuses a
+          demand, the boy gently touches his cheek &mdash; still red from the
+          blow &mdash; murmurs &ldquo;It is paining me here awfully, I must see
+          my mother,&rdquo; and moves towards the door. The threat is never
+          spoken outright and never needs to be: both of them know exactly what
+          he will say when he gets there.
+        </p>
+        <p>
+          With that single weapon he makes the teacher close the arithmetic
+          lesson, hunch in a corner as the <strong>station master</strong> of a
+          toy train, attempt repairs on a broken engine he does not understand,
+          tell story after story of a bison, Ali Baba and Aladdin, and finally
+          chase him three times round the garden until the exhausted man sinks
+          down on the portico step.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "Why does the teacher support the boy at the end of the story?",
+    answer: (
+      <>
+        <p>
+          He had already decided to confess everything and take the
+          consequences, because the blackmail had become harder to bear than any
+          scolding. But just as he begins, the father asks how the boy is
+          preparing for his arithmetic test, and the word &ldquo;test&rdquo;
+          destroys the child&rsquo;s bravado. His face falls, he slinks behind
+          his parents and appeals to the teacher with looks and gestures not to
+          betray him.
+        </p>
+        <p>
+          He looks so <Highlight color="pink">pathetic and desperate</Highlight>{" "}
+          that pity wins. The teacher answers that the boy is &ldquo;all
+          right,&rdquo; that he will &ldquo;pull through&rdquo; if he mugs up the
+          sixteenth table a little more, and that they had merely been playing to
+          keep up his spirits.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "Do you think the story is a satire on over-parenting?",
+    answer: (
+      <>
+        <p>
+          Yes. The story pokes fun at parents who have read about child
+          psychology but have never watched their own child. They call the boy
+          &ldquo;a little angel, all dimples, smiles, and sweetness,&rdquo; while
+          the teacher, who actually has to manage him, privately calls him a{" "}
+          <strong>little gorilla</strong>. The gap between the theory and the
+          reality is the joke.
+        </p>
+        <p>
+          The satire has a serious edge as well: by refusing to set any limit at
+          all, the parents produce a spoiled, tyrannical child who blackmails an
+          adult within minutes of being crossed.
+        </p>
+      </>
+    ),
+  },
+  {
+    question:
+      "Do you think the mischievous nature of the child is the result of his loneliness? Why?",
+    answer: (
+      <>
+        <p>
+          Yes, loneliness is at the root of much of it. The boy is an only
+          child in a large house, surrounded by toys, sweets and comforts rather
+          than by companions of his own age. Nobody in the story plays with him
+          for the pleasure of it; even the games have to be forced out of a
+          tired tutor.
+        </p>
+        <p>
+          Seen that way, his demands for a station master, a repaired engine, one
+          more story and a chase round the garden are not simply naughtiness
+          &mdash; they are the requests of a child who wants someone to stay and
+          play with him. Indulgence has given him everything except{" "}
+          <Highlight color="blue">company</Highlight>.
+        </p>
       </>
     ),
   },
@@ -198,6 +334,86 @@ const DISCOURSES = [
           },
         ]}
       />
+    ),
+  },
+  {
+    id: "aptness-of-title",
+    title: "Aptness of the Title",
+    content: (
+      <>
+        <p>
+          <strong>Task</strong>: show how far the title of the story is apt.
+          Narayan borrows his title from a novel of darkness and guilt, and the
+          borrowing is itself the first clue to what kind of story this is.
+        </p>
+
+        <h3
+          id="title-allusion"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Literary Allusion and Irony
+        </h3>
+        <p>
+          Narayan playfully borrows the title of Dostoevsky&rsquo;s famous dark
+          novel <em>Crime and Punishment</em> and turns a heavy theme into a
+          light-hearted domestic comedy. In the Russian novel a crime is weighed
+          against conscience, law and suffering; here the same grand words are
+          fitted to an evening of arithmetic and a slap. The{" "}
+          <Highlight color="yellow">allusion</Highlight> is ironic, and the irony
+          begins before the first sentence of the story.
+        </p>
+
+        <h3
+          id="title-the-crime"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          The Crime
+        </h3>
+        <p>
+          The central crime is simply a single, impulsive slap delivered by an
+          exhausted private tutor to his pampered student&rsquo;s cheek, after
+          the boy obstinately repeats a maths mistake. He has already taught six
+          hours at school that day and has been lectured for half an hour on
+          infant psychology before the lesson even begins. Nothing is plotted and
+          nothing is premeditated: the teacher&rsquo;s blood rushes to his head,
+          his finger feels as if it were releasing a trigger, and the blow is
+          over before he can think.
+        </p>
+
+        <h3
+          id="title-the-punishment"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          The Punishment
+        </h3>
+        <p>
+          The punishment that follows is not legal or moral retributive justice
+          but the comical ordeal and physical exhaustion the teacher endures
+          while dancing to the boy&rsquo;s tune. To keep the child from telling
+          his parents, he acts as station master for a toy train, narrates story
+          after story until he is short of breath, and is chased round the garden
+          three times until he collapses on the portico step. The &ldquo;penalty&rdquo;
+          is therefore not pain but <strong>humiliation and fatigue</strong>,
+          which is exactly where the comedy lies.
+        </p>
+
+        <h3
+          id="title-role-reversal"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Role Reversal
+        </h3>
+        <p>
+          The title also highlights the situational irony of a complete swap of
+          roles. The spoiled young student becomes the tyrannical punisher, and
+          the adult teacher becomes the helpless, submissive offender trapped by
+          his own mistake. In a story with any other title the slap would be a
+          simple act of cruelty; here the words &ldquo;crime&rdquo; and
+          &ldquo;punishment&rdquo; are handed to precisely the wrong people,
+          which is why the title is not merely clever but{" "}
+          <Highlight color="blue">exactly right</Highlight>.
+        </p>
+      </>
     ),
   },
   {
@@ -348,6 +564,90 @@ const DISCOURSES = [
           ]}
           caption="The story argues both sides at once: the boy badly needed discipline, but the slap handed him the power to blackmail his teacher."
         />
+
+        <h3
+          id="essay-spare-the-rod"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Essay: Spare the Rod and Spoil the Child
+        </h3>
+        <p>
+          &ldquo;Spare the rod and spoil the child&rdquo; was a dictum prevalent
+          in the past, repeated in homes and classrooms as though it were a law
+          of nature rather than an opinion. It survives because it contains a
+          half-truth: a child who is never corrected does grow up careless, and
+          no school can run without some discipline. The question the proverb
+          settles too quickly is what form that correction should take, and
+          Narayan&rsquo;s story sets the two answers side by side without
+          pretending that either is complete.
+        </p>
+        <p>
+          Those who defend punishment begin with the proverb itself: it has
+          lasted, they say, because a little fear corrects a child quickly, and
+          quick correction saves years of bad habit. Small punishments, on this
+          view, check small faults at once, before they harden; without any
+          penalty at all, students ignore their studies and the whole class
+          loses its order. Discipline of this kind is also credited with making
+          students punctual, respectful, obedient and hardworking, and with
+          supplying what every system needs &mdash; a penalty for those who break
+          the rules, just as the law itself punishes those who break it. The
+          argument is <Highlight color="yellow">orderly and reasonable</Highlight>,
+          and it is not made by fools.
+        </p>
+        <p>
+          Those who oppose punishment answer each of these points in turn. The
+          rod can spoil the child as thoroughly as indulgence can: a slap given
+          in anger leaves a mark, and &mdash; as happens in this story &mdash;
+          the teacher loses his authority the moment he loses his temper. What
+          punishment really teaches is not to give up the fault but to hide it
+          from the punisher, so the fault survives and the honesty does not.
+          Interest in the lesson keeps a class studying, whereas fear only keeps
+          it quiet; respect born of fear lasts only while the punisher is in the
+          room. And a penalty, they insist, is the last resort rather than the
+          first: praise, responsibility and interesting work build discipline
+          without injury.
+        </p>
+        <p>
+          In a learning environment the case against physical punishment is
+          stronger still. Fear crowds out curiosity; humiliation in front of
+          classmates teaches a child to shrink rather than to try; a blow can
+          cause real injury; and the relationship that all teaching depends on
+          is damaged, sometimes beyond repair. Narayan gives us the evidence in
+          miniature. The teacher&rsquo;s slap leaves the boy&rsquo;s cheek red,
+          and that redness becomes a weapon. Within minutes the boy is touching
+          his cheek and murmuring that it is paining him awfully and that he must
+          see his mother, and from that moment the tutor is at his command
+          &mdash; a station master in a corner, a storyteller running out of
+          breath, an ageing man chasing a child round the garden. The boy
+          blackmails him for the rest of the afternoon and, by the look on his
+          grateful face at the end, knows that he can do so again.
+        </p>
+        <p>
+          What should replace the rod is not nothing. A classroom needs rules
+          that are clear, few and consistently enforced, so that the child knows
+          the boundary before he crosses it and meets the same response every
+          time. It needs praise for effort and small responsibilities that make
+          a student feel trusted, and lessons interesting enough that attention is
+          won rather than demanded. Misbehaviour is best dealt with in a private
+          conversation rather than a public scene, and parents must be partners
+          in the same method instead of a refuge from it &mdash; as the parents
+          in this story are, always ready to believe the child and lecture the
+          teacher. Consequences should be proportionate and non-physical: extra
+          work, loss of a privilege, a task done again properly. Where a child is
+          persistently disruptive or distressed, the answer is counselling and
+          support, not a harder hand.
+        </p>
+        <p>
+          The balanced verdict, then, is this. Discipline is necessary &mdash; the
+          teacher is right that the boy needs it, and wrong only in how he
+          supplies it. But{" "}
+          <Highlight color="pink">
+            discipline is necessary, and physical punishment is not
+          </Highlight>
+          . The rod spoils the child it claims to save, and the story&rsquo;s
+          final irony is that the man who used it spends an entire evening
+          proving the point.
+        </p>
       </>
     ),
   },
@@ -683,8 +983,17 @@ export default function CrimeAndPunishmentPage() {
           </div>
 
           <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
-            <ReadRespond items={QA_ITEMS} />
+            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">
+              Read &amp; Respond
+            </h2>
+
+            <Expandable title="Read and Respond — 5 questions">
+              <ReadRespond title="Textbook questions" items={QA_ITEMS} />
+            </Expandable>
+
+            <Expandable title="More Textual Questions — 6 questions">
+              <ReadRespond title="More textual questions" items={MORE_QA_ITEMS} />
+            </Expandable>
           </div>
         </div>
       )}
