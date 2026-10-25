@@ -193,55 +193,36 @@ export default function EvolutionChapter() {
       />
 
       <h3 id="h-6-1-chemical">Chemical evolution and the Urey-Miller experiment</h3>
+      <Callout type="important" title="Aim of the experiment">
+        To prove the theory of chemical evolution — that the organic molecules of life could form from inorganic
+        gases on the early earth.
+      </Callout>
+
       <p>
-        <strong>Oparin</strong> (Russia) and <strong>Haldane</strong> (England) proposed that the first form of life
-        could have come from pre-existing non-living organic molecules (e.g. RNA, protein, etc.), and that the
-        formation of life was preceded by <strong>chemical evolution</strong> — the stepwise formation of diverse
-        organic molecules from inorganic constituents. Early earth had a high temperature, volcanic storms and a
-        reducing atmosphere of CH₄, NH₃ and water vapour.
+        Oparin (Russia) and Haldane (England) had proposed that the first form of life came from pre-existing
+        non-living organic molecules, and that life was preceded by chemical evolution. The Urey-Miller experiment
+        put that idea to the test.
       </p>
-      <p className="text-sm italic text-muted-foreground">
-        Experiment to prove: the theory of chemical evolution.
-      </p>
-      <ProcessCard
-        title="Urey-Miller experiment (1953)"
-        steps={[
-          {
-            label: "Early earth in the laboratory",
-            description:
-              "S.L. Miller, working with H.C. Urey, created conditions similar to those of the early earth on a laboratory scale.",
-          },
-          {
-            label: "The flask and its gas mixture",
-            description:
-              "A closed flask containing CH₄, H₂, NH₃ and water vapour at 800 °C, in the ratio CH₄ : NH₃ : H₂ = 2 : 1 : 2.",
-          },
-          {
-            label: "The spark",
-            description: "Electric discharge (spark) passed through the flask to mimic lightning on early earth.",
-          },
-          {
-            label: "The condenser and trap",
-            description:
-              "A condenser cooled and condensed the circulating gases and water vapour; the water (collecting in the trap at the bottom) carried the organic compounds produced.",
-          },
-          {
-            label: "What appeared",
-            description: "Amino acids formed in the flask; later, similar experiments produced sugars, nitrogen bases, pigments and fats.",
-          },
+      <TableCard
+        title="Experimental setup and components"
+        headers={["Component", "What it does"]}
+        rows={[
+          { cells: ["Closed flask", "Holds the gas mixture of CH₄, H₂, NH₃ and water vapour at 800 °C."] },
+          { cells: ["Gas ratio", "CH₄ : NH₃ : H₂ = 2 : 1 : 2 — the reducing early-earth atmosphere."] },
+          { cells: ["Electric discharge", "Spark discharge inside the flask, simulating lightning."] },
+          { cells: ["Condenser", "Cools and condenses the circulating gases and water vapour."] },
+          { cells: ["Boiling water flask", "At the base; supplies water vapour and heat."] },
+          { cells: ["Trap", "Collects the water carrying the organic compounds formed."] },
         ]}
       />
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          Meteorites also carry such organic compounds, indicating that similar processes are occurring elsewhere in
-          space.
-        </li>
-        <li>
-          With this limited evidence, the first part of the conjectured story - chemical evolution - was{" "}
-          <strong>more or less accepted</strong>.
-        </li>
-      </ul>
-      <Expandable title="In-text question — what did Miller's experiment actually prove?">
+      <KeyPoint title="Primary product formed">
+        Amino acids.
+      </KeyPoint>
+
+      <Callout type="didyouknow" title="Compounds made by similar later experiments">
+        Sugars, nitrogenous bases, pigments and fats.
+      </Callout>
+      <Expandable title="In-text question — what did the Urey-Miller experiment actually prove?">
         <p>
           It showed that <strong>organic molecules can be built from inorganic gases</strong> under the conditions
           of the early earth — that is, it supported chemical evolution. It said nothing about how those molecules
