@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Callout } from "@/components/content/Callout";
 import { Expandable } from "@/components/content/Expandable";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { AuthorCard } from "@/components/content/AuthorCard";
+import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { CharacterSketch } from "@/components/content/CharacterSketch";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { CharacterComparison } from "@/components/content/CharacterComparison";
@@ -322,7 +322,7 @@ export default function HoregalluPage() {
         <div className="animate-fade-in">
           {/* Author */}
           <div id="author">
-            <AuthorCard name="Sudha Murty" />
+            <ChapterIntro author="Sudha Murty" genre="Short story / personal narrative" characters={["Sudha Murty (narrator)", "Grandfather", "Ratna"]} />
           </div>
 
           {/* Introduction */}

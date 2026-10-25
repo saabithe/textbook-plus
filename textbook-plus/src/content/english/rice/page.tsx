@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { AuthorCard } from "@/components/content/AuthorCard";
+import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
@@ -312,7 +312,7 @@ export default function RicePage() {
         <div className="animate-fade-in">
           {/* Author */}
           <div id="author">
-            <AuthorCard name="Chemmanam Chacko" />
+            <ChapterIntro author="Chemmanam Chacko" role="Poet" subname="Translated by Prof. K. Ayyappa Paniker" genre="Poem (translated from Malayalam)" />
           </div>
 
           {/* Introduction */}

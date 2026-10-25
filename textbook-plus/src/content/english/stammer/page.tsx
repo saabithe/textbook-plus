@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { AuthorCard } from "@/components/content/AuthorCard";
+import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
@@ -217,7 +217,7 @@ export default function StammerPage() {
         <div className="animate-fade-in">
           {/* Author */}
           <div id="author">
-            <AuthorCard name="K. Satchidanandan" />
+            <ChapterIntro author="K. Satchidanandan" role="Poet" genre="Poem" />
           </div>
 
           {/* Introduction */}

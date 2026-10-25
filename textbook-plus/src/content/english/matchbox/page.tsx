@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { AuthorCard } from "@/components/content/AuthorCard";
+import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { CharacterSketch } from "@/components/content/CharacterSketch";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
 
@@ -334,7 +334,7 @@ export default function MatchboxPage() {
         <div className="animate-fade-in">
           {/* Author */}
           <div id="author">
-            <AuthorCard name="Ashapurna Debi" />
+            <ChapterIntro author="Ashapurna Debi" genre="Short story" characters={["Nomita", "Ajit", "Nomita's mother"]} />
           </div>
 
           {/* Introduction */}

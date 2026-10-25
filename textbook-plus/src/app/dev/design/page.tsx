@@ -25,6 +25,7 @@ import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { OrgChart } from "@/components/content/OrgChart";
 import { CharacterSketch } from "@/components/content/CharacterSketch";
+import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { CharacterComparison } from "@/components/content/CharacterComparison";
 import { SpectrumExplorer } from "@/components/content/physics/SpectrumExplorer";
 import { OscillationPlayer } from "@/components/content/physics/OscillationPlayer";
@@ -384,6 +385,26 @@ export default function DesignGallery() {
 
           {/* ── ENGLISH / ARABIC ───────────────────────────────── */}
           <Section title="English / Arabic">
+            <div>
+              <Label text="ChapterIntro — compact strip (author · genre · characters; notes folded away)" />
+              <ChapterIntro
+                author="R. H. Wood"
+                role="Playwright"
+                genre="One-act play · Comedy"
+                characters={[
+                  "A Young Lady Assistant",
+                  "Mrs Smith",
+                  "A Deaf Old Gentleman",
+                  "A Foreign Tourist",
+                ]}
+              >
+                <p>
+                  British dramatist, best known for this one-act comedy of
+                  escalating misunderstandings.
+                </p>
+              </ChapterIntro>
+            </div>
+
             <div>
               <Label text="CharacterSketch" />
               <CharacterSketch name="The Narrator">

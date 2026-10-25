@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { AuthorCard } from "@/components/content/AuthorCard";
+import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { Highlight } from "@/components/content/Highlight";
@@ -107,7 +107,7 @@ export default function DhyanChandPage() {
         <div className="animate-fade-in">
           {/* Author */}
           <div id="author">
-            <AuthorCard name="Shaheen Mistri" />
+            <ChapterIntro author="Shaheen Mistri" genre="Biographical essay" />
           </div>
 
           {/* Introduction */}

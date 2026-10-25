@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Callout } from "@/components/content/Callout";
 import { Expandable } from "@/components/content/Expandable";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { AuthorCard } from "@/components/content/AuthorCard";
+import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
@@ -157,7 +157,7 @@ export default function The3LsOfEmpowermentPage() {
         <div className="animate-fade-in">
           {/* Author */}
           <div id="author">
-            <AuthorCard name="Christine Lagarde" />
+            <ChapterIntro author="Christine Lagarde" role="Speaker" genre="Speech" />
           </div>
 
           {/* Introduction */}

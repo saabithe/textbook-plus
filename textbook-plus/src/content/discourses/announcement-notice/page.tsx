@@ -27,7 +27,7 @@ const MIND_MAP = [
     part: "Action",
     flow: "Eligibility → Instructions → Registration → Deadline → Contact",
   },
-  { part: "Announcement", flow: "Reporting line → Greeting → Participation appeal → Thank you & sign-off" },
+  { part: "Announcement", flow: "Reporting line → Greeting → Participation appeal → Thank you" },
   { part: "Notice", flow: "Direct information → Formal sign-off" },
 ];
 
@@ -68,14 +68,6 @@ function AnnouncementPane() {
         </div>
 
         <div className="px-5 py-4">
-          <h3 className="!mt-0">
-            <Slot>[TITLE / NAME OF THE EVENT]</Slot>
-          </h3>
-          <p>
-            <Slot>[Name of the Issuing Authority]</Slot>,{" "}
-            <Slot>[Designation]</Slot>, <Slot>[Institution / Organisation]</Slot>{" "}
-            makes this announcement.
-          </p>
           <p>
             <strong>Good morning everyone. Attention, please!</strong>
           </p>
@@ -102,15 +94,48 @@ function AnnouncementPane() {
             Everyone is requested to participate enthusiastically and make the
             programme a success. <strong>Thank you.</strong>
           </p>
-          <p className="text-right">
-            <Slot>[Name of the Issuing Authority]</Slot>
-            <br />
-            <Slot>[Designation]</Slot>
-            <br />
-            <Slot>[Institution / Organisation]</Slot>
-          </p>
         </div>
       </div>
+
+      <h2>Sample</h2>
+
+      <Expandable
+        title="Announcement — staging a play for the school anniversary"
+        variant="example"
+      >
+        <div className="rounded-xl border border-foreground/20 p-5">
+          <p className="font-semibold">
+            Attention please! Attention please!
+          </p>
+          <p>
+            The <strong>Literary Club</strong> of our school is proud to present
+            the very humorous and exciting stage play{" "}
+            <strong>&ldquo;Post Early for Christmas&rdquo;</strong> in connection
+            with our School Anniversary Celebration.
+          </p>
+          <p>
+            The script for the play has been prepared by our Literary Club
+            members, and the programme is directed by our school drama direction
+            team. The colourful background and stage design are managed by our
+            talented Art and Stage Crew, while the music and sound effects are
+            performed by our School Band.
+          </p>
+          <p>
+            We are happy to inform you that the play will begin at{" "}
+            <strong>6:00 PM on 20 December 2025</strong>, at the{" "}
+            <strong>School Auditorium</strong>. Our amazing Literary Club student
+            actors will be performing the roles.
+          </p>
+          <p>
+            We warmly invite all students, teachers, parents, and guests to watch
+            the programme and encourage our performers. We request everyone to be
+            seated <strong>10 minutes before the play begins</strong>.
+          </p>
+          <p>
+            <strong>Thank you. Have a great anniversary celebration!</strong>
+          </p>
+        </div>
+      </Expandable>
     </>
   );
 }

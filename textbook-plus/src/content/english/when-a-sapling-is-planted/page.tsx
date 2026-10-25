@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { AuthorCard } from "@/components/content/AuthorCard";
+import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
@@ -159,7 +159,7 @@ export default function WhenASaplingIsPlantedPage() {
         <div className="animate-fade-in">
           {/* Author */}
           <div id="author">
-            <AuthorCard name="Wangari Maathai" />
+            <ChapterIntro author="Wangari Maathai" role="Speaker" genre="Nobel lecture / speech" />
           </div>
 
           {/* Introduction */}

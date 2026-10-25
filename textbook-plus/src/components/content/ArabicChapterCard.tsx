@@ -1,36 +1,21 @@
-import { AuthorCard } from "@/components/content/AuthorCard";
+import { ChapterIntro } from "@/components/content/ChapterIntro";
 import type { Chapter } from "@/data/chapters";
 
-/** Initials from the Latin transliteration of the author name. */
-function initialsFor(chapter: Chapter): string {
-  const source = chapter.author ?? "";
-  const letters = source
-    .split(/\s+/)
-    .map((w) => w[0])
-    .filter(Boolean)
-    .slice(0, 2)
-    .join("")
-    .toUpperCase();
-  return letters || "—";
-}
-
 /**
- * The card that opens every Arabic chapter: who wrote it, what kind of text
- * it is, and — behind a collapsed dropdown — the finer facts about the
- * author. Chapters whose details have not been written yet carry a
- * placeholder instead.
+ * The strip that opens every Arabic chapter: who wrote it, what kind of text
+ * it is, and — behind a collapsed dropdown — the finer facts about the author.
+ * Chapters whose details have not been written yet carry a placeholder instead.
  */
 export function ArabicChapterCard({ chapter }: { chapter: Chapter }) {
   const details = chapter.authorDetails ?? [];
 
   return (
-    <AuthorCard
+    <ChapterIntro
       dir="rtl"
       className="arabic-font-ui"
       role="Author / Orator"
-      name={chapter.authorArabic ?? chapter.author ?? "—"}
+      author={chapter.authorArabic ?? chapter.author ?? "—"}
       subname={chapter.authorArabic ? chapter.author : undefined}
-      initials={initialsFor(chapter)}
       genre={chapter.genre}
       genreArabic={chapter.genreArabic}
     >
@@ -52,6 +37,6 @@ export function ArabicChapterCard({ chapter }: { chapter: Chapter }) {
           Author details to be added — to be filled in chapter by chapter.
         </p>
       )}
-    </AuthorCard>
+    </ChapterIntro>
   );
 }

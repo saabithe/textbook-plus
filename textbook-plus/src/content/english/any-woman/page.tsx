@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { AuthorCard } from "@/components/content/AuthorCard";
+import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
@@ -269,7 +269,7 @@ export default function AnyWomanPage() {
         <div className="animate-fade-in">
           {/* Author */}
           <div id="author">
-            <AuthorCard name="Katharine Tynan" />
+            <ChapterIntro author="Katharine Tynan" role="Poet" genre="Poem" />
           </div>
 
           {/* Introduction */}

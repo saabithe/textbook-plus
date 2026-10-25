@@ -126,7 +126,7 @@ This file tracks ALL user preferences, design decisions, and customization choic
 | Default tab | Read (active on load) | Aug 2026 |
 | Read tab content | Author → Introduction → Summary → **Themes** → **Key Takeaway** → **Read & Respond** | Aug 2026 |
 | Discourses tab content | Character Sketches, Character Comparisons, Poetic Devices, Appreciation, genre-specific analysis | Aug 2026 |
-| AuthorCard behavior | Collapsible — name always visible, bio hidden behind chevron. Collapsed by default. No chevron if no bio. | Aug 2026 |
+| Chapter intro strip (`ChapterIntro`) | Compact two-line strip, not a card: `AUTHOR · Name · Genre`, then `CHARACTERS · A · B · C` for plays and stories. Author notes fold behind a chevron. Collapsed by default. | Oct 2026 |
 | Sidebar behavior | Shows only sections for the active tab (Read or Discourses). Clicking a section scrolls to visible content. | Aug 2026 |
 | No auto-creating content | Always ask user via question tool before adding new Discourses sections | Aug 2026 |
 
@@ -236,7 +236,7 @@ All new and improved content components follow this design language. The new int
 
 **Study (2):** MetricCard, MistakeCard
 
-**English/Arabic (10):** AuthorCard, ArabicChapterCard, BilingualParagraph, CharacterSketch, CharacterComparison, ContentTabs, CollapsibleSection, SummaryLevels, ReadRespond
+**English/Arabic (10):** ChapterIntro, ArabicChapterCard, BilingualParagraph, CharacterSketch, CharacterComparison, ContentTabs, CollapsibleSection, SummaryLevels, ReadRespond
 
 **Physics (13):** SpectrumExplorer, SpectrumTable, OscillationPlayer, PropagationExplorer, AmpereSurfaceToggle, ChargeFateTrio, TransverseLongitudinal, FormulaAnatomy, SpeedLayers, FieldRatio, VectorFigures, ProjectileGraphs, KinematicsGraphs
 

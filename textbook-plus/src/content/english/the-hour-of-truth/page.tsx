@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { AuthorCard } from "@/components/content/AuthorCard";
+import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
@@ -216,9 +216,9 @@ export default function TheHourOfTruthPage() {
       {activeTab === "summary" && (
         <div className="animate-fade-in">
           <div id="author">
-            <AuthorCard name="Percival Wilde">
+            <ChapterIntro author="Percival Wilde" role="Playwright" genre="One-act play" characters={["Robert Baldwin", "Martha", "John Gresham", "John Jr.", "Evie", "Mr. Marshall"]}>
               American playwright (1887–1953) known for his plays and detective stories. Famous works include Brothers, Little Shot, and First is Last. The Hour of Truth is from <em>A Question of Morality and Other Plays</em> — a striking psychological study on the corrupting influence of money.
-            </AuthorCard>
+            </ChapterIntro>
           </div>
 
           <h2 id="introduction" className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground">

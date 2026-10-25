@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { AuthorCard } from "@/components/content/AuthorCard";
+import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { Highlight } from "@/components/content/Highlight";
@@ -112,7 +112,7 @@ export default function AThreeWheelSolutionPage() {
         <div className="animate-fade-in">
           {/* Author */}
           <div id="author">
-            <AuthorCard name="Irfan Alam" />
+            <ChapterIntro author="Irfan Alam" genre="Feature article / success story" />
           </div>
 
           {/* Introduction */}
