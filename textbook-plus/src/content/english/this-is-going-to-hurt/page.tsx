@@ -151,6 +151,33 @@ const QA_ITEMS = [
       </>
     ),
   },
+  {
+    question:
+      "Nash plays with language throughout the poem. Point out his deliberate misspellings and puns, and say what they add to the poem.",
+    answer: (
+      <>
+        <p>
+          Nash uses{" "}
+          <Highlight color="blue">deliberate misspellings and puns</Highlight>{" "}
+          to keep the tone comic: &ldquo;hopen&rdquo; for <em>hoping</em>,
+          &ldquo;monce&rdquo; for <em>months</em>, and &ldquo;ursa&rdquo; for the
+          Latin word for a bear, which he turns into a joke about a feminine
+          bear.
+        </p>
+        <p>
+          The aside about the Romans is a comic digression: the dentist may be
+          &ldquo;a bear,&rdquo; and the Romans, Nash says, used <em>ursa</em> only
+          for a she-bear. It lightens the poem&rsquo;s tone while the
+          argument &mdash; that the whole business is torture &mdash; quietly
+          carries on.
+        </p>
+        <p>
+          These small jokes matter because they turn complaint into comedy: the
+          reader laughs at the language itself, not only at the situation.
+        </p>
+      </>
+    ),
+  },
 ];
 
 const DISCUSSION_ITEMS = [
@@ -181,57 +208,6 @@ const DISCUSSION_ITEMS = [
 ];
 
 const DISCOURSES = [
-  {
-    id: "poetic-devices",
-    title: "Poetic Devices",
-    content: (
-      <>
-        <h3
-          id="device-hyperbole"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Hyperbole
-        </h3>
-        <p>
-          The poem is built on <Highlight color="yellow">exaggeration</Highlight>
-          . The mouth is &ldquo;a section of road being worked on,&rdquo;
-          cluttered with stone crushers and steam rollers. The dentist uses a
-          &ldquo;crowbar.&rdquo; Teeth are &ldquo;being demolished&rdquo; rather
-          than polished. Each image inflates the dental experience to absurd
-          proportions.
-        </p>
-        <h3
-          id="device-humor"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          Humor and Wordplay
-        </h3>
-        <p>
-          Nash uses deliberate misspellings and puns: &ldquo;hopen&rdquo; (hope),
-          &ldquo;monce&rdquo; (months), &ldquo;ursa&rdquo; (bear). The aside
-          about the Romans referring to a{" "}
-          <Highlight color="blue">feminine bear</Highlight> is a comic digression
-          that lightens the poem&rsquo;s tone while maintaining its argument.
-        </p>
-        <h3
-          id="device-vicious-circle"
-          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-        >
-          The Vicious Circle
-        </h3>
-        <p>
-          The poem&rsquo;s closing image is its most brilliant: you go to the
-          dentist to keep your teeth in good condition so you{" "}
-          <Highlight color="yellow">
-            won&rsquo;t have to go to the dentist
-          </Highlight>
-          . This is the &ldquo;most vicious circle&rdquo; &mdash; the entire
-          exercise is self-defeating, and the poet addresses Fate directly to
-          express his frustration.
-        </p>
-      </>
-    ),
-  },
   {
     id: "appreciation",
     title: "Poem Appreciation",
@@ -579,7 +555,7 @@ export default function ThisIsGoingToHurtPage() {
               Read &amp; Respond
             </h2>
 
-            <Expandable title="Read and Respond — 8 textbook questions">
+            <Expandable title="Read and Respond — 9 textbook questions">
               <ReadRespond title="Textbook questions" items={QA_ITEMS} />
             </Expandable>
 
