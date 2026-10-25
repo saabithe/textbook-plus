@@ -323,50 +323,123 @@ export default function EvolutionChapter() {
       />
 
       <h2 id="h-6-3">6.3 What are the Evidences for Evolution?</h2>
-      <p>
-        Evidence that evolution of life forms has indeed taken place on earth has come from many quarters — the
-        rocks, the embryo, the bones, the molecules, and even the changes humans have caused in their own lifetime.
-      </p>
 
-      <h3 id="h-6-3-fossils">Fossils — the palaeontological evidence</h3>
-      <Callout type="important" title="Fossil">
-        <Highlight color="yellow">Fossils are remains of hard parts of life-forms found in rocks.</Highlight>
+      <h3 id="h-6-3-fossils">1. Palaeontological evidences</h3>
+      <Callout type="important" title="Palaeontology and fossils">
+        <strong>Palaeontology</strong> is the study of fossils.{" "}
+        <Highlight color="yellow">Fossils are hard remains of life-forms preserved in rocks.</Highlight>
+      </Callout>
+      <p>
+        Rocks are formed by <strong>sedimentation</strong>. A cross-section of the earth&apos;s crust therefore shows
+        sediments arranged one over the other across the long history of the earth, and different-aged sediments
+        contain the fossils of life-forms that died while that sediment was forming.
+      </p>
+      <TableCard
+        title="What the fossil record tells us"
+        headers={["What is studied", "Example"]}
+        rows={[
+          {
+            cells: ["Phylogeny — the evolutionary or race history of a group", "Horse evolution."],
+          },
+          {
+            cells: [
+              "Connecting links between two groups of organisms",
+              "Archaeopteryx, which links reptiles and birds.",
+            ],
+          },
+          {
+            cells: [
+              "Extinct animals",
+              "Dinosaurs — Triceratops, Tyrannosaurus, Pteranodon, Stegosaurus and Brachiosaurus — and crocodilians.",
+            ],
+          },
+          {
+            cells: [
+              "Geological periods",
+              "Fossils in successive sedimentary layers fix the period in which those organisms existed.",
+            ],
+          },
+          {
+            cells: [
+              "Change over time",
+              "Life-forms varied over time, and some forms are restricted to certain geological time-spans — so new forms arose at different times.",
+            ],
+          },
+        ]}
+      />
+      <KeyPoint title="Connecting link">
+        A fossil that bridges two groups by carrying features of both. <em>Archaeopteryx</em> shows reptilian as well
+        as avian characters, so it is a connecting link between reptiles and birds.
+      </KeyPoint>
+
+      <h3 id="h-6-3-homology">2. Morphological and anatomical evidences</h3>
+      <Callout type="important" title="Homologous organs (homology)">
+        Organs with a <strong>similar internal structure</strong> but <strong>different functions</strong>, suited to
+        different environmental conditions. Homology is the result of{" "}
+        <Highlight color="yellow">divergent evolution</Highlight> and indicates <strong>common ancestry</strong>.
       </Callout>
       <ul className="list-disc pl-5 space-y-1.5">
         <li>
-          Rocks form sediments, and a cross-section of earth&apos;s crust indicates the arrangement of sediments one
-          over the other during the long history of earth.
+          Forelimbs of mammals — the human hand, whale&apos;s flippers, bat&apos;s wings and cheetah&apos;s foot — are
+          all built from the same bones: <strong>humerus, radius, ulna, carpals, metacarpals and phalanges</strong>.
         </li>
         <li>
-          Different-aged rock sediments contain fossils of different life-forms who probably died during the
-          formation of that particular sediment.
+          Homology is also seen in internal organs such as the <strong>heart</strong> and <strong>brain</strong>.
         </li>
         <li>
-          Some of them appear similar to modern organisms. They represent <strong>extinct</strong> organisms (e.g.
-          dinosaurs).
+          In plants, the <strong>thorns of Bougainvillea</strong> and the <strong>tendrils of Cucurbita</strong>.
         </li>
-        <li>
-          A study of fossils in different sedimentary layers indicates the geological period in which they existed.
-        </li>
-        <li>
-          The study showed that life-forms varied over time, and certain life forms are restricted to certain
-          geological time-spans.
-        </li>
-        <li>Hence, new forms of life have arisen at different times in the history of earth.</li>
       </ul>
-      <p>
-        All this is called <strong>palaeontological evidence</strong>.
-      </p>
-      <Expandable title="In-text question — how are the ages of fossils calculated?">
-        <p>
-          By <strong>radioactive dating</strong>. An unstable isotope in the rock decays into a stable daughter
-          isotope at a fixed, known rate. The ratio of the parent isotope to the daughter isotope in the sample tells
-          how many half-lives have passed since the rock — and the fossil in it — was formed. That is how a fossil
-          gets tied to a geological period.
-        </p>
-      </Expandable>
+      <Callout type="important" title="Analogous organs (analogy)">
+        Organs with <strong>different internal structures</strong> but the <strong>same function</strong>, suited to
+        similar environmental conditions. Analogy is the result of{" "}
+        <Highlight color="yellow">convergent evolution</Highlight>.
+      </Callout>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>Wings of insects (a thin flap of chitin) and wings of birds (modified forelimbs).</li>
+        <li>Eyes of the octopus (retina formed from skin) and eyes of mammals (retina from the embryonic brain).</li>
+        <li>Flippers of penguins and dolphins.</li>
+        <li>Sweet potato (a modified root) and potato (a modified stem), both for food storage.</li>
+      </ul>
+      <TableCard
+        title="Homology vs analogy"
+        headers={["Point of difference", "Homologous organs", "Analogous organs"]}
+        rows={[
+          { cells: ["Internal structure", "Similar.", "Different."] },
+          { cells: ["Function", "Different.", "Same."] },
+          {
+            cells: [
+              "Cause",
+              "Divergent evolution — one inherited plan adapted to different needs.",
+              "Convergent evolution — similar habitats selecting similar solutions.",
+            ],
+          },
+          {
+            cells: [
+              "Indicates",
+              "Common ancestry.",
+              "Similar habitat, not common ancestry.",
+            ],
+          },
+        ]}
+      />
 
-      <h3 id="h-6-3-embryology">Embryological evidence — and why it was set aside</h3>
+      <h3 id="h-6-3-biogeography">3. Biogeographical evidences</h3>
+      <p>
+        The distribution of organisms over geographical areas is itself evidence of evolution — an ancestral stock
+        that reaches an isolated area diversifies into many forms. The classic case is{" "}
+        <strong>adaptive radiation</strong>, taken up in the next section (§6.4) with Darwin&apos;s finches and the
+        marsupials of Australia.
+      </p>
+
+      <h3 id="h-6-3-biochemistry">4. Biochemical evidences</h3>
+      <p>
+        Similarities in proteins and genes performing a given function among diverse organisms give clues to common
+        ancestry. These biochemical similarities point to the same shared ancestry as structural similarities among
+        diverse organisms.
+      </p>
+
+      <h3 id="h-6-3-embryology">5. Embryological evidences</h3>
       <p>
         Embryological support for evolution was proposed by <strong>Ernst Heckel</strong>, based upon the observation
         of certain features during the embryonic stage that are common to all vertebrates but absent in the adult.
@@ -377,73 +450,15 @@ export default function EvolutionChapter() {
           <strong>a row of vestigial gill slit</strong> just behind the head.
         </li>
         <li>
-          But it is a functional organ <strong>only in fish</strong>, and is not found in any other adult
-          vertebrates.
+          But it is a functional organ <strong>only in fish</strong>, and is not found in any other adult vertebrates.
         </li>
       </ul>
       <Callout type="warning" title="The proposal was disapproved">
         On careful study performed by <strong>Karl Ernst von Baer</strong>, the proposal was disapproved. He noted
-        that{" "}
-        <Highlight color="yellow">embryos never pass through the adult stages of other animals</Highlight>.
+        that <Highlight color="yellow">embryos never pass through the adult stages of other animals</Highlight>.
       </Callout>
 
-      <h3 id="h-6-3-homology">Homology, analogy and comparative anatomy</h3>
-      <p>
-        Comparative anatomy and morphology shows similarities and differences among organisms of today and those that
-        existed years ago. Such similarities can be interpreted to understand whether common ancestors were shared or
-        not.
-      </p>
-      <p>
-        Take the forelimbs of whales, bats, cheetah and human — all mammals. They share similarities in the pattern of
-        bones: all of them have <strong>humerus, radius, ulna, carpals, metacarpals and phalanges</strong> in their
-        forelimbs, though these forelimbs perform different functions in these animals. The same structure developed
-        along different directions because of adaptation to different needs. This is{" "}
-        <strong>divergent evolution</strong>, and these structures are <strong>homologous</strong>.
-      </p>
-      <p>
-        Wings of a butterfly and of a bird look alike, but they are not anatomically similar structures, though they
-        perform similar functions. Analogous structures are therefore a result of <strong>convergent evolution</strong>{" "}
-        — different structures evolving for the same function, and hence having similarity. It is the similar habitat
-        that has resulted in selection of similar adaptive features in different groups of organisms, but toward the
-        same function.
-      </p>
-      <TableCard
-        title="Homology vs analogy"
-        headers={["Point of difference", "Homologous structures", "Analogous structures"]}
-        rows={[
-          {
-            cells: [
-              "Structure and function",
-              "Similar anatomical structure; the functions may differ.",
-              "Anatomically dissimilar structures; the functions are similar.",
-            ],
-          },
-          {
-            cells: ["What it indicates", "Common ancestry.", "Similar habitat that selected similar adaptive features in different groups."],
-          },
-          {
-            cells: [
-              "Other examples",
-              "Vertebrate hearts or brains; thorn and tendrils of Bougainvillea and Cucurbita.",
-              "Eye of the octopus and of mammals; flippers of penguins and dolphins; sweet potato (root modification) and potato (stem modification).",
-            ],
-          },
-        ]}
-      />
-      <MistakeCard
-        mistake="Homologous organs are those that perform the same function."
-        correction="Homologous organs share the same basic structure and origin but may perform different functions (forelimbs of whale, bat, cheetah, human). Organs that perform the same function with different structures are analogous (wings of butterfly and bird)."
-        example="Sweet potato is a root modification and potato is a stem modification — analogy, not homology."
-      />
-
-      <h3 id="h-6-3-biochemistry">Biochemical similarities</h3>
-      <p>
-        Similarities in proteins and genes performing a given function among diverse organisms give clues to common
-        ancestry. These biochemical similarities point to the same shared ancestry as structural similarities among
-        diverse organisms.
-      </p>
-
-      <h3 id="h-6-3-moth">Artificial selection and the peppered moth</h3>
+      <h3 id="h-6-3-moth">6. Evidences for evolution by natural selection</h3>
       <p>
         Man has bred selected plants and animals for agriculture, horticulture, sport or security, and has
         domesticated many wild animals and crops. This intensive breeding programme has created breeds that differ
