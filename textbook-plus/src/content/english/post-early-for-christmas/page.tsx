@@ -10,6 +10,7 @@ import { Expandable } from "@/components/content/Expandable";
 import { Highlight } from "@/components/content/Highlight";
 import { CharacterSketch } from "@/components/content/CharacterSketch";
 import { CollapsibleSection } from "@/components/content/CollapsibleSection";
+import { TableCard } from "@/components/content/data/TableCard";
 
 const QA_ITEMS = [
   {
@@ -384,6 +385,121 @@ const DISCOURSES = [
           running gag about grammar create a{" "}
           <Highlight color="blue">comic subplot</Highlight>.
         </p>
+      </>
+    ),
+  },
+  {
+    id: "activity-1-announcement",
+    title: "Activity I — Announcement: Staging the Play",
+    content: (
+      <>
+        <p>
+          <strong>Task</strong>: prepare the announcement to be read out over
+          the school public-address system, inviting staff, students and guests
+          to the school-anniversary staging of{" "}
+          <em>Post Early for Christmas</em>.
+        </p>
+        <div className="my-6 rounded-xl border border-foreground/20 p-5">
+          <p className="font-semibold">
+            Attention please! Attention please!
+          </p>
+          <p>
+            The <strong>Literary Club</strong> of our school is proud to present
+            the very humorous and exciting stage play{" "}
+            <strong>&ldquo;Post Early for Christmas&rdquo;</strong> in connection
+            with our School Anniversary Celebration.
+          </p>
+          <p>
+            The script for the play has been prepared by our Literary Club
+            members, and the programme is directed by our school drama direction
+            team. The colourful background and stage design are managed by our
+            talented Art and Stage Crew, while the music and sound effects are
+            performed by our School Band.
+          </p>
+          <p>
+            We are happy to inform you that the play will begin at{" "}
+            <strong>6:00 PM on 20 December 2025</strong>, at the{" "}
+            <strong>School Auditorium</strong>. Our amazing Literary Club student
+            actors will be performing the roles.
+          </p>
+          <p>
+            We warmly invite all students, teachers, parents, and guests to watch
+            the programme and encourage our performers. We request everyone to be
+            seated <strong>10 minutes before the play begins</strong>.
+          </p>
+          <p>
+            <strong>Thank you. Have a great anniversary celebration!</strong>
+          </p>
+        </div>
+        <div className="text-sm italic text-muted-foreground">
+          Every detail the question asks for is inside the script: play name,
+          script and direction, background and stage design, music and sound
+          effects, actors, time, date and venue — closed with an appeal to be
+          seated before the curtain rises.
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "activity-2-review",
+    title: "Activity II — Review Writing: Class Magazine",
+    content: (
+      <>
+        <p>
+          <strong>Task</strong>: discuss what makes the play humorous and write a
+          short review of <em>Post Early for Christmas</em> for the class
+          magazine.
+        </p>
+        <p>
+          Nothing has to be thought up from scratch — every paragraph is already
+          on this page. Follow the plan below and fill each row from the section
+          named against it.
+        </p>
+        <TableCard
+          title="The review in five parts"
+          headers={["Part", "What goes in it", "Where to take it from"]}
+          rows={[
+            {
+              cells: [
+                "Heading",
+                "POST EARLY FOR CHRISTMAS",
+                "The title of the play",
+              ],
+            },
+            {
+              cells: [
+                "Introduction",
+                "Who wrote it, what kind of play it is, and where it is set — two or three sentences.",
+                "The Introduction of this chapter",
+              ],
+            },
+            {
+              cells: [
+                "First body paragraph",
+                "The story in brief: the busy counter, the newspaper warning, the ticking parcel, the panic and the drowned clock.",
+                "The Standard summary",
+              ],
+            },
+            {
+              cells: [
+                "Second body paragraph",
+                "What makes it funny: 'book' heard as 'cook', the old lady at the animal clinic, Bertie's grammar, a clock mistaken for a bomb.",
+                "The humour answers in Read & Respond",
+              ],
+            },
+            {
+              cells: [
+                "Third body paragraph",
+                "The themes, why the title is apt, and your own opinion of the play.",
+                "The Themes section and the answer on the aptness of the title",
+              ],
+            },
+          ]}
+        />
+        <div className="text-sm italic text-muted-foreground">
+          Do not retell the whole plot. Pick three or four comic moments, say
+          what each one shows, and close with your verdict.
+        </div>
       </>
     ),
   },

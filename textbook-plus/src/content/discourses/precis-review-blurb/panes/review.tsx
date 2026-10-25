@@ -39,26 +39,6 @@ export default function ReviewContent() {
         ]}
       />
 
-      <h2>Play Review — Structure (Class Magazine)</h2>
-
-      <ProcessCard
-        title={'Reviewing a Play — "Post Early for Christmas"'}
-        steps={[
-          { label: "Heading", description: "The title of the play, in capitals — POST EARLY FOR CHRISTMAS." },
-          { label: "Introduction", description: "Who wrote it and what kind of play it is — R. H. Wood's one-act comedy, set in a village post office during the Christmas rush. Two or three sentences." },
-          { label: "First body paragraph", description: "The story in brief: the busy counter, the newspaper warning about a time-bomb, the tourist's ticking parcel, the panic, and the drowned Swiss clock." },
-          { label: "Second body paragraph", description: "What makes it funny: 'book' heard as 'cook', the old lady at the animal clinic, Bertie's grammar, and a clock mistaken for a bomb." },
-          { label: "Third body paragraph", description: "The themes (miscommunication, crowd panic, everyday absurdity), why the title is apt, and your own verdict on the play." },
-        ]}
-      />
-
-      <p className="text-sm italic text-muted-foreground">
-        The material for every paragraph already exists in the chapter page — the
-        introduction, the Standard summary, the comic scenes and the themes. Do
-        not retell the whole plot: pick three or four comic moments and say what
-        they show.
-      </p>
-
       <TableCard
         caption="Review Criteria Checklist"
         headers={["Aspect", "What to Evaluate", "Key Questions"]}
