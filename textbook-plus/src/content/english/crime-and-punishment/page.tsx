@@ -10,6 +10,7 @@ import { Highlight } from "@/components/content/Highlight";
 import { CharacterSketch } from "@/components/content/CharacterSketch";
 import { CharacterComparison } from "@/components/content/CharacterComparison";
 import { CollapsibleSection } from "@/components/content/CollapsibleSection";
+import { TableCard } from "@/components/content/data/TableCard";
 
 const QA_ITEMS = [
   {
@@ -72,7 +73,7 @@ const QA_ITEMS = [
         <Highlight color="yellow">blackmailed into playing the boy&rsquo;s
         games</Highlight> &mdash; station master, storyteller, chase
         partner. The roles are reversed: the punished becomes the punisher,
-        and the teacher becomes the servant of his own pupil.
+        and the teacher becomes the servant of his own student.
       </>
     ),
   },
@@ -85,21 +86,51 @@ const DISCOURSES = [
     content: (
       <CharacterSketch name="The Teacher">
         <p>
-          The teacher is a patient but ultimately{" "}
-          <Highlight color="blue">overwhelmed man</Highlight>. He teaches
-          six hours at school during the day and then spends three hours each
-          evening with this one child &mdash; for thirty rupees. He privately
-          believes the boy needs &ldquo;an anna&rsquo;s worth of cane&rdquo;
-          but must pretend to agree with the parents&rsquo; child psychology
-          theories.
+          The teacher is the story&rsquo;s central figure: a modest, overworked
+          man who teaches six hours at school and then spends three hours every
+          evening with one child for{" "}
+          <Highlight color="blue">thirty rupees a month</Highlight>. The first
+          half-hour of those three hours is not his &mdash; it belongs to the
+          parents, who lecture him on their theories of infant psychology and
+          expect him to treat their son as though he were &ldquo;made of thin
+          glass.&rdquo; He privately believes the boy needs firm discipline, but
+          he must smile and agree.
         </p>
         <p>
-          His single moment of physical frustration &mdash; the slap &mdash;
-          becomes the boy&rsquo;s weapon of blackmail. The teacher ends up
-          playing station master, telling stories, and chasing the boy around
-          the garden. His final lie to the parents (&ldquo;He will pull
-          through&rdquo;) shows both his desperation and his strange,
-          grudging affection for the boy.
+          <strong>Human frailty.</strong> Pushed beyond endurance, he does what a
+          mentor should never do. When the boy repeats &ldquo;twenty-four&rdquo;
+          with a mischievous smile, the teacher loses control and slaps his
+          cheek. He is appalled at once and begs the boy not to cry &mdash; he
+          feels, the story says, as if his finger were releasing a trigger. In
+          that one instant he commits the &ldquo;crime&rdquo; and hands his
+          student a weapon.
+        </p>
+        <p>
+          <strong>Patience and vulnerability.</strong> From that moment the boy
+          holds him hostage. To keep the slap from reaching his mother&rsquo;s
+          ears, the teacher hunches in a corner as a station master, tries to
+          repair a broken toy engine, tells story after story, and runs round the
+          garden until he collapses, breathless, on the portico steps. He fails
+          to manage the boy the way he wanted to; at every demand that he cannot
+          meet, he only grows more desperate.
+        </p>
+        <p>
+          <strong>Compassion and real mentorship.</strong> The turning point
+          comes when the parents appear. He has decided to reveal everything
+          &mdash; to confess and take the consequences &mdash; rather than endure
+          the blackmail any longer. But the father asks about the test, and the
+          boy slinks behind him, silently pleading. Seeing that frightened face,
+          the teacher chooses mercy: the boy is &ldquo;all right,&rdquo; he will
+          &ldquo;pull through,&rdquo; and they were only playing &ldquo;to keep
+          up his spirits.&rdquo; He felt sure by then that the boy would not give
+          him up.
+        </p>
+        <p>
+          He is not a flawless man, but he is a teacher to the end. His trust,
+          his care and his willingness to protect the boy when it mattered most
+          are what the story idealises. Whatever the boy&rsquo;s attitude, he
+          hopes for the best and believes the child will change &mdash; because a
+          teacher, above all, aims at his student&rsquo;s success.
         </p>
       </CharacterSketch>
     ),
@@ -169,6 +200,201 @@ const DISCOURSES = [
       />
     ),
   },
+  {
+    id: "writeup-humour",
+    title: "Write-up: The Humour in the Story",
+    content: (
+      <>
+        <p>
+          <strong>Task</strong>: prepare a write-up on the effective use of
+          humour in depicting ordinary situations in{" "}
+          <em>Crime and Punishment</em>.
+        </p>
+        <p>
+          In <em>Crime and Punishment</em> humour is not an ornament added to the
+          story; it is the way Narayan looks at an ordinary domestic evening. A
+          tired tutor, a pampered child and two anxious parents are enough
+          material for a comedy that reduces the tedium of a tension-ridden
+          existence.
+        </p>
+
+        <h3
+          id="humour-inversion"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          A Playful Inversion of Roles
+        </h3>
+        <p>
+          The central irony rests on a swap of roles. The{" "}
+          <Highlight color="yellow">crime</Highlight> is a single, impulsive slap
+          delivered by an exhausted private tutor; the{" "}
+          <Highlight color="yellow">punishment</Highlight> is the comical ordeal
+          of the tutor dancing to the boy&rsquo;s tune to escape the
+          parents&rsquo; wrath. The punisher and the punished change places, and
+          the whole story grows out of that joke.
+        </p>
+
+        <h3
+          id="humour-parenting"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Satire on Over-Parenting
+        </h3>
+        <p>
+          Narayan begins by poking fun at modern over-parenting. The wealthy
+          parents dedicate half an hour every evening to their theories of child
+          psychology and demand that the tutor treat the boy as if he were
+          &ldquo;made of thin glass&rdquo;, while the tutor privately considers
+          him a &ldquo;little gorilla&rdquo; in need of firm discipline. The gap
+          between what the parents say and what the child actually is does the
+          comic work.
+        </p>
+
+        <h3
+          id="humour-lesson"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          The Ordinary Lesson That Turns into Farce
+        </h3>
+        <p>
+          The classroom becomes comedy the moment the boy answers
+          &ldquo;twenty-four&rdquo; to the question &ldquo;what is sixteen and
+          three multiplied?&rdquo; Provoked by the mischievous smile that
+          accompanies the answer, the tutor loses his self-control and slaps his
+          cheek &mdash; only to be instantly appalled by his own action, terrified
+          of what the boy&rsquo;s mother will say. The story notes that his
+          finger felt as if it were releasing a trigger.
+        </p>
+
+        <h3
+          id="humour-blackmail"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Blackmail as Comic Escalation
+        </h3>
+        <p>
+          Realising the tutor&rsquo;s panic, the boy turns the situation into
+          relentless blackmail. He forces the tutor to hunch in a corner as a
+          station master (&ldquo;If your father comes in, tell him it is an
+          engine lesson&rdquo;), to attempt mechanical repairs on a toy train, to
+          recount stories of a bison and a tiger, and to chase him round the
+          garden three times until the tutor collapses on the portico step from
+          sheer breathlessness. Each demand is more absurd than the last, and the
+          absurdity itself is the humour.
+        </p>
+
+        <h3
+          id="humour-twist"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          The Final Twist
+        </h3>
+        <p>
+          The story concludes on a warm, humorous note when the father enters to
+          ask about the upcoming arithmetic test. Hearing the word
+          &ldquo;test&rdquo;, the boy panics and pathetically gestures to the
+          tutor for mercy. The tutor chooses forgiveness over exposure and covers
+          for him, advising that he merely needs to &ldquo;mug up the 16th table
+          a little more&rdquo;. Turning the &ldquo;convict&rdquo; into the
+          boy&rsquo;s saviour is the ultimate irony, and it makes the humour warm
+          rather than cruel: through shared vulnerability, a tense conflict
+          becomes a secret, light-hearted alliance between student and teacher.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "debate-punishments",
+    title: "Debate: Punishments in Schools",
+    content: (
+      <>
+        <p>
+          <strong>Topic</strong>: &ldquo;Punishments are essential for student
+          discipline&rdquo; (March 2019). The two sides, kept apart:
+        </p>
+        <TableCard
+          headers={["Arguments FOR", "Arguments AGAINST"]}
+          rows={[
+            {
+              cells: [
+                "&ldquo;Spare the rod, spoil the child&rdquo; &mdash; the proverb has lasted because a little fear corrects a child quickly.",
+                "The rod can spoil the child as well: a slap in anger leaves a mark, as it does here, and the teacher loses his authority over the boy.",
+              ],
+            },
+            {
+              cells: [
+                "Small punishments check small faults at once, before they harden into habits.",
+                "Punishment teaches a child to hide the fault from the punisher, not to give it up.",
+              ],
+            },
+            {
+              cells: [
+                "Without any punishment, students ignore their studies and the whole class loses its order.",
+                "Interest in the lesson keeps a class studying; fear only keeps it quiet.",
+              ],
+            },
+            {
+              cells: [
+                "Punishment forces students to be punctual, respectful, obedient and hardworking.",
+                "Respect born of fear lasts only while the punisher is in the room.",
+              ],
+            },
+            {
+              cells: [
+                "Every system needs a penalty; the law itself punishes those who break it.",
+                "A penalty is the last resort, not the first. Praise, responsibility and interesting work build discipline without injury.",
+              ],
+            },
+          ]}
+          caption="The story argues both sides at once: the boy badly needed discipline, but the slap handed him the power to blackmail his teacher."
+        />
+      </>
+    ),
+  },
+  {
+    id: "teacher-suggestions",
+    title: "The Teacher: What He Could Have Done",
+    content: (
+      <>
+        <p>
+          <strong>Context</strong>: the teacher in <em>Crime and Punishment</em>{" "}
+          is a pathetic figure at the mercy of a student who blackmails him.
+          Here is his practice in the story set against what he should have
+          done (2010):
+        </p>
+        <TableCard
+          headers={["What he does in the story", "What he should do instead"]}
+          rows={[
+            {
+              cells: [
+                "Works for the extra thirty rupees a month and resents every hour of it.",
+                "Change his attitude to the job: teach because the child needs teaching, not merely for the fee.",
+              ],
+            },
+            {
+              cells: [
+                "Silently rejects the parents&rsquo; theories, then pretends to agree and coaxes the boy.",
+                "Use more positive methods to make the child listen &mdash; praise, a small responsibility, work first and play afterwards.",
+              ],
+            },
+            {
+              cells: [
+                "Repeats the same table until both of them are bored, tired and angry.",
+                "Make the lesson interesting so that the boy is properly motivated: games, objects, short tasks, a story as the reward.",
+              ],
+            },
+            {
+              cells: [
+                "Loses control and slaps the boy hard on the cheek, leaving a scar and a threat.",
+                "Never resort to corporal punishment &mdash; the slap on the cheek is the beginning of all his troubles.",
+              ],
+            },
+          ]}
+          caption="He has the knowledge and the patience; what he lacks is a method. Authority is kept by teaching well, not by fear."
+        />
+      </>
+    ),
+  },
 ];
 
 export default function CrimeAndPunishmentPage() {
@@ -194,19 +420,24 @@ export default function CrimeAndPunishmentPage() {
             Introduction
           </h2>
           <p>
-            <em>Crime and Punishment</em> is a short story by{" "}
-            <Highlight color="yellow">R. K. Narayan</Highlight> (1906-2001),
-            one of India&rsquo;s most widely read English writers. Set in the
-            imaginary South Indian town of Malgudi, Narayan&rsquo;s stories
-            are noted for their irony, subtle humour, and freshness of themes
-            from everyday life.
+            <em>Crime and Punishment</em> is a humorous short story by{" "}
+            <Highlight color="yellow">R. K. Narayan</Highlight>. It narrates a
+            comical episode between a frustrated teacher and his naughty
+            student, and it is a fine picture of today&rsquo;s troubled
+            teacher&ndash;student relationship.
           </p>
           <p>
-            The story&rsquo;s title is a darkly comic inversion of
-            Dostoevsky&rsquo;s novel. Here, the &ldquo;crime&rdquo; is a
-            teacher slapping a pupil, and the &ldquo;punishment&rdquo; is the
-            teacher being{" "}
-            <Highlight color="pink">blackmailed into total submission</Highlight>.
+            The title is used with heavy sarcasm. The{" "}
+            <Highlight color="pink">&ldquo;crime&rdquo;</Highlight> lies in the
+            teacher hitting the boy on his cheek; the &ldquo;punishment&rdquo;
+            is the teacher having to dance to the boy&rsquo;s tune just to avoid
+            the parents&rsquo; wrath.
+          </p>
+          <p>
+            In doing so, the story satirises over-concerned parenting, which
+            tends to spoil children to a great extent. It ends with a smile on
+            the reader&rsquo;s face, as the boy who has been blackmailing the
+            teacher finally falls at the teacher&rsquo;s mercy.
           </p>
 
           {/* Summary */}
@@ -283,64 +514,107 @@ export default function CrimeAndPunishmentPage() {
             }
             detailed={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+                <li>A humorous short story by R. K. Narayan.</li>
                 <li>
-                  <strong>The parents&rsquo; philosophy</strong>: The boy is
-                  their only child &mdash; &ldquo;a little angel, all
-                  dimples, smiles, and sweetness.&rdquo; They believe in
-                  never setting up &ldquo;contrariness or repression&rdquo;
-                  in a child&rsquo;s mind. They lecture the teacher daily on
-                  child psychology. The father wrote a thesis on infant
-                  psychology for his M.A. The teacher privately considers
-                  the boy a gorilla.
+                  A satire on over-parenting in nuclear families, and on
+                  today&rsquo;s troubled teacher&ndash;student relationship.
                 </li>
                 <li>
-                  <strong>The crime</strong>: When the boy persists with
-                  &ldquo;twenty-four,&rdquo; the teacher slaps him. He
-                  immediately regrets it and begs the boy not to cry. The
-                  boy&rsquo;s response &mdash; &ldquo;I will tell
-                  them&rdquo; &mdash; is delivered with strategic precision.
-                  He knows exactly what power this gives him.
+                  A teacher gives tuition to a clever, naughty child of rich and
+                  educated parents.
                 </li>
                 <li>
-                  <strong>The blackmail</strong>: The boy touches his red
-                  cheek and threatens to see his mother. The teacher
-                  capitulates. The boy makes him play station master
-                  (&ldquo;When the train comes to your station, you must
-                  blow the whistle&rdquo;). The teacher hunches in a corner
-                  and obeys. The boy hands him a broken engine: &ldquo;Repair
-                  it, sir.&rdquo; The teacher cannot.
+                  He has already taught six hours at school, and spends three
+                  more hours here for thirty rupees a month.
                 </li>
                 <li>
-                  <strong>Escalation</strong>: The boy demands stories &mdash;
-                  the bison, Ali Baba, Aladdin. The teacher is short of
-                  breath after six hours at school. The boy demands the
-                  bison story again. Then he suddenly runs toward the house.
-                  The teacher chases him around the garden three times. The
-                  boy laughs &ldquo;fiendishly.&rdquo; The teacher collapses,
-                  &ldquo;a darkness swelling up around him.&rdquo;
+                  The first half-hour goes in listening to the parents&rsquo;
+                  theories of child psychology.
                 </li>
                 <li>
-                  <strong>The resolution</strong>: The parents emerge. The
-                  teacher is ready to confess. But when the father asks
-                  about the arithmetic test, the boy&rsquo;s face falls.
-                  He slinks behind his parents, pleading with his eyes. The
-                  teacher sees his &ldquo;grateful face&rdquo; and lies:
-                  &ldquo;Only please let him mug up the 16th table a little
-                  more.... He will pull through.&rdquo; He adds: &ldquo;We
-                  finished our lessons early, and I was just playing about
-                  with the child.&rdquo;
+                  They call the boy a little angel; the teacher privately thinks
+                  he is a gorilla.
                 </li>
                 <li>
-                  <strong>The irony</strong>: The story&rsquo;s title inverts
-                  Dostoevsky. The &ldquo;crime&rdquo; is the slap. The
-                  &ldquo;punishment&rdquo; is the teacher&rsquo;s total
-                  submission. But the ending reveals something deeper: the
-                  teacher and boy have developed a{" "}
-                  <Highlight color="green">complex bond</Highlight>. The
-                  teacher protects the boy; the boy spares the teacher.
-                  Neither is purely victim or villain. The real punishment is
-                  the system that puts a thirty-rupee-a-month teacher against
-                  a wealthy, unrestrained child.
+                  The lesson is arithmetic, and the boy is in no mood to study.
+                </li>
+                <li>
+                  He deliberately answers &ldquo;twenty-four&rdquo; to &ldquo;what
+                  is sixteen and three multiplied?&rdquo;
+                </li>
+                <li>
+                  He repeats it with a wicked smile and makes the teacher angry.
+                </li>
+                <li>
+                  The teacher&rsquo;s blood rushes to his head and he slaps the
+                  boy on the cheek.
+                </li>
+                <li>He regrets it at once and begs the boy not to cry.</li>
+                <li>
+                  The boy sees his chance and blackmails the teacher: he will
+                  tell his mother.
+                </li>
+                <li>
+                  The teacher consoles him in every way, but the boy demands that
+                  the day&rsquo;s lesson stop and the play begin.
+                </li>
+                <li>The boy makes him station master for the toy train.</li>
+                <li>
+                  The teacher refuses at first, and the boy threatens to tell his
+                  mother about the slap.
+                </li>
+                <li>
+                  At last the teacher obeys and takes the duty the boy gives him.
+                </li>
+                <li>
+                  The teacher tires of the game in half an hour; luckily, the
+                  engine also gets damaged.
+                </li>
+                <li>
+                  He is asked to repair it and refuses, so the boy demands a
+                  story.
+                </li>
+                <li>
+                  The teacher is worn out after repeating story after story.
+                </li>
+                <li>
+                  When he stops, unable to go on, the boy runs for his mother.
+                </li>
+                <li>The teacher runs after him but fails to catch him.</li>
+                <li>He collapses on the portico steps.</li>
+                <li>Just then the parents come out.</li>
+                <li>The teacher decides to confess everything.</li>
+                <li>
+                  The father interrupts, asking about the arithmetic test.
+                </li>
+                <li>
+                  The boy is annoyed and slinks behind his parents, looking
+                  desperately at the teacher for help.
+                </li>
+                <li>
+                  The teacher feels sympathy and replies that the boy is all
+                  right for the test.
+                </li>
+                <li>The boy is relieved and grateful.</li>
+                <li>
+                  The teacher adds that they were only playing, to keep up his
+                  spirits.
+                </li>
+                <li>
+                  The story ends with a smile, as the blackmailing boy finally
+                  falls at the teacher&rsquo;s mercy.
+                </li>
+                <li>
+                  The slap was the crime, and the long afternoon that follows is
+                  the due punishment.
+                </li>
+                <li>
+                  The title also plays on Dostoevsky&rsquo;s novel, turned here
+                  into comedy.
+                </li>
+                <li>
+                  The story finally highlights the role of parents in shaping a
+                  child.
                 </li>
               </ul>
             }

@@ -30,7 +30,7 @@ The teacher was annoyed. "I won't be a station master," he said defiantly, where
 
 The boy directed, "When the train comes to your station, you must blow the whistle and cry, 'Engine Driver, stop the train. There are a lot of people today who have bought tickets.'"
 
-The teacher hunched up in a corner and obeyed. He grew tired of the position and the game in thirty minutes, and got up, much to the displeasure of his pupil. Luckily for him, the engine also suddenly refused to move. The boy handed it to him, as he went back to his seat, and said: "Repair it, sir." He turned it about in his hand and said: "I can't. I know nothing about it."
+The teacher hunched up in a corner and obeyed. He grew tired of the position and the game in thirty minutes, and got up, much to the displeasure of his student. Luckily for him, the engine also suddenly refused to move. The boy handed it to him, as he went back to his seat, and said: "Repair it, sir." He turned it about in his hand and said: "I can't. I know nothing about it."
 
 "It must go," said the boy firmly.
 
