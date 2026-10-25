@@ -393,12 +393,32 @@ const ALI_ENGLISH =
 const ALI_ARABIC =
   "هَذَا عَلِيٌّ. هُوَ صَدِيقِي. لِعَلِيٍّ أَخَوَانِ وَأُخْتٌ. وَالِدُهُ طَبِيبٌ وَأُمُّهُ مُدَرِّسَةٌ. يَخْدِمُونَ النَّاسَ فِي الْمُجْتَمَعِ.";
 
-/** Supplementary reading text (Arabic only — no translation supplied). */
+/** Supplementary reading text. */
 const SUPPLEMENTARY_TEXT = [
-  "كِيرَالَا وِلَايَةٌ صَغِيرَةٌ جَمِيلَةٌ تَقَعُ فِي جَنُوبِ الْهِنْدِ عَلَى سَاحِلِ الْبَحْرِ الْعَرَبِيِّ. كَانَ الْعَرَبُ يَزُورُونَ كِيرَالَا مُنْذُ قَدِيمِ الزَّمَانِ، كَانَ لِلْعَرَبِ عَلَاقَةٌ وَثِيقَةٌ مَعَ سُكَّانِ كِيرَالَا مِنْ جِهَاتٍ مُخْتَلِفَةٍ: التِّجَارِيَّةِ وَالصِّنَاعِيَّةِ وَالدِّينِيَّةِ وَغَيْرِهَا. جَاءَ الْعَرَبُ إِلَى كِيرَالَا فَانْتَشَرَتِ اللُّغَةُ الْعَرَبِيَّةُ بَيْنَ أَهْلِ كِيرَالَا وَصَارَتْ مُتَدَاوَلَةً بَيْنَهُمْ.",
-  "لَمَّا جَاءَ الْإِسْلَامُ إِلَى كِيرَالَا وَأَسْلَمَ بَعْضٌ مِنْ أَهْلِ كِيرَالَا دَرَسُوا اللُّغَةَ الْعَرَبِيَّةَ. كَانَ الْمُسْلِمُونَ يَدْرُسُونَ اللُّغَةَ الْعَرَبِيَّةَ لِحَاجَاتِهِمُ الدِّينِيَّةِ. بَنَى الْمُسْلِمُونَ مَسَاجِدَ وَمَدَارِسَ كَثِيرَةً فِي أَنْحَاءِ كِيرَالَا وَدَرَسُوا اللُّغَةَ الْعَرَبِيَّةَ، وَبَدَأُوا كُلِّيَّاتٍ عَرَبِيَّةً كَثِيرَةً.",
-  "أَنْجَبَتْ وِلَايَةُ كِيرَالَا كَثِيرًا مِنَ الْعُلَمَاءِ وَالْأُدَبَاءِ وَالشُّعَرَاءِ وَالْكُتَّابِ مِثْلَ الْمَخْدُومِيِّينَ وَالْقَاضِي مُحَمَّدٍ وَالْقَاضِي عُمَرَ وَغَيْرِهِمْ. أَلَّفَ عُلَمَاءُ كِيرَالَا كُتُبًا كَثِيرَةً وَأَشْعَارًا عَدِيدَةً. وَكَانَ لِلدَّرْسِ الْمَسْجِدِيِّ فَضْلٌ كَبِيرٌ فِي انْتِشَارِ اللُّغَةِ الْعَرَبِيَّةِ فِي مَنَاطِقِ كِيرَالَا.",
-  "فَالْآنَ تُدَرَّسُ اللُّغَةُ الْعَرَبِيَّةُ فِي وِلَايَةِ كِيرَالَا مِنْ رَوْضَةِ الْأَطْفَالِ إِلَى مَرْحَلَةِ الدُّكْتُورَاهْ. تُصْدَرُ مِنْ كِيرَالَا عَدَدٌ مِنَ الْمَجَلَّاتِ الْعَرَبِيَّةِ وَالدَّوْرِيَّاتِ الْمَشْهُورَةِ.",
+  {
+    arabic:
+      "كِيرَالَا وِلَايَةٌ صَغِيرَةٌ جَمِيلَةٌ تَقَعُ فِي جَنُوبِ الْهِنْدِ عَلَى سَاحِلِ الْبَحْرِ الْعَرَبِيِّ. كَانَ الْعَرَبُ يَزُورُونَ كِيرَالَا مُنْذُ قَدِيمِ الزَّمَانِ، كَانَ لِلْعَرَبِ عَلَاقَةٌ وَثِيقَةٌ مَعَ سُكَّانِ كِيرَالَا مِنْ جِهَاتٍ مُخْتَلِفَةٍ: التِّجَارِيَّةِ وَالصِّنَاعِيَّةِ وَالدِّينِيَّةِ وَغَيْرِهَا. جَاءَ الْعَرَبُ إِلَى كِيرَالَا فَانْتَشَرَتِ اللُّغَةُ الْعَرَبِيَّةُ بَيْنَ أَهْلِ كِيرَالَا وَصَارَتْ مُتَدَاوَلَةً بَيْنَهُمْ.",
+    english:
+      "Kerala is a small, beautiful state situated in southern India on the coast of the Arabian Sea. The Arabs had been visiting Kerala since ancient times; they had close relations with the people of Kerala in various fields — trade, industry, religion and others. The Arabs came to Kerala, and so the Arabic language spread among the people of Kerala and became commonly used among them.",
+  },
+  {
+    arabic:
+      "لَمَّا جَاءَ الْإِسْلَامُ إِلَى كِيرَالَا وَأَسْلَمَ بَعْضٌ مِنْ أَهْلِ كِيرَالَا دَرَسُوا اللُّغَةَ الْعَرَبِيَّةَ. كَانَ الْمُسْلِمُونَ يَدْرُسُونَ اللُّغَةَ الْعَرَبِيَّةَ لِحَاجَاتِهِمُ الدِّينِيَّةِ. بَنَى الْمُسْلِمُونَ مَسَاجِدَ وَمَدَارِسَ كَثِيرَةً فِي أَنْحَاءِ كِيرَالَا وَدَرَسُوا اللُّغَةَ الْعَرَبِيَّةَ، وَبَدَأُوا كُلِّيَّاتٍ عَرَبِيَّةً كَثِيرَةً.",
+    english:
+      "When Islam came to Kerala and some of the people of Kerala embraced Islam, they studied the Arabic language. The Muslims used to study the Arabic language for their religious needs. They built many mosques and schools in various parts of Kerala, studied the Arabic language, and started many Arabic colleges.",
+  },
+  {
+    arabic:
+      "أَنْجَبَتْ وِلَايَةُ كِيرَالَا كَثِيرًا مِنَ الْعُلَمَاءِ وَالْأُدَبَاءِ وَالشُّعَرَاءِ وَالْكُتَّابِ مِثْلَ الْمَخْدُومِيِّينَ وَالْقَاضِي مُحَمَّدٍ وَالْقَاضِي عُمَرَ وَغَيْرِهِمْ. أَلَّفَ عُلَمَاءُ كِيرَالَا كُتُبًا كَثِيرَةً وَأَشْعَارًا عَدِيدَةً. وَكَانَ لِلدَّرْسِ الْمَسْجِدِيِّ فَضْلٌ كَبِيرٌ فِي انْتِشَارِ اللُّغَةِ الْعَرَبِيَّةِ فِي مَنَاطِقِ كِيرَالَا.",
+    english:
+      "The state of Kerala produced many scholars, literary figures, poets and writers such as the Makhdooms, Qadi Muhammad, Qadi Umar and others. The scholars of Kerala composed many books and numerous poems. And the mosque dars had a great merit in the spread of the Arabic language in the regions of Kerala.",
+  },
+  {
+    arabic:
+      "فَالْآنَ تُدَرَّسُ اللُّغَةُ الْعَرَبِيَّةُ فِي وِلَايَةِ كِيرَالَا مِنْ رَوْضَةِ الْأَطْفَالِ إِلَى مَرْحَلَةِ الدُّكْتُورَاهْ. تُصْدَرُ مِنْ كِيرَالَا عَدَدٌ مِنَ الْمَجَلَّاتِ الْعَرَبِيَّةِ وَالدَّوْرِيَّاتِ الْمَشْهُورَةِ.",
+    english:
+      "So today the Arabic language is taught in the state of Kerala from kindergarten up to the doctorate stage. And a number of famous Arabic magazines and periodicals are published from Kerala.",
+  },
 ];
 
 function SectionHeading({
@@ -673,72 +693,68 @@ export default function AbqariyyunPage() {
         />
       </Expandable>
 
-      {/* ── 10. فَقْرَةٌ إِضَافِيَّةٌ (collapsed) ────────────────────────── */}
+      {/* ── 10. تَدْرِيبُ التَّرْجَمَةِ ───────────────────────────────────── */}
+      <SectionHeading
+        id="translation-practice"
+        arabic="تَدْرِيبُ التَّرْجَمَةِ: مِنَ الْإِنْجِلِيزِيَّةِ إِلَى الْعَرَبِيَّةِ"
+        english="Translation Practice: English → Arabic"
+      />
+      <p dir="ltr" className="translation !mb-2 !text-[0.8rem] !font-bold !uppercase !tracking-[0.12em]">
+        English text
+      </p>
+      <div className="mb-6 rounded-xl border border-border/60 bg-muted/25 px-4 py-3">
+        <p dir="ltr" className="text-[0.95rem] leading-[1.8] text-foreground/90">
+          {ALI_ENGLISH}
+        </p>
+      </div>
+
+      <p dir="rtl" className="arabic-body !mb-2 !text-[0.95rem] !font-bold text-foreground">
+        التَّرْجَمَةُ الْعَرَبِيَّةُ
+      </p>
+      <p dir="rtl" className="arabic-body !mb-0 text-foreground">
+        {ALI_ARABIC}
+      </p>
+
+      {/* ── 11. كِتَابَةُ فَقْرَةٍ إِضَافِيَّةٌ (collapsed) ──────────────── */}
       <SectionHeading
         id="extra-paragraph"
-        arabic="كِتَابَةُ فَقْرَةٍ إِضَافِيَّةٍ"
-        english="Extra Paragraph Writing — Translation Practice"
+        arabic="كِتَابَةُ فَقْرَةٍ إِضَافِيَّةٌ"
+        english="Extra Paragraph Writing"
       />
-      <Expandable
-        title="تَدْرِيبُ التَّرْجَمَةِ: كِتَابَةُ فَقْرَةٍ إِضَافِيَّةٌ — Extra Paragraph Writing"
-        variant="exercise"
-      >
-        <p dir="ltr" className="translation !mb-2 !text-[0.8rem] !font-bold !uppercase !tracking-[0.12em]">
-          English text
-        </p>
-        <div className="mb-6 rounded-xl border border-border/60 bg-muted/25 px-4 py-3">
-          <p dir="ltr" className="text-[0.95rem] leading-[1.8] text-foreground/90">
-            {ALI_ENGLISH}
-          </p>
-        </div>
 
-        <p dir="rtl" className="arabic-body !mb-2 !text-[0.95rem] !font-bold text-foreground">
-          التَّرْجَمَةُ الْعَرَبِيَّةُ
-        </p>
-        <p dir="rtl" className="arabic-body !mb-0 text-foreground">
-          {ALI_ARABIC}
-        </p>
+      <Expandable title="مَقَالَةٌ: مُسَاهَمَةُ أَهْلِ كِيرَالَا فِي خِدْمَةِ اللُّغَةِ الْعَرَبِيَّةِ — Essay">
+        {ESSAY_INTRO.map((item, i) => (
+          <BilingualParagraph key={i} arabic={item.arabic} english={item.english} />
+        ))}
+
+        {ESSAY_SECTIONS.map((section, i) => (
+          <div key={i}>
+            <h3 className="arabic-body !mt-8 !mb-1 !text-lg !font-bold text-foreground">
+              {i + 1}. {section.title}
+            </h3>
+            <p dir="ltr" className="translation !mb-5 !font-semibold !text-foreground/80">
+              {section.titleEn}
+            </p>
+            {section.paragraphs.map((paragraph, j) => (
+              <BilingualParagraph
+                key={j}
+                arabic={paragraph.arabic}
+                english={paragraph.english}
+              />
+            ))}
+          </div>
+        ))}
       </Expandable>
 
-      {/* ── 11. الْمَقَالَةُ ─────────────────────────────────────────────── */}
-      <SectionHeading
-        id="essay"
-        arabic="مَقَالَةٌ: مُسَاهَمَةُ أَهْلِ كِيرَالَا فِي خِدْمَةِ اللُّغَةِ الْعَرَبِيَّةِ"
-        english="Essay: The Contribution of the People of Kerala to the Arabic Language"
-      />
-      {ESSAY_INTRO.map((item, i) => (
-        <BilingualParagraph key={i} arabic={item.arabic} english={item.english} />
-      ))}
-
-      {ESSAY_SECTIONS.map((section, i) => (
-        <div key={i}>
-          <h3 className="arabic-body !mt-10 !mb-1 !text-lg !font-bold text-foreground">
-            {i + 1}. {section.title}
-          </h3>
-          <p dir="ltr" className="translation !mb-5 !font-semibold !text-foreground/80">
-            {section.titleEn}
-          </p>
-          {section.paragraphs.map((paragraph, j) => (
-            <BilingualParagraph
-              key={j}
-              arabic={paragraph.arabic}
-              english={paragraph.english}
-            />
-          ))}
-        </div>
-      ))}
-
-      {/* ── 12. نَصٌّ إِضَافِيٌّ ─────────────────────────────────────────── */}
-      <SectionHeading
-        id="supplementary-text"
-        arabic="نَصٌّ إِضَافِيٌّ: اللُّغَةُ الْعَرَبِيَّةُ فِي كِيرَالَا"
-        english="Supplementary Reading Text: Arabic in Kerala"
-      />
-      {SUPPLEMENTARY_TEXT.map((paragraph, i) => (
-        <p key={i} dir="rtl" className="arabic-body !mb-5 text-foreground">
-          {paragraph}
-        </p>
-      ))}
+      <Expandable title="نَصٌّ إِضَافِيٌّ: اللُّغَةُ الْعَرَبِيَّةُ فِي كِيرَالَا — Supplementary Text">
+        {SUPPLEMENTARY_TEXT.map((paragraph, i) => (
+          <BilingualParagraph
+            key={i}
+            arabic={paragraph.arabic}
+            english={paragraph.english}
+          />
+        ))}
+      </Expandable>
     </div>
   );
 }
