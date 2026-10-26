@@ -8,7 +8,6 @@ import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { Timeline } from "@/components/content/process/Timeline";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
-import { ConceptCard } from "@/components/content/concept/ConceptCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 
 export default function EvolutionChapter() {
@@ -200,8 +199,9 @@ export default function EvolutionChapter() {
 
       <p>
         Oparin (Russia) and Haldane (England) had proposed that the first form of life came from pre-existing
-        non-living organic molecules, and that life was preceded by chemical evolution. The Urey-Miller experiment
-        put that idea to the test.
+        non-living organic molecules, and that life was preceded by{" "}
+        <Highlight color="yellow">chemical evolution</Highlight>. The Urey-Miller experiment put that idea to the
+        test.
       </p>
       <TableCard
         title="Experimental setup and components"
@@ -230,45 +230,11 @@ export default function EvolutionChapter() {
         </p>
       </Expandable>
 
-      <h3 id="h-6-1-first-cells">From giant molecules to the first cells</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          We have no idea about how the first <strong>self replicating metabolic capsule</strong> of life arose.
-        </li>
-        <li>
-          The first <strong>non-cellular</strong> forms of life could have originated <strong>3 billion years</strong>{" "}
-          back.
-        </li>
-        <li>They would have been giant molecules (RNA, protein, polysaccharides, etc.).</li>
-        <li>These capsules reproduced their molecules, perhaps.</li>
-        <li>
-          The first <strong>cellular</strong> form of life did not possibly originate till about{" "}
-          <strong>2000 million years ago</strong>; these were probably single cells.
-        </li>
-        <li>All life forms were in a water environment only.</li>
-        <li>
-          This version of <strong>biogenesis</strong> — the first form of life arose slowly through evolutionary
-          forces from non-living molecules — is accepted by the majority.
-        </li>
-      </ul>
-      <KeyPoint title="Where the certainty ends">
-        The chemical part of the story is accepted; the step from a self-replicating capsule to a cell with a
-        membranous envelope is still unknown. The rest of the chapter works forward from that first cellular life.
-      </KeyPoint>
-
       <h2 id="h-6-2">6.2 Evolution of Life Forms – A Theory</h2>
-      <ConceptCard title="The theory of special creation" icon="📜">
-        <p className="mb-2">Conventional religious literature tells us this theory, which has three connotations:</p>
-        <ol className="list-decimal pl-5 space-y-1.5">
-          <li>All living organisms (species or types) that we see today were created as such.</li>
-          <li>The diversity was always the same since creation and will be the same in future also.</li>
-          <li>The earth is about 4000 years old.</li>
-        </ol>
-      </ConceptCard>
       <p>
-        All these ideas were strongly challenged during the nineteenth century. Based on observations made during a
-        sea voyage in a sail ship called <strong>H.M.S. Beagle</strong> round the world, Charles Darwin concluded the
-        following.
+        The theory of special creation was strongly challenged during the nineteenth century. Based on observations
+        made during a sea voyage in a sail ship called <strong>H.M.S. Beagle</strong> round the world, Charles Darwin
+        concluded the following.
       </p>
       <ul className="list-disc pl-5 space-y-1.5">
         <li>
@@ -279,7 +245,9 @@ export default function EvolutionChapter() {
           Many such life forms do not exist any more. Extinctions of different life forms happened in the years gone
           by, just as new forms of life arose at different periods of the history of earth.
         </li>
-        <li>There has been <strong>gradual evolution</strong> of life forms.</li>
+        <li>
+          There has been <Highlight color="yellow">gradual evolution</Highlight> of life forms.
+        </li>
       </ul>
       <ProcessCard
         title="Darwin's argument, in four moves"
@@ -374,8 +342,9 @@ export default function EvolutionChapter() {
 
       <h3 id="h-6-3-homology">2. Morphological and anatomical evidences</h3>
       <Callout type="important" title="Homologous organs (homology)">
-        Organs with a <strong>similar internal structure</strong> but <strong>different functions</strong>, suited to
-        different environmental conditions. Homology is the result of{" "}
+        Organs with a{" "}
+        <Highlight color="yellow">similar internal structure but different functions</Highlight>, suited to different
+        environmental conditions. Homology is the result of{" "}
         <Highlight color="yellow">divergent evolution</Highlight> and indicates <strong>common ancestry</strong>.
       </Callout>
       <ul className="list-disc pl-5 space-y-1.5">
@@ -391,8 +360,9 @@ export default function EvolutionChapter() {
         </li>
       </ul>
       <Callout type="important" title="Analogous organs (analogy)">
-        Organs with <strong>different internal structures</strong> but the <strong>same function</strong>, suited to
-        similar environmental conditions. Analogy is the result of{" "}
+        Organs with{" "}
+        <Highlight color="yellow">different internal structures but the same function</Highlight>, suited to similar
+        environmental conditions. Analogy is the result of{" "}
         <Highlight color="yellow">convergent evolution</Highlight>.
       </Callout>
       <ul className="list-disc pl-5 space-y-1.5">
@@ -424,19 +394,22 @@ export default function EvolutionChapter() {
         ]}
       />
 
-      <h3 id="h-6-3-biogeography">3. Biogeographical evidences</h3>
+      <h3 id="h-6-3-biochemistry">3. Biochemical evidences</h3>
+      <p>
+        Organisms show striking similarities in proteins, genes, other biomolecules and metabolic pathways. Such
+        biochemical uniformity is strong evidence of <Highlight color="yellow">common ancestry</Highlight> for diverse
+        life forms.
+      </p>
+      <KeyPoint title="Central dogma">
+        DNA → mRNA → Protein — the same flow of information in all of them.
+      </KeyPoint>
+
+      <h3 id="h-6-3-biogeography">4. Biogeographical evidences</h3>
       <p>
         The distribution of organisms over geographical areas is itself evidence of evolution — an ancestral stock
         that reaches an isolated area diversifies into many forms. The classic case is{" "}
         <strong>adaptive radiation</strong>, taken up in the next section (§6.4) with Darwin&apos;s finches and the
-        marsupials of Australia.
-      </p>
-
-      <h3 id="h-6-3-biochemistry">4. Biochemical evidences</h3>
-      <p>
-        Similarities in proteins and genes performing a given function among diverse organisms give clues to common
-        ancestry. These biochemical similarities point to the same shared ancestry as structural similarities among
-        diverse organisms.
+        marsupials of Australia — including the marsupial–placental look-alikes that make convergence visible.
       </p>
 
       <h3 id="h-6-3-embryology">5. Embryological evidences</h3>
@@ -512,7 +485,8 @@ export default function EvolutionChapter() {
       <KeyPoint title="What the moth story shows">
         In a mixed population, those that can better adapt survive and increase in population size. And{" "}
         <strong>no variant is completely wiped out</strong> — the dark-winged form was present before 1850 and the
-        white-winged form was still present after 1920.
+        white-winged form was still present after 1920. The whole case is called{" "}
+        <Highlight color="yellow">industrial melanism</Highlight>.
       </KeyPoint>
 
       <h3 id="h-6-3-anthropogenic">Evolution by anthropogenic action</h3>
@@ -572,11 +546,24 @@ export default function EvolutionChapter() {
       />
       <p>
         When more than one adaptive radiation appears to have occurred in an isolated geographical area (representing
-        different habitats), one can call this <strong>convergent evolution</strong>. Placental mammals in Australia
-        also exhibit adaptive radiation, evolving into varieties of placental mammals each of which appears to be
-        &apos;similar&apos; to a corresponding marsupial — for example, the placental wolf and the Tasmanian wolf, a
-        marsupial.
+        different habitats), one can call this <Highlight color="yellow">convergent evolution</Highlight>. Placental
+        mammals in Australia also exhibit adaptive radiation, evolving into varieties of placental mammals each of
+        which appears to be &apos;similar&apos; to a corresponding marsupial.
       </p>
+      <TableCard
+        title="Marsupial and placental look-alikes"
+        headers={["Placental mammal", "Australian marsupial"]}
+        rows={[
+          { cells: ["Mole", "Marsupial mole"] },
+          { cells: ["Anteater", "Numbat"] },
+          { cells: ["Mouse", "Marsupial mouse"] },
+          { cells: ["Lemur", "Spotted cuscus"] },
+          { cells: ["Flying squirrel", "Flying phalanger"] },
+          { cells: ["Bobcat", "Tasmanian tiger cat"] },
+          { cells: ["Wolf", "Tasmanian wolf"] },
+        ]}
+        caption="Each marsupial resembles a placental mammal that evolved independently elsewhere — resemblance here is analogy, not shared ancestry."
+      />
       <MistakeCard
         mistake="Adaptive radiation and convergent evolution are the same phenomenon."
         correction="Adaptive radiation starts from one point and radiates into many forms and habitats. When more than one such radiation occurs in the same isolated area, the resemblance between the independently evolved forms is called convergent evolution."
@@ -589,8 +576,9 @@ export default function EvolutionChapter() {
         <strong>cellular forms of life with differences in metabolic capability</strong> originated on earth.
       </p>
       <p>
-        The essence of Darwinian theory about evolution is natural selection. The rate of appearance of new forms is
-        linked to the life cycle or the life span.
+        The essence of Darwinian theory about evolution is{" "}
+        <Highlight color="yellow">natural selection</Highlight>. The rate of appearance of new forms is linked to the
+        life cycle or the life span.
       </p>
       <ProcessCard
         title="A colony, a changed medium, a new species"
@@ -624,8 +612,8 @@ export default function EvolutionChapter() {
       </p>
       <Callout type="important" title="Fitness must be inherited to matter">
         The so-called fitness is based on characteristics which are <strong>inherited</strong>. Hence there must be a
-        genetic basis for getting selected and to evolve. Adaptive ability is inherited; it has a genetic basis.
-        Fitness is the end result of the ability to adapt and get selected by nature.
+        genetic basis for getting selected and to evolve. Adaptive ability is inherited; it has a genetic basis.{" "}
+        <Highlight color="yellow">Fitness is the end result of the ability to adapt and get selected by nature.</Highlight>
       </Callout>
       <KeyPoint title="Two key concepts">
         <Highlight color="yellow">Branching descent and natural selection</Highlight> are the two key concepts of the
@@ -708,8 +696,8 @@ export default function EvolutionChapter() {
         What is the origin of this variation and how does speciation occur? Even though <strong>Mendel</strong> had
         talked of inheritable &apos;factors&apos; influencing phenotype, Darwin either ignored these observations or
         kept silence. In the first decade of the twentieth century, <strong>Hugo deVries</strong>, based on his work
-        on evening primrose, brought forth the idea of <strong>mutations</strong> — large differences arising suddenly
-        in a population.
+        on evening primrose, brought forth the idea of{" "}
+        <Highlight color="yellow">mutations — large differences arising suddenly in a population</Highlight>.
       </p>
       <TableCard
         title="Darwin vs deVries"
