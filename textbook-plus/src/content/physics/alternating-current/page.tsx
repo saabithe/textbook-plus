@@ -13,7 +13,6 @@ import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
 import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { CycleDiagram } from "@/components/content/process/CycleDiagram";
 import { RevealAnswer } from "@/components/content/process/RevealAnswer";
 
 const D2R = Math.PI / 180;
@@ -115,7 +114,7 @@ function SeriesLcrCircuit() {
   return (
     <Figure
       title="A series LCR circuit connected to an ac source"
-      caption="Fig. 7.10: the same current i flows through the resistor, the inductor and the capacitor at every instant. The source voltage is v = v_m sin ωt."
+      caption="Fig. 7.10: the same current i flows through the resistor, the inductor and the capacitor at every instant. The source voltage is v = V_0 sin ωt."
     >
       <svg viewBox="0 0 420 175" className="w-full" role="img" aria-label="Series circuit: ac source, resistor R, inductor L and capacitor C connected in a single loop">
         <path d="M60 40 H175 M235 40 H350 V62 M350 112 V132 H215 M185 132 H60 M60 44 V62 M60 108 V132" fill="none" stroke="var(--foreground)" strokeWidth="2" />
@@ -146,7 +145,7 @@ function LcrPhasorAndImpedance() {
   return (
     <Figure
       title="Phasor addition and the impedance triangle"
-      caption="Figs. 7.11, 7.12, 7.13: V is the hypotenuse of a right triangle with sides V_R and (V_C + V_L). Dividing every side by i_m turns the same triangle into the impedance diagram, with Z as hypotenuse and φ the angle between V_R (i.e. I) and V."
+      caption="Figs. 7.11, 7.12, 7.13: V is the hypotenuse of a right triangle with sides V_R and (V_C + V_L). Dividing every side by I_0 turns the same triangle into the impedance diagram, with Z as hypotenuse and φ the angle between V_R (i.e. I) and V."
     >
       <svg viewBox="0 0 520 220" className="w-full" role="img" aria-label="Left: phasors V_R, V_L, V_C adding to V. Right: impedance triangle with sides R and X_C minus X_L and hypotenuse Z">
         <defs>
@@ -184,8 +183,8 @@ function LcrPhasorAndImpedance() {
 function ResonanceCurve() {
   return (
     <Figure
-      title="Variation of current amplitude i_m with ω"
-      caption="Fig. 7.14: L = 1.00 mH, C = 1.00 nF, v_m = 100 V, and ω₀ = 1.00 × 10⁶ rad/s. For R = 100 Ω the peak is twice as high as for R = 200 Ω, because i_m = v_m / R at resonance."
+      title="Variation of current amplitude I_0 with ω"
+      caption="Fig. 7.14: L = 1.00 mH, C = 1.00 nF, V_0 = 100 V, and ω₀ = 1.00 × 10⁶ rad/s. For R = 100 Ω the peak is twice as high as for R = 200 Ω, because I_0 = V_0 / R at resonance."
     >
       <svg viewBox="0 0 400 235" className="w-full" role="img" aria-label="Resonance curves of current amplitude against angular frequency for two resistance values, peaking at the same resonant frequency">
         <line x1="55" y1="20" x2="55" y2="190" stroke="var(--foreground)" strokeWidth="1.5" />
@@ -316,29 +315,8 @@ export default function AlternatingCurrentChapter() {
   return (
     <>
       <h2 id="h-7-1">7.1 Introduction</h2>
-      <p>Every circuit we have studied so far was driven by a <strong>direct current (dc)</strong> source — a current that does not change direction with time. Voltages and currents that <em>vary</em> with time are just as common, and the most familiar example is the supply in our homes and offices.</p>
-      <Callout type="important" title="Alternating voltage and alternating current">
-        <p>The electric mains supply in our homes and offices is a voltage that varies like a sine function with time. Such a voltage is called <strong>alternating voltage</strong> (ac voltage) and the current driven by it in a circuit is called the <strong>alternating current</strong> (ac current).</p>
-      </Callout>
-      <p>Today, most of the electrical devices we use require ac voltage. The reasons given in the chapter:</p>
-      <ul>
-        <li>Most of the electrical energy sold by power companies is <strong>transmitted and distributed as alternating current</strong>.</li>
-        <li>Ac voltages can be <Highlight color="yellow">easily and efficiently converted from one voltage to another</Highlight> by means of <strong>transformers</strong>.</li>
-        <li>Electrical energy can therefore be transmitted <strong>economically over long distances</strong>.</li>
-        <li>Ac circuits exhibit characteristics that are exploited in many devices of daily use — whenever we tune a radio to a favourite station, we use one such property of ac circuits.</li>
-      </ul>
-      <Callout type="note" title="A note on the words">
-        The phrases ac voltage and ac current are contradictory and redundant respectively — they literally mean
-        alternating current voltage and alternating current current. The abbreviation <strong>ac</strong> for a quantity
-        with simple harmonic time dependence is so universally accepted that it is used throughout. Also,{" "}
-        <strong>voltage</strong> means the potential difference between two points.
-      </Callout>
-      <KeyPoint title="Why ac won">
-        Ac is the standard not because it is easier to generate, but because its voltage can be changed at will by a
-        transformer — which is what makes long-distance transmission economical.
-      </KeyPoint>
 
-      <h3 id="h-7-1-waveform">What an ac waveform looks like</h3>
+      <h3 id="h-7-1-waveform">The ac waveform</h3>
       <p>
         Both the mains voltage and the current it drives rise and fall in a <em>sinusoidal</em> pattern — the value
         increases and decreases smoothly, reversing direction every half-cycle:
@@ -350,12 +328,12 @@ export default function AlternatingCurrentChapter() {
           </div>
           <img
             src="/images/physics/alternating-current/ac-sinusoidal-alternating-voltage-graph.png"
-            alt="Sinusoidal graph of alternating voltage v against time, rising to the peak value v_m and dipping to −v_m"
+            alt="Sinusoidal graph of alternating voltage against time, rising to the peak value V0 and dipping to minus V0"
             className="mx-auto w-full h-auto object-contain bg-black"
             loading="lazy"
           />
           <figcaption className="px-4 py-2.5 text-center text-xs leading-relaxed text-muted-foreground">
-            Voltage v oscillates between the +v<sub>m</sub> and −v<sub>m</sub> limits as time advances.
+            Voltage oscillates between the +V<sub>0</sub> and −V<sub>0</sub> limits as time advances.
           </figcaption>
         </figure>
         <figure className="overflow-hidden rounded-xl border border-border/40 bg-card">
@@ -364,40 +342,101 @@ export default function AlternatingCurrentChapter() {
           </div>
           <img
             src="/images/physics/alternating-current/ac-sinusoidal-alternating-current-graph.png"
-            alt="Sinusoidal graph of alternating current i against time, rising to the peak value i_m and dipping to −i_m"
+            alt="Sinusoidal graph of alternating current against time, rising to the peak value I0 and dipping to minus I0"
             className="mx-auto w-full h-auto object-contain bg-black"
             loading="lazy"
           />
           <figcaption className="px-4 py-2.5 text-center text-xs leading-relaxed text-muted-foreground">
-            The driven current i oscillates between +i<sub>m</sub> and −i<sub>m</sub> with the same period.
+            The driven current oscillates between +I<sub>0</sub> and −I<sub>0</sub> with the same period.
           </figcaption>
         </figure>
       </div>
-      <p>Reading any source equation of the form <Formula>{String.raw`v = v_m \sin \omega t`}</Formula> — the parts to name:</p>
+
+      <TableCard
+        title="Parts of V = V₀ sin ωt"
+        caption="The same four symbols describe the current, written I = I₀ sin ωt."
+        headers={["Symbol", "Name", "What it fixes"]}
+        rows={[
+          { cells: [<>V<sub>0</sub> / I<sub>0</sub></>, "Peak (maximum) value", "The amplitude of the oscillation — the largest magnitude the quantity reaches."] },
+          { cells: ["ω", "Angular frequency (rad s⁻¹)", <>Set by the source: <Formula>{String.raw`\omega = 2\pi\nu = \frac{2\pi}{T}`}</Formula></>] },
+          { cells: ["ωt", "Phase angle", "Where in the cycle the quantity sits at that instant."] },
+          { cells: ["t", "Instantaneous time", "The clock reading, in seconds."] },
+        ]}
+      />
+
+      <p>Today, most of the electrical devices we use require ac voltage. The reasons given in the chapter:</p>
       <ul>
-        <li><Formula>{String.raw`v_m`}</Formula> (or <Formula>{String.raw`i_m`}</Formula>) — the <strong>peak / maximum value</strong>, the amplitude of the oscillation.</li>
-        <li><Formula>{String.raw`\omega`}</Formula> — the <strong>angular frequency</strong> of the supply (rad s<sup>−1</sup>), related to the ordinary frequency <Formula>{String.raw`\nu`}</Formula> and the period by:</li>
+        <li>Most of the electrical energy sold by power companies is <strong>transmitted and distributed as alternating current</strong>.</li>
+        <li>Ac voltages can be <Highlight color="yellow">easily and efficiently converted from one voltage to another</Highlight> by means of <strong>transformers</strong>.</li>
+        <li>Electrical energy can therefore be transmitted <strong>economically over long distances</strong>.</li>
+        <li>Ac circuits exhibit characteristics that are exploited in many devices of daily use — whenever we tune a radio to a favourite station, we use one such property of ac circuits.</li>
       </ul>
-      <FormulaBlock tag="Eq. 7.0" latex={String.raw`\omega = 2\pi \nu = \frac{2\pi}{T}`} important />
-      <ul>
-        <li><Formula>{String.raw`\omega t`}</Formula> — the <strong>phase angle</strong> — it says <em>where in the cycle</em> the quantity is at time <Formula>{String.raw`t`}</Formula>.</li>
-        <li><Formula>{String.raw`t`}</Formula> — the instantaneous time.</li>
-      </ul>
+      <KeyPoint title="Why ac won">
+        Ac is the standard not because it is easier to generate, but because its voltage can be changed at will by a
+        transformer — which is what makes long-distance transmission economical.
+      </KeyPoint>
 
       <h2 id="h-7-2">7.2 AC Voltage Applied to a Resistor</h2>
-      <p>A resistor connected to a source of ac voltage is the simplest ac circuit. Take a source that produces a sinusoidally varying potential difference across its terminals:</p>
-      <FormulaBlock tag="Eq. 7.1" latex={String.raw`v = v_m \sin \omega t`} important />
-      <p>where <Formula>{String.raw`v_m`}</Formula> is the <strong>amplitude</strong> of the oscillating potential difference and <Formula>{String.raw`\omega`}</Formula> its <strong>angular frequency</strong>. Applying Kirchhoff&apos;s loop rule to the circuit, the source voltage equals the potential drop across R:</p>
-      <FormulaBlock latex={String.raw`v_m \sin \omega t = i R`} />
-      <p>Since R is a constant, this can be written as:</p>
-      <FormulaBlock tag="Eq. 7.2" latex={String.raw`i = \frac{v_m}{R}\sin \omega t = i_m \sin \omega t`} />
-      <FormulaBlock tag="Eq. 7.3" label="Current amplitude" latex={String.raw`i_m = \frac{v_m}{R}`} important />
-      <p>Equation (7.3) is <strong>Ohm&apos;s law</strong>, which for resistors works equally well for both ac and dc voltages. The voltage and current both reach zero, minimum and maximum values at the same time —{" "}<Highlight color="yellow">the voltage and current are in phase</Highlight> with each other.</p>
-      <ElementFigures kind="R" />
+
+      <figure className="my-6">
+        <img
+          src="/images/physics/alternating-current/ac-resistor-circuit-diagram.png"
+          alt="A resistor connected across an ac source, with an arrow marking the conventional direction of the current"
+          className="max-w-sm mx-auto w-full h-auto rounded-lg object-contain bg-black"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          A resistor R across an ac source — the simplest ac circuit.
+        </figcaption>
+      </figure>
+
+      <FormulaBlock tag="Eq. 7.1" label="Applied voltage" latex={String.raw`V = V_0 \sin \omega t`} important />
+      <p>Ohm&apos;s law holds at every instant, so the current simply follows the voltage:</p>
+      <FormulaBlock latex={String.raw`I = \frac{V}{R} = \frac{V_0 \sin \omega t}{R}`} />
+      <FormulaBlock tag="Eq. 7.2" latex={String.raw`I = I_0 \sin \omega t`} important />
+      <FormulaBlock tag="Eq. 7.3" label="Current amplitude" latex={String.raw`I_0 = \frac{V_0}{R}`} important />
       <p>
-        Like the applied voltage, the current has corresponding positive and negative values during each cycle. The sum of the instantaneous current values over one complete cycle is therefore zero, and
-        the{" "}<strong>average current is zero</strong>. That does not mean the average power is zero: Joule heating is{" "}<Formula>{String.raw`i^2R`}</Formula>, and <Formula>{String.raw`i^2`}</Formula> is positive
-        whether i is positive or negative.
+        Equation (7.3) is <strong>Ohm&apos;s law</strong>, and for a resistor it works for ac exactly as it does for dc.
+        The two reach zero, minimum and maximum at the same instants, so the{" "}
+        <Highlight color="yellow">phase difference is zero</Highlight> — voltage and current are <strong>in phase</strong>.
+      </p>
+
+      <figure className="my-6">
+        <img
+          src="/images/physics/alternating-current/ac-resistor-voltage-current-in-phase-graph.png"
+          alt="Voltage and current curves against time for a pure resistor, peaking together at V0 and I0"
+          className="mx-auto w-full max-w-md h-auto rounded-lg object-contain bg-black"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          Graphical variation: v and i cross zero together and peak together — same frequency, no phase difference.
+        </figcaption>
+      </figure>
+
+      <figure className="my-6">
+        <img
+          src="/images/physics/alternating-current/ac-resistor-phasor-diagram-in-phase.png"
+          alt="Phasor diagram for a pure resistor: the voltage and current phasors point along the same line"
+          className="mx-auto w-full max-w-md h-auto rounded-lg object-contain bg-black"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          Phasor diagram: V<sub>0</sub> and I<sub>0</sub> lie along the same line — phase difference φ = 0.
+        </figcaption>
+      </figure>
+
+      <FactCard
+        title="Why phasors make ac circuits easy"
+        icon="↻"
+        definition="Each phasor carries two facts at once — its length is a peak value (V₀ or I₀) and its direction is the phase at that instant. One diagram therefore answers both “how big?” and “how far out of step?”, which is what makes phasor work so much quicker than juggling sine and cosine terms."
+      />
+
+      <p>
+        Like the applied voltage, the current has corresponding positive and negative values during each cycle. The sum
+        of the instantaneous current values over one complete cycle is therefore zero, and the{" "}
+        <strong>average current is zero</strong>. That does not mean the average power is zero: Joule heating is{" "}
+        <Formula>{String.raw`I^2R`}</Formula>, and <Formula>{String.raw`I^2`}</Formula> is positive whether I is positive
+        or negative.
       </p>
       <p>
         The same argument holds for the voltage. Ac is <strong>positive during the first half-cycle</strong> and{" "}
@@ -415,26 +454,48 @@ export default function AlternatingCurrentChapter() {
         question="The average current over a full cycle is zero. Is the average power dissipated also zero?"
         answer={
           <>
-            No. Heating depends on <Formula>{String.raw`i^2`}</Formula>, which is never negative, so energy is dissipated in
+            No. Heating depends on <Formula>{String.raw`I^2`}</Formula>, which is never negative, so energy is dissipated in
             the resistor even though the mean current is zero.
           </>
         }
       />
-      <p>The average value of a function over a period T is{" "}<Formula>{String.raw`\bar{F} = \frac{1}{T}\int_0^T F(t)\,\mathrm{d}t`}</Formula>. For the instantaneous power{" "}<Formula>{String.raw`p = i^2R`}</Formula>:</p>
-      <FormulaBlock tag="Eq. 7.4" latex={String.raw`p = i^2 R = i_m^2 R \sin^2 \omega t`} />
-      <FormulaBlock tag="Eq. 7.5(a)" latex={String.raw`\bar{p} = \langle i^2 R \rangle = i_m^2 R \,\langle \sin^2 \omega t \rangle`} />
-      <p>Using <Formula>{String.raw`\sin^2 \omega t = \tfrac{1}{2}\left(1 - \cos 2\omega t\right)`}</Formula> and{" "}<Formula>{String.raw`\langle \cos 2\omega t \rangle = 0`}</Formula> over a full cycle,{" "}<Formula>{String.raw`\langle \sin^2 \omega t \rangle = \tfrac{1}{2}`}</Formula>, so:</p>
-      <FormulaBlock tag="Eq. 7.5(c)" latex={String.raw`\bar{p} = \tfrac{1}{2}\, i_m^2 R`} />
-      <Callout type="important" title="Root mean square (rms) or effective current">
-        <p>To express ac power in the same form as dc power (<Formula>{String.raw`P = I^2R`}</Formula>), a special value of current is defined and used. It is called the <strong>root mean square (rms)</strong> or{" "}<strong>effective current</strong>, and is denoted by <Formula>{String.raw`I_{\text{rms}}`}</Formula> or simply{" "}<Formula>{String.raw`I`}</Formula>:</p>
+      <p>Instantaneous power delivered to the resistor is the product <Formula>{String.raw`P = V I`}</Formula>:</p>
+      <FormulaBlock
+        tag="Eq. 7.4"
+        latex={String.raw`P = \left(V_0 \sin \omega t\right)\left(I_0 \sin \omega t\right) = V_0 I_0 \sin^2 \omega t`}
+      />
+      <p>
+        Averaging over a full cycle, <Formula>{String.raw`\langle \sin^2 \omega t \rangle = \tfrac{1}{2}`}</Formula>, so:
+      </p>
+      <FormulaBlock
+        tag="Eq. 7.5"
+        latex={String.raw`P_{\text{avg}} = V_0 I_0 \langle \sin^2 \omega t \rangle = \frac{V_0 I_0}{2} = \left(\frac{V_0}{\sqrt{2}}\right)\left(\frac{I_0}{\sqrt{2}}\right)`}
+        important
+      />
+      <Callout type="important" title="Root mean square (rms) or effective values">
+        <p>
+          The bracket suggests defining a special value for each quantity — the <strong>root mean square (rms)</strong>{" "}
+          or <strong>effective</strong> value, equal to the peak divided by <Formula>{String.raw`\sqrt{2}`}</Formula>.
+          With it, ac power takes exactly the same form as dc power.
+        </p>
       </Callout>
-      <FormulaBlock tag="Eq. 7.6" latex={String.raw`I = \sqrt{\langle i^2 \rangle} = \frac{i_m}{\sqrt{2}} = 0.707\, i_m`} important />
-      <FormulaBlock tag="Eq. 7.7" latex={String.raw`P = \bar{p} = \tfrac{1}{2} i_m^2 R = I^2 R`} important />
-      <p>Similarly, the <strong>rms voltage</strong> or effective voltage is defined by:</p>
-      <FormulaBlock tag="Eq. 7.8" latex={String.raw`V = \frac{v_m}{\sqrt{2}} = 0.707\, v_m`} />
-      <p>Since <Formula>{String.raw`v_m = i_m R`}</Formula>, dividing by <Formula>{String.raw`\sqrt{2}`}</Formula> gives the familiar dc-looking relation:</p>
+      <FormulaBlock tag="Eq. 7.6" latex={String.raw`V_{\text{rms}} = \frac{V_0}{\sqrt{2}} = 0.707\, V_0`} important />
+      <FormulaBlock tag="Eq. 7.7" latex={String.raw`I_{\text{rms}} = \frac{I_0}{\sqrt{2}} = 0.707\, I_0`} important />
+      <FormulaBlock
+        tag="Eq. 7.8"
+        latex={String.raw`P_{\text{avg}} = V_{\text{rms}} I_{\text{rms}} = I_{\text{rms}}^2 R = \frac{V_{\text{rms}}^2}{R}`}
+        important
+      />
+      <p>
+        From here on, plain <Formula>{String.raw`V`}</Formula> and <Formula>{String.raw`I`}</Formula> stand for these rms
+        values (that is how supply voltages are always quoted), so the current–voltage relation keeps its dc form:
+      </p>
       <FormulaBlock tag="Eq. 7.9" latex={String.raw`V = I R`} important />
-      <p>This shows the advantage of rms values: in terms of them, the equation for power and the current–voltage relation in ac circuits are essentially the same as in the dc case. The rms current is the equivalent dc current that would produce the <Highlight color="yellow">same average power loss</Highlight> as the alternating current. Power can also be written as <Formula>{String.raw`P = V^2/R = I V`}</Formula>.</p>
+      <p>
+        The rms current is therefore the dc current that would produce the{" "}
+        <Highlight color="yellow">same average power loss</Highlight> in the resistor, which is exactly why meters and
+        nameplates quote rms and not peak.
+      </p>
       <MetricCard
         label="Household line voltage"
         value="220 V rms"
@@ -442,12 +503,12 @@ export default function AlternatingCurrentChapter() {
         description={
           <>
             It is customary to measure and specify rms values. The peak is{" "}
-            <Formula>{String.raw`v_m = \sqrt{2}\,V = 1.414 \times 220 = 311\ \text{V}`}</Formula>.
+            <Formula>{String.raw`V_0 = \sqrt{2}\,V = 1.414 \times 220 = 311\ \text{V}`}</Formula>.
           </>
         }
       />
       <MistakeCard
-        mistake="Treating 220 V as the peak value of the mains supply, and using i_m = v_m / R with v_m = 220 V."
+        mistake="Treating 220 V as the peak value of the mains supply, and using I₀ = V₀/R with V₀ = 220 V."
         correction="The value quoted for an ac supply is always the rms value. The peak is √2 times larger: 220 V rms corresponds to 311 V peak. Use rms with rms and peak with peak — never mix them in the same equation."
       />
 
@@ -457,7 +518,7 @@ export default function AlternatingCurrentChapter() {
           <p><strong>(a)</strong> Given <Formula>{String.raw`P = 100\ \text{W}`}</Formula> and <Formula>{String.raw`V = 220\ \text{V}`}</Formula>. The resistance of the bulb is</p>
           <FormulaBlock latex={String.raw`R = \frac{V^2}{P} = \frac{(220\ \text{V})^2}{100\ \text{W}} = 484\ \Omega`} important />
           <p><strong>(b)</strong> The peak voltage of the source is</p>
-          <FormulaBlock latex={String.raw`v_m = \sqrt{2}\,V = 311\ \text{V}`} important />
+          <FormulaBlock latex={String.raw`V_0 = \sqrt{2}\,V = 311\ \text{V}`} important />
           <p><strong>(c)</strong> Since <Formula>{String.raw`P = IV`}</Formula>, the rms current is</p>
           <FormulaBlock latex={String.raw`I = \frac{P}{V} = \frac{100\ \text{W}}{220\ \text{V}} = 0.454\ \text{A}`} important />
         </ProblemSolution.Solution>
@@ -466,8 +527,7 @@ export default function AlternatingCurrentChapter() {
       <h3 id="h-7-2-drills">Exam drills — reading an ac equation</h3>
       <p>
         Every drill below is answered by direct comparison with{" "}
-        <Formula>{String.raw`V = V_0\sin \omega t`}</Formula> (the chapter writes the same thing as{" "}
-        <Formula>{String.raw`v = v_m\sin \omega t`}</Formula>).
+        <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula>.
       </p>
 
       <Expandable title="Drill — An ac source is given by V = 20 sin(10πt): find everything" variant="example">
@@ -546,44 +606,28 @@ export default function AlternatingCurrentChapter() {
       <Callout type="important" title="Phasor (definition)">
         <p>
           A <strong>phasor</strong> is a vector which rotates about the origin with angular speed ω. The{" "}<strong>vertical components</strong> of phasors V and I represent the sinusoidally varying quantities v and i.
-          The{" "}<strong>magnitudes</strong> of phasors V and I represent the amplitudes or the peak values{" "}<Formula>{String.raw`v_m`}</Formula> and <Formula>{String.raw`i_m`}</Formula> of these oscillating
+          The{" "}<strong>magnitudes</strong> of phasors V and I represent the amplitudes or the peak values{" "}<Formula>{String.raw`V_0`}</Formula> and <Formula>{String.raw`I_0`}</Formula> of these oscillating
           quantities.
         </p>
       </Callout>
-      <p>The projection of the voltage and current phasors on the vertical axis —{" "}<Formula>{String.raw`v_m\sin\omega t`}</Formula> and <Formula>{String.raw`i_m\sin\omega t`}</Formula> — gives the value of voltage and current at that instant. As the phasors rotate with frequency ω, the sinusoidal curves are generated. The analysis of an ac circuit is greatly facilitated by such a <strong>phasor diagram</strong>.</p>
-      <CycleDiagram
-        title="One full rotation = one full ac cycle"
-        steps={[
-          { label: "0°", detail: "Phasor along the reference axis — the projection is zero." },
-          { label: "90°", detail: "Projection at its positive maximum." },
-          { label: "180°", detail: "Projection zero again — the quantity has reversed." },
-          { label: "270°", detail: "Projection at its negative maximum." },
-          { label: "360°", detail: "Back to the start — one complete cycle in time T = 2π/ω." },
-        ]}
-      />
-      <p>For the resistor of Section 7.2 the phasors V and I are in the <Highlight color="yellow">same direction</Highlight>{" "}at all times. The phase angle between the voltage and the current is therefore zero.</p>
-      <FactCard
-        title="Phasors are not vectors"
-        icon="↻"
-        definition="Voltage and current in an ac circuit are scalars. The rotating vectors that represent them are introduced only because the amplitudes and phases of harmonically varying scalars combine mathematically in the same way as the projections of rotating vectors — so ordinary vector addition can be used."
-      />
+
       <h2 id="h-7-4">7.4 AC Voltage Applied to an Inductor</h2>
-      <p>Real inductors have appreciable resistance in their windings; here the inductor is assumed to have{" "}<strong>negligible resistance</strong>, so the circuit is purely inductive. With{" "}<Formula>{String.raw`v = v_m\sin\omega t`}</Formula> and Kirchhoff&apos;s loop rule, and since there is no resistor:</p>
+      <p>Real inductors have appreciable resistance in their windings; here the inductor is assumed to have{" "}<strong>negligible resistance</strong>, so the circuit is purely inductive. With{" "}<Formula>{String.raw`v = V_0\sin\omega t`}</Formula> and Kirchhoff&apos;s loop rule, and since there is no resistor:</p>
       <FormulaBlock tag="Eq. 7.10" latex={String.raw`v - L\frac{\mathrm{d}i}{\mathrm{d}t} = 0`} />
       <p>where the second term is the self-induced Faraday emf in the inductor and L is its self-inductance. The negative sign follows from Lenz&apos;s law. Combining with Eq. (7.1):</p>
-      <FormulaBlock tag="Eq. 7.11" latex={String.raw`\frac{\mathrm{d}i}{\mathrm{d}t} = \frac{v}{L} = \frac{v_m}{L}\sin\omega t`} />
-      <p>The slope <Formula>{String.raw`\mathrm{d}i/\mathrm{d}t`}</Formula> is sinusoidally varying with the same phase as the source voltage, with amplitude <Formula>{String.raw`v_m/L`}</Formula>. Integrating with respect to time:</p>
-      <FormulaBlock latex={String.raw`i = -\frac{v_m}{\omega L}\cos\omega t + \text{constant}`} />
+      <FormulaBlock tag="Eq. 7.11" latex={String.raw`\frac{\mathrm{d}i}{\mathrm{d}t} = \frac{v}{L} = \frac{V_0}{L}\sin\omega t`} />
+      <p>The slope <Formula>{String.raw`\mathrm{d}i/\mathrm{d}t`}</Formula> is sinusoidally varying with the same phase as the source voltage, with amplitude <Formula>{String.raw`V_0/L`}</Formula>. Integrating with respect to time:</p>
+      <FormulaBlock latex={String.raw`i = -\frac{V_0}{\omega L}\cos\omega t + \text{constant}`} />
       <p>The integration constant has the dimension of current and is time-independent. The source emf oscillates symmetrically about zero, so the current it sustains also oscillates symmetrically about zero —{" "}<strong>no constant or time-independent component of current exists</strong>, so the constant is zero. Using{" "}<Formula>{String.raw`-\cos\omega t = \sin\left(\omega t - \frac{\pi}{2}\right)`}</Formula>:</p>
-      <FormulaBlock tag="Eq. 7.12" latex={String.raw`i = i_m \sin\left(\omega t - \frac{\pi}{2}\right)`} important />
-      <p>where <Formula>{String.raw`i_m = v_m/\omega L`}</Formula> is the amplitude of the current. The quantity{" "}<Formula>{String.raw`\omega L`}</Formula> is analogous to the resistance and is called{" "}<strong>inductive reactance</strong>, denoted by <Formula>{String.raw`X_L`}</Formula>:</p>
+      <FormulaBlock tag="Eq. 7.12" latex={String.raw`i = I_0 \sin\left(\omega t - \frac{\pi}{2}\right)`} important />
+      <p>where <Formula>{String.raw`I_0 = V_0/\omega L`}</Formula> is the amplitude of the current. The quantity{" "}<Formula>{String.raw`\omega L`}</Formula> is analogous to the resistance and is called{" "}<strong>inductive reactance</strong>, denoted by <Formula>{String.raw`X_L`}</Formula>:</p>
       <FormulaBlock tag="Eq. 7.13" latex={String.raw`X_L = \omega L`} important />
-      <FormulaBlock tag="Eq. 7.14" latex={String.raw`i_m = \frac{v_m}{X_L}`} />
+      <FormulaBlock tag="Eq. 7.14" latex={String.raw`I_0 = \frac{V_0}{X_L}`} />
       <p>Its dimension is that of resistance and its SI unit is the <strong>ohm</strong>. The inductive reactance limits the current in a purely inductive circuit in the same way as resistance limits it in a purely resistive circuit, and it is <Highlight color="yellow">directly proportional to the inductance and to the frequency</Highlight> of the current.</p>
       <p>Comparing Eqs. (7.1) and (7.12), the current <strong>lags</strong> the voltage by{" "}<Formula>{String.raw`\pi/2`}</Formula> — one-quarter of a cycle. The current reaches its maximum value later than the voltage by one-fourth of a period, <Formula>{String.raw`T/4 = \pi/2\omega`}</Formula>.</p>
       <ElementFigures kind="L" />
       <p>The instantaneous power supplied to the inductor is:</p>
-      <FormulaBlock latex={String.raw`p_L = i\,v = i_m\sin\left(\omega t - \frac{\pi}{2}\right) \times v_m\sin\omega t = -\,\frac{i_m v_m}{2}\sin 2\omega t`} />
+      <FormulaBlock latex={String.raw`p_L = i\,v = I_0\sin\left(\omega t - \frac{\pi}{2}\right) \times V_0\sin\omega t = -\,\frac{I_0 V_0}{2}\sin 2\omega t`} />
       <p>The average of <Formula>{String.raw`\sin 2\omega t`}</Formula> over a complete cycle is zero, so the average power supplied to an inductor over one complete cycle is <Highlight color="yellow">zero</Highlight>.</p>
       <Expandable title="Example 7.2 — Reactance and current of a pure inductor" variant="example">
         <ProblemSolution.Problem><p>A pure inductor of 25.0 mH is connected to a source of 220 V. Find the inductive reactance and rms current in the circuit if the frequency of the source is 50 Hz.</p></ProblemSolution.Problem>
@@ -599,18 +643,18 @@ export default function AlternatingCurrentChapter() {
       <p>In a <strong>dc</strong> circuit a capacitor conducts only for the short time needed to charge it. As charge accumulates, the voltage across the plates increases and opposes the current; when the capacitor is fully charged, the current falls to zero.</p>
       <p>Connected to an <strong>ac</strong> source, the capacitor limits or regulates the current but{" "}<Highlight color="yellow">does not completely prevent the flow of charge</Highlight> — it is alternately charged and discharged as the current reverses each half cycle. If q is the charge at time t, the instantaneous voltage is:</p>
       <FormulaBlock tag="Eq. 7.15" latex={String.raw`v = \frac{q}{C}`} />
-      <p>From Kirchhoff&apos;s loop rule the voltage across the source and the capacitor are equal, so{" "}<Formula>{String.raw`q/C = v_m\sin\omega t`}</Formula>. Using{" "}<Formula>{String.raw`i = \mathrm{d}q/\mathrm{d}t`}</Formula>:</p>
-      <FormulaBlock latex={String.raw`i = \frac{\mathrm{d}}{\mathrm{d}t}\left(C v_m \sin\omega t\right) = \omega C v_m \cos\omega t`} />
+      <p>From Kirchhoff&apos;s loop rule the voltage across the source and the capacitor are equal, so{" "}<Formula>{String.raw`q/C = V_0\sin\omega t`}</Formula>. Using{" "}<Formula>{String.raw`i = \mathrm{d}q/\mathrm{d}t`}</Formula>:</p>
+      <FormulaBlock latex={String.raw`i = \frac{\mathrm{d}}{\mathrm{d}t}\left(C V_0 \sin\omega t\right) = \omega C V_0 \cos\omega t`} />
       <p>Using <Formula>{String.raw`\cos\omega t = \sin\left(\omega t + \frac{\pi}{2}\right)`}</Formula>:</p>
-      <FormulaBlock tag="Eq. 7.16" latex={String.raw`i = i_m \sin\left(\omega t + \frac{\pi}{2}\right)`} important />
-      <p>The amplitude of the oscillating current is <Formula>{String.raw`i_m = \omega C v_m`}</Formula>, which can be rewritten as <Formula>{String.raw`i_m = \dfrac{v_m}{1/\omega C}`}</Formula>. Compared with{" "}<Formula>{String.raw`i_m = v_m/R`}</Formula> for a purely resistive circuit,{" "}<Formula>{String.raw`1/\omega C`}</Formula> plays the role of resistance. It is called{" "}<strong>capacitive reactance</strong>:</p>
+      <FormulaBlock tag="Eq. 7.16" latex={String.raw`i = I_0 \sin\left(\omega t + \frac{\pi}{2}\right)`} important />
+      <p>The amplitude of the oscillating current is <Formula>{String.raw`I_0 = \omega C V_0`}</Formula>, which can be rewritten as <Formula>{String.raw`I_0 = \dfrac{V_0}{1/\omega C}`}</Formula>. Compared with{" "}<Formula>{String.raw`I_0 = V_0/R`}</Formula> for a purely resistive circuit,{" "}<Formula>{String.raw`1/\omega C`}</Formula> plays the role of resistance. It is called{" "}<strong>capacitive reactance</strong>:</p>
       <FormulaBlock tag="Eq. 7.17" latex={String.raw`X_C = \frac{1}{\omega C}`} important />
-      <FormulaBlock tag="Eq. 7.18" latex={String.raw`i_m = \frac{v_m}{X_C}`} />
+      <FormulaBlock tag="Eq. 7.18" latex={String.raw`I_0 = \frac{V_0}{X_C}`} />
       <p>Its dimension too is that of resistance, with SI unit the ohm. The capacitive reactance limits the amplitude of the current in a purely capacitive circuit in the same way as resistance, but it is{" "}<Highlight color="yellow">inversely proportional to the frequency and to the capacitance</Highlight>.</p>
       <p>Comparing Eq. (7.16) with Eq. (7.1), the current is <Formula>{String.raw`\pi/2`}</Formula>{" "}<strong>ahead</strong> of the voltage: it reaches its maximum value earlier than the voltage by one-fourth of a period.</p>
       <ElementFigures kind="C" />
       <p>The instantaneous power supplied to the capacitor is:</p>
-      <FormulaBlock tag="Eq. 7.19" latex={String.raw`p_C = i\,v = i_m v_m \cos\omega t \sin\omega t = \frac{i_m v_m}{2}\sin 2\omega t`} />
+      <FormulaBlock tag="Eq. 7.19" latex={String.raw`p_C = i\,v = I_0 V_0 \cos\omega t \sin\omega t = \frac{I_0 V_0}{2}\sin 2\omega t`} />
       <p>As for the inductor, <Formula>{String.raw`\langle \sin 2\omega t \rangle = 0`}</Formula> over a complete cycle, so the average power supplied to a capacitor is <Highlight color="yellow">zero</Highlight>.</p>
       <Comparison
         columns={[
@@ -638,7 +682,7 @@ export default function AlternatingCurrentChapter() {
       />
       <MistakeCard
         mistake="Concluding that a capacitor blocks ac because it blocks dc."
-        correction="A capacitor blocks steady current only after it is charged. Under ac it charges and discharges every half cycle, so charge keeps flowing: the current is i_m = v_m/X_C with X_C = 1/ωC. Raising the frequency (or the capacitance) lowers the reactance and increases the current."
+        correction="A capacitor blocks steady current only after it is charged. Under ac it charges and discharges every half cycle, so charge keeps flowing: the current is I_0 = V_0/X_C with X_C = 1/ωC. Raising the frequency (or the capacitance) lowers the reactance and increases the current."
       />
 
       <Expandable title="Example 7.3 — A lamp in series with a capacitor: dc versus ac" variant="example">
@@ -658,7 +702,7 @@ export default function AlternatingCurrentChapter() {
           <p>The rms current is</p>
           <FormulaBlock latex={String.raw`I = \frac{V}{X_C} = \frac{220\ \text{V}}{212\ \Omega} = 1.04\ \text{A}`} />
           <p>The peak current is</p>
-          <FormulaBlock latex={String.raw`i_m = \sqrt{2}\,I = (1.41)(1.04\ \text{A}) = 1.47\ \text{A}`} important />
+          <FormulaBlock latex={String.raw`I_0 = \sqrt{2}\,I = (1.41)(1.04\ \text{A}) = 1.47\ \text{A}`} important />
           <p>The current oscillates between +1.47 A and −1.47 A, and is ahead of the voltage by π/2.</p>
           <p>If the frequency is doubled, the capacitive reactance is halved and consequently the current is doubled.</p>
         </ProblemSolution.Solution>
@@ -673,12 +717,12 @@ export default function AlternatingCurrentChapter() {
         </ProblemSolution.Solution>
       </Expandable>
       <h2 id="h-7-6">7.6 AC Voltage Applied to a Series LCR Circuit</h2>
-      <p>A resistor, an inductor and a capacitor are connected in series to an ac source, with{" "}<Formula>{String.raw`v = v_m\sin\omega t`}</Formula>. If q is the charge on the capacitor and i the current at time t, Kirchhoff&apos;s loop rule gives:</p>
+      <p>A resistor, an inductor and a capacitor are connected in series to an ac source, with{" "}<Formula>{String.raw`v = V_0\sin\omega t`}</Formula>. If q is the charge on the capacitor and i the current at time t, Kirchhoff&apos;s loop rule gives:</p>
       <FormulaBlock tag="Eq. 7.20" latex={String.raw`L\frac{\mathrm{d}i}{\mathrm{d}t} + iR + \frac{q}{C} = v`} important />
 
       <h3 id="h-7-6-1">7.6.1 Phasor-diagram solution</h3>
       <p>The three elements are in series, so the <strong>current is the same in each at any time</strong> — same amplitude and same phase:</p>
-      <FormulaBlock tag="Eq. 7.21" latex={String.raw`i = i_m\sin(\omega t + \phi)`} />
+      <FormulaBlock tag="Eq. 7.21" latex={String.raw`i = I_0\sin(\omega t + \phi)`} />
       <p>where <Formula>{String.raw`\phi`}</Formula> is the phase difference between the voltage across the source and the current in the circuit. Let I be the phasor of this current, and{" "}<Formula>{String.raw`\mathbf{V}_L`}</Formula>, <Formula>{String.raw`\mathbf{V}_R`}</Formula>,{" "}<Formula>{String.raw`\mathbf{V}_C`}</Formula> the phasors of the element voltages. Then:</p>
       <Stepper
         steps={[
@@ -688,20 +732,20 @@ export default function AlternatingCurrentChapter() {
         ]}
       />
       <p>The lengths of these phasors, i.e. the voltage amplitudes, are:</p>
-      <FormulaBlock tag="Eq. 7.22" latex={String.raw`v_{Rm} = i_m R,\qquad v_{Cm} = i_m X_C,\qquad v_{Lm} = i_m X_L`} />
+      <FormulaBlock tag="Eq. 7.22" latex={String.raw`V_{R0} = I_0 R,\qquad V_{C0} = I_0 X_C,\qquad V_{L0} = I_0 X_L`} />
       <p>The voltage equation (7.20) for the circuit can be written as{" "}<Formula>{String.raw`v_L + v_R + v_C = v`}</Formula>, and the phasor relation whose vertical component gives this equation is:</p>
       <FormulaBlock tag="Eq. 7.24" latex={String.raw`\mathbf{V}_L + \mathbf{V}_R + \mathbf{V}_C = \mathbf{V}`} />
       <p>
         Since <Formula>{String.raw`\mathbf{V}_C`}</Formula> and <Formula>{String.raw`\mathbf{V}_L`}</Formula> are always along the same line and in opposite directions, they combine into one phasor of
-        magnitude{" "}<Formula>{String.raw`|v_{Cm} - v_{Lm}|`}</Formula>. V is the hypotenuse of a right triangle whose sides are{" "}<Formula>{String.raw`\mathbf{V}_R`}</Formula>
+        magnitude{" "}<Formula>{String.raw`|V_{C0} - V_{L0}|`}</Formula>. V is the hypotenuse of a right triangle whose sides are{" "}<Formula>{String.raw`\mathbf{V}_R`}</Formula>
         and{" "}<Formula>{String.raw`(\mathbf{V}_C + \mathbf{V}_L)`}</Formula>, so Pythagoras gives:
       </p>
       <SeriesLcrCircuit />
-      <FormulaBlock latex={String.raw`v_m^2 = v_{Rm}^2 + \left(v_{Cm} - v_{Lm}\right)^2`} />
+      <FormulaBlock latex={String.raw`V_0^2 = V_{R0}^2 + \left(V_{C0} - V_{L0}\right)^2`} />
       <p>Substituting Eq. (7.22) and taking the square root:</p>
-      <FormulaBlock tag="Eq. 7.25(a)" latex={String.raw`i_m = \frac{v_m}{\sqrt{R^2 + \left(X_C - X_L\right)^2}}`} important />
+      <FormulaBlock tag="Eq. 7.25(a)" latex={String.raw`I_0 = \frac{V_0}{\sqrt{R^2 + \left(X_C - X_L\right)^2}}`} important />
       <p>By analogy with resistance, the <strong>impedance</strong> Z of the ac circuit is defined by:</p>
-      <FormulaBlock tag="Eq. 7.25(b)" latex={String.raw`Z = \frac{v_m}{i_m}`} />
+      <FormulaBlock tag="Eq. 7.25(b)" latex={String.raw`Z = \frac{V_0}{I_0}`} />
       <FormulaBlock tag="Eq. 7.26" latex={String.raw`Z = \sqrt{R^2 + \left(X_C - X_L\right)^2}`} important />
       <p>Since phasor I is always parallel to <Formula>{String.raw`\mathbf{V}_R`}</Formula>, the phase angle φ is the angle between <Formula>{String.raw`\mathbf{V}_R`}</Formula> and V, determined from the same triangle:</p>
       <FormulaBlock tag="Eq. 7.27" latex={String.raw`\tan\phi = \frac{X_C - X_L}{R}`} important />
@@ -724,14 +768,14 @@ export default function AlternatingCurrentChapter() {
       </Callout>
       <p>A familiar example is a child on a swing: if the child pulls on the rope at regular intervals and the frequency of the pulls is almost the same as the frequency of swinging, the amplitude of the swinging will be large.</p>
       <p>
-        For the driven series RLC circuit, <Formula>{String.raw`i_m = v_m/Z`}</Formula> with{" "}<Formula>{String.raw`X_C = 1/\omega C`}</Formula> and <Formula>{String.raw`X_L = \omega L`}</Formula>. If ω is varied, then
+        For the driven series RLC circuit, <Formula>{String.raw`I_0 = V_0/Z`}</Formula> with{" "}<Formula>{String.raw`X_C = 1/\omega C`}</Formula> and <Formula>{String.raw`X_L = \omega L`}</Formula>. If ω is varied, then
         at a particular frequency <Formula>{String.raw`\omega_0`}</Formula>,{" "}<Formula>{String.raw`X_C = X_L`}</Formula> and the impedance is minimum,{" "}<Formula>{String.raw`Z = \sqrt{R^2 + 0} = R`}</Formula>. This
         frequency is the{" "}<strong>resonant frequency</strong>:
       </p>
       <FormulaBlock tag="Eq. 7.28" label="Resonant frequency" latex={String.raw`\omega_0 = \frac{1}{\sqrt{LC}}`} important />
-      <p>At the resonant frequency the current amplitude is maximum,{" "}<Formula>{String.raw`i_m = v_m/R`}</Formula>.</p>
+      <p>At the resonant frequency the current amplitude is maximum,{" "}<Formula>{String.raw`I_0 = V_0/R`}</Formula>.</p>
       <ResonanceCurve />
-      <p>The figure uses L = 1.00 mH, C = 1.00 nF and <Formula>{String.raw`v_m = 100\ \text{V}`}</Formula> for two values of R: (i) 100 Ω and (ii) 200 Ω. Here{" "}<Formula>{String.raw`\omega_0 = 1/\sqrt{LC} = 1.00\times 10^{6}\ \text{rad/s}`}</Formula>. Since{" "}<Formula>{String.raw`i_m = v_m/R`}</Formula> at resonance, the peak for case (i) is twice that for case (ii).</p>
+      <p>The figure uses L = 1.00 mH, C = 1.00 nF and <Formula>{String.raw`V_0 = 100\ \text{V}`}</Formula> for two values of R: (i) 100 Ω and (ii) 200 Ω. Here{" "}<Formula>{String.raw`\omega_0 = 1/\sqrt{LC} = 1.00\times 10^{6}\ \text{rad/s}`}</Formula>. Since{" "}<Formula>{String.raw`I_0 = V_0/R`}</Formula> at resonance, the peak for case (i) is twice that for case (ii).</p>
       <p>
         Resonant circuits have a variety of applications — for example in the tuning mechanism of a radio or a TV set. The antenna accepts signals from many broadcasting stations, which act as a source that can drive the
         tuning circuit at many frequencies. To hear one particular station we vary the capacitance of the tuning circuit so that its resonant frequency becomes nearly equal to the frequency of that signal; the amplitude
@@ -740,7 +784,7 @@ export default function AlternatingCurrentChapter() {
       <KeyPoint title="Resonance needs both L and C">
         Resonance is exhibited only if <Highlight color="yellow">both L and C are present</Highlight>: only then do the
         voltages across them cancel each other (being out of phase) and the current amplitude becomes{" "}
-        <Formula>{String.raw`v_m/R`}</Formula>, the whole source voltage appearing across R. There is no resonance in a
+        <Formula>{String.raw`V_0/R`}</Formula>, the whole source voltage appearing across R. There is no resonance in a
         pure RL or RC circuit.
       </KeyPoint>
       <p>The <strong>quality factor</strong> Q, listed in the chapter&apos;s table of physical quantities, is defined for a series RLC circuit as:</p>
@@ -768,10 +812,10 @@ export default function AlternatingCurrentChapter() {
       </Expandable>
 
       <h2 id="h-7-7">7.7 Power in AC Circuit: The Power Factor</h2>
-      <p>A voltage <Formula>{String.raw`v = v_m\sin\omega t`}</Formula> applied to a series RLC circuit drives a current{" "}<Formula>{String.raw`i = i_m\sin(\omega t + \phi)`}</Formula>, where{" "}<Formula>{String.raw`i_m = v_m/Z`}</Formula> and{" "}<Formula>{String.raw`\phi = \tan^{-1}\left[\left(X_C - X_L\right)/R\right]`}</Formula>. The instantaneous power supplied by the source is:</p>
-      <FormulaBlock tag="Eq. 7.29" latex={String.raw`p = v\,i = v_m\sin\omega t \times i_m\sin(\omega t + \phi) = \frac{v_m i_m}{2}\left[\cos\phi - \cos(2\omega t + \phi)\right]`} />
+      <p>A voltage <Formula>{String.raw`v = V_0\sin\omega t`}</Formula> applied to a series RLC circuit drives a current{" "}<Formula>{String.raw`i = I_0\sin(\omega t + \phi)`}</Formula>, where{" "}<Formula>{String.raw`I_0 = V_0/Z`}</Formula> and{" "}<Formula>{String.raw`\phi = \tan^{-1}\left[\left(X_C - X_L\right)/R\right]`}</Formula>. The instantaneous power supplied by the source is:</p>
+      <FormulaBlock tag="Eq. 7.29" latex={String.raw`p = v\,i = V_0\sin\omega t \times I_0\sin(\omega t + \phi) = \frac{V_0 I_0}{2}\left[\cos\phi - \cos(2\omega t + \phi)\right]`} />
       <p>Only the second term is time-dependent, and its average over a cycle is zero (the positive half of the cosine cancels the negative half). Therefore:</p>
-      <FormulaBlock tag="Eq. 7.30(a)" latex={String.raw`P = \frac{v_m i_m}{2}\cos\phi = \frac{v_m}{\sqrt{2}}\cdot\frac{i_m}{\sqrt{2}}\cos\phi = V I \cos\phi`} important />
+      <FormulaBlock tag="Eq. 7.30(a)" latex={String.raw`P = \frac{V_0 I_0}{2}\cos\phi = \frac{V_0}{\sqrt{2}}\cdot\frac{I_0}{\sqrt{2}}\cos\phi = V I \cos\phi`} important />
       <FormulaBlock tag="Eq. 7.30(b)" latex={String.raw`P = I^2 Z \cos\phi`} />
       <p>The average power dissipated depends not only on the voltage and current but also on the cosine of the phase angle between them. The quantity <Formula>{String.raw`\cos\phi`}</Formula> is called the{" "}<Highlight color="yellow">power factor</Highlight>.</p>
       <TableCard
@@ -822,7 +866,7 @@ export default function AlternatingCurrentChapter() {
           <FormulaBlock latex={String.raw`\phi = \tan^{-1}\frac{X_C - X_L}{R} = \tan^{-1}\frac{4 - 8}{3} = -53.1^\circ`} important />
           <p>Since φ is negative, the current in the circuit lags the voltage across the source.</p>
           <p><strong>(c)</strong> The power dissipated in the circuit is <Formula>{String.raw`P = I^2 R`}</Formula>, with</p>
-          <FormulaBlock latex={String.raw`I = \frac{i_m}{\sqrt{2}} = \left(\frac{283}{5}\right)\frac{1}{\sqrt{2}} = 40\ \text{A}`} />
+          <FormulaBlock latex={String.raw`I = \frac{I_0}{\sqrt{2}} = \left(\frac{283}{5}\right)\frac{1}{\sqrt{2}} = 40\ \text{A}`} />
           <FormulaBlock latex={String.raw`P = (40\ \text{A})^2 \times 3\ \Omega = 4800\ \text{W}`} important />
           <p><strong>(d)</strong> Power factor:</p>
           <FormulaBlock latex={String.raw`\cos\phi = \cos\left(-53.1^\circ\right) = 0.6`} important />
@@ -916,8 +960,8 @@ export default function AlternatingCurrentChapter() {
         caption="The chapter's summary table of quantities, their dimensions, units and defining relations."
         headers={["Quantity", "Symbol", "Dimensions", "Unit", "Remarks"]}
         rows={[
-          { cells: ["rms voltage", "V", "[M L² T⁻³ A⁻¹]", "V", <>V = v_m/√2, where v<sub>m</sub> is the amplitude of the ac voltage</>] },
-          { cells: ["rms current", "I", "[A]", "A", <>I = i<sub>m</sub>/√2, where i<sub>m</sub> is the amplitude of the ac current</>] },
+          { cells: ["rms voltage", "V", "[M L² T⁻³ A⁻¹]", "V", <>V = V_0/√2, where V<sub>0</sub> is the amplitude of the ac voltage</>] },
+          { cells: ["rms current", "I", "[A]", "A", <>I = I<sub>0</sub>/√2, where I<sub>0</sub> is the amplitude of the ac current</>] },
           { cells: ["Inductive reactance", "X_L", "[M L² T⁻³ A⁻²]", "Ω", <>X<sub>L</sub> = ωL</>] },
           { cells: ["Capacitive reactance", "X_C", "[M L² T⁻³ A⁻²]", "Ω", <>X<sub>C</sub> = 1/ωC</>] },
           { cells: ["Impedance", "Z", "[M L² T⁻³ A⁻²]", "Ω", "Depends on the elements present in the circuit"] },
@@ -956,7 +1000,7 @@ export default function AlternatingCurrentChapter() {
           ]}
           answers={[
             <><strong>(a)</strong> <Formula>{String.raw`I = V/R = 220/100 = 2.2\ \text{A}`}</Formula>. <strong>(b)</strong> <Formula>{String.raw`P = I^2R = (2.2)^2 \times 100 = 484\ \text{W}`}</Formula> — the same as <Formula>{String.raw`VI`}</Formula>.</>,
-            <><strong>(a)</strong> <Formula>{String.raw`V = v_m/\sqrt{2} = 300/1.414 = 212.1\ \text{V}`}</Formula>. <strong>(b)</strong> <Formula>{String.raw`i_m = \sqrt{2}\,I = 1.414 \times 10 = 14.1\ \text{A}`}</Formula>.</>,
+            <><strong>(a)</strong> <Formula>{String.raw`V = V_0/\sqrt{2} = 300/1.414 = 212.1\ \text{V}`}</Formula>. <strong>(b)</strong> <Formula>{String.raw`I_0 = \sqrt{2}\,I = 1.414 \times 10 = 14.1\ \text{A}`}</Formula>.</>,
             <><Formula>{String.raw`X_L = 2\pi\nu L = 2\pi(50)(44\times 10^{-3}) = 13.8\ \Omega`}</Formula>, so <Formula>{String.raw`I = V/X_L = 220/13.8 = 15.9\ \text{A}`}</Formula>.</>,
             <><Formula>{String.raw`X_C = \frac{1}{2\pi\nu C} = \frac{1}{2\pi(60)(60\times 10^{-6})} = 44.2\ \Omega`}</Formula>, so <Formula>{String.raw`I = V/X_C = 110/44.2 = 2.49\ \text{A}`}</Formula>.</>,
             <>Zero in both cases. A pure inductor and a pure capacitor have <Formula>{String.raw`\phi = \pi/2`}</Formula>, so{" "}
@@ -970,7 +1014,7 @@ export default function AlternatingCurrentChapter() {
               <Formula>{String.raw`\omega_0 = \frac{1}{\sqrt{LC}} = \frac{1}{\sqrt{5.0 \times 80\times 10^{-6}}} = 50\ \text{rad/s}`}</Formula>,
               i.e. <Formula>{String.raw`\nu_0 = 50/2\pi = 8.0\ \text{Hz}`}</Formula>. <strong>(b)</strong> At resonance{" "}
               <Formula>{String.raw`Z = R = 40\ \Omega`}</Formula>, so{" "}
-              <Formula>{String.raw`i_m = v_m/Z = 230\sqrt{2}/40 = 8.1\ \text{A}`}</Formula>. <strong>(c)</strong>{" "}
+              <Formula>{String.raw`I_0 = V_0/Z = 230\sqrt{2}/40 = 8.1\ \text{A}`}</Formula>. <strong>(c)</strong>{" "}
               <Formula>{String.raw`I = 230/40 = 5.75\ \text{A}`}</Formula>;{" "}
               <Formula>{String.raw`X_L = \omega_0 L = 250\ \Omega`}</Formula> gives <Formula>{String.raw`V_L = 1437\ \text{V}`}</Formula>{" "}
               and <Formula>{String.raw`X_C = 1/(\omega_0 C) = 250\ \Omega`}</Formula> gives{" "}
