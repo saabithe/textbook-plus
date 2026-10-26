@@ -16,29 +16,118 @@ import { STRUCTURES } from "./structures.generated";
 export default function HaloalkanesAndHaloarenesChapter() {
   return (
     <>
-      <Callout type="didyouknow">
-        <strong>Chloramphenicol</strong> — a chlorine-containing antibiotic from microorganisms — is
-        very effective against typhoid fever. Our body makes the iodine-containing hormone{" "}
-        <strong>thyroxine</strong>; its deficiency causes <strong>goitre</strong>. Synthetic halogen
-        compounds include <strong>chloroquine</strong> (malaria) and <strong>halothane</strong> (an
-        anaesthetic used during surgery), and certain fully fluorinated compounds are being
-        considered as potential blood substitutes.
+      <h2 id="h-6-intro">🧪 Introduction: Haloalkanes and Haloarenes</h2>
+
+      <Callout type="note" title="Definition">
+        Replacement of hydrogen atom(s) in an aliphatic or aromatic hydrocarbon by halogen atom(s)
+        results in the formation of <strong>alkyl halides (haloalkanes)</strong> or{" "}
+        <strong>aryl halides (haloarenes)</strong>. In a haloalkane the halogen is bonded to an{" "}
+        <em>sp</em>
+        <sup>3</sup> hybridised carbon of an alkyl group; in a haloarene it is bonded to an{" "}
+        <em>sp</em>
+        <sup>2</sup> hybridised carbon of an aromatic (aryl) group. The single change — sp³ vs sp²
+        carbon bearing the halogen — is what separates the two families and governs their chemistry.
       </Callout>
 
       <p>
-        Replacing hydrogen atom(s) of an aliphatic or aromatic hydrocarbon by halogen atom(s) gives an{" "}
-        <strong>alkyl halide (haloalkane)</strong> or an <strong>aryl halide (haloarene)</strong>{" "}
-        respectively. Haloalkanes contain halogen attached to an <em>sp</em>
-        <sup>3</sup> hybridised carbon of an alkyl group, while haloarenes contain halogen attached to
-        an <em>sp</em>
-        <sup>2</sup> hybridised carbon of an aryl group.
+        A haloalkane such as chloroethane (CH₃—CH₂—Cl) and a haloarene such as chlorobenzene
+        (C₆H₅—Cl) share the same general sketch (a carbon fragment R or Ar carrying a halogen X),
+        but the nature of that carbon is different. The table and the pair of structures below make
+        the distinction concrete.
       </p>
 
+      <TableCard
+        caption="Haloalkane vs haloarene at a glance"
+        headers={["Feature", "Haloalkane (alkyl halide)", "Haloarene (aryl halide)"]}
+        rows={[
+          { cells: ["General formula", "R—X", "Ar—X"] },
+          { cells: ["Carbon bearing X", "sp³, tetrahedral (aliphatic)", "sp², trigonal planar (ring carbon)"] },
+          { cells: ["Carbon group", "Alkyl group R", "Aryl group Ar (aromatic ring)"] },
+          { cells: ["C—X bond", "σ bond, polar and relatively reactive", "σ bond with partial double-bond character (resonance)"] },
+          { cells: ["Characteristic reactions", "Nucleophilic substitution / elimination", "Electrophilic aromatic substitution"] },
+          { cells: ["Archetype", "CH₃CH₂Cl (chloroethane)", "C₆H₅Cl (chlorobenzene)"] },
+        ]}
+      />
+
+      <Comparison
+        columns={[
+          {
+            title: "Haloalkane · R—X",
+            children: (
+              <>
+                <p className="mb-2">
+                  Halogen on an <em>sp</em><sup>3</sup> carbon. Dichloromethane is a representative
+                  alkyl halide.
+                </p>
+                <MoleculeStructure {...STRUCTURES.dichloromethane} maxWidth={360} />
+              </>
+            ),
+          },
+          {
+            title: "Haloarene · Ar—X",
+            children: (
+              <>
+                <p className="mb-2">
+                  Halogen bonded directly to an aromatic ring carbon. Chlorobenzene is the archetype.
+                </p>
+                <MoleculeStructure {...STRUCTURES.chlorobenzene} maxWidth={360} />
+              </>
+            ),
+          },
+        ]}
+      />
+
+      <h2 id="h-6-intro-classification">🔗 Classification & General Formulas</h2>
+
       <p>
-        These compounds are used as solvents for relatively non-polar compounds and as starting
-        materials for the synthesis of a wide range of organic compounds. Halogenated compounds
-        persist in the environment because soil bacteria cannot easily break them down.
+        <strong>💊 Haloalkanes (alkyl halides)</strong>
       </p>
+      <ul className="list-disc pl-6 space-y-1 mb-4">
+        <li>
+          <strong>General formula:</strong> <Formula>{String.raw`\mathrm{R\!-\!X}`}</Formula>
+        </li>
+        <li>
+          <strong>R:</strong> alkyl part — an aliphatic hydrocarbon group (chain or ring).
+        </li>
+        <li>
+          <strong>X:</strong> halogen atom — F, Cl, Br or I.
+        </li>
+        <li>
+          <strong>Example:</strong> CH₃—CH₂—Cl (chloroethane / ethyl chloride).
+        </li>
+      </ul>
+
+      <p>
+        <strong>🛡️ Haloarenes (aryl halides)</strong>
+      </p>
+      <ul className="list-disc pl-6 space-y-1 mb-4">
+        <li>
+          <strong>General formula:</strong> <Formula>{String.raw`\mathrm{Ar\!-\!X}`}</Formula>
+        </li>
+        <li>
+          <strong>Ar:</strong> aryl part — an aromatic ring with the halogen attached directly to a ring
+          carbon.
+        </li>
+        <li>
+          <strong>X:</strong> halogen atom attached to the aromatic ring.
+        </li>
+        <li>
+          <strong>Example:</strong> C₆H₅—Cl (chlorobenzene).
+        </li>
+      </ul>
+
+      <h3 id="h-6-intro-halogens">⚛️ Halogen (X) series</h3>
+      <TableCard
+        caption="The four halogens used as X in R—X / Ar—X"
+        headers={["Symbol", "Halogen", "State at room temp.", "Colour"]}
+        rows={[
+          { cells: ["F", "Fluorine", "Gas", "Pale yellow"] },
+          { cells: ["Cl", "Chlorine", "Gas", "Greenish yellow"] },
+          { cells: ["Br", "Bromine", "Liquid", "Reddish brown"] },
+          { cells: ["I", "Iodine", "Solid", "Greyish black (violet vapour)"] },
+        ]}
+      />
+
 
       <h2 id="h-6-1">6.1 Classification</h2>
 
