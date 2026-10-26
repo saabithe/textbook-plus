@@ -260,6 +260,10 @@ The following content components were deleted as orphans (they only existed for 
 
 Added `ArabicChapterCard` (the opening card on every Arabic chapter: author/orator, genre, collapsed author details) and `BilingualParagraph` (one Arabic paragraph + its English translation). `AuthorCard` gained optional `subname`, `role`, `genre`, `genreArabic`, `initials` and `dir` props — the 16 English pages are unchanged. Inventory: **50 files**.
 
+### 12.8 Oct 2026 — Evolution chapter components
+
+Added **TopicIndex** (top-level navigation: responsive grid of anchor cards `{ id, icon, label, note? }` that jump to headings on the same page; plain `<a href="#id">`, works without JS, one open card per heading) and a **Biology (5)** folder: `HomologousForelimbsDiagram` (same six colour-coded bone groups across whale flipper, bat wing, cheetah foreleg and human arm), `FinchBeaksDiagram` (one ancestral finch radiating into four beaks), `FossilLayersDiagram` (five strata, deeper = older, each with its fossil), `MillerApparatusDiagram` (spark chamber, condenser, trap and boiling flask) and `BrainSizeBars` (650–1400 cc along the human line, pure HTML/CSS bars). All five are static — no client JS, inline SVG or CSS only. Inventory: **56 files**.
+
 ### 13.1 V3 "Quiet Precision" Shell Design (Sep 2026)
 
 Replaced the flat white + loud per-element colors with a disciplined system. Rules:
