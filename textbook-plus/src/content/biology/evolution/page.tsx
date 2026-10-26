@@ -11,12 +11,10 @@ import { Timeline } from "@/components/content/process/Timeline";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { TopicIndex } from "@/components/content/TopicIndex";
 import { BrainSizeBars } from "@/components/content/biology/BrainSizeBars";
 import { FinchBeaksDiagram } from "@/components/content/biology/FinchBeaksDiagram";
-import { FossilLayersDiagram } from "@/components/content/biology/FossilLayersDiagram";
-import { HomologousForelimbsDiagram } from "@/components/content/biology/HomologousForelimbsDiagram";
 import { MillerApparatusDiagram } from "@/components/content/biology/MillerApparatusDiagram";
+import { PocketGrid } from "@/components/content/PocketGrid";
 
 export default function EvolutionChapter() {
   return (
@@ -241,7 +239,7 @@ export default function EvolutionChapter() {
           { cells: ["Trap", "Collects the water carrying the organic compounds formed."] },
         ]}
       />
-      <MillerApparatusDiagram />
+      <MillerApparatusDiagram compact />
       <KeyPoint title="Primary product formed">
         Amino acids.
       </KeyPoint>
@@ -321,49 +319,16 @@ export default function EvolutionChapter() {
       />
 
       <h2 id="h-6-3">6.3 What are the Evidences for Evolution?</h2>
-      <TopicIndex
-        title="Six kinds of evidence"
+      <PocketGrid
+        title="Tap a pocket to open its evidence"
         items={[
           {
             id: "h-6-3-fossils",
             icon: "🦴",
-            label: "Palaeontological",
+            label: "1. Palaeontological",
             note: "Fossils and the rock record.",
-          },
-          {
-            id: "h-6-3-homology",
-            icon: "🫀",
-            label: "Morphological and anatomical",
-            note: "Homology and analogy.",
-          },
-          {
-            id: "h-6-3-biochemistry",
-            icon: "🧬",
-            label: "Biochemical",
-            note: "Proteins, genes and the central dogma.",
-          },
-          {
-            id: "h-6-3-biogeography",
-            icon: "🗺️",
-            label: "Biogeographical",
-            note: "Distribution and adaptive radiation.",
-          },
-          {
-            id: "h-6-3-embryology",
-            icon: "🥚",
-            label: "Embryological",
-            note: "Features shared by embryos.",
-          },
-          {
-            id: "h-6-3-moth",
-            icon: "🦋",
-            label: "Natural selection",
-            note: "Industrial melanism and resistance.",
-          },
-        ]}
-      />
-
-      <h3 id="h-6-3-fossils">1. Palaeontological evidences</h3>
+            content: (
+              <>
       <Callout type="important" title="Palaeontology and fossils">
         <strong>Palaeontology</strong> is the study of fossils.{" "}
         <Highlight color="yellow">Fossils are hard remains of life-forms preserved in rocks.</Highlight>
@@ -373,7 +338,6 @@ export default function EvolutionChapter() {
         sediments arranged one over the other across the long history of the earth, and different-aged sediments
         contain the fossils of life-forms that died while that sediment was forming.
       </p>
-      <FossilLayersDiagram />
       <TableCard
         title="What the fossil record tells us"
         headers={["What is studied", "Example"]}
@@ -412,7 +376,16 @@ export default function EvolutionChapter() {
         as avian characters, so it is a connecting link between reptiles and birds.
       </KeyPoint>
 
-      <h3 id="h-6-3-homology">2. Morphological and anatomical evidences</h3>
+              </>
+            ),
+          },
+          {
+            id: "h-6-3-homology",
+            icon: "🫀",
+            label: "2. Morphological and anatomical",
+            note: "Homology and analogy.",
+            content: (
+              <>
       <Callout type="important" title="Homologous organs (homology)">
         Organs with a{" "}
         <Highlight color="yellow">similar internal structure but different functions</Highlight>, suited to different
@@ -431,7 +404,6 @@ export default function EvolutionChapter() {
           In plants, the <strong>thorns of Bougainvillea</strong> and the <strong>tendrils of Cucurbita</strong>.
         </li>
       </ul>
-      <HomologousForelimbsDiagram />
       <Callout type="important" title="Analogous organs (analogy)">
         Organs with{" "}
         <Highlight color="yellow">different internal structures but the same function</Highlight>, suited to similar
@@ -471,7 +443,16 @@ export default function EvolutionChapter() {
         ]}
       />
 
-      <h3 id="h-6-3-biochemistry">3. Biochemical evidences</h3>
+              </>
+            ),
+          },
+          {
+            id: "h-6-3-biochemistry",
+            icon: "🧬",
+            label: "3. Biochemical",
+            note: "Proteins, genes and the central dogma.",
+            content: (
+              <>
       <p>
         Organisms show striking similarities in proteins, genes, other biomolecules and metabolic pathways. Such
         biochemical uniformity is strong evidence of <Highlight color="yellow">common ancestry</Highlight> for diverse
@@ -481,15 +462,92 @@ export default function EvolutionChapter() {
         DNA → mRNA → Protein — the same flow of information in all of them.
       </KeyPoint>
 
-      <h3 id="h-6-3-biogeography">4. Biogeographical evidences</h3>
-      <p>
-        The distribution of organisms over geographical areas is itself evidence of evolution — an ancestral stock
-        that reaches an isolated area diversifies into many forms. The classic case is{" "}
-        <strong>adaptive radiation</strong>, taken up in the next section (§6.4) with Darwin&apos;s finches and the
-        marsupials of Australia — including the marsupial–placental look-alikes that make convergence visible.
-      </p>
+              </>
+            ),
+          },
+          {
+            id: "h-6-3-biogeography",
+            icon: "🗺️",
+            label: "4. Biogeographical and adaptive radiation",
+            note: "Distribution, finches and marsupials.",
+            content: (
+              <>
+                <p>
+                  The distribution of organisms over geographical areas is itself evidence of evolution: an ancestral
+                  stock that reaches an isolated area diversifies into many forms.
+                </p>
+                <Callout type="important" title="Adaptive radiation">
+                  Evolution of different species in a given geographical area starting from one point and radiating
+                  into other habitats is called <Highlight color="yellow">adaptive radiation</Highlight>.
+                </Callout>
+                <p>
+                  On the <strong>Galapagos Islands</strong>, Darwin found small black birds —{" "}
+                  <strong>Darwin&apos;s finches</strong>.
+                </p>
+                <ul className="list-disc pl-5 space-y-1.5">
+                  <li><strong>Many varieties</strong> — several kinds of finch lived on the same island.</li>
+                  <li><strong>One origin</strong> — he conjectured that all of them evolved on the island itself.</li>
+                  <li>
+                    <strong>Beaks changed with diet</strong> — from the original seed-eating form arose insectivorous
+                    and vegetarian finches.
+                  </li>
+                </ul>
+                <FinchBeaksDiagram />
+                <TableCard
+                  title="Two classic examples"
+                  headers={["Example", "Where", "What radiated from what"]}
+                  rows={[
+                    {
+                      cells: [
+                        "Darwin's finches",
+                        "Galapagos Islands",
+                        "From the seed-eating ancestor arose insectivorous and vegetarian forms.",
+                      ],
+                    },
+                    {
+                      cells: [
+                        "Australian marsupials",
+                        "The Australian island continent",
+                        "Many different marsupials evolved from one ancestral stock.",
+                      ],
+                    },
+                  ]}
+                />
+                <p>
+                  When more than one adaptive radiation occurs in the same isolated area, the resemblance between the
+                  independently evolved forms is called{" "}
+                  <Highlight color="yellow">convergent evolution</Highlight>.
+                </p>
+                <TableCard
+                  title="Marsupial and placental look-alikes"
+                  headers={["Placental mammal", "Australian marsupial"]}
+                  rows={[
+                    { cells: ["Mole", "Marsupial mole"] },
+                    { cells: ["Anteater", "Numbat"] },
+                    { cells: ["Mouse", "Marsupial mouse"] },
+                    { cells: ["Lemur", "Spotted cuscus"] },
+                    { cells: ["Flying squirrel", "Flying phalanger"] },
+                    { cells: ["Bobcat", "Tasmanian tiger cat"] },
+                    { cells: ["Wolf", "Tasmanian wolf"] },
+                  ]}
+                  caption="Resemblance here is analogy, not shared ancestry."
+                />
+                <MistakeCard
+                  mistake="Adaptive radiation and convergent evolution are the same phenomenon."
+                  correction="Adaptive radiation starts from one point and radiates into many forms. When more than one such radiation occurs in the same isolated area, the resemblance between the independently evolved forms is convergence."
+                  example="Australian marsupials radiated; a placental wolf resembling the Tasmanian wolf is convergence."
+                />
 
-      <h3 id="h-6-3-embryology">5. Embryological evidences</h3>
+              </>
+            ),
+          },
+          {
+            id: "h-6-3-embryology",
+            icon: "🥚",
+            label: "5. Embryological",
+            note: "Features shared by embryos.",
+            content: (
+              <>
       <p>
         Embryological support for evolution was proposed by <strong>Ernst Heckel</strong>, based upon the observation
         of certain features during the embryonic stage that are common to all vertebrates but absent in the adult.
@@ -508,12 +566,16 @@ export default function EvolutionChapter() {
         that <Highlight color="yellow">embryos never pass through the adult stages of other animals</Highlight>.
       </Callout>
 
-      <h3 id="h-6-3-moth">6. Evidences for evolution by natural selection</h3>
-      <p>
-        Man has bred plants and animals for agriculture, sport and security, creating breeds that differ from one
-        another but still belong to the same group. If man can do that in hundreds of years, why not nature over
-        millions?
-      </p>
+              </>
+            ),
+          },
+          {
+            id: "h-6-3-moth",
+            icon: "🦋",
+            label: "6. Natural selection",
+            note: "Industrial melanism and resistance.",
+            content: (
+              <>
       <p>
         A famous test case comes from England — the peppered moth, sampled before and after industrialisation.
       </p>
@@ -542,8 +604,11 @@ export default function EvolutionChapter() {
         ]}
       />
       <Callout type="note" title="Lichens as pollution indicators">
-        Lichens do not grow in polluted air, so their disappearance from the trunks is what changed the background
-        colour.
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Lichens do not grow in polluted air.</li>
+          <li>Their disappearance left the trunks bare and dark.</li>
+          <li>That changed which moth was conspicuous.</li>
+        </ul>
       </Callout>
       <KeyPoint title="What the moth story shows">
         In a mixed population, the better-adapted form survives and increases — but{" "}
@@ -565,79 +630,18 @@ export default function EvolutionChapter() {
           Hence resistant organisms/cells are appearing in a time scale of <strong>months or years</strong> and not
           centuries.
         </li>
-        <li>These are examples of evolution by <strong>anthropogenic action</strong>.</li>
       </ul>
       <Callout type="important" title="Evolution has no goal">
         Evolution is <Highlight color="yellow">not a directed process in the sense of determinism</Highlight>. It is
         a <strong>stochastic process</strong> based on chance events in nature and chance mutation in the organisms.
       </Callout>
-
-      <h2 id="h-6-4">6.4 What is Adaptive Radiation?</h2>
-      <p>
-        On the <strong>Galapagos Islands</strong>, Darwin found small black birds — later called{" "}
-        <strong>Darwin&apos;s finches</strong>.
-      </p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li><strong>Many varieties</strong> — several kinds of finch lived on the same island.</li>
-        <li><strong>One origin</strong> — he conjectured that all of them evolved on the island itself.</li>
-        <li>
-          <strong>Beaks changed with diet</strong> — from the original seed-eating form arose insectivorous and
-          vegetarian finches.
-        </li>
-      </ul>
-      <FinchBeaksDiagram />
-      <Callout type="important" title="Adaptive radiation">
-        This process of evolution of different species in a given geographical area starting from a point and
-        literally radiating to other areas of geography (habitats) is called{" "}
-        <Highlight color="yellow">adaptive radiation</Highlight>.
-      </Callout>
-      <TableCard
-        title="Two classic examples"
-        headers={["Example", "Where it happened", "What radiated from what"]}
-        rows={[
-          {
-            cells: [
-              "Darwin's finches",
-              "Galapagos Islands — the same island",
-              "From the original seed-eating features, many other forms with altered beaks arose, becoming insectivorous and vegetarian finches.",
-            ],
-          },
-          {
-            cells: [
-              "Australian marsupials",
-              "The Australian island continent",
-              "A number of marsupials, each different from the other, evolved from an ancestral stock — all within the same continent.",
-            ],
+              </>
+            ),
           },
         ]}
       />
-      <p>
-        When more than one adaptive radiation appears to have occurred in an isolated geographical area (representing
-        different habitats), one can call this <Highlight color="yellow">convergent evolution</Highlight>. Placental
-        mammals in Australia also exhibit adaptive radiation, evolving into varieties of placental mammals each of
-        which appears to be &apos;similar&apos; to a corresponding marsupial.
-      </p>
-      <TableCard
-        title="Marsupial and placental look-alikes"
-        headers={["Placental mammal", "Australian marsupial"]}
-        rows={[
-          { cells: ["Mole", "Marsupial mole"] },
-          { cells: ["Anteater", "Numbat"] },
-          { cells: ["Mouse", "Marsupial mouse"] },
-          { cells: ["Lemur", "Spotted cuscus"] },
-          { cells: ["Flying squirrel", "Flying phalanger"] },
-          { cells: ["Bobcat", "Tasmanian tiger cat"] },
-          { cells: ["Wolf", "Tasmanian wolf"] },
-        ]}
-        caption="Each marsupial resembles a placental mammal that evolved independently elsewhere — resemblance here is analogy, not shared ancestry."
-      />
-      <MistakeCard
-        mistake="Adaptive radiation and convergent evolution are the same phenomenon."
-        correction="Adaptive radiation starts from one point and radiates into many forms and habitats. When more than one such radiation occurs in the same isolated area, the resemblance between the independently evolved forms is called convergent evolution."
-        example="Australian marsupials radiated; a placental wolf resembling the Tasmanian wolf is convergence."
-      />
 
-      <h2 id="h-6-5">6.5 Biological Evolution</h2>
+      <h2 id="h-6-4">6.4 Biological Evolution</h2>
       <p>
         Evolution by natural selection, in a true sense, would have started when{" "}
         <strong>cellular forms of life with differences in metabolic capability</strong> originated on earth.
@@ -690,7 +694,7 @@ export default function EvolutionChapter() {
         Darwinian theory of evolution.
       </KeyPoint>
 
-      <h3 id="h-6-5-lamarck">Lamarck — use and disuse of organs</h3>
+      <h3 id="h-6-4-lamarck">Lamarck — use and disuse of organs</h3>
       <p>
         Even before Darwin, the French naturalist <strong>Lamarck</strong> argued that evolution is driven by{" "}
         <strong>use and disuse of organs</strong>.
@@ -743,7 +747,7 @@ export default function EvolutionChapter() {
         whether to regard evolution and natural selection as processes or as the end result of unknown processes.
       </Callout>
 
-      <h3 id="h-6-5-malthus">Malthus and the logic of natural selection</h3>
+      <h3 id="h-6-4-malthus">Malthus and the logic of natural selection</h3>
       <p>
         It is possible that the work of <strong>Thomas Malthus</strong> on populations influenced Darwin. Natural
         selection is based on certain observations which are factual.
@@ -770,7 +774,7 @@ export default function EvolutionChapter() {
         more progeny, there is a change in population characteristic, and hence new forms appear to arise.
       </KeyPoint>
 
-      <h2 id="h-6-6">6.6 Mechanism of Evolution</h2>
+      <h2 id="h-6-5">6.5 Mechanism of Evolution</h2>
       <p>
         What is the origin of variation, and how does speciation occur? Darwin either ignored Mendel&apos;s
         inheritable &apos;factors&apos; or stayed silent about them.
@@ -809,7 +813,7 @@ export default function EvolutionChapter() {
         example="Antibiotic resistance appears in bacteria whether or not the antibiotic is present; the drug only selects the resistant ones."
       />
 
-      <h2 id="h-6-7">6.7 Hardy-Weinberg Principle</h2>
+      <h2 id="h-6-6">6.6 Hardy-Weinberg Principle</h2>
       <p>
         In a population, the frequency of alleles of a gene or locus tends to remain fixed through the generations.
         The <strong>Hardy-Weinberg principle</strong> states this in algebraic form.
@@ -859,7 +863,7 @@ export default function EvolutionChapter() {
         </ul>
       </Expandable>
 
-      <h3 id="h-6-7-factors">Five factors that disturb the equilibrium</h3>
+      <h3 id="h-6-6-factors">Five factors that disturb the equilibrium</h3>
       <TableCard
         title="Factors known to affect Hardy–Weinberg equilibrium"
         headers={["Factor", "What it does"]}
@@ -904,7 +908,7 @@ export default function EvolutionChapter() {
         population look like a different population altogether.
       </p>
 
-      <h3 id="h-6-7-modes">What natural selection does to a trait</h3>
+      <h3 id="h-6-6-modes">What natural selection does to a trait</h3>
       <TableCard
         title="Three modes of natural selection"
         headers={["Mode", "What happens to individuals"]}
@@ -920,7 +924,7 @@ export default function EvolutionChapter() {
         ]}
       />
 
-      <h2 id="h-6-8">6.8 A Brief Account of Evolution</h2>
+      <h2 id="h-6-7">6.7 A Brief Account of Evolution</h2>
       <p>
         About 2000 mya the first cellular life appeared. Some cells could release O₂ — much as the light reaction of
         photosynthesis splits water — and single cells slowly became multicellular.
@@ -953,7 +957,7 @@ export default function EvolutionChapter() {
         </li>
       </ul>
 
-      <h3 id="h-6-8-vertebrates">From fish to mammals</h3>
+      <h3 id="h-6-7-vertebrates">From fish to mammals</h3>
       <TableCard
         title="The vertebrate succession"
         headers={["Group", "Key innovation", "What became of it"]}
@@ -1002,7 +1006,7 @@ export default function EvolutionChapter() {
         survive, only their descendants — frogs and salamanders.
       </Callout>
 
-      <h3 id="h-6-8-mammals">Mammals take over</h3>
+      <h3 id="h-6-7-mammals">Mammals take over</h3>
       <p>Once the reptiles declined, mammals took over the earth.</p>
       <TableCard
         title="After the dinosaurs: what mammals changed"
@@ -1034,7 +1038,7 @@ export default function EvolutionChapter() {
         caption="Continental drift explains why South America's mammals were replaced while Australia's pouched mammals survived."
       />
 
-      <h2 id="h-6-9">6.9 Origin and Evolution of Man</h2>
+      <h2 id="h-6-8">6.8 Origin and Evolution of Man</h2>
       <p>
         About 15 mya, <strong>Dryopithecus</strong> and <strong>Ramapithecus</strong> lived. Both were hairy and walked
         like gorillas, but Ramapithecus was more man-like and Dryopithecus more ape-like.

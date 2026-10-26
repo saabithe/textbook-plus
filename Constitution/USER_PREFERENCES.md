@@ -264,6 +264,14 @@ Added `ArabicChapterCard` (the opening card on every Arabic chapter: author/orat
 
 Added **TopicIndex** (top-level navigation: responsive grid of anchor cards `{ id, icon, label, note? }` that jump to headings on the same page; plain `<a href="#id">`, works without JS, one open card per heading) and a **Biology (5)** folder: `HomologousForelimbsDiagram` (same six colour-coded bone groups across whale flipper, bat wing, cheetah foreleg and human arm), `FinchBeaksDiagram` (one ancestral finch radiating into four beaks), `FossilLayersDiagram` (five strata, deeper = older, each with its fossil), `MillerApparatusDiagram` (spark chamber, condenser, trap and boiling flask) and `BrainSizeBars` (650–1400 cc along the human line, pure HTML/CSS bars). All five are static — no client JS, inline SVG or CSS only. Inventory: **56 files**.
 
+### 12.9 Oct 2026 — Pocket grid, real images, and the vehicle rule
+
+**PocketGrid** (`src/components/content/PocketGrid.tsx`, top-level navigation) — a responsive grid of "pockets". Each pocket stores a full note as `content`; closed it shows only icon + label + one-line note; clicking opens it in place, the card expands to full grid width and renders its content; one open at a time; clicking the open pocket closes it; `#id` deep links open the matching pocket. The Evolution chapter's six evidences now live in six pockets, and the standalone "6.4 What is Adaptive Radiation?" section was folded into the biogeographical pocket — that chapter's sections now run 6.1–6.8.
+
+**Real images over hand-drawn anatomy (user mandate).** Inline SVG is right for *schematic* subjects — apparatus, strata, processes, abstract graphs, waves. It is **wrong** for anatomical, biological or real-world subjects (bones, organs, organisms, specimens): those get a real, freely licensed image instead. Source from Wikimedia Commons (public domain / CC0 / CC BY / CC BY-SA only), save under `public/images/{subject}/{chapter-slug}/` with a descriptive kebab-case name, and caption with source + licence. `HomologousForelimbsDiagram` and `FossilLayersDiagram` were deleted under this rule; homologous forelimbs now shows a sourced image, and the fossil-strata diagram was dropped entirely.
+
+**Vehicle rule, restated.** Every block of content gets the vehicle that suits it: a pocket grid for a set of parallel notes, `TableCard` for multi-attribute comparison, `Comparison` for two sides, `Stepper`/`ProcessCard` for a sequence, `Callout` for a definition, a diagram or image for anything visual. Reproduce this decision-making on every chapter — never dump text.
+
 ### 13.1 V3 "Quiet Precision" Shell Design (Sep 2026)
 
 Replaced the flat white + loud per-element colors with a disciplined system. Rules:

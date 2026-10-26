@@ -33,10 +33,13 @@ function GlassPipe({ d }: { d: string }) {
 
 interface MillerApparatusDiagramProps {
   title?: string;
+  /** Scale the drawing down and centre it — use when the diagram is supporting, not the focus. */
+  compact?: boolean;
 }
 
 export function MillerApparatusDiagram({
   title = "The Urey–Miller apparatus",
+  compact = false,
 }: MillerApparatusDiagramProps) {
   return (
     <div className="my-6 rounded-2xl border border-border/60 bg-card p-4 shadow-sm">
@@ -44,7 +47,7 @@ export function MillerApparatusDiagram({
 
       <svg
         viewBox="0 0 620 420"
-        className="h-auto w-full"
+        className={compact ? "mx-auto h-auto w-full max-w-[19rem]" : "h-auto w-full"}
         role="img"
         aria-label="Schematic of the Urey–Miller apparatus: a large flask holding methane, ammonia, hydrogen and water vapour, with two electrodes and an electric spark; vapour passes right into a condenser and drips into a trap of water and organic compounds, while the mixture circulates back down to a boiling flask heated by a flame."
       >

@@ -39,10 +39,9 @@ import { WaveAnatomyDiagram } from "@/components/content/physics/WaveAnatomyDiag
 import { DisplacementExplorer } from "@/components/content/physics/DisplacementExplorer";
 import { TopicSwitch } from "@/components/content/TopicSwitch";
 import { TopicIndex } from "@/components/content/TopicIndex";
+import { PocketGrid } from "@/components/content/PocketGrid";
 import { BrainSizeBars } from "@/components/content/biology/BrainSizeBars";
 import { FinchBeaksDiagram } from "@/components/content/biology/FinchBeaksDiagram";
-import { FossilLayersDiagram } from "@/components/content/biology/FossilLayersDiagram";
-import { HomologousForelimbsDiagram } from "@/components/content/biology/HomologousForelimbsDiagram";
 import { MillerApparatusDiagram } from "@/components/content/biology/MillerApparatusDiagram";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -434,6 +433,57 @@ export default function DesignGallery() {
           {/* ── NAVIGATION ──────────────────────────────────────── */}
           <Section title="Navigation">
             <div>
+              <Label text="PocketGrid — each pocket holds its own note; one open at a time, hash deep links" />
+              <PocketGrid
+                title="Tap a pocket to open its evidence"
+                items={[
+                  {
+                    id: "gallery-pocket-one",
+                    icon: "🦴",
+                    label: "1. Palaeontological",
+                    note: "Fossils and the rock record.",
+                    content: (
+                      <>
+                        <p>
+                          Rocks form by sedimentation, so deeper layers are older. Fossils in successive layers fix
+                          the period in which those organisms lived.
+                        </p>
+                        <KeyPoint title="Connecting link">
+                          <em>Archaeopteryx</em> carries reptilian and avian characters — a bridge between reptiles
+                          and birds.
+                        </KeyPoint>
+                      </>
+                    ),
+                  },
+                  {
+                    id: "gallery-pocket-two",
+                    icon: "🧬",
+                    label: "2. Biochemical",
+                    note: "Proteins, genes and the central dogma.",
+                    content: (
+                      <p>
+                        DNA → mRNA → protein is the same flow of information in every organism, which points to a
+                        shared ancestry.
+                      </p>
+                    ),
+                  },
+                  {
+                    id: "gallery-pocket-three",
+                    icon: "🥚",
+                    label: "3. Embryological",
+                    note: "Features shared by embryos.",
+                    content: (
+                      <p>
+                        Vertebrate embryos all develop a row of vestigial gill slits, though they are functional only
+                        in fish.
+                      </p>
+                    ),
+                  },
+                ]}
+              />
+            </div>
+
+            <div>
               <Label text="TopicIndex — anchor-card grid that jumps to headings on the same page" />
               <TopicIndex
                 title="Six kinds of evidence"
@@ -544,18 +594,8 @@ export default function DesignGallery() {
           {/* ── BIOLOGY DIAGRAMS ────────────────────────────────── */}
           <Section title="Biology Diagrams">
             <div>
-              <Label text="HomologousForelimbsDiagram — same bone plan, four functions" />
-              <HomologousForelimbsDiagram />
-            </div>
-
-            <div>
               <Label text="FinchBeaksDiagram — adaptive radiation in Darwin's finches" />
               <FinchBeaksDiagram />
-            </div>
-
-            <div>
-              <Label text="FossilLayersDiagram — deeper strata are older" />
-              <FossilLayersDiagram />
             </div>
 
             <div>
