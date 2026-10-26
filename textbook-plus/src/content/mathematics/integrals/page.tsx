@@ -311,6 +311,66 @@ export default function IntegralsChapter() {
               <Formula key="v14">{String.raw`\frac{a^x}{\log a} + C`}</Formula>,
             ],
           },
+          {
+            cells: [
+              <Formula key="s22">{String.raw`\int 0\,dx`}</Formula>,
+              <Formula key="v22">{String.raw`C`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="s23">{String.raw`\int k\,dx,\ k\in\mathbb{R}`}</Formula>,
+              <Formula key="v23">{String.raw`kx + C`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="s24">{String.raw`\int \sqrt{x}\,dx`}</Formula>,
+              <Formula key="v24">{String.raw`\frac{2}{3}x^{3/2} + C`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="s25">{String.raw`\int \frac{1}{x^{2}}\,dx`}</Formula>,
+              <Formula key="v25">{String.raw`-\frac{1}{x} + C`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="s26">{String.raw`\int \frac{1}{\sqrt{x}}\,dx`}</Formula>,
+              <Formula key="v26">{String.raw`2\sqrt{x} + C`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="s27">{String.raw`\int \tan x\,dx`}</Formula>,
+              <Formula key="v27">{String.raw`-\log|\cos x| + C = \log|\sec x| + C`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="s28">{String.raw`\int \cot x\,dx`}</Formula>,
+              <Formula key="v28">{String.raw`\log|\sin x| + C`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="s29">{String.raw`\int \sec x\,dx`}</Formula>,
+              <Formula key="v29">{String.raw`\log|\sec x+\tan x| + C`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="s30">{String.raw`\int \csc x\,dx`}</Formula>,
+              <Formula key="v30">{String.raw`\log|\csc x-\cot x| + C`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="s31">{String.raw`\int e^{ax}\,dx,\ a\neq 0`}</Formula>,
+              <Formula key="v31">{String.raw`\frac{e^{ax}}{a} + C`}</Formula>,
+            ],
+          },
         ]}
         caption="sin⁻¹ and −cos⁻¹ differ by π/2, absorbed into C; the general forms below scale by a."
       />
@@ -2585,7 +2645,128 @@ export default function IntegralsChapter() {
         />
       </Expandable>
 
-      <SpeedTricks>
+      
+      <h2 id="h-7-manip">Supplementary worked examples</h2>
+      <p>
+        These sit on top of the numbered examples above: they collect the kinds of
+        manipulation that exam papers favour, and each one keeps full step-by-step
+        working so no intermediate algebra is hidden.
+      </p>
+
+      <Expandable title="Worked Examples 45–54 · Manipulation and initial value problems">
+        <div className="space-y-5">
+          <div>
+            <p><strong>Example 45.</strong> Find{" "}
+              <Formula>{String.raw`\int \left(\sqrt{x}-\frac{1}{\sqrt{x}}\right)^{2}dx`}</Formula>.
+            </p>
+            <p><strong>Solution.</strong> Expand first using <Formula>{String.raw`(a-b)^{2}=a^{2}-2ab+b^{2}`}</Formula>:</p>
+            <FormulaBlock latex={String.raw`\left(\sqrt{x}-\frac{1}{\sqrt{x}}\right)^{2}=x-2+\frac{1}{x}`} />
+            <FormulaBlock latex={String.raw`\int \left(x-2+\frac{1}{x}\right)dx=\frac{x^{2}}{2}-2x+\log|x|+C`} />
+          </div>
+          <div>
+            <p><strong>Example 46.</strong> Find{" "}
+              <Formula>{String.raw`\int \frac{1-\sin x}{\cos^{2}x}\,dx`}</Formula>.
+            </p>
+            <p><strong>Solution.</strong> Split the fraction into standard forms:</p>
+            <FormulaBlock latex={String.raw`\int \frac{1-\sin x}{\cos^{2}x}\,dx=\int \sec^{2}x\,dx-\int \sec x\tan x\,dx`} />
+            <FormulaBlock latex={String.raw`=\tan x-\sec x+C`} />
+          </div>
+          <div>
+            <p><strong>Example 47.</strong> Find{" "}
+              <Formula>{String.raw`\int \frac{2-3\sin x}{\cos^{2}x}\,dx`}</Formula>.
+            </p>
+            <p><strong>Solution.</strong></p>
+            <FormulaBlock latex={String.raw`\int \frac{2-3\sin x}{\cos^{2}x}\,dx=2\int \sec^{2}x\,dx-3\int \sec x\tan x\,dx`} />
+            <FormulaBlock latex={String.raw`=2\tan x-3\sec x+C`} />
+          </div>
+          <div>
+            <p><strong>Example 48.</strong> Find{" "}
+              <Formula>{String.raw`\int \frac{x^{3}+5x^{2}-4}{x^{2}}\,dx`}</Formula>.
+            </p>
+            <p><strong>Solution.</strong> Divide every term by <Formula>{String.raw`x^{2}`}</Formula>:</p>
+            <FormulaBlock latex={String.raw`\int \left(x+5-\frac{4}{x^{2}}\right)dx=\frac{x^{2}}{2}+5x+\frac{4}{x}+C`} />
+          </div>
+          <div>
+            <p><strong>Example 49.</strong> Find{" "}
+              <Formula>{String.raw`\int \frac{x^{3}-x^{2}+x-1}{x-1}\,dx`}</Formula>.
+            </p>
+            <p><strong>Solution.</strong> Factor by grouping and cancel the common factor:</p>
+            <FormulaBlock latex={String.raw`\frac{x^{3}-x^{2}+x-1}{x-1}=\frac{x^{2}(x-1)+1(x-1)}{x-1}=x^{2}+1`} />
+            <FormulaBlock latex={String.raw`\int (x^{2}+1)\,dx=\frac{x^{3}}{3}+x+C`} />
+          </div>
+          <div>
+            <p><strong>Example 50.</strong> Find{" "}
+              <Formula>{String.raw`\int \frac{x^{3}+3x+4}{\sqrt{x}}\,dx`}</Formula>.
+            </p>
+            <p><strong>Solution.</strong> Rewrite radicals and combine exponents:</p>
+            <FormulaBlock latex={String.raw`\int \left(x^{5/2}+3x^{1/2}+4x^{-1/2}\right)dx`} />
+            <FormulaBlock latex={String.raw`=\frac{2}{7}x^{7/2}+2x^{3/2}+8\sqrt{x}+C`} />
+          </div>
+          <div>
+            <p><strong>Example 51.</strong> Find{" "}
+              <Formula>{String.raw`\int \frac{\sec^{2}x}{\csc^{2}x}\,dx`}</Formula>.
+            </p>
+            <p><strong>Solution.</strong> Convert to sine and cosine, then use the tangent identity:</p>
+            <FormulaBlock latex={String.raw`\int \frac{\sin^{2}x}{\cos^{2}x}\,dx=\int \tan^{2}x\,dx=\int (\sec^{2}x-1)\,dx`} />
+            <FormulaBlock latex={String.raw`= \tan x - x + C`} />
+          </div>
+          <div>
+            <p><strong>Example 52.</strong> Find{" "}
+              <Formula>{String.raw`\int \cot^{2}x\,dx`}</Formula>.
+            </p>
+            <p><strong>Solution.</strong> Use <Formula>{String.raw`\cot^{2}x=\csc^{2}x-1`}</Formula>:</p>
+            <FormulaBlock latex={String.raw`\int (\csc^{2}x-1)\,dx=-\cot x - x + C`} />
+          </div>
+          <div>
+            <p><strong>Example 53.</strong> Find{" "}
+              <Formula>{String.raw`\int \frac{x^{2}}{x^{2}+1}\,dx`}</Formula>.
+            </p>
+            <p><strong>Solution.</strong> Adjust the numerator:</p>
+            <FormulaBlock latex={String.raw`\int \frac{x^{2}}{x^{2}+1}\,dx=\int \left(1-\frac{1}{x^{2}+1}\right)dx`} />
+            <FormulaBlock latex={String.raw`=x-\tan^{-1}x+C`} />
+          </div>
+          <div>
+            <p><strong>Example 54.</strong> Find{" "}
+              <Formula>{String.raw`\int \sec x(\sec x+\tan x)\,dx`}</Formula>.
+            </p>
+            <p><strong>Solution.</strong></p>
+            <FormulaBlock latex={String.raw`\int (\sec^{2}x+\sec x\tan x)\,dx=\tan x+\sec x+C`} />
+          </div>
+          <div>
+            <p><strong>Example 55 (initial value problem).</strong> Given <Formula>{String.raw`\frac{d}{dx}f(x)=\sec^{2}x`}</Formula> and <Formula>{String.raw`f(45^{\circ})=3`}</Formula>, find <Formula>{String.raw`f(x)`}</Formula>.</p>
+            <p><strong>Solution.</strong> Integrate to get <Formula>{String.raw`f(x)=\tan x+C`}</Formula>, then use the condition: <Formula>{String.raw`1+C=3`}</Formula>, so <Formula>{String.raw`C=2`}</Formula>.</p>
+            <FormulaBlock latex={String.raw`f(x)=\tan x+2`} />
+          </div>
+        </div>
+      </Expandable>
+
+      <Expandable title="Supplementary Exercise 7.11">
+        <p>A compact mixed bank drawn from the manipulation above.</p>
+        <ExerciseQa
+          questions={[
+            <span key="sq1"><Formula>{String.raw`\int \left(\sqrt{x}-\frac{1}{\sqrt{x}}\right)^{2}dx`}</Formula></span>,
+            <span key="sq2"><Formula>{String.raw`\int \frac{1-\sin x}{\cos^{2}x}\,dx`}</Formula></span>,
+            <span key="sq3"><Formula>{String.raw`\int \frac{2-3\sin x}{\cos^{2}x}\,dx`}</Formula></span>,
+            <span key="sq4"><Formula>{String.raw`\int \frac{x^{3}-x^{2}+x-1}{x-1}\,dx`}</Formula></span>,
+            <span key="sq5"><Formula>{String.raw`\int \frac{x^{2}}{x^{2}+1}\,dx`}</Formula></span>,
+            <span key="sq6"><Formula>{String.raw`\int \frac{\sec^{2}x}{\csc^{2}x}\,dx`}</Formula></span>,
+            <span key="sq7"><Formula>{String.raw`\int \frac{x^{3}+3x+4}{\sqrt{x}}\,dx`}</Formula></span>,
+            <span key="sq8"><Formula>{String.raw`\int \sec x(\sec x+\tan x)\,dx`}</Formula></span>,
+          ]}
+          answers={[
+            <span key="sa1"><Formula>{String.raw`\frac{x^{2}}{2}-2x+\log|x|+C`}</Formula></span>,
+            <span key="sa2"><Formula>{String.raw`\tan x-\sec x+C`}</Formula></span>,
+            <span key="sa3"><Formula>{String.raw`2\tan x-3\sec x+C`}</Formula></span>,
+            <span key="sa4"><Formula>{String.raw`\frac{x^{3}}{3}+x+C`}</Formula></span>,
+            <span key="sa5"><Formula>{String.raw`x-\tan^{-1}x+C`}</Formula></span>,
+            <span key="sa6"><Formula>{String.raw`\tan x-x+C`}</Formula></span>,
+            <span key="sa7"><Formula>{String.raw`\frac{2}{7}x^{7/2}+2x^{3/2}+8\sqrt{x}+C`}</Formula></span>,
+            <span key="sa8"><Formula>{String.raw`\tan x+\sec x+C`}</Formula></span>,
+          ]}
+        />
+      </Expandable>
+
+<SpeedTricks>
         <ul className="list-disc pl-5 space-y-2">
           <li>
             <strong>Check by differentiating.</strong> An indefinite integral is never
