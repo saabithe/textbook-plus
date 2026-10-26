@@ -32,22 +32,9 @@ export default function HaloalkanesAndHaloarenesChapter() {
       <p>
         A haloalkane such as chloroethane (CH₃—CH₂—Cl) and a haloarene such as chlorobenzene
         (C₆H₅—Cl) share the same general sketch (a carbon fragment R or Ar carrying a halogen X),
-        but the nature of that carbon is different. The table and the pair of structures below make
-        the distinction concrete.
+        but the nature of that carbon is different. The pair of structures below make the distinction
+        concrete.
       </p>
-
-      <TableCard
-        caption="Haloalkane vs haloarene at a glance"
-        headers={["Feature", "Haloalkane (alkyl halide)", "Haloarene (aryl halide)"]}
-        rows={[
-          { cells: ["General formula", "R—X", "Ar—X"] },
-          { cells: ["Carbon bearing X", "sp³, tetrahedral (aliphatic)", "sp², trigonal planar (ring carbon)"] },
-          { cells: ["Carbon group", "Alkyl group R", "Aryl group Ar (aromatic ring)"] },
-          { cells: ["C—X bond", "σ bond, polar and relatively reactive", "σ bond with partial double-bond character (resonance)"] },
-          { cells: ["Characteristic reactions", "Nucleophilic substitution / elimination", "Electrophilic aromatic substitution"] },
-          { cells: ["Archetype", "CH₃CH₂Cl (chloroethane)", "C₆H₅Cl (chlorobenzene)"] },
-        ]}
-      />
 
       <Comparison
         columns={[
@@ -79,54 +66,23 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h2 id="h-6-intro-classification">🔗 Classification & General Formulas</h2>
 
-      <p>
-        <strong>💊 Haloalkanes (alkyl halides)</strong>
-      </p>
-      <ul className="list-disc pl-6 space-y-1 mb-4">
-        <li>
-          <strong>General formula:</strong> <Formula>{String.raw`\mathrm{R\!-\!X}`}</Formula>
-        </li>
-        <li>
-          <strong>R:</strong> alkyl part — an aliphatic hydrocarbon group (chain or ring).
-        </li>
-        <li>
-          <strong>X:</strong> halogen atom — F, Cl, Br or I.
-        </li>
-        <li>
-          <strong>Example:</strong> CH₃—CH₂—Cl (chloroethane / ethyl chloride).
-        </li>
-      </ul>
-
-      <p>
-        <strong>🛡️ Haloarenes (aryl halides)</strong>
-      </p>
-      <ul className="list-disc pl-6 space-y-1 mb-4">
-        <li>
-          <strong>General formula:</strong> <Formula>{String.raw`\mathrm{Ar\!-\!X}`}</Formula>
-        </li>
-        <li>
-          <strong>Ar:</strong> aryl part — an aromatic ring with the halogen attached directly to a ring
-          carbon.
-        </li>
-        <li>
-          <strong>X:</strong> halogen atom attached to the aromatic ring.
-        </li>
-        <li>
-          <strong>Example:</strong> C₆H₅—Cl (chlorobenzene).
-        </li>
-      </ul>
-
-      <h3 id="h-6-intro-halogens">⚛️ Halogen (X) series</h3>
       <TableCard
-        caption="The four halogens used as X in R—X / Ar—X"
-        headers={["Symbol", "Halogen", "State at room temp.", "Colour"]}
+        caption="General formulas at a glance"
+        headers={["", "💊 Haloalkanes (alkyl halides)", "🛡️ Haloarenes (aryl halides)"]}
         rows={[
-          { cells: ["F", "Fluorine", "Gas", "Pale yellow"] },
-          { cells: ["Cl", "Chlorine", "Gas", "Greenish yellow"] },
-          { cells: ["Br", "Bromine", "Liquid", "Reddish brown"] },
-          { cells: ["I", "Iodine", "Solid", "Greyish black (violet vapour)"] },
+          { cells: ["General formula", "R—X", "Ar—X"] },
+          { cells: ["R / Ar part", "Alkyl group — an aliphatic hydrocarbon (chain or ring)", "Aryl group — an aromatic ring, X on a ring carbon"] },
+          { cells: ["X", "Halogen atom (F, Cl, Br, I)", "Halogen atom attached to the aromatic ring"] },
+          { cells: ["Example", "CH₃—CH₂—Cl (chloroethane / ethyl chloride)", "C₆H₅—Cl (chlorobenzene)"] },
+          { cells: ["Hybridisation of carbon bearing X", "sp³ (tetrahedral)", "sp² (trigonal planar)"] },
         ]}
       />
+
+      <h3 id="h-6-intro-halogens">⚛️ Halogen (X) series</h3>
+      <p>
+        X is one of the four halogens: <strong>F</strong> (fluorine), <strong>Cl</strong> (chlorine),{" "}
+        <strong>Br</strong> (bromine) or <strong>I</strong> (iodine).
+      </p>
 
 
       <h2 id="h-6-1">6.1 Classification</h2>
