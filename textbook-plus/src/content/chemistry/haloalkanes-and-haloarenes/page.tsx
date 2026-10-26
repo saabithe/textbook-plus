@@ -10,6 +10,8 @@ import { ConceptCard } from "@/components/content/concept/ConceptCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { MoleculeStructure } from "@/components/content/chemistry/MoleculeStructure";
+import { STRUCTURES } from "./structures.generated";
 
 export default function HaloalkanesAndHaloarenesChapter() {
   return (
@@ -349,6 +351,8 @@ export default function HaloalkanesAndHaloarenesChapter() {
       </p>
 
       <FormulaBlock latex={String.raw`\text{CH}_3\text{CH=CH}_2 + \text{Br}_2 \rightarrow \text{CH}_3\text{CH(Br)CH}_2\text{Br}`} />
+
+      <MoleculeStructure {...STRUCTURES.dibromopropane} />
 
       <h3 id="h-6-4-3">6.4.3 Halogen Exchange</h3>
 
@@ -781,6 +785,11 @@ export default function HaloalkanesAndHaloarenesChapter() {
         rotation of plane-polarised light.
       </p>
 
+      <div className="my-6 grid gap-3 sm:grid-cols-2">
+        <MoleculeStructure {...STRUCTURES.butan_2_ol_r} maxWidth={300} className="my-0" />
+        <MoleculeStructure {...STRUCTURES.butan_2_ol_s} maxWidth={300} className="my-0" />
+      </div>
+
       <FactCard
         title="Racemic mixture"
         definition="A mixture of two enantiomers in equal proportions has zero optical rotation, because the rotations cancel. It is called a racemic mixture or racemic modification, written with the prefix dl or (±), e.g. (±)-butan-2-ol. Converting an enantiomer into a racemic mixture is racemisation."
@@ -961,6 +970,8 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </li>
       </ol>
 
+      <MoleculeStructure {...STRUCTURES.chlorobenzene} maxWidth={380} />
+
       <p>
         <strong>Replacement by a hydroxyl group.</strong> Chlorobenzene can be converted into phenol by
         heating in aqueous sodium hydroxide at 623 K and 300 atmospheres.
@@ -1044,6 +1055,8 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <FormulaBlock latex={String.raw`2\text{C}_6\text{H}_5\text{Cl} + 2\text{Na} \xrightarrow{\text{dry ether}} \text{C}_6\text{H}_5\text{—C}_6\text{H}_5 + 2\text{NaCl}`} />
 
+      <MoleculeStructure {...STRUCTURES.biphenyl} maxWidth={440} />
+
       <Expandable
         title="Intext 6.3 — Dihalogen derivatives of propane"
         variant="exercise"
@@ -1099,6 +1112,8 @@ export default function HaloalkanesAndHaloarenesChapter() {
         cornea.
       </p>
 
+      <MoleculeStructure {...STRUCTURES.dichloromethane} maxWidth={340} />
+
       <h3 id="h-6-8-2">6.8.2 Trichloromethane (Chloroform, CHCl₃)</h3>
 
       <p>
@@ -1110,6 +1125,8 @@ export default function HaloalkanesAndHaloarenesChapter() {
         chloroform is metabolised to phosgene) and the kidneys.
       </p>
 
+      <MoleculeStructure {...STRUCTURES.trichloromethane} maxWidth={340} />
+
       <Callout type="warning" title="Chloroform must be stored in the dark">
         <p>
           Chloroform is slowly oxidised by air in the presence of light to the extremely poisonous gas
@@ -1119,6 +1136,8 @@ export default function HaloalkanesAndHaloarenesChapter() {
         <FormulaBlock latex={String.raw`2\text{CHCl}_3 + \text{O}_2 \xrightarrow{\text{light}} 2\text{COCl}_2 + 2\text{HCl}`} />
       </Callout>
 
+      <MoleculeStructure {...STRUCTURES.phosgene} maxWidth={340} />
+
       <h3 id="h-6-8-3">6.8.3 Triiodomethane (Iodoform, CHI₃)</h3>
 
       <p>
@@ -1126,6 +1145,8 @@ export default function HaloalkanesAndHaloarenesChapter() {
         free iodine and not to iodoform itself. Because of its objectionable smell it has been replaced
         by other formulations containing iodine.
       </p>
+
+      <MoleculeStructure {...STRUCTURES.triiodomethane} maxWidth={340} />
 
       <h3 id="h-6-8-4">6.8.4 Tetrachloromethane (Carbon tetrachloride, CCl₄)</h3>
 
@@ -1147,6 +1168,8 @@ export default function HaloalkanesAndHaloarenesChapter() {
         to skin cancer, eye diseases and disorders, and possible disruption of the immune system.
       </p>
 
+      <MoleculeStructure {...STRUCTURES.tetrachloromethane} maxWidth={340} />
+
       <h3 id="h-6-8-5">6.8.5 Freons</h3>
 
       <p>
@@ -1158,6 +1181,8 @@ export default function HaloalkanesAndHaloarenesChapter() {
       </p>
 
       <FormulaBlock latex={String.raw`\text{CCl}_4 + 2\text{SbF}_3 \xrightarrow{\text{SbCl}_5} \text{CCl}_2\text{F}_2 + 2\text{SbCl}_3`} />
+
+      <MoleculeStructure {...STRUCTURES.freon_12} maxWidth={340} />
 
       <p>
         Most freon, even that used in refrigeration, eventually reaches the atmosphere, where it diffuses
@@ -1182,6 +1207,8 @@ export default function HaloalkanesAndHaloarenesChapter() {
         ingestion continues at a steady rate it builds up over time. The use of DDT was banned in the
         United States in 1973, although it is still used in some other parts of the world.
       </p>
+
+      <MoleculeStructure {...STRUCTURES.ddt} maxWidth={520} />
 
       <MistakeCard
         mistake="Treating 'Sₙ1 racemises, Sₙ2 inverts' as a fact to memorise without knowing why."

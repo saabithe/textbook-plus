@@ -21,16 +21,18 @@
 
 | # | Chapter | Slug | Status |
 |---|---------|------|--------|
-| 1 | Solutions | `solutions` | 🔲 Pending |
-| 2 | Electrochemistry | `electrochemistry` | 🔲 Pending |
-| 3 | Chemical Kinetics | `chemical-kinetics` | 🔲 Pending |
-| 4 | The d- and f-Block Elements | `d-and-f-block-elements` | 🔲 Pending |
-| 5 | Coordination Compounds | `coordination-compounds` | 🔲 Pending |
-| 6 | Haloalkanes and Haloarenes | `haloalkanes-and-haloarenes` | 🔲 Pending |
-| 7 | Alcohols, Phenols and Ethers | `alcohols-phenols-and-ethers` | 🔲 Pending |
-| 8 | Aldehydes, Ketones and Carboxylic Acids | `aldehydes-ketones-and-carboxylic-acids` | 🔲 Pending |
-| 9 | Amines | `amines` | 🔲 Pending |
-| 10 | Biomolecules | `biomolecules` | 🔲 Pending |
+| 1 | Solutions | `solutions` | ✅ Content |
+| 2 | Electrochemistry | `electrochemistry` | ✅ Content |
+| 3 | Chemical Kinetics | `chemical-kinetics` | ✅ Content |
+| 4 | The d- and f-Block Elements | `d-and-f-block-elements` | ✅ Content |
+| 5 | Coordination Compounds | `coordination-compounds` | ✅ Content |
+| 6 | Haloalkanes and Haloarenes | `haloalkanes-and-haloarenes` | ✅ Content |
+| 7 | Alcohols, Phenols and Ethers | `alcohols-phenols-and-ethers` | ✅ Content |
+| 8 | Aldehydes, Ketones and Carboxylic Acids | `aldehydes-ketones-and-carboxylic-acids` | ✅ Content |
+| 9 | Amines | `amines` | ✅ Content |
+| 10 | Biomolecules | `biomolecules` | ✅ Content |
+
+**Structure figures status:** every chapter still needs its `structures.json` authored and generated (see "Chemical Structure Figures" below).
 
 ---
 
@@ -57,12 +59,12 @@ Chemistry follows the **master 16-step pipeline** with subject-specific content 
 | Step | Name | Description | Component Suggestions |
 |------|------|-------------|----------------------|
 | 8 | Understanding | Auto-generate foundation → bridge → content | Callout, KeyPoint, FactCard |
-| 9 | Transform + Exam | Auto-suggest components, user approves | **FlowDiagram**, **CycleDiagram**, **TableCard**, ConceptCard, FormulaBlock, ProcessCard |
-| 10 | Learning | Auto-generate practice content | MistakeCard, GuidedStepper, ProblemSolution |
+| 9 | Transform + Exam | Auto-suggest components, user approves | **EquationLadder**, **CycleDiagram**, **TableCard**, ConceptCard, FormulaBlock, ProcessCard |
+| 10 | Learning | Auto-generate practice content | MistakeCard, Stepper, ProblemSolution |
 | 11 | Revision | Generate 3 views (Full → Revision → Last-Minute) | Expandable, Checklist, Timeline |
 | 12 | Validate | Automated accuracy + completeness check | — |
 
-**Step 9 component suggestions:** Chemistry chapters typically need FlowDiagram (reaction mechanisms), CycleDiagram (catalytic cycles), TableCard (periodic trends, property comparisons), ConceptCard (element groups, compound families), FormulaBlock (balanced equations), ProcessCard (sequential reaction steps). AI suggests per chapter, user approves.
+**Step 9 component suggestions:** Chemistry chapters typically need EquationLadder (reaction sequences), CycleDiagram (catalytic cycles), TableCard (periodic trends, property comparisons), ConceptCard (element groups, compound families), FormulaBlock (balanced equations), ProcessCard (sequential reaction steps), MoleculeStructure (every structure the chapter depicts). AI suggests per chapter, user approves.
 
 **Step 10 notes:** Include reaction equation practice, mechanism questions, and common naming errors. Mix is AI-decided per chapter based on content.
 
@@ -79,9 +81,35 @@ Chemistry follows the **master 16-step pipeline** with subject-specific content 
 
 ## Chemistry-Specific Rules
 
+### Chemical Structure Figures (mandatory, never hand-drawn)
+
+Every compound the chapter depicts is generated — not drawn:
+
+| Artifact | Path |
+| --- | --- |
+| Source of truth (authored) | `src/content/chemistry/{slug}/structures.json` — SMILES + formula + `ncertName` + source |
+| Generated (committed, never hand-edited) | `src/content/chemistry/{slug}/structures.generated.ts` |
+| Renderer | `src/components/content/chemistry/MoleculeStructure.tsx` |
+| Toolchain | `scripts/chem/` — see `scripts/chem/README.md` |
+
+```powershell
+npm run chem:build -- --chapter <slug>   # gates G1–G5
+npm run chem:sheet -- --chapter <slug>   # gate G6 — review PNG for the user
+npm run chem:check                        # gate G7 — also runs in npm run build
+```
+
+Rules:
+- The **SMILES is the only chemical truth**. Never hand-edit an SVG.
+- `ncertName` must appear verbatim in `{slug}-extracted.md`; a compound the chapter never mentions cannot be drawn.
+- Formula and mass are recomputed from the SMILES and must match the authored values.
+- Stereo must be claimed (`"stereo": true`) **and** visible as a wedge/dash in the drawing.
+- One **contact-sheet PNG** per chapter goes to the user for sign-off before merge. Nothing merges without it.
+- A structure that fails a gate is **deleted, not patched**.
+- Not automatable — keep hand-authored SVG: curly-arrow mechanisms, crystal lattices/unit cells, chair/Newman conformations, orbital and crystal-field diagrams, multi-step industrial flow schemes.
+
 ### Reaction Handling
 - **Balanced equations** must be rendered with `FormulaBlock`
-- Use `FlowDiagram` for multi-step reaction mechanisms
+- Use `EquationLadder` for multi-step reaction sequences
 - Use `CycleDiagram` for catalytic cycles, reaction loops
 - Use `ProcessCard` for sequential reaction steps
 
@@ -91,9 +119,11 @@ Chemistry follows the **master 16-step pipeline** with subject-specific content 
 - Use `TreeDiagram` for classification hierarchies (e.g., organic compound types)
 
 ### Organic Chemistry
-- Use `FlowDiagram` for reaction pathways (e.g., alcohol → aldehyde → carboxylic acid)
+- Use `MoleculeStructure` for every structure the chapter depicts (see "Chemical Structure Figures" above)
+- Use `EquationLadder` for reaction pathways (e.g., alcohol → aldehyde → carboxylic acid)
 - Use `Comparison` for side-by-side reaction comparisons
 - Use `MistakeCard` for common naming errors, functional group confusion
+- Curly-arrow mechanisms are hand-authored SVG overlays — never auto-generated
 
 ### Physical Chemistry
 - Use `FormulaCard` for equations (thermodynamics, kinetics, equilibrium)

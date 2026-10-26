@@ -2,3 +2,8 @@ Developer_Deliveries/
 Pending/
 
 .vercel
+
+# Authoring-time chemistry toolchain (Python venv) — never shipped, never built on Vercel
+scripts/chem/.venv/
+__pycache__/
+*.pyc

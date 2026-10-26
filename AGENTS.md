@@ -26,6 +26,9 @@ npm run build        # production build — runs scripts/generate-sw.js then nex
 npm run lint         # eslint
 npm run typecheck    # tsc --noEmit — fast type check, no build needed
 node scripts/verify-latex.cjs   # run after any content-math change: renders every formula through KaTeX, fails on error
+npm run chem:build -- --chapter <slug>   # regenerate chemistry structure SVGs from structures.json (gates G1–G5)
+npm run chem:sheet -- --chapter <slug>   # write the chapter's structure contact-sheet PNG for user review (gate G6)
+npm run chem:check                       # structure lint (gate G7) — also runs inside npm run build
 ```
 
 **Note**: `dev` and `build` both use `--webpack` (Windows SWC binary workaround). Vercel/Linux also needs it.
@@ -61,7 +64,7 @@ Types live in `src/types/chapter.ts`.
 
 **English chapter-text.md**: cleaned, readable version of the textbook pages at `src/content/english/{slug}/chapter-text.md` — complete chapter text (story/poem/speech/play) + About the Author + Read and Respond questions. Single source of truth for authoring `page.tsx`. No OCR artifacts, interleaved activities, or supplementary readings.
 
-**Custom content components** (`src/components/content/`, 50 files; canonical inventory in `Constitution/USER_PREFERENCES.md` §12). **They live in category subfolders** — Core/English-Arabic/`OrgChart` are flat at the top level, the rest are in `data/`, `process/`, `concept/`, `study/`, `physics/`. Import path follows the folder: `@/components/content/Callout` but `@/components/content/data/TableCard` / `@/components/content/physics/WaveAnatomyDiagram`.
+**Custom content components** (`src/components/content/`, canonical inventory in `Constitution/USER_PREFERENCES.md` §12). **They live in category subfolders** — Core/English-Arabic/`OrgChart` are flat at the top level, the rest are in `data/`, `process/`, `concept/`, `study/`, `physics/`, `chemistry/`. Import path follows the folder: `@/components/content/Callout` but `@/components/content/data/TableCard` / `@/components/content/physics/WaveAnatomyDiagram` / `@/components/content/chemistry/MoleculeStructure`.
 
 *Core (top-level):* Callout, Example, KeyPoint, Comparison, Expandable, Formula (exports `Formula` + `FormulaBlock`), FormulaCard, ProblemSolution, SolvedProblem, ExerciseQa, SpeedTricks, Stepper, Highlight
 
@@ -76,6 +79,8 @@ Types live in `src/types/chapter.ts`.
 *English/Arabic (top-level):* ChapterIntro, ArabicChapterCard, BilingualParagraph, CharacterSketch, CharacterComparison, ContentTabs, CollapsibleSection, SummaryLevels, ReadRespond
 
 *Physics (`physics/`):* SpectrumExplorer, SpectrumTable, OscillationPlayer, PropagationExplorer, AmpereSurfaceToggle, ChargeFateTrio, TransverseLongitudinal, FormulaAnatomy, SpeedLayers, FieldRatio, DisplacementExplorer, WaveTypesPanels, WaveAnatomyDiagram
+
+*Chemistry (`chemistry/`):* MoleculeStructure — renders an inline, theme-aware SVG generated at authoring time from a committed SMILES string. Never hand-drawn, never fetched. See "Chemical Structure Figures" below.
 
 *Top-level:* OrgChart, TopicSwitch (navigation — card list that opens one format pane at a time, used by the merged discourse pages; see Key Architecture)
 
@@ -100,6 +105,24 @@ Chapters not registered show "Content coming soon...".
 3. Register the dynamic import in the matching router map (chapter-content.tsx / grammar-content.tsx / discourse-content.tsx)
 4. Add the registry key to `QUESTION_KEYS` + `questionLoaders` + `flashcardLoaders` in `src/lib/content.ts` (enables the Practice tab)
 5. Run `node scripts/verify-latex.cjs` and `npm run build`
+
+### Chemical Structure Figures (chemistry — mandatory, never hand-drawn)
+
+Structure drawings are **generated at authoring time from a committed SMILES string**, then committed as SVG. The app ships no chemistry engine and never fetches an image. Full spec: `.opencode/plans/plan_0001.md`; tool docs: `scripts/chem/README.md`.
+
+```
+src/content/chemistry/{slug}/structures.json          ← authored: smiles, formula, ncertName, source
+src/content/chemistry/{slug}/structures.generated.ts  ← generated, committed, NEVER hand-edited
+```
+
+```tsx
+import { STRUCTURES } from "./structures.generated";
+<MoleculeStructure {...STRUCTURES.chloroform} caption="…" />
+```
+
+Seven gates: **G1** `ncertName` appears verbatim in `{slug}-extracted.md` (blocks invented compounds) · **G2** SMILES parses/sanitizes · **G3** computed formula matches the authored one · **G4** mass matches · **G5** stereo survives and a claimed wedge is visible · **G6** the user signs off on a per-chapter contact-sheet PNG · **G7** `scripts/check-structures.cjs` (runs in `npm run build`) blocks stale files, orphan/unused keys, leftover black ink (dark mode), scripts/links, and size blowout.
+
+**Accepted-but-not-automated:** curly-arrow mechanisms, crystal lattices/unit cells, chair/Newman conformations, orbital and crystal-field diagrams, multi-step flow schemes — these stay hand-authored SVG. **A structure that fails a gate is deleted, not patched.**
 
 ## Data Model
 

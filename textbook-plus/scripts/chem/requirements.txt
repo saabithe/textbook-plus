@@ -1,0 +1,4 @@
+# Chemical structure pipeline — authoring-time only.
+# Never installed on Vercel: generated files are committed.
+rdkit==2026.9.1
+pillow>=10

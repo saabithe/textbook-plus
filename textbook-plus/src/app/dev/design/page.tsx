@@ -43,6 +43,8 @@ import { PocketGrid } from "@/components/content/PocketGrid";
 import { BrainSizeBars } from "@/components/content/biology/BrainSizeBars";
 import { FinchBeaksDiagram } from "@/components/content/biology/FinchBeaksDiagram";
 import { MillerApparatusDiagram } from "@/components/content/biology/MillerApparatusDiagram";
+import { MoleculeStructure } from "@/components/content/chemistry/MoleculeStructure";
+import { STRUCTURES } from "@/content/chemistry/haloalkanes-and-haloarenes/structures.generated";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -606,6 +608,24 @@ export default function DesignGallery() {
             <div>
               <Label text="BrainSizeBars — brain capacity along the human line" />
               <BrainSizeBars />
+            </div>
+          </Section>
+
+          {/* ── CHEMISTRY STRUCTURES ────────────────────────────── */}
+          <Section title="Chemistry Structures">
+            <div>
+              <Label text="MoleculeStructure — small molecule, boxed (phosgene)" />
+              <MoleculeStructure {...STRUCTURES.phosgene} />
+            </div>
+
+            <div>
+              <Label text="MoleculeStructure — stereocentre with wedge/dash, capped width" />
+              <MoleculeStructure {...STRUCTURES.butan_2_ol_r} maxWidth={320} />
+            </div>
+
+            <div>
+              <Label text="MoleculeStructure — large aromatic structure, plain variant" />
+              <MoleculeStructure {...STRUCTURES.ddt} variant="plain" maxWidth={440} />
             </div>
           </Section>
         </div>

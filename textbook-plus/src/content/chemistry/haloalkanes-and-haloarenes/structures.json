@@ -1,0 +1,105 @@
+{
+  "dichloromethane": {
+    "smiles": "ClCCl",
+    "name": "Dichloromethane",
+    "ncertName": ["Dichloromethane"],
+    "caption": "Both chlorines and both hydrogens sit on the one carbon.",
+    "formula": "CH2Cl2",
+    "source": "§6.8.1, p.187",
+    "size": [380, 260]
+  },
+  "trichloromethane": {
+    "smiles": "ClC(Cl)Cl",
+    "name": "Trichloromethane (chloroform)",
+    "ncertName": ["Trichloromethane"],
+    "caption": "One hydrogen is left on the carbon — the bond that air and light attack.",
+    "formula": "CHCl3",
+    "source": "§6.8.2, p.187"
+  },
+  "triiodomethane": {
+    "smiles": "IC(I)I",
+    "name": "Triiodomethane (iodoform)",
+    "ncertName": ["Triiodomethane"],
+    "caption": "Three large iodine atoms crowded onto a single carbon.",
+    "formula": "CHI3",
+    "source": "§6.8.3, p.187"
+  },
+  "tetrachloromethane": {
+    "smiles": "ClC(Cl)(Cl)Cl",
+    "name": "Tetrachloromethane (carbon tetrachloride)",
+    "ncertName": ["Tetrachloromethane"],
+    "caption": "No hydrogen at all, so there is no C–H bond for oxidation to attack.",
+    "formula": "CCl4",
+    "source": "§6.8.4, p.188"
+  },
+  "phosgene": {
+    "smiles": "O=C(Cl)Cl",
+    "name": "Phosgene (carbonyl chloride)",
+    "ncertName": ["phosgene"],
+    "caption": "Two chlorines on a carbonyl carbon — a far better electrophile than the CHCl₃ it came from.",
+    "formula": "COCl2",
+    "source": "§6.8.2, p.187"
+  },
+  "freon_12": {
+    "smiles": "FC(F)(Cl)Cl",
+    "name": "Freon-12 (dichlorodifluoromethane)",
+    "ncertName": ["Freon 12", "dichlorodifluoromethane"],
+    "caption": "Two fluorines and two chlorines replacing the four chlorines of CCl₄.",
+    "formula": "CCl2F2",
+    "source": "§6.8.5, p.188"
+  },
+  "ddt": {
+    "smiles": "ClC(Cl)(Cl)C(c1ccc(Cl)cc1)c1ccc(Cl)cc1",
+    "name": "DDT",
+    "ncertName": ["DDT"],
+    "caption": "A CCl₃ group and two para-chlorinated rings carried on one carbon.",
+    "formula": "C14H9Cl5",
+    "source": "§6.8.6, p.188",
+    "size": [560, 340]
+  },
+  "chlorobenzene": {
+    "smiles": "Clc1ccccc1",
+    "name": "Chlorobenzene",
+    "ncertName": ["Chlorobenzene"],
+    "caption": "The chlorine is bonded to an sp² ring carbon, not to an sp³ chain carbon.",
+    "formula": "C6H5Cl",
+    "source": "§6.7.2, p.181",
+    "size": [400, 320]
+  },
+  "biphenyl": {
+    "smiles": "c1ccc(-c2ccccc2)cc1",
+    "name": "Biphenyl (diphenyl)",
+    "ncertName": ["biphenyl", "diphenyl"],
+    "caption": "Two benzene rings joined directly by a single C–C bond.",
+    "formula": "C12H10",
+    "source": "§6.7.2(3), p.186",
+    "size": [460, 300]
+  },
+  "butan_2_ol_r": {
+    "smiles": "CC[C@@H](C)O",
+    "name": "(R)-Butan-2-ol",
+    "ncertName": ["butan-2-ol"],
+    "caption": "(R)-Butan-2-ol: four different groups on C-2, so the mirror image is a different molecule.",
+    "formula": "C4H10O",
+    "source": "§6.7.1(1)(c), Fig. 6.6, pp.176–177",
+    "stereo": true
+  },
+  "butan_2_ol_s": {
+    "smiles": "CC[C@H](C)O",
+    "name": "(S)-Butan-2-ol",
+    "ncertName": ["butan-2-ol"],
+    "caption": "(S)-Butan-2-ol: the mirror image of its neighbour, and not superimposable on it.",
+    "formula": "C4H10O",
+    "source": "§6.7.1(1)(c), Fig. 6.6, pp.176–177",
+    "stereo": true
+  },
+  "dibromopropane": {
+    "smiles": "CC(Br)CBr",
+    "name": "1,2-Dibromopropane",
+    "ncertName": ["dibromopropane", "vic-dibromide"],
+    "caption": "One bromine on each of two adjacent carbons — the vic-dibromide that decolourises bromine water.",
+    "formula": "C3H6Br2",
+    "source": "§6.4.2(II), p.165",
+    "size": [400, 280]
+  }
+}

@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "node scripts/generate-sw.js && next build --webpack",
+    "build": "node scripts/generate-sw.js && node scripts/check-structures.cjs && next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "chem:build": "node scripts/chem/py.cjs build_structures.py",
+    "chem:sheet": "node scripts/chem/py.cjs contact_sheet.py",
+    "chem:check": "node scripts/check-structures.cjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

@@ -272,6 +272,18 @@ Added **TopicIndex** (top-level navigation: responsive grid of anchor cards `{ i
 
 **Vehicle rule, restated.** Every block of content gets the vehicle that suits it: a pocket grid for a set of parallel notes, `TableCard` for multi-attribute comparison, `Comparison` for two sides, `Stepper`/`ProcessCard` for a sequence, `Callout` for a definition, a diagram or image for anything visual. Reproduce this decision-making on every chapter — never dump text.
 
+### 12.10 Oct 2026 — Chemical structure figures (generated, never drawn)
+
+**MoleculeStructure** (`src/components/content/chemistry/MoleculeStructure.tsx`) renders an inline, theme-aware structure drawing. It takes `{...STRUCTURES.key}` from the chapter's generated file plus an optional `caption`, `formula`, `source`, `showSmiles`, `variant` (`"boxed"` | `"plain"`) and `maxWidth`.
+
+The drawing is **never hand-authored and never fetched**. The committed source of truth is a SMILES string in `src/content/chemistry/{slug}/structures.json`; `scripts/chem/build_structures.py` (RDKit, authoring machine only) turns it into `structures.generated.ts`, which is committed and never edited by hand. The app ships no chemistry engine.
+
+Why: a hand-drawn organic structure is a silent-error machine — one misplaced bond and the compound is simply wrong. Deriving the picture from a machine-checked SMILES makes the chemistry verifiable. Seven gates: **G1** the NCERT name must appear verbatim in the chapter's extraction (blocks invented compounds) · **G2** SMILES parses and sanitises · **G3** computed formula equals the authored one · **G4** molar mass matches · **G5** a claimed stereocentre survives as a visible wedge/dash · **G6** the user signs off a per-chapter contact-sheet PNG · **G7** `scripts/check-structures.cjs` (runs inside `npm run build`) blocks stale files, orphan or unused keys, black ink that would break dark mode, scripts/links, and size blowout.
+
+**Scope discipline.** Only structures that genuinely need a picture get one — chiral pairs needing wedges, polyhalogen compounds, DDT, aromatic skeletons. Condensed formulas that NCERT itself prints (`CH₃CH₂Br`) stay in `FormulaBlock`; redrawing them would be dumping. In the haloalkanes pilot that meant 12 drawings out of 116 inventoried structures.
+
+**Stays hand-authored:** curly-arrow mechanisms, crystal lattices and unit cells, chair/Newman conformations, orbital and crystal-field diagrams, multi-step industrial flow schemes. A structure that fails a gate is **deleted, not patched**.
+
 ### 13.1 V3 "Quiet Precision" Shell Design (Sep 2026)
 
 Replaced the flat white + loud per-element colors with a disciplined system. Rules:
