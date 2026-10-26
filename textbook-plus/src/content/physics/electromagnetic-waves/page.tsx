@@ -480,6 +480,19 @@ export default function ElectromagneticWavesChapter() {
         />
       </Expandable>
 
+      <Expandable title="Quick practice — units &amp; dimensions of the field quantities" variant="exercise">
+        <ExerciseQa
+          questions={[
+            <>If <Formula>{String.raw`\Phi_E`}</Formula> is the electric flux and <Formula>{String.raw`\varepsilon_0`}</Formula> the permittivity of free space, the quantity <Formula>{String.raw`\varepsilon_0\dfrac{\mathrm{d}\Phi_E}{\mathrm{d}t}`}</Formula> has the unit of: (i) voltage, (ii) current, (iii) charge, (iv) magnetic field.</>,
+            <>The SI unit of <Formula>{String.raw`\varepsilon_0\dfrac{\mathrm{d}\Phi_E}{\mathrm{d}t}`}</Formula> is:</>,
+          ]}
+          answers={[
+            <><strong>(ii) Current.</strong> It is the displacement current, <Formula>{String.raw`I_d = \varepsilon_0\dfrac{\mathrm{d}\Phi_E}{\mathrm{d}t}`}</Formula> — the flux form of the same term that appears in the Ampère–Maxwell law.</>,
+            <><strong>ampere (A)</strong> — it is a current, so it carries the same unit as the conduction current it replaces between the capacitor plates.</>,
+          ]}
+        />
+      </Expandable>
+
       <h2 id="h-8-4">8.4 Electromagnetic Spectrum</h2>
       <KeyPoint title="The electromagnetic spectrum">
         The <Highlight color="yellow">orderly distribution of EM waves by wavelength λ or frequency ν</Highlight> into distinct groups. There is{" "}
@@ -516,6 +529,17 @@ export default function ElectromagneticWavesChapter() {
             <>Which are used to <strong>destroy cancer cells</strong> in medicine?</>,
             <>Which type produces <strong>night-vision camera</strong> images and heat-wave photographs?</>,
             <>Excessive exposure to which waves causes <strong>sunburn and skin cancer</strong>?</>,
+            <>Which waves are loosely called <strong>heat waves</strong>, and why?</>,
+            <>Which part of the spectrum is the <strong>human eye</strong> sensitive to?</>,
+            <>Which radiation does the <strong>ozone layer</strong> absorb, and so shield us from?</>,
+            <>Which chemicals are responsible for the <strong>depletion of the ozone layer</strong>?</>,
+            <>Which waves are used to study <strong>crystal structure</strong>?</>,
+            <>Which radiation is trapped by greenhouse gases, producing the <strong>greenhouse effect</strong>?</>,
+            <>Which radiation is produced in <strong>nuclear reactions</strong> (and in radioactive decay)?</>,
+            <>Which radiation is used to <strong>sterilise surgical instruments</strong>?</>,
+            <>Apart from gamma rays, which radiation is used in <strong>cancer treatment</strong> (radiotherapy)?</>,
+            <>A bone is <strong>imaged / a fracture detected</strong> — which waves are used?</>,
+            <>An electromagnetic wave passes from one medium into another. Which property remains <strong>unaltered</strong>?</>,
           ]}
           answers={[
             <>X-rays — they pass through flesh but not bone.</>,
@@ -527,6 +551,17 @@ export default function ElectromagneticWavesChapter() {
             <>Gamma rays — high energy gives strong penetrating power.</>,
             <>Infrared waves.</>,
             <>Ultraviolet rays.</>,
+            <>Infrared — they are absorbed strongly by water molecules, whose thermal motion then increases; hence the everyday name.</>,
+            <><Highlight color="yellow">The visible spectrum</Highlight>.</>,
+            <><Highlight color="yellow">Ultraviolet</Highlight> — most of the Sun&apos;s UV is absorbed before it reaches the surface.</>,
+            <>Chlorofluorocarbons (CFCs), also known by the trade name <strong>Freon</strong>.</>,
+            <>X-rays — their wavelength is comparable to the spacing between atomic planes, so crystals diffract them and the pattern reveals the structure.</>,
+            <>Infrared radiation — the Earth re-radiates absorbed solar energy as IR, which greenhouse gases trap.</>,
+            <>Gamma rays — emitted in nuclear reactions and in radioactive decay of nuclei.</>,
+            <>Ultraviolet radiation — its germicidal action is used for instruments, water and air.</>,
+            <>X-rays — used alongside gamma rays, the choice depending on the case and the penetration needed.</>,
+            <>X-rays — bone absorbs them more strongly than soft tissue, so the shadow shows the fracture.</>,
+            <><Highlight color="yellow">Frequency</Highlight> — fixed by the source; the speed and wavelength change with the medium.</>,
           ]}
         />
       </Expandable>
