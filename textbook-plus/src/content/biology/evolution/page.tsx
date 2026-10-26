@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Callout } from "@/components/content/Callout";
 import { Comparison } from "@/components/content/Comparison";
 import { KeyPoint } from "@/components/content/KeyPoint";
@@ -404,6 +405,19 @@ export default function EvolutionChapter() {
           In plants, the <strong>thorns of Bougainvillea</strong> and the <strong>tendrils of Cucurbita</strong>.
         </li>
       </ul>
+      <figure className="my-6">
+        <Image
+          src="/images/biology/evolution/homologous-forelimbs-comparison.jpg"
+          alt="Forelimbs of a frog, lizard, bird, human, cat, whale and bat drawn side by side, each labelled with the same bones — humerus, ulna, radius and carpal — and digits 1 to 5."
+          width={611}
+          height={483}
+          className="mx-auto h-auto w-full max-w-[611px] rounded-2xl border border-border/60 bg-white"
+        />
+        <figcaption className="mt-2 text-center text-xs leading-relaxed text-muted-foreground">
+          The same bones in seven forelimbs. Image: &quot;Various vertebrate limbs&quot; by Ruth Lawson (Otago
+          Polytechnic), CC BY 3.0, via Wikimedia Commons.
+        </figcaption>
+      </figure>
       <Callout type="important" title="Analogous organs (analogy)">
         Organs with{" "}
         <Highlight color="yellow">different internal structures but the same function</Highlight>, suited to similar
