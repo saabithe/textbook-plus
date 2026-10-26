@@ -12,6 +12,8 @@ import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { EquationLadder } from "@/components/content/process/EquationLadder";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { MoleculeStructure } from "@/components/content/chemistry/MoleculeStructure";
+import { STRUCTURES } from "./structures.generated";
 
 export default function BiomoleculesChapter() {
   return (
@@ -279,6 +281,19 @@ export default function BiomoleculesChapter() {
         </p>
       </Callout>
 
+      <div className="my-6 grid gap-3 sm:grid-cols-2">
+        <MoleculeStructure
+          {...STRUCTURES.alpha_d_glucopyranose}
+          maxWidth={300}
+          className="my-0"
+        />
+        <MoleculeStructure
+          {...STRUCTURES.beta_d_glucopyranose}
+          maxWidth={300}
+          className="my-0"
+        />
+      </div>
+
       <h4 className="mt-5 mb-2 text-base font-bold">10.1.2.2 Fructose</h4>
 
       <p>
@@ -300,6 +315,19 @@ export default function BiomoleculesChapter() {
         with one oxygen and four carbon atoms). The cyclic structures of the two anomers
         of fructose are represented by Haworth structures.
       </p>
+
+      <div className="my-6 grid gap-3 sm:grid-cols-2">
+        <MoleculeStructure
+          {...STRUCTURES.alpha_d_fructofuranose}
+          maxWidth={300}
+          className="my-0"
+        />
+        <MoleculeStructure
+          {...STRUCTURES.beta_d_fructofuranose}
+          maxWidth={300}
+          className="my-0"
+        />
+      </div>
 
       <h3 id="h-10-1-3">10.1.3 Disaccharides</h3>
 
@@ -350,6 +378,19 @@ export default function BiomoleculesChapter() {
           },
         ]}
       />
+
+      <div className="my-6 grid gap-3 sm:grid-cols-2">
+        <MoleculeStructure
+          {...STRUCTURES.sucrose}
+          maxWidth={340}
+          className="my-0"
+        />
+        <MoleculeStructure
+          {...STRUCTURES.maltose}
+          maxWidth={340}
+          className="my-0"
+        />
+      </div>
 
       <Callout type="note" title="Invert sugar (Sucrose)">
         <p>
@@ -608,6 +649,11 @@ export default function BiomoleculesChapter() {
           </li>
         </ul>
       </Callout>
+
+      <MoleculeStructure
+        {...STRUCTURES.glycyl_l_alanine}
+        maxWidth={480}
+      />
 
       <Comparison
         columns={[
@@ -950,6 +996,19 @@ export default function BiomoleculesChapter() {
           same as in DNA but the fourth one is <strong>uracil (U)</strong>.
         </li>
       </ul>
+
+      <div className="my-6 grid gap-3 sm:grid-cols-2">
+        <MoleculeStructure
+          {...STRUCTURES.beta_d_ribofuranose}
+          maxWidth={300}
+          className="my-0"
+        />
+        <MoleculeStructure
+          {...STRUCTURES.beta_d_deoxyribofuranose}
+          maxWidth={300}
+          className="my-0"
+        />
+      </div>
 
       <h3 id="h-10-5-2">10.5.2 Structure of Nucleic Acids</h3>
 

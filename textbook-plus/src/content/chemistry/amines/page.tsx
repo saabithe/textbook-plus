@@ -9,6 +9,8 @@ import { ConceptCard } from "@/components/content/concept/ConceptCard";
 import { EquationLadder } from "@/components/content/process/EquationLadder";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { MoleculeStructure } from "@/components/content/chemistry/MoleculeStructure";
+import { STRUCTURES } from "./structures.generated";
 
 export default function AminesChapter() {
   return (
@@ -809,6 +811,11 @@ export default function AminesChapter() {
         </ul>
       </ConceptCard>
 
+      <div className="my-6 grid gap-3 sm:grid-cols-2">
+        <MoleculeStructure {...STRUCTURES.aniline} maxWidth={300} className="my-0" />
+        <MoleculeStructure {...STRUCTURES.benzylamine} maxWidth={300} className="my-0" />
+      </div>
+
       <Expandable title="Example 9.4 — Decreasing order of basic strength" variant="example">
         <p>
           <strong>Problem:</strong> Arrange the following in decreasing order of basic strength: C
@@ -1052,6 +1059,8 @@ export default function AminesChapter() {
       <FormulaBlock
         latex={String.raw`\text{C}_6\text{H}_5\text{NH}_2 + 3\text{Br}_2 \xrightarrow{\text{H}_2\text{O}} \text{C}_6\text{H}_2\text{Br}_3\text{NH}_2 + 3\text{HBr}`}
       />
+
+      <MoleculeStructure {...STRUCTURES.tribromoaniline} maxWidth={400} />
 
       <h4>(b) Nitration</h4>
       <ul>
@@ -1333,6 +1342,8 @@ export default function AminesChapter() {
         latex={String.raw`\text{C}_6\text{H}_5\text{N}_2^+\text{Cl}^- + \text{C}_6\text{H}_5\text{OH} \xrightarrow{\text{alkali}} \text{p-HO–C}_6\text{H}_4\text{N=NC}_6\text{H}_5 + \text{HCl}`}
         label="Coupling with phenol"
       />
+
+      <MoleculeStructure {...STRUCTURES.p_hydroxyazobenzene} maxWidth={520} />
 
       <FormulaBlock
         latex={String.raw`\text{C}_6\text{H}_5\text{N}_2^+\text{Cl}^- + \text{C}_6\text{H}_5\text{NH}_2 \longrightarrow \text{p-H}_2\text{N–C}_6\text{H}_4\text{N=NC}_6\text{H}_5 + \text{HCl}`}

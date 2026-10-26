@@ -1,0 +1,38 @@
+{
+  "glycerol": {
+    "smiles": "OCC(O)CO",
+    "name": "Glycerol (propane-1,2,3-triol)",
+    "ncertName": ["Glycerol"],
+    "caption": "Three —OH groups, one on each carbon — the two ends are primary, the middle carbon is secondary.",
+    "formula": "C3H8O3",
+    "source": "§7.2(a), Table 7.1, p.196",
+    "size": [420, 300]
+  },
+  "phenol": {
+    "smiles": "Oc1ccccc1",
+    "name": "Phenol",
+    "ncertName": ["phenol"],
+    "caption": "The —OH is bonded to a ring carbon itself; on a side chain the same group would make a benzylic alcohol, not a phenol.",
+    "formula": "C6H6O",
+    "source": "§7.1.2, p.196; §7.3, Fig. 7.1, p.198",
+    "size": [400, 300]
+  },
+  "salicylic_acid": {
+    "smiles": "O=C(O)c1ccccc1O",
+    "name": "Salicylic acid (2-hydroxybenzoic acid)",
+    "ncertName": ["salicylic acid", "hydroxybenzoic acid"],
+    "caption": "The new —COOH occupies the carbon next to the —OH, giving 2-hydroxybenzoic acid; the —OH itself is untouched.",
+    "formula": "C7H6O3",
+    "source": "§7.4.4(c)2 Kolbe's reaction, p.212",
+    "size": [440, 320]
+  },
+  "anisole": {
+    "smiles": "COc1ccccc1",
+    "name": "Anisole (methoxybenzene)",
+    "ncertName": ["anisole"],
+    "caption": "One oxygen bridging a methyl group and a ring carbon, so its two C—O bonds are not equivalent.",
+    "formula": "C7H8O",
+    "source": "§7.6.3(1), p.218",
+    "size": [440, 320]
+  }
+}

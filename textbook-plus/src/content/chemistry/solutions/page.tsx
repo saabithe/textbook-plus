@@ -11,6 +11,8 @@ import { Stepper } from "@/components/content/Stepper";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { MoleculeStructure } from "@/components/content/chemistry/MoleculeStructure";
+import { STRUCTURES } from "./structures.generated";
 
 export default function SolutionsChapter() {
   return (
@@ -226,6 +228,11 @@ export default function SolutionsChapter() {
           },
         ]}
       />
+
+      <div className="my-6 grid gap-3 sm:grid-cols-2">
+        <MoleculeStructure {...STRUCTURES.phenol} maxWidth={300} className="my-0" />
+        <MoleculeStructure {...STRUCTURES.aniline} maxWidth={300} className="my-0" />
+      </div>
 
       <h3 id="h-1-5-3">Azeotropes</h3>
       <Callout type="important">

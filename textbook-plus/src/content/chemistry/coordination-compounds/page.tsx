@@ -9,6 +9,8 @@ import { ConceptCard } from "@/components/content/concept/ConceptCard";
 import { FactCard } from "@/components/content/concept/FactCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { MoleculeStructure } from "@/components/content/chemistry/MoleculeStructure";
+import { STRUCTURES } from "./structures.generated";
 
 export default function CoordinationCompoundsChapter() {
   return (
@@ -139,6 +141,8 @@ export default function CoordinationCompoundsChapter() {
           <li><strong>Ambidentate</strong> — two different donor atoms, either of which can bind: NO<sub>2</sub><sup>−</sup> (through N or O) and SCN<sup>−</sup> (through S or N).</li>
         </ul>
       </ConceptCard>
+
+      <MoleculeStructure {...STRUCTURES.edta} />
 
       <Callout type="important" title="Coordination number (CN)">
         The number of <strong>ligand donor atoms</strong> to which the metal is directly bonded.

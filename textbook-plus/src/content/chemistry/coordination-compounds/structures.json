@@ -1,0 +1,13 @@
+{
+  "edta": {
+    "smiles": "[O-]C(=O)CN(CCN(CC(=O)[O-])CC(=O)[O-])CC(=O)[O-]",
+    "name": "Ethylenediaminetetraacetate ion (EDTA⁴⁻)",
+    "ncertName": ["EDTA", "Ethylenediaminetetraacetate ion"],
+    "caption": "Four acetate arms on a two-carbon diamine backbone — six donor atoms all reaching for the same metal.",
+    "formula": "C10H12N2O8",
+    "mw": 288.21,
+    "charge": -4,
+    "source": "§5.2(c), p.121",
+    "size": [520, 340]
+  }
+}

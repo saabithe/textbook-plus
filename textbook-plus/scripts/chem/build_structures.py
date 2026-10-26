@@ -140,6 +140,22 @@ def verify_svg_structure(svg: str, mol: Chem.Mol) -> None:
             raise ValueError("a bond path has no coordinates")
 
 
+def xml_attr(value: str) -> str:
+    """Escape a value for a single-quoted XML attribute.
+
+    The provenance stamp carries the authored SMILES verbatim. RDKit's dative
+    bond extension uses `<-`, and `data-smiles='[NH3]->[Cu+2]<-[NH3]'` is not
+    well-formed XML — the file would ship but every parser (including the G5b
+    integrity gate) would reject it.
+    """
+    return (
+        value.replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace("'", "&apos;")
+    )
+
+
 def postprocess(svg: str, mol: Chem.Mol, smiles: str, formula: str) -> str:
     """Strip the XML prolog, make black theme-relative, stamp provenance.
 
@@ -154,9 +170,9 @@ def postprocess(svg: str, mol: Chem.Mol, smiles: str, formula: str) -> str:
 
     inchikey = inchi_key(mol)
     attrs = (
-        f"data-smiles='{smiles}' "
-        f"data-inchikey='{inchikey}' "
-        f"data-formula='{formula}' "
+        f"data-smiles='{xml_attr(smiles)}' "
+        f"data-inchikey='{xml_attr(inchikey)}' "
+        f"data-formula='{xml_attr(formula)}' "
         f"data-atoms='{mol.GetNumAtoms()}'"
     )
     svg = svg.replace("<svg", f"<svg {attrs}", 1)
@@ -324,6 +340,12 @@ def build_chapter(slug: str) -> tuple[bool, list[str]]:
             "inchiKey": inchi_key(mol),
             "atoms": mol.GetNumAtoms(),
         }
+        # The page spreads these props onto <MoleculeStructure>, so the caption
+        # must travel with the drawing — otherwise every figure renders as a
+        # bare formula and the authored wording is dead weight in the manifest.
+        if (entry.get("caption") or "").strip():
+            generated[key]["caption"] = entry["caption"].strip()
+        generated[key]["source"] = entry["source"].strip()
 
     if problems:
         return False, problems

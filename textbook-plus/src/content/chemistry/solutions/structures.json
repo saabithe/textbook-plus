@@ -1,0 +1,20 @@
+{
+  "phenol": {
+    "smiles": "Oc1ccccc1",
+    "name": "Phenol",
+    "ncertName": ["phenol"],
+    "caption": "The –OH sits directly on the ring; its proton is the hydrogen-bond donor.",
+    "formula": "C6H6O",
+    "source": "§1.5.2, p.14",
+    "size": [400, 320]
+  },
+  "aniline": {
+    "smiles": "Nc1ccccc1",
+    "name": "Aniline",
+    "ncertName": ["aniline"],
+    "caption": "The –NH₂ nitrogen carries the lone pair that is the hydrogen-bond acceptor.",
+    "formula": "C6H7N",
+    "source": "§1.5.2, p.14",
+    "size": [400, 320]
+  }
+}

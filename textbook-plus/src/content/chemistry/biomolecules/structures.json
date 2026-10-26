@@ -1,0 +1,92 @@
+{
+  "alpha_d_glucopyranose": {
+    "smiles": "OC[C@H]1O[C@H](O)[C@H](O)[C@@H](O)[C@@H]1O",
+    "name": "α-D-Glucopyranose",
+    "ncertName": ["a-D-glucose", "pyranose"],
+    "caption": "The hemiacetal –OH that C1 gains sits on the face opposite the C5 CH₂OH — the α form.",
+    "formula": "C6H12O6",
+    "source": "§10.1.2.1, pp.285–286",
+    "stereo": true,
+    "size": [400, 320]
+  },
+  "beta_d_glucopyranose": {
+    "smiles": "OC[C@H]1O[C@@H](O)[C@H](O)[C@@H](O)[C@@H]1O",
+    "name": "β-D-Glucopyranose",
+    "ncertName": ["b-D-glucose", "pyranose"],
+    "caption": "Same ring and same four centres; the C1 –OH now shares a face with the C5 CH₂OH — the β form.",
+    "formula": "C6H12O6",
+    "source": "§10.1.2.1, pp.285–286",
+    "stereo": true,
+    "size": [400, 320]
+  },
+  "alpha_d_fructofuranose": {
+    "smiles": "OC[C@H]1O[C@@](O)(CO)[C@@H](O)[C@@H]1O",
+    "name": "α-D-Fructofuranose",
+    "ncertName": ["anomers of fructose", "furanose"],
+    "caption": "A five-membered ring: the anomeric carbon is C2, carrying an –OH and the CH₂OH that C1 became.",
+    "formula": "C6H12O6",
+    "source": "§10.1.2.2, pp.286–287",
+    "stereo": true,
+    "size": [400, 320]
+  },
+  "beta_d_fructofuranose": {
+    "smiles": "OC[C@H]1O[C@](O)(CO)[C@@H](O)[C@@H]1O",
+    "name": "β-D-Fructofuranose",
+    "ncertName": ["anomers of fructose", "b-D-fructose"],
+    "caption": "At C2 the –OH and CH₂OH sit on opposite faces from the α anomer — the whole α/β difference.",
+    "formula": "C6H12O6",
+    "source": "§10.1.2.2, pp.286–287",
+    "stereo": true,
+    "size": [400, 320]
+  },
+  "sucrose": {
+    "smiles": "OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O",
+    "name": "Sucrose",
+    "ncertName": ["Sucrose"],
+    "caption": "One oxygen bridges C1 of glucose and C2 of fructose, so neither anomeric centre is free — hence non-reducing.",
+    "formula": "C12H22O11",
+    "source": "§10.1.3(i), p.287",
+    "stereo": true,
+    "size": [560, 340]
+  },
+  "maltose": {
+    "smiles": "OC[C@H]1O[C@H](O[C@H]2[C@H](O)[C@@H](O)C(O)O[C@@H]2CO)[C@H](O)[C@@H](O)[C@@H]1O",
+    "name": "Maltose",
+    "ncertName": ["Maltose"],
+    "caption": "The C1→C4 link uses up only one anomeric carbon; the second ring keeps its own, which is why maltose reduces.",
+    "formula": "C12H22O11",
+    "source": "§10.1.3(ii), p.287",
+    "stereo": true,
+    "size": [560, 340]
+  },
+  "glycyl_l_alanine": {
+    "smiles": "NCC(=O)N[C@@H](C)C(=O)O",
+    "name": "Glycyl-L-alanine",
+    "ncertName": ["glycylalanine"],
+    "caption": "Glycine supplies the –COOH and alanine the –NH₂, leaving one –CO–NH– between the two α-carbons.",
+    "formula": "C5H10N2O3",
+    "source": "§10.2.3, p.292",
+    "stereo": true,
+    "size": [520, 300]
+  },
+  "beta_d_ribofuranose": {
+    "smiles": "OC[C@H]1O[C@@H](O)[C@H](O)[C@@H]1O",
+    "name": "β-D-Ribofuranose",
+    "ncertName": ["b-D-ribose"],
+    "caption": "RNA's sugar: –OH groups on C2′ and C3′ as well as C5′, all on the same five-membered ring.",
+    "formula": "C5H10O5",
+    "source": "§10.5.1, p.297",
+    "stereo": true,
+    "size": [400, 300]
+  },
+  "beta_d_deoxyribofuranose": {
+    "smiles": "OC[C@H]1O[C@@H](O)C[C@@H]1O",
+    "name": "2-Deoxy-β-D-ribofuranose",
+    "ncertName": ["b-D-2-deoxyribose", "2-deoxy-D-ribose"],
+    "caption": "The identical ring with only hydrogens on C2′ — the one missing –OH that separates DNA from RNA.",
+    "formula": "C5H10O4",
+    "source": "§10.5.1, p.297",
+    "stereo": true,
+    "size": [400, 300]
+  }
+}

@@ -11,6 +11,8 @@ import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { EquationLadder } from "@/components/content/process/EquationLadder";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { MoleculeStructure } from "@/components/content/chemistry/MoleculeStructure";
+import { STRUCTURES } from "./structures.generated";
 
 export default function AldehydesKetonesCarboxylicAcidsChapter() {
   return (
@@ -647,6 +649,8 @@ export default function AldehydesKetonesCarboxylicAcidsChapter() {
         ]}
       />
 
+      <MoleculeStructure {...STRUCTURES.hexan_3_one_ethylene_ketal} maxWidth={420} />
+
       <h4 className="mt-5 mb-2 text-base font-bold">Addition of ammonia and its derivatives</h4>
 
       <p>
@@ -690,6 +694,8 @@ export default function AldehydesKetonesCarboxylicAcidsChapter() {
         ]}
         caption="2,4-DNP derivatives are yellow, orange or red solids — useful for characterising aldehydes and ketones."
       />
+
+      <MoleculeStructure {...STRUCTURES.cyclobutanone_semicarbazone} maxWidth={460} />
 
       <h3 id="h-8-4-3">3. Reduction</h3>
 

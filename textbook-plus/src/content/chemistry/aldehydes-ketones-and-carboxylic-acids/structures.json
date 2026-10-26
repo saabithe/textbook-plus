@@ -1,0 +1,22 @@
+{
+  "hexan_3_one_ethylene_ketal": {
+    "smiles": "CCCC1(CC)OCCO1",
+    "name": "2-Ethyl-2-propyl-1,3-dioxolane (ethylene ketal of hexan-3-one)",
+    "ncertName": ["ethylene ketal of hexan-3-one"],
+    "caption": "The ketone carbon has become C-2 of a five-membered 1,3-dioxolane ring, still carrying its ethyl and propyl groups.",
+    "formula": "C8H16O2",
+    "mw": 144.21,
+    "source": "§8.4 nucleophilic addition (d), pp.237–238; Exercise 8.5(v)",
+    "size": [440, 300]
+  },
+  "cyclobutanone_semicarbazone": {
+    "smiles": "NC(=O)NN=C1CCC1",
+    "name": "Cyclobutanone semicarbazone",
+    "ncertName": ["semicarbazone of cyclobutanone"],
+    "caption": "Only one of semicarbazide's two nitrogen ends bonds to the ring — the chain reads C=N–NH–CO–NH₂.",
+    "formula": "C5H9N3O",
+    "mw": 127.15,
+    "source": "§8.4, Table 8.2, p.238; Exercise 8.5(iv)",
+    "size": [480, 300]
+  }
+}

@@ -8,6 +8,8 @@ import { FactCard } from "@/components/content/concept/FactCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { MoleculeStructure } from "@/components/content/chemistry/MoleculeStructure";
+import { STRUCTURES } from "./structures.generated";
 
 export default function AlcoholsPhenolsEthersChapter() {
   return (
@@ -47,6 +49,8 @@ export default function AlcoholsPhenolsEthersChapter() {
           { cells: ["Polyhydric", "Many", "Sugars, starch, cellulose"] },
         ]}
       />
+
+      <MoleculeStructure {...STRUCTURES.glycerol} maxWidth={380} />
 
       <p>
         Monohydric alcohols are further classified according to the hybridisation of the carbon
@@ -90,6 +94,8 @@ export default function AlcoholsPhenolsEthersChapter() {
         Phenols containing one, two or three hydroxyl groups attached to an aromatic ring are called
         monohydric, dihydric and trihydric phenols respectively.
       </p>
+
+      <MoleculeStructure {...STRUCTURES.phenol} maxWidth={340} />
 
       <h3 id="h-7-1-3">7.1.3 Ethers</h3>
 
@@ -704,6 +710,8 @@ export default function AlcoholsPhenolsEthersChapter() {
 
       <FormulaBlock latex={String.raw`\text{C}_6\text{H}_5\text{ONa} + \text{CO}_2 \xrightarrow[\text{4–7 atm}]{\text{400 K}} \xrightarrow{\text{H}^+} o\text{-HOOC–C}_6\text{H}_4\text{OH}`} />
 
+      <MoleculeStructure {...STRUCTURES.salicylic_acid} maxWidth={380} />
+
       <p>
         <strong>3. Reimer–Tiemann reaction.</strong> Treating phenol with chloroform in the presence of
         sodium hydroxide introduces a —CHO group at the <em>ortho</em> position. The intermediate
@@ -909,6 +917,8 @@ export default function AlcoholsPhenolsEthersChapter() {
         the <em>sp</em>
         <sup>2</sup> carbon of phenol cannot undergo the nucleophilic substitution needed.
       </p>
+
+      <MoleculeStructure {...STRUCTURES.anisole} maxWidth={380} />
 
       <Expandable
         title="Example 7.7 — Products of heating ethers with HI"

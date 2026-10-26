@@ -65,6 +65,14 @@ Regenerate every chapter at once: `npm run chem:build -- --all`.
 | `stereo` | no | Set `true` when the structure must show wedges/dashes. Then the SMILES must contain `@`, `/` or `\` **and** the drawing must contain a wedge. |
 | `size` | no | `[width, height]` in px, default `[420, 300]`. |
 
+`caption` and `source` are copied into `structures.generated.ts` and consumed by
+`<MoleculeStructure {...STRUCTURES.key} />` — **never re-type a caption on the page**, it would
+then live in two places and drift. `name` is not emitted: it is used only by the contact sheet.
+
+The SVG carries its provenance in `data-smiles` / `data-inchikey` / `data-formula` attributes,
+escaped for XML. That matters for RDKit's dative-bond extension: an unescaped `<-` would produce
+a malformed document (caught by the G5b integrity gate).
+
 ## Gates
 
 | Gate | Check |
@@ -74,6 +82,7 @@ Regenerate every chapter at once: `npm run chem:build -- --all`.
 | G3 | Computed elemental composition equals `formula`; charge matches when given |
 | G4 | Computed molar mass matches `mw` when given |
 | G5 | Stereochemistry survives a MolBlock round-trip; claimed stereo is present in both SMILES and drawing |
+| G5b | The emitted SVG still parses as XML and carries exactly the molecule's atoms and bond set — a post-process that damaged the drawing cannot ship |
 | G6 | Human contact-sheet review |
 | G7 | Generated files are fresh, referenced exactly where used, no black ink, no scripts/links, size budget |
 

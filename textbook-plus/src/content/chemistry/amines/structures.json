@@ -1,0 +1,38 @@
+{
+  "aniline": {
+    "smiles": "Nc1ccccc1",
+    "name": "Aniline (benzenamine)",
+    "ncertName": ["aniline", "benzenamine"],
+    "caption": "–NH₂ bonded straight to an sp² ring carbon, so the lone pair is shared with the ring's π system.",
+    "formula": "C6H7N",
+    "source": "§9.6.1(b), p.267",
+    "size": [400, 320]
+  },
+  "benzylamine": {
+    "smiles": "NCc1ccccc1",
+    "name": "Benzylamine (phenylmethanamine)",
+    "ncertName": ["Phenylmethanamine", "benzylamine"],
+    "caption": "One CH₂ between ring and nitrogen — the lone pair stays out of the ring and the base is aliphatic in strength.",
+    "formula": "C7H9N",
+    "source": "§9.6.1(b), Table 9.3, p.267",
+    "size": [420, 300]
+  },
+  "tribromoaniline": {
+    "smiles": "Nc1c(Br)cc(Br)cc1Br",
+    "name": "2,4,6-Tribromoaniline",
+    "ncertName": ["2,4,6-tribromoaniline"],
+    "caption": "Both ortho sites and the para site carry bromine; the two meta positions are left bare.",
+    "formula": "C6H4Br3N",
+    "source": "§9.6.7(a), p.272",
+    "size": [420, 340]
+  },
+  "p_hydroxyazobenzene": {
+    "smiles": "Oc1ccc(N=Nc2ccccc2)cc1",
+    "name": "p-Hydroxyazobenzene",
+    "ncertName": ["p-hydroxyazobenzene"],
+    "caption": "Two rings bridged by –N=N–, so conjugation runs unbroken from the –OH to the far ring — the azo dye chromophore.",
+    "formula": "C12H10N2O",
+    "source": "§9.9(B), p.276",
+    "size": [560, 340]
+  }
+}
