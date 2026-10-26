@@ -399,6 +399,17 @@ export default function AlternatingCurrentChapter() {
         the{" "}<strong>average current is zero</strong>. That does not mean the average power is zero: Joule heating is{" "}<Formula>{String.raw`i^2R`}</Formula>, and <Formula>{String.raw`i^2`}</Formula> is positive
         whether i is positive or negative.
       </p>
+      <p>
+        The same argument holds for the voltage. Ac is <strong>positive during the first half-cycle</strong> and{" "}
+        <strong>negative during the next</strong>, and the two halves are mirror images — so the positive and negative
+        areas under the graph cancel exactly. The <strong>average or mean value</strong> over one complete cycle is
+        therefore zero for both quantities:
+      </p>
+      <FormulaBlock
+        tag="Mean value"
+        latex={String.raw`\begin{aligned} I_{\text{avg}} &= 0\\[4pt] V_{\text{avg}} &= 0 \end{aligned}`}
+        important
+      />
       <RevealAnswer
         title="Quick check"
         question="The average current over a full cycle is zero. Is the average power dissipated also zero?"
