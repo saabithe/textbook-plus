@@ -38,6 +38,12 @@ import { WaveTypesPanels } from "@/components/content/physics/WaveTypesPanels";
 import { WaveAnatomyDiagram } from "@/components/content/physics/WaveAnatomyDiagram";
 import { DisplacementExplorer } from "@/components/content/physics/DisplacementExplorer";
 import { TopicSwitch } from "@/components/content/TopicSwitch";
+import { TopicIndex } from "@/components/content/TopicIndex";
+import { BrainSizeBars } from "@/components/content/biology/BrainSizeBars";
+import { FinchBeaksDiagram } from "@/components/content/biology/FinchBeaksDiagram";
+import { FossilLayersDiagram } from "@/components/content/biology/FossilLayersDiagram";
+import { HomologousForelimbsDiagram } from "@/components/content/biology/HomologousForelimbsDiagram";
+import { MillerApparatusDiagram } from "@/components/content/biology/MillerApparatusDiagram";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -428,6 +434,19 @@ export default function DesignGallery() {
           {/* ── NAVIGATION ──────────────────────────────────────── */}
           <Section title="Navigation">
             <div>
+              <Label text="TopicIndex — anchor-card grid that jumps to headings on the same page" />
+              <TopicIndex
+                title="Six kinds of evidence"
+                items={[
+                  { id: "gallery-topic-one", icon: "🦴", label: "Palaeontological", note: "Fossils and the rock record." },
+                  { id: "gallery-topic-two", icon: "🧬", label: "Biochemical", note: "Proteins, genes and the central dogma." },
+                  { id: "gallery-topic-three", icon: "🗺️", label: "Biogeographical", note: "Distribution and adaptive radiation." },
+                  { id: "gallery-topic-four", icon: "🥚", label: "Embryological", note: "Features shared by embryos." },
+                ]}
+              />
+            </div>
+
+            <div>
               <Label text="TopicSwitch — card list for the merged discourse pages (one card open at a time, hash deep links)" />
               <TopicSwitch
                 label="Demo formats"
@@ -520,6 +539,34 @@ export default function DesignGallery() {
               <DisplacementExplorer />
             </div>
 
+          </Section>
+
+          {/* ── BIOLOGY DIAGRAMS ────────────────────────────────── */}
+          <Section title="Biology Diagrams">
+            <div>
+              <Label text="HomologousForelimbsDiagram — same bone plan, four functions" />
+              <HomologousForelimbsDiagram />
+            </div>
+
+            <div>
+              <Label text="FinchBeaksDiagram — adaptive radiation in Darwin's finches" />
+              <FinchBeaksDiagram />
+            </div>
+
+            <div>
+              <Label text="FossilLayersDiagram — deeper strata are older" />
+              <FossilLayersDiagram />
+            </div>
+
+            <div>
+              <Label text="MillerApparatusDiagram — the Urey–Miller setup" />
+              <MillerApparatusDiagram />
+            </div>
+
+            <div>
+              <Label text="BrainSizeBars — brain capacity along the human line" />
+              <BrainSizeBars />
+            </div>
           </Section>
         </div>
       </div>

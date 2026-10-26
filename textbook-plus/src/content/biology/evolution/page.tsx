@@ -1,5 +1,7 @@
 import { Callout } from "@/components/content/Callout";
+import { Comparison } from "@/components/content/Comparison";
 import { KeyPoint } from "@/components/content/KeyPoint";
+import { Stepper } from "@/components/content/Stepper";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
@@ -9,6 +11,12 @@ import { Timeline } from "@/components/content/process/Timeline";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
+import { TopicIndex } from "@/components/content/TopicIndex";
+import { BrainSizeBars } from "@/components/content/biology/BrainSizeBars";
+import { FinchBeaksDiagram } from "@/components/content/biology/FinchBeaksDiagram";
+import { FossilLayersDiagram } from "@/components/content/biology/FossilLayersDiagram";
+import { HomologousForelimbsDiagram } from "@/components/content/biology/HomologousForelimbsDiagram";
+import { MillerApparatusDiagram } from "@/components/content/biology/MillerApparatusDiagram";
 
 export default function EvolutionChapter() {
   return (
@@ -50,11 +58,29 @@ export default function EvolutionChapter() {
         ]}
       />
       <p>
-        The <strong>Big Bang theory</strong> attempts to explain the origin of the universe. It talks of a singular
-        huge explosion unimaginable in physical terms. The universe expanded and hence the temperature came down.
-        Hydrogen and helium formed sometime later. The gases condensed under gravitation and formed the galaxies of
-        the present day universe.
+        The <strong>Big Bang theory</strong> explains the origin of the universe as a singular, huge explosion. What
+        followed can be read as four steps.
       </p>
+      <Stepper
+        steps={[
+          {
+            label: "A singular explosion",
+            description: "The beginning is unimaginable in physical terms.",
+          },
+          {
+            label: "Expansion and cooling",
+            description: "The universe expanded, and the temperature came down.",
+          },
+          {
+            label: "Hydrogen and helium form",
+            description: "The first elements formed sometime later.",
+          },
+          {
+            label: "Galaxies condense",
+            description: "Gases condensed under gravitation into the galaxies of the present-day universe.",
+          },
+        ]}
+      />
       <ProcessCard
         title="How the early earth was prepared for life"
         steps={[
@@ -215,6 +241,7 @@ export default function EvolutionChapter() {
           { cells: ["Trap", "Collects the water carrying the organic compounds formed."] },
         ]}
       />
+      <MillerApparatusDiagram />
       <KeyPoint title="Primary product formed">
         Amino acids.
       </KeyPoint>
@@ -232,9 +259,9 @@ export default function EvolutionChapter() {
 
       <h2 id="h-6-2">6.2 Evolution of Life Forms – A Theory</h2>
       <p>
-        The theory of special creation was strongly challenged during the nineteenth century. Based on observations
-        made during a sea voyage in a sail ship called <strong>H.M.S. Beagle</strong> round the world, Charles Darwin
-        concluded the following.
+        The theory of special creation held that every species was created as it is today, that diversity never
+        changes, and that the earth is only about 4,000 years old. Charles Darwin challenged it after sailing round
+        the world on <strong>H.M.S. Beagle</strong> and concluding the following.
       </p>
       <ul className="list-disc pl-5 space-y-1.5">
         <li>
@@ -278,12 +305,15 @@ export default function EvolutionChapter() {
         around the same time.
       </Callout>
       <p>
-        In due course of time, apparently new types of organisms are recognisable. All existing life forms share
-        similarities and share common ancestors — but these ancestors were present at different periods in the
-        history of earth (epochs, periods and eras). The geological history of earth closely correlates with the
-        biological history of earth. A common permissible conclusion is that{" "}
-        <Highlight color="yellow">earth is very old — not thousands of years, but billions of years old</Highlight>.
+        In due course of time, new types of organisms become recognisable. All living forms share similarities and
+        common ancestors — but those ancestors lived at different periods of earth&apos;s history (epochs, periods
+        and eras).
       </p>
+      <KeyPoint title="The two clocks agree">
+        The geological history of the earth closely matches the biological history of life — a common permissible
+        conclusion is that{" "}
+        <Highlight color="yellow">the earth is billions of years old, not thousands</Highlight>.
+      </KeyPoint>
       <MistakeCard
         mistake="The fittest individual is the strongest, fastest or largest one."
         correction="Fitness, according to Darwin, refers ultimately and only to reproductive fitness — the ability to leave more progeny. Strength is not the measure."
@@ -291,6 +321,47 @@ export default function EvolutionChapter() {
       />
 
       <h2 id="h-6-3">6.3 What are the Evidences for Evolution?</h2>
+      <TopicIndex
+        title="Six kinds of evidence"
+        items={[
+          {
+            id: "h-6-3-fossils",
+            icon: "🦴",
+            label: "Palaeontological",
+            note: "Fossils and the rock record.",
+          },
+          {
+            id: "h-6-3-homology",
+            icon: "🫀",
+            label: "Morphological and anatomical",
+            note: "Homology and analogy.",
+          },
+          {
+            id: "h-6-3-biochemistry",
+            icon: "🧬",
+            label: "Biochemical",
+            note: "Proteins, genes and the central dogma.",
+          },
+          {
+            id: "h-6-3-biogeography",
+            icon: "🗺️",
+            label: "Biogeographical",
+            note: "Distribution and adaptive radiation.",
+          },
+          {
+            id: "h-6-3-embryology",
+            icon: "🥚",
+            label: "Embryological",
+            note: "Features shared by embryos.",
+          },
+          {
+            id: "h-6-3-moth",
+            icon: "🦋",
+            label: "Natural selection",
+            note: "Industrial melanism and resistance.",
+          },
+        ]}
+      />
 
       <h3 id="h-6-3-fossils">1. Palaeontological evidences</h3>
       <Callout type="important" title="Palaeontology and fossils">
@@ -302,6 +373,7 @@ export default function EvolutionChapter() {
         sediments arranged one over the other across the long history of the earth, and different-aged sediments
         contain the fossils of life-forms that died while that sediment was forming.
       </p>
+      <FossilLayersDiagram />
       <TableCard
         title="What the fossil record tells us"
         headers={["What is studied", "Example"]}
@@ -359,6 +431,7 @@ export default function EvolutionChapter() {
           In plants, the <strong>thorns of Bougainvillea</strong> and the <strong>tendrils of Cucurbita</strong>.
         </li>
       </ul>
+      <HomologousForelimbsDiagram />
       <Callout type="important" title="Analogous organs (analogy)">
         Organs with{" "}
         <Highlight color="yellow">different internal structures but the same function</Highlight>, suited to similar
@@ -371,25 +444,29 @@ export default function EvolutionChapter() {
         <li>Flippers of penguins and dolphins.</li>
         <li>Sweet potato (a modified root) and potato (a modified stem), both for food storage.</li>
       </ul>
-      <TableCard
-        title="Homology vs analogy"
-        headers={["Point of difference", "Homologous organs", "Analogous organs"]}
-        rows={[
-          { cells: ["Internal structure", "Similar.", "Different."] },
-          { cells: ["Function", "Different.", "Same."] },
+      <Comparison
+        columns={[
           {
-            cells: [
-              "Cause",
-              "Divergent evolution — one inherited plan adapted to different needs.",
-              "Convergent evolution — similar habitats selecting similar solutions.",
-            ],
+            title: "Homologous organs",
+            children: (
+              <ul className="list-disc pl-4 space-y-1">
+                <li><strong>Structure</strong> — similar.</li>
+                <li><strong>Function</strong> — different.</li>
+                <li><strong>Cause</strong> — divergent evolution.</li>
+                <li><strong>Shows</strong> — common ancestry.</li>
+              </ul>
+            ),
           },
           {
-            cells: [
-              "Indicates",
-              "Common ancestry.",
-              "Similar habitat, not common ancestry.",
-            ],
+            title: "Analogous organs",
+            children: (
+              <ul className="list-disc pl-4 space-y-1">
+                <li><strong>Structure</strong> — different.</li>
+                <li><strong>Function</strong> — same.</li>
+                <li><strong>Cause</strong> — convergent evolution.</li>
+                <li><strong>Shows</strong> — similar habitat, not ancestry.</li>
+              </ul>
+            ),
           },
         ]}
       />
@@ -433,63 +510,48 @@ export default function EvolutionChapter() {
 
       <h3 id="h-6-3-moth">6. Evidences for evolution by natural selection</h3>
       <p>
-        Man has bred selected plants and animals for agriculture, horticulture, sport or security, and has
-        domesticated many wild animals and crops. This intensive breeding programme has created breeds that differ
-        from other breeds (e.g. dogs) but still are of the same group. It is argued that{" "}
-        <Highlight color="yellow">
-          if within hundreds of years man could create new breeds, could not nature have done the same over millions
-          of years?
-        </Highlight>
+        Man has bred plants and animals for agriculture, sport and security, creating breeds that differ from one
+        another but still belong to the same group. If man can do that in hundreds of years, why not nature over
+        millions?
       </p>
       <p>
-        Another interesting observation supporting evolution by natural selection comes from England — a collection
-        of moths made before industrialisation and again after it.
+        A famous test case comes from England — the peppered moth, sampled before and after industrialisation.
       </p>
-      <TableCard
-        title="The peppered moth in England"
-        headers={["Period", "Background on the trees", "Which moths predominated"]}
-        rows={[
+      <Comparison
+        columns={[
           {
-            cells: [
-              "1850s, before industrialisation",
-              "Thick growth of almost white-coloured lichen covered the trees.",
-              "More white-winged moths than dark-winged or melanised moths.",
-            ],
+            title: "Before 1850s",
+            children: (
+              <ul className="list-disc pl-4 space-y-1">
+                <li><strong>Trees</strong> — covered in white lichen.</li>
+                <li><strong>Moths</strong> — white-winged common; dark-winged rare.</li>
+                <li><strong>Why</strong> — dark moths stood out against pale bark and were picked off.</li>
+              </ul>
+            ),
           },
           {
-            cells: [
-              "1920, after industrialisation",
-              "Tree trunks became dark due to industrial smoke and soot.",
-              "More dark-winged moths — the proportion was reversed.",
-            ],
+            title: "After 1920",
+            children: (
+              <ul className="list-disc pl-4 space-y-1">
+                <li><strong>Trees</strong> — darkened by soot; lichens died.</li>
+                <li><strong>Moths</strong> — dark-winged common; white-winged declined.</li>
+                <li><strong>Why</strong> — now the pale moths were the conspicuous ones.</li>
+              </ul>
+            ),
           },
         ]}
-        caption="The same area was sampled twice, and the proportion of the two forms was reversed between the two collections."
       />
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          The explanation put forth for this observation was that{" "}
-          <strong>predators will spot a moth against a contrasting background</strong> — so the form that matches the
-          tree trunk survives, and the other is picked out.
-        </li>
-        <li>Hence, moths that were able to camouflage themselves, i.e. hide in the background, survived.</li>
-        <li>
-          This understanding is supported by the fact that in areas where industrialisation did not occur — for
-          example in rural areas — the count of melanic moths was low.
-        </li>
-      </ul>
-      <Callout type="didyouknow" title="Lichens as pollution indicators">
-        Lichens will not grow in areas that are polluted — which is why they can be used as industrial pollution
-        indicators. Their disappearance from the tree trunks is what changed the background colour in the first place.
+      <Callout type="note" title="Lichens as pollution indicators">
+        Lichens do not grow in polluted air, so their disappearance from the trunks is what changed the background
+        colour.
       </Callout>
       <KeyPoint title="What the moth story shows">
-        In a mixed population, those that can better adapt survive and increase in population size. And{" "}
-        <strong>no variant is completely wiped out</strong> — the dark-winged form was present before 1850 and the
-        white-winged form was still present after 1920. The whole case is called{" "}
+        In a mixed population, the better-adapted form survives and increases — but{" "}
+        <strong>no variant is completely wiped out</strong>. The whole case is called{" "}
         <Highlight color="yellow">industrial melanism</Highlight>.
       </KeyPoint>
 
-      <h3 id="h-6-3-anthropogenic">Evolution by anthropogenic action</h3>
+      <h4 id="h-6-3-anthropogenic">Evolution by anthropogenic action</h4>
       <ul className="list-disc pl-5 space-y-1.5">
         <li>
           Excess use of herbicides, pesticides, etc. has only resulted in selection of <strong>resistant varieties</strong>{" "}
@@ -512,13 +574,18 @@ export default function EvolutionChapter() {
 
       <h2 id="h-6-4">6.4 What is Adaptive Radiation?</h2>
       <p>
-        During his journey Darwin went to the <strong>Galapagos Islands</strong>. There he observed an amazing
-        diversity of creatures. Of particular interest were small black birds later called{" "}
-        <strong>Darwin&apos;s Finches</strong>. He realised that there were many varieties of finches in the same
-        island. All the varieties, he conjectured, evolved on the island itself. From the original seed-eating
-        features, many other forms with altered beaks arose, enabling them to become insectivorous and vegetarian
-        finches.
+        On the <strong>Galapagos Islands</strong>, Darwin found small black birds — later called{" "}
+        <strong>Darwin&apos;s finches</strong>.
       </p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li><strong>Many varieties</strong> — several kinds of finch lived on the same island.</li>
+        <li><strong>One origin</strong> — he conjectured that all of them evolved on the island itself.</li>
+        <li>
+          <strong>Beaks changed with diet</strong> — from the original seed-eating form arose insectivorous and
+          vegetarian finches.
+        </li>
+      </ul>
+      <FinchBeaksDiagram />
       <Callout type="important" title="Adaptive radiation">
         This process of evolution of different species in a given geographical area starting from a point and
         literally radiating to other areas of geography (habitats) is called{" "}
@@ -607,8 +674,11 @@ export default function EvolutionChapter() {
       />
       <p>
         Here we say that the fitness of B is better than that of A under the new conditions. Nature selects for
-        fitness. Microbes that divide fast have the ability to multiply and become millions of individuals within
-        hours — which is why their evolution is visible on a human timescale.
+        fitness.
+      </p>
+      <p>
+        Microbes that divide fast multiply into millions within hours — which is why their evolution is visible on a
+        human timescale.
       </p>
       <Callout type="important" title="Fitness must be inherited to matter">
         The so-called fitness is based on characteristics which are <strong>inherited</strong>. Hence there must be a
@@ -622,12 +692,20 @@ export default function EvolutionChapter() {
 
       <h3 id="h-6-5-lamarck">Lamarck — use and disuse of organs</h3>
       <p>
-        Even before Darwin, a French naturalist <strong>Lamarck</strong> had said that evolution of life forms had
-        occurred, but driven by <strong>use and disuse of organs</strong>. He gave the example of giraffes, who in an
-        attempt to forage leaves on tall trees had to adapt by elongation of their necks. As they passed on this
-        acquired character of elongated neck to succeeding generations, giraffes slowly, over the years, came to
-        acquire long necks. Nobody believes this conjecture any more.
+        Even before Darwin, the French naturalist <strong>Lamarck</strong> argued that evolution is driven by{" "}
+        <strong>use and disuse of organs</strong>.
       </p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li><strong>The claim</strong> — an organ used more develops; one used less withers.</li>
+        <li>
+          <strong>The giraffe</strong> — stretching for tall leaves elongated the neck, and the elongated neck was
+          passed on to the offspring.
+        </li>
+        <li>
+          <strong>The verdict</strong> — acquired characters are not inherited; nobody believes this conjecture any
+          more.
+        </li>
+      </ul>
       <TableCard
         title="Lamarck vs Darwin"
         headers={["Point", "Lamarck", "Darwin"]}
@@ -680,10 +758,11 @@ export default function EvolutionChapter() {
         <li>Most of the variations are inherited.</li>
       </ul>
       <p>
-        Theoretically, population size will grow exponentially if everybody reproduced maximally — a fact that can be
-        seen in a growing bacterial population. The fact that population sizes in reality are limited means that
-        there had been <strong>competition for resources</strong>. Only some survived and grew at the cost of others
-        that could not flourish.
+        Left unchecked, a population would grow exponentially — as a growing bacterial culture shows.
+      </p>
+      <p>
+        Real populations stay limited, which means there has been <strong>competition for resources</strong>: only
+        some survived and grew at the cost of others.
       </p>
       <KeyPoint title="Darwin's novel insight">
         Variations which are heritable, and which make resource utilisation better for a few (adapted to the habitat
@@ -693,12 +772,14 @@ export default function EvolutionChapter() {
 
       <h2 id="h-6-6">6.6 Mechanism of Evolution</h2>
       <p>
-        What is the origin of this variation and how does speciation occur? Even though <strong>Mendel</strong> had
-        talked of inheritable &apos;factors&apos; influencing phenotype, Darwin either ignored these observations or
-        kept silence. In the first decade of the twentieth century, <strong>Hugo deVries</strong>, based on his work
-        on evening primrose, brought forth the idea of{" "}
-        <Highlight color="yellow">mutations — large differences arising suddenly in a population</Highlight>.
+        What is the origin of variation, and how does speciation occur? Darwin either ignored Mendel&apos;s
+        inheritable &apos;factors&apos; or stayed silent about them.
       </p>
+      <Callout type="note" title="deVries and the idea of mutation">
+        In the first decade of the twentieth century, <strong>Hugo deVries</strong> — working on evening primrose —
+        proposed{" "}
+        <Highlight color="yellow">mutations: large differences arising suddenly in a population</Highlight>.
+      </Callout>
       <TableCard
         title="Darwin vs deVries"
         headers={["Point", "Darwin", "deVries"]}
@@ -730,9 +811,8 @@ export default function EvolutionChapter() {
 
       <h2 id="h-6-7">6.7 Hardy-Weinberg Principle</h2>
       <p>
-        In a given population one can find out the frequency of occurrence of alleles of a gene or a locus. This
-        frequency is supposed to remain fixed and even remain the same through generations. The Hardy-Weinberg
-        principle stated it using algebraic equations.
+        In a population, the frequency of alleles of a gene or locus tends to remain fixed through the generations.
+        The <strong>Hardy-Weinberg principle</strong> states this in algebraic form.
       </p>
       <Callout type="important" title="The principle">
         Allele frequencies in a population are stable and are constant from generation to generation. The gene pool
@@ -740,27 +820,20 @@ export default function EvolutionChapter() {
         <Highlight color="yellow">genetic equilibrium</Highlight>.
       </Callout>
       <p>
-        The sum total of all the allelic frequencies is 1. Individual frequencies, for example, can be named p, q,
-        etc. In a diploid, <em>p</em> and <em>q</em> represent the frequency of allele <strong>A</strong> and allele{" "}
-        <strong>a</strong>.
+        The sum of all allelic frequencies is 1. In a diploid, <em>p</em> and <em>q</em> are the frequencies of
+        allele <strong>A</strong> and allele <strong>a</strong>.
       </p>
       <FormulaBlock latex={String.raw`p^2 + 2pq + q^2 = 1`} label="Hardy–Weinberg equilibrium" important />
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          The frequency of <strong>AA</strong> individuals in a population is simply <em>p</em>² — the probability
-          that an allele A with a frequency of p appears on both the chromosomes of a diploid individual, which is
-          the product of the probabilities.
-        </li>
-        <li>
-          Similarly, the frequency of <strong>aa</strong> is <em>q</em>².
-        </li>
-        <li>
-          The frequency of <strong>Aa</strong> is 2<em>pq</em>.
-        </li>
-        <li>
-          The whole equation is the binomial expansion of (<em>p</em> + <em>q</em>)².
-        </li>
-      </ul>
+      <TableCard
+        title="Genotype frequencies from allele frequencies"
+        headers={["Genotype", "Frequency", "Why"]}
+        rows={[
+          { cells: ["AA", "p²", "Allele A on both chromosomes: p × p."] },
+          { cells: ["aa", "q²", "Allele a on both chromosomes: q × q."] },
+          { cells: ["Aa", "2pq", "A from either parent — two ways."] },
+        ]}
+        caption="The whole equation is the binomial expansion of (p + q)²."
+      />
       <Callout type="note" title="How the principle detects evolution">
         When the frequency measured differs from expected values, the difference (direction) indicates the extent of
         evolutionary change. Disturbance in genetic equilibrium — a change of frequency of alleles in a population —
@@ -794,34 +867,35 @@ export default function EvolutionChapter() {
           {
             cells: [
               "Gene migration, or gene flow",
-              "When migration of a section of population to another place and population occurs, gene frequencies change in the original as well as in the new population. New genes/alleles are added to the new population and these are lost from the old population. There would be gene flow if this gene migration happens multiple times.",
+              "Alleles move between populations. Repeated migration is gene flow.",
             ],
           },
           {
             cells: [
               "Genetic drift",
-              "If the same change occurs by chance, it is called genetic drift. Sometimes the change in allele frequency is so different in the new sample of population that they become a different species — the original drifted population becomes founders, and the effect is called the founder effect.",
+              "Chance change in allele frequency. A drastically changed sample can found a new species — the founder effect.",
             ],
           },
           {
             cells: [
               "Mutation",
-              "Pre-existing advantageous mutations, when selected, result in observation of new phenotypes; over a few generations this would result in speciation.",
+              "Advantageous mutations, when selected, give new phenotypes and can lead to speciation.",
             ],
           },
           {
             cells: [
               "Genetic recombination",
-              "Variation due to recombination during gametogenesis changes the frequency of genes and alleles in future generations.",
+              "Recombination in gametogenesis reshuffles alleles for future generations.",
             ],
           },
           {
             cells: [
               "Natural selection",
-              "A process in which heritable variations enabling better survival are enabled to reproduce and leave a greater number of progeny.",
+              "Heritable variations that improve survival leave more progeny.",
             ],
           },
         ]}
+        caption="Any one of these disturbs genetic equilibrium — and therefore counts as evolution."
       />
       <p>
         A critical analysis makes us believe that variation due to mutation, variation due to recombination during
@@ -848,11 +922,11 @@ export default function EvolutionChapter() {
 
       <h2 id="h-6-8">6.8 A Brief Account of Evolution</h2>
       <p>
-        About 2000 million years ago (mya) the first cellular forms of life appeared on earth. The mechanism of how
-        non-cellular aggregates of giant macromolecules could evolve into cells with a membranous envelope is not
-        known. Some of these cells had the ability to release O₂. The reaction could have been similar to the light
-        reaction in photosynthesis, where water is split with the help of solar energy captured and channelised by
-        appropriate light harvesting pigments. Slowly, single-celled organisms became multi-cellular life forms.
+        About 2000 mya the first cellular life appeared. Some cells could release O₂ — much as the light reaction of
+        photosynthesis splits water — and single cells slowly became multicellular.
+      </p>
+      <p>
+        How non-cellular aggregates of giant molecules became cells with a membranous envelope is still unknown.
       </p>
       <Timeline
         title="Landmarks on the geological clock"
@@ -869,64 +943,101 @@ export default function EvolutionChapter() {
           { date: "200 mya", label: "Fish-like reptiles", detail: "Some land reptiles went back into water to evolve into fish-like reptiles, e.g. Ichthyosaurs." },
         ]}
       />
-      <p>
-        We are told that the first organisms that invaded land were <strong>plants</strong>. They were widespread on
-        land when animals invaded land. In 1938, a fish caught in South Africa happened to be a{" "}
-        <strong>Coelacanth</strong>, which was thought to be extinct. These animals, called <strong>lobefins</strong>,
-        evolved into the first <strong>amphibians</strong> that lived on both land and water. There are no specimens
-        of these left with us; however, these were ancestors of modern day frogs and salamanders.
-      </p>
-      <p>
-        The amphibians evolved into <strong>reptiles</strong>. They lay thick-shelled eggs which do not dry up in the
-        sun, unlike those of amphibians. Again we only see their modern day descendants — the turtles, tortoises and
-        crocodiles. In the next 200 million years or so, reptiles of different shapes and sizes dominated on earth.
-      </p>
       <ul className="list-disc pl-5 space-y-1.5">
-        <li>Giant ferns (pteridophytes) were present, but they all fell to form coal deposits slowly.</li>
         <li>
-          The land reptiles were, of course, the dinosaurs. The biggest of them, <strong>Tyrannosaurus rex</strong>,
-          was about 20 feet in height and had huge fearsome dagger-like teeth.
+          <strong>Plants first</strong> — the first organisms to invade land were plants; they were widespread before
+          animals followed.
         </li>
-        <li>About 65 mya the dinosaurs suddenly disappeared from the earth. We do not know the true reason.</li>
         <li>
-          Some say climatic changes killed them; some say most of them evolved into birds. The truth may live in
-          between.
+          <strong>Coal from ferns</strong> — giant ferns (pteridophytes) fell and slowly formed coal deposits.
         </li>
-        <li>Small-sized reptiles of that era still exist today.</li>
       </ul>
 
+      <h3 id="h-6-8-vertebrates">From fish to mammals</h3>
+      <TableCard
+        title="The vertebrate succession"
+        headers={["Group", "Key innovation", "What became of it"]}
+        rows={[
+          {
+            cells: [
+              "Fish",
+              "Jaws and fins; lobefins had fleshy fins.",
+              "Jawless fish by 350 mya; lobefins gave rise to amphibians.",
+            ],
+          },
+          {
+            cells: [
+              "Amphibians",
+              "Legs, but eggs still need water.",
+              "Ancestors of modern frogs and salamanders.",
+            ],
+          },
+          {
+            cells: [
+              "Reptiles",
+              "Thick-shelled eggs that do not dry up in the sun.",
+              "Turtles, tortoises and crocodiles; reptiles dominated for about 200 million years.",
+            ],
+          },
+          {
+            cells: [
+              "Dinosaurs",
+              "Large size; Tyrannosaurus rex stood about 20 feet tall with dagger-like teeth.",
+              "Vanished suddenly about 65 mya; small reptiles of that era survive today.",
+            ],
+          },
+          {
+            cells: [
+              "Mammals",
+              "Vivipary — young protected inside the mother.",
+              "Took over once the reptiles declined.",
+            ],
+          },
+        ]}
+        caption="The reason for the dinosaurs' sudden disappearance is still debated — climate change, or descent into birds."
+      />
+      <Callout type="didyouknow" title="The fish that came back">
+        In 1938 a fish caught in South Africa turned out to be a <strong>Coelacanth</strong>, thought extinct. These{" "}
+        <strong>lobefins</strong> evolved into the first <strong>amphibians</strong>; no transitional specimens
+        survive, only their descendants — frogs and salamanders.
+      </Callout>
+
       <h3 id="h-6-8-mammals">Mammals take over</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>The first mammals were like shrews, and their fossils are small sized.</li>
-        <li>
-          Mammals were <strong>viviparous</strong> and protected their unborn young inside the mother&apos;s body.
-        </li>
-        <li>Mammals were more intelligent in sensing and avoiding danger, at least.</li>
-        <li>When reptiles came down, mammals took over this earth.</li>
-        <li>
-          There were, in South America, mammals resembling horse, hippopotamus, bear, rabbit, etc. Due to continental
-          drift, when South America joined North America, these animals were overridden by North American fauna.
-        </li>
-        <li>
-          Due to the same continental drift, pouched mammals of Australia survived because of lack of competition from
-          any other mammal.
-        </li>
-        <li>
-          Some mammals live wholly in water — whales, dolphins, seals and sea cows are some examples.
-        </li>
-        <li>
-          Evolution of horse, elephant, dog, etc. are special stories of evolution, to be learnt in higher classes.
-        </li>
-        <li>
-          The most successful story is the evolution of man, with language skills and self-consciousness.
-        </li>
-      </ul>
+      <p>Once the reptiles declined, mammals took over the earth.</p>
+      <TableCard
+        title="After the dinosaurs: what mammals changed"
+        headers={["Feature", "Detail"]}
+        rows={[
+          { cells: ["First mammals", "Shrew-like, with small fossils."] },
+          { cells: ["Reproduction", "Viviparous — the unborn young develop inside the mother."] },
+          { cells: ["Behaviour", "More intelligent at sensing and avoiding danger."] },
+          {
+            cells: [
+              "South America",
+              "Horse-, hippo-, bear- and rabbit-like forms; overrun by North American fauna after the continents joined.",
+            ],
+          },
+          {
+            cells: [
+              "Australia",
+              "Pouched mammals survived because there was no competition from other mammals.",
+            ],
+          },
+          { cells: ["Water", "Whales, dolphins, seals and sea cows live wholly in water."] },
+          {
+            cells: [
+              "Later stories",
+              "Horse, elephant and dog evolution; and finally man, with language and self-consciousness.",
+            ],
+          },
+        ]}
+        caption="Continental drift explains why South America's mammals were replaced while Australia's pouched mammals survived."
+      />
 
       <h2 id="h-6-9">6.9 Origin and Evolution of Man</h2>
       <p>
-        About 15 mya, primates called <strong>Dryopithecus</strong> and <strong>Ramapithecus</strong> were existing.
-        They were hairy and walked like gorillas and chimpanzees. Ramapithecus was more man-like while Dryopithecus
-        was more ape-like.
+        About 15 mya, <strong>Dryopithecus</strong> and <strong>Ramapithecus</strong> lived. Both were hairy and walked
+        like gorillas, but Ramapithecus was more man-like and Dryopithecus more ape-like.
       </p>
       <Timeline
         title="The human story"
@@ -965,22 +1076,18 @@ export default function EvolutionChapter() {
           },
         ]}
       />
-      <TableCard
-        title="Brain size along the human line"
-        headers={["Stage", "Brain capacity", "Diet"]}
-        rows={[
-          { cells: ["Homo habilis", "650–800 cc", "Probably did not eat meat."] },
-          { cells: ["Homo erectus", "Around 900 cc", "Probably ate meat."] },
-          { cells: ["Neanderthal man", "1400 cc", "—"] },
-        ]}
-      />
+      <BrainSizeBars />
       <p>
-        <strong>Homo sapiens</strong> arose in Africa and moved across continents and developed into distinct races.
-        Pre-historic cave art developed about 18,000 years ago; one such cave painting by pre-historic humans can be
-        seen at the <strong>Bhimbetka rock shelter</strong> in Raisen district of Madhya Pradesh. Agriculture came
-        around 10,000 years back and human settlements started. The rest of what happened is part of human history —
-        the growth and decline of civilisations.
+        <strong>Homo sapiens</strong> arose in Africa, spread across continents, and developed into distinct races.
       </p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>
+          <strong>Cave art</strong> — about 18,000 years ago; see the paintings at the{" "}
+          <strong>Bhimbetka rock shelter</strong>, Raisen district, Madhya Pradesh.
+        </li>
+        <li><strong>Agriculture</strong> — around 10,000 years ago; human settlements began.</li>
+        <li><strong>History</strong> — the growth and decline of civilisations.</li>
+      </ul>
       <MistakeCard
         mistake="Homo habilis had the largest brain of the human line."
         correction="Homo habilis had a brain of 650–800 cc; Homo erectus about 900 cc; the Neanderthal man 1400 cc. Brain size increased along the line, it did not decrease."
