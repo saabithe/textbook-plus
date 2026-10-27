@@ -16,13 +16,29 @@ import { STRUCTURES } from "./structures.generated";
 export default function HaloalkanesAndHaloarenesChapter() {
   return (
     <>
-      <h2 id="h-6-1">6.1 Classification</h2>
+      <h2 id="h-6-intro">Introduction: Haloalkanes and Haloarenes</h2>
 
-      <p>
-        Haloalkanes and haloarenes are classified as mono-, di- or polyhalogen compounds according to
-        how many halogen atoms they contain. The mono- / di- / poly- distinction and typical examples
-        are summarised below.
-      </p>
+      <p><strong>Definition</strong></p>
+      <ul className="list-disc pl-6 space-y-1 mb-2">
+        <li><strong>Haloalkanes (Alkyl Halides):</strong> Aliphatic hydrocarbon + Halogen atom.</li>
+        <li><strong>Haloarenes (Aryl Halides):</strong> Aromatic hydrocarbon + Halogen atom.</li>
+      </ul>
+
+      <p><strong>The Core Difference</strong></p>
+      <ul className="list-disc pl-6 space-y-1 mb-2">
+        <li><strong>Haloalkanes:</strong> Halogen is attached to an sp³-hybridized carbon (alkyl group).</li>
+        <li><strong>Haloarenes:</strong> Halogen is attached to an sp²-hybridized carbon (aromatic/aryl group).</li>
+      </ul>
+
+      <p><strong>Significance:</strong> This hybridization difference (sp³ vs. sp²) governs their distinct chemistry.</p>
+
+      <p><strong>Quick Examples</strong></p>
+      <ul className="list-disc pl-6 space-y-1 mb-4">
+        <li><strong>Haloalkane:</strong> Chloroethane (CH₃—CH₂—Cl)</li>
+        <li><strong>Haloarene:</strong> Chlorobenzene (C₆H₅—Cl)</li>
+      </ul>
+
+      <h2 id="h-6-1">6.1 Classification</h2>
 
       <h3 id="h-6-1-1">6.1.1 On the Basis of Number of Halogen Atoms</h3>
 
@@ -57,29 +73,25 @@ export default function HaloalkanesAndHaloarenesChapter() {
         ]}
       />
 
-      <p>
-        <strong>(b) Allylic halides:</strong> halogen on an <em>sp</em>
-        <sup>3</sup>-hybridised carbon adjacent to a C=C bond (an allylic carbon); example CH₂=CH—CH₂Br
-        (allyl bromide).
-      </p>
-
-      <p>
-        <strong>(c) Benzylic halides:</strong> halogen on an <em>sp</em>
-        <sup>3</sup>-hybridised carbon attached to an aromatic ring; example C₆H₅CH₂Cl (benzyl
-        chloride).
-      </p>
+      <TableCard
+        caption="Other families sharing an sp³ C–X bond"
+        headers={["Family", "Carbon bearing X", "Example"]}
+        rows={[
+          { cells: ["Allylic halide", "sp³ carbon next to a C=C bond", "CH₂=CH—CH₂Br (allyl bromide)"] },
+          { cells: ["Benzylic halide", "sp³ carbon attached to an aromatic ring", "C₆H₅CH₂Cl (benzyl chloride)"] },
+        ]}
+      />
 
       <h3 id="h-6-1-3">6.1.3 Compounds Containing sp² C—X Bond</h3>
 
-      <p>
-        <strong>(a) Vinylic halides:</strong> halogen on an <em>sp</em>
-        <sup>2</sup>-hybridised carbon of a C=C bond; example CH₂=CHCl (vinyl chloride).
-      </p>
-
-      <p>
-        <strong>(b) Aryl halides:</strong> halogen bonded directly to an <em>sp</em>
-        <sup>2</sup>-hybridised carbon of an aromatic ring; example C₆H₅Cl (chlorobenzene).
-      </p>
+      <TableCard
+        caption="Families sharing an sp² C–X bond"
+        headers={["Family", "Carbon bearing X", "Example"]}
+        rows={[
+          { cells: ["Vinylic halide", "sp² carbon of a C=C bond", "CH₂=CHCl (vinyl chloride)"] },
+          { cells: ["Aryl halide (haloarene)", "sp² carbon of an aromatic ring", "C₆H₅Cl (chlorobenzene)"] },
+        ]}
+      />
 
       <KeyPoint title="Alkyl vs aryl — the sp³ / sp² divide decides the chemistry">
         <p>
