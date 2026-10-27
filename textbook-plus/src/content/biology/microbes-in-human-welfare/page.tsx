@@ -15,18 +15,16 @@ export default function MicrobesInHumanWelfareChapter() {
     <>
       <p>
         Besides macroscopic plants and animals, <strong>microbes are the major components of biological
-        systems</strong> on this earth. Microbes are present everywhere — in soil, water, air, inside our bodies
-        and that of other animals and plants. They are present even at sites where no other life-form could
-        possibly exist: deep inside the geysers (thermal vents) where the temperature may be as high as{" "}
-        <strong>100 °C</strong>, deep in the soil, under the layers of snow several metres thick, and in highly
-        acidic environments.
+        systems</strong> on this earth.
       </p>
-      <p>
-        Microbes are diverse — protozoa, bacteria, fungi and microscopic animal and plant viruses, viroids and
-        also prions. Microbes like bacteria and many fungi can be grown on{" "}
-        <strong>nutritive media</strong> to form colonies that can be seen with the naked eyes. Such cultures
-        are useful in studies on micro-organisms.
-      </p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>
+          <strong>Everywhere</strong> — in water, air, soil, and inside the bodies of animals and plants.
+        </li>
+        <li>
+          <strong>Even where nothing else survives</strong> — the extreme addresses below.
+        </li>
+      </ul>
       <Callout type="note" title="Extreme addresses">
         <ul className="list-disc pl-5 space-y-1.5">
           <li>Deep inside the geysers (thermal vents), at temperatures up to <strong>100 °C</strong>.</li>
@@ -35,11 +33,20 @@ export default function MicrobesInHumanWelfareChapter() {
           <li>In highly acidic environments.</li>
         </ul>
       </Callout>
-      <FactCard
-        title="Prions"
-        definition="Proteinacious infectious agents — the last of the microscopic entities NCERT lists alongside bacteria, fungi, viruses and viroids."
-        icon="🧬"
-      />
+
+      <h3 id="h-8-diversity">How diverse are they?</h3>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li><strong>Bacteria</strong></li>
+        <li><strong>Fungi</strong></li>
+        <li><strong>Protozoa</strong></li>
+        <li><strong>Viruses</strong> — microscopic, of animals and of plants</li>
+        <li><strong>Viroids</strong></li>
+        <li><strong>Prions</strong> — proteinaceous infectious agents</li>
+      </ul>
+      <p>
+        Bacteria and many fungi grow on <strong>nutritive media</strong> as colonies visible to the naked eye —
+        which is what makes them studyable in the lab.
+      </p>
       <TableCard
         title="The microscopic world the chapter opens with"
         headers={["Figure", "What it shows"]}
@@ -47,35 +54,31 @@ export default function MicrobesInHumanWelfareChapter() {
           {
             cells: [
               "8.1 — Bacteria",
-              "Rod-shaped bacteria and spherical bacteria (both magnified 1500X); a rod-shaped bacterium showing flagella (magnified 50,000X).",
+              "Rod-shaped and spherical bacteria (1500×); a rod-shaped bacterium with flagella (50,000×).",
             ],
           },
           {
             cells: [
               "8.2 — Viruses",
-              "A bacteriophage; an adenovirus which causes respiratory infections; a rod-shaped Tobacco Mosaic Virus (TMV), magnified about 1,00,000–1,50,000X.",
+              "A bacteriophage with collar, tail and plate; an adenovirus causing respiratory infections; a rod-shaped TMV (1,00,000–1,50,000×).",
             ],
           },
           {
             cells: [
               "8.3 — Colonies",
-              "Colonies of bacteria and a fungal colony growing in petri dishes — these are the colonies that become visible to the naked eye on nutritive media.",
+              "Bacterial and fungal colonies in petri dishes — the colonies that become visible on nutritive media.",
             ],
           },
         ]}
       />
-      <Callout type="important" title="Not all microbes are harmful">
-        In the previous chapter you read that microbes cause a large number of diseases in human beings, and
-        that they also cause diseases in animals and plants. That should not make you think all microbes are
-        harmful: <Highlight color="yellow">several microbes are useful to man in diverse ways</Highlight>. This
-        chapter is about those contributions to human welfare.
-      </Callout>
 
       <h2 id="h-8-1">8.1 Microbes in Household Products</h2>
       <p>
         We use microbes, or products derived from them, every day. The most familiar example is the production
         of <strong>curd</strong> from milk.
       </p>
+
+      <h3 id="h-8-1-curd">Curd from milk</h3>
       <Callout type="important" title="Lactic acid bacteria (LAB)">
         Micro-organisms such as <em>Lactobacillus</em> and others commonly called lactic acid bacteria (LAB)
         grow in milk and convert it to curd. During growth, the LAB produce acids that coagulate and partially
@@ -105,21 +108,51 @@ export default function MicrobesInHumanWelfareChapter() {
           },
         ]}
       />
-      <Callout type="note" title="The same bacteria inside you">
-        In our stomach too, the LAB play a very beneficial role in <strong>checking disease-causing
-        microbes</strong>. Curd is not only a food — it is a supply of those bacteria.
-      </Callout>
+      <p>Curd is not just soured milk — it is a better food than the milk it came from.</p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>
+          <strong>More vitamin B₁₂</strong> — the nutritional quality of the milk improves.
+        </li>
+        <li>
+          <strong>Fewer pathogens</strong> — in our stomach the same LAB check disease-causing microbes.
+        </li>
+      </ul>
+      <h3 id="h-8-1-fermented">Other fermented foods</h3>
       <p>
-        The dough used for making foods such as <strong>dosa</strong> and <strong>idli</strong> is also
-        fermented by bacteria. The puffed-up appearance of the dough is due to the production of{" "}
-        <strong>CO₂ gas</strong>.
+        Several everyday foods are made by letting microbes ferment the raw material.
       </p>
+      <TableCard
+        title="Four fermented foods and their microbes"
+        headers={["Food", "Microbe", "What happens"]}
+        rows={[
+          { cells: ["Idli, dosa", "Bacteria", "Ferment the dough; CO₂ puffs it up."] },
+          {
+            cells: [
+              "Bread",
+              <em key="yeast">Saccharomyces cerevisiae</em>,
+              "Baker’s yeast ferments the dough; CO₂ raises it.",
+            ],
+          },
+          {
+            cells: [
+              "Toddy",
+              "Microbes in the palm sap",
+              "Sap from palms ferments into a traditional drink.",
+            ],
+          },
+          {
+            cells: ["Fish, soyabean, bamboo-shoots", "Microbes", "Fermented to make foods."],
+          },
+        ]}
+        caption="Idli and bread rise by the same gas — CO₂ from fermentation."
+      />
       <Expandable title="In-text question — which metabolic pathway produces the CO₂?">
         <p>
-          The bacteria break down the sugars of the dough <strong>anaerobically</strong> — fermentation. In
-          this pathway the sugar is not fully oxidised, and CO₂ is released as a gaseous end-product. It is
-          the same kind of anaerobic breakdown that raises bread dough and produces ethanol in fermented
-          beverages.
+          The bacteria break down the sugars of the dough <strong>anaerobically</strong> — fermentation.
+        </p>
+        <p>
+          The sugar is not fully oxidised, so CO₂ escapes as a gas. The same breakdown raises bread and produces
+          ethanol in fermented drinks.
         </p>
       </Expandable>
       <Expandable title="In-text question — where do the bacteria for these fermentations come from?">
@@ -129,12 +162,10 @@ export default function MicrobesInHumanWelfareChapter() {
           naturally occurring microbes multiply and ferment it.
         </p>
       </Expandable>
+      <h3 id="h-8-1-cheese">Cheese</h3>
       <p>
-        The dough used for making <strong>bread</strong> is fermented using <strong>baker’s yeast</strong> (
-        <em>Saccharomyces cerevisiae</em>). A number of traditional drinks and foods are also made by
-        fermentation by microbes: <strong>toddy</strong>, a traditional drink of some parts of southern India,
-        is made by fermenting sap from palms, and microbes are also used to ferment fish, soyabean and
-        bamboo-shoots to make foods.
+        Cheese is one of the oldest food items in which microbes were used. Its variety is decided by the
+        microbe.
       </p>
       <TableCard
         title="Cheese: the microbe decides the variety"
@@ -155,12 +186,8 @@ export default function MicrobesInHumanWelfareChapter() {
             ],
           },
         ]}
-        caption="Cheese is one of the oldest food items in which microbes were used. Different varieties are known by their characteristic texture, flavour and taste, and the specificity comes from the microbes used."
+        caption="Different varieties are known by their texture, flavour and taste — and that specificity comes from the microbe used."
       />
-      <KeyPoint title="Everyday microbes">
-        Curd at lunch, idli at breakfast, bread in the evening, cheese on the table — all four are microbial
-        products, and none of them needs a factory.
-      </KeyPoint>
 
       <h2 id="h-8-2">8.2 Microbes in Industrial Products</h2>
       <p>
@@ -193,10 +220,11 @@ export default function MicrobesInHumanWelfareChapter() {
       </ul>
       <Expandable title="In-text question — which metabolic reactions give ethanol in yeast?">
         <p>
-          Yeast ferments the sugars of the malted cereal or the fruit juice <strong>anaerobically</strong>. In
-          this pathway a sugar such as glucose is converted into <strong>ethanol and carbon dioxide</strong>.
-          The very same reaction releases the CO₂ that raises bread dough — the difference is only in what is
-          being fermented and what is collected.
+          Yeast ferments the sugars of the malted cereal or the fruit juice <strong>anaerobically</strong>.
+        </p>
+        <p>
+          A sugar such as glucose becomes <strong>ethanol and carbon dioxide</strong>. That is the same reaction
+          that raises bread dough — only what is fermented and what is collected differ.
         </p>
       </Expandable>
       <Comparison
@@ -293,11 +321,20 @@ export default function MicrobesInHumanWelfareChapter() {
       />
       <p>After penicillin, other antibiotics were also purified from other microbes.</p>
       <Expandable title="In-text question — name some other antibiotics and their sources">
+        <p>Penicillin was only the first.</p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>
+            <strong>Streptomycin</strong> — from <em>Streptomyces griseus</em>.
+          </li>
+          <li>
+            <strong>Erythromycin</strong> — from <em>Streptomyces erythraeus</em>.
+          </li>
+          <li>
+            <strong>Tetracyclines</strong> — from other <em>Streptomyces</em> species.
+          </li>
+        </ul>
         <p>
-          Penicillin was only the first. <strong>Streptomycin</strong> comes from{" "}
-          <em>Streptomyces griseus</em>, <strong>erythromycin</strong> from <em>Streptomyces erythraeus</em>, and
-          the <strong>tetracyclines</strong> from other <em>Streptomyces</em> species. NCERT asks you to find
-          these out for yourself — keep adding to the list from your library.
+          NCERT asks you to find these out for yourself — keep adding to the list from your library.
         </p>
       </Expandable>
       <p>Antibiotics have greatly improved our capacity to treat deadly diseases such as:</p>
