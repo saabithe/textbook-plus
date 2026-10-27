@@ -10,6 +10,22 @@ import { ReadRespond } from "@/components/content/ReadRespond";
 import { Highlight } from "@/components/content/Highlight";
 import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 
+import type { ReactNode } from "react";
+
+/** One headed group of bullets inside the Detailed summary. */
+function SummaryPart({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <section>
+      <h3 className="mb-2.5 text-[0.8rem] font-bold uppercase tracking-[0.14em] text-muted-foreground">
+        {title}
+      </h3>
+      <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+        {children}
+      </ul>
+    </section>
+  );
+}
+
 const QA_ITEMS = [
   {
     question: "What is the role of bio-diversity in maintaining environmental balance?",
@@ -89,19 +105,27 @@ const DISCOURSES = [
         <Callout type="important">
           <p>
             Wangari Maathai founded the{" "}
-            <Highlight color="green">Green Belt Movement</Highlight> in the
-            1970s, an environmental NGO focused on tree planting, environmental
-            conservation, and women&rsquo;s rights. Together, they planted over
-            <strong> 30 million trees</strong> that provide fuel, food, shelter,
-            and income to support families.
+            <Highlight color="green">Green Belt Movement</Highlight> in 1977, an
+            environmental NGO that worked on three fronts at once:
+          </p>
+          <ul className="list-disc space-y-1.5 ps-5">
+            <li>tree planting;</li>
+            <li>environmental conservation;</li>
+            <li>women&rsquo;s rights.</li>
+          </ul>
+          <p>
+            Together they planted over <strong>30 million trees</strong>, which
+            provide fuel, food, shelter and income to support families.
           </p>
         </Callout>
         <p>
           The movement began because women in rural Kenya could no longer meet
-          their basic needs. The degradation of their environment &mdash;
-          combined with commercial farming replacing household food crops
-          &mdash; had made survival difficult. Tree planting was chosen because
-          it was{" "}
+          their basic needs. The degradation of their environment &mdash; combined
+          with commercial farming replacing household food crops &mdash; had made
+          survival difficult.
+        </p>
+        <p>
+          Tree planting was chosen because it was{" "}
           <Highlight color="yellow">simple, attainable, and guaranteed quick
           results</Highlight>, sustaining interest and commitment.
         </p>
@@ -123,10 +147,12 @@ const DISCOURSES = [
           Although the movement initially focused on tree planting, it became
           clear that responsible governance of the environment was impossible
           without{" "}
-          <Highlight color="yellow">democratic space</Highlight>. Citizens were
-          mobilized to challenge widespread abuse of power, corruption, and
-          environmental mismanagement. The tree became a symbol of Kenya&rsquo;s
-          democratic struggle.
+          <Highlight color="yellow">democratic space</Highlight>. The tree
+          therefore became a symbol of Kenya&rsquo;s democratic struggle.
+        </p>
+        <p>
+          Citizens were mobilised to challenge widespread abuse of power,
+          corruption, and environmental mismanagement.
         </p>
         <h3
           id="trees-as-peace"
@@ -139,8 +165,10 @@ const DISCOURSES = [
           The Kikuyu elders carried a staff from the{" "}
           <Highlight color="green">thigi tree</Highlight> &mdash; placing it
           between disputing sides caused them to stop fighting and seek
-          reconciliation. Maathai connects this cultural heritage to
-          conservation and peace.
+          reconciliation.
+        </p>
+        <p>
+          Maathai connects this cultural heritage to conservation and peace.
         </p>
       </>
     ),
@@ -172,10 +200,9 @@ export default function WhenASaplingIsPlantedPage() {
           <p>
             <em>When a Sapling is Planted</em> is the{" "}
             <Highlight color="yellow">Nobel Peace Prize Acceptance Speech</Highlight>{" "}
-            by Wangari Maathai, delivered in Oslo on December 10, 2004. Maathai
-            was the first African woman to receive this prestigious award, in
-            recognition of her contribution to sustainable development, democracy,
-            and peace.
+            by Wangari Maathai. Maathai was the first African woman to receive
+            this prestigious award, in recognition of her contribution to
+            sustainable development, democracy, and peace.
           </p>
           <p>
             The speech traces her journey from founding the Green Belt Movement
@@ -196,140 +223,216 @@ export default function WhenASaplingIsPlantedPage() {
             quick={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <strong>Speaker</strong>: Wangari Maathai &mdash; first
-                  African woman Nobel Peace Prize laureate.
+                  <strong>Speaker</strong>: Wangari Maathai, the{" "}
+                  <Highlight color="yellow">first African woman</Highlight> to
+                  win the Nobel Peace Prize.
                 </li>
                 <li>
-                  <strong>Green Belt Movement</strong>: Planted{" "}
-                  <Highlight color="green">30 million trees</Highlight> for
-                  fuel, food, shelter, and income.
+                  <strong>Green Belt Movement</strong>: founded in 1977 to meet
+                  what rural women named as their basic needs &mdash; firewood,
+                  clean drinking water, balanced diets, shelter and income;{" "}
+                  <Highlight color="green">30 million trees</Highlight> planted.
                 </li>
                 <li>
-                  <strong>Core argument</strong>: No peace without equitable
-                  development; no development without environmental management
-                  in a democratic space.
+                  <strong>Why trees</strong>: planting is simple, attainable and
+                  gives quick, visible results, so the community stays committed.
                 </li>
                 <li>
-                  <strong>Tree symbol</strong>: Peace, democracy,
-                  reconciliation &mdash; rooted in Kikuyu tradition.
+                  <strong>More than ecology</strong>: the tree became a symbol of
+                  Kenya&rsquo;s democratic struggle and of peace, and development,
+                  peace and environmental management cannot exist apart.
                 </li>
                 <li>
-                  <strong>Closing image</strong>: The dried-up stream where
-                  tadpoles once swam &mdash; a call to restore beauty and
-                  wonder.
+                  <strong>Closing image</strong>: the dried-up stream where
+                  tadpoles once swam &mdash; our task is to restore &ldquo;the
+                  home of the tadpoles&rdquo;.
                 </li>
               </ul>
             }
             standard={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  Maathai opens with humility, dedicating the prize to the
-                  founders of the Green Belt Movement, the women of Kenya,
-                  Africa, and the world, and those who have worked for{" "}
-                  <Highlight color="yellow">democracy and peace</Highlight>.
+                  Maathai accepts the prize as the first African woman laureate,
+                  dedicating it to the people of Kenya, Africa and the world, and
+                  hoping it will encourage women and young girls to raise their
+                  voices and step into leadership.
                 </li>
                 <li>
-                  She explains that African women are primary caretakers of the
-                  land &mdash; they were the first to notice environmental
-                  damage. When degradation and commercial farming replaced food
-                  crops, women could no longer meet basic needs. International
-                  trade controlled export prices, making fair income impossible.
+                  Her commitment began in childhood in rural Kenya, watching
+                  indigenous forests cleared and replaced by commercial
+                  plantations &mdash; a change that destroyed biodiversity and the
+                  land&rsquo;s capacity to conserve water.
                 </li>
                 <li>
-                  Tree planting was chosen because it was simple, attainable,
-                  and guaranteed quick results. Together, they planted over 30
-                  million trees providing fuel, food, shelter, and income &mdash;
-                  while creating employment and improving{" "}
-                  <Highlight color="green">soil and watersheds</Highlight>.
+                  In 1977 she founded the Green Belt Movement in answer to what
+                  rural women named as their basic needs: firewood, clean drinking
+                  water, balanced diets, shelter and income.
                 </li>
                 <li>
-                  The tree became a symbol of Kenya&rsquo;s{" "}
-                  <Highlight color="yellow">democratic struggle</Highlight>.
-                  Citizens mobilized against corruption and environmental
-                  mismanagement. In Kikuyu tradition, the thigi tree staff
-                  placed between disputing sides caused reconciliation.
+                  Women, as the caretakers who till the land, felt the damage
+                  first; commercial farming had displaced household food crops and
+                  export prices were fixed by international trade, so a fair
+                  income was impossible.
                 </li>
                 <li>
-                  Maathai calls on world leaders to expand democratic space,
-                  and on young people to commit to long-term goals: &ldquo;You
-                  are a gift to your communities and indeed, the world.&rdquo;
+                  Tree planting was chosen because it was simple, attainable and
+                  produced visible, quick results. Over{" "}
+                  <Highlight color="green">30 million trees</Highlight> followed,
+                  providing fuel, food, shelter and income, creating employment
+                  and restoring soil and watersheds.
                 </li>
                 <li>
-                  She closes with a childhood memory of a stream where tadpoles
-                  swam &mdash; now dried up. &ldquo;The challenge is to restore
-                  the home of the tadpoles and give back to our children a
-                  world of beauty and wonder.&rdquo;
+                  The movement grew into a{" "}
+                  <Highlight color="yellow">democratic struggle</Highlight>: the
+                  tree became its symbol, and citizens mobilised against
+                  corruption, environmental mismanagement and the abuse of power.
+                </li>
+                <li>
+                  Trees also became symbols of peace, following the Kikuyu custom
+                  of the thigi staff placed between disputing sides. Equitable
+                  development, peace and sound environmental management, she
+                  argues, cannot exist apart.
+                </li>
+                <li>
+                  She calls on world leaders to widen democratic space and build
+                  fair societies, and on young people to shape a sustainable
+                  future: &ldquo;You are our hope and our future.&rdquo; She closes
+                  with the dried-up stream of her childhood &mdash; the challenge
+                  is to &ldquo;restore the home of the tadpoles&rdquo;.
                 </li>
               </ul>
             }
             detailed={
-              <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
-                <li>
-                  <strong>Personal authority</strong>: Maathai speaks as the
-                  first African woman to receive the Nobel Peace Prize. Her
-                  authority comes not from political office but from decades of
-                  grassroots work &mdash; founding the Green Belt Movement in the
-                  1970s, mobilizing communities, and facing personal risk for
-                  environmental and democratic activism.
-                </li>
-                <li>
-                  <strong>Women and environment</strong>: Maathai establishes a
-                  direct link between women&rsquo;s lives and environmental
-                  health. African women till the land and feed their families
-                  &mdash; they are{" "}
-                  <Highlight color="yellow">first to notice</Highlight> when
-                  resources become scarce. The degradation of the environment
-                  meant they could no longer meet basic needs, and international
-                  trade arrangements denied them fair income.
-                </li>
-                <li>
-                  <strong>Why tree planting</strong>: Maathai explains the
-                  strategic logic: tree planting is simple, attainable, and
-                  guarantees quick, successful results within a reasonable time.
-                  This sustains interest and commitment &mdash; a lesson in{" "}
-                  <Highlight color="green">grassroots movement design</Highlight>.
-                  Over 30 million trees were planted, providing fuel, food,
-                  shelter, income, employment, and improved soil and watersheds.
-                </li>
-                <li>
-                  <strong>From ecology to democracy</strong>: The movement
-                  initially did not address democracy or peace. But it became
-                  clear that responsible environmental governance was impossible
-                  without{" "}
-                  <Highlight color="yellow">democratic space</Highlight>. The
-                  tree became a symbol of the democratic struggle &mdash;
-                  citizens mobilized against corruption, abuse of power, and
-                  environmental mismanagement.
-                </li>
-                <li>
-                  <strong>Tree as peace symbol</strong>: In Kikuyu tradition,
-                  elders carried a staff from the thigi tree that, when placed
-                  between disputing sides, caused them to stop fighting and
-                  seek reconciliation. Maathai extends this to ethnic conflicts
-                  in Kenya &mdash; trees became symbols of peace and conflict
-                  resolution, connecting{" "}
-                  <Highlight color="green">cultural heritage</Highlight> to
-                  conservation.
-                </li>
-                <li>
-                  <strong>Call to action</strong>: Maathai calls on world
-                  leaders to expand democratic space and build fair societies.
-                  She calls on young people to commit to long-term goals:
-                  &ldquo;You are a gift to your communities and indeed, the
-                  world. You are our hope and our future.&rdquo;
-                </li>
-                <li>
-                  <strong>The tadpole image</strong>: The speech&rsquo;s most
-                  moving moment: Maathai recalls visiting a stream as a child
-                  where she drank clean water, played among arrowroot leaves,
-                  and watched tadpoles in clear water against brown earth.
-                  Today the stream is dried up. &ldquo;The challenge is to
-                  restore the home of the tadpoles and give back to our
-                  children a world of beauty and wonder.&rdquo; The image
-                  encapsulates the entire speech &mdash; loss, memory, and
-                  hope.
-                </li>
-              </ul>
+              <div className="space-y-7">
+                <SummaryPart title="1. The Prize, the Dedication and Her Childhood">
+                  <li>
+                    Maathai accepts the Nobel Peace Prize as the{" "}
+                    <Highlight color="yellow">first African woman</Highlight> ever
+                    to receive it, and dedicates it to the people of Kenya, to
+                    Africa and to the world.
+                  </li>
+                  <li>
+                    She hopes the award will inspire women and young girls to
+                    raise their voices and step into leadership.
+                  </li>
+                  <li>
+                    Her authority comes not from political office but from
+                    decades of grassroots work &mdash; founding the Green Belt
+                    Movement, mobilising communities, and facing personal risk for
+                    environmental and democratic activism.
+                  </li>
+                  <li>
+                    Her commitment to the environment began in childhood in rural
+                    Kenya, where she watched indigenous forests being cleared and
+                    replaced by commercial plantations.
+                  </li>
+                  <li>
+                    That clearing destroyed biodiversity and stripped the land of
+                    its natural capacity to conserve water.
+                  </li>
+                </SummaryPart>
+
+                <SummaryPart title="2. The Green Belt Movement, 1977">
+                  <li>
+                    She founded the movement in response to the basic survival
+                    needs voiced by rural African women: firewood, clean drinking
+                    water, balanced diets, shelter and income.
+                  </li>
+                  <li>
+                    Women are the primary caretakers who till the land to feed
+                    their families, so they were the first to experience
+                    environmental damage as natural resources grew scarce.
+                  </li>
+                  <li>
+                    The crisis was aggravated by environmental degradation and by
+                    the introduction of commercial farming, which displaced
+                    traditional household food crops.
+                  </li>
+                  <li>
+                    Because international trade controlled export prices,
+                    small-scale farmers could not be guaranteed a fair or just
+                    income.
+                  </li>
+                </SummaryPart>
+
+                <SummaryPart title="3. Why Tree Planting Worked">
+                  <li>
+                    Tree planting was chosen as the core activity because it was
+                    simple, attainable and produced visible, quick results &mdash;
+                    which kept the community committed. Maathai offers this as a
+                    lesson in{" "}
+                    <Highlight color="green">grassroots movement design</Highlight>.
+                  </li>
+                  <li>
+                    Through collective effort the movement planted over 30 million
+                    trees across Kenya.
+                  </li>
+                  <li>
+                    The trees provided fuel, food, shelter and income, money that
+                    funded children&rsquo;s education and household needs.
+                  </li>
+                  <li>
+                    Planting also created local employment while restoring soil
+                    health and improving watersheds.
+                  </li>
+                </SummaryPart>
+
+                <SummaryPart title="4. Environment, Democracy and Peace">
+                  <li>
+                    The movement began with environmental needs but evolved to
+                    address larger socio-political issues.
+                  </li>
+                  <li>
+                    <strong>Democracy</strong>: she recognised that responsible
+                    environmental governance is impossible without democratic
+                    space. The tree became the symbol of the democratic struggle in
+                    Kenya, mobilising citizens against corruption, environmental
+                    mismanagement and the abuse of power.
+                  </li>
+                  <li>
+                    <strong>Peace</strong>: trees became symbols of peace during
+                    ethnic conflicts, honouring traditional African customs.
+                    Kikuyu elders carried a staff from the{" "}
+                    <Highlight color="green">thigi tree</Highlight> and placed it
+                    between disputing factions; the fighting stopped and the sides
+                    were reconciled.
+                  </li>
+                  <li>
+                    <strong>Core principle</strong>: equitable development, peace
+                    and sustainable environmental management are interdependent
+                    and cannot exist without one another in a democratic space.
+                  </li>
+                </SummaryPart>
+
+                <SummaryPart title="5. The Call to Action and the Closing Image">
+                  <li>
+                    To <strong>world leaders</strong>: expand democratic spaces
+                    and construct fair societies.
+                  </li>
+                  <li>
+                    To <strong>young people</strong>: use your creativity and
+                    energy to shape a sustainable future. &ldquo;You are a gift to
+                    your communities and indeed, the world. You are our hope and
+                    our future.&rdquo;
+                  </li>
+                  <li>
+                    She closes with a childhood memory of fetching water from a
+                    stream near her home, drinking directly from it, and watching
+                    thousands of energetic, wriggling{" "}
+                    <strong>tadpoles</strong> in the clear water against the brown
+                    earth.
+                  </li>
+                  <li>
+                    Returning fifty years later, she found the stream completely
+                    dried up.
+                  </li>
+                  <li>
+                    The primary challenge of our generation, she says, is to
+                    &ldquo;restore the home of the tadpoles&rdquo; and return a
+                    world of beauty and wonder to future generations.
+                  </li>
+                </SummaryPart>
+              </div>
             }
           />
 
@@ -359,8 +462,11 @@ export default function WhenASaplingIsPlantedPage() {
               The speech emphasizes that change comes through{" "}
               <Highlight color="yellow">collective effort</Highlight>. Over 30
               million trees were planted not by one person but by communities
-              working together. Maathai calls on world leaders, young people, and
-              citizens to embrace their role in healing the Earth.
+              working together.
+            </p>
+            <p>
+              Maathai calls on world leaders, young people, and citizens to
+              embrace their role in healing the Earth.
             </p>
             <h3
               id="interconnectedness"

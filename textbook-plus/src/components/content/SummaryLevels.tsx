@@ -115,6 +115,13 @@ export function SummaryLevels({ defaultLevel = "standard", quick, standard, deta
       <div className="mt-4 animate-fade-in" key={level}>
         {content[level]}
       </div>
+
+      {/* Divider — closes the summary block, so it does not run into the next section */}
+      <div className="mt-10 flex items-center gap-3" aria-hidden="true">
+        <span className="h-px flex-1 bg-border" />
+        <span className="h-1 w-1 rounded-full bg-border" />
+        <span className="h-px flex-1 bg-border" />
+      </div>
     </div>
   );
 }
