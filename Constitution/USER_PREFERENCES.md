@@ -372,6 +372,7 @@ The point of this document is **compounding**: I make a correction once, it is w
 3. **Every note becomes a shape; every shape becomes a rule.** When I describe a presentation I like, what I am describing is a *shape* — lead-in, parallel items, hierarchy, whitespace. Record the shape, not the sentence.
 4. **A rule without its example does not survive.** Store the before/after verbatim next to the rule (§11.1, §11.2). The example is what a new chapter can be measured against.
 5. **Duplicates get polished, not skipped.** If my note repeats the page, improve the block that already exists.
-6. **Mechanical checks beat memory.** If a rule can be tested by a script, it should be: the script does not get tired on the ninth chapter.
+6. **Mechanical checks beat memory.** If a rule can be tested by a script, it should be: the script does not get tired on the ninth chapter. `scripts/audit-presentation.cjs` is that script; `Constitution/CONTENT_PLAYBOOK.md` is the one-page version of this file.
+7. **Push at milestones, not at every tweak** (27 Oct 2026). Let small edits accumulate; commit and push when a chapter, component, structural change or document batch is finished. Never leave a finished milestone unpushed at the end of a session.
 
 The goal is not to follow instructions well. It is to reach the point where the instruction is unnecessary because the intent is already understood.

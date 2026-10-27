@@ -26,6 +26,7 @@ npm run build        # production build — runs scripts/generate-sw.js then nex
 npm run lint         # eslint
 npm run typecheck    # tsc --noEmit — fast type check, no build needed
 node scripts/verify-latex.cjs   # run after any content-math change: renders every formula through KaTeX, fails on error
+node scripts/audit-presentation.cjs [--chapter <slug>]   # presentation linter (P1–P7): paragraph length, inline lists, figure refs, table cells, heading jumps — see Constitution/CONTENT_PLAYBOOK.md
 npm run chem:build -- --chapter <slug>   # regenerate chemistry structure SVGs from structures.json (gates G1–G5)
 npm run chem:sheet -- --chapter <slug>   # write the chapter's structure contact-sheet PNG for user review (gate G6)
 npm run chem:check                       # structure lint (gate G7) — also runs inside npm run build
@@ -164,6 +165,8 @@ There is **no auth, no cloud sync, and no progress persistence**. The former Sup
 - **Capture ALL user-provided solution steps verbatim.** When the user shares step-by-step notes/solutions, reproduce every step they give — never collapse, condense, or drop intermediate steps. Expand worked answers into full step-by-step (e.g. `Stepper` + final highlighted answer) matching the user's supplied derivation, even if a shorter version already exists.
 
 ### Content Authoring Conventions (user mandates — apply to ALL chapters, ALL subjects)
+
+_Start here: `Constitution/CONTENT_PLAYBOOK.md` — the one-page pre-flight / ten laws / post-flight version of everything below, plus the presentation linter `node scripts/audit-presentation.cjs`._
 - **Deliberate presentation, never dumping.** Sit and think about every piece of extracted content before placing it: pick the best vehicle per piece — a box (`Callout`/`KeyPoint`/`FactCard`), a `TableCard`/`Comparison` for groups of facts, a `Stepper`/diagram for processes, a custom component when the same presentation will recur. Text walls and straight list-dumps of textbook text are rejected. Reuse existing components first; create a new component only when justified.
 - **Prose that enumerates becomes a shape.** If a sentence carries a list — places, kinds, conditions, examples, parts, steps — that is a presentation failure, not content. Lift the list out: one short lead-in, then a bullet list (or `TableCard`/`Comparison`/`Stepper`), parallel grammar, bold lead phrases where useful. Applies inside callouts too. **Even when the user's note duplicates something already on the page**, do not skip it — fold it into that block and upgrade the block's shape. Reference example: `Constitution/USER_PREFERENCES.md` §11.1.
 - **Use `u` for initial velocity**, not `v_0`/`v0`/`v₀` (and `uₓ = u cosθ`, `u_y = u sinθ` for components). Mandatory in all physics content. (Exception: NCERT problem statements that ship with a named initial velocity may keep their symbol only when the whole problem set demands it.)
@@ -198,7 +201,8 @@ When the user drops a **batch with more than one independent job** (e.g. "new ch
 
 ## Git Rules
 
-- **Always push.** Commit and push after every change by default (user policy change, 11 Sep 2026).
+- **Push at milestones, not at every tweak** (user policy, 27 Oct 2026 — supersedes "always push"). A milestone is a finished chapter, a new component, a structural change, or a documentation batch. Let small edits accumulate in the working tree, then commit and push the batch.
+- **Never end a working session with a finished milestone unpushed.**
 - **Shorthand**: `p` means commit + push.
 
 ## History
