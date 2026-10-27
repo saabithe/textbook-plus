@@ -581,6 +581,19 @@ export default function MicrobesInHumanWelfareChapter() {
           },
         ]}
       />
+      <TableCard
+        title="The plant this section has described"
+        headers={["Figure", "What it shows"]}
+        rows={[
+          {
+            cells: [
+              "8.7 — A sewage plant",
+              "An aerial view of a working plant: settling tanks, aeration tanks and sludge digesters laid out together.",
+            ],
+          },
+        ]}
+        caption="The steps above are the flow; Fig. 8.7 is what that flow looks like on the ground."
+      />
       <Comparison
         columns={[
           {
@@ -720,6 +733,7 @@ export default function MicrobesInHumanWelfareChapter() {
             ],
           },
         ]}
+        caption="These four parts are exactly what the printed picture shows — Fig. 8.8, a typical biogas plant."
       />
       <p>
         Cattle dung is available in large quantities in rural areas, where cattle are used for a variety of
@@ -741,12 +755,21 @@ export default function MicrobesInHumanWelfareChapter() {
         Biocontrol refers to the <strong>use of biological methods for controlling plant diseases and
         pests</strong>.
       </Callout>
-      <p>
-        In modern society these problems have been tackled increasingly by the use of chemicals — insecticides
-        and pesticides. Those chemicals are toxic and extremely harmful, to human beings and animals alike, and
-        have been polluting our environment (soil, ground water), fruits, vegetables and crop plants. Our soil
-        is also polluted through the use of <strong>weedicides</strong> to remove weeds.
-      </p>
+      <p>Modern farming has answered pests and diseases with chemicals — and paid for it.</p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>
+          <strong>Insecticides and pesticides</strong> are the usual weapon against pests and diseases.
+        </li>
+        <li>
+          <strong>Toxic beyond the pest</strong> — they harm human beings and animals alike.
+        </li>
+        <li>
+          <strong>They travel</strong> — into soil and ground water, and into fruits, vegetables and crop plants.
+        </li>
+        <li>
+          <strong>Weedicides</strong> add to the same load of soil pollution.
+        </li>
+      </ul>
 
       <h3 id="h-8-5-organic">Biological control of pests and diseases</h3>
       <p>
@@ -808,14 +831,14 @@ export default function MicrobesInHumanWelfareChapter() {
                 <em>Bacillus thuringiensis</em> (Bt)
               </span>,
               "Butterfly caterpillars",
-              "Available in sachets as dried spores which are mixed with water and sprayed onto vulnerable plants such as brassicas and fruit trees. They are eaten by the insect larvae, the toxin is released in the gut, and the larvae get killed. The bacterial disease kills the caterpillars but leaves other insects unharmed.",
+              "Dried spores sprayed on the crop; the larva eats them and the toxin kills it.",
             ],
           },
           {
             cells: [
               "Bt-cotton",
-              "Insect pests of the plant",
-              "Methods of genetic engineering have introduced B. thuringiensis toxin genes into plants, making them resistant to attack by insect pests. Bt-cotton is being cultivated in some states of our country.",
+              "Insect pests of cotton",
+              "The same toxin gene is engineered into the plant, so the plant resists the pest.",
             ],
           },
           {
@@ -824,18 +847,25 @@ export default function MicrobesInHumanWelfareChapter() {
                 <em>Trichoderma</em>
               </span>,
               "Several plant pathogens",
-              "Free-living fungi that are very common in the root ecosystems; they are effective biocontrol agents, and a biological control being developed for use in the treatment of plant disease.",
+              "Free-living fungi common in root ecosystems; an effective biocontrol of plant disease.",
             ],
           },
           {
             cells: [
               "Baculoviruses, mostly genus Nucleopolyhedrovirus",
               "Insects and other arthropods",
-              "Pathogens that attack insects and other arthropods — excellent candidates for species-specific, narrow spectrum insecticidal applications, with no negative impacts shown on plants, mammals, birds, fish or even non-target insects.",
+              "Species-specific and narrow spectrum; harmless to plants, mammals, birds, fish and other insects.",
             ],
           },
         ]}
       />
+      <p>
+        <em>Bacillus thuringiensis</em> reaches the field as dried spores in a sachet. Mixed with water, it is
+        sprayed on vulnerable plants — brassicas and fruit trees.
+      </p>
+      <p>
+        Bt-cotton has the same toxin gene built in, and is already cultivated in some states of our country.
+      </p>
       <Callout type="note" title="Why narrow spectrum matters">
         A narrow spectrum agent is especially desirable when beneficial insects are being conserved to aid in an
         overall <strong>integrated pest management (IPM)</strong> programme, or when an ecologically sensitive
@@ -853,10 +883,12 @@ export default function MicrobesInHumanWelfareChapter() {
 
       <h2 id="h-8-6">8.6 Microbes as Biofertilisers</h2>
       <p>
-        Environmental pollution is a major cause of concern. The use of chemical fertilisers to meet the
-        ever-increasing demand of agricultural produce has contributed significantly to this pollution. We have
-        now realised the problems associated with the overuse of chemical fertilisers, and there is a large
-        pressure to switch to organic farming — the use of <strong>biofertilisers</strong>.
+        Chemical fertilisers met the rising demand for agricultural produce — and became a major source of
+        pollution.
+      </p>
+      <p>
+        Their overuse is now recognised as a problem, so there is a large pressure to switch to organic farming
+        — the use of <strong>biofertilisers</strong>.
       </p>
       <Callout type="important" title="Biofertilisers">
         Biofertilisers are <strong>organisms that enrich the nutrient quality of the soil</strong>. The main
@@ -915,21 +947,31 @@ export default function MicrobesInHumanWelfareChapter() {
         <li>An overall increase in plant growth and development.</li>
       </ul>
       <Expandable title="In-text question — what advantage does the fungus derive from mycorrhiza?">
-        <p>
-          The association is a trade, not charity. The fungus supplies the plant with phosphorus; in return the
-          plant supplies the fungus with the sugars and other organic food that the fungus, having no
-          chlorophyll, cannot make for itself.
-        </p>
+        <p>The association is a trade, not charity.</p>
+        <ul className="list-disc pl-5 space-y-1.5">
+          <li>
+            <strong>The fungus gives</strong> — it absorbs phosphorus from the soil and passes it to the plant.
+          </li>
+          <li>
+            <strong>The plant gives</strong> — sugars and other organic food, which the fungus cannot make for
+            itself because it has no chlorophyll.
+          </li>
+        </ul>
       </Expandable>
       <Callout type="note" title="Blue green algae in the paddy field">
         Cyanobacteria — the blue green algae — also <strong>add organic matter to the soil and increase its
         fertility</strong>, on top of fixing atmospheric nitrogen.
       </Callout>
-      <p>
-        Currently, in our country, a number of biofertilisers are available commercially in the market, and
-        farmers use these regularly in their fields to <strong>replenish soil nutrients</strong> and to{" "}
-        <strong>reduce dependence on chemical fertilisers</strong>.
-      </p>
+      <p>Biofertilisers are no longer a laboratory idea in India — they are on the shelf.</p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>A number of them are available commercially in the market.</li>
+        <li>
+          Farmers use them regularly to <strong>replenish soil nutrients</strong>.
+        </li>
+        <li>
+          They cut <strong>dependence on chemical fertilisers</strong>.
+        </li>
+      </ul>
       <KeyPoint title="Three sources, three jobs">
         Bacteria fix nitrogen, fungi deliver phosphorus, cyanobacteria do both — fix nitrogen and add organic
         matter. All three enrich the soil instead of polluting it.
