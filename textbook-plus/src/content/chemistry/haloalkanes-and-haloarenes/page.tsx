@@ -104,20 +104,30 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h2 id="h-6-2">6.2 Nomenclature</h2>
 
-      <p>
-        Common names of alkyl halides are derived by naming the alkyl group followed by the name of the
-        halide. In the IUPAC system, alkyl halides are named as <strong>halosubstituted hydrocarbons</strong>.
-        For monohalogen derivatives of benzene the common and IUPAC names are the same; for dihalogen
-        derivatives the prefixes <em>o</em>-, <em>m</em>-, <em>p</em>- are used in the common system,
-        while 1,2; 1,3 and 1,4 are used in the IUPAC system.
-      </p>
+      <h3>1. Alkyl Halides</h3>
+      <ul className="list-disc pl-6 space-y-1 mb-4">
+        <li><strong>Common System:</strong> Named as <strong>[alkyl group] + [halide name]</strong>.</li>
+        <li><strong>IUPAC System:</strong> Named as <strong>halosubstituted hydrocarbons</strong>.</li>
+      </ul>
 
-      <p>
-        Dihaloalkanes having the same type of halogen atoms are named as <strong>alkylidene</strong> or{" "}
-        <strong>alkylene dihalides</strong>. When both halogens are on the same carbon the compound is a{" "}
-        <strong>geminal (gem-) dihalide</strong>; when they are on adjacent carbons it is a{" "}
-        <strong>vicinal (vic-) dihalide</strong>. In the IUPAC system both are simply dihaloalkanes.
-      </p>
+      <h3>2. Benzene Derivatives (Haloarenes)</h3>
+      <ul className="list-disc pl-6 space-y-1 mb-4">
+        <li><strong>Monohalogen Derivatives:</strong> Common and IUPAC names are <strong>identical</strong>.</li>
+        <li>
+          <strong>Dihalogen Derivatives:</strong>
+          <ul className="list-disc pl-6 space-y-1 mt-1">
+            <li><strong>Common System:</strong> uses the prefixes <strong>o-</strong> (ortho), <strong>m-</strong> (meta) and <strong>p-</strong> (para).</li>
+            <li><strong>IUPAC System:</strong> uses locant numbers (<strong>1,2</strong>; <strong>1,3</strong>; <strong>1,4</strong>).</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>3. Dihaloalkanes (Same Halogen Type)</h3>
+      <ul className="list-disc pl-6 space-y-1 mb-4">
+        <li><strong>Geminal (gem-) Dihalides:</strong> both halogen atoms on the <strong>same carbon</strong> (also called alkylidene dihalides).</li>
+        <li><strong>Vicinal (vic-) Dihalides:</strong> halogen atoms on <strong>adjacent carbons</strong> (also called alkylene dihalides).</li>
+        <li><strong>IUPAC System:</strong> both are simply named as <strong>dihaloalkanes</strong> using locant numbers.</li>
+      </ul>
 
       <TableCard
         caption="Table 6.1: Common and IUPAC Names of some Halides"
