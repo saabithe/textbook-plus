@@ -160,6 +160,26 @@ This file tracks ALL user preferences, design decisions, and customization choic
 | Exercise/PYQ banks | Use the `ExerciseQa` component inside an `Expandable` for ALL question banks incl. PYQs — numbered rows + emerald answer panel, chapter-agnostic. | Sep 2026 |
 | Diagrams on demand | Whenever a question/situation demands a visual (e.g. "shown in the figure" PYQs, types of vectors, projectile paths), create an inline SVG diagram component (like `VectorFigures.tsx`) rather than describing shapes in words. | Sep 2026 |
 | Emphasis convention | `<Highlight>` (yellow default) for definitions, laws, must-memorize results — max ~1–3 per section, never whole paragraphs. `<strong>` (bold) for key terms on first introduction. `KeyPoint`/`Callout` for laws and exam traps. All chapters, all subjects. | Sep 2026 |
+| Prose → shape | **A paragraph that enumerates is a presentation failure.** One short lead-in sentence, then a bullet list (or `TableCard`/`Comparison`/`Stepper`) with parallel grammar and optional bold lead phrases. Applies to lists of places, kinds, conditions, examples, parts, or steps — including lists buried inside a `Callout`. | Oct 2026 |
+| Polish the duplicate | When the user's note repeats content already on the page, **do not skip or refuse it** — fold it into the existing block and upgrade that block's presentation (same facts, better shape). "Already covered" never cancels presentation work. | Oct 2026 |
+
+### 11.1 The canonical structural edit (Oct 2026)
+
+The user's own before/after is the reference standard for every chapter:
+
+**Bad** — a paragraph carrying a list inside it:
+
+> Besides macroscopic plants and animals, microbes are the major components of biological systems on this earth. Microbes are present everywhere — in soil, water, air, inside our bodies and that of other animals and plants. They are present even at sites where no other life-form could possibly exist: deep inside the geysers (thermal vents) where the temperature may be as high as 100 °C, deep in the soil, under the layers of snow several metres thick, and in highly acidic environments.
+
+**Good** — one short lead-in, then a list that breathes:
+
+> **Extreme addresses**
+> - Deep inside the geysers (thermal vents), at temperatures up to 100 °C.
+> - Deep in the soil.
+> - Under layers of snow several metres thick.
+> - In highly acidic environments.
+
+Same facts. The difference is hierarchy, whitespace and scannability. Every chapter gets this treatment: find the enumeration inside the prose, lift it out, give it a heading, make the items parallel.
 
 ---
 
