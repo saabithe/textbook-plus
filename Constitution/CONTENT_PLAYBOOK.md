@@ -74,6 +74,11 @@ npm run typecheck                                      # no type regressions
 
 ---
 
-## 5. Milestone definition (when to push)
+## 5. Push rule (when to push)
 
-A milestone is: a chapter finished, a component added, a structural change (routing, registry, layout), or a documentation batch. Small edits accumulate in the working tree until the next milestone — never leave a finished milestone unpushed.
+Push **whole batches**, never individual edits.
+
+- **A batch** = any coherent unit of work: a section restructured, a component added, a structural change, a script, a doc update — or a finished chapter. A partial chapter counts if the edits belong together.
+- **Not a batch**: a single paragraph, one bullet, a typo, a colour nudge.
+- **The test**: if you can describe it as one thing ("restructured the household-products section"), push it.
+- **The user's call wins**: if they call it a batch, it is a batch — never hold work back because the chapter is unfinished.

@@ -201,8 +201,11 @@ When the user drops a **batch with more than one independent job** (e.g. "new ch
 
 ## Git Rules
 
-- **Push at milestones, not at every tweak** (user policy, 27 Oct 2026 — supersedes "always push"). A milestone is a finished chapter, a new component, a structural change, or a documentation batch. Let small edits accumulate in the working tree, then commit and push the batch.
-- **Never end a working session with a finished milestone unpushed.**
+- **Push whole batches, not individual edits** (user policy, 27 Oct 2026 — supersedes "always push"). A **batch** is any coherent unit of work: a section restructured, a component added, a structural change, a documentation update, a new script — *or* a finished chapter. A partial chapter is still a batch if the edits belong together.
+- **Do not push per tweak**: a single paragraph, one bullet, a typo, a colour nudge — those wait for the next batch.
+- **The test**: if you can describe the change as one thing ("restructured the household-products section"), it is a batch — commit and push it.
+- **If the user calls it a batch, it is a batch.** Their judgement overrides yours; do not hold work back because a chapter is unfinished.
+- **Never end a working session with a finished batch unpushed.**
 - **Shorthand**: `p` means commit + push.
 
 ## History
