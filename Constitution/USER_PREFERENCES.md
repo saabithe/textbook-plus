@@ -162,6 +162,7 @@ This file tracks ALL user preferences, design decisions, and customization choic
 | Emphasis convention | `<Highlight>` (yellow default) for definitions, laws, must-memorize results — max ~1–3 per section, never whole paragraphs. `<strong>` (bold) for key terms on first introduction. `KeyPoint`/`Callout` for laws and exam traps. All chapters, all subjects. | Sep 2026 |
 | Prose → shape | **A paragraph that enumerates is a presentation failure.** One short lead-in sentence, then a bullet list (or `TableCard`/`Comparison`/`Stepper`) with parallel grammar and optional bold lead phrases. Applies to lists of places, kinds, conditions, examples, parts, or steps — including lists buried inside a `Callout`. | Oct 2026 |
 | Polish the duplicate | When the user's note repeats content already on the page, **do not skip or refuse it** — fold it into the existing block and upgrade that block's presentation (same facts, better shape). "Already covered" never cancels presentation work. | Oct 2026 |
+| Textbook figures | Every NCERT figure the text points at becomes a **figure table** (`TableCard`, columns `Figure` / `What it shows`) carrying the **printed figure number** (8.1, 8.2, …) and a concrete description of what the figure shows — so the reader can open the physical textbook and check it. Never paraphrase the number away, never write "see figure". | Oct 2026 |
 
 ### 11.1 The canonical structural edit (Oct 2026)
 
@@ -180,6 +181,20 @@ The user's own before/after is the reference standard for every chapter:
 > - In highly acidic environments.
 
 Same facts. The difference is hierarchy, whitespace and scannability. Every chapter gets this treatment: find the enumeration inside the prose, lift it out, give it a heading, make the items parallel.
+
+### 11.2 The canonical figure table (Oct 2026)
+
+When the chapter cites textbook figures, the reader must be able to **find the same figure in the printed book**. So the figure number is content, not decoration:
+
+> **The microscopic world the chapter opens with**
+>
+> | Figure | What it shows |
+> |---|---|
+> | 8.1 — Bacteria | Rod-shaped bacteria and spherical bacteria (both magnified 1500×); a rod-shaped bacterium showing flagella (magnified 50,000×). |
+> | 8.2 — Viruses | A bacteriophage; an adenovirus which causes respiratory infections; a rod-shaped Tobacco Mosaic Virus (TMV), magnified about 1,00,000–1,50,000×. |
+> | 8.3 — Colonies | Colonies of bacteria and a fungal colony growing in petri dishes — the colonies that become visible to the naked eye on nutritive media. |
+
+User's verdict on this pattern: *"for honest this was awesome — even without the image you correctly called out it… now from this we can quickly check the textbook original. This is what we want."* The description must stand on its own even when no image is embedded — state the organism/shape, the magnification, and what the panel is meant to prove.
 
 ---
 
@@ -345,3 +360,18 @@ src/lib/recent.ts — markRecentChapter() called from ChapterLayout on mount (wr
 The entire progress/auth/cloud-sync layer was removed: home hero + ContinueStrip, the `/progress` dashboard, the navbar Progress link + sync/auth menus, the chapter mark-complete button, and the `ProgressRing` / `StatPill` / `ContinueCard` / `ContinueStrip` / `SubjectHeaderStats` / `SubjectCardProgress` primitives (plus `useProgress`, `useSync`, `lib/recent.ts`, and the Supabase providers/auth pages/middleware/migrations). Home is now a plain subject grid; subject hubs are header + `ChapterList`; chapter headers have no mark-complete; `ChapterRow` dropped its status badge; Practice is now session-only.
 
 `ReadingProgress` was rewritten: a 3px bar pinned under the sticky navbar (`top: 64px`) that fills via a subject-color `transform: scaleX(...)` gradient with a leading-edge glow, plus a floating `NN%` chip (bottom-right) that doubles as a back-to-top button. Honors `prefers-reduced-motion`.
+
+---
+
+## 14. How to Work With Me (compounding, Oct 2026)
+
+The point of this document is **compounding**: I make a correction once, it is written down here, and I never make it twice. Reading it is not optional admin — it is the job.
+
+1. **Read before you act.** §11–§13 are corrections already paid for. A chapter started without reading them re-earns every one of them.
+2. **Act on intent, not the literal sentence.** "Make it a grid" also means build the component, wire the deep links, delete what it replaces, add it to the gallery, and document it. Finish the thought one step ahead of the instruction.
+3. **Every note becomes a shape; every shape becomes a rule.** When I describe a presentation I like, what I am describing is a *shape* — lead-in, parallel items, hierarchy, whitespace. Record the shape, not the sentence.
+4. **A rule without its example does not survive.** Store the before/after verbatim next to the rule (§11.1, §11.2). The example is what a new chapter can be measured against.
+5. **Duplicates get polished, not skipped.** If my note repeats the page, improve the block that already exists.
+6. **Mechanical checks beat memory.** If a rule can be tested by a script, it should be: the script does not get tired on the ninth chapter.
+
+The goal is not to follow instructions well. It is to reach the point where the instruction is unnecessary because the intent is already understood.
