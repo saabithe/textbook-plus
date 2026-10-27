@@ -15,11 +15,28 @@ import { STRUCTURES } from "./structures.generated";
 export default function CoordinationCompoundsChapter() {
   return (
     <>
-      <Callout type="didyouknow">
-        <strong>Chlorophyll</strong> (magnesium), <strong>haemoglobin</strong> (iron) and
-        <strong> vitamin B<sub>12</sub></strong> (cobalt) are all coordination compounds. So are many
-        metallurgical catalysts, analytical reagents, electroplating baths and medicinal drugs.
-      </Callout>
+      <h2 id="h-5-intro">Introduction: Coordination Compounds</h2>
+
+      <p><strong>Coordination Compound</strong></p>
+      <p>A compound in which a central metal atom or ion is linked to a number of ions or neutral molecules known as ligands.</p>
+
+      <p><strong>Bonding & Structure</strong></p>
+      <ul className="list-disc pl-6 space-y-1 mb-2">
+        <li>Coordinate bond: formed by one-side sharing of electron pairs.</li>
+        <li>Representation: <Formula>{String.raw`\mathrm{M \leftarrow L}`}</Formula> (M = central metal atom, L = ligand).</li>
+      </ul>
+      <p>The central metal atom or ion and the ligands together form a coordination entity.</p>
+
+      <p><strong>Central Atom / Ion</strong></p>
+      <p>Definition: in a coordination entity, the atom or ion to which a fixed number of ions or neutral molecules are attached is called the central atom or ion.</p>
+      <p>Diagram annotation: [Ni(CO)₄] — the central metal atom is Ni (nickel) in tetracarbonylnickel.</p>
+
+      <p><strong>🧬 2. Ligands</strong></p>
+      <p>Definition: the ions or neutral molecules bound to the central atom or ion in the coordination entity are called ligands.</p>
+      <p>Electron-donation rule: for a species to act as a ligand it must be able to donate at least one pair of electrons to the central atom.</p>
+      <p>Co-ordinating (donor) atom: the atom of the ligand that is directly bonded to the central atom or ion.</p>
+      <p>The number of donor atoms present in a ligand is called its <strong>denticity</strong>.</p>
+      <p>The number of ligand donor atoms directly bonded to the central metal ion is called the <strong>coordination number</strong>.</p>
 
       <h2 id="h-5-1">5.1 Werner&apos;s Theory of Coordination Compounds</h2>
 
