@@ -1,214 +1,125 @@
 # AGENTS.md
 
-## Repo Structure
+Next.js 16 interactive NCERT Class 12 companion. The app lives in `textbook-plus/` — **all commands run from there**, not the repo root.
 
-The Next.js app lives in `textbook-plus/`, **not** the repo root. Run all commands from `textbook-plus/`.
-
-Root-level docs:
-- `Constitution/PRD.md` — full product spec, database schema, content pipeline, site map
-- `Constitution/USER_PREFERENCES.md` — design decisions; §11 content preferences, §12 content-component design system + gallery, §13 shell
-- `Pipeline/CHAPTER_PIPELINE.md` + `Pipeline/PIPELINE_{SUBJECT}.md` — content pipeline (NCERT PDF → live chapter). Per-subject files are self-contained with dynamic steps and component suggestions.
-- `Developer_Deliveries/` — user-provided assets (gitignored): `Chapter names.md` (chapter-list source of truth), `Chapters/{Subject} Textbooks/` (source PDF inputs, e.g. Class 12 Physics `leph1XX.pdf`), `Chapters/{Subject} Images/{Topic}/` (user-supplied scan/diagram images), and `Images/` (source figures). Derived extraction outputs (`*-raw.md`, `*-extracted.md`, `pdf-page-*.png`, `{slug}-backup/`) are working files and are periodically cleaned.
-- **DELIVERED-IMAGES CONVENTION (mandatory):** when a user-supplied image is put into the app, (1) copy it into `textbook-plus/public/images/{subject}/{chapter-slug}/` under a **descriptive name** (say what the image shows, e.g. `ac-sinusoidal-alternating-voltage-graph.png`), and (2) **rename the original in the delivery folder** by prefixing `consumed__` to that same descriptive name (e.g. `consumed__ac-sinusoidal-alternating-voltage-graph.png`). The `consumed__` prefix is the marker that separates already-processed images from newly added ones whenever the delivery folder is revisited. Never delete originals, never reference the delivery folder URL in code — always the `public/images/...` copy.
-- `Pending/` (`plan_NNNN.md`) and `.opencode/plans/` (`plan_00NN.md`) — saved work-in-progress plans. When the user says "continue plan_NNNN.md", resume and delete when done.
-- `CLAUDE.md` — **outdated mirror of this file.** It still describes a removed `/admin` page, a `src/components/content/index.ts` barrel export, `SECTIONS_MAP`, and two-column chapter pages. Trust `AGENTS.md` and the code, not `CLAUDE.md`.
-
-**Two-folder convention** (preference): keep raw PDF inputs in `Chapters/{Subject} Textbooks/` (e.g. `Chapters/Physics Textbooks/` holds only `leph1XX.pdf`). Keep extraction outputs in a separate subject folder `Chapters/{Subject}/` (no "Textbooks"). Per `Pipeline/CHAPTER_PIPELINE.md`, extractions live at `Chapters/{Subject}/{slug}-extracted.md`; also `-raw.md`, `-clean.md`, `pdf-page-*.png`, and `{slug}-backup/` (practice-data JSON backups) go there. Never dump extraction files into the `Textbooks/` input folder.
-
-## Commands
-
-All run from `textbook-plus/`:
+## Commands (run from `textbook-plus/`)
 
 ```bash
-npm install          # install deps
-npm run dev          # dev server (port 3000) — uses --webpack (Windows SWC fix)
-npm run build        # production build — runs scripts/generate-sw.js then next build --webpack
-npm run lint         # eslint
-npm run typecheck    # tsc --noEmit — fast type check, no build needed
-node scripts/verify-latex.cjs   # run after any content-math change: renders every formula through KaTeX, fails on error
-node scripts/audit-presentation.cjs [--chapter <slug>]   # presentation linter (P1–P7): paragraph length, inline lists, figure refs, table cells, heading jumps — see Constitution/CONTENT_PLAYBOOK.md
-npm run chem:build -- --chapter <slug>   # regenerate chemistry structure SVGs from structures.json (gates G1–G5)
-npm run chem:sheet -- --chapter <slug>   # write the chapter's structure contact-sheet PNG for user review (gate G6)
-npm run chem:check                       # structure lint (gate G7) — also runs inside npm run build
+npm run dev                              # dev server (port 3000), uses --webpack
+npm run build                            # generate-sw + check-structures + next build --webpack
+npm run lint                             # eslint
+npm run typecheck                        # tsc --noEmit (fast, no build)
+node scripts/verify-latex.cjs            # KaTeX render check; run after any math edit
+node scripts/audit-presentation.cjs [--chapter <slug>]   # P1–P7 presentation linter
+node scripts/audit-grammar.cjs            # static checks over 12 grammar topics
+npm run chem:build -- --chapter <slug>    # regenerate chemistry SVGs from structures.json
+npm run chem:sheet -- --chapter <slug>    # per-chapter contact sheet (user sign-off, gate G6)
+npm run chem:check                       # structure lint (also runs in build)
 ```
 
-**Note**: `dev` and `build` both use `--webpack` (Windows SWC binary workaround). Vercel/Linux also needs it.
+While iterating, run `npm run typecheck` — not a full build or dev server. Build once at the end of a batch.
 
-No test framework. TypeScript errors surface via `npm run typecheck` (fast) or `npm run build` (which also type-checks). **While iterating, run `npm run typecheck` — not a full build, and not the dev server.** Build once at the end of a batch, before a push.
+## Repo Layout
 
-**Scripts** (`textbook-plus/scripts/`): `extract-pdf.mjs` / `clean-extract.mjs` / `render-pdf.mjs` — PDF extraction pipeline (step 2 of CHAPTER_PIPELINE); `unescape-latex.cjs` — codemod rewriting doubled-backslash LaTeX into single-backslash `String.raw` (`node scripts/unescape-latex.cjs <page.tsx> [...]`); `audit-grammar.cjs` — static checks over the 12 grammar topics (duplicate ids, MCQ answer-index range, duplicate options, fill-blank answer present in explanation, `MistakeCard` mistake === correction, stray non-ASCII, type mix) — run `node scripts/audit-grammar.cjs` after editing any `src/content/grammar/*/page.tsx`; `generate-sw.js` / `generate-icons.js` — build-time PWA assets.
+- `Constitution/` — PRD, USER_PREFERENCES (design decisions + component gallery specs)
+- `Pipeline/` — content pipeline docs (PDF → live chapter); per-subject files
+- `Developer_Deliveries/` — gitignored user assets (`Chapter names.md` is chapter-list source of truth; `Chapters/{Subject} Textbooks/` source PDFs; `Chapters/{Subject}/` extraction outputs; `Chapters/{Subject} Images/{Topic}/` user images)
+- `Pending/`, `.opencode/plans/` — work-in-progress plans; resume when user says "continue plan_NNNN.md", then delete
+- Next app: `textbook-plus/`
 
-**Component gallery**: `/dev/design` (`src/app/dev/design/page.tsx`) renders every content component with sample data — preview component changes there before committing.
+No `/admin` page. No barrel export (`src/components/content/index.ts`) — import each primitive by file path.
 
-## Tech Stack
+## Tech Stack Quirks
 
-- **Next.js 16.3.1** (App Router, React 19)
-- **Tailwind CSS v4** with `@tailwindcss/postcss` — no `tailwind.config.ts`; config in `globals.css` via `@theme inline`
-- **shadcn/ui** — style `base-nova`, uses `@base-ui/react` (not Radix). Add via `npx shadcn@latest add <component>`
-- **TypeScript strict** with `@/*` → `./src/*`
-- **Fonts**: Plus Jakarta Sans for app shell (`--font-sans`); notes content (`.prose-custom`) renders in **DM Sans** (`--font-content`) after the content-font migration. Source Serif 4 has been removed; there is no `--font-serif` anymore. Inline math uses `.prose-custom .formula-inline` (scroll-safe wrapper keeping KaTeX on the text baseline). **Arabic**: **Noto Naskh Arabic** → `--font-arabic` (naskh, tashkeel, literary body, `.arabic-body` / `.arabic-font`); **Scheherazade New** → `--font-arabic-backup` (fallback); **IBM Plex Sans Arabic** → `--font-arabic-ui` (`.arabic-font-ui`, Arabic UI/labels). English text in Arabic pages uses DM Sans (`--font-content`).
-- **Lucide React** for icons; **KaTeX** for math (`katex`, imported via `@/components/content/Formula`)
+- Next.js 16 + React 19; `--webpack` required (Windows SWC workaround; Vercel/Linux also).
+- Tailwind v4 with `@tailwindcss/postcss`; config lives in `globals.css` via `@theme inline` — no `tailwind.config.ts`.
+- shadcn style `base-nova` uses `@base-ui/react`, not Radix.
+- TypeScript strict, path alias `@/*` → `./src/*`.
+- Fonts: `--font-sans` (Plus Jakarta Sans shell), `--font-content` (DM Sans prose). Arabic: `--font-arabic` (Noto Naskh Arabic, naskh/tashkeel; `.arabic-body`/`.arabic-font`), `--font-arabic-backup` (Scheherazade New), `--font-arabic-ui` (IBM Plex Sans Arabic; `.arabic-font-ui`). No Source Serif 4 / `--font-serif`.
+- PWA: `manifest.ts`, `public/sw.js` generated at build.
 
-## Content System (JSX)
+## Content System (JSX, not MDX)
 
-Content is stored as **TSX `page.tsx` files** with custom React components — not BlockNote JSON or MDX.
+- Per chapter under `src/content/{subject-slug}/{chapter-slug}/`: `page.tsx` (default-export component), `questions.json`, `flashcards.json`, `chapter-text.md` (English reference text).
+- Types in `src/types/chapter.ts`.
+- Dynamic-import routers that must be updated when adding content: `src/app/chapter/[slug]/chapter-content.tsx`, `src/app/grammar/[topic]/grammar-content.tsx`, `src/app/discourses/[topic]/discourse-content.tsx`, `src/app/arabic/discourses/[topic]/arabic-discourse-content.tsx`.
+- Practice data registry: `src/lib/content.ts` (`QUESTION_KEYS` + `questionLoaders`/`flashcardLoaders`). Practice availability is by registry key, not JSON existence. English and Arabic have no Practice tab / no Q&F files.
 
-**Content files** per chapter:
-```
-src/content/{subject-slug}/{chapter-slug}/
-  page.tsx           ← default-export React component (learning content)
-  questions.json     ← Question[] ({type: "mcq"|"short", difficulty, question, options?, answer, explanation})
-  flashcards.json    ← Flashcard[] ({id, front, back})
-  chapter-text.md    ← English only: cleaned reference text (source of truth for authoring)
-```
-Types live in `src/types/chapter.ts`.
+**Adding a chapter's content:**
+1. Create `src/content/{subject}/{slug}/page.tsx`
+2. Add `questions.json`/`flashcards.json` (skip English/Arabic)
+3. Register dynamic import in the right router map
+4. Add slug to `QUESTION_KEYS` + both loaders in `src/lib/content.ts` if practice data exists
+5. Run `node scripts/verify-latex.cjs` + `npm run typecheck`
 
-**English chapter-text.md**: cleaned, readable version of the textbook pages at `src/content/english/{slug}/chapter-text.md` — complete chapter text (story/poem/speech/play) + About the Author + Read and Respond questions. Single source of truth for authoring `page.tsx`. No OCR artifacts, interleaved activities, or supplementary readings.
+**LaTeX rule (critical):** single backslashes inside `String.raw` templates only — `latex={String.raw`\frac{a}{b}`}` and `<Formula>{String.raw`\sum x_i`}</Formula>`. Never double backslashes, never `latex="\frac..."`. Run verify-latex after any math change. Codemod: `node scripts/unescape-latex.cjs <page.tsx> [...]`.
 
-**Custom content components** (`src/components/content/`, canonical inventory in `Constitution/USER_PREFERENCES.md` §12). **They live in category subfolders** — Core/English-Arabic/`OrgChart` are flat at the top level, the rest are in `data/`, `process/`, `concept/`, `study/`, `physics/`, `chemistry/`. Import path follows the folder: `@/components/content/Callout` but `@/components/content/data/TableCard` / `@/components/content/physics/WaveAnatomyDiagram` / `@/components/content/chemistry/MoleculeStructure`.
+**Imports:** direct file paths only (`@/components/content/Callout`, `@/components/content/data/TableCard`, `@/components/content/physics/WaveAnatomyDiagram`, `@/components/content/chemistry/MoleculeStructure`, `@/components/content/biology/...`).
 
-*Core (top-level):* Callout, Example, KeyPoint, Comparison, Expandable, Formula (exports `Formula` + `FormulaBlock`), FormulaCard, ProblemSolution, SolvedProblem, ExerciseQa, SpeedTricks, Stepper, Highlight
+Component categories (under `src/components/content/`): Core (top level), `data/`, `process/`, `concept/`, `study/`, `physics/`, `chemistry/`, `biology/`, plus English/Arabic top-level (`ChapterIntro`, `ArabicChapterCard`, `BilingualParagraph`, `ContentTabs`, `CollapsibleSection`, `SummaryLevels`, `ReadRespond`, etc.) and `OrgChart`, `TopicSwitch`, `PocketGrid`, `TopicIndex`.
 
-*Data (`data/`):* TableCard, Checklist
-
-*Process (`process/`):* ProcessCard, Timeline, CycleDiagram, EquationLadder, RevealAnswer, ProblemInsightSolutionCard
-
-*Concept (`concept/`):* FactCard, ConceptCard, TreeDiagram
-
-*Study (`study/`):* MetricCard, MistakeCard
-
-*English/Arabic (top-level):* ChapterIntro, ArabicChapterCard, BilingualParagraph, CharacterSketch, CharacterComparison, ContentTabs, CollapsibleSection, SummaryLevels, ReadRespond
-
-*Physics (`physics/`):* SpectrumExplorer, SpectrumTable, OscillationPlayer, PropagationExplorer, AmpereSurfaceToggle, ChargeFateTrio, TransverseLongitudinal, FormulaAnatomy, SpeedLayers, FieldRatio, DisplacementExplorer, WaveTypesPanels, WaveAnatomyDiagram
-
-*Chemistry (`chemistry/`):* MoleculeStructure — renders an inline, theme-aware SVG generated at authoring time from a committed SMILES string. Never hand-drawn, never fetched. See "Chemical Structure Figures" below.
-
-*Top-level:* OrgChart, TopicSwitch (navigation — card list that opens one format pane at a time, used by the merged discourse pages; see Key Architecture)
-
-**There is NO barrel export** — every import is a direct file path (`import { Callout } from "@/components/content/Callout"`). Do NOT reference components that don't exist: FlowDiagram, SortableTable, Kanban, NetworkDiagram, GuidedStepper, DecisionTree, RiskMatrix, ScenarioCard, PerspectiveCard, ArchitectureCard, IODiagram, EventFlow, RoadmapCard. (The Class 11 maths/conic/SHM diagram components were removed in Oct 2026 — see History.)
-
-**CRITICAL — LaTeX authoring rule**: All LaTeX in content files MUST be written with **single** backslashes inside **`String.raw`** templates — `latex={String.raw`\frac{a}{b}`}` and `<Formula>{String.raw`\sum x_i`}</Formula>`. Never double backslashes: JSX attributes preserve backslashes literally (doubling breaks KaTeX), and plain `{"`...`"}` template literals strip them. Never write `latex="\frac..."`. Run `node scripts/verify-latex.cjs` after any content-math change.
-
-**Practice-data registry** (`src/lib/content.ts`) — single source of truth for the Practice tab:
-- `QUESTION_KEYS` (Set) + `questionLoaders` / `flashcardLoaders` (dynamic-import Records)
-- Registry keys: the chapter slug (e.g. `magnetism-and-matter`).
-- `hasQuestions(key)` / `hasFlashcards(key)` take the **registry key**, not the slug. Keep `QUESTION_KEYS` and the loaders in sync when adding practice data.
-
-**Content routing** — three dynamic-import maps, each wrapped in `<div className="prose-custom">`:
-- `src/app/chapter/[slug]/chapter-content.tsx` — main system: 4 physics + 16 english + 1 biology registered
-- `src/app/grammar/[topic]/grammar-content.tsx` and `src/app/discourses/[topic]/discourse-content.tsx`
-
-Chapters not registered show "Content coming soon...".
-
-**Adding content for a new chapter:**
-1. Create `src/content/{subject}/{slug}/page.tsx` (default-export component using content primitives)
-2. Create `questions.json` / `flashcards.json` (skip for English/Arabic — no Practice tab)
-3. Register the dynamic import in the matching router map (chapter-content.tsx / grammar-content.tsx / discourse-content.tsx)
-4. Add the registry key to `QUESTION_KEYS` + `questionLoaders` + `flashcardLoaders` in `src/lib/content.ts` (enables the Practice tab)
-5. Run `node scripts/verify-latex.cjs` and `npm run build`
-
-### Chemical Structure Figures (chemistry — mandatory, never hand-drawn)
-
-Structure drawings are **generated at authoring time from a committed SMILES string**, then committed as SVG. The app ships no chemistry engine and never fetches an image. Full spec: `.opencode/plans/plan_0001.md`; tool docs: `scripts/chem/README.md`.
-
-```
-src/content/chemistry/{slug}/structures.json          ← authored: smiles, formula, ncertName, source
-src/content/chemistry/{slug}/structures.generated.ts  ← generated, committed, NEVER hand-edited
-```
-
-```tsx
-import { STRUCTURES } from "./structures.generated";
-<MoleculeStructure {...STRUCTURES.chloroform} caption="…" />
-```
-
-Seven gates: **G1** `ncertName` appears verbatim in `{slug}-extracted.md` (blocks invented compounds) · **G2** SMILES parses/sanitizes · **G3** computed formula matches the authored one · **G4** mass matches · **G5** stereo survives and a claimed wedge is visible · **G6** the user signs off on a per-chapter contact-sheet PNG · **G7** `scripts/check-structures.cjs` (runs in `npm run build`) blocks stale files, orphan/unused keys, leftover black ink (dark mode), scripts/links, and size blowout.
-
-**Accepted-but-not-automated:** curly-arrow mechanisms, crystal lattices/unit cells, chair/Newman conformations, orbital and crystal-field diagrams, multi-step flow schemes — these stay hand-authored SVG. **A structure that fails a gate is deleted, not patched.**
-
-## Data Model
-
-- **Main system (Class 12 / Plus Two)**: `src/data/subjects.ts` (6 subjects) + `src/data/chapters.ts` (80 chapters: Physics 14, Chemistry 10, Mathematics 13, Biology 13, English 16, Arabic 14). Arabic is organised into **5 units** (`subjectUnits` in `chapters.ts`; `Chapter.unit` + `Chapter.titleArabic` set on every Arabic entry, chapter numbers restart per unit). Subject colors: CSS custom props `--subject-{name}` / `--subject-{name}-light` in `globals.css` `:root` and `.dark`. Chapter list source of truth: `Developer_Deliveries/Chapter names.md`.
-- **Grammar / Discourses**: `src/data/grammar.ts` (12 topics, each tagged `group: "core" | "more"`; the six **core** topics — reported-speech, editing, if-clause, passive-voice, cohesive-devices, concord — render above a labelled 5px divider, the rest under "More Grammar Topics") and `src/data/discourses.ts` (**10 pages covering 29 writing formats** — nine merged pages plus the single-format `script-writing` page — ordered by priority and listed in a plain card grid, no section labels or dividers), routed at `/grammar/{topic}` and `/discourses/{topic}`.
-
-**Chapters with content** (44 `page.tsx` files): main — 4 Physics (electric-charges-and-fields, magnetism-and-matter, electromagnetic-induction, electromagnetic-waves), all 16 English, 1 Biology (molecular-basis-of-inheritance), 2 Arabic (khairullah, abqariyyun-min-abna'i-kerala); Grammar all 12; Discourses all 10 pages (29 formats — see "Discourse pages are merged" below). Other chapters show placeholder UI.
-
-## Auth, Progress & Sync (removed Oct 2026)
-
-There is **no auth, no cloud sync, and no progress persistence**. The former Supabase-based `AuthProvider` → `SyncProvider` → `MigrateBanner` stack, `useProgress` / `useSync` hooks, the `/progress` dashboard, the `/login`, `/signup`, `/reset-password`, `/update-password`, `/account`, `/auth/*` routes, `src/middleware.ts`, `src/lib/supabase/`, `src/lib/recent.ts`, and the `supabase/` migrations were all deleted. The features were intentionally dropped as a maintenance burden and may be revisited later. Practice (questions + flashcards) is now **session-only** — no data leaves the browser. The remote Supabase project/tables were left untouched.
+**Do not reference** removed components: FlowDiagram, SortableTable, Kanban, NetworkDiagram, GuidedStepper, DecisionTree, RiskMatrix, ScenarioCard, PerspectiveCard, ArchitectureCard, IODiagram, EventFlow, RoadmapCard, plus the deleted Class 11 maths/conic/SHM/vector diagrams, `ScientistCard`, `Derivation`.
 
 ## Key Architecture
 
-- Chapter pages are **single-column — no sidebar/ToC**: `ChapterLayout` renders breadcrumb + header (number, title) + content at `max-w-3xl`, with `ReadingProgress` on top and prev/next `ChapterNav` cards at the bottom. Sections are plain headings inside each page.
-- Chapter tabs (non-English/Arabic): **Learning** (JSX content) and **Practice** (questions + flashcards with sub-tabs). Practice availability comes from the `content.ts` registry keys, not the router or the JSON files' existence. Practice state (revealed questions, known cards) is per-session only.
-- English pages: **Read** / **Discourses** tabs rendered inside the page by `ContentTabs` (client-side state; dispatches a `content-tab-change` event with no listener left). No Practice tab for English/Arabic. Grammar and Discourses are separate top-level sections.
-- **Chapter opening strip**: every English chapter (and every Arabic chapter, via `ArabicChapterCard`) opens with `ChapterIntro` — a compact two-line strip, **not** a card: `AUTHOR · Name · Genre` on the first line and `CHARACTERS · A · B · C` on the second (plays and stories only; the play pages list the full cast). Extra author facts fold away behind a "More about the author" dropdown, so the strip stays two lines unless the reader asks for more. It replaced the old `AuthorCard` (deleted Oct 2026).
-- **Arabic pages (RTL)**: `chapter-content.tsx` renders the chapter wrapper as `prose-custom prose-ar` with `dir="rtl"` and puts an `ArabicChapterCard` at the top of every Arabic chapter (author/orator + genre + author details behind a collapsed "More" dropdown — details live on `Chapter.authorDetails` in `chapters.ts`; chapters without them show a placeholder). Arabic body text uses `.arabic-body` (Amiri, line-height 2.05 for tashkeel); English translations sit in `.translation` (Latin serif, muted, logical inset rule). `BilingualParagraph` renders one Arabic paragraph + its English translation, with an optional point number. **Arabic has no Practice tab and no `questions.json`/`flashcards.json`.**
-- **Arabic Discourses**: `/arabic/discourses` (hub, plain card grid) + `/arabic/discourses/[topic]` — the Arabic counterpart of the English Discourses. Topics in `src/data/arabic-discourses.ts`, bodies in `src/content/arabic/discourses/{slug}/page.tsx`, router map in `src/app/arabic/discourses/[topic]/arabic-discourse-content.tsx`. Linked from the Arabic subject hub.
-- Grammar topics (12 `page.tsx` files in `src/content/grammar/{slug}/`) are built on `GrammarTopicLayout` (`src/components/grammar/`), which owns the **Concept / Practice** tab state and the one-sentence intro callout; each concept section is a `GrammarSection` (`{ id, title?, children }`; heading-less for the key takeaway) and the Practice tab renders `GrammarQuiz`. `GrammarTopicLayout` takes `intro` (the definition, wrapped in a note `Callout`) plus optional `introExtra` (extra intro blocks, e.g. reported-speech's overview tables). `GrammarQuiz` accepts `accepted?: string[]` so alternative fill-blank answers grade as correct (`answer` remains the model answer).
-- **Discourse pages are merged (Oct 2026)**: the 18 original topics were consolidated into **9 pages covering 28 writing formats** (and `script-writing` was added afterwards as a single-format page, making 10 pages / 29 formats) — look-alike formats that a question paper can ask for in the same sitting share one page (e.g. `letter-writing` now holds formal letter, informal letter, email and the job application + résumé). Each merged page renders the family intro + a "Difference at a Glance" `TableCard`, then `TopicSwitch` (`src/components/content/TopicSwitch.tsx`) toggles the format panes. `TopicSwitch` is a **card list** (custom, not base-ui): one card per format with its pane opening inside the card and the chevron rotating on the open card, one card open at a time (clicking the open card closes it), hash deep links via `history.replaceState` + `hashchange`, arrow/Home/End keys over the cards, `aria-expanded` + `aria-controls` per card (no `role="tablist"`). Pane components live in `src/content/discourses/{page}/panes/` and whole-page panes are verbatim copies of the retired topic pages. Only the open pane is rendered — a hand-printed page shows the form the reader had open. The 12 retired slugs 308-redirect to their new page + tab in `next.config.ts` (`redirects()`).
-- Subject hubs in `src/components/subject/` (`SubjectCard`, `ChapterList`); home page is a plain subject grid (no hero, no continue-learning strip). The Discourses hub (`src/app/discourses/page.tsx`) is likewise a plain card grid in priority order — one card per merged page, with its formats shown as muted chips. No section labels, no dividers.
-- Search: `Ctrl+K` via `src/components/search/SearchModal.tsx`. Dark mode via next-themes, flash-prevention script in `layout.tsx`.
-- PWA: `manifest.ts`, `public/sw.js` (generated on build), icons, `_offline` page. Scrollbar hidden globally via CSS.
-- **There is no `/admin` page** anymore.
+- Chapter pages single-column (no sidebar/ToC): `ChapterLayout` renders breadcrumb + header + content at `max-w-3xl`, with `ReadingProgress` and prev/next `ChapterNav`.
+- Chapter tabs (non-English/Arabic): Learning (JSX) and Practice (questions + flashcards). English pages use Read / Discourses tabs inside the page via `ContentTabs`. Arabic has no Practice tab.
+- Chapter opening: English pages open with `ChapterIntro` strip (`AUTHOR · Name · Genre` / `CHARACTERS …`); Arabic pages open with `ArabicChapterCard` (author/orator + genre + details behind collapsed "More"; details live on `Chapter.authorDetails` in `chapters.ts`).
+- Arabic pages render under `prose-custom prose-ar`, `dir="rtl"`; body uses `.arabic-body`; English translations in `.translation`. `BilingualParagraph` renders Arabic paragraph + English translation (optional point number).
+- Practice ships `questions.json`/`flashcards.json` for subject chapters that registered them; English/Arabic have none.
+- Grammar: `src/content/grammar/{slug}/page.tsx` built on `GrammarTopicLayout` (Concept/Practice tabs, intro callout; `introExtra` for extra intro blocks). Sections use `GrammarSection` (`{ id, title?, children }`). Practice tab renders `GrammarQuiz`, which accepts `accepted?: string[]` for alternative fill-blank answers.
+- Discourses merged (Oct 2026): 10 pages covering 29 writing formats; look-alike formats share a page toggled by `TopicSwitch` (card list, one open pane, hash deep links, arrow/Home/End keys). Panes in `src/content/discourses/{page}/panes/`. Retired slugs 308-redirect in `next.config.ts` (see `redirects()`). The Arabic counterpart is `/arabic/discourses` (`src/content/arabic/discourses/{slug}/page.tsx`).
+- Subject hubs: `src/components/subject/`. Discourses hub is a plain priority-ordered card grid (formats shown as chips) — no section labels/dividers.
+- Search `Ctrl+K` (`src/components/search/SearchModal.tsx`). Dark mode via next-themes with flash-prevention in `layout.tsx`.
 
-## Design Conventions
+## Data Model
 
-- UI language: English only
-- Cards use CSS custom property shadows/borders via inline `style` (see `SubjectCard.tsx`); `cn()` utility from `src/lib/utils.ts` (clsx + tailwind-merge)
-- Pages align to `max-w-6xl` (matching navbar width); nav: Home `/`, Search `Ctrl+K`
-- Chapter content uses `.prose-custom` class for typography (defined in `globals.css`)
+- 6 subjects (Physics 14, Chemistry 10, Mathematics 13, Biology 13, English 16, Arabic 14 = 80). Subject colors are CSS custom props `--subject-*` / `--subject-*-light` in `globals.css` (light + dark).
+- Grammar has 12 topics (`group: "core" | "more"`; six core render above a labelled divider). Discourses: 10 pages / 29 formats.
+- Chapter list source of truth: `Developer_Deliveries/Chapter names.md`.
 
-### Content Preferences (see `Constitution/USER_PREFERENCES.md` §11)
-- **No Summary section** and **no "Points to Ponder" section** in chapters — do not add these.
-- **Worked examples render as collapsed `Expandable`** blocks (not expanded `Example` blocks) — **every sample on every page, no exceptions** (user: "every sample should be in collapsible — I don't want to say it every time"). `Example` is acceptable only when it sits inside an already-collapsed `Expandable`.
-- Avoid re-stating in one section content already covered elsewhere in the chapter (e.g. removing an aggregate recap/table when the same points are covered in-topic).
-- **Capture ALL user-provided solution steps verbatim.** When the user shares step-by-step notes/solutions, reproduce every step they give — never collapse, condense, or drop intermediate steps. Expand worked answers into full step-by-step (e.g. `Stepper` + final highlighted answer) matching the user's supplied derivation, even if a shorter version already exists.
+## Content Preferences (must follow)
 
-### Content Authoring Conventions (user mandates — apply to ALL chapters, ALL subjects)
+- **No Summary and no "Points to Ponder"** sections.
+- **Worked examples render collapsed** as `Expandable` (not expanded `Example`) — every sample, no exceptions; `Example` only inside an already-collapsed `Expandable`.
+- **Use `u` for initial velocity** (not `v_0`); components `u_x = u cosθ`, `u_y = u sinθ`.
+- **Never cram multiple formulas into one line/item** — one formula per row, relate with short sentences.
+- **Exercise/question banks (incl. PYQs) use `ExerciseQa` inside an Expandable** (numbered rows + emerald answer panel), not hand-rolled lists.
+- **No repeat content** — don't re-state what is already covered; exception: genuinely new angle.
+- **Prose that enumerates becomes a shape** (bullet list, `TableCard`/`Comparison`/`Stepper`); applies inside callouts too. Even when the user's note duplicates existing content, fold it into that block and upgrade its shape.
+- **Capture ALL user-provided solution steps verbatim** — expand worked answers to full step-by-step (`Stepper` + highlighted final answer).
+- **Diagrams**: schematic subjects → inline SVG React components (e.g. `WaveAnatomyDiagram`). Anatomical/biological/real-world subjects → real freely licensed image (Wikimedia Commons PD/CC0/CC BY/CC BY-SA only), saved to `public/images/{subject}/{chapter-slug}/`, captioned with source + licence. Never hand-draw a specimen.
+- **Parallel notes in a pocket grid** (`PocketGrid`) — one pocket open at a time.
+- **Textbook figures**: render a `TableCard` with `Figure` / `What it shows` rows carrying the **printed figure number** (8.1, 8.2, ...) plus a self-contained description (organism/shape, magnification, what the panel proves).
+- **Emphasis**: `<Highlight>` (yellow) for definitions/laws/must-memorize results, max ~1–3 per section, never whole paragraphs. `<strong>` for key terms on first introduction. `KeyPoint`/`Callout` for laws/exam traps.
+- **Fill-in template sections carry example cues**: muted italic `e.g. …` line under each `[...]` section.
+- **Chapter-specific discourse writing stays in the chapter's own Discourses tab** (`DISCOURSES` array as `CollapsibleSection`s); shortcuts (e.g. "review = heading + intro + standard summary + humour + theme/title/opinion") are chapter-specific plans, not universal structures. Shared `/discourses/*` pages teach the form only.
 
-_Start here: `Constitution/CONTENT_PLAYBOOK.md` — the one-page pre-flight / ten laws / post-flight version of everything below, plus the presentation linter `node scripts/audit-presentation.cjs`._
-- **Deliberate presentation, never dumping.** Sit and think about every piece of extracted content before placing it: pick the best vehicle per piece — a box (`Callout`/`KeyPoint`/`FactCard`), a `TableCard`/`Comparison` for groups of facts, a `Stepper`/diagram for processes, a custom component when the same presentation will recur. Text walls and straight list-dumps of textbook text are rejected. Reuse existing components first; create a new component only when justified.
-- **Prose that enumerates becomes a shape.** If a sentence carries a list — places, kinds, conditions, examples, parts, steps — that is a presentation failure, not content. Lift the list out: one short lead-in, then a bullet list (or `TableCard`/`Comparison`/`Stepper`), parallel grammar, bold lead phrases where useful. Applies inside callouts too. **Even when the user's note duplicates something already on the page**, do not skip it — fold it into that block and upgrade the block's shape. Reference example: `Constitution/USER_PREFERENCES.md` §11.1.
-- **Use `u` for initial velocity**, not `v_0`/`v0`/`v₀` (and `uₓ = u cosθ`, `u_y = u sinθ` for components). Mandatory in all physics content. (Exception: NCERT problem statements that ship with a named initial velocity may keep their symbol only when the whole problem set demands it.)
-- **Never cram multiple formulas into one line or list item.** Give each formula its own row (`<li>` or `TableCard` row), then relate them with short sentences. "Period/frequency: T=1/ν, ω=2πν, v=…" style one-liners are forbidden.
-- **Exercise/Question banks (incl. PYQs) use the `ExerciseQa` component** inside an `Expandable` — numbered rows with an emerald answer panel, not hand-rolled `<ol>`/answer paragraphs. This styling is chapter-agnostic and must be used everywhere.
-- **No repeat content.** Don't re-state in one place what is already covered in the chapter (recap boxes, duplicate facts, re-derived formulas) unless it is a genuinely new angle.
-- **Diagrams on demand — but never fake anatomy.** Whenever a question/situation demands a visual (e.g. "shown in the figure" PYQs, wave anatomy), show it rather than describing shapes in words. **Schematic** subjects (apparatus, strata, processes, abstract graphs, waves) are inline SVG components like `WaveAnatomyDiagram.tsx`. **Anatomical, biological and real-world** subjects (bones, organs, organisms, specimens) must use a **real, freely licensed image** — Wikimedia Commons public domain / CC0 / CC BY / CC BY-SA only — saved under `public/images/{subject}/{chapter-slug}/`, captioned with source + licence. Never hand-draw an SVG imitation of a specimen.
-- **Parallel notes live in a pocket grid.** A set of peer notes (e.g. the six evidences for evolution) renders as `PocketGrid` (`src/components/content/PocketGrid.tsx`) — one pocket per note with its content inside, one open at a time — not as a run of short sibling sections.
-- **Textbook figures are referenced, not swallowed.** Whenever the text points at a figure, render a `TableCard` with `Figure` / `What it shows` rows carrying the **printed figure number** (8.1, 8.2, 8.3) plus a self-contained description — organism/shape, magnification, and what the panel proves. The reader must be able to open the physical NCERT and find it. Reference example: `USER_PREFERENCES.md` §11.2.
-- **Emphasis convention.** `<Highlight>` (yellow default) for definitions, laws, must-memorize results — max ~1–3 per section, never whole paragraphs. `<strong>` (bold) for key terms on first introduction. `KeyPoint`/`Callout` for laws and exam traps (already the pattern). Applies to all chapters, all subjects.
-- **Fill-in template sections carry example cues.** Each section of a template card (discourses etc.) gets a muted italic example line (`<div className="mt-1 text-sm italic text-muted-foreground">e.g. …</div>`) showing that section filled in, so the `[...]` fields are self-explanatory (user: "add examples in the structure so we can understand more effectively").
-- **Chapter-specific discourse writing stays in the chapter.** When a chapter's textbook asks for an activity — an announcement script, a review plan, a letter, a speech — the answer belongs in **that chapter's own Discourses tab** (its `DISCOURSES` array, rendered as `CollapsibleSection`s), never as a sample on the shared `/discourses/*` format page. The format page teaches the form; the chapter page holds the answer. Same for shortcuts (e.g. "review = heading + intro + standard summary + humour + theme/title/opinion"): they are chapter-specific plans, not universal structures.
+## Images (user-supplied)
 
-## Todo Rule
+Copy into `textbook-plus/public/images/{subject}/{chapter-slug}/` under a **descriptive name**; then rename the original in the delivery folder by prefixing `consumed__` with that same name marker. Never delete originals; never reference the delivery folder URL in code.
 
-When starting any multi-step task:
-1. Create a `todowrite` list at the start
-2. Mark each task `in_progress` as you begin it, then `completed` when done
-3. Mark tasks `cancelled` if they become unnecessary
-4. **Clear all todos** (all `completed`/`cancelled`) once the entire job is finished — the list should be empty when work is done
+## Chemistry Structures (never hand-drawn)
 
-This is mandatory — never leave stale todos behind.
+Generate from committed SMILES at authoring time. Inputs: `src/content/chemistry/{slug}/structures.json` (`smiles`, `formula`, `ncertName`, `source`). Output: `structures.generated.ts` (generated, committed, **never hand-edited**). Usage: `import { STRUCTURES } from "./structures.generated"; <MoleculeStructure {...STRUCTURES.key} caption="…" />`. Seven gates G1–G7; a structure that fails a gate is deleted, not patched. Accepted-but-not-automated: curly-arrow mechanisms, crystal lattices, chair/Newman conformations, orbital/CFT diagrams, multi-step flow schemes (hand-authored SVG). Run `npm run chem:check` (also in build).
 
-## Parallel Batch Rule (mandatory)
+## Removed systems (do not reintroduce)
 
-When the user drops a **batch with more than one independent job** (e.g. "new chapter + fix the discourses page + update Q&As"), do **not** work through them one after another. Split the batch into independent units and **launch one subagent per unit in parallel, in the background**, then integrate and verify their output yourself. Use `subagent` with `background: true` for units that do not touch the same files; run dependent units sequentially.
+- **Auth / progress / cloud sync** (Supabase `AuthProvider`/`SyncProvider`/`MigrateBanner`, `useProgress`/`useSync`, `/progress`, `/login`, `/signup`, `/reset-password`, `/update-password`, `/account`, `/auth/*`, `src/middleware.ts`, `src/lib/supabase/`, `src/lib/recent.ts`, `supabase/`) — practice is session-only; nothing persists. Remote Supabase tables were left untouched.
+- **Class 11 "Improvement Exam" catalog** (`/class-11/*`, `c11/*` keys, `src/content/maths/` + 14 physics chapters, `mafs`) — deleted Oct 2026.
 
-- Give each subagent a complete, self-contained brief — it starts with fresh context: exact file paths, the content to add (verbatim if the user supplied it), the components to use, and the conventions to follow (see Content Authoring Conventions above, and the LaTeX rule).
-- Never let two subagents edit the same file at once — split by file, not by topic.
-- Migrations, cross-file renames, the chapter/discourse router registrations and the final `npm run typecheck` + `npm run build` stay with you.
-- Report the split you used, so the user knows what ran in parallel.
+## Git
 
-## Git Rules
+Push whole batches, not individual tweaks. A batch = any coherent unit (section restructured, component added, structural change, finished chapter). If you can describe the change as one thing, it's a batch — commit + push it. The user calling it a batch overrides your judgment. Never end a session with a finished batch unpushed. Shorthand `p` = commit + push.
 
-- **Push whole batches, not individual edits** (user policy, 27 Oct 2026 — supersedes "always push"). A **batch** is any coherent unit of work: a section restructured, a component added, a structural change, a documentation update, a new script — *or* a finished chapter. A partial chapter is still a batch if the edits belong together.
-- **Do not push per tweak**: a single paragraph, one bullet, a typo, a colour nudge — those wait for the next batch.
-- **The test**: if you can describe the change as one thing ("restructured the household-products section"), it is a batch — commit and push it.
-- **If the user calls it a batch, it is a batch.** Their judgement overrides yours; do not hold work back because a chapter is unfinished.
-- **Never end a working session with a finished batch unpushed.**
-- **Shorthand**: `p` means commit + push.
+## Agent Workflow Rules
 
-## History
+- **Todo list**: create a `todowrite` at the start of any multi-step task; mark `in_progress`/`completed`/`cancelled`; clear all when done.
+- **Parallel batches**: when given >1 independent job, split into units and launch one background subagent per unit; never let two subagents edit the same file. Routes/registrations and final typecheck + build stay with you. Report the split used.
 
-- A separate Class 11 "Improvement Exam" catalog (Maths + Physics; routes `/class-11/*`, registry keys `c11/*`, content under `src/content/maths/` + 14 `physics/` chapters) existed briefly and was **removed in Oct 2026 when the exam finished**. Git history preserves it — do not reintroduce it.
-- Also in Oct 2026: the Supabase auth/cloud-sync stack and the entire progress system (progress dashboard, mark-complete, continue-learning, recent-chapters) were **removed**, and the home-page hero was dropped — see "Auth, Progress & Sync" above. The orphaned Class 11 content components (maths/conic/SHM/vector diagrams, `ScientistCard`, `Derivation`) and their images were deleted along with the `mafs` dependency.
+## References
+
+- `Constitution/USER_PREFERENCES.md` §11 (content prefs), §12 (content-component design system + gallery), §13 (shell).
+- `Constitution/CONTENT_PLAYBOOK.md` — ten laws + pre/post-flight checklists.
+- `Pipeline/CHAPTER_PIPELINE.md` + `Pipeline/PIPELINE_{SUBJECT}.md`.
+- Component gallery at `/dev/design` (`src/app/dev/design/page.tsx`).
