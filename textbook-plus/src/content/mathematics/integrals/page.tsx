@@ -15,93 +15,63 @@ import { SpeedTricks } from "@/components/content/SpeedTricks";
 export default function IntegralsChapter() {
   return (
     <>
-      <h2 id="h-7-1">7.1 Introduction</h2>
-      <p>
-        Differential calculus is built on a single idea — the <strong>derivative</strong>.
-        Its original motivation was geometric: to define the tangent to the graph of a
-        function and to measure the slope of that tangent. Integral calculus begins from
-        the opposite question: given the graph of a function, how do we define and measure
-        the <strong>area of the region</strong> it bounds?
+            <h2 id="h-7-1">7.1 Introduction</h2>
+      <p>Topics covered in this chapter:</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>🔄 Introduction</li>
+        <li>🔄 Integration by substitution</li>
+        <li>📐 Integration using trigonometric identities</li>
+        <li>🔍 Integrals of some particular functions</li>
+        <li>✂️ Integration by parts</li>
+        <li>🧩 Integration by partial fractions</li>
+        <li>📏 Definite integrals</li>
+      </ul>
+      <p className="mt-4">
+        <strong>What is Integration?</strong> Integration is the inverse process of
+        differentiation.
       </p>
       <p>
-        There is a second motivation, purely algebraic. If <Formula>f</Formula> is
-        differentiable on an interval <Formula>I</Formula>, then{" "}
-        <Formula>{String.raw`f'(x)`}</Formula> exists at every point of{" "}
-        <Formula>I</Formula>. Now reverse it: given{" "}
-        <Formula>{String.raw`f'(x)`}</Formula> at every point, can we recover{" "}
-        <Formula>f</Formula>? The functions that could have produced a given derivative are
-        its <strong>anti derivatives</strong>, and the machinery that finds them all is
-        integration.
+        If <Formula>{String.raw`\frac{d}{dx}(\sin x)=\cos x`}</Formula>, then{" "}
+        <Formula>{String.raw`\int \cos x\,dx=\sin x+C`}</Formula>.
       </p>
-      <Callout type="important">
-        <p>
-          If <Formula>{String.raw`F'(x) = f(x)`}</Formula> for all{" "}
-          <Formula>{String.raw`x \in I`}</Formula>, then <Formula>F</Formula> is an{" "}
-          <Highlight color="yellow">anti derivative</Highlight> (or{" "}
-          <strong>primitive</strong>) of <Formula>f</Formula>. The formula listing{" "}
-          <em>all</em> its anti derivatives is the{" "}
-          <Highlight color="yellow">indefinite integral</Highlight> of{" "}
-          <Formula>f</Formula>, written{" "}
-          <Formula>{String.raw`\int f(x)\,dx`}</Formula>, and the process of finding it is
-          called <strong>integration</strong> (or anti differentiation).
-        </p>
-      </Callout>
-
-      <Comparison
-        columns={[
-          {
-            title: "Question 1 — a function from its derivative",
-            children: (
-              <>
-                <p>
-                  A derivative is known at every instant and the original function is not.
-                  For example, the instantaneous velocity of a moving object is known at
-                  each instant — can its position at each instant be recovered?
-                </p>
-                <p>
-                  The answer is a family of functions, so this leads to the{" "}
-                  <strong>indefinite integral</strong>.
-                </p>
-              </>
-            ),
-          },
-          {
-            title: "Question 2 — area under a graph",
-            children: (
-              <>
-                <p>
-                  A region is bounded by the graph of a function and certain lines — how
-                  large is it?
-                </p>
-                <p>
-                  The answer is a single number, so this leads to the{" "}
-                  <strong>definite integral</strong>.
-                </p>
-              </>
-            ),
-          },
-        ]}
-      />
-
       <p>
-        Indefinite and definite integrals together make up the{" "}
-        <strong>integral calculus</strong>. The link between them — the{" "}
-        <Highlight color="blue">Fundamental Theorem of Calculus</Highlight> — is what turns
-        the definite integral from a limit of sums into a practical tool for science and
-        engineering. Definite integrals are also used in economics, finance and
-        probability. In this chapter we study both forms and their elementary properties,
-        together with the standard techniques of integration.
+        General form: if <Formula>{String.raw`\frac{d}{dx}[f(x)]=F(x)`}</Formula>, then{" "}
+        <Formula>{String.raw`\int F(x)\,dx=f(x)+C`}</Formula>.
       </p>
-      <Callout type="note">
-        <p>
-          <strong>G.W. Leibniz (1646–1716)</strong> introduced the notation{" "}
-          <Formula>{String.raw`\int f(x)\,dx`}</Formula> — an elongated{" "}
-          <Formula>S</Formula> for <em>summa</em> — and the name{" "}
-          <em>calculus integralis</em>. Both survive unchanged today.
-        </p>
-      </Callout>
 
-      <h2 id="h-7-2">7.2 Integration as an Inverse Process of Differentiation</h2>
+
+      <h2 id="h-7-c">A quick note on the constant of integration</h2>
+      <p>
+        The derivative of any constant is zero, so every indefinite integral
+        comes with an arbitrary constant <Formula>{String.raw`C`}</Formula>.
+      </p>
+      <p>
+        <strong>Example.</strong>{" "}
+        <Formula>{String.raw`\int \cos x\,dx = \sin x + C`}</Formula>, since the
+        derivative of <Formula>{String.raw`\sin x`}</Formula>,{" "}
+        <Formula>{String.raw`\sin x + 5`}</Formula> or{" "}
+        <Formula>{String.raw`\sin x + 10`}</Formula> is always{" "}
+        <Formula>{String.raw`\cos x`}</Formula>.
+      </p>
+      <p className="text-muted-foreground">
+        Rule: always add <Formula>{String.raw`C`}</Formula> to an indefinite integral.
+      </p>
+
+      <h2 id="h-7-types">Two types of integrals</h2>
+      <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
+        <FactCard
+          icon="∞"
+          title="Indefinite integral"
+          definition="A family of functions differing by a constant C. Example: ∫ cos x dx."
+        />
+        <FactCard
+          icon="∑"
+          title="Definite integral"
+          definition="A single number obtained by evaluating between limits a and b. Example: ∫_0^π cos x dx."
+        />
+      </div>
+
+<h2 id="h-7-2">7.2 Integration as an Inverse Process of Differentiation</h2>
       <p>
         Instead of differentiating a function we are handed its derivative and asked for
         the original function. Three known derivatives immediately give three anti
@@ -700,6 +670,20 @@ export default function IntegralsChapter() {
           ]}
         />
       </Expandable>
+
+      <KeyPoint title="Linearity of the indefinite integral">
+        <ul className="list-disc pl-5 space-y-1">
+          <li>
+            <Formula>{String.raw`\int [f(x)+g(x)]\,dx = \int f(x)\,dx + \int g(x)\,dx`}</Formula>
+          </li>
+          <li>
+            <Formula>{String.raw`\int [f(x)-g(x)]\,dx = \int f(x)\,dx - \int g(x)\,dx`}</Formula>
+          </li>
+          <li>
+            <Formula>{String.raw`\int k\,f(x)\,dx = k\int f(x)\,dx,\quad k\in\mathbb{R}`}</Formula>
+          </li>
+        </ul>
+      </KeyPoint>
 
       <h2 id="h-7-3">7.3 Methods of Integration</h2>
       <p>
@@ -2739,6 +2723,35 @@ export default function IntegralsChapter() {
           </div>
         </div>
       </Expandable>
+
+          <div>
+            <p>
+              <strong>Example 56.</strong> Find{" "}
+              <Formula>{String.raw`\int (2x^{2}-3\sin x+5\sqrt{x})\,dx`}</Formula>.
+            </p>
+            <p><strong>Solution.</strong> Split and integrate term by term:</p>
+            <FormulaBlock
+              latex={String.raw`2\int x^{2}\,dx - 3\int \sin x\,dx + 5\int x^{1/2}\,dx`}
+            />
+            <FormulaBlock
+              latex={String.raw`= \frac{2}{3}x^{3} + 3\cos x + \frac{10}{3}x^{3/2} + C`}
+            />
+          </div>
+          <div>
+            <p>
+              <strong>Example 57 (initial value problem).</strong> Given{" "}
+              <Formula>{String.raw`\frac{d}{dx}f(x)=\cos x`}</Formula> and{" "}
+              <Formula>{String.raw`f(90^{\circ})=2`}</Formula>, find{" "}
+              <Formula>{String.raw`f(x)`}</Formula>.
+            </p>
+            <p><strong>Solution.</strong> Integrate:</p>
+            <FormulaBlock latex={String.raw`f(x)=\sin x + C`} />
+            <p>
+              Using <Formula>{String.raw`f(90^{\circ})=2`}</Formula>, i.e.{" "}
+              <Formula>{String.raw`1+C=2`}</Formula>, gives <Formula>{String.raw`C=1`}</Formula>.
+            </p>
+            <FormulaBlock latex={String.raw`f(x)=\sin x + 1`} />
+          </div>
 
       <Expandable title="Supplementary Exercise 7.11">
         <p>A compact mixed bank drawn from the manipulation above.</p>
