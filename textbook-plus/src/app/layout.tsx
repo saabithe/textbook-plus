@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, DM_Sans, Source_Serif_4, Amiri, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Plus_Jakarta_Sans, DM_Sans, Source_Serif_4, Noto_Naskh_Arabic, IBM_Plex_Sans_Arabic, Scheherazade_New } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import { ErrorBoundary } from "@/components/auth/ErrorBoundary";
@@ -29,10 +29,17 @@ const serif = Source_Serif_4({
   weight: ["400", "500", "600", "700"],
 });
 
-/* Arabic typefaces — naskh for literary text (handles tashkeel), a clean
-   sans for Arabic labels and UI inside Arabic pages. */
-const amiri = Amiri({
+/* Arabic typefaces — Noto Naskh Arabic is the primary naskh (tashkeel),
+   Scheherazade New is the backup/rollback face, and IBM Plex Sans Arabic is
+   the UI/label sans rendered on Arabic pages. */
+const notoNaskhArabic = Noto_Naskh_Arabic({
   variable: "--font-arabic",
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  display: "swap",
+});
+const scheherazadeNew = Scheherazade_New({
+  variable: "--font-arabic-backup",
   subsets: ["arabic"],
   weight: ["400", "700"],
   display: "swap",
@@ -79,7 +86,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${dmSans.variable} ${serif.variable} ${amiri.variable} ${plexArabic.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${jakarta.variable} ${dmSans.variable} ${serif.variable} ${notoNaskhArabic.variable} ${scheherazadeNew.variable} ${plexArabic.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
         <meta name="build-commit" content={buildCommit} />
         <script

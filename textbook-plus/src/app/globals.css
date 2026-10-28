@@ -233,7 +233,7 @@
    `dir="rtl"`, these rules swap the Latin serif for the Arabic naskh
    face and give the tashkeel (diacritics) the vertical room it needs. */
 .prose-ar {
-  font-family: var(--font-arabic), "Noto Naskh Arabic", "Segoe UI", serif;
+  font-family: var(--font-arabic), var(--font-arabic-backup), "Noto Naskh Arabic", "Scheherazade New", "Segoe UI", serif;
   font-weight: 400;
   line-height: 2.05;
 }
@@ -241,13 +241,13 @@
 .prose-ar h1,
 .prose-ar h2,
 .prose-ar h3 {
-  font-family: var(--font-arabic), "Noto Naskh Arabic", "Segoe UI", serif;
+  font-family: var(--font-arabic), var(--font-arabic-backup), "Noto Naskh Arabic", "Scheherazade New", "Segoe UI", serif;
   line-height: 1.7;
 }
 
 /* Arabic body copy — set by BilingualParagraph */
 .arabic-font {
-  font-family: var(--font-arabic), "Noto Naskh Arabic", "Segoe UI", serif;
+  font-family: var(--font-arabic), var(--font-arabic-backup), "Noto Naskh Arabic", "Scheherazade New", "Segoe UI", serif;
 }
 
 .arabic-font-ui {
@@ -255,7 +255,7 @@
 }
 
 .arabic-body {
-  font-family: var(--font-arabic), "Noto Naskh Arabic", "Segoe UI", serif;
+  font-family: var(--font-arabic), var(--font-arabic-backup), "Noto Naskh Arabic", "Scheherazade New", "Segoe UI", serif;
   font-weight: 400;
   font-size: 1.3rem;
   line-height: 2.05;
@@ -268,8 +268,8 @@
 /* English translations inside an Arabic page keep the Latin reading face */
 .prose-ar p.translation,
 .prose-ar span.translation {
-  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
-  font-weight: 500;
+  font-family: var(--font-content), "Plus Jakarta Sans", ui-sans-serif, sans-serif;
+  font-weight: 400;
   margin-bottom: 1.75rem;
 }
 
