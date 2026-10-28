@@ -52,7 +52,7 @@ Chemistry follows the **master 16-step pipeline** with subject-specific content 
 | 6 | Decompose + Map | Break into knowledge units + source traceability | Extraction | Unit list + refs |
 | 7 | Audit | Automated completeness check against extraction | Units + extraction | Gap report |
 
-**Step 1 note:** PDFs located at `Developer_Deliveries/Chapters/Chemistry Textbooks/`
+**Step 1 note:** PDFs located at `Developer_Deliveries/Chapters/02_Chemistry/Textbooks/`
 
 ### Content Creation Phase (Steps 8–12)
 

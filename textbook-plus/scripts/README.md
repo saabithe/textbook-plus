@@ -12,7 +12,7 @@ All commands run from `textbook-plus/`. None of these run automatically except w
 | Whole-corpus prose sweep | `npm run verify:presentation` | full backlog report (not routine) |
 | Grammar page edit | `npm run verify:grammar` | structural + hygiene findings |
 | `structures.json` changed | `npm run chem:build -- --chapter <slug>` | `structures.generated.ts` |
-| Chemistry sign-off | `npm run chem:sheet -- --chapter <slug>` | review PNG in `Developer_Deliveries/Chapters/Chemistry/` |
+| Chemistry sign-off | `npm run chem:sheet -- --chapter <slug>` | review PNG in `Developer_Deliveries/Chapters/02_Chemistry/Structures/` |
 | Chemistry generated file present | `npm run verify:chem` (also inside build) | gate G7 |
 | New chapter from a PDF | `npm run pdf:extract -- <pdf> <out.md>` then `npm run pdf:clean -- <in.md> <out.md>` | raw / cleaned Markdown |
 | `public/icon.svg` changed | `npm run icons` | PWA icon PNGs |

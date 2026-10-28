@@ -53,7 +53,7 @@ Biology follows the **master 16-step pipeline** with subject-specific content ru
 | 6 | Decompose + Map | Break into knowledge units + source traceability | Extraction | Unit list + refs |
 | 7 | Audit | Automated completeness check against extraction | Units + extraction | Gap report |
 
-**Step 1 note:** PDF location: TBD — create folder in `Developer_Deliveries/Chapters/`
+**Step 1 note:** PDFs located at `Developer_Deliveries/Chapters/04_Biology/Textbooks/`
 
 ### Content Creation Phase (Steps 8–12)
 

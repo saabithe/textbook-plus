@@ -6,9 +6,9 @@
 
 Source of truth:   src/content/chemistry/<slug>/structures.json
 Generated output:  src/content/chemistry/<slug>/structures.generated.ts   (committed)
-Extraction ref:    Developer_Deliveries/Chapters/Chemistry/<slug>-extracted.md
+Extraction ref:    Developer_Deliveries/Chapters/02_Chemistry/Extractions/<slug>-extracted.md
 
-Gates enforced here (see .opencode/plans/plan_0001.md §5):
+Gates enforced here (see scripts/chem/README.md):
   G1  the compound's NCERT name must appear in the extraction file
   G2  SMILES must parse and sanitize (valence, aromaticity, elements)
   G3  computed elemental composition must equal the authored formula
@@ -47,7 +47,10 @@ APP = HERE.parents[1]                     # textbook-plus/
 REPO = HERE.parents[2]                    # repo root
 CONTENT_DIR = Path(os.environ.get("CHEM_CONTENT_DIR", APP / "src" / "content" / "chemistry"))
 EXTRACT_DIR = Path(
-    os.environ.get("CHEM_EXTRACT_DIR", REPO / "Developer_Deliveries" / "Chapters" / "Chemistry")
+    os.environ.get(
+        "CHEM_EXTRACT_DIR",
+        REPO / "Developer_Deliveries" / "Chapters" / "02_Chemistry" / "Extractions",
+    )
 )
 
 SIZE_WARN = 25_000

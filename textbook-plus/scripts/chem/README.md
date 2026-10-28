@@ -28,7 +28,7 @@ npm run chem:sheet   -- --chapter <slug>   # gate G6, writes a review PNG
 npm run chem:check                          # gate G7 (also runs inside npm run build)
 ```
 
-The review PNG lands in `Developer_Deliveries/Chapters/Chemistry/<slug>-structures-review.png`.
+The review PNG lands in `Developer_Deliveries/Chapters/02_Chemistry/Structures/<slug>-structures-review.png`.
 Open it, scan every structure, name anything wrong. Nothing merges without that sign-off.
 
 Regenerate every chapter at once: `npm run chem:build -- --all`.

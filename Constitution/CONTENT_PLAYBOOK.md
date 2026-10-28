@@ -16,7 +16,7 @@ One page. Run it **before**, **during** and **after** every chapter. If a rule h
 
 | Step | Output |
 |---|---|
-| Read the model text (`{slug}-extracted.md`) | a flat list of every heading, figure, table, activity and example |
+| Read the model text (`Chapters/{NN_Subject}/Extractions/{slug}-extracted.md`) | a flat list of every heading, figure, table, activity and example |
 | **Shape map** | a table: *source paragraph → vehicle* (bullets / `TableCard` / `Comparison` / `Stepper` / `Callout` / image) |
 | **Figure audit** | every `Fig. x.y` in the model text → one row in a figure table |
 | **Visual audit** | each visual: real licensed image (specimen) / inline SVG (schematic) / none |

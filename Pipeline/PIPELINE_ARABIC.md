@@ -88,7 +88,7 @@ Arabic follows the **master 16-step pipeline** with subject-specific content rul
 | 7 | Audit | Automated completeness check against extraction | Units + extraction | Gap report |
 
 **Step 1 note:** no textbook PDF is provided for Arabic — chapter material is
-supplied by the user, so `Developer_Deliveries/Chapters/Arabic Textbooks/`
+supplied by the user, so `Developer_Deliveries/Chapters/06_Arabic/Textbooks/`
 stays empty. Nothing is authored that the user has not supplied.
 
 ### Content Creation Phase (Steps 8–12)

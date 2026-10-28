@@ -1,5 +1,8 @@
 import type { ReactNode } from "react";
 import { Callout } from "@/components/content/Callout";
+import { KeyPoint } from "@/components/content/KeyPoint";
+import { Expandable } from "@/components/content/Expandable";
+import { Stepper } from "@/components/content/Stepper";
 import { TableCard } from "@/components/content/data/TableCard";
 import { Highlight } from "@/components/content/Highlight";
 
@@ -25,13 +28,373 @@ export default function AppreciationContent() {
       <Callout type="note">
         Appreciation explains what a poem means and how the poet says it — the{" "}
         <Highlight color="yellow">poetic devices</Highlight> (sound, comparison,
-        contrast and form) shape meaning and feeling.
+        contrast and form) shape meaning and feeling. The exam question usually
+        hands you <strong>two poems</strong>, one from the textbook and one you
+        have never seen, and asks you to compare them.
       </Callout>
 
-      <h2>Appreciation Template</h2>
+      <TableCard
+        headers={["The paper gives you", "What you write", "Where to go"]}
+        rows={[
+          {
+            cells: [
+              "Two poems — one from the textbook, one unseen",
+              "A comparison: both poems in every paragraph, on the same axes",
+              "Comparative appreciation, below",
+            ],
+          },
+          {
+            cells: [
+              "One poem",
+              "An appreciation of that poem: theme, devices, tone, message",
+              "Appreciation of a Single Poem",
+            ],
+          },
+        ]}
+        caption="The comparison carries the heavier score, so it comes first here."
+      />
+
+      <h2>Comparative Poetry Appreciation</h2>
       <p>
-        Use this frame for any poem — fill in every <Slot>[...]</Slot> field with
-        your own words.
+        Two appreciations stapled together do not make a comparison. The marks
+        come from the relationship — every paragraph names both poems, and every
+        point is a similarity or a difference with a line from each.
+      </p>
+
+      <Highlight color="orange">
+        Name both poems in every paragraph. The moment a paragraph could belong
+        to a single-poem appreciation, it has stopped comparing.
+      </Highlight>
+
+      <h3>Step 1 — Read the Unseen Poem First</h3>
+      <p>
+        You meet the second poem in the exam hall, so the comparison is really a
+        test of how fast you can read. Four moves, five minutes.
+      </p>
+
+      <Stepper
+        steps={[
+          {
+            label: "Title and first line",
+            description:
+              "A title is a promise. Ask what the poem is about before the first full stop, then check whether the poem keeps that promise.",
+          },
+          {
+            label: "Who is speaking",
+            description:
+              "An \u201cI\u201d alone, an \u201cI\u201d addressing someone, or a voice describing a scene. The speaker is not always the poet, so write \u201cthe speaker\u201d.",
+          },
+          {
+            label: "Where it turns",
+            description:
+              "Find the \u201cbut\u201d, \u201cyet\u201d or \u201cstill\u201d, or the line that changes direction. That turn usually carries the poem\u2019s idea.",
+          },
+          {
+            label: "The feeling line",
+            description:
+              "One line that holds the emotion. That is the line you will quote, so copy it exactly and spell it as the poem does.",
+          },
+        ]}
+      />
+
+      <KeyPoint>
+        Five minutes with the unseen poem: read once for the story, then read
+        again with a pencil, marking one image, one device and one line you will
+        quote.
+      </KeyPoint>
+
+      <h3>Step 2 — The Comparison Spine</h3>
+      <p>
+        Compare on the same axis in both poems, one axis per paragraph. The table
+        gives the question to ask of each poem and the sentence shape that
+        answers it.
+      </p>
+
+      <TableCard
+        headers={["Axis", "Ask of both poems", "How the comparison sounds"]}
+        rows={[
+          {
+            cells: [
+              "Theme",
+              "What human situation is each poem really about?",
+              "Both poems are about \u2026 ; the first sees it as \u2026, the second as \u2026",
+            ],
+          },
+          {
+            cells: [
+              "Speaker and situation",
+              "Who speaks, and what is happening in front of them?",
+              "One speaker walks a wall with a neighbour; the other mends a wall alone.",
+            ],
+          },
+          {
+            cells: [
+              "Tone",
+              "What does the speaker feel about the subject?",
+              "The first is wry and questioning, the second firm and tender.",
+            ],
+          },
+          {
+            cells: [
+              "Form",
+              "Rhymed or free? Long lines or short? How many stanzas?",
+              "Loose blank verse that sounds like speech against four neat rhymed quatrains.",
+            ],
+          },
+          {
+            cells: [
+              "Imagery",
+              "Which picture carries the meaning in each poem?",
+              "The same wall, read once as a puzzle and once as a shelter.",
+            ],
+          },
+          {
+            cells: [
+              "Devices",
+              "Which device does the real work in each poem?",
+              "Irony and repetition in the first, metaphor and contrast in the second.",
+            ],
+          },
+          {
+            cells: [
+              "Message",
+              "What does each poem want the reader to think or do?",
+              "One leaves the question open, the other answers it.",
+            ],
+          },
+        ]}
+        caption="One axis per paragraph keeps the answer moving between the poems."
+      />
+
+      <h3>Step 3 — The Comparative Frame</h3>
+      <p>
+        Fill every slot, and keep the two poems side by side inside each
+        paragraph rather than one paragraph per poem.
+      </p>
+
+      <div className="my-6 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+        <div className="border-b border-border/50 bg-muted/40 px-5 py-3">
+          <span className="text-sm font-bold tracking-tight text-foreground">
+            Fill-in frame — copy this structure
+          </span>
+        </div>
+
+        <div className="px-5 py-4">
+          <h4 className="!mt-0 mb-2 text-base font-bold tracking-tight text-foreground">
+            I. Introduction — Both Poems, Shared Ground
+          </h4>
+          <p>
+            The poem <Slot>[Poem 1]</Slot> by <Slot>[Poet 1]</Slot> and the poem{" "}
+            <Slot>[Poem 2]</Slot> by <Slot>[Poet 2]</Slot> both deal with{" "}
+            <Slot>[shared subject]</Slot>.
+          </p>
+          <p>
+            The first presents it as <Slot>[stance of poem 1]</Slot>, while the
+            second presents it as <Slot>[stance of poem 2]</Slot>.
+          </p>
+          <Cue>
+            e.g. Both poems are about a wall; the first questions it, the second
+            defends it.
+          </Cue>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            II. Similarities
+          </h4>
+          <p>
+            Both poems <Slot>[shared idea or feeling]</Slot>, and both use{" "}
+            <Slot>[shared image or device]</Slot> to carry it.
+          </p>
+          <p>
+            In the first, <Slot>[evidence from poem 1]</Slot>; in the second,{" "}
+            <Slot>[evidence from poem 2]</Slot>.
+          </p>
+          <Cue>
+            e.g. Both speakers mend a wall by hand, and both poems make the wall
+            the central image.
+          </Cue>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            III. Differences
+          </h4>
+          <p>
+            Where the first <Slot>[what poem 1 does]</Slot>, the second{" "}
+            <Slot>[what poem 2 does]</Slot>.
+          </p>
+          <p>
+            The difference is clearest in <Slot>[moment, line or image]</Slot>,
+            where <Slot>[poem 1 and its effect]</Slot> against{" "}
+            <Slot>[poem 2 and its effect]</Slot>.
+          </p>
+          <Cue>
+            e.g. Frost&apos;s speaker doubts the wall; the second speaker calls
+            it a shelter.
+          </Cue>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            IV. Devices and Style
+          </h4>
+          <p>
+            The first poem relies on <Slot>[device 1]</Slot> — for instance{" "}
+            <Slot>[quoted words]</Slot> — while the second works through{" "}
+            <Slot>[device 2]</Slot> in <Slot>[quoted words]</Slot>.
+          </p>
+          <p>
+            Their forms differ too: <Slot>[form of poem 1]</Slot> against{" "}
+            <Slot>[form of poem 2]</Slot>.
+          </p>
+          <Cue>
+            e.g. Irony and repetition against metaphor and contrast; blank verse
+            against rhymed quatrains.
+          </Cue>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            V. Conclusion — What the Comparison Reveals
+          </h4>
+          <p>
+            Read together, the two poems <Slot>[what the pairing shows]</Slot>.
+          </p>
+          <p>
+            The first leaves the reader <Slot>[feeling or question]</Slot>, while
+            the second <Slot>[feeling or answer]</Slot>, and that difference is
+            the comparison&apos;s point.
+          </p>
+          <Cue>
+            e.g. The same image with two verdicts — one open question, one firm
+            answer.
+          </Cue>
+        </div>
+      </div>
+
+      <h3>Step 4 — Worked Sample</h3>
+      <p>
+        The unseen poem below is a specimen written for this page; in the exam
+        you will meet a poem like it for the first time. Read it once, then read
+        the comparison that follows.
+      </p>
+
+      <blockquote className="my-6 rounded-r-xl border-l-2 border-border bg-muted/20 py-3 pl-4 pr-4">
+        <p className="mb-2 font-semibold not-italic text-foreground">
+          The Boundary
+        </p>
+        <p className="italic text-foreground/80">
+          My father built it stone by stone,
+          <br />
+          a waist-high wall, worn and grey.
+          <br />
+          He said a wall is not a cage
+          <br />
+          if what it holds is worth the stay.
+        </p>
+        <p className="mt-3 italic text-foreground/80">
+          Inside it, beans and marigolds;
+          <br />
+          outside, the wind and passing feet.
+          <br />
+          Each monsoon takes a stone away;
+          <br />
+          I set it back and call it complete.
+        </p>
+      </blockquote>
+
+      <Expandable
+        title="Sample — &ldquo;Mending Wall&rdquo; and &ldquo;The Boundary&rdquo; Compared"
+        variant="example"
+      >
+        <p>
+          Both poems are about a wall, and about what a wall does to the people
+          on either side. Robert Frost&apos;s &ldquo;Mending Wall&rdquo; and the
+          unseen poem &ldquo;The Boundary&rdquo; each place a first-person
+          speaker beside a wall that has to be repaired.
+        </p>
+        <p>
+          In both poems the wall is the central image, and both speakers meet it
+          through the ordinary work of mending — Frost&apos;s pair &ldquo;walk
+          the line&rdquo; each spring, while the second speaker &ldquo;mends the
+          gap each monsoon takes&rdquo;. Both also inherit a saying about walls
+          and repeat it as the poem&apos;s hinge.
+        </p>
+        <p>
+          The difference is what each speaker decides the wall means. Frost&apos;s
+          speaker is sceptical — &ldquo;Something there is that doesn&apos;t love
+          a wall&rdquo; — while the second speaker repeats his father&apos;s
+          &ldquo;a wall is not a cage&rdquo; and defends it.
+        </p>
+        <p>
+          For Frost the wall is a puzzle to be argued with, and the neighbour&apos;s
+          &ldquo;Good fences make good neighbours&rdquo; is heard with irony. In
+          &ldquo;The Boundary&rdquo; the same kind of saying becomes a promise,
+          and the wall holds &ldquo;beans and marigolds&rdquo; against &ldquo;the
+          wind and passing feet&rdquo;.
+        </p>
+        <p>
+          Frost works through irony and repetition in loose blank verse that
+          sounds like conversation. The unseen poem works through contrast and
+          metaphor in four neat abcb quatrains, so its defence of the wall sounds
+          settled rather than argued.
+        </p>
+        <p>
+          Read together, the two poems ask the same question from opposite sides:
+          whether a boundary protects or divides. Frost leaves the answer open and
+          slightly mocking, while &ldquo;The Boundary&rdquo; answers in the
+          wall&apos;s favour, and that difference is what makes each poem sharper.
+        </p>
+      </Expandable>
+
+      <h3>What Loses Marks</h3>
+
+      <TableCard
+        headers={["Weak answer", "Why it loses marks", "Write this instead"]}
+        rows={[
+          {
+            cells: [
+              "Two summaries, poem after poem",
+              "The examiner never sees a comparison",
+              "One axis per paragraph, both poems named in each",
+            ],
+          },
+          {
+            cells: [
+              "A list of devices",
+              "Naming a device is not appreciating it",
+              "Device, quoted words, effect on meaning",
+            ],
+          },
+          {
+            cells: [
+              "Only the textbook poem is quoted",
+              "The unseen poem looks unread",
+              "Quote one short phrase from each poem",
+            ],
+          },
+          {
+            cells: [
+              "Inventing an author for the unseen poem",
+              "No poet is given, so none can be known",
+              "Write \u201cthe second poem\u201d, or quote its first line",
+            ],
+          },
+          {
+            cells: [
+              "\u201cBoth are beautiful poems\u201d",
+              "A claim with no evidence behind it",
+              "A claim you can prove with a line",
+            ],
+          },
+          {
+            cells: [
+              "No word on form",
+              "Rhyme and line length carry meaning",
+              "Compare the form in one sentence",
+            ],
+          },
+        ]}
+        caption="Every row here is a real habit — check your answer against it before you stop."
+      />
+
+      <h2>Appreciation of a Single Poem</h2>
+      <p>
+        When the question gives you one poem, use this frame. It also supplies the
+        vocabulary — theme, tone, device, effect — that the comparison borrows.
       </p>
 
       <div className="my-6 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
@@ -52,12 +415,18 @@ export default function AppreciationContent() {
           <p>
             The poem <Slot>[Name of the Poem]</Slot>, written by{" "}
             <Slot>[Name of the Poet]</Slot>, is a beautiful, thought-provoking
-            and inspiring poem. Through this poem, the poet presents a{" "}
-            <strong>deep insight</strong> into{" "}
-            <Slot>[central theme or idea]</Slot>. The poem explores{" "}
-            <Slot>[main subject or concern]</Slot> and expresses the
-            poet&apos;s thoughts and feelings about it. The{" "}
-            <strong>title</strong> itself serves as a gateway to the
+            and inspiring poem.
+          </p>
+          <p>
+            Through this poem, the poet presents a <strong>deep insight</strong>{" "}
+            into <Slot>[central theme or idea]</Slot>.
+          </p>
+          <p>
+            The poem explores <Slot>[main subject or concern]</Slot> and expresses
+            the poet&apos;s thoughts and feelings about it.
+          </p>
+          <p>
+            The <strong>title</strong> itself serves as a gateway to the
             poet&apos;s central idea and reflects the significance of the poem.
           </p>
 
@@ -66,13 +435,19 @@ export default function AppreciationContent() {
           </h4>
           <p>
             The poem revolves around{" "}
-            <Slot>[briefly explain the main idea of the poem]</Slot>. The poet
-            beautifully portrays{" "}
+            <Slot>[briefly explain the main idea of the poem]</Slot>.
+          </p>
+          <p>
+            The poet beautifully portrays{" "}
             <Slot>[important events, images, emotions or experiences]</Slot> to
-            convey the message that <Slot>[central message]</Slot>. Through
-            these ideas, the poet encourages readers to think about{" "}
-            <Slot>[relevant issue, human experience or value]</Slot>. The
-            poem&apos;s <strong>central idea</strong> is meaningful because it
+            convey the message that <Slot>[central message]</Slot>.
+          </p>
+          <p>
+            Through these ideas, the poet encourages readers to think about{" "}
+            <Slot>[relevant issue, human experience or value]</Slot>.
+          </p>
+          <p>
+            The poem&apos;s <strong>central idea</strong> is meaningful because it
             connects with our lives and helps us understand{" "}
             <Slot>[insight gained from the poem]</Slot>.
           </p>
@@ -82,9 +457,11 @@ export default function AppreciationContent() {
           </h4>
           <p>
             The poet uses various <strong>literary devices</strong> to make the
-            poem more engaging and effective. Vivid <strong>imagery</strong>{" "}
-            helps readers create clear mental pictures of{" "}
-            <Slot>[describe the image or scene]</Slot>.{" "}
+            poem more engaging and effective. Vivid <strong>imagery</strong> helps
+            readers create clear mental pictures of{" "}
+            <Slot>[describe the image or scene]</Slot>.
+          </p>
+          <p>
             <strong>Personification</strong> is used to give human qualities to{" "}
             <Slot>[object, animal or natural element]</Slot>, making the
             description more lively. The poet also employs{" "}
@@ -97,8 +474,11 @@ export default function AppreciationContent() {
             &ldquo;<Slot>[example]</Slot>&rdquo; adds a musical quality to the
             poem. <strong>Repetition</strong> of{" "}
             &ldquo;<Slot>[word or line]</Slot>&rdquo; emphasises{" "}
-            <Slot>[idea or emotion]</Slot> and may contribute to the
-            poem&apos;s rhythm. Other devices, such as{" "}
+            <Slot>[idea or emotion]</Slot> and may contribute to the poem&apos;s
+            rhythm.
+          </p>
+          <p>
+            Other devices, such as{" "}
             <Slot>[symbolism / irony / contrast / onomatopoeia, as applicable]</Slot>
             , further strengthen the <strong>central theme</strong>.
           </p>
@@ -107,8 +487,11 @@ export default function AppreciationContent() {
             <Slot>[simple / descriptive / figurative / emotional]</Slot> yet
             expressive. The <strong>tone</strong> is{" "}
             <Slot>[hopeful / sad / reflective / critical / humorous, as applicable]</Slot>
-            , which suits the subject of the poem. The use of{" "}
-            <Slot>[rhyme / rhythm / free verse / repetition, as applicable]</Slot>
+            , which suits the subject of the poem.
+          </p>
+          <p>
+            The use of{" "}
+            <Slot>[rhyme / rhythm / free verse / repetition, as applicable]</Slot>{" "}
             contributes to its overall effect. The poem is organised into{" "}
             <Slot>[number of stanzas, if relevant]</Slot> stanzas, and its{" "}
             <strong>structure</strong> supports the development of the central
@@ -120,96 +503,31 @@ export default function AppreciationContent() {
           </h4>
           <p>
             In conclusion, <Slot>[Name of the Poem]</Slot> is a meaningful and
-            memorable poem that leaves a lasting impression on the
-            reader&apos;s mind. Its message that <Slot>[central message]</Slot>{" "}
-            is timeless and thought-provoking. The poem encourages readers to
-            reflect on their own lives and gain a deeper understanding of{" "}
-            <Slot>[theme or value]</Slot>. My <strong>favourite lines</strong>{" "}
-            are &ldquo;<Slot>[favourite line or phrase]</Slot>&rdquo; because
-            they beautifully express{" "}
-            <Slot>[reason for choosing the lines]</Slot>. Overall, the poem is
-            an inspiring and worthwhile piece of literature that deserves
-            appreciation.
+            memorable poem that leaves a lasting impression on the reader&apos;s
+            mind. Its message that <Slot>[central message]</Slot> is timeless and
+            thought-provoking.
+          </p>
+          <p>
+            The poem encourages readers to reflect on their own lives and gain a
+            deeper understanding of <Slot>[theme or value]</Slot>.
+          </p>
+          <p>
+            My <strong>favourite lines</strong> are{" "}
+            &ldquo;<Slot>[favourite line or phrase]</Slot>&rdquo; because they
+            beautifully express <Slot>[reason for choosing the lines]</Slot>.
+          </p>
+          <p>
+            Overall, the poem is an inspiring and worthwhile piece of literature
+            that deserves appreciation.
           </p>
         </div>
       </div>
 
       <Callout type="important" title="Remember">
-        Appreciation is <strong>explanation, not identification</strong>.
-        Devices are only the evidence — the marks come from showing how each
-        one shapes the poem&apos;s meaning, mood and message.
+        Appreciation is <strong>explanation, not identification</strong>. Devices
+        are only the evidence — the marks come from showing how each one shapes
+        the poem&apos;s meaning, mood and message.
       </Callout>
-
-      <h2>Comparative Poetry Appreciation</h2>
-      <p>
-        When the question gives you <strong>two poems</strong>, appreciate them
-        together — the shared theme first, then what the poems share and where
-        they differ, then the devices, the style and an overall comparison.
-      </p>
-
-      <div className="my-6 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
-        <div className="border-b border-border/50 bg-muted/40 px-5 py-3">
-          <span className="text-sm font-bold tracking-tight text-foreground">
-            Fill-in frame — copy this structure
-          </span>
-        </div>
-
-        <div className="px-5 py-4">
-          <h3 className="!mt-0">Comparative Poetry Appreciation</h3>
-
-          <p>
-            <strong>Poems:</strong>
-            <br />
-            &ldquo;<Slot>[Poem 1]</Slot>&rdquo; — <Slot>[Poet]</Slot>
-            <br />
-            &ldquo;<Slot>[Poem 2]</Slot>&rdquo; — <Slot>[Poet]</Slot>
-          </p>
-
-          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
-            Theme
-          </h4>
-          <Cue>Explain the common theme in both poems.</Cue>
-
-          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
-            Similarities
-          </h4>
-          <ul className="text-sm italic text-muted-foreground">
-            <li>Explain how both poems deal with the same idea.</li>
-            <li>Compare their message and feelings.</li>
-            <li>Mention similar images/ideas if important.</li>
-          </ul>
-
-          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
-            Differences
-          </h4>
-          <ul className="text-sm italic text-muted-foreground">
-            <li>Explain how the poems present the theme differently.</li>
-            <li>Compare the tone, images or approach.</li>
-            <li>Mention important differences in the poets&apos; ideas.</li>
-          </ul>
-
-          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
-            Poetic Devices
-          </h4>
-          <Cue>
-            Mention important metaphors, imagery, rhyme, symbols or other
-            devices.
-          </Cue>
-
-          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
-            Language and Style
-          </h4>
-          <Cue>Briefly compare the language and style of both poems.</Cue>
-
-          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
-            Conclusion
-          </h4>
-          <Cue>
-            Explain what makes both poems meaningful and give an overall
-            comparison.
-          </Cue>
-        </div>
-      </div>
 
       <h2>Appreciation vs Review</h2>
       <TableCard
@@ -236,8 +554,8 @@ export default function AppreciationContent() {
       <h2>Core Poetic Devices</h2>
       <p>
         Poetic devices are <Highlight color="blue">only one part</Highlight> of
-        appreciation — they support your reading, they do not replace it. Name
-        the device, quote the words, explain the effect.
+        appreciation — they support your reading, they do not replace it. Name the
+        device, quote the words, explain the effect.
       </p>
 
       <TableCard

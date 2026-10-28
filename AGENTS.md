@@ -26,7 +26,7 @@ Run only the check for what changed — full routing table in `textbook-plus/scr
 
 - `Constitution/` — PRD, USER_PREFERENCES (design decisions + component gallery specs)
 - `Pipeline/` — content pipeline docs (PDF → live chapter); per-subject files
-- `Developer_Deliveries/` — gitignored user assets (`Chapter names.md` is chapter-list source of truth; `Chapters/{Subject} Textbooks/` source PDFs; `Chapters/{Subject}/` extraction outputs; `Chapters/{Subject} Images/{Topic}/` user images)
+- `Developer_Deliveries/` — gitignored user assets (`Chapter names.md` is chapter-list source of truth; per-subject `Chapters/{NN_Subject}/{Textbooks,Extractions,Images,Structures}/`; see `Developer_Deliveries/README.md`)
 - `Pending/`, `.opencode/plans/` — work-in-progress plans; resume when user says "continue plan_NNNN.md", then delete
 - Next app: `textbook-plus/`
 

@@ -54,7 +54,7 @@ Physics follows the **master 16-step pipeline** with subject-specific content ru
 | 6 | Decompose + Map | Break into knowledge units + source traceability | Extraction | Unit list + refs |
 | 7 | Audit | Automated completeness check against extraction | Units + extraction | Gap report |
 
-**Step 1 note:** PDFs located at `Developer_Deliveries/Chapters/Physics Textbooks/`
+**Step 1 note:** PDFs located at `Developer_Deliveries/Chapters/01_Physics/Textbooks/`
 
 **Step 5 note:** Maintain derivation flow structure — preserve the logical sequence of equations and explanations. Each derivation step must flow naturally to the next.
 

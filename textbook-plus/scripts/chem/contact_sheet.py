@@ -4,10 +4,10 @@
     python contact_sheet.py --chapter haloalkanes-and-haloarenes
     python contact_sheet.py --all
 
-Gate G6 in .opencode/plans/plan_0001.md: the user scans this one image and approves,
+Gate G6 (see scripts/chem/README.md): the user scans this one image and approves,
 or names the wrong ones. A structure is never merged without a signed-off sheet.
 
-Output: Developer_Deliveries/Chapters/Chemistry/<slug>-structures-review.png
+Output: Developer_Deliveries/Chapters/02_Chemistry/Structures/<slug>-structures-review.png
 """
 
 from __future__ import annotations
@@ -35,7 +35,16 @@ APP = HERE.parents[1]
 REPO = HERE.parents[2]
 CONTENT_DIR = Path(os.environ.get("CHEM_CONTENT_DIR", APP / "src" / "content" / "chemistry"))
 EXTRACT_DIR = Path(
-    os.environ.get("CHEM_EXTRACT_DIR", REPO / "Developer_Deliveries" / "Chapters" / "Chemistry")
+    os.environ.get(
+        "CHEM_EXTRACT_DIR",
+        REPO / "Developer_Deliveries" / "Chapters" / "02_Chemistry" / "Extractions",
+    )
+)
+STRUCTURES_DIR = Path(
+    os.environ.get(
+        "CHEM_STRUCTURES_DIR",
+        REPO / "Developer_Deliveries" / "Chapters" / "02_Chemistry" / "Structures",
+    )
 )
 
 COLUMNS = 3
@@ -126,8 +135,8 @@ def build_sheet(slug: str) -> Path | None:
         font=load_font(16),
     )
 
-    EXTRACT_DIR.mkdir(parents=True, exist_ok=True)
-    out = EXTRACT_DIR / f"{slug}-structures-review.png"
+    STRUCTURES_DIR.mkdir(parents=True, exist_ok=True)
+    out = STRUCTURES_DIR / f"{slug}-structures-review.png"
     canvas.save(out)
 
     # Guard against a silently blank sheet: every cell must contain drawing ink.

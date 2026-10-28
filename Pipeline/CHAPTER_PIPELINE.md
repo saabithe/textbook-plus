@@ -44,7 +44,7 @@ At each step, the AI presents the output and asks the user to choose:
 Every chapter starts with a **complete extraction** (Step 2). The cleaned markdown file becomes the single source of truth for all subsequent steps. Never go back to the PDF — everything you need is in the extraction.
 
 ```
-Developer_Deliveries/Chapters/{Subject}/{chapter-slug}-extracted.md
+Developer_Deliveries/Chapters/{NN_Subject}/Extractions/{chapter-slug}-extracted.md
 ```
 
 This file is **permanent** — it stays in the repo as the reference. Content transformations (Steps 8–10) read from this file, not the PDF.
@@ -192,7 +192,7 @@ graph TD
 Use **pymupdf** (or similar tool) to extract everything from the NCERT PDF into a single markdown file:
 
 ```
-Developer_Deliveries/Chapters/{Subject}/{chapter-slug}-extracted.md
+Developer_Deliveries/Chapters/{NN_Subject}/Extractions/{chapter-slug}-extracted.md
 ```
 
 **What to extract (leave nothing out):**

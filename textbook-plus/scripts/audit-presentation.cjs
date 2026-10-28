@@ -30,10 +30,10 @@ const CONTENT_ROOT = path.join(APP_ROOT, "src", "content");
 const DELIVERIES = path.resolve(APP_ROOT, "..", "Developer_Deliveries", "Chapters");
 
 const SUBJECT_FOLDER = {
-  biology: "Biology",
-  physics: "Physics",
-  chemistry: "Chemistry",
-  mathematics: "Mathematics",
+  biology: "04_Biology",
+  physics: "01_Physics",
+  chemistry: "02_Chemistry",
+  mathematics: "03_Mathematics",
 };
 
 const args = process.argv.slice(2);
@@ -170,8 +170,8 @@ function checkFigures(source, file) {
   const subjectFolder = SUBJECT_FOLDER[subjectSlug];
   if (!subjectFolder) return;
 
-  const candidates = ["extracted", "clean", "raw"].map((kind) =>
-    path.join(DELIVERIES, subjectFolder, `${chapterSlug}-${kind}.md`),
+  const candidates = ["extracted", "raw"].map((kind) =>
+    path.join(DELIVERIES, subjectFolder, "Extractions", `${chapterSlug}-${kind}.md`),
   );
   const modelPath = candidates.find((candidate) => fs.existsSync(candidate));
   if (!modelPath) return;
