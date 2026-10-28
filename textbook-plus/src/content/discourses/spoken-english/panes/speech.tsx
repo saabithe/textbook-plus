@@ -177,6 +177,107 @@ export default function SpeechContent() {
         />
       </div>
 
+      <h2>Introductory Speech &mdash; Introducing a Guest</h2>
+      <p>
+        An introductory speech is the two minutes before somebody else speaks:
+        you welcome the audience, present the guest, and hand over the stage. The
+        guest is the subject and you are only the bridge, so the speech stays
+        short and the spotlight stays on the person being introduced.
+      </p>
+
+      <ProcessCard
+        title="Introductory Speech Framework"
+        steps={[
+          {
+            label: "Opening / Salutation",
+            description:
+              "Welcome the dignitaries and the audience: Respected dignitaries on and off the dais, ladies and gentlemen.",
+          },
+          {
+            label: "Statement of Purpose",
+            description:
+              "Say plainly that you are there to introduce a distinguished person, and that it is a pleasure to do so.",
+          },
+          {
+            label: "Body / Personal Profile",
+            description:
+              "The heart of the speech: background, achievements and service to society. This is the part you must write fresh about the person.",
+          },
+          {
+            label: "Conclusion",
+            description:
+              "Reiterate the honour of introducing such a personality. One line is enough.",
+          },
+          {
+            label: "Sign-off",
+            description:
+              "Express gratitude and hand the stage over: \"Thank you.\"",
+          },
+        ]}
+      />
+
+      <div className="my-6 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+        <div className="border-b border-border/50 bg-muted/40 px-5 py-3">
+          <span className="text-sm font-bold tracking-tight text-foreground">
+            Fill-in frame &mdash; introducing a guest
+          </span>
+        </div>
+
+        <div className="px-5 py-4">
+          <h4 className="!mt-0 mb-2 text-base font-bold tracking-tight text-foreground">
+            I. Salutation
+          </h4>
+          <p>Respected dignitaries on and off the dais, ladies and gentlemen,</p>
+          <p>Good morning to one and all.</p>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            II. Statement of Purpose
+          </h4>
+          <p>
+            It is our pleasure to introduce before you the great and acclaimed
+            person for his/her service to society.
+          </p>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            III. The Person &mdash; Profile and Service
+          </h4>
+          <p>
+            <Slot>[Mr./Ms. Name]</Slot> is an eminent personality with a
+            remarkable journey of life.
+          </p>
+          <p>
+            <Slot>
+              [Write something about the person: background, achievements and
+              service to society]
+            </Slot>
+          </p>
+          <div className="mt-1 text-sm italic text-muted-foreground">
+            e.g. Dr. Meera Nair is an alumna of this school who became a
+            paediatrician. For twelve years she has run a free clinic for children
+            in Kottayam, treating more than 300 patients a month, and she has
+            planted over 4,000 trees with her students.
+          </div>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            IV. Conclusion
+          </h4>
+          <p>
+            I conclude my words expressing my pleasure to introduce such a great
+            personality.
+          </p>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            V. Sign-off
+          </h4>
+          <p>Thank you.</p>
+        </div>
+      </div>
+
+      <Highlight color="orange">
+        Two minutes is enough. Introduce the person, not yourself: one fact you
+        can prove is worth ten adjectives.
+      </Highlight>
+
       <h2>Tips &amp; Guidelines</h2>
 
       <Checklist
@@ -210,6 +311,10 @@ export default function SpeechContent() {
           { label: "Address the audience directly: \"You and I both know...\"" },
           { label: "Keep the speech under 200 words in the exam" },
           { label: "Vote of thanks must be under 100 words" },
+          {
+            label:
+              "An introductory speech runs to two minutes at most \u2014 the guest, not the speaker, is the subject",
+          },
         ]}
       />
 
@@ -234,6 +339,29 @@ export default function SpeechContent() {
         <p>First and foremost, I thank our chief guest, Dr. Suresh Kumar, for gracing the occasion with his inspiring words. I thank our Principal for the constant encouragement, and our teachers who worked tirelessly behind the scenes.</p>
         <p>Our students proved that talent and hard work go hand in hand. The performances today were truly memorable.</p>
         <p>I hereby propose a vote of thanks. Thank you.</p>
+      </Expandable>
+
+      <Expandable title="Sample 3 — Introductory Speech: Introducing the Chief Guest" variant="example">
+        <p>Respected dignitaries on and off the dais, ladies and gentlemen,</p>
+        <p>Good morning to one and all.</p>
+        <p>
+          It is our pleasure to introduce before you the person we have all come
+          to listen to this morning.
+        </p>
+        <p>
+          Dr. Meera Nair is an alumna of this school who went on to become a
+          paediatrician. For twelve years she has run a free clinic for children
+          in Kottayam, treating more than 300 patients a month.
+        </p>
+        <p>
+          She has also planted over 4,000 trees with her students &mdash; a lesson
+          in service that none of us will forget.
+        </p>
+        <p>
+          I conclude my words expressing my pleasure to introduce such a great
+          personality.
+        </p>
+        <p>Thank you.</p>
       </Expandable>
 
       <KeyPoint>
