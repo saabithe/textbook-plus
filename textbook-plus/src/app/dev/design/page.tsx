@@ -499,7 +499,7 @@ export default function DesignGallery() {
             </div>
 
             <div>
-              <Label text="TopicSwitch — card list for the merged discourse pages (one card open at a time, hash deep links)" />
+              <Label text="TopicSwitch — left/right pager for the merged discourse pages (sticky tab strip + counter, hover-revealed edge buttons, arrow keys, touch swipe, hash deep links)" />
               <TopicSwitch
                 label="Demo formats"
                 panes={[
@@ -507,31 +507,58 @@ export default function DesignGallery() {
                     id: "demo-term-paper",
                     label: "First Format",
                     content: (
-                      <p>
-                        Pane one. Clicking a card opens its pane and deep-links
-                        with <code>#demo-term-paper</code>; arrow keys move between
-                        the cards, and clicking the open card again closes it.
-                      </p>
+                      <>
+                        <h4 className="text-lg font-bold tracking-tight text-foreground">
+                          A deliberately short pane
+                        </h4>
+                        <p className="mt-2 text-muted-foreground">
+                          Three panes of unequal length, so the demo can be judged
+                          the way the real pages behave: the reader keeps their
+                          scroll position, and the strip stays pinned under the
+                          navbar to say which format they are in.
+                        </p>
+                      </>
                     ),
                   },
                   {
                     id: "demo-lab-report",
                     label: "Second Format",
                     content: (
-                      <p>
-                        Pane two. The open pane sits inside the same card as its
-                        heading, so the form and its label never separate.
-                      </p>
+                      <>
+                        <h4 className="text-lg font-bold tracking-tight text-foreground">
+                          Tabs, arrows, swipe
+                        </h4>
+                        <p className="mt-2 text-muted-foreground">
+                          Click a tab to jump straight to a format, hover the left
+                          or right gutter for the edge buttons, or press the arrow
+                          keys while this module is on screen. On a touch screen,
+                          swipe the pane sideways. The counter at the right of the
+                          strip reads <strong>2 of 3</strong>.
+                        </p>
+                        <p className="mt-3 text-muted-foreground">
+                          The strip is a real tab list: Tab reaches it, arrow keys
+                          move between tabs, Home and End jump to the first and
+                          last format, and the pane announces itself as a tab
+                          panel.
+                        </p>
+                      </>
                     ),
                   },
                   {
                     id: "demo-field-report",
                     label: "Third Format",
                     content: (
-                      <p>
-                        Pane three. Only the open pane is rendered, so printing a
-                        page prints the form the reader had open.
-                      </p>
+                      <>
+                        <h4 className="text-lg font-bold tracking-tight text-foreground">
+                          The last pane
+                        </h4>
+                        <p className="mt-2 text-muted-foreground">
+                          The right arrow is dimmed here and does nothing &mdash;
+                          the pager stops at the ends instead of wrapping around.
+                          Printing prints only the format on screen, with a line
+                          naming it.
+                        </p>
+                      </>
                     ),
                   },
                 ]}

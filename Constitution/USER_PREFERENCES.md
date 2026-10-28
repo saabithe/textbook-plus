@@ -283,7 +283,7 @@ All new and improved content components follow this design language. The new int
 
 **Top-level concept (1):** TreeDiagram
 
-**Navigation (1):** TopicSwitch — the card list used by the merged discourse pages (Oct 2026): one card per writing format, one open at a time, with hash deep links and only the open pane rendered. Not a content primitive — it wraps `panes={[{ id, label, content }]}`.
+**Navigation (1):** TopicSwitch — the left/right pager used by the merged discourse pages (Oct 2026): one writing format on screen at a time, a sticky tab strip with a "2 of 4" counter above the pane, hover-revealed edge buttons in the gutter on desktop, ←/→ and Home/End keys, touch swipe on mobile, hash deep links, and only the active pane rendered. The reader keeps their scroll position on a switch, so the strip stays pinned under the navbar; the pager stops at the first and last format (no wrap). Not a content primitive — it wraps `panes={[{ id, label, content }]}`.
 
 ### 12.6 Oct 2026 removal
 

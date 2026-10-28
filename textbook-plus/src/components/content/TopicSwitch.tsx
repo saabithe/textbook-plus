@@ -1,133 +1,340 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
-import { ChevronDown } from "lucide-react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type KeyboardEvent as ReactKeyboardEvent,
+  type ReactNode,
+  type TouchEvent as ReactTouchEvent,
+} from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface TopicPane {
   /** Hash id — deep links look like /discourses/reports#news-report */
   id: string;
-  /** Label shown on the card, and printed above the pane. */
+  /** Label shown on the tab, and printed above the pane. */
   label: string;
   content: ReactNode;
 }
 
 interface TopicSwitchProps {
   panes: TopicPane[];
-  /** Accessible name for the card list, e.g. "Report formats". */
+  /** Accessible name for the tab strip, e.g. "Report formats". */
   label: string;
   className?: string;
 }
 
+/** Horizontal travel that locks a touch gesture to paging. */
+const SWIPE_LOCK_PX = 8;
+/** Horizontal travel that actually commits a swipe. */
+const SWIPE_COMMIT_PX = 56;
+
+interface TouchState {
+  x: number;
+  y: number;
+  lastX: number;
+  locked: "none" | "h" | "v";
+  ignore: boolean;
+}
+
+/** True when the gesture started inside something that scrolls sideways (wide table, code block). */
+function startsInHorizontalScroller(start: HTMLElement, stopAt: HTMLElement | null) {
+  let node: HTMLElement | null = start;
+  while (node && node !== stopAt) {
+    if (node.scrollWidth > node.clientWidth + 4) return true;
+    node = node.parentElement;
+  }
+  return false;
+}
+
 /**
- * Card list used by the merged discourse pages: one card per writing form,
- * and the open card carries its pane below the card.
+ * Left/right pager used by the merged discourse pages: one writing form on
+ * screen at a time, with a sticky tab strip (direct jumps + "2 of 4" counter),
+ * hover-revealed edge buttons on desktop, arrow keys and touch swipe.
  *
- * One card is open at a time (accordion). Opening a card deep-links with
- * `#<pane id>`, and a card that is already open prints expanded, so printing
- * the page by hand prints only the form that is open.
+ * The reader keeps their scroll position when the format changes, so the strip
+ * stays pinned under the navbar to keep the current format visible. Only the
+ * active pane is mounted, so printing prints just that format, and a hash such
+ * as `#news-report` selects its pane on load and on back/forward.
  */
 export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
-  const [active, setActive] = useState<string | null>(() => panes[0]?.id ?? null);
+  const count = panes.length;
+  const [active, setActive] = useState(0);
+  const [direction, setDirection] = useState<1 | -1>(1);
+  const [animate, setAnimate] = useState(false);
+
+  const rootRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const touchRef = useRef<TouchState>({ x: 0, y: 0, lastX: 0, locked: "none", ignore: false });
+
+  // The panes array is a fresh literal on every render of the page, so the
+  // effects below key off the ids rather than the array identity.
+  const paneKey = panes.map((pane) => pane.id).join("|");
 
   // Honour the hash on load and on back/forward navigation.
   useEffect(() => {
+    const ids = paneKey.split("|");
     function syncFromHash() {
       const id = window.location.hash.replace(/^#/, "");
-      if (id && panes.some((pane) => pane.id === id)) {
-        setActive(id);
-      }
+      const index = id ? ids.indexOf(id) : -1;
+      if (index >= 0) setActive(index);
     }
     syncFromHash();
     window.addEventListener("hashchange", syncFromHash);
     return () => window.removeEventListener("hashchange", syncFromHash);
-  }, [panes]);
+  }, [paneKey]);
 
-  const select = useCallback((id: string, moveFocus = false) => {
-    setActive(id);
-    window.history.replaceState(null, "", `#${id}`);
-    if (moveFocus) {
-      requestAnimationFrame(() => {
-        listRef.current
-          ?.querySelector<HTMLButtonElement>(`[data-pane-tab="${id}"]`)
-          ?.focus();
-      });
+  // Keep the selected tab visible inside the horizontally scrolling strip,
+  // without ever scrolling the page itself.
+  useEffect(() => {
+    const list = listRef.current;
+    const tab = tabRefs.current[active];
+    if (!list || !tab) return;
+    const left = tab.offsetLeft;
+    const right = left + tab.offsetWidth;
+    if (left < list.scrollLeft) list.scrollLeft = Math.max(0, left - 8);
+    else if (right > list.scrollLeft + list.clientWidth) {
+      list.scrollLeft = right - list.clientWidth + 8;
     }
-  }, []);
+  }, [active]);
 
-  function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
-    const index = panes.findIndex((pane) => pane.id === active);
-    if (index < 0) return;
+  const goTo = useCallback(
+    (next: number, focusTab = false) => {
+      const clamped = Math.max(0, Math.min(count - 1, next));
+      if (clamped === active) return;
+      setDirection(clamped > active ? 1 : -1);
+      setAnimate(true);
+      setActive(clamped);
+      const id = panes[clamped]?.id;
+      if (id) window.history.replaceState(null, "", `#${id}`);
+      if (focusTab) {
+        requestAnimationFrame(() => tabRefs.current[clamped]?.focus());
+      }
+    },
+    [active, count, panes],
+  );
 
-    let next = index;
-    if (event.key === "ArrowDown" || event.key === "ArrowRight") next = (index + 1) % panes.length;
-    else if (event.key === "ArrowUp" || event.key === "ArrowLeft") next = (index - 1 + panes.length) % panes.length;
+  // Arrow keys page the module while it is on screen, so the reader never has
+  // to hunt for a control. Editable fields, the tab strip itself and anything
+  // marked data-arrow-keys="off" keep their own arrow behaviour.
+  useEffect(() => {
+    if (count < 2) return;
+    function handleDocumentKey(event: globalThis.KeyboardEvent) {
+      if (event.defaultPrevented) return;
+      if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+
+      const target = event.target as HTMLElement | null;
+      if (
+        target?.closest(
+          "input, textarea, select, [contenteditable='true'], [role='tablist'], [role='dialog'], [role='menu'], [data-arrow-keys='off']",
+        )
+      ) {
+        return;
+      }
+
+      const root = rootRef.current;
+      if (!root) return;
+      const rect = root.getBoundingClientRect();
+      const middle = window.innerHeight / 2;
+      if (rect.top > middle || rect.bottom < middle) return;
+
+      event.preventDefault();
+      goTo(active + (event.key === "ArrowRight" ? 1 : -1));
+    }
+    document.addEventListener("keydown", handleDocumentKey);
+    return () => document.removeEventListener("keydown", handleDocumentKey);
+  }, [active, count, goTo]);
+
+  function handleTabKeyDown(event: ReactKeyboardEvent<HTMLDivElement>) {
+    let next = active;
+    if (event.key === "ArrowRight") next = Math.min(active + 1, count - 1);
+    else if (event.key === "ArrowLeft") next = Math.max(active - 1, 0);
     else if (event.key === "Home") next = 0;
-    else if (event.key === "End") next = panes.length - 1;
+    else if (event.key === "End") next = count - 1;
     else return;
 
     event.preventDefault();
-    select(panes[next].id, true);
+    goTo(next, true);
   }
+
+  function handleTouchStart(event: ReactTouchEvent<HTMLElement>) {
+    if (count < 2 || event.touches.length !== 1) {
+      touchRef.current.ignore = true;
+      return;
+    }
+    const touch = event.touches[0];
+    const target = event.target as HTMLElement;
+    touchRef.current = {
+      x: touch.clientX,
+      y: touch.clientY,
+      lastX: touch.clientX,
+      locked: "none",
+      ignore:
+        Boolean(target.closest("[data-no-swipe]")) ||
+        startsInHorizontalScroller(target, rootRef.current),
+    };
+  }
+
+  function handleTouchMove(event: ReactTouchEvent<HTMLElement>) {
+    const state = touchRef.current;
+    if (state.ignore || state.locked === "v") return;
+    const touch = event.touches[0];
+    if (!touch) return;
+
+    const dx = touch.clientX - state.x;
+    const dy = touch.clientY - state.y;
+    state.lastX = touch.clientX;
+
+    if (state.locked === "none") {
+      if (Math.abs(dx) > SWIPE_LOCK_PX && Math.abs(dx) > Math.abs(dy) * 1.2) {
+        state.locked = "h";
+      } else if (Math.abs(dy) > SWIPE_LOCK_PX && Math.abs(dy) >= Math.abs(dx)) {
+        state.locked = "v";
+      }
+    }
+  }
+
+  function handleTouchEnd() {
+    const state = touchRef.current;
+    if (!state.ignore && state.locked === "h") {
+      const dx = state.lastX - state.x;
+      if (Math.abs(dx) > SWIPE_COMMIT_PX) {
+        goTo(active + (dx < 0 ? 1 : -1));
+      }
+    }
+    state.locked = "none";
+    state.ignore = false;
+  }
+
+  // A single format needs no controls — render it plainly.
+  if (count <= 1) {
+    return <div className={cn("my-8", className)}>{panes[0]?.content}</div>;
+  }
+
+  const pane = panes[active];
+  const atStart = active === 0;
+  const atEnd = active === count - 1;
 
   return (
     <div
-      className={cn("my-8 flex flex-col gap-3", className)}
+      ref={rootRef}
+      className={cn("relative my-8 scroll-mt-24", className)}
       role="group"
       aria-label={label}
-      onKeyDown={handleKeyDown}
     >
-      {panes.map((pane) => {
-        const isActive = pane.id === active;
-        return (
-          <div
-            key={pane.id}
-            id={pane.id}
-            className={cn(
-              "overflow-hidden rounded-2xl border transition-colors",
-              isActive ? "border-border bg-card shadow-sm" : "border-border/60 bg-card/60",
-            )}
-          >
-            <h3>
+      <div className="sticky top-16 z-30 mb-4 flex items-center gap-3 rounded-xl border border-border/60 bg-background/90 p-1 pl-1.5 backdrop-blur supports-[backdrop-filter]:bg-background/75 print:hidden">
+        <div
+          ref={listRef}
+          role="tablist"
+          aria-label={label}
+          onKeyDown={handleTabKeyDown}
+          className="relative flex min-w-0 flex-1 items-center gap-1 overflow-x-auto"
+        >
+          {panes.map((item, index) => {
+            const isActive = index === active;
+            return (
               <button
+                key={item.id}
+                ref={(node) => {
+                  tabRefs.current[index] = node;
+                }}
                 type="button"
-                id={`tab-${pane.id}`}
-                data-pane-tab={pane.id}
-                aria-expanded={isActive}
-                aria-controls={`panel-${pane.id}`}
-                onClick={() => select(isActive ? "" : pane.id)}
+                role="tab"
+                id={`tab-${item.id}`}
+                data-pane-tab={item.id}
+                aria-selected={isActive}
+                aria-controls={isActive ? `panel-${item.id}` : undefined}
+                tabIndex={isActive ? 0 : -1}
+                onClick={() => goTo(index)}
                 className={cn(
-                  "flex w-full items-center justify-between gap-3 px-5 py-4 text-left transition-colors",
-                  isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                  "shrink-0 whitespace-nowrap rounded-lg px-3 py-1.5 text-sm font-medium transition-colors",
+                  isActive
+                    ? "bg-card text-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground",
                 )}
               >
-                <span className="text-base font-bold tracking-tight">
-                  {pane.label}
-                </span>
-                <ChevronDown
-                  className={cn(
-                    "h-4 w-4 shrink-0 transition-transform duration-200 print:hidden",
-                    isActive && "rotate-180",
-                  )}
-                  strokeWidth={2}
-                  aria-hidden
-                />
+                {item.label}
               </button>
-            </h3>
+            );
+          })}
+        </div>
+        <span
+          aria-hidden
+          className="shrink-0 pr-1.5 text-xs font-medium tabular-nums text-muted-foreground"
+        >
+          <span className="text-foreground">{active + 1}</span> of {count}
+        </span>
+      </div>
 
-            {isActive && (
-              <section
-                id={`panel-${pane.id}`}
-                aria-labelledby={`tab-${pane.id}`}
-                className="border-t border-border/60 px-5 py-5"
-              >
-                {pane.content}
-              </section>
+      {/* Desktop edge buttons: invisible until the reader hovers the gutter,
+          and pinned to the middle of the viewport so a long pane never puts
+          them out of reach. */}
+      <div className="group/prev absolute inset-y-0 -left-14 hidden w-12 lg:block print:hidden">
+        <div className="sticky top-[calc(50vh-1.25rem)] flex justify-center opacity-0 transition-opacity duration-150 group-hover/prev:opacity-100 group-focus-within/prev:opacity-100">
+          <button
+            type="button"
+            onClick={() => goTo(active - 1)}
+            aria-label={atStart ? "Previous format" : `Previous format: ${panes[active - 1].label}`}
+            aria-disabled={atStart}
+            className={cn(
+              "flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/95 shadow-sm backdrop-blur transition-colors",
+              atStart
+                ? "cursor-not-allowed text-muted-foreground/40"
+                : "text-foreground hover:bg-muted",
             )}
-          </div>
-        );
-      })}
+          >
+            <ChevronLeft className="h-5 w-5" strokeWidth={2} aria-hidden />
+          </button>
+        </div>
+      </div>
+
+      <div className="group/next absolute inset-y-0 -right-14 hidden w-12 lg:block print:hidden">
+        <div className="sticky top-[calc(50vh-1.25rem)] flex justify-center opacity-0 transition-opacity duration-150 group-hover/next:opacity-100 group-focus-within/next:opacity-100">
+          <button
+            type="button"
+            onClick={() => goTo(active + 1)}
+            aria-label={atEnd ? "Next format" : `Next format: ${panes[active + 1].label}`}
+            aria-disabled={atEnd}
+            className={cn(
+              "flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/95 shadow-sm backdrop-blur transition-colors",
+              atEnd
+                ? "cursor-not-allowed text-muted-foreground/40"
+                : "text-foreground hover:bg-muted",
+            )}
+          >
+            <ChevronRight className="h-5 w-5" strokeWidth={2} aria-hidden />
+          </button>
+        </div>
+      </div>
+
+      <div id={pane.id} className="relative scroll-mt-28">
+        <p className="mb-3 hidden text-sm font-semibold text-foreground print:block">
+          Format {active + 1} of {count} &mdash; {pane.label}
+        </p>
+        <section
+          key={pane.id}
+          id={`panel-${pane.id}`}
+          role="tabpanel"
+          aria-labelledby={`tab-${pane.id}`}
+          tabIndex={0}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onTouchCancel={handleTouchEnd}
+          className={cn(
+            "touch-pan-y rounded-2xl border border-border bg-card px-5 py-5 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/50 sm:px-6 sm:py-6",
+            animate &&
+              (direction === 1 ? "animate-pane-in-from-right" : "animate-pane-in-from-left"),
+          )}
+        >
+          {pane.content}
+        </section>
+      </div>
     </div>
   );
 }

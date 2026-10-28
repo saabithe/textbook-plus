@@ -335,3 +335,22 @@ html {
 .animate-fade-in {
   animation: fade-in 0.3s ease-out;
 }
+
+/* TopicSwitch pager: the incoming pane slides in from the direction of travel. */
+@keyframes pane-in-from-right {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pane-in-from-left {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-pane-in-from-right {
+  animation: pane-in-from-right 0.2s ease-out;
+}
+
+.animate-pane-in-from-left {
+  animation: pane-in-from-left 0.2s ease-out;
+}
