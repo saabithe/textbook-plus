@@ -62,9 +62,9 @@ One page. Run it **before**, **during** and **after** every chapter. If a rule h
 ## 4. Post-flight — before the commit
 
 ```bash
-node scripts/audit-presentation.cjs --chapter <slug>   # P1–P7 presentation rules
-node scripts/verify-latex.cjs                          # every formula renders
-npm run typecheck                                      # no type regressions
+npm run verify:presentation -- --chapter <slug>   # P1–P7 presentation rules
+npm run verify:latex                              # every formula renders
+npm run typecheck                                 # no type regressions
 ```
 
 - Read the rendered page top to bottom, as a student would.

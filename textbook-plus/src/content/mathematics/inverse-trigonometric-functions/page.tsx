@@ -506,7 +506,7 @@ export default function InverseTrigonometricFunctionsChapter() {
               Prove: <Formula>{String.raw`\sin^{-1}\frac{8}{17}+\sin^{-1}\frac{3}{5}=\tan^{-1}\frac{77}{36}`}</Formula>
             </>,
             <>
-              Prove: <Formula>{String.raw`\cos^{-1}\frac{4}{5}+\cos^{-1}\frac{12}{13}=\cos^{-1}\\frac{33}{65}`}</Formula>
+              Prove: <Formula>{String.raw`\cos^{-1}\frac{4}{5}+\cos^{-1}\frac{12}{13}=\cos^{-1}\frac{33}{65}`}</Formula>
             </>,
             <>
               Prove: <Formula>{String.raw`\cos^{-1}\frac{12}{13}+\sin^{-1}\frac{3}{5}=\sin^{-1}\frac{56}{65}`}</Formula>

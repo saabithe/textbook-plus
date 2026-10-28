@@ -8,9 +8,15 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
+    "verify:latex": "node scripts/verify-latex.cjs",
+    "verify:presentation": "node scripts/audit-presentation.cjs",
+    "verify:grammar": "node scripts/audit-grammar.cjs",
+    "verify:chem": "node scripts/check-structures.cjs",
+    "pdf:extract": "node scripts/extract-pdf.mjs",
+    "pdf:clean": "node scripts/clean-extract.mjs",
+    "icons": "node scripts/generate-icons.js",
     "chem:build": "node scripts/chem/py.cjs build_structures.py",
-    "chem:sheet": "node scripts/chem/py.cjs contact_sheet.py",
-    "chem:check": "node scripts/check-structures.cjs"
+    "chem:sheet": "node scripts/chem/py.cjs contact_sheet.py"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

@@ -9,15 +9,18 @@ npm run dev                              # dev server (port 3000), uses --webpac
 npm run build                            # generate-sw + check-structures + next build --webpack
 npm run lint                             # eslint
 npm run typecheck                        # tsc --noEmit (fast, no build)
-node scripts/verify-latex.cjs            # KaTeX render check; run after any math edit
-node scripts/audit-presentation.cjs [--chapter <slug>]   # P1–P7 presentation linter
-node scripts/audit-grammar.cjs            # static checks over 12 grammar topics
-npm run chem:build -- --chapter <slug>    # regenerate chemistry SVGs from structures.json
-npm run chem:sheet -- --chapter <slug>    # per-chapter contact sheet (user sign-off, gate G6)
-npm run chem:check                       # structure lint (also runs in build)
+npm run verify:latex                     # KaTeX render check; after any math edit
+npm run verify:presentation -- --chapter <slug>   # P1–P7 presentation linter
+npm run verify:grammar                   # static checks over grammar topics
+npm run verify:chem                      # structure lint (also runs in build)
+npm run pdf:extract -- <pdf> <out.md>    # PDF text → raw Markdown (new chapters only)
+npm run pdf:clean -- <in.md> <out.md>    # clean raw extraction (new chapters only)
+npm run icons                            # regenerate PWA icons (icon.svg changed)
+npm run chem:build -- --chapter <slug>   # regenerate chemistry SVGs from structures.json
+npm run chem:sheet -- --chapter <slug>   # per-chapter contact sheet (user sign-off, G6)
 ```
 
-While iterating, run `npm run typecheck` — not a full build or dev server. Build once at the end of a batch.
+Run only the check for what changed — full routing table in `textbook-plus/scripts/README.md`. While iterating, run `npm run typecheck` — not a full build or dev server. Build once at the end of a batch.
 
 ## Repo Layout
 
@@ -50,9 +53,9 @@ No `/admin` page. No barrel export (`src/components/content/index.ts`) — impor
 2. Add `questions.json`/`flashcards.json` (skip English/Arabic)
 3. Register dynamic import in the right router map
 4. Add slug to `QUESTION_KEYS` + both loaders in `src/lib/content.ts` if practice data exists
-5. Run `node scripts/verify-latex.cjs` + `npm run typecheck`
+5. Run `npm run verify:latex` + `npm run typecheck`
 
-**LaTeX rule (critical):** single backslashes inside `String.raw` templates only — `latex={String.raw`\frac{a}{b}`}` and `<Formula>{String.raw`\sum x_i`}</Formula>`. Never double backslashes, never `latex="\frac..."`. Run verify-latex after any math change. Codemod: `node scripts/unescape-latex.cjs <page.tsx> [...]`.
+**LaTeX rule (critical):** single backslashes inside `String.raw` templates only — `latex={String.raw`\frac{a}{b}`}` and `<Formula>{String.raw`\sum x_i`}</Formula>`. Never double backslashes, never `latex="\frac..."`. Run `npm run verify:latex` after any math change.
 
 **Imports:** direct file paths only (`@/components/content/Callout`, `@/components/content/data/TableCard`, `@/components/content/physics/WaveAnatomyDiagram`, `@/components/content/chemistry/MoleculeStructure`, `@/components/content/biology/...`).
 
@@ -101,7 +104,7 @@ Copy into `textbook-plus/public/images/{subject}/{chapter-slug}/` under a **desc
 
 ## Chemistry Structures (never hand-drawn)
 
-Generate from committed SMILES at authoring time. Inputs: `src/content/chemistry/{slug}/structures.json` (`smiles`, `formula`, `ncertName`, `source`). Output: `structures.generated.ts` (generated, committed, **never hand-edited**). Usage: `import { STRUCTURES } from "./structures.generated"; <MoleculeStructure {...STRUCTURES.key} caption="…" />`. Seven gates G1–G7; a structure that fails a gate is deleted, not patched. Accepted-but-not-automated: curly-arrow mechanisms, crystal lattices, chair/Newman conformations, orbital/CFT diagrams, multi-step flow schemes (hand-authored SVG). Run `npm run chem:check` (also in build).
+Generate from committed SMILES at authoring time. Inputs: `src/content/chemistry/{slug}/structures.json` (`smiles`, `formula`, `ncertName`, `source`). Output: `structures.generated.ts` (generated, committed, **never hand-edited**). Usage: `import { STRUCTURES } from "./structures.generated"; <MoleculeStructure {...STRUCTURES.key} caption="…" />`. Seven gates G1–G7; a structure that fails a gate is deleted, not patched. Accepted-but-not-automated: curly-arrow mechanisms, crystal lattices, chair/Newman conformations, orbital/CFT diagrams, multi-step flow schemes (hand-authored SVG). Run `npm run verify:chem` (also in build).
 
 ## Removed systems (do not reintroduce)
 

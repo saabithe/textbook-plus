@@ -95,7 +95,7 @@ Every compound the chapter depicts is generated — not drawn:
 ```powershell
 npm run chem:build -- --chapter <slug>   # gates G1–G5
 npm run chem:sheet -- --chapter <slug>   # gate G6 — review PNG for the user
-npm run chem:check                        # gate G7 — also runs in npm run build
+npm run verify:chem                       # gate G7 — also runs in npm run build
 ```
 
 Rules:

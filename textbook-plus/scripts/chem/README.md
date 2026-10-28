@@ -1,7 +1,7 @@
 # Chemistry structure pipeline
 
 Authoring-time tooling that turns an authored **SMILES** string into a committed **SVG** drawing.
-Designed in `.opencode/plans/plan_0001.md`. The app ships no chemistry engine — only the SVG.
+The app ships no chemistry engine — only the SVG. Use-case routing lives in `scripts/README.md`.
 
 ## Why
 
