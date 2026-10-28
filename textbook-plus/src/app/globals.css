@@ -9,6 +9,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
+  --font-content: var(--font-content);
   --font-mono: var(--font-geist-mono);
   --color-ring: var(--ring);
   --color-input: var(--input);
@@ -138,8 +139,8 @@
 .prose-custom {
   @apply max-w-none text-[1.125rem] leading-[1.75];
   overflow-wrap: anywhere;
-  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
-  font-weight: 500;
+  font-family: var(--font-content), "Plus Jakarta Sans", ui-sans-serif, sans-serif;
+  font-weight: 400;
 }
 
 .prose-custom h1 {

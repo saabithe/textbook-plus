@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Source_Serif_4, Amiri, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Plus_Jakarta_Sans, DM_Sans, Source_Serif_4, Amiri, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import { ErrorBoundary } from "@/components/auth/ErrorBoundary";
@@ -12,6 +12,15 @@ const jakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
+});
+
+/* DM Sans — the reading face for .prose-custom (chapter content). The app
+   shell keeps Plus Jakarta Sans above. */
+const dmSans = DM_Sans({
+  variable: "--font-content",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const serif = Source_Serif_4({
@@ -70,7 +79,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${serif.variable} ${amiri.variable} ${plexArabic.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${jakarta.variable} ${dmSans.variable} ${serif.variable} ${amiri.variable} ${plexArabic.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
         <meta name="build-commit" content={buildCommit} />
         <script
