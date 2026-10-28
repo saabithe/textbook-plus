@@ -168,8 +168,9 @@ export default function AppreciationContent() {
 
       <h3>Step 3 — The Comparative Frame</h3>
       <p>
-        Fill every slot, and keep the two poems side by side inside each
-        paragraph rather than one paragraph per poem.
+        A comparison is still an appreciation: the same moves — introduction,
+        summary, devices and style, conclusion — with both poems inside every
+        move. Only the similarities and differences are new.
       </p>
 
       <div className="my-6 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
@@ -181,16 +182,25 @@ export default function AppreciationContent() {
 
         <div className="px-5 py-4">
           <h4 className="!mt-0 mb-2 text-base font-bold tracking-tight text-foreground">
-            I. Introduction — Both Poems, Shared Ground
+            I. Introduction — Poets, Titles and Shared Theme
           </h4>
           <p>
-            The poem <Slot>[Poem 1]</Slot> by <Slot>[Poet 1]</Slot> and the poem{" "}
-            <Slot>[Poem 2]</Slot> by <Slot>[Poet 2]</Slot> both deal with{" "}
-            <Slot>[shared subject]</Slot>.
+            The poem <Slot>[Poem 1]</Slot>, written by <Slot>[Poet 1]</Slot>, and
+            the poem <Slot>[Poem 2]</Slot>, written by <Slot>[Poet 2]</Slot>, are
+            both beautiful, thought-provoking and inspiring poems.
           </p>
           <p>
-            The first presents it as <Slot>[stance of poem 1]</Slot>, while the
-            second presents it as <Slot>[stance of poem 2]</Slot>.
+            Through them the poets present a <strong>deep insight</strong> into{" "}
+            <Slot>[shared theme]</Slot>: the first approaches it through{" "}
+            <Slot>[approach of poem 1]</Slot>, the second through{" "}
+            <Slot>[approach of poem 2]</Slot>.
+          </p>
+          <p>
+            The two <strong>titles</strong> are gateways to that shared idea —{" "}
+            &ldquo;<Slot>[title 1]</Slot>&rdquo; points to{" "}
+            <Slot>[what the title suggests]</Slot>, while{" "}
+            &ldquo;<Slot>[title 2]</Slot>&rdquo; points to{" "}
+            <Slot>[what the title suggests]</Slot>.
           </p>
           <Cue>
             e.g. Both poems are about a wall; the first questions it, the second
@@ -198,15 +208,50 @@ export default function AppreciationContent() {
           </Cue>
 
           <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
-            II. Similarities
+            II. Summary and Central Idea — Both Poems
+          </h4>
+          <p>
+            The first poem revolves around{" "}
+            <Slot>[brief summary of poem 1]</Slot>, and its poet portrays{" "}
+            <Slot>[images, events or emotions]</Slot> to convey the message that{" "}
+            <Slot>[message of poem 1]</Slot>.
+          </p>
+          <p>
+            The second poem revolves around{" "}
+            <Slot>[brief summary of poem 2]</Slot>, and its speaker{" "}
+            <Slot>[what happens in poem 2]</Slot> to show that{" "}
+            <Slot>[message of poem 2]</Slot>.
+          </p>
+          <p>
+            The two <strong>central ideas</strong> meet at{" "}
+            <Slot>[the ground both poems share]</Slot>, which is what makes them
+            worth comparing.
+          </p>
+          <Cue>
+            e.g. One speaker questions why the wall is needed; the other mends it
+            because it shelters what he loves.
+          </Cue>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            III. Similarities — What the Poems Share
           </h4>
           <p>
             Both poems <Slot>[shared idea or feeling]</Slot>, and both use{" "}
             <Slot>[shared image or device]</Slot> to carry it.
           </p>
           <p>
-            In the first, <Slot>[evidence from poem 1]</Slot>; in the second,{" "}
-            <Slot>[evidence from poem 2]</Slot>.
+            In the first, &ldquo;<Slot>[quoted words from poem 1]</Slot>&rdquo;
+            does this by <Slot>[effect]</Slot>; in the second,{" "}
+            &ldquo;<Slot>[quoted words from poem 2]</Slot>&rdquo; achieves the same
+            effect through <Slot>[effect]</Slot>.
+          </p>
+          <p>
+            Both also rely on{" "}
+            <Slot>
+              [a repeated saying / a first-person speaker / a return to the
+              opening image]
+            </Slot>
+            , so the two poems seem to answer each other.
           </p>
           <Cue>
             e.g. Both speakers mend a wall by hand, and both poems make the wall
@@ -214,52 +259,84 @@ export default function AppreciationContent() {
           </Cue>
 
           <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
-            III. Differences
+            IV. Differences — Where the Poems Part
           </h4>
           <p>
-            Where the first <Slot>[what poem 1 does]</Slot>, the second{" "}
-            <Slot>[what poem 2 does]</Slot>.
+            Where the first <Slot>[stance of poem 1]</Slot>, the second{" "}
+            <Slot>[stance of poem 2]</Slot>.
           </p>
           <p>
             The difference is clearest in <Slot>[moment, line or image]</Slot>,
-            where <Slot>[poem 1 and its effect]</Slot> against{" "}
-            <Slot>[poem 2 and its effect]</Slot>.
+            where the first <Slot>[effect]</Slot> while the second{" "}
+            <Slot>[effect]</Slot>.
+          </p>
+          <p>
+            Their <strong>tones</strong> pull in different directions too: the
+            first is <Slot>[tone of poem 1]</Slot>, the second{" "}
+            <Slot>[tone of poem 2]</Slot>, and that difference shapes the way each
+            poem ends.
           </p>
           <Cue>
-            e.g. Frost&apos;s speaker doubts the wall; the second speaker calls
-            it a shelter.
+            e.g. Frost&apos;s speaker doubts the wall; the second speaker calls it
+            a shelter.
           </Cue>
 
           <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
-            IV. Devices and Style
+            V. Poetic Devices, Language, Tone and Style — Compared
           </h4>
           <p>
-            The first poem relies on <Slot>[device 1]</Slot> — for instance{" "}
-            <Slot>[quoted words]</Slot> — while the second works through{" "}
-            <Slot>[device 2]</Slot> in <Slot>[quoted words]</Slot>.
+            The first poem relies on <strong>[device 1]</strong> — for instance{" "}
+            &ldquo;<Slot>[quoted words]</Slot>&rdquo; — while the second works
+            through <strong>[device 2]</strong> in{" "}
+            &ldquo;<Slot>[quoted words]</Slot>&rdquo;.
           </p>
           <p>
-            Their forms differ too: <Slot>[form of poem 1]</Slot> against{" "}
-            <Slot>[form of poem 2]</Slot>.
+            Each device strengthens its own poem&apos;s{" "}
+            <strong>central idea</strong>: <Slot>[effect in poem 1]</Slot> against{" "}
+            <Slot>[effect in poem 2]</Slot>.
+          </p>
+          <p>
+            The <strong>language</strong> of the first is{" "}
+            <Slot>[simple / descriptive / figurative / emotional]</Slot>, and of
+            the second <Slot>[adjective]</Slot>, so the two poems sound{" "}
+            <Slot>[how they differ on the ear]</Slot>.
+          </p>
+          <p>
+            Their <strong>forms</strong> differ as well: the first is written in{" "}
+            <Slot>[form of poem 1]</Slot>, the second in{" "}
+            <Slot>[form of poem 2]</Slot>, and the{" "}
+            <Slot>[rhyme scheme / line length / stanza pattern]</Slot> of each
+            contributes to its overall effect.
           </p>
           <Cue>
-            e.g. Irony and repetition against metaphor and contrast; blank verse
-            against rhymed quatrains.
+            e.g. Irony and repetition in loose blank verse against metaphor and
+            contrast in four rhymed quatrains.
           </Cue>
 
           <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
-            V. Conclusion — What the Comparison Reveals
+            VI. Conclusion — Message, Personal Response and Favourite Lines
           </h4>
           <p>
-            Read together, the two poems <Slot>[what the pairing shows]</Slot>.
+            Read together, the two poems{" "}
+            <Slot>[what the comparison reveals]</Slot>.
           </p>
           <p>
             The first leaves the reader <Slot>[feeling or question]</Slot>, while
             the second <Slot>[feeling or answer]</Slot>, and that difference is
             the comparison&apos;s point.
           </p>
+          <p>
+            My <strong>favourite lines</strong> are{" "}
+            &ldquo;<Slot>[line from poem 1]</Slot>&rdquo; from the first and{" "}
+            &ldquo;<Slot>[line from poem 2]</Slot>&rdquo; from the second, because
+            together they express <Slot>[reason]</Slot>.
+          </p>
+          <p>
+            Both poems are inspiring and worthwhile pieces of literature that
+            deserve appreciation.
+          </p>
           <Cue>
-            e.g. The same image with two verdicts — one open question, one firm
+            e.g. Two verdicts on the same wall — one open question, one firm
             answer.
           </Cue>
         </div>
@@ -301,30 +378,45 @@ export default function AppreciationContent() {
         variant="example"
       >
         <p>
-          Both poems are about a wall, and about what a wall does to the people
-          on either side. Robert Frost&apos;s &ldquo;Mending Wall&rdquo; and the
-          unseen poem &ldquo;The Boundary&rdquo; each place a first-person
-          speaker beside a wall that has to be repaired.
+          The poem &ldquo;Mending Wall&rdquo;, written by Robert Frost, and the
+          unseen poem &ldquo;The Boundary&rdquo; are both thought-provoking poems
+          about a wall. Both poets present a deep insight into the boundaries
+          people build between themselves — Frost through a speaker who questions
+          the wall, the second through a speaker who mends it.
         </p>
         <p>
-          In both poems the wall is the central image, and both speakers meet it
-          through the ordinary work of mending — Frost&apos;s pair &ldquo;walk
-          the line&rdquo; each spring, while the second speaker &ldquo;mends the
-          gap each monsoon takes&rdquo;. Both also inherit a saying about walls
-          and repeat it as the poem&apos;s hinge.
+          Frost&apos;s speaker and his neighbour walk their wall each spring and
+          repair the gaps, and the poem&apos;s message is that walls are hard to
+          justify between people who own nothing that needs fencing.
         </p>
         <p>
-          The difference is what each speaker decides the wall means. Frost&apos;s
-          speaker is sceptical — &ldquo;Something there is that doesn&apos;t love
-          a wall&rdquo; — while the second speaker repeats his father&apos;s
-          &ldquo;a wall is not a cage&rdquo; and defends it.
+          In &ldquo;The Boundary&rdquo; the speaker repairs a wall his father
+          built because it shelters a garden, and its message is that a boundary
+          can protect what is worth keeping.
         </p>
         <p>
-          For Frost the wall is a puzzle to be argued with, and the neighbour&apos;s
-          &ldquo;Good fences make good neighbours&rdquo; is heard with irony. In
-          &ldquo;The Boundary&rdquo; the same kind of saying becomes a promise,
-          and the wall holds &ldquo;beans and marigolds&rdquo; against &ldquo;the
-          wind and passing feet&rdquo;.
+          Both central ideas meet at the same question: whether a wall divides
+          people or defends what they love.
+        </p>
+        <p>
+          Both poems make the wall the central image, and both meet it through the
+          ordinary work of mending — Frost&apos;s pair &ldquo;walk the line&rdquo;
+          each spring, while the second speaker &ldquo;mends the gap each monsoon
+          takes&rdquo;. Both also inherit a saying about walls and repeat it as
+          the poem&apos;s hinge.
+        </p>
+        <p>
+          Where Frost&apos;s speaker doubts the wall, the second speaker defends
+          it. Frost is sceptical — &ldquo;Something there is that doesn&apos;t love
+          a wall&rdquo; — and the irony falls on the neighbour who &ldquo;will not
+          go behind his father&apos;s saying&rdquo;, while the second speaker
+          repeats his father&apos;s &ldquo;a wall is not a cage&rdquo; and holds
+          to it.
+        </p>
+        <p>
+          Their tones pull in different directions too: Frost is wry and
+          questioning, the second speaker firm and tender. That difference shapes
+          the way each poem ends — one with a shrug, the other with a promise.
         </p>
         <p>
           Frost works through irony and repetition in loose blank verse that
@@ -337,6 +429,16 @@ export default function AppreciationContent() {
           whether a boundary protects or divides. Frost leaves the answer open and
           slightly mocking, while &ldquo;The Boundary&rdquo; answers in the
           wall&apos;s favour, and that difference is what makes each poem sharper.
+        </p>
+        <p>
+          My favourite lines are &ldquo;Good fences make good neighbours&rdquo;
+          from the first and &ldquo;a wall is not a cage / if what it holds is
+          worth the stay&rdquo; from the second, because together they hold the
+          argument of both poems in a single line.
+        </p>
+        <p>
+          Both poems are worthwhile pieces of literature that deserve
+          appreciation.
         </p>
       </Expandable>
 
