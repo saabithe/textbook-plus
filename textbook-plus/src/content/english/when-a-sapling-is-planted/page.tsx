@@ -28,69 +28,117 @@ function SummaryPart({ title, children }: { title: string; children: ReactNode }
 
 const QA_ITEMS = [
   {
-    question: "What is the role of bio-diversity in maintaining environmental balance?",
+    question:
+      "What is the role of bio-diversity in maintaining environmental balance?",
     answer: (
       <>
-        Biodiversity maintains the{" "}
-        <Highlight color="green">ecological balance</Highlight> that sustains
-        all life. Wangari Maathai describes the degradation of ecosystems
-        through deforestation, climatic instability, and soil and water
-        contamination &mdash; all of which disrupt biodiversity and lead to
-        poverty, resource conflicts, and the loss of natural heritage. The
-        Green Belt Movement planted over 30 million trees to restore this
-        balance.
+        <p>
+          Biodiversity is vital for preserving{" "}
+          <strong>soil health</strong>, regulating{" "}
+          <strong>climate stability</strong> and protecting local{" "}
+          <strong>watersheds</strong>. Indigenous forests and diverse flora
+          maintain the land&rsquo;s natural capacity to conserve water and prevent
+          soil erosion.
+        </p>
+        <p>
+          Replacing natural biodiversity with{" "}
+          <Highlight color="green">monoculture commercial plantations</Highlight>{" "}
+          destroys ecosystems, dries up streams and triggers ecological
+          instability.
+        </p>
       </>
     ),
   },
   {
-    question: "How does Wangari Maathai link tree planting to democracy?",
+    question:
+      "Identify the needs of the present day women, and compare them with those of the women of Kenya at the time of Wangari Maathai.",
     answer: (
       <>
-        Tree planting became a symbol of the{" "}
-        <Highlight color="yellow">democratic struggle</Highlight> in Kenya.
-        Maathai explains that responsible governance of the environment was
-        impossible without democratic space. Citizens were mobilized to
-        challenge corruption, abuse of power, and environmental mismanagement
-        &mdash; the tree became a rallying symbol for this movement.
+        <ul className="list-disc space-y-2 ps-5">
+          <li>
+            <strong>Kenyan women in Maathai&rsquo;s time</strong>: direct survival
+            needs &mdash; firewood, clean drinking water, balanced diets, shelter
+            and basic income, all of which were lost as the environment was
+            degraded.
+          </li>
+          <li>
+            <strong>Present-day women</strong>: rural women in developing regions
+            still face resource scarcity, but modern women also demand equal
+            employment opportunities, leadership roles, equal pay, access to
+            quality education and freedom from social prejudice and the comfort
+            zone.
+          </li>
+        </ul>
       </>
     ),
   },
   {
-    question: "What is the symbolic significance of the tree in the speech?",
+    question:
+      "\u201cWomen are often the first to become aware of environmental damage,\u201d says Wangari Maathai. What is your opinion?",
     answer: (
       <>
-        The tree symbolizes{" "}
-        <Highlight color="green">peace, democracy, and reconciliation</Highlight>.
-        In the Kikuyu tradition, elders carried a staff from the thigi tree
-        that, when placed between disputing sides, caused them to stop
-        fighting. Maathai extends this tradition &mdash; the tree represents
-        both environmental conservation and cultures of peace.
+        <p>
+          This is true, particularly in rural societies where women are the{" "}
+          <strong>primary caretakers</strong> responsible for tilling the soil,
+          gathering firewood, fetching water and feeding their families. Because
+          their daily duties depend directly on natural resources, any
+          deforestation, soil erosion or drying up of streams affects them
+          immediately.
+        </p>
       </>
     ),
   },
   {
-    question: "How does the speaker connect environmental degradation to poverty?",
+    question: "What is the impact of commercial farming on the rural community?",
     answer: (
       <>
-        Women were the first to notice environmental damage as resources
-        became scarce. International trade controlled export prices, so
-        small-scale farmers could not earn a reasonable income. When the
-        environment is destroyed, she argues, we{" "}
-        <Highlight color="pink">undermine the quality of life</Highlight> for
-        current and future generations, leading to poverty and conflict.
+        <p>
+          Commercial farming leads to the clearing of indigenous forests and the
+          displacement of{" "}
+          <strong>traditional household food crops</strong>. This causes
+          deforestation, loss of biodiversity and soil contamination.
+        </p>
+        <p>
+          Because international trade dictates prices, small-scale farmers cannot
+          secure a <strong>just income</strong>, which leads to poverty and food
+          insecurity.
+        </p>
       </>
     ),
   },
   {
-    question: "What message does the speech convey to young people?",
+    question: "How does degradation of environment trigger off poverty and conflict?",
     answer: (
       <>
-        Maathai calls on young people to{" "}
-        <Highlight color="yellow">commit to activities</Highlight> that
-        contribute toward long-term goals. She says they have the energy and
-        creativity to shape a sustainable future: &ldquo;You are a gift to
-        your communities and indeed, the world. You are our hope and our
-        future.&rdquo;
+        <p>
+          Environmental destruction plunders essential natural resources such as
+          clean water, fertile land and wood. As these resources grow scarce,
+          communities face excruciating poverty and are forced into a fierce{" "}
+          <strong>scramble for survival</strong>.
+        </p>
+        <p>
+          That scramble frequently escalates into{" "}
+          <Highlight color="pink">social unrest</Highlight>, riots and violent
+          ethnic conflicts.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "Explain the term 'sustainable development.'",
+    answer: (
+      <>
+        <p>
+          <Highlight color="yellow">Sustainable development</Highlight> means
+          meeting the present generation&rsquo;s needs without destroying or
+          mismanaging natural resources, thereby safeguarding the quality of life
+          for <strong>future generations</strong>.
+        </p>
+        <p>
+          It establishes an interdependent relationship between democratic
+          governance, equitable economic progress, peace and environmental
+          protection.
+        </p>
       </>
     ),
   },
@@ -439,47 +487,70 @@ export default function WhenASaplingIsPlantedPage() {
           {/* Themes */}
           <div id="themes">
             <h3
-              id="environmental-justice"
+              id="environmental-restoration"
               className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
             >
-              Environmental Justice
+              Environmental Restoration as Community Empowerment
             </h3>
             <p>
-              Maathai argues that environmental degradation is not just an ecological
-              issue but a{" "}
-              <Highlight color="pink">justice issue</Highlight>. When the
-              environment is destroyed, the poorest suffer first &mdash; women who
-              till the land, families who depend on clean water, children who will
-              never know what they have lost.
+              Wangari Maathai demonstrates how environmental protection directly
+              addresses the <strong>immediate survival needs</strong> of rural
+              African women, who are often the first to feel the brunt of
+              environmental damage.
             </p>
+            <p>
+              By organising community tree planting through the Green Belt
+              Movement, rural communities planted{" "}
+              <Highlight color="green">over 30 million trees</Highlight>,
+              providing fuel, food, shelter and income. That simple, practical
+              effort restored degraded soil and watersheds while empowering local
+              women with <strong>sustainable livelihoods</strong> and a{" "}
+              <strong>sense of agency</strong>.
+            </p>
+
             <h3
-              id="collective-action"
+              id="triad"
               className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
             >
-              Collective Action
+              The Triad of Environment, Democracy, and Peace
             </h3>
             <p>
-              The speech emphasizes that change comes through{" "}
-              <Highlight color="yellow">collective effort</Highlight>. Over 30
-              million trees were planted not by one person but by communities
-              working together.
+              A central theme of the speech is that sustainable environmental
+              management, democratic governance and peace are{" "}
+              <Highlight color="yellow">inseparable</Highlight>. Maathai explains
+              that protecting resources requires a{" "}
+              <strong>democratic space</strong> where citizens can challenge
+              corruption and the abuse of power.
             </p>
             <p>
-              Maathai calls on world leaders, young people, and citizens to
-              embrace their role in healing the Earth.
+              Drawing on traditional African customs &mdash; such as Kikuyu
+              elders placing a staff from the <strong>thigi tree</strong> between
+              disputing parties to halt fighting &mdash; the tree also evolved
+              into a <strong>symbol of reconciliation</strong>. This shows that
+              conflict over scarce resources can be prevented through{" "}
+              <strong>equitable development</strong>.
             </p>
+
             <h3
-              id="interconnectedness"
+              id="intergenerational-responsibility"
               className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
             >
-              Interconnectedness
+              Intergenerational Responsibility: &ldquo;Restoring the Home of the
+              Tadpoles&rdquo;
             </h3>
             <p>
-              Maathai draws a powerful connection: there can be no peace without
-              equitable development, and no development without sustainable
-              environmental management in a{" "}
-              <Highlight color="green">democratic and peaceful space</Highlight>.
-              Environment, democracy, peace, and development are inseparable.
+              Maathai uses a poignant personal reflection from her childhood in
+              rural Kenya, where she drank clean water straight from a stream
+              filled with energetic <strong>tadpoles</strong>, and contrasts it
+              with the dried-up stream she found{" "}
+              <strong>fifty years later</strong>.
+            </p>
+            <p>
+              She defines the major challenge of our generation as an ethical call
+              to <Highlight color="green">heal the Earth</Highlight> and shift
+              human consciousness. By expanding democratic spaces and encouraging
+              young people to lead sustainable actions, humanity can restore
+              nature&rsquo;s wonder for future generations.
             </p>
           </div>
 
