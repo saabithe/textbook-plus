@@ -11,6 +11,7 @@ import {
   Puzzle,
   Link2,
   Type,
+  Split,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -21,6 +22,8 @@ export interface GrammarTopic {
   tagline: string;
   icon: LucideIcon;
   group: "core" | "more";
+  /** Optional chip on the hub card — used for topics the reader still finds shaky. */
+  tag?: string;
 }
 
 export const grammarTopics: GrammarTopic[] = [
@@ -122,6 +125,15 @@ export const grammarTopics: GrammarTopic[] = [
     tagline: "Can, could, would, should, may, might, must — ability, permission, obligation & possibility",
     icon: ToggleRight,
     group: "more",
+  },
+  {
+    id: "adverb-phrases-and-clauses",
+    slug: "adverb-phrases-and-clauses",
+    title: "Adverbs, Adverb Phrases & Adverb Clauses",
+    tagline: "One word, a group of words or a full clause — telling how, when, where & why, and the one test that separates a phrase from a clause",
+    icon: Split,
+    group: "more",
+    tag: "Not clear yet",
   },
 ];
 

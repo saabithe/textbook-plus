@@ -75,7 +75,7 @@ Component categories (under `src/components/content/`): Core (top level), `data/
 ## Data Model
 
 - 6 subjects (Physics 14, Chemistry 10, Mathematics 13, Biology 13, English 16, Arabic 14 = 80). Subject colors are CSS custom props `--subject-*` / `--subject-*-light` in `globals.css` (light + dark).
-- Grammar has 12 topics (`group: "core" | "more"`; six core render above a labelled divider). Discourses: 10 pages / 29 formats.
+- Grammar has 13 topics (`group: "core" | "more"`; six core render above a labelled divider; a topic may carry an optional `tag` chip on the hub card, e.g. "Not clear yet"). Discourses: 10 pages / 29 formats.
 - Chapter list source of truth: `Developer_Deliveries/Chapter names.md`.
 
 ## Content Preferences (must follow)

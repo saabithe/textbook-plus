@@ -15,6 +15,7 @@ const grammarComponents: Record<string, React.ComponentType> = {
   "phrasal-verbs": dynamic(() => import("@/content/grammar/phrasal-verbs/page")) as React.ComponentType,
   "cohesive-devices": dynamic(() => import("@/content/grammar/cohesive-devices/page")) as React.ComponentType,
   "articles": dynamic(() => import("@/content/grammar/articles/page")) as React.ComponentType,
+  "adverb-phrases-and-clauses": dynamic(() => import("@/content/grammar/adverb-phrases-and-clauses/page")) as React.ComponentType,
 };
 
 export function GrammarContent({ slug }: { slug: string }) {

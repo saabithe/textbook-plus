@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { ChapterIntro } from "@/components/content/ChapterIntro";
@@ -9,6 +10,8 @@ import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
 import { Highlight } from "@/components/content/Highlight";
 import { CollapsibleSection } from "@/components/content/CollapsibleSection";
+import { Expandable } from "@/components/content/Expandable";
+import { TableCard } from "@/components/content/data/TableCard";
 
 import type { ReactNode } from "react";
 
@@ -144,6 +147,44 @@ const QA_ITEMS = [
   },
 ];
 
+const ADVERB_ROWS = [
+  { cells: ["Adverb", "always", "modifies the verb \u201cran\u201d"] },
+  { cells: ["Adverb", "Finally", "modifies the verb \u201cdecided\u201d"] },
+  { cells: ["Adverb", "absolutely", "modifies the adjective \u201cnecessary\u201d"] },
+  { cells: ["Adverb", "away", "modifies the verb \u201ctake\u201d"] },
+  { cells: ["Adverb phrase", "At first", "adverb phrase of time"] },
+  {
+    cells: [
+      "Adverb phrase",
+      "in controlling the child",
+      "adverb phrase (how much trouble)",
+    ],
+  },
+  { cells: ["Adverb phrase", "to her mother", "adverb phrase of direction"] },
+  { cells: ["Adverb phrase", "for a while", "adverb phrase of time"] },
+  {
+    cells: [
+      "Adverb clause",
+      "from the time she was a baby",
+      "adverb clause of time (subject \u201cshe\u201d, verb \u201cwas\u201d)",
+    ],
+  },
+  {
+    cells: [
+      "Adverb clause",
+      "When she was six years old",
+      "adverb clause of time (subject \u201cshe\u201d, verb \u201cwas\u201d)",
+    ],
+  },
+  {
+    cells: [
+      "Adverb clause",
+      "because Helen always ran to her mother",
+      "adverb clause of reason (subject \u201cHelen\u201d, verb \u201cran\u201d)",
+    ],
+  },
+];
+
 const DISCOURSES = [
   {
     id: "green-belt-movement",
@@ -218,6 +259,140 @@ const DISCOURSES = [
         <p>
           Maathai connects this cultural heritage to conservation and peace.
         </p>
+      </>
+    ),
+  },
+  {
+    id: "ngc-award-speech",
+    title: "Acceptance Speech: National Green Corps Award",
+    content: (
+      <>
+        <p>
+          This is the acceptance speech for the{" "}
+          <strong>National Green Corps (NGC) Award</strong>, delivered before the
+          Governor and the Chief Minister on behalf of the school&rsquo;s
+          Eco-Club.
+        </p>
+        <div className="mt-6 space-y-4 border-l-2 border-border/70 pl-5">
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            Respected Governor of the State, Honourable Chief Minister,
+            distinguished dignitaries on and off the stage, teachers, and my dear
+            friends. Good morning to one and all.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            It is with profound humility, immense joy and deep gratitude that I
+            stand before you today to accept the prestigious National Green Corps
+            Award on behalf of our school&rsquo;s Eco-Club. I thank the Honourable
+            Governor and the Chief Minister for honouring our modest
+            environmental initiatives with this recognition.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            This award is not just mine &mdash; it belongs to my eco club team,
+            who worked hard to make our school and its surroundings greener and
+            cleaner. It is a tribute to every member of the club, to our
+            supportive principal and teachers and to the local community that
+            walked alongside us.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            We began with a simple idea, borrowed from the Nobel Laureate Wangari
+            Maathai: that planting one sapling can heal the Earth and restore a
+            degraded ecosystem. Over the past year the club turned that idea into
+            work on the ground.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            <strong>Tree plantation drives.</strong> We planted more than{" "}
+            <Highlight color="green">500 indigenous saplings</Highlight> across
+            our campus and the surrounding village areas, restoring local
+            biodiversity and protecting soil health.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            <strong>Plastic-free campaign and waste management.</strong> We held
+            awareness rallies to remove single-use plastics from our locality, and
+            we set up a paper-recycling and composting unit on the school campus.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            <strong>Conserving water resources.</strong> Echoing Maathai&rsquo;s
+            call to restore &ldquo;the home of the tadpoles&rdquo;, our club ran a
+            stream-cleaning drive and built rainwater harvesting structures to
+            protect our local water sources.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            Receiving this award fills me with pride, and with responsibility. It
+            tells us that{" "}
+            <Highlight color="yellow">no environmental action is too small</Highlight>{" "}
+            and that when young people act together, simple work creates ripples
+            of change across society.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            So I appeal to my fellow students: our Earth is our only home and it
+            depends on us for care. Plant at least one sapling every year, protect
+            the stream or pond near your home, and reduce the waste you throw
+            away.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            If each of us does this much, our school, our village and our country
+            will be greener and cleaner. I promise to keep working for Mother Earth
+            and I invite every one of you to walk with us.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            Thank you once again for this great honour. Jai Hind!
+          </p>
+        </div>
+        <TableCard
+          title="The seven moves of an acceptance speech"
+          headers={["Move", "What it does", "In this speech"]}
+          rows={[
+            {
+              cells: [
+                "Salutation",
+                "Names the dignitaries in order of rank",
+                "\u201cRespected Governor \u2026 my dear friends\u201d",
+              ],
+            },
+            {
+              cells: [
+                "Thanks for the honour",
+                "Names who gave it",
+                "the Governor, the Chief Minister and the NGC",
+              ],
+            },
+            {
+              cells: [
+                "Credit shared",
+                "Refuses to keep the prize",
+                "\u201cnot just mine, it belongs to my eco club team\u201d",
+              ],
+            },
+            {
+              cells: [
+                "Evidence",
+                "What the club actually did",
+                "the 500 saplings, the plastic-free campaign, the water work",
+              ],
+            },
+            {
+              cells: [
+                "Meaning",
+                "What the award changes",
+                "\u201cpride and responsibility\u201d",
+              ],
+            },
+            {
+              cells: [
+                "Appeal",
+                "Gives the audience a task",
+                "plant one sapling a year, save water, reduce waste",
+              ],
+            },
+            {
+              cells: [
+                "Close",
+                "Thanks again and a patriotic line",
+                "\u201cJai Hind!\u201d",
+              ],
+            },
+          ]}
+        />
       </>
     ),
   },
@@ -571,6 +746,34 @@ export default function WhenASaplingIsPlantedPage() {
           <div id="read-and-respond-section" className="mt-14">
             <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
             <ReadRespond items={QA_ITEMS} />
+            <Expandable title="Grammar Practice — Adverbs, Adverb Phrases, Adverb Clauses">
+              <p>
+                The passage below is the textbook exercise for this unit. Pick
+                out the adverbs, the adverb phrases and the adverb clauses.
+              </p>
+              <blockquote className="mt-4 border-l-2 border-border pl-4 italic text-foreground/80">
+                Helen Keller was deaf and dumb from the time she was a baby. At
+                first no one thought she would be capable of learning anything.
+                When she was six years old her parents decided to engage a
+                teacher for her. At first the teacher, Miss Sullivan, had trouble
+                in controlling the child. She could not make her obey because
+                Helen always ran to her mother. Finally, Miss Sullivan decided
+                that it was absolutely necessary to take Helen away for a while.
+              </blockquote>
+              <TableCard
+                title="Adverbs, adverb phrases and adverb clauses in the passage"
+                headers={["Type", "From the passage", "What it does"]}
+                rows={ADVERB_ROWS}
+              />
+              <p className="mt-4">
+                <Link
+                  className="underline underline-offset-2"
+                  href="/grammar/adverb-phrases-and-clauses"
+                >
+                  Full lesson: Adverbs, Adverb Phrases and Adverb Clauses
+                </Link>
+              </p>
+            </Expandable>
           </div>
         </div>
       )}

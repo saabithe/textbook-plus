@@ -29,9 +29,22 @@ function TopicGrid({ topics }: { topics: GrammarTopic[] }) {
               />
             </div>
             <div>
-              <h2 className="text-base font-bold text-foreground group-hover:text-[var(--subject-english)] transition-colors">
-                {topic.title}
-              </h2>
+              <div className="flex items-start justify-between gap-2">
+                <h2 className="text-base font-bold text-foreground group-hover:text-[var(--subject-english)] transition-colors">
+                  {topic.title}
+                </h2>
+                {topic.tag && (
+                  <span
+                    className="shrink-0 rounded-full px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide"
+                    style={{
+                      backgroundColor: "var(--subject-english-light)",
+                      color: "var(--subject-english)",
+                    }}
+                  >
+                    {topic.tag}
+                  </span>
+                )}
+              </div>
               <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
                 {topic.tagline}
               </p>
