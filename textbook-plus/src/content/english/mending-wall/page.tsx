@@ -484,7 +484,7 @@ export default function MendingWallPage() {
             <p className="text-sm font-semibold text-muted-foreground mb-4 uppercase tracking-wider">
               Mending Wall &mdash; Robert Frost (1914)
             </p>
-            <div className="text-[0.95rem] leading-[2] text-foreground/90 font-serif italic space-y-0">
+            <div className="text-[0.95rem] leading-[2] text-foreground/90 font-content italic space-y-0">
               {POEM_LINES.map((line, i) =>
                 line === "" ? (
                   <div key={i} className="h-3" />

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, DM_Sans, Source_Serif_4, Noto_Naskh_Arabic, IBM_Plex_Sans_Arabic, Scheherazade_New } from "next/font/google";
+import { Plus_Jakarta_Sans, DM_Sans, Noto_Naskh_Arabic, IBM_Plex_Sans_Arabic, Scheherazade_New } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import { ErrorBoundary } from "@/components/auth/ErrorBoundary";
@@ -21,12 +21,6 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
-});
-
-const serif = Source_Serif_4({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 /* Arabic typefaces — Noto Naskh Arabic is the primary naskh (tashkeel),
@@ -86,7 +80,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${dmSans.variable} ${serif.variable} ${notoNaskhArabic.variable} ${scheherazadeNew.variable} ${plexArabic.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${jakarta.variable} ${dmSans.variable} ${notoNaskhArabic.variable} ${scheherazadeNew.variable} ${plexArabic.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
         <meta name="build-commit" content={buildCommit} />
         <script
