@@ -196,6 +196,38 @@ When the chapter cites textbook figures, the reader must be able to **find the s
 
 User's verdict on this pattern: *"for honest this was awesome — even without the image you correctly called out it… now from this we can quickly check the textbook original. This is what we want."* The description must stand on its own even when no image is embedded — state the organism/shape, the magnification, and what the panel is meant to prove.
 
+### 11.3 Images — lifecycle (Oct 2026)
+
+**Canonical rules.** This subsection is the single source of truth; `AGENTS.md` carries a pointer, `Developer_Deliveries/README.md` carries the folder map.
+
+| State | Meaning | Name |
+| --- | --- | --- |
+| **pending** | Delivered, not yet used by the app | descriptive kebab-case: `hershey-chase-experiment.png` |
+| **consumed** | Copied into `public/images/` and referenced by a component | `consumed__<exact public filename>`: `consumed__em-wave.png` |
+| **unassigned** | No chapter/slug exists yet | lives in `Images/_unassigned/` until claimed |
+
+Rules:
+
+1. **One folder per chapter**, named with the **app chapter slug** — `alternating-current/`, never `Chapter 7/` or `Chapter6/`.
+2. **Public path is `textbook-plus/public/images/{subject}/{chapter-slug}/`** — always the app subject slug (`mathematics`, not `maths`).
+3. **Consumed name must match the public file exactly.** If the public copy is `lenz-north-cases.png`, the original becomes `consumed__lenz-north-cases.png` — no retained dots, spaces, ALL CAPS or `Screenshot 2026-…` names.
+4. **Never delete an original.** `consumed__` marks it as already shipped; it stays on disk as provenance.
+5. **Never reference the delivery folder from code.** The app only ever reads `public/images/`.
+6. **Unassigned assets stay in `_unassigned/`** — never guessed into a chapter folder, never renamed to match a chapter that hasn't adopted them.
+7. **Sourced (non-user) images** follow §12.9: Wikimedia Commons PD/CC0/CC BY/CC BY-SA only, descriptive kebab-case filename, caption with source + licence.
+
+**Folder shape** (`Developer_Deliveries/` is gitignored):
+
+```text
+Developer_Deliveries/Chapters/{NN_Subject}/
+├── Textbooks/      ← source PDFs, untouched
+├── Extractions/    ← <slug>-raw.md, <slug>-extracted.md (no -clean.md)
+├── Images/         ← <slug>/ + _unassigned/
+└── Structures/     ← chemistry only: <slug>-structures-review.png
+```
+
+Subject order is fixed: `01_Physics`, `02_Chemistry`, `03_Mathematics`, `04_Biology`, `05_English`, `06_Arabic`.
+
 ---
 
 ## 12. Content Component Design System (In-Page Apps)

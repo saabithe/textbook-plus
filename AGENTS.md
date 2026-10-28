@@ -100,7 +100,7 @@ Component categories (under `src/components/content/`): Core (top level), `data/
 
 ## Images (user-supplied)
 
-Copy into `textbook-plus/public/images/{subject}/{chapter-slug}/` under a **descriptive name**; then rename the original in the delivery folder by prefixing `consumed__` with that same name marker. Never delete originals; never reference the delivery folder URL in code.
+Copy into `textbook-plus/public/images/{subject}/{chapter-slug}/` under a descriptive kebab-case name; rename the original `consumed__<same-name>`; never delete originals; never reference the delivery folder from code. **Full lifecycle rules (pending / consumed / unassigned, naming, folder map): `Constitution/USER_PREFERENCES.md` §11.3.**
 
 ## Chemistry Structures (never hand-drawn)
 
