@@ -1,6 +1,15 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/menubar";
 
 interface Props {
   active: boolean;
@@ -31,7 +40,7 @@ export function SelectionToolbar(p: Props) {
       role="toolbar"
       aria-label="Text formatting"
       className={cn(
-        "pointer-events-auto flex items-center gap-1 rounded-lg border border-border bg-card p-1 shadow-sm",
+        "pointer-events-auto flex items-center gap-1 rounded-lg border border-border bg-card p-1",
         floating
           ? "fixed z-40"
           : "fixed inset-x-6 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-40 w-auto justify-center overflow-x-auto sm:justify-start lg:hidden"
@@ -41,81 +50,73 @@ export function SelectionToolbar(p: Props) {
           ? {
               top: `${Math.max(8, p.rect.top - 44)}px`,
               left: `${Math.max(8, p.rect.left + p.rect.width / 2 - (p.altMac ? 150 : 150))}px`,
-              // clamp is handled by not crossing container width using a translate
               transform: "translateX(-50%)",
             }
           : undefined
       }
     >
-      <div className="flex items-center gap-0.5 border-r border-border pr-1">
-        <button
-          type="button"
-          aria-pressed={p.pressed.b}
-          aria-label="Bold"
-          onMouseDown={(e) => e.preventDefault()}
-          onClick={() => p.onToggle("b")}
-          className={cn(
-            "flex h-8 w-8 items-center justify-center rounded-[3px] text-[14px] font-bold transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.04] focus-visible:ring-2 focus-visible:ring-ring",
-            p.pressed.b && "bg-foreground text-background"
-          )}
-        >
-          B
-        </button>
-        <button
-          type="button"
-          aria-pressed={p.pressed.i}
-          aria-label="Italic"
-          onMouseDown={(e) => e.preventDefault()}
-          onClick={() => p.onToggle("i")}
-          className={cn(
-            "flex h-8 w-8 items-center justify-center rounded-[3px] text-[14px] italic transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.04] focus-visible:ring-2 focus-visible:ring-ring",
-            p.pressed.i && "bg-foreground text-background"
-          )}
-        >
-          I
-        </button>
-        <button
-          type="button"
-          aria-pressed={p.pressed.u}
-          aria-label="Underline"
-          onMouseDown={(e) => e.preventDefault()}
-          onClick={() => p.onToggle("u")}
-          className={cn(
-            "flex h-8 w-8 items-center justify-center rounded-[3px] text-[14px] underline transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.04] focus-visible:ring-2 focus-visible:ring-ring",
-            p.pressed.u && "bg-foreground text-background"
-          )}
-        >
-          U
-        </button>
-      </div>
-      <div className="flex items-center gap-0.5 px-1">
-        {TONES.map((t) => (
-          <button
-            key={t.key}
-            type="button"
-            aria-label={`Highlight as ${t.label}`}
-            title={t.label}
-            onMouseDown={(e) => e.preventDefault()}
-            onClick={() => p.onTone(t.key)}
-            className={cn(
-              "h-7 w-7 rounded-[3px] border border-border transition-all duration-[120ms] ease-[var(--ease-blueprint)] hover:scale-110 focus-visible:ring-2 focus-visible:ring-ring",
-              p.activeTone === t.key && "ring-2 ring-foreground ring-offset-1 ring-offset-card"
-            )}
-            style={{ backgroundColor: `var(--hl-${t.key})` }}
-          />
-        ))}
-      </div>
-      <div className="border-l border-border pl-1">
-        <button
-          type="button"
-          aria-label="Clear formatting"
-          onMouseDown={(e) => e.preventDefault()}
-          onClick={p.onClear}
-          className="flex h-8 w-8 items-center justify-center rounded-[3px] text-[13px] text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.04] hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
-        >
-          ⌫
-        </button>
-      </div>
+      <Menubar className="h-8 border-border bg-transparent p-0">
+        <MenubarMenu>
+          <MenubarTrigger className="rounded-[3px]">Format</MenubarTrigger>
+          <MenubarContent>
+            <MenubarItem
+              onClick={() => p.onToggle("b")}
+              className={cn(p.pressed.b && "bg-accent font-bold")}
+            >
+              Bold
+              <MenubarShortcut>Ctrl+B</MenubarShortcut>
+            </MenubarItem>
+            <MenubarItem
+              onClick={() => p.onToggle("i")}
+              className={cn(p.pressed.i && "bg-accent font-bold")}
+            >
+              Italic
+              <MenubarShortcut>Ctrl+I</MenubarShortcut>
+            </MenubarItem>
+            <MenubarItem
+              onClick={() => p.onToggle("u")}
+              className={cn(p.pressed.u && "bg-accent font-bold")}
+            >
+              Underline
+              <MenubarShortcut>Ctrl+U</MenubarShortcut>
+            </MenubarItem>
+            <MenubarSeparator />
+            <MenubarItem variant="destructive" onClick={p.onClear}>
+              Clear
+            </MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+
+        <MenubarMenu>
+          <MenubarTrigger className="rounded-[3px]">Highlight</MenubarTrigger>
+          <MenubarContent>
+            {TONES.map((t) => (
+              <MenubarItem
+                key={t.key}
+                onClick={() => p.onTone(t.key)}
+                className={cn(p.activeTone === t.key && "bg-accent")}
+              >
+                <span
+                  className="h-3 w-3 shrink-0 rounded-[2px] border border-border"
+                  style={{ backgroundColor: `var(--hl-${t.key})` }}
+                />
+                {t.label}
+              </MenubarItem>
+            ))}
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar>
+
+      <div className="mx-0.5 h-4 w-px bg-border" />
+      <button
+        type="button"
+        aria-label="Clear formatting"
+        onMouseDown={(e) => e.preventDefault()}
+        onClick={p.onClear}
+        className="flex h-8 w-8 items-center justify-center rounded-[3px] text-[13px] text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.04] hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        ⌫
+      </button>
     </div>
   );
 }

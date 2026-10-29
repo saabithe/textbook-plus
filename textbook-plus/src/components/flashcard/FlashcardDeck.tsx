@@ -1,8 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
-import { ChevronLeft, ChevronRight, RotateCcw, Trophy } from "lucide-react";
+import { RotateCcw, Trophy } from "lucide-react";
+import type { CarouselApi } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { FlashcardCard } from "./FlashcardCard";
 import { FlashcardProgress } from "./FlashcardProgress";
 import { Button } from "@/components/ui/button";
@@ -16,45 +24,50 @@ interface FlashcardDeckProps {
 }
 
 export function FlashcardDeck({ cards, subjectColor }: FlashcardDeckProps) {
+  const [api, setApi] = useState<CarouselApi | null>(null);
   const [current, setCurrent] = useState(0);
   // Session-only: which cards have been marked known/unknown in this visit.
   const [knownIds, setKnownIds] = useState<Set<string>>(() => new Set());
   const [unknownIds, setUnknownIds] = useState<Set<string>>(() => new Set());
 
-  const card = cards[current];
+  useEffect(() => {
+    if (!api) return;
+    const onSelect = () => setCurrent(api.selectedScrollSnap());
+    api.on("select", onSelect);
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
+
+  const card = cards[current] ?? cards[0];
 
   function handleKnown() {
+    if (!card) return;
     const nextKnown = new Set(knownIds);
     nextKnown.add(card.id);
     const nextUnknown = new Set(unknownIds);
     nextUnknown.delete(card.id);
     setKnownIds(nextKnown);
     setUnknownIds(nextUnknown);
-    goNext();
+    api?.scrollNext();
   }
 
   function handleUnknown() {
+    if (!card) return;
     const nextUnknown = new Set(unknownIds);
     nextUnknown.add(card.id);
     const nextKnown = new Set(knownIds);
     nextKnown.delete(card.id);
     setUnknownIds(nextUnknown);
     setKnownIds(nextKnown);
-    goNext();
-  }
-
-  function goNext() {
-    setCurrent((c) => (c + 1) % cards.length);
-  }
-
-  function goPrev() {
-    setCurrent((c) => (c - 1 + cards.length) % cards.length);
+    api?.scrollNext();
   }
 
   function reset() {
     setCurrent(0);
     setKnownIds(new Set());
     setUnknownIds(new Set());
+    api?.scrollTo(0);
   }
 
   if (cards.length === 0) {
@@ -127,37 +140,40 @@ export function FlashcardDeck({ cards, subjectColor }: FlashcardDeckProps) {
         subjectColor={subjectColor}
       />
 
-      {/* Card */}
-      <FlashcardCard
-        key={card.id}
-        card={card}
-        subjectColor={subjectColor}
-        onKnown={handleKnown}
-        onUnknown={handleUnknown}
-      />
-
-      {/* Navigation */}
-      <div className="flex items-center justify-between max-w-lg mx-auto">
-        <Button variant="outline" size="lg" onClick={goPrev} className="font-semibold">
-          <ChevronLeft className="h-4 w-4" />
-          Prev
-        </Button>
-
-        <Button
-          variant="outline"
-          size="lg"
-          onClick={reset}
-          className="font-semibold text-muted-foreground hover:text-foreground"
-        >
-          <RotateCcw className="h-4 w-4" />
-          Reset
-        </Button>
-
-        <Button size="lg" onClick={goNext} style={{ backgroundColor: subjectColor }}>
-          Next
-          <ChevronRight className="h-4 w-4" />
-        </Button>
-      </div>
+      {/* Card carousel */}
+      <Carousel
+        orientation="horizontal"
+        opts={{ loop: true, align: "center" }}
+        setApi={setApi}
+        className="w-full"
+      >
+        <CarouselContent>
+          {cards.map((c) => (
+            <CarouselItem key={c.id}>
+              <FlashcardCard
+                key={c.id}
+                card={c}
+                subjectColor={subjectColor}
+                onKnown={handleKnown}
+                onUnknown={handleUnknown}
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <div className="mt-4 flex items-center justify-center gap-3">
+          <CarouselPrevious className="static translate-y-0" size="lg" />
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={reset}
+            className="font-semibold text-muted-foreground hover:text-foreground"
+          >
+            <RotateCcw className="h-4 w-4" />
+            Reset
+          </Button>
+          <CarouselNext className="static translate-y-0" size="lg" />
+        </div>
+      </Carousel>
     </div>
   );
 }
