@@ -19,6 +19,13 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
+import {
+  ContextMenu,
+  ContextMenuTrigger,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuSeparator,
+} from "@/components/ui/context-menu";
 import { getAdjacentChapters } from "@/data/chapters";
 import { getQuestionsForChapter, getFlashcardsForChapter, hasQuestions, hasFlashcards } from "@/lib/content";
 import type { Chapter } from "@/data/chapters";
@@ -59,7 +66,16 @@ export function ChapterLayout({
   const navBase = "/chapter";
   const [activeTab, setActiveTab] = useState("learning");
   const showPractice = subjectSlug !== "english" && subjectSlug !== "arabic";
-  const articleRef = useRef<HTMLElement | null>(null);
+  const articleRef = useRef<HTMLDivElement | null>(null);
+
+  async function copySelection() {
+    const sel = window.getSelection()?.toString() ?? "";
+    if (sel) await navigator.clipboard.writeText(sel).catch(() => {});
+  }
+  async function copyArticle() {
+    const root = articleRef.current;
+    if (root) await navigator.clipboard.writeText(root.innerText).catch(() => {});
+  }
 
   const crumbs: Crumb[] = breadcrumb ?? [
     { label: "Home", href: "/" },
@@ -158,11 +174,21 @@ export function ChapterLayout({
           {/* Empty spacer: keeps the reading column optically centred (§5.13) */}
           <div aria-hidden className="hidden xl:block" />
 
-          <article ref={articleRef} data-chapter-content className="min-w-0 max-w-none">
-            {children}
+          <ContextMenu>
+            <ContextMenuTrigger
+              ref={articleRef}
+              data-chapter-content
+              className="block min-w-0 max-w-none"
+            >
+              {children}
 
-            <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} basePath={navBase} />
-          </article>
+              <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} basePath={navBase} />
+            </ContextMenuTrigger>
+            <ContextMenuContent>
+              <ContextMenuItem onSelect={() => void copySelection()}>Copy selection</ContextMenuItem>
+              <ContextMenuItem onSelect={() => void copyArticle()}>Copy chapter text</ContextMenuItem>
+            </ContextMenuContent>
+          </ContextMenu>
 
           <ChapterToc />
         </div>
