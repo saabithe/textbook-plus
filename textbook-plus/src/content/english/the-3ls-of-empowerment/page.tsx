@@ -142,6 +142,33 @@ const DISCOURSES = [
           the gap also lifts a nation&rsquo;s per capita income.
         </p>
 
+        <h4 className="!mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+          How Can We Promote More Opportunities for Women in the Workplace?
+        </h4>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>
+            <strong>Enforce &ldquo;equal pay for equal work&rdquo;</strong>{" "}
+            &mdash; set the basic norm that the same job pays the same wage.
+          </li>
+          <li>
+            <strong>Reform discriminatory laws</strong> &mdash; property and
+            inheritance rules must not favour men.
+          </li>
+          <li>
+            <strong>Expand access to credit</strong> &mdash; loans that let a
+            woman start, own and grow her own work.
+          </li>
+          <li>
+            <strong>Support health and education policies</strong> &mdash;
+            services that keep women well enough and skilled enough to work.
+          </li>
+          <li>
+            <strong>Prevent exploitative labour</strong> &mdash; use education
+            and training to move women out of low-paying, low-status,
+            low-security jobs.
+          </li>
+        </ul>
+
         <h3
           id="leadership"
           className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
@@ -244,13 +271,26 @@ const DISCOURSES = [
             for the same level of education and occupation.
           </p>
           <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
-            Education equips women with the awareness and capability to
-            challenge discrimination, advocate &ldquo;equal pay for equal
-            work&rdquo;, and secure financial independence through access to
-            credit and fair inheritance laws.
+            Education gives women the awareness and the bargaining power to
+            demand <strong>&ldquo;equal pay for equal work&rdquo;</strong>, so
+            that the same job pays the same wage and the gap becomes a rule to
+            enforce rather than a grievance to endure.
           </p>
           <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
-            Eliminating gender gaps in economic participation directly boosts a
+            It also gives them the standing to challenge the laws that keep them
+            poor. Property and inheritance rules that pass land and wealth to
+            men can be rewritten, and access to credit can turn a dependent
+            woman into an employer.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            Health care and education policies matter just as much, because a
+            woman who is unwell or unschooled cannot compete for skilled work.
+            Training completes the work, moving her out of low-paying,
+            low-status, low-security jobs and into work that matches her
+            ability.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            Eliminating these gaps in economic participation directly boosts a
             nation&rsquo;s per capita income.
           </p>
 
@@ -264,9 +304,46 @@ const DISCOURSES = [
             compassion and long-term sustainability.
           </p>
           <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
-            Education also instils the self-confidence needed to overcome
-            self-doubt &mdash; to &ldquo;dare the difference&rdquo;, take risks
-            and step outside traditional comfort zones.
+            Confidence is the hinge, because Lagarde observes that women
+            sometimes{" "}
+            <Highlight color="yellow">lack the confidence to match their
+            competence</Highlight>. That is a comment on the world, not on women
+            &mdash; the ability is already there, and only the belief in it is
+            missing.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            So how is that belief built? Education builds it by giving a woman
+            proof of her own competence, and by placing before her the example
+            of women who have already led.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            The rest is practice: reset the narrative in her favour, encourage
+            her to step outside her comfort zone, and let her take the risk her
+            ability has already earned &mdash; to &ldquo;dare the
+            difference&rdquo;.
+          </p>
+
+          <h4 className="!mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            4. Educated Women Build a Strong Nation
+          </h4>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            The argument does not stop at the individual woman, because an
+            educated and empowered woman builds a strong nation. When half the
+            population is schooled, employed and heard, a country gains a
+            workforce, a tax base and a pool of leaders it would otherwise have
+            lost.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            Her influence reaches past her own household as well. Educated
+            mothers raise healthier, better-schooled children, so one
+            generation&rsquo;s learning becomes the next generation&rsquo;s
+            head start.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            Her way of leading strengthens institutions too, because a nation
+            that plans for the long term and includes everyone in the decision
+            is a nation that lasts. This is what Lagarde means when she says the
+            world will reap the benefits.
           </p>
 
           <h4 className="!mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
@@ -319,8 +396,8 @@ const DISCOURSES = [
               {
                 cells: [
                   "Signposts",
-                  "Number the three points aloud so the audience can follow",
-                  "\u201cFirst, education is the foundation; second, it buys equality; third, it builds leaders\u201d",
+                  "Number the four points aloud so the audience can follow",
+                  "\u201cFirst, the foundation; second, equality; third, leaders; fourth, a strong nation\u201d",
                 ],
               },
               {
