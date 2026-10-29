@@ -22,6 +22,8 @@ import {
   TableCaption,
 } from "@/components/ui/table";
 import { CollapsibleSection } from "@/components/content/CollapsibleSection";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import { Expandable } from "@/components/content/Expandable";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
@@ -228,6 +230,25 @@ export default function DesignPage() {
           <Highlight color="blue">key terms</Highlight>, <Highlight color="green">results</Highlight>,{" "}
           <Highlight color="pink">cautions</Highlight>, and <Highlight color="orange">formulas</Highlight>.
         </p>
+      </Section>
+
+      <Section title="Chart (recharts proof)">
+        <div className="rounded-lg border border-border bg-card p-4">
+          <ChartContainer
+            config={{
+              value: { label: "Chapters", color: "var(--foreground)" },
+            }}
+            className="h-44 w-full"
+          >
+            <BarChart data={[{ s: "Phys", value: 14 }, { s: "Chem", value: 10 }, { s: "Math", value: 13 }]}>
+              <CartesianGrid vertical={false} />
+              <XAxis dataKey="s" tickLine={false} axisLine={false} />
+              <YAxis tickLine={false} axisLine={false} width={24} />
+              <ChartTooltip content={<ChartTooltipContent />} />
+              <Bar dataKey="value" fill="var(--color-value)" radius={[3, 3, 0, 0]} />
+            </BarChart>
+          </ChartContainer>
+        </div>
       </Section>
 
       <Section title="Motion">
