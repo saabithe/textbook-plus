@@ -347,14 +347,12 @@ const DISCOURSES = [
     content: (
       <>
         <p>
-          <em>Any Woman</em> is a thought-provoking poem, and its theme travels
-          well beyond the Irish home it was written in. The speaker can be read
-          as a mother or as any woman: the poem gives one voice to a role that
-          every household depends on.
+          The poem&rsquo;s theme travels well beyond the Irish home it was
+          written in. Read against the Indian social scenario, it holds two
+          truths at once.
         </p>
         <p>
-          Read against the Indian social scenario, the poem holds two truths at
-          once. It reflects the honoured place of the mother, and it exposes the
+          It reflects the honoured place of the mother, and it exposes the
           unacknowledged labour that keeps that honour standing.
         </p>
 
@@ -519,6 +517,11 @@ export default function AnyWomanPage() {
             <Highlight color="green">all-embracing power of a woman</Highlight>{" "}
             to hold a family together &mdash; she is the pillar, the fire, the
             wall, the house itself.
+          </p>
+          <p>
+            It is a <strong>thought-provoking poem</strong>, and its speaker can
+            be read as a mother or as any woman &mdash; one voice for a role
+            that every household depends on.
           </p>
           <p>
             <Highlight color="yellow">
@@ -733,7 +736,6 @@ export default function AnyWomanPage() {
           </div>
 
           <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
             <ReadRespond items={QA_ITEMS} />
           </div>
         </div>

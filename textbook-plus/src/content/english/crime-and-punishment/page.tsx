@@ -988,11 +988,11 @@ export default function CrimeAndPunishmentPage() {
             </h2>
 
             <Expandable title="Read and Respond — 5 questions">
-              <ReadRespond title="Textbook questions" items={QA_ITEMS} />
+              <ReadRespond title="Textbook questions" items={QA_ITEMS} collapsible={false} />
             </Expandable>
 
             <Expandable title="More Textual Questions — 6 questions">
-              <ReadRespond title="More textual questions" items={MORE_QA_ITEMS} />
+              <ReadRespond title="More textual questions" items={MORE_QA_ITEMS} collapsible={false} />
             </Expandable>
           </div>
         </div>

@@ -769,6 +769,7 @@ export default function PostEarlyForChristmasPage() {
               <ReadRespond
                 title="Textbook questions"
                 items={QA_ITEMS}
+                collapsible={false}
               />
             </Expandable>
 
@@ -776,6 +777,7 @@ export default function PostEarlyForChristmasPage() {
               <ReadRespond
                 title="Discussion and analysis"
                 items={DISCUSSION_ITEMS}
+                collapsible={false}
               />
             </Expandable>
           </div>

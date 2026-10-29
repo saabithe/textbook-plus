@@ -556,13 +556,14 @@ export default function ThisIsGoingToHurtPage() {
             </h2>
 
             <Expandable title="Read and Respond — 9 textbook questions">
-              <ReadRespond title="Textbook questions" items={QA_ITEMS} />
+              <ReadRespond title="Textbook questions" items={QA_ITEMS} collapsible={false} />
             </Expandable>
 
             <Expandable title="Discussion & Analysis — the poet's attitude">
               <ReadRespond
                 title="Discussion and analysis"
                 items={DISCUSSION_ITEMS}
+                collapsible={false}
               />
             </Expandable>
           </div>

@@ -722,7 +722,6 @@ export default function MendingWallPage() {
 
           {/* Read & Respond */}
           <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
             <ReadRespond items={READ_RESPOND} />
           </div>
         </div>

@@ -206,17 +206,21 @@ const DISCOURSES = [
           <Highlight color="blue">Nomita</Highlight> is a young wife in a
           wealthy Bengali joint family. To the outside world she is{" "}
           <strong>&ldquo;a queen&rdquo;</strong> &mdash; married into a
-          high-minded, large-hearted household. But behind closed doors,
-          her reality is very different.
+          high-minded, large-hearted household.
+        </p>
+        <p>
+          Behind closed doors, her reality is very different.
         </p>
         <p>
           She is trapped in a{" "}
           <Highlight color="pink">three-storey joint family</Highlight>{" "}
           where every action is observed. The sisters-in-law pinch her
-          with sharp words. Her husband Ajit{" "}
-          <strong>censors her letters</strong>, mocks her mother, and
-          insults her origins. Yet she must smile through it all:{" "}
-          <em>&ldquo;Her voice must not tremble.&rdquo;</em>
+          with sharp words.
+        </p>
+        <p>
+          Her husband Ajit <strong>censors her letters</strong>, mocks her
+          mother, and insults her origins. Yet she must smile through it
+          all: <em>&ldquo;Her voice must not tremble.&rdquo;</em>
         </p>
         <p>
           Nomita&rsquo;s inner fire is{" "}
@@ -227,12 +231,17 @@ const DISCOURSES = [
           rage.
         </p>
         <p>
-          Yet she is not reckless. She immediately calms down, returns to
-          the family, lies about the burnt anchol, and sits peeling
-          potatoes while secretly planning to send her mother money.
+          Yet she is not reckless. She immediately calms down and returns
+          to the family.
+        </p>
+        <p>
+          She lies about the burnt anchol and sits peeling potatoes,
+          secretly planning to send her mother money.
+        </p>
+        <p>
           She embodies the matchbox metaphor:{" "}
-          <strong>enough gunpowder to set a hundred Lankas aflame,
-          but she never flares up</strong>.
+          <strong>enough gunpowder to set a hundred Lankas aflame, but she
+          never flares up</strong>.
         </p>
       </CharacterSketch>
     ),
@@ -256,10 +265,12 @@ const DISCOURSES = [
         <p>
           His defining habit is opening and reading Nomita&rsquo;s
           letters. He gained the letter-box key through the gaps of the
-          joint family. When confronted, he first tries to{" "}
-          <strong>laugh it away</strong>, then <strong>scolds her</strong>.
-          He doesn&rsquo;t fear her anger &mdash; he fears a{" "}
-          <strong>row</strong>.
+          joint family.
+        </p>
+        <p>
+          When confronted, he first tries to <strong>laugh it away</strong>,
+          then <strong>scolds her</strong>. He doesn&rsquo;t fear her anger
+          &mdash; he fears a <strong>row</strong>.
         </p>
         <p>
           Ajit&rsquo;s contempt for Nomita&rsquo;s mother is open and
@@ -272,12 +283,14 @@ const DISCOURSES = [
         <p>
           Yet when Nomita sets her sari on fire, Ajit is{" "}
           <strong>terrified</strong>. He sees a fire in her face he
-          doesn&rsquo;t have the courage to put out. He tries to speak
-          normally, pouring water on the situation: &ldquo;You lose all
-          common sense when you get angry, don&rsquo;t you?&rdquo; His
-          &ldquo;high-mindedness&rdquo; is a{" "}
-          <Highlight color="blue">mask</Highlight> &mdash; and the
-          narrator implies he knows it.
+          doesn&rsquo;t have the courage to put out.
+        </p>
+        <p>
+          He tries to speak normally, pouring water on the situation:
+          &ldquo;You lose all common sense when you get angry, don&rsquo;t
+          you?&rdquo; His &ldquo;high-mindedness&rdquo; is a{" "}
+          <Highlight color="blue">mask</Highlight> &mdash; and the narrator
+          implies he knows it.
         </p>
       </CharacterSketch>
     ),
@@ -311,12 +324,12 @@ const DISCOURSES = [
         <p>
           She is both{" "}
           <Highlight color="pink">dependent and manipulative</Highlight>.
-          Her complaints are genuine &mdash; she is truly poor &mdash;
-          but the way she delivers them (the sarcasm about
-          &ldquo;queen&rdquo; and &ldquo;high-mindedness&rdquo;) shows
-          she knows how to extract money through guilt. Nomita
-          simultaneously loves and resents her.
+          Her complaints are genuine &mdash; she is truly poor &mdash; but
+          the way she delivers them (the sarcasm about &ldquo;queen&rdquo;
+          and &ldquo;high-mindedness&rdquo;) shows she knows how to extract
+          money through guilt.
         </p>
+        <p>Nomita simultaneously loves and resents her.</p>
       </CharacterSketch>
     ),
   },
@@ -346,12 +359,28 @@ export default function MatchboxPage() {
           </h2>
           <p>
             <em>Matchbox</em> is a short story by{" "}
-            <Highlight color="yellow">Ashapurna Debi</Highlight> (1909&ndash;1995),
-            a prominent Bengali novelist and poet. Translated from Bengali by{" "}
-            <strong>Prasenjit Gupta</strong>, the story explores the{" "}
-            <Highlight color="pink">inner fire</Highlight> of a young woman
-            trapped in a patriarchal joint family &mdash; and the matchbox that
-            becomes her weapon.
+            <Highlight color="yellow">Ashapurna Debi</Highlight>, a Bengali
+            writer. Its title names an ordinary object, and that object carries
+            the whole argument of the story.
+          </p>
+          <p>
+            A matchbox holds enough gunpowder to set a hundred Lankas aflame,
+            yet it sits meek and innocent in a pocket. The story asks what
+            happens when a woman who has lived like that finally strikes a
+            match.
+          </p>
+          <p>
+            It follows one Sunday in a three-storey joint family house, where
+            Nomita discovers that her husband opens her letters before she reads
+            them. Her answer is small, domestic and frightening &mdash; she
+            picks up his matchbox.
+          </p>
+          <p>
+            <Highlight color="yellow">
+              <strong>Central theme:</strong> privacy is power &mdash; whoever
+              controls a woman&rsquo;s letters controls her world, and the
+              quietest rebellion can still burn.
+            </Highlight>
           </p>
 
           {/* Summary */}
@@ -396,37 +425,53 @@ export default function MatchboxPage() {
             standard={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <strong>Opening</strong>: Sunday morning in a joint family house. Nomita
-                  discovers a crumpled{" "}
-                  <Highlight color="yellow">letter from her mother</Highlight> in Ajit&rsquo;s
-                  pocket &mdash; he opened it three days ago without telling her. The
-                  letter-box key is his: he controls what she reads and hears.
+                  <strong>Discovery</strong>: a Sunday morning in an enormous{" "}
+                  <Highlight color="blue">three-storey joint family house</Highlight>.
+                  Nomita is sorting Ajit&rsquo;s dirty clothes for the washerman when
+                  she finds a crumpled, twisted envelope addressed to her. The postmark
+                  is three days old &mdash; he opened it, read it, and dropped it back
+                  into his pocket.
                 </li>
                 <li>
-                  <strong>The letter</strong>: Her mother writes of poverty: cracked ceiling,
-                  rain falling through. Ajit mocks: &ldquo;I&rsquo;ll go and fill out a
-                  money-order form.&rdquo; The poverty is{" "}
-                  <Highlight color="blue">physical and immediate</Highlight>, not abstract.
+                  <strong>The &ldquo;ugly habit&rdquo;</strong>: Ajit keeps the
+                  letter-box key and reads her mail first. When confronted in the past,
+                  he laughed it off, scolded her, or hinted that he was checking for
+                  secret love letters. This time the letter is from her impoverished
+                  mother, asking for money to mend a{" "}
+                  <Highlight color="yellow">leaking roof</Highlight>.
                 </li>
                 <li>
-                  <strong>Confrontation</strong>: Nomita confronts Ajit. He pretends to
-                  forget, then deflects. She calls him a liar. Ajit insults her mother:{" "}
-                  <strong>&ldquo;dung-picker&rsquo;s daughter.&rdquo;</strong> The insult
-                  targets her origin, her mother, her identity.
+                  <strong>The mockery</strong>: Ajit&rsquo;s answer is a derisive smile
+                  and an offer to &ldquo;fill out a money-order form&rdquo;. The joke is
+                  aimed at a woman who has no money of her own, and Nomita is humiliated
+                  by it.
                 </li>
                 <li>
-                  <strong>The fire</strong>: Nomita grabs Ajit&rsquo;s matchbox, lights a
-                  match, and{" "}
-                  <Highlight color="green">sets her anchol on fire</Highlight>. Ajit slaps
-                  it out, terrified. He sees a blazing fire in her face that he doesn&rsquo;t
-                  have the courage to confront.
+                  <strong>Confrontation</strong>: Ajit comes in from his bath and Nomita
+                  confronts him indignantly. He calls it a lapse of memory; she calls him
+                  a <strong>liar</strong> and a{" "}
+                  <strong>common, vulgar man</strong>. He answers with the{" "}
+                  <Highlight color="pink">poisoned knife</Highlight>: &ldquo;A
+                  dung-picker&rsquo;s daughter becomes a queen.&rdquo;
                 </li>
                 <li>
-                  <strong>Aftermath</strong>: Nomita returns to the family, smiling through
-                  the sisters-in-law&rsquo;s sharp words. She peels potatoes, secretly
-                  planning to send her mother money.{" "}
-                  <Highlight color="pink">Outwardly nothing has changed</Highlight>, but
-                  inside she has made a decision.
+                  <strong>The fire</strong>: Nomita picks up his matchbox from the table,
+                  strikes a match, and touches it to the fine anchol of her expensive
+                  sari. Ajit jumps up, smothers the flame with his hands, and looks at her
+                  blazing red face in fear.
+                </li>
+                <li>
+                  <strong>The mask of calm</strong>: her niece comes in to ask about the
+                  washerman. Nomita&rsquo;s voice is steady, and she goes downstairs,
+                  where a sister-in-law teases her about spending time with her husband
+                  and asks about the burnt anchol. She says she caught it on a hot pot
+                  lifted off the stove.
+                </li>
+                <li>
+                  <strong>Aftermath</strong>: she sits down to peel potatoes, outwardly
+                  calm and secretly working out how to send her mother money.{" "}
+                  <Highlight color="green">Nothing has changed outside</Highlight>, but
+                  inside she has decided.
                 </li>
                 <li>
                   <strong>Narrator&rsquo;s closing</strong>: Women have the gunpowder but
@@ -448,12 +493,21 @@ export default function MatchboxPage() {
                   is the mechanism of oppression.
                 </li>
                 <li>
+                  <strong>Privacy violation</strong>: Ajit&rsquo;s interception of the
+                  letter is the story&rsquo;s central injustice. Reading a wife&rsquo;s
+                  mail before she does denies her{" "}
+                  <Highlight color="pink">individuality, dignity and autonomy</Highlight>{" "}
+                  &mdash; the ordinary rights a patriarchal marriage quietly withholds.
+                  Nomita is not allowed a private word with her own mother.
+                </li>
+                <li>
                   <strong>Mother&rsquo;s letter</strong>: The mother is an indigent widow who
                   traded her daughter&rsquo;s looks for security. Her complaints &mdash;
                   cracked ceiling, rain falling through &mdash; are{" "}
                   <Highlight color="blue">real, not abstract</Highlight>. Poverty is
                   physical: water dripping on the floor, a roof that cannot keep out the
-                  monsoon. The letter is a cry for help that Ajit intercepts and dismisses.
+                  monsoon. The letter is a cry for help that Ajit intercepts and dismisses:
+                  her mother is asking for money to repair the leaking roof.
                 </li>
                 <li>
                   <strong>Ajit&rsquo;s cruelty</strong>: He doesn&rsquo;t physically hit her.
@@ -484,13 +538,17 @@ export default function MatchboxPage() {
                   of her anger made visible.
                 </li>
                 <li>
-                  <strong>Aftermath</strong>: She returns to the family smiling. She lies
-                  about the burn. She peels potatoes. The domestic routine continues &mdash;{" "}
+                  <strong>Aftermath</strong>: Her niece comes in to ask about the
+                  washerman, and Nomita answers in a completely calm voice before going
+                  downstairs. A sister-in-law teases her about spending time with her
+                  husband and asks about the burnt anchol; Nomita invents a story about
+                  lifting a hot pot off the stove. She lies about the burn, peels
+                  potatoes, and the domestic routine continues &mdash;{" "}
                   <Highlight color="yellow">outwardly nothing has changed</Highlight>, but
-                  inside she has made a decision. The sisters-in-law&rsquo;s sharp words
-                  (Mejo-wife teases about love-talk, Boro-wife scolds about laziness) show
-                  that the oppression is not just from Ajit but from the entire structure.
-                  Nomita must smile through it all: &ldquo;Her voice must not tremble.&rdquo;
+                  inside she has made a decision. The sharp words (Mejo-wife teases about
+                  love-talk, Boro-wife scolds about laziness) show that the oppression is
+                  not just from Ajit but from the entire structure. Nomita must smile
+                  through it all: &ldquo;Her voice must not tremble.&rdquo;
                 </li>
                 <li>
                   <strong>The &ldquo;poisoned knife&rdquo;</strong>: Ajit&rsquo;s worst
@@ -542,12 +600,13 @@ export default function MatchboxPage() {
             <p>
               The matchbox represents{" "}
               <Highlight color="yellow">women&rsquo;s suppressed power</Highlight>.
-              It contains the potential for destruction &mdash; gunpowder,
-              fire, rebellion &mdash; but is kept &ldquo;meek and
-              innocent&rdquo; in kitchens, pantries, and bedrooms. Nomita
-              grabs the matchbox and strikes the match, but the fire is{" "}
-              <strong>quickly extinguished</strong>. The men know women won&rsquo;t
-              burn their own shells &mdash; that&rsquo;s why they leave them
+              It holds gunpowder, fire and rebellion, yet is kept &ldquo;meek and
+              innocent&rdquo; in kitchens, pantries and bedrooms.
+            </p>
+            <p>
+              Nomita grabs it and strikes a match, but the fire is{" "}
+              <strong>quickly extinguished</strong>. Men know women won&rsquo;t
+              burn their own shells &mdash; that is why they leave the boxes
               scattered carelessly.
             </p>
 
@@ -560,10 +619,13 @@ export default function MatchboxPage() {
             <p>
               The letter is a symbol of{" "}
               <Highlight color="pink">male control over communication</Highlight>.
-              Ajit opens, reads, and sometimes discards Nomita&rsquo;s
-              correspondence. The letter-box key is his tool of surveillance.
-              Nomita&rsquo;s private world &mdash; her relationship with her
-              mother &mdash; is under his control.
+              Ajit opens, reads and sometimes discards Nomita&rsquo;s
+              correspondence.
+            </p>
+            <p>
+              The letter-box key is his tool of surveillance. Her private world
+              &mdash; her relationship with her mother &mdash; is under his
+              control.
             </p>
 
             <h3
@@ -576,26 +638,12 @@ export default function MatchboxPage() {
               The expression{" "}
               <Highlight color="green">&ldquo;forest of people&rdquo;</Highlight>{" "}
               captures the overwhelming density of the joint family. Nomita
-              looks around and sees the hurly-burly on either side. There is{" "}
-              <strong>no privacy</strong>, no space for genuine emotion. Every
-              smile is a performance. Her voice must not tremble.
+              looks around and sees the hurly-burly on either side.
             </p>
-
-            <h3
-              id="burning-sari"
-              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
-            >
-              The Burning Sari
-            </h3>
             <p>
-              When Nomita{" "}
-              <Highlight color="yellow">sets her sari on fire</Highlight>, it is
-              the matchbox&rsquo;s gunpowder finally ignited. But the fire is{" "}
-              <strong>momentary</strong> &mdash; Ajit puts it out, and Nomita
-              returns to peeling potatoes. The act reveals the depth of her
-              suppressed rage, but also its{" "}
-              <strong>futility</strong>: the system absorbs even the most
-              dramatic rebellion.
+              There is <strong>no privacy</strong> and no space for genuine
+              emotion. Every smile is a performance, and her voice must not
+              tremble.
             </p>
           </div>
 
@@ -615,7 +663,6 @@ export default function MatchboxPage() {
 
           {/* Read & Respond */}
           <div id="read-and-respond-section" className="mt-14">
-            <h2 className="text-2xl font-bold tracking-tight mb-5 text-foreground">Read &amp; Respond</h2>
             <ReadRespond items={READ_RESPOND} />
           </div>
         </div>
