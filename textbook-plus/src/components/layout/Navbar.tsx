@@ -9,6 +9,15 @@ import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import { useFontSize } from "@/hooks/useFontSize";
 import { SearchModal } from "@/components/search/SearchModal";
+import { subjects } from "@/data/subjects";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
 
 const navLinks = [{ href: "/", label: "Home" }];
 
@@ -83,6 +92,62 @@ export function Navbar() {
               );
             })}
           </nav>
+
+          {/* Subjects meganav */}
+          <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="relative flex h-16 items-center px-3 text-[13px] text-muted-foreground hover:text-foreground data-[state=open]:text-foreground">
+                  Subjects
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "absolute inset-x-2 bottom-0 h-[2px] bg-foreground transition-opacity duration-[120ms] ease-[var(--ease-blueprint)]",
+                      pathname !== "/" ? "opacity-100" : "opacity-0",
+                    )}
+                  />
+                </NavigationMenuTrigger>
+                <NavigationMenuContent className="rounded-lg border border-border bg-card p-2 shadow-sm">
+                  <ul className="grid w-[420px] gap-1 md:w-[520px] md:grid-cols-2">
+                    {subjects.map((subject) => {
+                      const Icon = subject.icon;
+                      return (
+                        <li key={subject.slug}>
+                          <NavigationMenuLink
+                            render={<Link href={`/subjects/${subject.slug}`} />}
+                          >
+                            <span className="flex items-center gap-3 rounded-[3px] p-2 transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.04]">
+                              <Icon
+                                className="h-4 w-4 shrink-0"
+                                style={{ color: subject.color }}
+                                aria-hidden
+                              />
+                              <span className="min-w-0">
+                                <span className="block text-[13px] font-semibold text-foreground">
+                                  {subject.name}
+                                </span>
+                                <span className="t-micro">
+                                  {subject.chapterCount} chapters
+                                </span>
+                              </span>
+                            </span>
+                          </NavigationMenuLink>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <div className="border-t border-border px-2 py-2">
+                    <Link
+                      href="/"
+                      className="block text-[12px] font-medium text-muted-foreground hover:text-foreground"
+                    >
+                      Home →
+                    </Link>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
 
           {/* Right controls */}
           <div className="flex shrink-0 items-center gap-2">
