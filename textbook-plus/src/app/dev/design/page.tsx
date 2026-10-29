@@ -1,662 +1,240 @@
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Kbd } from "@/components/ui/kbd";
+import { Progress } from "@/components/ui/progress";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import {
+  ToggleGroup,
+  ToggleGroupItem,
+} from "@/components/ui/toggle-group";
+import {
+  Table,
+  TableHeader,
+  TableRow,
+  TableHead,
+  TableBody,
+  TableCell,
+  TableCaption,
+} from "@/components/ui/table";
+import { CollapsibleSection } from "@/components/content/CollapsibleSection";
+import { Expandable } from "@/components/content/Expandable";
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { Example } from "@/components/content/Example";
-import { Comparison } from "@/components/content/Comparison";
-import { Expandable } from "@/components/content/Expandable";
-import { FormulaCard } from "@/components/content/FormulaCard";
-import { FormulaBlock } from "@/components/content/Formula";
-import { Stepper } from "@/components/content/Stepper";
 import { Highlight } from "@/components/content/Highlight";
-import { ExerciseQa } from "@/components/content/ExerciseQa";
-import { SpeedTricks } from "@/components/content/SpeedTricks";
-import { ProblemSolution } from "@/components/content/ProblemSolution";
-import { SolvedProblem } from "@/components/content/SolvedProblem";
+import { Formula, FormulaBlock } from "@/components/content/Formula";
+import { Comparison } from "@/components/content/Comparison";
 import { TableCard } from "@/components/content/data/TableCard";
-import { Checklist } from "@/components/content/data/Checklist";
-import { ProcessCard } from "@/components/content/process/ProcessCard";
-import { CycleDiagram } from "@/components/content/process/CycleDiagram";
-import { EquationLadder } from "@/components/content/process/EquationLadder";
-import { RevealAnswer } from "@/components/content/process/RevealAnswer";
-import { ProblemInsightSolutionCard } from "@/components/content/process/ProblemInsightSolutionCard";
-import { FactCard } from "@/components/content/concept/FactCard";
-import { ConceptCard } from "@/components/content/concept/ConceptCard";
-import { TreeDiagram } from "@/components/content/concept/TreeDiagram";
+import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { Stepper } from "@/components/content/Stepper";
+import { Timeline } from "@/components/content/process/Timeline";
 import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { OrgChart } from "@/components/content/OrgChart";
-import { CharacterSketch } from "@/components/content/CharacterSketch";
 import { ChapterIntro } from "@/components/content/ChapterIntro";
-import { CharacterComparison } from "@/components/content/CharacterComparison";
-import { SpectrumExplorer } from "@/components/content/physics/SpectrumExplorer";
-import { OscillationPlayer } from "@/components/content/physics/OscillationPlayer";
-import { ChargeFateTrio } from "@/components/content/physics/ChargeFateTrio";
-import { SpeedLayers } from "@/components/content/physics/SpeedLayers";
-import { FieldRatio } from "@/components/content/physics/FieldRatio";
-import { PropagationExplorer } from "@/components/content/physics/PropagationExplorer";
-import { AmpereSurfaceToggle } from "@/components/content/physics/AmpereSurfaceToggle";
-import { WaveTypesPanels } from "@/components/content/physics/WaveTypesPanels";
-import { WaveAnatomyDiagram } from "@/components/content/physics/WaveAnatomyDiagram";
-import { DisplacementExplorer } from "@/components/content/physics/DisplacementExplorer";
-import { TopicSwitch } from "@/components/content/TopicSwitch";
 import { TopicIndex } from "@/components/content/TopicIndex";
-import { PocketGrid } from "@/components/content/PocketGrid";
-import { BrainSizeBars } from "@/components/content/biology/BrainSizeBars";
-import { FinchBeaksDiagram } from "@/components/content/biology/FinchBeaksDiagram";
-import { MillerApparatusDiagram } from "@/components/content/biology/MillerApparatusDiagram";
-import { MoleculeStructure } from "@/components/content/chemistry/MoleculeStructure";
-import { STRUCTURES } from "@/content/chemistry/haloalkanes-and-haloarenes/structures.generated";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="mb-16">
-      <h2 className="text-xl font-bold tracking-tight text-foreground mb-8 flex items-center gap-3">
-        <span className="h-7 w-1.5 rounded-[2px] bg-foreground" />
+    <section className="space-y-6 border-t border-border pt-8">
+      <h2 className="text-[0.6875rem] font-bold uppercase tracking-[0.08em] text-muted-foreground">
         {title}
       </h2>
-      <div className="space-y-12">{children}</div>
+      <div className="space-y-5">{children}</div>
     </section>
   );
 }
 
-function Label({ text }: { text: string }) {
+export default function DesignPage() {
   return (
-    <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-muted-foreground mb-4">
-      {text}
-    </p>
-  );
-}
+    <div className="mx-auto max-w-[1100px] space-y-10 px-6 py-12">
+      <header className="space-y-2 border-b border-border pb-6">
+        <h1 className="text-2xl font-extrabold tracking-tight text-foreground">Blueprint — living contract</h1>
+        <p className="text-sm text-muted-foreground">
+          Every primitive, both themes, real content. If a change drifts, this is where it shows.
+        </p>
+      </header>
 
-export default function DesignGallery() {
-  return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <header className="mb-16">
-          <h1 className="text-3xl font-bold tracking-tight text-foreground mb-3">
-            Design System Preview
-          </h1>
-          <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
-            Kitchen-sink gallery of every in-page content component. Each component is rendered
-            once with representative data. Check both light and dark mode, and resize to 360px
-            for mobile.
-          </p>
-        </header>
+      <Section title="Type scale">
+        <p className="t-title">Title 44</p>
+        <p className="t-h1">H1 — Alternating Current</p>
+        <p className="t-h2">H2 — Faraday's law of induction</p>
+        <p className="t-h3">H3 — Solenoids and toroids</p>
+        <p className="t-h4">H4 — Lab step 3</p>
+        <p className="t-lead">Lead — the opening sentence of a chapter, muted.</p>
+        <p className="t-body">Body — the reading voice, 18px at 1.75.</p>
+        <p className="t-caption">Caption — figure sources, secondary notes.</p>
+        <p className="t-micro">Micro — every label, every chip, every eyebrow</p>
+      </Section>
 
-        <div className="prose-custom max-w-3xl">
-          {/* ── CORE ───────────────────────────────────────────── */}
-          <Section title="Core">
-            <div>
-              <Label text="Callout — 5 variants" />
-              <Callout type="note">This is a <strong>note</strong> callout with additional detail.</Callout>
-              <Callout type="important" title="Maxwell&apos;s Equations">
-                This is an <strong>important</strong> callout with a custom title.
-              </Callout>
-              <Callout type="warning">This is a <strong>warning</strong> callout.</Callout>
-              <Callout type="didyouknow">Did you know? Light travels at 3×10⁸ m/s in vacuum.</Callout>
-              <Callout type="tip">Speed trick: remember the order by acronym <strong>EMW</strong>.</Callout>
+      <Section title="Surfaces & tokens">
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+          {[
+            { n: "background", c: "bg-background" },
+            { n: "card", c: "bg-card" },
+            { n: "muted", c: "bg-muted" },
+            { n: "foreground", c: "bg-foreground" },
+            { n: "muted-foreground", c: "bg-muted-foreground" },
+            { n: "border", c: "bg-border" },
+            { n: "rule-strong", c: "bg-rule-strong" },
+            { n: "primary (ink)", c: "bg-primary" },
+          ].map((s) => (
+            <div key={s.n} className="space-y-2">
+              <div className={`h-12 rounded-lg border border-border ${s.c}`} />
+              <p className="t-micro">{s.n}</p>
             </div>
-
-            <div>
-              <Label text="KeyPoint" />
-              <KeyPoint>
-                The displacement current was Maxwell&apos;s key addition to Ampère&apos;s law, completing
-                the symmetry of electromagnetic theory.
-              </KeyPoint>
-            </div>
-
-            <div>
-              <Label text="Example" />
-              <Example title="Example 8.1">
-                A plane electromagnetic wave has electric field amplitude E₀ = 100 V/m.
-                Find the magnetic field amplitude.
-              </Example>
-            </div>
-
-            <div>
-              <Label text="Comparison (3 columns)" />
-              <Comparison
-                columns={[
-                  { title: "Transverse", children: "Oscillation perpendicular to propagation. Examples: light, water waves." },
-                  { title: "Longitudinal", children: "Oscillation parallel to propagation. Examples: sound, compression springs." },
-                  { title: "Electromagnetic", children: "Always transverse. E and B fields are perpendicular to each other and to propagation." },
-                ]}
-              />
-            </div>
-
-            <div>
-              <Label text="Highlight" />
-              <p>
-                The speed of electromagnetic waves in vacuum is{" "}
-                <Highlight>c = 1/√(μ₀ε₀) ≈ 3×10⁸ m/s</Highlight>, a fundamental constant.
-              </p>
-            </div>
-
-            <div>
-              <Label text="Stepper" />
-              <Stepper
-                steps={[
-                  { label: "Identify the wave type", description: "Check whether E or B is given." },
-                  { label: "Apply the relation E₀ = cB₀", description: "Use c = 3×10⁸ m/s for vacuum." },
-                  { label: "Compute the result", description: "B₀ = E₀/c = 100/(3×10⁸) ≈ 3.33×10⁻⁷ T" },
-                ]}
-              />
-            </div>
-
-            <div>
-              <Label text="FormulaCard + FormulaBlock" />
-              <FormulaCard>
-                <FormulaBlock
-                  latex={String.raw`E = h\nu = \frac{hc}{\lambda}`}
-                  label="Planck-Einstein relation"
-                  tag="important"
-                />
-              </FormulaCard>
-            </div>
-
-            <div>
-              <Label text="SpeedTricks" />
-              <SpeedTricks>
-                <p className="text-sm text-foreground/85 leading-relaxed">
-                  When E₀ and B₀ are both given, check their ratio: E₀/B₀ should equal c.
-                  If it doesn&apos;t, the data is inconsistent.
-                </p>
-              </SpeedTricks>
-            </div>
-
-            <div>
-              <Label text="Expandable — all 5 variants" />
-              <Expandable title="Worked Example 8.1" variant="example">
-                <p>Solution content goes here.</p>
-              </Expandable>
-              <Expandable title="Exercise 8.1 — Wave equation" variant="exercise">
-                <p>Exercise content goes here.</p>
-              </Expandable>
-              <Expandable title="Recall: Gauss&apos;s Law" variant="recall">
-                <p>Recall content goes here.</p>
-              </Expandable>
-              <Expandable title="Miscellaneous" variant="misc">
-                <p>Miscellaneous content goes here.</p>
-              </Expandable>
-              <Expandable title="Custom Default Variant" variant="default">
-                <p>Default variant content goes here.</p>
-              </Expandable>
-            </div>
-
-            <div>
-              <Label text="ProblemSolution" />
-              <ProblemSolution problemNumber="8.1">
-                <ProblemSolution.Problem>
-                  Find the wavelength of a radio wave with frequency 100 MHz.
-                </ProblemSolution.Problem>
-                <ProblemSolution.Solution>
-                  <p>Using λ = c/f = (3×10⁸)/(100×10⁶) = 3 m</p>
-                </ProblemSolution.Solution>
-              </ProblemSolution>
-            </div>
-
-            <div>
-              <Label text="SolvedProblem" />
-              <SolvedProblem
-                number={1}
-                title="Wave Speed"
-                question="Find the wavelength of a radio wave with frequency 100 MHz."
-                options={[
-                  { label: "A", text: "1.5 m" },
-                  { label: "B", text: "3.0 m" },
-                  { label: "C", text: "6.0 m" },
-                  { label: "D", text: "0.5 m" },
-                ]}
-                given="Frequency = 100 MHz, Speed of light = 3×10⁸ m/s"
-                solution={<p>Using λ = c/f = (3×10⁸)/(100×10⁶) = 3 m</p>}
-                answer="B. 3.0 m"
-              />
-            </div>
-
-            <div>
-              <Label text="ExerciseQa" />
-              <ExerciseQa
-                questions={[
-                  <span key="q1">What is the speed of EM waves in vacuum?</span>,
-                  <span key="q2">State the relation between E₀ and B₀.</span>,
-                ]}
-                answers={[
-                  <span key="a1">3×10⁸ m/s</span>,
-                  <span key="a2">E₀ = cB₀ where c = 3×10⁸ m/s</span>,
-                ]}
-              />
-            </div>
-          </Section>
-
-          {/* ── DATA ───────────────────────────────────────────── */}
-          <Section title="Data">
-            <div>
-              <Label text="TableCard" />
-              <TableCard
-                title="Properties of EM Waves"
-                headers={["Property", "Symbol", "Unit"]}
-                rows={[
-                  { cells: ["Speed in vacuum", "c", "3×10⁸ m/s"] },
-                  { cells: ["Wavelength", "λ", "m"] },
-                  { cells: ["Frequency", "ν", "Hz"] },
-                  { cells: ["Energy", "E", "J"] },
-                ]}
-                caption="Fundamental electromagnetic wave properties"
-              />
-            </div>
-
-            <div>
-              <Label text="TableCard · numeric + wide + rich cells" />
-              <TableCard
-                title="Hydrogen energy levels"
-                headers={["n", "Energy (eV)", "Radius (a₀)", "Series", "Region"]}
-                rows={[
-                  { cells: [1, "-13.60", "1.00", <strong key="1">Lyman</strong>, "Ultraviolet"] },
-                  { cells: [2, "-3.40", "4.00", "Balmer", "Visible"] },
-                  { cells: [3, "-1.51", "9.00", "Paschen", "Infrared"] },
-                  { cells: [4, "-0.85", "16.00", "Brackett", "Infrared"] },
-                ]}
-                caption="Numeric columns are right-aligned automatically; the first column stays pinned while the table scrolls; cells may contain JSX."
-              />
-            </div>
-
-            <div>
-              <Label text="Checklist" />
-              <Checklist
-                title="Study Checklist"
-                items={[
-                  { label: "Maxwell's equations (all 4)", defaultChecked: true },
-                  { label: "EM wave derivation from Faraday's law" },
-                  { label: "Spectrum regions and their uses" },
-                  { label: "Speed of light calculation from μ₀ and ε₀" },
-                ]}
-              />
-            </div>
-          </Section>
-
-          {/* ── PROCESS ────────────────────────────────────────── */}
-          <Section title="Process">
-            <div>
-              <Label text="ProcessCard" />
-              <ProcessCard
-                title="How EM Waves Propagate"
-                steps={[
-                  { label: "Accelerating charge creates oscillating E and B fields", description: "Both fields are perpendicular to each other." },
-                  { label: "Fields sustain each other via Faraday + Ampère-Maxwell", description: "Changing E produces B, changing B produces E." },
-                  { label: "Wavefront propagates at speed c = 1/√(μ₀ε₀)", description: "Energy is carried away as electromagnetic radiation." },
-                ]}
-              />
-            </div>
-
-            <div>
-              <Label text="CycleDiagram" />
-              <CycleDiagram
-                steps={[
-                  { label: "Charge accelerates", detail: "Creates oscillating fields" },
-                  { label: "E field changes", detail: "Induces B field" },
-                  { label: "B field changes", detail: "Induces E field" },
-                  { label: "Wave propagates", detail: "Energy radiates outward" },
-                ]}
-              />
-            </div>
-
-            <div>
-              <Label text="EquationLadder" />
-              <EquationLadder
-                steps={[
-                  { label: "Start", equation: String.raw`E = h\nu` },
-                  { label: "Substitute", equation: String.raw`E = \frac{hc}{\lambda}` },
-                  { label: "Rearrange", equation: String.raw`\lambda = \frac{hc}{E}`, final: true },
-                ]}
-              />
-            </div>
-
-            <div>
-              <Label text="RevealAnswer" />
-              <RevealAnswer
-                question={<p>What is the speed of EM waves derived from μ₀ and ε₀?</p>}
-                answer={<p>The answer is c = 1/√(μ₀ε₀) ≈ 3×10⁸ m/s.</p>}
-              />
-            </div>
-
-            <div>
-              <Label text="ProblemInsightSolutionCard" />
-              <ProblemInsightSolutionCard
-                question={<p>What is the speed of EM waves?</p>}
-                insight={<p>We need μ₀ and ε₀ to derive it.</p>}
-                solution={<p>c = 1/√(μ₀ε₀) ≈ 3×10⁸ m/s</p>}
-              />
-            </div>
-          </Section>
-
-          {/* ── CONCEPT ────────────────────────────────────────── */}
-          <Section title="Concept">
-            <div>
-              <Label text="FactCard" />
-              <FactCard
-                title="Speed of Light"
-                definition="The speed of electromagnetic waves in vacuum is exactly 299,792,458 m/s, commonly approximated as 3×10⁸ m/s."
-                icon="⚡"
-              />
-            </div>
-
-            <div>
-              <Label text="ConceptCard" />
-              <ConceptCard title="Displacement Current" icon="🌀">
-                <p>
-                  The displacement current I<sub>d</sub> = ε₀ dΦ<sub>E</sub>/dt is a term added by
-                  Maxwell to Ampère&apos;s law. It accounts for the changing electric flux in regions
-                  where no physical charge flows, such as between capacitor plates.
-                </p>
-              </ConceptCard>
-            </div>
-
-            <div>
-              <Label text="OrgChart" />
-              <OrgChart
-                nodes={[
-                  { label: "Electromagnetic Theory", children: [{ label: "Maxwell's Equations" }, { label: "EM Waves" }, { label: "Spectrum" }] },
-                  { label: "Maxwell's Equations", children: [{ label: "Gauss (E)" }, { label: "Gauss (B)" }, { label: "Faraday" }, { label: "Ampère-Maxwell" }] },
-                ]}
-              />
-            </div>
-
-            <div>
-              <Label text="TreeDiagram" />
-              <TreeDiagram
-                nodes={[
-                  { label: "EM Spectrum", children: [{ label: "Radio" }, { label: "Microwave" }, { label: "Infrared" }, { label: "Visible" }, { label: "UV" }, { label: "X-ray" }, { label: "Gamma" }] },
-                ]}
-              />
-            </div>
-          </Section>
-
-          {/* ── STUDY ──────────────────────────────────────────── */}
-          <Section title="Study">
-            <div>
-              <Label text="MetricCard" />
-              <div className="grid gap-4 sm:grid-cols-3">
-                <MetricCard label="Speed" value="3×10⁸" unit="m/s" description="Speed of light in vacuum" />
-                <MetricCard label="Wavelength" value="550" unit="nm" trend="neutral" description="Green visible light" />
-                <MetricCard label="Frequency" value="100" unit="MHz" trend="up" description="FM radio band" />
-              </div>
-            </div>
-
-            <div>
-              <Label text="MistakeCard" />
-              <MistakeCard
-                mistake="Saying EM waves need a medium to travel."
-                correction="EM waves are self-sustaining — oscillating E and B fields sustain each other."
-                example="Light travels through the vacuum of space."
-              />
-            </div>
-          </Section>
-
-          {/* ── ENGLISH / ARABIC ───────────────────────────────── */}
-          <Section title="English / Arabic">
-            <div>
-              <Label text="ChapterIntro — compact strip (author · genre · characters; notes folded away)" />
-              <ChapterIntro
-                author="R. H. Wood"
-                role="Playwright"
-                genre="One-act play · Comedy"
-                characters={[
-                  "A Young Lady Assistant",
-                  "Mrs Smith",
-                  "A Deaf Old Gentleman",
-                  "A Foreign Tourist",
-                ]}
-              >
-                <p>
-                  British dramatist, best known for this one-act comedy of
-                  escalating misunderstandings.
-                </p>
-              </ChapterIntro>
-            </div>
-
-            <div>
-              <Label text="CharacterSketch" />
-              <CharacterSketch name="The Narrator">
-                <p>The narrator observes the world with quiet intensity, often drawing meaning from ordinary events. Their voice carries both detachment and deep empathy.</p>
-              </CharacterSketch>
-            </div>
-
-            <div>
-              <Label text="CharacterComparison" />
-              <CharacterComparison
-                characters={["Narrator", "The Old Man"]}
-                rows={[
-                  { label: "Role", values: ["Observer", "Catalyst"] },
-                  { label: "Personality", values: ["Reflective, detached", "Stubborn, traditional"] },
-                  { label: "Key Quote", values: [<em key="n">{"I wandered..."}</em>, <em key="o">{"I'll mend this wall"}</em>] },
-                ]}
-              />
-            </div>
-          </Section>
-
-          {/* ── NAVIGATION ──────────────────────────────────────── */}
-          <Section title="Navigation">
-            <div>
-              <Label text="PocketGrid — each pocket holds its own note; one open at a time, hash deep links" />
-              <PocketGrid
-                title="Tap a pocket to open its evidence"
-                items={[
-                  {
-                    id: "gallery-pocket-one",
-                    icon: "🦴",
-                    label: "1. Palaeontological",
-                    note: "Fossils and the rock record.",
-                    content: (
-                      <>
-                        <p>
-                          Rocks form by sedimentation, so deeper layers are older. Fossils in successive layers fix
-                          the period in which those organisms lived.
-                        </p>
-                        <KeyPoint title="Connecting link">
-                          <em>Archaeopteryx</em> carries reptilian and avian characters — a bridge between reptiles
-                          and birds.
-                        </KeyPoint>
-                      </>
-                    ),
-                  },
-                  {
-                    id: "gallery-pocket-two",
-                    icon: "🧬",
-                    label: "2. Biochemical",
-                    note: "Proteins, genes and the central dogma.",
-                    content: (
-                      <p>
-                        DNA → mRNA → protein is the same flow of information in every organism, which points to a
-                        shared ancestry.
-                      </p>
-                    ),
-                  },
-                  {
-                    id: "gallery-pocket-three",
-                    icon: "🥚",
-                    label: "3. Embryological",
-                    note: "Features shared by embryos.",
-                    content: (
-                      <p>
-                        Vertebrate embryos all develop a row of vestigial gill slits, though they are functional only
-                        in fish.
-                      </p>
-                    ),
-                  },
-                ]}
-              />
-            </div>
-
-            <div>
-              <Label text="TopicIndex — anchor-card grid that jumps to headings on the same page" />
-              <TopicIndex
-                title="Six kinds of evidence"
-                items={[
-                  { id: "gallery-topic-one", icon: "🦴", label: "Palaeontological", note: "Fossils and the rock record." },
-                  { id: "gallery-topic-two", icon: "🧬", label: "Biochemical", note: "Proteins, genes and the central dogma." },
-                  { id: "gallery-topic-three", icon: "🗺️", label: "Biogeographical", note: "Distribution and adaptive radiation." },
-                  { id: "gallery-topic-four", icon: "🥚", label: "Embryological", note: "Features shared by embryos." },
-                ]}
-              />
-            </div>
-
-            <div>
-              <Label text="TopicSwitch — left/right pager for the merged discourse pages (sticky tab strip + counter, hover-revealed edge buttons, arrow keys, touch swipe, hash deep links)" />
-              <TopicSwitch
-                label="Demo formats"
-                panes={[
-                  {
-                    id: "demo-term-paper",
-                    label: "First Format",
-                    content: (
-                      <>
-                        <h4 className="text-lg font-bold tracking-tight text-foreground">
-                          A deliberately short pane
-                        </h4>
-                        <p className="mt-2 text-muted-foreground">
-                          Three panes of unequal length, so the demo can be judged
-                          the way the real pages behave: the reader keeps their
-                          scroll position, and the strip stays pinned under the
-                          navbar to say which format they are in.
-                        </p>
-                      </>
-                    ),
-                  },
-                  {
-                    id: "demo-lab-report",
-                    label: "Second Format",
-                    content: (
-                      <>
-                        <h4 className="text-lg font-bold tracking-tight text-foreground">
-                          Tabs, arrows, swipe
-                        </h4>
-                        <p className="mt-2 text-muted-foreground">
-                          Click a tab to jump straight to a format, hover the left
-                          or right gutter for the edge buttons, or press the arrow
-                          keys while this module is on screen. On a touch screen,
-                          swipe the pane sideways. The counter at the right of the
-                          strip reads <strong>2 of 3</strong>.
-                        </p>
-                        <p className="mt-3 text-muted-foreground">
-                          The strip is a real tab list: Tab reaches it, arrow keys
-                          move between tabs, Home and End jump to the first and
-                          last format, and the pane announces itself as a tab
-                          panel.
-                        </p>
-                      </>
-                    ),
-                  },
-                  {
-                    id: "demo-field-report",
-                    label: "Third Format",
-                    content: (
-                      <>
-                        <h4 className="text-lg font-bold tracking-tight text-foreground">
-                          The last pane
-                        </h4>
-                        <p className="mt-2 text-muted-foreground">
-                          The right arrow is dimmed here and does nothing &mdash;
-                          the pager stops at the ends instead of wrapping around.
-                          Printing prints only the format on screen, with a line
-                          naming it.
-                        </p>
-                      </>
-                    ),
-                  },
-                ]}
-              />
-            </div>
-          </Section>
-
-          {/* ── PHYSICS INTERACTIVE ─────────────────────────────── */}
-          <Section title="Physics Interactive">
-            <div>
-              <Label text="PropagationExplorer" />
-              <PropagationExplorer />
-            </div>
-
-            <div>
-              <Label text="AmpereSurfaceToggle" />
-              <AmpereSurfaceToggle />
-            </div>
-
-            <div>
-              <Label text="ChargeFateTrio" />
-              <ChargeFateTrio />
-            </div>
-
-            <div>
-              <Label text="SpeedLayers" />
-              <SpeedLayers />
-            </div>
-
-            <div>
-              <Label text="FieldRatio" />
-              <FieldRatio />
-            </div>
-
-            <div>
-              <Label text="SpectrumExplorer" />
-              <SpectrumExplorer />
-            </div>
-
-            <div>
-              <Label text="OscillationPlayer" />
-              <OscillationPlayer />
-            </div>
-
-            <div>
-              <Label text="WaveTypesPanels" />
-              <WaveTypesPanels />
-            </div>
-
-            <div>
-              <Label text="WaveAnatomyDiagram" />
-              <WaveAnatomyDiagram />
-            </div>
-
-            <div>
-              <Label text="DisplacementExplorer" />
-              <DisplacementExplorer />
-            </div>
-
-          </Section>
-
-          {/* ── BIOLOGY DIAGRAMS ────────────────────────────────── */}
-          <Section title="Biology Diagrams">
-            <div>
-              <Label text="FinchBeaksDiagram — adaptive radiation in Darwin's finches" />
-              <FinchBeaksDiagram />
-            </div>
-
-            <div>
-              <Label text="MillerApparatusDiagram — the Urey–Miller setup" />
-              <MillerApparatusDiagram />
-            </div>
-
-            <div>
-              <Label text="BrainSizeBars — brain capacity along the human line" />
-              <BrainSizeBars />
-            </div>
-          </Section>
-
-          {/* ── CHEMISTRY STRUCTURES ────────────────────────────── */}
-          <Section title="Chemistry Structures">
-            <div>
-              <Label text="MoleculeStructure — small molecule, boxed (phosgene)" />
-              <MoleculeStructure {...STRUCTURES.phosgene} />
-            </div>
-
-            <div>
-              <Label text="MoleculeStructure — stereocentre with wedge/dash, capped width" />
-              <MoleculeStructure {...STRUCTURES.butan_2_ol_r} maxWidth={320} />
-            </div>
-
-            <div>
-              <Label text="MoleculeStructure — large aromatic structure, plain variant" />
-              <MoleculeStructure {...STRUCTURES.ddt} variant="plain" maxWidth={440} />
-            </div>
-          </Section>
+          ))}
         </div>
-      </div>
+        <div className="dark max-h-72 overflow-hidden rounded-lg border border-border bg-background p-4 text-foreground">
+          <p className="t-micro mb-2">Dark column preview</p>
+          <p className="t-h3">Chapter title in dark mode</p>
+          <p className="t-body text-foreground/90">Body voice with primary-as-ink focus ring and border tokens.</p>
+        </div>
+      </Section>
+
+      <Section title="Core primitives">
+        <div className="flex flex-wrap items-center gap-3">
+          <Button>Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="outline">Outline</Button>
+          <Button variant="ghost">Ghost</Button>
+          <Button variant="destructive">Destructive</Button>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge>Default</Badge>
+          <Badge variant="secondary">Secondary</Badge>
+          <Badge variant="outline">Outline</Badge>
+          <Badge variant="destructive">Destructive</Badge>
+        </div>
+        <div className="flex flex-wrap items-end gap-4">
+          <div className="space-y-1.5">
+            <Label htmlFor="dg-in">Input</Label>
+            <Input id="dg-in" placeholder="Type here …" />
+          </div>
+          <Kbd>Ctrl K</Kbd>
+          <Progress value={62} className="w-40" />
+          <Skeleton className="h-8 w-44" />
+        </div>
+        <Separator />
+        <Tabs defaultValue="a">
+          <TabsList variant="line" className="w-full gap-6 justify-start">
+            <TabsTrigger value="a" className="px-0">Read</TabsTrigger>
+            <TabsTrigger value="b" className="px-0">Discourses</TabsTrigger>
+          </TabsList>
+          <TabsContent value="a" className="mt-3 t-body">Learning pane.</TabsContent>
+          <TabsContent value="b" className="mt-3 t-body">Discourse pane.</TabsContent>
+        </Tabs>
+        <ToggleGroup variant="outline" spacing={2} aria-label="Format">
+          <ToggleGroupItem value="b" aria-label="Bold">B</ToggleGroupItem>
+          <ToggleGroupItem value="i" aria-label="Italic">I</ToggleGroupItem>
+          <ToggleGroupItem value="u" aria-label="Underline">U</ToggleGroupItem>
+        </ToggleGroup>
+        <Table label="Gallery sample">
+          <TableHeader>
+            <TableRow>
+              <TableHead>Subject</TableHead>
+              <TableHead className="text-right">Chapters</TableHead>
+              <TableHead>Colour</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableCell>Physics</TableCell>
+              <TableCell className="text-right">14</TableCell>
+              <TableCell>Blue</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Chemistry</TableCell>
+              <TableCell className="text-right">10</TableCell>
+              <TableCell>Green</TableCell>
+            </TableRow>
+          </TableBody>
+          <TableCaption>Two sample rows.</TableCaption>
+        </Table>
+      </Section>
+
+      <Section title="Text & emphasis">
+        <Callout type="note">A note tone — ink rule, short prose, one fact per box.</Callout>
+        <Callout type="important" subjectColor="var(--subject-physics)">
+          An important tone — the subject rule marks the law.
+        </Callout>
+        <Callout type="warning">A warning tone — amber rule, never a red panel.</Callout>
+        <KeyPoint title="Electric flux">The scalar product of E and the area vector.</KeyPoint>
+        <p className="t-body">
+          A <Highlight color="yellow">definition</Highlight>, a <Highlight color="blue">key term</Highlight>, a{" "}
+          <Highlight color="green">result</Highlight>, a <Highlight color="pink">caution</Highlight>, and a{" "}
+          <Highlight color="orange">formula</Highlight>.
+        </p>
+        <Expandable title="Worked example" variant="example">
+          <p className="text-sm">Solution steps collapse, the way every worked example in the app does.</p>
+        </Expandable>
+        <Expandable title="Practice question" variant="exercise">
+          <p className="text-sm">Exercise content, amber accent.</p>
+        </Expandable>
+        <Formula>{"E = mc^2"}</Formula>
+        <FormulaBlock label="OHM'S LAW" latex="V = IR" />
+      </Section>
+
+      <Section title="Data & structure">
+        <TableCard
+          title="Formulas of halides of 3d metals"
+          headers={["Oxidation number", "Halides"]}
+          rows={[
+            { cells: ["+6", "CrF₆"] },
+            { cells: ["+5", "VF₅, CrF₅"] },
+            { cells: ["+2", "TiX₂ … ZnX₂"] },
+          ]}
+          caption="X = F→I."
+        />
+        <Comparison
+          columns={[
+            { title: "Scalar", children: <p>Magnitude only — Distance, speed</p> },
+            { title: "Vector", children: <p>Magnitude + direction — Displacement, velocity</p> },
+          ]}
+        />
+        <Stepper
+          steps={[
+            { label: "State the given", description: "List variables with units." },
+            { label: "Write the law", description: "Pick the equation that links them." },
+            { label: "Substitute", description: "Plug in numbers and compute." },
+          ]}
+        />
+      </Section>
+
+      <Section title="Study & answers">
+        <ExerciseQa
+          questions={[
+            <>State Ohm's law.</>,
+            <>A 10 Ω resistor carries 2 A. Voltage?</>,
+          ]}
+          answers={[<>V = IR</>, <>V = 20 V</>]}
+        />
+        <MetricCard label="Magnetic flux" value="2.5" unit="Wb" trend="up" description="Six lines under dot." />
+        <MistakeCard mistake="Using χ instead of χ" correction="Use χ_e in SI; mixing them changes the denominator." example="E = χ_e ε₀ E" />
+      </Section>
+
+      <Section title="Chapter furniture">
+        <ChapterIntro author="Humpy Dumpty" subname="Egg pants" genre="Insect fiction" genreArabic="قصة خيالية" characters={["Humpy", "Dumpty"]} />
+        <TopicIndex items={[{ id: "h-1", icon: "·", label: "Introduction", note: "Frames the argument" }]} />
+      </Section>
+
+      <Section title="Highlight tones">
+        <p className="t-body">
+          Each tone names a meaning so the page's colour story stays consistent
+          with the 953 <Highlight color="yellow">definitions</Highlight>,{" "}
+          <Highlight color="blue">key terms</Highlight>, <Highlight color="green">results</Highlight>,{" "}
+          <Highlight color="pink">cautions</Highlight>, and <Highlight color="orange">formulas</Highlight>.
+        </p>
+      </Section>
+
+      <Section title="Motion">
+        <div className="h-16 w-44 border-l-[3px] border-ok bg-card px-4 py-3 transition-all duration-[180ms] ease-[var(--ease-blueprint)] hover:translate-x-0.5">
+          <p className="t-micro">hover me — 180ms ink wash only</p>
+        </div>
+      </Section>
     </div>
   );
 }

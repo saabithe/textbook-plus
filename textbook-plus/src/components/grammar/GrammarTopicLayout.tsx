@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useState, useRef, type RefObject, type ReactNode } from "react";
 
 import { Callout } from "@/components/content/Callout";
 import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
 import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
 import { ChapterToc } from "@/components/chapter/ChapterToc";
+import { AnnotationLayer } from "@/components/annotate/AnnotationLayer";
 
 interface GrammarTopicLayoutProps {
   /** Definition shown in the one-sentence intro callout (term + meaning). */
@@ -29,17 +30,18 @@ export function GrammarTopicLayout({
   questions,
 }: GrammarTopicLayoutProps) {
   const [tab, setTab] = useState<GrammarTab>("concept");
+  const articleRef = useRef<HTMLElement | null>(null);
 
   return (
     <div className="mx-auto max-w-[1280px] px-6 py-10">
       <GrammarTabs tab={tab} onTabChange={setTab} />
 
+      <AnnotationLayer containerRef={articleRef as RefObject<HTMLElement | null>} enabled={tab === "concept"} />
       {tab === "concept" ? (
         <div className="xl:grid xl:grid-cols-[200px_minmax(0,72ch)_200px] xl:gap-12">
-          {/* Empty spacer: keeps the reading column optically centred (§5.13) */}
           <div aria-hidden className="hidden xl:block" />
 
-          <article data-chapter-content className="min-w-0 max-w-none">
+          <article ref={articleRef} data-chapter-content className="min-w-0 max-w-none">
             <section id="introduction" className="scroll-mt-24">
               <Callout type="note">{intro}</Callout>
               {introExtra}

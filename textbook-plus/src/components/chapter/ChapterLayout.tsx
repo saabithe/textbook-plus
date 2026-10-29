@@ -1,11 +1,12 @@
 "use client";
 
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState, type RefObject } from "react";
 import Link from "next/link";
 import { ChapterNav } from "./ChapterNav";
 import { ChapterTabs, PracticePlaceholder } from "./ChapterTabs";
 import { ChapterToc } from "./ChapterToc";
 import { ReadingProgress } from "./ReadingProgress";
+import { AnnotationLayer } from "@/components/annotate/AnnotationLayer";
 import { PracticeSession } from "@/components/practice/PracticeSession";
 import { FlashcardDeck } from "@/components/flashcard/FlashcardDeck";
 import {
@@ -58,6 +59,7 @@ export function ChapterLayout({
   const navBase = "/chapter";
   const [activeTab, setActiveTab] = useState("learning");
   const showPractice = subjectSlug !== "english" && subjectSlug !== "arabic";
+  const articleRef = useRef<HTMLElement | null>(null);
 
   const crumbs: Crumb[] = breadcrumb ?? [
     { label: "Home", href: "/" },
@@ -83,6 +85,7 @@ export function ChapterLayout({
   return (
     <div className="mx-auto max-w-[1280px] px-6 py-10">
       <ReadingProgress color={subjectColor} />
+      <AnnotationLayer containerRef={articleRef as RefObject<HTMLElement | null>} enabled={activeTab === "learning"} />
 
       {/* Breadcrumb — micro-label, current page in ink */}
       <Breadcrumb className="mb-6">
@@ -155,7 +158,7 @@ export function ChapterLayout({
           {/* Empty spacer: keeps the reading column optically centred (§5.13) */}
           <div aria-hidden className="hidden xl:block" />
 
-          <article data-chapter-content className="min-w-0 max-w-none">
+          <article ref={articleRef} data-chapter-content className="min-w-0 max-w-none">
             {children}
 
             <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} basePath={navBase} />
