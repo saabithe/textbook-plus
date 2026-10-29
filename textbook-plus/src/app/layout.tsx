@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { ErrorBoundary } from "@/components/auth/ErrorBoundary";
 import { ServiceWorkerRegistration } from "@/components/layout/ServiceWorkerRegistration";
 import { UpdateBanner } from "@/components/layout/UpdateBanner";
+import { CreditFooter } from "@/components/layout/CreditFooter";
 import { getBuildCommit } from "@/lib/build-info";
 import "./globals.css";
 
@@ -108,19 +109,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             {children}
           </ErrorBoundary>
 
-          {/* Credits band (§5.12) — full bleed, once per page, below all content.
-              Plain text: no link, no button, no focus target. */}
-          <footer
-            className="w-full border-b border-border bg-card px-6 py-10 text-center sm:py-12"
-            style={{ borderTop: "3px solid var(--foreground)" }}
-          >
-            <span className="t-micro block text-[11px] font-bold tracking-[0.12em] text-muted-foreground">
-              POWERED BY
-            </span>
-            <span className="mt-2 block font-sans text-base font-bold uppercase tracking-[0.06em] text-foreground sm:text-xl">
-              SABITH THIRUNILATH
-            </span>
-          </footer>
+          <CreditFooter />
 
           <Toaster position="bottom-center" richColors closeButton />
         </ThemeProvider>
