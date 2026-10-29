@@ -223,6 +223,14 @@ const DISCOURSES = [
           style, then message and personal response.
         </p>
 
+        <KeyPoint title="Exam note — prepare the comparison too">
+          This poem has a high chance of being paired with an unseen poem of a
+          similar theme: motherhood, self-sacrifice, or a woman&rsquo;s place in
+          the home. Keep the comparison frame ready &mdash; both poems on the
+          same axis, a quotation from each &mdash; and this appreciation becomes
+          one half of that answer.
+        </KeyPoint>
+
         <h3
           id="app-introduction"
           className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
@@ -330,6 +338,153 @@ const DISCOURSES = [
           Overall, the poem is an inspiring and worthwhile piece of literature
           that deserves appreciation.
         </p>
+      </>
+    ),
+  },
+  {
+    id: "theme-indian-context",
+    title: "Theme in the Indian Context",
+    content: (
+      <>
+        <p>
+          <em>Any Woman</em> is a thought-provoking poem, and its theme travels
+          well beyond the Irish home it was written in. The speaker can be read
+          as a mother or as any woman: the poem gives one voice to a role that
+          every household depends on.
+        </p>
+        <p>
+          Read against the Indian social scenario, the poem holds two truths at
+          once. It reflects the honoured place of the mother, and it exposes the
+          unacknowledged labour that keeps that honour standing.
+        </p>
+
+        <h3
+          id="theme-freedom"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Freedom &mdash; and Whether Women Have It
+        </h3>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>
+            <strong>Freedom</strong> is living without control.
+          </li>
+          <li>
+            <strong>Real freedom</strong> is the ability to think and live
+            freely.
+          </li>
+          <li>
+            <strong>Do women enjoy it?</strong> Not always &mdash; they face
+            limits at home and at work.
+          </li>
+          <li>
+            <strong>Do women get support?</strong> They usually give more
+            support than they receive.
+          </li>
+          <li>
+            <strong>Equal status?</strong> No &mdash; women still face
+            inequality, and are often downplayed.
+          </li>
+        </ul>
+
+        <h3
+          id="theme-backbone"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          1. The Backbone of the Family vs Unacknowledged Labour
+        </h3>
+        <p>
+          In a traditional Indian household a woman is celebrated as the{" "}
+          <em>Ghar ki Laxmi</em>, the light and prosperity of the home &mdash;
+          exactly Tynan&rsquo;s &ldquo;fire upon the hearth&rdquo;. The
+          idealisation hides the work behind it: cooking (the &ldquo;board I
+          spread&rdquo;), keeping the house (&ldquo;from floor to roof&rdquo;)
+          and caregiving that earns no wage and no equal status.
+        </p>
+        <p>
+          Like the &ldquo;keystone of the arch&rdquo;, she holds the daily
+          routine together. Let her fall ill, and the whole domestic day
+          collapses &mdash; yet the labour itself is taken for granted.
+        </p>
+
+        <h3
+          id="theme-sacrifice"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          2. Self-Sacrifice and Emotional Conditioning
+        </h3>
+        <p>
+          The speaker binds her children in a &ldquo;sacred ring&rdquo; and
+          prays to be spared until they are grown. Indian conditioning teaches
+          girls the same lesson early: that their first purpose is sacrifice for
+          husband and children.
+        </p>
+        <p>
+          Health, nutrition, dreams and happiness are quietly placed last. The
+          love is noble, but in this setting it can become emotional
+          exploitation, and a woman&rsquo;s individual identity is subsumed
+          under her roles.
+        </p>
+
+        <h3
+          id="theme-matchbox"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          3. The Matchbox Paradox &mdash; Confinement and Autonomy
+        </h3>
+        <p>
+          Tynan makes the woman a &ldquo;wall against all danger&rdquo;, but in
+          many Indian homes she is the one who needs protection from patriarchal
+          dominance. Ashapurna Debi&rsquo;s &ldquo;Matchbox&rdquo; puts the
+          paradox plainly: a woman has &ldquo;enough gunpowder to set a hundred
+          Lankas aflame&rdquo;, yet stays meek inside the kitchen to keep the
+          peace.
+        </p>
+        <p>
+          Restricted movement, discriminatory inheritance laws and the lack of
+          financial independence keep many women dependent on male relatives.
+          Without money of their own, emancipation stays a word.
+        </p>
+
+        <h3
+          id="theme-dual-burden"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          4. The Dual Burden of Modern Indian Women
+        </h3>
+        <p>
+          Many women now work outside the home, but expectations inside it have
+          not moved. The result is a double shift &mdash; a full career followed
+          by the whole of the housework, again &ldquo;from floor to roof&rdquo;.
+        </p>
+        <p>
+          The workplace adds its own gap: women hold low-status jobs or earn
+          only three-quarters of what men earn for equal work. The poem&rsquo;s
+          complaint is therefore not historical; it is current.
+        </p>
+
+        <h3
+          id="theme-way-forward"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Conclusion and the Way Forward
+        </h3>
+        <p>
+          Tynan&rsquo;s poem is a reminder that a woman is the true anchor of
+          the home, and a warning that society must not exploit the nature that
+          makes her one. Realising the freedom the unit calls{" "}
+          <em>Flights of Freedom</em> needs two changes.
+        </p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>
+            <strong>Share the household work</strong> &mdash; redistribute
+            chores across the family so no one breaks under the load.
+          </li>
+          <li>
+            <strong>Empower through the 3 Ls</strong> &mdash; Learning, Labour
+            with equal pay, and Leadership, so women can step outside
+            traditional comfort zones with dignity and independence.
+          </li>
+        </ul>
       </>
     ),
   },
