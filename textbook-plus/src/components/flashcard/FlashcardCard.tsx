@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { Check, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Kbd } from "@/components/ui/kbd";
 import type { Flashcard } from "@/types/chapter";
@@ -26,6 +25,10 @@ function isTypingTarget(e: KeyboardEvent): boolean {
   );
 }
 
+/** 240ms cross-fade + 4px rise. No 3D rotation, no perspective. */
+const LAYER_MOTION =
+  "[transition:opacity_240ms_var(--ease-blueprint),transform_240ms_var(--ease-blueprint)] motion-reduce:transition-none";
+
 export function FlashcardCard({ card, subjectColor, onKnown, onUnknown }: FlashcardCardProps) {
   const [flipped, setFlipped] = useState(false);
 
@@ -42,72 +45,58 @@ export function FlashcardCard({ card, subjectColor, onKnown, onUnknown }: Flashc
   }, [flipped, onKnown, onUnknown]);
 
   return (
-    <div className="w-full max-w-lg mx-auto">
-      {/* Card */}
-      <div style={{ perspective: "1000px" }}>
-        <button
-          onClick={() => setFlipped((f) => !f)}
-          aria-pressed={flipped}
-          aria-label={flipped ? "Show question" : "Reveal answer"}
+    <div className="mx-auto w-full max-w-lg">
+      {/* Card — one hairline box, two cross-faded layers */}
+      <button
+        type="button"
+        onClick={() => setFlipped((f) => !f)}
+        aria-pressed={flipped}
+        aria-label={flipped ? "Show question" : "Reveal answer"}
+        className="relative block aspect-[3/2] w-full cursor-pointer rounded-lg border border-t-[3px] border-border bg-card text-left"
+        style={{ borderTopColor: subjectColor }}
+      >
+        {/* FRONT */}
+        <div
+          aria-hidden={flipped}
           className={cn(
-            "relative w-full aspect-[3/2] rounded-2xl border border-border/60 cursor-pointer",
-            "transition-transform duration-500 [transform-style:preserve-3d]",
-            flipped && "[transform:rotateY(180deg)]"
+            "absolute inset-0 flex flex-col items-center justify-center gap-3 px-5 py-6 text-center sm:px-8",
+            LAYER_MOTION,
+            flipped ? "pointer-events-none translate-y-1 opacity-0" : "translate-y-0 opacity-100"
           )}
         >
-          {/* Front */}
-          <Card
-            aria-hidden={flipped}
-            className="absolute inset-0 items-center justify-center rounded-2xl border border-border/60 p-6 sm:p-8 [backface-visibility:hidden]"
-            style={{ backgroundColor: `color-mix(in srgb, ${subjectColor} 3%, transparent)` }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: subjectColor }}>
-              Question
-            </p>
-            <p className="text-base sm:text-lg font-medium text-center leading-relaxed">
-              {card.front}
-            </p>
-            <p className="text-xs text-muted-foreground">Click or press Space to flip</p>
-          </Card>
+          <p className="t-micro">Front</p>
+          <p className="text-[19px] font-medium leading-[1.55] text-foreground">{card.front}</p>
+          <p className="text-[13px] text-muted-foreground">Click or press Space to flip</p>
+        </div>
 
-          {/* Back */}
-          <Card
-            aria-hidden={!flipped}
-            className="absolute inset-0 items-center justify-center rounded-2xl border border-border/60 p-6 sm:p-8 [backface-visibility:hidden] [transform:rotateY(180deg)]"
-            style={{ backgroundColor: `color-mix(in srgb, ${subjectColor} 6%, transparent)` }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-widest text-green-600 dark:text-green-400">
-              Answer
-            </p>
-            <p className="text-base sm:text-lg font-medium text-center leading-relaxed whitespace-pre-line">
-              {card.back}
-            </p>
-          </Card>
-        </button>
-      </div>
+        {/* BACK */}
+        <div
+          aria-hidden={!flipped}
+          className={cn(
+            "absolute inset-0 flex flex-col items-center justify-center gap-3 px-5 py-6 text-center sm:px-8",
+            LAYER_MOTION,
+            flipped ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-1 opacity-0"
+          )}
+        >
+          <p className="t-micro">Back</p>
+          <p className="whitespace-pre-line text-[19px] font-medium leading-[1.55] text-foreground">
+            {card.back}
+          </p>
+        </div>
+      </button>
 
-      {/* Rating buttons */}
+      {/* Rating buttons — hairline, no fills */}
       {flipped && (
-        <div className="flex items-center justify-center gap-3 mt-5">
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={onUnknown}
-            className="rounded-2xl border-2 border-red-600/40 bg-red-500 font-extrabold text-white hover:bg-red-500/90 hover:text-white active:translate-y-0.5 dark:text-white dark:hover:text-white"
-          >
-            <X className="h-4 w-4" />
+        <div className="mt-5 flex items-center justify-center gap-3">
+          <Button variant="outline" onClick={onUnknown}>
+            <X className="h-4 w-4" aria-hidden />
             Unknown
-            <Kbd className="hidden bg-white/20 px-1.5 py-0.5 text-[10px] font-extrabold text-white sm:inline">1</Kbd>
+            <Kbd className="ml-1 hidden sm:inline-flex">1</Kbd>
           </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={onKnown}
-            className="rounded-2xl border-2 border-green-600/40 bg-green-500 font-extrabold text-white hover:bg-green-500/90 hover:text-white active:translate-y-0.5 dark:text-white dark:hover:text-white"
-          >
-            <Check className="h-4 w-4" />
+          <Button variant="outline" onClick={onKnown}>
+            <Check className="h-4 w-4" aria-hidden />
             Known
-            <Kbd className="hidden bg-white/20 px-1.5 py-0.5 text-[10px] font-extrabold text-white sm:inline">2</Kbd>
+            <Kbd className="ml-1 hidden sm:inline-flex">2</Kbd>
           </Button>
         </div>
       )}

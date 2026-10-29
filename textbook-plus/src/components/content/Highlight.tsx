@@ -8,17 +8,28 @@ interface HighlightProps {
   children: React.ReactNode;
 }
 
+/**
+ * The five tones live in globals.css (`--hl-*`, light + dark). The mark is a
+ * low-alpha marker: no underline, no weight change, and `box-decoration-break`
+ * so a wrapped phrase keeps the mark shape on both lines.
+ */
 const colorClasses: Record<HighlightColor, string> = {
-  yellow: "bg-yellow-200/70 dark:bg-yellow-300/25",
-  blue: "bg-sky-200/70 dark:bg-sky-300/25",
-  pink: "bg-pink-200/70 dark:bg-pink-300/25",
-  green: "bg-emerald-200/70 dark:bg-emerald-300/25",
-  orange: "bg-orange-200/70 dark:bg-orange-300/25",
+  yellow: "bg-[var(--hl-yellow)]",
+  blue: "bg-[var(--hl-blue)]",
+  pink: "bg-[var(--hl-pink)]",
+  green: "bg-[var(--hl-green)]",
+  orange: "bg-[var(--hl-orange)]",
 };
 
 export function Highlight({ color = "yellow", className, children }: HighlightProps) {
   return (
-    <mark className={cn("px-0.5 rounded-[2px] font-semibold text-inherit", colorClasses[color], className)}>
+    <mark
+      className={cn(
+        "rounded-[2px] px-0.5 text-inherit [box-decoration-break:clone]",
+        colorClasses[color],
+        className
+      )}
+    >
       {children}
     </mark>
   );

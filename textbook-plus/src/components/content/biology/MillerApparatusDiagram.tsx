@@ -1,6 +1,6 @@
-const SKY = "#0ea5e9";
-const AMBER = "#f59e0b";
-const EMERALD = "#10b981";
+const SKY = "var(--subject-biology)";
+const AMBER = "var(--warning)";
+const EMERALD = "var(--ok)";
 const INK = "var(--foreground)";
 
 /**
@@ -42,7 +42,7 @@ export function MillerApparatusDiagram({
   compact = false,
 }: MillerApparatusDiagramProps) {
   return (
-    <div className="my-6 rounded-2xl border border-border/60 bg-card p-4 shadow-sm">
+    <div className="my-6 rounded-lg border border-border bg-card p-4">
       <p className="mb-3 text-sm font-extrabold tracking-tight text-foreground">{title}</p>
 
       <svg

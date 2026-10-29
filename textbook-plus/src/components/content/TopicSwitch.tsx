@@ -227,7 +227,7 @@ export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
       role="group"
       aria-label={label}
     >
-      <div className="sticky top-16 z-30 mb-4 flex items-center gap-3 rounded-xl border border-border/60 bg-background/90 p-1 pl-1.5 backdrop-blur supports-[backdrop-filter]:bg-background/75 print:hidden">
+      <div className="sticky top-16 z-30 mb-4 flex items-center gap-3 border-b border-border bg-background px-1.5 py-1">
         <div
           ref={listRef}
           role="tablist"
@@ -252,10 +252,10 @@ export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
                 tabIndex={isActive ? 0 : -1}
                 onClick={() => goTo(index)}
                 className={cn(
-                  "shrink-0 whitespace-nowrap rounded-lg px-3 py-1.5 text-sm font-medium transition-colors",
+                  "shrink-0 whitespace-nowrap px-3 py-1.5 text-sm font-medium transition-colors border-b-2",
                   isActive
-                    ? "bg-card text-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground",
+                    ? "border-foreground text-foreground"
+                    : "border-transparent text-muted-foreground hover:text-foreground",
                 )}
               >
                 {item.label}
@@ -265,7 +265,7 @@ export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
         </div>
         <span
           aria-hidden
-          className="shrink-0 pr-1.5 text-xs font-medium tabular-nums text-muted-foreground"
+          className="shrink-0 pr-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.08em] tabular-nums text-muted-foreground"
         >
           <span className="text-foreground">{active + 1}</span> of {count}
         </span>
@@ -274,7 +274,7 @@ export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
       {/* Desktop edge buttons: invisible until the reader hovers the gutter,
           and pinned to the middle of the viewport so a long pane never puts
           them out of reach. */}
-      <div className="group/prev absolute inset-y-0 -left-14 hidden w-12 lg:block print:hidden">
+      <div className="group/prev absolute inset-y-0 -left-14 hidden w-12 lg:block">
         <div className="sticky top-[calc(50vh-1.25rem)] flex justify-center opacity-0 transition-opacity duration-150 group-hover/prev:opacity-100 group-focus-within/prev:opacity-100">
           <button
             type="button"
@@ -282,7 +282,7 @@ export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
             aria-label={atStart ? "Previous format" : `Previous format: ${panes[active - 1].label}`}
             aria-disabled={atStart}
             className={cn(
-              "flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/95 shadow-sm backdrop-blur transition-colors",
+              "flex h-8 w-8 items-center justify-center rounded-[100%] border border-border bg-card transition-colors",
               atStart
                 ? "cursor-not-allowed text-muted-foreground/40"
                 : "text-foreground hover:bg-muted",
@@ -293,7 +293,7 @@ export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
         </div>
       </div>
 
-      <div className="group/next absolute inset-y-0 -right-14 hidden w-12 lg:block print:hidden">
+      <div className="group/next absolute inset-y-0 -right-14 hidden w-12 lg:block">
         <div className="sticky top-[calc(50vh-1.25rem)] flex justify-center opacity-0 transition-opacity duration-150 group-hover/next:opacity-100 group-focus-within/next:opacity-100">
           <button
             type="button"
@@ -301,7 +301,7 @@ export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
             aria-label={atEnd ? "Next format" : `Next format: ${panes[active + 1].label}`}
             aria-disabled={atEnd}
             className={cn(
-              "flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/95 shadow-sm backdrop-blur transition-colors",
+              "flex h-8 w-8 items-center justify-center rounded-[100%] border border-border bg-card transition-colors",
               atEnd
                 ? "cursor-not-allowed text-muted-foreground/40"
                 : "text-foreground hover:bg-muted",
@@ -313,7 +313,7 @@ export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
       </div>
 
       <div id={pane.id} className="relative scroll-mt-28">
-        <p className="mb-3 hidden text-sm font-semibold text-foreground print:block">
+        <p className="mb-3 hidden text-sm font-semibold text-foreground">
           Format {active + 1} of {count} &mdash; {pane.label}
         </p>
         <section
@@ -327,7 +327,7 @@ export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
           onTouchEnd={handleTouchEnd}
           onTouchCancel={handleTouchEnd}
           className={cn(
-            "touch-pan-y rounded-2xl border border-border bg-card px-5 py-5 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/50 sm:px-6 sm:py-6",
+            "touch-pan-y rounded-lg border border-border bg-card px-5 py-5 outline-none focus-visible:ring-2 focus-visible:ring-ring/50 sm:px-6 sm:py-6",
             animate &&
               (direction === 1 ? "animate-pane-in-from-right" : "animate-pane-in-from-left"),
           )}

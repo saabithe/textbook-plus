@@ -5,6 +5,7 @@ import { useState, type ReactNode } from "react";
 import { Callout } from "@/components/content/Callout";
 import { GrammarTabs, type GrammarTab } from "@/components/grammar/GrammarTabs";
 import { GrammarQuiz, type GrammarQuestion } from "@/components/grammar/GrammarQuiz";
+import { ChapterToc } from "@/components/chapter/ChapterToc";
 
 interface GrammarTopicLayoutProps {
   /** Definition shown in the one-sentence intro callout (term + meaning). */
@@ -19,7 +20,7 @@ interface GrammarTopicLayoutProps {
 /**
  * Shared shell for every grammar topic: owns the Concept/Practice tab state,
  * renders the intro callout above the concept sections, and swaps in the
- * practice quiz when the Practice tab is active.
+ * practice quiz when the Practice tab is active. Railled on the Concept tab.
  */
 export function GrammarTopicLayout({
   intro,
@@ -30,20 +31,29 @@ export function GrammarTopicLayout({
   const [tab, setTab] = useState<GrammarTab>("concept");
 
   return (
-    <>
+    <div className="mx-auto max-w-[1280px] px-6 py-10">
       <GrammarTabs tab={tab} onTabChange={setTab} />
 
       {tab === "concept" ? (
-        <>
-          <section id="introduction" className="scroll-mt-24">
-            <Callout type="note">{intro}</Callout>
-            {introExtra}
-          </section>
-          {children}
-        </>
+        <div className="xl:grid xl:grid-cols-[200px_minmax(0,72ch)_200px] xl:gap-12">
+          {/* Empty spacer: keeps the reading column optically centred (§5.13) */}
+          <div aria-hidden className="hidden xl:block" />
+
+          <article data-chapter-content className="min-w-0 max-w-none">
+            <section id="introduction" className="scroll-mt-24">
+              <Callout type="note">{intro}</Callout>
+              {introExtra}
+            </section>
+            {children}
+          </article>
+
+          <ChapterToc />
+        </div>
       ) : (
-        <GrammarQuiz questions={questions} />
+        <div className="mx-auto max-w-[72ch]">
+          <GrammarQuiz questions={questions} />
+        </div>
       )}
-    </>
+    </div>
   );
 }

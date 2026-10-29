@@ -1,5 +1,4 @@
-import { ArrowLeftRight } from "lucide-react";
-import { Card } from "@/components/ui/card";
+import { Fragment } from "react";
 import { Separator } from "@/components/ui/separator";
 
 interface ComparisonColumn {
@@ -11,31 +10,30 @@ interface ComparisonProps {
   columns: ComparisonColumn[];
 }
 
+/**
+ * Comparison — no card frame. Columns sit side by side, split by one 1px
+ * vertical Separator; below `sm` the rule turns horizontal and the columns
+ * stack. Column labels are micro, never headings.
+ */
 export function Comparison({ columns }: ComparisonProps) {
   return (
-    <Card className="my-6 gap-0 overflow-hidden rounded-2xl border border-border/60 py-0 shadow-sm">
-      <div className="flex items-center gap-2.5 px-5 py-3 bg-muted/30">
-        <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 shadow-md shadow-fuchsia-500/25">
-          <ArrowLeftRight className="h-3.5 w-3.5 text-white" />
-        </span>
-        <span className="text-xs font-extrabold uppercase tracking-[0.14em] text-foreground">Comparison</span>
-      </div>
-      <Separator />
-      <div
-        className="grid grid-cols-1 divide-y sm:divide-y-0 sm:divide-x divide-border/40 sm:[grid-template-columns:repeat(var(--cols),minmax(0,1fr))]"
-        style={{ "--cols": String(columns.length) } as React.CSSProperties}
-      >
-        {columns.map((col, i) => (
-          <div key={i} className="px-5 py-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
-              {col.title}
-            </p>
-            <div className="text-[0.95rem] leading-[1.75] text-foreground/85">
+    <div className="my-6 flex flex-col sm:flex-row sm:items-stretch">
+      {columns.map((col, i) => (
+        <Fragment key={i}>
+          {i > 0 && (
+            <>
+              <Separator className="my-4 sm:hidden" />
+              <Separator orientation="vertical" className="mx-6 hidden sm:block" />
+            </>
+          )}
+          <div className="min-w-0 flex-1">
+            <div className="t-micro">{col.title}</div>
+            <div className="mt-2 text-[1.03125rem] leading-[1.7] text-foreground/90">
               {col.children}
             </div>
           </div>
-        ))}
-      </div>
-    </Card>
+        </Fragment>
+      ))}
+    </div>
   );
 }

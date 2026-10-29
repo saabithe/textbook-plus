@@ -9,19 +9,16 @@ interface OrgChartNode {
 interface OrgChartProps {
   title?: string;
   nodes: OrgChartNode[];
-  /** Optional accent color (hex). Defaults to violet. */
+  /** Optional accent color (hex). Defaults to violet. Unused in Blueprint styling. */
   color?: string;
 }
 
-const DEFAULT_ACCENT = "#8b5cf6";
-
 function OrgChartNodeComponent({
   node,
-  accent,
   depth = 0,
 }: {
   node: OrgChartNode;
-  accent: string;
+  accent?: string;
   depth?: number;
 }) {
   const hasChildren = node.children && node.children.length > 0;
@@ -29,16 +26,10 @@ function OrgChartNodeComponent({
   return (
     <div className="flex flex-col items-center">
       <div
-        className="relative overflow-hidden rounded-xl border border-border/60 bg-card px-4 py-2.5 text-center shadow-sm transition-shadow hover:shadow-md"
+        className="rounded-lg border border-border bg-card px-4 py-2.5 text-center"
         style={{ minWidth: "110px" }}
       >
-        {depth === 0 && (
-          <span
-            className="absolute inset-x-0 top-0 h-[2px]"
-            style={{ background: `linear-gradient(90deg, ${accent}, color-mix(in srgb, ${accent} 20%, transparent))` }}
-          />
-        )}
-        <div className="text-sm font-extrabold tracking-tight text-foreground">
+        <div className="text-sm font-semibold tracking-tight text-foreground">
           {node.label}
         </div>
         {node.detail && <div className="mt-0.5 text-xs text-muted-foreground">{node.detail}</div>}
@@ -46,12 +37,12 @@ function OrgChartNodeComponent({
 
       {hasChildren && (
         <div className="flex flex-col items-center">
-          <div className="h-4 w-px" style={{ background: `linear-gradient(180deg, color-mix(in srgb, ${accent} 40%, transparent), color-mix(in srgb, ${accent} 13%, transparent))` }} />
-          <div className="flex border-t pt-4" style={{ borderColor: `color-mix(in srgb, ${accent} 20%, transparent)` }}>
+          <div className="h-4 w-px bg-rule-strong" />
+          <div className="flex border-t border-rule-strong pt-4">
             {node.children!.map((child, i) => (
               <div key={i} className="flex flex-col items-center">
-                <div className="h-4 w-px" style={{ background: `linear-gradient(180deg, color-mix(in srgb, ${accent} 40%, transparent), color-mix(in srgb, ${accent} 13%, transparent))` }} />
-                <OrgChartNodeComponent node={child} accent={accent} depth={depth + 1} />
+                <div className="h-4 w-px bg-rule-strong" />
+                <OrgChartNodeComponent node={child} depth={depth + 1} />
               </div>
             ))}
           </div>
@@ -61,23 +52,21 @@ function OrgChartNodeComponent({
   );
 }
 
-export function OrgChart({ title, nodes, color }: OrgChartProps) {
-  const accent = color ?? DEFAULT_ACCENT;
-
+export function OrgChart({ title, nodes }: OrgChartProps) {
   return (
-    <div className="my-6 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+    <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
       {title && (
-        <div className="flex items-center gap-2.5 border-b border-border/40 bg-muted/30 px-4 py-2.5">
-          <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 shadow-sm shadow-violet-500/30">
-            <Network className="h-3.5 w-3.5 text-white" />
+        <div className="flex items-center gap-2.5 border-b border-border px-4 py-2.5">
+          <span className="flex h-6 w-6 items-center justify-center rounded-[3px] border border-border bg-card text-muted-foreground">
+            <Network className="h-3.5 w-3.5" />
           </span>
-          <span className="text-sm font-extrabold tracking-tight text-foreground">{title}</span>
+          <span className="text-sm font-bold tracking-tight text-foreground">{title}</span>
         </div>
       )}
       <div className="overflow-x-auto px-5 py-5">
         <div className="flex min-w-max justify-center">
           {nodes.map((node, i) => (
-            <OrgChartNodeComponent key={i} node={node} accent={accent} />
+            <OrgChartNodeComponent key={i} node={node} />
           ))}
         </div>
       </div>

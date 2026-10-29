@@ -1,21 +1,28 @@
-import { Sigma } from "lucide-react";
-
+/**
+ * FormulaCard — the standard box (§14.0) for an equation that deserves a frame:
+ * 1px border, radius 6, one 3px left rule (subject hue, else ink),
+ * a micro label, and the formula centred at ≈20px.
+ */
 interface FormulaCardProps {
   children: React.ReactNode;
+  /** Micro label above the formula. */
+  label?: string;
+  /** Subject hue for the rule, e.g. `var(--subject-physics)`. Defaults to ink. */
+  subjectColor?: string;
 }
 
-export function FormulaCard({ children }: FormulaCardProps) {
+export function FormulaCard({ children, label = "Formula", subjectColor }: FormulaCardProps) {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-violet-500/20 bg-gradient-to-br from-violet-500/[0.08] via-indigo-500/[0.04] to-transparent dark:from-violet-500/[0.12] dark:via-indigo-500/[0.07] dark:to-transparent px-5 py-4 my-6 shadow-sm">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-violet-500/30 via-indigo-500/20 to-transparent" />
-      <div className="flex items-center gap-1.5 mb-2.5">
-        <span className="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-indigo-400 shadow-sm shadow-violet-500/30">
-          <Sigma className="h-3.5 w-3.5 text-white" />
-        </span>
-        <span className="text-xs font-extrabold tracking-widest text-violet-600 dark:text-violet-400 uppercase">Formula</span>
-        <span className="h-px flex-1 bg-gradient-to-r from-violet-500/20 to-transparent ml-2" />
+    <div
+      className="my-6 overflow-hidden rounded-lg border border-border bg-card"
+      style={{ borderLeftWidth: 3, borderLeftColor: subjectColor ?? "var(--foreground)" }}
+    >
+      <div className="border-b border-border px-4 py-3 sm:px-5">
+        <span className="t-micro">{label}</span>
       </div>
-      {children}
+      <div className="px-4 py-4 sm:px-5 sm:py-5 [&>div]:my-0 [&>p]:mb-0">
+        {children}
+      </div>
     </div>
   );
 }

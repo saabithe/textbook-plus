@@ -45,8 +45,8 @@ export function AmpereSurfaceToggle() {
   const surface = SURFACES.find((s) => s.id === active)!;
 
   return (
-    <div className="my-6 rounded-2xl border border-blue-500/20 bg-card p-4 shadow-sm">
-      <div className="mb-3 flex items-center gap-2 text-sm font-extrabold tracking-wide text-blue-900 dark:text-blue-100">
+    <div className="my-6 rounded-lg border border-border bg-card p-4">
+      <div className="mb-3 flex items-center gap-2 text-sm font-extrabold tracking-wide text-foreground">
         <Formula>{String.raw`\Rightarrow`}</Formula>
         <span>Surface selector, same loop</span>
       </div>
@@ -58,10 +58,10 @@ export function AmpereSurfaceToggle() {
             type="button"
             onClick={() => setActive(s.id)}
             className={cn(
-              "rounded-xl border px-3 py-1.5 text-sm font-bold tracking-tight transition-colors",
+              "rounded-lg border px-3 py-1.5 text-sm font-bold tracking-tight transition-colors",
               active === s.id
-                ? "border-blue-500 bg-blue-500 text-white shadow-sm shadow-blue-500/30"
-                : "border-border/60 bg-muted/40 text-foreground/70 hover:bg-muted/60"
+                ? "border-foreground bg-foreground text-background"
+                : "border-border bg-card text-muted-foreground hover:text-foreground"
             )}
           >
             {s.short}
@@ -69,7 +69,7 @@ export function AmpereSurfaceToggle() {
         ))}
       </div>
 
-      <div className="mb-3 grid gap-2 rounded-xl border border-border/40 bg-muted/25 p-3 sm:grid-cols-2">
+      <div className="mb-3 grid gap-2 rounded-lg border border-border bg-muted/40 p-3 sm:grid-cols-2">
         <div>
           <p className="mb-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">
             Current enclosed
@@ -87,12 +87,12 @@ export function AmpereSurfaceToggle() {
             <Formula>{String.raw`${surface.integral}`}</Formula>
           </div>
           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            Result: <strong className="text-blue-700 dark:text-blue-300">{surface.verdict}</strong>
+            Result: <strong className="text-foreground">{surface.verdict}</strong>
           </p>
         </div>
       </div>
 
-      <div className="flex items-start gap-2 rounded-xl border border-amber-500/30 bg-amber-500/[0.08] px-3 py-2.5 text-sm font-semibold text-amber-900 dark:text-amber-200">
+      <div className="flex items-start gap-2 rounded-lg border border-warning/40 bg-warning/10 px-3 py-2.5 text-sm font-semibold text-foreground">
         <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
         <span>
           ⚠️ Same loop → two different answers. The magnetic field at P is{" "}

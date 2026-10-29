@@ -10,13 +10,13 @@ interface GrammarSectionProps {
 
 /**
  * Uniform wrapper for a concept-tab section in a grammar topic:
- * a `scroll-mt-24 mt-14` section with an optional h2 heading.
+ * a `scroll-mt-24` section with a hairline rule above and an optional h2 heading.
  */
 export function GrammarSection({ id, title, children }: GrammarSectionProps) {
   return (
-    <section id={id} className="scroll-mt-24 mt-14">
+    <section id={id} className="scroll-mt-24 mt-14 border-t border-border pt-6">
       {title ? (
-        <h2 className="text-2xl font-bold tracking-tight mb-5">{title}</h2>
+        <h2 className="t-h2 mb-5">{title}</h2>
       ) : null}
       {children}
     </section>

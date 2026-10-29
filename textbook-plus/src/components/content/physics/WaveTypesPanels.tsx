@@ -1,5 +1,6 @@
-const VIOLET = "#8b5cf6";
-const AMBER = "#f59e0b";
+/** Series 1 = the physics hue, series 2 = ink. */
+const SERIES_1 = "var(--subject-physics)";
+const SERIES_2 = "var(--foreground)";
 
 function TransversePanel() {
   const W = 300;
@@ -24,23 +25,22 @@ function TransversePanel() {
         y1={mean}
         x2={x1}
         y2={mean}
-        stroke="var(--foreground)"
-        strokeOpacity="0.25"
+        stroke="var(--border)"
         strokeWidth="1.5"
         strokeDasharray="4 4"
       />
-      <polyline points={points} fill="none" stroke={VIOLET} strokeWidth="2.5" strokeLinecap="round" />
+      <polyline points={points} fill="none" stroke={SERIES_1} strokeWidth="2.5" strokeLinecap="round" />
       {/* particle oscillation (perpendicular) */}
-      <line x1={crestX} y1={mean - amp} x2={crestX} y2={mean + amp} stroke={VIOLET} strokeWidth="2" />
-      <polygon points={`${crestX},${mean - amp} ${crestX - 5},${mean - amp + 8} ${crestX + 5},${mean - amp + 8}`} fill={VIOLET} />
-      <polygon points={`${crestX},${mean + amp} ${crestX - 5},${mean + amp - 8} ${crestX + 5},${mean + amp - 8}`} fill={VIOLET} />
-      <circle cx={crestX} cy={mean - amp} r="4.5" fill={VIOLET} />
+      <line x1={crestX} y1={mean - amp} x2={crestX} y2={mean + amp} stroke={SERIES_1} strokeWidth="2" />
+      <polygon points={`${crestX},${mean - amp} ${crestX - 5},${mean - amp + 8} ${crestX + 5},${mean - amp + 8}`} fill={SERIES_1} />
+      <polygon points={`${crestX},${mean + amp} ${crestX - 5},${mean + amp - 8} ${crestX + 5},${mean + amp - 8}`} fill={SERIES_1} />
+      <circle cx={crestX} cy={mean - amp} r="4.5" fill={SERIES_1} />
       <text x={crestX + 10} y={mean + 4} fontSize="11" fill="var(--muted-foreground)">
         particle
       </text>
       {/* propagation */}
-      <line x1={34} y1={140} x2={252} y2={140} stroke="var(--foreground)" strokeOpacity="0.65" strokeWidth="1.5" />
-      <polygon points={`258,140 248,135 248,145`} fill="var(--foreground)" fillOpacity="0.65" />
+      <line x1={34} y1={140} x2={252} y2={140} stroke="var(--foreground)" strokeWidth="1.5" />
+      <polygon points={`258,140 248,135 248,145`} fill="var(--foreground)" />
       <text x={30} y={144} fontSize="11" fill="var(--muted-foreground)">
         propagation
       </text>
@@ -69,8 +69,7 @@ function LongitudinalPanel() {
         y1={mean}
         x2={x1}
         y2={mean}
-        stroke="var(--foreground)"
-        strokeOpacity="0.25"
+        stroke="var(--border)"
         strokeWidth="1.5"
         strokeDasharray="4 4"
       />
@@ -81,24 +80,24 @@ function LongitudinalPanel() {
           y1={mean - 32}
           x2={x}
           y2={mean + 32}
-          stroke={AMBER}
+          stroke={SERIES_2}
           strokeWidth={0.8 + 3.4 * d}
           strokeLinecap="round"
           strokeOpacity={0.18 + 0.82 * d}
         />
       ))}
       {/* highlighted particle oscillation (parallel) */}
-      <line x1={compressionAt - 16} y1={126} x2={compressionAt + 16} y2={126} stroke={AMBER} strokeWidth="2" />
-      <polygon points={`${compressionAt - 16},126 ${compressionAt - 8},121 ${compressionAt - 8},131`} fill={AMBER} />
-      <polygon points={`${compressionAt + 16},126 ${compressionAt + 8},121 ${compressionAt + 8},131`} fill={AMBER} />
-      <line x1={compressionAt} y1={mean + 32 + 4} x2={compressionAt} y2={126} stroke={AMBER} strokeWidth="1" strokeDasharray="3 3" strokeOpacity="0.6" />
-      <circle cx={compressionAt} cy={mean} r="4.5" fill={AMBER} />
+      <line x1={compressionAt - 16} y1={126} x2={compressionAt + 16} y2={126} stroke={SERIES_2} strokeWidth="2" />
+      <polygon points={`${compressionAt - 16},126 ${compressionAt - 8},121 ${compressionAt - 8},131`} fill={SERIES_2} />
+      <polygon points={`${compressionAt + 16},126 ${compressionAt + 8},121 ${compressionAt + 8},131`} fill={SERIES_2} />
+      <line x1={compressionAt} y1={mean + 32 + 4} x2={compressionAt} y2={126} stroke={SERIES_2} strokeWidth="1" strokeDasharray="3 3" strokeOpacity="0.5" />
+      <circle cx={compressionAt} cy={mean} r="4.5" fill={SERIES_2} />
       <text x={compressionAt + 24} y={130} fontSize="11" fill="var(--muted-foreground)">
         particle
       </text>
       {/* propagation */}
-      <line x1={34} y1={140} x2={252} y2={140} stroke="var(--foreground)" strokeOpacity="0.65" strokeWidth="1.5" />
-      <polygon points={`258,140 248,135 248,145`} fill="var(--foreground)" fillOpacity="0.65" />
+      <line x1={34} y1={140} x2={252} y2={140} stroke="var(--foreground)" strokeWidth="1.5" />
+      <polygon points={`258,140 248,135 248,145`} fill="var(--foreground)" />
       <text x={30} y={144} fontSize="11" fill="var(--muted-foreground)">
         propagation
       </text>
@@ -120,21 +119,19 @@ function Panel({
   children: React.ReactNode;
 }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
-      <div className="flex items-center gap-2 border-b border-border/40 bg-muted/30 px-4 py-2.5">
+    <div className="overflow-hidden rounded-lg border border-border bg-card">
+      <div className="flex items-center gap-2 border-b border-border px-4 py-2.5">
         <span
-          className="flex h-6 w-6 items-center justify-center rounded-lg text-sm font-extrabold text-white shadow-sm"
-          style={{ background: accent }}
+          className="flex h-6 w-6 items-center justify-center rounded-[3px] border border-border text-xs font-bold"
+          style={{ color: accent }}
         >
           {symbol}
         </span>
-        <span className="text-xs font-extrabold uppercase tracking-[0.14em]" style={{ color: accent }}>
-          {label}
-        </span>
+        <span className="t-micro">{label}</span>
       </div>
       <div className="px-3 py-3">{children}</div>
-      <div className="border-t border-border/40 bg-muted/20 px-4 py-2 text-center text-xs font-semibold text-muted-foreground">
-        {caption}
+      <div className="border-t border-border bg-muted/40 px-4 py-2 text-center">
+        <span className="t-micro">{caption}</span>
       </div>
     </div>
   );
@@ -144,24 +141,20 @@ export function WaveTypesPanels() {
   return (
     <div className="my-6">
       <div className="grid gap-4 sm:grid-cols-2">
-        <Panel label="Transverse" symbol="⟂" caption="Particle motion ⟂ propagation" accent={VIOLET}>
+        <Panel label="Transverse" symbol="⟂" caption="Particle motion ⟂ propagation" accent={SERIES_1}>
           <TransversePanel />
         </Panel>
-        <Panel label="Longitudinal" symbol="∥" caption="Particle motion ∥ propagation" accent={AMBER}>
+        <Panel label="Longitudinal" symbol="∥" caption="Particle motion ∥ propagation" accent={SERIES_2}>
           <LongitudinalPanel />
         </Panel>
       </div>
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
-        <div className="rounded-2xl border border-violet-500/30 bg-violet-500/10 px-4 py-3 text-center">
-          <p className="text-sm font-extrabold uppercase tracking-[0.14em] text-violet-700 dark:text-violet-300">
-            Transverse = Perpendicular
-          </p>
+        <div className="border-l-[3px] px-3 py-1.5" style={{ borderLeftColor: SERIES_1 }}>
+          <p className="t-micro">Transverse = Perpendicular</p>
         </div>
-        <div className="rounded-2xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-center">
-          <p className="text-sm font-extrabold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">
-            Longitudinal = Parallel
-          </p>
+        <div className="border-l-[3px] px-3 py-1.5" style={{ borderLeftColor: SERIES_2 }}>
+          <p className="t-micro">Longitudinal = Parallel</p>
         </div>
       </div>
     </div>

@@ -1,17 +1,16 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import type { CSSProperties } from "react";
 import { ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
  * Thin chapter reading-progress bar pinned just under the sticky navbar,
- * plus a floating percentage chip that doubles as a "back to top" button.
- * Purely visual — no persistence.
+ * plus a percentage control that doubles as "back to top".
+ * Purely visual — no persistence. 2px ink, square ends (§5.3).
  */
 export function ReadingProgress({
-  color,
+  color: _color,
   top = 64,
 }: {
   color: string;
@@ -56,7 +55,7 @@ export function ReadingProgress({
   return (
     <>
       <div
-        className="pointer-events-none fixed left-0 z-40 h-[3px] w-full"
+        className="pointer-events-none fixed left-0 z-40 h-[2px] w-full"
         style={{ top }}
         role="progressbar"
         aria-label="Reading progress"
@@ -64,16 +63,10 @@ export function ReadingProgress({
         aria-valuemin={0}
         aria-valuemax={100}
       >
-        <div className="h-full w-full bg-border/40" />
+        <div className="h-full w-full bg-border" />
         <div
-          className="absolute inset-y-0 left-0 w-full origin-left will-change-transform transition-transform duration-150 ease-out motion-reduce:transition-none"
-          style={
-            {
-              transform: `scaleX(${progress})`,
-              background: `linear-gradient(90deg, ${color}, color-mix(in srgb, ${color} 67%, transparent))`,
-              boxShadow: `0 0 10px color-mix(in srgb, ${color} 40%, transparent)`,
-            } as CSSProperties
-          }
+          className="absolute inset-y-0 left-0 w-full origin-left bg-foreground will-change-transform transition-transform duration-[120ms] ease-blueprint motion-reduce:transition-none"
+          style={{ transform: `scaleX(${progress})` }}
         />
       </div>
 
@@ -84,11 +77,11 @@ export function ReadingProgress({
         aria-hidden={!chipVisible}
         tabIndex={chipVisible ? 0 : -1}
         className={cn(
-          "fixed bottom-5 right-5 z-40 flex items-center gap-1.5 rounded-full border border-border/70 bg-card/90 px-3 py-2 text-xs font-extrabold tabular-nums text-foreground shadow-lg backdrop-blur transition-all duration-300 motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-xl",
-          chipVisible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"
+          "fixed bottom-5 right-5 z-40 flex items-center gap-1.5 rounded-[3px] border border-border bg-card px-2.5 py-1.5 text-[11px] font-bold tabular-nums text-foreground transition-[opacity,transform,border-color] duration-[180ms] ease-blueprint motion-reduce:transition-none hover:border-rule-strong",
+          chipVisible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-1 opacity-0"
         )}
       >
-        <ArrowUp className="h-3.5 w-3.5" />
+        <ArrowUp className="h-3 w-3" strokeWidth={2} />
         {pct}%
       </button>
     </>

@@ -91,7 +91,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 meta.name = 'theme-color';
                 document.head.appendChild(meta);
                 function sync() {
-                  meta.content = document.documentElement.classList.contains('dark') ? '#1B1E27' : '#FAFAFA';
+                  meta.content = document.documentElement.classList.contains('dark') ? 'rgb(23 23 23)' : 'rgb(255 255 255)';
                 }
                 sync();
                 new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
@@ -107,6 +107,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ErrorBoundary>
             {children}
           </ErrorBoundary>
+
+          {/* Credits band (§5.12) — full bleed, once per page, below all content.
+              Plain text: no link, no button, no focus target. */}
+          <footer
+            className="w-full border-b border-border bg-card px-6 py-10 text-center sm:py-12"
+            style={{ borderTop: "3px solid var(--foreground)" }}
+          >
+            <span className="t-micro block text-[11px] font-bold tracking-[0.12em] text-muted-foreground">
+              POWERED BY
+            </span>
+            <span className="mt-2 block font-sans text-base font-bold uppercase tracking-[0.06em] text-foreground sm:text-xl">
+              SABITH THIRUNILATH
+            </span>
+          </footer>
+
           <Toaster position="bottom-center" richColors closeButton />
         </ThemeProvider>
       </body>

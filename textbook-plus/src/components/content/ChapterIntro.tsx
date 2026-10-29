@@ -28,14 +28,6 @@ interface ChapterIntroProps {
   className?: string;
 }
 
-/**
- * The compact strip that opens a chapter: who wrote it, what kind of text it
- * is, and — for plays and stories — who is in it.
- *
- * Two lines by default (`AUTHOR · Name · Genre` and `CHARACTERS · A · B · C`);
- * author facts stay behind a dropdown, so the strip never grows beyond what the
- * chapter actually needs.
- */
 export function ChapterIntro({
   author,
   role = "Author",
@@ -53,29 +45,21 @@ export function ChapterIntro({
   return (
     <section
       dir={dir}
-      className={cn(
-        "my-8 rounded-xl border border-border/50 bg-muted/20 px-4 py-3",
-        className,
-      )}
+      className={cn("my-8 border-y border-border py-4", className)}
     >
       {/* Who + what */}
-      <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5">
-        <span className="rounded-full bg-foreground/[0.06] px-2 py-0.5 text-[0.6rem] font-extrabold uppercase tracking-[0.14em] text-muted-foreground">
-          {role}
-        </span>
-        <span
-          dir="auto"
-          className="text-[1.06rem] font-bold leading-tight tracking-tight text-foreground"
-        >
+      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1.5">
+        <span className="t-micro text-muted-foreground">{role}</span>
+        <span dir="auto" className="text-[15px] font-bold leading-tight tracking-tight text-foreground">
           {author}
         </span>
         {subname && (
-          <span dir="auto" className="text-[0.85rem] font-medium text-muted-foreground">
+          <span dir="auto" className="text-[15px] font-medium text-muted-foreground">
             {subname}
           </span>
         )}
         {(genre || genreArabic) && (
-          <span className="ms-auto flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-[0.85rem] text-muted-foreground">
+          <span className="ms-auto flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-[15px] text-muted-foreground">
             {genreArabic && (
               <span dir="rtl" className="font-semibold text-foreground/80">
                 {genreArabic}
@@ -88,19 +72,17 @@ export function ChapterIntro({
 
       {/* Who is in it — plays and stories only */}
       {characters && characters.length > 0 && (
-        <div className="mt-2 border-t border-border/40 pt-2 text-[0.85rem] leading-relaxed text-foreground/75">
-          <span className="me-2 text-[0.6rem] font-extrabold uppercase tracking-[0.14em] text-muted-foreground">
-            Characters
-          </span>
+        <div className="mt-2 border-t border-border pt-2 text-[15px] leading-relaxed text-foreground/75">
+          <span className="me-2 t-micro text-muted-foreground">Characters</span>
           {characters.join(" · ")}
         </div>
       )}
 
       {/* Author facts, folded away */}
       {hasChildren && (
-        <div className="mt-2 border-t border-border/40 pt-2">
+        <div className="mt-2 border-t border-border pt-2">
           <Collapsible open={open} onOpenChange={setOpen}>
-            <CollapsibleTrigger className="flex w-full items-center gap-1.5 text-[0.68rem] font-extrabold uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground">
+            <CollapsibleTrigger className="flex w-full items-center gap-1.5 t-micro text-muted-foreground transition-colors hover:text-foreground">
               <ChevronDown
                 className={cn(
                   "h-3.5 w-3.5 shrink-0 transition-transform duration-200",
@@ -113,7 +95,7 @@ export function ChapterIntro({
               keepMounted
               className="overflow-hidden transition-all duration-300 ease-in-out data-[closed]:max-h-0 data-[closed]:opacity-0 data-[open]:max-h-[2000px] data-[open]:opacity-100"
             >
-              <div className="pt-2 text-[0.92rem] leading-[1.7] text-foreground/80">
+              <div className="pt-2 text-[15px] leading-[1.7] text-foreground/80">
                 {children}
               </div>
             </CollapsibleContent>

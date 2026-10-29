@@ -50,7 +50,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   return (
     <section className="mb-16">
       <h2 className="text-xl font-bold tracking-tight text-foreground mb-8 flex items-center gap-3">
-        <span className="h-7 w-1.5 rounded-full bg-gradient-to-b from-violet-500 to-fuchsia-400" />
+        <span className="h-7 w-1.5 rounded-[2px] bg-foreground" />
         {title}
       </h2>
       <div className="space-y-12">{children}</div>

@@ -122,12 +122,10 @@ export function PocketGrid({ items, title, columns = 3 }: PocketGridProps) {
                 else cards.current.delete(item.id);
               }}
               className={cn(
-                "overflow-hidden rounded-2xl border bg-card shadow-sm transition-all duration-200",
-                "bg-gradient-to-br from-violet-500/[0.06] via-indigo-500/[0.03] to-transparent",
-                "dark:from-violet-500/[0.10] dark:via-indigo-500/[0.05]",
+                "overflow-hidden rounded-lg border bg-card transition-all duration-200",
                 isOpen
-                  ? "border-violet-500/60 shadow-md sm:col-span-2"
-                  : "border-border/70 hover:border-violet-500/40 hover:shadow-md",
+                  ? "border-rule-strong sm:col-span-2"
+                  : "border-border hover:bg-foreground/[0.03]",
                 isOpen && columns === 3 && "lg:col-span-3",
               )}
             >
@@ -148,7 +146,7 @@ export function PocketGrid({ items, title, columns = 3 }: PocketGridProps) {
                 <span
                   aria-hidden
                   className={cn(
-                    "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 text-base leading-none text-white shadow-sm shadow-violet-500/30",
+                    "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-base leading-none text-foreground",
                     "transition-transform duration-200",
                   )}
                 >
@@ -177,7 +175,7 @@ export function PocketGrid({ items, title, columns = 3 }: PocketGridProps) {
                   className={cn(
                     "h-4 w-4 shrink-0 transition-transform duration-200",
                     isOpen
-                      ? "mt-1.5 rotate-180 text-violet-600 dark:text-violet-400"
+                      ? "mt-1.5 rotate-180 text-foreground"
                       : "text-muted-foreground/60",
                   )}
                 />

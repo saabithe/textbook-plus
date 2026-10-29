@@ -8,10 +8,8 @@ const FIRST_PANEL_X = 95;
 interface BeakSpec {
   name: string;
   diet: string;
-  /** Tailwind classes for the beak fill + outline. */
-  beak: string;
-  /** Tailwind classes for the diet chip. */
-  chip: string;
+  /** Series colour for the beak and chip, as a CSS colour value. */
+  color: string;
   /** Beak outline, drawn rightwards from the base x inside the head. */
   path: (bx: number) => string;
 }
@@ -20,32 +18,28 @@ const FINCHES: BeakSpec[] = [
   {
     name: "Large ground finch",
     diet: "Seeds",
-    beak: "fill-amber-400 stroke-amber-600 dark:fill-amber-300 dark:stroke-amber-200",
-    chip: "fill-amber-400 stroke-amber-500/40",
+    color: "var(--subject-biology)",
     // deep, stout, crushing
     path: (bx) => `M ${bx} 106 Q ${bx + 23} 109 ${bx + 29} 124 Q ${bx + 23} 139 ${bx} 142 Z`,
   },
   {
     name: "Warbler finch",
     diet: "Insects",
-    beak: "fill-sky-400 stroke-sky-600 dark:fill-sky-300 dark:stroke-sky-200",
-    chip: "fill-sky-400 stroke-sky-500/40",
+    color: "var(--foreground)",
     // small, slender, pointed
     path: (bx) => `M ${bx} 117 Q ${bx + 15} 119 ${bx + 26} 124 Q ${bx + 15} 129 ${bx} 131 Z`,
   },
   {
     name: "Cactus finch",
     diet: "Cactus / nectar",
-    beak: "fill-rose-400 stroke-rose-600 dark:fill-rose-300 dark:stroke-rose-200",
-    chip: "fill-rose-400 stroke-rose-500/40",
+    color: "var(--muted-foreground)",
     // long, stout, slightly curved downwards
     path: (bx) => `M ${bx} 111 Q ${bx + 22} 112 ${bx + 35} 126 Q ${bx + 22} 133 ${bx} 137 Z`,
   },
   {
     name: "Vegetarian finch",
     diet: "Buds and fruit",
-    beak: "fill-emerald-400 stroke-emerald-600 dark:fill-emerald-300 dark:stroke-emerald-200",
-    chip: "fill-emerald-400 stroke-emerald-500/40",
+    color: "var(--faint)",
     // short, thick, curved
     path: (bx) => `M ${bx} 108 Q ${bx + 15} 112 ${bx + 17} 126 Q ${bx + 13} 140 ${bx} 144 Z`,
   },
@@ -58,7 +52,7 @@ function FinchPanel({ cx, spec }: { cx: number; spec: BeakSpec }) {
   return (
     <g>
       {/* beak sits behind the head so the join stays seamless */}
-      <path d={spec.path(beakBaseX)} strokeWidth={1} strokeLinejoin="round" className={spec.beak} />
+      <path d={spec.path(beakBaseX)} fill={spec.color} stroke={spec.color} strokeWidth={1} strokeLinejoin="round" />
       <ellipse
         cx={headCx}
         cy={HEAD_CY}
@@ -78,10 +72,12 @@ function FinchPanel({ cx, spec }: { cx: number; spec: BeakSpec }) {
         y={194}
         width={116}
         height={21}
-        rx={10.5}
+        rx={3}
+        fill={spec.color}
         fillOpacity={0.16}
+        stroke={spec.color}
+        strokeOpacity={0.4}
         strokeWidth={1}
-        className={spec.chip}
       />
       <text x={cx} y={208.5} fontSize={11.5} fontWeight={600} textAnchor="middle" className="fill-muted-foreground">
         {spec.diet}
@@ -99,7 +95,7 @@ export function FinchBeaksDiagram({ title = "One ancestor, four beaks" }: FinchB
   const panels = FINCHES.map((spec, i) => ({ cx: FIRST_PANEL_X + i * PANEL_STEP, spec }));
 
   return (
-    <div className="my-6 rounded-2xl border border-border/60 bg-card p-4 shadow-sm">
+    <div className="my-6 rounded-lg border border-border bg-card p-4">
       <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.14em] text-muted-foreground">{title}</p>
       <svg
         viewBox="0 0 760 240"
@@ -110,7 +106,7 @@ export function FinchBeaksDiagram({ title = "One ancestor, four beaks" }: FinchB
         <title>{title} — adaptive radiation in Darwin&apos;s finches</title>
 
         {/* ancestor strip */}
-        <rect x={196} y={10} width={368} height={32} rx={16} fillOpacity={0.4} strokeWidth={1} className="fill-muted stroke-border" />
+        <rect x={196} y={10} width={368} height={32} rx={6} fillOpacity={0.4} strokeWidth={1} className="fill-muted stroke-border" />
         <g className="fill-foreground" fillOpacity={0.45}>
           <polygon points="215,27 205,21 205,33" />
           <ellipse cx={224} cy={27} rx={10} ry={7} />

@@ -2,10 +2,9 @@
 
 import { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
-import { Brain, Layers } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { ChapterNav } from "./ChapterNav";
 import { ChapterTabs, PracticePlaceholder } from "./ChapterTabs";
+import { ChapterToc } from "./ChapterToc";
 import { ReadingProgress } from "./ReadingProgress";
 import { PracticeSession } from "@/components/practice/PracticeSession";
 import { FlashcardDeck } from "@/components/flashcard/FlashcardDeck";
@@ -17,8 +16,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Separator } from "@/components/ui/separator";
 import { getAdjacentChapters } from "@/data/chapters";
 import { getQuestionsForChapter, getFlashcardsForChapter, hasQuestions, hasFlashcards } from "@/lib/content";
 import type { Chapter } from "@/data/chapters";
@@ -37,6 +36,12 @@ interface ChapterLayoutProps {
   children: React.ReactNode;
   breadcrumb?: Crumb[];
   subtitle?: string;
+}
+
+const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
+
+function toRoman(n: number): string {
+  return ROMAN[n - 1] ?? String(n);
 }
 
 export function ChapterLayout({
@@ -60,22 +65,38 @@ export function ChapterLayout({
     { label: chapter.title },
   ];
 
+  const numeral = String(chapter.number).padStart(2, "0");
+  const eyebrow = [
+    `Chapter ${numeral}`,
+    chapter.unit ? `Unit ${toRoman(chapter.unit)}` : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+  const meta =
+    subtitle ??
+    (chapter.titleArabic
+      ? [chapter.title, chapter.unit ? `Unit ${chapter.unit}` : null]
+          .filter(Boolean)
+          .join(" · ")
+      : `${subjectName} · ${chapter.topicCount} topics`);
+
   return (
-    <div className="mx-auto max-w-6xl px-6 py-10">
+    <div className="mx-auto max-w-[1280px] px-6 py-10">
       <ReadingProgress color={subjectColor} />
-      {/* Breadcrumb */}
-      <Breadcrumb className="mb-8">
-        <BreadcrumbList>
+
+      {/* Breadcrumb — micro-label, current page in ink */}
+      <Breadcrumb className="mb-6">
+        <BreadcrumbList className="t-micro gap-2">
           {crumbs.map((crumb, i) => (
             <Fragment key={i}>
-              {i > 0 && <BreadcrumbSeparator />}
+              {i > 0 && <BreadcrumbSeparator className="text-faint" />}
               <BreadcrumbItem className="min-w-0">
                 {crumb.href ? (
-                  <BreadcrumbLink render={<Link href={crumb.href} />}>
+                  <BreadcrumbLink render={<Link href={crumb.href} />} className="truncate">
                     {crumb.label}
                   </BreadcrumbLink>
                 ) : (
-                  <BreadcrumbPage className="font-medium truncate">{crumb.label}</BreadcrumbPage>
+                  <BreadcrumbPage className="truncate text-foreground">{crumb.label}</BreadcrumbPage>
                 )}
               </BreadcrumbItem>
             </Fragment>
@@ -83,21 +104,19 @@ export function ChapterLayout({
         </BreadcrumbList>
       </Breadcrumb>
 
-      {/* Chapter Header */}
-      <header className="relative mb-8 overflow-hidden rounded-2xl border border-border/70 bg-card p-5 shadow-sm sm:p-7">
+      {/* Chapter header — bordered, minimal, designed (§5.3) */}
+      <header className="relative mb-8 overflow-hidden rounded-lg border border-border bg-card p-7 sm:p-8">
         <span
-          className="absolute inset-y-0 left-0 w-1"
-          style={{ background: `linear-gradient(180deg, ${subjectColor}, color-mix(in srgb, ${subjectColor} 33%, transparent))` }}
+          aria-hidden
+          className="absolute inset-y-0 left-0 w-[3px]"
+          style={{ background: subjectColor }}
         />
-        <div className="flex items-center gap-4 pl-1.5">
-          <span
-            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-base font-extrabold sm:h-12 sm:w-12 sm:text-lg"
-            style={{ backgroundColor: `color-mix(in srgb, ${subjectColor} 8%, transparent)`, color: subjectColor }}
-          >
-            {chapter.number}
-          </span>
-          <div className="space-y-1">
-            <h1 className="text-2xl font-extrabold tracking-tight sm:text-4xl">
+        <div className="flex items-start justify-between gap-6">
+          <div className="min-w-0">
+            <p className="t-micro" style={{ color: subjectColor }}>
+              {eyebrow}
+            </p>
+            <h1 className="t-h1 mt-3">
               {chapter.titleArabic ? (
                 <span dir="rtl" className="arabic-font">
                   {chapter.titleArabic}
@@ -106,19 +125,22 @@ export function ChapterLayout({
                 chapter.title
               )}
             </h1>
-            <p className="text-sm font-semibold text-muted-foreground">
-              {subtitle ??
-                (chapter.titleArabic
-                  ? [chapter.title, chapter.unit ? `Unit ${chapter.unit}` : null]
-                      .filter(Boolean)
-                      .join(" · ")
-                  : `${chapter.topicCount} topics`)}
-            </p>
           </div>
+          <span
+            aria-hidden
+            className="shrink-0 font-sans text-[48px] font-extrabold leading-[0.9] tabular-nums"
+            style={{ color: subjectColor }}
+          >
+            {numeral}
+          </span>
         </div>
+
+        {/* The one inner rule: title above, meta below */}
+        <div aria-hidden className="-mx-7 mt-6 border-t border-border sm:-mx-8" />
+        <p className="t-micro mt-4">{meta}</p>
       </header>
 
-      {/* Learning / Practice Tabs — hidden for English/Arabic (they use Read/Discourses) */}
+      {/* Learning / Practice tabs — hidden for English/Arabic (they use Read/Discourses) */}
       {showPractice && (
         <ChapterTabs
           activeTab={activeTab}
@@ -127,16 +149,23 @@ export function ChapterLayout({
         />
       )}
 
-      {/* Content */}
+      {/* Content — railed on Learning only */}
       {activeTab === "learning" ? (
-        <article className="max-w-3xl mx-auto">
-          {children}
+        <div className="xl:grid xl:grid-cols-[200px_minmax(0,72ch)_200px] xl:gap-12">
+          {/* Empty spacer: keeps the reading column optically centred (§5.13) */}
+          <div aria-hidden className="hidden xl:block" />
 
-          <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} basePath={navBase} />
-        </article>
+          <article data-chapter-content className="min-w-0 max-w-none">
+            {children}
+
+            <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} basePath={navBase} />
+          </article>
+
+          <ChapterToc />
+        </div>
       ) : (
-        /* Practice tab */
-        <div className="mx-auto max-w-3xl">
+        /* Practice tab — no rail, single column */
+        <div className="mx-auto max-w-[72ch]">
           <PracticeTabContent
             registryKey={registryKey}
             subjectColor={subjectColor}
@@ -186,35 +215,25 @@ function PracticeTabContent({
   }
 
   return (
-    <div className="space-y-6">
-      {/* Sub-tabs: Questions / Flashcards */}
-      {(hasQ && hasFC) && (
-        <div className="flex items-center gap-1 rounded-xl border border-border/60 bg-muted/30 p-1">
-          <Button
-            variant={subTab === "questions" ? "secondary" : "ghost"}
-            onClick={() => setSubTab("questions")}
-            className={cn(
-              "flex-1 justify-center px-4 py-2.5",
-              subTab === "questions" && "bg-background shadow-sm hover:bg-background"
-            )}
-          >
-            <Brain className="h-4 w-4" />
-            Questions
-            <Badge variant="secondary" className="ml-1">{questions.length}</Badge>
-          </Button>
-          <Button
-            variant={subTab === "flashcards" ? "secondary" : "ghost"}
-            onClick={() => setSubTab("flashcards")}
-            className={cn(
-              "flex-1 justify-center px-4 py-2.5",
-              subTab === "flashcards" && "bg-background shadow-sm hover:bg-background"
-            )}
-          >
-            <Layers className="h-4 w-4" />
-            Flashcards
-            <Badge variant="secondary" className="ml-1">{flashcards.length}</Badge>
-          </Button>
-        </div>
+    <div className="space-y-8">
+      {/* Sub-tabs: Questions / Flashcards — same line grammar as the chapter tabs */}
+      {hasQ && hasFC && (
+        <Tabs
+          value={subTab}
+          onValueChange={(v) => setSubTab(v as "questions" | "flashcards")}
+        >
+          <TabsList variant="line" className="w-full justify-start gap-6">
+            <TabsTrigger value="questions" className="px-0">
+              Questions
+              <span className="t-micro ml-1.5 tabular-nums">{questions.length}</span>
+            </TabsTrigger>
+            <TabsTrigger value="flashcards" className="px-0">
+              Flashcards
+              <span className="t-micro ml-1.5 tabular-nums">{flashcards.length}</span>
+            </TabsTrigger>
+          </TabsList>
+          <Separator />
+        </Tabs>
       )}
 
       {/* Content */}
@@ -231,12 +250,12 @@ function PracticeTabContent({
         />
       )}
       {subTab === "questions" && !hasQ && (
-        <div className="text-center py-12 text-muted-foreground">
+        <div className="py-12 text-center text-muted-foreground">
           No questions available yet for this chapter.
         </div>
       )}
       {subTab === "flashcards" && !hasFC && (
-        <div className="text-center py-12 text-muted-foreground">
+        <div className="py-12 text-center text-muted-foreground">
           No flashcards available yet for this chapter.
         </div>
       )}

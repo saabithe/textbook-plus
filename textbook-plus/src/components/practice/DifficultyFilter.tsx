@@ -1,8 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { Badge } from "@/components/ui/badge";
 
 type Difficulty = "all" | "easy" | "medium" | "hard";
 
@@ -20,15 +18,14 @@ const filters: { id: Difficulty; label: string }[] = [
   { id: "hard", label: "Hard" },
 ];
 
-export function DifficultyFilter({
-  active,
-  onChange,
-  subjectColor,
-  counts,
-}: DifficultyFilterProps) {
+/**
+ * A filter, not a tab strip: ToggleGroup keeps `aria-pressed` semantics.
+ * Items are hairline, 3px radius, 32px tall; the active item is ink text
+ * with a 2px ink underline — no fill, no pill, no subject-colour swatch.
+ */
+export function DifficultyFilter({ active, onChange, counts }: DifficultyFilterProps) {
   return (
     <ToggleGroup
-      variant="outline"
       spacing={2}
       value={[active]}
       onValueChange={(v) => {
@@ -38,34 +35,19 @@ export function DifficultyFilter({
       className="flex-wrap"
       aria-label="Filter questions by difficulty"
     >
-      {filters.map((filter) => {
-        const isActive = active === filter.id;
-        return (
-          <ToggleGroupItem
-            key={filter.id}
-            value={filter.id}
-            aria-label={`Show ${filter.label} questions`}
-            className={cn(
-              "gap-1.5 rounded-full border-2 px-4 py-2 font-extrabold active:translate-y-0.5",
-              isActive && "border-transparent text-white hover:bg-transparent hover:text-white"
-            )}
-            style={isActive ? { backgroundColor: subjectColor } : undefined}
-          >
-            {filter.label}
-            <Badge
-              variant="secondary"
-              className={cn(
-                "h-5 min-w-5 rounded-full px-1.5 text-[10px] font-extrabold",
-                isActive
-                  ? "bg-white/20 text-white dark:text-background"
-                  : "bg-muted text-muted-foreground"
-              )}
-            >
-              {counts[filter.id]}
-            </Badge>
-          </ToggleGroupItem>
-        );
-      })}
+      {filters.map((filter) => (
+        <ToggleGroupItem
+          key={filter.id}
+          value={filter.id}
+          aria-label={`Show ${filter.label} questions`}
+          className="relative h-8 min-w-8 gap-1.5 rounded-[3px]! border! border-border! bg-transparent! px-2.5 text-[13px] font-medium text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.03]! hover:text-foreground data-[pressed]:bg-transparent! data-[pressed]:text-foreground after:absolute after:inset-x-2 after:bottom-0 after:h-[2px] after:bg-foreground after:opacity-0 after:transition-opacity after:duration-[120ms] after:ease-[var(--ease-blueprint)] data-[pressed]:after:opacity-100"
+        >
+          {filter.label}
+          <span className="text-[11px] font-medium tabular-nums text-muted-foreground">
+            {counts[filter.id]}
+          </span>
+        </ToggleGroupItem>
+      ))}
     </ToggleGroup>
   );
 }

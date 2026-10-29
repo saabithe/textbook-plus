@@ -65,15 +65,15 @@ export function GrammarQuiz({ questions }: GrammarQuizProps) {
     <div className="space-y-6 mt-6">
       <div className="flex items-center gap-2 flex-wrap">
         <h3 className="text-lg font-extrabold">Practice</h3>
-        <Badge variant="secondary" className="rounded-full font-bold">{questions.length} questions</Badge>
-        <Badge variant="secondary" className="gap-1.5 rounded-full border-2 font-extrabold">
+        <Badge variant="secondary" className="rounded-[3px] font-bold">{questions.length} questions</Badge>
+        <Badge variant="secondary" className="gap-1.5 rounded-[3px] border font-extrabold">
           <Trophy className="h-3.5 w-3.5" />
           Score {score}/{questions.length}
         </Badge>
       </div>
       {allAnswered && (
-        <Alert className="border-2 border-green-600/40 bg-green-500/10 p-4">
-          <Trophy className="h-5 w-5 shrink-0 text-green-600 dark:text-green-400" />
+        <Alert className="border border-border bg-muted p-4">
+          <Trophy className="h-5 w-5 shrink-0 text-ok" />
           <AlertTitle className="font-extrabold text-green-700 dark:text-green-300">
             Quiz complete! You scored {score} out of {questions.length}.
           </AlertTitle>
@@ -147,9 +147,9 @@ function QuizItem({ question: q, index, onResult, onRetry }: { question: Grammar
                   onClick={() => !revealed && setSelected(i)}
                   disabled={revealed}
                   className={cn(
-                    "h-auto w-full justify-start whitespace-normal rounded-2xl border-2 px-4 py-2.5 text-left text-sm font-bold active:translate-y-0.5",
-                    revealed && i === q.answer && "border-green-600 bg-green-500 text-white hover:bg-green-500 hover:text-white",
-                    revealed && isThis && !isCorrect && "border-red-600 bg-red-500 text-white hover:bg-red-500 hover:text-white",
+                    "h-auto w-full justify-start whitespace-normal rounded-lg border px-4 py-2.5 text-left text-sm font-bold ",
+                    revealed && i === q.answer && "border-ok bg-muted font-medium",
+                    revealed && isThis && !isCorrect && "border-bad bg-muted font-medium",
                     !revealed && isThis && "border-primary/50 bg-primary/5",
                     revealed && "cursor-default"
                   )}
@@ -192,8 +192,8 @@ function QuizItem({ question: q, index, onResult, onRetry }: { question: Grammar
           <Alert
             variant={isCorrect ? "default" : "destructive"}
             className={cn(
-              "mb-3 border-2",
-              isCorrect && "border-green-600/40 bg-green-500/10 text-green-600 dark:text-green-400"
+              "mb-3 border",
+              isCorrect && "border-border bg-muted text-ok"
             )}
           >
             {isCorrect ? <PraiseIcon className="h-5 w-5 shrink-0" /> : <X className="h-4 w-4 shrink-0" />}
@@ -210,12 +210,12 @@ function QuizItem({ question: q, index, onResult, onRetry }: { question: Grammar
 
         <div className="mt-4 flex justify-end">
           {!revealed ? (
-            <Button size="lg" onClick={handleCheck} className="rounded-2xl font-extrabold">
+            <Button size="lg" onClick={handleCheck} className="rounded-lg font-extrabold">
               <Check className="h-4 w-4" />
               Check
             </Button>
           ) : (
-            <Button variant="outline" size="lg" onClick={handleReset} className="rounded-2xl border-2 font-extrabold">
+            <Button variant="outline" size="lg" onClick={handleReset} className="rounded-lg border font-extrabold">
               Try again
             </Button>
           )}

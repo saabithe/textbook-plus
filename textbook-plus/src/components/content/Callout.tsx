@@ -1,85 +1,62 @@
 import { AlertCircle, BookOpen, Lightbulb, AlertTriangle, Zap } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
+/**
+ * Callout — box anatomy (§14.0), three tones.
+ *
+ * Five props keep working; they collapse onto three tones:
+ *   note / didyouknow → ink rule (--rule-strong)
+ *   important / tip   → subject rule (subjectColor, else ink)
+ *   warning           → --warning rule
+ *
+ * Meaning is carried by icon + micro-label, never by a fill.
+ */
 const variants = {
-  note: {
-    icon: BookOpen,
-    border: "border-blue-500/30",
-    start: "border-s-blue-500",
-    bg: "bg-blue-500/[0.07] dark:bg-blue-500/[0.10]",
-    iconWrap:
-      "bg-gradient-to-br from-blue-500 to-sky-400 shadow-sm shadow-blue-500/30",
-    iconColor: "text-blue-600 dark:text-blue-400",
-    label: "Note",
-  },
-  important: {
-    icon: AlertCircle,
-    border: "border-violet-500/25",
-    start: "border-s-violet-500",
-    bg: "bg-violet-500/[0.08] dark:bg-violet-500/[0.12]",
-    iconWrap:
-      "bg-gradient-to-br from-violet-500 to-purple-400 shadow-sm shadow-violet-500/30",
-    iconColor: "text-violet-600 dark:text-violet-400",
-    label: "Important",
-  },
-  warning: {
-    icon: AlertTriangle,
-    border: "border-amber-500/30",
-    start: "border-s-amber-500",
-    bg: "bg-amber-500/[0.09] dark:bg-amber-500/[0.13]",
-    iconWrap:
-      "bg-gradient-to-br from-amber-500 to-orange-400 shadow-sm shadow-amber-500/30",
-    iconColor: "text-amber-600 dark:text-amber-400",
-    label: "Warning",
-  },
-  didyouknow: {
-    icon: Lightbulb,
-    border: "border-emerald-500/25",
-    start: "border-s-emerald-500",
-    bg: "bg-emerald-500/[0.07] dark:bg-emerald-500/[0.10]",
-    iconWrap:
-      "bg-gradient-to-br from-emerald-500 to-teal-400 shadow-sm shadow-emerald-500/30",
-    iconColor: "text-emerald-600 dark:text-emerald-400",
-    label: "Did You Know?",
-  },
-  tip: {
-    icon: Zap,
-    border: "border-orange-500/25",
-    start: "border-s-orange-500",
-    bg: "bg-orange-500/[0.07] dark:bg-orange-500/[0.10]",
-    iconWrap:
-      "bg-gradient-to-br from-orange-500 to-amber-400 shadow-sm shadow-orange-500/30",
-    iconColor: "text-orange-600 dark:text-orange-400",
-    label: "Speed Trick",
-  },
+  note: { icon: BookOpen, tone: "note", label: "Note" },
+  didyouknow: { icon: Lightbulb, tone: "note", label: "Did You Know?" },
+  important: { icon: AlertCircle, tone: "important", label: "Important" },
+  tip: { icon: Zap, tone: "important", label: "Speed Trick" },
+  warning: { icon: AlertTriangle, tone: "warning", label: "Warning" },
 } as const;
 
 type CalloutType = keyof typeof variants;
+
+type Tone = (typeof variants)[CalloutType]["tone"];
+
+const toneRule: Record<Tone, string> = {
+  note: "var(--rule-strong)",
+  important: "var(--foreground)",
+  warning: "var(--warning)",
+};
 
 interface CalloutProps {
   type?: CalloutType;
   title?: string;
   children: React.ReactNode;
+  /** Subject hue for the `important` tone's 3px rule, e.g. `var(--subject-physics)`. */
+  subjectColor?: string;
 }
 
-export function Callout({ type = "note", title, children }: CalloutProps) {
+export function Callout({ type = "note", title, children, subjectColor }: CalloutProps) {
   const v = variants[type];
   const Icon = v.icon;
+  const rule =
+    v.tone === "important" ? (subjectColor ?? toneRule.important) : toneRule[v.tone];
 
   return (
-    <Alert className={cn("my-6 gap-0 rounded-2xl border border-s-4 px-5 py-4 shadow-sm", v.border, v.start, v.bg)}>
-      <div className="flex items-center gap-2.5 mb-2.5">
-        <span className={cn("flex h-8 w-8 items-center justify-center rounded-xl", v.iconWrap)}>
-          <Icon className="h-4 w-4 text-white" />
+    <div
+      role="alert"
+      className="my-6 overflow-hidden rounded-lg border border-border bg-card"
+      style={{ borderLeftWidth: 3, borderLeftColor: rule }}
+    >
+      <div className="flex items-center gap-2 border-b border-border px-4 py-3 sm:px-5">
+        <span className="flex shrink-0 items-center" style={{ color: rule }}>
+          <Icon className="h-4 w-4" strokeWidth={1.75} aria-hidden />
         </span>
-        <AlertTitle className={cn("text-sm font-extrabold tracking-widest uppercase", v.iconColor)}>
-          {title ?? v.label}
-        </AlertTitle>
+        <span className="t-micro">{title ?? v.label}</span>
       </div>
-      <AlertDescription className="text-[0.95rem] leading-[1.75] text-foreground/85">
+      <div className="px-4 py-4 text-[1.03125rem] leading-[1.7] text-foreground/90 sm:px-5 sm:py-5">
         {children}
-      </AlertDescription>
-    </Alert>
+      </div>
+    </div>
   );
 }

@@ -84,7 +84,7 @@ export function FlashcardDeck({ cards, subjectColor }: FlashcardDeckProps) {
         <Progress
           value={progressPct}
           aria-label="Flashcard progress"
-          className="gap-0 p-0 [&_[data-slot=progress-track]]:h-3 [&_[data-slot=progress-track]]:rounded-full [&_[data-slot=progress-indicator]]:rounded-full [&_[data-slot=progress-indicator]]:bg-[var(--deck-color)]"
+          className="gap-0 p-0 [&_[data-slot=progress-track]]:h-0.5 [&_[data-slot=progress-indicator]]:bg-[var(--deck-color)]"
           style={{ "--deck-color": subjectColor } as CSSProperties}
         />
       </div>
@@ -92,11 +92,11 @@ export function FlashcardDeck({ cards, subjectColor }: FlashcardDeckProps) {
       {/* Completion celebration */}
       {deckCleared && (
         <Card
-          className="flex items-center gap-3 rounded-2xl border-2 p-4"
-          style={{ borderColor: `color-mix(in srgb, ${subjectColor} 33%, transparent)`, backgroundColor: `color-mix(in srgb, ${subjectColor} 7%, transparent)` }}
+          className="flex items-center gap-3 rounded-lg border border-border p-4"
+          style={{ backgroundColor: "color-mix(in srgb, var(--foreground) 4%, transparent)" }}
         >
           <span
-            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-white"
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[3px] text-primary-foreground"
             style={{ backgroundColor: subjectColor }}
           >
             <Trophy className="h-5 w-5" />
@@ -111,7 +111,7 @@ export function FlashcardDeck({ cards, subjectColor }: FlashcardDeckProps) {
             variant="outline"
             size="lg"
             onClick={reset}
-            className="rounded-2xl border-2 font-extrabold"
+            className="font-semibold"
           >
             <RotateCcw className="h-4 w-4" />
             Reset
@@ -138,7 +138,7 @@ export function FlashcardDeck({ cards, subjectColor }: FlashcardDeckProps) {
 
       {/* Navigation */}
       <div className="flex items-center justify-between max-w-lg mx-auto">
-        <Button variant="outline" size="lg" onClick={goPrev} className="rounded-2xl border-2 font-extrabold">
+        <Button variant="outline" size="lg" onClick={goPrev} className="font-semibold">
           <ChevronLeft className="h-4 w-4" />
           Prev
         </Button>
@@ -147,13 +147,13 @@ export function FlashcardDeck({ cards, subjectColor }: FlashcardDeckProps) {
           variant="outline"
           size="lg"
           onClick={reset}
-          className="rounded-2xl border-2 font-extrabold text-muted-foreground hover:text-foreground"
+          className="font-semibold text-muted-foreground hover:text-foreground"
         >
           <RotateCcw className="h-4 w-4" />
           Reset
         </Button>
 
-        <Button size="lg" onClick={goNext} className="rounded-2xl font-extrabold" style={{ backgroundColor: subjectColor }}>
+        <Button size="lg" onClick={goNext} style={{ backgroundColor: subjectColor }}>
           Next
           <ChevronRight className="h-4 w-4" />
         </Button>

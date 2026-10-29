@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { ChapterList } from "@/components/subject/ChapterList";
 import { getSubjectBySlug, subjects } from "@/data/subjects";
@@ -37,98 +38,95 @@ export default async function SubjectPage({ params }: Props) {
     <>
       <Navbar />
       <main className="flex-1">
-        <section className="mx-auto max-w-6xl px-6 py-14">
+        <section className="mx-auto max-w-6xl px-5 pb-20 pt-10 sm:px-6 sm:pt-12">
+          {/* Breadcrumb */}
+          <nav aria-label="Breadcrumb" className="t-micro mb-8 flex items-center gap-2">
+            <Link href="/" className="transition-colors hover:text-foreground">
+              Subjects
+            </Link>
+            <span className="text-faint">/</span>
+            <span className="text-foreground">{subject.name}</span>
+          </nav>
+
           {/* Subject header */}
-          <div className="mb-6 flex items-center gap-4 sm:mb-8 sm:gap-5">
-            <div
-              className="flex h-12 w-12 items-center justify-center rounded-xl sm:h-16 sm:w-16 sm:rounded-2xl"
-              style={{ backgroundColor: subject.colorLight }}
-            >
+          <header className="border-b border-border pb-8">
+            <div className="flex items-center gap-2.5">
               <Icon
-                className="h-6 w-6 sm:h-8 sm:w-8"
+                aria-hidden
+                className="h-5 w-5 shrink-0"
                 style={{ color: subject.color }}
                 strokeWidth={1.8}
               />
-            </div>
-            <div>
-              <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-                {subject.name}
-              </h1>
-              <p className="mt-1 text-base text-muted-foreground">
-                {subject.description}
+              <p className="t-micro tabular-nums">
+                {subject.name} · {subject.chapterCount} chapters
               </p>
             </div>
-          </div>
+            <h1 className="t-title mt-3">{subject.name}</h1>
+            <p className="t-lead mt-4 max-w-2xl">{subject.description}</p>
+          </header>
 
           {slug === "english" && (
-            <div className="mb-6 grid gap-4 sm:grid-cols-2">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <Link
                 href="/grammar"
-                className="group flex items-center gap-4 rounded-2xl border border-border/60 bg-card p-5 transition-all duration-200 hover:border-border hover:shadow-md"
+                className="group flex items-start justify-between gap-4 border border-border border-l-[3px] bg-card p-5 transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:border-rule-strong"
+                style={{ borderLeftColor: subject.color }}
               >
-                <div
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
-                  style={{ backgroundColor: subject.colorLight }}
-                >
-                  <span className="text-lg font-bold" style={{ color: subject.color }}>G</span>
-                </div>
                 <div>
-                  <h2 className="text-base font-bold text-foreground group-hover:text-[var(--subject-english)] transition-colors">
-                    Grammar
-                  </h2>
-                  <p className="mt-0.5 text-sm text-muted-foreground">
+                  <h2 className="t-h4">Grammar</h2>
+                  <p className="t-caption mt-1.5">
                     {grammarTopics.length} topics — rules, examples &amp; practice
                   </p>
                 </div>
+                <ArrowRight
+                  aria-hidden
+                  className="mt-1 h-4 w-4 shrink-0 text-faint transition-transform duration-[120ms] ease-[var(--ease-blueprint)] group-hover:translate-x-0.5"
+                />
               </Link>
               <Link
                 href="/discourses"
-                className="group flex items-center gap-4 rounded-2xl border border-border/60 bg-card p-5 transition-all duration-200 hover:border-border hover:shadow-md"
+                className="group flex items-start justify-between gap-4 border border-border border-l-[3px] bg-card p-5 transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:border-rule-strong"
+                style={{ borderLeftColor: subject.color }}
               >
-                <div
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
-                  style={{ backgroundColor: subject.colorLight }}
-                >
-                  <span className="text-lg font-bold" style={{ color: subject.color }}>D</span>
-                </div>
                 <div>
-                  <h2 className="text-base font-bold text-foreground group-hover:text-[var(--subject-english)] transition-colors">
-                    Discourses
-                  </h2>
-                  <p className="mt-0.5 text-sm text-muted-foreground">
+                  <h2 className="t-h4">Discourses</h2>
+                  <p className="t-caption mt-1.5">
                     {discourseTopics.reduce((total, topic) => total + topic.formats.length, 0)} writing formats — structure, tips &amp; samples
                   </p>
                 </div>
+                <ArrowRight
+                  aria-hidden
+                  className="mt-1 h-4 w-4 shrink-0 text-faint transition-transform duration-[120ms] ease-[var(--ease-blueprint)] group-hover:translate-x-0.5"
+                />
               </Link>
             </div>
           )}
 
           {slug === "arabic" && (
-            <div className="mb-6 grid gap-4 sm:grid-cols-2">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <Link
                 href="/arabic/discourses"
-                className="group flex items-center gap-4 rounded-2xl border border-border/60 bg-card p-5 transition-all duration-200 hover:border-border hover:shadow-md"
+                className="group flex items-start justify-between gap-4 border border-border border-l-[3px] bg-card p-5 transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:border-rule-strong"
+                style={{ borderLeftColor: subject.color }}
               >
-                <div
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
-                  style={{ backgroundColor: subject.colorLight }}
-                >
-                  <span className="text-lg font-bold" style={{ color: subject.color }}>D</span>
-                </div>
                 <div>
-                  <h2 className="text-base font-bold text-foreground group-hover:text-[var(--subject-arabic)] transition-colors">
-                    Discourses
-                  </h2>
-                  <p className="mt-0.5 text-sm text-muted-foreground">
+                  <h2 className="t-h4">Discourses</h2>
+                  <p className="t-caption mt-1.5">
                     {arabicDiscourseTopics.length} writing {arabicDiscourseTopics.length === 1 ? "frame" : "frames"} — templates &amp; structures
                   </p>
                 </div>
+                <ArrowRight
+                  aria-hidden
+                  className="mt-1 h-4 w-4 shrink-0 text-faint transition-transform duration-[120ms] ease-[var(--ease-blueprint)] group-hover:translate-x-0.5"
+                />
               </Link>
             </div>
           )}
 
-          {/* Chapter list */}
-          <ChapterList subjectSlug={subject.slug} subjectColor={subject.color} />
+          {/* Chapter list — hairline rows */}
+          <div className="mt-10">
+            <ChapterList subjectSlug={subject.slug} subjectColor={subject.color} />
+          </div>
         </section>
       </main>
     </>

@@ -37,63 +37,55 @@ export default async function GrammarTopicPage({ params }: Props) {
     <>
       <Navbar />
       <main className="flex-1">
-        <section className="mx-auto max-w-6xl px-6 py-14">
-          {/* Breadcrumb */}
-          <nav className="mb-6 text-sm text-muted-foreground">
-            <Link href="/subjects/english" className="hover:text-foreground transition-colors">English</Link>
+        <section className="mx-auto max-w-[1280px] px-6 py-10">
+          <nav className="mb-6 t-micro text-muted-foreground">
+            <Link href="/subjects/english" className="hover:text-foreground transition-colors">
+              English
+            </Link>
             <span className="mx-2">/</span>
-            <Link href="/grammar" className="hover:text-foreground transition-colors">Grammar</Link>
+            <Link href="/grammar" className="hover:text-foreground transition-colors">
+              Grammar
+            </Link>
             <span className="mx-2">/</span>
             <span className="text-foreground">{topic.title}</span>
           </nav>
 
-          {/* Topic header */}
-          <div className="mb-10 flex items-center gap-4 sm:mb-12 sm:gap-5">
-            <div
-              className="flex h-12 w-12 items-center justify-center rounded-xl sm:h-16 sm:w-16 sm:rounded-2xl"
-              style={{ backgroundColor: "var(--subject-english-light)" }}
-            >
-              <Icon
-                className="h-6 w-6 sm:h-8 sm:w-8"
-                style={{ color: "var(--subject-english)" }}
-                strokeWidth={1.8}
-              />
-            </div>
+          <div className="mb-10 flex items-center gap-4">
+            <Icon
+              className="h-6 w-6 text-[var(--subject-english)]"
+              strokeWidth={1.8}
+            />
             <div>
-              <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-                {topic.title}
-              </h1>
-              <p className="mt-1 text-base text-muted-foreground">
-                {topic.tagline}
-              </p>
+              <h1 className="t-h1 text-foreground">{topic.title}</h1>
+              <p className="mt-1 t-caption text-muted-foreground">{topic.tagline}</p>
             </div>
           </div>
 
-          {/* Content */}
-          <div className="mx-auto max-w-3xl">
-            <GrammarContent slug={slug} />
-          </div>
+          <GrammarContent slug={slug} />
 
-          {/* Prev / Next */}
-          <div className="mx-auto max-w-3xl mt-14 flex justify-between gap-4">
+          <div className="mx-auto mt-14 flex max-w-[72ch] justify-between gap-4">
             {prev ? (
-              <a
+              <Link
                 href={`/grammar/${prev.slug}`}
-                className="flex items-center gap-2 rounded-xl border border-border/60 px-4 py-3 text-sm text-muted-foreground hover:bg-muted transition-colors"
+                className="flex items-center gap-2 rounded-lg border border-border px-4 py-3 text-sm text-muted-foreground transition-colors hover:border-rule-strong hover:bg-foreground/[0.03]"
               >
                 <span className="text-xs">←</span>
                 <span>{prev.title}</span>
-              </a>
-            ) : <div />}
+              </Link>
+            ) : (
+              <div />
+            )}
             {next ? (
-              <a
+              <Link
                 href={`/grammar/${next.slug}`}
-                className="flex items-center gap-2 rounded-xl border border-border/60 px-4 py-3 text-sm text-muted-foreground hover:bg-muted transition-colors"
+                className="flex items-center gap-2 rounded-lg border border-border px-4 py-3 text-sm text-muted-foreground transition-colors hover:border-rule-strong hover:bg-foreground/[0.03]"
               >
                 <span>{next.title}</span>
                 <span className="text-xs">→</span>
-              </a>
-            ) : <div />}
+              </Link>
+            ) : (
+              <div />
+            )}
           </div>
         </section>
       </main>

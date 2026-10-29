@@ -4,17 +4,18 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Sun, Moon, Home, Search } from "lucide-react";
+import { Sun, Moon, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import { useFontSize } from "@/hooks/useFontSize";
 import { SearchModal } from "@/components/search/SearchModal";
-import { Button } from "@/components/ui/button";
-import { Kbd } from "@/components/ui/kbd";
 
-const navLinks = [
-  { href: "/", label: "Home", icon: Home },
-];
+const navLinks = [{ href: "/", label: "Home" }];
+
+/* One control grammar: 32px tall, hairline edge, 3px radius, 4% ink wash on
+   hover, no fill, no pill, no shadow. */
+const controlClass =
+  "inline-flex h-8 items-center justify-center rounded-[3px] border border-border text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/4 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -35,99 +36,103 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/75 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
+      <header className="sticky top-0 z-50 w-full border-b border-border bg-background">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-6">
+          {/* Mark + wordmark */}
+          <Link href="/" className="flex shrink-0 items-center gap-2">
             <Image
               src="/icon.svg"
               alt="Textbook++"
-              width={36}
-              height={36}
-              className="transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-6 dark:invert"
+              width={20}
+              height={20}
+              className="h-5 w-5 dark:invert"
               priority
             />
-            <span className="text-lg font-extrabold tracking-tight hidden sm:inline">
+            <span className="hidden text-[15px] font-bold tracking-[-0.01em] text-foreground sm:inline">
               Textbook++
             </span>
           </Link>
 
-          {/* Nav Links — Center */}
-          <nav className="flex items-center gap-0.5 sm:gap-1">
+          {/* Nav — active state is a 2px ink underline at the header's bottom edge */}
+          <nav aria-label="Primary" className="flex h-16 items-center">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              const Icon = link.icon;
+              const isActive =
+                pathname === link.href ||
+                (link.href !== "/" && pathname.startsWith(link.href));
               return (
                 <Link
                   key={link.href}
                   href={link.href}
+                  aria-current={isActive ? "page" : undefined}
                   className={cn(
-                    "flex items-center gap-1.5 rounded-full px-2.5 py-2 text-sm font-bold transition-all duration-150 sm:gap-2 sm:px-4",
+                    "relative flex h-16 items-center px-3 text-[13px] transition-colors duration-[120ms] ease-[var(--ease-blueprint)]",
                     isActive
-                      ? "bg-primary/12 text-primary"
-                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
                   )}
                 >
-                  <Icon className="h-4 w-4" />
-                  <span className="hidden sm:inline">{link.label}</span>
+                  {link.label}
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "absolute inset-x-2 bottom-0 h-[2px] bg-foreground transition-opacity duration-[120ms] ease-[var(--ease-blueprint)]",
+                      isActive ? "opacity-100" : "opacity-0"
+                    )}
+                  />
                 </Link>
               );
             })}
           </nav>
 
-          {/* Right actions */}
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            {/* Search */}
-            <Button
-              variant="outline"
-              size="icon-lg"
+          {/* Right controls */}
+          <div className="flex shrink-0 items-center gap-2">
+            {/* Search — hairline rectangle, icon + Ctrl K in micro type */}
+            <button
+              type="button"
               onClick={() => setSearchOpen(true)}
               aria-label="Search chapters"
-              className="rounded-full border-border/60 bg-muted/50 px-0 text-muted-foreground hover:text-foreground sm:w-auto sm:px-3"
+              className={cn(controlClass, "gap-2 px-2 sm:px-2.5")}
             >
-              <Search className="h-4 w-4" />
-              <Kbd className="hidden text-[10px] sm:inline-flex">
-                Ctrl K
-              </Kbd>
-            </Button>
+              <Search className="h-4 w-4" aria-hidden />
+              <span className="t-micro hidden sm:inline">Ctrl K</span>
+            </button>
 
-            {/* Font Size */}
-            <div className="flex items-center gap-0.5 rounded-lg border border-border/60 bg-muted/50">
-              <Button
-                variant="ghost"
+            {/* Font size — two text buttons split by a hairline */}
+            <div className="flex h-8 items-center">
+              <button
+                type="button"
                 onClick={decrease}
                 disabled={!canDecrease}
                 aria-label="Decrease font size"
-                className="h-9 w-8 rounded-md px-0 text-sm font-bold text-muted-foreground hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30 disabled:pointer-events-auto sm:w-9"
+                className="inline-flex h-8 items-center justify-center px-1.5 text-[13px] font-semibold tabular-nums text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/4 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:text-faint disabled:hover:bg-transparent disabled:hover:text-faint"
               >
-                A-
-              </Button>
-              <div className="h-4 w-px bg-border/60" />
-              <Button
-                variant="ghost"
+                A&minus;
+              </button>
+              <span aria-hidden className="h-4 w-px bg-border" />
+              <button
+                type="button"
                 onClick={increase}
                 disabled={!canIncrease}
                 aria-label="Increase font size"
-                className="h-9 w-8 rounded-md px-0 text-sm font-bold text-muted-foreground hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30 disabled:pointer-events-auto sm:w-9"
+                className="inline-flex h-8 items-center justify-center px-1.5 text-[13px] font-semibold tabular-nums text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/4 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:text-faint disabled:hover:bg-transparent disabled:hover:text-faint"
               >
                 A+
-              </Button>
+              </button>
             </div>
 
-            {/* Theme Toggle */}
-            <Button
-              variant="outline"
-              size="icon-lg"
+            {/* Theme — 32px hairline square */}
+            <button
+              type="button"
               onClick={toggle}
               aria-label="Toggle theme"
-              className="rounded-full border-border/60 bg-muted/50 text-muted-foreground hover:text-foreground"
+              className={cn(controlClass, "w-8")}
             >
               {theme === "dark" ? (
-                <Moon className="h-4 w-4" />
+                <Moon className="h-4 w-4" aria-hidden />
               ) : (
-                <Sun className="h-4 w-4" />
+                <Sun className="h-4 w-4" aria-hidden />
               )}
-            </Button>
+            </button>
           </div>
         </div>
       </header>

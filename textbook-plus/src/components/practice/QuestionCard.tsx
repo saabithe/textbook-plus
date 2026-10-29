@@ -1,12 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Eye, EyeOff, CheckCircle2, XCircle, PartyPopper, Trophy } from "lucide-react";
+import { Eye, EyeOff, CheckCircle2, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import type { Question } from "@/types/chapter";
 
 interface QuestionCardProps {
@@ -23,7 +20,6 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
 
   const praiseOptions = ["Brilliant!", "Nailed it!", "Nicely done!"];
   const praise = praiseOptions[index % praiseOptions.length];
-  const PraiseIcon = index % 2 === 0 ? Trophy : PartyPopper;
 
   // Sync when navigating to a different question that was already revealed
   useEffect(() => {
@@ -49,174 +45,166 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
     setRevealed(false);
   }
 
-  const difficultyColors = {
-    easy: "border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
-    medium: "border-amber-500/20 bg-amber-500/10 text-amber-600 dark:text-amber-400",
-    hard: "border-red-500/20 bg-red-500/10 text-red-600 dark:text-red-400",
-  };
-
   return (
-    <Card className="p-5 sm:p-6">
-      {/* Header */}
-      <div className="flex items-start justify-between gap-3 mb-4">
-        <div className="flex items-center gap-2">
-          <span
-            className="inline-flex h-7 w-7 items-center justify-center rounded-lg text-xs font-bold text-white shrink-0"
-            style={{ backgroundColor: subjectColor }}
-          >
-            {index}
-          </span>
-          <Badge
-            variant="outline"
-            className={cn("capitalize", difficultyColors[question.difficulty])}
-          >
-            {question.difficulty}
-          </Badge>
-          <span className="text-xs text-muted-foreground uppercase tracking-wide">
-            {question.type === "mcq" ? "MCQ" : "Short Answer"}
-          </span>
-        </div>
+    <div className="rounded-lg border border-border bg-card">
+      {/* Header strip — a label, not a heading */}
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 border-b border-border px-5 py-3">
+        <span className="t-micro tabular-nums" style={{ color: subjectColor }}>
+          {String(index).padStart(2, "0")}
+        </span>
+        <span className="t-micro text-border" aria-hidden>
+          ·
+        </span>
+        <span className="t-micro">{question.difficulty}</span>
+        <span className="t-micro text-border" aria-hidden>
+          ·
+        </span>
+        <span className="t-micro">{question.type === "mcq" ? "MCQ" : "Short Answer"}</span>
       </div>
 
-      {/* Question */}
-      <p className="text-sm sm:text-base font-medium leading-relaxed mb-4">
-        {question.question}
-      </p>
+      <div className="px-5 py-5">
+        {/* Question */}
+        <p className="mb-5 text-[17px] font-medium leading-[1.65] text-foreground">
+          {question.question}
+        </p>
 
-      {/* MCQ Options */}
-      {isMCQ && question.options && (
-        <div className="space-y-2 mb-4">
-          {question.options.map((option, idx) => {
-            const isSelected = selected === idx;
-            const isCorrectOption = idx === correctIndex;
-            let optionStyle = "border-2 hover:bg-muted/60 active:translate-y-0.5";
-            if (revealed) {
-              if (isCorrectOption) {
-                optionStyle = "border-2 border-green-600 bg-green-500 text-white hover:bg-green-500 hover:text-white active:translate-y-0.5";
-              } else if (isSelected && !isCorrectOption) {
-                optionStyle = "border-2 border-red-600 bg-red-500 text-white hover:bg-red-500 hover:text-white active:translate-y-0.5";
-              } else {
-                optionStyle = "border-2 opacity-60";
-              }
-            } else if (isSelected) {
-              optionStyle = "border-2 border-primary/50 bg-primary/10 active:translate-y-0.5";
-            }
+        {/* MCQ Options — rows separated by hairlines, never cards */}
+        {isMCQ && question.options && (
+          <div className="mb-5 border-y border-border">
+            {question.options.map((option, idx) => {
+              const isSelected = selected === idx;
+              const isCorrectOption = idx === correctIndex;
+              const isWrongOption = revealed && isSelected && !isCorrectOption;
+              const isCorrectState = revealed && isCorrectOption;
 
-            return (
-              <Button
-                key={idx}
-                variant="outline"
-                onClick={() => handleSelect(idx)}
-                disabled={revealed}
-                className={cn(
-                  "h-auto w-full items-start justify-start gap-3 rounded-2xl p-3 text-left font-bold whitespace-normal disabled:opacity-100",
-                  optionStyle,
-                  revealed && "cursor-default"
-                )}
-              >
-                <span
+              return (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => handleSelect(idx)}
+                  disabled={revealed}
+                  aria-pressed={isSelected}
                   className={cn(
-                    "inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 text-xs font-bold mt-0.5",
-                    revealed && isCorrectOption
-                      ? "border-white bg-white/20 text-white"
-                      : revealed && isSelected && !isCorrectOption
-                      ? "border-white bg-white/20 text-white"
-                      : isSelected
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-border"
+                    "flex w-full items-start gap-3 border-l-[3px] border-l-transparent px-3 py-3 text-left",
+                    "transition-colors duration-[120ms] ease-[var(--ease-blueprint)]",
+                    "[&+&]:border-t [&+&]:border-t-border",
+                    !revealed && "hover:bg-muted/60",
+                    revealed && isCorrectState && "font-medium",
+                    revealed && !isCorrectState && !isWrongOption && "text-muted-foreground",
+                    revealed && "cursor-default"
                   )}
+                  style={
+                    isCorrectState
+                      ? {
+                          borderLeftColor: "var(--ok)",
+                          backgroundColor: "color-mix(in srgb, var(--ok) 6%, transparent)",
+                          color: "var(--ok)",
+                        }
+                      : isWrongOption
+                        ? {
+                            borderLeftColor: "var(--bad)",
+                            backgroundColor: "color-mix(in srgb, var(--bad) 6%, transparent)",
+                            color: "var(--bad)",
+                          }
+                        : isSelected
+                          ? {
+                              borderLeftColor: subjectColor,
+                              backgroundColor: `color-mix(in srgb, ${subjectColor} 6%, transparent)`,
+                            }
+                          : undefined
+                  }
                 >
-                  {revealed && isCorrectOption ? (
-                    <CheckCircle2 className="h-3.5 w-3.5" />
-                  ) : revealed && isSelected && !isCorrectOption ? (
-                    <XCircle className="h-3.5 w-3.5" />
-                  ) : (
-                    String.fromCharCode(65 + idx)
-                  )}
-                </span>
-                <span className="leading-relaxed">{option}</span>
-              </Button>
-            );
-          })}
-        </div>
-      )}
+                  <span
+                    className={cn(
+                      "mt-0.5 inline-flex w-5 shrink-0 justify-center text-[13px] font-bold tabular-nums",
+                      isCorrectState || isWrongOption || isSelected
+                        ? "text-current"
+                        : "text-muted-foreground"
+                    )}
+                  >
+                    {isCorrectState ? (
+                      <CheckCircle2 className="h-4 w-4" aria-hidden />
+                    ) : isWrongOption ? (
+                      <XCircle className="h-4 w-4" aria-hidden />
+                    ) : (
+                      String.fromCharCode(65 + idx)
+                    )}
+                  </span>
+                  <span className="text-[15px] leading-[1.6]">{option}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
 
-      {/* Celebration / encouragement feedback (MCQ only) */}
-      {revealed && isMCQ && selected !== null && selected === correctIndex && (
-        <Alert className="mb-4 border-2 border-green-600/40 bg-green-500/15 p-4">
-          <PraiseIcon className="h-5 w-5 shrink-0 text-green-600 dark:text-green-400" />
-          <AlertTitle className="font-extrabold text-green-700 dark:text-green-300">
-            {praise} You got it!
-          </AlertTitle>
-          <AlertDescription className="font-semibold text-green-700/80 dark:text-green-300/80">
-            Keep the streak going.
-          </AlertDescription>
-        </Alert>
-      )}
-      {revealed && isMCQ && selected !== null && selected !== correctIndex && (
-        <Alert className="mb-4 border-2 border-red-600/40 bg-red-500/10 p-4">
-          <XCircle className="h-5 w-5 shrink-0 text-red-600 dark:text-red-400" />
-          <AlertTitle className="font-extrabold text-red-700 dark:text-red-300">
-            Not quite — try again!
-          </AlertTitle>
-          <AlertDescription className="font-semibold text-red-700/80 dark:text-red-300/80">
-            Check the correct answer below, then give it another shot.
-          </AlertDescription>
-        </Alert>
-      )}
+        {/* Short answer */}
+        {!isMCQ && (
+          <div className="mb-5">
+            {revealed ? (
+              <div className="border-l-[3px] border-l-[color:var(--ok)] bg-muted/40 px-4 py-3">
+                <p className="t-micro mb-2">Answer</p>
+                <p className="whitespace-pre-line text-[15px] leading-[1.7] text-foreground">
+                  {question.answer as string}
+                </p>
+              </div>
+            ) : (
+              <div className="border border-dashed border-border px-4 py-3">
+                <p className="text-[15px] italic text-muted-foreground">
+                  Think about your answer, then reveal to check.
+                </p>
+              </div>
+            )}
+          </div>
+        )}
 
-      {/* Short answer */}
-      {!isMCQ && (
-        <div className="mb-4">
-          {revealed ? (
-            <Alert className="border-2 border-green-600/30 bg-green-500/10 p-4">
-              <AlertTitle className="text-green-700 dark:text-green-300">Answer:</AlertTitle>
-              <AlertDescription className="text-foreground leading-relaxed whitespace-pre-line">{question.answer as string}</AlertDescription>
-            </Alert>
+        {/* Verdict + explanation */}
+        {revealed && (
+          <div className="mb-5 border-t border-border pt-4">
+            {isMCQ && selected !== null && (
+              <div className="mb-3 flex items-start gap-2">
+                {selected === correctIndex ? (
+                  <CheckCircle2
+                    className="mt-0.5 h-4 w-4 shrink-0"
+                    style={{ color: "var(--ok)" }}
+                    aria-hidden
+                  />
+                ) : (
+                  <XCircle
+                    className="mt-0.5 h-4 w-4 shrink-0"
+                    style={{ color: "var(--bad)" }}
+                    aria-hidden
+                  />
+                )}
+                <p
+                  className="text-[15px] font-medium leading-[1.6]"
+                  style={{ color: selected === correctIndex ? "var(--ok)" : "var(--bad)" }}
+                >
+                  {selected === correctIndex
+                    ? `${praise} You got it.`
+                    : "Not quite — check the correct answer above, then give it another shot."}
+                </p>
+              </div>
+            )}
+            <p className="t-micro mb-1.5">Explanation</p>
+            <p className="text-[15px] leading-[1.7] text-foreground/90">{question.explanation}</p>
+          </div>
+        )}
+
+        {/* Actions */}
+        <div className="flex items-center gap-2">
+          {!revealed ? (
+            <Button onClick={handleReveal} disabled={isMCQ && selected === null}>
+              <Eye className="h-4 w-4" aria-hidden />
+              Reveal Answer
+            </Button>
           ) : (
-            <Alert className="border-dashed bg-muted/20 p-4">
-              <AlertDescription className="italic">
-                Think about your answer, then reveal to check.
-              </AlertDescription>
-            </Alert>
+            <Button variant="outline" onClick={handleReset}>
+              <EyeOff className="h-4 w-4" aria-hidden />
+              Try Again
+            </Button>
           )}
         </div>
-      )}
-
-      {/* Explanation (shown after reveal) */}
-      {revealed && (
-        <Alert className="mb-4 border-2 border-amber-500/30 bg-amber-500/10 p-4">
-          <AlertTitle className="text-xs font-extrabold text-amber-700 dark:text-amber-300 uppercase tracking-wide">
-            Explanation
-          </AlertTitle>
-          <AlertDescription className="text-foreground font-medium leading-relaxed">{question.explanation}</AlertDescription>
-        </Alert>
-      )}
-
-      {/* Actions */}
-      <div className="flex items-center gap-2">
-        {!revealed ? (
-          <Button
-            onClick={handleReveal}
-            disabled={isMCQ && selected === null}
-            size="lg"
-            className="rounded-2xl font-extrabold"
-            style={
-              !(isMCQ && selected === null)
-                ? { backgroundColor: subjectColor }
-                : undefined
-            }
-          >
-            <Eye className="h-4 w-4" />
-            Reveal Answer
-          </Button>
-        ) : (
-          <Button variant="outline" size="lg" onClick={handleReset} className="rounded-2xl border-2 font-extrabold">
-            <EyeOff className="h-4 w-4" />
-            Try Again
-          </Button>
-        )}
       </div>
-    </Card>
+    </div>
   );
 }

@@ -19,6 +19,8 @@ interface SearchModalProps {
   onClose: () => void;
 }
 
+/* Overlay dialog: hairline box, 10px radius, results as hairline rows.
+   The elevation belongs to the dialog primitive, not to any class here. */
 export function SearchModal({ open, onClose }: SearchModalProps) {
   const router = useRouter();
   const { query, setQuery, results } = useSearch();
@@ -42,51 +44,66 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
       }}
       title="Search chapters"
       description="Search across all subjects and chapters"
-      className="sm:max-w-lg"
+      className="top-1/3 rounded-[10px]! border border-border bg-card sm:max-w-lg"
     >
-      <Command label="Search chapters" shouldFilter={false} className="bg-transparent p-0">
+      <Command
+        label="Search chapters"
+        shouldFilter={false}
+        className="rounded-none! bg-transparent p-0"
+      >
         <CommandInput
           value={query}
           onValueChange={setQuery}
           placeholder="Search chapters..."
           aria-label="Search chapters"
+          className="h-9 text-lg"
         />
-        <CommandList>
+        <CommandList className="mt-2">
           {!query.trim() ? (
-            <div className="px-4 py-8 text-center text-sm text-muted-foreground">
+            <div className="t-caption px-4 py-8 text-center">
               Type to search across all subjects and chapters
             </div>
           ) : results.length === 0 ? (
-            <CommandEmpty>No chapters found for &quot;{query}&quot;</CommandEmpty>
+            <CommandEmpty className="t-caption px-4 py-8">
+              No chapters found for &quot;{query}&quot;
+            </CommandEmpty>
           ) : (
-            <CommandGroup>
+            <CommandGroup className="p-0">
+              <div className="t-micro border-b border-border px-4 pb-2 pt-1">
+                Chapters
+              </div>
               {results.map((r) => (
                 <CommandItem
                   key={r.chapterSlug}
                   value={`${r.chapterTitle} ${r.subjectName} ${r.chapterSlug}`}
                   onSelect={() => navigate(r.chapterSlug)}
-                  className="gap-3 px-4 py-3"
+                  className="gap-3 rounded-none! border-b border-border px-4 py-3 data-selected:bg-foreground/4"
                 >
                   <span
-                    className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded text-[11px] font-bold text-white dark:text-background"
-                    style={{ backgroundColor: r.subjectColor }}
+                    className="w-7 shrink-0 text-[13px] font-semibold tabular-nums"
+                    style={{ color: r.subjectColor }}
                   >
-                    {r.chapterNumber}
+                    {String(r.chapterNumber).padStart(2, "0")}
                   </span>
                   <div className="min-w-0">
-                    <p className="font-medium truncate">{r.chapterTitle}</p>
-                    <p className="text-xs text-muted-foreground">{r.subjectName}</p>
+                    <p className="truncate text-[15px] font-semibold text-foreground">
+                      {r.chapterTitle}
+                    </p>
+                    <p className="t-micro mt-1 truncate">{r.subjectName}</p>
                   </div>
                 </CommandItem>
               ))}
             </CommandGroup>
           )}
         </CommandList>
-        <div className="flex items-center justify-end gap-1.5 border-t border-border/40 px-3 py-2 text-[10px] text-muted-foreground">
-          <Kbd>
-            ESC
-          </Kbd>
-          to close
+        <div className="flex items-center justify-between gap-2 border-t border-border px-4 py-2">
+          <span className="t-micro">Navigate · Enter to open</span>
+          <span className="t-micro flex items-center gap-1.5">
+            <Kbd className="rounded-[3px] border border-border bg-background">
+              ESC
+            </Kbd>
+            to close
+          </span>
         </div>
       </Command>
     </CommandDialog>

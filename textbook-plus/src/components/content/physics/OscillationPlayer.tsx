@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Play, RotateCcw, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface Stage {
@@ -120,7 +121,7 @@ export function OscillationPlayer() {
   const showFront = active >= 4 && !stageOff;
 
   return (
-    <div className={cn("my-6 rounded-2xl border border-blue-500/20 bg-card p-4 shadow-sm", !playing && "anim-paused")}>
+    <div className={cn("my-6 rounded-lg border border-border bg-card p-4", !playing && "anim-paused")}>
       <style>{`
         @keyframes chargeBob {
           from { transform: translateY(-34px); }
@@ -147,103 +148,82 @@ export function OscillationPlayer() {
       `}</style>
 
       <div className="mb-3 flex flex-wrap items-center gap-2">
-        <div className="flex items-center gap-2 text-sm font-extrabold tracking-wide text-blue-900 dark:text-blue-100">
-          <Sparkles className="h-4 w-4 text-blue-500" />
+        <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+          <Sparkles className="h-4 w-4 text-muted-foreground" />
           <span>An oscillating charge produces an electromagnetic wave</span>
         </div>
         <div className="ml-auto flex items-center gap-2">
-          <button
-            type="button"
-            onClick={playing ? stop : play}
-            className={cn(
-              "inline-flex items-center gap-1.5 rounded-xl px-4 py-1.5 text-sm font-bold tracking-tight text-white shadow-sm transition-colors",
-              playing
-                ? "bg-amber-500 hover:bg-amber-600 shadow-amber-500/30"
-                : "bg-blue-600 hover:bg-blue-700 shadow-blue-600/30"
-            )}
-          >
+          <Button size="sm" onClick={playing ? stop : play}>
             <Play className="h-4 w-4" />
             {playing ? "Pause" : "Play"}
-          </button>
-          <button
-            type="button"
-            onClick={reset}
-            className="inline-flex items-center gap-1.5 rounded-xl border border-border/60 bg-muted/40 px-3 py-1.5 text-sm font-bold tracking-tight text-foreground/70 transition-colors hover:bg-muted/60"
-          >
+          </Button>
+          <Button variant="outline" size="sm" onClick={reset}>
             <RotateCcw className="h-4 w-4" />
             Reset
-          </button>
+          </Button>
         </div>
       </div>
 
-      <div className="overflow-x-auto overflow-y-hidden rounded-xl border border-border/40 bg-gradient-to-b from-muted/40 to-card">
+      <div className="overflow-x-auto overflow-y-hidden rounded-lg border border-border bg-card">
         <svg viewBox="0 0 760 250" className="w-full min-w-[560px]" role="img" aria-label="Animation of an oscillating charge emitting an electromagnetic wave">
-          <defs>
-            <radialGradient id="chargeGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#34d399" stopOpacity="0.9" />
-              <stop offset="60%" stopColor="#34d399" stopOpacity="0.25" />
-              <stop offset="100%" stopColor="#34d399" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-
           {/* propagation axis */}
-          <line x1={VISIBLE_FROM} y1="125" x2="745" y2="125" stroke="var(--muted-foreground)" strokeOpacity="0.5" strokeWidth="2" strokeDasharray="4 5" />
+          <line x1={VISIBLE_FROM} y1="125" x2="745" y2="125" stroke="var(--border)" strokeWidth="1.5" strokeDasharray="4 5" />
           {/* axis arrow */}
-          <path d="M752 125 l-11 -7 v14 z" fill="var(--muted-foreground)" opacity="0.6" />
-          <text x="735" y="152" textAnchor="end" fontSize="15" fontWeight="700" fill="var(--muted-foreground)">
+          <path d="M752 125 l-11 -7 v14 z" fill="var(--muted-foreground)" opacity="0.7" />
+          <text x="735" y="152" textAnchor="end" fontSize="11" fontWeight="600" fill="var(--muted-foreground)">
             propagation →
           </text>
 
           {/* source antenna */}
           <line x1="95" y1="40" x2="95" y2="210" stroke="var(--muted-foreground)" strokeOpacity="0.6" strokeWidth="3" opacity={stageOff ? 0.5 : 1} />
           <g style={stageOff ? undefined : { animation: "chargeBob 0.9s ease-in-out infinite alternate" }}>
-            <circle cx="95" cy="125" r="24" fill="url(#chargeGlow)" />
-            <circle cx="95" cy="125" r="11" fill="#10b981" stroke="#065f46" strokeWidth="1.5" />
-            <text x="95" y="131" textAnchor="middle" fontSize="14" fontWeight="800" fill="#fff">
+            <circle cx="95" cy="125" r="24" fill="var(--subject-physics)" fillOpacity="0.14" />
+            <circle cx="95" cy="125" r="11" fill="var(--subject-physics)" stroke="var(--card)" strokeWidth="1.5" />
+            <text x="95" y="131" textAnchor="middle" fontSize="12" fontWeight="700" fill="var(--card)">
               +
             </text>
           </g>
-          <text x="95" y="228" textAnchor="middle" fontSize="15" fontWeight="700" fill="#10b981">
+          <text x="95" y="228" textAnchor="middle" fontSize="11" fontWeight="600" fill="var(--foreground)">
             oscillating charge
           </text>
 
-          {/* E wave (violet) — oscillates vertically */}
+          {/* E wave — oscillates vertically */}
           <g transform={`translate(${VISIBLE_FROM},125)`} opacity={showE ? 1 : 0.12} className="osc-wave-scroll">
-            <polyline points={eWave} fill="none" stroke="#8b5cf6" strokeWidth="4" strokeLinejoin="round" />
+            <polyline points={eWave} fill="none" stroke="var(--subject-physics)" strokeWidth="3" strokeLinejoin="round" />
           </g>
           {/* E field tick arrows — ride the wave swill */}
-          <g transform={`translate(${VISIBLE_FROM},125)`} opacity={showE ? 0.85 : 0} className="osc-e-ticks">
+          <g transform={`translate(${VISIBLE_FROM},125)`} opacity={showE ? 1 : 0} className="osc-e-ticks">
             {eTicks.map((t) => (
-              <line key={`${t.x}-${t.y}`} x1={t.x} y1="0" x2={t.x} y2={t.y} stroke="#c4b5fd" strokeWidth="2.5" />
+              <line key={`${t.x}-${t.y}`} x1={t.x} y1="0" x2={t.x} y2={t.y} stroke="var(--subject-physics)" strokeOpacity="0.45" strokeWidth="2.5" />
             ))}
           </g>
-          <text x={VISIBLE_FROM + 18} y="38" fontSize="15" fontWeight="800" fill="#8b5cf6" opacity={showE ? 1 : 0.3}>
+          <text x={VISIBLE_FROM + 18} y="38" fontSize="11" fontWeight="700" fill="var(--foreground)" opacity={showE ? 1 : 0.3}>
             E (electric) field
           </text>
 
-          {/* B wave (amber) — perpendicular, shown as an oscillating lane */}
+          {/* B wave — perpendicular, shown as an oscillating lane */}
           <g transform={`translate(${VISIBLE_FROM},185)`} opacity={showB ? 0.95 : 0.1} className="osc-wave-scroll">
-            <polyline points={bWave} fill="none" stroke="#f59e0b" strokeWidth="4" strokeLinejoin="round" opacity="0.35" />
-            <circle cx="0" cy="0" r="5" fill="#f59e0b" />
+            <polyline points={bWave} fill="none" stroke="var(--foreground)" strokeWidth="3" strokeLinejoin="round" opacity="0.4" />
+            <circle cx="0" cy="0" r="5" fill="var(--foreground)" />
           </g>
           {/* B "into / out of page" dots — in phase with E */}
           <g transform={`translate(${VISIBLE_FROM},125)`} opacity={showB ? 1 : 0} className="osc-wave-scroll">
             {bTicks.map((t) => (
               <g key={t.x}>
-                <circle cx={t.x} cy="0" r={t.r} fill="none" stroke="#f59e0b" strokeWidth="2.5" />
-                <circle cx={t.x} cy="0" r={t.r * 0.4} fill="#f59e0b" />
+                <circle cx={t.x} cy="0" r={t.r} fill="none" stroke="var(--foreground)" strokeWidth="2" />
+                <circle cx={t.x} cy="0" r={t.r * 0.4} fill="var(--foreground)" />
               </g>
             ))}
           </g>
-          <text x={VISIBLE_FROM + 18} y="228" fontSize="15" fontWeight="800" fill="#f59e0b" opacity={showB ? 1 : 0.3}>
+          <text x={VISIBLE_FROM + 18} y="228" fontSize="11" fontWeight="700" fill="var(--foreground)" opacity={showB ? 1 : 0.3}>
             B (magnetic) field ⊙ — into/out of page
           </text>
 
           {/* propagating wavefront */}
           {showFront && (
             <g className="osc-front">
-              <line x1="0" y1="113" x2="0" y2="137" stroke="#fff" strokeWidth="3" style={{ animation: "pulseGlow 1s ease-in-out infinite" }} />
-              <line x1="0" y1="110" x2="0" y2="140" stroke="#3b82f6" strokeWidth="1.5" opacity="0.6" />
+              <line x1="0" y1="113" x2="0" y2="137" stroke="var(--foreground)" strokeWidth="2" style={{ animation: "pulseGlow 1s ease-in-out infinite" }} />
+              <line x1="0" y1="110" x2="0" y2="140" stroke="var(--muted-foreground)" strokeWidth="1.5" opacity="0.5" />
             </g>
           )}
         </svg>
@@ -258,23 +238,21 @@ export function OscillationPlayer() {
               type="button"
               onClick={() => setActive(i)}
               className={cn(
-                "relative flex flex-col gap-1 rounded-xl border px-3 py-2.5 text-left transition-all duration-300",
+                "relative flex flex-col gap-1 rounded-lg border px-3 py-2.5 text-left transition-colors",
                 isActive
-                  ? "border-blue-500 bg-blue-500/[0.08] shadow-sm shadow-blue-500/20"
-                  : "border-border/50 bg-muted/20 opacity-50 hover:opacity-80"
+                  ? "border-rule-strong bg-[color-mix(in_oklab,var(--foreground)_5%,transparent)]"
+                  : "border-border bg-card opacity-60 hover:opacity-100"
               )}
             >
               <span
                 className={cn(
-                  "flex h-6 w-6 items-center justify-center rounded-full text-[0.65rem] font-extrabold text-white",
-                  isActive
-                    ? "bg-gradient-to-br from-blue-500 to-indigo-500 shadow-sm shadow-blue-500/40"
-                    : "bg-muted-foreground/30"
+                  "flex h-6 w-6 items-center justify-center rounded-[3px] text-[0.65rem] font-bold tabular-nums",
+                  isActive ? "bg-foreground text-background" : "bg-muted text-muted-foreground"
                 )}
               >
                 {i + 1}
               </span>
-              <p className={cn("text-[0.8rem] font-bold leading-tight tracking-tight", isActive ? "text-blue-900 dark:text-blue-100" : "text-foreground/70")}>
+              <p className={cn("text-[0.8rem] font-semibold leading-tight", isActive ? "text-foreground" : "text-muted-foreground")}>
                 {stage.label}
               </p>
             </button>
@@ -282,16 +260,16 @@ export function OscillationPlayer() {
         })}
       </div>
 
-      <div className="mt-3 min-h-[3.5rem] rounded-xl border border-blue-500/25 bg-blue-500/[0.06] px-4 py-3">
-        <p className="text-[0.95rem] leading-relaxed text-foreground/85">
+      <div className="mt-3 min-h-[3.5rem] rounded-lg border border-border bg-muted/40 px-4 py-3">
+        <p className="text-[0.95rem] leading-relaxed text-foreground">
           {active === -1 ? (
             <>
-              Press <strong>Play</strong> to watch the charge oscillate and emit a self-sustaining wave — E (violet) and B (amber){" "}
+              Press <strong>Play</strong> to watch the charge oscillate and emit a self-sustaining wave — E and B{" "}
               regenerate each other in phase. Or click any step to jump straight to that stage.
             </>
           ) : (
             <>
-              <strong className="text-blue-700 dark:text-blue-300">{STAGES[active].label}.</strong> {STAGES[active].detail}
+              <strong>{STAGES[active].label}.</strong> {STAGES[active].detail}
             </>
           )}
         </p>

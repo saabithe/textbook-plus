@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { CheckCircle2 } from "lucide-react";
 
 interface ExerciseQaProps {
   questions: ReactNode[];
@@ -14,29 +13,28 @@ export function ExerciseQa({
 }: ExerciseQaProps) {
   return (
     <div className="space-y-5">
-      <ol className="space-y-3">
+      <ol className="divide-y divide-border">
         {questions.map((q, i) => (
-          <li key={i} className="flex gap-3">
-            <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-indigo-500 text-[0.75rem] font-bold text-white shadow-sm shadow-indigo-500/30">
-              {i + 1}
-            </span>
-            <div className="text-[0.95rem] leading-[1.7] text-foreground/90">{q}</div>
+          <li key={i} className="flex gap-3 py-2.5 first:pt-0 last:pb-0">
+            <span className="t-micro w-5 shrink-0 pt-1 tabular-nums">{i + 1}</span>
+            <div className="text-base leading-[1.7] text-foreground">{q}</div>
           </li>
         ))}
       </ol>
+
       {answers && (
-        <div className="rounded-2xl border border-emerald-300/60 bg-emerald-50/40 p-4 dark:border-emerald-900/40 dark:bg-emerald-950/20">
-          <p className="mb-3 flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.15em] text-emerald-700 dark:text-emerald-300">
-            <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-            {answersHeading}
-          </p>
-          <ol className="space-y-2.5">
+        <div className="border-l-[3px] border-ok bg-muted px-4 py-3">
+          <div className="flex items-baseline justify-between gap-3">
+            <p className="t-micro">{answersHeading}</p>
+            <p className="t-micro tabular-nums">
+              {answers.length} answer{answers.length === 1 ? "" : "s"}
+            </p>
+          </div>
+          <ol className="mt-2.5 divide-y divide-border">
             {answers.map((a, i) => (
-              <li key={i} className="flex gap-3">
-                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-emerald-600/15 text-[0.7rem] font-bold text-emerald-700 dark:text-emerald-300">
-                  {i + 1}
-                </span>
-                <div className="text-[0.9rem] leading-relaxed text-foreground/85">{a}</div>
+              <li key={i} className="flex gap-3 py-2 first:pt-0 last:pb-0">
+                <span className="t-micro w-5 shrink-0 pt-1 tabular-nums">{i + 1}</span>
+                <div className="text-[0.9375rem] leading-[1.7] text-foreground">{a}</div>
               </li>
             ))}
           </ol>

@@ -1,5 +1,7 @@
 "use client";
 
+import "./globals.css";
+
 export default function GlobalError({
   error,
   reset,
@@ -8,29 +10,20 @@ export default function GlobalError({
   reset: () => void;
 }) {
   return (
-    <html lang="en">
-      <body style={{ fontFamily: "system-ui, sans-serif", display: "flex", minHeight: "100vh", alignItems: "center", justifyContent: "center", padding: "1.5rem" }}>
-        <div style={{ maxWidth: "24rem", textAlign: "center" }}>
-          <h2 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: "0.5rem" }}>
-            Something went wrong
-          </h2>
-          <p style={{ color: "#71717a", marginBottom: "1rem", fontSize: "0.875rem" }}>
-            {error.digest ? `Error reference: ${error.digest}` : "An unexpected error occurred."}
-          </p>
-          <button
-            onClick={reset}
-            style={{
-              borderRadius: "0.5rem",
-              border: "1px solid #d4d4d8",
-              padding: "0.5rem 1rem",
-              fontSize: "0.875rem",
-              fontWeight: 500,
-              cursor: "pointer",
-            }}
-          >
-            Try again
-          </button>
-        </div>
+    <html lang="en" className="h-full antialiased">
+      <head />
+      <body className="min-h-full flex flex-col items-center justify-center gap-4 bg-background px-6 text-center text-foreground font-sans">
+        <p className="t-micro">Error</p>
+        <h2 className="t-h2">Something went wrong</h2>
+        <p className="t-caption max-w-sm text-muted-foreground">
+          {error.digest ? `Error reference: ${error.digest}` : "An unexpected error occurred."}
+        </p>
+        <button
+          onClick={reset}
+          className="inline-flex items-center rounded-[3px] border border-border bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-rule-strong"
+        >
+          Try again
+        </button>
       </body>
     </html>
   );

@@ -59,8 +59,8 @@ const LAYERS: SpeedLayer[] = [
 export function SpeedLayers() {
   return (
     <div className="my-6">
-      <div className="mb-3 flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.18em] text-muted-foreground">
-        <Layers className="h-4 w-4 text-violet-500" />
+      <div className="t-micro mb-3 flex items-center gap-2">
+        <Layers className="h-4 w-4" />
         <span>Where does the speed come from?</span>
       </div>
 
@@ -69,32 +69,31 @@ export function SpeedLayers() {
           <div
             key={layer.layer}
             className={cn(
-              "overflow-hidden rounded-2xl border shadow-sm",
-              layer.special
-                ? "border-emerald-500/30 bg-gradient-to-br from-emerald-500/[0.08] via-transparent to-emerald-500/[0.04]"
-                : "border-border/60 bg-card"
+              "overflow-hidden rounded-lg border border-border bg-card",
+              layer.special && "border-l-[3px] border-l-foreground"
             )}
           >
-            <div className="flex items-center gap-2 border-b border-border/40 bg-muted/30 px-4 py-2.5">
+            <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-border bg-muted px-4 py-2.5">
               <span className="text-base">{layer.icon}</span>
-              <span className="text-sm font-extrabold tracking-tight text-foreground">
-                {layerIdx + 1}. {layer.layer}
+              <span className="text-sm font-semibold text-foreground">
+                <span className="mr-1.5 tabular-nums text-muted-foreground">{String(layerIdx + 1).padStart(2, "0")}</span>
+                {layer.layer}
               </span>
-              <span className="ml-auto text-[0.7rem] font-semibold text-muted-foreground">
+              <span className="ml-auto text-[0.7rem] leading-snug text-muted-foreground">
                 {layer.withnote}
               </span>
             </div>
 
             <div className="grid gap-4 px-4 py-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-              <div className="flex items-center justify-center rounded-xl border border-muted bg-muted/20 px-3 py-4">
+              <div className="flex items-center justify-center rounded-lg border border-border bg-muted/40 px-3 py-4">
                 <div className="text-center">
-                  <p className="mb-2 text-[0.68rem] font-extrabold uppercase tracking-[0.2em] text-violet-600 dark:text-violet-400">
+                  <p className="t-micro mb-2">
                     Formula
                   </p>
                   <div className="relative">
                     <Formula block>{layer.formula}</Formula>
                     {layer.formulaRef && (
-                      <span className="absolute -top-1 right-0 text-[0.65rem] font-semibold tracking-wide text-muted-foreground/80">
+                      <span className="absolute -top-1 right-0 text-[0.65rem] font-medium tabular-nums text-muted-foreground">
                         {layer.formulaRef}
                       </span>
                     )}
@@ -103,27 +102,23 @@ export function SpeedLayers() {
               </div>
 
               <div>
-                <p className="mb-2 hidden text-[0.68rem] font-extrabold uppercase tracking-[0.2em] text-muted-foreground lg:block">
+                <p className="t-micro mb-2 hidden lg:block">
                   Vacuum vs medium
                 </p>
                 <div className="mb-1 grid grid-cols-2 gap-x-2 px-3 lg:hidden">
-                  <span className="text-[0.62rem] font-extrabold uppercase tracking-[0.16em] text-violet-600/80 dark:text-violet-400/80">
-                    Vacuum
-                  </span>
-                  <span className="text-[0.62rem] font-extrabold uppercase tracking-[0.16em] text-muted-foreground/80">
-                    Medium
-                  </span>
+                  <span className="t-micro">Vacuum</span>
+                  <span className="t-micro">Medium</span>
                 </div>
                 <div className="space-y-1">
                   {layer.rows.map((row) => (
-                    <div key={row.label} className="grid grid-cols-2 items-start gap-x-2 gap-y-1.5 rounded-lg border border-border/40 bg-muted/15 px-3 py-2.5 lg:grid-cols-[minmax(0,0.55fr)_1fr_1fr]">
-                      <span className="col-span-2 text-[0.7rem] font-bold uppercase tracking-wider text-muted-foreground lg:col-span-1">
+                    <div key={row.label} className="grid grid-cols-2 items-start gap-x-2 gap-y-1.5 border-b border-border px-3 py-2.5 last:border-b-0 lg:grid-cols-[minmax(0,0.55fr)_1fr_1fr]">
+                      <span className="col-span-2 text-[0.7rem] font-semibold text-muted-foreground lg:col-span-1">
                         {row.label}
                       </span>
-                      <span className="font-medium text-foreground/80">
+                      <span className="text-foreground">
                         {row.vacuum}
                       </span>
-                      <span className="font-medium text-foreground/80">
+                      <span className="text-foreground">
                         {row.medium}
                       </span>
                     </div>
@@ -135,25 +130,25 @@ export function SpeedLayers() {
         ))}
       </div>
 
-      <div className="mt-4 rounded-2xl border border-blue-500/25 bg-blue-500/[0.06] px-5 py-4 shadow-sm dark:border-blue-500/20 dark:bg-blue-500/[0.10]">
-        <div className="mb-2 flex items-center gap-2 text-[0.7rem] font-extrabold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">
+      <div className="mt-4 rounded-lg border border-border bg-muted/40 border-l-[3px] border-l-foreground px-5 py-4">
+        <div className="t-micro mb-2 flex items-center gap-2">
           <Check className="h-4 w-4" />
           Special case — vacuum
         </div>
         <div className="flex flex-wrap items-center gap-2 text-sm">
-          <span className="rounded-lg border border-muted bg-muted/25 px-2.5 py-1.5 font-medium">
+          <span className="rounded-[3px] border border-border bg-card px-2.5 py-1.5">
             <Formula>{String.raw`\mu_r = \varepsilon_r = 1`}</Formula>
           </span>
-          <ArrowDown className="h-4 w-4 text-blue-400" />
-          <span className="rounded-lg border border-muted bg-muted/25 px-2.5 py-1.5 font-bold">
+          <ArrowDown className="h-4 w-4 text-muted-foreground" />
+          <span className="rounded-[3px] border border-border bg-card px-2.5 py-1.5 font-bold">
             <Formula>{String.raw`v = c`}</Formula>
           </span>
-          <ArrowDown className="h-4 w-4 text-blue-400" />
-          <span className="rounded-lg border border-blue-500/30 bg-blue-500/10 px-2.5 py-1.5 font-extrabold">
+          <ArrowDown className="h-4 w-4 text-muted-foreground" />
+          <span className="rounded-[3px] border border-foreground px-2.5 py-1.5 font-bold">
             <Formula>{String.raw`3\times 10^8\ \text{m/s}`}</Formula>
           </span>
         </div>
-        <p className="mt-2 text-[0.8rem] leading-relaxed text-foreground/70">
+        <p className="mt-2 text-[0.8rem] leading-relaxed text-foreground">
           Drop the relative constants to unity and the general medium formula reduces to the vacuum
           speed — the general → special-case progression in action.
         </p>

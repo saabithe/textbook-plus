@@ -21,9 +21,15 @@ export function UpdateBanner() {
     function showUpdateToast(worker: ServiceWorker) {
       waitingRef.current = worker;
       if (toastIdRef.current !== null) return;
-      toastIdRef.current = toast.warning("Update available", {
+      toastIdRef.current = toast("Update available", {
         duration: Infinity,
         dismissible: true,
+        description: "Reload to pick up the new version.",
+        className: "rounded-lg border border-border bg-card text-foreground",
+        classNames: {
+          title: "t-micro",
+          description: "t-caption",
+        },
         action: {
           label: "Update",
           onClick: applyUpdate,

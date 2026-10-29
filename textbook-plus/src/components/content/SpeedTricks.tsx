@@ -1,9 +1,9 @@
 "use client";
 
 import { useId, useState } from "react";
-import { ChevronRight, Zap } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 
 interface SpeedTricksProps {
   children: React.ReactNode;
@@ -14,39 +14,47 @@ export function SpeedTricks({ children }: SpeedTricksProps) {
   const panelId = useId();
 
   return (
-    <div className="my-6 overflow-hidden rounded-2xl border border-amber-500/30 bg-card shadow-sm">
+    <div className="my-6 border-y border-border">
       <button
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-controls={panelId}
-        className="flex w-full items-center gap-2.5 border-b border-transparent px-4 py-3 text-left transition-colors hover:bg-amber-500/[0.08] dark:hover:bg-amber-500/[0.10]"
+        className="flex w-full items-baseline gap-2.5 py-3 text-left transition-colors hover:bg-muted/60"
       >
-        <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-400 text-white shadow-sm shadow-amber-500/30">
-          <Zap className="h-4 w-4" />
-        </span>
         <ChevronRight
           className={cn(
-            "h-4 w-4 shrink-0 text-amber-700 dark:text-amber-300 transition-transform duration-200",
+            "h-4 w-4 shrink-0 self-center text-muted-foreground transition-transform duration-200",
             open && "rotate-90"
           )}
+          aria-hidden="true"
         />
-        <span className="text-sm font-extrabold tracking-wide text-amber-900 dark:text-amber-100">
-          Speed Tricks
+        <span className="t-micro text-foreground">Speed tricks</span>
+        <span className="t-micro ml-auto hidden tabular-nums sm:block">
+          {open ? "Hide" : "Show"}
         </span>
-        <span className="hidden sm:inline text-xs text-amber-700/60 dark:text-amber-300/60">
-          — solve faster, think smarter
-        </span>
-        <Badge className="ml-auto rounded-full bg-gradient-to-br from-amber-500 to-orange-500 px-2.5 py-0.5 text-[10px] font-extrabold tracking-widest text-white shadow-sm shadow-amber-500/30">
-          TRICKS
-        </Badge>
       </button>
+
       {open && (
-        <div
-          id={panelId}
-          className="border-t border-amber-500/15 bg-amber-500/[0.03] px-4 pb-3 pt-2 dark:bg-amber-500/[0.04]"
-        >
-          {children}
-        </div>
+        <>
+          <Separator />
+          <div
+            id={panelId}
+            className={cn(
+              // Numbered rows, hairlines between, no colour (§14.3).
+              "py-1 pb-3 text-base leading-[1.7] text-foreground",
+              "[counter-reset:trick]",
+              "[&_ul]:m-0 [&_ul]:list-none [&_ul]:space-y-0 [&_ul]:p-0",
+              "[&_li]:relative [&_li]:border-b [&_li]:border-border [&_li]:py-2.5 [&_li]:pl-7 [&_li]:pr-1",
+              "[&_li:last-child]:border-b-0",
+              "[&_li]:[counter-increment:trick]",
+              "[&_li]:before:absolute [&_li]:before:left-0 [&_li]:before:top-2.5",
+              "[&_li]:before:tabular-nums [&_li]:before:text-[0.6875rem] [&_li]:before:font-bold",
+              "[&_li]:before:text-muted-foreground [&_li]:before:content-[counter(trick)]"
+            )}
+          >
+            {children}
+          </div>
+        </>
       )}
     </div>
   );

@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Zap, Waves, Ruler } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface Band {
@@ -127,13 +128,20 @@ export function SpectrumExplorer() {
     setActive(idx);
   };
 
+  const infoCell = (label: string, body: React.ReactNode) => (
+    <div className="rounded-lg border border-border bg-card px-3.5 py-2.5">
+      <p className="t-micro">{label}</p>
+      <p className="mt-1 text-[0.85rem] leading-relaxed text-foreground">{body}</p>
+    </div>
+  );
+
   return (
-    <div className="my-6 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/40 bg-muted/30 px-4 py-2.5">
-        <span className="text-sm font-extrabold tracking-tight text-foreground">
+    <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border px-4 py-2.5">
+        <span className="text-sm font-semibold text-foreground">
           The electromagnetic spectrum — one interaction, three scales
         </span>
-        <span className="text-[0.68rem] font-semibold text-muted-foreground">
+        <span className="t-micro">
           drag across the bar · higher ν → higher energy → shorter λ
         </span>
       </div>
@@ -141,7 +149,7 @@ export function SpectrumExplorer() {
       <div className="px-4 pt-4">
         <div
           ref={barRef}
-          className="relative h-14 w-full cursor-pointer select-none touch-none overflow-hidden rounded-xl"
+          className="relative h-14 w-full cursor-pointer touch-none overflow-hidden rounded-[3px] border border-border bg-card select-none"
           onPointerDown={(e) => {
             e.currentTarget.setPointerCapture(e.pointerId);
             pickFromPointer(e.clientX);
@@ -150,13 +158,6 @@ export function SpectrumExplorer() {
             if (e.buttons & 1) pickFromPointer(e.clientX);
           }}
         >
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(90deg, #ef4444 0%, #f97316 18%, #f59e0b 34%, #eab308 48%, #22c55e 62%, #3b82f6 78%, #8b5cf6 90%, #7c3aed 100%)",
-            }}
-          />
           <div className="absolute inset-0 flex">
             {BANDS.map((b, i) => (
               <button
@@ -164,44 +165,47 @@ export function SpectrumExplorer() {
                 type="button"
                 aria-label={b.name}
                 className={cn(
-                  "relative h-full flex-1 border-r border-white/25 transition-colors last:border-r-0",
-                  shown === i && "bg-black/15 dark:bg-white/15",
-                  shown !== i && "hover:bg-black/5 dark:hover:bg-white/5"
+                  "relative h-full flex-1 border-r border-border transition-colors last:border-r-0",
+                  shown === i
+                    ? "bg-[color-mix(in_oklab,var(--foreground)_8%,transparent)]"
+                    : "hover:bg-[color-mix(in_oklab,var(--foreground)_4%,transparent)]"
                 )}
                 onMouseEnter={() => setHover(i)}
                 onMouseLeave={() => setHover(null)}
                 onClick={() => setActive(i)}
-              />
+              >
+                <span className="t-micro absolute inset-x-0 bottom-1.5 text-center">{b.initial}</span>
+                {shown === i && (
+                  <span className="absolute inset-x-0 bottom-0 h-[2px] bg-foreground" aria-hidden="true" />
+                )}
+              </button>
             ))}
           </div>
           <div
-            className="pointer-events-none absolute inset-y-0 w-0.5 -translate-x-1/2 bg-white shadow-[0_0_0_2px_rgba(0,0,0,0.35)] transition-[left] duration-150"
+            className="pointer-events-none absolute inset-y-0 w-px -translate-x-1/2 bg-foreground transition-[left] duration-150"
             style={{ left: `${(shown / (BANDS.length - 1)) * 100}%` }}
           />
         </div>
 
-        <div className="mt-1.5 flex text-[0.6rem] font-bold uppercase tracking-wider">
-          <span className="text-red-600 dark:text-red-400">Low frequency · long λ</span>
-          <span className="ml-auto text-violet-600 dark:text-violet-400">High frequency · short λ</span>
+        <div className="mt-1.5 flex">
+          <span className="t-micro">Low frequency · long λ</span>
+          <span className="t-micro ml-auto">High frequency · short λ</span>
         </div>
 
-        <div className="mt-4 space-y-1.5">
+        <div className="mt-4 space-y-2">
           {SCALES.map((s) => (
-            <div key={s.label} className="grid grid-cols-[5.5rem_1fr_3.5rem] items-center gap-2 text-[0.7rem]">
-              <span className="flex items-center gap-1.5 font-extrabold text-foreground/80">
-                {s.icon}
+            <div key={s.label} className="grid grid-cols-[5.5rem_1fr_3.5rem] items-center gap-2">
+              <span className="flex items-center gap-1.5 text-[0.7rem] font-semibold text-foreground">
+                <span className="text-muted-foreground">{s.icon}</span>
                 {s.label} {s.note}
               </span>
-              <div className="relative h-1.5 rounded-full bg-muted">
+              <div className="relative h-[3px] rounded-[1px] bg-muted">
                 <span
-                  className={cn(
-                    "absolute inset-y-0 left-0 rounded-full bg-gradient-to-r",
-                    s.label === "Wavelength" ? "from-red-500 to-violet-600" : "from-red-500 via-amber-400 to-violet-600"
-                  )}
+                  className="absolute inset-y-0 left-0 bg-foreground"
                   style={{ width: `${((shown + 1) / BANDS.length) * 100}%` }}
                 />
               </div>
-              <span className="text-right font-semibold text-foreground/60">
+              <span className="text-right text-[0.7rem] font-semibold tabular-nums text-muted-foreground">
                 {s.label === "Wavelength" && shown === 0 ? "Long" : shown === BANDS.length - 1 ? "High/Short" : "↑"}
               </span>
             </div>
@@ -215,10 +219,10 @@ export function SpectrumExplorer() {
               type="button"
               onClick={() => setActive(i)}
               className={cn(
-                "rounded-lg px-3 py-2 text-[0.68rem] font-bold uppercase tracking-wider transition-colors",
+                "rounded-[3px] border px-2.5 py-1.5 text-[0.68rem] font-semibold tracking-wide transition-colors",
                 active === i
-                  ? "bg-gradient-to-br from-violet-600 to-purple-600 text-white shadow-md shadow-violet-500/30"
-                  : "border border-border/60 bg-muted/20 text-foreground/70 hover:bg-muted/40"
+                  ? "border-foreground bg-[color-mix(in_oklab,var(--foreground)_6%,transparent)] text-foreground"
+                  : "border-border bg-card text-muted-foreground hover:text-foreground"
               )}
             >
               {b.icon} {b.tab}
@@ -227,57 +231,47 @@ export function SpectrumExplorer() {
         </div>
       </div>
 
-      <div className="mt-4 border-t border-border/40 bg-muted/15 px-4 py-4">
+      <div className="mt-4 border-t border-border bg-muted/40 px-4 py-4">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-2.5">
             <span className="text-3xl">{band.icon}</span>
             <div>
-              <div className="text-sm font-extrabold tracking-tight text-foreground">
-                {String(active + 1).padStart(2, "0")} {band.name}
+              <div className="text-sm font-semibold text-foreground">
+                <span className="mr-1.5 tabular-nums text-muted-foreground">{String(active + 1).padStart(2, "0")}</span>
+                {band.name}
               </div>
-              <div className="text-[0.7rem] font-bold uppercase tracking-[0.18em] text-violet-600 dark:text-violet-400">
+              <div className="t-micro mt-1">
                 {band.freq}
               </div>
             </div>
           </div>
           <div className="hidden shrink-0 items-center gap-1 sm:flex">
-            <button
-              type="button"
+            <Button
+              variant="outline"
+              size="icon-sm"
               aria-label="Previous band"
               onClick={() => setActive((a) => (a - 1 + BANDS.length) % BANDS.length)}
-              className="rounded-lg border border-border/60 bg-card p-2 text-foreground/70 hover:text-foreground"
             >
               <ChevronLeft className="h-4 w-4" />
-            </button>
-            <button
-              type="button"
+            </Button>
+            <Button
+              variant="outline"
+              size="icon-sm"
               aria-label="Next band"
               onClick={() => setActive((a) => (a + 1) % BANDS.length)}
-              className="rounded-lg border border-border/60 bg-card p-2 text-foreground/70 hover:text-foreground"
             >
               <ChevronRight className="h-4 w-4" />
-            </button>
+            </Button>
           </div>
         </div>
 
         <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
-          <div className="rounded-xl border border-border/40 bg-card px-3.5 py-2.5">
-            <p className="text-[0.62rem] font-extrabold uppercase tracking-widest text-muted-foreground">What are they?</p>
-            <p className="mt-0.5 text-[0.85rem] leading-relaxed text-foreground/85">
-              {band.wavelength} <span className="text-muted-foreground">·</span> {band.freq}
-            </p>
-          </div>
-          <div className="rounded-xl border border-border/40 bg-card px-3.5 py-2.5">
-            <p className="text-[0.62rem] font-extrabold uppercase tracking-widest text-muted-foreground">Produced by</p>
-            <p className="mt-0.5 text-[0.85rem] leading-relaxed text-foreground/85">{band.produced}</p>
-          </div>
-          <div className="rounded-xl border border-border/40 bg-card px-3.5 py-2.5">
-            <p className="text-[0.62rem] font-extrabold uppercase tracking-widest text-muted-foreground">Used for</p>
-            <p className="mt-0.5 text-[0.85rem] leading-relaxed text-foreground/85">{band.used}</p>
-          </div>
-          <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/[0.06] px-3.5 py-2.5">
-            <p className="text-[0.62rem] font-extrabold uppercase tracking-widest text-emerald-700 dark:text-emerald-300">★ Remember</p>
-            <p className="mt-0.5 text-[0.85rem] leading-relaxed text-foreground/85">{band.remember}</p>
+          {infoCell("What are they?", <>{band.wavelength} <span className="text-muted-foreground">·</span> {band.freq}</>)}
+          {infoCell("Produced by", band.produced)}
+          {infoCell("Used for", band.used)}
+          <div className="border-l-[3px] border-l-foreground bg-muted/60 px-3.5 py-2.5">
+            <p className="t-micro">★ Remember</p>
+            <p className="mt-1 text-[0.85rem] leading-relaxed text-foreground">{band.remember}</p>
           </div>
         </div>
       </div>

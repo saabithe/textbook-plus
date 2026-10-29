@@ -33,7 +33,7 @@ export function ChargeFateTrio() {
   return (
     <div className="my-6">
       <div className="mb-3 flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.18em] text-muted-foreground">
-        <Zap className="h-4 w-4 text-amber-500" />
+        <Zap className="h-4 w-4 text-warning" />
         <span>What kind of charge produces what?</span>
       </div>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1.35fr]">
@@ -41,18 +41,18 @@ export function ChargeFateTrio() {
           <div
             key={card.title}
             className={cn(
-              "relative flex flex-col justify-between overflow-hidden rounded-2xl border px-4 py-4 shadow-sm transition-shadow",
+              "relative flex flex-col justify-between overflow-hidden rounded-lg border px-4 py-4 transition-colors",
               card.radiates
-                ? "border-emerald-500/40 bg-gradient-to-br from-emerald-500/[0.14] via-teal-500/[0.08] to-emerald-500/[0.04] ring-2 ring-emerald-500/20"
-                : "border-border/60 bg-muted/20"
+                ? "border-ok/40 bg-ok/10"
+                : "border-border bg-card"
             )}
           >
             <div
               className={cn(
                 "absolute inset-x-0 top-0 h-1",
                 card.radiates
-                  ? "bg-gradient-to-r from-emerald-400 to-teal-400"
-                  : "bg-gradient-to-r from-muted-foreground/30 to-muted-foreground/10"
+                  ? "bg-ok"
+                  : "bg-muted-foreground/40"
               )}
             />
             <div>
@@ -60,7 +60,7 @@ export function ChargeFateTrio() {
                 className={cn(
                   "text-sm font-extrabold tracking-tight",
                   card.radiates
-                    ? "text-emerald-800 dark:text-emerald-300"
+                    ? "text-ok"
                     : "text-foreground"
                 )}
               >
@@ -82,10 +82,10 @@ export function ChargeFateTrio() {
             </div>
             <div
               className={cn(
-                "mt-3 inline-flex items-center gap-1.5 self-start rounded-full px-3 py-1 text-[0.72rem] font-extrabold uppercase tracking-[0.1em]",
+                "mt-3 inline-flex items-center gap-1.5 self-start rounded-[3px] px-3 py-1 text-[0.72rem] font-extrabold uppercase tracking-[0.1em]",
                 card.radiates
-                  ? "bg-emerald-600 text-white shadow-sm shadow-emerald-600/30"
-                  : "bg-muted-foreground/10 text-muted-foreground"
+                  ? "bg-ok text-background"
+                  : "bg-muted text-muted-foreground"
               )}
             >
               {card.radiates ? (

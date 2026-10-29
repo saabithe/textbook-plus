@@ -1,6 +1,4 @@
-import { ArrowLeftRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
 import {
   Table,
   TableHeader,
@@ -21,46 +19,37 @@ interface CharacterComparisonProps {
   className?: string;
 }
 
+/**
+ * CharacterComparison — the same table grammar as `TableCard`: hairline rows,
+ * micro column labels, no chrome of its own.
+ */
 export function CharacterComparison({ characters, rows, className }: CharacterComparisonProps) {
   return (
-    <Card className={cn("my-6 gap-0 overflow-hidden border border-border/50 py-0", className)}>
-      {/* Header */}
-      <div className="flex items-center gap-2 px-6 py-3 bg-muted/40 border-b border-border/40">
-        <ArrowLeftRight className="h-4 w-4 text-muted-foreground" />
-        <span className="text-sm font-semibold text-foreground">Character Comparison</span>
-      </div>
-
-      {/* Table */}
-      <Table className="text-[0.95rem] min-w-[520px]" label="Character comparison">
+    <div className={cn("my-6 overflow-hidden rounded-lg border border-border bg-card", className)}>
+      <Table className="min-w-[520px]" label="Character comparison">
         <TableHeader>
-          <TableRow className="border-b border-border/40 hover:bg-transparent">
-            <TableHead className="h-auto w-1/4 px-6 py-3 text-xs font-semibold uppercase tracking-wider whitespace-normal text-muted-foreground">
+          <TableRow className="bg-muted hover:bg-muted">
+            <TableHead className="h-auto w-1/4 py-3 align-bottom text-[0.6875rem] font-bold tracking-[0.08em] uppercase">
               Aspect
             </TableHead>
             {characters.map((name) => (
               <TableHead
                 key={name}
-                className="h-auto px-6 py-3 text-sm font-bold whitespace-normal text-foreground"
+                className="h-auto py-3 align-bottom text-[0.6875rem] font-bold tracking-[0.08em] uppercase"
               >
-                {name}
+                <span className="text-foreground">{name}</span>
               </TableHead>
             ))}
           </TableRow>
         </TableHeader>
         <TableBody>
-          {rows.map((row, i) => (
-            <TableRow
-              key={row.label}
-              className={cn(
-                "border-b border-border/30 last:border-b-0 hover:bg-transparent",
-                i % 2 === 0 ? "bg-card" : "bg-muted/10"
-              )}
-            >
-              <TableCell className="px-6 py-3.5 text-sm font-semibold whitespace-nowrap align-top text-foreground/70">
+          {rows.map((row) => (
+            <TableRow key={row.label}>
+              <TableCell className="align-top font-semibold text-muted-foreground">
                 {row.label}
               </TableCell>
               {row.values.map((val, j) => (
-                <TableCell key={j} className="px-6 py-3.5 leading-[1.75] align-top whitespace-normal text-foreground/85">
+                <TableCell key={j} className="align-top leading-[1.7] text-foreground/90">
                   {val}
                 </TableCell>
               ))}
@@ -68,6 +57,6 @@ export function CharacterComparison({ characters, rows, className }: CharacterCo
           ))}
         </TableBody>
       </Table>
-    </Card>
+    </div>
   );
 }

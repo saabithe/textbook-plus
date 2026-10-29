@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface CheckItem {
@@ -25,45 +24,46 @@ export function Checklist({ title, items }: ChecklistProps) {
   const toggle = (i: number) => {
     setChecked(prev => {
       const next = new Set(prev);
-      if (next.has(i)) {
-        next.delete(i);
-      } else {
-        next.add(i);
-      }
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
       return next;
     });
   };
 
   return (
-    <Card className="my-6 gap-0 rounded-2xl border-border/60 py-4 shadow-sm">
-      <CardContent className="px-5">
-        {title && <span className="text-sm font-extrabold tracking-tight block mb-3">{title}</span>}
-        <div className="space-y-2">
-          {items.map((item, i) => {
-            const isChecked = checked.has(i);
-            return (
-              <div
-                key={i}
-                onClick={() => toggle(i)}
-                className="flex items-center gap-3 w-full text-left group -mx-2 rounded-xl px-2 py-2.5 cursor-pointer transition-colors hover:bg-primary/[0.06]"
-              >
-                <Checkbox
-                  checked={isChecked}
-                  onCheckedChange={() => toggle(i)}
-                  onClick={(e) => e.stopPropagation()}
-                  aria-label={item.label}
-                  className="h-8 w-8 rounded-lg shadow-sm group-hover:border-primary/50 [&>svg]:size-4"
-                />
-                <span className={cn("text-sm leading-relaxed",
-                  isChecked ? "text-muted-foreground line-through" : "text-foreground"
-                )}>
-                  {item.label}
-                </span>
-              </div>
-            );
-          })}
+    <div className="my-6 rounded-lg border border-border bg-card">
+      {title && (
+        <div className="border-b border-border px-4 py-2.5 text-sm font-bold tracking-tight text-foreground">
+          {title}
         </div>
-      </CardContent>
-    </Card>
+      )}
+      <div>
+        {items.map((item, i) => {
+          const isChecked = checked.has(i);
+          return (
+            <div
+              key={i}
+              onClick={() => toggle(i)}
+              className="flex items-center gap-3 border-b border-border px-4 py-2.5 last:border-b-0 cursor-pointer hover:bg-foreground/[0.03]"
+            >
+              <span
+                className={cn(
+                  "flex h-4 w-4 shrink-0 items-center justify-center rounded-[3px] border",
+                  isChecked
+                    ? "border-foreground bg-foreground text-background"
+                    : "border-border bg-card text-transparent",
+                )}
+                aria-hidden
+              >
+                <Check className="h-3 w-3" strokeWidth={3} />
+              </span>
+              <span className={cn("text-base leading-relaxed", isChecked ? "text-muted-foreground line-through" : "text-foreground")}>
+                {item.label}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }

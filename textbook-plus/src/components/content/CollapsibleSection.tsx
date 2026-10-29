@@ -16,6 +16,10 @@ interface CollapsibleSectionProps {
   children: React.ReactNode;
 }
 
+/**
+ * CollapsibleSection — a section header with a 1px rule beneath, nothing else.
+ * No card frame: sections are separated by structure, not boxed.
+ */
 export function CollapsibleSection({
   title,
   id,
@@ -26,25 +30,19 @@ export function CollapsibleSection({
 
   return (
     <Collapsible open={open} onOpenChange={setOpen}>
-      <div
-        id={id}
-        className="rounded-2xl border border-border/60 bg-card/50 overflow-hidden scroll-mt-24 shadow-sm"
-      >
-        <CollapsibleTrigger
-          className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left text-foreground transition-colors hover:bg-primary/[0.05]"
-        >
-          <span className="text-base font-bold tracking-tight">{title}</span>
+      <div id={id} className="scroll-mt-24">
+        <CollapsibleTrigger className="group -mx-2 flex w-full items-center justify-between gap-3 rounded-[3px] border-b border-border px-2 py-3 text-left text-[0.9375rem] font-semibold tracking-[-0.005em] text-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-muted/60">
+          <span>{title}</span>
           <ChevronDown
             className={cn(
-              "h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200",
+              "h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 ease-[var(--ease-blueprint)]",
               open && "rotate-180"
             )}
+            aria-hidden
           />
         </CollapsibleTrigger>
         <CollapsibleContent>
-          <div className="px-5 pb-5 pt-1">
-            {children}
-          </div>
+          <div className="pt-4">{children}</div>
         </CollapsibleContent>
       </div>
     </Collapsible>

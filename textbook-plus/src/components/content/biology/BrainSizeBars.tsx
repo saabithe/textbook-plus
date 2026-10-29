@@ -22,9 +22,9 @@ const STAGES: BrainStage[] = [
 
 export function BrainSizeBars({ title = "Brain size along the human line" }: BrainSizeBarsProps) {
   return (
-    <div className="my-6 rounded-2xl border border-border/60 bg-card p-4 shadow-sm">
+    <div className="my-6 rounded-lg border border-border bg-card p-4">
       <div className="flex items-center gap-2.5">
-        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-400 text-white shadow-sm shadow-violet-500/30">
+        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground">
           <Brain className="h-4 w-4" aria-hidden="true" />
         </span>
         <span className="text-sm font-extrabold tracking-tight text-foreground">{title}</span>
@@ -44,9 +44,9 @@ export function BrainSizeBars({ title = "Brain size along the human line" }: Bra
               className="grid grid-cols-1 items-center gap-x-3 gap-y-1.5 sm:grid-cols-[8.5rem_1fr_4.5rem]"
             >
               <span className="text-sm font-bold leading-snug text-foreground">{stage}</span>
-              <div className="h-2.5 w-full overflow-hidden rounded-full bg-muted">
+              <div className="h-2.5 w-full overflow-hidden rounded-[3px] bg-muted">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-400"
+                  className="h-full rounded-[3px] bg-[var(--subject-biology)]"
                   style={{ width: `${pct}%` }}
                 />
               </div>

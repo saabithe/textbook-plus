@@ -50,7 +50,7 @@ export function MoleculeStructure({
 
   return (
     <figure
-      className={cn("my-6 print:break-inside-avoid", className)}
+      className={cn("my-6", className)}
       style={{ maxWidth }}
     >
       <div
@@ -59,13 +59,13 @@ export function MoleculeStructure({
         className={cn(
           "flex items-center justify-center overflow-hidden [&_svg]:h-auto [&_svg]:w-full [&_svg]:max-w-full",
           variant === "boxed" &&
-            "rounded-2xl border border-border/60 bg-card/50 px-3 py-3 shadow-sm print:border-border",
+            "rounded-lg border border-border bg-card px-4 py-4",
         )}
         dangerouslySetInnerHTML={{ __html: svg }}
       />
 
       {(caption || formula) && (
-        <figcaption className="mt-2 text-center text-sm leading-relaxed text-muted-foreground">
+        <figcaption className="mt-3 border-t border-border pt-3 text-center text-sm leading-relaxed text-muted-foreground">
           {caption && <span className="text-foreground/80">{caption}</span>}
           {caption && formula && <span className="mx-1.5 opacity-40">·</span>}
           {formula && (

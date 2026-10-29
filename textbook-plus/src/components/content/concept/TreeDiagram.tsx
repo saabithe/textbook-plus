@@ -36,34 +36,32 @@ function TreeNodeComponent({
         aria-expanded={hasChildren ? open : undefined}
         disabled={!hasChildren}
         className={cn(
-          "group flex w-full items-start gap-2 rounded-xl py-2.5 text-left transition-colors",
-          hasChildren ? "cursor-pointer" : "cursor-default",
-          hasChildren && "hover:bg-primary/[0.06]"
+          "group flex w-full items-start gap-2 rounded-lg px-2 py-2 text-left transition-colors",
+          hasChildren ? "cursor-pointer hover:bg-foreground/[0.03]" : "cursor-default",
         )}
-        style={{ paddingLeft: `${Math.min(depth * 18 + 8, 44)}px`, paddingRight: "10px" }}
+        style={{ paddingLeft: `${Math.min(depth * 16 + 8, 40)}px`, paddingRight: "8px" }}
       >
         {hasChildren ? (
           <span
             className={cn(
-              "mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg transition-all duration-200",
+              "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-[3px] border transition-colors",
               open
-                ? "bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white shadow-sm shadow-violet-500/30"
-                : "border border-border/60 bg-muted/40 text-foreground/70 group-hover:border-violet-500/50 group-hover:text-violet-600 group-hover:dark:text-violet-300"
+                ? "border-foreground bg-foreground text-background"
+                : "border-border bg-card text-muted-foreground group-hover:border-rule-strong",
             )}
           >
             <ChevronRight
-              className={cn("h-3.5 w-3.5 transition-transform duration-200", open && "rotate-90")}
+              className={cn("h-3 w-3 transition-transform duration-200", open && "rotate-90")}
             />
           </span>
         ) : (
-          <span className="mt-1.5 ml-[9px] h-3 w-3 shrink-0 rounded-[4px] border border-violet-500/50 bg-violet-500/15" />
+          <span className="mt-2 ml-1 h-2.5 w-2.5 shrink-0 rounded-[3px] border border-border bg-muted" />
         )}
         <span className="min-w-0 flex-1">
           <span
             className={cn(
-              "block break-words text-sm",
-              depth === 0 ? "font-extrabold text-foreground" : "font-semibold",
-              depth > 0 ? "text-foreground/90" : ""
+              "block break-words text-[15px] leading-snug",
+              depth === 0 ? "font-semibold text-foreground" : "font-medium text-foreground/90",
             )}
           >
             {node.label}
@@ -78,10 +76,9 @@ function TreeNodeComponent({
 
       {hasChildren && open && (
         <div className="relative">
-          {/* vertical guide line */}
           <div
-            className="absolute bottom-2 top-0 w-px bg-gradient-to-b from-violet-500/40 to-violet-500/10"
-            style={{ left: `${Math.min(depth * 18 + 8, 44) + 11}px` }}
+            className="absolute bottom-2 top-0 w-px bg-border"
+            style={{ left: `${Math.min(depth * 16 + 8, 40) + 9}px` }}
           />
           <div>
             {node.children!.map((child, i) => (
@@ -105,13 +102,13 @@ export function TreeDiagram({
   defaultExpanded = false,
 }: TreeDiagramProps) {
   return (
-    <div className="my-6 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+    <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
       {title && (
-        <div className="flex items-center gap-2.5 border-b border-border/40 bg-muted/30 px-4 py-2.5">
-          <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 shadow-sm shadow-violet-500/30">
-            <ListTree className="h-3.5 w-3.5 text-white" />
+        <div className="flex items-center gap-2.5 border-b border-border px-4 py-2.5">
+          <span className="flex h-6 w-6 items-center justify-center rounded-[3px] border border-border bg-card text-muted-foreground">
+            <ListTree className="h-3.5 w-3.5" />
           </span>
-          <span className="text-sm font-extrabold tracking-tight text-foreground">{title}</span>
+          <span className="text-sm font-bold tracking-tight text-foreground">{title}</span>
         </div>
       )}
       <div className="px-3 py-2">

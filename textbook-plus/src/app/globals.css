@@ -5,6 +5,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ────────────────────────────────────────────────────────────────
+   Blueprint — the token layer.
+   shadcn `neutral` (pure grey, zero chroma). Token NAMES are shadcn's;
+   only the values are ours. Colour on a page comes from the subject
+   hue and nowhere else.
+   ──────────────────────────────────────────────────────────────── */
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -27,6 +34,25 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+
+  /* Blueprint additions */
+  --color-rule-strong: var(--rule-strong);
+  --color-faint: var(--faint);
+  --color-warning: var(--warning);
+  --color-ok: var(--ok);
+  --color-bad: var(--bad);
+
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Radius scale — 6px is the ceiling. No rounded-2xl in the product. */
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -34,76 +60,127 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Motion — three durations, one easing. Nothing else. */
+  --ease-blueprint: cubic-bezier(0.2, 0.6, 0.2, 1);
 }
 
 :root {
-  --background: oklch(0.99 0 0);
-  --foreground: oklch(0.21 0.01 265);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.21 0.01 265);
-  --popover: oklch(0.99 0 0);
-  --popover-foreground: oklch(0.21 0.01 265);
-  --primary: oklch(0.61 0.15 152);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.958 0.005 265);
-  --secondary-foreground: oklch(0.3 0.01 265);
-  --muted: oklch(0.958 0.005 265);
-  --muted-foreground: oklch(0.46 0.01 265);
-  --accent: oklch(0.945 0.005 265);
-  --accent-foreground: oklch(0.27 0.01 265);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.886 0.005 265);
-  --input: oklch(0.886 0.005 265);
-  --ring: oklch(0.61 0.15 152);
-  --radius: 1rem;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
 
-  /* Subject Colors */
-  --subject-physics: #3B82F6;
-  --subject-physics-light: #DBEAFE;
-  --subject-chemistry: #22C55E;
-  --subject-chemistry-light: #DCFCE7;
-  --subject-mathematics: #F97316;
-  --subject-mathematics-light: #FFF7ED;
-  --subject-biology: #14B8A6;
-  --subject-biology-light: #CCFBF1;
-  --subject-english: #A855F7;
-  --subject-english-light: #F3E8FF;
-  --subject-arabic: #F43F5E;
-  --subject-arabic-light: #FFE4E6;
+  /* Ink primary — the green is retired. Subject hues are the only colour. */
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.955 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.205 0 0);
+  --radius: 0.375rem;
+
+  /* Blueprint additions */
+  --rule-strong: oklch(0.87 0 0);
+  --faint: oklch(0.65 0 0);
+  --warning: oklch(0.65 0.15 70);
+  --ok: oklch(0.55 0.14 150);
+  --bad: oklch(0.55 0.2 25);
+
+  /* Highlight tones (5 meanings — §4.3). Low-alpha marker, never neon. */
+  --hl-yellow: oklch(0.93 0.12 95 / 70%);
+  --hl-blue: oklch(0.9 0.06 240 / 70%);
+  --hl-green: oklch(0.9 0.07 150 / 70%);
+  --hl-pink: oklch(0.91 0.06 350 / 70%);
+  --hl-orange: oklch(0.91 0.08 60 / 70%);
+
+  /* Sidebar */
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-ring: oklch(0.205 0 0);
+  --sidebar-width: 200px;
+
+  /* Subject colours — unchanged marks, retuned for a neutral base. */
+  --subject-physics: #2563eb;
+  --subject-physics-light: #dbeafe;
+  --subject-chemistry: #15803d;
+  --subject-chemistry-light: #dcfce7;
+  --subject-mathematics: #c2410c;
+  --subject-mathematics-light: #ffedd5;
+  --subject-biology: #0f766e;
+  --subject-biology-light: #ccfbf1;
+  --subject-english: #7e22ce;
+  --subject-english-light: #f3e8ff;
+  --subject-arabic: #be123c;
+  --subject-arabic-light: #ffe4e6;
 }
 
 .dark {
-  --background: oklch(0.155 0.012 265);
-  --foreground: oklch(0.955 0.006 265);
-  --card: oklch(0.195 0.013 265);
-  --card-foreground: oklch(0.955 0.006 265);
-  --popover: oklch(0.215 0.014 265);
-  --popover-foreground: oklch(0.955 0.006 265);
-  --primary: oklch(0.8 0.15 152);
-  --primary-foreground: oklch(0.2 0.04 152);
-  --secondary: oklch(0.245 0.014 265);
-  --secondary-foreground: oklch(0.95 0.005 265);
-  --muted: oklch(0.24 0.014 265);
-  --muted-foreground: oklch(0.72 0.012 265);
-  --accent: oklch(0.26 0.014 265);
-  --accent-foreground: oklch(0.95 0.005 265);
-  --destructive: oklch(0.65 0.21 25);
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.75 0.13 152);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.87 0 0);
 
-  /* Subject Colors - Dark Mode */
-  --subject-physics: #60A5FA;
+  --rule-strong: oklch(1 0 0 / 22%);
+  --faint: oklch(0.62 0 0);
+  --warning: oklch(0.78 0.14 75);
+  --ok: oklch(0.72 0.15 150);
+  --bad: oklch(0.72 0.16 25);
+
+  --hl-yellow: oklch(0.75 0.13 95 / 25%);
+  --hl-blue: oklch(0.72 0.08 240 / 22%);
+  --hl-green: oklch(0.72 0.09 150 / 22%);
+  --hl-pink: oklch(0.74 0.08 350 / 22%);
+  --hl-orange: oklch(0.75 0.1 60 / 22%);
+
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.985 0 0);
+  --sidebar-primary-foreground: oklch(0.205 0 0);
+  --sidebar-ring: oklch(0.87 0 0);
+
+  --subject-physics: #60a5fa;
   --subject-physics-light: oklch(0.25 0.05 260);
-  --subject-chemistry: #4ADE80;
+  --subject-chemistry: #4ade80;
   --subject-chemistry-light: oklch(0.25 0.05 150);
-  --subject-mathematics: #FB923C;
+  --subject-mathematics: #fb923c;
   --subject-mathematics-light: oklch(0.25 0.05 50);
-  --subject-biology: #2DD4BF;
+  --subject-biology: #2dd4bf;
   --subject-biology-light: oklch(0.25 0.05 175);
-  --subject-english: #C084FC;
+  --subject-english: #c084fc;
   --subject-english-light: oklch(0.25 0.05 300);
-  --subject-arabic: #FB7185;
+  --subject-arabic: #fb7185;
   --subject-arabic-light: oklch(0.25 0.05 10);
 }
 
@@ -113,111 +190,290 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image: radial-gradient(
-      60rem 30rem at 50% -12rem,
-      oklch(0.5 0.05 152 / 0.045),
-      transparent 70%
-    );
-    background-repeat: no-repeat;
-  }
-  .dark body {
-    background-image:
-      radial-gradient(52rem 26rem at 50% -10rem, oklch(0.55 0.12 152 / 0.05), transparent 70%),
-      radial-gradient(34rem 20rem at 92% -4rem, oklch(0.6 0.12 265 / 0.05), transparent 70%);
+    /* No radial page glows. The page is a page. */
   }
   ::selection {
-    background: var(--primary);
-    color: var(--primary-foreground);
+    background: color-mix(in oklch, var(--foreground) 16%, transparent);
+    color: inherit;
   }
   html {
     @apply font-sans;
     font-size: calc(16px * var(--font-scale, 1));
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
   }
 }
 
-/* Chapter content typography */
+/* ────────────────────────────────────────────────────────────────
+   The nine levels (§4.5). Nothing in the codebase sets a heading
+   size outside this table.
+   ──────────────────────────────────────────────────────────────── */
+
+@layer components {
+  .t-title {
+    font-family: var(--font-sans);
+    font-size: 2.75rem; /* 44 */
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--foreground);
+  }
+  .t-h1 {
+    font-family: var(--font-sans);
+    font-size: 2.25rem; /* 36 */
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+  }
+  .t-h2 {
+    font-family: var(--font-sans);
+    font-size: 1.625rem; /* 26 */
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+  .t-h3 {
+    font-family: var(--font-sans);
+    font-size: 1.25rem; /* 20 */
+    line-height: 1.35;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    color: var(--foreground);
+  }
+  .t-h4 {
+    font-family: var(--font-sans);
+    font-size: 1rem; /* 16 */
+    line-height: 1.45;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+  .t-lead {
+    font-family: var(--font-content);
+    font-size: 1.25rem; /* 20 */
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--muted-foreground);
+  }
+  .t-body {
+    font-family: var(--font-content);
+    font-size: 1.125rem; /* 18 */
+    line-height: 1.75;
+    font-weight: 400;
+  }
+  .t-caption {
+    font-family: var(--font-content);
+    font-size: 0.9375rem; /* 15 */
+    line-height: 1.6;
+    color: var(--muted-foreground);
+  }
+  .t-micro {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem; /* 11 */
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+
+  /* Mobile type scale */
+  @media (max-width: 767px) {
+    .t-title {
+      font-size: 2rem; /* 32 */
+      line-height: 1.1;
+    }
+    .t-h1 {
+      font-size: 1.75rem; /* 28 */
+      line-height: 1.15;
+    }
+    .t-h2 {
+      font-size: 1.375rem; /* 22 */
+      line-height: 1.3;
+    }
+    .t-h3 {
+      font-size: 1.125rem; /* 18 */
+      line-height: 1.4;
+    }
+    .t-h4 {
+      font-size: 0.9375rem; /* 15 */
+      line-height: 1.45;
+    }
+    .t-lead {
+      font-size: 1.125rem; /* 18 */
+    }
+    .t-body {
+      font-size: 1.0625rem; /* 17 */
+    }
+    .t-caption {
+      font-size: 0.875rem; /* 14 */
+    }
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   Chapter content typography
+   ──────────────────────────────────────────────────────────────── */
+
 .prose-custom {
-  @apply max-w-none text-[1.125rem] leading-[1.75];
+  @apply max-w-none;
   overflow-wrap: anywhere;
-  font-family: var(--font-content), "Plus Jakarta Sans", ui-sans-serif, sans-serif;
+  font-family: var(--font-content), ui-sans-serif, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.75;
   font-weight: 400;
+  color: color-mix(in oklch, var(--foreground) 92%, transparent);
+}
+
+.prose-custom h1,
+.prose-custom h2,
+.prose-custom h3,
+.prose-custom h4 {
+  scroll-margin-top: 6rem;
+  text-wrap: balance;
 }
 
 .prose-custom h1 {
-  @apply text-3xl font-bold tracking-tight mt-14 mb-5 text-foreground;
+  font-family: var(--font-sans);
+  font-size: 2.25rem;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+  margin-top: 0;
+  margin-bottom: 0.625rem;
 }
 
 .prose-custom h2 {
-  @apply text-2xl font-bold tracking-tight mt-14 mb-6 scroll-mt-24 text-foreground border-b border-border/40 pb-3 flex items-center gap-3;
+  font-family: var(--font-sans);
+  font-size: 1.625rem;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+  padding-top: 3.5rem;
+  border-top: 1px solid var(--border);
 }
 
-.prose-custom h2::before {
-  content: "";
-  @apply h-7 w-1.5 rounded-full shrink-0;
-  background: linear-gradient(180deg, var(--color-violet-500), var(--color-fuchsia-400));
+/* The first section opens the page — no rule above it. */
+.prose-custom > h2:first-child,
+.prose-custom > h2:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
 }
 
 .prose-custom h3 {
-  @apply text-lg font-bold mt-10 mb-3 scroll-mt-24 text-foreground flex items-center gap-2.5;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--foreground);
+  margin-top: 2.5rem;
+  margin-bottom: 0.625rem;
 }
 
-.prose-custom h3::before {
-  content: "";
-  @apply h-5 w-1 rounded-full shrink-0;
-  background: linear-gradient(180deg, var(--color-blue-500), var(--color-sky-400));
+.prose-custom h4 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.45;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .prose-custom p {
-  @apply mb-5 text-foreground/90 leading-[1.75];
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
 }
 
 .prose-custom ul {
-  @apply list-disc pl-6 space-y-2 mb-6 text-foreground/90;
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .prose-custom ol {
-  @apply list-decimal pl-6 space-y-2 mb-6 text-foreground/90;
+  list-style: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .prose-custom li {
-  @apply leading-[1.75];
+  line-height: 1.75;
+  margin-bottom: 0.5rem;
 }
 
 .prose-custom li > ul,
 .prose-custom li > ol {
-  @apply mt-1 mb-0;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
 }
 
 .prose-custom blockquote {
-  @apply border-l-4 border-primary/40 pl-4 pr-4 py-2 my-5 text-foreground/80 italic rounded-r-2xl bg-primary/[0.05];
+  border-left: 2px solid var(--rule-strong);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--muted-foreground);
 }
 
-/* Tables are rendered exclusively by the `TableCard`/`ui/table` components, so
-   they own their own styling. Global element selectors here previously
-   overrode the component (via higher specificity) and forced a second scroll
-   container, so they were removed. */
+/* Tables are rendered exclusively by `TableCard`/`ui/table`, which own their
+   own styling. No global element selectors here — they would override the
+   component through higher specificity. */
 
 .prose-custom code {
-  @apply rounded bg-muted px-1.5 py-0.5 text-sm font-mono;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.1em 0.35em;
 }
 
 .prose-custom pre {
-  @apply rounded-xl bg-muted/50 border border-border/40 p-4 overflow-x-auto my-4 text-sm font-mono;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  font-size: 0.875rem;
 }
 
 .prose-custom hr {
-  @apply my-8 border-border/40;
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
 }
 
 .prose-custom strong {
-  @apply font-bold text-foreground;
+  font-weight: 700;
+  color: var(--foreground);
 }
 
 .prose-custom em {
-  @apply italic;
+  font-style: italic;
 }
 
-/* Inline math wrapper — keeps long formulas scrollable without lifting them off the text baseline */
+.prose-custom a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+/* Inline math wrapper — keeps long formulas scrollable without lifting them
+   off the text baseline. Preserved verbatim from the previous system. */
 .prose-custom .formula-inline {
   display: inline-block;
   max-width: 100%;
@@ -228,10 +484,41 @@
   margin-bottom: -0.2em;
 }
 
+/* ── Annotations (§15) ────────────────────────────────────────── */
+[data-ann] {
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+[dir="rtl"] [data-ann] {
+  text-underline-offset: 0.22em;
+}
+mark[data-tone="yellow"] {
+  background: var(--hl-yellow);
+}
+mark[data-tone="blue"] {
+  background: var(--hl-blue);
+}
+mark[data-tone="green"] {
+  background: var(--hl-green);
+}
+mark[data-tone="pink"] {
+  background: var(--hl-pink);
+}
+mark[data-tone="orange"] {
+  background: var(--hl-orange);
+}
+mark {
+  color: inherit;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  border-radius: 2px;
+}
+
 /* ── Arabic / RTL ────────────────────────────────────────────────
    Arabic chapter pages run right-to-left: the container carries
-   `dir="rtl"`, these rules swap the Latin serif for the Arabic naskh
-   face and give the tashkeel (diacritics) the vertical room it needs. */
+   `dir="rtl"`, these rules swap the Latin face for the Arabic naskh
+   face and give the tashkeel (diacritics) the vertical room it needs.
+   Metrics are frozen: 1.3rem / 2.05. Never restyle Arabic. */
 .prose-ar {
   font-family: var(--font-arabic), var(--font-arabic-backup), "Noto Naskh Arabic", "Scheherazade New", "Segoe UI", serif;
   font-weight: 400;
@@ -245,7 +532,6 @@
   line-height: 1.7;
 }
 
-/* Arabic body copy — set by BilingualParagraph */
 .arabic-font {
   font-family: var(--font-arabic), var(--font-arabic-backup), "Noto Naskh Arabic", "Scheherazade New", "Segoe UI", serif;
 }
@@ -268,7 +554,7 @@
 /* English translations inside an Arabic page keep the Latin reading face */
 .prose-ar p.translation,
 .prose-ar span.translation {
-  font-family: var(--font-content), "Plus Jakarta Sans", ui-sans-serif, sans-serif;
+  font-family: var(--font-content), ui-sans-serif, sans-serif;
   font-weight: 400;
   margin-bottom: 1.75rem;
 }
@@ -282,8 +568,9 @@
 
 [dir="rtl"] .prose-custom blockquote {
   border-left-width: 0;
-  border-right: 4px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
-  border-radius: 0.75rem 0 0 0.75rem;
+  border-right: 2px solid var(--rule-strong);
+  padding-left: 0;
+  padding-right: 1rem;
 }
 
 /* Alerts (Callout) inside an Arabic page */
@@ -291,10 +578,10 @@
   text-align: right;
 }
 
-/* Scrollbar — visible thin style */
+/* Scrollbar — thin, ink on paper */
 html {
   scrollbar-width: thin;
-  scrollbar-color: hsl(var(--border)) transparent;
+  scrollbar-color: var(--border) transparent;
 }
 
 *::-webkit-scrollbar {
@@ -307,15 +594,15 @@ html {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: hsl(var(--border));
-  border-radius: 9999px;
+  background: var(--border);
+  border-radius: 3px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground) / 0.4);
+  background: var(--rule-strong);
 }
 
-/* Reduced motion: honor user preference for transitions/animations */
+/* Reduced motion: honour the user's preference. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -328,29 +615,45 @@ html {
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .animate-fade-in {
-  animation: fade-in 0.3s ease-out;
+  animation: fade-in 180ms var(--ease-blueprint);
 }
 
 /* TopicSwitch pager: the incoming pane slides in from the direction of travel. */
 @keyframes pane-in-from-right {
-  from { opacity: 0; transform: translateX(16px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes pane-in-from-left {
-  from { opacity: 0; transform: translateX(-16px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .animate-pane-in-from-right {
-  animation: pane-in-from-right 0.2s ease-out;
+  animation: pane-in-from-right 180ms var(--ease-blueprint);
 }
 
 .animate-pane-in-from-left {
-  animation: pane-in-from-left 0.2s ease-out;
+  animation: pane-in-from-left 180ms var(--ease-blueprint);
 }

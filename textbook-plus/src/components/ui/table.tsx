@@ -4,7 +4,8 @@ import { cn } from "@/lib/utils"
 /**
  * A single, accessible table primitive.
  *
- * Design notes:
+ * Design notes (Blueprint §14.12):
+ * - Horizontal rules only. No vertical borders, no zebra, no filled header.
  * - No `"use client"` — the markup is static, so it can render on the server.
  * - Cells are left to wrap by default; consumers opt into `whitespace-nowrap`
  *   instead of having to opt out of it (the previous behaviour forced every
@@ -34,7 +35,7 @@ function Table({
       aria-label={accessibleLabel}
       tabIndex={0}
       className={cn(
-        "relative w-full overflow-x-auto rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring/50",
+        "relative w-full overflow-x-auto rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         containerClassName
       )}
     >
@@ -72,7 +73,7 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
   return (
     <tfoot
       data-slot="table-footer"
-      className={cn("border-t bg-muted/50 font-medium", className)}
+      className={cn("border-t border-border font-medium", className)}
       {...props}
     />
   )
@@ -83,7 +84,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
     <tr
       data-slot="table-row"
       className={cn(
-        "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
+        "border-b border-border transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-muted/50 data-[state=selected]:bg-muted",
         className
       )}
       {...props}
@@ -97,7 +98,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
       data-slot="table-head"
       scope="col"
       className={cn(
-        "h-10 px-4 text-left align-middle font-semibold whitespace-normal text-muted-foreground",
+        "h-10 px-3 text-left align-middle text-[11px] leading-none font-bold tracking-[0.08em] whitespace-normal text-muted-foreground uppercase",
         className
       )}
       {...props}
@@ -109,7 +110,7 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
   return (
     <td
       data-slot="table-cell"
-      className={cn("px-4 py-3 align-top whitespace-normal", className)}
+      className={cn("px-3 py-3 align-top whitespace-normal", className)}
       {...props}
     />
   )
@@ -122,7 +123,7 @@ function TableCaption({
   return (
     <caption
       data-slot="table-caption"
-      className={cn("mt-4 text-sm text-muted-foreground", className)}
+      className={cn("mt-3 text-[13px] text-muted-foreground", className)}
       {...props}
     />
   )

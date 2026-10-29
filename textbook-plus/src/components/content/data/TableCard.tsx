@@ -1,6 +1,4 @@
 import type { ReactNode } from "react";
-import { Card, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import {
   Table,
@@ -9,6 +7,7 @@ import {
   TableHead,
   TableBody,
   TableCell,
+  TableCaption,
 } from "@/components/ui/table";
 
 interface TableCardRow {
@@ -18,7 +17,7 @@ interface TableCardRow {
 interface TableCardProps {
   headers: ReactNode[];
   rows: TableCardRow[];
-  /** Explanation shown in the footer. */
+  /** Explanation shown beneath the table. */
   caption?: ReactNode;
   /** Optional heading shown above the table. Omit for a chromeless table. */
   title?: string;
@@ -54,6 +53,13 @@ function isNumericColumn(rows: TableCardRow[], columnIndex: number): boolean {
   return hasValue;
 }
 
+/**
+ * TableCard — the shadcn `Table` primitives, adopted rather than wrapped.
+ *
+ * Header strip = micro title + micro row count, then one hairline. Horizontal
+ * rules only, no zebra, no vertical borders. The first column pins with a 1px
+ * border (never a shadow). Numeric columns are right-aligned tabular-nums.
+ */
 export function TableCard({ headers, rows, caption, title }: TableCardProps) {
   const pinFirstColumn = headers.length >= STICKY_FIRST_COLUMN_FROM;
   const numeric = headers.map((_, columnIndex) =>
@@ -63,37 +69,32 @@ export function TableCard({ headers, rows, caption, title }: TableCardProps) {
   const label = title ?? (typeof caption === "string" ? caption : "Table");
 
   return (
-    <Card className="my-6 gap-0 overflow-hidden rounded-2xl border py-0 shadow-sm">
+    <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
       {title && (
-        <div className="flex items-center justify-between gap-3 border-b border-border/50 bg-muted/40 px-4 py-3">
-          <span className="text-sm font-bold tracking-tight text-foreground">
-            {title}
+        <div className="flex items-baseline justify-between gap-3 border-b border-border px-4 py-3">
+          <span className="t-micro">{title}</span>
+          <span className="t-micro tabular-nums">
+            {rowCount} {rowCount === 1 ? "ROW" : "ROWS"}
           </span>
-          <Badge variant="secondary" className="rounded-full font-semibold">
-            {rowCount} {rowCount === 1 ? "row" : "rows"}
-          </Badge>
         </div>
       )}
       <Table
         label={label}
-        className={cn(
-          "text-sm",
-          pinFirstColumn ? "w-max min-w-full" : "w-full"
-        )}
+        className={cn(pinFirstColumn ? "w-max min-w-full" : "w-full")}
       >
         <TableHeader>
-          <TableRow className="border-b border-border/60 bg-muted hover:bg-muted">
+          <TableRow className="bg-muted hover:bg-muted">
             {headers.map((header, columnIndex) => (
               <TableHead
                 key={columnIndex}
                 className={cn(
-                  "px-4 py-3 align-bottom font-semibold whitespace-normal break-words",
+                  "h-auto py-3 align-bottom text-[0.6875rem] font-bold tracking-[0.08em] uppercase",
                   numeric[columnIndex] && "text-right",
                   pinFirstColumn && "min-w-28",
                   pinFirstColumn && columnIndex === 0 && "min-w-40",
                   pinFirstColumn &&
                     columnIndex === 0 &&
-                    "sticky left-0 z-20 bg-muted shadow-[1px_0_0_var(--border)]"
+                    "sticky left-0 z-20 border-r border-border bg-muted"
                 )}
               >
                 {header}
@@ -103,22 +104,21 @@ export function TableCard({ headers, rows, caption, title }: TableCardProps) {
         </TableHeader>
         <TableBody>
           {rows.map((row, rowIndex) => (
-            <TableRow
-              key={rowIndex}
-              className="group border-b border-border/40 transition-colors last:border-0 hover:bg-muted/40"
-            >
+            <TableRow key={rowIndex}>
               {row.cells.map((cell, columnIndex) => (
                 <TableCell
                   key={columnIndex}
                   className={cn(
-                    "px-4 py-3 align-top whitespace-normal break-words text-foreground/85",
-                    columnIndex === 0 && "font-semibold text-foreground/90",
+                    "align-top",
+                    columnIndex === 0
+                      ? "font-semibold text-foreground"
+                      : "text-foreground/90",
                     numeric[columnIndex] && "text-right tabular-nums",
                     pinFirstColumn && "min-w-28",
                     pinFirstColumn && columnIndex === 0 && "min-w-40",
                     pinFirstColumn &&
                       columnIndex === 0 &&
-                      "sticky left-0 z-10 bg-card group-hover:bg-muted shadow-[1px_0_0_var(--border)]"
+                      "sticky left-0 z-10 border-r border-border bg-card"
                   )}
                 >
                   {cell}
@@ -127,12 +127,12 @@ export function TableCard({ headers, rows, caption, title }: TableCardProps) {
             </TableRow>
           ))}
         </TableBody>
+        {caption && (
+          <TableCaption className="px-4 pb-4 text-left">
+            {caption}
+          </TableCaption>
+        )}
       </Table>
-      {caption && (
-        <CardFooter className="border-t border-border/40 bg-muted/30 px-4 py-3 text-xs leading-relaxed text-muted-foreground">
-          {caption}
-        </CardFooter>
-      )}
-    </Card>
+    </div>
   );
 }

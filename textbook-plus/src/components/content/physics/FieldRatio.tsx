@@ -3,21 +3,21 @@ import { Formula } from "@/components/content/Formula";
 
 export function FieldRatio() {
   return (
-    <div className="my-6 rounded-2xl border border-border/60 bg-card p-5 shadow-sm">
-      <div className="mb-4 flex items-center gap-2 text-[0.7rem] font-extrabold uppercase tracking-[0.2em] text-violet-600 dark:text-violet-400">
+    <div className="my-6 rounded-lg border border-border bg-card p-5">
+      <div className="mb-4 flex items-center gap-2 t-micro text-muted-foreground">
         <span className="text-lg">⚡</span>
         FIELD RATIO
       </div>
 
       <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-8">
         <div className="flex flex-col items-center">
-          <div className="flex items-center gap-1 rounded-xl border border-violet-500/25 bg-violet-500/[0.06] px-4 py-2">
-            <span className="text-lg font-extrabold text-violet-700 dark:text-violet-300">E₀</span>
-            <span className="text-sm font-black text-violet-400">/</span>
-            <span className="text-lg font-extrabold text-violet-700 dark:text-violet-300">B₀</span>
+          <div className="flex items-center gap-1 rounded-lg border border-border bg-[color-mix(in_oklab,var(--subject-physics)_10%,transparent)] px-4 py-2">
+            <span className="text-lg font-extrabold text-foreground">E₀</span>
+            <span className="text-sm font-black text-muted-foreground">/</span>
+            <span className="text-lg font-extrabold text-foreground">B₀</span>
           </div>
           <div className="my-1 text-lg font-black text-muted-foreground">=</div>
-          <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/[0.08] px-4 py-2 text-lg font-extrabold text-emerald-700 dark:text-emerald-300">
+          <div className="rounded-lg border border-ok/40 bg-ok/10 px-4 py-2 text-lg font-extrabold text-ok">
             c
           </div>
           <p className="mt-2 text-center text-[0.72rem] leading-snug text-muted-foreground">
@@ -33,11 +33,11 @@ export function FieldRatio() {
         </div>
 
         <div className="flex flex-col items-center">
-          <div className="rounded-xl border border-border/50 bg-muted/25 px-4 py-2">
+          <div className="rounded-lg border border-border bg-muted/40 px-4 py-2">
             <span className="text-base font-extrabold text-foreground/80">B₀/E₀</span>
           </div>
           <div className="my-1 text-lg font-black text-muted-foreground">=</div>
-          <div className="rounded-xl border border-border/50 bg-muted/25 px-4 py-2 text-base font-extrabold text-foreground/80">
+          <div className="rounded-lg border border-border bg-muted/40 px-4 py-2 text-base font-extrabold text-foreground">
             1/c
           </div>
           <p className="mt-2 text-center text-[0.72rem] leading-snug text-muted-foreground">

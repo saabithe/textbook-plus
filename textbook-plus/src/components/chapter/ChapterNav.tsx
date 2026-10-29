@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import type { Chapter } from "@/data/chapters";
 
 interface ChapterNavProps {
@@ -9,35 +9,52 @@ interface ChapterNavProps {
   basePath?: string;
 }
 
+/**
+ * Prev / next chapter — two hairline boxes (§5.3).
+ * 1px border, radius 6, no shadow, micro labels, 17px titles.
+ */
 export function ChapterNav({ prev, next, basePath = "/chapter" }: ChapterNavProps) {
   return (
-    <nav className="flex items-center justify-between gap-4 pt-12 mt-12 border-t border-border/40">
-      {prev ? (
-        <Link href={`${basePath}/${prev.slug}`} className="flex-1 min-w-0">
-          <Card className="group flex-row items-center gap-3 border border-border/60 p-0 px-4 py-3 transition-all duration-200 hover:border-border hover:bg-muted/50 hover:shadow-sm">
-            <ChevronLeft className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-x-0.5" />
-            <div className="min-w-0">
-              <p className="text-xs text-muted-foreground">Previous</p>
-              <p className="text-sm font-medium truncate">{prev.title}</p>
-            </div>
-          </Card>
-        </Link>
-      ) : (
-        <div className="flex-1" />
-      )}
-      {next ? (
-        <Link href={`${basePath}/${next.slug}`} className="flex-1 min-w-0">
-          <Card className="group flex-row items-center justify-end gap-3 border border-border/60 p-0 px-4 py-3 text-right transition-all duration-200 hover:border-border hover:bg-muted/50 hover:shadow-sm">
-            <div className="min-w-0">
-              <p className="text-xs text-muted-foreground">Next</p>
-              <p className="text-sm font-medium truncate">{next.title}</p>
-            </div>
-            <ChevronRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
-          </Card>
-        </Link>
-      ) : (
-        <div className="flex-1" />
-      )}
-    </nav>
+    <div className="mt-16">
+      <Separator />
+      <nav
+        aria-label="Chapter navigation"
+        className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-stretch"
+      >
+        {prev ? (
+          <Link
+            href={`${basePath}/${prev.slug}`}
+            className="group flex min-w-0 flex-1 items-center gap-3 rounded-lg border border-border px-5 py-4 transition-colors duration-[120ms] ease-blueprint hover:border-rule-strong hover:bg-foreground/[0.03]"
+          >
+            <ChevronLeft className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-[120ms] ease-blueprint group-hover:-translate-x-0.5" />
+            <span className="min-w-0">
+              <span className="t-micro block">Previous</span>
+              <span className="mt-1 block truncate text-[17px] font-semibold leading-snug text-foreground">
+                {prev.title}
+              </span>
+            </span>
+          </Link>
+        ) : (
+          <div aria-hidden className="hidden flex-1 sm:block" />
+        )}
+
+        {next ? (
+          <Link
+            href={`${basePath}/${next.slug}`}
+            className="group flex min-w-0 flex-1 items-center justify-end gap-3 rounded-lg border border-border px-5 py-4 text-right transition-colors duration-[120ms] ease-blueprint hover:border-rule-strong hover:bg-foreground/[0.03]"
+          >
+            <span className="min-w-0">
+              <span className="t-micro block">Next</span>
+              <span className="mt-1 block truncate text-[17px] font-semibold leading-snug text-foreground">
+                {next.title}
+              </span>
+            </span>
+            <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-[120ms] ease-blueprint group-hover:translate-x-0.5" />
+          </Link>
+        ) : (
+          <div aria-hidden className="hidden flex-1 sm:block" />
+        )}
+      </nav>
+    </div>
   );
 }

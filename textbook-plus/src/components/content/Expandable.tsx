@@ -1,14 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronRight, BookOpen, FlaskConical, ClipboardList, Layers, RotateCcw } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   Collapsible,
   CollapsibleTrigger,
   CollapsibleContent,
 } from "@/components/ui/collapsible";
-import { Badge } from "@/components/ui/badge";
 
 type ExpandableVariant = "example" | "exercise" | "misc" | "recall" | "default";
 
@@ -17,6 +16,8 @@ interface ExpandableProps {
   id?: string;
   variant?: ExpandableVariant;
   children: React.ReactNode;
+  /** Subject hue for the `example` / `exercise` accents, e.g. `var(--subject-physics)`. */
+  subjectColor?: string;
 }
 
 function inferVariant(title: string): ExpandableVariant {
@@ -28,84 +29,68 @@ function inferVariant(title: string): ExpandableVariant {
   return "default";
 }
 
+/**
+ * Five props, two tones: `example` carries an ink accent, `exercise` a warning
+ * accent, everything else stays neutral (a --border rule keeps the box anatomy
+ * consistent). No icon tile, no filled badge, no shadow.
+ */
 const variantStyles = {
   example: {
-    wrapper: "border-blue-500/20 shadow-sm",
-    trigger: "bg-blue-500/[0.07] hover:bg-blue-500/[0.11] dark:bg-blue-500/[0.10] dark:hover:bg-blue-500/[0.14] border-b-blue-500/10",
-    iconWrap: "bg-gradient-to-br from-blue-500 to-sky-400 text-white shadow-sm shadow-blue-500/30",
-    Icon: FlaskConical,
-    badge: "EX",
-    badgeClass: "bg-blue-500 text-white",
-    titleClass: "text-blue-900 dark:text-blue-100",
+    accent: "border-l-[3px] border-l-foreground",
+    tone: "var(--foreground)",
   },
   exercise: {
-    wrapper: "border-amber-500/30 shadow-sm",
-    trigger: "bg-amber-500/[0.09] hover:bg-amber-500/[0.14] dark:bg-amber-500/[0.12] dark:hover:bg-amber-500/[0.16] border-b-amber-500/15",
-    iconWrap: "bg-gradient-to-br from-amber-500 to-orange-400 text-white shadow-sm shadow-amber-500/30",
-    Icon: ClipboardList,
-    badge: "EX",
-    badgeClass: "bg-amber-500 text-white",
-    titleClass: "text-amber-900 dark:text-amber-100",
+    accent: "border-l-[3px] border-l-warning",
+    tone: "var(--warning)",
   },
-  misc: {
-    wrapper: "border-slate-500/20 shadow-sm",
-    trigger: "bg-slate-500/[0.06] hover:bg-slate-500/[0.10] dark:bg-slate-500/[0.10] dark:hover:bg-slate-500/[0.14]",
-    iconWrap: "bg-gradient-to-br from-slate-500 to-slate-400 text-white shadow-sm shadow-slate-500/25",
-    Icon: Layers,
-    badge: "M",
-    badgeClass: "bg-slate-600 text-white",
-    titleClass: "text-slate-800 dark:text-slate-100",
-  },
-  recall: {
-    wrapper: "border-indigo-500/25 shadow-sm",
-    trigger: "bg-indigo-500/[0.07] hover:bg-indigo-500/[0.11] dark:bg-indigo-500/[0.10] dark:hover:bg-indigo-500/[0.14] border-b-indigo-500/10",
-    iconWrap: "bg-gradient-to-br from-indigo-500 to-violet-400 text-white shadow-sm shadow-indigo-500/30",
-    Icon: RotateCcw,
-    badge: "RECALL",
-    badgeClass: "bg-indigo-500 text-white",
-    titleClass: "text-indigo-900 dark:text-indigo-100",
-  },
-  default: {
-    wrapper: "border-border/60",
-    trigger: "bg-muted/40 hover:bg-muted/60",
-    iconWrap: "bg-gradient-to-br from-slate-500/80 to-slate-400/80 text-white shadow-sm shadow-slate-500/20",
-    Icon: BookOpen,
-    badge: null as string | null,
-    badgeClass: "",
-    titleClass: "text-foreground",
-  },
+  misc: { accent: "border-l-[3px] border-l-border", tone: "var(--muted-foreground)" },
+  recall: { accent: "border-l-[3px] border-l-border", tone: "var(--muted-foreground)" },
+  default: { accent: "border-l-[3px] border-l-border", tone: "var(--muted-foreground)" },
 } as const;
 
-export function Expandable({ title, id, variant, children }: ExpandableProps) {
+export function Expandable({
+  title,
+  id,
+  variant,
+  children,
+  subjectColor,
+}: ExpandableProps) {
   const [open, setOpen] = useState(false);
-  const v = variantStyles[variant ?? inferVariant(title)];
-  const VariantIcon = v.Icon;
+  const resolved = variant ?? inferVariant(title);
+  const v = variantStyles[resolved];
+  const accent =
+    subjectColor && (resolved === "example" || resolved === "exercise")
+      ? subjectColor
+      : null;
 
   return (
     <Collapsible open={open} onOpenChange={setOpen}>
-      <div id={id} className={cn("my-6 rounded-2xl border overflow-hidden", v.wrapper)}>
+      <div
+        id={id}
+        className={cn(
+          "my-6 overflow-hidden rounded-lg border bg-card transition-colors duration-[120ms] ease-[var(--ease-blueprint)]",
+          open ? "border-rule-strong" : "border-border",
+          v.accent
+        )}
+        style={accent ? { borderLeftColor: accent } : undefined}
+      >
         <CollapsibleTrigger
-          className={cn("group flex items-center gap-2.5 w-full px-4 py-3 text-start transition-colors border-b", open ? "border-border/30" : "border-transparent", v.trigger)}
+          className="group flex w-full items-center gap-3 px-4 py-3.5 text-start transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-muted/50 sm:px-5"
         >
-          <span className={cn("flex h-7 w-7 shrink-0 items-center justify-center rounded-xl transition-transform duration-200 group-hover:-rotate-6", v.iconWrap)}>
-            <VariantIcon className="h-3.5 w-3.5" />
-          </span>
           <ChevronRight
             className={cn(
-              "h-4 w-4 shrink-0 transition-transform duration-200",
-              v.titleClass,
+              "h-4 w-4 shrink-0 transition-transform duration-200 ease-[var(--ease-blueprint)]",
               open && "rotate-90"
             )}
+            style={{ color: v.tone }}
+            aria-hidden
           />
-          <span className={cn("text-sm font-extrabold tracking-wide", v.titleClass)}>{title}</span>
-          {v.badge && (
-            <Badge className={cn("ms-auto text-xs font-extrabold tracking-widest", v.badgeClass)}>
-              {v.badge}
-            </Badge>
-          )}
+          <span className="text-[0.9375rem] font-semibold tracking-[-0.005em] text-foreground">
+            {title}
+          </span>
         </CollapsibleTrigger>
         <CollapsibleContent>
-          <div className="px-5 py-4 text-[0.95rem] leading-[1.75] text-foreground/85 bg-card">
+          <div className="border-t border-border px-4 py-4 text-[1.03125rem] leading-[1.7] text-foreground/90 sm:px-5 sm:py-5">
             {children}
           </div>
         </CollapsibleContent>

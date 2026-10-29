@@ -37,59 +37,70 @@ export default async function ArabicDiscourseTopicPage({ params }: Props) {
     <>
       <Navbar />
       <main className="flex-1">
-        <section className="mx-auto max-w-6xl px-6 py-14">
-          <nav className="mb-6 text-sm text-muted-foreground">
-            <Link href="/subjects/arabic" className="hover:text-foreground transition-colors">Arabic</Link>
-            <span className="mx-2">/</span>
-            <Link href="/arabic/discourses" className="hover:text-foreground transition-colors">Discourses</Link>
-            <span className="mx-2">/</span>
+        <section className="mx-auto max-w-6xl px-5 pb-20 pt-10 sm:px-6 sm:pt-12">
+          <nav aria-label="Breadcrumb" className="t-micro mb-8 flex flex-wrap items-center gap-2">
+            <Link href="/subjects/arabic" className="transition-colors hover:text-foreground">
+              Arabic
+            </Link>
+            <span className="text-faint">/</span>
+            <Link href="/arabic/discourses" className="transition-colors hover:text-foreground">
+              Discourses
+            </Link>
+            <span className="text-faint">/</span>
             <span className="text-foreground">{topic.title}</span>
           </nav>
 
-          <div className="mb-10 flex items-center gap-4 sm:mb-12 sm:gap-5">
-            <div
-              className="flex h-12 w-12 items-center justify-center rounded-xl sm:h-16 sm:w-16 sm:rounded-2xl"
-              style={{ backgroundColor: "var(--subject-arabic-light)" }}
-            >
+          <header className="border-b border-border pb-8">
+            <div className="flex items-center gap-2.5">
               <Icon
-                className="h-6 w-6 sm:h-8 sm:w-8"
+                aria-hidden
+                className="h-5 w-5 shrink-0"
                 style={{ color: "var(--subject-arabic)" }}
                 strokeWidth={1.8}
               />
+              <p className="t-micro">Discourse · Arabic</p>
             </div>
-            <div>
-              <h1 className="arabic-body text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-                {topic.titleArabic}
-              </h1>
-              <p dir="ltr" className="mt-1 text-base text-muted-foreground">
-                {topic.title} — {topic.tagline}
-              </p>
-            </div>
-          </div>
+            <h1 dir="rtl" className="t-title arabic-body mt-3">
+              {topic.titleArabic}
+            </h1>
+            <p dir="ltr" className="t-lead mt-4 max-w-2xl">
+              {topic.title} — {topic.tagline}
+            </p>
+          </header>
 
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto mt-10 max-w-3xl">
             <ArabicDiscourseContent slug={slug} />
           </div>
 
-          <div className="mx-auto max-w-3xl mt-14 flex justify-between gap-4">
+          <div className="mx-auto mt-14 grid max-w-3xl grid-cols-2 gap-4">
             {prev ? (
               <a
                 href={`/arabic/discourses/${prev.slug}`}
-                className="flex items-center gap-2 rounded-xl border border-border/60 px-4 py-3 text-sm text-muted-foreground hover:bg-muted transition-colors"
+                className="group flex min-w-0 flex-col gap-1 border border-border bg-card px-4 py-3 transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:border-rule-strong"
               >
-                <span className="text-xs">&larr;</span>
-                <span>{prev.title}</span>
+                <span className="t-micro">Previous</span>
+                <span className="flex min-w-0 items-center gap-2 text-[15px] font-semibold text-foreground">
+                  <span aria-hidden className="text-muted-foreground">&larr;</span>
+                  <span className="truncate">{prev.title}</span>
+                </span>
               </a>
-            ) : <div />}
+            ) : (
+              <div />
+            )}
             {next ? (
               <a
                 href={`/arabic/discourses/${next.slug}`}
-                className="flex items-center gap-2 rounded-xl border border-border/60 px-4 py-3 text-sm text-muted-foreground hover:bg-muted transition-colors"
+                className="group flex min-w-0 flex-col items-end gap-1 border border-border bg-card px-4 py-3 text-right transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:border-rule-strong"
               >
-                <span>{next.title}</span>
-                <span className="text-xs">&rarr;</span>
+                <span className="t-micro">Next</span>
+                <span className="flex min-w-0 items-center gap-2 text-[15px] font-semibold text-foreground">
+                  <span className="truncate">{next.title}</span>
+                  <span aria-hidden className="text-muted-foreground">&rarr;</span>
+                </span>
               </a>
-            ) : <div />}
+            ) : (
+              <div />
+            )}
           </div>
         </section>
       </main>
