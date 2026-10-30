@@ -69,8 +69,7 @@ export function TableCard({ headers, rows, caption, title }: TableCardProps) {
   const label = title ?? (typeof caption === "string" ? caption : "Table");
 
   return (
-    <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
-      {title && (
+    <div className="my-6 min-w-0 overflow-hidden rounded-lg border border-border bg-card">      {title && (
         <div className="flex items-baseline justify-between gap-3 border-b border-border px-4 py-3">
           <span className="t-micro">{title}</span>
           <span className="t-micro tabular-nums">
@@ -80,6 +79,8 @@ export function TableCard({ headers, rows, caption, title }: TableCardProps) {
       )}
       <Table
         label={label}
+        containerClassName="min-w-0"
+        tabIndex={0}
         className={cn(pinFirstColumn ? "w-max min-w-full" : "w-full")}
       >
         <TableHeader>
@@ -88,7 +89,7 @@ export function TableCard({ headers, rows, caption, title }: TableCardProps) {
               <TableHead
                 key={columnIndex}
                 className={cn(
-                  "h-auto py-3 align-bottom text-[0.6875rem] font-bold tracking-[0.08em] uppercase",
+                  "h-auto py-3 align-bottom whitespace-normal break-words text-[0.6875rem] font-bold tracking-[0.08em] uppercase",
                   numeric[columnIndex] && "text-right",
                   pinFirstColumn && "min-w-28",
                   pinFirstColumn && columnIndex === 0 && "min-w-40",
@@ -109,7 +110,7 @@ export function TableCard({ headers, rows, caption, title }: TableCardProps) {
                 <TableCell
                   key={columnIndex}
                   className={cn(
-                    "align-top",
+                    "align-top whitespace-normal break-words",
                     columnIndex === 0
                       ? "font-semibold text-foreground"
                       : "text-foreground/90",

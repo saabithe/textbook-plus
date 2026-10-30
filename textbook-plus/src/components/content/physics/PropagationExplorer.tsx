@@ -165,7 +165,7 @@ export function PropagationExplorer() {
   const parallel = vDir === null;
 
   return (
-    <div className="my-6 rounded-lg border border-border bg-card p-5">
+    <div className="my-6 min-w-0 overflow-x-auto rounded-lg border border-border bg-card p-5">
       <div className="t-micro mb-4 flex items-center gap-2">
         <Compass className="h-4 w-4" />
         Find the direction

@@ -54,7 +54,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 export default function DesignPage() {
   return (
-    <div className="mx-auto max-w-[1100px] space-y-10 px-6 py-12">
+    <div className="mx-auto w-full max-w-[1100px] space-y-10 px-6 py-12">
       <header className="space-y-2 border-b border-border pb-6">
         <h1 className="text-2xl font-extrabold tracking-tight text-foreground">Blueprint — living contract</h1>
         <p className="text-sm text-muted-foreground">

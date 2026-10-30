@@ -186,9 +186,9 @@ export function PocketGrid({ items, title, columns = 3 }: PocketGridProps) {
                   id={panelId}
                   role="region"
                   aria-labelledby={buttonId}
-                  className="border-t border-border/60 px-4 pb-4"
+                  className="border-t border-border/60 sm:px-5 px-3 pb-4"
                 >
-                  <div className="pt-2">{item.content}</div>
+                  <div className="pt-2 leading-relaxed">{item.content}</div>
                 </section>
               )}
             </div>

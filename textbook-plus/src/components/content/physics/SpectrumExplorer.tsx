@@ -136,8 +136,7 @@ export function SpectrumExplorer() {
   );
 
   return (
-    <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border px-4 py-2.5">
+    <div className="my-6 min-w-0 overflow-x-auto rounded-lg border border-border bg-card">      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border px-4 py-2.5">
         <span className="text-sm font-semibold text-foreground">
           The electromagnetic spectrum — one interaction, three scales
         </span>

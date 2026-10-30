@@ -63,6 +63,9 @@ Component categories (under `src/components/content/`): Core (top level), `data/
 
 **Do not reference** removed components: FlowDiagram, SortableTable, Kanban, NetworkDiagram, GuidedStepper, DecisionTree, RiskMatrix, ScenarioCard, PerspectiveCard, ArchitectureCard, IODiagram, EventFlow, RoadmapCard, plus the deleted Class 11 maths/conic/SHM/vector diagrams, `ScientistCard`, `Derivation`.
 
+- **Mobile deep optimization (Oct 2026)**: rollout plan in `.opencode/plans/plan_0005.md` (landed after this doc pointer); constraints and component rules summarized in `Constitution/USER_PREFERENCES.md` §12.13 (safe area, 44px tap floor, 72ch reading floor at 360 via media, progress one column on small screens, reading rail becomes a drawer below 1280, no decorative hover on touch, Arabic metrics nudge).
+- Pointer only — no implementation lives in this file; see the plan for per-component edits and the build/route checks.
+
 ## Key Architecture
 
 - Chapter pages single-column (no sidebar/ToC): `ChapterLayout` renders breadcrumb + header + content at `max-w-3xl`, with `ReadingProgress` and prev/next `ChapterNav`.

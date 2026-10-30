@@ -29,7 +29,7 @@ export function ChapterRow({
     <Link
       href={href}
       className={cn(
-        "group flex items-center gap-3 border-b border-border py-3 pl-1 pr-2 transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/3 sm:gap-4",
+        "group flex items-center gap-3 border-b border-border py-4 pl-1 pr-2 transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/3 sm:gap-4",
         className
       )}
     >
@@ -44,7 +44,7 @@ export function ChapterRow({
         <span
           dir={titleDir}
           className={cn(
-            "truncate text-[15px] font-semibold text-foreground",
+            "truncate text-[15px] font-semibold text-foreground min-h-[44px] flex items-center",
             titleDir === "rtl" && "arabic-font"
           )}
         >

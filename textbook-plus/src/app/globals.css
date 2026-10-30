@@ -190,7 +190,11 @@
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: clip;
     /* No radial page glows. The page is a page. */
+  }
+  main {
+    padding-block-end: env(safe-area-inset-bottom, 0px);
   }
   ::selection {
     background: color-mix(in oklch, var(--foreground) 16%, transparent);
@@ -201,6 +205,10 @@
     font-size: calc(16px * var(--font-scale, 1));
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+  :root {
+    overscroll-behavior-x: none;
   }
   :focus-visible {
     outline: 2px solid var(--ring);
@@ -523,6 +531,23 @@
   margin-bottom: -0.2em;
 }
 
+/* KaTeX display / inline scroll containment */
+.prose-custom .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+.prose-custom .katex {
+  max-width: 100%;
+}
+.prose-custom table {
+  max-inline-size: 100%;
+  overflow-x: auto;
+}
+.prose-custom {
+  max-width: 100%;
+}
+
 /* ── Annotations (§15) ────────────────────────────────────────── */
 [data-ann] {
   text-underline-offset: 0.18em;
@@ -573,10 +598,12 @@ mark {
 
 .arabic-font {
   font-family: var(--font-arabic), var(--font-arabic-backup), "Noto Naskh Arabic", "Scheherazade New", "Segoe UI", serif;
+  word-break: keep-all;
 }
 
 .arabic-font-ui {
   font-family: var(--font-arabic-ui), var(--font-sans), sans-serif;
+  word-break: keep-all;
 }
 
 .arabic-body {
@@ -584,6 +611,7 @@ mark {
   font-weight: 400;
   font-size: 1.3rem;
   line-height: 2.05;
+  word-break: keep-all;
 }
 
 .prose-ar p.arabic-body {
@@ -695,4 +723,25 @@ html {
 
 .animate-pane-in-from-left {
   animation: pane-in-from-left 180ms var(--ease-blueprint);
+}
+
+/* Small-screen type nudges */
+@media (max-width: 480px) {
+  .t-title {
+    line-height: 1.15;
+  }
+  .t-body {
+    font-size: 1.0625rem;
+  }
+  .arabic-body {
+    font-size: 1.15rem;
+    line-height: 1.95;
+  }
+}
+
+@media (max-width: 640px) {
+  .arabic-body {
+    font-size: 1.15rem;
+    line-height: 1.95;
+  }
 }

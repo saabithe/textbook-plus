@@ -282,7 +282,7 @@ export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
             aria-label={atStart ? "Previous format" : `Previous format: ${panes[active - 1].label}`}
             aria-disabled={atStart}
             className={cn(
-              "flex h-8 w-8 items-center justify-center rounded-[100%] border border-border bg-card transition-colors",
+              "flex h-11 w-11 items-center justify-center rounded-[100%] border border-border bg-card transition-colors",
               atStart
                 ? "cursor-not-allowed text-muted-foreground/40"
                 : "text-foreground hover:bg-muted",
@@ -301,7 +301,7 @@ export function TopicSwitch({ panes, label, className }: TopicSwitchProps) {
             aria-label={atEnd ? "Next format" : `Next format: ${panes[active + 1].label}`}
             aria-disabled={atEnd}
             className={cn(
-              "flex h-8 w-8 items-center justify-center rounded-[100%] border border-border bg-card transition-colors",
+              "flex h-11 w-11 items-center justify-center rounded-[100%] border border-border bg-card transition-colors",
               atEnd
                 ? "cursor-not-allowed text-muted-foreground/40"
                 : "text-foreground hover:bg-muted",

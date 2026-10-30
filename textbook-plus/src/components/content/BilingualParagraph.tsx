@@ -19,13 +19,13 @@ export function BilingualParagraph({
   return (
     <div className={cn("my-5 flex items-start gap-3", className)}>
       {number !== undefined && (
-        <span className="t-micro mt-1 w-6 shrink-0 text-center tabular-nums">
+        <span className="t-micro mt-1 w-6 shrink-0 text-center tabular-nums !text-[12px]">
           {number}
         </span>
       )}
 
       <div className="min-w-0 flex-1">
-        <p dir="rtl" className="arabic-body mb-1.5 text-foreground">
+        <p dir="rtl" className="arabic-body mb-[0.35rem] text-foreground">
           {arabic}
         </p>
         <p

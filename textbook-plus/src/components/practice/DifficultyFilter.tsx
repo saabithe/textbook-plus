@@ -40,7 +40,7 @@ export function DifficultyFilter({ active, onChange, counts }: DifficultyFilterP
           key={filter.id}
           value={filter.id}
           aria-label={`Show ${filter.label} questions`}
-          className="relative h-8 min-w-8 gap-1.5 rounded-[3px]! border! border-border! bg-transparent! px-2.5 text-[13px] font-medium text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.03]! hover:text-foreground data-[pressed]:bg-transparent! data-[pressed]:text-foreground after:absolute after:inset-x-2 after:bottom-0 after:h-[2px] after:bg-foreground after:opacity-0 after:transition-opacity after:duration-[120ms] after:ease-[var(--ease-blueprint)] data-[pressed]:after:opacity-100"
+          className="relative min-h-11 h-11 min-w-8 gap-1.5 rounded-[3px]! border! border-border! bg-transparent! px-2.5 text-[13px] font-medium text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.03]! hover:text-foreground data-[pressed]:bg-transparent! data-[pressed]:text-foreground after:absolute after:inset-x-2 after:bottom-0 after:h-[2px] after:bg-foreground after:opacity-0 after:transition-opacity after:duration-[120ms] after:ease-[var(--ease-blueprint)] data-[pressed]:after:opacity-100"
         >
           {filter.label}
           <span className="text-[11px] font-medium tabular-nums text-muted-foreground">

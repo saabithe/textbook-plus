@@ -286,8 +286,7 @@ export function DisplacementExplorer() {
   const active = TERMS.find((t) => t.id === term)!;
 
   return (
-    <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
-      <div className="border-b border-border px-4 py-3">
+    <div className="my-6 min-w-0 overflow-x-auto rounded-lg border border-border bg-card">      <div className="border-b border-border px-4 py-3">
         <p className="text-center text-sm font-semibold text-foreground">
           y(x, t) ={" "}
           <span className="inline-flex flex-wrap items-baseline justify-center gap-x-1">

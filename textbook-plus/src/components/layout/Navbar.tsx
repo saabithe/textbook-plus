@@ -128,20 +128,20 @@ export function Navbar() {
               type="button"
               onClick={() => setSearchOpen(true)}
               aria-label="Search chapters"
-              className={cn(controlClass, "gap-2 px-2 sm:px-2.5")}
+              className={cn(controlClass, "h-11 gap-2 px-2 sm:px-2.5")}
             >
               <Search className="h-4 w-4" aria-hidden />
               <span className="t-micro hidden sm:inline">Ctrl K</span>
             </button>
 
             {/* Font size — two text buttons split by a hairline */}
-            <div className="flex h-8 items-center">
+            <div className="flex h-11 items-center">
               <button
                 type="button"
                 onClick={decrease}
                 disabled={!canDecrease}
                 aria-label="Decrease font size"
-                className="inline-flex h-8 items-center justify-center px-1.5 text-[13px] font-semibold tabular-nums text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/4 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:text-faint disabled:hover:bg-transparent disabled:hover:text-faint"
+                className="inline-flex h-11 items-center justify-center px-1 text-[13px] font-semibold tabular-nums text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/4 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:text-faint disabled:hover:bg-transparent disabled:hover:text-faint"
               >
                 A&minus;
               </button>
@@ -151,7 +151,7 @@ export function Navbar() {
                 onClick={increase}
                 disabled={!canIncrease}
                 aria-label="Increase font size"
-                className="inline-flex h-8 items-center justify-center px-1.5 text-[13px] font-semibold tabular-nums text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/4 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:text-faint disabled:hover:bg-transparent disabled:hover:text-faint"
+                className="inline-flex h-11 items-center justify-center px-1 text-[13px] font-semibold tabular-nums text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/4 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:text-faint disabled:hover:bg-transparent disabled:hover:text-faint"
               >
                 A+
               </button>
@@ -162,7 +162,7 @@ export function Navbar() {
               type="button"
               onClick={toggle}
               aria-label="Toggle theme"
-              className={cn(controlClass, "w-8")}
+              className={cn(controlClass, "h-10 w-10")}
             >
               {theme === "dark" ? (
                 <Moon className="h-4 w-4" aria-hidden />

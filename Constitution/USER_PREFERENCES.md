@@ -351,6 +351,21 @@ Why: a hand-drawn organic structure is a silent-error machine — one misplaced 
 
 **Stays hand-authored:** curly-arrow mechanisms, crystal lattices and unit cells, chair/Newman conformations, orbital and crystal-field diagrams, multi-step industrial flow schemes. A structure that fails a gate is **deleted, not patched**.
 
+### 12.13 Oct 2026 — Mobile (deep optimization) constraints
+
+Mobile-first hardening rules that sit alongside §12.4 (which it refines, not supersedes). Apply to every component and page edit, including plans in `.opencode/plans/plan_0005.md`.
+
+| Constraint | Detail |
+|------------|--------|
+| **Safe area** | `body` gets `overflow-x: clip`; `main` pads `env(safe-area-inset-bottom)`; `:root` sets `overscroll-behavior-x: none`; no horizontal scroll on the document. KaTeX displays and tables scroll internally (`.prose-custom .katex-display` / `table` get `overflow-x: auto; max-width: 100%`). |
+| **44px tap floor** | Every interactive control (navbar search/font/theme, chapter rows, TopicSwitch pagers, DifficultyFilter tabs, flashcard/quiz chrome) is ≥ 44×44px (tap target). No sub-44 chip remains on touch. |
+| **72ch reading floor at 360** | Reading column fits 360px viewports; prose resets to a single column; long runs wrap; `word-break: keep-all` on Arabic faces. Type nudges via `@media (max-width: 480px)` / `(max-width: 640px)` (Arabic body drops to 1.15rem / 1.95 line-height; t-title tightens). |
+| **Progress as one column** | `ReadingProgress` and any progress surfaces stack to a single column on small screens; no side-by-side progress blocks below the breakpoint. |
+| **Reading rail → drawer (<1280)** | The contents/reading rail becomes a drawer under 1280px instead of a pinned column; rail toggles never trap focus or scroll. |
+| **No decorative hover on touch** | Hover-only affordances (group-hover reveals, rail hover, decorative glows) have a tap/focus equivalent; `prefers-reduced-motion` honored; no pointer-only interactions. |
+| **Arabic metrics nudge** | Arabic body metrics adjusted for small screens (font-size/line-height via media queries above); Arabic digits/words never break mid-token (`word-break: keep-all`). |
+| **Overflow discipline** | Wide tables/diagrams use `overflow-x: auto` on the scroll container with `min-w-0` wrappers (TableCard container gets `min-w-0` + focusable); never `overflow-hidden` on content that may exceed viewport. Pockets and topic panes get responsive padding (`sm:px-5 px-3`) and `leading-relaxed`. |
+
 ### 13.1 V3 "Quiet Precision" Shell Design (Sep 2026)
 
 Replaced the flat white + loud per-element colors with a disciplined system. Rules:

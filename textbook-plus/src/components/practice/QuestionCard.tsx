@@ -85,7 +85,7 @@ export function QuestionCard({ question, index, subjectColor, isRevealed = false
                   disabled={revealed}
                   aria-pressed={isSelected}
                   className={cn(
-                    "flex w-full items-start gap-3 border-l-[3px] border-l-transparent px-3 py-3 text-left",
+                    "flex w-full items-start gap-3 border-l-[3px] border-l-transparent px-3 py-3.5 min-h-12 text-left",
                     "transition-colors duration-[120ms] ease-[var(--ease-blueprint)]",
                     "[&+&]:border-t [&+&]:border-t-border",
                     !revealed && "hover:bg-muted/60",
