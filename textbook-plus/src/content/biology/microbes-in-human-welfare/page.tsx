@@ -105,19 +105,17 @@ export default function MicrobesInHumanWelfareChapter() {
               "During growth the LAB produce acids, which coagulate and partially digest the milk proteins.",
           },
           {
-            label: "Curd, with better nutrition",
+            label: "Curd, with better nutrition and protection",
             description:
-              "Milk is converted to curd, which also improves its nutritional quality by increasing vitamin B₁₂.",
+              "Milk is converted to curd, improving its nutritional quality by increasing vitamin B₁₂; the same LAB also check disease-causing microbes in our stomach.",
           },
         ]}
       />
       <p>Curd is not just soured milk — it is a better food than the milk it came from.</p>
       <ul className="list-disc pl-5 space-y-1.5">
         <li>
-          <strong>More vitamin B₁₂</strong> — the nutritional quality of the milk improves.
-        </li>
-        <li>
-          <strong>Fewer pathogens</strong> — in our stomach the same LAB check disease-causing microbes.
+          <strong>Fewer pathogens</strong> — the LAB that make the curd also keep disease-causing microbes in
+          check in our stomach.
         </li>
       </ul>
       <h3 id="h-8-1-fermented">Other fermented foods</h3>
@@ -337,6 +335,10 @@ export default function MicrobesInHumanWelfareChapter() {
       </ul>
 
       <h3 id="h-8-2-chemicals">8.2.3 Chemicals, Enzymes and other Bioactive Molecules</h3>
+      <p>
+        Microbes are also used to produce <strong>organic acids</strong>, <strong>alcohol</strong> and{" "}
+        <strong>enzymes</strong>.
+      </p>
       <TableCard
         title="Organic acids and the microbes that make them"
         headers={["Acid", "Microbe", "Kind of microbe"]}
@@ -423,7 +425,7 @@ export default function MicrobesInHumanWelfareChapter() {
       <h2 id="h-8-3">8.3 Microbes in Sewage Treatment</h2>
       <FactCard
         title="Sewage"
-        definition="This municipal waste-water is also called sewage. It contains large amounts of organic matter and microbes, many of which are pathogenic."
+        definition="Municipal waste-water containing large amounts of organic matter and microbes — many of them pathogenic."
         icon="🚰"
       />
       <p>
@@ -501,15 +503,16 @@ export default function MicrobesInHumanWelfareChapter() {
       </Callout>
       <ul className="list-disc pl-5 space-y-1.5">
         <li>
-          <strong>Gas production:</strong> anaerobic bacteria growing on cellulosic material produce large amounts of
-          methane (CH₄) along with CO₂ and H₂ — <em>Methanobacterium</em> turns cellulose into CH₄ + CO₂ + H₂S.
+          <strong>Gas production:</strong> anaerobic bacteria like cellulose-breakers prepare the feedstock;{" "}
+          <em>Methanobacterium</em> (a methanogen) then reduces CO₂ and H₂ (from that breakdown) to methane,
+          leaving CH₄, CO₂ and H₂S among the gases — collectively called biogas.
         </li>
         <li>
           <strong>Methanogens:</strong> bacteria producing this gas mixture are collectively called methanogens; a
           common example is <em>Methanobacterium</em>.
         </li>
         <li>
-          <strong>Occurrence & role:</strong> anaerobic sludge in sewerage plants; the rumen of cattle, where they
+          <strong>Occurrence & role:</strong> anaerobic sludge in sewage plants; the rumen of cattle, where they
           break down cellulose for the animal's nutrition; and flooded rice fields.
         </li>
         <li>
