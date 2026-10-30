@@ -499,56 +499,22 @@ export default function MicrobesInHumanWelfareChapter() {
         Biogas is a <strong>mixture of gases (containing predominantly methane) produced by microbial
         activity</strong> and which may be used as fuel.
       </Callout>
-      <p>
-        Microbes produce different types of gaseous end-products during growth and metabolism, and the type of
-        gas produced depends upon the microbes and the organic substrates they utilise. In the fermentations
-        met so far — dough, cheese making and production of beverages — the main gas produced was{" "}
-        <strong>CO₂</strong>.
-      </p>
-      <Comparison
-        columns={[
-          {
-            title: "The fermentations of sections 8.1 and 8.2",
-            children: (
-              <ul className="list-disc pl-5 space-y-1.5">
-                <li>Dough making, cheese making and beverage production.</li>
-                <li>
-                  Main gas produced: <strong>CO₂</strong>.
-                </li>
-              </ul>
-            ),
-          },
-          {
-            title: "Methanogens",
-            children: (
-              <ul className="list-disc pl-5 space-y-1.5">
-                <li>Certain bacteria that grow anaerobically on cellulosic material.</li>
-                <li>
-                  Produce a large amount of <strong>methane</strong>, along with CO₂ and H₂.
-                </li>
-                <li>
-                  Collectively called methanogens; one common bacterium is <em>Methanobacterium</em>.
-                </li>
-              </ul>
-            ),
-          },
-        ]}
-      />
       <ul className="list-disc pl-5 space-y-1.5">
-        <li>Methanogens are commonly found in the anaerobic sludge during sewage treatment.</li>
         <li>
-          They are also present in the <strong>rumen</strong> (a part of the stomach) of cattle.
+          <strong>Gas production:</strong> anaerobic bacteria growing on cellulosic material produce large amounts of
+          methane (CH₄) along with CO₂ and H₂ — <em>Methanobacterium</em> turns cellulose into CH₄ + CO₂ + H₂S.
         </li>
         <li>
-          In the rumen they help in the breakdown of cellulose, and play an important role in the nutrition of
-          cattle.
+          <strong>Methanogens:</strong> bacteria producing this gas mixture are collectively called methanogens; a
+          common example is <em>Methanobacterium</em>.
         </li>
         <li>
-          The excreta (dung) of cattle, commonly called <strong>gobar</strong>, is therefore rich in these
-          bacteria.
+          <strong>Occurrence & role:</strong> anaerobic sludge in sewerage plants; the rumen of cattle, where they
+          break down cellulose for the animal's nutrition; and flooded rice fields.
         </li>
         <li>
-          Dung can be used for generation of biogas, commonly called <strong>gobar gas</strong>.
+          <strong>Gobar gas:</strong> cattle dung (<strong>gobar</strong>) is rich in these bacteria, making dung an
+          ideal feedstock for biogas; the gas produced is used for <strong>cooking and lighting</strong>.
         </li>
       </ul>
       <Expandable title="In-text question — can human beings digest the cellulose in our foods?">
@@ -589,19 +555,18 @@ export default function MicrobesInHumanWelfareChapter() {
         caption="These four parts are exactly what the printed picture shows — Fig. 8.8, a typical biogas plant."
       />
       <p>
-        Cattle dung is available in large quantities in rural areas, where cattle are used for a variety of
-        purposes, so biogas plants are more often built in rural areas. The biogas produced is used for{" "}
-        <strong>cooking and lighting</strong>.
+        <strong>Rural suitability:</strong> plants are mostly built in rural areas because cattle dung is abundant
+        there.
       </p>
-      <Callout type="didyouknow" title="Who built the technology in India">
-        The technology of biogas production was developed in India mainly due to the efforts of the{" "}
-        <strong>Indian Agricultural Research Institute (IARI)</strong> and the{" "}
-        <strong>Khadi and Village Industries Commission (KVIC)</strong>.
-      </Callout>
-      <KeyPoint title="Two products, one plant">
-        Gas for cooking and lighting out of one outlet; spent slurry as fertiliser out of the other. Nothing is
-        wasted — the fuel and the manure come from the same digestion.
-      </KeyPoint>
+      <p>Biogas technology was developed in India mainly through the efforts of:</p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>
+          <strong>IARI</strong> — Indian Agricultural Research Institute.
+        </li>
+        <li>
+          <strong>KVIC</strong> — Khadi and Village Industries Commission.
+        </li>
+      </ul>
 
       <h2 id="h-8-5">8.5 Microbes as Biocontrol Agents</h2>
       <Callout type="important" title="Biocontrol">
