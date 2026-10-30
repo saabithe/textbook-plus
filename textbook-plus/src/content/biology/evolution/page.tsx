@@ -704,7 +704,29 @@ export default function EvolutionChapter() {
           more.
         </li>
       </ul>
-            <h3 id="h-6-4-malthus">Malthus and the logic of natural selection</h3>\n      <p>\n        Darwin was influenced by <strong>Thomas Malthus’</strong> work on human populations.\n      </p>\n      <p className="t-micro text-foreground">Factual observations under natural selection</p>\n      <ul className="list-disc pl-5 space-y-1.5">\n        <li><strong>Limited resources:</strong> natural resources are finite.</li>\n        <li><strong>Population stability:</strong> population sizes stay stable except for seasonal fluctuations.</li>\n        <li><strong>Individual variation:</strong> no two members of a population are identical, even when superficially similar.</li>\n        <li><strong>Heritability:</strong> most variations are inherited.</li>\n        <li><strong>Competition:</strong> the potential for exponential growth (visible in multiplying bacteria) meets limited resources, so competition for resources follows.</li>\n      </ul>\n      <Callout type="important" title="Darwin's core insight">\n        Heritable variations that make resource utilisation better enable those adapted individuals to\n        survive, reproduce and leave more progeny. Over many generations, survivors alter the population\n        characteristics, and new species appear to arise.\n      </Callout>\n      <p className="text-sm leading-relaxed text-foreground/90">\n        Selection chain — overproduction → limited natural resources → struggle for existence\n        (intra-specific and inter-specific) → variation and heredity → survival of the fittest →\n        origin of new species.\n      </p>\n      
+            <h3 id="h-6-4-malthus">Malthus and the logic of natural selection</h3>
+      <p>
+        Darwin was influenced by <strong>Thomas Malthus’</strong> work on human populations.
+      </p>
+      <p className="t-micro text-foreground">Factual observations under natural selection</p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li><strong>Limited resources:</strong> natural resources are finite.</li>
+        <li><strong>Population stability:</strong> population sizes stay stable except for seasonal fluctuations.</li>
+        <li><strong>Individual variation:</strong> no two members of a population are identical, even when superficially similar.</li>
+        <li><strong>Heritability:</strong> most variations are inherited.</li>
+        <li><strong>Competition:</strong> the potential for exponential growth (visible in multiplying bacteria) meets limited resources, so competition for resources follows.</li>
+      </ul>
+      <Callout type="important" title="Darwin's core insight">
+        Heritable variations that make resource utilisation better enable those adapted individuals to
+        survive, reproduce and leave more progeny. Over many generations, survivors alter the population
+        characteristics, and new species appear to arise.
+      </Callout>
+      <p className="text-sm leading-relaxed text-foreground/90">
+        Selection chain — overproduction → limited natural resources → struggle for existence
+        (intra-specific and inter-specific) → variation and heredity → survival of the fittest →
+        origin of new species.
+      </p>
+      
 
       <h2 id="h-6-5">6.5 Mechanism of Evolution</h2>
       <Callout type="note" title="deVries and the idea of mutation">
