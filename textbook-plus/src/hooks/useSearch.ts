@@ -7,13 +7,11 @@ import { getSubjectBySlug } from "@/data/subjects";
 export interface SearchResult {
   chapterSlug: string;
   chapterTitle: string;
-  /** Native-script title — searched alongside the transliterated title. */
   chapterTitleArabic?: string;
   chapterNumber: number;
   subjectName: string;
   subjectSlug: string;
   subjectColor: string;
-  /** Target route, possibly including a heading anchor. */
   href: string;
 }
 
@@ -28,11 +26,6 @@ interface IndexEntry {
   headings?: string[];
   blob?: string;
   href?: string;
-}
-
-function extractHeadingsFromBlob(text: string, q: string) {
-  const i = text.toLowerCase().indexOf(q);
-  return i >= 0 ? text.slice(Math.max(0, i - 30), i + q.length + 30) : undefined;
 }
 
 export function useSearch() {
@@ -78,25 +71,7 @@ export function useSearch() {
   const results = useMemo<SearchResult[]>(() => {
     const q = query.trim().toLowerCase();
     if (!q) return [];
-    const source: SearchResult[] = index
-      ? index.map((e) => ({
-          chapterSlug: e.slug,
-          chapterTitle: e.title,
-          chapterTitleArabic: e.titleArabic,
-          chapterNumber: e.number,
-          subjectName: e.subjectName,
-          subjectSlug: e.subjectSlug,
-          subjectColor: e.subjectColor,
-          href: e.href ?? `/chapter/${e.slug}`,
-        }))
-      : allChapters;
 
-    const matched = source.filter((ch) => {
-      // idx of source entry for blob access
-      return true;
-    });
-
-    // enrich with anchor when query appears in a heading
     if (!index) {
       return allChapters.filter(
         (ch) =>
@@ -141,6 +116,5 @@ export function useSearch() {
     return out;
   }, [query, index, allChapters]);
 
-  const resultsList = results as SearchResult[];
-  return { query, setQuery, results: resultsList };
+  return { query, setQuery, results };
 }

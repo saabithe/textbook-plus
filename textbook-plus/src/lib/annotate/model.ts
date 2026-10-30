@@ -9,10 +9,6 @@ function flagsFrom(a: Annotation): Flags {
   return { b: a.b, i: a.i, u: a.u, hl: a.hl };
 }
 
-function flagsEqual(a: Flags, b: Flags): boolean {
-  return a.b === b.b && a.i === b.i && a.u === b.u && a.hl === b.hl;
-}
-
 function hasAnyFlags(f: Flags): boolean {
   return !!(f.b || f.i || f.u || f.hl);
 }
@@ -188,5 +184,3 @@ export function applyOperation(
   return kept.map((iv) => toAnnotation(iv, text));
 }
 
-// expose op kinds without type complaints
-declare module "./model" {}
