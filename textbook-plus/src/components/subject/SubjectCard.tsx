@@ -40,7 +40,6 @@ export function SubjectCard({ subject }: SubjectCardProps) {
             strokeWidth={1.8}
           />
           <h3 className="t-h3 font-bold">{subject.name}</h3>
-          <p className="t-caption">{subject.description}</p>
         </div>
 
         <div className="mt-auto flex items-center justify-between gap-4 border-t border-border px-5 py-3 sm:px-6">

@@ -84,7 +84,7 @@ function buildTree(root: HTMLElement): TocSection[] {
   return sections;
 }
 
-export function ChapterToc({ mobile = false }: { mobile?: boolean } = {}) {
+export function ChapterToc({ mobile = false, onAvailableChange }: { mobile?: boolean; onAvailableChange?: (available: boolean) => void } = {}) {
   const [sections, setSections] = useState<TocSection[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
 
@@ -162,6 +162,10 @@ export function ChapterToc({ mobile = false }: { mobile?: boolean } = {}) {
     target.focus({ preventScroll: true });
     window.history.replaceState(null, "", `#${id}`);
   }, []);
+
+  useEffect(() => {
+    onAvailableChange?.(sections.length >= MIN_SECTIONS);
+  }, [sections, onAvailableChange]);
 
   if (sections.length < MIN_SECTIONS) return null;
 

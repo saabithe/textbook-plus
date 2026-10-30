@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect } from "react";
 
 const STORAGE_KEY = "font-size";
-const LEVELS = [0.875, 1, 1.125, 1.25] as const;
+const LEVELS = [0.8, 0.85, 0.875, 0.9375, 1, 1.0625, 1.125, 1.1875, 1.25, 1.3125] as const;
 const DEFAULT = 1;
 
 function getStored(): number {

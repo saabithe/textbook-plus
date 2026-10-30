@@ -59,6 +59,7 @@ export function ChapterLayout({
   const navBase = "/chapter";
   const [activeTab, setActiveTab] = useState("learning");
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
+  const [tocAvailable, setTocAvailable] = useState(false);
   const showPractice = subjectSlug !== "english" && subjectSlug !== "arabic";
   const articleRef = useRef<HTMLDivElement | null>(null);
 
@@ -178,7 +179,7 @@ export function ChapterLayout({
             <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} basePath={navBase} />
           </article>
 
-          <ChapterToc />
+          <ChapterToc onAvailableChange={setTocAvailable} />
         </div>
       ) : (
         /* Practice tab — no rail, single column */
@@ -191,7 +192,7 @@ export function ChapterLayout({
           <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} basePath={navBase} />
         </div>
       )}
-      {activeTab === "learning" && (
+      {activeTab === "learning" && tocAvailable && (
         <>
           <button
             type="button"
@@ -209,7 +210,7 @@ export function ChapterLayout({
               onClick={() => setMobileTocOpen(false)}
             >
               <div onClick={(e) => e.stopPropagation()}>
-                <ChapterToc mobile />
+                <ChapterToc mobile onAvailableChange={setTocAvailable} />
               </div>
             </div>
           )}
