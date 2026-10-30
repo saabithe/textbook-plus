@@ -64,6 +64,7 @@ export function AnnotationLayer({
   const [activeFlags, setActiveFlags] = useState<Flags>({});
   const [outcome, setOutcome] = useState<string | null>(null);
   const lastOffsetRef = useRef<{ start: number; end: number } | null>(null);
+  const lastInteractionRef = useRef<number>(0);
   const [unresolvedCount, setUnresolvedCount] = useState(0);
   const [useDockOnly, setUseDockOnly] = useState(true);
 
@@ -182,6 +183,16 @@ export function AnnotationLayer({
     setUseDockOnly(window.matchMedia("(pointer: coarse)").matches);
   }, []);
 
+  // Keep selection alive while formatting UI is being operated.
+  useEffect(() => {
+    function onPointerDown(e: Event) {
+      const t = e.target as HTMLElement | null;
+      if (t?.closest?.('[role="toolbar"]')) lastInteractionRef.current = Date.now();
+    }
+    document.addEventListener("pointerdown", onPointerDown, true);
+    return () => document.removeEventListener("pointerdown", onPointerDown, true);
+  }, []);
+
   // clear aria-live outcome after 1.5s
   useEffect(() => {
     if (!outcome) return;
@@ -195,11 +206,17 @@ export function AnnotationLayer({
     function check() {
       const container = containerRef.current;
       if (!container) return;
+      const now = Date.now();
       const sel = window.getSelection();
+      // Don't instantly vanish while interacting with the formatting toolbar
+      // (its click/handlers may transiently collapse the native selection).
+      const recentInteraction = now - lastInteractionRef.current < 450;
       if (!sel || sel.rangeCount === 0 || sel.isCollapsed) {
-        setActive(false);
-        setActiveRect(null);
-        setActiveOffsets(null);
+        if (!recentInteraction) {
+          setActive(false);
+          setActiveRect(null);
+          setActiveOffsets(null);
+        }
         return;
       }
       const range = sel.getRangeAt(0);
