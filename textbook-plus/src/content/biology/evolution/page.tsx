@@ -704,45 +704,9 @@ export default function EvolutionChapter() {
           more.
         </li>
       </ul>
-      <Callout type="note" title="A process, or the result of one?">
-        The world we see, inanimate and animate, is only the success stories of evolution. When we describe the story
-        of this world we describe evolution as a <em>process</em>; when we describe the story of life on earth we
-        treat evolution as a <em>consequence</em> of a process called natural selection. We are still not very clear
-        whether to regard evolution and natural selection as processes or as the end result of unknown processes.
-      </Callout>
-
-      <h3 id="h-6-4-malthus">Malthus and the logic of natural selection</h3>
-      <p>
-        It is possible that the work of <strong>Thomas Malthus</strong> on populations influenced Darwin. Natural
-        selection is based on certain observations which are factual.
-      </p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Natural resources are limited.</li>
-        <li>Populations are stable in size except for seasonal fluctuation.</li>
-        <li>
-          Members of a population vary in characteristics — in fact no two individuals are alike — even though they
-          look superficially similar.
-        </li>
-        <li>Most of the variations are inherited.</li>
-      </ul>
-      <p>
-        Left unchecked, a population would grow exponentially — as a growing bacterial culture shows.
-      </p>
-      <p>
-        Real populations stay limited, which means there has been <strong>competition for resources</strong>: only
-        some survived and grew at the cost of others.
-      </p>
-      <KeyPoint title="Darwin's novel insight">
-        Variations which are heritable, and which make resource utilisation better for a few (adapted to the habitat
-        better), will enable only those to reproduce and leave more progeny. Over many generations, survivors leave
-        more progeny, there is a change in population characteristic, and hence new forms appear to arise.
-      </KeyPoint>
+            <h3 id="h-6-4-malthus">Malthus and the logic of natural selection</h3>\n      <p>\n        Darwin was influenced by <strong>Thomas Malthus’</strong> work on human populations.\n      </p>\n      <p className="t-micro text-foreground">Factual observations under natural selection</p>\n      <ul className="list-disc pl-5 space-y-1.5">\n        <li><strong>Limited resources:</strong> natural resources are finite.</li>\n        <li><strong>Population stability:</strong> population sizes stay stable except for seasonal fluctuations.</li>\n        <li><strong>Individual variation:</strong> no two members of a population are identical, even when superficially similar.</li>\n        <li><strong>Heritability:</strong> most variations are inherited.</li>\n        <li><strong>Competition:</strong> the potential for exponential growth (visible in multiplying bacteria) meets limited resources, so competition for resources follows.</li>\n      </ul>\n      <Callout type="important" title="Darwin's core insight">\n        Heritable variations that make resource utilisation better enable those adapted individuals to\n        survive, reproduce and leave more progeny. Over many generations, survivors alter the population\n        characteristics, and new species appear to arise.\n      </Callout>\n      <p className="text-sm leading-relaxed text-foreground/90">\n        Selection chain — overproduction → limited natural resources → struggle for existence\n        (intra-specific and inter-specific) → variation and heredity → survival of the fittest →\n        origin of new species.\n      </p>\n      
 
       <h2 id="h-6-5">6.5 Mechanism of Evolution</h2>
-      <p>
-        What is the origin of variation, and how does speciation occur? Darwin either ignored Mendel&apos;s
-        inheritable &apos;factors&apos; or stayed silent about them.
-      </p>
       <Callout type="note" title="deVries and the idea of mutation">
         In the first decade of the twentieth century, <strong>Hugo deVries</strong> — working on evening primrose —
         proposed{" "}
@@ -771,12 +735,6 @@ export default function EvolutionChapter() {
         ]}
         caption="deVries called speciation by a single step large mutation saltation. Studies in population genetics, later, brought out some clarity."
       />
-      <MistakeCard
-        mistake="Mutations are directed by the needs of the organism, so evolution moves toward a goal."
-        correction="Mutations are random and directionless. Selection is what makes the outcome look directional, because only the variants that survive in the prevailing conditions leave progeny."
-        example="Antibiotic resistance appears in bacteria whether or not the antibiotic is present; the drug only selects the resistant ones."
-      />
-
       <h2 id="h-6-6">6.6 Hardy-Weinberg Principle</h2>
       <p>
         In a population, the frequency of alleles of a gene or locus tends to remain fixed through the generations.
