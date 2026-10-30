@@ -19,13 +19,6 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
-import {
-  ContextMenu,
-  ContextMenuTrigger,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuSeparator,
-} from "@/components/ui/context-menu";
 import { getAdjacentChapters } from "@/data/chapters";
 import { getQuestionsForChapter, getFlashcardsForChapter, hasQuestions, hasFlashcards } from "@/lib/content";
 import type { Chapter } from "@/data/chapters";
@@ -175,21 +168,15 @@ export function ChapterLayout({
           {/* Empty spacer: keeps the reading column optically centred (§5.13) */}
           <div aria-hidden className="hidden xl:block" />
 
-          <ContextMenu>
-            <ContextMenuTrigger
-              ref={articleRef}
-              data-chapter-content
-              className="block min-w-0 max-w-none"
-            >
-              {children}
+          <article
+            ref={articleRef}
+            data-chapter-content
+            className="min-w-0 max-w-none"
+          >
+            {children}
 
-              <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} basePath={navBase} />
-            </ContextMenuTrigger>
-            <ContextMenuContent>
-              <ContextMenuItem onSelect={() => void copySelection()}>Copy selection</ContextMenuItem>
-              <ContextMenuItem onSelect={() => void copyArticle()}>Copy chapter text</ContextMenuItem>
-            </ContextMenuContent>
-          </ContextMenu>
+            <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} basePath={navBase} />
+          </article>
 
           <ChapterToc />
         </div>
