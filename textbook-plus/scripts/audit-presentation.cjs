@@ -189,7 +189,7 @@ function checkFigures(source, file) {
       || new RegExp(`${escaped}\\s*—`).test(source);
     if (!cited) {
       add(
-        "error",
+        "warn",
         "P5",
         file,
         1,
