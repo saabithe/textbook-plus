@@ -27,7 +27,7 @@ Run only the check for what changed — full routing table in `textbook-plus/scr
 - `Constitution/` — PRD, USER_PREFERENCES (design decisions + component gallery specs)
 - `Pipeline/` — content pipeline docs (PDF → live chapter); per-subject files
 - `Developer_Deliveries/` — gitignored user assets (`Chapter names.md` is chapter-list source of truth; per-subject `Chapters/{NN_Subject}/{Textbooks,Extractions,Images,Structures}/`; see `Developer_Deliveries/README.md`)
-- `Pending/`, `.opencode/plans/` — work-in-progress plans; resume when user says "continue plan_NNNN.md", then delete
+- `Pending/`, `.opencode/plans/`, and `~/.opencode/plan/` (global, outside the repo) — work-in-progress plans; resume when user says "continue plan_NNNN.md", then delete
 - Next app: `textbook-plus/`
 
 No `/admin` page. No barrel export (`src/components/content/index.ts`) — import each primitive by file path.
@@ -63,8 +63,8 @@ Component categories (under `src/components/content/`): Core (top level), `data/
 
 **Do not reference** removed components: FlowDiagram, SortableTable, Kanban, NetworkDiagram, GuidedStepper, DecisionTree, RiskMatrix, ScenarioCard, PerspectiveCard, ArchitectureCard, IODiagram, EventFlow, RoadmapCard, plus the deleted Class 11 maths/conic/SHM/vector diagrams, `ScientistCard`, `Derivation`.
 
-- **Mobile deep optimization (Oct 2026)**: rollout plan in `.opencode/plans/plan_0005.md` (landed after this doc pointer); constraints and component rules summarized in `Constitution/USER_PREFERENCES.md` §12.13 (safe area, 44px tap floor, 72ch reading floor at 360 via media, progress one column on small screens, reading rail becomes a drawer below 1280, no decorative hover on touch, Arabic metrics nudge).
-- Pointer only — no implementation lives in this file; see the plan for per-component edits and the build/route checks.
+- **Mobile deep optimization (Oct 2026)**: landed; the constraints are the durable record and live in `Constitution/USER_PREFERENCES.md` §12.13 (safe area, 44px tap floor, 72ch reading floor at 360 via media, progress one column on small screens, reading rail becomes a drawer below 1280, no decorative hover on touch, Arabic metrics nudge).
+- Pointer only — no implementation lives in this file; §12.13 is the per-component rule set and §12.13 + the component gallery are the checks.
 
 ## Key Architecture
 

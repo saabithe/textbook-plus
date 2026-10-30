@@ -353,7 +353,7 @@ Why: a hand-drawn organic structure is a silent-error machine — one misplaced 
 
 ### 12.13 Oct 2026 — Mobile (deep optimization) constraints
 
-Mobile-first hardening rules that sit alongside §12.4 (which it refines, not supersedes). Apply to every component and page edit, including plans in `.opencode/plans/plan_0005.md`.
+Mobile-first hardening rules that sit alongside §12.4 (which it refines, not supersedes). Apply to every component and page edit; this section is the standing record, there is no separate plan file.
 
 | Constraint | Detail |
 |------------|--------|
