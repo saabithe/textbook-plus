@@ -20,7 +20,7 @@ export function ChapterList({ subjectSlug, subjectColor }: ChapterListProps) {
             href={`/chapter/${chapter.slug}`}
             number={chapter.number}
             title={chapter.title}
-            meta={`${chapter.topicCount} topics`}
+            meta={chapter.titleArabic ? chapter.title : undefined}
             color={subjectColor}
           />
         ))}
@@ -66,7 +66,7 @@ export function ChapterList({ subjectSlug, subjectColor }: ChapterListProps) {
                   meta={
                     chapter.titleArabic
                       ? chapter.title
-                      : `${chapter.topicCount} topics`
+                      : undefined
                   }
                   titleDir={chapter.titleArabic ? "rtl" : "ltr"}
                   color={subjectColor}

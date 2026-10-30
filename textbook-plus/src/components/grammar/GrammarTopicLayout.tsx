@@ -33,7 +33,7 @@ export function GrammarTopicLayout({
   const articleRef = useRef<HTMLElement | null>(null);
 
   return (
-    <div className="mx-auto max-w-[1280px] px-6 py-10">
+    <div className="mx-auto max-w-[1280px] px-6 py-10" style={{ "--accent": "var(--subject-english)" } as React.CSSProperties}>
       <GrammarTabs tab={tab} onTabChange={setTab} />
 
       <AnnotationLayer containerRef={articleRef as RefObject<HTMLElement | null>} enabled={tab === "concept"} />

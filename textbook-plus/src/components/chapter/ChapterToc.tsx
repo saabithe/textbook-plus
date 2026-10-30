@@ -84,7 +84,7 @@ function buildTree(root: HTMLElement): TocSection[] {
   return sections;
 }
 
-export function ChapterToc() {
+export function ChapterToc({ mobile = false }: { mobile?: boolean } = {}) {
   const [sections, setSections] = useState<TocSection[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
 
@@ -170,15 +170,19 @@ export function ChapterToc() {
       (s) => s.id === activeId || s.children.some((c) => c.id === activeId)
     )?.id ?? null;
 
-  return (
+  const content = (
     <Sidebar
       side="right"
       collapsible="none"
-      className="sticky top-24 h-[calc(100dvh-7rem)] overflow-y-auto"
+      className={
+        mobile
+          ? "h-full w-[260px] flex-col overflow-y-auto border-l border-border bg-card"
+          : "sticky top-24 h-[calc(100dvh-7rem)] overflow-y-auto border-l border-border bg-muted/50 hidden xl:flex"
+      }
     >
       <nav aria-label="Contents" className="flex min-h-0 flex-1 flex-col">
         <SidebarGroup>
-          <SidebarGroupLabel>Contents</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-[var(--accent,var(--foreground))]">Contents</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {sections.map((section) => {
@@ -229,4 +233,14 @@ export function ChapterToc() {
       </nav>
     </Sidebar>
   );
+
+  if (mobile) {
+    return (
+      <div className="fixed inset-0 z-50 flex justify-end bg-foreground/40 backdrop-blur-sm p-0" role="dialog" aria-modal="true">
+        <div className="h-full">{content}</div>
+      </div>
+    );
+  }
+
+  return content;
 }

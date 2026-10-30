@@ -358,16 +358,55 @@
   color: var(--foreground);
   margin-top: 3.5rem;
   margin-bottom: 1rem;
-  padding-top: 3.5rem;
-  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--accent, var(--border)) 35%, var(--border));
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
 }
 
-/* The first section opens the page — no rule above it. */
+.prose-custom h2::before {
+  content: "";
+  inline-size: 0.1875rem;
+  block-size: 1.1em;
+  border-radius: 2px;
+  background: var(--accent, var(--rule-strong));
+  flex: 0 0 auto;
+  transform: translateY(0.12em);
+}
+
+.prose-custom h3 {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--foreground);
+  margin-top: 2.25rem;
+  margin-bottom: 0.625rem;
+}
+
+.prose-custom h4 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.45;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* The first section opens the page — no marker rule above it. */
 .prose-custom > h2:first-child,
 .prose-custom > h2:first-of-type {
   margin-top: 0;
   padding-top: 0;
   border-top: 0;
+}
+
+.prose-custom > h2:first-child::before,
+.prose-custom > h2:first-of-type::before {
+  display: none;
 }
 
 .prose-custom h3 {

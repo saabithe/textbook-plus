@@ -62,36 +62,8 @@ export function Navbar() {
             </span>
           </Link>
 
-          {/* Nav — active state is a 2px ink underline at the header's bottom edge */}
-          <nav aria-label="Primary" className="flex h-16 items-center">
-            {navLinks.map((link) => {
-              const isActive =
-                pathname === link.href ||
-                (link.href !== "/" && pathname.startsWith(link.href));
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-current={isActive ? "page" : undefined}
-                  className={cn(
-                    "relative flex h-16 items-center px-3 text-[13px] transition-colors duration-[120ms] ease-[var(--ease-blueprint)]",
-                    isActive
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  {link.label}
-                  <span
-                    aria-hidden
-                    className={cn(
-                      "absolute inset-x-2 bottom-0 h-[2px] bg-foreground transition-opacity duration-[120ms] ease-[var(--ease-blueprint)]",
-                      isActive ? "opacity-100" : "opacity-0"
-                    )}
-                  />
-                </Link>
-              );
-            })}
-          </nav>
+          {/* No standalone "Home" link — the logo and subjects already lead home. */}
+          <nav aria-label="Primary" className="hidden h-16 items-center" />
 
           {/* Subjects meganav */}
           <NavigationMenu className="hidden md:flex">

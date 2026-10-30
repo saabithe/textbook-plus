@@ -33,7 +33,9 @@ export function resolve(annotation: Annotation, text: string): { start: number; 
       pos += 1;
     }
   }
+  const center = o - p.length;
   const fuzzy = prefixed.filter((i) => {
+    if (Number.isFinite(center) && center >= 0 && Math.abs(i - center) > 180) return false;
     const prefixOk = p ? text.slice(i - p.length, i) === p : true;
     const suffixOk = s ? text.slice(i + q.length, i + q.length + s.length) === s : true;
     return prefixOk && suffixOk;

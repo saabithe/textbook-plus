@@ -189,9 +189,9 @@ export function SidebarMenuButton({
   ...props
 }: SidebarMenuButtonProps) {
   const classes = cn(
-    "relative flex h-8 w-full items-center gap-2 rounded-sm px-2 text-[13px] font-medium text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.03] hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background outline-none disabled:pointer-events-none disabled:opacity-40",
+    "relative flex h-8 w-full items-center gap-2 rounded-sm px-2 text-[14px] font-medium text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.06] hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background outline-none disabled:pointer-events-none disabled:opacity-40",
     isActive &&
-      "text-foreground before:absolute before:inset-y-1 before:start-0 before:w-[2px] before:bg-foreground",
+      "text-foreground before:absolute before:inset-y-1 before:start-0 before:w-[3px] before:bg-[var(--accent,var(--foreground))]",
     className
   )
 

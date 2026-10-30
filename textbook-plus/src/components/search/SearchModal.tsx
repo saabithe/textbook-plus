@@ -31,8 +31,8 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
     if (open) setQuery("");
   }, [open, setQuery]);
 
-  function navigate(slug: string) {
-    router.push(`/chapter/${slug}`);
+  function navigate(href: string) {
+    router.push(href);
     onClose();
   }
 
@@ -76,7 +76,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
                 <CommandItem
                   key={r.chapterSlug}
                   value={`${r.chapterTitle} ${r.subjectName} ${r.chapterSlug}`}
-                  onSelect={() => navigate(r.chapterSlug)}
+                  onSelect={() => navigate(r.href)}
                   className="gap-3 rounded-none! border-b border-border px-4 py-3 data-selected:bg-foreground/4"
                 >
                   <span

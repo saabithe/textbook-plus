@@ -62,6 +62,9 @@ export function AnnotationLayer({
   const [activeRect, setActiveRect] = useState<DOMRect | null>(null);
   const [activeOffsets, setActiveOffsets] = useState<{ start: number; end: number } | null>(null);
   const [activeFlags, setActiveFlags] = useState<Flags>({});
+  const [outcome, setOutcome] = useState<string | null>(null);
+  const [unresolvedCount, setUnresolvedCount] = useState(0);
+  const [useDockOnly, setUseDockOnly] = useState(true);
 
   const rebuild = useCallback(() => {
     const container = containerRef.current;
@@ -111,6 +114,7 @@ export function AnnotationLayer({
         hl: r.a.hl,
       }));
       resolvedRef.current = ivs;
+      setUnresolvedCount(items.length - resolved.length);
 
       const edits = resolved
         .map((r) => ({ s: r.start, e: r.end, flags: { b: r.a.b, i: r.a.i, u: r.a.u, hl: r.a.hl }, item: r.a }))
@@ -170,6 +174,19 @@ export function AnnotationLayer({
       if (debounceRef.current) window.clearTimeout(debounceRef.current);
     };
   }, [enabled, rebuild, containerRef]);
+
+  // detect coarse pointer once (dock-first to avoid flash of floating toolbar)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    setUseDockOnly(window.matchMedia("(pointer: coarse)").matches);
+  }, []);
+
+  // clear aria-live outcome after 1.5s
+  useEffect(() => {
+    if (!outcome) return;
+    const t = window.setTimeout(() => setOutcome(null), 1500);
+    return () => window.clearTimeout(t);
+  }, [outcome]);
 
   // selection handling
   useEffect(() => {
@@ -277,18 +294,22 @@ export function AnnotationLayer({
     if (!activeOffsets || !streamRef.current) return;
     const stream = streamRef.current;
     apply(stream.text, activeOffsets.start, activeOffsets.end, { kind: "toggle", format: key });
+    const label = key === "b" ? "Bold" : key === "i" ? "Italic" : "Underline";
+    setOutcome(`${label} applied`);
   }
 
   function handleTone(tone: string) {
     if (!activeOffsets || !streamRef.current) return;
     const stream = streamRef.current;
     apply(stream.text, activeOffsets.start, activeOffsets.end, { kind: "toggle", format: "hl", tone: tone as Tone });
+    setOutcome("Highlight applied");
   }
 
   function handleClear() {
     if (!activeOffsets || !streamRef.current) return;
     const stream = streamRef.current;
     apply(stream.text, activeOffsets.start, activeOffsets.end, { kind: "clear" });
+    setOutcome("Formatting cleared");
   }
 
   function allCarries(
@@ -317,16 +338,18 @@ export function AnnotationLayer({
 
   return (
     <>
-      <SelectionToolbar
-        active={active}
-        mode="floating"
-        rect={activeRect}
-        pressed={{ b: !!activeFlags.b, i: !!activeFlags.i, u: !!activeFlags.u }}
-        activeTone={activeFlags.hl ?? null}
-        onToggle={handleToggle}
-        onTone={handleTone}
-        onClear={handleClear}
-      />
+      {!useDockOnly && (
+        <SelectionToolbar
+          active={active}
+          mode="floating"
+          rect={activeRect}
+          pressed={{ b: !!activeFlags.b, i: !!activeFlags.i, u: !!activeFlags.u }}
+          activeTone={activeFlags.hl ?? null}
+          onToggle={handleToggle}
+          onTone={handleTone}
+          onClear={handleClear}
+        />
+      )}
       {/* Mobile dock */}
       <div className="lg:hidden">
         <SelectionToolbar
@@ -340,8 +363,13 @@ export function AnnotationLayer({
           onClear={handleClear}
         />
       </div>
+      {unresolvedCount > 0 && (
+        <p className="t-micro text-muted-foreground">
+          {unresolvedCount} notes couldn't be placed here.
+        </p>
+      )}
       <span aria-live="polite" className="sr-only">
-        {active ? "Selection formatting available." : ""}
+        {outcome ?? (active ? "Selection formatting available." : "")}
       </span>
     </>
   );

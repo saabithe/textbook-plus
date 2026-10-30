@@ -65,6 +65,7 @@ export function ChapterLayout({
   const registryKey = chapter.slug;
   const navBase = "/chapter";
   const [activeTab, setActiveTab] = useState("learning");
+  const [mobileTocOpen, setMobileTocOpen] = useState(false);
   const showPractice = subjectSlug !== "english" && subjectSlug !== "arabic";
   const articleRef = useRef<HTMLDivElement | null>(null);
 
@@ -96,10 +97,10 @@ export function ChapterLayout({
       ? [chapter.title, chapter.unit ? `Unit ${chapter.unit}` : null]
           .filter(Boolean)
           .join(" · ")
-      : `${subjectName} · ${chapter.topicCount} topics`);
+      : subjectName);
 
   return (
-    <div className="mx-auto max-w-[1280px] px-6 py-10">
+    <div className="mx-auto max-w-[1280px] px-6 py-10" style={{ "--accent": subjectColor } as React.CSSProperties}>
       <ReadingProgress color={subjectColor} />
       <AnnotationLayer containerRef={articleRef as RefObject<HTMLElement | null>} enabled={activeTab === "learning"} />
 
@@ -202,6 +203,30 @@ export function ChapterLayout({
 
           <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} basePath={navBase} />
         </div>
+      )}
+      {activeTab === "learning" && (
+        <>
+          <button
+            type="button"
+            aria-label="Open contents"
+            onClick={() => setMobileTocOpen(true)}
+            className="xl:hidden fixed right-4 top-24 z-40 inline-flex h-9 items-center rounded-[3px] border border-border bg-card px-3 text-[12px] font-semibold text-foreground"
+          >
+            Contents
+          </button>
+          {mobileTocOpen && (
+            <div
+              className="xl:hidden fixed inset-0 z-50 flex justify-end bg-foreground/30 backdrop-blur-sm"
+              role="dialog"
+              aria-modal="true"
+              onClick={() => setMobileTocOpen(false)}
+            >
+              <div onClick={(e) => e.stopPropagation()}>
+                <ChapterToc mobile />
+              </div>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
