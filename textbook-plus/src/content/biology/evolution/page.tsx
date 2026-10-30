@@ -670,42 +670,9 @@ export default function EvolutionChapter() {
 
       <h2 id="h-6-4">6.4 Biological Evolution</h2>
       <p>
-        Evolution by natural selection, in a true sense, would have started when{" "}
-        <strong>cellular forms of life with differences in metabolic capability</strong> originated on earth.
-      </p>
-      <p>
         The essence of Darwinian theory about evolution is{" "}
         <Highlight color="yellow">natural selection</Highlight>. The rate of appearance of new forms is linked to the
-        life cycle or the life span.
-      </p>
-      <ProcessCard
-        title="A colony, a changed medium, a new species"
-        steps={[
-          {
-            label: "Built-in variation",
-            description:
-              "A colony of bacteria (say A) growing on a given medium has built-in variation in terms of ability to utilise a feed component.",
-          },
-          {
-            label: "The medium changes",
-            description:
-              "A change in the medium composition would bring out only that part of the population (say B) that can survive under the new conditions.",
-          },
-          {
-            label: "B outgrows A",
-            description:
-              "In due course of time this variant population outgrows the others and appears as a new species. This would happen within days.",
-          },
-          {
-            label: "The same, on a slower clock",
-            description:
-              "For the same thing to happen in a fish or fowl would take millions of years, as life spans of these animals are in years.",
-          },
-        ]}
-      />
-      <p>
-        Here we say that the fitness of B is better than that of A under the new conditions. Nature selects for
-        fitness.
+        life cycle or the life span — bacteria evolve within days, whereas fish or fowl need millions of years.
       </p>
       <p>
         Microbes that divide fast multiply into millions within hours — which is why their evolution is visible on a
@@ -716,9 +683,9 @@ export default function EvolutionChapter() {
         genetic basis for getting selected and to evolve. Adaptive ability is inherited; it has a genetic basis.{" "}
         <Highlight color="yellow">Fitness is the end result of the ability to adapt and get selected by nature.</Highlight>
       </Callout>
-      <KeyPoint title="Two key concepts">
-        <Highlight color="yellow">Branching descent and natural selection</Highlight> are the two key concepts of the
-        Darwinian theory of evolution.
+      <KeyPoint title="Darwin's two key concepts">
+        <Highlight color="yellow">Branching descent</Highlight> and <Highlight color="yellow">natural selection</Highlight> are the
+        two key concepts of the Darwinian theory of evolution.
       </KeyPoint>
 
       <h3 id="h-6-4-lamarck">Lamarck — use and disuse of organs</h3>
@@ -737,36 +704,6 @@ export default function EvolutionChapter() {
           more.
         </li>
       </ul>
-      <TableCard
-        title="Lamarck vs Darwin"
-        headers={["Point", "Lamarck", "Darwin"]}
-        rows={[
-          {
-            cells: [
-              "Driving force",
-              "Use and disuse of organs — an organ used more develops, one used less withers.",
-              "Natural selection acting on built-in variation.",
-            ],
-          },
-          {
-            cells: [
-              "What is passed on",
-              "Acquired characters — changes gained during the parent's lifetime.",
-              "Inherited characteristics that already vary within the population.",
-            ],
-          },
-          {
-            cells: [
-              "The giraffe",
-              "Stretching for tall leaves elongated the neck, and the elongated neck was passed to the offspring.",
-              "Longer-necked variants in the population survived and left more progeny.",
-            ],
-          },
-          {
-            cells: ["Status today", "Nobody believes this conjecture any more.", "The framework of the theory of evolution by natural selection."],
-          },
-        ]}
-      />
       <Callout type="note" title="A process, or the result of one?">
         The world we see, inanimate and animate, is only the success stories of evolution. When we describe the story
         of this world we describe evolution as a <em>process</em>; when we describe the story of life on earth we
