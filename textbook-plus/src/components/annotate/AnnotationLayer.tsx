@@ -63,6 +63,7 @@ export function AnnotationLayer({
   const [activeOffsets, setActiveOffsets] = useState<{ start: number; end: number } | null>(null);
   const [activeFlags, setActiveFlags] = useState<Flags>({});
   const [outcome, setOutcome] = useState<string | null>(null);
+  const lastOffsetRef = useRef<{ start: number; end: number } | null>(null);
   const [unresolvedCount, setUnresolvedCount] = useState(0);
   const [useDockOnly, setUseDockOnly] = useState(true);
 
@@ -229,6 +230,7 @@ export function AnnotationLayer({
       setActive(true);
       setActiveRect(range.getBoundingClientRect());
       setActiveOffsets(eff);
+      lastOffsetRef.current = eff;
 
       // active flags
       const flags: Flags = {};
@@ -306,10 +308,17 @@ export function AnnotationLayer({
   }
 
   function handleClear() {
-    if (!activeOffsets || !streamRef.current) return;
+    const offsets = activeOffsets ?? lastOffsetRef.current;
+    if (!offsets || !streamRef.current) return;
     const stream = streamRef.current;
-    apply(stream.text, activeOffsets.start, activeOffsets.end, { kind: "clear" });
+    apply(stream.text, offsets.start, offsets.end, { kind: "clear" });
+    // force rebuild now that the in-range pieces were dropped
+    window.setTimeout(() => rebuild(), 0);
     setOutcome("Formatting cleared");
+    lastOffsetRef.current = null;
+    setActive(false);
+    setActiveOffsets(null);
+    setActiveRect(null);
   }
 
   function allCarries(

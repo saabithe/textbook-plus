@@ -322,7 +322,7 @@ export default function HoregalluPage() {
         <div className="animate-fade-in">
           {/* Author */}
           <div id="author">
-            <ChapterIntro author="Sudha Murty" genre="Short story / personal narrative" characters={["Sudha Murty (narrator)", "Grandfather", "Ratna"]} />
+            <ChapterIntro author="Sudha Murty" genre="Personal anecdote" characters={["Sudha Murty (narrator)", "Grandfather", "Ratna"]} />
           </div>
 
           {/* Introduction */}
