@@ -650,11 +650,8 @@ export default function MicrobesInHumanWelfareChapter() {
             ],
           },
         ]}
+        caption="A narrow-spectrum agent is especially desirable when beneficial insects are being conserved (IPM), or an ecologically sensitive area is being treated."
       />
-      <Callout type="note" title="Why narrow spectrum matters">
-        A narrow-spectrum agent is especially desirable when beneficial insects are being conserved (IPM), or an
-        ecologically sensitive area is being treated.
-      </Callout>
 
       <h2 id="h-8-6">8.6 Microbes as Biofertilisers</h2>
       <TreeDiagram
