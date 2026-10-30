@@ -240,14 +240,25 @@ export default function EvolutionChapter() {
           { cells: ["Trap", "Collects the water carrying the organic compounds formed."] },
         ]}
       />
-      <MillerApparatusDiagram compact />
-      <KeyPoint title="Primary product formed">
-        Amino acids.
-      </KeyPoint>
-
-      <Callout type="didyouknow" title="Compounds made by similar later experiments">
-        Sugars, nitrogenous bases, pigments and fats.
-      </Callout>
+      <Comparison
+        columns={[
+          {
+            title: "The apparatus",
+            children: <MillerApparatusDiagram compact />,
+          },
+          {
+            title: "What it yielded",
+            children: (
+              <>
+                <KeyPoint title="Primary product formed">Amino acids.</KeyPoint>
+                <Callout type="didyouknow" title="Compounds made by similar later experiments">
+                  Sugars, nitrogenous bases, pigments and fats.
+                </Callout>
+              </>
+            ),
+          },
+        ]}
+      />
       <Expandable title="In-text question — what did the Urey-Miller experiment actually prove?">
         <p>
           It showed that <strong>organic molecules can be built from inorganic gases</strong> under the conditions
@@ -257,26 +268,31 @@ export default function EvolutionChapter() {
       </Expandable>
 
       <h2 id="h-6-2">6.2 Evolution of Life Forms – A Theory</h2>
-      <p>
-        The theory of special creation held that every species was created as it is today, that diversity never
-        changes, and that the earth is only about 4,000 years old. Charles Darwin challenged it after sailing round
-        the world on <strong>H.M.S. Beagle</strong> and concluding the following.
-      </p>
+      <h3 id="h-6-2-darwin">⛵ 2. Charles Darwin &amp; the H.M.S. Beagle voyage</h3>
       <ul className="list-disc pl-5 space-y-1.5">
         <li>
-          Existing living forms share similarities to varying degrees — not only among themselves but also with life
-          forms that existed millions of years ago.
+          🚢 <strong>Voyage:</strong> world exploration aboard the sail ship{" "}
+          <strong>H.M.S. Beagle</strong>.
         </li>
         <li>
-          Many such life forms do not exist any more. Extinctions of different life forms happened in the years gone
-          by, just as new forms of life arose at different periods of the history of earth.
-        </li>
-        <li>
-          There has been <Highlight color="yellow">gradual evolution</Highlight> of life forms.
+          🔬 <strong>Core inferences and conclusions:</strong>
+          <ul className="mt-1 list-disc space-y-1 pl-5">
+            <li>
+              Existing living forms share varying degrees of similarities among themselves and with life forms that
+              existed millions of years ago.
+            </li>
+            <li>
+              Extinctions of different life forms occurred in the past, alongside the emergence of new life
+              forms at different periods of the history of the earth.
+            </li>
+            <li>
+              Life forms undergo <Highlight color="yellow">gradual evolution</Highlight> over time.
+            </li>
+          </ul>
         </li>
       </ul>
-      <ProcessCard
-        title="Darwin's argument, in four moves"
+      <p className="font-semibold">Darwin’s argument, in four moves.</p>
+      <Stepper
         steps={[
           {
             label: "Variation is already there",
@@ -299,25 +315,22 @@ export default function EvolutionChapter() {
           },
         ]}
       />
-      <Callout type="note" title="Wallace, at the same time">
-        Alfred Wallace, a naturalist who worked in the Malay Archipelago, had also come to similar conclusions
-        around the same time.
-      </Callout>
-      <p>
-        In due course of time, new types of organisms become recognisable. All living forms share similarities and
-        common ancestors — but those ancestors lived at different periods of earth&apos;s history (epochs, periods
-        and eras).
-      </p>
-      <KeyPoint title="The two clocks agree">
-        The geological history of the earth closely matches the biological history of life — a common permissible
-        conclusion is that{" "}
-        <Highlight color="yellow">the earth is billions of years old, not thousands</Highlight>.
-      </KeyPoint>
-      <MistakeCard
-        mistake="The fittest individual is the strongest, fastest or largest one."
-        correction="Fitness, according to Darwin, refers ultimately and only to reproductive fitness — the ability to leave more progeny. Strength is not the measure."
-        example="A small, fast-breeding organism can be fitter than a large, strong one."
-      />
+      <h3 id="h-6-2-wallace">⏳ 4. Alfred Wallace &amp; Geological Correlation</h3>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>
+          🏝️ <strong>Alfred Wallace:</strong> a naturalist working in the <strong>Malay Archipelago</strong> who
+          independently arrived at similar conclusions regarding natural selection around the same time.
+        </li>
+        <li>
+          🌳 <strong>Common ancestors:</strong> all existing life forms share similarities and common ancestors that
+          lived at different periods in Earth’s history (<strong>epochs, periods and eras</strong>).
+        </li>
+        <li>
+          ⏳ <strong>Earth’s true age:</strong> geological history closely correlates with biological history; the
+          earth is not thousands of years old but{" "}
+          <Highlight color="yellow">billions of years old</Highlight>.
+        </li>
+      </ul>
 
       <h2 id="h-6-3">6.3 What are the Evidences for Evolution?</h2>
       <PocketGrid
