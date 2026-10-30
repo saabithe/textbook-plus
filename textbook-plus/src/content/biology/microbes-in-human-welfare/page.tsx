@@ -573,54 +573,25 @@ export default function MicrobesInHumanWelfareChapter() {
         Biocontrol refers to the <strong>use of biological methods for controlling plant diseases and
         pests</strong>.
       </Callout>
-      <p>Modern farming has answered pests and diseases with chemicals — and paid for it.</p>
+      <p>Earlier methods relied heavily on chemical agents like insecticides, pesticides, and weedicides.</p>
+      <div className="my-3 space-y-1.5">
+        <p className="t-micro text-foreground">⚠️ Disadvantages of Chemical Agents</p>
+        <ul className="list-disc pl-5 space-y-1.5">
+          <li>Toxic and harmful to humans and animals.</li>
+          <li>Pollute the environment, plants, and soil.</li>
+        </ul>
+      </div>
+      <h3 id="h-8-5-organic">Organic Farming Approaches</h3>
+      <p>Core Philosophy:</p>
       <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          <strong>Insecticides and pesticides</strong> are the usual weapon against pests and diseases.
-        </li>
-        <li>
-          <strong>Toxic beyond the pest</strong> — they harm human beings and animals alike.
-        </li>
-        <li>
-          <strong>They travel</strong> — into soil and ground water, and into fruits, vegetables and crop plants.
-        </li>
-        <li>
-          <strong>Weedicides</strong> add to the same load of soil pollution.
-        </li>
+        <li>Keeping pests at a manageable level through a system of checks and balances.</li>
+        <li>Complete eradication is undesirable.</li>
+        <li>Reduce dependency on toxic chemicals.</li>
       </ul>
-
-      <h3 id="h-8-5-organic">Biological control of pests and diseases</h3>
-      <p>
-        In agriculture there is a method of controlling pests that relies on <strong>natural
-        predation</strong> rather than introduced chemicals.
-      </p>
+      <p>Required Knowledge Base:</p>
       <ul className="list-disc pl-5 space-y-1.5">
-        <li>A key belief of the organic farmer is that biodiversity furthers health.</li>
-        <li>The more variety a landscape has, the more sustainable it is.</li>
-        <li>
-          The organic farmer works to create a system where the insects sometimes called pests are{" "}
-          <strong>not eradicated</strong>, but kept at manageable levels by a complex system of checks and
-          balances within a living and vibrant ecosystem.
-        </li>
-        <li>
-          Conventional farming often uses chemical methods that kill both useful and harmful life forms
-          indiscriminately.
-        </li>
-        <li>
-          Biocontrol is a holistic approach: it seeks to understand the webs of interaction between the many
-          organisms that make up the field fauna and flora.
-        </li>
-        <li>
-          Eradication of pests is not only possible but also <em>undesirable</em> — without them, the
-          beneficial predatory and parasitic insects that depend on them as food or hosts could not survive.
-        </li>
-        <li>
-          Biocontrol measures therefore greatly reduce our dependence on toxic chemicals and pesticides.
-        </li>
-        <li>
-          An important part of biological farming is to know the life forms of the field — predators as well as
-          pests — along with their life cycles, feeding patterns and preferred habitats.
-        </li>
+        <li>Familiarity with various life forms.</li>
+        <li>Understanding patterns of feeding, life cycles, and the habitats of predators and pests.</li>
       </ul>
       <TableCard
         title="Predators that work for the farmer"
@@ -677,43 +648,14 @@ export default function MicrobesInHumanWelfareChapter() {
           },
         ]}
       />
-      <p>
-        <em>Bacillus thuringiensis</em> reaches the field as dried spores in a sachet. Mixed with water, it is
-        sprayed on vulnerable plants — brassicas and fruit trees.
-      </p>
-      <p>
-        Bt-cotton has the same toxin gene built in, and is already cultivated in some states of our country.
-      </p>
       <Callout type="note" title="Why narrow spectrum matters">
-        A narrow spectrum agent is especially desirable when beneficial insects are being conserved to aid in an
-        overall <strong>integrated pest management (IPM)</strong> programme, or when an ecologically sensitive
-        area is being treated.
+        A narrow-spectrum agent is especially desirable when beneficial insects are being conserved (IPM), or an
+        ecologically sensitive area is being treated.
       </Callout>
-      <MistakeCard
-        mistake="A Bt spray kills every insect that lands on the crop."
-        correction="The Bt toxin kills the larvae that actually eat it — caterpillars. The bacterial disease leaves other insects unharmed, which is exactly why it fits an IPM programme."
-        example="The same toxin gene put into the plant itself gives Bt-cotton, where the pest is stopped before it can do damage."
-      />
-      <KeyPoint title="Not a poison, a pathogen">
-        Biocontrol replaces chemicals with natural predation and microbial pathogens. The aim is not to wipe a
-        pest out, but to hold it at a manageable level while the rest of the ecosystem keeps working.
-      </KeyPoint>
 
       <h2 id="h-8-6">8.6 Microbes as Biofertilisers</h2>
-      <p>
-        Chemical fertilisers met the rising demand for agricultural produce — and became a major source of
-        pollution.
-      </p>
-      <p>
-        Their overuse is now recognised as a problem, so there is a large pressure to switch to organic farming
-        — the use of <strong>biofertilisers</strong>.
-      </p>
-      <Callout type="important" title="Biofertilisers">
-        Biofertilisers are <strong>organisms that enrich the nutrient quality of the soil</strong>. The main
-        sources of biofertilisers are <strong>bacteria, fungi and cyanobacteria</strong>.
-      </Callout>
       <TreeDiagram
-        title="Three sources of biofertilisers"
+        title="Three sources of biofertilisers — soil-nourishing organisms"
         defaultExpanded
         nodes={[
           {
@@ -742,7 +684,7 @@ export default function MicrobesInHumanWelfareChapter() {
               {
                 label: "Glomus — mycorrhiza",
                 detail:
-                  "Many members of the genus Glomus form mycorrhiza, a symbiotic association with plants. The fungal symbiont absorbs phosphorus from the soil and passes it to the plant.",
+                  "Many members of the genus Glomus form mycorrhiza, a symbiotic association with plants. The fungal symbiont absorbs phosphorus from the soil and passes it to the plant; the association also confers resistance to root-borne pathogens, tolerance to salinity and drought, and an overall increase in plant growth and development.",
               },
             ],
           },
@@ -752,18 +694,12 @@ export default function MicrobesInHumanWelfareChapter() {
               {
                 label: "Anabaena, Nostoc, Oscillatoria",
                 detail:
-                  "Autotrophic microbes widely distributed in aquatic and terrestrial environments, many of which can fix atmospheric nitrogen. In paddy fields, cyanobacteria serve as an important biofertiliser.",
+                  "Autotrophic microbes widely distributed in aquatic and terrestrial environments, many of which can fix atmospheric nitrogen. In paddy fields cyanobacteria serve as an important biofertiliser, and the blue-green algae further add organic matter to the soil and increase its fertility.",
               },
             ],
           },
         ]}
       />
-      <p>Plants having mycorrhizal associations show other benefits as well:</p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Resistance to root-borne pathogens.</li>
-        <li>Tolerance to salinity and drought.</li>
-        <li>An overall increase in plant growth and development.</li>
-      </ul>
       <Expandable title="In-text question — what advantage does the fungus derive from mycorrhiza?">
         <p>The association is a trade, not charity.</p>
         <ul className="list-disc pl-5 space-y-1.5">
@@ -776,24 +712,6 @@ export default function MicrobesInHumanWelfareChapter() {
           </li>
         </ul>
       </Expandable>
-      <Callout type="note" title="Blue green algae in the paddy field">
-        Cyanobacteria — the blue green algae — also <strong>add organic matter to the soil and increase its
-        fertility</strong>, on top of fixing atmospheric nitrogen.
-      </Callout>
-      <p>Biofertilisers are no longer a laboratory idea in India — they are on the shelf.</p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>A number of them are available commercially in the market.</li>
-        <li>
-          Farmers use them regularly to <strong>replenish soil nutrients</strong>.
-        </li>
-        <li>
-          They cut <strong>dependence on chemical fertilisers</strong>.
-        </li>
-      </ul>
-      <KeyPoint title="Three sources, three jobs">
-        Bacteria fix nitrogen, fungi deliver phosphorus, cyanobacteria do both — fix nitrogen and add organic
-        matter. All three enrich the soil instead of polluting it.
-      </KeyPoint>
 
       <h2 id="h-8-exercises">Exercises</h2>
       <Expandable title="Exercises — all questions with answers" variant="exercise">
