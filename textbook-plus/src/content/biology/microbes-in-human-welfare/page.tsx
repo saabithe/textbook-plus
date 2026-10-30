@@ -40,7 +40,7 @@ export default function MicrobesInHumanWelfareChapter() {
           { title: "Bacteria" },
           { title: "Fungi" },
           { title: "Protozoa" },
-          { title: "Viruses", note: "microscopic, of animals and of plants" },
+          { title: "Viruses" },
           { title: "Viroids" },
           { title: "Prions", note: "proteinaceous infectious agents" },
         ].map(({ title, note }) => (
@@ -80,10 +80,6 @@ export default function MicrobesInHumanWelfareChapter() {
       />
 
       <h2 id="h-8-1">8.1 Microbes in Household Products</h2>
-      <p>
-        We use microbes, or products derived from them, every day. The most familiar example is the production
-        of <strong>curd</strong> from milk.
-      </p>
 
       <h3 id="h-8-1-curd">Curd from milk</h3>
       <Callout type="important" title="Lactic acid bacteria (LAB)">
@@ -197,37 +193,18 @@ export default function MicrobesInHumanWelfareChapter() {
       />
 
       <h2 id="h-8-2">8.2 Microbes in Industrial Products</h2>
-      <p>
-        Even in industry, microbes are used to synthesise a number of products valuable to human beings.
-        Beverages and antibiotics are some examples.
-      </p>
       <FactCard
         title="Fermentor"
-        definition="Production on an industrial scale requires growing microbes in very large vessels called fermentors."
+        definition="Production on an industrial scale requires growing microbes in very large vessels called fermenters."
         icon="🏭"
       />
-      <TableCard
-        title="The vessels this method uses"
-        headers={["Figure", "What it shows"]}
-        rows={[
-          {
-            cells: ["8.4 — Fermentors", "Large vessels in which microbes are grown to synthesise a product on an industrial scale."],
-          },
-        ]}
-      />
-
       <h3 id="h-8-2-beverages">8.2.1 Fermented Beverages</h3>
-      <p>
-        Microbes, especially yeasts, have been used from time immemorial for the production of beverages like
-        wine, beer, whisky, brandy or rum.
-      </p>
       <ul className="list-disc pl-5 space-y-1.5">
         <li>
-          The same yeast <em>Saccharomyces cerevisiae</em> used for bread-making — commonly called{" "}
-          <strong>brewer’s yeast</strong> — is used for fermenting malted cereals and fruit juices.
+          <strong>Microorganism:</strong> Yeast — <em>Saccharomyces cerevisiae</em> (Brewer's yeast)
         </li>
         <li>
-          The product of that fermentation is <strong>ethanol</strong>.
+          <strong>Raw material:</strong> Malted cereals and fruit juices used to produce ethanol via fermentation.
         </li>
         <li>
           Depending on the raw material used for fermentation and the type of processing, different types of
@@ -278,21 +255,7 @@ export default function MicrobesInHumanWelfareChapter() {
           },
         ]}
       />
-      <TableCard
-        title="The installation the process runs in"
-        headers={["Figure", "What it shows"]}
-        rows={[
-          {
-            cells: ["8.5 — Fermentation plant", "A fermentation plant of the type used to produce beverages such as wine, beer, whisky, brandy and rum."],
-          },
-        ]}
-      />
-
       <h3 id="h-8-2-antibiotics">8.2.2 Antibiotics</h3>
-      <p>
-        Antibiotics produced by microbes are regarded as one of the most significant discoveries of the
-        twentieth century, and have greatly contributed towards the welfare of human society.
-      </p>
       <Callout type="important" title="Antibiotics">
         Antibiotics are <strong>chemical substances, which are produced by some microbes and can kill or retard
         the growth of other (disease-causing) microbes</strong>.
@@ -302,10 +265,7 @@ export default function MicrobesInHumanWelfareChapter() {
         “against life” — in the context of disease-causing organisms. With reference to human beings they are{" "}
         <Highlight color="yellow">“pro life” and not against</Highlight>.
       </Callout>
-      <p>
-        Penicillin is the antibiotic everyone knows. It was the <strong>first antibiotic to be discovered</strong>,
-        and it was a <strong>chance discovery</strong>.
-      </p>
+      <p>Penicillin was the <strong>first antibiotic discovered</strong> — a <strong>chance discovery</strong>.</p>
       <ProcessCard
         title="The chance discovery of penicillin"
         steps={[
@@ -375,16 +335,8 @@ export default function MicrobesInHumanWelfareChapter() {
           Leprosy (<em>kusht rog</em>).
         </li>
       </ul>
-      <p>
-        These diseases used to kill millions all over the globe.{" "}
-        <Highlight color="yellow">Today, we cannot imagine a world without antibiotics.</Highlight>
-      </p>
 
       <h3 id="h-8-2-chemicals">8.2.3 Chemicals, Enzymes and other Bioactive Molecules</h3>
-      <p>
-        Microbes are also used for commercial and industrial production of certain chemicals like organic
-        acids, alcohols and enzymes.
-      </p>
       <TableCard
         title="Organic acids and the microbes that make them"
         headers={["Acid", "Microbe", "Kind of microbe"]}
@@ -419,10 +371,6 @@ export default function MicrobesInHumanWelfareChapter() {
           },
         ]}
       />
-      <p>
-        Yeast (<em>Saccharomyces cerevisiae</em>) is used for commercial production of{" "}
-        <strong>ethanol</strong>. Microbes are also used for production of <strong>enzymes</strong>.
-      </p>
       <TableCard
         title="Enzymes and other bioactive molecules from microbes"
         headers={["Molecule", "Microbe", "Where it is used"]}
@@ -431,23 +379,23 @@ export default function MicrobesInHumanWelfareChapter() {
             cells: [
               "Lipases",
               "Microbes grown for the enzyme",
-              "Used in detergent formulations; helpful in removing oily stains from the laundry.",
+              "Detergents — removes oily stains from laundry.",
             ],
           },
           {
             cells: [
               "Pectinases and proteases",
               "Microbes grown for the enzymes",
-              "Clarify bottled fruit juices — that is why bottled juice is clearer than juice made at home.",
+              "Clarifies bottled juices — why bottled juice is clearer than home-made juice.",
             ],
           },
           {
             cells: [
               "Streptokinase",
               <span key="sk">
-                <em>Streptococcus</em> (modified by genetic engineering)
+                <em>Streptococcus</em> (genetically modified)
               </span>,
-              "Used as a “clot buster” for removing clots from the blood vessels of patients who have undergone myocardial infarction leading to heart attack.",
+              "Clot-buster — removes blood-vessel clots after a heart attack.",
             ],
           },
           {
@@ -456,7 +404,7 @@ export default function MicrobesInHumanWelfareChapter() {
               <span key="cy">
                 <em>Trichoderma polysporum</em> (a fungus)
               </span>,
-              "An immunosuppressive agent used in organ-transplant patients.",
+              "Immunosuppressive — for organ-transplant patients.",
             ],
           },
           {
@@ -465,20 +413,12 @@ export default function MicrobesInHumanWelfareChapter() {
               <span key="st">
                 <em>Monascus purpureus</em> (a yeast)
               </span>,
-              "Commercialised as blood-cholesterol lowering agents; acts by competitively inhibiting the enzyme responsible for synthesis of cholesterol.",
+              "Blood-cholesterol-lowering — inhibits the cholesterol-synthesis enzyme.",
             ],
           },
         ]}
       />
-      <MistakeCard
-        mistake="Every medically useful molecule that microbes make is an antibiotic."
-        correction="Antibiotics kill or retard other microbes. Cyclosporin A (immunosuppressive), statins (cholesterol-lowering) and streptokinase (clot buster) are bioactive molecules with entirely different jobs."
-        example="Cyclosporin A comes from a fungus and statins from a yeast — neither is used to kill bacteria."
-      />
-      <KeyPoint title="Microbes are chemical factories">
-        Organic acids, ethanol, enzymes, a clot buster, an immunosuppressant and a cholesterol-lowering drug —
-        all six come out of microbial cultures, and all six are industrial products.
-      </KeyPoint>
+
 
       <h2 id="h-8-3">8.3 Microbes in Sewage Treatment</h2>
       <p>
