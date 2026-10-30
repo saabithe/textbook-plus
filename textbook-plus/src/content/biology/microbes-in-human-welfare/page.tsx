@@ -485,12 +485,7 @@ export default function MicrobesInHumanWelfareChapter() {
         icon="🫧"
       />
       <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          While growing, these microbes consume the <strong>major part of the organic matter</strong> in the
-          effluent.
-        </li>
-        <li>This significantly reduces the BOD of the effluent.</li>
-        <li>The sewage water is treated till the BOD is reduced.</li>
+        <li>Their job is simple — consume the organic matter until the BOD falls to the disposal limit.</li>
       </ul>
       <TableCard
         title="The tank this step happens in"
@@ -517,39 +512,25 @@ export default function MicrobesInHumanWelfareChapter() {
         </li>
       </ul>
       <ProcessCard
-        title="After the aeration tank"
+        title="Secondary treatment — the four units"
         steps={[
           {
-            label: "Settling tank",
+            label: "Aeration tank",
             description:
-              "Once the BOD is reduced significantly, the effluent is passed into a settling tank where the bacterial flocs are allowed to sediment.",
+              "Primary effluent is passed into large aeration tanks and is continuously agitated; air is pumped in, allowing vigorous growth of useful aerobic microbes into flocs — masses of bacteria associated with fungal filaments, forming mesh-like structures. The flocs consume the major part of the organic matter, which significantly reduces the BOD of the effluent.",
           },
           {
-            label: "Activated sludge",
-            description: "This sediment is called activated sludge.",
-          },
-          {
-            label: "Inoculum recycled",
+            label: "Settling tank (clarifier)",
             description:
-              "A small part of the activated sludge is pumped back into the aeration tank to serve as the inoculum.",
+              "The effluent is passed into a settling tank where the bacterial flocs are allowed to sediment; this sediment is called activated sludge. A small part of the activated sludge is pumped back into the aeration tank to serve as the inoculum.",
           },
           {
-            label: "Anaerobic sludge digesters",
+            label: "Anaerobic sludge digester",
             description:
-              "The remaining major part of the sludge is pumped into large tanks called anaerobic sludge digesters.",
+              "The remaining major part of the sludge is pumped into large tanks called anaerobic sludge digesters. Anaerobic bacteria digest the bacteria and fungi in the sludge, and during this digestion produce a mixture of gases — methane, hydrogen sulphide and carbon dioxide — that form biogas.",
           },
           {
-            label: "Anaerobic digestion",
-            description:
-              "Here other kinds of bacteria, which grow anaerobically, digest the bacteria and the fungi in the sludge.",
-          },
-          {
-            label: "Biogas",
-            description:
-              "During this digestion the bacteria produce a mixture of gases such as methane, hydrogen sulphide and carbon dioxide. These gases form biogas and can be used as a source of energy, as it is inflammable.",
-          },
-          {
-            label: "Effluent released",
+            label: "Final discharge",
             description:
               "The effluent from the secondary treatment plant is generally released into natural water bodies like rivers and streams.",
           },
