@@ -206,6 +206,15 @@ export default function MicrobesInHumanWelfareChapter() {
         definition="Production on an industrial scale requires growing microbes in very large vessels called fermentors."
         icon="🏭"
       />
+      <TableCard
+        title="The vessels this method uses"
+        headers={["Figure", "What it shows"]}
+        rows={[
+          {
+            cells: ["8.4 — Fermentors", "Large vessels in which microbes are grown to synthesise a product on an industrial scale."],
+          },
+        ]}
+      />
 
       <h3 id="h-8-2-beverages">8.2.1 Fermented Beverages</h3>
       <p>
@@ -266,6 +275,15 @@ export default function MicrobesInHumanWelfareChapter() {
                 <li>These are produced by distillation of the fermented broth.</li>
               </ul>
             ),
+          },
+        ]}
+      />
+      <TableCard
+        title="The installation the process runs in"
+        headers={["Figure", "What it shows"]}
+        rows={[
+          {
+            cells: ["8.5 — Fermentation plant", "A fermentation plant of the type used to produce beverages such as wine, beer, whisky, brandy and rum."],
           },
         ]}
       />
@@ -534,6 +552,15 @@ export default function MicrobesInHumanWelfareChapter() {
         <li>This significantly reduces the BOD of the effluent.</li>
         <li>The sewage water is treated till the BOD is reduced.</li>
       </ul>
+      <TableCard
+        title="The tank this step happens in"
+        headers={["Figure", "What it shows"]}
+        rows={[
+          {
+            cells: ["8.6 — Secondary treatment", "An aeration tank of primary effluent, air-pumped, with aerobic microbes growing as flocs."],
+          },
+        ]}
+      />
       <Callout type="important" title="BOD — biochemical oxygen demand">
         BOD refers to the <strong>amount of the oxygen that would be consumed if all the organic matter in one
         liter of water were oxidised by bacteria</strong>.

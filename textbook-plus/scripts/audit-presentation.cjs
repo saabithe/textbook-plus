@@ -27,7 +27,7 @@ const path = require("path");
 
 const APP_ROOT = path.resolve(__dirname, "..");
 const CONTENT_ROOT = path.join(APP_ROOT, "src", "content");
-const DELIVERIES = path.resolve(APP_ROOT, "..", "Developer_Deliveries", "Chapters");
+const DELIVERIES = path.resolve(APP_ROOT, "..", "Developer_Deliveries", "Subjects");
 
 const SUBJECT_FOLDER = {
   biology: "04_Biology",
@@ -184,8 +184,10 @@ function checkFigures(source, file) {
   if (figures.size === 0) return;
 
   for (const figure of [...figures].sort()) {
-    const cited = new RegExp(`(^|[^\\d.])${figure.replace(".", "\\.")}([^\\d]|$)`);
-    if (!cited.test(source)) {
+    const escaped = figure.replace(".", "\\.");
+    const cited = new RegExp(`Fig(?:ure)?\\.?\\s*${escaped}(?!\\d)`).test(source)
+      || new RegExp(`${escaped}\\s*—`).test(source);
+    if (!cited) {
       add(
         "error",
         "P5",
