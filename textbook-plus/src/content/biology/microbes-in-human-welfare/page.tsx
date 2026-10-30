@@ -35,14 +35,21 @@ export default function MicrobesInHumanWelfareChapter() {
       </Callout>
 
       <h3 id="h-8-diversity">How diverse are they?</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li><strong>Bacteria</strong></li>
-        <li><strong>Fungi</strong></li>
-        <li><strong>Protozoa</strong></li>
-        <li><strong>Viruses</strong> — microscopic, of animals and of plants</li>
-        <li><strong>Viroids</strong></li>
-        <li><strong>Prions</strong> — proteinaceous infectious agents</li>
-      </ul>
+      <div className="my-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
+        {[
+          { title: "Bacteria" },
+          { title: "Fungi" },
+          { title: "Protozoa" },
+          { title: "Viruses", note: "microscopic, of animals and of plants" },
+          { title: "Viroids" },
+          { title: "Prions", note: "proteinaceous infectious agents" },
+        ].map(({ title, note }) => (
+          <div key={title} className="rounded-lg border border-border bg-card px-4 py-3">
+            <span className="t-micro block text-foreground">{title}</span>
+            {note && <p className="mt-1 text-sm leading-relaxed text-foreground/80">{note}</p>}
+          </div>
+        ))}
+      </div>
       <p>
         Bacteria and many fungi grow on <strong>nutritive media</strong> as colonies visible to the naked eye —
         which is what makes them studyable in the lab.
