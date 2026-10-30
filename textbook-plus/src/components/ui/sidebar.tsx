@@ -159,7 +159,7 @@ export function SidebarMenu({ className, ...props }: React.ComponentProps<"ul">)
   return (
     <ul
       data-slot="sidebar-menu"
-      className={cn("flex w-full min-w-0 flex-col gap-1", className)}
+      className={cn("flex w-full min-w-0 flex-col gap-2", className)}
       {...props}
     />
   )
@@ -189,7 +189,7 @@ export function SidebarMenuButton({
   ...props
 }: SidebarMenuButtonProps) {
   const classes = cn(
-    "relative flex h-8 w-full items-center gap-2 rounded-sm px-2 text-[14px] font-medium text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.06] hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background outline-none disabled:pointer-events-none disabled:opacity-40",
+    "relative flex h-8 w-full items-center gap-2 rounded-sm px-3 text-[14px] font-medium text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.06] hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background outline-none disabled:pointer-events-none disabled:opacity-40",
     isActive &&
       "text-foreground before:absolute before:inset-y-1 before:start-0 before:w-[3px] before:bg-[var(--accent,var(--foreground))]",
     className
@@ -221,7 +221,7 @@ export function SidebarMenuSub({ className, ...props }: React.ComponentProps<"ul
   return (
     <ul
       data-slot="sidebar-menu-sub"
-      className={cn("mx-3 flex min-w-0 flex-col gap-1 border-s border-border ps-3", className)}
+      className={cn("mx-3 flex min-w-0 flex-col gap-2 border-s border-border ps-3", className)}
       {...props}
     />
   )
@@ -250,7 +250,7 @@ export function SidebarMenuSubButton({
   ...props
 }: SidebarMenuSubButtonProps) {
   const classes = cn(
-    "relative flex h-7 w-full items-center gap-2 rounded-sm px-2 text-[12.5px] font-normal text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.03] hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background outline-none",
+    "relative flex h-8 w-full items-center gap-2 rounded-sm px-3 text-[13px] font-normal text-muted-foreground transition-colors duration-[120ms] ease-[var(--ease-blueprint)] hover:bg-foreground/[0.06] hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background outline-none",
     "ps-[12px]",
     isActive && "text-foreground before:absolute before:inset-y-1 before:start-0 before:w-[2px] before:bg-foreground",
     className

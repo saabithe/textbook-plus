@@ -55,7 +55,7 @@ export function SelectionToolbar(p: Props) {
           : undefined
       }
     >
-      <Menubar className="h-8 border-border bg-transparent p-0">
+      <Menubar className="h-8 border-border bg-transparent p-0" onMouseDown={(e) => e.preventDefault()}>
         <MenubarMenu>
           <MenubarTrigger className="rounded-[3px]">Format</MenubarTrigger>
           <MenubarContent>

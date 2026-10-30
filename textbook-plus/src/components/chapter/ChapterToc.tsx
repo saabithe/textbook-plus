@@ -181,12 +181,14 @@ export function ChapterToc({ mobile = false, onAvailableChange }: { mobile?: boo
       className={
         mobile
           ? "h-full w-[260px] flex-col overflow-y-auto border-l border-border bg-card"
-          : "sticky top-24 h-[calc(100dvh-7rem)] overflow-y-auto border-l border-border bg-muted/50 hidden xl:flex"
+          : "sticky top-24 h-[calc(100dvh-7rem)] overflow-y-auto border-l border-border bg-transparent hidden xl:flex"
       }
     >
-      <nav aria-label="Contents" className="flex min-h-0 flex-1 flex-col">
+      <nav aria-label="Contents" className="flex min-h-0 flex-1 flex-col border-t-[3px] border-t-[var(--accent,var(--border))]">
         <SidebarGroup>
-          <SidebarGroupLabel className="text-[var(--accent,var(--foreground))]">Contents</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-[var(--accent,var(--foreground))]">
+            Contents
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {sections.map((section) => {

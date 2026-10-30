@@ -292,27 +292,48 @@ export function AnnotationLayer({
     return () => document.removeEventListener("keydown", onKey);
   }, [enabled, active, activeOffsets]);
 
-  function handleToggle(key: "b" | "i" | "u") {
-    if (!activeOffsets || !streamRef.current) return;
+  function resolveOffsets() {
+    if (activeOffsets) return activeOffsets;
+    if (lastOffsetRef.current) return lastOffsetRef.current;
+    const container = containerRef.current;
     const stream = streamRef.current;
-    apply(stream.text, activeOffsets.start, activeOffsets.end, { kind: "toggle", format: key });
+    if (!container || !stream) return null;
+    const sel = window.getSelection();
+    if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return null;
+    const range = sel.getRangeAt(0);
+    if (!container.contains(range.commonAncestorContainer)) return null;
+    const off = rangeToStreamOffsets(container, range, stream);
+    if (off && off.end > off.start) return off;
+    return null;
+  }
+
+  function handleToggle(key: "b" | "i" | "u") {
+    if (!streamRef.current) return;
+    const offsets = resolveOffsets();
+    if (!offsets) return;
+    const stream = streamRef.current;
+    apply(stream.text, offsets.start, offsets.end, { kind: "toggle", format: key });
     const label = key === "b" ? "Bold" : key === "i" ? "Italic" : "Underline";
     setOutcome(`${label} applied`);
+    window.setTimeout(() => rebuild(), 0);
   }
 
   function handleTone(tone: string) {
-    if (!activeOffsets || !streamRef.current) return;
+    if (!streamRef.current) return;
+    const offsets = resolveOffsets();
+    if (!offsets) return;
     const stream = streamRef.current;
-    apply(stream.text, activeOffsets.start, activeOffsets.end, { kind: "toggle", format: "hl", tone: tone as Tone });
+    apply(stream.text, offsets.start, offsets.end, { kind: "toggle", format: "hl", tone: tone as Tone });
     setOutcome("Highlight applied");
+    window.setTimeout(() => rebuild(), 0);
   }
 
   function handleClear() {
-    const offsets = activeOffsets ?? lastOffsetRef.current;
-    if (!offsets || !streamRef.current) return;
+    if (!streamRef.current) return;
+    const offsets = resolveOffsets();
+    if (!offsets) return;
     const stream = streamRef.current;
     apply(stream.text, offsets.start, offsets.end, { kind: "clear" });
-    // force rebuild now that the in-range pieces were dropped
     window.setTimeout(() => rebuild(), 0);
     setOutcome("Formatting cleared");
     lastOffsetRef.current = null;
