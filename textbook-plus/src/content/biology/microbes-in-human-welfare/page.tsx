@@ -421,10 +421,6 @@ export default function MicrobesInHumanWelfareChapter() {
 
 
       <h2 id="h-8-3">8.3 Microbes in Sewage Treatment</h2>
-      <p>
-        Large quantities of waste water are generated every day in cities and towns. A major component of this
-        waste water is human excreta.
-      </p>
       <FactCard
         title="Sewage"
         definition="This municipal waste-water is also called sewage. It contains large amounts of organic matter and microbes, many of which are pathogenic."
@@ -440,160 +436,62 @@ export default function MicrobesInHumanWelfareChapter() {
         sewage</strong>. This treatment is carried out in <strong>two stages</strong>.
       </Callout>
 
-      <h3 id="h-8-3-primary">Primary treatment — physical removal</h3>
-      <p>
-        These treatment steps basically involve physical removal of particles — large and small — from the
-        sewage through <strong>filtration</strong> and <strong>sedimentation</strong>.
-      </p>
-      <ProcessCard
-        title="Primary treatment"
-        steps={[
-          {
-            label: "Sequential filtration",
-            description: "Initially, floating debris is removed by sequential filtration.",
-          },
-          {
-            label: "Sedimentation of grit",
-            description: "Then the grit — soil and small pebbles — is removed by sedimentation.",
-          },
-          {
-            label: "Primary sludge and effluent",
-            description:
-              "All solids that settle form the primary sludge, and the supernatant forms the effluent.",
-          },
-          {
-            label: "The effluent moves on",
-            description:
-              "The effluent from the primary settling tank is taken for secondary treatment.",
-          },
-        ]}
-      />
-      <MistakeCard
-        mistake="Primary treatment kills the microbes in the sewage."
-        correction="Primary treatment is purely physical — filtration and sedimentation. Nothing is killed; the biological work of consuming the organic matter happens in secondary treatment."
-        example="Primary treatment removes particles, not pollution load: the BOD is still high when the effluent leaves the primary settling tank."
-      />
-
-      <h3 id="h-8-3-secondary">Secondary treatment — biological treatment</h3>
-      <p>
-        The primary effluent is passed into large <strong>aeration tanks</strong>, where it is constantly
-        agitated mechanically and air is pumped into it.
-      </p>
-      <FactCard
-        title="Flocs"
-        definition="Masses of bacteria associated with fungal filaments to form mesh like structures — the useful aerobic microbes that grow vigorously in the aerated tank."
-        icon="🫧"
-      />
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Their job is simple — consume the organic matter until the BOD falls to the disposal limit.</li>
-      </ul>
-      <TableCard
-        title="The tank this step happens in"
-        headers={["Figure", "What it shows"]}
-        rows={[
-          {
-            cells: ["8.6 — Secondary treatment", "An aeration tank of primary effluent, air-pumped, with aerobic microbes growing as flocs."],
-          },
-        ]}
-      />
-      <Callout type="important" title="BOD — biochemical oxygen demand">
-        BOD refers to the <strong>amount of the oxygen that would be consumed if all the organic matter in one
-        liter of water were oxidised by bacteria</strong>.
-      </Callout>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          The BOD test measures the <strong>rate of uptake of oxygen</strong> by micro-organisms in a sample of
-          water.
-        </li>
-        <li>Thus, indirectly, BOD is a measure of the organic matter present in the water.</li>
-        <li>
-          The <Highlight color="yellow">greater the BOD of waste water, the more is its polluting
-          potential</Highlight>.
-        </li>
-      </ul>
-      <ProcessCard
-        title="Secondary treatment — the four units"
-        steps={[
-          {
-            label: "Aeration tank",
-            description:
-              "Primary effluent is passed into large aeration tanks and is continuously agitated; air is pumped in, allowing vigorous growth of useful aerobic microbes into flocs — masses of bacteria associated with fungal filaments, forming mesh-like structures. The flocs consume the major part of the organic matter, which significantly reduces the BOD of the effluent.",
-          },
-          {
-            label: "Settling tank (clarifier)",
-            description:
-              "The effluent is passed into a settling tank where the bacterial flocs are allowed to sediment; this sediment is called activated sludge. A small part of the activated sludge is pumped back into the aeration tank to serve as the inoculum.",
-          },
-          {
-            label: "Anaerobic sludge digester",
-            description:
-              "The remaining major part of the sludge is pumped into large tanks called anaerobic sludge digesters. Anaerobic bacteria digest the bacteria and fungi in the sludge, and during this digestion produce a mixture of gases — methane, hydrogen sulphide and carbon dioxide — that form biogas.",
-          },
-          {
-            label: "Final discharge",
-            description:
-              "The effluent from the secondary treatment plant is generally released into natural water bodies like rivers and streams.",
-          },
-        ]}
-      />
-      <TableCard
-        title="The plant this section has described"
-        headers={["Figure", "What it shows"]}
-        rows={[
-          {
-            cells: [
-              "8.7 — A sewage plant",
-              "An aerial view of a working plant: settling tanks, aeration tanks and sludge digesters laid out together.",
-            ],
-          },
-        ]}
-        caption="The steps above are the flow; Fig. 8.7 is what that flow looks like on the ground."
-      />
       <Comparison
         columns={[
           {
-            title: "Primary treatment",
+            title: "Primary treatment — physical removal",
             children: (
-              <ul className="list-disc pl-5 space-y-1.5">
+              <ol className="list-decimal pl-5 space-y-1.5">
+                <li>Filtration removes the floating debris.</li>
                 <li>
-                  <strong>Physical</strong> removal of particles.
+                  Sedimentation settles the grit (soil and small pebbles) and forms the{" "}
+                  <strong>primary sludge</strong>; the supernatant is the primary effluent.
                 </li>
-                <li>Filtration removes floating debris; sedimentation removes grit.</li>
-                <li>Settled solids form the primary sludge; the supernatant is the effluent.</li>
-                <li>The effluent still carries most of the organic matter — and a high BOD.</li>
-              </ul>
+                <li>The effluent still carries most of the organic matter — a high BOD — and moves on to secondary treatment.</li>
+              </ol>
             ),
           },
           {
-            title: "Secondary treatment",
+            title: "Secondary treatment — biological treatment",
             children: (
-              <ul className="list-disc pl-5 space-y-1.5">
+              <ol className="list-decimal pl-5 space-y-1.5">
                 <li>
-                  <strong>Biological</strong> treatment by aerobic microbes.
+                  <strong>Aeration tank</strong> — primary effluent plus pumped air; aerobic flocs
+                  of bacteria and fungal filaments consume the bulk of the organic matter, dropping the BOD.
                 </li>
-                <li>Microbes grow as flocs in aerated tanks and consume the organic matter.</li>
-                <li>Settled flocs form the activated sludge; part of it is recycled as inoculum.</li>
-                <li>BOD falls significantly, so the effluent can be released into rivers and streams.</li>
-              </ul>
+                <li>
+                  <strong>Settling tank (clarifier)</strong> — the flocs sediment as activated sludge;
+                  a small part is recycled as inoculum.
+                </li>
+                <li>
+                  <strong>Anaerobic digester</strong> — anaerobic bacteria digest the remaining sludge,
+                  producing biogas (methane, hydrogen sulphide, carbon dioxide).
+                </li>
+                <li>
+                  <strong>Final discharge</strong> — the treated effluent is released into rivers and streams.
+                </li>
+              </ol>
             ),
           },
         ]}
       />
-      <Callout type="didyouknow" title="A century old, still unmatched">
-        Microbes treat millions of gallons of waste water every day across the globe, and the methodology has
-        been practised for more than a century in almost all parts of the world. Till date, no man-made
-        technology has been able to rival the microbial treatment of sewage.
+
+      <Callout type="important" title="BOD — biochemical oxygen demand">
+        <ul className="list-disc pl-5 space-y-1.5">
+          <li>
+            <strong>BOD reduction:</strong> microbes consume the organic matter, significantly reducing
+            the BOD.
+          </li>
+          <li>
+            <strong>BOD definition:</strong> the amount of oxygen consumed if all the organic matter in
+            one litre of water were oxidised by bacteria.
+          </li>
+          <li>Indirect measure of organic matter; greater BOD means greater polluting potential.</li>
+        </ul>
       </Callout>
-      <p>
-        Increasing urbanisation means sewage is produced in much larger quantities than ever before, while the
-        number of sewage treatment plants has not increased enough to treat it. So untreated sewage is often
-        discharged directly into rivers, leading to their pollution and an increase in water-borne diseases.
-      </p>
       <Callout type="note" title="Ganga and Yamuna Action Plans">
-        The <strong>Ministry of Environment and Forests</strong> has initiated the Ganga Action Plan and the
-        Yamuna Action Plan to save these major rivers from pollution. Under these plans it is proposed to build
-        a large number of sewage treatment plants, so that only treated sewage may be discharged into the
-        rivers.
+        The <strong>Ministry of Environment and Forests</strong> initiated the Ganga Action Plan and the
+        Yamuna Action Plan — building STPs so only treated sewage reaches these rivers.
       </Callout>
 
       <h2 id="h-8-4">8.4 Microbes in Production of Biogas</h2>
