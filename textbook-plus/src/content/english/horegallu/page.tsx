@@ -322,7 +322,7 @@ export default function HoregalluPage() {
         <div className="animate-fade-in">
           {/* Author */}
           <div id="author">
-            <ChapterIntro author="Sudha Murty" genre="Personal anecdote" characters={["Sudha Murty (narrator)", "Grandfather", "Ratna"]} />
+            <ChapterIntro author="Sudha Murty" genre="Short story / personal narrative" characters={["Sudha Murty (narrator)", "Grandfather", "Ratna"]} />
           </div>
 
           {/* Introduction */}
@@ -332,20 +332,36 @@ export default function HoregalluPage() {
           >
             Introduction
           </h2>
+          <blockquote className="my-6 rounded-r-xl border-l-2 border-border bg-muted/20 py-3 pl-4 pr-4">
+            <p className="text-lg font-medium italic text-foreground">
+              &ldquo;Listening is often the only thing needed to help
+              someone.&rdquo;
+            </p>
+          </blockquote>
           <p>
-            <em>Hot summer days</em> remind the author of her{" "}
-            <strong>childhood</strong> in a <strong>little village</strong>. There
-            was a large{" "}
-            <Highlight color="blue">banyan tree</Highlight> right in the middle of
-            the village, and she would spend many hours playing under it during her
-            holidays. The tree was like a <strong>massive umbrella</strong> with its
-            branches providing much needed shade and succour.
+            <em>Horegallu</em> is a personal anecdote by{" "}
+            <Highlight color="yellow">Sudha Murty</Highlight> about a stone bench
+            in her village and the two people who taught her what it means. The
+            bench is a horegallu &mdash; literally &ldquo;a stone that can bear
+            weight&rdquo; &mdash; and the essay turns it into a metaphor for a
+            listener.
           </p>
           <p>
-            Travellers spent some time sitting under it and catching their breath
-            before going on their way. To make them comfortable, there was a{" "}
-            <Highlight color="yellow">&lsquo;horegallu&rsquo;</Highlight> under the
-            tree.
+            A horegallu sits under a banyan tree, with cool water in earthen pots
+            beside it. Weary travellers set down their loads, wash their faces and
+            talk; then they pick the load up again with some ease.
+          </p>
+          <p>
+            The two people are her grandfather, who listened to villagers under
+            the tree, and Ratna, a colleague in Mumbai who listened to co-workers
+            at lunch. Neither offered solutions, and neither was paid for it.
+          </p>
+          <p>
+            <Highlight color="yellow">
+              <strong>Central theme:</strong> the vital necessity of empathy,
+              active and unjudgemental listening, and quiet social service in
+              relieving human suffering and emotional strain.
+            </Highlight>
           </p>
 
           {/* Summary */}
@@ -522,6 +538,30 @@ export default function HoregalluPage() {
             </Callout>
 
             <h3
+              id="what-a-horegallu-is"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              What a Horegallu Is
+            </h3>
+            <p>
+              The word <Highlight color="yellow">horegallu</Highlight> literally
+              means &ldquo;a stone that can bear weight&rdquo;. Physically it is a
+              large flat stone laid horizontally over two vertical ones, making a
+              sturdy stone bench.
+            </p>
+            <p>
+              It stands beneath a massive banyan tree whose branches give shade
+              and comfort. Travellers walking long distances with heavy loads on
+              their heads sit, rest, exchange news of the road and drink cool
+              water from the earthen pots kept nearby.
+            </p>
+            <p>
+              Similar simple arrangements can be found in villages all over the
+              country. The bench costs nothing, does nothing, and asks for nothing
+              &mdash; it simply bears weight.
+            </p>
+
+            <h3
               id="the-burden"
               className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
             >
@@ -570,6 +610,29 @@ export default function HoregalluPage() {
               <strong>patience</strong> without expecting any reward. The author
               concludes that the world needs many more such{" "}
               <strong>people who listen with compassion</strong>.
+            </p>
+
+            <h3
+              id="quiet-social-service"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              Unacknowledged Social Service
+            </h3>
+            <p>
+              Neither the grandfather nor Ratna had great wealth, a counselling
+              degree or public recognition. Yet, in their own small ways, both were
+              doing <Highlight color="pink">tremendous social service</Highlight>.
+            </p>
+            <p>
+              No one thought of acknowledging or rewarding their work, and they
+              never asked for it. They continued because these acts of kindness
+              gave them joy &mdash; which is exactly what makes the service
+              remarkable.
+            </p>
+            <p>
+              Sudha Murty ends by remembering them whenever she passes a
+              horegallu, and wishing there were many more of them in the world.
+              The wish covers both the stone bench and the human listener.
             </p>
 
             <Expandable title="Infectious Cheerfulness">
