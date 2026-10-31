@@ -858,6 +858,19 @@ export default function EvolutionChapter() {
         ]}
       />
 
+      <figure className="my-6 overflow-hidden rounded-2xl border border-border/60 bg-white p-2">
+        <Image
+          src="/images/biology/evolution/three-modes-of-natural-selection.png"
+          alt="Three graph panels: stabilising selection (the bell curve narrows and rises), directional (shifts left or right) and disruptive (two peaks form at both ends)."
+          width={892}
+          height={948}
+          className="mx-auto h-auto w-full max-w-[520px] rounded"
+        />
+        <figcaption className="mt-2 text-center text-xs leading-relaxed text-muted-foreground">
+          Three modes of natural selection in action on a trait.
+        </figcaption>
+      </figure>
+
       <h2 id="h-6-7">6.7 A Brief Account of Evolution</h2>
       <p>
         About 2000 mya the first cellular life appeared. Some cells could release O₂ — much as the light reaction of
