@@ -758,10 +758,6 @@ export default function EvolutionChapter() {
         caption="deVries called speciation by a single step large mutation saltation. Studies in population genetics, later, brought out some clarity."
       />
       <h2 id="h-6-6">6.6 Hardy-Weinberg Principle</h2>
-      <p>
-        In a population, the frequency of alleles of a gene or locus tends to remain fixed through the generations.
-        The <strong>Hardy-Weinberg principle</strong> states this in algebraic form.
-      </p>
       <Callout type="important" title="The principle">
         Allele frequencies in a population are stable and are constant from generation to generation. The gene pool
         (total genes and their alleles in a population) remains a constant. This is called{" "}
@@ -845,25 +841,19 @@ export default function EvolutionChapter() {
         ]}
         caption="Any one of these disturbs genetic equilibrium — and therefore counts as evolution."
       />
-      <p>
-        A critical analysis makes us believe that variation due to mutation, variation due to recombination during
-        gametogenesis, or variation due to gene flow or genetic drift results in a changed frequency of genes and
-        alleles in the future generation. Coupled to enhanced reproductive success, natural selection makes the
-        population look like a different population altogether.
-      </p>
-
       <h3 id="h-6-6-modes">What natural selection does to a trait</h3>
       <TableCard
         title="Three modes of natural selection"
-        headers={["Mode", "What happens to individuals"]}
+        headers={["Mode", "Effect on phenotypic distribution", "Resulting shift in population"]}
         rows={[
-          { cells: ["Stabilising", "More individuals acquire the mean character value."] },
-          { cells: ["Directional", "More individuals acquire a value other than the mean character value."] },
           {
-            cells: [
-              "Disruptive",
-              "More individuals acquire peripheral character value at both ends of the distribution curve.",
-            ],
+            cells: ["Stabilising", "More individuals acquire the mean character value.", "Central peak gets higher and narrower."],
+          },
+          {
+            cells: ["Directional", "More individuals acquire values other than the mean character value.", "Peak shifts in one direction."],
+          },
+          {
+            cells: ["Disruptive", "More individuals acquire peripheral character values at both ends of the distribution curve.", "Two distinct peaks are formed."],
           },
         ]}
       />
