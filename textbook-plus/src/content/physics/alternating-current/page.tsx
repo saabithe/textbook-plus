@@ -10,7 +10,6 @@ import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Stepper } from "@/components/content/Stepper";
 import { TableCard } from "@/components/content/data/TableCard";
-import { FactCard } from "@/components/content/concept/FactCard";
 import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { RevealAnswer } from "@/components/content/process/RevealAnswer";
@@ -410,62 +409,7 @@ export default function AlternatingCurrentChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h2 id="h-7-2">7.2 AC Voltage Applied to a Resistor</h2>
-
-      <figure className="my-6">
-        <img
-          src="/images/physics/alternating-current/ac-resistor-circuit-diagram.png"
-          alt="A resistor connected across an ac source, with an arrow marking the conventional direction of the current"
-          className="max-w-sm mx-auto w-full h-auto rounded-lg object-contain bg-black"
-          loading="lazy"
-        />
-        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
-          A resistor R across an ac source — the simplest ac circuit.
-        </figcaption>
-      </figure>
-
-      <FormulaBlock tag="Eq. 7.1" label="Applied voltage" latex={String.raw`V = V_0 \sin \omega t`} important />
-      <p>Ohm&apos;s law holds at every instant, so the current simply follows the voltage:</p>
-      <FormulaBlock latex={String.raw`I = \frac{V}{R} = \frac{V_0 \sin \omega t}{R}`} />
-      <FormulaBlock tag="Eq. 7.2" latex={String.raw`I = I_0 \sin \omega t`} important />
-      <FormulaBlock tag="Eq. 7.3" label="Current amplitude" latex={String.raw`I_0 = \frac{V_0}{R}`} important />
-      <p>
-        Equation (7.3) is <strong>Ohm&apos;s law</strong>, and for a resistor it works for ac exactly as it does for dc.
-        The two reach zero, minimum and maximum at the same instants, so the{" "}
-        <Highlight color="yellow">phase difference is zero</Highlight> — voltage and current are <strong>in phase</strong>.
-      </p>
-
-      <figure className="my-6">
-        <img
-          src="/images/physics/alternating-current/ac-resistor-voltage-current-in-phase-graph.png"
-          alt="Voltage and current curves against time for a pure resistor, peaking together at V0 and I0"
-          className="mx-auto w-full max-w-md h-auto rounded-lg object-contain bg-black"
-          loading="lazy"
-        />
-        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
-          Graphical variation: v and i cross zero together and peak together — same frequency, no phase difference.
-        </figcaption>
-      </figure>
-
-      <figure className="my-6">
-        <img
-          src="/images/physics/alternating-current/ac-resistor-phasor-diagram-in-phase.png"
-          alt="Phasor diagram for a pure resistor: the voltage and current phasors point along the same line"
-          className="mx-auto w-full max-w-md h-auto rounded-lg object-contain bg-black"
-          loading="lazy"
-        />
-        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
-          Phasor diagram: V<sub>0</sub> and I<sub>0</sub> lie along the same line — phase difference φ = 0.
-        </figcaption>
-      </figure>
-
-      <FactCard
-        title="Why phasors make ac circuits easy"
-        icon="↻"
-        definition="Each phasor carries two facts at once — its length is a peak value (V₀ or I₀) and its direction is the phase at that instant. One diagram therefore answers both “how big?” and “how far out of step?”, which is what makes phasor work so much quicker than juggling sine and cosine terms."
-      />
-
-      <h3 id="h-7-2-rms">RMS and average values</h3>
+      <h3 id="h-7-1-rms">RMS and average values</h3>
       <p>
         <strong>Q: What is the average value of the instantaneous voltage of a sinusoidal ac over one full cycle?</strong>{" "}
         It is <strong>zero</strong>.
@@ -502,47 +446,22 @@ export default function AlternatingCurrentChapter() {
         question="The average current over a full cycle is zero. Is the average power dissipated also zero?"
         answer={
           <>
-            No. Heating depends on <Formula>{String.raw`I^2`}</Formula>, which is never negative, so energy is dissipated in
-            the resistor even though the mean current is zero.
+            No. Heating depends on <Formula>{String.raw`I^2`}</Formula>, which is never negative, so energy is dissipated
+            even though the mean current is zero.
           </>
         }
       />
-      <p>Instantaneous power delivered to the resistor is the product <Formula>{String.raw`P = V I`}</Formula>:</p>
-      <FormulaBlock
-        tag="Eq. 7.4"
-        latex={String.raw`P = \left(V_0 \sin \omega t\right)\left(I_0 \sin \omega t\right) = V_0 I_0 \sin^2 \omega t`}
-      />
       <p>
-        Averaging over a full cycle, <Formula>{String.raw`\langle \sin^2 \omega t \rangle = \tfrac{1}{2}`}</Formula>, so:
+        A zero mean therefore cannot say how big the current is, so a different average is used — the{" "}
+        <strong>root mean square (rms)</strong> or <strong>effective</strong> value. It is never negative, and it is the
+        peak divided by <Formula>{String.raw`\sqrt{2}`}</Formula>:
       </p>
-      <FormulaBlock
-        tag="Eq. 7.5"
-        latex={String.raw`P_{\text{avg}} = V_0 I_0 \langle \sin^2 \omega t \rangle = \frac{V_0 I_0}{2} = \left(\frac{V_0}{\sqrt{2}}\right)\left(\frac{I_0}{\sqrt{2}}\right)`}
-        important
-      />
-      <Callout type="important" title="Root mean square (rms) or effective values">
-        <p>
-          The bracket suggests defining a special value for each quantity — the <strong>root mean square (rms)</strong>{" "}
-          or <strong>effective</strong> value, equal to the peak divided by <Formula>{String.raw`\sqrt{2}`}</Formula>.
-          With it, ac power takes exactly the same form as dc power.
-        </p>
-      </Callout>
-      <FormulaBlock tag="Eq. 7.6" latex={String.raw`V_{\text{rms}} = \frac{V_0}{\sqrt{2}} = 0.707\, V_0`} important />
-      <FormulaBlock tag="Eq. 7.7" latex={String.raw`I_{\text{rms}} = \frac{I_0}{\sqrt{2}} = 0.707\, I_0`} important />
-      <FormulaBlock
-        tag="Eq. 7.8"
-        latex={String.raw`P_{\text{avg}} = V_{\text{rms}} I_{\text{rms}} = I_{\text{rms}}^2 R = \frac{V_{\text{rms}}^2}{R}`}
-        important
-      />
+      <FormulaBlock label="rms voltage" latex={String.raw`V_{\text{rms}} = \frac{V_0}{\sqrt{2}} = 0.707\, V_0`} important />
+      <FormulaBlock label="rms current" latex={String.raw`I_{\text{rms}} = \frac{I_0}{\sqrt{2}} = 0.707\, I_0`} important />
       <p>
         From here on, plain <Formula>{String.raw`V`}</Formula> and <Formula>{String.raw`I`}</Formula> stand for these rms
-        values (that is how supply voltages are always quoted), so the current–voltage relation keeps its dc form:
-      </p>
-      <FormulaBlock tag="Eq. 7.9" latex={String.raw`V = I R`} important />
-      <p>
-        The rms current is therefore the dc current that would produce the{" "}
-        <Highlight color="yellow">same average power loss</Highlight> in the resistor, which is exactly why meters and
-        nameplates quote rms and not peak.
+        values — that is how every supply voltage and every appliance rating is quoted, because the rms current is the
+        steady dc current that produces the <Highlight color="yellow">same average power loss</Highlight>.
       </p>
       <MetricCard
         label="Household line voltage"
@@ -572,8 +491,7 @@ export default function AlternatingCurrentChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h3 id="h-7-2-drills">Exam drills — reading an ac equation</h3>
-      <p>
+      <h3 id="h-7-1-drills">Exam drills — reading an ac equation</h3>      <p>
         Every drill below is answered by direct comparison with{" "}
         <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula>.
       </p>
@@ -633,6 +551,87 @@ export default function AlternatingCurrentChapter() {
         <p>This is exactly the nameplate value of the Indian mains supply — the 311 V figure was derived from it.</p>
       </Expandable>
 
+      <h2 id="h-7-2">7.2 AC Voltage Applied to a Resistor</h2>
+
+      <figure className="my-6">
+        <img
+          src="/images/physics/alternating-current/ac-resistor-circuit-diagram.png"
+          alt="A resistor connected across an ac source, with an arrow marking the conventional direction of the current"
+          className="max-w-sm mx-auto w-full h-auto rounded-lg object-contain bg-black"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          A resistor R across an ac source — the simplest ac circuit.
+        </figcaption>
+      </figure>
+
+      <FormulaBlock tag="Eq. 7.1" label="Applied voltage" latex={String.raw`V = V_0 \sin \omega t`} important />
+      <p>Ohm&apos;s law holds at every instant, so the current simply follows the voltage:</p>
+      <FormulaBlock latex={String.raw`I = \frac{V}{R} = \frac{V_0 \sin \omega t}{R}`} />
+      <FormulaBlock tag="Eq. 7.2" latex={String.raw`I = I_0 \sin \omega t`} important />
+      <FormulaBlock tag="Eq. 7.3" label="Current amplitude" latex={String.raw`I_0 = \frac{V_0}{R}`} important />
+      <p>
+        Equation (7.3) is <strong>Ohm&apos;s law</strong>, and for a resistor it works for ac exactly as it does for dc.
+        The two reach zero, minimum and maximum at the same instants, so the{" "}
+        <Highlight color="yellow">phase difference is zero</Highlight> — voltage and current are <strong>in phase</strong>.
+      </p>
+
+      <div className="my-6 grid gap-4 sm:grid-cols-2 [&>figure]:my-0">
+        <figure className="my-6">
+          <img
+            src="/images/physics/alternating-current/ac-resistor-voltage-current-in-phase-graph.png"
+            alt="Voltage and current curves against time for a pure resistor, peaking together at V0 and I0"
+            className="mx-auto w-full h-auto rounded-lg object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+            Graphical variation: v and i cross zero together and peak together — same frequency, no phase difference.
+          </figcaption>
+        </figure>
+
+        <figure className="my-6">
+          <img
+            src="/images/physics/alternating-current/ac-resistor-phasor-diagram-in-phase.png"
+            alt="Phasor diagram for a pure resistor: the voltage and current phasors point along the same line"
+            className="mx-auto w-full h-auto rounded-lg object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+            Phasor diagram: V<sub>0</sub> and I<sub>0</sub> lie along the same line — phase difference φ = 0.
+          </figcaption>
+        </figure>
+      </div>
+
+      <p>
+        The current is in phase with the voltage, so the instantaneous power is simply their product{" "}
+        <Formula>{String.raw`P = V I`}</Formula>:
+      </p>
+      <FormulaBlock
+        tag="Eq. 7.4"
+        latex={String.raw`P = \left(V_0 \sin \omega t\right)\left(I_0 \sin \omega t\right) = V_0 I_0 \sin^2 \omega t`}
+      />
+      <p>
+        Averaging over a full cycle, <Formula>{String.raw`\langle \sin^2 \omega t \rangle = \tfrac{1}{2}`}</Formula>, so:
+      </p>
+      <FormulaBlock
+        tag="Eq. 7.5"
+        latex={String.raw`P_{\text{avg}} = V_0 I_0 \langle \sin^2 \omega t \rangle = \frac{V_0 I_0}{2} = \left(\frac{V_0}{\sqrt{2}}\right)\left(\frac{I_0}{\sqrt{2}}\right)`}
+        important
+      />
+      <p>
+        The two brackets are the rms values of 7.1, so the average power takes the familiar dc form:
+      </p>
+      <FormulaBlock
+        tag="Eq. 7.8"
+        latex={String.raw`P_{\text{avg}} = V_{\text{rms}} I_{\text{rms}} = I_{\text{rms}}^2 R = \frac{V_{\text{rms}}^2}{R}`}
+        important
+      />
+      <p>
+        With plain <Formula>{String.raw`V`}</Formula> and <Formula>{String.raw`I`}</Formula> standing for rms from here
+        on, the current–voltage relation keeps its dc form too:
+      </p>
+      <FormulaBlock tag="Eq. 7.9" latex={String.raw`V = I R`} important />
+
       <h2 id="h-7-3">7.3 Representation of AC Current and Voltage by Rotating Vectors — Phasors</h2>
       <p>The current through a resistor is in phase with the ac voltage — but that is not so for an inductor, a capacitor, or a combination of these elements. To show the phase relationship between voltage and current in an ac circuit, we use the notion of <strong>phasors</strong>.</p>
       <Callout type="important" title="Phasor (definition)">
@@ -644,20 +643,238 @@ export default function AlternatingCurrentChapter() {
       </Callout>
 
       <h2 id="h-7-4">7.4 AC Voltage Applied to an Inductor</h2>
-      <p>Real inductors have appreciable resistance in their windings; here the inductor is assumed to have{" "}<strong>negligible resistance</strong>, so the circuit is purely inductive. With{" "}<Formula>{String.raw`v = V_0\sin\omega t`}</Formula> and Kirchhoff&apos;s loop rule, and since there is no resistor:</p>
-      <FormulaBlock tag="Eq. 7.10" latex={String.raw`v - L\frac{\mathrm{d}i}{\mathrm{d}t} = 0`} />
-      <p>where the second term is the self-induced Faraday emf in the inductor and L is its self-inductance. The negative sign follows from Lenz&apos;s law. Combining with Eq. (7.1):</p>
-      <FormulaBlock tag="Eq. 7.11" latex={String.raw`\frac{\mathrm{d}i}{\mathrm{d}t} = \frac{v}{L} = \frac{V_0}{L}\sin\omega t`} />
-      <p>The slope <Formula>{String.raw`\mathrm{d}i/\mathrm{d}t`}</Formula> is sinusoidally varying with the same phase as the source voltage, with amplitude <Formula>{String.raw`V_0/L`}</Formula>. Integrating with respect to time:</p>
-      <FormulaBlock latex={String.raw`i = -\frac{V_0}{\omega L}\cos\omega t + \text{constant}`} />
-      <p>The integration constant has the dimension of current and is time-independent. The source emf oscillates symmetrically about zero, so the current it sustains also oscillates symmetrically about zero —{" "}<strong>no constant or time-independent component of current exists</strong>, so the constant is zero. Using{" "}<Formula>{String.raw`-\cos\omega t = \sin\left(\omega t - \frac{\pi}{2}\right)`}</Formula>:</p>
-      <FormulaBlock tag="Eq. 7.12" latex={String.raw`i = I_0 \sin\left(\omega t - \frac{\pi}{2}\right)`} important />
-      <p>where <Formula>{String.raw`I_0 = V_0/\omega L`}</Formula> is the amplitude of the current. The quantity{" "}<Formula>{String.raw`\omega L`}</Formula> is analogous to the resistance and is called{" "}<strong>inductive reactance</strong>, denoted by <Formula>{String.raw`X_L`}</Formula>:</p>
-      <FormulaBlock tag="Eq. 7.13" latex={String.raw`X_L = \omega L`} important />
-      <FormulaBlock tag="Eq. 7.14" latex={String.raw`I_0 = \frac{V_0}{X_L}`} />
-      <p>Its dimension is that of resistance and its SI unit is the <strong>ohm</strong>. The inductive reactance limits the current in a purely inductive circuit in the same way as resistance limits it in a purely resistive circuit, and it is <Highlight color="yellow">directly proportional to the inductance and to the frequency</Highlight> of the current.</p>
-      <p>Comparing Eqs. (7.1) and (7.12), the current <strong>lags</strong> the voltage by{" "}<Formula>{String.raw`\pi/2`}</Formula> — one-quarter of a cycle. The current reaches its maximum value later than the voltage by one-fourth of a period, <Formula>{String.raw`T/4 = \pi/2\omega`}</Formula>.</p>
-      <ElementFigures kind="L" />
+
+      <figure className="my-6">
+        <img
+          src="/images/physics/alternating-current/ac-inductor-circuit-with-back-emf.png"
+          alt="An inductor connected across an ac source, with the applied voltage and the self-induced back emf marked"
+          className="mx-auto w-full max-w-md h-auto rounded-lg object-contain bg-black"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          An inductor L across an ac source. The changing current induces a back emf{" "}
+          <Formula>{String.raw`\varepsilon = -L\,\mathrm{d}I/\mathrm{d}t`}</Formula> that opposes the applied voltage.
+        </figcaption>
+      </figure>
+
+      <p>
+        Real inductors have appreciable resistance in their windings; here the inductor is assumed to have{" "}
+        <strong>negligible resistance</strong>, so the circuit is purely inductive. The applied voltage is{" "}
+        <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula>, and the inductor develops the self-induced back emf{" "}
+        <Formula>{String.raw`\varepsilon = -L\,\frac{\mathrm{d}I}{\mathrm{d}t}`}</Formula>.
+      </p>
+      <p>Kirchhoff&apos;s loop rule for this circuit — applied voltage plus back emf equals zero:</p>
+      <FormulaBlock tag="Eq. 7.10" latex={String.raw`V_0 \sin \omega t - L\frac{\mathrm{d}I}{\mathrm{d}t} = 0`} />
+      <p>
+        The negative sign follows from Lenz&apos;s law, and the{" "}
+        <Formula>{String.raw`L\,\mathrm{d}I/\mathrm{d}t`}</Formula> term is the self-induced Faraday emf in the inductor.
+        So the whole applied voltage sits across the inductor:
+      </p>
+      <FormulaBlock tag="Eq. 7.11" latex={String.raw`V_0 \sin \omega t = L\frac{\mathrm{d}I}{\mathrm{d}t}`} important />
+      <p>
+        The slope <Formula>{String.raw`\mathrm{d}I/\mathrm{d}t`}</Formula> is sinusoidally varying with the same phase as
+        the source voltage, with amplitude <Formula>{String.raw`V_0/L`}</Formula>. Integrating with respect to time then
+        gives the current:
+      </p>
+
+      <Stepper
+        steps={[
+          {
+            label: "Separate the variables",
+            description: (
+              <p>
+                Keep <Formula>{String.raw`\mathrm{d}I`}</Formula> on one side and{" "}
+                <Formula>{String.raw`\mathrm{d}t`}</Formula> on the other:{" "}
+                <Formula>{String.raw`\mathrm{d}I = \dfrac{V_0}{L} \sin(\omega t)\,\mathrm{d}t`}</Formula>
+              </p>
+            ),
+          },
+          {
+            label: "Integrate both sides",
+            description: (
+              <p>
+                <Formula>{String.raw`I = \int \mathrm{d}I = \frac{V_0}{L}\int \sin(\omega t)\,\mathrm{d}t`}</Formula> —
+                the constants <Formula>{String.raw`V_0`}</Formula> and <Formula>{String.raw`L`}</Formula> come outside
+                the integral.
+              </p>
+            ),
+          },
+          {
+            label: "Use the standard integral",
+            description: (
+              <p>
+                With <Formula>{String.raw`\int \sin(at)\,\mathrm{d}t = -\dfrac{\cos(at)}{a}`}</Formula> and{" "}
+                <Formula>{String.raw`a = \omega`}</Formula>:{" "}
+                <Formula>{String.raw`\int \sin(\omega t)\,\mathrm{d}t = -\frac{\cos(\omega t)}{\omega}`}</Formula>
+              </p>
+            ),
+          },
+          {
+            label: (
+              <>
+                Substitute back and define <Formula>{String.raw`X_L`}</Formula>
+              </>
+            ),
+            description: (
+              <>
+                <p>
+                  <Formula>{String.raw`I = \frac{V_0}{L}\left(-\frac{\cos \omega t}{\omega}\right) = \frac{V_0}{\omega L}\left(-\cos \omega t\right)`}</Formula>
+                </p>
+                <p>
+                  With <Formula>{String.raw`X_L = \omega L`}</Formula> and{" "}
+                  <Formula>{String.raw`I_0 = V_0/\omega L = V_0/X_L`}</Formula>, this is{" "}
+                  <Formula>{String.raw`I = -I_0 \cos \omega t`}</Formula>. The integration constant is zero: the source
+                  emf oscillates symmetrically about zero, so the current it sustains also oscillates symmetrically about
+                  zero — no time-independent component exists.
+                </p>
+              </>
+            ),
+          },
+          {
+            label: "Convert cosine to sine",
+            description: (
+              <p>
+                Using <Formula>{String.raw`-\cos \theta = \sin\left(\theta - \frac{\pi}{2}\right)`}</Formula>:
+              </p>
+            ),
+          },
+        ]}
+      />
+      <FormulaBlock tag="Eq. 7.12" latex={String.raw`I = I_0 \sin\left(\omega t - \frac{\pi}{2}\right)`} important />
+      <p>
+        where <Formula>{String.raw`I_0 = V_0/\omega L`}</Formula> is the amplitude of the current. The quantity{" "}
+        <Formula>{String.raw`\omega L`}</Formula> limits the current in exactly the way resistance does and is called
+        the <strong>inductive reactance</strong>, <Formula>{String.raw`X_L`}</Formula>:
+      </p>
+      <FormulaBlock tag="Eq. 7.13" label="Inductive reactance" latex={String.raw`X_L = \omega L = 2\pi\nu L`} important />
+      <FormulaBlock tag="Eq. 7.14" label="Peak current" latex={String.raw`I_0 = \frac{V_0}{X_L}`} />
+      <Comparison
+        columns={[
+          {
+            title: "What it is",
+            children: (
+              <p>
+                The opposition an inductor offers to the flow of alternating current — the ac counterpart of
+                resistance. Its dimension is that of resistance, so its SI unit is the <strong>ohm</strong> (Ω).
+              </p>
+            ),
+          },
+          {
+            title: "How it behaves",
+            children: (
+              <ul>
+                <li>
+                  Directly proportional to the self-inductance <Formula>{String.raw`L`}</Formula>.
+                </li>
+                <li>
+                  Directly proportional to the frequency <Formula>{String.raw`\nu`}</Formula> — faster reversals mean a
+                  larger back emf, hence a smaller current.
+                </li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+
+      <p>
+        <strong>Graphical variation.</strong> The two waveforms are a quarter-cycle apart:{" "}
+        <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula> peaks first, and{" "}
+        <Formula>{String.raw`I = I_0 \sin\left(\omega t - \frac{\pi}{2}\right)`}</Formula> follows.
+      </p>
+      <figure className="my-6">
+        <img
+          src="/images/physics/alternating-current/ac-inductor-voltage-current-graphical-variation.png"
+          alt="Voltage and current against time for a pure inductor: the current curve lags the voltage curve by a quarter of a cycle"
+          className="mx-auto w-full max-w-md h-auto rounded-lg object-contain bg-black"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          The current lags the voltage by one-quarter of a cycle — when V is at a peak, I is passing through zero.
+        </figcaption>
+      </figure>
+      <TableCard
+        title="Key values over one cycle"
+        headers={[
+          <Formula key="wt">{String.raw`\omega t`}</Formula>,
+          <Formula key="v">{String.raw`V`}</Formula>,
+          <Formula key="i">{String.raw`I`}</Formula>,
+        ]}
+        rows={[
+          {
+            cells: [
+              "0",
+              <Formula key="v0">{String.raw`0`}</Formula>,
+              <Formula key="i0">{String.raw`-I_0`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <>
+                <Formula>{String.raw`\pi/2`}</Formula> (T/4)
+              </>,
+              <Formula key="v1">{String.raw`V_0`}</Formula>,
+              <Formula key="i1">{String.raw`0`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <>
+                <Formula>{String.raw`\pi`}</Formula> (T/2)
+              </>,
+              <Formula key="v2">{String.raw`0`}</Formula>,
+              <Formula key="i2">{String.raw`I_0`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="wt3">{String.raw`3\pi/2`}</Formula>,
+              <Formula key="v3">{String.raw`-V_0`}</Formula>,
+              <Formula key="i3">{String.raw`0`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="wt4">{String.raw`2\pi`}</Formula>,
+              <Formula key="v4">{String.raw`0`}</Formula>,
+              <Formula key="i4">{String.raw`-I_0`}</Formula>,
+            ],
+          },
+        ]}
+        caption="One full cycle for a pure inductor: the current is always one quarter-cycle behind the voltage."
+      />
+
+      <p>
+        The phase difference between <Formula>{String.raw`V`}</Formula> and <Formula>{String.raw`I`}</Formula> is{" "}
+        <strong>90°</strong>, i.e. <Formula>{String.raw`\pi/2`}</Formula>. The current reaches its maximum value later
+        than the voltage by one-fourth of a period, <Formula>{String.raw`T/4 = \pi/2\omega`}</Formula>.
+      </p>
+      <figure className="my-6">
+        <img
+          src="/images/physics/alternating-current/ac-inductor-phasor-diagram-lag.png"
+          alt="Phasor diagram for a pure inductor: the voltage phasor V is a quarter turn ahead of the current phasor I"
+          className="mx-auto w-full max-w-md h-auto rounded-lg object-contain bg-black"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          In a phasor diagram the current phasor <strong>I</strong> sits π/2 clockwise from the voltage phasor{" "}
+          <strong>V</strong>.
+        </figcaption>
+      </figure>
+      <KeyPoint title="Voltage leads, current lags">
+        <ul>
+          <li>
+            Voltage <strong>leads</strong> the current by <Formula>{String.raw`90^\circ`}</Formula>.
+          </li>
+          <li>
+            Current <strong>lags</strong> the voltage by <Formula>{String.raw`90^\circ`}</Formula>.
+          </li>
+          <li>
+            The current phasor is rotated <Formula>{String.raw`\pi/2`}</Formula> clockwise relative to the voltage
+            phasor.
+          </li>
+        </ul>
+      </KeyPoint>
+
       <p>The instantaneous power supplied to the inductor is:</p>
       <FormulaBlock latex={String.raw`p_L = i\,v = I_0\sin\left(\omega t - \frac{\pi}{2}\right) \times V_0\sin\omega t = -\,\frac{I_0 V_0}{2}\sin 2\omega t`} />
       <p>The average of <Formula>{String.raw`\sin 2\omega t`}</Formula> over a complete cycle is zero, so the average power supplied to an inductor over one complete cycle is <Highlight color="yellow">zero</Highlight>.</p>
