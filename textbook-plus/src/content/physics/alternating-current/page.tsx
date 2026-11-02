@@ -465,19 +465,33 @@ export default function AlternatingCurrentChapter() {
         definition="Each phasor carries two facts at once — its length is a peak value (V₀ or I₀) and its direction is the phase at that instant. One diagram therefore answers both “how big?” and “how far out of step?”, which is what makes phasor work so much quicker than juggling sine and cosine terms."
       />
 
+      <h3 id="h-7-2-rms">RMS and average values</h3>
       <p>
-        Like the applied voltage, the current has corresponding positive and negative values during each cycle. The sum
-        of the instantaneous current values over one complete cycle is therefore zero, and the{" "}
-        <strong>average current is zero</strong>. That does not mean the average power is zero: Joule heating is{" "}
-        <Formula>{String.raw`I^2R`}</Formula>, and <Formula>{String.raw`I^2`}</Formula> is positive whether I is positive
-        or negative.
+        <strong>Q: What is the average value of the instantaneous voltage of a sinusoidal ac over one full cycle?</strong>{" "}
+        It is <strong>zero</strong>.
       </p>
-      <p>
-        The same argument holds for the voltage. Ac is <strong>positive during the first half-cycle</strong> and{" "}
-        <strong>negative during the next</strong>, and the two halves are mirror images — so the positive and negative
-        areas under the graph cancel exactly. The <strong>average or mean value</strong> over one complete cycle is
-        therefore zero for both quantities:
-      </p>
+      <Comparison
+        columns={[
+          {
+            title: "Characteristics",
+            children: (
+              <p>
+                Ac is <strong>positive during the first half-cycle</strong> and{" "}
+                <strong>negative during the other half-cycle</strong>.
+              </p>
+            ),
+          },
+          {
+            title: "Result",
+            children: (
+              <p>
+                The two halves are mirror images, so the positive and negative areas under the curve cancel exactly: the
+                average value over one complete cycle is <strong>zero</strong> for both current and voltage.
+              </p>
+            ),
+          },
+        ]}
+      />
       <FormulaBlock
         tag="Mean value"
         latex={String.raw`\begin{aligned} I_{\text{avg}} &= 0\\[4pt] V_{\text{avg}} &= 0 \end{aligned}`}
