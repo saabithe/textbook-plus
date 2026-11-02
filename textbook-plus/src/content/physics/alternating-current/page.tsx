@@ -20,6 +20,11 @@ function pt(cx: number, cy: number, r: number, deg: number) {
   return { x: cx + r * Math.cos(deg * D2R), y: cy - r * Math.sin(deg * D2R) };
 }
 
+/** Fixed-width cell body so a wide comparison table wraps instead of stretching. */
+function Cell({ children }: { children: ReactNode }) {
+  return <div className="w-44 max-w-44">{children}</div>;
+}
+
 function resonanceLine(r: number) {
   const pts: string[] = [];
   for (let i = 0; i <= 120; i++) {
@@ -1322,6 +1327,276 @@ export default function AlternatingCurrentChapter() {
           <p>Carrying metal changes the impedance of the circuit, producing a significant change in the current. That change is detected by the electronic circuitry, which causes a sound to be emitted as an alarm.</p>
         </ProblemSolution.Solution>
       </Expandable>
+      <h2 id="h-7-master">Master table — one pattern, four elements</h2>
+      <p>
+        Every circuit in this chapter is the same problem in a different costume. One voltage{" "}
+        <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula> is applied, each element answers with a current of the
+        same frequency at a fixed phase, and the whole answer collapses into a single opposition. Read across a row to
+        compare the elements; read down a column to revise one of them.
+      </p>
+
+      <TableCard
+        title="Resistor · inductor · capacitor · series LCR"
+        headers={["Quantity", "Resistor", "Inductor", "Capacitor", "Series LCR"]}
+        rows={[
+          {
+            cells: [
+              "Circuit",
+              <Cell key="c-r">R across the source; the current is the same everywhere.</Cell>,
+              <Cell key="c-l">L across the source; winding resistance neglected.</Cell>,
+              <Cell key="c-c">C across the source; charge q on the plates.</Cell>,
+              <Cell key="c-lcr">R, L and C in series — one current I through all three.</Cell>,
+            ],
+          },
+          {
+            cells: [
+              "Applied voltage",
+              <Formula key="v-r">{String.raw`V = V_0 \sin \omega t`}</Formula>,
+              <Formula key="v-l">{String.raw`V = V_0 \sin \omega t`}</Formula>,
+              <Formula key="v-c">{String.raw`V = V_0 \sin \omega t`}</Formula>,
+              <Formula key="v-lcr">{String.raw`V = V_0 \sin \omega t`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Governing relation",
+              <Cell key="g-r">
+                Ohm&apos;s law at every instant: <Formula>{String.raw`I = V/R`}</Formula>
+              </Cell>,
+              <Cell key="g-l">
+                Loop rule with the back emf:{" "}
+                <Formula>{String.raw`V_0 \sin \omega t = L \frac{\mathrm{d}I}{\mathrm{d}t}`}</Formula>
+              </Cell>,
+              <Cell key="g-c">
+                <Formula>{String.raw`v = q/C`}</Formula>, so <Formula>{String.raw`q = C V_0 \sin \omega t`}</Formula>
+              </Cell>,
+              <Cell key="g-lcr">
+                <Formula>{String.raw`L \frac{\mathrm{d}I}{\mathrm{d}t} + IR + \frac{q}{C} = V_0 \sin \omega t`}</Formula>
+              </Cell>,
+            ],
+          },
+          {
+            cells: [
+              "Current",
+              <Formula key="i-r">{String.raw`I = I_0 \sin \omega t`}</Formula>,
+              <Formula key="i-l">{String.raw`I = I_0 \sin\left(\omega t - \frac{\pi}{2}\right)`}</Formula>,
+              <Formula key="i-c">{String.raw`I = I_0 \sin\left(\omega t + \frac{\pi}{2}\right)`}</Formula>,
+              <Formula key="i-lcr">{String.raw`I = I_0 \sin(\omega t + \phi)`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Opposition",
+              <Cell key="o-r">
+                <Formula>{String.raw`R`}</Formula> — fixed by the material and geometry, independent of ν.
+              </Cell>,
+              <Formula key="xl">{String.raw`X_L = \omega L = 2\pi\nu L`}</Formula>,
+              <Formula key="xc">{String.raw`X_C = \frac{1}{\omega C} = \frac{1}{2\pi\nu C}`}</Formula>,
+              <Cell key="o-lcr">
+                <Formula>{String.raw`Z = \sqrt{R^2 + \left(X_L - X_C\right)^2}`}</Formula> — R and the net reactance
+                added as vectors.
+              </Cell>,
+            ],
+          },
+          {
+            cells: [
+              "Peak current",
+              <Formula key="i0-r">{String.raw`I_0 = \frac{V_0}{R}`}</Formula>,
+              <Formula key="i0-l">{String.raw`I_0 = \frac{V_0}{X_L}`}</Formula>,
+              <Formula key="i0-c">{String.raw`I_0 = \frac{V_0}{X_C}`}</Formula>,
+              <Formula key="i0-lcr">{String.raw`I_0 = \frac{V_0}{Z}`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Phase of I w.r.t. V",
+              <Cell key="p-r">
+                In phase: <Formula>{String.raw`\phi = 0`}</Formula>.
+              </Cell>,
+              <Cell key="p-l">
+                <strong>Lags</strong> by 90°; peaks one quarter-cycle (<Formula>{String.raw`T/4`}</Formula>) later.
+              </Cell>,
+              <Cell key="p-c">
+                <strong>Leads</strong> by 90°; peaks one quarter-cycle (<Formula>{String.raw`T/4`}</Formula>) earlier.
+              </Cell>,
+              <Cell key="p-lcr">
+                <Formula>{String.raw`\tan \phi = \frac{X_C - X_L}{R}`}</Formula>; φ &gt; 0 leads (capacitive), φ &lt; 0
+                lags (inductive).
+              </Cell>,
+            ],
+          },
+          {
+            cells: [
+              "Phasor picture",
+              <Cell key="ph-r">V and I along one line.</Cell>,
+              <Cell key="ph-l">I is π/2 behind V — a quarter-turn clockwise.</Cell>,
+              <Cell key="ph-c">I is π/2 ahead of V — a quarter-turn counter-clockwise.</Cell>,
+              <Cell key="ph-lcr">
+                V is the vector sum of <Formula>{String.raw`\mathbf{V}_R`}</Formula>,{" "}
+                <Formula>{String.raw`\mathbf{V}_L`}</Formula> and <Formula>{String.raw`\mathbf{V}_C`}</Formula>; the
+                angle between V and I is φ.
+              </Cell>,
+            ],
+          },
+          {
+            cells: [
+              "Waveform",
+              <Cell key="w-r">v and i cross zero together and peak together.</Cell>,
+              <Cell key="w-l">i peaks a quarter-cycle after v.</Cell>,
+              <Cell key="w-c">i peaks a quarter-cycle before v.</Cell>,
+              <Cell key="w-lcr">Offset by φ — in phase only at resonance.</Cell>,
+            ],
+          },
+          {
+            cells: [
+              "Average power over a cycle",
+              <Cell key="a-r">
+                <Formula>{String.raw`P = V_{\text{rms}} I_{\text{rms}} = I_{\text{rms}}^2 R = \frac{V_0 I_0}{2}`}</Formula>{" "}
+                — all of it dissipated as heat.
+              </Cell>,
+              <Cell key="a-l">
+                <Formula>{String.raw`P = 0`}</Formula> — stored in the magnetic field, then returned.
+              </Cell>,
+              <Cell key="a-c">
+                <Formula>{String.raw`P = 0`}</Formula> — stored in the electric field, then returned.
+              </Cell>,
+              <Cell key="a-lcr">
+                <Formula>{String.raw`P = V_{\text{rms}} I_{\text{rms}} \cos \phi = I_{\text{rms}}^2 R`}</Formula> —
+                dissipated in R only.
+              </Cell>,
+            ],
+          },
+          {
+            cells: [
+              "Power factor cos φ",
+              "1",
+              "0 — wattless current.",
+              "0 — wattless current.",
+              <Formula key="pf">{String.raw`\cos \phi = \frac{R}{Z}`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "As the frequency rises",
+              "Unchanged.",
+              <Cell key="f-l">
+                <Formula>{String.raw`X_L`}</Formula> rises with ν, so the current falls.
+              </Cell>,
+              <Cell key="f-c">
+                <Formula>{String.raw`X_C`}</Formula> falls with ν, so the current rises.
+              </Cell>,
+              <Cell key="f-lcr">Above ν₀ inductive (X_L &gt; X_C); below ν₀ capacitive (X_C &gt; X_L).</Cell>,
+            ],
+          },
+          {
+            cells: [
+              "Limiting behaviour",
+              "Same at every frequency.",
+              <Cell key="l-l">ν → 0: a wire. ν → ∞: blocks ac.</Cell>,
+              <Cell key="l-c">ν → 0: blocks ac. ν → ∞: a wire.</Cell>,
+              <Cell key="l-lcr">
+                At <Formula>{String.raw`\nu_0 = \frac{1}{2\pi\sqrt{LC}}`}</Formula>: Z = R, current maximum, cos φ = 1.
+              </Cell>,
+            ],
+          },
+        ]}
+        caption="One applied voltage, one peak-current rule (V₀ = I₀ × opposition), one phase angle, one power rule — the columns differ only in what plays the part of opposition."
+      />
+
+      <h3 id="h-7-master-figs">The same four circuits, drawn</h3>
+      <div className="my-6 grid gap-5 sm:grid-cols-2">
+        <figure>
+          <img
+            src="/images/physics/alternating-current/ac-resistor-circuit-diagram.png"
+            alt="A resistor connected across an ac source"
+            className="w-full h-auto rounded-lg object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Resistor — R across the source, in phase.
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/images/physics/alternating-current/ac-inductor-circuit-with-back-emf.png"
+            alt="An inductor connected across an ac source, with the self-induced back emf marked"
+            className="w-full h-auto rounded-lg object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Inductor — L across the source, with the back emf.
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/images/physics/alternating-current/ac-resistor-voltage-current-in-phase-graph.png"
+            alt="Voltage and current curves for a pure resistor, peaking together"
+            className="w-full h-auto rounded-lg object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Resistor — v and i in step.
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/images/physics/alternating-current/ac-inductor-voltage-current-graphical-variation.png"
+            alt="Voltage and current curves for a pure inductor, the current lagging by a quarter-cycle"
+            className="w-full h-auto rounded-lg object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Inductor — i lags v by a quarter-cycle.
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/images/physics/alternating-current/ac-resistor-phasor-diagram-in-phase.png"
+            alt="Phasor diagram for a pure resistor with V and I along the same line"
+            className="w-full h-auto rounded-lg object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Resistor — phasors along one line.
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/images/physics/alternating-current/ac-inductor-phasor-diagram-lag.png"
+            alt="Phasor diagram for a pure inductor with I a quarter-turn clockwise from V"
+            className="w-full h-auto rounded-lg object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Inductor — I a quarter-turn clockwise from V.
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/images/physics/alternating-current/ac-capacitor-voltage-current-graphical-variation.png"
+            alt="Voltage and current curves for a pure capacitor, the current leading by a quarter-cycle"
+            className="w-full h-auto rounded-lg object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Capacitor — i leads v by a quarter-cycle.
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/images/physics/alternating-current/ac-capacitor-phasor-diagram-lead.png"
+            alt="Phasor diagram for a pure capacitor with I a quarter-turn counter-clockwise from V"
+            className="w-full h-auto rounded-lg object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Capacitor — I a quarter-turn counter-clockwise from V.
+          </figcaption>
+        </figure>
+      </div>
+      <SeriesLcrCircuit />
+      <LcrPhasorAndImpedance />
+
       <h2 id="h-7-8">7.8 Transformers</h2>
       <Callout type="important" title="Transformer (definition)">
         <p>For many purposes, it is necessary to change (or transform) an alternating voltage from one to another of greater or smaller value. This is done with a device called a <strong>transformer</strong>, using the principle of{" "}<strong>mutual induction</strong>.</p>
