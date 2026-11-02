@@ -51,76 +51,6 @@ function Figure({ title, caption, children }: { title: string; caption?: ReactNo
   );
 }
 
-function SeriesLcrCircuit() {
-  return (
-    <Figure
-      title="A series LCR circuit connected to an ac source"
-      caption="Fig. 7.10: the same current i flows through the resistor, the inductor and the capacitor at every instant. The source voltage is v = V_0 sin ωt."
-    >
-      <svg viewBox="0 0 420 175" className="w-full" role="img" aria-label="Series circuit: ac source, resistor R, inductor L and capacitor C connected in a single loop">
-        <path d="M60 40 H175 M235 40 H350 V62 M350 112 V132 H215 M185 132 H60 M60 44 V62 M60 108 V132" fill="none" stroke="var(--foreground)" strokeWidth="2" />
-        <rect x="175" y="26" width="60" height="28" rx="3" fill="none" stroke="var(--foreground)" strokeWidth="2" />
-        <text x="205" y="20" textAnchor="middle" fontSize="12" fontWeight="800" fill="var(--foreground)">R</text>
-        <path d="M350 62 a8 8 0 0 0 0 16 a8 8 0 0 0 0 16 a8 8 0 0 0 0 16 a8 8 0 0 0 0 16" fill="none" stroke="var(--foreground)" strokeWidth="2" />
-        <text x="366" y="92" fontSize="12" fontWeight="800" fill="var(--foreground)">L</text>
-        <line x1="205" y1="116" x2="205" y2="148" stroke="var(--foreground)" strokeWidth="2.5" />
-        <line x1="195" y1="116" x2="195" y2="148" stroke="var(--foreground)" strokeWidth="2.5" />
-        <text x="200" y="166" textAnchor="middle" fontSize="12" fontWeight="800" fill="var(--foreground)">C</text>
-        <circle cx="60" cy="85" r="22" fill="none" stroke="var(--foreground)" strokeWidth="2" />
-        <path d="M50 85 q5 -9 10 0 q5 9 10 0" fill="none" stroke="var(--foreground)" strokeWidth="2" />
-        <text x="60" y="126" textAnchor="middle" fontSize="10" fill="var(--muted-foreground)">ac source</text>
-        <text x="86" y="60" fontSize="10" fill="var(--muted-foreground)">v = v</text>
-        <text x="126" y="63" fontSize="8" fill="var(--muted-foreground)">m</text>
-        <text x="132" y="60" fontSize="10" fill="var(--muted-foreground)">sin ωt</text>
-        <line x1="262" y1="34" x2="316" y2="34" stroke="#f59e0b" strokeWidth="2" />
-        <path d="M316 30 l8 4 l-8 4 z" fill="#f59e0b" />
-        <text x="289" y="26" textAnchor="middle" fontSize="11" fontWeight="800" fill="#f59e0b">i</text>
-      </svg>
-    </Figure>
-  );
-}
-
-function LcrPhasorAndImpedance() {
-  const ox = 52;
-  const oy = 120;
-  return (
-    <Figure
-      title="Phasor addition and the impedance triangle"
-      caption="Figs. 7.11, 7.12, 7.13: V is the hypotenuse of a right triangle with sides V_R and (V_C + V_L). Dividing every side by I_0 turns the same triangle into the impedance diagram, with Z as hypotenuse and φ the angle between V_R (i.e. I) and V."
-    >
-      <svg viewBox="0 0 520 220" className="w-full" role="img" aria-label="Left: phasors V_R, V_L, V_C adding to V. Right: impedance triangle with sides R and X_C minus X_L and hypotenuse Z">
-        <defs>
-          <marker id="lcr-v" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8b5cf6" /></marker>
-          <marker id="lcr-i" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#f59e0b" /></marker>
-          <marker id="lcr-g" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted-foreground)" /></marker>
-        </defs>
-        <text x="16" y="16" fontSize="11" fontWeight="800" fill="var(--muted-foreground)">(a) PHASORS — CASE X_C &gt; X_L</text>
-        <line x1="20" y1={oy} x2="190" y2={oy} stroke="var(--border)" strokeDasharray="3 4" />
-        <line x1={ox} y1={oy} x2="152" y2={oy} stroke="#f59e0b" strokeWidth="2.5" markerEnd="url(#lcr-i)" />
-        <line x1={ox} y1={oy} x2="152" y2="76" stroke="var(--muted-foreground)" strokeWidth="2" markerEnd="url(#lcr-g)" />
-        <line x1={ox} y1={oy} x2="152" y2="186" stroke="var(--muted-foreground)" strokeWidth="2" markerEnd="url(#lcr-g)" />
-        <line x1={ox} y1={oy} x2="152" y2="142" stroke="#8b5cf6" strokeWidth="3" markerEnd="url(#lcr-v)" />
-        <line x1="152" y1="76" x2="152" y2="186" stroke="var(--border)" strokeDasharray="3 3" />
-        <text x="160" y="72" fontSize="11" fontWeight="700" fill="var(--muted-foreground)">V_L</text>
-        <text x="160" y="190" fontSize="11" fontWeight="700" fill="var(--muted-foreground)">V_C</text>
-        <text x="128" y="112" fontSize="11" fontWeight="700" fill="#f59e0b">V_R , I</text>
-        <text x="86" y="162" fontSize="11" fontWeight="700" fill="#8b5cf6">V</text>
-        <text x="16" y="212" fontSize="10" fill="var(--muted-foreground)">current leads the source voltage</text>
-        <text x="290" y="16" fontSize="11" fontWeight="800" fill="var(--muted-foreground)">(b) IMPEDANCE TRIANGLE</text>
-        <line x1="300" y1="160" x2="410" y2="160" stroke="var(--muted-foreground)" strokeWidth="2" />
-        <line x1="410" y1="160" x2="410" y2="112" stroke="var(--muted-foreground)" strokeWidth="2" />
-        <line x1="300" y1="160" x2="410" y2="112" stroke="#8b5cf6" strokeWidth="3" markerEnd="url(#lcr-v)" />
-        <text x="348" y="178" fontSize="11" fontWeight="700" fill="var(--muted-foreground)">R</text>
-        <text x="418" y="140" fontSize="11" fontWeight="700" fill="var(--muted-foreground)">X_C − X_L</text>
-        <text x="336" y="130" fontSize="11" fontWeight="700" fill="#8b5cf6">Z</text>
-        <path d="M 324 160 A 24 24 0 0 0 322 146" fill="none" stroke="var(--foreground)" strokeWidth="1.5" />
-        <text x="330" y="154" fontSize="11" fontWeight="700" fill="var(--foreground)">φ</text>
-        <text x="290" y="212" fontSize="10" fill="var(--muted-foreground)">tan φ = (X_C − X_L) / R</text>
-      </svg>
-    </Figure>
-  );
-}
-
 function ResonanceCurve() {
   return (
     <Figure
@@ -207,51 +137,6 @@ function TransformerDiagram() {
   );
 }
 
-function BulbCoilCircuit() {
-  return (
-    <Figure
-      title="A bulb and a coil in series with an ac source"
-      caption="Fig. 7.9: closing the key makes the bulb glow. Inserting an iron rod into the coil magnetises the iron and raises the inductance, so the inductive reactance grows, more of the source voltage appears across the coil and the bulb dims."
-    >
-      <svg viewBox="0 0 380 165" className="w-full" role="img" aria-label="An ac source in series with a bulb and a coil, with an iron rod being inserted into the coil">
-        <path d="M60 40 V57 M60 97 V120 H320 V112 M320 112 a10 9 0 0 1 0 -18 a10 9 0 0 1 0 -18 a10 9 0 0 1 0 -18 a10 9 0 0 1 0 -18 M60 40 H160 M200 40 H320" fill="none" stroke="var(--foreground)" strokeWidth="2" />
-        <circle cx="180" cy="40" r="20" fill="none" stroke="var(--foreground)" strokeWidth="2" />
-        <path d="M172 32 L188 48 M188 32 L172 48" fill="none" stroke="var(--foreground)" strokeWidth="1.5" />
-        <circle cx="60" cy="77" r="20" fill="none" stroke="var(--foreground)" strokeWidth="2" />
-        <path d="M52 77 q4 -10 8 0 q4 10 8 0" fill="none" stroke="var(--foreground)" strokeWidth="2" />
-        <text x="86" y="81" fontSize="10" fill="var(--muted-foreground)">ac source</text>
-        <text x="180" y="78" textAnchor="middle" fontSize="11" fontWeight="700" fill="var(--muted-foreground)">bulb</text>
-        <text x="338" y="80" fontSize="10" fontWeight="700" fill="var(--muted-foreground)">coil, L</text>
-        <rect x="296" y="6" width="52" height="12" rx="2" fill="var(--muted)" stroke="var(--foreground)" strokeWidth="1.5" />
-        <line x1="322" y1="20" x2="322" y2="31" stroke="var(--muted-foreground)" strokeWidth="2" strokeDasharray="3 3" />
-        <text x="290" y="16" textAnchor="end" fontSize="10" fill="var(--muted-foreground)">iron rod</text>
-        <text x="146" y="112" fontSize="10" fontWeight="700" fill="#f59e0b">i</text>
-        <path d="M158 116 l12 0 l-6 6 z" fill="#f59e0b" />
-      </svg>
-    </Figure>
-  );
-}
-
-function LcLoop() {
-  return (
-    <Figure
-      title="A capacitor and an inductor in a loop"
-      caption="A charged capacitor connected across an inductor gives free oscillations: the charge swings back and forth at the angular frequency ω₀ = 1/√(LC) — the same frequency at which the series LCR circuit resonates (Exercise 7.6)."
-    >
-      <svg viewBox="0 0 280 160" className="w-full" role="img" aria-label="A capacitor and an inductor connected in a closed loop, with an arrow showing the oscillating current">
-        <path d="M60 40 H210 V70 M210 106 V130 H60 V96 M60 64 V40" fill="none" stroke="var(--foreground)" strokeWidth="2" />
-        <line x1="52" y1="64" x2="68" y2="64" stroke="var(--foreground)" strokeWidth="2.5" />
-        <line x1="52" y1="96" x2="68" y2="96" stroke="var(--foreground)" strokeWidth="2.5" />
-        <text x="26" y="84" fontSize="12" fontWeight="800" fill="var(--foreground)">C</text>
-        <path d="M210 70 a9 9 0 0 0 0 18 a9 9 0 0 0 0 18" fill="none" stroke="var(--foreground)" strokeWidth="2" />
-        <text x="228" y="84" fontSize="12" fontWeight="800" fill="var(--foreground)">L</text>
-        <path d="M120 40 l10 -5 l0 10 z" fill="#f59e0b" />
-        <line x1="92" y1="40" x2="120" y2="40" stroke="#f59e0b" strokeWidth="2" />
-        <text x="132" y="30" fontSize="11" fontWeight="800" fill="#f59e0b">i oscillates</text>
-      </svg>
-    </Figure>
-  );
-}
 export default function AlternatingCurrentChapter() {
   return (
     <>
@@ -590,7 +475,7 @@ export default function AlternatingCurrentChapter() {
         <img
           src="/images/physics/alternating-current/ac-inductor-circuit-with-back-emf.png"
           alt="An inductor connected across an ac source, with the applied voltage and the self-induced back emf marked"
-          className="mx-auto w-full max-w-md h-auto rounded-lg object-contain bg-black"
+          className="mx-auto w-full max-w-xs h-auto rounded-lg object-contain bg-black"
           loading="lazy"
         />
         <figcaption className="mt-2 text-center text-sm text-muted-foreground">
@@ -723,20 +608,21 @@ export default function AlternatingCurrentChapter() {
         <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula> peaks first, and{" "}
         <Formula>{String.raw`I = I_0 \sin\left(\omega t - \frac{\pi}{2}\right)`}</Formula> follows.
       </p>
-      <figure className="my-6">
-        <img
-          src="/images/physics/alternating-current/ac-inductor-voltage-current-graphical-variation.png"
-          alt="Voltage and current against time for a pure inductor: the current curve lags the voltage curve by a quarter of a cycle"
-          className="mx-auto w-full max-w-md h-auto rounded-lg object-contain bg-black"
-          loading="lazy"
-        />
-        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
-          The current lags the voltage by one-quarter of a cycle — when V is at a peak, I is passing through zero.
-        </figcaption>
-      </figure>
-      <TableCard
-        title="Key values over one cycle"
-        headers={[
+      <div className="grid gap-4 sm:grid-cols-2 sm:items-center">
+        <figure>
+          <img
+            src="/images/physics/alternating-current/ac-inductor-voltage-current-graphical-variation.png"
+            alt="Voltage and current against time for a pure inductor: the current curve lags the voltage curve by a quarter of a cycle"
+            className="mx-auto w-full h-auto rounded-lg object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            The current lags the voltage by one-quarter of a cycle — when V is at a peak, I is passing through zero.
+          </figcaption>
+        </figure>
+        <TableCard
+          title="Key values over one cycle"
+          headers={[
           <Formula key="wt">{String.raw`\omega t`}</Formula>,
           <Formula key="v">{String.raw`V`}</Formula>,
           <Formula key="i">{String.raw`I`}</Formula>,
@@ -783,39 +669,42 @@ export default function AlternatingCurrentChapter() {
           },
         ]}
         caption="One full cycle for a pure inductor: the current is always one quarter-cycle behind the voltage."
-      />
+        />
+      </div>
 
       <p>
         The phase difference between <Formula>{String.raw`V`}</Formula> and <Formula>{String.raw`I`}</Formula> is{" "}
         <strong>90°</strong>, i.e. <Formula>{String.raw`\pi/2`}</Formula>. The current reaches its maximum value later
         than the voltage by one-fourth of a period, <Formula>{String.raw`T/4 = \pi/2\omega`}</Formula>.
       </p>
-      <figure className="my-6">
-        <img
-          src="/images/physics/alternating-current/ac-inductor-phasor-diagram-lag.png"
-          alt="Phasor diagram for a pure inductor: the voltage phasor V is a quarter turn ahead of the current phasor I"
-          className="mx-auto w-full max-w-md h-auto rounded-lg object-contain bg-black"
-          loading="lazy"
-        />
-        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
-          In a phasor diagram the current phasor <strong>I</strong> sits π/2 clockwise from the voltage phasor{" "}
-          <strong>V</strong>.
-        </figcaption>
-      </figure>
-      <KeyPoint title="Voltage leads, current lags">
-        <ul>
-          <li>
-            Voltage <strong>leads</strong> the current by <Formula>{String.raw`90^\circ`}</Formula>.
-          </li>
-          <li>
-            Current <strong>lags</strong> the voltage by <Formula>{String.raw`90^\circ`}</Formula>.
-          </li>
-          <li>
-            The current phasor is rotated <Formula>{String.raw`\pi/2`}</Formula> clockwise relative to the voltage
-            phasor.
-          </li>
-        </ul>
-      </KeyPoint>
+      <div className="grid gap-4 sm:grid-cols-2 sm:items-center">
+        <figure>
+          <img
+            src="/images/physics/alternating-current/ac-inductor-phasor-diagram-lag.png"
+            alt="Phasor diagram for a pure inductor: the voltage phasor V is a quarter turn ahead of the current phasor I"
+            className="mx-auto w-full h-auto rounded-lg object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            In a phasor diagram the current phasor <strong>I</strong> sits π/2 clockwise from the voltage phasor{" "}
+            <strong>V</strong>.
+          </figcaption>
+        </figure>
+        <KeyPoint title="Voltage leads, current lags">
+          <ul>
+            <li>
+              Voltage <strong>leads</strong> the current by <Formula>{String.raw`90^\circ`}</Formula>.
+            </li>
+            <li>
+              Current <strong>lags</strong> the voltage by <Formula>{String.raw`90^\circ`}</Formula>.
+            </li>
+            <li>
+              The current phasor is rotated <Formula>{String.raw`\pi/2`}</Formula> clockwise relative to the voltage
+              phasor.
+            </li>
+          </ul>
+        </KeyPoint>
+      </div>
 
       <p>
         The instantaneous power supplied to the inductor is the product of the instantaneous voltage and current:
@@ -859,17 +748,28 @@ export default function AlternatingCurrentChapter() {
       </Expandable>
 
       <h2 id="h-7-5">7.5 AC Voltage Applied to a Capacitor</h2>
-      <p>In a <strong>dc</strong> circuit a capacitor conducts only for the short time needed to charge it. As charge accumulates, the voltage across the plates increases and opposes the current; when the capacitor is fully charged, the current falls to zero.</p>
-      <p>Connected to an <strong>ac</strong> source, the capacitor limits or regulates the current but{" "}<Highlight color="yellow">does not completely prevent the flow of charge</Highlight> — it is alternately charged and discharged as the current reverses each half cycle.</p>
+
+      <figure className="my-6">
+        <img
+          src="/images/physics/alternating-current/ac-capacitor-circuit-with-charge.png"
+          alt="A capacitor connected across an ac source, with the charge on its plates marked q = Cv"
+          className="mx-auto w-full max-w-xs h-auto rounded-lg object-contain bg-black"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          A capacitor C across an ac source. The charge on the plates follows the applied voltage:{" "}
+          <Formula>{String.raw`q = Cv`}</Formula>.
+        </figcaption>
+      </figure>
 
       <p>
-        With the applied voltage <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula> and the plate voltage{" "}
-        <Formula>{String.raw`v = q/C`}</Formula>, the charge at any instant is:
+        With the applied voltage <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula>, the plate voltage{" "}
+        <Formula>{String.raw`v = q/C`}</Formula> gives the charge at any instant:
       </p>
       <FormulaBlock tag="Eq. 7.15" latex={String.raw`q = C V_0 \sin \omega t`} important />
       <p>
         Current is the rate at which charge arrives on the plate,{" "}
-        <Formula>{String.raw`I = \mathrm{d}q/\mathrm{d}t`}</Formula>:
+        <Formula>{String.raw`I = \mathrm{d}q/\mathrm{d}t`}</Formula>. The derivation is a straight chain of five moves:
       </p>
 
       <Stepper
@@ -883,21 +783,40 @@ export default function AlternatingCurrentChapter() {
             ),
           },
           {
-            label: "Apply the chain rule",
+            label: "Take the constants outside",
             description: (
               <p>
-                With <Formula>{String.raw`\frac{\mathrm{d}}{\mathrm{d}t}\left[\sin \omega t\right] = \omega \cos \omega t`}</Formula>:{" "}
-                <Formula>{String.raw`I = \omega C V_0 \cos \omega t`}</Formula>
+                Both <Formula>{String.raw`C`}</Formula> and <Formula>{String.raw`V_0`}</Formula> are constants, so{" "}
+                <Formula>{String.raw`I = C V_0 \frac{\mathrm{d}}{\mathrm{d}t}\left[\sin \omega t\right]`}</Formula>.
               </p>
             ),
           },
           {
-            label: "Write it with the peak current",
+            label: "Apply the chain rule",
             description: (
               <p>
-                <Formula>{String.raw`I_0 = \omega C V_0 = \frac{V_0}{1/\omega C}`}</Formula>, so{" "}
-                <Formula>{String.raw`I = I_0 \cos \omega t`}</Formula>.
+                The derivative of <Formula>{String.raw`\sin \omega t`}</Formula> brings out a factor{" "}
+                <Formula>{String.raw`\omega`}</Formula>:{" "}
+                <Formula>{String.raw`\frac{\mathrm{d}}{\mathrm{d}t}\left[\sin \omega t\right] = \omega \cos \omega t`}</Formula>
+                , so <Formula>{String.raw`I = C V_0 \omega \cos \omega t`}</Formula>.
               </p>
+            ),
+          },
+          {
+            label: "Introduce the reactance",
+            description: (
+              <>
+                <p>
+                  Collect the constants as one denominator:{" "}
+                  <Formula>{String.raw`I = \frac{V_0}{\left(1/C\omega\right)} \cos \omega t`}</Formula>.
+                </p>
+                <p>
+                  Calling <Formula>{String.raw`1/C\omega`}</Formula> the capacitive reactance{" "}
+                  <Formula>{String.raw`X_C`}</Formula>, and writing{" "}
+                  <Formula>{String.raw`I_0 = V_0/X_C`}</Formula>:{" "}
+                  <Formula>{String.raw`I = I_0 \cos \omega t`}</Formula>.
+                </p>
+              </>
             ),
           },
           {
@@ -952,100 +871,104 @@ export default function AlternatingCurrentChapter() {
         <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula> and{" "}
         <Formula>{String.raw`I = I_0 \sin\left(\omega t + \frac{\pi}{2}\right)`}</Formula> — the current peaks first.
       </p>
-      <figure className="my-6">
-        <img
-          src="/images/physics/alternating-current/ac-capacitor-voltage-current-graphical-variation.png"
-          alt="Voltage and current against time for a pure capacitor: the current curve leads the voltage curve by a quarter of a cycle"
-          className="mx-auto w-full max-w-md h-auto rounded-lg object-contain bg-black"
-          loading="lazy"
+      <div className="grid gap-4 sm:grid-cols-2 sm:items-center">
+        <figure>
+          <img
+            src="/images/physics/alternating-current/ac-capacitor-voltage-current-graphical-variation.png"
+            alt="Voltage and current against time for a pure capacitor: the current curve leads the voltage curve by a quarter of a cycle"
+            className="mx-auto w-full h-auto rounded-lg object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            The current leads the voltage by one-quarter of a cycle — I is at a peak while V is still passing through
+            zero.
+          </figcaption>
+        </figure>
+        <TableCard
+          title="Key values over one cycle"
+          headers={[
+            <Formula key="wt">{String.raw`\omega t`}</Formula>,
+            <Formula key="v">{String.raw`V`}</Formula>,
+            <Formula key="i">{String.raw`I`}</Formula>,
+          ]}
+          rows={[
+            {
+              cells: [
+                "0",
+                <Formula key="v0">{String.raw`0`}</Formula>,
+                <Formula key="i0">{String.raw`I_0`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                <>
+                  <Formula>{String.raw`\pi/2`}</Formula> (T/4)
+                </>,
+                <Formula key="v1">{String.raw`V_0`}</Formula>,
+                <Formula key="i1">{String.raw`0`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                <>
+                  <Formula>{String.raw`\pi`}</Formula> (T/2)
+                </>,
+                <Formula key="v2">{String.raw`0`}</Formula>,
+                <Formula key="i2">{String.raw`-I_0`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                <Formula key="wt3">{String.raw`3\pi/2`}</Formula>,
+                <Formula key="v3">{String.raw`-V_0`}</Formula>,
+                <Formula key="i3">{String.raw`0`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                <Formula key="wt4">{String.raw`2\pi`}</Formula>,
+                <Formula key="v4">{String.raw`0`}</Formula>,
+                <Formula key="i4">{String.raw`I_0`}</Formula>,
+              ],
+            },
+          ]}
+          caption="One full cycle for a pure capacitor: the current is always one quarter-cycle ahead of the voltage."
         />
-        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
-          The current leads the voltage by one-quarter of a cycle — I is at a peak while V is still passing through
-          zero.
-        </figcaption>
-      </figure>
-      <TableCard
-        title="Key values over one cycle"
-        headers={[
-          <Formula key="wt">{String.raw`\omega t`}</Formula>,
-          <Formula key="v">{String.raw`V`}</Formula>,
-          <Formula key="i">{String.raw`I`}</Formula>,
-        ]}
-        rows={[
-          {
-            cells: [
-              "0",
-              <Formula key="v0">{String.raw`0`}</Formula>,
-              <Formula key="i0">{String.raw`I_0`}</Formula>,
-            ],
-          },
-          {
-            cells: [
-              <>
-                <Formula>{String.raw`\pi/2`}</Formula> (T/4)
-              </>,
-              <Formula key="v1">{String.raw`V_0`}</Formula>,
-              <Formula key="i1">{String.raw`0`}</Formula>,
-            ],
-          },
-          {
-            cells: [
-              <>
-                <Formula>{String.raw`\pi`}</Formula> (T/2)
-              </>,
-              <Formula key="v2">{String.raw`0`}</Formula>,
-              <Formula key="i2">{String.raw`-I_0`}</Formula>,
-            ],
-          },
-          {
-            cells: [
-              <Formula key="wt3">{String.raw`3\pi/2`}</Formula>,
-              <Formula key="v3">{String.raw`-V_0`}</Formula>,
-              <Formula key="i3">{String.raw`0`}</Formula>,
-            ],
-          },
-          {
-            cells: [
-              <Formula key="wt4">{String.raw`2\pi`}</Formula>,
-              <Formula key="v4">{String.raw`0`}</Formula>,
-              <Formula key="i4">{String.raw`I_0`}</Formula>,
-            ],
-          },
-        ]}
-        caption="One full cycle for a pure capacitor: the current is always one quarter-cycle ahead of the voltage."
-      />
+      </div>
 
       <p>
         Comparing Eq. (7.16) with Eq. (7.1), the current is <Formula>{String.raw`\pi/2`}</Formula>{" "}
         <strong>ahead</strong> of the voltage: it reaches its maximum value earlier than the voltage by one-fourth of a
         period, <Formula>{String.raw`T/4 = \pi/2\omega`}</Formula>.
       </p>
-      <figure className="my-6">
-        <img
-          src="/images/physics/alternating-current/ac-capacitor-phasor-diagram-lead.png"
-          alt="Phasor diagram for a pure capacitor: the current phasor I is a quarter turn ahead of the voltage phasor V"
-          className="mx-auto w-full max-w-md h-auto rounded-lg object-contain bg-black"
-          loading="lazy"
-        />
-        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
-          In a phasor diagram the current phasor <strong>I</strong> sits π/2 counter-clockwise from the voltage phasor{" "}
-          <strong>V</strong>.
-        </figcaption>
-      </figure>
-      <KeyPoint title="Current leads, voltage lags">
-        <ul>
-          <li>
-            Current <strong>leads</strong> the voltage by <Formula>{String.raw`90^\circ`}</Formula>.
-          </li>
-          <li>
-            Voltage <strong>lags</strong> the current by <Formula>{String.raw`90^\circ`}</Formula>.
-          </li>
-          <li>
-            The current phasor is rotated <Formula>{String.raw`\pi/2`}</Formula> counter-clockwise relative to the
-            voltage phasor.
-          </li>
-        </ul>
-      </KeyPoint>
+      <div className="grid gap-4 sm:grid-cols-2 sm:items-center">
+        <figure>
+          <img
+            src="/images/physics/alternating-current/ac-capacitor-phasor-diagram-lead.png"
+            alt="Phasor diagram for a pure capacitor: the current phasor I is a quarter turn ahead of the voltage phasor V"
+            className="mx-auto w-full h-auto rounded-lg object-contain bg-black"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            In a phasor diagram the current phasor <strong>I</strong> sits π/2 counter-clockwise from the voltage phasor{" "}
+            <strong>V</strong>.
+          </figcaption>
+        </figure>
+        <KeyPoint title="Current leads, voltage lags">
+          <ul>
+            <li>
+              Current <strong>leads</strong> the voltage by <Formula>{String.raw`90^\circ`}</Formula>.
+            </li>
+            <li>
+              Voltage <strong>lags</strong> the current by <Formula>{String.raw`90^\circ`}</Formula>.
+            </li>
+            <li>
+              The current phasor is rotated <Formula>{String.raw`\pi/2`}</Formula> counter-clockwise relative to the
+              voltage phasor.
+            </li>
+          </ul>
+        </KeyPoint>
+      </div>
 
       <p>The instantaneous power supplied to the capacitor is the product of i and v:</p>
       <FormulaBlock
@@ -1111,10 +1034,6 @@ export default function AlternatingCurrentChapter() {
           frequency it blocks the current almost completely.
         </p>
       </Expandable>
-      <MistakeCard
-        mistake="Concluding that a capacitor blocks ac because it blocks dc."
-        correction="A capacitor blocks steady current only after it is charged. Under ac it charges and discharges every half cycle, so charge keeps flowing: the current is I_0 = V_0/X_C with X_C = 1/ωC. Raising the frequency (or the capacitance) lowers the reactance and increases the current."
-      />
 
       <Expandable title="Example 7.3 — A lamp in series with a capacitor: dc versus ac" variant="example">
         <ProblemSolution.Problem><p>A lamp is connected in series with a capacitor. Predict your observations for dc and ac connections. What happens in each case if the capacitance of the capacitor is reduced?</p></ProblemSolution.Problem>
@@ -1139,9 +1058,8 @@ export default function AlternatingCurrentChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <BulbCoilCircuit />
       <Expandable title="Example 7.5 — Inserting an iron rod into a coil in series with a bulb" variant="example">
-        <ProblemSolution.Problem><p>A light bulb and an open coil inductor are connected to an ac source through a key as shown in Fig. 7.9. The switch is closed and after some time an iron rod is inserted into the interior of the inductor. Does the glow of the bulb (a) increase, (b) decrease, or (c) stay unchanged? Give reasons.</p></ProblemSolution.Problem>
+        <ProblemSolution.Problem><p>A light bulb and an open coil inductor are connected to an ac source through a key. The switch is closed and after some time an iron rod is inserted into the interior of the inductor. Does the glow of the bulb (a) increase, (b) decrease, or (c) stay unchanged? Give reasons.</p></ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p>As the iron rod is inserted, the magnetic field inside the coil magnetises the iron, increasing the magnetic field inside it. Hence the inductance of the coil increases, and consequently its inductive reactance <Formula>{String.raw`X_L = \omega L`}</Formula> increases.</p>
           <p>A larger fraction of the applied ac voltage therefore appears across the inductor, leaving less voltage across the bulb — so <Highlight color="yellow">the glow of the bulb decreases</Highlight> (option b).</p>
@@ -1171,7 +1089,6 @@ export default function AlternatingCurrentChapter() {
         magnitude{" "}<Formula>{String.raw`|V_{C0} - V_{L0}|`}</Formula>. V is the hypotenuse of a right triangle whose sides are{" "}<Formula>{String.raw`\mathbf{V}_R`}</Formula>
         and{" "}<Formula>{String.raw`(\mathbf{V}_C + \mathbf{V}_L)`}</Formula>, so Pythagoras gives:
       </p>
-      <SeriesLcrCircuit />
       <FormulaBlock latex={String.raw`V_0^2 = V_{R0}^2 + \left(V_{C0} - V_{L0}\right)^2`} />
       <p>Substituting Eq. (7.22) and taking the square root:</p>
       <FormulaBlock tag="Eq. 7.25(a)" latex={String.raw`I_0 = \frac{V_0}{\sqrt{R^2 + \left(X_C - X_L\right)^2}}`} important />
@@ -1180,7 +1097,6 @@ export default function AlternatingCurrentChapter() {
       <FormulaBlock tag="Eq. 7.26" latex={String.raw`Z = \sqrt{R^2 + \left(X_C - X_L\right)^2}`} important />
       <p>Since phasor I is always parallel to <Formula>{String.raw`\mathbf{V}_R`}</Formula>, the phase angle φ is the angle between <Formula>{String.raw`\mathbf{V}_R`}</Formula> and V, determined from the same triangle:</p>
       <FormulaBlock tag="Eq. 7.27" latex={String.raw`\tan\phi = \frac{X_C - X_L}{R}`} important />
-      <LcrPhasorAndImpedance />
       <ul>
         <li>If <Formula>{String.raw`X_C > X_L`}</Formula>, φ is <strong>positive</strong> and the circuit is predominantly <strong>capacitive</strong> — the current <em>leads</em> the source voltage.</li>
         <li>If <Formula>{String.raw`X_C < X_L`}</Formula>, φ is <strong>negative</strong> and the circuit is predominantly <strong>inductive</strong> — the current <em>lags</em> the source voltage.</li>
@@ -1220,8 +1136,7 @@ export default function AlternatingCurrentChapter() {
       </KeyPoint>
       <p>The <strong>quality factor</strong> Q, listed in the chapter&apos;s table of physical quantities, is defined for a series RLC circuit as:</p>
       <FormulaBlock label="Quality factor (series RLC)" latex={String.raw`Q = \frac{\omega_0 L}{R} = \frac{1}{\omega_0 C\,R}`} important />
-      <p>The same frequency appears again in free oscillations. A charged capacitor connected across an inductor forms a loop in which the charge oscillates at <Formula>{String.raw`\omega_0 = 1/\sqrt{LC}`}</Formula> — the angular frequency of free oscillations (Exercise 7.6).</p>
-      <LcLoop />
+      <p>The same frequency appears again in free oscillations. A charged capacitor connected across an inductor forms a loop in which the charge oscillates at <Formula>{String.raw`\omega_0 = 1/\sqrt{LC}`}</Formula> — the angular frequency of free oscillations (Exercise 7.6), the same frequency at which the series LCR circuit resonates.</p>
 
       <Expandable title="Example 7.6 — An RC series circuit: current, voltages and the paradox" variant="example">
         <ProblemSolution.Problem><p>A resistor of 200 Ω and a capacitor of 15.0 μF are connected in series to a 220 V, 50 Hz ac source. (a) Calculate the current in the circuit. (b) Calculate the voltage (rms) across the resistor and the capacitor. Is the algebraic sum of these voltages more than the source voltage? If yes, resolve the paradox.</p></ProblemSolution.Problem>
@@ -1328,13 +1243,6 @@ export default function AlternatingCurrentChapter() {
         </ProblemSolution.Solution>
       </Expandable>
       <h2 id="h-7-master">Master table — one pattern, four elements</h2>
-      <p>
-        Every circuit in this chapter is the same problem in a different costume. One voltage{" "}
-        <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula> is applied, each element answers with a current of the
-        same frequency at a fixed phase, and the whole answer collapses into a single opposition. Read across a row to
-        compare the elements; read down a column to revise one of them.
-      </p>
-
       <TableCard
         title="Resistor · inductor · capacitor · series LCR"
         headers={["Quantity", "Resistor", "Inductor", "Capacitor", "Series LCR"]}
@@ -1504,15 +1412,15 @@ export default function AlternatingCurrentChapter() {
       />
 
       <h3 id="h-7-master-figs">The same four circuits, drawn</h3>
-      <div className="my-6 grid gap-5 sm:grid-cols-2">
+      <div className="my-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
         <figure>
           <img
             src="/images/physics/alternating-current/ac-resistor-circuit-diagram.png"
             alt="A resistor connected across an ac source"
-            className="w-full h-auto rounded-lg object-contain bg-black"
+            className="h-32 w-full rounded-md bg-black object-contain"
             loading="lazy"
           />
-          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+          <figcaption className="mt-1 text-center text-[0.6875rem] leading-snug text-muted-foreground">
             Resistor — R across the source, in phase.
           </figcaption>
         </figure>
@@ -1520,21 +1428,32 @@ export default function AlternatingCurrentChapter() {
           <img
             src="/images/physics/alternating-current/ac-inductor-circuit-with-back-emf.png"
             alt="An inductor connected across an ac source, with the self-induced back emf marked"
-            className="w-full h-auto rounded-lg object-contain bg-black"
+            className="h-32 w-full rounded-md bg-black object-contain"
             loading="lazy"
           />
-          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+          <figcaption className="mt-1 text-center text-[0.6875rem] leading-snug text-muted-foreground">
             Inductor — L across the source, with the back emf.
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/images/physics/alternating-current/ac-capacitor-circuit-with-charge.png"
+            alt="A capacitor connected across an ac source, with the charge on its plates marked"
+            className="h-32 w-full rounded-md bg-black object-contain"
+            loading="lazy"
+          />
+          <figcaption className="mt-1 text-center text-[0.6875rem] leading-snug text-muted-foreground">
+            Capacitor — C across the source, charge q = Cv.
           </figcaption>
         </figure>
         <figure>
           <img
             src="/images/physics/alternating-current/ac-resistor-voltage-current-in-phase-graph.png"
             alt="Voltage and current curves for a pure resistor, peaking together"
-            className="w-full h-auto rounded-lg object-contain bg-black"
+            className="h-32 w-full rounded-md bg-black object-contain"
             loading="lazy"
           />
-          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+          <figcaption className="mt-1 text-center text-[0.6875rem] leading-snug text-muted-foreground">
             Resistor — v and i in step.
           </figcaption>
         </figure>
@@ -1542,21 +1461,32 @@ export default function AlternatingCurrentChapter() {
           <img
             src="/images/physics/alternating-current/ac-inductor-voltage-current-graphical-variation.png"
             alt="Voltage and current curves for a pure inductor, the current lagging by a quarter-cycle"
-            className="w-full h-auto rounded-lg object-contain bg-black"
+            className="h-32 w-full rounded-md bg-black object-contain"
             loading="lazy"
           />
-          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+          <figcaption className="mt-1 text-center text-[0.6875rem] leading-snug text-muted-foreground">
             Inductor — i lags v by a quarter-cycle.
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            src="/images/physics/alternating-current/ac-capacitor-voltage-current-graphical-variation.png"
+            alt="Voltage and current curves for a pure capacitor, the current leading by a quarter-cycle"
+            className="h-32 w-full rounded-md bg-black object-contain"
+            loading="lazy"
+          />
+          <figcaption className="mt-1 text-center text-[0.6875rem] leading-snug text-muted-foreground">
+            Capacitor — i leads v by a quarter-cycle.
           </figcaption>
         </figure>
         <figure>
           <img
             src="/images/physics/alternating-current/ac-resistor-phasor-diagram-in-phase.png"
             alt="Phasor diagram for a pure resistor with V and I along the same line"
-            className="w-full h-auto rounded-lg object-contain bg-black"
+            className="h-32 w-full rounded-md bg-black object-contain"
             loading="lazy"
           />
-          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+          <figcaption className="mt-1 text-center text-[0.6875rem] leading-snug text-muted-foreground">
             Resistor — phasors along one line.
           </figcaption>
         </figure>
@@ -1564,38 +1494,25 @@ export default function AlternatingCurrentChapter() {
           <img
             src="/images/physics/alternating-current/ac-inductor-phasor-diagram-lag.png"
             alt="Phasor diagram for a pure inductor with I a quarter-turn clockwise from V"
-            className="w-full h-auto rounded-lg object-contain bg-black"
+            className="h-32 w-full rounded-md bg-black object-contain"
             loading="lazy"
           />
-          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+          <figcaption className="mt-1 text-center text-[0.6875rem] leading-snug text-muted-foreground">
             Inductor — I a quarter-turn clockwise from V.
-          </figcaption>
-        </figure>
-        <figure>
-          <img
-            src="/images/physics/alternating-current/ac-capacitor-voltage-current-graphical-variation.png"
-            alt="Voltage and current curves for a pure capacitor, the current leading by a quarter-cycle"
-            className="w-full h-auto rounded-lg object-contain bg-black"
-            loading="lazy"
-          />
-          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
-            Capacitor — i leads v by a quarter-cycle.
           </figcaption>
         </figure>
         <figure>
           <img
             src="/images/physics/alternating-current/ac-capacitor-phasor-diagram-lead.png"
             alt="Phasor diagram for a pure capacitor with I a quarter-turn counter-clockwise from V"
-            className="w-full h-auto rounded-lg object-contain bg-black"
+            className="h-32 w-full rounded-md bg-black object-contain"
             loading="lazy"
           />
-          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+          <figcaption className="mt-1 text-center text-[0.6875rem] leading-snug text-muted-foreground">
             Capacitor — I a quarter-turn counter-clockwise from V.
           </figcaption>
         </figure>
       </div>
-      <SeriesLcrCircuit />
-      <LcrPhasorAndImpedance />
 
       <h2 id="h-7-8">7.8 Transformers</h2>
       <Callout type="important" title="Transformer (definition)">
