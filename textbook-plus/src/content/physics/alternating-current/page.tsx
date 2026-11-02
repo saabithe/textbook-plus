@@ -316,41 +316,53 @@ export default function AlternatingCurrentChapter() {
     <>
       <h2 id="h-7-1">7.1 Introduction</h2>
 
-      <h3 id="h-7-1-waveform">The ac waveform</h3>
-      <p>
-        Both the mains voltage and the current it drives rise and fall in a <em>sinusoidal</em> pattern — the value
-        increases and decreases smoothly, reversing direction every half-cycle:
-      </p>
-      <div className="grid gap-4 sm:grid-cols-2 [&>figure]:my-0">
-        <figure className="overflow-hidden rounded-xl border border-border/40 bg-card">
-          <div className="border-b border-border/40 bg-muted/20 px-4 py-2.5 text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
-            Alternating voltage
-          </div>
-          <img
-            src="/images/physics/alternating-current/ac-sinusoidal-alternating-voltage-graph.png"
-            alt="Sinusoidal graph of alternating voltage against time, rising to the peak value V0 and dipping to minus V0"
-            className="mx-auto w-full h-auto object-contain bg-black"
-            loading="lazy"
-          />
-          <figcaption className="px-4 py-2.5 text-center text-xs leading-relaxed text-muted-foreground">
-            Voltage oscillates between the +V<sub>0</sub> and −V<sub>0</sub> limits as time advances.
-          </figcaption>
-        </figure>
-        <figure className="overflow-hidden rounded-xl border border-border/40 bg-card">
-          <div className="border-b border-border/40 bg-muted/20 px-4 py-2.5 text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
-            Alternating current
-          </div>
-          <img
-            src="/images/physics/alternating-current/ac-sinusoidal-alternating-current-graph.png"
-            alt="Sinusoidal graph of alternating current against time, rising to the peak value I0 and dipping to minus I0"
-            className="mx-auto w-full h-auto object-contain bg-black"
-            loading="lazy"
-          />
-          <figcaption className="px-4 py-2.5 text-center text-xs leading-relaxed text-muted-foreground">
-            The driven current oscillates between +I<sub>0</sub> and −I<sub>0</sub> with the same period.
-          </figcaption>
-        </figure>
-      </div>
+      <h3 id="h-7-1-waveform">What “alternating” means</h3>
+      <Comparison
+        columns={[
+          {
+            title: "Alternating current (ac)",
+            children: (
+              <>
+                <p>
+                  Electric current whose <strong>magnitude changes with time</strong> and whose{" "}
+                  <strong>direction reverses periodically</strong>.
+                </p>
+                <img
+                  src="/images/physics/alternating-current/ac-sinusoidal-alternating-current-graph.png"
+                  alt="Sinusoidal graph of alternating current against time, rising to the peak value I0 and dipping to minus I0"
+                  className="mt-4 w-full h-auto rounded-lg object-contain bg-black"
+                  loading="lazy"
+                />
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  Current oscillates between +I<sub>0</sub> and −I<sub>0</sub>, crossing zero and reversing every
+                  half-cycle.
+                </p>
+              </>
+            ),
+          },
+          {
+            title: "Alternating voltage (ac voltage)",
+            children: (
+              <>
+                <p>
+                  Voltage whose <strong>magnitude changes with time</strong> and whose{" "}
+                  <strong>direction reverses periodically</strong> — written{" "}
+                  <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula>.
+                </p>
+                <img
+                  src="/images/physics/alternating-current/ac-sinusoidal-alternating-voltage-graph.png"
+                  alt="Sinusoidal graph of alternating voltage against time, rising to the peak value V0 and dipping to minus V0"
+                  className="mt-4 w-full h-auto rounded-lg object-contain bg-black"
+                  loading="lazy"
+                />
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  Voltage swings between +V<sub>0</sub> and −V<sub>0</sub> with the same period.
+                </p>
+              </>
+            ),
+          },
+        ]}
+      />
 
       <TableCard
         title="Parts of V = V₀ sin ωt"
@@ -375,6 +387,28 @@ export default function AlternatingCurrentChapter() {
         Ac is the standard not because it is easier to generate, but because its voltage can be changed at will by a
         transformer — which is what makes long-distance transmission economical.
       </KeyPoint>
+
+      <Expandable title="Worked example — read every parameter off V = 20 sin(10πt)" variant="example">
+        <ProblemSolution.Problem>
+          <p>
+            If an ac source is given by <Formula>{String.raw`V = 20 \sin(10\pi t)`}</Formula>, find (a) the peak
+            voltage, (b) the angular frequency, (c) the time period and (d) the frequency.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            <strong>(a) Peak voltage</strong> — derived from comparison with{" "}
+            <Formula>{String.raw`V = V_0 \sin(\omega t)`}</Formula>:
+          </p>
+          <FormulaBlock latex={String.raw`V_0 = 20\ \text{V}`} important />
+          <p><strong>(b) Angular frequency</strong> — the coefficient of <Formula>{String.raw`t`}</Formula>:</p>
+          <FormulaBlock latex={String.raw`\omega = 10\pi\ \text{rad\,s}^{-1}`} important />
+          <p><strong>(c) Time period</strong>:</p>
+          <FormulaBlock latex={String.raw`T = \frac{2\pi}{\omega} = \frac{2\pi}{10\pi} = 0.2\ \text{s}`} important />
+          <p><strong>(d) Frequency</strong>:</p>
+          <FormulaBlock latex={String.raw`\nu = \frac{1}{T} = \frac{1}{0.2} = \frac{10}{2} = 5\ \text{Hz}`} important />
+        </ProblemSolution.Solution>
+      </Expandable>
 
       <h2 id="h-7-2">7.2 AC Voltage Applied to a Resistor</h2>
 
@@ -529,22 +563,6 @@ export default function AlternatingCurrentChapter() {
         Every drill below is answered by direct comparison with{" "}
         <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula>.
       </p>
-
-      <Expandable title="Drill — An ac source is given by V = 20 sin(10πt): find everything" variant="example">
-        <ProblemSolution.Problem>
-          <p>Identify (a) the peak voltage, (b) the angular frequency, (c) the time period and (d) the frequency.</p>
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p><strong>(a) Peak voltage</strong> — compare with <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula>:</p>
-          <FormulaBlock latex={String.raw`V_0 = 20\ \text{V}`} important />
-          <p><strong>(b) Angular frequency</strong> — the coefficient of <Formula>{String.raw`t`}</Formula>:</p>
-          <FormulaBlock latex={String.raw`\omega = 10\pi\ \text{rad\,s}^{-1}`} important />
-          <p><strong>(c) Time period</strong>:</p>
-          <FormulaBlock latex={String.raw`T = \frac{2\pi}{\omega} = \frac{2\pi}{10\pi} = 0.2\ \text{s}`} important />
-          <p><strong>(d) Frequency</strong>:</p>
-          <FormulaBlock latex={String.raw`\nu = \frac{1}{T} = \frac{1}{0.2} = 5\ \text{Hz}`} important />
-        </ProblemSolution.Solution>
-      </Expandable>
 
       <Expandable title="Drill — V = 100 sin(2πt): peak, ω, T, ν and V_rms" variant="example">
         <ProblemSolution.Problem>
