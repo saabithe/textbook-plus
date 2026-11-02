@@ -20,15 +20,6 @@ function pt(cx: number, cy: number, r: number, deg: number) {
   return { x: cx + r * Math.cos(deg * D2R), y: cy - r * Math.sin(deg * D2R) };
 }
 
-function waveLine(phase: number, x0: number, w: number, y0: number, amp: number) {
-  const pts: string[] = [];
-  for (let i = 0; i <= 96; i++) {
-    const wt = (i / 96) * 4 * Math.PI;
-    pts.push(`${(x0 + (i / 96) * w).toFixed(1)},${(y0 - amp * Math.sin(wt + phase)).toFixed(1)}`);
-  }
-  return pts.join(" ");
-}
-
 function resonanceLine(r: number) {
   const pts: string[] = [];
   for (let i = 0; i <= 120; i++) {
@@ -55,60 +46,6 @@ function Figure({ title, caption, children }: { title: string; caption?: ReactNo
   );
 }
 
-function ElementFigures({ kind }: { kind: "R" | "L" | "C" }) {
-  const lead = kind === "C" ? 90 : kind === "L" ? -90 : 0;
-  const phase = lead * D2R;
-  const vDeg = 55;
-  const iDeg = vDeg + lead;
-  const ox = 62;
-  const oy = 118;
-  const vTip = pt(ox, oy, 74, vDeg);
-  const iTip = pt(ox, oy, 60, iDeg);
-  const a1 = pt(ox, oy, 30, vDeg);
-  const a2 = pt(ox, oy, 30, iDeg);
-  const title =
-    kind === "R"
-      ? "Pure resistor — v and i are in phase"
-      : kind === "L"
-        ? "Pure inductor — current lags voltage by π/2"
-        : "Pure capacitor — current leads voltage by π/2";
-  const caption =
-    kind === "R"
-      ? "Figs. 7.2, 7.4: the phasors V and I point in the same direction at all times. The minima, zero and maxima of v and i occur at the same respective times."
-      : kind === "L"
-        ? "Fig. 7.6: the current phasor I is π/2 behind V; the current reaches its maximum one-quarter of a period later than the voltage."
-        : "Fig. 7.8: the current phasor I is π/2 ahead of V; the current reaches its maximum one-quarter of a period earlier than the voltage.";
-  return (
-    <Figure title={title} caption={caption}>
-      <svg viewBox="0 0 560 200" className="w-full" role="img" aria-label={`Phasor diagram and waveforms for a ${title}`}>
-        <defs>
-          <marker id={`pv-${kind}`} viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8b5cf6" /></marker>
-          <marker id={`pi-${kind}`} viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#f59e0b" /></marker>
-        </defs>
-        <circle cx={ox} cy={oy} r="74" fill="none" stroke="var(--border)" strokeDasharray="3 4" />
-        <line x1={ox} y1="18" x2={ox} y2="190" stroke="var(--border)" strokeDasharray="3 4" />
-        <line x1={ox} y1={oy} x2="190" y2={oy} stroke="var(--border)" strokeDasharray="3 4" />
-        <line x1={ox} y1={oy} x2={vTip.x} y2={vTip.y} stroke="#8b5cf6" strokeWidth="3" markerEnd={`url(#pv-${kind})`} />
-        <line x1={ox} y1={oy} x2={iTip.x} y2={iTip.y} stroke="#f59e0b" strokeWidth="3" markerEnd={`url(#pi-${kind})`} />
-        {lead !== 0 && (
-          <>
-            <path d={`M ${a1.x} ${a1.y} A 30 30 0 0 ${lead > 0 ? 1 : 0} ${a2.x} ${a2.y}`} fill="none" stroke="var(--muted-foreground)" strokeWidth="1.5" />
-            <text x={ox + 34} y={oy - 12} fontSize="11" fill="var(--muted-foreground)" fontWeight="700">φ = π/2</text>
-          </>
-        )}
-        <text x={vTip.x + (iDeg > vDeg ? 4 : -14)} y={vTip.y - 8} fontSize="12" fontWeight="800" fill="#8b5cf6">V</text>
-        <text x={iTip.x + 4} y={iTip.y + (lead > 0 ? -6 : 14)} fontSize="12" fontWeight="800" fill="#f59e0b">I</text>
-        <line x1="300" y1="110" x2="552" y2="110" stroke="var(--border)" strokeWidth="1" />
-        <line x1="300" y1="170" x2="300" y2="30" stroke="var(--border)" strokeWidth="1" />
-        <polyline points={waveLine(0, 300, 250, 110, 38)} fill="none" stroke="#8b5cf6" strokeWidth="2.5" />
-        <polyline points={waveLine(phase, 300, 250, 110, 38)} fill="none" stroke="#f59e0b" strokeWidth="2.5" />
-        <text x="536" y="126" fontSize="11" fill="var(--muted-foreground)">ωt</text>
-        <text x="304" y="42" fontSize="11" fontWeight="700" fill="#8b5cf6">v</text>
-        <text x="304" y="166" fontSize="11" fontWeight="700" fill="#f59e0b">i</text>
-      </svg>
-    </Figure>
-  );
-}
 function SeriesLcrCircuit() {
   return (
     <Figure
@@ -768,7 +705,7 @@ export default function AlternatingCurrentChapter() {
                 </li>
                 <li>
                   Directly proportional to the frequency <Formula>{String.raw`\nu`}</Formula> — faster reversals mean a
-                  larger back emf, hence a smaller current.
+                  larger back emf.
                 </li>
               </ul>
             ),
@@ -875,9 +812,37 @@ export default function AlternatingCurrentChapter() {
         </ul>
       </KeyPoint>
 
-      <p>The instantaneous power supplied to the inductor is:</p>
-      <FormulaBlock latex={String.raw`p_L = i\,v = I_0\sin\left(\omega t - \frac{\pi}{2}\right) \times V_0\sin\omega t = -\,\frac{I_0 V_0}{2}\sin 2\omega t`} />
-      <p>The average of <Formula>{String.raw`\sin 2\omega t`}</Formula> over a complete cycle is zero, so the average power supplied to an inductor over one complete cycle is <Highlight color="yellow">zero</Highlight>.</p>
+      <p>
+        The instantaneous power supplied to the inductor is the product of the instantaneous voltage and current:
+      </p>
+      <FormulaBlock
+        latex={String.raw`p_L = i\,v = \left[I_0 \sin\left(\omega t - \frac{\pi}{2}\right)\right]\left[V_0 \sin \omega t\right]`}
+      />
+      <p>
+        Using <Formula>{String.raw`\sin\left(\omega t - \frac{\pi}{2}\right) = -\cos \omega t`}</Formula> and{" "}
+        <Formula>{String.raw`2 \sin \theta \cos \theta = \sin 2\theta`}</Formula>:
+      </p>
+      <FormulaBlock latex={String.raw`p_L = -I_0 V_0 \cos \omega t \sin \omega t = -\frac{I_0 V_0}{2} \sin 2\omega t`} />
+      <p>
+        Over a complete cycle <Formula>{String.raw`\langle \sin 2\omega t \rangle = 0`}</Formula>, so the average power
+        supplied to a pure inductor over one complete cycle is <Highlight color="yellow">zero</Highlight> — energy is
+        stored in the magnetic field for a quarter-cycle and handed back to the source in the next.
+      </p>
+      <Expandable
+        title="Q: As the frequency of the ac supply increases in a circuit containing only an inductor, what happens to the current?"
+        variant="recall"
+      >
+        <p>
+          The current <strong>decreases</strong>. The opposition offered by an inductor is the inductive reactance,
+        </p>
+        <FormulaBlock latex={String.raw`X_L = 2\pi\nu L`} important />
+        <p>
+          so a higher frequency raises <Formula>{String.raw`X_L`}</Formula> in direct proportion. Since{" "}
+          <Formula>{String.raw`I = V/X_L`}</Formula> (or <Formula>{String.raw`I_0 = V_0/X_L`}</Formula> for peak
+          values), a larger reactance allows a smaller current for the same applied voltage.
+        </p>
+      </Expandable>
+
       <Expandable title="Example 7.2 — Reactance and current of a pure inductor" variant="example">
         <ProblemSolution.Problem><p>A pure inductor of 25.0 mH is connected to a source of 220 V. Find the inductive reactance and rms current in the circuit if the frequency of the source is 50 Hz.</p></ProblemSolution.Problem>
         <ProblemSolution.Solution>
@@ -890,21 +855,219 @@ export default function AlternatingCurrentChapter() {
 
       <h2 id="h-7-5">7.5 AC Voltage Applied to a Capacitor</h2>
       <p>In a <strong>dc</strong> circuit a capacitor conducts only for the short time needed to charge it. As charge accumulates, the voltage across the plates increases and opposes the current; when the capacitor is fully charged, the current falls to zero.</p>
-      <p>Connected to an <strong>ac</strong> source, the capacitor limits or regulates the current but{" "}<Highlight color="yellow">does not completely prevent the flow of charge</Highlight> — it is alternately charged and discharged as the current reverses each half cycle. If q is the charge at time t, the instantaneous voltage is:</p>
-      <FormulaBlock tag="Eq. 7.15" latex={String.raw`v = \frac{q}{C}`} />
-      <p>From Kirchhoff&apos;s loop rule the voltage across the source and the capacitor are equal, so{" "}<Formula>{String.raw`q/C = V_0\sin\omega t`}</Formula>. Using{" "}<Formula>{String.raw`i = \mathrm{d}q/\mathrm{d}t`}</Formula>:</p>
-      <FormulaBlock latex={String.raw`i = \frac{\mathrm{d}}{\mathrm{d}t}\left(C V_0 \sin\omega t\right) = \omega C V_0 \cos\omega t`} />
-      <p>Using <Formula>{String.raw`\cos\omega t = \sin\left(\omega t + \frac{\pi}{2}\right)`}</Formula>:</p>
-      <FormulaBlock tag="Eq. 7.16" latex={String.raw`i = I_0 \sin\left(\omega t + \frac{\pi}{2}\right)`} important />
-      <p>The amplitude of the oscillating current is <Formula>{String.raw`I_0 = \omega C V_0`}</Formula>, which can be rewritten as <Formula>{String.raw`I_0 = \dfrac{V_0}{1/\omega C}`}</Formula>. Compared with{" "}<Formula>{String.raw`I_0 = V_0/R`}</Formula> for a purely resistive circuit,{" "}<Formula>{String.raw`1/\omega C`}</Formula> plays the role of resistance. It is called{" "}<strong>capacitive reactance</strong>:</p>
-      <FormulaBlock tag="Eq. 7.17" latex={String.raw`X_C = \frac{1}{\omega C}`} important />
-      <FormulaBlock tag="Eq. 7.18" latex={String.raw`I_0 = \frac{V_0}{X_C}`} />
-      <p>Its dimension too is that of resistance, with SI unit the ohm. The capacitive reactance limits the amplitude of the current in a purely capacitive circuit in the same way as resistance, but it is{" "}<Highlight color="yellow">inversely proportional to the frequency and to the capacitance</Highlight>.</p>
-      <p>Comparing Eq. (7.16) with Eq. (7.1), the current is <Formula>{String.raw`\pi/2`}</Formula>{" "}<strong>ahead</strong> of the voltage: it reaches its maximum value earlier than the voltage by one-fourth of a period.</p>
-      <ElementFigures kind="C" />
-      <p>The instantaneous power supplied to the capacitor is:</p>
-      <FormulaBlock tag="Eq. 7.19" latex={String.raw`p_C = i\,v = I_0 V_0 \cos\omega t \sin\omega t = \frac{I_0 V_0}{2}\sin 2\omega t`} />
-      <p>As for the inductor, <Formula>{String.raw`\langle \sin 2\omega t \rangle = 0`}</Formula> over a complete cycle, so the average power supplied to a capacitor is <Highlight color="yellow">zero</Highlight>.</p>
+      <p>Connected to an <strong>ac</strong> source, the capacitor limits or regulates the current but{" "}<Highlight color="yellow">does not completely prevent the flow of charge</Highlight> — it is alternately charged and discharged as the current reverses each half cycle.</p>
+
+      <p>
+        With the applied voltage <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula> and the plate voltage{" "}
+        <Formula>{String.raw`v = q/C`}</Formula>, the charge at any instant is:
+      </p>
+      <FormulaBlock tag="Eq. 7.15" latex={String.raw`q = C V_0 \sin \omega t`} important />
+      <p>
+        Current is the rate at which charge arrives on the plate,{" "}
+        <Formula>{String.raw`I = \mathrm{d}q/\mathrm{d}t`}</Formula>:
+      </p>
+
+      <Stepper
+        steps={[
+          {
+            label: "Differentiate the charge",
+            description: (
+              <p>
+                <Formula>{String.raw`I = \frac{\mathrm{d}}{\mathrm{d}t}\left(C V_0 \sin \omega t\right)`}</Formula>
+              </p>
+            ),
+          },
+          {
+            label: "Apply the chain rule",
+            description: (
+              <p>
+                With <Formula>{String.raw`\frac{\mathrm{d}}{\mathrm{d}t}\left[\sin \omega t\right] = \omega \cos \omega t`}</Formula>:{" "}
+                <Formula>{String.raw`I = \omega C V_0 \cos \omega t`}</Formula>
+              </p>
+            ),
+          },
+          {
+            label: "Write it with the peak current",
+            description: (
+              <p>
+                <Formula>{String.raw`I_0 = \omega C V_0 = \frac{V_0}{1/\omega C}`}</Formula>, so{" "}
+                <Formula>{String.raw`I = I_0 \cos \omega t`}</Formula>.
+              </p>
+            ),
+          },
+          {
+            label: "Convert cosine to sine",
+            description: (
+              <p>
+                Using <Formula>{String.raw`\cos \theta = \sin\left(\theta + \frac{\pi}{2}\right)`}</Formula>:
+              </p>
+            ),
+          },
+        ]}
+      />
+      <FormulaBlock tag="Eq. 7.16" latex={String.raw`I = I_0 \sin\left(\omega t + \frac{\pi}{2}\right)`} important />
+      <p>
+        where <Formula>{String.raw`I_0 = \omega C V_0`}</Formula> is the amplitude of the current. Compared with{" "}
+        <Formula>{String.raw`I_0 = V_0/R`}</Formula> for a purely resistive circuit, the term{" "}
+        <Formula>{String.raw`1/\omega C`}</Formula> plays the role of resistance. It is called the{" "}
+        <strong>capacitive reactance</strong>, <Formula>{String.raw`X_C`}</Formula>:
+      </p>
+      <FormulaBlock tag="Eq. 7.17" label="Capacitive reactance" latex={String.raw`X_C = \frac{1}{\omega C} = \frac{1}{2\pi\nu C}`} important />
+      <FormulaBlock tag="Eq. 7.18" label="Peak current" latex={String.raw`I_0 = \frac{V_0}{X_C}`} />
+      <Comparison
+        columns={[
+          {
+            title: "What it is",
+            children: (
+              <p>
+                The opposition a capacitor offers to the flow of alternating current — the ac counterpart of
+                resistance. Its dimension is that of resistance, so its SI unit is the <strong>ohm</strong> (Ω).
+              </p>
+            ),
+          },
+          {
+            title: "How it behaves",
+            children: (
+              <ul>
+                <li>
+                  Inversely proportional to the capacitance <Formula>{String.raw`C`}</Formula>.
+                </li>
+                <li>
+                  Inversely proportional to the frequency <Formula>{String.raw`\nu`}</Formula> — faster reversals leave
+                  less time to charge the plates on each half-cycle.
+                </li>
+              </ul>
+            ),
+          },
+        ]}
+      />
+
+      <p>
+        <strong>Graphical variation.</strong> The two waveforms are a quarter-cycle apart:{" "}
+        <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula> and{" "}
+        <Formula>{String.raw`I = I_0 \sin\left(\omega t + \frac{\pi}{2}\right)`}</Formula> — the current peaks first.
+      </p>
+      <figure className="my-6">
+        <img
+          src="/images/physics/alternating-current/ac-capacitor-voltage-current-graphical-variation.png"
+          alt="Voltage and current against time for a pure capacitor: the current curve leads the voltage curve by a quarter of a cycle"
+          className="mx-auto w-full max-w-md h-auto rounded-lg object-contain bg-black"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          The current leads the voltage by one-quarter of a cycle — I is at a peak while V is still passing through
+          zero.
+        </figcaption>
+      </figure>
+      <TableCard
+        title="Key values over one cycle"
+        headers={[
+          <Formula key="wt">{String.raw`\omega t`}</Formula>,
+          <Formula key="v">{String.raw`V`}</Formula>,
+          <Formula key="i">{String.raw`I`}</Formula>,
+        ]}
+        rows={[
+          {
+            cells: [
+              "0",
+              <Formula key="v0">{String.raw`0`}</Formula>,
+              <Formula key="i0">{String.raw`I_0`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <>
+                <Formula>{String.raw`\pi/2`}</Formula> (T/4)
+              </>,
+              <Formula key="v1">{String.raw`V_0`}</Formula>,
+              <Formula key="i1">{String.raw`0`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <>
+                <Formula>{String.raw`\pi`}</Formula> (T/2)
+              </>,
+              <Formula key="v2">{String.raw`0`}</Formula>,
+              <Formula key="i2">{String.raw`-I_0`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="wt3">{String.raw`3\pi/2`}</Formula>,
+              <Formula key="v3">{String.raw`-V_0`}</Formula>,
+              <Formula key="i3">{String.raw`0`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="wt4">{String.raw`2\pi`}</Formula>,
+              <Formula key="v4">{String.raw`0`}</Formula>,
+              <Formula key="i4">{String.raw`I_0`}</Formula>,
+            ],
+          },
+        ]}
+        caption="One full cycle for a pure capacitor: the current is always one quarter-cycle ahead of the voltage."
+      />
+
+      <p>
+        Comparing Eq. (7.16) with Eq. (7.1), the current is <Formula>{String.raw`\pi/2`}</Formula>{" "}
+        <strong>ahead</strong> of the voltage: it reaches its maximum value earlier than the voltage by one-fourth of a
+        period, <Formula>{String.raw`T/4 = \pi/2\omega`}</Formula>.
+      </p>
+      <figure className="my-6">
+        <img
+          src="/images/physics/alternating-current/ac-capacitor-phasor-diagram-lead.png"
+          alt="Phasor diagram for a pure capacitor: the current phasor I is a quarter turn ahead of the voltage phasor V"
+          className="mx-auto w-full max-w-md h-auto rounded-lg object-contain bg-black"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+          In a phasor diagram the current phasor <strong>I</strong> sits π/2 counter-clockwise from the voltage phasor{" "}
+          <strong>V</strong>.
+        </figcaption>
+      </figure>
+      <KeyPoint title="Current leads, voltage lags">
+        <ul>
+          <li>
+            Current <strong>leads</strong> the voltage by <Formula>{String.raw`90^\circ`}</Formula>.
+          </li>
+          <li>
+            Voltage <strong>lags</strong> the current by <Formula>{String.raw`90^\circ`}</Formula>.
+          </li>
+          <li>
+            The current phasor is rotated <Formula>{String.raw`\pi/2`}</Formula> counter-clockwise relative to the
+            voltage phasor.
+          </li>
+        </ul>
+      </KeyPoint>
+
+      <p>The instantaneous power supplied to the capacitor is the product of i and v:</p>
+      <FormulaBlock
+        tag="Eq. 7.19"
+        latex={String.raw`p_C = i\,v = \left[I_0 \cos \omega t\right]\left[V_0 \sin \omega t\right] = \frac{I_0 V_0}{2} \sin 2\omega t`}
+      />
+      <p>
+        Over a complete cycle <Formula>{String.raw`\langle \sin 2\omega t \rangle = 0`}</Formula>.
+      </p>
+      <Expandable
+        title="Q: What is the average power over a full cycle in a circuit with ac supplied to an ideal capacitor?"
+        variant="recall"
+      >
+        <p>
+          <strong>Zero.</strong> The instantaneous power is positive while the capacitor charges and negative while it
+          discharges, so the two halves of the cycle cancel exactly:
+        </p>
+        <FormulaBlock
+          latex={String.raw`P_C = \left\langle \frac{I_0 V_0}{2} \sin 2\omega t \right\rangle = 0`}
+          important
+        />
+        <p>
+          Energy is stored in the electric field during one quarter-cycle and returned to the source in the next, so
+          nothing is dissipated — an ideal capacitor, unlike a resistor, consumes no net power.
+        </p>
+      </Expandable>
+
       <Comparison
         columns={[
           {
@@ -929,6 +1092,20 @@ export default function AlternatingCurrentChapter() {
           },
         ]}
       />
+      <Expandable
+        title="Q: In a purely capacitive circuit, the current increases as the frequency of the ac supply increases. Why?"
+        variant="recall"
+      >
+        <p>
+          The opposition offered by a capacitor is the capacitive reactance,
+        </p>
+        <FormulaBlock latex={String.raw`X_C = \frac{1}{2\pi\nu C}`} important />
+        <p>
+          which falls as the frequency rises. Since <Formula>{String.raw`I = V/X_C`}</Formula>, a smaller reactance
+          allows a larger current — at high frequency a capacitor behaves almost like a short circuit, and at very low
+          frequency it blocks the current almost completely.
+        </p>
+      </Expandable>
       <MistakeCard
         mistake="Concluding that a capacitor blocks ac because it blocks dc."
         correction="A capacitor blocks steady current only after it is charged. Under ac it charges and discharges every half cycle, so charge keeps flowing: the current is I_0 = V_0/X_C with X_C = 1/ωC. Raising the frequency (or the capacitance) lowers the reactance and increases the current."
