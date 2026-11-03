@@ -86,9 +86,9 @@ const BANDS: Band[] = [
     icon: "🦴",
     freq: "3×10¹⁶ – 3×10¹⁹ Hz",
     wavelength: "10 nm – 10⁻⁴ nm",
-    produced: "X-ray tubes — bombard a metal target with high-energy electrons; inner-shell electron transitions.",
+    produced: "X-ray tubes — a high-energy electron beam strikes a metal target; Röntgen's original tube was a gas-discharge (ionisation) tube.",
     used: "Diagnostic tool in medicine (flesh passes, bone blocks — fractures show); crystal-structure studies; treatment of some cancers.",
-    remember: "Discovered by Roentgen. X-rays damage living tissue — avoid unnecessary or over exposure.",
+    remember: "Discovered by Wilhelm Röntgen in 1895. X-rays damage living tissue — avoid unnecessary or over exposure.",
     tab: "X-RAY",
   },
   {

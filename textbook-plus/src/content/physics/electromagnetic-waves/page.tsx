@@ -97,7 +97,8 @@ export default function ElectromagneticWavesChapter() {
         events={[
           { date: "1865", label: "Maxwell's theory", detail: "The equations unify electricity, magnetism and light into a single theory of electromagnetic waves." },
           { date: "1885", label: "Hertz", detail: "Experimentally demonstrates electromagnetic waves, verifying Maxwell's theory." },
-          { date: "1890s", label: "Marconi & others", detail: "Turn the waves into technology — long-distance wireless transmission." },
+          { date: "1895", label: "Röntgen", detail: "Discovers X-rays — a new region of the spectrum beyond ultraviolet, and the start of medical imaging." },
+          { date: "1895–1901", label: "Marconi & others", detail: "Turn the waves into technology — long-distance wireless transmission." },
           { date: "Today", label: "📡 Modern communication", detail: "Radio, TV, mobile telephony, radar, satellites — all ride on electromagnetic waves." },
         ]}
       />
@@ -355,6 +356,10 @@ export default function ElectromagneticWavesChapter() {
         ]}
       />
       <FieldRatio />
+      <MistakeCard
+        mistake="Thinking E and B have equal magnitudes in an electromagnetic wave."
+        correction="They do not. The field ratio is locked to the speed of light, E₀ = cB₀, so B₀ is smaller than E₀ by the factor 3 × 10⁸. What is equal is the energy each field carries: ⟨u_E⟩ = ⟨u_B⟩ — equal energy, unequal field strength."
+      />
       <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
         <MetricCard
           label="Momentum of an EM wave"
@@ -396,7 +401,7 @@ export default function ElectromagneticWavesChapter() {
           <section>
             <p className="mb-2 text-sm font-extrabold text-blue-900 dark:text-blue-100">Example 8.1 — Direction of B given E and propagation</p>
             <ProblemSolution.Problem>
-              <p>A plane electromagnetic wave of frequency 25 MHz travels in free space along the x-direction. At a particular point in space and time, E = 6.3 ĵ V/m. What is B at this point?</p>
+              <p>A plane electromagnetic wave of frequency 25 MHz travels in free space along the x-direction. At one point and instant E = 6.3 ĵ V/m — what is B there?</p>
             </ProblemSolution.Problem>
             <ProblemSolution.Solution>
               <p>Using Eq. (8.10):</p>
@@ -409,7 +414,14 @@ export default function ElectromagneticWavesChapter() {
           <section>
             <p className="mb-2 text-sm font-extrabold text-blue-900 dark:text-blue-100">Example 8.2 — Wave parameters from a given B</p>
             <ProblemSolution.Problem>
-              <p>The magnetic field in a plane electromagnetic wave is given by <Formula>{String.raw`B_y = (2\times 10^{-7})\ \text{T}\ \sin(0.5\times 10^3 x + 1.5\times 10^{11} t)`}</Formula>. (a) What is the wavelength and frequency of the wave? (b) Write an expression for the electric field.</p>
+              <p>
+                The magnetic field in a plane electromagnetic wave is given by{" "}
+                <Formula>{String.raw`B_y = (2\times 10^{-7})\ \text{T}\ \sin(0.5\times 10^3 x + 1.5\times 10^{11} t)`}</Formula>. Find:
+              </p>
+              <ul>
+                <li>(a) the wavelength and frequency;</li>
+                <li>(b) an expression for the electric field.</li>
+              </ul>
             </ProblemSolution.Problem>
             <ProblemSolution.Solution>
               <p><strong>(a)</strong> Comparing with <Formula>{String.raw`B_y = B_0\sin(2\pi x/\lambda + 2\pi t/T)`}</Formula>:</p>
@@ -501,6 +513,27 @@ export default function ElectromagneticWavesChapter() {
       </KeyPoint>
       <SpectrumExplorer />
       <SpectrumTable />
+      <TableCard
+        title="Radio and microwaves — how each is made, and one use"
+        headers={["Wave", "Method of production", "One use"]}
+        rows={[
+          {
+            cells: [
+              "Radio waves",
+              "Accelerated motion of charges in conducting wires — electrons in an aerial speeding up and slowing down.",
+              "Radio and TV communication systems; cellular phones.",
+            ],
+          },
+          {
+            cells: [
+              "Microwaves",
+              "Special vacuum tubes — klystrons, magnetrons and Gunn diodes.",
+              "RADAR for aircraft navigation; microwave ovens.",
+            ],
+          },
+        ]}
+        caption="Both come from accelerating charges; they differ only in how fast the acceleration is driven."
+      />
 
       <Expandable title="Quick practice — spectrum order" variant="exercise">
         <ExerciseQa
@@ -537,6 +570,7 @@ export default function ElectromagneticWavesChapter() {
             <>Which radiation is trapped by greenhouse gases, producing the <strong>greenhouse effect</strong>?</>,
             <>Which radiation is produced in <strong>nuclear reactions</strong> (and in radioactive decay)?</>,
             <>Which radiation is used to <strong>sterilise surgical instruments</strong>?</>,
+            <>Which waves reshape the cornea in <strong>LASIK eye surgery</strong>?</>,
             <>Apart from gamma rays, which radiation is used in <strong>cancer treatment</strong> (radiotherapy)?</>,
             <>A bone is <strong>imaged / a fracture detected</strong> — which waves are used?</>,
             <>An electromagnetic wave passes from one medium into another. Which property remains <strong>unaltered</strong>?</>,
@@ -559,6 +593,7 @@ export default function ElectromagneticWavesChapter() {
             <>Infrared radiation — the Earth re-radiates absorbed solar energy as IR, which greenhouse gases trap.</>,
             <>Gamma rays — emitted in nuclear reactions and in radioactive decay of nuclei.</>,
             <>Ultraviolet radiation — its germicidal action is used for instruments, water and air.</>,
+            <>Ultraviolet rays — an excimer laser in the UV reshapes the cornea.</>,
             <>X-rays — used alongside gamma rays, the choice depending on the case and the penetration needed.</>,
             <>X-rays — bone absorbs them more strongly than soft tissue, so the shadow shows the fracture.</>,
             <><Highlight color="yellow">Frequency</Highlight> — fixed by the source; the speed and wavelength change with the medium.</>,
@@ -603,7 +638,15 @@ export default function ElectromagneticWavesChapter() {
           <section>
             <p className="mb-2 text-sm font-extrabold text-amber-900 dark:text-amber-100">Exercise 8.1 — Charging capacitor: capacitance, dV/dt, displacement current</p>
             <ProblemSolution.Problem>
-              <p>Figure 8.5 shows a capacitor made of two circular plates each of radius 12 cm, separated by 5.0 cm, charged by an external source with a constant charging current of 0.15 A. (a) Calculate the capacitance and the rate of change of potential difference between the plates. (b) Obtain the displacement current across the plates. (c) Is Kirchhoff&apos;s first rule (junction rule) valid at each plate? Explain.</p>
+              <p>
+                Figure 8.5 shows a capacitor of two circular plates, radius 12 cm, separated by 5.0 cm, charged by an
+                external source at a constant 0.15 A. Find:
+              </p>
+              <ul>
+                <li>(a) the capacitance and the rate of change of potential difference between the plates;</li>
+                <li>(b) the displacement current across the plates;</li>
+                <li>(c) whether Kirchhoff&apos;s junction rule holds at each plate — and why.</li>
+              </ul>
             </ProblemSolution.Problem>
             <ProblemSolution.Solution>
               <p><strong>Given:</strong> r = 12 cm = 0.12 m, d = 5.0 cm = 0.05 m, i = 0.15 A.</p>
@@ -620,7 +663,15 @@ export default function ElectromagneticWavesChapter() {
       <section>
             <p className="mb-2 text-sm font-extrabold text-amber-900 dark:text-amber-100">Exercise 8.2 — AC-fed capacitor: conduction current, B between plates</p>
             <ProblemSolution.Problem>
-              <p>A parallel plate capacitor made of circular plates each of radius R = 6.0 cm has a capacitance C = 100 pF, connected to a 230 V ac supply with angular frequency 300 rad/s. (a) What is the rms value of the conduction current? (b) Is the conduction current equal to the displacement current? (c) Determine the amplitude of B at a point 3.0 cm from the axis between the plates.</p>
+              <p>
+                A parallel plate capacitor of circular plates, radius R = 6.0 cm, has capacitance C = 100 pF and is
+                connected to a 230 V supply at ω = 300 rad/s. Find:
+              </p>
+              <ul>
+                <li>(a) the rms conduction current;</li>
+                <li>(b) whether the conduction current equals the displacement current;</li>
+                <li>(c) the amplitude of B at 3.0 cm from the axis between the plates.</li>
+              </ul>
             </ProblemSolution.Problem>
             <ProblemSolution.Solution>
               <p><strong>(a)</strong> For a capacitor <Formula>{String.raw`X_C = 1/(\omega C)`}</Formula>, so:</p>
@@ -646,7 +697,7 @@ export default function ElectromagneticWavesChapter() {
           <section>
             <p className="mb-2 text-sm font-extrabold text-amber-900 dark:text-amber-100">Exercise 8.4 — Plane wave directions and wavelength</p>
             <ProblemSolution.Problem>
-              <p>A plane electromagnetic wave travels in vacuum along the z-direction. What can you say about the directions of its electric and magnetic field vectors? If the frequency of the wave is 30 MHz, what is its wavelength?</p>
+              <p>A plane electromagnetic wave travels in vacuum along the z-direction. Say what you can about the directions of its electric and magnetic field vectors, and find the wavelength at 30 MHz.</p>
             </ProblemSolution.Problem>
             <ProblemSolution.Solution>
               <p>The E and B vectors are <Highlight color="yellow">perpendicular to each other and to the z-direction</Highlight> — both lie in the xy-plane, mutually perpendicular.</p>
@@ -678,7 +729,13 @@ export default function ElectromagneticWavesChapter() {
           <section>
             <p className="mb-2 text-sm font-extrabold text-amber-900 dark:text-amber-100">Exercise 8.8 — Full wave parameters from E₀ and ν</p>
             <ProblemSolution.Problem>
-              <p>Suppose that the electric field amplitude of an electromagnetic wave is E₀ = 120 N/C and its frequency is ν = 50.0 MHz. (a) Determine B₀, ω, k and λ. (b) Find expressions for E and B.</p>
+              <p>
+                The electric field amplitude of an electromagnetic wave is E₀ = 120 N/C at ν = 50.0 MHz. Find:
+              </p>
+              <ul>
+                <li>(a) B₀, ω, k and λ;</li>
+                <li>(b) expressions for E and B.</li>
+              </ul>
             </ProblemSolution.Problem>
             <ProblemSolution.Solution>
               <p><strong>(a)</strong></p>
@@ -694,7 +751,15 @@ export default function ElectromagneticWavesChapter() {
           <section>
             <p className="mb-2 text-sm font-extrabold text-amber-900 dark:text-amber-100">Exercise 8.10 — Wavelength, B₀, and energy densities</p>
             <ProblemSolution.Problem>
-              <p>In a plane electromagnetic wave, the electric field oscillates sinusoidally at a frequency of 2.0 × 10¹⁰ Hz and amplitude 48 V m⁻¹. (a) What is the wavelength? (b) What is the amplitude of the oscillating magnetic field? (c) Show that the average energy density of the E field equals the average energy density of the B field. [c = 3 × 10⁸ m s⁻¹.]</p>
+              <p>
+                In a plane electromagnetic wave the electric field oscillates at 2.0 × 10¹⁰ Hz with amplitude 48 V m⁻¹.
+                Take c = 3 × 10⁸ m s⁻¹. Find:
+              </p>
+              <ul>
+                <li>(a) the wavelength;</li>
+                <li>(b) the amplitude of the oscillating magnetic field;</li>
+                <li>(c) proof that the average energy density of the E field equals that of the B field.</li>
+              </ul>
             </ProblemSolution.Problem>
             <ProblemSolution.Solution>
               <p><strong>(a)</strong></p>
