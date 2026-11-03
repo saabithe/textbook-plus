@@ -1162,6 +1162,20 @@ export default function AlternatingCurrentChapter() {
       <FormulaBlock tag="Eq. 7.22" latex={String.raw`V_R = I R,\qquad V_C = I X_C,\qquad V_L = I X_L`} />
       <p>The voltage equation (7.20) for the circuit can be written as{" "}<Formula>{String.raw`v_L + v_R + v_C = v`}</Formula>, and the phasor relation whose vertical component gives this equation is:</p>
       <FormulaBlock tag="Eq. 7.24" latex={String.raw`\mathbf{V}_L + \mathbf{V}_R + \mathbf{V}_C = \mathbf{V}`} />
+      <figure className="my-6">
+        <img
+          src="/images/physics/alternating-current/lcr-phasor-triangle.png"
+          alt="Hand-drawn phasors for a series LCR circuit: V_L upwards, V_C downwards, V_R along the current I, and the resultant V closing the triangle on a vertical side of V_L − V_C, at angle φ to I"
+          className="mx-auto w-full max-w-2xl rounded-md bg-black object-contain"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-[0.75rem] leading-snug text-muted-foreground">
+          The phasor sum: <Formula>{String.raw`V_L`}</Formula> and <Formula>{String.raw`V_C`}</Formula> oppose each
+          other along one line, so the vertical side is <Formula>{String.raw`V_L - V_C`}</Formula>, the hypotenuse is{" "}
+          <Formula>{String.raw`V`}</Formula>, and the angle to <Formula>{String.raw`V_R`}</Formula> is φ. The book&apos;s
+          own version is Fig. 7.11, with the impedance triangle as Fig. 7.12.
+        </figcaption>
+      </figure>
       <p>
         Since <Formula>{String.raw`\mathbf{V}_C`}</Formula> and <Formula>{String.raw`\mathbf{V}_L`}</Formula> are always along the same line and in opposite directions, they combine into one phasor of
         magnitude{" "}<Formula>{String.raw`|V_L - V_C|`}</Formula>. V is the hypotenuse of a right triangle whose sides are{" "}<Formula>{String.raw`\mathbf{V}_R`}</Formula>
@@ -1195,53 +1209,24 @@ export default function AlternatingCurrentChapter() {
         </p>
       </Expandable>
 
-      <TableCard
-        title="Textbook figures 7.10–7.13"
-        headers={["Figure", "What it shows"]}
-        rows={[
-          {
-            cells: [
-              "7.10 — Series LCR circuit",
-              "ac source, R, L and C in one loop; the same current i flows through all three at every instant.",
-            ],
-          },
-          {
-            cells: [
-              "7.11 — Phasors, X_C > X_L",
-              "V_R along I, V_C below it and longer than V_L; V closes the triangle and lags I.",
-            ],
-          },
-          {
-            cells: [
-              "7.12 — Impedance triangle",
-              "The same triangle divided by I: R along the current, |X_L − X_C| across it, Z as hypotenuse.",
-            ],
-          },
-          {
-            cells: [
-              "7.13 — Phasors and waveforms",
-              "(a) V and I separated by φ; (b) the same offset drawn as the two sinusoids against ωt.",
-            ],
-          },
-        ]}
-        caption="The book's own drawings for this section — each number still points at the printed page."
-      />
-
-      <Callout type="note" title="What the phasor solution does and does not give">
-        <p>
-          The phasors show only the <strong>relative angle</strong> between V and I — any t may be chosen to draw them.
-          Two consequences follow:
-        </p>
+      <Callout type="note" title="Phasor limitations">
         <ul>
           <li>
-            <strong>It gives the steady state.</strong> The solution is not general.
+            <strong>Relative angle.</strong> The phasors fix only the angle between{" "}
+            <Formula>{String.raw`V`}</Formula> and <Formula>{String.raw`I`}</Formula> — any{" "}
+            <Formula>{String.raw`t`}</Formula> may be chosen to draw them.
           </li>
           <li>
-            <strong>It omits the transient.</strong> A transient solution exists even for{" "}
-            <Formula>{String.raw`v = 0`}</Formula>; the true solution is the sum of both, and the transient dies out
-            after a long enough time.
+            <strong>Steady state only.</strong> The phasor solution is not the general solution.
+          </li>
+          <li>
+            <strong>Transient left out.</strong> One exists even for <Formula>{String.raw`v = 0`}</Formula>, and dies
+            out with time.
           </li>
         </ul>
+        <div className="mt-4 [&>div]:my-0">
+          <FormulaBlock latex={String.raw`\boxed{\text{True solution} = \text{Steady state} + \text{Transient}}`} />
+        </div>
       </Callout>
 
       <h3 id="h-7-6-2">7.6.2 Resonance</h3>
@@ -1539,7 +1524,7 @@ export default function AlternatingCurrentChapter() {
               <Cell key="w-r">v and i cross zero together and peak together.</Cell>,
               <Cell key="w-l">i peaks a quarter-cycle after v.</Cell>,
               <Cell key="w-c">i peaks a quarter-cycle before v.</Cell>,
-              <Cell key="w-lcr">Offset by φ — in phase only at resonance.</Cell>,
+              <Cell key="w-lcr">Offset by φ — in phase only at resonance. Fig. 7.13 draws it as two sinusoids.</Cell>,
             ],
           },
           {
