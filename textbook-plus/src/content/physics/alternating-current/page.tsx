@@ -1127,11 +1127,27 @@ export default function AlternatingCurrentChapter() {
       <FormulaBlock tag="Eq. 7.20" latex={String.raw`L\frac{\mathrm{d}i}{\mathrm{d}t} + iR + \frac{q}{C} = v`} important />
 
       <h3 id="h-7-6-1">7.6.1 Phasor-diagram solution</h3>
+      <Callout type="note" title="Notation in this derivation">
+        <p>The peak values carry no 0 subscript here:</p>
+        <ul>
+          <li>
+            <Formula>{String.raw`V`}</Formula> — peak source voltage; <Formula>{String.raw`V_R`}</Formula>,{" "}
+            <Formula>{String.raw`V_C`}</Formula>, <Formula>{String.raw`V_L`}</Formula> — peak voltages across the
+            resistor, capacitor and inductor.
+          </li>
+          <li>
+            <Formula>{String.raw`I`}</Formula> — peak current, the same through all three elements.
+          </li>
+          <li>
+            <Formula>{String.raw`Z`}</Formula> — impedance: the total opposition the circuit offers.
+          </li>
+        </ul>
+      </Callout>
       <p>The three elements are in series, so the <strong>current is the same in each at any time</strong> — same amplitude and same phase:</p>
-      <FormulaBlock tag="Eq. 7.21" latex={String.raw`i = I_0\sin(\omega t + \phi)`} />
+      <FormulaBlock tag="Eq. 7.21" latex={String.raw`i = I\sin(\omega t - \phi)`} />
       <p>
-        where <Formula>{String.raw`\phi`}</Formula> is the phase difference between source voltage and current. The
-        element phasors are <Formula>{String.raw`\mathbf{V}_R`}</Formula>,{" "}
+        where <Formula>{String.raw`\phi`}</Formula> is the angle by which the <strong>source voltage leads the
+        current</strong>. The element phasors are <Formula>{String.raw`\mathbf{V}_R`}</Formula>,{" "}
         <Formula>{String.raw`\mathbf{V}_L`}</Formula> and <Formula>{String.raw`\mathbf{V}_C`}</Formula>; their phasor
         sum is the source voltage <Formula>{String.raw`\mathbf{V}`}</Formula>.
       </p>
@@ -1142,27 +1158,42 @@ export default function AlternatingCurrentChapter() {
           { label: "V_L is π/2 ahead of I", description: "The inductor voltage leads the current by a quarter cycle." },
         ]}
       />
-      <p>The lengths of these phasors, i.e. the voltage amplitudes, are:</p>
-      <FormulaBlock tag="Eq. 7.22" latex={String.raw`V_{R0} = I_0 R,\qquad V_{C0} = I_0 X_C,\qquad V_{L0} = I_0 X_L`} />
+      <p>The lengths of these phasors — the peak element voltages — are:</p>
+      <FormulaBlock tag="Eq. 7.22" latex={String.raw`V_R = I R,\qquad V_C = I X_C,\qquad V_L = I X_L`} />
       <p>The voltage equation (7.20) for the circuit can be written as{" "}<Formula>{String.raw`v_L + v_R + v_C = v`}</Formula>, and the phasor relation whose vertical component gives this equation is:</p>
       <FormulaBlock tag="Eq. 7.24" latex={String.raw`\mathbf{V}_L + \mathbf{V}_R + \mathbf{V}_C = \mathbf{V}`} />
       <p>
         Since <Formula>{String.raw`\mathbf{V}_C`}</Formula> and <Formula>{String.raw`\mathbf{V}_L`}</Formula> are always along the same line and in opposite directions, they combine into one phasor of
-        magnitude{" "}<Formula>{String.raw`|V_{C0} - V_{L0}|`}</Formula>. V is the hypotenuse of a right triangle whose sides are{" "}<Formula>{String.raw`\mathbf{V}_R`}</Formula>
-        and{" "}<Formula>{String.raw`(\mathbf{V}_C + \mathbf{V}_L)`}</Formula>, so Pythagoras gives:
+        magnitude{" "}<Formula>{String.raw`|V_L - V_C|`}</Formula>. V is the hypotenuse of a right triangle whose sides are{" "}<Formula>{String.raw`\mathbf{V}_R`}</Formula>
+        and that net reactance voltage, so Pythagoras gives:
       </p>
-      <FormulaBlock latex={String.raw`V_0^2 = V_{R0}^2 + \left(V_{C0} - V_{L0}\right)^2`} />
-      <p>Substituting Eq. (7.22) and taking the square root:</p>
-      <FormulaBlock tag="Eq. 7.25(a)" latex={String.raw`I_0 = \frac{V_0}{\sqrt{R^2 + \left(X_C - X_L\right)^2}}`} important />
-      <p>By analogy with resistance, the <strong>impedance</strong> Z of the ac circuit is defined by:</p>
-      <FormulaBlock tag="Eq. 7.25(b)" latex={String.raw`Z = \frac{V_0}{I_0}`} />
-      <FormulaBlock tag="Eq. 7.26" latex={String.raw`Z = \sqrt{R^2 + \left(X_C - X_L\right)^2}`} important />
-      <p>Since phasor I is always parallel to <Formula>{String.raw`\mathbf{V}_R`}</Formula>, the phase angle φ is the angle between <Formula>{String.raw`\mathbf{V}_R`}</Formula> and V, determined from the same triangle:</p>
-      <FormulaBlock tag="Eq. 7.27" latex={String.raw`\tan\phi = \frac{X_C - X_L}{R}`} important />
+      <FormulaBlock latex={String.raw`V^2 = V_R^2 + \left(V_L - V_C\right)^2`} />
+      <FormulaBlock latex={String.raw`V = \sqrt{V_R^2 + \left(V_L - V_C\right)^2}`} />
+      <p>Substituting Eq. (7.22) puts the source voltage in terms of the one current:</p>
+      <FormulaBlock latex={String.raw`V = I\sqrt{R^2 + \left(X_L - X_C\right)^2}`} />
+      <p>By analogy with resistance, the <strong>impedance</strong> Z is defined by the same Ohm-like rule:</p>
+      <FormulaBlock tag="Eq. 7.25(a)" latex={String.raw`I = \frac{V}{Z}`} important />
+      <p>Comparing the two, the impedance of a series LCR circuit is:</p>
+      <FormulaBlock tag="Eq. 7.25(b)" latex={String.raw`Z = \sqrt{R^2 + \left(X_L - X_C\right)^2}`} important />
+      <p>Since phasor I is always parallel to <Formula>{String.raw`\mathbf{V}_R`}</Formula>, the phase angle φ is the angle between <Formula>{String.raw`\mathbf{V}_R`}</Formula> and V, read off the same triangle:</p>
+      <FormulaBlock tag="Eq. 7.26" latex={String.raw`\tan\phi = \frac{V_L - V_C}{V_R} = \frac{I X_L - I X_C}{I R}`} />
+      <p>The current cancels, leaving the working form:</p>
+      <FormulaBlock tag="Eq. 7.27" latex={String.raw`\tan\phi = \frac{X_L - X_C}{R}`} important />
+      <p>The sign of φ names the circuit:</p>
       <ul>
-        <li>If <Formula>{String.raw`X_C > X_L`}</Formula>, φ is <strong>positive</strong> and the circuit is predominantly <strong>capacitive</strong> — the current <em>leads</em> the source voltage.</li>
-        <li>If <Formula>{String.raw`X_C < X_L`}</Formula>, φ is <strong>negative</strong> and the circuit is predominantly <strong>inductive</strong> — the current <em>lags</em> the source voltage.</li>
+        <li>If <Formula>{String.raw`X_L > X_C`}</Formula>, φ is <strong>positive</strong> and the circuit is predominantly <strong>inductive</strong> — the <em>voltage leads</em> the current.</li>
+        <li>If <Formula>{String.raw`X_C > X_L`}</Formula>, φ is <strong>negative</strong> and the circuit is predominantly <strong>capacitive</strong> — the <em>current leads</em> the voltage.</li>
       </ul>
+      <Expandable
+        title="Q: What does a positive and a negative value of the phase angle φ indicate in a series LCR circuit?"
+        variant="recall"
+      >
+        <p>Positive φ means the voltage leads the current, and negative φ means the current leads the voltage.</p>
+        <p>
+          The magnitude says how far the circuit leans from resonance: <Formula>{String.raw`\phi = 0`}</Formula> at
+          resonance, and <Formula>{String.raw`\phi \to \pm 90^\circ`}</Formula> as one reactance takes over.
+        </p>
+      </Expandable>
 
       <TableCard
         title="Textbook figures 7.10–7.13"
@@ -1183,7 +1214,7 @@ export default function AlternatingCurrentChapter() {
           {
             cells: [
               "7.12 — Impedance triangle",
-              "The same triangle divided by I₀: R along the current, (X_C − X_L) across it, Z as hypotenuse.",
+              "The same triangle divided by I: R along the current, |X_L − X_C| across it, Z as hypotenuse.",
             ],
           },
           {
@@ -1278,8 +1309,8 @@ export default function AlternatingCurrentChapter() {
       </Expandable>
 
       <h2 id="h-7-7">7.7 Power in AC Circuit: The Power Factor</h2>
-      <p>A voltage <Formula>{String.raw`v = V_0\sin\omega t`}</Formula> applied to a series RLC circuit drives a current{" "}<Formula>{String.raw`i = I_0\sin(\omega t + \phi)`}</Formula>, where{" "}<Formula>{String.raw`I_0 = V_0/Z`}</Formula> and{" "}<Formula>{String.raw`\phi = \tan^{-1}\left[\left(X_C - X_L\right)/R\right]`}</Formula>. The instantaneous power supplied by the source is:</p>
-      <FormulaBlock tag="Eq. 7.29" latex={String.raw`p = v\,i = V_0\sin\omega t \times I_0\sin(\omega t + \phi) = \frac{V_0 I_0}{2}\left[\cos\phi - \cos(2\omega t + \phi)\right]`} />
+      <p>A voltage <Formula>{String.raw`v = V_0\sin\omega t`}</Formula> applied to a series RLC circuit drives a current{" "}<Formula>{String.raw`i = I_0\sin(\omega t - \phi)`}</Formula>, where{" "}<Formula>{String.raw`I_0 = V_0/Z`}</Formula> and{" "}<Formula>{String.raw`\phi = \tan^{-1}\left[\left(X_L - X_C\right)/R\right]`}</Formula>. The instantaneous power supplied by the source is:</p>
+      <FormulaBlock tag="Eq. 7.29" latex={String.raw`p = v\,i = V_0\sin\omega t \times I_0\sin(\omega t - \phi) = \frac{V_0 I_0}{2}\left[\cos\phi - \cos(2\omega t - \phi)\right]`} />
       <p>Only the second term is time-dependent, and its average over a cycle is zero (the positive half of the cosine cancels the negative half). Therefore:</p>
       <FormulaBlock tag="Eq. 7.30(a)" latex={String.raw`P = \frac{V_0 I_0}{2}\cos\phi = \frac{V_0}{\sqrt{2}}\cdot\frac{I_0}{\sqrt{2}}\cos\phi = V I \cos\phi`} important />
       <FormulaBlock tag="Eq. 7.30(b)" latex={String.raw`P = I^2 Z \cos\phi`} />
@@ -1290,8 +1321,8 @@ export default function AlternatingCurrentChapter() {
         headers={["Circuit", "φ", "cos φ", "Average power"]}
         rows={[
           { cells: ["Pure R (resistive)", "0", "1", "Maximum dissipation, P = I²R"] },
-          { cells: ["Pure L or pure C", "π/2", "0", "No power dissipated — the current is wattless"] },
-          { cells: ["Series LCR", "tan⁻¹[(X_C − X_L)/R]", "R/Z", "P = I²Z cos φ, dissipated only in R"] },
+          { cells: ["Pure L or pure C", "±π/2", "0", "No power dissipated — the current is wattless"] },
+          { cells: ["Series LCR", "tan⁻¹[(X_L − X_C)/R]", "R/Z", "P = I²Z cos φ, dissipated only in R"] },
           { cells: ["LCR at resonance", "0", "1", "Maximum, P = I²Z = I²R"] },
         ]}
       />
@@ -1351,13 +1382,13 @@ export default function AlternatingCurrentChapter() {
           <p>Therefore the impedance is</p>
           <FormulaBlock latex={String.raw`Z = \sqrt{R^2 + \left(X_L - X_C\right)^2} = \sqrt{3^2 + (8 - 4)^2}\ \Omega = 5\ \Omega`} important />
           <p><strong>(b)</strong> The phase difference is</p>
-          <FormulaBlock latex={String.raw`\phi = \tan^{-1}\frac{X_C - X_L}{R} = \tan^{-1}\frac{4 - 8}{3} = -53.1^\circ`} important />
-          <p>Since φ is negative, the current in the circuit lags the voltage across the source.</p>
+          <FormulaBlock latex={String.raw`\phi = \tan^{-1}\frac{X_L - X_C}{R} = \tan^{-1}\frac{8 - 4}{3} = 53.1^\circ`} important />
+          <p>Since φ is positive, the circuit is inductive — the <strong>voltage leads</strong> the current by 53.1°.</p>
           <p><strong>(c)</strong> The power dissipated in the circuit is <Formula>{String.raw`P = I^2 R`}</Formula>, with</p>
           <FormulaBlock latex={String.raw`I = \frac{I_0}{\sqrt{2}} = \left(\frac{283}{5}\right)\frac{1}{\sqrt{2}} = 40\ \text{A}`} />
           <FormulaBlock latex={String.raw`P = (40\ \text{A})^2 \times 3\ \Omega = 4800\ \text{W}`} important />
           <p><strong>(d)</strong> Power factor:</p>
-          <FormulaBlock latex={String.raw`\cos\phi = \cos\left(-53.1^\circ\right) = 0.6`} important />
+          <FormulaBlock latex={String.raw`\cos\phi = \cos\left(53.1^\circ\right) = 0.6`} important />
         </ProblemSolution.Solution>
       </Expandable>
 
@@ -1445,7 +1476,7 @@ export default function AlternatingCurrentChapter() {
               <Formula key="i-r">{String.raw`I = I_0 \sin \omega t`}</Formula>,
               <Formula key="i-l">{String.raw`I = I_0 \sin\left(\omega t - \frac{\pi}{2}\right)`}</Formula>,
               <Formula key="i-c">{String.raw`I = I_0 \sin\left(\omega t + \frac{\pi}{2}\right)`}</Formula>,
-              <Formula key="i-lcr">{String.raw`I = I_0 \sin(\omega t + \phi)`}</Formula>,
+              <Formula key="i-lcr">{String.raw`I = I_0 \sin(\omega t - \phi)`}</Formula>,
             ],
           },
           {
@@ -1473,19 +1504,19 @@ export default function AlternatingCurrentChapter() {
           },
           {
             cells: [
-              "Phase of I w.r.t. V",
+              "Phase angle φ",
               <Cell key="p-r">
-                In phase: <Formula>{String.raw`\phi = 0`}</Formula>.
+                <Formula>{String.raw`\phi = 0`}</Formula> — voltage and current in phase.
               </Cell>,
               <Cell key="p-l">
-                <strong>Lags</strong> by 90°; peaks one quarter-cycle (<Formula>{String.raw`T/4`}</Formula>) later.
+                <Formula>{String.raw`\phi = +\pi/2`}</Formula> — current lags by 90°, peaking a quarter-cycle ({String.raw`T/4`}) later.
               </Cell>,
               <Cell key="p-c">
-                <strong>Leads</strong> by 90°; peaks one quarter-cycle (<Formula>{String.raw`T/4`}</Formula>) earlier.
+                <Formula>{String.raw`\phi = -\pi/2`}</Formula> — current leads by 90°, peaking a quarter-cycle ({String.raw`T/4`}) earlier.
               </Cell>,
               <Cell key="p-lcr">
-                <Formula>{String.raw`\tan \phi = \frac{X_C - X_L}{R}`}</Formula>; φ &gt; 0 leads (capacitive), φ &lt; 0
-                lags (inductive).
+                <Formula>{String.raw`\tan \phi = \frac{X_L - X_C}{R}`}</Formula>; φ &gt; 0 inductive (voltage leads), φ
+                &lt; 0 capacitive (current leads).
               </Cell>,
             ],
           },
@@ -1741,13 +1772,13 @@ export default function AlternatingCurrentChapter() {
           { cells: ["Impedance", "Z", "[M L² T⁻³ A⁻²]", "Ω", "Depends on the elements present in the circuit"] },
           { cells: ["Resonant frequency", "ω_r or ω₀", "[T⁻¹]", "Hz", <>ω₀ = 1/√(LC) for a series RLC circuit</>] },
           { cells: ["Quality factor", "Q", "Dimensionless", "—", <>Q = ω₀L/R = 1/(ω₀CR) for a series RLC circuit</>] },
-          { cells: ["Power factor", "cos φ", "Dimensionless", "—", "φ is the phase difference between the voltage applied and the current in the circuit"] },
+          { cells: ["Power factor", "cos φ", "Dimensionless", "—", "φ is the angle by which the source voltage leads the current"] },
         ]}
       />
       <div className="my-6 grid gap-4 sm:grid-cols-2 [&>div]:my-0">
         <FormulaCard>
           <p className="text-[0.75rem] font-medium text-muted-foreground">Impedance and phase</p>
-          <FormulaBlock latex={String.raw`Z = \sqrt{R^2 + \left(X_C - X_L\right)^2},\quad \tan\phi = \frac{X_C - X_L}{R}`} important />
+          <FormulaBlock latex={String.raw`Z = \sqrt{R^2 + \left(X_L - X_C\right)^2},\quad \tan\phi = \frac{X_L - X_C}{R}`} important />
         </FormulaCard>
         <FormulaCard>
           <p className="text-[0.75rem] font-medium text-muted-foreground">Average power</p>
@@ -1777,7 +1808,7 @@ export default function AlternatingCurrentChapter() {
             <><strong>(a)</strong> <Formula>{String.raw`V = V_0/\sqrt{2} = 300/1.414 = 212.1\ \text{V}`}</Formula>. <strong>(b)</strong> <Formula>{String.raw`I_0 = \sqrt{2}\,I = 1.414 \times 10 = 14.1\ \text{A}`}</Formula>.</>,
             <><Formula>{String.raw`X_L = 2\pi\nu L = 2\pi(50)(44\times 10^{-3}) = 13.8\ \Omega`}</Formula>, so <Formula>{String.raw`I = V/X_L = 220/13.8 = 15.9\ \text{A}`}</Formula>.</>,
             <><Formula>{String.raw`X_C = \frac{1}{2\pi\nu C} = \frac{1}{2\pi(60)(60\times 10^{-6})} = 44.2\ \Omega`}</Formula>, so <Formula>{String.raw`I = V/X_C = 110/44.2 = 2.49\ \text{A}`}</Formula>.</>,
-            <>Zero in both cases. A pure inductor and a pure capacitor have <Formula>{String.raw`\phi = \pi/2`}</Formula>, so{" "}
+            <>Zero in both cases. A pure inductor and a pure capacitor have <Formula>{String.raw`\phi = \pm\pi/2`}</Formula>, so{" "}
               <Formula>{String.raw`\cos\phi = 0`}</Formula> and the current is wattless: energy is stored in the magnetic or
               electric field and returned to the source each half cycle, never dissipated.</>,
             <>For free oscillations <Formula>{String.raw`\omega = \frac{1}{\sqrt{LC}} = \frac{1}{\sqrt{30\times 10^{-6} \times 27\times 10^{-3}}} = 1.1\times 10^{3}\ \text{rad/s}`}</Formula>.</>,
