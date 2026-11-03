@@ -228,6 +228,54 @@ Developer_Deliveries/Chapters/{NN_Subject}/
 
 Subject order is fixed: `01_Physics`, `02_Chemistry`, `03_Mathematics`, `04_Biology`, `05_English`, `06_Arabic`.
 
+### 11.4 The note-writing methodology (Nov 2026)
+
+The standing order for every note in this app, in one line: **compress the language, not the understanding.**
+
+#### The eleven rules
+
+| # | Principle | Rule as applied here | Check |
+|---|---|---|---|
+| 1 | **Chunked** | One idea per block. A `<p>` carries 1–2 sentences and no list inside it. | P1, P3 |
+| 2 | **Keyword-first** | Each bullet opens with a **bold lead phrase**, then its detail. Cut "it is important to note", "we can see that", "in order to". | review |
+| 3 | **Hierarchy** | h2 = topic, h3 = subtopic, then blocks. Never skip a level; never nest a heading for one sentence. | P7 |
+| 4 | **Structured** | Parallel facts → `TableCard`/`Comparison`; sequences → `Stepper`; parallel notes → `PocketGrid`; single law → `Callout`/`KeyPoint`. | review |
+| 5 | **Connected** | Name the relation in the sentence: `X_L ∝ ν` → the current falls. One cross-reference to the section that proves it, not five. | review |
+| 6 | **Rich formatting** | `<Highlight>` ≤ 3 per section, law/definition only. `<strong>` on a term's first appearance. Italic `e.g.` for example cues. | §11 row |
+| 7 | **Symbols** | One set only: `→` cause, `↔` equivalence, `∝` proportionality, `∴` result. Never invent a private abbreviation the reader must decode. | review |
+| 8 | **Density** | Paragraph ≤ 60 words. Table cell ≤ 25 words (aim 18). If it needs more, it is prose, not a cell. | P2, P6 |
+| 9 | **Preservation** | Keep every fact, definition, exception, example and user derivation step. Compression removes words, never knowledge. | §11 rows |
+| 10 | **Scannability** | The section must be readable top-down from headings + bold leads alone, with the prose skipped. | review |
+| 11 | **Simplicity** | At most two formatting devices per line. If a reader must learn your schema, the note failed. | review |
+
+#### Applying it to a block — five moves
+
+1. **List the facts first.** Every fact in the source stays on the list.
+2. **Find the idea.** One block = one idea; a second idea is a second block.
+3. **Cut the lead-in** to a single sentence — or to a bold label.
+4. **Choose the vehicle** from rule 4, not from habit.
+5. **Skim the result** using rule 10. If the skim fails, the shape is wrong, not the student.
+
+#### What gets cut
+
+| Cut | Keep |
+|---|---|
+| "We can see that", "it is important to note", "as we know" | the fact itself |
+| "In order to", "due to the fact that", "at this point in time" | "to", "because", "now" |
+| "Let us consider", "suppose that we have" | the object, then the action |
+| "etc." | the remaining examples, named (P4) |
+| a summary of what was just said | nothing — it is a repeat |
+
+#### What a failure looks like
+
+- A paragraph with three sentences (P1) — split it or lift the list out.
+- Three commas and an "and" inside prose (P3) — that is a list wearing a sentence.
+- A table cell that is a paragraph (P6) — trim to the fact, move the reason to prose.
+- A whole paragraph in yellow — highlight marks a law, not a mood.
+- A symbol the reader meets only once — spell it out, or drop it.
+
+This subsection is the standard; §11's table and §11.1's before/after are its worked examples. `npm run verify:presentation -- --chapter <slug>` enforces the mechanical half (P1–P7).
+
 ---
 
 ## 12. Content Component Design System (In-Page Apps)

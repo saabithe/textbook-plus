@@ -217,9 +217,14 @@ export default function AlternatingCurrentChapter() {
       <Expandable title="Worked example — read every parameter off V = 20 sin(10πt)" variant="example">
         <ProblemSolution.Problem>
           <p>
-            If an ac source is given by <Formula>{String.raw`V = 20 \sin(10\pi t)`}</Formula>, find (a) the peak
-            voltage, (b) the angular frequency, (c) the time period and (d) the frequency.
+            If an ac source is given by <Formula>{String.raw`V = 20 \sin(10\pi t)`}</Formula>, find:
           </p>
+          <ul>
+            <li>(a) the peak voltage;</li>
+            <li>(b) the angular frequency;</li>
+            <li>(c) the time period;</li>
+            <li>(d) the frequency.</li>
+          </ul>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p>
@@ -325,7 +330,16 @@ export default function AlternatingCurrentChapter() {
 
       <Expandable title="Drill — V = 100 sin(2πt): peak, ω, T, ν and V_rms" variant="example">
         <ProblemSolution.Problem>
-          <p>An ac source is <Formula>{String.raw`V = 100 \sin(2\pi t)`}</Formula>. Find the peak voltage, angular frequency, time period, frequency and the rms (effective) voltage.</p>
+          <p>
+            An ac source is <Formula>{String.raw`V = 100 \sin(2\pi t)`}</Formula>. Find:
+          </p>
+          <ul>
+            <li>the peak voltage;</li>
+            <li>the angular frequency;</li>
+            <li>the time period;</li>
+            <li>the frequency;</li>
+            <li>the rms (effective) voltage.</li>
+          </ul>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p><strong>(a) Peak voltage</strong> — compare with <Formula>{String.raw`V = V_0 \sin \omega t`}</Formula>:</p>
@@ -398,9 +412,9 @@ export default function AlternatingCurrentChapter() {
       <FormulaBlock tag="Eq. 7.2" latex={String.raw`I = I_0 \sin \omega t`} important />
       <FormulaBlock tag="Eq. 7.3" label="Current amplitude" latex={String.raw`I_0 = \frac{V_0}{R}`} important />
       <p>
-        Equation (7.3) is <strong>Ohm&apos;s law</strong>, and for a resistor it works for ac exactly as it does for dc.
-        The two reach zero, minimum and maximum at the same instants, so the{" "}
-        <Highlight color="yellow">phase difference is zero</Highlight> — voltage and current are <strong>in phase</strong>.
+        Equation (7.3) is <strong>Ohm&apos;s law</strong>, and for a resistor ac behaves exactly like dc. The two curves
+        cross zero together and peak together, so the <Highlight color="yellow">phase difference is zero</Highlight> —
+        voltage and current are <strong>in phase</strong>.
       </p>
 
       <div className="my-6 grid gap-4 sm:grid-cols-2 [&>figure]:my-0">
@@ -460,13 +474,22 @@ export default function AlternatingCurrentChapter() {
       <FormulaBlock tag="Eq. 7.9" latex={String.raw`V = I R`} important />
 
       <h2 id="h-7-3">7.3 Representation of AC Current and Voltage by Rotating Vectors — Phasors</h2>
-      <p>The current through a resistor is in phase with the ac voltage — but that is not so for an inductor, a capacitor, or a combination of these elements. To show the phase relationship between voltage and current in an ac circuit, we use the notion of <strong>phasors</strong>.</p>
+      <p>Current through a resistor is in phase with the ac voltage. Not so for an inductor or a capacitor — which is why ac circuits need <strong>phasors</strong>: vectors that show phase at a glance.</p>
       <Callout type="important" title="Phasor (definition)">
         <p>
-          A <strong>phasor</strong> is a vector which rotates about the origin with angular speed ω. The{" "}<strong>vertical components</strong> of phasors V and I represent the sinusoidally varying quantities v and i.
-          The{" "}<strong>magnitudes</strong> of phasors V and I represent the amplitudes or the peak values{" "}<Formula>{String.raw`V_0`}</Formula> and <Formula>{String.raw`I_0`}</Formula> of these oscillating
-          quantities.
+          A <strong>phasor</strong> is a vector rotating about the origin at angular speed{" "}
+          <Formula>{String.raw`\omega`}</Formula>. Two features carry the physics:
         </p>
+        <ul>
+          <li>
+            <strong>Vertical component</strong> → the instantaneous value (<Formula>{String.raw`v`}</Formula>,{" "}
+            <Formula>{String.raw`i`}</Formula>).
+          </li>
+          <li>
+            <strong>Length</strong> → the peak value (<Formula>{String.raw`V_0`}</Formula>,{" "}
+            <Formula>{String.raw`I_0`}</Formula>).
+          </li>
+        </ul>
       </Callout>
 
       <h2 id="h-7-4">7.4 AC Voltage Applied to an Inductor</h2>
@@ -991,8 +1014,8 @@ export default function AlternatingCurrentChapter() {
           important
         />
         <p>
-          Energy is stored in the electric field during one quarter-cycle and returned to the source in the next, so
-          nothing is dissipated — an ideal capacitor, unlike a resistor, consumes no net power.
+          Energy is stored in the electric field for a quarter-cycle and returned in the next, so nothing is
+          dissipated: an ideal capacitor consumes no net power.
         </p>
       </Expandable>
 
@@ -1036,7 +1059,14 @@ export default function AlternatingCurrentChapter() {
       </Expandable>
 
       <Expandable title="Example 7.3 — A lamp in series with a capacitor: dc versus ac" variant="example">
-        <ProblemSolution.Problem><p>A lamp is connected in series with a capacitor. Predict your observations for dc and ac connections. What happens in each case if the capacitance of the capacitor is reduced?</p></ProblemSolution.Problem>
+        <ProblemSolution.Problem>
+          <p>A lamp is connected in series with a capacitor. Predict what you observe in each case:</p>
+          <ul>
+            <li>a dc source;</li>
+            <li>an ac source;</li>
+            <li>an ac source with the capacitance reduced.</li>
+          </ul>
+        </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p><strong>Dc source:</strong> the capacitor gets charged and, after charging, no current flows in the circuit — the lamp will not glow. There is no change even if C is reduced.</p>
           <p><strong>Ac source:</strong> the capacitor offers capacitative reactance <Formula>{String.raw`1/\omega C`}</Formula> and current flows in the circuit, so the lamp shines.</p>
@@ -1045,7 +1075,14 @@ export default function AlternatingCurrentChapter() {
       </Expandable>
 
       <Expandable title="Example 7.4 — Capacitive reactance and current at 50 Hz" variant="example">
-        <ProblemSolution.Problem><p>A 15.0 μF capacitor is connected to a 220 V, 50 Hz source. Find the capacitive reactance and the current (rms and peak) in the circuit. If the frequency is doubled, what happens to the capacitive reactance and the current?</p></ProblemSolution.Problem>
+        <ProblemSolution.Problem>
+          <p>A 15.0 μF capacitor is connected to a 220 V, 50 Hz source. Find:</p>
+          <ul>
+            <li>the capacitive reactance;</li>
+            <li>the rms and peak current;</li>
+            <li>what doubling the frequency does to each.</li>
+          </ul>
+        </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p>The capacitive reactance is</p>
           <FormulaBlock latex={String.raw`X_C = \frac{1}{2\pi\nu C} = \frac{1}{2\pi(50\ \text{Hz})(15.0\times 10^{-6}\ \text{F})} = 212\ \Omega`} important />
@@ -1059,20 +1096,45 @@ export default function AlternatingCurrentChapter() {
       </Expandable>
 
       <Expandable title="Example 7.5 — Inserting an iron rod into a coil in series with a bulb" variant="example">
-        <ProblemSolution.Problem><p>A light bulb and an open coil inductor are connected to an ac source through a key. The switch is closed and after some time an iron rod is inserted into the interior of the inductor. Does the glow of the bulb (a) increase, (b) decrease, or (c) stay unchanged? Give reasons.</p></ProblemSolution.Problem>
+        <ProblemSolution.Problem>
+          <p>
+            A light bulb and an open coil inductor are connected to an ac source through a key. After the switch is
+            closed, an iron rod is inserted into the coil.
+          </p>
+          <p>What happens to the glow of the bulb?</p>
+          <ul>
+            <li>(a) it increases;</li>
+            <li>(b) it decreases;</li>
+            <li>(c) it stays unchanged.</li>
+          </ul>
+          <p>Give reasons.</p>
+        </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>As the iron rod is inserted, the magnetic field inside the coil magnetises the iron, increasing the magnetic field inside it. Hence the inductance of the coil increases, and consequently its inductive reactance <Formula>{String.raw`X_L = \omega L`}</Formula> increases.</p>
+          <p>
+            The iron rod magnetises, so the field inside the coil strengthens and the inductance{" "}
+            <Formula>{String.raw`L`}</Formula> rises. Its reactance{" "}
+            <Formula>{String.raw`X_L = \omega L`}</Formula> rises with it.
+          </p>
           <p>A larger fraction of the applied ac voltage therefore appears across the inductor, leaving less voltage across the bulb — so <Highlight color="yellow">the glow of the bulb decreases</Highlight> (option b).</p>
         </ProblemSolution.Solution>
       </Expandable>
       <h2 id="h-7-6">7.6 AC Voltage Applied to a Series LCR Circuit</h2>
-      <p>A resistor, an inductor and a capacitor are connected in series to an ac source, with{" "}<Formula>{String.raw`v = V_0\sin\omega t`}</Formula>. If q is the charge on the capacitor and i the current at time t, Kirchhoff&apos;s loop rule gives:</p>
+      <p>
+        R, L and C in series across an ac source <Formula>{String.raw`v = V_0\sin\omega t`}</Formula>. With charge{" "}
+        <Formula>{String.raw`q`}</Formula> on the capacitor and current{" "}
+        <Formula>{String.raw`i`}</Formula> at time t, Kirchhoff&apos;s loop rule gives:
+      </p>
       <FormulaBlock tag="Eq. 7.20" latex={String.raw`L\frac{\mathrm{d}i}{\mathrm{d}t} + iR + \frac{q}{C} = v`} important />
 
       <h3 id="h-7-6-1">7.6.1 Phasor-diagram solution</h3>
       <p>The three elements are in series, so the <strong>current is the same in each at any time</strong> — same amplitude and same phase:</p>
       <FormulaBlock tag="Eq. 7.21" latex={String.raw`i = I_0\sin(\omega t + \phi)`} />
-      <p>where <Formula>{String.raw`\phi`}</Formula> is the phase difference between the voltage across the source and the current in the circuit. Let I be the phasor of this current, and{" "}<Formula>{String.raw`\mathbf{V}_L`}</Formula>, <Formula>{String.raw`\mathbf{V}_R`}</Formula>,{" "}<Formula>{String.raw`\mathbf{V}_C`}</Formula> the phasors of the element voltages. Then:</p>
+      <p>
+        where <Formula>{String.raw`\phi`}</Formula> is the phase difference between source voltage and current. The
+        element phasors are <Formula>{String.raw`\mathbf{V}_R`}</Formula>,{" "}
+        <Formula>{String.raw`\mathbf{V}_L`}</Formula> and <Formula>{String.raw`\mathbf{V}_C`}</Formula>; their phasor
+        sum is the source voltage <Formula>{String.raw`\mathbf{V}`}</Formula>.
+      </p>
       <Stepper
         steps={[
           { label: "V_R is parallel to I", description: "The resistor voltage is in phase with the current." },
@@ -1101,32 +1163,79 @@ export default function AlternatingCurrentChapter() {
         <li>If <Formula>{String.raw`X_C > X_L`}</Formula>, φ is <strong>positive</strong> and the circuit is predominantly <strong>capacitive</strong> — the current <em>leads</em> the source voltage.</li>
         <li>If <Formula>{String.raw`X_C < X_L`}</Formula>, φ is <strong>negative</strong> and the circuit is predominantly <strong>inductive</strong> — the current <em>lags</em> the source voltage.</li>
       </ul>
+
+      <TableCard
+        title="Textbook figures 7.10–7.13"
+        headers={["Figure", "What it shows"]}
+        rows={[
+          {
+            cells: [
+              "7.10 — Series LCR circuit",
+              "ac source, R, L and C in one loop; the same current i flows through all three at every instant.",
+            ],
+          },
+          {
+            cells: [
+              "7.11 — Phasors, X_C > X_L",
+              "V_R along I, V_C below it and longer than V_L; V closes the triangle and lags I.",
+            ],
+          },
+          {
+            cells: [
+              "7.12 — Impedance triangle",
+              "The same triangle divided by I₀: R along the current, (X_C − X_L) across it, Z as hypotenuse.",
+            ],
+          },
+          {
+            cells: [
+              "7.13 — Phasors and waveforms",
+              "(a) V and I separated by φ; (b) the same offset drawn as the two sinusoids against ωt.",
+            ],
+          },
+        ]}
+        caption="The book's own drawings for this section — each number still points at the printed page."
+      />
+
       <Callout type="note" title="What the phasor solution does and does not give">
         <p>
-          The phasor diagram says nothing about the initial condition: one can take any arbitrary value of t and draw the phasors, which only show the relative angle between them. The solution obtained is
-          the{" "}<strong>steady-state solution</strong>, not a general solution. A <strong>transient solution</strong> also exists, even for <Formula>{String.raw`v = 0`}</Formula>; the general solution is the sum of the
-          two, and after a sufficiently long time the transient dies out.
+          The phasors show only the <strong>relative angle</strong> between V and I — any t may be chosen to draw them.
+          Two consequences follow:
         </p>
+        <ul>
+          <li>
+            <strong>It gives the steady state.</strong> The solution is not general.
+          </li>
+          <li>
+            <strong>It omits the transient.</strong> A transient solution exists even for{" "}
+            <Formula>{String.raw`v = 0`}</Formula>; the true solution is the sum of both, and the transient dies out
+            after a long enough time.
+          </li>
+        </ul>
       </Callout>
 
       <h3 id="h-7-6-2">7.6.2 Resonance</h3>
       <Callout type="important" title="Resonance and natural frequency">
-        <p>The phenomenon of <strong>resonance</strong> is common among systems that have a tendency to oscillate at a particular frequency. This frequency is called the system&apos;s <strong>natural frequency</strong>. If such a system is driven by an energy source at a frequency that is near the natural frequency, the amplitude of oscillation is found to be large.</p>
+        <p>
+          Any system that tends to oscillate has a <strong>natural frequency</strong>. Drive it at a frequency near
+          that value and the amplitude of oscillation becomes large — that is <strong>resonance</strong>.
+        </p>
       </Callout>
       <p>A familiar example is a child on a swing: if the child pulls on the rope at regular intervals and the frequency of the pulls is almost the same as the frequency of swinging, the amplitude of the swinging will be large.</p>
       <p>
-        For the driven series RLC circuit, <Formula>{String.raw`I_0 = V_0/Z`}</Formula> with{" "}<Formula>{String.raw`X_C = 1/\omega C`}</Formula> and <Formula>{String.raw`X_L = \omega L`}</Formula>. If ω is varied, then
-        at a particular frequency <Formula>{String.raw`\omega_0`}</Formula>,{" "}<Formula>{String.raw`X_C = X_L`}</Formula> and the impedance is minimum,{" "}<Formula>{String.raw`Z = \sqrt{R^2 + 0} = R`}</Formula>. This
-        frequency is the{" "}<strong>resonant frequency</strong>:
+        For the driven series RLC circuit, <Formula>{String.raw`I_0 = V_0/Z`}</Formula> with{" "}
+        <Formula>{String.raw`X_C = 1/\omega C`}</Formula> and <Formula>{String.raw`X_L = \omega L`}</Formula>. Vary ω
+        and at one frequency <Formula>{String.raw`\omega_0`}</Formula> the two reactances cancel —{" "}
+        <Formula>{String.raw`X_C = X_L`}</Formula> — so the impedance bottoms out at{" "}
+        <Formula>{String.raw`Z = \sqrt{R^2 + 0} = R`}</Formula>.
       </p>
+      <p>That frequency is the <strong>resonant frequency</strong>:</p>
       <FormulaBlock tag="Eq. 7.28" label="Resonant frequency" latex={String.raw`\omega_0 = \frac{1}{\sqrt{LC}}`} important />
       <p>At the resonant frequency the current amplitude is maximum,{" "}<Formula>{String.raw`I_0 = V_0/R`}</Formula>.</p>
       <ResonanceCurve />
-      <p>The figure uses L = 1.00 mH, C = 1.00 nF and <Formula>{String.raw`V_0 = 100\ \text{V}`}</Formula> for two values of R: (i) 100 Ω and (ii) 200 Ω. Here{" "}<Formula>{String.raw`\omega_0 = 1/\sqrt{LC} = 1.00\times 10^{6}\ \text{rad/s}`}</Formula>. Since{" "}<Formula>{String.raw`I_0 = V_0/R`}</Formula> at resonance, the peak for case (i) is twice that for case (ii).</p>
       <p>
-        Resonant circuits have a variety of applications — for example in the tuning mechanism of a radio or a TV set. The antenna accepts signals from many broadcasting stations, which act as a source that can drive the
-        tuning circuit at many frequencies. To hear one particular station we vary the capacitance of the tuning circuit so that its resonant frequency becomes nearly equal to the frequency of that signal; the amplitude
-        of the current at that frequency is then maximum.
+        A radio&apos;s tuning circuit is a resonant LCR loop. The aerial feeds it every station at once — but only the
+        station whose frequency matches <Formula>{String.raw`\nu_0`}</Formula> drives a maximum current amplitude, so
+        tuning the capacitor selects it.
       </p>
       <KeyPoint title="Resonance needs both L and C">
         Resonance is exhibited only if <Highlight color="yellow">both L and C are present</Highlight>: only then do the
@@ -1139,7 +1248,18 @@ export default function AlternatingCurrentChapter() {
       <p>The same frequency appears again in free oscillations. A charged capacitor connected across an inductor forms a loop in which the charge oscillates at <Formula>{String.raw`\omega_0 = 1/\sqrt{LC}`}</Formula> — the angular frequency of free oscillations (Exercise 7.6), the same frequency at which the series LCR circuit resonates.</p>
 
       <Expandable title="Example 7.6 — An RC series circuit: current, voltages and the paradox" variant="example">
-        <ProblemSolution.Problem><p>A resistor of 200 Ω and a capacitor of 15.0 μF are connected in series to a 220 V, 50 Hz ac source. (a) Calculate the current in the circuit. (b) Calculate the voltage (rms) across the resistor and the capacitor. Is the algebraic sum of these voltages more than the source voltage? If yes, resolve the paradox.</p></ProblemSolution.Problem>
+        <ProblemSolution.Problem>
+          <p>
+            A resistor of 200 Ω and a capacitor of 15.0 μF are connected in series to a 220 V, 50 Hz ac source. Find:
+          </p>
+          <ul>
+            <li>(a) the current in the circuit;</li>
+            <li>(b) the rms voltage across the resistor and across the capacitor.</li>
+          </ul>
+          <p>
+            Is the algebraic sum of those voltages more than the source voltage? If so, resolve the paradox.
+          </p>
+        </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p><strong>Given:</strong> <Formula>{String.raw`R = 200\ \Omega`}</Formula>, <Formula>{String.raw`C = 15.0\ \mu\text{F} = 15.0\times 10^{-6}\ \text{F}`}</Formula>, <Formula>{String.raw`V = 220\ \text{V}`}</Formula>, <Formula>{String.raw`\nu = 50\ \text{Hz}`}</Formula>.</p>
           <p><strong>(a)</strong> To calculate the current we need the impedance of the circuit:</p>
@@ -1179,15 +1299,25 @@ export default function AlternatingCurrentChapter() {
       <PowerFactorDiagram />
 
       <Expandable title="Example 7.7 — Low power factor, and how a capacitor improves it" variant="example">
-        <ProblemSolution.Problem><p>(a) For circuits used for transporting electric power, a low power factor implies large power loss in transmission. Explain. (b) Power factor can often be improved by the use of a capacitor of appropriate capacitance in the circuit. Explain.</p></ProblemSolution.Problem>
+        <ProblemSolution.Problem>
+          <p>Answer both parts:</p>
+          <ul>
+            <li>
+              <strong>(a)</strong> A low power factor implies large power loss in transmission. Explain.
+            </li>
+            <li>
+              <strong>(b)</strong> A capacitor of suitable capacitance can raise the power factor. Explain.
+            </li>
+          </ul>
+        </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p><strong>(a)</strong> We know that <Formula>{String.raw`P = I V\cos\phi`}</Formula>, where{" "}
           <Formula>{String.raw`\cos\phi`}</Formula> is the power factor. To supply a given power at a given voltage, if{" "}
           <Formula>{String.raw`\cos\phi`}</Formula> is small we must increase the current accordingly — and that leads to a
           large power loss <Formula>{String.raw`I^2R`}</Formula> in transmission.</p>
-          <p><strong>(b)</strong> Suppose the current I lags the voltage by an angle φ. Then{" "}
-          <Formula>{String.raw`\cos\phi = R/Z`}</Formula>. We can improve the power factor (tending to 1) by making Z tend to
-          R. Resolve I into two components:</p>
+          <p><strong>(b)</strong> Take a current lagging the voltage by φ, so{" "}
+          <Formula>{String.raw`\cos\phi = R/Z`}</Formula> — the power factor tends to 1 as Z tends to R. Resolve I
+          into two components:</p>
           <ul>
             <li><Formula>{String.raw`I_p`}</Formula> along the applied voltage V — the <strong>power component</strong>, in phase with V, corresponding to the power loss.</li>
             <li><Formula>{String.raw`I_q`}</Formula> perpendicular to V — the <strong>wattless component</strong>, for which there is no power loss.</li>
@@ -1201,7 +1331,19 @@ export default function AlternatingCurrentChapter() {
       </Expandable>
 
       <Expandable title="Example 7.8 — Impedance, phase, power and power factor of an LCR circuit" variant="example">
-        <ProblemSolution.Problem><p>A sinusoidal voltage of peak value 283 V and frequency 50 Hz is applied to a series LCR circuit in which R = 3 Ω, L = 25.48 mH and C = 796 μF. Find (a) the impedance of the circuit; (b) the phase difference between the voltage across the source and the current; (c) the power dissipated in the circuit; and (d) the power factor.</p></ProblemSolution.Problem>
+        <ProblemSolution.Problem>
+          <p>
+            A sinusoidal voltage of peak value 283 V and frequency 50 Hz is applied to a series LCR circuit in which{" "}
+            <Formula>{String.raw`R = 3\ \Omega`}</Formula>, <Formula>{String.raw`L = 25.48\ \text{mH}`}</Formula> and{" "}
+            <Formula>{String.raw`C = 796\ \mu\text{F}`}</Formula>. Find:
+          </p>
+          <ul>
+            <li>(a) the impedance of the circuit;</li>
+            <li>(b) the phase difference between source voltage and current;</li>
+            <li>(c) the power dissipated;</li>
+            <li>(d) the power factor.</li>
+          </ul>
+        </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p><strong>(a)</strong> First calculate <Formula>{String.raw`X_L`}</Formula> and <Formula>{String.raw`X_C`}</Formula>:</p>
           <FormulaBlock latex={String.raw`X_L = 2\pi\nu L = 2 \times 3.14 \times 50 \times 25.48 \times 10^{-3}\ \Omega = 8\ \Omega`} />
@@ -1220,7 +1362,13 @@ export default function AlternatingCurrentChapter() {
       </Expandable>
 
       <Expandable title="Example 7.9 — Varying the frequency to reach resonance" variant="example">
-        <ProblemSolution.Problem><p>Suppose the frequency of the source in the previous example can be varied. (a) What is the frequency of the source at which resonance occurs? (b) Calculate the impedance, the current, and the power dissipated at the resonant condition.</p></ProblemSolution.Problem>
+        <ProblemSolution.Problem>
+          <p>Let the source of Example 7.8 vary in frequency. Find:</p>
+          <ul>
+            <li>(a) the frequency at which resonance occurs;</li>
+            <li>(b) the impedance, the current and the power dissipated at resonance.</li>
+          </ul>
+        </ProblemSolution.Problem>
         <ProblemSolution.Solution>
           <p><strong>(a)</strong> The frequency at which resonance occurs is</p>
           <FormulaBlock latex={String.raw`\omega_0 = \frac{1}{\sqrt{LC}} = \frac{1}{\sqrt{25.48 \times 10^{-3} \times 796 \times 10^{-6}}} = 222.1\ \text{rad/s}`} />
@@ -1236,9 +1384,17 @@ export default function AlternatingCurrentChapter() {
       </Expandable>
 
       <Expandable title="Example 7.10 — The airport metal detector" variant="example">
-        <ProblemSolution.Problem><p>At an airport, a person is made to walk through the doorway of a metal detector. If she or he is carrying anything made of metal, the detector emits a sound. On what principle does this detector work?</p></ProblemSolution.Problem>
+        <ProblemSolution.Problem>
+          <p>
+            At an airport, a person walks through the doorway of a metal detector. Carrying metal makes it sound — on
+            what principle does the detector work?
+          </p>
+        </ProblemSolution.Problem>
         <ProblemSolution.Solution>
-          <p>The metal detector works on the principle of <Highlight color="yellow">resonance in ac circuits</Highlight>. Walking through the doorway means walking through a coil of many turns. The coil is connected to a capacitor tuned so that the circuit is in resonance.</p>
+          <p>
+            It works on <Highlight color="yellow">resonance in ac circuits</Highlight>. The doorway is a coil of many
+            turns, connected to a capacitor tuned so that the circuit resonates.
+          </p>
           <p>Carrying metal changes the impedance of the circuit, producing a significant change in the current. That change is detected by the electronic circuitry, which causes a sound to be emitted as an alarm.</p>
         </ProblemSolution.Solution>
       </Expandable>
@@ -1519,9 +1675,9 @@ export default function AlternatingCurrentChapter() {
         <p>For many purposes, it is necessary to change (or transform) an alternating voltage from one to another of greater or smaller value. This is done with a device called a <strong>transformer</strong>, using the principle of{" "}<strong>mutual induction</strong>.</p>
       </Callout>
       <p>
-        A transformer consists of two sets of coils, insulated from each other, wound on a <strong>soft-iron core</strong> — either one on top of the other or on separate limbs of the core. One coil, the
-        <strong>primary</strong>, has{" "}<Formula>{String.raw`N_p`}</Formula> turns; the other, the <strong>secondary</strong>, has{" "}<Formula>{String.raw`N_s`}</Formula> turns. The primary is the input coil, the
-        secondary the output coil.
+        A transformer is two insulated coils on a <strong>soft-iron core</strong> — one on top of the other, or on
+        separate limbs. The <strong>primary</strong> (<Formula>{String.raw`N_p`}</Formula> turns) is the input coil and
+        the <strong>secondary</strong> (<Formula>{String.raw`N_s`}</Formula> turns) is the output.
       </p>
       <p>When an alternating voltage is applied to the primary, the resulting current produces an alternating magnetic flux which links the secondary and induces an emf in it. The value of this emf depends on the number of turns in the secondary.</p>
       <TransformerDiagram />

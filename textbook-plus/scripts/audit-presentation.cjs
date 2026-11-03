@@ -63,7 +63,7 @@ function stripTags(text) {
 }
 
 const ABBREVIATIONS =
-  /\b(?:e\.g|i\.e|etc|fig|figs|no|nos|vs|cf|approx|dr|mr|mrs|ms|st|sp|spp|var|al|ed|eds|vol|pp|ca|resp|inc|ltd)\./gi;
+  /\b(?:e\.g|i\.e|etc|fig|figs|eq|eqs|sec|chs?|no|nos|vs|cf|approx|dr|mr|mrs|ms|st|sp|spp|var|al|ed|eds|vol|pp|ca|resp|inc|ltd)\./gi;
 
 function countSentences(text) {
   const cleaned = text

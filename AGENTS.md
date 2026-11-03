@@ -86,6 +86,7 @@ Component categories (under `src/components/content/`): Core (top level), `data/
 
 ## Content Preferences (must follow)
 
+- **Note-writing methodology (`USER_PREFERENCES.md` §11.4)** — compress the language, not the understanding: one idea per block, bold lead phrase per bullet, ≤2 sentences per paragraph, every enumeration becomes a list/`TableCard`/`Comparison`/`Stepper`, no "etc.", no private symbols, highlight only laws. `npm run verify:presentation -- --chapter <slug>` must be clean on any chapter being reworked (repo-wide it is not: 571 errors / 987 warnings as of Nov 2026).
 - **No Summary and no "Points to Ponder"** sections.
 - **Worked examples render collapsed** as `Expandable` (not expanded `Example`) — every sample, no exceptions; `Example` only inside an already-collapsed `Expandable`.
 - **Use `u` for initial velocity** (not `v_0`); components `u_x = u cosθ`, `u_y = u sinθ`.
@@ -125,7 +126,7 @@ Push whole batches, not individual tweaks. A batch = any coherent unit (section 
 
 ## References
 
-- `Constitution/USER_PREFERENCES.md` §11 (content prefs), §12 (content-component design system + gallery), §13 (shell).
+- `Constitution/USER_PREFERENCES.md` §11 (content prefs), §11.4 (note-writing methodology — the law for every note), §12 (content-component design system + gallery), §13 (shell).
 - `Constitution/CONTENT_PLAYBOOK.md` — ten laws + pre/post-flight checklists.
 - `Pipeline/CHAPTER_PIPELINE.md` + `Pipeline/PIPELINE_{SUBJECT}.md`.
 - Component gallery at `/dev/design` (`src/app/dev/design/page.tsx`).
