@@ -26,7 +26,6 @@ const QUESTION_KEYS = new Set([
   "electromagnetic-induction",
   "alternating-current",
   "electromagnetic-waves",
-  "ray-optics-and-optical-instruments",
   "wave-optics",
   "dual-nature-of-radiation-and-matter",
   "atoms",
@@ -89,8 +88,6 @@ const questionLoaders: Record<string, () => Promise<Question[]>> = {
     import("@/content/physics/alternating-current/questions.json").then((m) => m.default as Question[]),
   "electromagnetic-waves": () =>
     import("@/content/physics/electromagnetic-waves/questions.json").then((m) => m.default as Question[]),
-  "ray-optics-and-optical-instruments": () =>
-    import("@/content/physics/ray-optics-and-optical-instruments/questions.json").then((m) => m.default as Question[]),
   "wave-optics": () =>
     import("@/content/physics/wave-optics/questions.json").then((m) => m.default as Question[]),
   "dual-nature-of-radiation-and-matter": () =>
@@ -168,8 +165,6 @@ const flashcardLoaders: Record<string, () => Promise<Flashcard[]>> = {
     import("@/content/physics/alternating-current/flashcards.json").then((m) => m.default as Flashcard[]),
   "electromagnetic-waves": () =>
     import("@/content/physics/electromagnetic-waves/flashcards.json").then((m) => m.default as Flashcard[]),
-  "ray-optics-and-optical-instruments": () =>
-    import("@/content/physics/ray-optics-and-optical-instruments/flashcards.json").then((m) => m.default as Flashcard[]),
   "wave-optics": () =>
     import("@/content/physics/wave-optics/flashcards.json").then((m) => m.default as Flashcard[]),
   "dual-nature-of-radiation-and-matter": () =>
