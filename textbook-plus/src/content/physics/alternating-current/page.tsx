@@ -5,7 +5,6 @@ import { Highlight } from "@/components/content/Highlight";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
-import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Stepper } from "@/components/content/Stepper";
@@ -1459,89 +1458,190 @@ export default function AlternatingCurrentChapter() {
         </ProblemSolution.Solution>
       </Expandable>
       <h2 id="h-7-8">7.8 Transformers</h2>
-      <Callout type="important" title="Transformer (definition)">
-        <p>For many purposes, it is necessary to change (or transform) an alternating voltage from one to another of greater or smaller value. This is done with a device called a <strong>transformer</strong>, using the principle of{" "}<strong>mutual induction</strong>.</p>
+      <Callout type="important" title="Transformer">
+        <p>
+          A <strong>transformer</strong> raises or lowers an alternating voltage. It works on{" "}
+          <strong>mutual induction</strong>.
+        </p>
       </Callout>
-      <p>
-        A transformer is two insulated coils on a <strong>soft-iron core</strong> — one on top of the other, or on
-        separate limbs. The <strong>primary</strong> (<Formula>{String.raw`N_p`}</Formula> turns) is the input coil and
-        the <strong>secondary</strong> (<Formula>{String.raw`N_s`}</Formula> turns) is the output.
-      </p>
-      <p>When an alternating voltage is applied to the primary, the resulting current produces an alternating magnetic flux which links the secondary and induces an emf in it. The value of this emf depends on the number of turns in the secondary.</p>
-      <TransformerDiagram />
-      <p>Consider an <strong>ideal transformer</strong>: the primary has negligible resistance and all the flux in the core links both windings. If <Formula>{String.raw`\Phi`}</Formula> is the flux in each turn at time t due to the primary current, the induced emf in the secondary is:</p>
-      <FormulaBlock tag="Eq. 7.31" latex={String.raw`\varepsilon_s = -N_s\frac{\mathrm{d}\Phi}{\mathrm{d}t}`} />
-      <p>The alternating flux also induces an emf, called <strong>back emf</strong>, in the primary:</p>
-      <FormulaBlock tag="Eq. 7.32" latex={String.raw`\varepsilon_p = -N_p\frac{\mathrm{d}\Phi}{\mathrm{d}t}`} />
-      <p>But <Formula>{String.raw`\varepsilon_p = v_p`}</Formula>: if this were not so, the primary current would be infinite, since the primary has zero resistance. If the secondary is an open circuit or the current taken from it is small, then to a good approximation <Formula>{String.raw`\varepsilon_s = v_s`}</Formula>. Hence:</p>
-      <FormulaBlock tag="Eq. 7.33" latex={String.raw`\frac{v_s}{v_p} = \frac{N_s}{N_p}`} important />
-      <Callout type="note" title="Three assumptions behind Eq. (7.33)">
-        <p>(i) The primary resistance and current are small.</p>
-        <p>(ii) The same flux links both primary and secondary, as very little flux escapes from the core.</p>
-        <p>(iii) The secondary current is small.</p>
-      </Callout>
-      <p>If the transformer is assumed 100% efficient (no energy losses), the power input equals the power output, and since{" "}<Formula>{String.raw`p = iv`}</Formula>:</p>
-      <FormulaBlock tag="Eq. 7.34" latex={String.raw`i_p v_p = i_s v_s`} />
-      <p>Some energy is always lost, but this is a good approximation — a well-designed transformer may have an efficiency of more than 95%. Combining the last two equations:</p>
-      <FormulaBlock tag="Eq. 7.35" latex={String.raw`\frac{i_p}{i_s} = \frac{v_s}{v_p} = \frac{N_s}{N_p}`} important />
-      <p>Since i and v both oscillate with the same frequency as the ac source, this also gives the ratio of the amplitudes or rms values of the corresponding quantities:</p>
-      <FormulaBlock tag="Eq. 7.36" latex={String.raw`V_s = \left(\frac{N_s}{N_p}\right)V_p \qquad\text{and}\qquad I_s = \left(\frac{N_p}{N_s}\right)I_p`} important />
+
+      <h3 id="h-7-8-build">Construction and working</h3>
+      <p>Two insulated coils share one laminated soft-iron core — wound one over the other, or on separate limbs:</p>
       <ul>
         <li>
-          If <Formula>{String.raw`N_s > N_p`}</Formula> the voltage is <strong>stepped up</strong>{" "}
-          (<Formula>{String.raw`V_s > V_p`}</Formula>) — a <strong>step-up transformer</strong>. In this arrangement there is{" "}
-          <em>less</em> current in the secondary than in the primary.
+          <strong>Primary</strong> — <Formula>{String.raw`N_p`}</Formula> turns, input voltage{" "}
+          <Formula>{String.raw`V_p`}</Formula>.
         </li>
         <li>
-          If <Formula>{String.raw`N_s < N_p`}</Formula> the voltage is <strong>stepped down</strong> — a{" "}
-          <strong>step-down transformer</strong>. Here <Formula>{String.raw`V_s < V_p`}</Formula> and{" "}
-          <Formula>{String.raw`I_s > I_p`}</Formula>: the voltage is reduced and the current is increased.
+          <strong>Secondary</strong> — <Formula>{String.raw`N_s`}</Formula> turns, output voltage{" "}
+          <Formula>{String.raw`V_s`}</Formula>.
         </li>
       </ul>
-      <p className="text-sm text-muted-foreground">For example, if the primary coil has 100 turns and the secondary 200 turns,{" "}<Formula>{String.raw`N_s/N_p = 2`}</Formula> and <Formula>{String.raw`N_p/N_s = 1/2`}</Formula>. A 220 V input at 10 A steps up to a 440 V output at 5.0 A.</p>
+      <p>
+        An alternating voltage on the primary drives an alternating current, which sets up a changing magnetic flux in
+        the core. That flux links the secondary, and by mutual induction an emf appears across it.
+      </p>
+      <p>
+        How large the induced emf is depends on one thing: the number of turns in the secondary.
+      </p>
+      <TransformerDiagram />
+
+      <h3 id="h-7-8-ideal">Ideal transformer equations</h3>
+      <p>
+        Let <Formula>{String.raw`\Phi`}</Formula> be the flux in each turn. Faraday&apos;s law gives the emf in the two
+        coils:
+      </p>
+      <FormulaBlock tag="Eq. 7.31" latex={String.raw`\varepsilon_s = -N_s\frac{\mathrm{d}\Phi}{\mathrm{d}t}`} />
+      <FormulaBlock tag="Eq. 7.32" latex={String.raw`\varepsilon_p = -N_p\frac{\mathrm{d}\Phi}{\mathrm{d}t}`} />
+      <p>
+        For an ideal transformer <Formula>{String.raw`\varepsilon_p = V_p`}</Formula> and{" "}
+        <Formula>{String.raw`\varepsilon_s = V_s`}</Formula>, so the turns ratio fixes the voltage ratio:
+      </p>
+      <FormulaBlock tag="Eq. 7.33" label="Voltage ratio" latex={String.raw`\frac{V_s}{V_p} = \frac{N_s}{N_p}`} important />
+      <p>
+        Ideal also means no losses: the power in equals the power out. Since <Formula>{String.raw`P = VI`}</Formula>:
+      </p>
+      <FormulaBlock tag="Eq. 7.34" latex={String.raw`I_p V_p = I_s V_s`} />
+      <FormulaBlock tag="Eq. 7.35" label="Transformer equation" latex={String.raw`\frac{V_s}{V_p} = \frac{N_s}{N_p} = \frac{I_p}{I_s}`} important />
+      <p>
+        The ratio holds for peak values and for rms values, because every quantity oscillates at the source frequency.
+      </p>
+
+      <h3 id="h-7-8-types">Step-up and step-down</h3>
       <TableCard
-        title="Energy losses in a real transformer"
-        caption="The equations above apply to ideal transformers. Real transformers lose energy in four ways, each with its own remedy."
-        headers={["Loss", "Cause", "Remedy"]}
+        title="Types of transformer"
+        caption="More turns on the secondary raise the voltage and lower the current; fewer turns do the reverse."
+        headers={["Type", "Turns", "Voltage", "Current", "Use"]}
         rows={[
-          { cells: ["Flux leakage", "Not all the flux due to the primary passes through the secondary, because of poor core design or air gaps", "Wind the primary and secondary coils one over the other"] },
-          { cells: ["Resistance of windings", "The winding wire has resistance, so energy is lost as heat (I²R)", "Use thick wire, especially in high-current, low-voltage windings"] },
-          { cells: ["Eddy currents", "The alternating flux induces eddy currents in the iron core, causing heating", "Use a laminated core"] },
-          { cells: ["Hysteresis", "The magnetisation of the core is repeatedly reversed by the alternating field, and the energy spent appears as heat", "Use a magnetic material with low hysteresis loss"] },
+          { cells: ["Step-up", "N_s > N_p", "Steps up (V_s > V_p)", "Steps down (I_s < I_p)", "Generating station, long-distance transmission"] },
+          { cells: ["Step-down", "N_s < N_p", "Steps down (V_s < V_p)", "Steps up (I_s > I_p)", "Sub-stations, adapters, domestic supply"] },
+          { cells: ["Centre-tap", "Tapped secondary", "Splits into two equal halves", "Each half carries half", "Full-wave rectifier"] },
         ]}
-      />
-      <p>Large-scale transmission and distribution of electrical energy over long distances is done with transformers. The voltage output of the generator is <strong>stepped up</strong> so that the current — and hence the{" "}<Formula>{String.raw`I^2R`}</Formula> loss — is reduced; area and distributing sub-stations then step it down again before the supply reaches homes at about 240 V.</p>
-      <MistakeCard
-        mistake="Thinking a step-up transformer creates energy, since it turns a low voltage into a high voltage."
-        correction="Energy is conserved. A step-up transformer raises the voltage and reduces the current in exactly the same proportion, so the power i_p v_p = i_s v_s is unchanged (apart from small losses)."
       />
 
-      <h2 id="h-7-rev">Physical Quantities, Their Units and the Quality Factor</h2>
+      <Expandable title="Example 7.11 — Turns ratio: 500 turns in, 100 turns out" variant="example">
+        <ProblemSolution.Problem>
+          <p>
+            A transformer has <Formula>{String.raw`N_p = 500`}</Formula> and{" "}
+            <Formula>{String.raw`N_s = 100`}</Formula>.
+          </p>
+          <p>
+            The input voltage is <Formula>{String.raw`V_p = 220\ \text{V}`}</Formula>. Find the output voltage.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            <strong>Given:</strong> <Formula>{String.raw`N_p = 500`}</Formula>,{" "}
+            <Formula>{String.raw`N_s = 100`}</Formula>, <Formula>{String.raw`V_p = 220\ \text{V}`}</Formula>.
+          </p>
+          <FormulaBlock latex={String.raw`\frac{V_s}{V_p} = \frac{N_s}{N_p}`} />
+          <FormulaBlock latex={String.raw`\frac{V_s}{220} = \frac{100}{500}`} />
+          <FormulaBlock latex={String.raw`V_s = \frac{100 \times 220}{500} = \frac{220}{5} = 44\ \text{V}`} important />
+          <p>Fewer secondary turns, so the voltage steps down: a step-down transformer.</p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <h3 id="h-7-8-losses">Energy losses</h3>
+      <p>A real transformer is not 100% efficient. Energy escapes in four ways, each with its own remedy:</p>
       <TableCard
-        title="Physical quantities of ac circuits"
-        caption="The chapter's summary table of quantities, their dimensions, units and defining relations."
-        headers={["Quantity", "Symbol", "Dimensions", "Unit", "Remarks"]}
+        title="Losses and remedies"
+        headers={["Loss", "Cause", "Remedy"]}
         rows={[
-          { cells: ["rms voltage", "V", "[M L² T⁻³ A⁻¹]", "V", <>V = V_0/√2, where V<sub>0</sub> is the amplitude of the ac voltage</>] },
-          { cells: ["rms current", "I", "[A]", "A", <>I = I<sub>0</sub>/√2, where I<sub>0</sub> is the amplitude of the ac current</>] },
-          { cells: ["Inductive reactance", "X_L", "[M L² T⁻³ A⁻²]", "Ω", <>X<sub>L</sub> = ωL</>] },
-          { cells: ["Capacitive reactance", "X_C", "[M L² T⁻³ A⁻²]", "Ω", <>X<sub>C</sub> = 1/ωC</>] },
-          { cells: ["Impedance", "Z", "[M L² T⁻³ A⁻²]", "Ω", "Depends on the elements present in the circuit"] },
-          { cells: ["Resonant frequency", "ω_r or ω₀", "[T⁻¹]", "Hz", <>ω₀ = 1/√(LC) for a series RLC circuit</>] },
-          { cells: ["Quality factor", "Q", "Dimensionless", "—", <>Q = ω₀L/R = 1/(ω₀CR) for a series RLC circuit</>] },
-          { cells: ["Power factor", "cos φ", "Dimensionless", "—", "φ is the angle by which the source voltage leads the current"] },
+          { cells: ["Flux leakage", "Not all the primary flux links the secondary", "Wind the coils one over the other"] },
+          { cells: ["Copper loss", "The winding wire has resistance, so I²R heat is produced", "Use thick, low-resistance wire"] },
+          { cells: ["Eddy currents", "The changing flux drives circulating currents in the core", "Use a laminated core"] },
+          { cells: ["Hysteresis", "The core is magnetised and reversed every cycle", "Use soft iron with a narrow hysteresis loop"] },
         ]}
       />
-      <div className="my-6 grid gap-4 sm:grid-cols-2 [&>div]:my-0">
-        <FormulaCard>
-          <p className="text-[0.75rem] font-medium text-muted-foreground">Impedance and phase</p>
-          <FormulaBlock latex={String.raw`Z = \sqrt{R^2 + \left(X_L - X_C\right)^2},\quad \tan\phi = \frac{X_L - X_C}{R}`} important />
-        </FormulaCard>
-        <FormulaCard>
-          <p className="text-[0.75rem] font-medium text-muted-foreground">Average power</p>
-          <FormulaBlock latex={String.raw`P = V I \cos\phi = I^2 R`} important />
-        </FormulaCard>
-      </div>
+
+      <h3 id="h-7-8-transmission">Role in power transmission</h3>
+      <p>
+        Generators step the voltage up before transmission. For a fixed power, a higher voltage means a smaller
+        current, so the <Formula>{String.raw`I^2R`}</Formula> loss in the cables falls.
+      </p>
+      <p>Sub-stations then step it down to 220–240 V for homes.</p>
+
+      <h3 id="h-7-8-mcq">Practice MCQs — transformer losses</h3>
+      <Expandable title="MCQ 1 — How does the thickness of the winding wire affect efficiency?" variant="exercise">
+        <ul className="list-none pl-0 space-y-1.5">
+          <li>A — Thicker wire reduces eddy-current losses</li>
+          <li>B — Thinner wire increases hysteresis losses</li>
+          <li>
+            <Highlight color="green">C — Thicker wire reduces copper losses ✓</Highlight>
+          </li>
+        </ul>
+        <p className="text-sm text-muted-foreground">
+          Copper loss is <Formula>{String.raw`I^2R`}</Formula> in the windings, so a thicker wire lowers R and the heat.
+          Eddy currents are fought with laminations, not wire thickness.
+        </p>
+      </Expandable>
+      <Expandable title="MCQ 2 — Which loss is due to the resistance of the winding wire?" variant="exercise">
+        <ul className="list-none pl-0 space-y-1.5">
+          <li>A — Hysteresis loss</li>
+          <li>B — Eddy-current loss</li>
+          <li>
+            <Highlight color="green">C — Copper loss ✓</Highlight>
+          </li>
+          <li>D — Flux leakage</li>
+        </ul>
+        <p className="text-sm text-muted-foreground">
+          The windings are copper; their resistance turns current into heat, which is the copper loss.
+        </p>
+      </Expandable>
+      <Expandable title="MCQ 3 — Which loss comes from the magnetic properties of the core?" variant="exercise">
+        <ul className="list-none pl-0 space-y-1.5">
+          <li>A — Copper loss</li>
+          <li>
+            <Highlight color="green">B — Hysteresis loss and eddy-current loss ✓</Highlight>
+          </li>
+          <li>C — Flux leakage</li>
+          <li>D — Voltage drop</li>
+        </ul>
+        <p className="text-sm text-muted-foreground">
+          Both arise inside the core: hysteresis from its repeated magnetisation, eddy currents from the changing flux
+          through it.
+        </p>
+      </Expandable>
+      <Expandable title="MCQ 4 — Which core design reduces hysteresis loss?" variant="exercise">
+        <ul className="list-none pl-0 space-y-1.5">
+          <li>A — A solid core</li>
+          <li>
+            <Highlight color="green">B — A laminated core ✓</Highlight>
+          </li>
+          <li>C — No core</li>
+          <li>D — A larger core</li>
+        </ul>
+        <p className="text-sm text-muted-foreground">
+          Strictly, hysteresis is cut by choosing a soft-iron core with a narrow hysteresis loop; laminations mainly
+          attack eddy currents. Of the choices given, B is the core treatment offered.
+        </p>
+      </Expandable>
+      <Expandable title="MCQ 5 — Which feature reduces eddy-current loss?" variant="exercise">
+        <ul className="list-none pl-0 space-y-1.5">
+          <li>A — Using thicker wires</li>
+          <li>
+            <Highlight color="green">B — Using laminated cores ✓</Highlight>
+          </li>
+          <li>C — Increasing the size of the core</li>
+          <li>D — Using a higher frequency</li>
+        </ul>
+        <p className="text-sm text-muted-foreground">
+          Laminations break up the paths available to the circulating eddy currents, so far less heat is generated.
+        </p>
+      </Expandable>
+      <Expandable title="MCQ 6 — How can copper loss be minimised?" variant="exercise">
+        <ul className="list-none pl-0 space-y-1.5">
+          <li>A — By using thinner wires</li>
+          <li>
+            <Highlight color="green">B — By using thicker wires ✓</Highlight>
+          </li>
+          <li>C — By increasing the voltage</li>
+          <li>D — By reducing the number of turns</li>
+        </ul>
+        <p className="text-sm text-muted-foreground">
+          A thicker wire has lower resistance, so the <Formula>{String.raw`I^2R`}</Formula> heat in the windings falls.
+        </p>
+      </Expandable>
 
       <h2 id="h-7-exercises">Back-of-Chapter Exercises</h2>
       <Expandable title="Exercises 7.1 – 7.8 with worked answers" variant="exercise">
