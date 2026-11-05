@@ -25,16 +25,6 @@ function Cell({ children }: { children: ReactNode }) {
   return <div className="w-44 max-w-44">{children}</div>;
 }
 
-function resonanceLine(r: number) {
-  const pts: string[] = [];
-  for (let i = 0; i <= 120; i++) {
-    const w = 0.4e6 + (i / 120) * 1.2e6;
-    const im = 100 / Math.sqrt(r * r + Math.pow(w * 1e-3 - 1 / (w * 1e-9), 2));
-    pts.push(`${(55 + (i / 120) * 320).toFixed(1)},${(190 - (im / 1.1) * 160).toFixed(1)}`);
-  }
-  return pts.join(" ");
-}
-
 function Figure({ title, caption, children }: { title: string; caption?: ReactNode; children: ReactNode }) {
   return (
     <figure className="my-6 overflow-hidden rounded-xl border border-border/40 bg-card">
@@ -51,31 +41,6 @@ function Figure({ title, caption, children }: { title: string; caption?: ReactNo
   );
 }
 
-function ResonanceCurve() {
-  return (
-    <Figure
-      title="Variation of current amplitude I_0 with ω"
-      caption="Fig. 7.14: L = 1.00 mH, C = 1.00 nF, V_0 = 100 V, and ω₀ = 1.00 × 10⁶ rad/s. For R = 100 Ω the peak is twice as high as for R = 200 Ω, because I_0 = V_0 / R at resonance."
-    >
-      <svg viewBox="0 0 400 235" className="w-full" role="img" aria-label="Resonance curves of current amplitude against angular frequency for two resistance values, peaking at the same resonant frequency">
-        <line x1="55" y1="20" x2="55" y2="190" stroke="var(--foreground)" strokeWidth="1.5" />
-        <line x1="55" y1="190" x2="380" y2="190" stroke="var(--foreground)" strokeWidth="1.5" />
-        <line x1="215" y1="190" x2="215" y2="30" stroke="var(--muted-foreground)" strokeDasharray="4 4" />
-        <polyline points={resonanceLine(100)} fill="none" stroke="#8b5cf6" strokeWidth="2.5" />
-        <polyline points={resonanceLine(200)} fill="none" stroke="#f59e0b" strokeWidth="2.5" />
-        <text x="46" y="26" textAnchor="end" fontSize="11" fontWeight="700" fill="var(--foreground)">i</text>
-        <text x="52" y="33" textAnchor="end" fontSize="8" fontWeight="700" fill="var(--foreground)">m</text>
-        <text x="366" y="184" textAnchor="end" fontSize="11" fill="var(--muted-foreground)">ω</text>
-        <text x="215" y="207" textAnchor="middle" fontSize="10" fill="var(--muted-foreground)">ω₀</text>
-        <text x="140" y="207" textAnchor="middle" fontSize="9" fill="var(--muted-foreground)">0.5ω₀</text>
-        <text x="295" y="207" textAnchor="middle" fontSize="9" fill="var(--muted-foreground)">1.5ω₀</text>
-        <text x="230" y="44" fontSize="10" fontWeight="700" fill="#8b5cf6">R = 100 Ω</text>
-        <text x="230" y="58" fontSize="10" fontWeight="700" fill="#f59e0b">R = 200 Ω</text>
-        <text x="58" y="182" fontSize="9" fill="var(--muted-foreground)">0</text>
-      </svg>
-    </Figure>
-  );
-}
 function PowerFactorDiagram() {
   const ox = 54;
   const oy = 84;
@@ -1229,39 +1194,20 @@ export default function AlternatingCurrentChapter() {
         </div>
       </Callout>
 
-      <h3 id="h-7-6-2">7.6.2 Resonance</h3>
-      <Callout type="important" title="Resonance and natural frequency">
-        <p>
-          Any system that tends to oscillate has a <strong>natural frequency</strong>. Drive it at a frequency near
-          that value and the amplitude of oscillation becomes large — that is <strong>resonance</strong>.
-        </p>
-      </Callout>
-      <p>A familiar example is a child on a swing: if the child pulls on the rope at regular intervals and the frequency of the pulls is almost the same as the frequency of swinging, the amplitude of the swinging will be large.</p>
-      <p>
-        For the driven series RLC circuit, <Formula>{String.raw`I_0 = V_0/Z`}</Formula> with{" "}
-        <Formula>{String.raw`X_C = 1/\omega C`}</Formula> and <Formula>{String.raw`X_L = \omega L`}</Formula>. Vary ω
-        and at one frequency <Formula>{String.raw`\omega_0`}</Formula> the two reactances cancel —{" "}
-        <Formula>{String.raw`X_C = X_L`}</Formula> — so the impedance bottoms out at{" "}
-        <Formula>{String.raw`Z = \sqrt{R^2 + 0} = R`}</Formula>.
-      </p>
-      <p>That frequency is the <strong>resonant frequency</strong>:</p>
-      <FormulaBlock tag="Eq. 7.28" label="Resonant frequency" latex={String.raw`\omega_0 = \frac{1}{\sqrt{LC}}`} important />
-      <p>At the resonant frequency the current amplitude is maximum,{" "}<Formula>{String.raw`I_0 = V_0/R`}</Formula>.</p>
-      <ResonanceCurve />
-      <p>
-        A radio&apos;s tuning circuit is a resonant LCR loop. The aerial feeds it every station at once — but only the
-        station whose frequency matches <Formula>{String.raw`\nu_0`}</Formula> drives a maximum current amplitude, so
-        tuning the capacitor selects it.
-      </p>
-      <KeyPoint title="Resonance needs both L and C">
-        Resonance is exhibited only if <Highlight color="yellow">both L and C are present</Highlight>: only then do the
-        voltages across them cancel each other (being out of phase) and the current amplitude becomes{" "}
-        <Formula>{String.raw`V_0/R`}</Formula>, the whole source voltage appearing across R. There is no resonance in a
-        pure RL or RC circuit.
-      </KeyPoint>
-      <p>The <strong>quality factor</strong> Q, listed in the chapter&apos;s table of physical quantities, is defined for a series RLC circuit as:</p>
-      <FormulaBlock label="Quality factor (series RLC)" latex={String.raw`Q = \frac{\omega_0 L}{R} = \frac{1}{\omega_0 C\,R}`} important />
-      <p>The same frequency appears again in free oscillations. A charged capacitor connected across an inductor forms a loop in which the charge oscillates at <Formula>{String.raw`\omega_0 = 1/\sqrt{LC}`}</Formula> — the angular frequency of free oscillations (Exercise 7.6), the same frequency at which the series LCR circuit resonates.</p>
+      <figure className="my-6">
+        <img
+          src="/images/physics/alternating-current/series-circuit-variants-rl-rc-lc.png"
+          alt="Hand-drawn summary of three series circuits: an R–L circuit with Z = √(R² + X_L²), an R–C circuit with Z = √(R² + X_C²), and an L–C circuit with Z = √((X_L − X_C)²)."
+          className="mx-auto w-full max-w-2xl rounded-md bg-black object-contain"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-[0.75rem] leading-snug text-muted-foreground">
+          <strong>Series circuit variants.</strong> Each one is the LCR impedance with an element removed: an R–L
+          circuit has <Formula>{String.raw`Z = \sqrt{R^2 + X_L^2}`}</Formula>, an R–C circuit has{" "}
+          <Formula>{String.raw`Z = \sqrt{R^2 + X_C^2}`}</Formula>, and an L–C circuit has{" "}
+          <Formula>{String.raw`Z = \left|X_L - X_C\right|`}</Formula>.
+        </figcaption>
+      </figure>
 
       <Expandable title="Example 7.6 — An RC series circuit: current, voltages and the paradox" variant="example">
         <ProblemSolution.Problem>
@@ -1291,6 +1237,123 @@ export default function AlternatingCurrentChapter() {
           <FormulaBlock latex={String.raw`V_{RC} = \sqrt{V_R^2 + V_C^2} = 220\ \text{V}`} important />
           <p>With the phase difference properly taken into account, the total voltage across the resistor and capacitor equals the source voltage.</p>
         </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="Example — Impedance and phase angle of a series LCR circuit" variant="example">
+        <ProblemSolution.Problem>
+          <p>
+            A series LCR circuit has <Formula>{String.raw`R = 3\ \Omega`}</Formula>,{" "}
+            <Formula>{String.raw`X_C = 6\ \Omega`}</Formula> and <Formula>{String.raw`X_L = 10\ \Omega`}</Formula>.
+            Find (a) the impedance and (b) the phase difference φ.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p><strong>Given:</strong> <Formula>{String.raw`R = 3\ \Omega`}</Formula>, <Formula>{String.raw`X_C = 6\ \Omega`}</Formula>, <Formula>{String.raw`X_L = 10\ \Omega`}</Formula>.</p>
+          <p><strong>(a) Impedance.</strong> The two reactances oppose each other, so only their difference survives:</p>
+          <FormulaBlock latex={String.raw`Z = \sqrt{R^2 + \left(X_L - X_C\right)^2}`} />
+          <FormulaBlock latex={String.raw`Z = \sqrt{3^2 + (10 - 6)^2}`} />
+          <FormulaBlock latex={String.raw`Z = \sqrt{3^2 + 4^2}`} />
+          <FormulaBlock latex={String.raw`Z = \sqrt{9 + 16} = \sqrt{25} = 5\ \Omega`} important />
+          <p><strong>(b) Phase difference.</strong> The same triangle gives the lean of the circuit:</p>
+          <FormulaBlock latex={String.raw`\tan\phi = \frac{X_L - X_C}{R}`} />
+          <FormulaBlock latex={String.raw`\tan\phi = \frac{10 - 6}{3} = \frac{4}{3}`} />
+          <FormulaBlock latex={String.raw`\phi = \tan^{-1}\left(\frac{4}{3}\right) = 53.1^\circ`} important />
+          <p>
+            Since <Formula>{String.raw`X_L > X_C`}</Formula>, φ is positive: the circuit is inductive, so the voltage
+            leads the current.
+          </p>
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="Example — Reactances and impedance from L, C and the supply frequency" variant="example">
+        <ProblemSolution.Problem>
+          <p>
+            A series LCR circuit has <Formula>{String.raw`R = 10\ \Omega`}</Formula>,{" "}
+            <Formula>{String.raw`L = 0.5\ \text{H}`}</Formula> and <Formula>{String.raw`C = 200\ \mu\text{F}`}</Formula>{" "}
+            across a <Formula>{String.raw`50\ \text{Hz}`}</Formula> supply. Find{" "}
+            <Formula>{String.raw`X_L`}</Formula>, <Formula>{String.raw`X_C`}</Formula> and{" "}
+            <Formula>{String.raw`Z`}</Formula>.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            <strong>Given:</strong> <Formula>{String.raw`R = 10\ \Omega`}</Formula>,{" "}
+            <Formula>{String.raw`L = 0.5\ \text{H}`}</Formula>,{" "}
+            <Formula>{String.raw`C = 200\ \mu\text{F} = 200 \times 10^{-6}\ \text{F}`}</Formula>,{" "}
+            <Formula>{String.raw`f = 50\ \text{Hz}`}</Formula>.
+          </p>
+          <p><strong>1. Inductive reactance.</strong></p>
+          <FormulaBlock latex={String.raw`X_L = 2\pi f L = 2 \times 3.14 \times 50 \times 0.5`} />
+          <FormulaBlock latex={String.raw`X_L = 157\ \Omega`} important />
+          <p><strong>2. Capacitive reactance.</strong></p>
+          <FormulaBlock latex={String.raw`X_C = \frac{1}{2\pi f C} = \frac{1}{2 \times 3.14 \times 50 \times 200 \times 10^{-6}}`} />
+          <FormulaBlock latex={String.raw`X_C \approx 15.9\ \Omega`} important />
+          <p><strong>3. Total impedance.</strong></p>
+          <FormulaBlock latex={String.raw`Z = \sqrt{R^2 + \left(X_L - X_C\right)^2}`} />
+          <FormulaBlock latex={String.raw`Z = \sqrt{10^2 + (157 - 15.9)^2}`} />
+          <FormulaBlock latex={String.raw`Z = \sqrt{100 + (141.1)^2} = \sqrt{100 + 19909.21}`} />
+          <FormulaBlock latex={String.raw`Z = \sqrt{20009.21} \approx 141.5\ \Omega`} important />
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <h3 id="h-7-6-2">7.6.2 Resonance</h3>
+      <Callout type="important" title="Resonance">
+        <p>
+          Drive an oscillating system at its own <strong>natural frequency</strong> and its response grows large. That
+          is <strong>resonance</strong>.
+        </p>
+      </Callout>
+      <p>In a driven series LCR circuit the two reactances move in opposite directions as the frequency changes:</p>
+      <FormulaBlock latex={String.raw`X_C = \frac{1}{\omega C}`} />
+      <FormulaBlock latex={String.raw`X_L = \omega L`} />
+      <p>At one frequency they become equal, and the circuit is at resonance:</p>
+      <FormulaBlock label="Resonance condition" latex={String.raw`X_L = X_C`} important />
+      <p>Equal reactances carry equal peak voltages, and those two voltages are in antiphase:</p>
+      <FormulaBlock latex={String.raw`V_L = I X_L = I X_C = V_C`} />
+      <p>The reactance term of Z disappears, so the impedance drops to its minimum — the resistance alone:</p>
+      <FormulaBlock latex={String.raw`Z = \sqrt{R^2 + 0} = R`} important />
+      <TableCard
+        title="At resonance"
+        headers={["Quantity", "What happens"]}
+        rows={[
+          { cells: ["Impedance Z", <>Minimum, <Formula>{String.raw`Z = R`}</Formula></>] },
+          { cells: ["Current amplitude I", <>Maximum, <Formula>{String.raw`I = V/R`}</Formula></>] },
+          { cells: ["V_L and V_C", "Equal in magnitude, 180° out of phase — they cancel"] },
+          { cells: ["Both L and C", "Required: a pure RL or RC circuit cannot resonate"] },
+        ]}
+      />
+      <p>The condition also fixes the frequency. Set the two reactances equal:</p>
+      <FormulaBlock latex={String.raw`\omega L = \frac{1}{\omega C}`} />
+      <FormulaBlock latex={String.raw`\omega^2 = \frac{1}{LC}`} />
+      <FormulaBlock tag="Eq. 7.28" label="Resonant angular frequency" latex={String.raw`\omega_0 = \frac{1}{\sqrt{LC}}`} important />
+      <p>Since <Formula>{String.raw`\omega = 2\pi f`}</Formula>, the same frequency in hertz is:</p>
+      <FormulaBlock label="Resonant frequency" latex={String.raw`f = \frac{1}{2\pi\sqrt{LC}}`} important />
+
+      <Expandable title="Example — Angular resonant frequency of an LCR circuit" variant="example">
+        <ProblemSolution.Problem>
+          <p>
+            A series LCR circuit has <Formula>{String.raw`L = 27\ \text{mH}`}</Formula> and{" "}
+            <Formula>{String.raw`C = 30\ \mu\text{F}`}</Formula>. Find its angular resonant frequency.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p>
+            <strong>Given:</strong> <Formula>{String.raw`L = 27\ \text{mH} = 27 \times 10^{-3}\ \text{H}`}</Formula>,{" "}
+            <Formula>{String.raw`C = 30\ \mu\text{F} = 30 \times 10^{-6}\ \text{F}`}</Formula>.
+          </p>
+          <FormulaBlock latex={String.raw`\omega_0 = \frac{1}{\sqrt{LC}}`} />
+          <FormulaBlock latex={String.raw`\omega_0 = \frac{1}{\sqrt{27 \times 10^{-3} \times 30 \times 10^{-6}}}`} />
+          <FormulaBlock latex={String.raw`\omega_0 = \frac{1}{\sqrt{810 \times 10^{-9}}} = \frac{1}{\sqrt{8.1 \times 10^{-7}}}`} />
+          <FormulaBlock latex={String.raw`\omega_0 = \frac{1}{9.0 \times 10^{-4}} \approx 1.11 \times 10^{3}\ \text{rad s}^{-1}`} important />
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <Expandable title="Q: What is the impedance of a series LC circuit at resonance?" variant="recall">
+        <p>
+          <Formula>{String.raw`Z = 0`}</Formula>. At resonance{" "}
+          <Formula>{String.raw`X_L = X_C`}</Formula>, so the two reactances cancel each other out exactly.
+        </p>
+        <p>An ideal LC circuit has no resistance left to add back, so nothing opposes the current.</p>
       </Expandable>
 
       <h2 id="h-7-7">7.7 Power in AC Circuit: The Power Factor</h2>
