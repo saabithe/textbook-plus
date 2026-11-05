@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
+    "verify:figures": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/verify-figures.mjs",
     "verify:latex": "node scripts/verify-latex.cjs",
     "verify:presentation": "node scripts/audit-presentation.cjs",
     "verify:grammar": "node scripts/audit-grammar.cjs",

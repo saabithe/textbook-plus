@@ -14,6 +14,7 @@ All commands run from `textbook-plus/`. None of these run automatically except w
 | `structures.json` changed | `npm run chem:build -- --chapter <slug>` | `structures.generated.ts` |
 | Chemistry sign-off | `npm run chem:sheet -- --chapter <slug>` | review PNG in `Developer_Deliveries/Chapters/02_Chemistry/Structures/` |
 | Chemistry generated file present | `npm run verify:chem` (also inside build) | gate G7 |
+| Physics figure spec added or edited | `npm run verify:figures` | frame/label/law check per figure (see `Constitution/SVG_FIGURES.md`) |
 | New chapter from a PDF | `npm run pdf:extract -- <pdf> <out.md>` then `npm run pdf:clean -- <in.md> <out.md>` | raw / cleaned Markdown |
 | `public/icon.svg` changed | `npm run icons` | PWA icon PNGs |
 | End of a batch / before push | `npm run build` | production build + PWA + G7 |

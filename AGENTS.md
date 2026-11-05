@@ -110,6 +110,10 @@ Copy into `textbook-plus/public/images/{subject}/{chapter-slug}/` under a descri
 
 Generate from committed SMILES at authoring time. Inputs: `src/content/chemistry/{slug}/structures.json` (`smiles`, `formula`, `ncertName`, `source`). Output: `structures.generated.ts` (generated, committed, **never hand-edited**). Usage: `import { STRUCTURES } from "./structures.generated"; <MoleculeStructure {...STRUCTURES.key} caption="…" />`. Seven gates G1–G7; a structure that fails a gate is deleted, not patched. Accepted-but-not-automated: curly-arrow mechanisms, crystal lattices, chair/Newman conformations, orbital/CFT diagrams, multi-step flow schemes (hand-authored SVG). Run `npm run verify:chem` (also in build).
 
+## Physics Figures (solved, not eyeballed)
+
+Never hand-type ray coordinates into an `<svg>`. A physics schematic is a `FigureSpec` (frame + primitives + law checks) built with the engine in `src/components/content/physics/diagram/`: `optics.ts` solves the rays (`refract`, `reflect`, `traceRay`, `solveThinLens`, `prismDeviation`, `minimumDeviation`, `slabLateralShift`), `scene.ts` provides the primitives and `validateFigure`, `PhysicsFigure` renders it as theme-aware inline SVG. Add the spec to `examples.ts` (or a chapter list) and run `npm run verify:figures`; it must show 0 errors. Review at `/dev/figures`. Method, comparison with Penrose/TikZ/JSXGraph and the full workflow: `Constitution/SVG_FIGURES.md`.
+
 ## Removed systems (do not reintroduce)
 
 - **Auth / progress / cloud sync** (Supabase `AuthProvider`/`SyncProvider`/`MigrateBanner`, `useProgress`/`useSync`, `/progress`, `/login`, `/signup`, `/reset-password`, `/update-password`, `/account`, `/auth/*`, `src/middleware.ts`, `src/lib/supabase/`, `src/lib/recent.ts`, `supabase/`) — practice is session-only; nothing persists. Remote Supabase tables were left untouched.
