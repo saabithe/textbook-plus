@@ -18,17 +18,141 @@ export default function CoordinationCompoundsChapter() {
       <h2 id="h-5-intro">Introduction: Coordination Compounds</h2>
 
       <TableCard
-        caption="Key terms at a glance"
-        headers={["Term", "Meaning"]}
+        caption="a. 🔑 Key Terms at a Glance"
+        headers={["Term", "Definition"]}
         rows={[
-          { cells: ["Coordination compound", "A compound in which a central metal atom or ion is linked to ions or neutral molecules called ligands."] },
-          { cells: ["Coordinate bond", "One-side sharing of an electron pair: M ← L (M = central metal, L = ligand)."] },
-          { cells: ["Coordination entity", "The central metal atom or ion together with its attached ligands, written in square brackets."] },
-          { cells: ["Central atom / ion", "The atom or ion to which a fixed number of ions or neutral molecules are attached, e.g. Ni in Ni(CO)4."] },
-          { cells: ["Ligand", "An ion or neutral molecule bound to the central atom or ion; it must be able to donate at least one electron pair."] },
-          { cells: ["Donor (co-ordinating) atom", "The ligand atom directly bonded to the central atom or ion."] },
-          { cells: ["Denticity", "The number of donor atoms present in a single ligand."] },
-          { cells: ["Coordination number", "The number of ligand donor atoms directly bonded to the central metal ion."] },
+          { cells: ["Coordination compound", "Compound containing a central metal atom/ion bonded to ligands."] },
+          { cells: ["Coordinate bond", "Bond formed by donation of a ligand's lone electron pair to the metal: M ← L."] },
+          { cells: ["Coordination entity", "Central metal + its directly attached ligands."] },
+          { cells: ["Central atom / ion", "Metal atom/ion to which ligands are attached."] },
+          { cells: ["Ligand", "Ion/molecule donating one or more electron pairs to the metal."] },
+          { cells: ["Donor atom", "Ligand atom directly bonded to the metal."] },
+          { cells: ["Denticity", "Number of donor atoms through which a ligand binds." ] },
+          { cells: ["Coordination number (CN)", "Total number of ligand donor atoms directly bonded to the central metal."] },
+        ]}
+      />
+
+      <h3>b. 📦 Coordination Entity &amp; Coordination Sphere</h3>
+      <ul>
+        <li>Coordination entity: metal atom/ion bonded to a fixed number of ligands.</li>
+        <li>Coordination sphere: central metal + attached ligands enclosed in square brackets [ ].</li>
+        <li>Counter ions: ionisable ions outside the brackets.</li>
+      </ul>
+      <p>Example: K₄[Fe(CN)₆].</p>
+      <ul className="list-disc pl-6 space-y-1 text-sm">
+        <li>Coordination sphere → [Fe(CN)₆]⁴⁻</li>
+        <li>Counter ions → 4K⁺</li>
+        <li>Central metal → Fe</li>
+        <li>Ligand → CN⁻</li>
+      </ul>
+      <p>Examples of coordination entities:</p>
+      <ul className="list-disc pl-6 space-y-1 text-sm">
+        <li>[CoCl₃(NH₃)₃]</li>
+        <li>[Ni(CO)₄]</li>
+        <li>[PtCl₂(NH₃)₂]</li>
+        <li>[Fe(CN)₆]⁴⁻</li>
+        <li>[Co(NH₃)₆]³⁺</li>
+      </ul>
+
+      <h3>c. ⚛️ Central Atom / Ion</h3>
+      <TableCard
+        caption="Central ion in representative complexes"
+        headers={["Complex", "Central ion"]}
+        rows={[
+          { cells: ["[NiCl₂(H₂O)₄]", "Ni²⁺"] },
+          { cells: ["[CoCl(NH₃)₅]²⁺", "Co³⁺"] },
+          { cells: ["[Fe(CN)₆]³⁻", "Fe³⁺"] },
+        ]}
+      />
+      <ul>
+        <li>Central metal: electron-pair acceptor; acts as a Lewis acid.</li>
+        <li>Ligand: electron-pair donor; acts as a Lewis base.</li>
+      </ul>
+
+      <h3>d. 🔗 Ligands &amp; Denticity</h3>
+      <TableCard
+        caption="Ligand by denticity"
+        headers={["Type", "Attachment", "Examples"]}
+        rows={[
+          { cells: ["Unidentate", "1 donor atom → 1 attachment", "Cl⁻, H₂O, NH₃, CN⁻, OH⁻"] },
+          { cells: ["Didentate", "2 donor atoms → 2 attachments", "en (ethane-1,2-diamine), C₂O₄²⁻ (oxalate)"] },
+          { cells: ["Polydentate", "≥3 donor atoms → ≥3 attachments", "EDTA⁴⁻ (hexadentate), N(CH₂CH₂NH₂)₃"] },
+        ]}
+      />
+      <p className="mt-2">Important ligands:</p>
+      <TableCard
+        caption="Important ligands and their denticity"
+        headers={["Ligand", "Formula", "Denticity"]}
+        rows={[
+          { cells: ["Chloride", "Cl⁻", "1"] },
+          { cells: ["Water", "H₂O", "1"] },
+          { cells: ["Ammonia", "NH₃", "1"] },
+          { cells: ["Ethane-1,2-diamine (en)", "H₂NCH₂CH₂NH₂", "2"] },
+          { cells: ["Oxalate", "C₂O₄²⁻", "2"] },
+          { cells: ["EDTA", "EDTA⁴⁻", "6"] },
+        ]}
+      />
+      <KeyPoint title="Chelate effect">
+        <p>
+          Chelation: di- or polydentate ligands bind through two or more donor atoms to the same metal,
+          forming ring complexes (chelates). Chelate complexes are more stable than complexes of
+          comparable unidentate ligands.
+        </p>
+        <p className="mt-2 text-sm">
+          Examples: C₂O₄²⁻ (oxalate), H₂NCH₂CH₂NH₂ (ethane-1,2-diamine).
+        </p>
+      </KeyPoint>
+      <p>Ambidentate ligands (two donor atoms, coordinate through one at a time):</p>
+      <TableCard
+        caption="Ambidentate ligands"
+        headers={["Ligand", "Donor atom", "Representation"]}
+        rows={[
+          { cells: ["Nitrite NO₂⁻", "N or O", "M–NO₂ / M–ONO"] },
+          { cells: ["Thiocyanate SCN⁻", "S or N", "M–SCN / M–NCS"] },
+        ]}
+      />
+
+      <h3>e. 🔢 Coordination Number (CN)</h3>
+      <TableCard
+        caption="Coordination number examples"
+        headers={["Complex", "Calculation", "CN"]}
+        rows={[
+          { cells: ["[PtCl₆]²⁻", "6 × 1", "6"] },
+          { cells: ["[Ni(NH₃)₄]²⁺", "4 × 1", "4"] },
+          { cells: ["[Fe(C₂O₄)₃]³⁻", "3 × 2", "6"] },
+          { cells: ["[Co(en)₃]³⁺", "3 × 2", "6"] },
+        ]}
+      />
+      <FormulaBlock latex={String.raw`CN = \sum(\text{Ligand count} \times \text{Denticity})`} />
+      <p>CN counts donor atoms, not ligand molecules: 3 bidentate ligands → CN = 6; 6 monodentate ligands → CN = 6.</p>
+
+      <h3>f. 📐 Coordination Polyhedron</h3>
+      <p>Three-dimensional geometrical arrangement of ligand donor atoms around the central metal.</p>
+      <Comparison
+        columns={[
+          { title: "Octahedral (CN = 6)", children: <p>Example: [Co(NH₃)₆]³⁺.</p> },
+          { title: "Tetrahedral (CN = 4)", children: <p>Example: [Ni(CO)₄].</p> },
+          { title: "Square planar (CN = 4)", children: <p>Example: [PtCl₄]²⁻.</p> },
+        ]}
+      />
+      <p className="text-sm">
+        Geometry diagrams (rendered SVG) are deferred to a later batch; these entries show the
+        representative complex for each polyhedron.
+      </p>
+
+      <h3>g. 🏷️ Oxidation Number of Central Metal</h3>
+      <FormulaBlock latex={String.raw`x + \sum(\text{Ligand charges}) = \text{Complex charge}`} />
+      <p>Example: [Cu(CN)₄]³⁻.</p>
+      <FormulaBlock latex={String.raw`x + 4(-1) = -3 \;\Rightarrow\; x = +1`} />
+      <p>Copper oxidation state = +1 → Cu(I).</p>
+
+      <h3>h. 🔀 Homoleptic vs Heteroleptic</h3>
+      <TableCard
+        caption="Complex category (merged)"
+        headers={["Category", "Definition", "Representative example"]}
+        rows={[
+          { cells: ["Homoleptic", "Metal bound to only one kind of donor group.", "[Co(NH₃)₆]³⁺ (bound solely to NH₃)."] },
+          { cells: ["Heteroleptic", "Metal bound to more than one kind of donor group.", "[Co(NH₃)₄Cl₂]⁺ (bound to both NH₃ and Cl⁻)."] },
         ]}
       />
 
