@@ -37,10 +37,6 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
   return (
     <>
       <h2 id="h-9-1">9.1 Introduction</h2>
-      <p>
-        Light is the narrow band of the electromagnetic spectrum the eye can detect — and the only way we read the
-        world at a distance.
-      </p>
 
       <h3 id="h-9-1-light">Light and the visible spectrum</h3>
       <Callout type="note" title="Light — definition">
@@ -49,26 +45,19 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
           <Highlight>400 nm to 750 nm</Highlight>, which the retina of the human eye can detect.
         </p>
       </Callout>
-      <p>It is mainly through light and the sense of vision that we know and interpret the world around us.</p>
 
       <h3 id="h-9-1-speed">Speed of light</h3>
-      <p>Light travels with enormous speed. Its accepted value in vacuum is</p>
-      <FormulaBlock
-        label="Speed of light in vacuum"
-        latex={String.raw`c = 2.99792458 \times 10^{8}\ \text{m s}^{-1}`}
-      />
-      <p>For every calculation here the first three digits are enough:</p>
-      <FormulaBlock important latex={String.raw`c \approx 3 \times 10^{8}\ \text{m s}^{-1}`} />
-      <KeyPoint title="Universal limit">
-        The speed of light in vacuum is the highest speed attainable in nature. Every other speed is measured against
-        it.
-      </KeyPoint>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Vacuum</strong> —{" "}
+          <Formula>{String.raw`c = 2.99792458 \times 10^{8}\ \text{m s}^{-1}`}</Formula>
+        </li>
+        <li>
+          <strong>Approximation</strong> — <Formula>{String.raw`c \approx 3 \times 10^{8}\ \text{m s}^{-1}`}</Formula>
+        </li>
+      </ul>
 
       <h2 id="h-9-2">9.2 Reflection of Light by Spherical Mirrors</h2>
-      <p>
-        A ray of light that meets a smooth polished surface bounces back into the medium it came from. The two laws
-        that govern that bounce hold on curved mirrors exactly as they do on flat ones.
-      </p>
 
       <h3 id="h-9-2-reflection">9.2.1 Reflection and its laws</h3>
       <p>
@@ -101,12 +90,15 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         The <strong>angle of deviation</strong> δ is the angle between the incident ray produced and the reflected
         ray.
       </p>
-      <FormulaBlock latex={String.raw`i + r + \delta = 180^\circ`} />
-      <p>The two angles are equal, so</p>
-      <FormulaBlock latex={String.raw`2i + \delta = 180^\circ`} />
-      <p>and the deviation follows from the angle of incidence alone:</p>
-      <FormulaBlock important label="Angle of deviation" latex={String.raw`\delta = 180^\circ - 2i`} />
-      <FormulaBlock label="The same result in terms of r" latex={String.raw`\delta = 180^\circ - 2r`} />
+      <p>
+        The two rays enclose <Formula>{String.raw`i + r`}</Formula> on the mirror side, so the deviation is what is
+        left of a straight line:
+      </p>
+      <FormulaBlock
+        important
+        label="Angle of deviation"
+        latex={String.raw`\delta = 180^\circ - (i + r) = 180^\circ - 2i`}
+      />
       <p>
         At normal incidence <Formula>{String.raw`i = 0`}</Formula>, so{" "}
         <Formula>{String.raw`\delta = 180^\circ`}</Formula>: the ray returns along the path it came on.
@@ -114,17 +106,24 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
 
       <h3 id="h-9-2-types">9.2.3 Types of mirrors</h3>
       <p>Every mirror is named by the shape of its reflecting surface.</p>
-      <ul className="my-6 list-none space-y-2 pl-0">
-        <li>
-          <strong>Plane mirror</strong> — a flat reflecting surface.
-        </li>
-        <li>
-          <strong>Concave mirror</strong> — the surface curves inward, so its hollow side faces the light.
-        </li>
-        <li>
-          <strong>Convex mirror</strong> — the surface bulges outward, toward the light.
-        </li>
-      </ul>
+      <div className="my-6 grid gap-3 sm:grid-cols-3">
+        <div className="rounded-lg border border-border bg-card p-4">
+          <p className="text-sm font-semibold tracking-tight text-foreground">Plane mirror</p>
+          <p className="mt-1 text-sm leading-relaxed text-foreground/75">A flat reflecting surface.</p>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <p className="text-sm font-semibold tracking-tight text-foreground">Concave mirror</p>
+          <p className="mt-1 text-sm leading-relaxed text-foreground/75">
+            The surface curves inward, so its hollow side faces the light.
+          </p>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <p className="text-sm font-semibold tracking-tight text-foreground">Convex mirror</p>
+          <p className="mt-1 text-sm leading-relaxed text-foreground/75">
+            The surface bulges outward, toward the light.
+          </p>
+        </div>
+      </div>
       <p>A spherical mirror is a cut-out of a sphere. The two figures below mark the points that describe it.</p>
       <PhysicsFigure spec={concaveMirrorTerms} />
       <PhysicsFigure spec={convexMirrorTerms} />
@@ -174,8 +173,72 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
       />
       <p>
         Written the other way round, the radius is twice the focal length:{" "}
-        <Formula>{String.raw`R = 2f`}</Formula>. The proof is in 9.2.8.
+        <Formula>{String.raw`R = 2f`}</Formula>.
       </p>
+      <Expandable title="Derivation — why R = 2f">
+        <p>
+          Take a paraxial ray parallel to the principal axis. It strikes the mirror at M, and CM is normal to the
+          surface there.
+        </p>
+        <figure className="my-8 overflow-hidden rounded-xl border border-border/60 bg-card">
+          <div className="bg-neutral-950 p-2 sm:p-3">
+            <img
+              src="/images/physics/ray-optics-and-optical-instruments/derivation-r-equals-2f.png"
+              alt="Hand-worked geometry for the focal-length proof: a concave mirror arc with centre C, pole P, focus F and the point of incidence M; θ is marked at C and 2θ at F."
+              className="mx-auto block h-auto w-full max-w-2xl"
+              loading="lazy"
+            />
+          </div>
+          <figcaption className="px-4 py-3 text-center text-xs leading-relaxed text-muted-foreground">
+            The geometry of the proof (Fig. 9.4). The foot of the perpendicular from M meets the axis almost at P, so
+            MP is treated as perpendicular to the axis and CP, FP as the axis distances.
+          </figcaption>
+        </figure>
+        <EquationLadder
+          title="Step by step"
+          steps={[
+            {
+              label: "Target",
+              equation: String.raw`R = 2f`,
+              note: "For a small aperture CP ≈ R and FP ≈ f.",
+            },
+            {
+              label: "From the right triangle CPM",
+              equation: String.raw`\tan \theta = \frac{MP}{CP}`,
+              tag: "Eq. 9.1",
+            },
+            {
+              label: "From the right triangle FPM",
+              equation: String.raw`\tan 2\theta = \frac{MP}{FP}`,
+            },
+            {
+              label: "Small angles: tan θ ≈ θ, which gives Eq. (1)",
+              equation: String.raw`\theta = \frac{MP}{CP}`,
+            },
+            {
+              label: "And tan 2θ ≈ 2θ, which gives Eq. (2)",
+              equation: String.raw`2\theta = \frac{MP}{FP}`,
+            },
+            {
+              label: "Substitute Eq. (1) into Eq. (2)",
+              equation: String.raw`2 \left( \frac{MP}{CP} \right) = \frac{MP}{FP}`,
+            },
+            {
+              label: "Cancel MP on both sides",
+              equation: String.raw`\frac{2}{CP} = \frac{1}{FP}`,
+            },
+            {
+              label: "Put CP = R and FP = f",
+              equation: String.raw`\frac{2}{R} = \frac{1}{f}`,
+            },
+            {
+              label: "Final result",
+              equation: String.raw`R = 2f`,
+              final: true,
+            },
+          ]}
+        />
+      </Expandable>
 
       <h3 id="h-9-2-paraxial">9.2.6 Paraxial rays</h3>
       <p>
@@ -190,119 +253,47 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
 
       <h3 id="h-9-2-rules">9.2.7 Rules for image formation</h3>
       <p>
-        Any two of the four rays below are enough to locate an image. Each one leaves the mirror along a path fixed by
-        the laws of reflection.
+        Any two of these four rays are enough to locate an image. Each one leaves the mirror along a path fixed by the
+        laws of reflection.
       </p>
-      <p>
-        <strong>Rule 1 — a ray parallel to the principal axis.</strong> After reflection it passes through the focus
-        of a concave mirror, or appears to come from the focus of a convex mirror.
-      </p>
-      <PhysicsFigure spec={ruleParallel} />
-      <p>
-        <strong>Rule 2 — a ray through the focus.</strong> A ray passing through F — or directed towards it — leaves
-        parallel to the principal axis.
-      </p>
-      <PhysicsFigure spec={ruleFocus} />
-      <p>
-        <strong>Rule 3 — a ray through the centre of curvature.</strong> A ray passing through C, or directed towards
-        it, strikes the mirror normally and reflects back along the same path.
-      </p>
-      <PhysicsFigure spec={ruleCentre} />
-      <p>
-        <strong>Rule 4 — a ray at the pole.</strong> A ray striking P obliquely is reflected symmetrically, making
-        equal angles with the principal axis, because the axis is the normal there.
-      </p>
-      <PhysicsFigure spec={rulePole} />
-
-      <h3 id="h-9-2-derivation">9.2.8 Relation between R and f</h3>
-      <p>
-        Take a paraxial ray parallel to the principal axis. It strikes the mirror at M, and CM is normal to the
-        surface there.
-      </p>
-      <figure className="my-8 overflow-hidden rounded-xl border border-border/60 bg-card">
-        <div className="bg-neutral-950 p-2 sm:p-3">
-          <img
-            src="/images/physics/ray-optics-and-optical-instruments/derivation-r-equals-2f.png"
-            alt="Hand-worked geometry for the focal-length proof: a concave mirror arc with centre C, pole P, focus F and the point of incidence M; θ is marked at C and 2θ at F."
-            className="mx-auto block h-auto w-full max-w-2xl"
-            loading="lazy"
-          />
+      <div className="my-6 grid gap-3 sm:grid-cols-2">
+        <div className="rounded-lg border border-border bg-card p-4">
+          <p className="t-micro">Rule 1</p>
+          <p className="mt-1 text-sm font-semibold tracking-tight text-foreground">Parallel to the axis</p>
+          <PhysicsFigure spec={ruleParallel} showCaption={false} labelScale={1.5} />
+          <p className="text-sm leading-relaxed text-foreground/75">
+            After reflection the ray passes through the focus of a concave mirror, or appears to come from it on a
+            convex mirror.
+          </p>
         </div>
-        <figcaption className="px-4 py-3 text-center text-xs leading-relaxed text-muted-foreground">
-          The geometry of the proof (Fig. 9.4). The foot of the perpendicular from M meets the axis almost at P, so MP
-          is treated as perpendicular to the axis and CP, FP as the axis distances.
-        </figcaption>
-      </figure>
-      <EquationLadder
-        title="Step by step"
-        steps={[
-          {
-            label: "Target",
-            equation: String.raw`R = 2f`,
-            note: "For a small aperture CP ≈ R and FP ≈ f.",
-          },
-          {
-            label: "From the right triangle CPM",
-            equation: String.raw`\tan \theta = \frac{MP}{CP}`,
-            tag: "Eq. 9.1",
-          },
-          {
-            label: "From the right triangle FPM",
-            equation: String.raw`\tan 2\theta = \frac{MP}{FP}`,
-          },
-          {
-            label: "Small angles: tan θ ≈ θ, which gives Eq. (1)",
-            equation: String.raw`\theta = \frac{MP}{CP}`,
-          },
-          {
-            label: "And tan 2θ ≈ 2θ, which gives Eq. (2)",
-            equation: String.raw`2\theta = \frac{MP}{FP}`,
-          },
-          {
-            label: "Substitute Eq. (1) into Eq. (2)",
-            equation: String.raw`2 \left( \frac{MP}{CP} \right) = \frac{MP}{FP}`,
-          },
-          {
-            label: "Cancel MP on both sides",
-            equation: String.raw`\frac{2}{CP} = \frac{1}{FP}`,
-          },
-          {
-            label: "Put CP = R and FP = f",
-            equation: String.raw`\frac{2}{R} = \frac{1}{f}`,
-          },
-          {
-            label: "Final result",
-            equation: String.raw`R = 2f`,
-            final: true,
-          },
-        ]}
-      />
+        <div className="rounded-lg border border-border bg-card p-4">
+          <p className="t-micro">Rule 2</p>
+          <p className="mt-1 text-sm font-semibold tracking-tight text-foreground">Through the focus</p>
+          <PhysicsFigure spec={ruleFocus} showCaption={false} labelScale={1.5} />
+          <p className="text-sm leading-relaxed text-foreground/75">
+            A ray passing through F — or directed towards it — leaves parallel to the principal axis.
+          </p>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <p className="t-micro">Rule 3</p>
+          <p className="mt-1 text-sm font-semibold tracking-tight text-foreground">Through the centre of curvature</p>
+          <PhysicsFigure spec={ruleCentre} showCaption={false} labelScale={1.5} />
+          <p className="text-sm leading-relaxed text-foreground/75">
+            A ray through C, or directed towards it, meets the surface normally and reflects back along the same path.
+          </p>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <p className="t-micro">Rule 4</p>
+          <p className="mt-1 text-sm font-semibold tracking-tight text-foreground">At the pole</p>
+          <PhysicsFigure spec={rulePole} showCaption={false} labelScale={1.5} />
+          <p className="text-sm leading-relaxed text-foreground/75">
+            A ray striking P obliquely reflects symmetrically, at equal angles to the axis, because the axis is the
+            normal there.
+          </p>
+        </div>
+      </div>
 
-      <h3 id="h-9-2-convention">9.2.9 Sign convention</h3>
-      <p>
-        One mirror formula has to describe an object in front of the mirror, a real image in front and a virtual image
-        behind it. A single set of sign rules makes that possible.
-      </p>
-      <TableCard
-        title="How every distance gets its sign"
-        headers={["Measured", "Positive", "Negative"]}
-        rows={[
-          {
-            cells: [
-              "Along the axis",
-              "in the direction of the incident light",
-              "against the direction of the incident light",
-            ],
-          },
-          {
-            cells: ["Across the axis", "upward, above the principal axis", "downward, below it"],
-          },
-        ]}
-      />
-      <p>
-        Every distance starts at the pole <Formula>{String.raw`P`}</Formula>, and light travels from left to right in
-        all the figures here. So the right of P is positive and the left of P is negative.
-      </p>
+      <h3 id="h-9-2-convention">9.2.8 Sign convention</h3>
       <PhysicsFigure spec={signConventionConcave} />
       <PhysicsFigure spec={signConventionConvex} />
       <p>
@@ -310,7 +301,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         ; an inverted image below it has a negative <Formula>{String.raw`h_i`}</Formula>.
       </p>
 
-      <h3 id="h-9-2-symbols">9.2.10 Symbols</h3>
+      <h3 id="h-9-2-symbols">9.2.9 Symbols</h3>
       <TableCard
         title="The six quantities a mirror problem uses"
         headers={["Symbol", "Stands for"]}
@@ -324,7 +315,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         ]}
       />
 
-      <h3 id="h-9-2-reading">9.2.11 Reading the signs off a problem</h3>
+      <h3 id="h-9-2-reading">9.2.10 Reading the signs off a problem</h3>
       <p>Before any substitution, decide which side of the pole each point lies on.</p>
       <TableCard
         title="Three statements translated into signs"
@@ -359,7 +350,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         Read these rows for the signs alone — a real convex mirror always gives a diminished image.
       </p>
 
-      <h3 id="h-9-2-real-image">9.2.12 The image of a real object</h3>
+      <h3 id="h-9-2-real-image">9.2.11 The image of a real object</h3>
       <p>An object standing between F and C of a concave mirror sends back rays that meet beyond C.</p>
       <PhysicsFigure spec={concaveRealImage} />
       <p>
@@ -387,8 +378,8 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
       <KeyPoint title="Two shortcuts">
         <ul className="mt-1 list-disc space-y-2 pl-5">
           <li>
-            <strong>Real and inverted</strong> — the image lies on the object's side, so u, v and h_i take the same
-            sign.
+            <strong>Real and inverted</strong> — the image lies on the object&apos;s side, so u, v and h_i take the
+            same sign.
           </li>
           <li>
             <strong>Virtual and erect</strong> — the image lies on the far side, so v and h_i are positive.
@@ -396,7 +387,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </ul>
       </KeyPoint>
 
-      <h3 id="h-9-2-at-a-glance">9.2.13 Signs at a glance</h3>
+      <h3 id="h-9-2-at-a-glance">9.2.12 Signs at a glance</h3>
       <TableCard
         title="The sign of every quantity, by mirror"
         headers={["Mirror", "f", "u", "v", "h_o", "h_i"]}
@@ -407,7 +398,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
       />
       <p>The object is real in every problem here, which is why u stays negative.</p>
 
-      <h3 id="h-9-2-magnification">9.2.14 Linear magnification</h3>
+      <h3 id="h-9-2-magnification">9.2.13 Linear magnification</h3>
       <p>The size of the image compared with the size of the object is the linear magnification.</p>
       <FormulaBlock
         important
@@ -436,57 +427,59 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         ]}
       />
 
-      <h3 id="h-9-2-mirror-equation">9.2.15 The mirror equation</h3>
+      <h3 id="h-9-2-mirror-equation">9.2.14 The mirror equation</h3>
       <p>
         Object distance, image distance and focal length are tied by one relation, and it drops out of two pairs of
         similar triangles.
       </p>
       <PhysicsFigure spec={mirrorEquationGeometry} />
-      <EquationLadder
-        title="Step by step"
-        steps={[
-          {
-            label: "From the triangles OBP and IMP",
-            equation: String.raw`\frac{IM}{OB} = \frac{IP}{OP}`,
-          },
-          {
-            label: "From the triangles FPN and FIM, with PN = OB",
-            equation: String.raw`\frac{IM}{OB} = \frac{IF}{FP}`,
-          },
-          {
-            label: "Both left-hand sides are IM/OB, so equate the right-hand sides",
-            equation: String.raw`\frac{IP}{OP} = \frac{IF}{FP}`,
-          },
-          {
-            label: "Put IF = IP − FP and FP = f",
-            equation: String.raw`\frac{IP}{OP} = \frac{IP - FP}{FP}`,
-          },
-          {
-            label: "Write IP = v and OP = u",
-            equation: String.raw`\frac{v}{u} = \frac{v - f}{f}`,
-          },
-          {
-            label: "Multiply out",
-            equation: String.raw`vf = uv - uf`,
-          },
-          {
-            label: "Divide every term by uvf",
-            equation: String.raw`\frac{1}{u} = \frac{1}{f} - \frac{1}{v}`,
-          },
-          {
-            label: "Mirror equation",
-            tag: "Eq. 9.7",
-            equation: String.raw`\frac{1}{f} = \frac{1}{u} + \frac{1}{v}`,
-            final: true,
-          },
-        ]}
-      />
+      <Expandable title="Derivation — the mirror equation">
+        <EquationLadder
+          title="Step by step"
+          steps={[
+            {
+              label: "From the triangles OBP and IMP",
+              equation: String.raw`\frac{IM}{OB} = \frac{IP}{OP}`,
+            },
+            {
+              label: "From the triangles FPN and FIM, with PN = OB",
+              equation: String.raw`\frac{IM}{OB} = \frac{IF}{FP}`,
+            },
+            {
+              label: "Both left-hand sides are IM/OB, so equate the right-hand sides",
+              equation: String.raw`\frac{IP}{OP} = \frac{IF}{FP}`,
+            },
+            {
+              label: "Put IF = IP − FP and FP = f",
+              equation: String.raw`\frac{IP}{OP} = \frac{IP - FP}{FP}`,
+            },
+            {
+              label: "Write IP = v and OP = u",
+              equation: String.raw`\frac{v}{u} = \frac{v - f}{f}`,
+            },
+            {
+              label: "Multiply out",
+              equation: String.raw`vf = uv - uf`,
+            },
+            {
+              label: "Divide every term by uvf",
+              equation: String.raw`\frac{1}{u} = \frac{1}{f} - \frac{1}{v}`,
+            },
+            {
+              label: "Mirror equation",
+              tag: "Eq. 9.7",
+              equation: String.raw`\frac{1}{f} = \frac{1}{u} + \frac{1}{v}`,
+              final: true,
+            },
+          ]}
+        />
+      </Expandable>
       <p>
-        <strong>The mirror equation</strong> is the last line. With the signs of 9.2.9 in place it covers every case —
+        <strong>The mirror equation</strong> is the last line. With the signs of 9.2.8 in place it covers every case —
         real or virtual, concave or convex.
       </p>
 
-      <h3 id="h-9-2-worked">9.2.16 Worked examples</h3>
+      <h3 id="h-9-2-worked">9.2.15 Worked examples</h3>
       <Expandable title="Example — object 6 cm from a concave mirror of focal length 12 cm" variant="example">
         <ProblemSolution.Problem>
           <p>
@@ -612,45 +605,6 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
           <FormulaBlock important latex={String.raw`u = -15\ \text{cm}`} />
         </ProblemSolution.Solution>
       </Expandable>
-
-      <h3 id="h-9-2-book-figures">Figures in the printed book</h3>
-      <p>The same results are drawn in the textbook; these are the figures to check against.</p>
-      <TableCard
-        title="Chapter 9 figures behind sections 9.1 and 9.2"
-        headers={["Figure", "What it shows"]}
-        rows={[
-          {
-            cells: [
-              "9.1 — Reflection at a plane surface",
-              "Incident ray, reflected ray and the normal at the point of incidence, showing that all three lie in one plane and that i = r.",
-            ],
-          },
-          {
-            cells: [
-              "9.3 — Focus of a concave and a convex mirror",
-              "(a) Parallel paraxial rays converge at F on a concave mirror. (b) They appear to diverge from F on a convex mirror.",
-            ],
-          },
-          {
-            cells: [
-              "9.4 — Geometry of reflection",
-              "A ray parallel to the axis strikes at M; CM is the normal there, and the small-aperture geometry gives f = R/2.",
-            ],
-          },
-          {
-            cells: [
-              "9.5 — Ray diagram for image formation",
-              "Three construction rays drawn from the tip of an object locate the image formed by a concave mirror.",
-            ],
-          },
-          {
-            cells: [
-              "9.6 — Virtual image, concave and convex",
-              "Object between P and F: the image is virtual and erect behind the mirror. A convex mirror gives the same for any placement.",
-            ],
-          },
-        ]}
-      />
     </>
   );
 }

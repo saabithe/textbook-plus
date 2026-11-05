@@ -10,7 +10,6 @@
 import {
   add,
   angleBetween,
-  angleOf,
   arcPoints,
   dir,
   dot,
@@ -250,7 +249,7 @@ function mirrorBase(): Element[] {
     point(M_P),
     label({ x: M_C.x, y: 39.5 }, "C", { math: true, size: 3.2 }),
     label({ x: M_F.x, y: 39.5 }, "F", { math: true, size: 3.2 }),
-    label({ x: 101, y: 39.5 }, "P", { math: true, size: 3.2, anchor: "start" }),
+    label({ x: 104.4, y: 39.5 }, "P", { math: true, size: 3.2, anchor: "start" }),
   ];
 }
 
@@ -274,7 +273,6 @@ export const ruleParallel: FigureSpec = {
     arrow({ x: 8, y: 35 }, r1Bottom, INCIDENT),
     arrow(r1Top, add(r1Top, mul(r1TopB.out, 36)), RAY),
     arrow(r1Bottom, add(r1Bottom, mul(r1BottomB.out, 36)), RAY),
-    label({ x: 16, y: 62 }, "parallel to the axis", { anchor: "start", size: 2.9, color: "muted" }),
   ],
   checks: [
     { kind: "reflect", i: r1TopB.iDeg, r: r1TopB.rDeg, tolDeg: 1e-6 },
@@ -306,7 +304,6 @@ export const ruleFocus: FigureSpec = {
     ...mirrorBase(),
     arrow(r2Start, r2Hit, INCIDENT),
     arrow(r2Hit, add(r2Hit, mul(r2B.out, 60)), RAY),
-    label({ x: 136, y: 62 }, "parallel to the axis", { anchor: "end", size: 2.9, color: "muted" }),
   ],
   checks: [
     { kind: "reflect", i: r2B.iDeg, r: r2B.rDeg, tolDeg: 1e-6 },
@@ -352,17 +349,22 @@ export const ruleCentre: FigureSpec = {
   ],
 };
 
-/* 6. At the pole → equal angles with the principal axis */
+/* 6. At the pole → equal angles with the principal axis
+ *
+ * The mirror faces left, so the normal at P is the axis itself and the
+ * reflected ray must stay on the left of the surface. Its end point is taken
+ * from the solved direction `r4B.out` — never typed in — so the drawn ray and
+ * the checked law cannot drift apart. */
 const r4Start = add(M_P, mul(dir(150), 40));
-const r4End = add(M_P, mul(dir(30), 36));
 const r4B = bounce(M_P, M_C, sub(M_P, r4Start));
+const r4End = add(M_P, mul(r4B.out, 36));
 
 export const rulePole: FigureSpec = {
   id: "mirror-rule-pole-ray",
   title: "Rule 4 — a ray at the pole reflects symmetrically",
-  alt: "A ray striking the pole P at 30 degrees to the principal axis is reflected at 30 degrees on the other side of the axis, obeying i = r.",
+  alt: "A ray striking the pole P at 30 degrees to the principal axis is reflected back into the same half-plane at 30 degrees on the other side of the axis, obeying i = r. The reflected ray stays in front of the mirror.",
   caption:
-    "At the pole the principal axis is the normal, so the ray is reflected to the other side of the axis with the same angle. Tangent to the mirror at P, the axis doubles as the normal line.",
+    "At the pole the principal axis is the normal, so the ray is reflected to the other side of the axis with the same angle — and stays on the object side of the surface. Tangent to the mirror at P, the axis doubles as the normal line.",
   frame: { width: 140, height: 90 },
   source: "Fig. 9.5",
   elements: [
@@ -370,9 +372,25 @@ export const rulePole: FigureSpec = {
     arrow(r4Start, M_P, INCIDENT),
     arrow(M_P, r4End, RAY),
     ...angleMark(M_P, 150, 180, { r: 9, label: "i", labelR: 12.5 }),
-    ...angleMark(M_P, 0, 30, { r: 9, label: "r", labelR: 12.5 }),
+    ...angleMark(M_P, 180, 210, { r: 9, label: "r", labelR: 12.5 }),
   ],
-  checks: [{ kind: "reflect", i: r4B.iDeg, r: r4B.rDeg, tolDeg: 1e-6 }],
+  checks: [
+    { kind: "reflect", i: r4B.iDeg, r: r4B.rDeg, tolDeg: 1e-6 },
+    {
+      kind: "value",
+      label: "the drawn reflected ray follows the solved direction",
+      actual: angleBetween(r4B.out, sub(r4End, M_P)),
+      expected: 0,
+      tol: 1e-6,
+    },
+    {
+      kind: "value",
+      label: "the reflected ray stays in front of the mirror (x < P)",
+      actual: Math.sign(M_P.x - r4End.x),
+      expected: 1,
+      tol: 0,
+    },
+  ],
 };
 
 /* ────────────────────────────────────────────────────────────────────────
@@ -598,59 +616,118 @@ export const concaveRealImage: FigureSpec = {
 };
 
 /* ────────────────────────────────────────────────────────────────────────
- * 10. The same figure, labelled for the mirror-equation proof
+ * 10. The mirror-equation proof, drawn from the same solved scene
+ *
+ * Two construction rays leave B: one parallel to the axis (reflects through F
+ * to M) and one at the pole (reflects to M at equal angles). The two pairs of
+ * similar triangles are tinted, and every vertex carries its letter, so the
+ * ladder on the page can be followed on the drawing.
  * ──────────────────────────────────────────────────────────────────────── */
+
+/** Same object/image geometry as `OBJ`, shifted into a compact frame. */
+const ME = {
+  axisY: 44,
+  C: { x: 64, y: 44 },
+  R: 44,
+  P: { x: 108, y: 44 },
+  F: { x: 86, y: 44 },
+  O: { x: 75, y: 44 },
+  I: { x: 42, y: 44 },
+  ho: 5,
+  hi: -10,
+};
+
+const meB: Vec = { x: ME.O.x, y: ME.axisY + ME.ho };
+const meM: Vec = { x: ME.I.x, y: ME.axisY + ME.hi };
+const meHit = hitCircle(meB, { x: 1, y: 0 }, ME.C, ME.R, "far");
+const meBounce = bounce(meHit, ME.C, { x: 1, y: 0 });
+
+const poleB = bounce(ME.P, ME.C, sub(ME.P, meB));
 
 export const mirrorEquationGeometry: FigureSpec = {
   id: "mirror-equation-geometry",
   title: "Geometry of the mirror equation",
-  alt: "The mirror-equation figure: object OB and inverted image IM stand perpendicular to the axis at O and I. The ray from B parallel to the axis strikes the mirror at N, drops to the pole P and reflects through F to the image tip M. Triangles OBP and IMP are similar about the pole; triangles FPN and FIM are similar about the focus.",
+  alt: "The mirror-equation figure. Object OB stands on the axis at O with tip B, and the inverted image IM stands at I with tip M. Two construction rays leave B: one parallel to the axis strikes the mirror at N and reflects through the focus F to M; one goes to the pole P and reflects to M at equal angles. The triangles OBP and IMP are shaded, and so are FPN and FIM.",
   caption:
-    "The reflected ray runs straight from N through F to M, so ΔFPN and ΔFIM are similar; the bases OB and IM are parallel, so ΔOBP and ΔIMP are similar. The perpendicular from N falls on the axis almost at P, which makes PN = OB.",
-  frame: { width: 140, height: 80 },
+    "Two construction rays from B meet again at M, so both pairs of triangles are similar: ΔOBP and ΔIMP about the pole, ΔFPN and ΔFIM about the focus. The drop from N lands on the pole (paraxial rays), which makes PN = OB.",
+  frame: { width: 140, height: 64 },
   source: "Fig. 9.5",
   elements: [
-    line({ x: 6, y: OBJ.axisY }, { x: 136, y: OBJ.axisY }, AXIS),
-    ...mirrorArc(OBJ.C, OBJ.R, -18, 18, 1),
-    line(OBJ.O, objB, s("ink", 0.55)),
-    line(OBJ.I, imgM, s("ink", 0.55)),
-    arrow(objB, parHit, INCIDENT),
-    arrow(parHit, endAtX(parHit, parB.out, 12), RAY),
-    line(parHit, OBJ.P, s("muted", 0.4, "dash")),
-    point(OBJ.C),
-    point(OBJ.F),
-    point(OBJ.P),
-    label({ x: parHit.x - 2.5, y: parHit.y + 3.4 }, "N", { math: true, size: 3.2, anchor: "end" }),
-    label({ x: OBJ.O.x, y: OBJ.axisY - 6.2 }, "O", { math: true, size: 3.2 }),
-    label({ x: objB.x - 2, y: objB.y + 2.2 }, "B", { math: true, size: 3.2, anchor: "end" }),
-    label({ x: OBJ.I.x - 2, y: OBJ.axisY - 6.2 }, "I", { math: true, size: 3.2, anchor: "end" }),
-    label({ x: imgM.x - 2, y: imgM.y - 2.8 }, "M", { math: true, size: 3.2, anchor: "end" }),
-    label({ x: OBJ.C.x, y: OBJ.axisY - 5.6 }, "C", { math: true, size: 3.2 }),
-    label({ x: OBJ.F.x, y: OBJ.axisY - 5.6 }, "F", { math: true, size: 3.2 }),
-    label({ x: OBJ.P.x + 3, y: OBJ.axisY - 5.6 }, "P", { math: true, size: 3.2, anchor: "start" }),
-    label({ x: 8, y: 72 }, "Two pairs of similar triangles", { anchor: "start", size: 3.6 }),
+    // tinted pairs first, so every line sits on top
+    { kind: "poly", points: [ME.O, meB, ME.P], closed: true, stroke: null, fill: "ray" },
+    { kind: "poly", points: [ME.I, meM, ME.P], closed: true, stroke: null, fill: "ray" },
+    line({ x: 4, y: ME.axisY }, { x: 136, y: ME.axisY }, AXIS),
+    ...mirrorArc(ME.C, ME.R, -18, 18, 1),
+    arrow(ME.O, meB, s("ink", 0.8)),
+    arrow(ME.I, meM, s("ink", 0.8)),
+    // ray 1: parallel to the axis, then through F to the image tip
+    arrow(meB, meHit, INCIDENT),
+    arrow(meHit, endAtX(meHit, meBounce.out, 28), RAY),
+    // ray 2: to the pole, then back to the same image tip
+    arrow(meB, ME.P, s("hot", 0.55)),
+    arrow(ME.P, meM, s("ray", 0.55)),
+    // the drop from N to the axis, which the paraxial approximation lands on P
+    line(meHit, ME.P, s("muted", 0.4, "dash")),
+    point(ME.O),
+    point(ME.I),
+    point(ME.C),
+    point(ME.F),
+    point(ME.P),
+    label({ x: meHit.x - 2.2, y: meHit.y + 3.2 }, "N", { math: true, size: 3.2, anchor: "end" }),
+    label({ x: meB.x + 2.4, y: meB.y + 3 }, "B", { math: true, size: 3.2, anchor: "start" }),
+    label({ x: ME.O.x + 2.4, y: ME.axisY - 3.2 }, "O", { math: true, size: 3.2, anchor: "start" }),
+    label({ x: ME.I.x - 3.2, y: ME.axisY + 2.4 }, "I", { math: true, size: 3.2, anchor: "end" }),
+    label({ x: ME.I.x - 3.2, y: meM.y + 2.4 }, "M", { math: true, size: 3.2, anchor: "end" }),
+    label({ x: ME.C.x, y: ME.axisY + 3.6 }, "C", { math: true, size: 3.2 }),
+    label({ x: ME.F.x, y: ME.axisY - 5.6 }, "F", { math: true, size: 3.2 }),
+    label({ x: ME.P.x + 2.4, y: ME.axisY - 2.8 }, "P", { math: true, size: 3.2, anchor: "start" }),
+    label({ x: 5, y: 60 }, "ΔOBP ~ ΔIMP    ·    ΔFPN ~ ΔFIM", { anchor: "start", size: 3.4 }),
+    label({ x: 5, y: 24 }, "OP = u    IP = v    FP = f", { anchor: "start", size: 2.9, color: "muted" }),
+    label({ x: 5, y: 17 }, "PN = OB (paraxial)", { anchor: "start", size: 2.9, color: "muted" }),
   ],
   checks: [
-    { kind: "reflect", i: parB.iDeg, r: parB.rDeg, tolDeg: 1e-6 },
+    { kind: "reflect", i: meBounce.iDeg, r: meBounce.rDeg, tolDeg: 1e-6 },
+    { kind: "reflect", i: poleB.iDeg, r: poleB.rDeg, tolDeg: 1e-6 },
     {
       kind: "value",
       label: "the drop from N meets the axis at P",
-      actual: Math.abs(parHit.x - OBJ.P.x),
+      actual: Math.abs(meHit.x - ME.P.x),
+      expected: 0,
+      tol: 0.5,
+    },
+    {
+      kind: "value",
+      label: "PN = OB (heights equal)",
+      actual: Math.abs(meHit.y - ME.P.y),
+      expected: ME.ho,
+      tol: 0.4,
+    },
+    {
+      kind: "value",
+      label: "the parallel ray passes through the image tip",
+      actual: distToLine(meM, meHit, meBounce.out),
       expected: 0,
       tol: 1,
     },
     {
       kind: "value",
-      label: "PN = OB (heights equal)",
-      actual: Math.abs(parHit.y - OBJ.P.y),
-      expected: OBJ.ho,
-      tol: 0.4,
+      label: "the pole ray passes through the image tip",
+      actual: distToLine(meM, ME.P, poleB.out),
+      expected: 0,
+      tol: 0.6,
     },
     {
       kind: "value",
-      label: "IM/PN = IF/FP",
-      actual: Math.abs(OBJ.hi) / Math.abs(parHit.y - OBJ.P.y),
-      expected: Math.abs(OBJ.F.x - OBJ.I.x) / Math.abs(OBJ.F.x - OBJ.P.x),
+      label: "OB/IM = OP/IP (the pole pair)",
+      actual: ME.ho / Math.abs(ME.hi),
+      expected: (ME.P.x - ME.O.x) / (ME.P.x - ME.I.x),
+      tol: 0.01,
+    },
+    {
+      kind: "value",
+      label: "IM/PN = IF/FP (the focus pair)",
+      actual: Math.abs(ME.hi) / Math.abs(meHit.y - ME.P.y),
+      expected: Math.abs(ME.F.x - ME.I.x) / Math.abs(ME.F.x - ME.P.x),
       tol: 0.06,
     },
   ],

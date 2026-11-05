@@ -75,7 +75,7 @@ const headPolygon = (from: Vec, to: Vec, size: number): string => {
 /** Spec space (y-up) → SVG space (y-down), applied exactly once. */
 const makeProjector = (height: number) => (p: Vec): string => `${n(p.x)},${n(height - p.y)}`;
 
-export function renderElement(el: Element, height: number, baseSize: number, index: number): ReactNode {
+export function renderElement(el: Element, height: number, baseSize: number, index: number, labelScale = 1): ReactNode {
   const P = makeProjector(height);
   switch (el.kind) {
     case "poly": {
@@ -124,7 +124,7 @@ export function renderElement(el: Element, height: number, baseSize: number, ind
     case "dot":
       return <circle key={index} cx={n(el.at.x)} cy={n(height - el.at.y)} r={n(el.r ?? 0.9)} fill={COLORS[el.color ?? "ink"]} />;
     case "label": {
-      const size = el.size ?? baseSize;
+      const size = (el.size ?? baseSize) * labelScale;
       const anchor = el.anchor ?? "middle";
       const common = {
         x: n(el.at.x),
@@ -157,22 +157,36 @@ export function renderElement(el: Element, height: number, baseSize: number, ind
   }
 }
 
-export function PhysicsFigure({ spec, className = "" }: { spec: FigureSpec; className?: string }) {
+export function PhysicsFigure({
+  spec,
+  className = "",
+  showCaption = true,
+  labelScale = 1,
+}: {
+  spec: FigureSpec;
+  className?: string;
+  /** `false` drops the caption and tightens the margins, for figures inside cards. */
+  showCaption?: boolean;
+  /** Multiplies every label's size; use when the figure is drawn narrower than the page. */
+  labelScale?: number;
+}) {
   const { width, height } = spec.frame;
   const base = spec.labelSize ?? 3.4;
   return (
-    <figure className={`my-6 ${className}`.trim()}>
+    <figure className={`${showCaption ? "my-6" : "my-3"} ${className}`.trim()}>
       <svg
         viewBox={`0 0 ${width} ${height}`}
         role="img"
         aria-label={spec.alt}
         className="mx-auto block h-auto w-full max-w-2xl overflow-visible"
       >
-        {spec.elements.map((el, index) => renderElement(el, height, base, index))}
+        {spec.elements.map((el, index) => renderElement(el, height, base, index, labelScale))}
       </svg>
-      <figcaption className="mx-auto mt-2 max-w-2xl text-center text-[0.8125rem] leading-snug text-muted-foreground">
-        {spec.caption}
-      </figcaption>
+      {showCaption && (
+        <figcaption className="mx-auto mt-2 max-w-2xl text-center text-[0.8125rem] leading-snug text-muted-foreground">
+          {spec.caption}
+        </figcaption>
+      )}
     </figure>
   );
 }
