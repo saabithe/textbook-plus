@@ -14,12 +14,6 @@ import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { RevealAnswer } from "@/components/content/process/RevealAnswer";
 
-const D2R = Math.PI / 180;
-
-function pt(cx: number, cy: number, r: number, deg: number) {
-  return { x: cx + r * Math.cos(deg * D2R), y: cy - r * Math.sin(deg * D2R) };
-}
-
 /** Fixed-width cell body so a wide comparison table wraps instead of stretching. */
 function Cell({ children }: { children: ReactNode }) {
   return <div className="w-44 max-w-44">{children}</div>;
@@ -38,41 +32,6 @@ function Figure({ title, caption, children }: { title: string; caption?: ReactNo
         <figcaption className="px-4 pb-3 text-center text-xs leading-relaxed text-muted-foreground">{caption}</figcaption>
       )}
     </figure>
-  );
-}
-
-function PowerFactorDiagram() {
-  const ox = 54;
-  const oy = 84;
-  const vTip = { x: 286, y: 84 };
-  const iTip = pt(ox, oy, 168, -38);
-  return (
-    <Figure
-      title="Splitting the current into power and wattless components"
-      caption="Fig. 7.15: I is resolved into I_p along the applied voltage V — the power component — and I_q perpendicular to it — the wattless component, for which no power is lost. Connecting a capacitor of suitable value in parallel supplies an equal leading I′_q that cancels I_q, pushing the power factor towards 1."
-    >
-      <svg viewBox="0 0 340 210" className="w-full" role="img" aria-label="Voltage phasor with the current phasor resolved into a component along the voltage and a perpendicular wattless component">
-        <defs>
-          <marker id="pf-v" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8b5cf6" /></marker>
-          <marker id="pf-i" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#f59e0b" /></marker>
-          <marker id="pf-g" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted-foreground)" /></marker>
-        </defs>
-        <line x1={ox} y1={oy} x2={vTip.x} y2={vTip.y} stroke="#8b5cf6" strokeWidth="3" markerEnd="url(#pf-v)" />
-        <line x1={ox} y1={oy} x2={iTip.x} y2={iTip.y} stroke="#f59e0b" strokeWidth="3" markerEnd="url(#pf-i)" />
-        <line x1={ox} y1={oy} x2={iTip.x} y2={oy} stroke="#f59e0b" strokeWidth="2.5" markerEnd="url(#pf-i)" />
-        <line x1={iTip.x} y1={oy} x2={iTip.x} y2={iTip.y} stroke="var(--muted-foreground)" strokeWidth="2" markerEnd="url(#pf-g)" />
-        <line x1={vTip.x} y1={oy - 6} x2={vTip.x} y2={oy + 6} stroke="#8b5cf6" strokeWidth="2" />
-        <text x={vTip.x + 6} y={oy + 4} fontSize="12" fontWeight="800" fill="#8b5cf6">V</text>
-        <text x={iTip.x + 6} y={iTip.y + 6} fontSize="12" fontWeight="800" fill="#f59e0b">I</text>
-        <text x="140" y={oy - 8} fontSize="11" fontWeight="700" fill="#f59e0b">I</text>
-        <text x="152" y={oy - 4} fontSize="8" fontWeight="700" fill="#f59e0b">p</text>
-        <text x={iTip.x + 8} y={oy + 40} fontSize="11" fontWeight="700" fill="var(--muted-foreground)">I</text>
-        <text x={iTip.x + 18} y={oy + 44} fontSize="8" fontWeight="700" fill="var(--muted-foreground)">q</text>
-        <path d="M 104 84 A 50 50 0 0 1 108 106" fill="none" stroke="var(--foreground)" strokeWidth="1.5" />
-        <text x="112" y="102" fontSize="11" fontWeight="700" fill="var(--foreground)">φ</text>
-        <text x="54" y="196" fontSize="10" fill="var(--muted-foreground)">P = I_p V , cos φ = I_p / I</text>
-      </svg>
-    </Figure>
   );
 }
 
@@ -1357,25 +1316,47 @@ export default function AlternatingCurrentChapter() {
       </Expandable>
 
       <h2 id="h-7-7">7.7 Power in AC Circuit: The Power Factor</h2>
-      <p>A voltage <Formula>{String.raw`v = V_0\sin\omega t`}</Formula> applied to a series RLC circuit drives a current{" "}<Formula>{String.raw`i = I_0\sin(\omega t - \phi)`}</Formula>, where{" "}<Formula>{String.raw`I_0 = V_0/Z`}</Formula> and{" "}<Formula>{String.raw`\phi = \tan^{-1}\left[\left(X_L - X_C\right)/R\right]`}</Formula>. The instantaneous power supplied by the source is:</p>
+      <p>
+        A source <Formula>{String.raw`v = V_0\sin\omega t`}</Formula> drives{" "}
+        <Formula>{String.raw`i = I_0\sin(\omega t - \phi)`}</Formula> through the series LCR circuit, with{" "}
+        <Formula>{String.raw`I_0 = V_0/Z`}</Formula>. From here on, <Formula>{String.raw`V`}</Formula> and{" "}
+        <Formula>{String.raw`I`}</Formula> are rms values: <Formula>{String.raw`V = V_0/\sqrt{2}`}</Formula> and{" "}
+        <Formula>{String.raw`I = I_0/\sqrt{2}`}</Formula>.
+      </p>
+      <p><strong>Instantaneous power.</strong> Multiply voltage by current, term by term:</p>
       <FormulaBlock tag="Eq. 7.29" latex={String.raw`p = v\,i = V_0\sin\omega t \times I_0\sin(\omega t - \phi) = \frac{V_0 I_0}{2}\left[\cos\phi - \cos(2\omega t - \phi)\right]`} />
-      <p>Only the second term is time-dependent, and its average over a cycle is zero (the positive half of the cosine cancels the negative half). Therefore:</p>
+      <p><strong>Average over a cycle.</strong> The <Formula>{String.raw`\cos(2\omega t - \phi)`}</Formula> term swings symmetrically about zero, so its average vanishes:</p>
       <FormulaBlock tag="Eq. 7.30(a)" latex={String.raw`P = \frac{V_0 I_0}{2}\cos\phi = \frac{V_0}{\sqrt{2}}\cdot\frac{I_0}{\sqrt{2}}\cos\phi = V I \cos\phi`} important />
+      <p>Replacing <Formula>{String.raw`V`}</Formula> by <Formula>{String.raw`IZ`}</Formula> gives the same rule in impedance form:</p>
       <FormulaBlock tag="Eq. 7.30(b)" latex={String.raw`P = I^2 Z \cos\phi`} />
-      <p>The average power dissipated depends not only on the voltage and current but also on the cosine of the phase angle between them. The quantity <Formula>{String.raw`\cos\phi`}</Formula> is called the{" "}<Highlight color="yellow">power factor</Highlight>.</p>
+      <p>
+        <strong>Power factor.</strong> The factor <Formula>{String.raw`\cos\phi`}</Formula> is the{" "}
+        <Highlight color="yellow">power factor</Highlight>, and the impedance triangle turns it into circuit elements:
+      </p>
+      <FormulaBlock latex={String.raw`\cos\phi = \frac{R}{Z} = \frac{R}{\sqrt{R^2 + \left(X_L - X_C\right)^2}}`} important />
+      <p>Every circuit is this one formula with a different phase angle:</p>
       <TableCard
         title="The four cases of average power"
         caption="Power is dissipated only in the resistor, whatever else the circuit contains."
-        headers={["Circuit", "φ", "cos φ", "Average power"]}
+        headers={["Circuit", "φ", "cos φ", "Average power", "What it means"]}
         rows={[
-          { cells: ["Pure R (resistive)", "0", "1", "Maximum dissipation, P = I²R"] },
-          { cells: ["Pure L or pure C", "±π/2", "0", "No power dissipated — the current is wattless"] },
-          { cells: ["Series LCR", "tan⁻¹[(X_L − X_C)/R]", "R/Z", "P = I²Z cos φ, dissipated only in R"] },
-          { cells: ["LCR at resonance", "0", "1", "Maximum, P = I²Z = I²R"] },
+          { cells: ["Pure R", "0°", "1", "P = VI = I²R", "Maximum dissipation"] },
+          {
+            cells: [
+              "Pure L or pure C",
+              "±90°",
+              "0",
+              "P = 0",
+              "Wattless current: it flows, but loses no power",
+            ],
+          },
+          { cells: ["Series LCR", "tan⁻¹[(X_L − X_C)/R]", "R/Z", "P = VI cos φ", "Dissipated only in R"] },
+          {
+            cells: ["LCR at resonance", "0° (X_L = X_C)", "1", "P = I²R = V²/R", "Maximum, at the resonant frequency"],
+          },
         ]}
       />
-      <p>In the purely inductive or capacitive case no power is dissipated even though a current is flowing; this current is sometimes referred to as <strong>wattless current</strong>.</p>
-      <PowerFactorDiagram />
+
 
       <Expandable title="Example 7.7 — Low power factor, and how a capacitor improves it" variant="example">
         <ProblemSolution.Problem>
@@ -1476,6 +1457,134 @@ export default function AlternatingCurrentChapter() {
           </p>
           <p>Carrying metal changes the impedance of the circuit, producing a significant change in the current. That change is detected by the electronic circuitry, which causes a sound to be emitted as an alarm.</p>
         </ProblemSolution.Solution>
+      </Expandable>
+      <h2 id="h-7-8">7.8 Transformers</h2>
+      <Callout type="important" title="Transformer (definition)">
+        <p>For many purposes, it is necessary to change (or transform) an alternating voltage from one to another of greater or smaller value. This is done with a device called a <strong>transformer</strong>, using the principle of{" "}<strong>mutual induction</strong>.</p>
+      </Callout>
+      <p>
+        A transformer is two insulated coils on a <strong>soft-iron core</strong> — one on top of the other, or on
+        separate limbs. The <strong>primary</strong> (<Formula>{String.raw`N_p`}</Formula> turns) is the input coil and
+        the <strong>secondary</strong> (<Formula>{String.raw`N_s`}</Formula> turns) is the output.
+      </p>
+      <p>When an alternating voltage is applied to the primary, the resulting current produces an alternating magnetic flux which links the secondary and induces an emf in it. The value of this emf depends on the number of turns in the secondary.</p>
+      <TransformerDiagram />
+      <p>Consider an <strong>ideal transformer</strong>: the primary has negligible resistance and all the flux in the core links both windings. If <Formula>{String.raw`\Phi`}</Formula> is the flux in each turn at time t due to the primary current, the induced emf in the secondary is:</p>
+      <FormulaBlock tag="Eq. 7.31" latex={String.raw`\varepsilon_s = -N_s\frac{\mathrm{d}\Phi}{\mathrm{d}t}`} />
+      <p>The alternating flux also induces an emf, called <strong>back emf</strong>, in the primary:</p>
+      <FormulaBlock tag="Eq. 7.32" latex={String.raw`\varepsilon_p = -N_p\frac{\mathrm{d}\Phi}{\mathrm{d}t}`} />
+      <p>But <Formula>{String.raw`\varepsilon_p = v_p`}</Formula>: if this were not so, the primary current would be infinite, since the primary has zero resistance. If the secondary is an open circuit or the current taken from it is small, then to a good approximation <Formula>{String.raw`\varepsilon_s = v_s`}</Formula>. Hence:</p>
+      <FormulaBlock tag="Eq. 7.33" latex={String.raw`\frac{v_s}{v_p} = \frac{N_s}{N_p}`} important />
+      <Callout type="note" title="Three assumptions behind Eq. (7.33)">
+        <p>(i) The primary resistance and current are small.</p>
+        <p>(ii) The same flux links both primary and secondary, as very little flux escapes from the core.</p>
+        <p>(iii) The secondary current is small.</p>
+      </Callout>
+      <p>If the transformer is assumed 100% efficient (no energy losses), the power input equals the power output, and since{" "}<Formula>{String.raw`p = iv`}</Formula>:</p>
+      <FormulaBlock tag="Eq. 7.34" latex={String.raw`i_p v_p = i_s v_s`} />
+      <p>Some energy is always lost, but this is a good approximation — a well-designed transformer may have an efficiency of more than 95%. Combining the last two equations:</p>
+      <FormulaBlock tag="Eq. 7.35" latex={String.raw`\frac{i_p}{i_s} = \frac{v_s}{v_p} = \frac{N_s}{N_p}`} important />
+      <p>Since i and v both oscillate with the same frequency as the ac source, this also gives the ratio of the amplitudes or rms values of the corresponding quantities:</p>
+      <FormulaBlock tag="Eq. 7.36" latex={String.raw`V_s = \left(\frac{N_s}{N_p}\right)V_p \qquad\text{and}\qquad I_s = \left(\frac{N_p}{N_s}\right)I_p`} important />
+      <ul>
+        <li>
+          If <Formula>{String.raw`N_s > N_p`}</Formula> the voltage is <strong>stepped up</strong>{" "}
+          (<Formula>{String.raw`V_s > V_p`}</Formula>) — a <strong>step-up transformer</strong>. In this arrangement there is{" "}
+          <em>less</em> current in the secondary than in the primary.
+        </li>
+        <li>
+          If <Formula>{String.raw`N_s < N_p`}</Formula> the voltage is <strong>stepped down</strong> — a{" "}
+          <strong>step-down transformer</strong>. Here <Formula>{String.raw`V_s < V_p`}</Formula> and{" "}
+          <Formula>{String.raw`I_s > I_p`}</Formula>: the voltage is reduced and the current is increased.
+        </li>
+      </ul>
+      <p className="text-sm text-muted-foreground">For example, if the primary coil has 100 turns and the secondary 200 turns,{" "}<Formula>{String.raw`N_s/N_p = 2`}</Formula> and <Formula>{String.raw`N_p/N_s = 1/2`}</Formula>. A 220 V input at 10 A steps up to a 440 V output at 5.0 A.</p>
+      <TableCard
+        title="Energy losses in a real transformer"
+        caption="The equations above apply to ideal transformers. Real transformers lose energy in four ways, each with its own remedy."
+        headers={["Loss", "Cause", "Remedy"]}
+        rows={[
+          { cells: ["Flux leakage", "Not all the flux due to the primary passes through the secondary, because of poor core design or air gaps", "Wind the primary and secondary coils one over the other"] },
+          { cells: ["Resistance of windings", "The winding wire has resistance, so energy is lost as heat (I²R)", "Use thick wire, especially in high-current, low-voltage windings"] },
+          { cells: ["Eddy currents", "The alternating flux induces eddy currents in the iron core, causing heating", "Use a laminated core"] },
+          { cells: ["Hysteresis", "The magnetisation of the core is repeatedly reversed by the alternating field, and the energy spent appears as heat", "Use a magnetic material with low hysteresis loss"] },
+        ]}
+      />
+      <p>Large-scale transmission and distribution of electrical energy over long distances is done with transformers. The voltage output of the generator is <strong>stepped up</strong> so that the current — and hence the{" "}<Formula>{String.raw`I^2R`}</Formula> loss — is reduced; area and distributing sub-stations then step it down again before the supply reaches homes at about 240 V.</p>
+      <MistakeCard
+        mistake="Thinking a step-up transformer creates energy, since it turns a low voltage into a high voltage."
+        correction="Energy is conserved. A step-up transformer raises the voltage and reduces the current in exactly the same proportion, so the power i_p v_p = i_s v_s is unchanged (apart from small losses)."
+      />
+
+      <h2 id="h-7-rev">Physical Quantities, Their Units and the Quality Factor</h2>
+      <TableCard
+        title="Physical quantities of ac circuits"
+        caption="The chapter's summary table of quantities, their dimensions, units and defining relations."
+        headers={["Quantity", "Symbol", "Dimensions", "Unit", "Remarks"]}
+        rows={[
+          { cells: ["rms voltage", "V", "[M L² T⁻³ A⁻¹]", "V", <>V = V_0/√2, where V<sub>0</sub> is the amplitude of the ac voltage</>] },
+          { cells: ["rms current", "I", "[A]", "A", <>I = I<sub>0</sub>/√2, where I<sub>0</sub> is the amplitude of the ac current</>] },
+          { cells: ["Inductive reactance", "X_L", "[M L² T⁻³ A⁻²]", "Ω", <>X<sub>L</sub> = ωL</>] },
+          { cells: ["Capacitive reactance", "X_C", "[M L² T⁻³ A⁻²]", "Ω", <>X<sub>C</sub> = 1/ωC</>] },
+          { cells: ["Impedance", "Z", "[M L² T⁻³ A⁻²]", "Ω", "Depends on the elements present in the circuit"] },
+          { cells: ["Resonant frequency", "ω_r or ω₀", "[T⁻¹]", "Hz", <>ω₀ = 1/√(LC) for a series RLC circuit</>] },
+          { cells: ["Quality factor", "Q", "Dimensionless", "—", <>Q = ω₀L/R = 1/(ω₀CR) for a series RLC circuit</>] },
+          { cells: ["Power factor", "cos φ", "Dimensionless", "—", "φ is the angle by which the source voltage leads the current"] },
+        ]}
+      />
+      <div className="my-6 grid gap-4 sm:grid-cols-2 [&>div]:my-0">
+        <FormulaCard>
+          <p className="text-[0.75rem] font-medium text-muted-foreground">Impedance and phase</p>
+          <FormulaBlock latex={String.raw`Z = \sqrt{R^2 + \left(X_L - X_C\right)^2},\quad \tan\phi = \frac{X_L - X_C}{R}`} important />
+        </FormulaCard>
+        <FormulaCard>
+          <p className="text-[0.75rem] font-medium text-muted-foreground">Average power</p>
+          <FormulaBlock latex={String.raw`P = V I \cos\phi = I^2 R`} important />
+        </FormulaCard>
+      </div>
+
+      <h2 id="h-7-exercises">Back-of-Chapter Exercises</h2>
+      <Expandable title="Exercises 7.1 – 7.8 with worked answers" variant="exercise">
+        <ExerciseQa
+          questions={[
+            <>A 100 Ω resistor is connected to a 220 V, 50 Hz ac supply. (a) What is the rms value of current in the circuit? (b) What is the net power consumed over a full cycle?</>,
+            <>(a) The peak voltage of an ac supply is 300 V. What is the rms voltage? (b) The rms value of current in an ac circuit is 10 A. What is the peak current?</>,
+            <>A 44 mH inductor is connected to a 220 V, 50 Hz ac supply. Determine the rms value of the current in the circuit.</>,
+            <>A 60 μF capacitor is connected to a 110 V, 60 Hz ac supply. Determine the rms value of the current in the circuit.</>,
+            <>In Exercises 7.3 and 7.4, what is the net power absorbed by each circuit over a complete cycle? Explain your answer.</>,
+            <>A charged 30 μF capacitor is connected to a 27 mH inductor. What is the angular frequency of free oscillations of the circuit?</>,
+            <>A series LCR circuit with R = 20 Ω, L = 1.5 H and C = 35 μF is connected to a variable-frequency 200 V ac supply. When the frequency of the supply equals the natural frequency of the circuit, what is the average power transferred to the circuit in one complete cycle?</>,
+            <>Figure 7.17 shows a series LCR circuit connected to a variable-frequency 230 V source with L = 5.0 H,{" "}
+              C = 80 μF and R = 40 Ω. (a) Determine the source frequency which drives the circuit in resonance. (b) Obtain the
+              impedance of the circuit and the amplitude of current at the resonating frequency. (c) Determine the rms
+              potential drops across the three elements and show that the potential drop across the LC combination is zero at
+              the resonating frequency.</>,
+          ]}
+          answers={[
+            <><strong>(a)</strong> <Formula>{String.raw`I = V/R = 220/100 = 2.2\ \text{A}`}</Formula>. <strong>(b)</strong> <Formula>{String.raw`P = I^2R = (2.2)^2 \times 100 = 484\ \text{W}`}</Formula> — the same as <Formula>{String.raw`VI`}</Formula>.</>,
+            <><strong>(a)</strong> <Formula>{String.raw`V = V_0/\sqrt{2} = 300/1.414 = 212.1\ \text{V}`}</Formula>. <strong>(b)</strong> <Formula>{String.raw`I_0 = \sqrt{2}\,I = 1.414 \times 10 = 14.1\ \text{A}`}</Formula>.</>,
+            <><Formula>{String.raw`X_L = 2\pi\nu L = 2\pi(50)(44\times 10^{-3}) = 13.8\ \Omega`}</Formula>, so <Formula>{String.raw`I = V/X_L = 220/13.8 = 15.9\ \text{A}`}</Formula>.</>,
+            <><Formula>{String.raw`X_C = \frac{1}{2\pi\nu C} = \frac{1}{2\pi(60)(60\times 10^{-6})} = 44.2\ \Omega`}</Formula>, so <Formula>{String.raw`I = V/X_C = 110/44.2 = 2.49\ \text{A}`}</Formula>.</>,
+            <>Zero in both cases. A pure inductor and a pure capacitor have <Formula>{String.raw`\phi = \pm\pi/2`}</Formula>, so{" "}
+              <Formula>{String.raw`\cos\phi = 0`}</Formula> and the current is wattless: energy is stored in the magnetic or
+              electric field and returned to the source each half cycle, never dissipated.</>,
+            <>For free oscillations <Formula>{String.raw`\omega = \frac{1}{\sqrt{LC}} = \frac{1}{\sqrt{30\times 10^{-6} \times 27\times 10^{-3}}} = 1.1\times 10^{3}\ \text{rad/s}`}</Formula>.</>,
+            <>At resonance <Formula>{String.raw`X_L = X_C`}</Formula>, so <Formula>{String.raw`Z = R`}</Formula> and the current is{" "}
+              <Formula>{String.raw`I = V/R`}</Formula>. Hence{" "}
+              <Formula>{String.raw`P = I^2R = V^2/R = (200)^2/20 = 2000\ \text{W}`}</Formula>.</>,
+            <><strong>(a)</strong>{" "}
+              <Formula>{String.raw`\omega_0 = \frac{1}{\sqrt{LC}} = \frac{1}{\sqrt{5.0 \times 80\times 10^{-6}}} = 50\ \text{rad/s}`}</Formula>,
+              i.e. <Formula>{String.raw`\nu_0 = 50/2\pi = 8.0\ \text{Hz}`}</Formula>. <strong>(b)</strong> At resonance{" "}
+              <Formula>{String.raw`Z = R = 40\ \Omega`}</Formula>, so{" "}
+              <Formula>{String.raw`I_0 = V_0/Z = 230\sqrt{2}/40 = 8.1\ \text{A}`}</Formula>. <strong>(c)</strong>{" "}
+              <Formula>{String.raw`I = 230/40 = 5.75\ \text{A}`}</Formula>;{" "}
+              <Formula>{String.raw`X_L = \omega_0 L = 250\ \Omega`}</Formula> gives <Formula>{String.raw`V_L = 1437\ \text{V}`}</Formula>{" "}
+              and <Formula>{String.raw`X_C = 1/(\omega_0 C) = 250\ \Omega`}</Formula> gives{" "}
+              <Formula>{String.raw`V_C = 1437\ \text{V}`}</Formula>, while <Formula>{String.raw`V_R = IR = 230\ \text{V}`}</Formula>.
+              Since <Formula>{String.raw`V_L`}</Formula> and <Formula>{String.raw`V_C`}</Formula> are exactly opposite in phase,
+              the drop across the LC combination is <Formula>{String.raw`V_C - V_L = 0`}</Formula>.</>,
+          ]}
+        />
       </Expandable>
       <h2 id="h-7-master">Master table — one pattern, four elements</h2>
       <TableCard
@@ -1749,134 +1858,6 @@ export default function AlternatingCurrentChapter() {
         </figure>
       </div>
 
-      <h2 id="h-7-8">7.8 Transformers</h2>
-      <Callout type="important" title="Transformer (definition)">
-        <p>For many purposes, it is necessary to change (or transform) an alternating voltage from one to another of greater or smaller value. This is done with a device called a <strong>transformer</strong>, using the principle of{" "}<strong>mutual induction</strong>.</p>
-      </Callout>
-      <p>
-        A transformer is two insulated coils on a <strong>soft-iron core</strong> — one on top of the other, or on
-        separate limbs. The <strong>primary</strong> (<Formula>{String.raw`N_p`}</Formula> turns) is the input coil and
-        the <strong>secondary</strong> (<Formula>{String.raw`N_s`}</Formula> turns) is the output.
-      </p>
-      <p>When an alternating voltage is applied to the primary, the resulting current produces an alternating magnetic flux which links the secondary and induces an emf in it. The value of this emf depends on the number of turns in the secondary.</p>
-      <TransformerDiagram />
-      <p>Consider an <strong>ideal transformer</strong>: the primary has negligible resistance and all the flux in the core links both windings. If <Formula>{String.raw`\Phi`}</Formula> is the flux in each turn at time t due to the primary current, the induced emf in the secondary is:</p>
-      <FormulaBlock tag="Eq. 7.31" latex={String.raw`\varepsilon_s = -N_s\frac{\mathrm{d}\Phi}{\mathrm{d}t}`} />
-      <p>The alternating flux also induces an emf, called <strong>back emf</strong>, in the primary:</p>
-      <FormulaBlock tag="Eq. 7.32" latex={String.raw`\varepsilon_p = -N_p\frac{\mathrm{d}\Phi}{\mathrm{d}t}`} />
-      <p>But <Formula>{String.raw`\varepsilon_p = v_p`}</Formula>: if this were not so, the primary current would be infinite, since the primary has zero resistance. If the secondary is an open circuit or the current taken from it is small, then to a good approximation <Formula>{String.raw`\varepsilon_s = v_s`}</Formula>. Hence:</p>
-      <FormulaBlock tag="Eq. 7.33" latex={String.raw`\frac{v_s}{v_p} = \frac{N_s}{N_p}`} important />
-      <Callout type="note" title="Three assumptions behind Eq. (7.33)">
-        <p>(i) The primary resistance and current are small.</p>
-        <p>(ii) The same flux links both primary and secondary, as very little flux escapes from the core.</p>
-        <p>(iii) The secondary current is small.</p>
-      </Callout>
-      <p>If the transformer is assumed 100% efficient (no energy losses), the power input equals the power output, and since{" "}<Formula>{String.raw`p = iv`}</Formula>:</p>
-      <FormulaBlock tag="Eq. 7.34" latex={String.raw`i_p v_p = i_s v_s`} />
-      <p>Some energy is always lost, but this is a good approximation — a well-designed transformer may have an efficiency of more than 95%. Combining the last two equations:</p>
-      <FormulaBlock tag="Eq. 7.35" latex={String.raw`\frac{i_p}{i_s} = \frac{v_s}{v_p} = \frac{N_s}{N_p}`} important />
-      <p>Since i and v both oscillate with the same frequency as the ac source, this also gives the ratio of the amplitudes or rms values of the corresponding quantities:</p>
-      <FormulaBlock tag="Eq. 7.36" latex={String.raw`V_s = \left(\frac{N_s}{N_p}\right)V_p \qquad\text{and}\qquad I_s = \left(\frac{N_p}{N_s}\right)I_p`} important />
-      <ul>
-        <li>
-          If <Formula>{String.raw`N_s > N_p`}</Formula> the voltage is <strong>stepped up</strong>{" "}
-          (<Formula>{String.raw`V_s > V_p`}</Formula>) — a <strong>step-up transformer</strong>. In this arrangement there is{" "}
-          <em>less</em> current in the secondary than in the primary.
-        </li>
-        <li>
-          If <Formula>{String.raw`N_s < N_p`}</Formula> the voltage is <strong>stepped down</strong> — a{" "}
-          <strong>step-down transformer</strong>. Here <Formula>{String.raw`V_s < V_p`}</Formula> and{" "}
-          <Formula>{String.raw`I_s > I_p`}</Formula>: the voltage is reduced and the current is increased.
-        </li>
-      </ul>
-      <p className="text-sm text-muted-foreground">For example, if the primary coil has 100 turns and the secondary 200 turns,{" "}<Formula>{String.raw`N_s/N_p = 2`}</Formula> and <Formula>{String.raw`N_p/N_s = 1/2`}</Formula>. A 220 V input at 10 A steps up to a 440 V output at 5.0 A.</p>
-      <TableCard
-        title="Energy losses in a real transformer"
-        caption="The equations above apply to ideal transformers. Real transformers lose energy in four ways, each with its own remedy."
-        headers={["Loss", "Cause", "Remedy"]}
-        rows={[
-          { cells: ["Flux leakage", "Not all the flux due to the primary passes through the secondary, because of poor core design or air gaps", "Wind the primary and secondary coils one over the other"] },
-          { cells: ["Resistance of windings", "The winding wire has resistance, so energy is lost as heat (I²R)", "Use thick wire, especially in high-current, low-voltage windings"] },
-          { cells: ["Eddy currents", "The alternating flux induces eddy currents in the iron core, causing heating", "Use a laminated core"] },
-          { cells: ["Hysteresis", "The magnetisation of the core is repeatedly reversed by the alternating field, and the energy spent appears as heat", "Use a magnetic material with low hysteresis loss"] },
-        ]}
-      />
-      <p>Large-scale transmission and distribution of electrical energy over long distances is done with transformers. The voltage output of the generator is <strong>stepped up</strong> so that the current — and hence the{" "}<Formula>{String.raw`I^2R`}</Formula> loss — is reduced; area and distributing sub-stations then step it down again before the supply reaches homes at about 240 V.</p>
-      <MistakeCard
-        mistake="Thinking a step-up transformer creates energy, since it turns a low voltage into a high voltage."
-        correction="Energy is conserved. A step-up transformer raises the voltage and reduces the current in exactly the same proportion, so the power i_p v_p = i_s v_s is unchanged (apart from small losses)."
-      />
-
-      <h2 id="h-7-rev">Physical Quantities, Their Units and the Quality Factor</h2>
-      <TableCard
-        title="Physical quantities of ac circuits"
-        caption="The chapter's summary table of quantities, their dimensions, units and defining relations."
-        headers={["Quantity", "Symbol", "Dimensions", "Unit", "Remarks"]}
-        rows={[
-          { cells: ["rms voltage", "V", "[M L² T⁻³ A⁻¹]", "V", <>V = V_0/√2, where V<sub>0</sub> is the amplitude of the ac voltage</>] },
-          { cells: ["rms current", "I", "[A]", "A", <>I = I<sub>0</sub>/√2, where I<sub>0</sub> is the amplitude of the ac current</>] },
-          { cells: ["Inductive reactance", "X_L", "[M L² T⁻³ A⁻²]", "Ω", <>X<sub>L</sub> = ωL</>] },
-          { cells: ["Capacitive reactance", "X_C", "[M L² T⁻³ A⁻²]", "Ω", <>X<sub>C</sub> = 1/ωC</>] },
-          { cells: ["Impedance", "Z", "[M L² T⁻³ A⁻²]", "Ω", "Depends on the elements present in the circuit"] },
-          { cells: ["Resonant frequency", "ω_r or ω₀", "[T⁻¹]", "Hz", <>ω₀ = 1/√(LC) for a series RLC circuit</>] },
-          { cells: ["Quality factor", "Q", "Dimensionless", "—", <>Q = ω₀L/R = 1/(ω₀CR) for a series RLC circuit</>] },
-          { cells: ["Power factor", "cos φ", "Dimensionless", "—", "φ is the angle by which the source voltage leads the current"] },
-        ]}
-      />
-      <div className="my-6 grid gap-4 sm:grid-cols-2 [&>div]:my-0">
-        <FormulaCard>
-          <p className="text-[0.75rem] font-medium text-muted-foreground">Impedance and phase</p>
-          <FormulaBlock latex={String.raw`Z = \sqrt{R^2 + \left(X_L - X_C\right)^2},\quad \tan\phi = \frac{X_L - X_C}{R}`} important />
-        </FormulaCard>
-        <FormulaCard>
-          <p className="text-[0.75rem] font-medium text-muted-foreground">Average power</p>
-          <FormulaBlock latex={String.raw`P = V I \cos\phi = I^2 R`} important />
-        </FormulaCard>
-      </div>
-
-      <h2 id="h-7-exercises">Back-of-Chapter Exercises</h2>
-      <Expandable title="Exercises 7.1 – 7.8 with worked answers" variant="exercise">
-        <ExerciseQa
-          questions={[
-            <>A 100 Ω resistor is connected to a 220 V, 50 Hz ac supply. (a) What is the rms value of current in the circuit? (b) What is the net power consumed over a full cycle?</>,
-            <>(a) The peak voltage of an ac supply is 300 V. What is the rms voltage? (b) The rms value of current in an ac circuit is 10 A. What is the peak current?</>,
-            <>A 44 mH inductor is connected to a 220 V, 50 Hz ac supply. Determine the rms value of the current in the circuit.</>,
-            <>A 60 μF capacitor is connected to a 110 V, 60 Hz ac supply. Determine the rms value of the current in the circuit.</>,
-            <>In Exercises 7.3 and 7.4, what is the net power absorbed by each circuit over a complete cycle? Explain your answer.</>,
-            <>A charged 30 μF capacitor is connected to a 27 mH inductor. What is the angular frequency of free oscillations of the circuit?</>,
-            <>A series LCR circuit with R = 20 Ω, L = 1.5 H and C = 35 μF is connected to a variable-frequency 200 V ac supply. When the frequency of the supply equals the natural frequency of the circuit, what is the average power transferred to the circuit in one complete cycle?</>,
-            <>Figure 7.17 shows a series LCR circuit connected to a variable-frequency 230 V source with L = 5.0 H,{" "}
-              C = 80 μF and R = 40 Ω. (a) Determine the source frequency which drives the circuit in resonance. (b) Obtain the
-              impedance of the circuit and the amplitude of current at the resonating frequency. (c) Determine the rms
-              potential drops across the three elements and show that the potential drop across the LC combination is zero at
-              the resonating frequency.</>,
-          ]}
-          answers={[
-            <><strong>(a)</strong> <Formula>{String.raw`I = V/R = 220/100 = 2.2\ \text{A}`}</Formula>. <strong>(b)</strong> <Formula>{String.raw`P = I^2R = (2.2)^2 \times 100 = 484\ \text{W}`}</Formula> — the same as <Formula>{String.raw`VI`}</Formula>.</>,
-            <><strong>(a)</strong> <Formula>{String.raw`V = V_0/\sqrt{2} = 300/1.414 = 212.1\ \text{V}`}</Formula>. <strong>(b)</strong> <Formula>{String.raw`I_0 = \sqrt{2}\,I = 1.414 \times 10 = 14.1\ \text{A}`}</Formula>.</>,
-            <><Formula>{String.raw`X_L = 2\pi\nu L = 2\pi(50)(44\times 10^{-3}) = 13.8\ \Omega`}</Formula>, so <Formula>{String.raw`I = V/X_L = 220/13.8 = 15.9\ \text{A}`}</Formula>.</>,
-            <><Formula>{String.raw`X_C = \frac{1}{2\pi\nu C} = \frac{1}{2\pi(60)(60\times 10^{-6})} = 44.2\ \Omega`}</Formula>, so <Formula>{String.raw`I = V/X_C = 110/44.2 = 2.49\ \text{A}`}</Formula>.</>,
-            <>Zero in both cases. A pure inductor and a pure capacitor have <Formula>{String.raw`\phi = \pm\pi/2`}</Formula>, so{" "}
-              <Formula>{String.raw`\cos\phi = 0`}</Formula> and the current is wattless: energy is stored in the magnetic or
-              electric field and returned to the source each half cycle, never dissipated.</>,
-            <>For free oscillations <Formula>{String.raw`\omega = \frac{1}{\sqrt{LC}} = \frac{1}{\sqrt{30\times 10^{-6} \times 27\times 10^{-3}}} = 1.1\times 10^{3}\ \text{rad/s}`}</Formula>.</>,
-            <>At resonance <Formula>{String.raw`X_L = X_C`}</Formula>, so <Formula>{String.raw`Z = R`}</Formula> and the current is{" "}
-              <Formula>{String.raw`I = V/R`}</Formula>. Hence{" "}
-              <Formula>{String.raw`P = I^2R = V^2/R = (200)^2/20 = 2000\ \text{W}`}</Formula>.</>,
-            <><strong>(a)</strong>{" "}
-              <Formula>{String.raw`\omega_0 = \frac{1}{\sqrt{LC}} = \frac{1}{\sqrt{5.0 \times 80\times 10^{-6}}} = 50\ \text{rad/s}`}</Formula>,
-              i.e. <Formula>{String.raw`\nu_0 = 50/2\pi = 8.0\ \text{Hz}`}</Formula>. <strong>(b)</strong> At resonance{" "}
-              <Formula>{String.raw`Z = R = 40\ \Omega`}</Formula>, so{" "}
-              <Formula>{String.raw`I_0 = V_0/Z = 230\sqrt{2}/40 = 8.1\ \text{A}`}</Formula>. <strong>(c)</strong>{" "}
-              <Formula>{String.raw`I = 230/40 = 5.75\ \text{A}`}</Formula>;{" "}
-              <Formula>{String.raw`X_L = \omega_0 L = 250\ \Omega`}</Formula> gives <Formula>{String.raw`V_L = 1437\ \text{V}`}</Formula>{" "}
-              and <Formula>{String.raw`X_C = 1/(\omega_0 C) = 250\ \Omega`}</Formula> gives{" "}
-              <Formula>{String.raw`V_C = 1437\ \text{V}`}</Formula>, while <Formula>{String.raw`V_R = IR = 230\ \text{V}`}</Formula>.
-              Since <Formula>{String.raw`V_L`}</Formula> and <Formula>{String.raw`V_C`}</Formula> are exactly opposite in phase,
-              the drop across the LC combination is <Formula>{String.raw`V_C - V_L = 0`}</Formula>.</>,
-          ]}
-        />
-      </Expandable>
     </>
   );
 }
