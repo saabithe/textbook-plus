@@ -375,6 +375,287 @@ export const rulePole: FigureSpec = {
   checks: [{ kind: "reflect", i: r4B.iDeg, r: r4B.rDeg, tolDeg: 1e-6 }],
 };
 
+/* ────────────────────────────────────────────────────────────────────────
+ * 7–8. Cartesian sign convention, one figure per mirror
+ *
+ * Same scene as the construction figures: P at the origin of the frame, +x is
+ * the direction of the incident light, +y is up. Numbers on the drawings are
+ * chosen so that 1/f = 1/u + 1/v holds in distances (checked below).
+ * ──────────────────────────────────────────────────────────────────────── */
+
+type SignConventionInput = {
+  id: string;
+  title: string;
+  heading: string;
+  alt: string;
+  caption: string;
+  kind: "concave" | "convex";
+  C: Vec;
+  R: number;
+  P: Vec;
+  F: Vec;
+  /** Base of the object arrow. */
+  O: Vec;
+  /** Base of the image arrow. */
+  I: Vec;
+  ho: number;
+  hi: number;
+};
+
+/** Double-headed dimension line with its label, as used in the terms figures. */
+function signFigure({ id, title, heading, alt, caption, kind, C, R, P, F, O, I, ho, hi }: SignConventionInput): FigureSpec {
+  const concave = kind === "concave";
+  const axisY = P.y;
+  const B = { x: O.x, y: axisY + ho };
+  const M = { x: I.x, y: axisY + hi };
+  const u = Math.abs(P.x - O.x);
+  const v = Math.abs(I.x - P.x);
+  const f = Math.abs(P.x - F.x);
+
+  return {
+    id,
+    title,
+    alt,
+    caption,
+    frame: { width: 140, height: 96 },
+    elements: [
+      line({ x: 6, y: axisY }, { x: 136, y: axisY }, AXIS),
+      ...mirrorArc(C, R, concave ? -18 : 162, concave ? 18 : 198, concave ? 1 : -1),
+      arrow({ x: 16, y: axisY }, { x: 7, y: axisY }, s("ink", 0.45)),
+      arrow({ x: 124, y: axisY }, { x: 133, y: axisY }, s("ink", 0.45)),
+      label({ x: 7, y: axisY - 4.6 }, "−x", { math: true, size: 3, anchor: "start" }),
+      label({ x: 133, y: axisY - 4.6 }, "+x", { math: true, size: 3, anchor: "end" }),
+      arrow({ x: 124, y: axisY }, { x: 124, y: axisY + 10 }, s("ink", 0.45)),
+      label({ x: 126.5, y: axisY + 9 }, "+y", { math: true, size: 3, anchor: "start" }),
+      arrow(O, B, s("ink", 0.7)),
+      arrow(I, M, s("ink", 0.7)),
+      point(C),
+      point(F),
+      point(P),
+      label({ x: C.x, y: axisY - 5.6 }, "C", { math: true, size: 3.2 }),
+      label({ x: F.x, y: axisY - 5.6 }, "F", { math: true, size: 3.2 }),
+      label({ x: concave ? P.x + 4 : P.x - 4, y: axisY - 9.6 }, "P", {
+        math: true,
+        size: 3.2,
+        anchor: concave ? "start" : "end",
+      }),
+      label({ x: O.x - 2.5, y: axisY + ho - 2.5 }, "h_o (+)", { anchor: "end", size: 3 }),
+      ...(concave
+        ? [label({ x: I.x - 2.5, y: axisY + hi + 2.5 }, "h_i (−)", { anchor: "end", size: 3 })]
+        : [label({ x: I.x + 3, y: axisY + 6 }, "h_i (+)", { anchor: "start", size: 3 })]),
+      ...dimension(Math.min(I.x, P.x), Math.max(I.x, P.x), 44, `v (${concave ? "−" : "+"})`, 41.4),
+      ...dimension(Math.min(O.x, P.x), Math.max(O.x, P.x), 34, "u (−)", 31.4),
+      ...dimension(Math.min(F.x, P.x), Math.max(F.x, P.x), 24, `f (${concave ? "−" : "+"})`, 21.4),
+      ...dimension(Math.min(C.x, P.x), Math.max(C.x, P.x), 14, `R (${concave ? "−" : "+"})`, 11.4),
+      label({ x: concave ? 8 : 132, y: 88 }, heading, { anchor: concave ? "start" : "end", size: 3.6 }),
+    ],
+    checks: [
+      {
+        kind: "value",
+        // concave: object and real image on the −x side, so both distances add
+        // convex: the virtual image sits on the +x side, so v is measured the other way
+        label: concave ? "1/f = 1/u + 1/v (distances)" : "1/f = 1/v − 1/u (distances)",
+        actual: concave ? 1 / u + 1 / v : 1 / v - 1 / u,
+        expected: 1 / f,
+        tol: 1e-9,
+      },
+      {
+        kind: "value",
+        label: "|h_i/h_o| = v/u",
+        actual: Math.abs(hi / ho),
+        expected: v / u,
+        tol: 1e-9,
+      },
+    ],
+  };
+}
+
+export const signConventionConcave = signFigure({
+  id: "sign-convention-concave",
+  title: "Sign convention for a concave mirror",
+  heading: "Concave mirror",
+  alt: "A concave mirror with its pole P at the origin: the axis carries −x to the left and +x to the right, heights upward are +y. The object stands left of the pole with its height marked positive; the real inverted image lies further left, its height negative. u and f are negative, v is negative.",
+  caption:
+    "Light travels from left to right, so the object side is −x. The object, the centre of curvature and the focus all lie on that side: u, R and f are negative, and so is v for this real image. Heights above the axis are positive, so h_o is positive and the inverted h_i is negative.",
+  kind: "concave",
+  C: { x: 58, y: 62 },
+  R: 44,
+  P: { x: 102, y: 62 },
+  F: { x: 80, y: 62 },
+  O: { x: 69, y: 62 },
+  I: { x: 36, y: 62 },
+  ho: 7,
+  hi: -14,
+});
+
+export const signConventionConvex = signFigure({
+  id: "sign-convention-convex",
+  title: "Sign convention for a convex mirror",
+  heading: "Convex mirror",
+  alt: "A convex mirror with its pole P at the origin. The centre of curvature and the focus sit behind the mirror, on the +x side, so R and f are positive. The object is on the −x side, and the small erect virtual image is behind the mirror, on the +x side, with a positive height.",
+  caption:
+    "A convex mirror puts C and F behind the surface — the +x side — so R and f are positive. Its image is virtual and erect: v and h_i are positive too, while the object keeps u negative.",
+  kind: "convex",
+  C: { x: 92, y: 62 },
+  R: 44,
+  P: { x: 48, y: 62 },
+  F: { x: 70, y: 62 },
+  O: { x: 18, y: 62 },
+  I: { x: 60.6923076923077, y: 62 },
+  ho: 14,
+  hi: 5.92307692307692,
+});
+
+/* ────────────────────────────────────────────────────────────────────────
+ * 9. A real image from a concave mirror (object between F and C)
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const OBJ = {
+  axisY: 50,
+  C: { x: 58, y: 50 },
+  R: 44,
+  P: { x: 102, y: 50 },
+  F: { x: 80, y: 50 },
+  O: { x: 69, y: 50 },
+  I: { x: 36, y: 50 },
+  ho: 5,
+  hi: -10,
+};
+
+const objB: Vec = { x: OBJ.O.x, y: OBJ.axisY + OBJ.ho };
+const imgM: Vec = { x: OBJ.I.x, y: OBJ.axisY + OBJ.hi };
+
+/** Parallel ray: leaves B horizontally, bounces at N, crosses F, meets the image tip. */
+const parHit = hitCircle(objB, { x: 1, y: 0 }, OBJ.C, OBJ.R, "far");
+const parB = bounce(parHit, OBJ.C, { x: 1, y: 0 });
+
+/** Focus ray: from B through F, hits the lower half, leaves parallel to the axis. */
+const focHit = hitCircle(objB, sub(OBJ.F, objB), OBJ.C, OBJ.R, "far");
+const focB = bounce(focHit, OBJ.C, sub(focHit, objB));
+
+const endAtX = (from: Vec, d: Vec, x: number): Vec => ({ x, y: from.y + ((x - from.x) / d.x) * d.y });
+
+/** Perpendicular distance from p to the line through a along d. */
+const distToLine = (p: Vec, a: Vec, d: Vec): number => {
+  const u = unit(d);
+  return Math.abs((p.x - a.x) * u.y - (p.y - a.y) * u.x);
+};
+
+export const concaveRealImage: FigureSpec = {
+  id: "concave-real-image",
+  title: "A concave mirror forms a real, inverted image",
+  alt: "An object between the focus F and the centre of curvature C of a concave mirror. The ray from its tip drawn parallel to the axis reflects through F, and the ray through F reflects parallel to the axis; both reflected rays cross beyond C, where the inverted image stands.",
+  caption:
+    "Object between F and C, so the image falls beyond C: real, inverted and magnified. Both reflected rays were solved from the mirror surface, and they meet within a unit of the tip of the image.",
+  frame: { width: 140, height: 80 },
+  source: "Fig. 9.5",
+  elements: [
+    line({ x: 6, y: OBJ.axisY }, { x: 136, y: OBJ.axisY }, AXIS),
+    ...mirrorArc(OBJ.C, OBJ.R, -18, 18, 1),
+    arrow(OBJ.O, objB, s("ink", 0.7)),
+    arrow(OBJ.I, imgM, s("ink", 0.7)),
+    arrow(objB, parHit, INCIDENT),
+    arrow(parHit, endAtX(parHit, parB.out, 10), RAY),
+    arrow(objB, focHit, INCIDENT),
+    arrow(focHit, { x: 26, y: focHit.y }, RAY),
+    point(OBJ.C),
+    point(OBJ.F),
+    point(OBJ.P),
+    label({ x: OBJ.C.x, y: OBJ.axisY - 5.6 }, "C", { math: true, size: 3.2 }),
+    label({ x: OBJ.F.x, y: OBJ.axisY - 5.6 }, "F", { math: true, size: 3.2 }),
+    label({ x: OBJ.P.x + 3, y: OBJ.axisY - 5.6 }, "P", { math: true, size: 3.2, anchor: "start" }),
+    label({ x: OBJ.O.x - 2.5, y: OBJ.axisY + OBJ.ho - 2.5 }, "h_o (+)", { anchor: "end", size: 3 }),
+    label({ x: OBJ.I.x - 2.5, y: OBJ.axisY + OBJ.hi + 2.5 }, "h_i (−)", { anchor: "end", size: 3 }),
+    ...dimension(OBJ.I.x, OBJ.P.x, 30, "v", 27.4),
+    ...dimension(OBJ.O.x, OBJ.P.x, 20, "u", 17.4),
+    label({ x: 104, y: 72 }, "object between F and C", { anchor: "end", size: 2.9, color: "muted" }),
+  ],
+  checks: [
+    { kind: "reflect", i: parB.iDeg, r: parB.rDeg, tolDeg: 1e-6 },
+    { kind: "reflect", i: focB.iDeg, r: focB.rDeg, tolDeg: 1e-6 },
+    {
+      kind: "value",
+      label: "the parallel ray crosses the axis at F",
+      actual: axisCrossX(parHit, parB.out, OBJ.axisY),
+      expected: OBJ.F.x,
+      tol: 1,
+    },
+    {
+      kind: "value",
+      label: "the parallel ray passes through the image tip",
+      actual: distToLine(imgM, parHit, parB.out),
+      expected: 0,
+      tol: 1,
+    },
+    {
+      kind: "value",
+      label: "the focus ray passes through the image tip",
+      actual: distToLine(imgM, focHit, focB.out),
+      expected: 0,
+      tol: 1.5,
+    },
+  ],
+};
+
+/* ────────────────────────────────────────────────────────────────────────
+ * 10. The same figure, labelled for the mirror-equation proof
+ * ──────────────────────────────────────────────────────────────────────── */
+
+export const mirrorEquationGeometry: FigureSpec = {
+  id: "mirror-equation-geometry",
+  title: "Geometry of the mirror equation",
+  alt: "The mirror-equation figure: object OB and inverted image IM stand perpendicular to the axis at O and I. The ray from B parallel to the axis strikes the mirror at N, drops to the pole P and reflects through F to the image tip M. Triangles OBP and IMP are similar about the pole; triangles FPN and FIM are similar about the focus.",
+  caption:
+    "The reflected ray runs straight from N through F to M, so ΔFPN and ΔFIM are similar; the bases OB and IM are parallel, so ΔOBP and ΔIMP are similar. The perpendicular from N falls on the axis almost at P, which makes PN = OB.",
+  frame: { width: 140, height: 80 },
+  source: "Fig. 9.5",
+  elements: [
+    line({ x: 6, y: OBJ.axisY }, { x: 136, y: OBJ.axisY }, AXIS),
+    ...mirrorArc(OBJ.C, OBJ.R, -18, 18, 1),
+    line(OBJ.O, objB, s("ink", 0.55)),
+    line(OBJ.I, imgM, s("ink", 0.55)),
+    arrow(objB, parHit, INCIDENT),
+    arrow(parHit, endAtX(parHit, parB.out, 12), RAY),
+    line(parHit, OBJ.P, s("muted", 0.4, "dash")),
+    point(OBJ.C),
+    point(OBJ.F),
+    point(OBJ.P),
+    label({ x: parHit.x - 2.5, y: parHit.y + 3.4 }, "N", { math: true, size: 3.2, anchor: "end" }),
+    label({ x: OBJ.O.x, y: OBJ.axisY - 6.2 }, "O", { math: true, size: 3.2 }),
+    label({ x: objB.x - 2, y: objB.y + 2.2 }, "B", { math: true, size: 3.2, anchor: "end" }),
+    label({ x: OBJ.I.x - 2, y: OBJ.axisY - 6.2 }, "I", { math: true, size: 3.2, anchor: "end" }),
+    label({ x: imgM.x - 2, y: imgM.y - 2.8 }, "M", { math: true, size: 3.2, anchor: "end" }),
+    label({ x: OBJ.C.x, y: OBJ.axisY - 5.6 }, "C", { math: true, size: 3.2 }),
+    label({ x: OBJ.F.x, y: OBJ.axisY - 5.6 }, "F", { math: true, size: 3.2 }),
+    label({ x: OBJ.P.x + 3, y: OBJ.axisY - 5.6 }, "P", { math: true, size: 3.2, anchor: "start" }),
+    label({ x: 8, y: 72 }, "Two pairs of similar triangles", { anchor: "start", size: 3.6 }),
+  ],
+  checks: [
+    { kind: "reflect", i: parB.iDeg, r: parB.rDeg, tolDeg: 1e-6 },
+    {
+      kind: "value",
+      label: "the drop from N meets the axis at P",
+      actual: Math.abs(parHit.x - OBJ.P.x),
+      expected: 0,
+      tol: 1,
+    },
+    {
+      kind: "value",
+      label: "PN = OB (heights equal)",
+      actual: Math.abs(parHit.y - OBJ.P.y),
+      expected: OBJ.ho,
+      tol: 0.4,
+    },
+    {
+      kind: "value",
+      label: "IM/PN = IF/FP",
+      actual: Math.abs(OBJ.hi) / Math.abs(parHit.y - OBJ.P.y),
+      expected: Math.abs(OBJ.F.x - OBJ.I.x) / Math.abs(OBJ.F.x - OBJ.P.x),
+      tol: 0.06,
+    },
+  ],
+};
+
 export const RAY_OPTICS_FIGURES: readonly FigureSpec[] = [
   planeReflection,
   concaveMirrorTerms,
@@ -383,4 +664,8 @@ export const RAY_OPTICS_FIGURES: readonly FigureSpec[] = [
   ruleFocus,
   ruleCentre,
   rulePole,
+  signConventionConcave,
+  signConventionConvex,
+  concaveRealImage,
+  mirrorEquationGeometry,
 ];
