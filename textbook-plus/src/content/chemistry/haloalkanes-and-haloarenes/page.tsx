@@ -216,6 +216,40 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h2 id="h-6-2">6.2 Nomenclature</h2>
 
+      <Comparison
+        columns={[
+          {
+            title: "Common System",
+            children: (
+              <div className="space-y-2">
+                <p className="text-sm">Naming formula: [alkyl group] + [halide name].</p>
+                <p className="text-sm">
+                  Example: <strong>sec-Butyl chloride</strong> → <strong>2-Chlorobutane</strong>.
+                </p>
+                <MoleculeStructure {...STRUCTURES.sec_butyl_chloride} maxWidth={340} />
+                <p className="text-xs text-muted-foreground">
+                  The chlorine-bearing carbon is numbered 2 in the butane chain.
+                </p>
+              </div>
+            ),
+          },
+          {
+            title: "IUPAC System",
+            children: (
+              <div className="space-y-2">
+                <p className="text-sm">Naming formula: halosubstituted hydrocarbon.</p>
+                <p className="text-sm">
+                  The substituent is named as a prefix (chloro-, bromo-, iodo-) with a locant.
+                </p>
+                <p className="mt-2 rounded-xl border border-border/60 bg-muted/30 p-3 text-center font-mono text-sm">
+                  CH₃—CH₂—CH(Cl)—CH₃
+                </p>
+              </div>
+            ),
+          },
+        ]}
+      />
+
       <h3>1. Alkyl Halides</h3>
       <ul className="list-disc pl-6 space-y-1 mb-4">
         <li><strong>Common System:</strong> Named as <strong>[alkyl group] + [halide name]</strong>.</li>
@@ -234,12 +268,80 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </li>
       </ul>
 
+      <p className="mt-4 text-sm font-semibold">Ortho · Meta · Para substitution positions</p>
+      <div className="my-3 grid gap-4 md:grid-cols-3">
+        {["Ortho (o-) · 1,2", "Meta (m-) · 1,3", "Para (p-) · 1,4"].map((label, i) => (
+          <figure key={label} className="rounded-2xl border border-border/60 bg-muted/20 p-3 text-center">
+            <svg viewBox="0 0 120 120" className="mx-auto h-24 w-24" aria-label={label}>
+              <polygon
+                points="60,12 102,36 102,84 60,108 18,84 18,36"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              {i === 0 && (
+                <>
+                  <circle cx="60" cy="12" r="5" fill="currentColor" />
+                  <circle cx="102" cy="36" r="5" fill="currentColor" />
+                </>
+              )}
+              {i === 1 && (
+                <>
+                  <circle cx="60" cy="12" r="5" fill="currentColor" />
+                  <circle cx="102" cy="84" r="5" fill="currentColor" />
+                </>
+              )}
+              {i === 2 && (
+                <>
+                  <circle cx="60" cy="12" r="5" fill="currentColor" />
+                  <circle cx="60" cy="108" r="5" fill="currentColor" />
+                </>
+              )}
+            </svg>
+            <figcaption className="mt-1 text-xs text-muted-foreground">{label}</figcaption>
+          </figure>
+        ))}
+      </div>
+
       <h3>3. Dihaloalkanes (Same Halogen Type)</h3>
       <ul className="list-disc pl-6 space-y-1 mb-4">
         <li><strong>Geminal (gem-) Dihalides:</strong> both halogen atoms on the <strong>same carbon</strong> (also called alkylidene dihalides).</li>
         <li><strong>Vicinal (vic-) Dihalides:</strong> halogen atoms on <strong>adjacent carbons</strong> (also called alkylene dihalides).</li>
         <li><strong>IUPAC System:</strong> both are simply named as <strong>dihaloalkanes</strong> using locant numbers.</li>
       </ul>
+
+      <p className="mt-2 text-sm font-semibold">Geminal vs vicinal — visual comparison</p>
+      <div className="my-3 grid gap-4 md:grid-cols-2">
+        <div className="rounded-2xl border border-sky-200 bg-sky-50/60 p-4 text-center dark:border-sky-900 dark:bg-sky-950/30">
+          <svg viewBox="0 0 140 80" className="mx-auto h-20 w-32" aria-label="Geminal dihalide">
+            <line x1="20" y1="40" x2="60" y2="40" stroke="currentColor" strokeWidth="2" />
+            <circle cx="60" cy="40" r="6" fill="currentColor" />
+            <text x="60" y="43" textAnchor="middle" fontSize="8" fill="white">C</text>
+            <line x1="60" y1="40" x2="90" y2="20" stroke="currentColor" strokeWidth="2" />
+            <line x1="60" y1="40" x2="90" y2="60" stroke="currentColor" strokeWidth="2" />
+            <text x="100" y="24" fontSize="10" fill="currentColor">X</text>
+            <text x="100" y="64" fontSize="10" fill="currentColor">X</text>
+            <text x="60" y="72" textAnchor="middle" fontSize="9" fill="currentColor">Same carbon</text>
+          </svg>
+          <p className="mt-1 text-xs">GEM — geminal (alkylidene): both X on one carbon.</p>
+        </div>
+        <div className="rounded-2xl border border-violet-200 bg-violet-50/60 p-4 text-center dark:border-violet-900 dark:bg-violet-950/30">
+          <svg viewBox="0 0 140 80" className="mx-auto h-20 w-32" aria-label="Vicinal dihalide">
+            <line x1="30" y1="40" x2="70" y2="40" stroke="currentColor" strokeWidth="2" />
+            <circle cx="40" cy="40" r="6" fill="currentColor" />
+            <circle cx="100" cy="40" r="6" fill="currentColor" />
+            <text x="40" y="43" textAnchor="middle" fontSize="8" fill="white">C</text>
+            <text x="100" y="43" textAnchor="middle" fontSize="8" fill="white">C</text>
+            <line x1="40" y1="40" x2="40" y2="14" stroke="currentColor" strokeWidth="2" />
+            <line x1="100" y1="40" x2="100" y2="14" stroke="currentColor" strokeWidth="2" />
+            <text x="35" y="12" fontSize="10" fill="currentColor">X</text>
+            <text x="95" y="12" fontSize="10" fill="currentColor">X</text>
+            <text x="70" y="72" textAnchor="middle" fontSize="9" fill="currentColor">Adjacent carbons</text>
+          </svg>
+          <p className="mt-1 text-xs">VIC — vicinal (alkylene): one X on each adjacent carbon.</p>
+        </div>
+      </div>
+      <p className="text-xs text-muted-foreground">IUPAC rule: both are named as dihaloalkanes using locant numbers.</p>
 
       <TableCard
         caption="Table 6.1: Common and IUPAC Names of some Halides"
@@ -259,7 +361,20 @@ export default function HaloalkanesAndHaloarenesChapter() {
           { cells: ["C₆H₅CH₂Cl", "Benzyl chloride", "Chlorophenylmethane"] },
         ]}
       />
-
+      <p className="mt-3 text-sm font-semibold">Structures of the named halides above (selected)</p>
+      <div className="my-3 grid gap-4 md:grid-cols-2">
+        <MoleculeStructure {...STRUCTURES.sec_butyl_chloride} maxWidth={320} />
+        <MoleculeStructure {...STRUCTURES.neo_pentyl_bromide} maxWidth={320} />
+        <MoleculeStructure {...STRUCTURES.tert_butyl_bromide} maxWidth={320} />
+        <MoleculeStructure {...STRUCTURES.vinyl_chloride} maxWidth={320} />
+        <MoleculeStructure {...STRUCTURES.allyl_bromide} maxWidth={320} />
+        <MoleculeStructure {...STRUCTURES.o_chlorotoluene} maxWidth={360} />
+        <MoleculeStructure {...STRUCTURES.benzyl_chloride} maxWidth={360} />
+      </div>
+       <p className="text-xs text-muted-foreground">
+        Detailed drawings appear only where branching or numbering matter; simple formulas remain
+        text-based.
+      </p>
       <Expandable
         title="Example 6.1 — All eight structural isomers of C₅H₁₁Br, named and classified"
         variant="example"
