@@ -216,39 +216,35 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h2 id="h-6-2">6.2 Nomenclature</h2>
 
-      <Comparison
-        columns={[
-          {
-            title: "Common System",
-            children: (
-              <div className="space-y-2">
-                <p className="text-sm">Naming formula: [alkyl group] + [halide name].</p>
-                <p className="text-sm">
-                  Example: <strong>sec-Butyl chloride</strong> → <strong>2-Chlorobutane</strong>.
-                </p>
-                <MoleculeStructure {...STRUCTURES.sec_butyl_chloride} maxWidth={340} />
-                <p className="text-xs text-muted-foreground">
-                  The chlorine-bearing carbon is numbered 2 in the butane chain.
-                </p>
-              </div>
-            ),
-          },
-          {
-            title: "IUPAC System",
-            children: (
-              <div className="space-y-2">
-                <p className="text-sm">Naming formula: halosubstituted hydrocarbon.</p>
-                <p className="text-sm">
-                  The substituent is named as a prefix (chloro-, bromo-, iodo-) with a locant.
-                </p>
-                <p className="mt-2 rounded-xl border border-border/60 bg-muted/30 p-3 text-center font-mono text-sm">
-                  CH₃—CH₂—CH(Cl)—CH₃
-                </p>
-              </div>
-            ),
-          },
-        ]}
-      />
+      <div className="my-4 grid gap-4 md:grid-cols-[1fr_auto_1fr]">
+        <div className="rounded-2xl border border-sky-200 bg-sky-50/70 p-5 dark:border-sky-900 dark:bg-sky-950/40">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-700 dark:text-sky-300">
+            Common System
+          </p>
+          <p className="mt-3 text-center text-2xl font-semibold text-sky-900 dark:text-sky-100">
+            [alkyl group] + [halide name]
+          </p>
+          <p className="mt-2 text-sm">
+            Example: <strong>sec-Butyl chloride</strong> → <strong>2-Chlorobutane</strong>.
+          </p>
+          <MoleculeStructure {...STRUCTURES.sec_butyl_chloride} maxWidth={320} />
+        </div>
+        <div className="hidden w-px bg-border/60 md:block" aria-hidden />
+        <div className="rounded-2xl border border-violet-200 bg-violet-50/70 p-5 dark:border-violet-900 dark:bg-violet-950/40">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-violet-700 dark:text-violet-300">
+            IUPAC System
+          </p>
+          <p className="mt-3 text-center text-2xl font-semibold text-violet-900 dark:text-violet-100">
+            halosubstituted hydrocarbon
+          </p>
+          <p className="mt-2 text-sm">
+            The substituent is named as a prefix (chloro-, bromo-, iodo-) with a locant.
+          </p>
+          <p className="mt-3 rounded-xl border border-violet-200 bg-white/70 p-3 text-center font-mono text-sm dark:border-violet-900 dark:bg-violet-950/60">
+            CH₃—CH₂—CH(Cl)—CH₃
+          </p>
+        </div>
+      </div>
 
       <h3>1. Alkyl Halides</h3>
       <ul className="list-disc pl-6 space-y-1 mb-4">
@@ -270,37 +266,30 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <p className="mt-4 text-sm font-semibold">Ortho · Meta · Para substitution positions</p>
       <div className="my-3 grid gap-4 md:grid-cols-3">
-        {["Ortho (o-) · 1,2", "Meta (m-) · 1,3", "Para (p-) · 1,4"].map((label, i) => (
-          <figure key={label} className="rounded-2xl border border-border/60 bg-muted/20 p-3 text-center">
-            <svg viewBox="0 0 120 120" className="mx-auto h-24 w-24" aria-label={label}>
-              <polygon
-                points="60,12 102,36 102,84 60,108 18,84 18,36"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-              {i === 0 && (
-                <>
-                  <circle cx="60" cy="12" r="5" fill="currentColor" />
-                  <circle cx="102" cy="36" r="5" fill="currentColor" />
-                </>
-              )}
-              {i === 1 && (
-                <>
-                  <circle cx="60" cy="12" r="5" fill="currentColor" />
-                  <circle cx="102" cy="84" r="5" fill="currentColor" />
-                </>
-              )}
-              {i === 2 && (
-                <>
-                  <circle cx="60" cy="12" r="5" fill="currentColor" />
-                  <circle cx="60" cy="108" r="5" fill="currentColor" />
-                </>
-              )}
-            </svg>
-            <figcaption className="mt-1 text-xs text-muted-foreground">{label}</figcaption>
-          </figure>
-        ))}
+        <figure className="rounded-2xl border border-border/60 bg-muted/20 p-3 text-center">
+          <svg viewBox="0 0 120 120" className="mx-auto h-24 w-24" aria-label="Ortho 1,2">
+            <polygon points="60,12 102,36 102,84 60,108 18,84 18,36" fill="none" stroke="currentColor" strokeWidth="2" />
+            <circle cx="60" cy="12" r="5" fill="#0284c7" />
+            <circle cx="102" cy="36" r="5" fill="#e11d48" />
+          </svg>
+          <figcaption className="mt-1 text-xs text-muted-foreground">Ortho (o-) · 1,2</figcaption>
+        </figure>
+        <figure className="rounded-2xl border border-border/60 bg-muted/20 p-3 text-center">
+          <svg viewBox="0 0 120 120" className="mx-auto h-24 w-24" aria-label="Meta 1,3">
+            <polygon points="60,12 102,36 102,84 60,108 18,84 18,36" fill="none" stroke="currentColor" strokeWidth="2" />
+            <circle cx="60" cy="12" r="5" fill="#0284c7" />
+            <circle cx="102" cy="84" r="5" fill="#e11d48" />
+          </svg>
+          <figcaption className="mt-1 text-xs text-muted-foreground">Meta (m-) · 1,3</figcaption>
+        </figure>
+        <figure className="rounded-2xl border border-border/60 bg-muted/20 p-3 text-center">
+          <svg viewBox="0 0 120 120" className="mx-auto h-24 w-24" aria-label="Para 1,4">
+            <polygon points="60,12 102,36 102,84 60,108 18,84 18,36" fill="none" stroke="currentColor" strokeWidth="2" />
+            <circle cx="60" cy="12" r="5" fill="#0284c7" />
+            <circle cx="60" cy="108" r="5" fill="#e11d48" />
+          </svg>
+          <figcaption className="mt-1 text-xs text-muted-foreground">Para (p-) · 1,4</figcaption>
+        </figure>
       </div>
 
       <h3>3. Dihaloalkanes (Same Halogen Type)</h3>
@@ -345,20 +334,24 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <TableCard
         caption="Table 6.1: Common and IUPAC Names of some Halides"
-        headers={["Structure", "Common name", "IUPAC name"]}
+        headers={[
+          "Structure",
+          <span className="text-sky-700 dark:text-sky-300">Common name</span>,
+          <span className="text-violet-700 dark:text-violet-300">IUPAC name</span>,
+        ]}
         rows={[
-          { cells: ["CH₃CH₂CH(Cl)CH₃", "sec-Butyl chloride", "2-Chlorobutane"] },
-          { cells: ["(CH₃)₃CCH₂Br", "neo-Pentyl bromide", "1-Bromo-2,2-dimethylpropane"] },
-          { cells: ["(CH₃)₃CBr", "tert-Butyl bromide", "2-Bromo-2-methylpropane"] },
-          { cells: ["CH₂=CHCl", "Vinyl chloride", "Chloroethene"] },
-          { cells: ["CH₂=CHCH₂Br", "Allyl bromide", "3-Bromopropene"] },
-          { cells: ["CH₂Cl₂", "Methylene chloride", "Dichloromethane"] },
-          { cells: ["CHCl₃", "Chloroform", "Trichloromethane"] },
-          { cells: ["CHBr₃", "Bromoform", "Tribromomethane"] },
-          { cells: ["CCl₄", "Carbon tetrachloride", "Tetrachloromethane"] },
-          { cells: ["CH₃CH₂CH₂F", "n-Propyl fluoride", "1-Fluoropropane"] },
-          { cells: ["o-ClC₆H₄CH₃", "o-Chlorotoluene", "1-Chloro-2-methylbenzene (or 2-chlorotoluene)"] },
-          { cells: ["C₆H₅CH₂Cl", "Benzyl chloride", "Chlorophenylmethane"] },
+          { cells: [<code className="font-mono text-xs">CH₃CH₂CH(Cl)CH₃</code>, "sec-Butyl chloride", <span className="text-violet-700 dark:text-violet-300">2-Chlorobutane</span>] },
+          { cells: [<code className="font-mono text-xs">(CH₃)₃CCH₂Br</code>, "neo-Pentyl bromide", <span className="text-violet-700 dark:text-violet-300">1-Bromo-2,2-dimethylpropane</span>] },
+          { cells: [<code className="font-mono text-xs">(CH₃)₃CBr</code>, "tert-Butyl bromide", <span className="text-violet-700 dark:text-violet-300">2-Bromo-2-methylpropane</span>] },
+          { cells: [<code className="font-mono text-xs">CH₂=CHCl</code>, "Vinyl chloride", <span className="text-violet-700 dark:text-violet-300">Chloroethene</span>] },
+          { cells: [<code className="font-mono text-xs">CH₂=CHCH₂Br</code>, "Allyl bromide", <span className="text-violet-700 dark:text-violet-300">3-Bromopropene</span>] },
+          { cells: [<code className="font-mono text-xs">CH₂Cl₂</code>, "Methylene chloride", <span className="text-violet-700 dark:text-violet-300">Dichloromethane</span>] },
+          { cells: [<code className="font-mono text-xs">CHCl₃</code>, "Chloroform", <span className="text-violet-700 dark:text-violet-300">Trichloromethane</span>] },
+          { cells: [<code className="font-mono text-xs">CHBr₃</code>, "Bromoform", <span className="text-violet-700 dark:text-violet-300">Tribromomethane</span>] },
+          { cells: [<code className="font-mono text-xs">CCl₄</code>, "Carbon tetrachloride", <span className="text-violet-700 dark:text-violet-300">Tetrachloromethane</span>] },
+          { cells: [<code className="font-mono text-xs">CH₃CH₂CH₂F</code>, "n-Propyl fluoride", <span className="text-violet-700 dark:text-violet-300">1-Fluoropropane</span>] },
+          { cells: [<code className="font-mono text-xs">o-ClC₆H₄CH₃</code>, "o-Chlorotoluene", <span className="text-violet-700 dark:text-violet-300">1-Chloro-2-methylbenzene (or 2-chlorotoluene)</span>] },
+          { cells: [<code className="font-mono text-xs">C₆H₅CH₂Cl</code>, "Benzyl chloride", <span className="text-violet-700 dark:text-violet-300">Chlorophenylmethane</span>] },
         ]}
       />
       <p className="mt-3 text-sm font-semibold">Structures of the named halides above (selected)</p>
