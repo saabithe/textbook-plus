@@ -130,15 +130,72 @@ export default function CoordinationCompoundsChapter() {
       <p>Three-dimensional geometrical arrangement of ligand donor atoms around the central metal.</p>
       <Comparison
         columns={[
-          { title: "Octahedral (CN = 6)", children: <p>Example: [Co(NH₃)₆]³⁺.</p> },
-          { title: "Tetrahedral (CN = 4)", children: <p>Example: [Ni(CO)₄].</p> },
-          { title: "Square planar (CN = 4)", children: <p>Example: [PtCl₄]²⁻.</p> },
+          {
+            title: "Octahedral (CN = 6)",
+            children: (
+              <>
+                <svg viewBox="0 0 120 120" width="120" height="120" className="mx-auto" aria-label="Octahedral geometry">
+                  <line x1="60" y1="60" x2="60" y2="12" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="60" y1="60" x2="60" y2="108" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="60" y1="60" x2="12" y2="60" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="60" y1="60" x2="108" y2="60" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="60" y1="60" x2="84" y2="36" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3,3" />
+                  <line x1="60" y1="60" x2="36" y2="84" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3,3" />
+                  <circle cx="60" cy="60" r="7" fill="currentColor" />
+                  <text x="60" y="62" textAnchor="middle" fontSize="8" fill="white">M</text>
+                  <circle cx="60" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                  <circle cx="60" cy="108" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                  <circle cx="12" cy="60" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                  <circle cx="108" cy="60" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                  <circle cx="84" cy="36" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                  <circle cx="36" cy="84" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+                <p className="mt-2">Example: [Co(NH₃)₆]³⁺.</p>
+              </>
+            ),
+          },
+          {
+            title: "Tetrahedral (CN = 4)",
+            children: (
+              <>
+                <svg viewBox="0 0 120 120" width="120" height="120" className="mx-auto" aria-label="Tetrahedral geometry">
+                  <line x1="60" y1="60" x2="32" y2="32" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="60" y1="60" x2="88" y2="32" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="60" y1="60" x2="32" y2="88" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="60" y1="60" x2="88" y2="88" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3,3" />
+                  <circle cx="60" cy="60" r="7" fill="currentColor" />
+                  <text x="60" y="62" textAnchor="middle" fontSize="8" fill="white">M</text>
+                  <circle cx="32" cy="32" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                  <circle cx="88" cy="32" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                  <circle cx="32" cy="88" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                  <circle cx="88" cy="88" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+                <p className="mt-2">Example: [Ni(CO)₄].</p>
+              </>
+            ),
+          },
+          {
+            title: "Square planar (CN = 4)",
+            children: (
+              <>
+                <svg viewBox="0 0 120 120" width="120" height="120" className="mx-auto" aria-label="Square planar geometry">
+                  <line x1="60" y1="60" x2="60" y2="18" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="60" y1="60" x2="60" y2="102" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="60" y1="60" x2="18" y2="60" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="60" y1="60" x2="102" y2="60" stroke="currentColor" strokeWidth="1.5" />
+                  <circle cx="60" cy="60" r="7" fill="currentColor" />
+                  <text x="60" y="62" textAnchor="middle" fontSize="8" fill="white">M</text>
+                  <circle cx="60" cy="18" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                  <circle cx="60" cy="102" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                  <circle cx="18" cy="60" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                  <circle cx="102" cy="60" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+                <p className="mt-2">Example: [PtCl₄]²⁻.</p>
+              </>
+            ),
+          },
         ]}
       />
-      <p className="text-sm">
-        Geometry diagrams (rendered SVG) are deferred to a later batch; these entries show the
-        representative complex for each polyhedron.
-      </p>
 
       <h3>g. 🏷️ Oxidation Number of Central Metal</h3>
       <FormulaBlock latex={String.raw`x + \sum(\text{Ligand charges}) = \text{Complex charge}`} />
