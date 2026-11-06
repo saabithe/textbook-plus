@@ -18,25 +18,52 @@ export default function HaloalkanesAndHaloarenesChapter() {
     <>
       <h2 id="h-6-intro">Introduction: Haloalkanes and Haloarenes</h2>
 
-      <p><strong>Definition</strong></p>
-      <ul className="list-disc pl-6 space-y-1 mb-2">
-        <li><strong>Haloalkanes (Alkyl Halides):</strong> Aliphatic hydrocarbon + Halogen atom.</li>
-        <li><strong>Haloarenes (Aryl Halides):</strong> Aromatic hydrocarbon + Halogen atom.</li>
-      </ul>
+      <p className="mb-4 text-sm text-muted-foreground">
+        Two families. One key difference.
+      </p>
 
-      <p><strong>The Core Difference</strong></p>
-      <ul className="list-disc pl-6 space-y-1 mb-2">
-        <li><strong>Haloalkanes:</strong> Halogen is attached to an sp³-hybridized carbon (alkyl group).</li>
-        <li><strong>Haloarenes:</strong> Halogen is attached to an sp²-hybridized carbon (aromatic/aryl group).</li>
-      </ul>
+      <div className="grid gap-4 md:grid-cols-2">
+        <div className="rounded-2xl border border-sky-200 bg-sky-50/70 p-5 dark:border-sky-900 dark:bg-sky-950/40">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-700 dark:text-sky-300">
+            Haloalkanes
+          </p>
+          <p className="mt-3 text-center text-3xl font-semibold text-sky-900 dark:text-sky-100">
+            R—X
+          </p>
+          <p className="mt-2 text-center text-sm font-medium text-sky-700 dark:text-sky-300">
+            sp³ carbon
+          </p>
+          <div className="mt-4 rounded-xl border border-sky-200 bg-white/70 p-3 text-center dark:border-sky-900 dark:bg-sky-950/60">
+            <p className="text-sm font-medium">Chloroethane</p>
+            <p className="mt-1 font-mono text-sm">CH₃—CH₂—Cl</p>
+          </div>
+        </div>
 
-      <p><strong>Significance:</strong> This hybridization difference (sp³ vs. sp²) governs their distinct chemistry.</p>
+        <div className="rounded-2xl border border-rose-200 bg-rose-50/70 p-5 dark:border-rose-900 dark:bg-rose-950/40">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-rose-700 dark:text-rose-300">
+            Haloarenes
+          </p>
+          <p className="mt-3 text-center text-3xl font-semibold text-rose-900 dark:text-rose-100">
+            Ar—X
+          </p>
+          <p className="mt-2 text-center text-sm font-medium text-rose-700 dark:text-rose-300">
+            sp² carbon
+          </p>
+          <div className="mt-4 rounded-xl border border-rose-200 bg-white/70 p-3 text-center dark:border-rose-900 dark:bg-rose-950/60">
+            <p className="text-sm font-medium">Chlorobenzene</p>
+            <p className="mt-1 font-mono text-sm">C₆H₅—Cl</p>
+          </div>
+        </div>
+      </div>
 
-      <p><strong>Quick Examples</strong></p>
-      <ul className="list-disc pl-6 space-y-1 mb-4">
-        <li><strong>Haloalkane:</strong> Chloroethane (CH₃—CH₂—Cl)</li>
-        <li><strong>Haloarene:</strong> Chlorobenzene (C₆H₅—Cl)</li>
-      </ul>
+      <div className="mt-4 rounded-2xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 p-4 text-center dark:border-amber-900 dark:from-amber-950/40 dark:to-orange-950/40">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">
+          ⚡ Central idea
+        </p>
+        <p className="mt-1 text-sm font-medium text-amber-900 dark:text-amber-100">
+          sp³ vs sp² hybridisation → Different C—X bond behaviour → Different reactivity
+        </p>
+      </div>
 
       <h2 id="h-6-1">6.1 Classification</h2>
 
