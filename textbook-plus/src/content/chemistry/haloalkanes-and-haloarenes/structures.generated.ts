@@ -4,7 +4,7 @@
 // Toolchain: rdkit 2026.09.1
 /* eslint-disable */
 
-export const STRUCTURES_INPUT_HASH = "40dd3efa85007121c5fc6d3a4c6a01d83549dea7f09f4c5931187521363745bb";
+export const STRUCTURES_INPUT_HASH = "207e9d57b24279ab03f7794c87ce21151dce578286baef1bddc26b8291e45e15";
 
 export const STRUCTURES = {
   "allyl_bromide": {
