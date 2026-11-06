@@ -278,6 +278,123 @@ export default function SpeechContent() {
         can prove is worth ten adjectives.
       </Highlight>
 
+      <h2>Award Acceptance Speech &mdash; Receiving an Award</h2>
+      <p>
+        An acceptance speech is the thank-you after your name is called. It runs
+        to two minutes and does three jobs: it accepts the award gracefully, it
+        credits the people who made the work possible, and it says what the
+        honour commits you to. The trophy is the occasion; the gratitude is the
+        speech.
+      </p>
+
+      <ProcessCard
+        title="Award Acceptance Speech Framework"
+        steps={[
+          {
+            label: "Salutation",
+            description:
+              "Address the room: Respected Chief Guest, distinguished guests, teachers and my dear friends.",
+          },
+          {
+            label: "Accept the Award",
+            description:
+              "One clear sentence \u2014 \u201cI am deeply honoured to receive this award.\u201d Do not pretend to be surprised for long.",
+          },
+          {
+            label: "Say What It Means",
+            description:
+              "Name the work the award recognises, not its value. One sentence on why that work mattered.",
+          },
+          {
+            label: "Credit Others",
+            description:
+              "The heart of the speech: family, teachers, teammates and the institution. Name them and say what they did.",
+          },
+          {
+            label: "The Commitment",
+            description:
+              "An award is a responsibility, not a full stop. Say what you will do next.",
+          },
+          {
+            label: "Close",
+            description:
+              "Thank the awarding body and the audience in one warm sentence, then sit down.",
+          },
+        ]}
+      />
+
+      <div className="my-6 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+        <div className="border-b border-border/50 bg-muted/40 px-5 py-3">
+          <span className="text-sm font-bold tracking-tight text-foreground">
+            Fill-in frame &mdash; receiving an award
+          </span>
+        </div>
+
+        <div className="px-5 py-4">
+          <h4 className="!mt-0 mb-2 text-base font-bold tracking-tight text-foreground">
+            I. Salutation
+          </h4>
+          <p>
+            Respected Chief Guest, distinguished guests, teachers and my dear
+            friends,
+          </p>
+          <p>Good morning to one and all.</p>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            II. Accepting the Award
+          </h4>
+          <p>
+            I am deeply honoured and humbled to receive the{" "}
+            <Slot>[name of the award]</Slot> for{" "}
+            <Slot>[the field or category]</Slot>.
+          </p>
+          <p>
+            This award means a great deal to me, because{" "}
+            <Slot>[what the work was and why it mattered]</Slot>.
+          </p>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            III. Credit and Gratitude
+          </h4>
+          <p>An award like this is never earned alone.</p>
+          <p>
+            I owe it first to <Slot>[family member, teacher or mentor]</Slot>, who{" "}
+            <Slot>[what they actually did]</Slot>. I also thank{" "}
+            <Slot>[team, institution or organisers]</Slot> for{" "}
+            <Slot>[their support]</Slot>.
+          </p>
+          <div className="mt-1 text-sm italic text-muted-foreground">
+            e.g. I owe it first to my physics teacher, Mrs. Latha, who stayed back
+            every Thursday for two years to check my readings, and to my father,
+            who drove me to eleven households so that I could measure their water
+            tanks.
+          </div>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            IV. What the Award Commits Me To
+          </h4>
+          <p>
+            Receiving this award does not mark the end of the work; it marks a
+            beginning. I take it as a responsibility to{" "}
+            <Slot>[what you will do next]</Slot>.
+          </p>
+
+          <h4 className="mt-8 mb-2 text-base font-bold tracking-tight text-foreground">
+            V. Closing
+          </h4>
+          <p>
+            Thank you to <Slot>[awarding body]</Slot> for this recognition, and to
+            everyone here for your encouragement.
+          </p>
+          <p>Thank you.</p>
+        </div>
+      </div>
+
+      <Highlight color="orange">
+        Two minutes, three jobs: accept, credit, commit. An acceptance speech that
+        lists only your own achievements has misunderstood the award.
+      </Highlight>
+
       <h2>Tips &amp; Guidelines</h2>
 
       <Checklist
@@ -314,6 +431,10 @@ export default function SpeechContent() {
           {
             label:
               "An introductory speech runs to two minutes at most \u2014 the guest, not the speaker, is the subject",
+          },
+          {
+            label:
+              "An award acceptance speech thanks the awarding body, credits the people who helped, and says what the honour commits the speaker to",
           },
         ]}
       />
@@ -360,6 +481,35 @@ export default function SpeechContent() {
         <p>
           I conclude my words expressing my pleasure to introduce such a great
           personality.
+        </p>
+        <p>Thank you.</p>
+      </Expandable>
+
+      <Expandable title="Sample 4 — Award Acceptance: District Science Award" variant="example">
+        <p>Respected Chief Guest, distinguished guests, teachers and my dear friends,</p>
+        <p>Good morning to one and all.</p>
+        <p>
+          I am deeply honoured to receive the District Science Award for my
+          project on rainwater harvesting.
+        </p>
+        <p>
+          That project began with a broken pipe in our school compound. I only
+          asked why nobody had fixed it.
+        </p>
+        <p>
+          An award like this is never earned alone. I thank my physics teacher,
+          Mrs. Latha, who stayed back every Thursday to check my readings, and my
+          father, who drove me to eleven households so that I could measure their
+          tanks.
+        </p>
+        <p>
+          I accept this award as a responsibility. Our school still loses thousands
+          of litres every monsoon, and I intend to finish what that broken pipe
+          began.
+        </p>
+        <p>
+          Thank you to the District Science Council for this recognition, and to
+          all of you for your encouragement.
         </p>
         <p>Thank you.</p>
       </Expandable>

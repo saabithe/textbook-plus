@@ -94,7 +94,7 @@ export function ChapterLayout({
       : subjectName);
 
   return (
-    <div className="mx-auto max-w-[1280px] px-6 py-10" style={{ "--accent": subjectColor } as React.CSSProperties}>
+    <div className="mx-auto max-w-[1280px] px-6 py-10" style={{ "--accent": subjectColor, "--heading-accent": subjectColor } as React.CSSProperties}>
       <ReadingProgress color={subjectColor} />
       <AnnotationLayer containerRef={articleRef as RefObject<HTMLElement | null>} enabled={activeTab === "learning"} />
 

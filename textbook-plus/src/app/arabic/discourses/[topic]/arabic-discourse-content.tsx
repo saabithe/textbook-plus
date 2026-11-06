@@ -9,7 +9,11 @@ const discourseComponents: Record<string, React.ComponentType> = {
 export function ArabicDiscourseContent({ slug }: { slug: string }) {
   const Component = discourseComponents[slug];
   return (
-    <div className="prose-custom prose-ar" dir="rtl">
+    <div
+      className="prose-custom prose-ar"
+      dir="rtl"
+      style={{ "--heading-accent": "var(--subject-arabic)" } as React.CSSProperties}
+    >
       {Component ? (
         <Component />
       ) : (

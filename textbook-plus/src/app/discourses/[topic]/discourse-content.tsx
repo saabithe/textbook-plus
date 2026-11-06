@@ -19,7 +19,10 @@ export function DiscourseContent({ slug }: { slug: string }) {
   const Component = discourseComponents[slug];
   if (!Component) return <div className="text-muted-foreground py-12 text-center">Content coming soon...</div>;
   return (
-    <div className="prose-custom">
+    <div
+      className="prose-custom"
+      style={{ "--heading-accent": "var(--subject-english)" } as React.CSSProperties}
+    >
       <Component />
     </div>
   );
