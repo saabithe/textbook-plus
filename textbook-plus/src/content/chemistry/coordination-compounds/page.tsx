@@ -198,10 +198,26 @@ export default function CoordinationCompoundsChapter() {
       />
 
       <h3>g. 🏷️ Oxidation Number of Central Metal</h3>
+      <p>Definition: the residual charge on the central metal atom/ion if all ligands are removed along with their shared electron pairs. Notation: a Roman numeral in parentheses, e.g. Fe(II), Ni(II).</p>
       <FormulaBlock latex={String.raw`x + \sum(\text{Ligand charges}) = \text{Complex charge}`} />
       <p>Example: [Cu(CN)₄]³⁻.</p>
       <FormulaBlock latex={String.raw`x + 4(-1) = -3 \;\Rightarrow\; x = +1`} />
       <p>Copper oxidation state = +1 → Cu(I).</p>
+
+      <p className="mt-2 font-semibold">A. [Ni(NH₃)₄]²⁺</p>
+      <FormulaBlock latex={String.raw`x + 4(0) = +2 \;\Rightarrow\; x = +2 \;\Rightarrow\; \text{Ni} = +2 \; (\text{Ni(II)})`} />
+
+      <p className="mt-2 font-semibold">B. K₄[Fe(CN)₆]</p>
+      <FormulaBlock latex={String.raw`4(+1) + x + 6(-1) = 0 \;\Rightarrow\; x - 2 = 0 \;\Rightarrow\; x = +2 \;\Rightarrow\; \text{Fe} = +2 \; (\text{Fe(II)})`} />
+
+      <p className="mt-2 font-semibold">C. K₃[Fe(CN)₆]</p>
+      <FormulaBlock latex={String.raw`3(+1) + x + 6(-1) = 0 \;\Rightarrow\; x - 3 = 0 \;\Rightarrow\; x = +3 \;\Rightarrow\; \text{Fe} = +3 \; (\text{Fe(III)})`} />
+
+      <p className="mt-2 font-semibold">D. [Ni(CO)₄]</p>
+      <FormulaBlock latex={String.raw`x + 4(0) = 0 \;\Rightarrow\; x = 0 \;\Rightarrow\; \text{Ni} = 0`} />
+
+      <p className="mt-2 font-semibold">E. [Co(NH₃)₄Cl₂]⁺</p>
+      <FormulaBlock latex={String.raw`x + 4(0) + 2(-1) = +1 \;\Rightarrow\; x - 2 = +1 \;\Rightarrow\; x = +3 \;\Rightarrow\; \text{Co} = +3 \; (\text{Co(III)})`} />
 
       <h3>h. 🔀 Homoleptic vs Heteroleptic</h3>
       <TableCard
@@ -210,6 +226,32 @@ export default function CoordinationCompoundsChapter() {
         rows={[
           { cells: ["Homoleptic", "Metal bound to only one kind of donor group.", "[Co(NH₃)₆]³⁺ (bound solely to NH₃)."] },
           { cells: ["Heteroleptic", "Metal bound to more than one kind of donor group.", "[Co(NH₃)₄Cl₂]⁺ (bound to both NH₃ and Cl⁻)."] },
+        ]}
+      />
+
+      <h3>i. 🧪 Double Salt vs. Complex Salt</h3>
+      <Comparison
+        columns={[
+          {
+            title: "Double salt",
+            children: (
+              <ul>
+                <li>Keeps identity only in the solid state; dissociates completely in solution into simple ions.</li>
+                <li>Mohr&apos;s salt: FeSO₄·(NH₄)₂SO₄·6H₂O.</li>
+                <li>Carnallite: KCl·MgCl₂·6H₂O.</li>
+                <li>Potash alum: K₂SO₄·Al₂(SO₄)₃·24H₂O.</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Complex salt",
+            children: (
+              <ul>
+                <li>Keeps identity in both solid and solution states.</li>
+                <li>K₄[Fe(CN)₆], [Cu(NH₃)₄]SO₄, K₂[PtCl₄], [Ni(CO)₄].</li>
+              </ul>
+            ),
+          },
         ]}
       />
 
@@ -260,31 +302,6 @@ export default function CoordinationCompoundsChapter() {
         [CoCl<sub>2</sub>(NH<sub>3</sub>)<sub>4</sub>]<sup>+</sup> are octahedral, while
         [Ni(CO)<sub>4</sub>] is tetrahedral and [PtCl<sub>4</sub>]<sup>2−</sup> is square planar.
       </p>
-
-      <Comparison
-        columns={[
-          {
-            title: "Double salt",
-            children: (
-              <ul>
-                <li>Formed from two or more stable compounds in stoichiometric ratio.</li>
-                <li><strong>Dissociates completely</strong> into simple ions in water.</li>
-                <li>Examples: carnallite KCl·MgCl₂·6H₂O, Mohr&apos;s salt FeSO₄·(NH₄)₂SO₄·6H₂O, potash alum KAl(SO₄)₂·12H₂O.</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Complex",
-            children: (
-              <ul>
-                <li>Also formed in stoichiometric ratio.</li>
-                <li>The complex ion <strong>does not dissociate</strong> into its constituent ions — [Fe(CN)₆]⁴⁻ in K₄[Fe(CN)₆] does not give Fe²⁺ and CN⁻.</li>
-                <li>Example: K₄[Fe(CN)₆].</li>
-              </ul>
-            ),
-          },
-        ]}
-      />
 
       <Expandable title="Example 5.1 — Assign secondary valences from AgCl precipitation" variant="example">
         <p>
