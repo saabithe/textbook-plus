@@ -67,67 +67,152 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h2 id="h-6-1">6.1 Classification</h2>
 
+      <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+          Classification at a glance
+        </p>
+        <div className="mt-3 grid gap-3 md:grid-cols-2">
+          <a
+            href="#h-6-1-2"
+            className="rounded-xl border border-sky-200 bg-sky-50/70 p-4 transition hover:border-sky-400 dark:border-sky-900 dark:bg-sky-950/40"
+          >
+            <p className="font-semibold text-sky-900 dark:text-sky-100">Compounds containing sp³ C—X bonds</p>
+            <p className="mt-1 text-xs text-sky-700 dark:text-sky-300">Alkyl, allylic and benzylic halides</p>
+          </a>
+          <a
+            href="#h-6-1-3"
+            className="rounded-xl border border-violet-200 bg-violet-50/70 p-4 transition hover:border-violet-400 dark:border-violet-900 dark:bg-violet-950/40"
+          >
+            <p className="font-semibold text-violet-900 dark:text-violet-100">Compounds containing sp² C—X bonds</p>
+            <p className="mt-1 text-xs text-violet-700 dark:text-violet-300">Vinylic and aryl halides</p>
+          </a>
+        </div>
+      </div>
+
       <h3 id="h-6-1-1">6.1.1 On the Basis of Number of Halogen Atoms</h3>
 
-      <TableCard
-        caption="Mono-, di- and polyhalogen compounds"
-        headers={["Halogen atoms", "Class", "Examples"]}
-        rows={[
-          { cells: ["One", "Monohalogen", "CH₃Cl, CH₃CH₂Br, C₆H₅Cl"] },
-          { cells: ["Two", "Dihalogen", "CH₂Cl₂, CH₂BrCH₂Br, C₆H₄Cl₂"] },
-          { cells: ["Three or more", "Polyhalogen", "CHCl₃, CCl₄, CHI₃"] },
-        ]}
-      />
+      <div className="my-4 grid gap-4 md:grid-cols-3">
+        <div className="flex h-full flex-col rounded-2xl border border-border/60 bg-muted/30 p-4 text-center">
+          <p className="text-4xl font-bold text-foreground">1</p>
+          <p className="mt-1 text-sm font-semibold">Monohalogen compounds</p>
+          <p className="mt-3 text-xs text-muted-foreground">CH₃Cl, CH₃CH₂Br, C₆H₅Cl</p>
+        </div>
+        <div className="flex h-full flex-col rounded-2xl border border-border/60 bg-muted/30 p-4 text-center">
+          <p className="text-4xl font-bold text-foreground">2</p>
+          <p className="mt-1 text-sm font-semibold">Dihalogen compounds</p>
+          <p className="mt-3 text-xs text-muted-foreground">CH₂Cl₂, CH₂BrCH₂Br, C₆H₄Cl₂</p>
+        </div>
+        <div className="flex h-full flex-col rounded-2xl border border-border/60 bg-muted/30 p-4 text-center">
+          <p className="text-4xl font-bold text-foreground">3+</p>
+          <p className="mt-1 text-sm font-semibold">Polyhalogen compounds</p>
+          <p className="mt-3 text-xs text-muted-foreground">CHCl₃, CCl₄, CHI₃</p>
+        </div>
+      </div>
 
-      <h3 id="h-6-1-2">6.1.2 Compounds Containing sp³ C—X Bond (X = F, Cl, Br, I)</h3>
+      <div className="mt-6 flex items-center gap-3 rounded-2xl border border-blue-200 bg-blue-50/60 p-4 dark:border-blue-900 dark:bg-blue-950/30">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-sm font-bold text-white">
+          sp³
+        </span>
+        <div>
+          <h3 id="h-6-1-2" className="text-base font-semibold text-blue-900 dark:text-blue-100">
+            6.1.2 Compounds Containing sp³ C—X Bond (X = F, Cl, Br, I)
+          </h3>
+          <p className="text-xs text-blue-700 dark:text-blue-300">Blue accent: halogen on an sp³ carbon.</p>
+        </div>
+      </div>
 
-      <p>
-        <strong>(a) Alkyl halides or haloalkanes (R—X).</strong> The halogen is bonded to an alkyl group
-        (R).
+      <p className="mt-3">
+        <strong>(a) Alkyl halides or haloalkanes (R—X).</strong> The halogen is bonded to an alkyl group (R).
       </p>
       <p>
-        They form a homologous series <Formula>{String.raw`\text{C}_n\text{H}_{2n+1}\text{X}`}</Formula> and
-        are classed as primary, secondary or tertiary by the carbon bearing the halogen.
+        They form a homologous series <Formula>{String.raw`\text{C}_n\text{H}_{2n+1}\text{X}`}</Formula> and are
+        classed as primary, secondary or tertiary by the carbon bearing the halogen.
       </p>
 
-      <TableCard
-        caption="Types of alkyl halides"
-        headers={["Type", "Halogen sits on", "Example"]}
-        rows={[
-          { cells: ["Primary (1°)", "A primary carbon (attached to one other carbon)", "CH₃CH₂CH₂Cl"] },
-          { cells: ["Secondary (2°)", "A secondary carbon (attached to two other carbons)", "CH₃CH(Cl)CH₃"] },
-          { cells: ["Tertiary (3°)", "A tertiary carbon (attached to three other carbons)", "(CH₃)₃CCl"] },
-        ]}
-      />
+      <div className="my-4 grid gap-3 md:grid-cols-3">
+        <div className="rounded-2xl border border-sky-200 bg-sky-50/60 p-4 text-center dark:border-sky-900 dark:bg-sky-950/30">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-700 dark:text-sky-300">
+            Primary (1°)
+          </p>
+          <p className="mt-2 font-mono text-sm">CH₃CH₂CH₂Cl</p>
+          <p className="mt-2 text-xs text-muted-foreground">Halogen on a carbon with 1 C neighbour</p>
+        </div>
+        <div className="rounded-2xl border border-sky-200 bg-sky-50/60 p-4 text-center dark:border-sky-900 dark:bg-sky-950/30">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-700 dark:text-sky-300">
+            Secondary (2°)
+          </p>
+          <p className="mt-2 font-mono text-sm">CH₃CH(Cl)CH₃</p>
+          <p className="mt-2 text-xs text-muted-foreground">Halogen on a carbon with 2 C neighbours</p>
+        </div>
+        <div className="rounded-2xl border border-sky-200 bg-sky-50/60 p-4 text-center dark:border-sky-900 dark:bg-sky-950/30">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-700 dark:text-sky-300">
+            Tertiary (3°)
+          </p>
+          <p className="mt-2 font-mono text-sm">(CH₃)₃CCl</p>
+          <p className="mt-2 text-xs text-muted-foreground">Halogen on a carbon with 3 C neighbours</p>
+        </div>
+      </div>
 
       <TableCard
-        caption="Other families sharing an sp³ C–X bond"
-        headers={["Family", "Carbon bearing X", "Example"]}
+        caption="Other sp³ families at a glance"
+        headers={["Family", "Spatial relationship", "Example"]}
         rows={[
           { cells: ["Allylic halide", "sp³ carbon next to a C=C bond", "CH₂=CH—CH₂Br (allyl bromide)"] },
           { cells: ["Benzylic halide", "sp³ carbon attached to an aromatic ring", "C₆H₅CH₂Cl (benzyl chloride)"] },
         ]}
       />
 
-      <h3 id="h-6-1-3">6.1.3 Compounds Containing sp² C—X Bond</h3>
+      <div className="mt-6 flex items-center gap-3 rounded-2xl border border-violet-200 bg-violet-50/60 p-4 dark:border-violet-900 dark:bg-violet-950/30">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-600 text-sm font-bold text-white">
+          sp²
+        </span>
+        <div>
+          <h3 id="h-6-1-3" className="text-base font-semibold text-violet-900 dark:text-violet-100">
+            6.1.3 Compounds Containing sp² C—X Bond
+          </h3>
+          <p className="text-xs text-violet-700 dark:text-violet-300">Purple accent: halogen on an sp² carbon.</p>
+        </div>
+      </div>
 
-      <TableCard
-        caption="Families sharing an sp² C–X bond"
-        headers={["Family", "Carbon bearing X", "Example"]}
-        rows={[
-          { cells: ["Vinylic halide", "sp² carbon of a C=C bond", "CH₂=CHCl (vinyl chloride)"] },
-          { cells: ["Aryl halide (haloarene)", "sp² carbon of an aromatic ring", "C₆H₅Cl (chlorobenzene)"] },
-        ]}
-      />
+      <div className="my-4 grid gap-3 md:grid-cols-2">
+        <div className="rounded-2xl border border-violet-200 bg-violet-50/60 p-4 text-center dark:border-violet-900 dark:bg-violet-950/30">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-violet-700 dark:text-violet-300">
+            Vinylic halide
+          </p>
+          <p className="mt-2 font-mono text-sm">CH₂=CHCl</p>
+          <p className="mt-2 text-xs text-muted-foreground">X bonded to an sp² carbon of a C=C bond</p>
+        </div>
+        <div className="rounded-2xl border border-violet-200 bg-violet-50/60 p-4 text-center dark:border-violet-900 dark:bg-violet-950/30">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-violet-700 dark:text-violet-300">
+            Aryl halide (haloarene)
+          </p>
+          <p className="mt-2 font-mono text-sm">C₆H₅Cl</p>
+          <p className="mt-2 text-xs text-muted-foreground">X bonded directly to an aromatic-ring carbon</p>
+        </div>
+      </div>
 
-      <KeyPoint title="Alkyl vs aryl — the sp³ / sp² divide decides the chemistry">
-        <p>
-          The hybridisation of the carbon holding the halogen decides how easily the C—X bond breaks.
-          An <em>sp</em>
-          <sup>3</sup> carbon gives up its halogen readily (nucleophilic substitution); an <em>sp</em>
-          <sup>2</sup> carbon holds it tightly, so haloarenes and vinylic halides are far less reactive.
+      <div className="mt-4 rounded-2xl border border-sky-200 bg-gradient-to-r from-sky-50 via-white to-violet-50 p-4 dark:border-sky-900 dark:from-sky-950/40 dark:via-background dark:to-violet-950/40">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-foreground">
+          Chemistry takeaway — the sp³ / sp² divide
         </p>
-      </KeyPoint>
+        <div className="mt-3 grid gap-3 md:grid-cols-3">
+          <div className="rounded-xl border border-border/60 bg-background/70 p-3">
+            <p className="text-xs font-semibold">Hybridisation</p>
+            <p className="mt-1 text-xs text-muted-foreground">sp³ tetrahedral vs sp² trigonal planar carbon bearing X.</p>
+          </div>
+          <div className="rounded-xl border border-border/60 bg-background/70 p-3">
+            <p className="text-xs font-semibold">C—X bond</p>
+            <p className="mt-1 text-xs text-muted-foreground">sp³ C—X is more polar and breaks more readily; sp² C—X has partial double-bond character.</p>
+          </div>
+          <div className="rounded-xl border border-border/60 bg-background/70 p-3">
+            <p className="text-xs font-semibold">Nucleophilic substitution</p>
+            <p className="mt-1 text-xs text-muted-foreground">sp³ (alkyl) gives up X readily; sp² (haloarenes/vinylic) hold X tightly and are far less reactive.</p>
+          </div>
+        </div>
+        <p className="mt-3 text-xs text-muted-foreground">
+          Cause → effect: hybridisation of the carbon bearing X changes C—X bond strength, which decides how easily the halogen leaves.
+        </p>
+      </div>
 
       <h2 id="h-6-2">6.2 Nomenclature</h2>
 
