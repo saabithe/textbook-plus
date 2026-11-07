@@ -155,6 +155,9 @@ export default function ChemicalKineticsChapter() {
       <Callout type="note">In actual practice, the rate constant is found to be smaller than the one calculated from collision theory due to orientation factor.</Callout>
 
       <h2 id="h-3-exercises">Exercises (Selected)</h2>
+
+      <Expandable title="Exercises (Selected)" variant="exercise">
+
       <ExerciseQa
         questions={[
           <>From the rate expression for the following reactions, determine their order of reaction and the dimensions of the rate constants. (i) 3NO(g) → N<sub>2</sub>O(g) Rate = k[NO]<sup>2</sup> (ii) H<sub>2</sub>O<sub>2</sub>(aq) + 3I<sup>-</sup>(aq) + 2H<sup>+</sup> → 2H<sub>2</sub>O(l) + I<sub>3</sub><sup>-</sup> Rate = k[H<sub>2</sub>O<sub>2</sub>][I<sup>-</sup>] (iii) CH<sub>3</sub>CHO(g) → CH<sub>4</sub>(g) + CO(g) Rate = k[CH<sub>3</sub>CHO]<sup>3/2</sup> (iv) C<sub>2</sub>H<sub>5</sub>Cl(g) → C<sub>2</sub>H<sub>4</sub>(g) + HCl(g) Rate = k[C<sub>2</sub>H<sub>5</sub>Cl]</>,
@@ -170,6 +173,8 @@ export default function ChemicalKineticsChapter() {
         ]}
         answersHeading="NCERT Exercise Questions (3.1–3.10)"
       />
-    </>
+    
+      </Expandable>
+</>
   );
 }

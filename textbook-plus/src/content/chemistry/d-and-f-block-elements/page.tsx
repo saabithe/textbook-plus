@@ -1080,6 +1080,9 @@ export default function DAndFBlockElementsChapter() {
 
       <h2 id="h-4-exercises">Exercises</h2>
 
+      <Expandable title="Exercises" variant="exercise">
+
+
       <ExerciseQa
         answersHeading="NCERT Exercise Questions (4.1–4.38)"
         questions={[
@@ -1123,6 +1126,8 @@ export default function DAndFBlockElementsChapter() {
           <>What can be inferred from the magnetic moment values of the following complex species? K<sub>4</sub>[Mn(CN)<sub>6</sub>] 2.2 BM, [Fe(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup> 5.3 BM, K<sub>2</sub>[MnCl<sub>4</sub>] 5.9 BM.</>,
         ]}
       />
-    </>
+    
+      </Expandable>
+</>
   );
 }

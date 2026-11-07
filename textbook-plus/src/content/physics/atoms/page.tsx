@@ -795,6 +795,9 @@ export default function AtomsChapter() {
         </FormulaCard>
       </div>
       <h2 id="h-12-exercises">Back-of-Chapter Exercises</h2>
+
+      <Expandable title="Back-of-Chapter Exercises" variant="exercise">
+
       <p className="text-sm text-muted-foreground">All 9 NCERT exercises with the complete answer key. Work each one out before opening the panel.</p>
       <Expandable title="Exercises 12.1 – 12.9 — questions and answer key" variant="exercise">
         <ExerciseQa
@@ -843,7 +846,9 @@ export default function AtomsChapter() {
           ]}
         />
       </Expandable>
-    </>
+    
+      </Expandable>
+</>
   );
 }
 

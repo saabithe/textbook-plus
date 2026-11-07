@@ -957,6 +957,9 @@ export default function NucleiPage() {
       </div>
 
       <h2 id="h-13-exercises">Back-of-Chapter Exercises</h2>
+
+      <Expandable title="Back-of-Chapter Exercises" variant="exercise">
+
       <p className="text-sm text-muted-foreground">All 10 NCERT exercises with the complete answer key. Useful data: 1 u = 931.5 MeV/c², e = 1.6 × 10⁻¹⁹ C, N = 6.023 × 10²³ per mole, 1/(4πε₀) = 9 × 10⁹ N m²/C², 1 MeV = 1.6 × 10⁻¹³ J, 1 year = 3.154 × 10⁷ s, m_H = 1.007825 u, m_n = 1.008665 u, m(⁴He) = 4.002603 u, m_e = 0.000548 u. Try each one before opening the panel.</p>
       <Expandable title="Exercises 13.1 – 13.10 — questions and answer key" variant="exercise">
         <ExerciseQa
@@ -986,6 +989,8 @@ export default function NucleiPage() {
           ]}
         />
       </Expandable>
-    </>
+    
+      </Expandable>
+</>
   );
 }

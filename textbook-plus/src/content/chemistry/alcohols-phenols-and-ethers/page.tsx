@@ -1021,6 +1021,9 @@ export default function AlcoholsPhenolsEthersChapter() {
 
       <h2 id="h-7-exercises">Exercises</h2>
 
+      <Expandable title="Exercises" variant="exercise">
+
+
       <ExerciseQa
         answersHeading="NCERT Exercise Questions (7.1–7.33)"
         questions={[
@@ -1180,6 +1183,8 @@ export default function AlcoholsPhenolsEthersChapter() {
         <FormulaBlock latex={String.raw`\text{CH}_3\text{CH}_2\text{CH(CH}_3)\text{CH(OH)CH}_3 \xrightarrow{\text{Na}} \text{CH}_3\text{CH}_2\text{CH(CH}_3)\text{CH(ONa)CH}_3`} />
         <FormulaBlock latex={String.raw`\text{C}_2\text{H}_5\text{Br} + \text{CH}_3\text{CH}_2\text{CH(CH}_3)\text{CH(ONa)CH}_3 \rightarrow \text{CH}_3\text{CH}_2\text{CH(CH}_3)\text{CH(OC}_2\text{H}_5)\text{CH}_3 + \text{NaBr}`} />
       </Expandable>
-    </>
+    
+      </Expandable>
+</>
   );
 }

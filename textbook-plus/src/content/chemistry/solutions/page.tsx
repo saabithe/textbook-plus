@@ -316,6 +316,9 @@ export default function SolutionsChapter() {
       </KeyPoint>
 
       <h2 id="h-1-exercises">Exercises (Selected)</h2>
+
+      <Expandable title="Exercises (Selected)" variant="exercise">
+
       <ExerciseQa
         questions={[
           <>Define the term solution. How many types of solutions are formed? Write briefly about each type with an example.</>,
@@ -331,6 +334,8 @@ export default function SolutionsChapter() {
         ]}
         answersHeading="NCERT Exercise Questions (1.1–1.10)"
       />
-    </>
+    
+      </Expandable>
+</>
   );
 }

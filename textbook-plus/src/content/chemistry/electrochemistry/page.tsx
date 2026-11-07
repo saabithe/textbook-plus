@@ -221,6 +221,9 @@ export default function ElectrochemistryChapter() {
       </KeyPoint>
 
       <h2 id="h-2-exercises">Exercises (Selected)</h2>
+
+      <Expandable title="Exercises (Selected)" variant="exercise">
+
       <ExerciseQa
         questions={[
           <>Arrange the following metals in the order in which they displace each other from the solution of their salts. Al, Cu, Fe, Mg and Zn.</>,
@@ -236,6 +239,8 @@ export default function ElectrochemistryChapter() {
         ]}
         answersHeading="NCERT Exercise Questions (2.1–2.10)"
       />
-    </>
+    
+      </Expandable>
+</>
   );
 }

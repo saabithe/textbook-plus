@@ -754,6 +754,9 @@ export default function MovingChargesAndMagnetismChapter() {
       </Expandable>
 
       <h2 id="h-4-exercises">Exercises</h2>
+
+      <Expandable title="Exercises" variant="exercise">
+
       <p>Every question below can be answered with the six formulas of this chapter: the field at the centre of a coil, the field of a long wire, the force on a current element, the force between parallel wires, the torque on a coil and the field inside a solenoid.</p>
       <Expandable title="Exercise 4.1 – 4.13" variant="exercise">
         <ExerciseQa
@@ -789,6 +792,8 @@ export default function MovingChargesAndMagnetismChapter() {
           ]}
         />
       </Expandable>
-    </>
+    
+      </Expandable>
+</>
   );
 }

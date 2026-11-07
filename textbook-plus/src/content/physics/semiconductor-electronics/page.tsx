@@ -909,6 +909,9 @@ export default function SemiconductorElectronicsChapter() {
       </div>
 
       <h2 id="h-14-exercises">Back-of-Chapter Exercises</h2>
+
+      <Expandable title="Back-of-Chapter Exercises" variant="exercise">
+
       <p className="text-sm text-muted-foreground">
         All six NCERT exercises with the correct option and the reasoning behind it. Try each one before opening the panel.
       </p>
@@ -922,6 +925,8 @@ export default function SemiconductorElectronicsChapter() {
           ]}
         />
       </Expandable>
-    </>
+    
+      </Expandable>
+</>
   );
 }

@@ -806,6 +806,9 @@ export default function CoordinationCompoundsChapter() {
 
       <h2 id="h-5-exercises">Exercises</h2>
 
+      <Expandable title="Exercises" variant="exercise">
+
+
       <ExerciseQa
         answersHeading="NCERT Exercise Questions (5.1–5.31)"
         questions={[
@@ -842,6 +845,8 @@ export default function CoordinationCompoundsChapter() {
           <>What will be the correct order for the wavelengths of absorption in the visible region for the following: [Ni(NO<sub>2</sub>)<sub>6</sub>]<sup>4−</sup>, [Ni(NH<sub>3</sub>)<sub>6</sub>]<sup>2+</sup>, [Ni(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>?</>,
         ]}
       />
-    </>
+    
+      </Expandable>
+</>
   );
 }

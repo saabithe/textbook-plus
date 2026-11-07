@@ -1087,6 +1087,9 @@ export default function DualNatureOfRadiationAndMatterChapter() {
       />
 
       <h2 id="h-11-exercises">Back-of-Chapter Exercises</h2>
+
+      <Expandable title="Back-of-Chapter Exercises" variant="exercise">
+
       <p className="text-sm text-muted-foreground">
         All 11 NCERT exercises with the complete answer key. Work each one out before opening the panel.
       </p>
@@ -1120,7 +1123,9 @@ export default function DualNatureOfRadiationAndMatterChapter() {
           ]}
         />
       </Expandable>
-    </>
+    
+      </Expandable>
+</>
   );
 }
 
