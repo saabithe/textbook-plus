@@ -9,6 +9,7 @@ import { FactCard } from "@/components/content/concept/FactCard";
 import { ConceptCard } from "@/components/content/concept/ConceptCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { KeyPoint } from "@/components/content/KeyPoint";
+import { PocketGrid } from "@/components/content/PocketGrid";
 import { cn } from "@/lib/utils";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 
@@ -591,83 +592,153 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h2 id="h-6-4">6.4 Methods of Preparation of Haloalkanes</h2>
 
-      <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4">
-        <p className="text-sm font-semibold">Overview of methods</p>
-        <ol className="mt-3 grid gap-2 md:grid-cols-3">
-          {[
-            { n: "1", title: "From hydrocarbons", detail: "Alkanes & alkenes" },
-            { n: "2", title: "From alcohols", detail: "R—OH → R—X" },
-            { n: "3", title: "From haloalkanes", detail: "Ion exchange" },
-          ].map((item) => (
-            <li
-              key={item.n}
-              className="flex items-start gap-3 rounded-xl border border-border/60 bg-background/70 p-3"
-            >
-              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-[3px] border border-border bg-card text-[0.65rem] font-bold">
-                {item.n}
-              </span>
-              <span className="min-w-0">
-                <span className="block text-sm font-semibold">{item.title}</span>
-                <span className="block text-xs text-muted-foreground">{item.detail}</span>
-              </span>
-            </li>
-          ))}
-        </ol>
-      </div>
+      <PocketGrid
+        title="Three routes to a haloalkane"
+        items={[
+          {
+            id: "h-6-4-alcohols",
+            icon: "⚗️",
+            label: "1. From alcohols",
+            note: "HX · phosphorus halides · SOCl₂ · red P",
+            content: (
+              <>
+                <div className="rounded-2xl border border-amber-200 bg-gradient-to-r from-amber-50 to-sky-50 p-4 dark:border-amber-900/70 dark:from-amber-950/30 dark:to-sky-950/30">
+                  <p className="text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
+                    Core transformation
+                  </p>
+                  <div className="mt-3 flex flex-wrap items-center justify-center gap-3">
+                    <span className="font-mono text-lg font-semibold">
+                      R—<span className="text-amber-600 dark:text-amber-400">OH</span>
+                    </span>
+                    <span className="text-muted-foreground">→</span>
+                    <span className="font-mono text-lg font-semibold">
+                      R—<span className="text-amber-600 dark:text-amber-400">X</span>
+                    </span>
+                  </div>
+                  <p className="mt-2 text-center text-xs text-muted-foreground">
+                    Alcohol → haloalkane · the —OH group is replaced by halogen (X)
+                  </p>
+                  <div className="mt-3 flex flex-wrap justify-center gap-2 text-[0.65rem]">
+                    {["HX", "Phosphorus halides", "SOCl₂"].map((reagent) => (
+                      <span
+                        key={reagent}
+                        className="rounded-full border border-border/60 bg-background/70 px-2 py-0.5 font-medium"
+                      >
+                        {reagent}
+                      </span>
+                    ))}
+                  </div>
+                </div>
 
-      <h3 id="h-6-4-1">6.4.1 From Alcohols</h3>
+                <p className="mt-4 text-sm font-semibold">Methods of preparation</p>
 
-      <p>
-        Alkyl halides are best prepared from alcohols, which are easily accessible. The hydroxyl group
-        of an alcohol is replaced by halogen on reaction with concentrated halogen acids, phosphorus
-        halides or thionyl chloride.
-      </p>
+                <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
+                  <p className="text-sm font-semibold">A. Using hydrogen halides (H—X)</p>
+                  <span className="rounded-full border border-sky-200 bg-sky-50/70 px-2 py-0.5 text-[0.65rem] font-medium dark:border-sky-900 dark:bg-sky-950/40">
+                    catalyst · anhydrous ZnCl₂
+                  </span>
+                </div>
 
-      <FormulaBlock latex={String.raw`\text{R–OH} + \text{HX} \rightarrow \text{R–X} + \text{H}_2\text{O}`} />
+                <div className="mt-3 rounded-2xl border border-border/60 bg-muted/30 p-4">
+                  <div className="divide-y divide-border/60">
+                    <div className="flex items-start gap-3 py-2">
+                      <span className="mt-1 w-14 shrink-0 text-[0.6rem] uppercase tracking-[0.1em] text-muted-foreground">
+                        General
+                      </span>
+                      <span className="min-w-0 overflow-x-auto">
+                        <Formula>{String.raw`\text{R–OH} + \text{H–X} \xrightarrow{\text{anh. ZnCl}_2} \text{R–X} + \text{H}_2\text{O}`}</Formula>
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-3 py-2">
+                      <span className="mt-1 w-14 shrink-0 text-[0.6rem] uppercase tracking-[0.1em] text-muted-foreground">
+                        Example
+                      </span>
+                      <span className="min-w-0 overflow-x-auto">
+                        <Formula>{String.raw`\text{CH}_3\text{CH}_2\text{OH} + \text{HCl} \xrightarrow{\text{anh. ZnCl}_2} \text{CH}_3\text{CH}_2\text{Cl} + \text{H}_2\text{O}`}</Formula>
+                      </span>
+                    </div>
+                  </div>
+                </div>
 
-      <p>
-        The preparation of an alkyl chloride is carried out either by passing dry hydrogen chloride gas
-        through a solution of the alcohol, or by heating a mixture of the alcohol and concentrated
-        aqueous halogen acid.
-      </p>
-      <p>
-        Reactions of primary and secondary alcohols with HCl need a catalyst,{" "}
-        <strong>ZnCl<sub>2</sub></strong>; tertiary alcohols react simply on shaking with concentrated
-        HCl at room temperature.
-      </p>
-      <p>
-        Constant boiling HBr (48%) is used for alkyl bromides, and good yields of R—I are obtained by
-        heating the alcohol with sodium or potassium iodide in 95% <em>ortho</em>phosphoric acid. The
-        order of reactivity of alcohols with a given haloacid is <strong>3° &gt; 2° &gt; 1°</strong>.
-      </p>
+                <p className="mt-4 text-sm font-semibold">B. Using phosphorus halides</p>
 
-      <FormulaBlock latex={String.raw`3\text{R–OH} + \text{PX}_3 \rightarrow 3\text{R–X} + \text{H}_3\text{PO}_3`} />
+                <div className="mt-2 grid gap-3 md:grid-cols-2">
+                  <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
+                    <p className="font-mono text-sm font-semibold">PCl₅</p>
+                    <p className="text-[0.7rem] text-muted-foreground">Phosphorus pentachloride</p>
+                    <div className="mt-3 overflow-x-auto">
+                      <Formula>{String.raw`\text{R–OH} + \text{PCl}_5 \rightarrow \text{R–Cl} + \text{HCl} + \text{POCl}_3`}</Formula>
+                    </div>
+                  </div>
+                  <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
+                    <p className="font-mono text-sm font-semibold">PCl₃</p>
+                    <p className="text-[0.7rem] text-muted-foreground">Phosphorus trichloride</p>
+                    <div className="mt-3 overflow-x-auto">
+                      <Formula>{String.raw`\mathbf{3}\,\text{R–OH} + \text{PCl}_3 \rightarrow \mathbf{3}\,\text{R–Cl} + \text{H}_3\text{PO}_3`}</Formula>
+                    </div>
+                    <p className="mt-2 text-[0.7rem] text-muted-foreground">
+                      Stoichiometric ratio — 3 alcohol : 1 PCl₃
+                    </p>
+                  </div>
+                </div>
 
-      <p>
-        Phosphorus tribromide and triiodide are usually generated <em>in situ</em> by the reaction of
-        red phosphorus with bromine and iodine respectively.
-      </p>
+                <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
+                  <p className="text-sm font-semibold">C. Using thionyl chloride (SOCl₂)</p>
+                  <span className="rounded-full border border-emerald-300 bg-emerald-50/70 px-2 py-0.5 text-[0.65rem] font-semibold text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300">
+                    ⭐ Important
+                  </span>
+                </div>
 
-      <Callout type="important" title="Why thionyl chloride is preferred">
-        <p>
-          Thionyl chloride is the reagent of choice because the alkyl halide is formed along with
-          gases SO<sub>2</sub> and HCl. Both gaseous products escape, so the reaction gives{" "}
-          <strong>pure alkyl halides</strong>.
-        </p>
-        <FormulaBlock latex={String.raw`\text{R–OH} + \text{SOCl}_2 \rightarrow \text{R–Cl} + \text{SO}_2\uparrow + \text{HCl}\uparrow`} />
-      </Callout>
+                <div className="mt-3 rounded-2xl border-2 border-emerald-300/70 bg-emerald-50/40 p-4 dark:border-emerald-800/70 dark:bg-emerald-950/20">
+                  <div className="overflow-x-auto text-center">
+                    <Formula>{String.raw`\text{R–OH} + \text{SOCl}_2 \rightarrow \text{R–Cl} + \text{HCl}_{(g)} + \text{SO}_{2(g)}`}</Formula>
+                  </div>
+                  <div className="mt-4 grid items-center gap-3 md:grid-cols-[1fr_auto_1fr]">
+                    <div className="rounded-xl border border-emerald-300/70 bg-background/80 p-3 text-center dark:border-emerald-800/70">
+                      <p className="text-[0.6rem] uppercase tracking-[0.1em] text-muted-foreground">
+                        Stays behind
+                      </p>
+                      <p className="mt-1 font-mono text-sm font-semibold">R—Cl</p>
+                    </div>
+                    <span className="rotate-90 text-center text-xs text-muted-foreground md:rotate-0">
+                      →
+                    </span>
+                    <div className="flex flex-col gap-2">
+                      <div className="rounded-xl border border-border/60 bg-background/80 px-3 py-2 text-xs">
+                        <strong>HCl ↑</strong> — gas escapes
+                      </div>
+                      <div className="rounded-xl border border-border/60 bg-background/80 px-3 py-2 text-xs">
+                        <strong>SO₂ ↑</strong> — gas escapes
+                      </div>
+                    </div>
+                  </div>
+                  <p className="mt-3 rounded-xl bg-emerald-600 px-3 py-2 text-center text-xs font-semibold text-white">
+                    Pure alkyl chloride remains
+                  </p>
+                </div>
 
-      <Callout type="note">
-        These methods are <strong>not</strong> applicable to aryl halides: the carbon–oxygen bond in
-        phenols has partial double bond character and is stronger than a single bond, so it is
-        difficult to break.
-      </Callout>
+                <p className="mt-4 text-sm font-semibold">
+                  D. Using halogen in the presence of red phosphorus
+                </p>
 
-      <h3 id="h-6-4-2">6.4.2 From Hydrocarbons</h3>
-
-      <h4 className="mt-3 text-sm font-semibold">
-        (A) From alkanes by free radical halogenation
-      </h4>
+                <div className="mt-2 rounded-2xl border border-border/60 bg-muted/30 p-4">
+                  <div className="overflow-x-auto text-center">
+                    <Formula>{String.raw`\text{R–OH} + \text{Cl}_2 \xrightarrow{\text{red P}} \text{R–Cl}`}</Formula>
+                  </div>
+                </div>
+              </>
+            ),
+          },
+          {
+            id: "h-6-4-hydrocarbons",
+            icon: "⚛️",
+            label: "2. From hydrocarbons",
+            note: "Alkanes & alkenes",
+            content: (
+              <>
+                <p className="mt-3 text-sm font-semibold">
+                  (A) From alkanes by free radical halogenation
+                </p>
 
       <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -735,7 +806,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </div>
       </div>
 
-      <h4 className="mt-4 text-sm font-semibold">(B) From alkenes</h4>
+                <p className="mt-4 text-sm font-semibold">(B) From alkenes</p>
 
       <p className="mt-3 text-sm font-semibold">1. Addition of hydrogen halides (H–X)</p>
 
@@ -806,36 +877,51 @@ export default function HaloalkanesAndHaloarenesChapter() {
         latex={String.raw`\text{CH}_2=\text{CH}_2 + \text{Cl}_2 \rightarrow \text{CH}_2(\text{Cl})-\text{CH}_2(\text{Cl})\text{ (vicinal dichloride)}`}
       />
 
-      <h3 id="h-6-4-3">6.4.3 Halogen Exchange</h3>
+              </>
+            ),
+          },
+          {
+            id: "h-6-4-exchange",
+            icon: "🔄",
+            label: "3. From haloalkanes",
+            note: "Ion exchange — Finkelstein · Swarts",
+            content: (
+              <>
 
-      <p>
-        Alkyl iodides are often prepared by the reaction of alkyl chlorides/bromides with NaI in dry
-        acetone — the <strong>Finkelstein reaction</strong>. NaCl or NaBr formed is precipitated in dry
-        acetone, which drives the forward reaction according to Le Chatelier&apos;s principle.
-      </p>
+                <p>
+                  Alkyl iodides are often prepared by the reaction of alkyl chlorides/bromides with NaI
+                  in dry acetone — the <strong>Finkelstein reaction</strong>. NaCl or NaBr formed is
+                  precipitated in dry acetone, which drives the forward reaction according to Le
+                  Chatelier&apos;s principle.
+                </p>
 
-      <FormulaBlock latex={String.raw`\text{R–Cl} + \text{NaI} \xrightarrow{\text{dry acetone}} \text{R–I} + \text{NaCl}\downarrow`} />
+                <FormulaBlock latex={String.raw`\text{R–Cl} + \text{NaI} \xrightarrow{\text{dry acetone}} \text{R–I} + \text{NaCl}\downarrow`} />
 
-      <p>
-        Alkyl fluorides are best made by heating an alkyl chloride/bromide with a metallic fluoride
-        such as AgF, Hg<sub>2</sub>F<sub>2</sub>, CoF<sub>2</sub> or SbF<sub>3</sub> — the{" "}
-        <strong>Swarts reaction</strong>.
-      </p>
+                <p>
+                  Alkyl fluorides are best made by heating an alkyl chloride/bromide with a metallic
+                  fluoride such as AgF, Hg<sub>2</sub>F<sub>2</sub>, CoF<sub>2</sub> or SbF<sub>3</sub>{" "}
+                  — the <strong>Swarts reaction</strong>.
+                </p>
 
-      <FormulaBlock latex={String.raw`\text{R–Br} + \text{AgF} \rightarrow \text{R–F} + \text{AgBr}`} />
+                <FormulaBlock latex={String.raw`\text{R–Br} + \text{AgF} \rightarrow \text{R–F} + \text{AgBr}`} />
 
-      <Expandable
-        title="Intext 6.2 — Why is sulphuric acid not used with KI?"
-        variant="exercise"
-      >
-        <p>Why is sulphuric acid not used during the reaction of alcohols with KI?</p>
-        <p className="mt-3 font-semibold">Answer</p>
-        <p>
-          H<sub>2</sub>SO<sub>4</sub> cannot be used along with KI in the conversion of an alcohol to
-          an alkyl iodide, because it converts KI into the corresponding acid HI, which is then
-          oxidised by it to I<sub>2</sub>.
-        </p>
-      </Expandable>
+                <Expandable
+                  title="Intext 6.2 — Why is sulphuric acid not used with KI?"
+                  variant="exercise"
+                >
+                  <p>Why is sulphuric acid not used during the reaction of alcohols with KI?</p>
+                  <p className="mt-3 font-semibold">Answer</p>
+                  <p>
+                    H<sub>2</sub>SO<sub>4</sub> cannot be used along with KI in the conversion of an
+                    alcohol to an alkyl iodide, because it converts KI into the corresponding acid HI,
+                    which is then oxidised by it to I<sub>2</sub>.
+                  </p>
+                </Expandable>
+              </>
+            ),
+          },
+        ]}
+      />
 
       <h2 id="h-6-5">6.5 Preparation of Haloarenes</h2>
 
@@ -849,12 +935,21 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <FormulaBlock latex={String.raw`\text{C}_6\text{H}_6 + \text{Cl}_2 \xrightarrow{\text{FeCl}_3} \text{C}_6\text{H}_5\text{Cl} + \text{HCl}`} />
 
-      <p>
-        The <em>ortho</em> and <em>para</em> isomers are easily separated because of the large
-        difference in their melting points. Reactions with iodine are reversible and need an oxidising
-        agent (HNO<sub>3</sub>, HIO<sub>4</sub>) to oxidise the HI formed. Fluoro compounds are not
-        prepared this way because of the high reactivity of fluorine.
-      </p>
+      <Callout type="note" title="Three practical points">
+        <ul>
+          <li>
+            <strong>Ortho/para separation</strong> — easy, because their melting points differ widely.
+          </li>
+          <li>
+            <strong>Iodine</strong> — the reaction is reversible and needs an oxidising agent (HNO
+            <sub>3</sub>, HIO<sub>4</sub>) to oxidise the HI formed.
+          </li>
+          <li>
+            <strong>Fluorine</strong> — fluoro compounds are not prepared this way because of the high
+            reactivity of fluorine.
+          </li>
+        </ul>
+      </Callout>
 
       <h3 id="h-6-5-2">(ii) From amines by Sandmeyer&apos;s reaction</h3>
 
