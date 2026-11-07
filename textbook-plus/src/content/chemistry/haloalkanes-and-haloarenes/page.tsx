@@ -5,7 +5,6 @@ import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { Stepper } from "@/components/content/Stepper";
-import { SmilesDrawerFigure } from "@/components/content/chemistry/SmilesDrawerFigure";
 import { FactCard } from "@/components/content/concept/FactCard";
 import { ConceptCard } from "@/components/content/concept/ConceptCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
@@ -395,16 +394,6 @@ export default function HaloalkanesAndHaloarenesChapter() {
           <p className="mt-1 font-mono text-xs">{'C₆H₅CH₂Cl'}</p>
           <p className="font-mono text-xs text-muted-foreground">{'C₆H₅–CH₂Cl'}</p>
         </div>
-      </div>
-      <p className="mt-3 text-sm font-semibold">SmilesDrawer sketches (experimental)</p>
-      <div className="my-3 grid gap-4 md:grid-cols-2">
-        <SmilesDrawerFigure smiles="CC(Cl)CC" caption="sec-Butyl chloride → 2-chlorobutane" />
-        <SmilesDrawerFigure smiles="CC(C)(C)CBr" caption="neo-Pentyl bromide" />
-        <SmilesDrawerFigure smiles="CC(C)(C)Br" caption="tert-Butyl bromide" />
-        <SmilesDrawerFigure smiles="C=CCl" caption="Vinyl chloride" />
-        <SmilesDrawerFigure smiles="C=CCBr" caption="Allyl bromide" />
-        <SmilesDrawerFigure smiles="Cc1ccccc1Cl" caption="o-Chlorotoluene" />
-        <SmilesDrawerFigure smiles="ClCc1ccccc1" caption="Benzyl chloride" />
       </div>
        <p className="text-xs text-muted-foreground">
         Detailed drawings appear only where branching or numbering matter; simple formulas remain
