@@ -888,34 +888,187 @@ export default function HaloalkanesAndHaloarenesChapter() {
             content: (
               <>
 
-                <p>
-                  Alkyl iodides are often prepared by the reaction of alkyl chlorides/bromides with NaI
-                  in dry acetone — the <strong>Finkelstein reaction</strong>. NaCl or NaBr formed is
-                  precipitated in dry acetone, which drives the forward reaction according to Le
-                  Chatelier&apos;s principle.
-                </p>
-
-                <FormulaBlock latex={String.raw`\text{R–Cl} + \text{NaI} \xrightarrow{\text{dry acetone}} \text{R–I} + \text{NaCl}\downarrow`} />
-
-                <p>
-                  Alkyl fluorides are best made by heating an alkyl chloride/bromide with a metallic
-                  fluoride such as AgF, Hg<sub>2</sub>F<sub>2</sub>, CoF<sub>2</sub> or SbF<sub>3</sub>{" "}
-                  — the <strong>Swarts reaction</strong>.
-                </p>
-
-                <FormulaBlock latex={String.raw`\text{R–Br} + \text{AgF} \rightarrow \text{R–F} + \text{AgBr}`} />
-
-                <Expandable
-                  title="Intext 6.2 — Why is sulphuric acid not used with KI?"
-                  variant="exercise"
-                >
-                  <p>Why is sulphuric acid not used during the reaction of alcohols with KI?</p>
-                  <p className="mt-3 font-semibold">Answer</p>
-                  <p>
-                    H<sub>2</sub>SO<sub>4</sub> cannot be used along with KI in the conversion of an
-                    alcohol to an alkyl iodide, because it converts KI into the corresponding acid HI,
-                    which is then oxidised by it to I<sub>2</sub>.
+                <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
+                  <p className="text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
+                    Ion exchange — one halogen swapped for another
                   </p>
+                  <p className="mt-2 text-center font-mono text-sm font-semibold">
+                    R—X <span className="text-muted-foreground">→</span> R—Y
+                  </p>
+                  <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-xl border border-sky-300/70 bg-sky-50/60 p-3 dark:border-sky-800 dark:bg-sky-950/30">
+                      <p className="text-xs font-semibold text-sky-700 dark:text-sky-300">
+                        Finkelstein
+                      </p>
+                      <p className="mt-1 text-[0.7rem] text-muted-foreground">
+                        Preparation of R—I · iodoalkanes
+                      </p>
+                    </div>
+                    <div className="rounded-xl border border-emerald-300/70 bg-emerald-50/60 p-3 dark:border-emerald-800 dark:bg-emerald-950/30">
+                      <p className="text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+                        Swarts
+                      </p>
+                      <p className="mt-1 text-[0.7rem] text-muted-foreground">
+                        Preparation of R—F · fluoroalkanes
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="mt-4 text-sm font-semibold text-sky-700 dark:text-sky-300">
+                  A. Finkelstein reaction — iodoalkanes
+                </p>
+
+                <ul className="mt-2 space-y-1 text-sm">
+                  <li>
+                    <strong>Purpose</strong> — preparation of iodoalkanes from chloroalkanes or
+                    bromoalkanes.
+                  </li>
+                  <li>
+                    <strong>Reagents and conditions</strong> — sodium iodide (NaI) in dry acetone.
+                  </li>
+                </ul>
+
+                <div className="mt-3 rounded-2xl border border-sky-200 bg-muted/30 p-4 dark:border-sky-900">
+                  <div className="divide-y divide-border/60">
+                    <div className="flex items-start gap-3 py-2">
+                      <span className="mt-1 w-14 shrink-0 text-[0.6rem] uppercase tracking-[0.1em] text-muted-foreground">
+                        General
+                      </span>
+                      <span className="min-w-0 overflow-x-auto">
+                        <Formula>{String.raw`\text{R–X} + \text{Na}\textcolor{#0284c7}{I} \xrightarrow{\text{dry acetone}} \text{R–}\textcolor{#0284c7}{I} + \text{NaX}`}</Formula>
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-3 py-2">
+                      <span className="mt-1 w-14 shrink-0 text-[0.6rem] uppercase tracking-[0.1em] text-muted-foreground">
+                        Example
+                      </span>
+                      <span className="min-w-0 overflow-x-auto">
+                        <Formula>{String.raw`\text{CH}_3\text{–CH}_2\text{–Cl} + \text{Na}\textcolor{#0284c7}{I} \xrightarrow{\text{dry acetone}} \text{CH}_3\text{–CH}_2\text{–}\textcolor{#0284c7}{I}\text{ (iodoethane)} + \text{NaCl}`}</Formula>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4">
+                  <p className="text-sm font-semibold">Why does the reaction proceed?</p>
+                  <div className="mt-3 grid items-center gap-2 md:grid-cols-[1fr_auto_1fr]">
+                    <div className="rounded-xl border border-border/60 bg-background/70 p-3 text-center text-xs">
+                      <p className="font-mono text-sm font-semibold">NaI + R—X</p>
+                      <p className="mt-1 text-muted-foreground">reactants in dry acetone</p>
+                    </div>
+                    <span className="rotate-90 text-center text-xs text-muted-foreground md:rotate-0">
+                      →
+                    </span>
+                    <div className="grid gap-2">
+                      <div className="rounded-xl border border-sky-300/70 bg-sky-50/60 p-3 text-center text-xs dark:border-sky-800 dark:bg-sky-950/30">
+                        <p className="font-mono text-sm font-semibold">R—I</p>
+                        <p className="mt-1 text-muted-foreground">desired product</p>
+                      </div>
+                      <div className="rounded-xl border border-border/60 bg-background/70 p-3 text-center text-xs">
+                        <p className="font-mono text-sm font-semibold">NaX ↓</p>
+                        <p className="mt-1 text-muted-foreground">insoluble precipitate</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="mt-3 rounded-xl border border-amber-200 bg-amber-50/70 px-3 py-2 text-xs dark:border-amber-900 dark:bg-amber-950/40">
+                    <strong>Reaction driven forward</strong> — NaX is insoluble in dry acetone and
+                    precipitates, so Le Chatelier&apos;s principle pulls the equilibrium to the right.
+                    Here X = Cl or Br.
+                  </p>
+                </div>
+
+                <p className="mt-4 text-sm font-semibold text-emerald-700 dark:text-emerald-300">
+                  B. Swarts reaction — fluoroalkanes
+                </p>
+
+                <ul className="mt-2 space-y-1 text-sm">
+                  <li>
+                    <strong>Purpose</strong> — preparation of fluoroalkanes from chloroalkanes or
+                    bromoalkanes.
+                  </li>
+                  <li>
+                    <strong>Condition</strong> — heating the alkyl chloride or bromide with a metallic
+                    fluoride.
+                  </li>
+                </ul>
+
+                <div className="mt-2 grid gap-2 text-[0.7rem] sm:grid-cols-2">
+                  {[
+                    { formula: "AgF", name: "Silver fluoride" },
+                    { formula: "Hg₂F₂", name: "Mercurous fluoride" },
+                    { formula: "CoF₂", name: "Cobalt fluoride" },
+                    { formula: "SbF₃", name: "Antimony trifluoride" },
+                  ].map((fluoride) => (
+                    <div
+                      key={fluoride.formula}
+                      className="flex items-center justify-between gap-2 rounded-lg border border-border/60 bg-background/70 px-3 py-1.5"
+                    >
+                      <span className="font-mono font-semibold">{fluoride.formula}</span>
+                      <span className="text-muted-foreground">{fluoride.name}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-3 rounded-2xl border border-emerald-200 bg-muted/30 p-4 dark:border-emerald-900">
+                  <div className="divide-y divide-border/60">
+                    <div className="flex items-start gap-3 py-2">
+                      <span className="mt-1 w-14 shrink-0 text-[0.6rem] uppercase tracking-[0.1em] text-muted-foreground">
+                        General
+                      </span>
+                      <span className="min-w-0 overflow-x-auto">
+                        <Formula>{String.raw`\text{R–X} + \text{AgF} \xrightarrow{\Delta} \text{R–}\textcolor{#059669}{F} + \text{AgX}`}</Formula>
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-3 py-2">
+                      <span className="mt-1 w-14 shrink-0 text-[0.6rem] uppercase tracking-[0.1em] text-muted-foreground">
+                        Example
+                      </span>
+                      <span className="min-w-0 overflow-x-auto">
+                        <Formula>{String.raw`\text{CH}_3\text{–CH}_2\text{–Cl} + \text{AgF} \xrightarrow{\Delta} \text{CH}_3\text{–CH}_2\text{–}\textcolor{#059669}{F}\text{ (fluoroalkane)} + \text{AgCl}`}</Formula>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="my-4 rounded-2xl border border-emerald-300/70 bg-emerald-50/60 p-4 dark:border-emerald-800 dark:bg-emerald-950/30">
+                  <p className="text-sm font-semibold">🌟 Significance</p>
+                  <p className="mt-1 text-sm">
+                    The Swarts reaction is the{" "}
+                    <strong>best method for preparing alkyl fluorides</strong>.
+                  </p>
+                  <p className="mt-2 font-mono text-xs text-muted-foreground">
+                    R—X → R—F · Swarts reaction
+                  </p>
+                </div>
+
+                <TableCard
+                  title="Finkelstein vs Swarts — quick comparison"
+                  headers={["Feature", "Finkelstein", "Swarts"]}
+                  rows={[
+                    { cells: ["Product", "Iodoalkane (R—I)", "Fluoroalkane (R—F)"] },
+                    { cells: ["Starting material", "R—Cl / R—Br", "R—Cl / R—Br"] },
+                    { cells: ["Main reagent", "NaI", "Metallic fluoride"] },
+                    { cells: ["Condition", "Dry acetone", "Heating"] },
+                    { cells: ["Key point", "NaX precipitates", "Preparation of alkyl fluorides"] },
+                  ]}
+                />
+
+                <Expandable title="Check yourself — ion exchange and alcohols" variant="exercise">
+                  <ExerciseQa
+                    questions={[
+                      "Which alkyl halide is generally the most suitable for the Finkelstein reaction?",
+                      "The Finkelstein reaction is generally classified as:",
+                      "The reaction of an alcohol with PCl₃ produces:",
+                      "Which alcohol gives immediate turbidity with Lucas reagent at room temperature?",
+                    ]}
+                    answers={[
+                      "1-Bromopropane. The reaction proceeds mainly by an SN2 mechanism, and primary alkyl halides undergo SN2 substitution more readily because they have less steric hindrance.",
+                      "Nucleophilic substitution. The iodide ion acts as a nucleophile and attacks the carbon attached to the leaving group.",
+                      "Alkyl chloride and phosphorous acid.",
+                      "A tertiary alcohol, such as tert-butyl alcohol (2-methylpropan-2-ol).",
+                    ]}
+                  />
                 </Expandable>
               </>
             ),
