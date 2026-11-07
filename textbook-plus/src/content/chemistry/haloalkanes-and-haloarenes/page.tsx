@@ -9,6 +9,7 @@ import { FactCard } from "@/components/content/concept/FactCard";
 import { ConceptCard } from "@/components/content/concept/ConceptCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { KeyPoint } from "@/components/content/KeyPoint";
+import { cn } from "@/lib/utils";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 
 export default function HaloalkanesAndHaloarenesChapter() {
@@ -473,6 +474,46 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h2 id="h-6-3">6.3 Nature of C—X Bond</h2>
 
+      <div className="mb-2 rounded-2xl border border-sky-200 bg-gradient-to-r from-sky-50 to-violet-50 p-4 dark:border-sky-900 dark:from-sky-950/40 dark:to-violet-950/40">
+        <div className="flex flex-col items-center gap-3">
+          <svg viewBox="0 0 220 80" className="h-20 w-52" aria-label="Polar C-X bond">
+            <text x="60" y="18" textAnchor="middle" fontSize="11" fill="currentColor" fontWeight="bold">
+              δ⁺
+            </text>
+            <text x="160" y="18" textAnchor="middle" fontSize="11" fill="currentColor" fontWeight="bold">
+              δ⁻
+            </text>
+            <circle cx="60" cy="45" r="18" fill="#0ea5e9" />
+            <circle cx="160" cy="45" r="18" fill="#7c3aed" />
+            <text x="60" y="49" textAnchor="middle" fontSize="13" fill="white" fontWeight="bold">
+              C
+            </text>
+            <text x="160" y="49" textAnchor="middle" fontSize="13" fill="white" fontWeight="bold">
+              X
+            </text>
+            <line x1="78" y1="45" x2="142" y2="45" stroke="currentColor" strokeWidth="2" />
+            <polygon points="142,40 152,45 142,50" fill="currentColor" />
+            <text x="110" y="72" textAnchor="middle" fontSize="9" fill="currentColor">
+              electron density shifts toward X
+            </text>
+          </svg>
+          <div className="grid gap-2 text-center text-xs md:grid-cols-3">
+            <div className="rounded-xl border border-border/60 bg-background/70 p-2">
+              <p className="font-semibold">Electronegativity difference</p>
+              <p className="text-muted-foreground">Halogen more electronegative than carbon</p>
+            </div>
+            <div className="rounded-xl border border-border/60 bg-background/70 p-2">
+              <p className="font-semibold">Bond polarisation</p>
+              <p className="text-muted-foreground">δ⁺ on C, δ⁻ on X</p>
+            </div>
+            <div className="rounded-xl border border-border/60 bg-background/70 p-2">
+              <p className="font-semibold">Nucleophilic attack</p>
+              <p className="text-muted-foreground">Carbon is electrophilic</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <p>
         Halogen atoms are more electronegative than carbon, so the carbon–halogen bond of an alkyl
         halide is <strong>polarised</strong>: the carbon bears a partial positive charge (δ+) and the
@@ -480,23 +521,80 @@ export default function HaloalkanesAndHaloarenesChapter() {
         the halogen leaves as a halide ion.
       </p>
 
+      <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4">
+        <p className="text-sm font-semibold">Periodic trends in C—X parameters</p>
+        <p className="mt-1 text-xs text-muted-foreground">
+          Down group 17: atomic size F &lt; Cl &lt; Br &lt; I
+        </p>
+        <div className="mt-3 grid gap-3 md:grid-cols-4">
+          {[
+            { symbol: "F", size: "h-8 w-8", length: "w-[25%]", enthalpy: "h-8", label: "C—F" },
+            { symbol: "Cl", size: "h-10 w-10", length: "w-[40%]", enthalpy: "h-7", label: "C—Cl" },
+            { symbol: "Br", size: "h-12 w-12", length: "w-[60%]", enthalpy: "h-5", label: "C—Br" },
+            { symbol: "I", size: "h-14 w-14", length: "w-[85%]", enthalpy: "h-3", label: "C—I" },
+          ].map((item) => (
+            <div key={item.symbol} className="rounded-2xl border border-border/60 bg-background/70 p-3 text-center">
+              <div className="flex justify-center">
+                <div className={cn("rounded-full bg-sky-500", item.size)} />
+              </div>
+              <p className="mt-2 text-xs font-semibold">{item.label}</p>
+              <p className="mt-2 text-[0.65rem] text-muted-foreground">Bond length increases</p>
+              <div className="mt-1 h-2 rounded-full bg-muted">
+                <div className={cn("h-2 rounded-full bg-amber-500", item.length)} />
+              </div>
+              <p className="mt-2 text-[0.65rem] text-muted-foreground">Bond enthalpy decreases</p>
+              <div className="mt-1 h-8 rounded-full bg-muted flex items-end justify-center">
+                <div className={cn("w-full rounded-t-md bg-rose-500", item.enthalpy)} />
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-3 grid gap-2 text-xs md:grid-cols-3">
+          <div className="rounded-xl border border-border/60 bg-background/70 p-2">
+            <p className="font-semibold">C—X bond length</p>
+            <p className="text-muted-foreground">C—F &lt; C—Cl &lt; C—Br &lt; C—I</p>
+          </div>
+          <div className="rounded-xl border border-border/60 bg-background/70 p-2">
+            <p className="font-semibold">C—X bond enthalpy</p>
+            <p className="text-muted-foreground">C—F &gt; C—Cl &gt; C—Br &gt; C—I</p>
+          </div>
+          <div className="rounded-xl border border-border/60 bg-background/70 p-2">
+            <p className="font-semibold">Reactivity link</p>
+            <p className="text-muted-foreground">Weaker/longer bonds break more easily (R—I &gt; R–Br &gt; R–Cl &gt; R–F).</p>
+          </div>
+        </div>
+      </div>
+
       <p>
         Going down the group the halogen atom gets larger — fluorine is the smallest, iodine the
         largest — so the C—X bond length increases from C—F to C—I.
       </p>
 
-      <TableCard
-        caption="Table 6.2: Carbon-Halogen (C—X) Bond Lengths, Bond Enthalpies and Dipole Moments"
-        headers={["Bond", "Bond length / pm", "Bond enthalpy / kJ mol⁻¹", "Dipole moment / Debye"]}
-        rows={[
-          { cells: ["CH₃—F", "139", "452", "1.847"] },
-          { cells: ["CH₃—Cl", "178", "351", "1.860"] },
-          { cells: ["CH₃—Br", "193", "293", "1.830"] },
-          { cells: ["CH₃—I", "214", "234", "1.636"] },
-        ]}
-      />
+      <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4">
+        <p className="text-sm font-semibold">Dipole moment order</p>
+        <div className="mt-3 grid gap-2 md:grid-cols-4">
+          {[
+            { label: "CH₃Cl", value: "1.860 D", width: "w-full" },
+            { label: "CH₃F", value: "1.847 D", width: "w-[96%]" },
+            { label: "CH₃Br", value: "1.830 D", width: "w-[90%]" },
+            { label: "CH₃I", value: "1.636 D", width: "w-[70%]" },
+          ].map((item) => (
+            <div key={item.label} className="rounded-xl border border-border/60 bg-background/70 p-3 text-center">
+              <p className="font-mono text-xs">{item.label}</p>
+              <p className="mt-1 text-xs font-semibold">{item.value}</p>
+              <div className="mt-2 h-2 rounded-full bg-muted">
+                <div className={cn("h-2 rounded-full bg-sky-500", item.width)} />
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="mt-3 text-xs">
+          Complete order: <strong>CH₃Cl &gt; CH₃F &gt; CH₃Br &gt; CH₃I</strong>{" "}
+          (1.860 &gt; 1.847 &gt; 1.830 &gt; 1.636 D).
+        </p>
+      </div>
 
-      <KeyPoint title="Bond strength, not polarity, decides leaving ability">
+      <KeyPoint title="Bond strength, not polarity alone, decides leaving ability">
         <p>
           Bond enthalpy falls steeply from C—F to C—I while the bond gets longer, so the order of ease
           of breaking the bond — and hence of reactivity in substitution — is:
