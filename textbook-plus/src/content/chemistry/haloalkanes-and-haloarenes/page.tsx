@@ -1101,68 +1101,224 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h2 id="h-6-5">6.5 Preparation of Haloarenes</h2>
 
-      <h3 id="h-6-5-1">(i) From hydrocarbons by electrophilic substitution</h3>
+      <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+          Two routes to a haloarene
+        </p>
+        <div className="mt-3 grid gap-3 md:grid-cols-2">
+          <a
+            href="#h-6-5-hydro"
+            className="rounded-xl border border-blue-200 bg-blue-50/70 p-4 transition hover:border-blue-400 dark:border-blue-900 dark:bg-blue-950/40"
+          >
+            <p className="font-semibold text-blue-900 dark:text-blue-100">
+              Route 1 · From hydrocarbons — electrophilic substitution
+            </p>
+            <p className="mt-1 text-xs text-blue-700 dark:text-blue-300">
+              Benzene / toluene + halogen arene
+            </p>
+          </a>
+          <a
+            href="#h-6-5-amine"
+            className="rounded-xl border border-violet-200 bg-violet-50/70 p-4 transition hover:border-violet-400 dark:border-violet-900 dark:bg-violet-950/40"
+          >
+            <p className="font-semibold text-violet-900 dark:text-violet-100">
+              Route 2 · From amines — Sandmeyer&apos;s reaction
+            </p>
+            <p className="mt-1 text-xs text-violet-700 dark:text-violet-300">
+              Aniline → diazonium salt → haloarene
+            </p>
+          </a>
+        </div>
+      </div>
 
-      <p>
-        Aryl chlorides and bromides are easily prepared by electrophilic substitution of arenes with
-        chlorine and bromine in the presence of Lewis acid catalysts such as iron or iron(III)
-        chloride.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{C}_6\text{H}_6 + \text{Cl}_2 \xrightarrow{\text{FeCl}_3} \text{C}_6\text{H}_5\text{Cl} + \text{HCl}`} />
-
-      <Callout type="note" title="Three practical points">
-        <ul>
-          <li>
-            <strong>Ortho/para separation</strong> — easy, because their melting points differ widely.
-          </li>
-          <li>
-            <strong>Iodine</strong> — the reaction is reversible and needs an oxidising agent (HNO
-            <sub>3</sub>, HIO<sub>4</sub>) to oxidise the HI formed.
-          </li>
-          <li>
-            <strong>Fluorine</strong> — fluoro compounds are not prepared this way because of the high
-            reactivity of fluorine.
-          </li>
-        </ul>
-      </Callout>
-
-      <h3 id="h-6-5-2">(ii) From amines by Sandmeyer&apos;s reaction</h3>
-
-      <p>
-        When a primary aromatic amine, dissolved or suspended in cold aqueous mineral acid, is treated
-        with sodium nitrite, a <strong>diazonium salt</strong> is formed. Mixing a freshly prepared
-        solution of the diazonium salt with cuprous chloride or cuprous bromide replaces the diazonium
-        group by —Cl or —Br.
-      </p>
-
-      <Stepper
-        steps={[
+      <PocketGrid
+        title="Route at a glance"
+        items={[
           {
-            label: "Diazotisation (273–278 K)",
-            description: (
-              <FormulaBlock latex={String.raw`\text{C}_6\text{H}_5\text{NH}_2 + \text{NaNO}_2 + 2\text{HCl} \xrightarrow{273-278\ \text{K}} \text{C}_6\text{H}_5\text{N}_2^+\text{Cl}^- + \text{NaCl} + 2\text{H}_2\text{O}`} />
+            id: "h-6-5-hydro",
+            icon: "⚛️",
+            label: "1. From hydrocarbons",
+            note: "Electrophilic substitution · Fe / dark",
+            content: (
+              <>
+                <p className="mt-3 text-sm">
+                  Aryl chlorides and bromides are prepared by electrophilic substitution of arenes with
+                  chlorine or bromine in the presence of Lewis acid catalysts such as Fe, FeCl₃ or
+                  AlCl₃.
+                </p>
+
+                <p className="mt-4 text-sm font-semibold">A. Halogenation of benzene</p>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Reagents — Cl₂ or Br₂. Conditions — dark, with Fe / FeCl₃ / AlCl₃.
+                </p>
+
+                <div className="mt-3 rounded-2xl border border-blue-200 bg-muted/30 p-4 dark:border-blue-900">
+                  <div className="overflow-x-auto">
+                    <FormulaBlock
+                      latex={String.raw`\text{C}_6\text{H}_6 + \text{Cl}_2 \xrightarrow[\text{dark}]{\text{Fe / FeCl}_3} \text{C}_6\text{H}_5\text{Cl} + \text{HCl}`}
+                    />
+                  </div>
+                </div>
+
+                <Callout type="note" title="Three practical points">
+                  <ul>
+                    <li>
+                      <strong>Ortho/para separation</strong> — easy, because their melting points differ
+                      widely.
+                    </li>
+                    <li>
+                      <strong>Iodine</strong> — the reaction is reversible and needs an oxidising agent
+                      (HNO<sub>3</sub>, HIO<sub>4</sub>) to oxidise the HI formed.
+                    </li>
+                    <li>
+                      <strong>Fluorine</strong> — fluoro compounds are not prepared this way because of
+                      the high reactivity of fluorine.
+                    </li>
+                  </ul>
+                </Callout>
+
+                <p className="mt-4 text-sm font-semibold">
+                  B. Halogenation of toluene — ring vs side chain
+                </p>
+                <div className="mt-2 grid gap-3 md:grid-cols-2">
+                  <div className="rounded-2xl border border-blue-200 bg-blue-50/60 p-4 dark:border-blue-900 dark:bg-blue-950/40">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-700 dark:text-blue-300">
+                      1 · Nuclear (ring) substitution
+                    </p>
+                    <p className="mt-2 text-xs text-muted-foreground">Conditions — Fe / dark</p>
+                    <div className="mt-3 space-y-1 text-xs">
+                      <p className="font-mono">Toluene + Cl₂ → o-chlorotoluene + p-chlorotoluene</p>
+                    </div>
+                  </div>
+                  <div className="rounded-2xl border border-amber-200 bg-amber-50/60 p-4 dark:border-amber-900 dark:bg-amber-950/40">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">
+                      2 · Side-chain substitution
+                    </p>
+                    <p className="mt-2 text-xs text-muted-foreground">
+                      Conditions — hν / UV / boiling
+                    </p>
+                    <div className="mt-3 space-y-1 text-xs">
+                      <p className="font-mono">Toluene + Cl₂ → Benzyl chloride</p>
+                    </div>
+                  </div>
+                </div>
+
+                <Callout type="note" title="Note on chlorination with sunlight">
+                  <p>
+                    In the presence of sunlight (UV), chlorine can <strong>add</strong> to the benzene
+                    ring to give the addition product — benzene hexachloride (BHC); direct halogenation
+                    in the dark gives substitution.
+                  </p>
+                </Callout>
+
+                <p className="mt-4 text-sm font-semibold">Directing effects of substituents</p>
+                <TableCard
+                  title="Ring-directing groups"
+                  headers={["Ortho-para directing", "Meta directing"]}
+                  rows={[
+                    { cells: ["−R (e.g. −CH₃, −CH₂CH₃)", "−COOH"] },
+                    { cells: ["−X (−Cl, −Br, …)", "−CN"] },
+                    { cells: ["−NH₂", "−NO₂"] },
+                    { cells: ["−OH", "−SO₃H"] },
+                  ]}
+                />
+              </>
             ),
           },
           {
-            label: "Sandmeyer substitution with CuCl / CuBr",
-            description: (
-              <FormulaBlock latex={String.raw`\text{C}_6\text{H}_5\text{N}_2^+\text{Cl}^- + \text{CuCl} \rightarrow \text{C}_6\text{H}_5\text{Cl} + \text{N}_2\uparrow`} />
+            id: "h-6-5-amine",
+            icon: "🧪",
+            label: "2. From amines",
+            note: "Diazonium route · Sandmeyer",
+            content: (
+              <>
+                <p className="mt-3 text-sm">
+                  A primary aromatic amine (e.g. aniline), suspended in cold aqueous mineral acid and
+                  treated with NaNO₂, gives a <strong>diazonium salt</strong>. Cuprous chloride or
+                  bromide then replaces the diazonium group by —Cl or —Br.
+                </p>
+
+                <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  Step 1 — diazotisation (273–278 K / 0–5 °C)
+                </p>
+                <div className="mt-2 rounded-2xl border border-violet-200 bg-muted/30 p-4 dark:border-violet-900">
+                  <FormulaBlock
+                    latex={String.raw`\text{C}_6\text{H}_5\text{NH}_2 + \text{NaNO}_2 + 2\text{HCl} \xrightarrow{273-278\ \text{K}} \text{C}_6\text{H}_5\text{N}_2^+\text{Cl}^- + \text{NaCl} + 2\text{H}_2\text{O}`}
+                  />
+                </div>
+
+                <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  Step 2 — Sandmeyer (CuCl / CuBr)
+                </p>
+                <div className="mt-2 rounded-2xl border border-violet-200 bg-muted/30 p-4 dark:border-violet-900">
+                  <FormulaBlock
+                    latex={String.raw`\text{C}_6\text{H}_5\text{N}_2^+\text{Cl}^- + \text{CuCl} \rightarrow \text{C}_6\text{H}_5\text{Cl} + \text{N}_2\uparrow`}
+                  />
+                </div>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Diazonium group (—N₂⁺X⁻) replaced by —Cl or —Br; nitrogen gas released.
+                </p>
+                <div className="mt-2 rounded-xl border border-sky-200 bg-sky-50/60 p-3 dark:border-sky-900 dark:bg-sky-950/40">
+                  <p className="text-xs font-semibold">
+                    For the iodide — no cuprous halide needed
+                  </p>
+                  <div className="mt-2 overflow-x-auto">
+                    <FormulaBlock
+                      latex={String.raw`\text{C}_6\text{H}_5\text{N}_2^+\text{Cl}^- + \text{KI} \rightarrow \text{C}_6\text{H}_5\text{I} + \text{N}_2\uparrow + \text{KCl}`}
+                    />
+                  </div>
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    Shake the diazonium salt solution with KI.
+                  </p>
+                </div>
+
+                <p className="mt-4 text-sm font-semibold">Gattermann&apos;s reaction (modification)</p>
+                <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
+                  <FormulaBlock
+                    latex={String.raw`\text{C}_6\text{H}_5\text{N}_2^+\text{X}^- \xrightarrow{\text{Cu powder / HX}} \text{C}_6\text{H}_5\text{–X} + \text{N}_2\uparrow + \text{CuX}`}
+                  />
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    Uses copper powder with HX instead of cuprous halide (CuX). Key distinction: Cu
+                    powder + HX vs CuCl / CuBr.
+                  </p>
+                </div>
+
+                <p className="mt-4 text-sm font-semibold text-emerald-700 dark:text-emerald-300">
+                  Balz–Schiemann reaction — fluorobenzene
+                </p>
+                <div className="rounded-2xl border border-emerald-300/70 bg-emerald-50/60 p-4 dark:border-emerald-800 dark:bg-emerald-950/30">
+                  <FormulaBlock
+                    latex={String.raw`\text{C}_6\text{H}_5\text{N}_2^+\text{BF}_4^- \xrightarrow{\Delta} \text{C}_6\text{H}_5\text{F} + \text{BF}_3 + \text{N}_2\uparrow`}
+                  />
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    Preparation of fluorobenzene from benzene diazonium tetrafluoroborate (heating). This
+                    is the reliable route to fluoroarenes; direct fluorination is unsuitable because
+                    fluorine is too reactive.
+                  </p>
+                </div>
+              </>
             ),
           },
           {
-            label: "For the iodide, no cuprous halide is needed",
-            description: (
-              <FormulaBlock latex={String.raw`\text{C}_6\text{H}_5\text{N}_2^+\text{Cl}^- + \text{KI} \rightarrow \text{C}_6\text{H}_5\text{I} + \text{N}_2\uparrow + \text{KCl}`} />
+            id: "h-6-5-revision",
+            icon: "📊",
+            label: "3. Quick revision",
+            note: "All haloarene routes at a glance",
+            content: (
+              <TableCard
+                title="Reaction comparison"
+                headers={["Reaction", "Starting material", "Reagent / condition", "Product"]}
+                rows={[
+                  { cells: ["Sandmeyer", "Diazonium salt", "CuCl / CuBr", "Ar—Cl / Ar—Br"] },
+                  { cells: ["Iodide prep", "Diazonium salt", "KI", "Ar—I"] },
+                  { cells: ["Gattermann", "Diazonium salt", "Cu powder + HX", "Ar—X"] },
+                  { cells: ["Balz-Schiemann", "Diazonium tetrafluoroborate", "Heating", "Ar—F"] },
+                ]}
+              />
             ),
           },
         ]}
       />
-
-      <p>
-        Replacement of the diazonium group by iodine is done simply by shaking the diazonium salt with
-        potassium iodide.
-      </p>
 
       <h2 id="h-6-6">6.6 Physical Properties</h2>
 
