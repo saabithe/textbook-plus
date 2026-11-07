@@ -1333,160 +1333,192 @@ export default function HaloalkanesAndHaloarenesChapter() {
         solids. The state depends on molecular size and structure.
       </p>
 
-      <div className="mt-3 grid gap-3 sm:grid-cols-2">
-        {[
-          { formula: "CH₃Cl", name: "Methyl chloride" },
-          { formula: "CH₃Br", name: "Methyl bromide" },
-          { formula: "C₂H₅Cl", name: "Ethyl chloride" },
-          { formula: "CHClF₂, …", name: "Some chlorofluoromethanes" },
-        ].map((item) => (
-          <div
-            key={item.formula}
-            className="flex items-center justify-between rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3 dark:border-sky-900 dark:bg-sky-950/40"
-          >
-            <span className="font-mono text-sm font-semibold text-sky-900 dark:text-sky-100">
-              {item.formula}
-            </span>
-            <span className="text-xs text-muted-foreground">{item.name}</span>
-          </div>
-        ))}
-      </div>
-      <p className="mt-2 text-xs text-muted-foreground">
-        Higher haloalkanes and haloarenes — liquids / solids, of increasing molecular mass.
-      </p>
-
-      <div className="mt-3 rounded-xl border border-border/60 bg-muted/30 px-3 py-2 text-xs">
-        Increasing carbon atoms → stronger Van der Waals attractions → greater molecular cohesion and
-        higher physical state.
-      </div>
-
-      <p className="mt-6 text-sm font-semibold">2. Boiling point</p>
-
-      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-        A. Comparison with parent hydrocarbons
-      </p>
-      <div className="mt-2 grid gap-3 md:grid-cols-2">
-        <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-            Parent hydrocarbon
-          </p>
-          <p className="mt-2 text-sm">Weaker overall intermolecular attractions</p>
-        </div>
-        <div className="rounded-2xl border border-blue-200 bg-blue-50/60 p-4 dark:border-blue-900 dark:bg-blue-950/40">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-700 dark:text-blue-300">
-            Haloalkane
-          </p>
-          <p className="mt-2 text-sm">
-            Dipole–dipole <strong>+</strong> Van der Waals attractions
-          </p>
-          <p className="mt-2 text-xs text-muted-foreground">
-            Generally higher boiling points than the parent hydrocarbons.
-          </p>
-        </div>
-      </div>
-
-      <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-        B. Factors affecting boiling point
-      </p>
-      <div className="mt-2 space-y-2">
-        {[
+      <PocketGrid
+        title="Physical properties at a glance"
+        items={[
           {
-            factor: "Number of carbon atoms",
-            trend: "↑ C atoms → ↑ B.P.",
-            detail: "Increasing carbon-chain size, higher molecular mass",
-            up: true,
+            id: "h-6-6-state",
+            icon: "🌡️",
+            label: "1. Physical state",
+            note: "Gas → liquid / solid",
+            content: (
+              <>
+                <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                  {[
+                    { formula: "CH₃Cl", name: "Methyl chloride" },
+                    { formula: "CH₃Br", name: "Methyl bromide" },
+                    { formula: "C₂H₅Cl", name: "Ethyl chloride" },
+                    { formula: "CHClF₂, …", name: "Some chlorofluoromethanes" },
+                  ].map((item) => (
+                    <div
+                      key={item.formula}
+                      className="flex items-center justify-between rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3 dark:border-sky-900 dark:bg-sky-950/40"
+                    >
+                      <span className="font-mono text-sm font-semibold text-sky-900 dark:text-sky-100">
+                        {item.formula}
+                      </span>
+                      <span className="text-xs text-muted-foreground">{item.name}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Higher haloalkanes and haloarenes — liquids / solids, of increasing molecular mass.
+                </p>
+
+                <div className="mt-3 rounded-xl border border-border/60 bg-muted/30 px-3 py-2 text-xs">
+                  Increasing carbon atoms → stronger Van der Waals attractions → greater molecular
+                  cohesion and higher physical state.
+                </div>
+              </>
+            ),
           },
           {
-            factor: "Number of halogen atoms",
-            trend: "↑ X atoms → ↑ B.P.",
-            detail: "For comparable molecular structures",
-            up: true,
-          },
-          {
-            factor: "Size of halogen (F → Cl → Br → I)",
-            trend: "R–I > R–Br > R–Cl > R–F",
-            detail: "Van der Waals forces increase with atomic size",
-            up: true,
-          },
-          {
-            factor: "Branching",
-            trend: "↑ branching → ↓ B.P.",
-            detail: "Reduced molecular surface area; weaker Van der Waals attractions",
-            up: false,
-          },
-          {
-            factor: "Isomeric dihalobenzenes",
-            trend: "bp: o > p > m",
-            detail:
-              "Boiling point — o > p > m; melting point of para-isomers is much higher (p > o > m) because their symmetry fits the crystal lattice better.",
-            up: null,
-          },
-        ].map((item) => (
-          <div
-            key={item.factor}
-            className="rounded-xl border border-border/60 bg-muted/30 p-3"
-          >
-            <div className="grid gap-1 md:grid-cols-[1fr_auto] md:items-center">
-              <div>
-                <p className="text-sm font-semibold">{item.factor}</p>
-                <p className="mt-1 text-xs text-muted-foreground">{item.detail}</p>
-              </div>
-              {item.up !== null && (
-                <span
-                  className={
-                    item.up
-                      ? "text-xs font-bold text-emerald-700 dark:text-emerald-300"
-                      : "text-xs font-bold text-amber-700 dark:text-amber-300"
-                  }
-                >
-                  {item.trend}
-                </span>
-              )}
-              {item.up === null && (
-                <span className="text-xs font-bold text-foreground">{item.trend}</span>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
+            id: "h-6-6-boiling-point",
+            icon: "📈",
+            label: "2. Boiling point",
+            note: "Parent vs haloalkane · factors",
+            content: (
+              <>
+                <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  A. Comparison with parent hydrocarbons
+                </p>
+                <div className="mt-2 grid gap-3 md:grid-cols-2">
+                  <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                      Parent hydrocarbon
+                    </p>
+                    <p className="mt-2 text-sm">Weaker overall intermolecular attractions</p>
+                  </div>
+                  <div className="rounded-2xl border border-blue-200 bg-blue-50/60 p-4 dark:border-blue-900 dark:bg-blue-950/40">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-700 dark:text-blue-300">
+                      Haloalkane
+                    </p>
+                    <p className="mt-2 text-sm">
+                      Dipole–dipole <strong>+</strong> Van der Waals attractions
+                    </p>
+                    <p className="mt-2 text-xs text-muted-foreground">
+                      Generally higher boiling points than the parent hydrocarbons.
+                    </p>
+                  </div>
+                </div>
 
-      <p className="mt-6 text-sm font-semibold">3. Solubility</p>
-      <div className="mt-2 grid gap-3 md:grid-cols-2">
-        <div className="rounded-2xl border border-amber-200 bg-amber-50/60 p-4 dark:border-amber-900 dark:bg-amber-950/40">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">
-            In water — very slight / immiscible
-          </p>
-          <ul className="mt-2 space-y-1 text-xs text-muted-foreground">
-            <li>Haloalkanes cannot form hydrogen bonds with water.</li>
-            <li>
-              Dissolving needs energy to break haloalkane–haloalkane and water–water attractions; the
-              new haloalkane–water attractions are weaker, so less energy is released.
-            </li>
-          </ul>
-        </div>
-        <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/40">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700 dark:text-emerald-300">
-            In organic solvents — highly soluble
-          </p>
-          <p className="mt-2 text-xs text-muted-foreground">
-            New intermolecular attractions have strength comparable with those being broken.
-          </p>
-        </div>
-      </div>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  B. Factors affecting boiling point
+                </p>
+                <div className="mt-2 space-y-2">
+                  {[
+                    {
+                      factor: "Number of carbon atoms",
+                      trend: "↑ C atoms → ↑ B.P.",
+                      detail: "Increasing carbon-chain size, higher molecular mass",
+                      up: true,
+                    },
+                    {
+                      factor: "Number of halogen atoms",
+                      trend: "↑ X atoms → ↑ B.P.",
+                      detail: "For comparable molecular structures",
+                      up: true,
+                    },
+                    {
+                      factor: "Size of halogen (F → Cl → Br → I)",
+                      trend: "R–I > R–Br > R–Cl > R–F",
+                      detail: "Van der Waals forces increase with atomic size",
+                      up: true,
+                    },
+                    {
+                      factor: "Branching",
+                      trend: "↑ branching → ↓ B.P.",
+                      detail: "Reduced molecular surface area; weaker Van der Waals attractions",
+                      up: false,
+                    },
+                    {
+                      factor: "Isomeric dihalobenzenes",
+                      trend: "bp: o > p > m",
+                      detail:
+                        "Boiling point — o > p > m; melting point of para-isomers is much higher (p > o > m) because their symmetry fits the crystal lattice better.",
+                      up: null,
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.factor}
+                      className="rounded-xl border border-border/60 bg-muted/30 p-3"
+                    >
+                      <div className="grid gap-1 md:grid-cols-[1fr_auto] md:items-center">
+                        <div>
+                          <p className="text-sm font-semibold">{item.factor}</p>
+                          <p className="mt-1 text-xs text-muted-foreground">{item.detail}</p>
+                        </div>
+                        {item.up !== null && (
+                          <span
+                            className={
+                              item.up
+                                ? "text-xs font-bold text-emerald-700 dark:text-emerald-300"
+                                : "text-xs font-bold text-amber-700 dark:text-amber-300"
+                            }
+                          >
+                            {item.trend}
+                          </span>
+                        )}
+                        {item.up === null && (
+                          <span className="text-xs font-bold text-foreground">{item.trend}</span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ),
+          },
+          {
+            id: "h-6-6-solubility-density",
+            icon: "💧",
+            label: "3. Solubility & density",
+            note: "Water / organic solvents",
+            content: (
+              <>
+                <p className="mt-3 text-sm font-semibold">Solubility</p>
+                <div className="mt-2 grid gap-3 md:grid-cols-2">
+                  <div className="rounded-2xl border border-amber-200 bg-amber-50/60 p-4 dark:border-amber-900 dark:bg-amber-950/40">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">
+                      In water — very slight / immiscible
+                    </p>
+                    <ul className="mt-2 space-y-1 text-xs text-muted-foreground">
+                      <li>Haloalkanes cannot form hydrogen bonds with water.</li>
+                      <li>
+                        Dissolving needs energy to break haloalkane–haloalkane and water–water
+                        attractions; the new haloalkane–water attractions are weaker, so less energy is
+                        released.
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/40">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700 dark:text-emerald-300">
+                      In organic solvents — highly soluble
+                    </p>
+                    <p className="mt-2 text-xs text-muted-foreground">
+                      New intermolecular attractions have strength comparable with those being broken.
+                    </p>
+                  </div>
+                </div>
 
-      <p className="mt-6 text-sm font-semibold">4. Density</p>
-      <p className="mt-2 text-sm">
-        Bromo-, iodo- and polychloro-derivatives of hydrocarbons are heavier than water; density
-        increases with the number of C atoms, the number of halogen atoms and the atomic mass of the
-        halogen.
-      </p>
-      <TableCard
-        caption="Table 6.3: Density of Some Haloalkanes"
-        headers={["Compound", "Density / g mL⁻¹", "Compound", "Density / g mL⁻¹"]}
-        rows={[
-          { cells: ["n-C₃H₇Cl", "0.89", "CH₂Cl₂", "1.336"] },
-          { cells: ["n-C₃H₇Br", "1.335", "CHCl₃", "1.489"] },
-          { cells: ["n-C₃H₇I", "1.747", "CCl₄", "1.595"] },
+                <p className="mt-4 text-sm font-semibold">Density</p>
+                <p className="mt-2 text-sm">
+                  Bromo-, iodo- and polychloro-derivatives of hydrocarbons are heavier than water;
+                  density increases with the number of C atoms, the number of halogen atoms and the
+                  atomic mass of the halogen.
+                </p>
+                <TableCard
+                  caption="Table 6.3: Density of Some Haloalkanes"
+                  headers={["Compound", "Density / g mL⁻¹", "Compound", "Density / g mL⁻¹"]}
+                  rows={[
+                    { cells: ["n-C₃H₇Cl", "0.89", "CH₂Cl₂", "1.336"] },
+                    { cells: ["n-C₃H₇Br", "1.335", "CHCl₃", "1.489"] },
+                    { cells: ["n-C₃H₇I", "1.747", "CCl₄", "1.595"] },
+                  ]}
+                />
+              </>
+            ),
+          },
         ]}
       />
 
