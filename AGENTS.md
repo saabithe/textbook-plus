@@ -12,12 +12,9 @@ npm run typecheck                        # tsc --noEmit (fast, no build)
 npm run verify:latex                     # KaTeX render check; after any math edit
 npm run verify:presentation -- --chapter <slug>   # P1–P7 presentation linter
 npm run verify:grammar                   # static checks over grammar topics
-npm run verify:chem                      # structure lint (also runs in build)
 npm run pdf:extract -- <pdf> <out.md>    # PDF text → raw Markdown (new chapters only)
 npm run pdf:clean -- <in.md> <out.md>    # clean raw extraction (new chapters only)
 npm run icons                            # regenerate PWA icons (icon.svg changed)
-npm run chem:build -- --chapter <slug>   # regenerate chemistry SVGs from structures.json
-npm run chem:sheet -- --chapter <slug>   # per-chapter contact sheet (user sign-off, G6)
 ```
 
 Run only the check for what changed — full routing table in `textbook-plus/scripts/README.md`. While iterating, run `npm run typecheck` — not a full build or dev server. Build once at the end of a batch.
@@ -57,7 +54,7 @@ No `/admin` page. No barrel export (`src/components/content/index.ts`) — impor
 
 **LaTeX rule (critical):** single backslashes inside `String.raw` templates only — `latex={String.raw`\frac{a}{b}`}` and `<Formula>{String.raw`\sum x_i`}</Formula>`. Never double backslashes, never `latex="\frac..."`. Run `npm run verify:latex` after any math change.
 
-**Imports:** direct file paths only (`@/components/content/Callout`, `@/components/content/data/TableCard`, `@/components/content/physics/WaveAnatomyDiagram`, `@/components/content/chemistry/MoleculeStructure`, `@/components/content/biology/...`).
+**Imports:** direct file paths only (`@/components/content/Callout`, `@/components/content/data/TableCard`, `@/components/content/physics/WaveAnatomyDiagram`, `@/components/content/biology/...`).
 
 Component categories (under `src/components/content/`): Core (top level), `data/`, `process/`, `concept/`, `study/`, `physics/`, `chemistry/`, `biology/`, plus English/Arabic top-level (`ChapterIntro`, `ArabicChapterCard`, `BilingualParagraph`, `ContentTabs`, `CollapsibleSection`, `SummaryLevels`, `ReadRespond`, etc.) and `OrgChart`, `TopicSwitch`, `PocketGrid`, `TopicIndex`.
 
@@ -106,9 +103,9 @@ Component categories (under `src/components/content/`): Core (top level), `data/
 
 Copy into `textbook-plus/public/images/{subject}/{chapter-slug}/` under a descriptive kebab-case name; rename the original `consumed__<same-name>`; never delete originals; never reference the delivery folder from code. **Full lifecycle rules (pending / consumed / unassigned, naming, folder map): `Constitution/USER_PREFERENCES.md` §11.3.**
 
-## Chemistry Structures (never hand-drawn)
+## Chemistry Structure Figures
 
-Generate from committed SMILES at authoring time. Inputs: `src/content/chemistry/{slug}/structures.json` (`smiles`, `formula`, `ncertName`, `source`). Output: `structures.generated.ts` (generated, committed, **never hand-edited**). Usage: `import { STRUCTURES } from "./structures.generated"; <MoleculeStructure {...STRUCTURES.key} caption="…" />`. Seven gates G1–G7; a structure that fails a gate is deleted, not patched. Accepted-but-not-automated: curly-arrow mechanisms, crystal lattices, chair/Newman conformations, orbital/CFT diagrams, multi-step flow schemes (hand-authored SVG). Run `npm run verify:chem` (also in build).
+Chemistry molecules are rendered as hand-authored SVG schematics or text-based condensed/expanded formulas. No RDKit-based `MoleculeStructure` generator is used anymore.
 
 ## Physics Figures (solved, not eyeballed)
 
