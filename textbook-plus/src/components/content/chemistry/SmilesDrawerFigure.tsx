@@ -25,20 +25,20 @@ export function SmilesDrawerFigure({
     host.innerHTML = "";
 
     const drawer = new (SmilesDrawer as any).SvgDrawer({ width, height });
-    (SmilesDrawer as any).parse(
-      smiles,
-      (tree: any) => {
-        if (cancelled || !host) return;
-        try {
-          drawer.draw(tree, host, "light");
-        } catch {
-          host.textContent = "Unable to render structure.";
-        }
-      },
-      (err: unknown) => {
-        if (!cancelled && host) host.textContent = "Unable to render structure.";
-      },
-    );
+    let tree: any;
+    try {
+      tree = (SmilesDrawer as any).parse(smiles);
+    } catch {
+      if (!cancelled && host) host.textContent = "Unable to render structure.";
+      return;
+    }
+
+    if (cancelled || !host) return;
+    try {
+      drawer.draw(tree, host, "light");
+    } catch {
+      host.textContent = "Unable to render structure.";
+    }
 
     return () => {
       cancelled = true;
