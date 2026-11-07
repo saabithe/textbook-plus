@@ -604,12 +604,17 @@ export default function HaloalkanesAndHaloarenesChapter() {
       <p>
         The preparation of an alkyl chloride is carried out either by passing dry hydrogen chloride gas
         through a solution of the alcohol, or by heating a mixture of the alcohol and concentrated
-        aqueous halogen acid. Reactions of primary and secondary alcohols with HCl need a catalyst,{" "}
+        aqueous halogen acid.
+      </p>
+      <p>
+        Reactions of primary and secondary alcohols with HCl need a catalyst,{" "}
         <strong>ZnCl<sub>2</sub></strong>; tertiary alcohols react simply on shaking with concentrated
-        HCl at room temperature. Constant boiling HBr (48%) is used for alkyl bromides, and good yields
-        of R—I are obtained by heating the alcohol with sodium or potassium iodide in 95%{" "}
-        <em>ortho</em>phosphoric acid. The order of reactivity of alcohols with a given haloacid is{" "}
-        <strong>3° &gt; 2° &gt; 1°</strong>.
+        HCl at room temperature.
+      </p>
+      <p>
+        Constant boiling HBr (48%) is used for alkyl bromides, and good yields of R—I are obtained by
+        heating the alcohol with sodium or potassium iodide in 95% <em>ortho</em>phosphoric acid. The
+        order of reactivity of alcohols with a given haloacid is <strong>3° &gt; 2° &gt; 1°</strong>.
       </p>
 
       <FormulaBlock latex={String.raw`3\text{R–OH} + \text{PX}_3 \rightarrow 3\text{R–X} + \text{H}_3\text{PO}_3`} />
@@ -636,13 +641,46 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h3 id="h-6-4-2">6.4.2 From Hydrocarbons</h3>
 
+      <h4 className="mt-3 text-sm font-semibold">(I) From alkanes by free radical halogenation</h4>
       <p>
-        <strong>(I) From alkanes by free radical halogenation.</strong> Free radical chlorination or
-        bromination of alkanes gives a complex mixture of isomeric mono- and polyhaloalkanes which is
-        difficult to separate as pure compounds. Consequently the yield of any single compound is low.
+        Free radical chlorination or bromination of alkanes gives a complex mixture of isomeric mono-
+        and polyhaloalkanes which is difficult to separate as pure compounds. Consequently the yield
+        of any single compound is low.
       </p>
 
+      <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4 text-center">
+        <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Central reaction scheme</p>
+        <div className="mt-3 grid items-center gap-3 md:grid-cols-[1fr_auto_1fr]">
+          <div className="rounded-xl border border-border/60 bg-background/70 p-3 text-sm">
+            <p className="font-mono text-xs">R—H + X₂</p>
+            <p className="mt-1 text-[0.65rem] text-muted-foreground">methane + Cl₂</p>
+          </div>
+          <div className="mx-auto flex flex-col items-center text-xs text-muted-foreground">
+            <span>hν / Δ</span>
+            <span className="mt-1">→</span>
+            <span className="mt-1">branching products</span>
+          </div>
+          <div className="rounded-xl border border-border/60 bg-background/70 p-3 text-sm">
+            <p className="font-mono text-xs">CH₃Cl, CH₂Cl₂, …</p>
+            <p className="mt-1 text-[0.65rem] text-muted-foreground">mixture of mono- and polyhaloalkanes</p>
+          </div>
+        </div>
+      </div>
+
       <FormulaBlock latex={String.raw`\text{CH}_4 + \text{Cl}_2 \xrightarrow{h\nu} \text{CH}_3\text{Cl} + \text{HCl}`} />
+      <div className="mt-3 flex flex-col gap-2 md:flex-row md:items-center md:justify-center md:gap-3 text-xs">
+        <div className="rounded-xl border border-rose-200 bg-rose-50/70 px-3 py-2 dark:border-rose-900 dark:bg-rose-950/40">
+          Difficult separation
+        </div>
+        <span className="hidden text-muted-foreground md:inline">→</span>
+        <div className="rounded-xl border border-amber-200 bg-amber-50/70 px-3 py-2 dark:border-amber-900 dark:bg-amber-950/40">
+          Low individual yield
+        </div>
+        <span className="hidden text-muted-foreground md:inline">→</span>
+        <div className="rounded-xl border border-border/60 bg-muted/40 px-3 py-2">
+          Multiple products
+        </div>
+      </div>
 
       <Expandable
         title="Example 6.3 — Monochloro products of (CH₃)₂CHCH₂CH₃"
@@ -669,21 +707,25 @@ export default function HaloalkanesAndHaloarenesChapter() {
         />
       </Expandable>
 
+      <h4 className="mt-4 text-sm font-semibold">(II) From alkenes</h4>
+
       <p>
-        <strong>(II) From alkenes.</strong> An alkene is converted to the corresponding alkyl halide by
-        reaction with HCl, HBr or HI. Propene yields two products, but only one predominates according
-        to <strong>Markovnikov&apos;s rule</strong> — the halogen goes to the carbon carrying fewer
-        hydrogens.
+        An alkene is converted to the corresponding alkyl halide by reaction with HCl, HBr or HI.
+        Propene yields two products, but only one predominates according to
+        <strong> Markovnikov’s rule</strong> — the halogen goes to the carbon carrying fewer hydrogens.
       </p>
 
       <FormulaBlock latex={String.raw`\text{CH}_3\text{CH=CH}_2 + \text{HBr} \rightarrow \text{CH}_3\text{CH(Br)CH}_3 \ (\text{major}) + \text{CH}_3\text{CH}_2\text{CH}_2\text{Br} \ (\text{minor})`} />
-
-      <p>
-        Addition of halogens gives <strong>vic-dibromides</strong>. Adding bromine in CCl<sub>4</sub>{" "}
-        to an alkene discharges the reddish brown colour of bromine — an important test for a double
-        bond.
+      <p className="mt-2 rounded-xl border border-border/60 bg-muted/30 p-3 text-xs">
+        <strong>Markovnikov’s rule:</strong> the hydrogen of HX adds to the carbon that already has
+        more hydrogens, while X adds to the carbon that has fewer. Application: propene + HI →
+        2-iodopropane (major product).
       </p>
 
+      <p>
+        Addition of halogens gives <strong>vic-dibromides</strong>. Adding bromine in CCl₄ to an alkene
+        discharges the reddish brown colour of bromine — an important test for a double bond.
+      </p>
       <FormulaBlock latex={String.raw`\text{CH}_3\text{CH=CH}_2 + \text{Br}_2 \rightarrow \text{CH}_3\text{CH(Br)CH}_2\text{Br}`} />
 
       
