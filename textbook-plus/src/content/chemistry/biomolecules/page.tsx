@@ -1,4 +1,4 @@
-import { Callout } from "@/components/content/Callout";
+﻿import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
@@ -12,8 +12,6 @@ import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { EquationLadder } from "@/components/content/process/EquationLadder";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
-import { MoleculeStructure } from "@/components/content/chemistry/MoleculeStructure";
-import { STRUCTURES } from "./structures.generated";
 
 export default function BiomoleculesChapter() {
   return (
@@ -282,16 +280,8 @@ export default function BiomoleculesChapter() {
       </Callout>
 
       <div className="my-6 grid gap-3 sm:grid-cols-2">
-        <MoleculeStructure
-          {...STRUCTURES.alpha_d_glucopyranose}
-          maxWidth={300}
-          className="my-0"
-        />
-        <MoleculeStructure
-          {...STRUCTURES.beta_d_glucopyranose}
-          maxWidth={300}
-          className="my-0"
-        />
+        
+        
       </div>
 
       <h4 className="mt-5 mb-2 text-base font-bold">10.1.2.2 Fructose</h4>
@@ -317,16 +307,8 @@ export default function BiomoleculesChapter() {
       </p>
 
       <div className="my-6 grid gap-3 sm:grid-cols-2">
-        <MoleculeStructure
-          {...STRUCTURES.alpha_d_fructofuranose}
-          maxWidth={300}
-          className="my-0"
-        />
-        <MoleculeStructure
-          {...STRUCTURES.beta_d_fructofuranose}
-          maxWidth={300}
-          className="my-0"
-        />
+        
+        
       </div>
 
       <h3 id="h-10-1-3">10.1.3 Disaccharides</h3>
@@ -380,16 +362,8 @@ export default function BiomoleculesChapter() {
       />
 
       <div className="my-6 grid gap-3 sm:grid-cols-2">
-        <MoleculeStructure
-          {...STRUCTURES.sucrose}
-          maxWidth={340}
-          className="my-0"
-        />
-        <MoleculeStructure
-          {...STRUCTURES.maltose}
-          maxWidth={340}
-          className="my-0"
-        />
+        
+        
       </div>
 
       <Callout type="note" title="Invert sugar (Sucrose)">
@@ -650,10 +624,7 @@ export default function BiomoleculesChapter() {
         </ul>
       </Callout>
 
-      <MoleculeStructure
-        {...STRUCTURES.glycyl_l_alanine}
-        maxWidth={480}
-      />
+      
 
       <Comparison
         columns={[
@@ -998,16 +969,8 @@ export default function BiomoleculesChapter() {
       </ul>
 
       <div className="my-6 grid gap-3 sm:grid-cols-2">
-        <MoleculeStructure
-          {...STRUCTURES.beta_d_ribofuranose}
-          maxWidth={300}
-          className="my-0"
-        />
-        <MoleculeStructure
-          {...STRUCTURES.beta_d_deoxyribofuranose}
-          maxWidth={300}
-          className="my-0"
-        />
+        
+        
       </div>
 
       <h3 id="h-10-5-2">10.5.2 Structure of Nucleic Acids</h3>

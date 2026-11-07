@@ -1,4 +1,4 @@
-import { Callout } from "@/components/content/Callout";
+﻿import { Callout } from "@/components/content/Callout";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
@@ -10,8 +10,6 @@ import { ConceptCard } from "@/components/content/concept/ConceptCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
-import { MoleculeStructure } from "@/components/content/chemistry/MoleculeStructure";
-import { STRUCTURES } from "./structures.generated";
 
 export default function HaloalkanesAndHaloarenesChapter() {
   return (
@@ -228,10 +226,10 @@ export default function HaloalkanesAndHaloarenesChapter() {
             Example: <strong>sec-Butyl chloride</strong> → <strong>2-Chlorobutane</strong>.
           </p>
           <p className="mt-3 rounded-xl border border-sky-200 bg-white/70 p-3 text-center font-mono text-sm dark:border-sky-900 dark:bg-sky-950/60">
-            {STRUCTURES.sec_butyl_chloride.condensed}
+            {'CH₃CH₂CH(Cl)CH₃'}
           </p>
           <p className="mt-1 text-center text-xs text-muted-foreground">
-            Expanded: {STRUCTURES.sec_butyl_chloride.expanded}
+            Expanded: {'CH₃–CH₂–CH(Cl)–CH₃'}
           </p>
         </div>
         <div className="hidden w-px bg-border/60 md:block" aria-hidden />
@@ -363,38 +361,38 @@ export default function HaloalkanesAndHaloarenesChapter() {
       <div className="my-3 grid gap-4 md:grid-cols-2">
         <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
           <p className="text-sm font-medium">sec-Butyl chloride</p>
-          <p className="mt-1 font-mono text-xs">{STRUCTURES.sec_butyl_chloride.condensed}</p>
-          <p className="font-mono text-xs text-muted-foreground">{STRUCTURES.sec_butyl_chloride.expanded}</p>
+          <p className="mt-1 font-mono text-xs">{'CH₃CH₂CH(Cl)CH₃'}</p>
+          <p className="font-mono text-xs text-muted-foreground">{'CH₃–CH₂–CH(Cl)–CH₃'}</p>
         </div>
         <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
           <p className="text-sm font-medium">neo-Pentyl bromide</p>
-          <p className="mt-1 font-mono text-xs">{STRUCTURES.neo_pentyl_bromide.condensed}</p>
-          <p className="font-mono text-xs text-muted-foreground">{STRUCTURES.neo_pentyl_bromide.expanded}</p>
+          <p className="mt-1 font-mono text-xs">{'(CH₃)₃CCH₂Br'}</p>
+          <p className="font-mono text-xs text-muted-foreground">{'(CH₃)₃C–CH₂Br'}</p>
         </div>
         <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
           <p className="text-sm font-medium">tert-Butyl bromide</p>
-          <p className="mt-1 font-mono text-xs">{STRUCTURES.tert_butyl_bromide.condensed}</p>
-          <p className="font-mono text-xs text-muted-foreground">{STRUCTURES.tert_butyl_bromide.expanded}</p>
+          <p className="mt-1 font-mono text-xs">{'(CH₃)₃CBr'}</p>
+          <p className="font-mono text-xs text-muted-foreground">{'(CH₃)₃C–Br'}</p>
         </div>
         <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
           <p className="text-sm font-medium">Vinyl chloride</p>
-          <p className="mt-1 font-mono text-xs">{STRUCTURES.vinyl_chloride.condensed}</p>
-          <p className="font-mono text-xs text-muted-foreground">{STRUCTURES.vinyl_chloride.expanded}</p>
+          <p className="mt-1 font-mono text-xs">{'CH₂=CHCl'}</p>
+          <p className="font-mono text-xs text-muted-foreground">{'CH₂=CH–Cl'}</p>
         </div>
         <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
           <p className="text-sm font-medium">Allyl bromide</p>
-          <p className="mt-1 font-mono text-xs">{STRUCTURES.allyl_bromide.condensed}</p>
-          <p className="font-mono text-xs text-muted-foreground">{STRUCTURES.allyl_bromide.expanded}</p>
+          <p className="mt-1 font-mono text-xs">{'CH₂=CHCH₂Br'}</p>
+          <p className="font-mono text-xs text-muted-foreground">{'CH₂=CH–CH₂Br'}</p>
         </div>
         <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
           <p className="text-sm font-medium">o-Chlorotoluene</p>
-          <p className="mt-1 font-mono text-xs">{STRUCTURES.o_chlorotoluene.condensed}</p>
-          <p className="font-mono text-xs text-muted-foreground">{STRUCTURES.o_chlorotoluene.expanded}</p>
+          <p className="mt-1 font-mono text-xs">{'o-ClC₆H₄CH₃'}</p>
+          <p className="font-mono text-xs text-muted-foreground">{'o-Cl–C₆H₄–CH₃'}</p>
         </div>
         <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
           <p className="text-sm font-medium">Benzyl chloride</p>
-          <p className="mt-1 font-mono text-xs">{STRUCTURES.benzyl_chloride.condensed}</p>
-          <p className="font-mono text-xs text-muted-foreground">{STRUCTURES.benzyl_chloride.expanded}</p>
+          <p className="mt-1 font-mono text-xs">{'C₆H₅CH₂Cl'}</p>
+          <p className="font-mono text-xs text-muted-foreground">{'C₆H₅–CH₂Cl'}</p>
         </div>
       </div>
        <p className="text-xs text-muted-foreground">
@@ -604,7 +602,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <FormulaBlock latex={String.raw`\text{CH}_3\text{CH=CH}_2 + \text{Br}_2 \rightarrow \text{CH}_3\text{CH(Br)CH}_2\text{Br}`} />
 
-      <MoleculeStructure {...STRUCTURES.dibromopropane} />
+      
 
       <h3 id="h-6-4-3">6.4.3 Halogen Exchange</h3>
 
@@ -1038,8 +1036,8 @@ export default function HaloalkanesAndHaloarenesChapter() {
       </p>
 
       <div className="my-6 grid gap-3 sm:grid-cols-2">
-        <MoleculeStructure {...STRUCTURES.butan_2_ol_r} maxWidth={300} className="my-0" />
-        <MoleculeStructure {...STRUCTURES.butan_2_ol_s} maxWidth={300} className="my-0" />
+        
+        
       </div>
 
       <FactCard
@@ -1222,7 +1220,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </li>
       </ol>
 
-      <MoleculeStructure {...STRUCTURES.chlorobenzene} maxWidth={380} />
+      
 
       <p>
         <strong>Replacement by a hydroxyl group.</strong> Chlorobenzene can be converted into phenol by
@@ -1307,7 +1305,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <FormulaBlock latex={String.raw`2\text{C}_6\text{H}_5\text{Cl} + 2\text{Na} \xrightarrow{\text{dry ether}} \text{C}_6\text{H}_5\text{—C}_6\text{H}_5 + 2\text{NaCl}`} />
 
-      <MoleculeStructure {...STRUCTURES.biphenyl} maxWidth={440} />
+      
 
       <Expandable
         title="Intext 6.3 — Dihalogen derivatives of propane"
@@ -1364,7 +1362,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         cornea.
       </p>
 
-      <MoleculeStructure {...STRUCTURES.dichloromethane} maxWidth={340} />
+      
 
       <h3 id="h-6-8-2">6.8.2 Trichloromethane (Chloroform, CHCl₃)</h3>
 
@@ -1377,7 +1375,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         chloroform is metabolised to phosgene) and the kidneys.
       </p>
 
-      <MoleculeStructure {...STRUCTURES.trichloromethane} maxWidth={340} />
+      
 
       <Callout type="warning" title="Chloroform must be stored in the dark">
         <p>
@@ -1388,7 +1386,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         <FormulaBlock latex={String.raw`2\text{CHCl}_3 + \text{O}_2 \xrightarrow{\text{light}} 2\text{COCl}_2 + 2\text{HCl}`} />
       </Callout>
 
-      <MoleculeStructure {...STRUCTURES.phosgene} maxWidth={340} />
+      
 
       <h3 id="h-6-8-3">6.8.3 Triiodomethane (Iodoform, CHI₃)</h3>
 
@@ -1398,7 +1396,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         by other formulations containing iodine.
       </p>
 
-      <MoleculeStructure {...STRUCTURES.triiodomethane} maxWidth={340} />
+      
 
       <h3 id="h-6-8-4">6.8.4 Tetrachloromethane (Carbon tetrachloride, CCl₄)</h3>
 
@@ -1420,7 +1418,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         to skin cancer, eye diseases and disorders, and possible disruption of the immune system.
       </p>
 
-      <MoleculeStructure {...STRUCTURES.tetrachloromethane} maxWidth={340} />
+      
 
       <h3 id="h-6-8-5">6.8.5 Freons</h3>
 
@@ -1434,7 +1432,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <FormulaBlock latex={String.raw`\text{CCl}_4 + 2\text{SbF}_3 \xrightarrow{\text{SbCl}_5} \text{CCl}_2\text{F}_2 + 2\text{SbCl}_3`} />
 
-      <MoleculeStructure {...STRUCTURES.freon_12} maxWidth={340} />
+      
 
       <p>
         Most freon, even that used in refrigeration, eventually reaches the atmosphere, where it diffuses
@@ -1460,7 +1458,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         United States in 1973, although it is still used in some other parts of the world.
       </p>
 
-      <MoleculeStructure {...STRUCTURES.ddt} maxWidth={520} />
+      
 
       <MistakeCard
         mistake="Treating 'Sₙ1 racemises, Sₙ2 inverts' as a fact to memorise without knowing why."

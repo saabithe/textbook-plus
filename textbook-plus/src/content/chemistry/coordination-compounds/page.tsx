@@ -1,4 +1,4 @@
-import { Callout } from "@/components/content/Callout";
+﻿import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
@@ -9,8 +9,6 @@ import { ConceptCard } from "@/components/content/concept/ConceptCard";
 import { FactCard } from "@/components/content/concept/FactCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
-import { MoleculeStructure } from "@/components/content/chemistry/MoleculeStructure";
-import { STRUCTURES } from "./structures.generated";
 
 export default function CoordinationCompoundsChapter() {
   return (
@@ -351,7 +349,7 @@ export default function CoordinationCompoundsChapter() {
         </ul>
       </ConceptCard>
 
-      <MoleculeStructure {...STRUCTURES.edta} />
+      
 
       <Callout type="important" title="Coordination number (CN)">
         The number of <strong>ligand donor atoms</strong> to which the metal is directly bonded.

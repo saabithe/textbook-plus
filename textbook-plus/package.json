@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "node scripts/generate-search-index.cjs && node scripts/generate-sw.js && node scripts/check-structures.cjs && next build --webpack",
+    "build": "node scripts/generate-search-index.cjs && node scripts/generate-sw.js && next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
@@ -12,12 +12,9 @@
     "verify:latex": "node scripts/verify-latex.cjs",
     "verify:presentation": "node scripts/audit-presentation.cjs",
     "verify:grammar": "node scripts/audit-grammar.cjs",
-    "verify:chem": "node scripts/check-structures.cjs",
     "pdf:extract": "node scripts/extract-pdf.mjs",
     "pdf:clean": "node scripts/clean-extract.mjs",
-    "icons": "node scripts/generate-icons.js",
-    "chem:build": "node scripts/chem/py.cjs build_structures.py",
-    "chem:sheet": "node scripts/chem/py.cjs contact_sheet.py"
+    "icons": "node scripts/generate-icons.js"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
