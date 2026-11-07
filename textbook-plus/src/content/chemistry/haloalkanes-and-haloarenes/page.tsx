@@ -565,11 +565,6 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </div>
       </div>
 
-      <p>
-        Going down the group the halogen atom gets larger — fluorine is the smallest, iodine the
-        largest — so the C—X bond length increases from C—F to C—I.
-      </p>
-
       <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4">
         <p className="text-sm font-semibold">Dipole moment order</p>
         <div className="mt-3 grid gap-2 md:grid-cols-4">
@@ -593,14 +588,6 @@ export default function HaloalkanesAndHaloarenesChapter() {
           (1.860 &gt; 1.847 &gt; 1.830 &gt; 1.636 D).
         </p>
       </div>
-
-      <KeyPoint title="Bond strength, not polarity alone, decides leaving ability">
-        <p>
-          Bond enthalpy falls steeply from C—F to C—I while the bond gets longer, so the order of ease
-          of breaking the bond — and hence of reactivity in substitution — is:
-        </p>
-        <FormulaBlock latex={String.raw`\text{R–I} > \text{R–Br} > \text{R–Cl} > \text{R–F}`} important />
-      </KeyPoint>
 
       <h2 id="h-6-4">6.4 Methods of Preparation of Haloalkanes</h2>
 
