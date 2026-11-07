@@ -591,6 +591,30 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h2 id="h-6-4">6.4 Methods of Preparation of Haloalkanes</h2>
 
+      <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4">
+        <p className="text-sm font-semibold">Overview of methods</p>
+        <ol className="mt-3 grid gap-2 md:grid-cols-3">
+          {[
+            { n: "1", title: "From hydrocarbons", detail: "Alkanes & alkenes" },
+            { n: "2", title: "From alcohols", detail: "R—OH → R—X" },
+            { n: "3", title: "From haloalkanes", detail: "Ion exchange" },
+          ].map((item) => (
+            <li
+              key={item.n}
+              className="flex items-start gap-3 rounded-xl border border-border/60 bg-background/70 p-3"
+            >
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-[3px] border border-border bg-card text-[0.65rem] font-bold">
+                {item.n}
+              </span>
+              <span className="min-w-0">
+                <span className="block text-sm font-semibold">{item.title}</span>
+                <span className="block text-xs text-muted-foreground">{item.detail}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+      </div>
+
       <h3 id="h-6-4-1">6.4.1 From Alcohols</h3>
 
       <p>
@@ -641,94 +665,146 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h3 id="h-6-4-2">6.4.2 From Hydrocarbons</h3>
 
-      <h4 className="mt-3 text-sm font-semibold">(I) From alkanes by free radical halogenation</h4>
-      <p>
-        Free radical chlorination or bromination of alkanes gives a complex mixture of isomeric mono-
-        and polyhaloalkanes which is difficult to separate as pure compounds. Consequently the yield
-        of any single compound is low.
-      </p>
+      <h4 className="mt-3 text-sm font-semibold">
+        (A) From alkanes by free radical halogenation
+      </h4>
 
-      <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4 text-center">
-        <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Central reaction scheme</p>
-        <div className="mt-3 grid items-center gap-3 md:grid-cols-[1fr_auto_1fr]">
-          <div className="rounded-xl border border-border/60 bg-background/70 p-3 text-sm">
-            <p className="font-mono text-xs">R—H + X₂</p>
-            <p className="mt-1 text-[0.65rem] text-muted-foreground">methane + Cl₂</p>
+      <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <p className="text-sm font-semibold">Reaction sequence — chlorination of methane</p>
+          <div className="flex flex-wrap gap-2 text-[0.65rem]">
+            <span className="rounded-full border border-sky-200 bg-sky-50/70 px-2 py-0.5 font-medium dark:border-sky-900 dark:bg-sky-950/40">
+              hν — light
+            </span>
+            <span className="rounded-full border border-amber-200 bg-amber-50/70 px-2 py-0.5 font-medium dark:border-amber-900 dark:bg-amber-950/40">
+              Δ — heat
+            </span>
           </div>
-          <div className="mx-auto flex flex-col items-center text-xs text-muted-foreground">
-            <span>hν / Δ</span>
-            <span className="mt-1">→</span>
-            <span className="mt-1">branching products</span>
-          </div>
-          <div className="rounded-xl border border-border/60 bg-background/70 p-3 text-sm">
-            <p className="font-mono text-xs">CH₃Cl, CH₂Cl₂, …</p>
-            <p className="mt-1 text-[0.65rem] text-muted-foreground">mixture of mono- and polyhaloalkanes</p>
-          </div>
+        </div>
+        <ol className="mt-3 divide-y divide-border/60">
+          {[
+            String.raw`\text{CH}_4\text{ (methane)} + \text{Cl}_2 \xrightarrow{h\nu} \text{CH}_3\text{Cl} + \text{HCl}`,
+            String.raw`\text{CH}_3\text{Cl} + \text{Cl}_2 \rightarrow \text{CH}_2\text{Cl}_2\text{ (dichloromethane)} + \text{HCl}`,
+            String.raw`\text{CH}_2\text{Cl}_2 + \text{Cl}_2 \rightarrow \text{CHCl}_3\text{ (trichloromethane)} + \text{HCl}`,
+            String.raw`\text{CHCl}_3 + \text{Cl}_2 \rightarrow \text{CCl}_4\text{ (tetrachloromethane)} + \text{HCl}`,
+          ].map((reaction, index) => (
+            <li key={index} className="flex items-start gap-3 py-2">
+              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-[3px] border border-border bg-card text-[0.65rem] font-bold">
+                {index + 1}
+              </span>
+              <span className="min-w-0 overflow-x-auto">
+                <Formula>{reaction}</Formula>
+              </span>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4">
+        <p className="text-sm font-semibold">Why this method is limited</p>
+        <div className="mt-3 flex flex-col gap-2 md:flex-row md:items-stretch">
+          {[
+            {
+              title: "Multiple products",
+              detail: "Different isomers and degrees of halogenation form together.",
+            },
+            {
+              title: "Close boiling points",
+              detail: "Individual isomers are difficult to separate.",
+            },
+            {
+              title: "Low individual yield",
+              detail: "Obtaining one pure compound becomes difficult.",
+            },
+          ].map((item, index, list) => (
+            <div
+              key={item.title}
+              className="flex flex-col gap-2 md:flex-1 md:flex-row md:items-center"
+            >
+              <div className="flex-1 rounded-xl border border-border/60 bg-background/70 p-3">
+                <p className="text-xs font-semibold">{item.title}</p>
+                <p className="mt-1 text-[0.7rem] text-muted-foreground">{item.detail}</p>
+              </div>
+              {index < list.length - 1 && (
+                <span className="rotate-90 text-center text-xs text-muted-foreground md:rotate-0">
+                  →
+                </span>
+              )}
+            </div>
+          ))}
         </div>
       </div>
 
-      <FormulaBlock latex={String.raw`\text{CH}_4 + \text{Cl}_2 \xrightarrow{h\nu} \text{CH}_3\text{Cl} + \text{HCl}`} />
-      <div className="mt-3 flex flex-col gap-2 md:flex-row md:items-center md:justify-center md:gap-3 text-xs">
-        <div className="rounded-xl border border-rose-200 bg-rose-50/70 px-3 py-2 dark:border-rose-900 dark:bg-rose-950/40">
-          Difficult separation
+      <h4 className="mt-4 text-sm font-semibold">(B) From alkenes</h4>
+
+      <p className="mt-3 text-sm font-semibold">1. Addition of hydrogen halides (H–X)</p>
+
+      <FormulaBlock
+        label="Symmetrical alkene — ethene"
+        latex={String.raw`\text{CH}_2=\text{CH}_2 + \text{HCl} \rightarrow \text{CH}_3-\text{CH}_2-\text{Cl}\text{ (1-chloroethane)}`}
+      />
+
+      <FormulaBlock
+        label="Unsymmetrical alkene — propene"
+        latex={String.raw`\text{CH}_3-\text{CH}=\text{CH}_2 + \text{HBr} \rightarrow \text{CH}_3-\text{CH(Br)}-\text{CH}_3\text{ (2-bromopropane)}`}
+      />
+
+      <Callout type="important" title="Markovnikov’s rule">
+        <p>For addition of H–X to an unsymmetrical alkene:</p>
+        <ul>
+          <li>
+            The <strong>+ve part</strong> (H) adds to the carbon with <strong>more</strong> H atoms.
+          </li>
+          <li>
+            The <strong>−ve part</strong> (X) adds to the carbon with <strong>fewer</strong> H atoms.
+          </li>
+        </ul>
+      </Callout>
+
+      <Callout type="note" title="Peroxide effect — anti-Markovnikov (Kharasch effect)">
+        <p>
+          In the presence of peroxide, addition of HBr to an unsymmetrical alkene gives the opposite
+          regioselectivity:
+        </p>
+        <ul>
+          <li>
+            The <strong>+ve part</strong> adds to the carbon with <strong>fewer</strong> H atoms.
+          </li>
+          <li>
+            The <strong>−ve part</strong> adds to the carbon with <strong>more</strong> H atoms.
+          </li>
+        </ul>
+        <p>
+          <strong>Only HBr</strong> shows the peroxide effect; HCl and HI do not.
+        </p>
+      </Callout>
+
+      <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4">
+        <p className="text-sm font-semibold">Conversion check — propene to 2-bromopropane</p>
+        <p className="mt-1 text-xs text-muted-foreground">
+          How can propene be converted into 2-bromopropane?
+        </p>
+        <div className="mt-2 overflow-x-auto">
+          <Formula>
+            {String.raw`\text{CH}_3-\text{CH}=\text{CH}_2 + \text{HBr} \rightarrow \text{CH}_3-\text{CH(Br)}-\text{CH}_3`}
+          </Formula>
         </div>
-        <span className="hidden text-muted-foreground md:inline">→</span>
-        <div className="rounded-xl border border-amber-200 bg-amber-50/70 px-3 py-2 dark:border-amber-900 dark:bg-amber-950/40">
-          Low individual yield
-        </div>
-        <span className="hidden text-muted-foreground md:inline">→</span>
-        <div className="rounded-xl border border-border/60 bg-muted/40 px-3 py-2">
-          Multiple products
-        </div>
+        <p className="mt-2 text-xs">
+          <strong>Rule applied:</strong> Markovnikov’s rule.
+        </p>
       </div>
 
-      <Expandable
-        title="Example 6.3 — Monochloro products of (CH₃)₂CHCH₂CH₃"
-        variant="example"
-      >
-        <p>
-          Identify all the possible monochloro structural isomers expected to be formed on free radical
-          monochlorination of (CH<sub>3</sub>)<sub>2</sub>CHCH<sub>2</sub>CH<sub>3</sub>.
-        </p>
-        <p className="mt-3 font-semibold">Solution</p>
-        <p>
-          The molecule has four different types of hydrogen atoms. Replacing each type gives one
-          product, so four isomeric monochloro compounds are formed:
-        </p>
-        <TableCard
-          caption="Four monochloro products"
-          headers={["Hydrogen replaced", "Product"]}
-          rows={[
-            { cells: ["On the two equivalent CH₃ groups of the isopropyl end", "(CH₃)₂CHCH₂CH₂Cl"] },
-            { cells: ["On the CH₂ group", "(CH₃)₂CHCH(Cl)CH₃"] },
-            { cells: ["On the CH group", "(CH₃)₂C(Cl)CH₂CH₃"] },
-            { cells: ["On the terminal CH₃ of the ethyl end", "CH₃CH(CH₂Cl)CH₂CH₃"] },
-          ]}
-        />
-      </Expandable>
+      <p className="mt-4 text-sm font-semibold">2. Addition of halogens (X₂)</p>
 
-      <h4 className="mt-4 text-sm font-semibold">(II) From alkenes</h4>
+      <FormulaBlock
+        label="General reaction"
+        latex={String.raw`\text{CH}_2=\text{CH}_2 + \text{X}_2 \rightarrow \text{CH}_2(\text{X})-\text{CH}_2(\text{X})\text{ (vicinal dihalides)}`}
+      />
 
-      <p>
-        An alkene is converted to the corresponding alkyl halide by reaction with HCl, HBr or HI.
-        Propene yields two products, but only one predominates according to
-        <strong> Markovnikov’s rule</strong> — the halogen goes to the carbon carrying fewer hydrogens.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{CH}_3\text{CH=CH}_2 + \text{HBr} \rightarrow \text{CH}_3\text{CH(Br)CH}_3 \ (\text{major}) + \text{CH}_3\text{CH}_2\text{CH}_2\text{Br} \ (\text{minor})`} />
-      <p className="mt-2 rounded-xl border border-border/60 bg-muted/30 p-3 text-xs">
-        <strong>Markovnikov’s rule:</strong> the hydrogen of HX adds to the carbon that already has
-        more hydrogens, while X adds to the carbon that has fewer. Application: propene + HI →
-        2-iodopropane (major product).
-      </p>
-
-      <p>
-        Addition of halogens gives <strong>vic-dibromides</strong>. Adding bromine in CCl₄ to an alkene
-        discharges the reddish brown colour of bromine — an important test for a double bond.
-      </p>
-      <FormulaBlock latex={String.raw`\text{CH}_3\text{CH=CH}_2 + \text{Br}_2 \rightarrow \text{CH}_3\text{CH(Br)CH}_2\text{Br}`} />
-
-      
+      <FormulaBlock
+        label="With chlorine"
+        latex={String.raw`\text{CH}_2=\text{CH}_2 + \text{Cl}_2 \rightarrow \text{CH}_2(\text{Cl})-\text{CH}_2(\text{Cl})\text{ (vicinal dichloride)}`}
+      />
 
       <h3 id="h-6-4-3">6.4.3 Halogen Exchange</h3>
 
