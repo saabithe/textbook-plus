@@ -349,6 +349,9 @@ def build_chapter(slug: str) -> tuple[bool, list[str]]:
         if (entry.get("caption") or "").strip():
             generated[key]["caption"] = entry["caption"].strip()
         generated[key]["source"] = entry["source"].strip()
+        for field in ("condensed", "expanded"):
+            if (entry.get(field) or "").strip():
+                generated[key][field] = entry[field].strip()
 
     if problems:
         return False, problems

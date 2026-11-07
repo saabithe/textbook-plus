@@ -153,7 +153,9 @@
     ],
     "caption": "Chlorine on the second carbon of the butane chain, used to show numbering in IUPAC names.",
     "formula": "C4H9Cl",
-    "source": "S6.2, Table 6.1, p.160"
+    "source": "S6.2, Table 6.1, p.160",
+    "condensed": "CH3CH2CH(Cl)CH3",
+    "expanded": "CH3-CH2-CH(Cl)-CH3"
   },
   "neo_pentyl_bromide": {
     "smiles": "CC(C)(C)CBr",
@@ -164,7 +166,9 @@
     ],
     "caption": "A compact skeleton: three methyl groups and a CH2Br on one carbon.",
     "formula": "C5H11Br",
-    "source": "S6.2, Table 6.1, p.160"
+    "source": "S6.2, Table 6.1, p.160",
+    "condensed": "(CH3)3CCH2Br",
+    "expanded": "(CH3)3C-CH2Br"
   },
   "tert_butyl_bromide": {
     "smiles": "CC(C)(C)Br",
@@ -175,7 +179,9 @@
     ],
     "caption": "Bromine on a tertiary carbon carrying three methyl groups.",
     "formula": "C4H9Br",
-    "source": "S6.2, Table 6.1, p.160"
+    "source": "S6.2, Table 6.1, p.160",
+    "condensed": "(CH3)3CBr",
+    "expanded": "(CH3)3C-Br"
   },
   "vinyl_chloride": {
     "smiles": "C=CCl",
@@ -186,7 +192,9 @@
     ],
     "caption": "Chlorine bonded directly to an sp2 carbon of the double bond.",
     "formula": "C2H3Cl",
-    "source": "S6.2, Table 6.1, p.160"
+    "source": "S6.2, Table 6.1, p.160",
+    "condensed": "CH2=CHCl",
+    "expanded": "CH2=CH-Cl"
   },
   "allyl_bromide": {
     "smiles": "C=CCBr",
@@ -197,7 +205,9 @@
     ],
     "caption": "Bromine on the carbon next to the double bond.",
     "formula": "C3H5Br",
-    "source": "S6.2, Table 6.1, p.160"
+    "source": "S6.2, Table 6.1, p.160",
+    "condensed": "CH2=CHCH2Br",
+    "expanded": "CH2=CH-CH2Br"
   },
   "o_chlorotoluene": {
     "smiles": "Cc1ccccc1Cl",
@@ -209,7 +219,9 @@
     ],
     "caption": "Methyl and chlorine on adjacent carbons of the ring.",
     "formula": "C7H7Cl",
-    "source": "S6.2, Table 6.1, p.160"
+    "source": "S6.2, Table 6.1, p.160",
+    "condensed": "o-ClC6H4CH3",
+    "expanded": "o-Cl-C6H4-CH3"
   },
   "benzyl_chloride": {
     "smiles": "ClCc1ccccc1",
@@ -220,6 +232,8 @@
     ],
     "caption": "Chlorine on the CH2 attached to the benzene ring.",
     "formula": "C7H7Cl",
-    "source": "S6.2, Table 6.1, p.160"
+    "source": "S6.2, Table 6.1, p.160",
+    "condensed": "C6H5CH2Cl",
+    "expanded": "C6H5-CH2Cl"
   }
 }

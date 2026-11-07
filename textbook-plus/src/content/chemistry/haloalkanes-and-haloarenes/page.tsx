@@ -227,7 +227,12 @@ export default function HaloalkanesAndHaloarenesChapter() {
           <p className="mt-2 text-sm">
             Example: <strong>sec-Butyl chloride</strong> → <strong>2-Chlorobutane</strong>.
           </p>
-          <MoleculeStructure {...STRUCTURES.sec_butyl_chloride} maxWidth={320} />
+          <p className="mt-3 rounded-xl border border-sky-200 bg-white/70 p-3 text-center font-mono text-sm dark:border-sky-900 dark:bg-sky-950/60">
+            {STRUCTURES.sec_butyl_chloride.condensed}
+          </p>
+          <p className="mt-1 text-center text-xs text-muted-foreground">
+            Expanded: {STRUCTURES.sec_butyl_chloride.expanded}
+          </p>
         </div>
         <div className="hidden w-px bg-border/60 md:block" aria-hidden />
         <div className="rounded-2xl border border-violet-200 bg-violet-50/70 p-5 dark:border-violet-900 dark:bg-violet-950/40">
@@ -356,13 +361,41 @@ export default function HaloalkanesAndHaloarenesChapter() {
       />
       <p className="mt-3 text-sm font-semibold">Structures of the named halides above (selected)</p>
       <div className="my-3 grid gap-4 md:grid-cols-2">
-        <MoleculeStructure {...STRUCTURES.sec_butyl_chloride} maxWidth={320} />
-        <MoleculeStructure {...STRUCTURES.neo_pentyl_bromide} maxWidth={320} />
-        <MoleculeStructure {...STRUCTURES.tert_butyl_bromide} maxWidth={320} />
-        <MoleculeStructure {...STRUCTURES.vinyl_chloride} maxWidth={320} />
-        <MoleculeStructure {...STRUCTURES.allyl_bromide} maxWidth={320} />
-        <MoleculeStructure {...STRUCTURES.o_chlorotoluene} maxWidth={360} />
-        <MoleculeStructure {...STRUCTURES.benzyl_chloride} maxWidth={360} />
+        <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
+          <p className="text-sm font-medium">sec-Butyl chloride</p>
+          <p className="mt-1 font-mono text-xs">{STRUCTURES.sec_butyl_chloride.condensed}</p>
+          <p className="font-mono text-xs text-muted-foreground">{STRUCTURES.sec_butyl_chloride.expanded}</p>
+        </div>
+        <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
+          <p className="text-sm font-medium">neo-Pentyl bromide</p>
+          <p className="mt-1 font-mono text-xs">{STRUCTURES.neo_pentyl_bromide.condensed}</p>
+          <p className="font-mono text-xs text-muted-foreground">{STRUCTURES.neo_pentyl_bromide.expanded}</p>
+        </div>
+        <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
+          <p className="text-sm font-medium">tert-Butyl bromide</p>
+          <p className="mt-1 font-mono text-xs">{STRUCTURES.tert_butyl_bromide.condensed}</p>
+          <p className="font-mono text-xs text-muted-foreground">{STRUCTURES.tert_butyl_bromide.expanded}</p>
+        </div>
+        <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
+          <p className="text-sm font-medium">Vinyl chloride</p>
+          <p className="mt-1 font-mono text-xs">{STRUCTURES.vinyl_chloride.condensed}</p>
+          <p className="font-mono text-xs text-muted-foreground">{STRUCTURES.vinyl_chloride.expanded}</p>
+        </div>
+        <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
+          <p className="text-sm font-medium">Allyl bromide</p>
+          <p className="mt-1 font-mono text-xs">{STRUCTURES.allyl_bromide.condensed}</p>
+          <p className="font-mono text-xs text-muted-foreground">{STRUCTURES.allyl_bromide.expanded}</p>
+        </div>
+        <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
+          <p className="text-sm font-medium">o-Chlorotoluene</p>
+          <p className="mt-1 font-mono text-xs">{STRUCTURES.o_chlorotoluene.condensed}</p>
+          <p className="font-mono text-xs text-muted-foreground">{STRUCTURES.o_chlorotoluene.expanded}</p>
+        </div>
+        <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
+          <p className="text-sm font-medium">Benzyl chloride</p>
+          <p className="mt-1 font-mono text-xs">{STRUCTURES.benzyl_chloride.condensed}</p>
+          <p className="font-mono text-xs text-muted-foreground">{STRUCTURES.benzyl_chloride.expanded}</p>
+        </div>
       </div>
        <p className="text-xs text-muted-foreground">
         Detailed drawings appear only where branching or numbering matter; simple formulas remain
