@@ -15,8 +15,8 @@ import { ExerciseQa } from "@/components/content/ExerciseQa";
 
 export default function HaloalkanesAndHaloarenesChapter() {
   return (
-    <>
-      <h2 id="h-6-intro">Introduction: Haloalkanes and Haloarenes</h2>
+    <div className="container mx-auto px-4 max-w-4xl gap-6">
+      <h2 id="h-6-intro" className="text-3xl font-extrabold tracking-tight text-foreground">Introduction: Haloalkanes and Haloarenes</h2>
 
       <p className="mb-4 text-sm text-muted-foreground">
         Two families. One key difference.
@@ -65,7 +65,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </p>
       </div>
 
-      <h2 id="h-6-1">6.1 Classification</h2>
+      <h2 id="h-6-1" className="text-3xl font-extrabold tracking-tight text-foreground">6.1 Classification</h2>
 
       <PocketGrid
         title="Classify a halogen compound"
@@ -237,7 +237,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </p>
       </div>
 
-      <h2 id="h-6-2">6.2 Nomenclature</h2>
+      <h2 id="h-6-2" className="text-3xl font-extrabold tracking-tight text-foreground">6.2 Nomenclature</h2>
 
       <div className="my-4 grid gap-4 md:grid-cols-[1fr_auto_1fr]">
         <div className="rounded-2xl border border-sky-200 bg-sky-50/70 p-5 dark:border-sky-900 dark:bg-sky-950/40">
@@ -274,13 +274,13 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </div>
       </div>
 
-      <h3>1. Alkyl Halides</h3>
+      <h3 className="text-2xl font-bold tracking-tight text-foreground">1. Alkyl Halides</h3>
       <ul className="list-disc pl-6 space-y-1 mb-4">
         <li><strong>Common System:</strong> Named as <strong>[alkyl group] + [halide name]</strong>.</li>
         <li><strong>IUPAC System:</strong> Named as <strong>halosubstituted hydrocarbons</strong>.</li>
       </ul>
 
-      <h3>2. Benzene Derivatives (Haloarenes)</h3>
+      <h3 className="text-2xl font-bold tracking-tight text-foreground">2. Benzene Derivatives (Haloarenes)</h3>
       <ul className="list-disc pl-6 space-y-1 mb-4">
         <li><strong>Monohalogen Derivatives:</strong> Common and IUPAC names are <strong>identical</strong>.</li>
         <li>
@@ -320,7 +320,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </figure>
       </div>
 
-      <h3>3. Dihaloalkanes (Same Halogen Type)</h3>
+      <h3 className="text-2xl font-bold tracking-tight text-foreground">3. Dihaloalkanes (Same Halogen Type)</h3>
       <ul className="list-disc pl-6 space-y-1 mb-4">
         <li><strong>Geminal (gem-) Dihalides:</strong> both halogen atoms on the <strong>same carbon</strong> (also called alkylidene dihalides).</li>
         <li><strong>Vicinal (vic-) Dihalides:</strong> halogen atoms on <strong>adjacent carbons</strong> (also called alkylene dihalides).</li>
@@ -496,7 +496,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         />
       </Expandable>
 
-      <h2 id="h-6-3">6.3 Nature of C—X Bond</h2>
+      <h2 id="h-6-3" className="text-3xl font-extrabold tracking-tight text-foreground">6.3 Nature of C—X Bond</h2>
 
       <div className="mb-2 rounded-2xl border border-sky-200 bg-gradient-to-r from-sky-50 to-violet-50 p-4 dark:border-sky-900 dark:from-sky-950/40 dark:to-violet-950/40">
         <div className="flex flex-col items-center gap-3">
@@ -613,7 +613,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </p>
       </div>
 
-      <h2 id="h-6-4">6.4 Methods of Preparation of Haloalkanes</h2>
+      <h2 id="h-6-4" className="text-3xl font-extrabold tracking-tight text-foreground">6.4 Methods of Preparation of Haloalkanes</h2>
 
       <PocketGrid
         title="Three routes to a haloalkane"
@@ -1099,7 +1099,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         ]}
       />
 
-      <h2 id="h-6-5">6.5 Preparation of Haloarenes</h2>
+      <h2 id="h-6-5" className="text-3xl font-extrabold tracking-tight text-foreground">6.5 Preparation of Haloarenes</h2>
 
       <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4">
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
@@ -1320,7 +1320,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         ]}
       />
 
-      <h2 id="h-6-6">6.6 Physical Properties</h2>
+      <h2 id="h-6-6" className="text-3xl font-extrabold tracking-tight text-foreground">6.6 Physical Properties</h2>
 
       <PocketGrid
         title="Physical properties at a glance"
@@ -1536,7 +1536,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </p>
       </Expandable>
 
-      <h2 id="h-6-7">6.7 Chemical Reactions</h2>
+      <h2 id="h-6-7" className="text-3xl font-extrabold tracking-tight text-foreground">6.7 Chemical Reactions</h2>
 
       <p>The reactions of haloalkanes fall into three categories:</p>
       <ol>
@@ -1545,7 +1545,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         <li>Reaction with metals</li>
       </ol>
 
-      <h3 id="h-6-7-1">6.7.1 Reactions of Haloalkanes</h3>
+      <h3 id="h-6-7-1" className="text-2xl font-bold tracking-tight text-foreground">6.7.1 Reactions of Haloalkanes</h3>
 
       <PocketGrid
         title="6.7.1 — Learning blocks"
@@ -1673,9 +1673,9 @@ export default function HaloalkanesAndHaloarenesChapter() {
         />
       </Expandable>
 
-      <h3 id="h-6-7-2">6.7.2 Reactions of Haloarenes</h3>
+      <h3 id="h-6-7-2" className="text-2xl font-bold tracking-tight text-foreground">6.7.2 Reactions of Haloarenes</h3>
 
-      <h4 id="h-6-7-2-1">1. Nucleophilic substitution</h4>
+      <h4 id="h-6-7-2-1" className="text-xl font-semibold tracking-tight text-foreground">1. Nucleophilic substitution</h4>
 
       <p>
         Aryl halides are <strong>extremely less reactive</strong> towards nucleophilic substitution than
@@ -1754,7 +1754,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </p>
       </Expandable>
 
-      <h4 id="h-6-7-2-2">2. Electrophilic substitution reactions</h4>
+      <h4 id="h-6-7-2-2" className="text-xl font-semibold tracking-tight text-foreground">2. Electrophilic substitution reactions</h4>
 
       <p>
         Haloarenes undergo the usual electrophilic reactions of the benzene ring — halogenation,
@@ -1776,7 +1776,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         ]}
       />
 
-      <h4 id="h-6-7-2-3">3. Reaction with metals</h4>
+      <h4 id="h-6-7-2-3" className="text-xl font-semibold tracking-tight text-foreground">3. Reaction with metals</h4>
 
       <p>
         <strong>Wurtz–Fittig reaction.</strong> A mixture of an alkyl halide and an aryl halide gives an
@@ -1831,7 +1831,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </p>
       </Expandable>
 
-      <h3 id="h-6-7-3">
+      <h3 id="h-6-7-3" className="text-2xl font-bold tracking-tight text-foreground">
 6.7.3 Block 2 — β-Elimination (Dehydrohalogenation)</h3>
 
       <p>Halides also undergo elimination: a halogen is removed from the α‑carbon and a hydrogen from the adjacent β‑carbon, producing an alkene.</p>
@@ -1937,7 +1937,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </div>
       </section>
 
-      <h3 id="h-6-7-4">6.7.4 Block 3 — Reactions with Metals</h3>
+      <h3 id="h-6-7-4" className="text-2xl font-bold tracking-tight text-foreground">6.7.4 Block 3 — Reactions with Metals</h3>
 
       <p>Active metals (Na, Mg) react with haloalkanes to give alkanes/organometallics.</p>
 
@@ -2027,14 +2027,14 @@ export default function HaloalkanesAndHaloarenesChapter() {
         />
       </section>
 
-      <h2 id="h-6-8">6.8 Polyhalogen Compounds</h2>"
+      <h2 id="h-6-8" className="text-3xl font-extrabold tracking-tight text-foreground">6.8 Polyhalogen Compounds</h2>"
 
       <p>
         Carbon compounds containing more than one halogen atom are called <strong>polyhalogen
         compounds</strong>. Many of them are useful in industry and agriculture.
       </p>
 
-      <h3 id="h-6-8-1">6.8.1 Dichloromethane (Methylene chloride, CH₂Cl₂)</h3>
+      <h3 id="h-6-8-1" className="text-2xl font-bold tracking-tight text-foreground">6.8.1 Dichloromethane (Methylene chloride, CH₂Cl₂)</h3>
 
       <p>
         Widely used as a solvent and as a paint remover, as a propellant in aerosols, as a process
@@ -2047,7 +2047,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       
 
-      <h3 id="h-6-8-2">6.8.2 Trichloromethane (Chloroform, CHCl₃)</h3>
+      <h3 id="h-6-8-2" className="text-2xl font-bold tracking-tight text-foreground">6.8.2 Trichloromethane (Chloroform, CHCl₃)</h3>
 
       <p>
         Chemically, chloroform is a solvent for fats, alkaloids, iodine and other substances. Its major
@@ -2071,7 +2071,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       
 
-      <h3 id="h-6-8-3">6.8.3 Triiodomethane (Iodoform, CHI₃)</h3>
+      <h3 id="h-6-8-3" className="text-2xl font-bold tracking-tight text-foreground">6.8.3 Triiodomethane (Iodoform, CHI₃)</h3>
 
       <p>
         It was used earlier as an antiseptic, but the antiseptic properties are due to the liberation of
@@ -2081,7 +2081,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       
 
-      <h3 id="h-6-8-4">6.8.4 Tetrachloromethane (Carbon tetrachloride, CCl₄)</h3>
+      <h3 id="h-6-8-4" className="text-2xl font-bold tracking-tight text-foreground">6.8.4 Tetrachloromethane (Carbon tetrachloride, CCl₄)</h3>
 
       <p>
         Produced in large quantities for the manufacture of refrigerants and propellants for aerosol
@@ -2103,7 +2103,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       
 
-      <h3 id="h-6-8-5">6.8.5 Freons</h3>
+      <h3 id="h-6-8-5" className="text-2xl font-bold tracking-tight text-foreground">6.8.5 Freons</h3>
 
       <p>
         The chlorofluorocarbon compounds of methane and ethane are collectively known as{" "}
@@ -2123,7 +2123,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         natural ozone balance.
       </p>
 
-      <h3 id="h-6-8-6">6.8.6 p,p′-Dichlorodiphenyltrichloroethane (DDT)</h3>
+      <h3 id="h-6-8-6" className="text-2xl font-bold tracking-tight text-foreground">6.8.6 p,p′-Dichlorodiphenyltrichloroethane (DDT)</h3>
 
       <p>
         DDT, the first chlorinated organic insecticide, was originally prepared in 1873, but it was not
@@ -2155,7 +2155,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         example="Chlorobenzene nitrates more slowly than benzene, yet gives mainly p-nitrochlorobenzene."
       />
 
-      <h2 id="h-6-exercises">Exercises</h2>
+      <h2 id="h-6-exercises" className="text-3xl font-extrabold tracking-tight text-foreground">Exercises</h2>
 
       <Expandable title="Exercises" variant="exercise">
 
@@ -2281,6 +2281,6 @@ export default function HaloalkanesAndHaloarenesChapter() {
       />
     
       </Expandable>
-</>
+</div>
   );
 }

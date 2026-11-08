@@ -103,7 +103,7 @@ export function PocketGrid({ items, title, columns = 3 }: PocketGridProps) {
 
       <div
         className={cn(
-          "grid grid-cols-1 gap-3 sm:grid-cols-2",
+          "grid grid-cols-1 gap-6 sm:grid-cols-2",
           columns === 3 && "lg:grid-cols-3",
         )}
         role="group"
@@ -122,7 +122,7 @@ export function PocketGrid({ items, title, columns = 3 }: PocketGridProps) {
                 else cards.current.delete(item.id);
               }}
               className={cn(
-                "overflow-hidden rounded-lg border bg-card transition-all duration-200",
+                "overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all duration-200 hover:shadow-md card-elevated",
                 isOpen
                   ? "border-rule-strong sm:col-span-2"
                   : "border-border hover:bg-foreground/[0.03]",
@@ -146,7 +146,7 @@ export function PocketGrid({ items, title, columns = 3 }: PocketGridProps) {
                 <span
                   aria-hidden
                   className={cn(
-                    "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-base leading-none text-foreground",
+                    "flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-base leading-none text-foreground",
                     "transition-transform duration-200",
                   )}
                 >

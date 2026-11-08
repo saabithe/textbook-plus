@@ -69,7 +69,7 @@ export function TableCard({ headers, rows, caption, title }: TableCardProps) {
   const label = title ?? (typeof caption === "string" ? caption : "Table");
 
   return (
-    <div className="my-6 min-w-0 overflow-hidden rounded-lg border border-border bg-card">      {title && (
+    <div className="my-6 min-w-0 overflow-hidden rounded-lg border border-border bg-card card-elevated shadow-sm">      {title && (
         <div className="flex items-baseline justify-between gap-3 border-b border-border px-4 py-3">
           <span className="t-micro">{title}</span>
           <span className="t-micro tabular-nums">
