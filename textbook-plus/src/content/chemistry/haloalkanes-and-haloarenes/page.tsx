@@ -2047,135 +2047,157 @@ export default function HaloalkanesAndHaloarenesChapter() {
     ),
   },
 ]} />
-<h2 id="h-6-8" className="text-3xl font-extrabold tracking-tight text-foreground">6.8 Polyhalogen Compounds</h2>"
+<h2 id="h-6-8" className="text-3xl font-extrabold tracking-tight text-foreground">6.8 Polyhalogen Compounds</h2>
 
-      <p>
-        Carbon compounds containing more than one halogen atom are called <strong>polyhalogen
-        compounds</strong>. Many of them are useful in industry and agriculture.
-      </p>
+<div className="my-4 rounded-xl bg-blue-50/30 p-4 text-center border border-blue-200">
+  <p className="text-lg font-semibold">Compounds containing more than one halogen atom.</p>
+</div>
 
-      <h3 id="h-6-8-1" className="text-2xl font-bold tracking-tight text-foreground">6.8.1 Dichloromethane (Methylene chloride, CH₂Cl₂)</h3>
+<PocketGrid columns={3} title="Polyhalogen compounds" items={[
+  {
+    id: "poly-dichloromethane",
+    icon: "🧴",
+    label: "Dichloromethane (Methylene Chloride)",
+    note: "CH₂Cl₂",
+    content: (
+      <>
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="p-3 border rounded bg-muted/30">
+            <p className="font-semibold">Primary Uses</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Paint remover</li>
+              <li>Aerosol propellant</li>
+              <li>Pharmaceutical process solvent</li>
+              <li>Metal cleaning and degreasing solvent</li>
+            </ul>
+          </div>
+          <div className="p-3 border rounded bg-red-50/20">
+            <p className="font-semibold text-red-700">Health Effects</p>
+            <table className="w-full text-sm">
+              <thead><tr className="bg-red-100"><th>Exposure</th><th>Effect</th></tr></thead>
+              <tbody>
+                <tr><td>Low</td><td>Mild hearing and vision impairment</td></tr>
+                <tr><td>Higher</td><td>Dizziness, nausea</td></tr>
+                <tr><td>Higher</td><td>Tingling and numbness in fingers and toes</td></tr>
+                <tr><td>Direct skin/eye contact</td><td>Intense burning; corneal damage</td></tr>
+                <tr><td>CNS exposure</td><td>Central nervous system damage</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "poly-chloroform",
+    icon: "🧪",
+    label: "Trichloromethane (Chloroform)",
+    note: "CHCl₃",
+    content: (
+      <>
+        <div className="p-3 border rounded bg-muted/30 mb-3">
+          <p className="font-semibold">Primary Uses</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Solvent for fats, alkaloids, iodine</li>
+            <li>Industrial precursor for Freon‑22</li>
+            <li>Former general anaesthetic</li>
+          </ul>
+        </div>
+        <Callout type="warning" title="Oxidation to Phosgene">
+          <p>Extremely poisonous gas</p>
+          <FormulaBlock latex={String.raw`2\text{CHCl}_3 + \text{O}_2 \xrightarrow{\text{light}} 2\text{COCl}_2 + 2\text{HCl}`} />
+        </Callout>
+        <Callout type="note" title="Storage Requirement">
+          <div className="flex items-center gap-2">
+            <svg viewBox="0 0 100 100" className="h-12 w-12"><rect width="100" height="100" fill="#6b4f1d"/></svg>
+            <div>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Dark, brown‑glass bottle</li>
+                <li>Completely filled</li>
+                <li>Tightly closed</li>
+              </ul>
+            </div>
+          </div>
+        </Callout>
+      </>
+    ),
+  },
+  {
+    id: "poly-carbonTetrachloride",
+    icon: "🧯",
+    label: "Tetrachloromethane (Carbon Tetrachloride)",
+    note: "CCl₄",
+    content: (
+      <>
+        <div className="p-3 border rounded bg-muted/30 mb-3">
+          <p className="font-semibold">Primary Uses</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Industrial synthesis of CFCs</li>
+            <li>Pharmaceutical formulations</li>
+            <li>General solvent</li>
+            <li>Former fire‑extinguisher</li>
+          </ul>
+        </div>
+        <Callout type="warning" title="Health & Environmental Hazards">
+          <table className="w-full text-sm">
+            <thead><tr className="bg-red-100"><th>Health hazards</th><th>Environmental hazard</th></tr></thead>
+            <tbody>
+              <tr><td>Nerve‑cell damage</td><td>Reaches stratosphere</td></tr>
+              <tr><td>Dizziness, light‑headedness, nausea</td><td>Ozone layer depletion</td></tr>
+              <tr><td>Severe liver damage</td><td>Increased harmful UV radiation</td></tr>
+              <tr><td>Cancer risk</td><td>Ecological damage</td></tr>
+            </tbody>
+          </table>
+        </Callout>
+        <Callout type="note" title="Environmental Impact">
+          <FormulaBlock latex={String.raw`\text{CCl}_4 \rightarrow \text{Stratosphere} \rightarrow \text{Ozone depletion}`} />
+          <p>Ozone depletion → greater UV‑B radiation reaching Earth.</p>
+        </Callout>
+      </>
+    ),
+  },
+  {
+    id: "poly-freons",
+    icon: "❄️",
+    label: "Freons (CFCs)",
+    note: "CFC derivatives of methane/ethane",
+    content: (
+      <>
+        <p className="font-semibold mb-2">Definition</p>
+        <p>Chlorofluorocarbon (CFC) derivatives of methane and ethane.</p>
+        <Callout type="note" title="Example – Freon‑12 (CCl₂F₂)">
+          <FormulaBlock latex={String.raw`\text{CCl}_2\text{F}_2`} />
+          <p>Preparation (Swarts reaction):</p>
+          <FormulaBlock latex={String.raw`\text{CCl}_4 \xrightarrow{\text{Swarts}} \text{CCl}_2\text{F}_2`} />
+          <ul className="list-disc pl-5 space-y-1 mt-2">
+            <li>Extremely stable</li>
+            <li>Unreactive, non‑corrosive</li>
+            <li>Easily liquefiable</li>
+            <li>Traditionally described as non‑toxic under ordinary conditions</li>
+          </ul>
+        </Callout>
+      </>
+    ),
+  },
+  {
+    id: "poly-ddt",
+    icon: "🧪",
+    label: "p,p'-Dichlorodiphenyltrichloroethane (DDT)",
+    note: "Insecticide",
+    content: (
+      <>
+        <p className="font-semibold">Significance</p>
+        <p>First chlorinated organic insecticide, effective against malaria‑carrying mosquitoes.</p>
+        <Callout type="note" title="Structure">
+          {/* Placeholder SVG for DDT structure */}
+          <svg viewBox="0 0 200 80" className="h-20 w-full mx-auto"><text x="10" y="40" fontSize="14" fill="black">DDT structure (two para‑Cl phenyl rings + CCl₃)</text></svg>
+        </Callout>
+      </>
+    ),
+  },
+]} />
 
-      <p>
-        Widely used as a solvent and as a paint remover, as a propellant in aerosols, as a process
-        solvent in drug manufacture, and as a metal cleaning and finishing solvent. Methylene chloride
-        harms the human central nervous system: lower levels in air can slightly impair hearing and
-        vision, higher levels cause dizziness, nausea and tingling or numbness in the fingers and toes.
-        Direct skin contact causes intense burning and mild redness; contact with the eyes can burn the
-        cornea.
-      </p>
-
-      
-
-      <h3 id="h-6-8-2" className="text-2xl font-bold tracking-tight text-foreground">6.8.2 Trichloromethane (Chloroform, CHCl₃)</h3>
-
-      <p>
-        Chemically, chloroform is a solvent for fats, alkaloids, iodine and other substances. Its major
-        use today is in the production of the freon refrigerant R-22. It was once used as a general
-        anaesthetic in surgery but has been replaced by less toxic, safer anaesthetics such as ether.
-        Inhaling chloroform vapours depresses the central nervous system — about 900 ppm for a short
-        time causes dizziness, fatigue and headache. Chronic exposure may damage the liver (where
-        chloroform is metabolised to phosgene) and the kidneys.
-      </p>
-
-      
-
-      <Callout type="warning" title="Chloroform must be stored in the dark">
-        <p>
-          Chloroform is slowly oxidised by air in the presence of light to the extremely poisonous gas
-          carbonyl chloride (phosgene). It is therefore stored in closed, dark coloured bottles filled
-          completely so that air is kept out.
-        </p>
-        <FormulaBlock latex={String.raw`2\text{CHCl}_3 + \text{O}_2 \xrightarrow{\text{light}} 2\text{COCl}_2 + 2\text{HCl}`} />
-      </Callout>
-
-      
-
-      <h3 id="h-6-8-3" className="text-2xl font-bold tracking-tight text-foreground">6.8.3 Triiodomethane (Iodoform, CHI₃)</h3>
-
-      <p>
-        It was used earlier as an antiseptic, but the antiseptic properties are due to the liberation of
-        free iodine and not to iodoform itself. Because of its objectionable smell it has been replaced
-        by other formulations containing iodine.
-      </p>
-
-      
-
-      <h3 id="h-6-8-4" className="text-2xl font-bold tracking-tight text-foreground">6.8.4 Tetrachloromethane (Carbon tetrachloride, CCl₄)</h3>
-
-      <p>
-        Produced in large quantities for the manufacture of refrigerants and propellants for aerosol
-        cans, and used as feedstock in the synthesis of chlorofluorocarbons and other chemicals, in
-        pharmaceutical manufacturing and as a general solvent. Until the mid-1960s it was widely used as
-        a cleaning fluid — a degreasing agent in industry and a spot remover and fire extinguisher at
-        home.
-      </p>
-
-      <p>
-        There is some evidence that exposure to carbon tetrachloride causes liver cancer in humans. The
-        most common effects are dizziness, light headedness, nausea and vomiting, which can cause
-        permanent damage to nerve cells; in severe cases these effects can lead rapidly to stupor,
-        coma, unconsciousness or death. Exposure can make the heartbeat irregular or stop, and the
-        chemical irritates the eyes on contact. When released into the air, CCl<sub>4</sub> rises to the
-        atmosphere and depletes the ozone layer, increasing human exposure to ultraviolet rays — leading
-        to skin cancer, eye diseases and disorders, and possible disruption of the immune system.
-      </p>
-
-      
-
-      <h3 id="h-6-8-5" className="text-2xl font-bold tracking-tight text-foreground">6.8.5 Freons</h3>
-
-      <p>
-        The chlorofluorocarbon compounds of methane and ethane are collectively known as{" "}
-        <strong>freons</strong>. They are extremely stable, unreactive, non-toxic, non-corrosive and
-        easily liquefiable gases. <strong>Freon 12 (CCl<sub>2</sub>F<sub>2</sub>)</strong> is one of the
-        most common freons in industrial use; it is manufactured from tetrachloromethane by the Swarts
-        reaction. Freons are used as aerosol propellants and for refrigeration and air conditioning.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{CCl}_4 + 2\text{SbF}_3 \xrightarrow{\text{SbCl}_5} \text{CCl}_2\text{F}_2 + 2\text{SbCl}_3`} />
-
-      
-
-      <p>
-        Most freon, even that used in refrigeration, eventually reaches the atmosphere, where it diffuses
-        unchanged into the stratosphere. There it initiates radical chain reactions that upset the
-        natural ozone balance.
-      </p>
-
-      <h3 id="h-6-8-6" className="text-2xl font-bold tracking-tight text-foreground">6.8.6 p,p′-Dichlorodiphenyltrichloroethane (DDT)</h3>
-
-      <p>
-        DDT, the first chlorinated organic insecticide, was originally prepared in 1873, but it was not
-        until 1939 that Paul Muller of Geigy Pharmaceuticals in Switzerland discovered its effectiveness
-        as an insecticide; he was awarded the Nobel Prize in Medicine and Physiology in 1948. Its use
-        increased enormously worldwide after World War II, mainly because of its effectiveness against
-        the mosquito that spreads malaria and the lice that carry typhus.
-      </p>
-
-      <p>
-        Problems appeared in the late 1940s. Many insect species developed resistance, and DDT was found
-        to be highly toxic to fish. Its chemical stability and fat solubility compounded the problem:
-        DDT is not metabolised rapidly by animals and is deposited and stored in fatty tissues, so if
-        ingestion continues at a steady rate it builds up over time. The use of DDT was banned in the
-        United States in 1973, although it is still used in some other parts of the world.
-      </p>
-
-      
-
-      <MistakeCard
-        mistake="Treating 'Sₙ1 racemises, Sₙ2 inverts' as a fact to memorise without knowing why."
-        correction="The carbocation in Sₙ1 is planar (sp²) and achiral, so attack from either face gives both enantiomers; Sₙ2 attacks only from the side opposite the leaving group, so the umbrella flips."
-        example="2-bromobutane + OH⁻: Sₙ1 → (±)-butan-2-ol; Sₙ2 → inverted product only."
-      />
-
-      <MistakeCard
-        mistake="Assuming an o,p-directing group must also be activating."
-        correction="Halogens are o,p-directing but deactivating: −I (strong) withdraws electron density, +M (weaker) stabilises the ortho/para intermediate. Reactivity follows −I, orientation follows +M."
-        example="Chlorobenzene nitrates more slowly than benzene, yet gives mainly p-nitrochlorobenzene."
-      />
-
-      <h2 id="h-6-exercises" className="text-3xl font-extrabold tracking-tight text-foreground">Exercises</h2>
+<h2 id="h-6-exercises" className="text-3xl font-extrabold tracking-tight text-foreground">Exercises</h2>
 
       <Expandable title="Exercises" variant="exercise">
 
@@ -2304,4 +2326,6 @@ export default function HaloalkanesAndHaloarenesChapter() {
 </div>
   );
 }
+
+
 
