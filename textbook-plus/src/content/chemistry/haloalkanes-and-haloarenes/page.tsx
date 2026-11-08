@@ -1538,6 +1538,24 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h2 id="h-6-7" className="text-3xl font-extrabold tracking-tight text-foreground">6.7 Chemical Reactions</h2>
 
+      <PocketGrid columns={3} title="6.7 Block — Choose a reaction type" items={[
+        {
+          id: "h-6-7-1-summary", icon: "🔄", label: "Block 1: Nucleophilic substitution",
+          note: "Reagents, SN2 & SN1 + stereochemistry",
+          content: (<>See the section below: reagents, mechanisms, optical activity.</>),
+        },
+        {
+          id: "h-6-7-3-summary", icon: "₍", label: "Block 2: β-Elimination",
+          note: "Dehydrohalogenation (Zaitsev)",
+          content: (<>See the section below: mechanisms and regioselectivity.</>),
+        },
+        {
+          id: "h-6-7-4-summary", icon: "⚡", label: "Block 3: Reactions with metals",
+          note: "Wurtz & Grignard",
+          content: (<>See the section below: reactions and selectivity.</>),
+        },
+      ]} />
+
       <p>The reactions of haloalkanes fall into three categories:</p>
       <ol>
         <li>Nucleophilic substitution</li>
