@@ -2148,7 +2148,203 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </p>
       </Expandable>
 
-      <h2 id="h-6-8">6.8 Polyhalogen Compounds</h2>
+      <h3 id="h-6-7-3">
+6.7.3 β-Elimination (Dehydrohalogenation)</h3>
+
+      <p>Halides also undergo elimination: a halogen is removed from the α‑carbon and a hydrogen from the adjacent β‑carbon, producing an alkene.</p>
+
+      <ul className="list-disc pl-6 space-y-1 my-3">
+        <li><strong>Reagents &amp; Conditions:</strong> Alcoholic KOH, heat (Δ).</li>
+        <li><strong>General Process:</strong> Elimination of one H and one X from two adjacent carbons forms C=C.</li>
+      </ul>
+
+      {/* Design 01 — Elimination Mechanism */}
+      <section className="my-5 rounded-2xl border-2 border-sky-200 bg-sky-50/70 p-4 dark:border-sky-900 dark:bg-sky-950/40">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-700 dark:text-sky-300">Mechanism at a glance</p>
+        <div className="mt-3 flex flex-wrap items-center justify-center gap-4 md:gap-6">
+          <div className="flex items-center gap-3">
+            <span className="relative inline-flex">
+              <span className="rounded-2xl border border-sky-300 bg-white px-3 py-3 text-sm font-mono font-bold text-sky-900 dark:border-sky-600 dark:bg-sky-950/60 dark:text-sky-100">
+                CH<sub>3</sub>–CH<sub>2</sub>
+              </span>
+              <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-700 dark:bg-amber-900 dark:text-amber-300">β‑C · keep H</span>
+            </span>
+            <div className="relative h-0.5 w-16 bg-slate-300 dark:bg-slate-600">
+              <span className="absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-semibold text-slate-600 dark:text-slate-300">Alcoholic KOH, Δ</span>
+              <span className="absolute top-1/2 right-0 -translate-y-1/2 text-lg leading-none text-slate-400 dark:text-slate-500">→</span>
+            </div>
+            <span className="relative inline-flex">
+              <span className="rounded-2xl border border-sky-300 bg-white px-3 py-3 text-sm font-mono font-bold text-sky-900 dark:border-sky-600 dark:bg-sky-950/60 dark:text-sky-100">
+                CH<sub>3</sub>=CH<sub>2</sub>
+              </span>
+            </span>
+          </div>
+        </div>
+        <div className="mt-8 grid gap-3 md:grid-cols-2">
+          <div className="rounded-xl border border-amber-200 bg-amber-50/60 px-3 py-2 text-xs dark:border-amber-900 dark:bg-amber-950/40">
+            <strong>α‑Carbon (highlight Br)</strong> loses the halogen X (leaving group).
+          </div>
+          <div className="rounded-xl border border-amber-200 bg-amber-50/60 px-3 py-2 text-xs dark:border-amber-900 dark:bg-amber-950/40">
+            <strong>β‑Carbon (highlight H)</strong> loses one adjacent hydrogen, forming C=C.
+          </div>
+        </div>
+      </section>
+
+      {/* Design 02 — Single product example */}
+      <section className="my-5 rounded-2xl border-2 border-emerald-200 bg-emerald-50/40 p-4 dark:border-emerald-900 dark:bg-emerald-950/30">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700 dark:text-emerald-300">Single elimination pathway — Example A</p>
+        <div className="mt-3 grid gap-3 md:grid-cols-[1fr_auto_1fr] md:items-center">
+          <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-center dark:border-slate-700 dark:bg-slate-900">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Reactant</p>
+            <p className="mt-1 font-mono text-sm font-bold">CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>Br</p>
+            <p className="mt-1 text-[10px] text-muted-foreground">1‑Bromopropane</p>
+          </div>
+          <div className="text-center">
+            <span className="block text-[10px] font-semibold text-slate-500 dark:text-slate-300">Alcoholic KOH, Δ</span>
+            <span className="text-2xl text-slate-400 dark:text-slate-500">→</span>
+          </div>
+          <div className="rounded-2xl border border-emerald-200 bg-white px-4 py-3 text-center dark:border-emerald-800 dark:bg-emerald-950/40">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700 dark:text-emerald-300">Product</p>
+            <p className="mt-1 font-mono text-sm font-bold">CH<sub>3</sub>CH=CH<sub>2</sub></p>
+            <p className="mt-1 text-[10px] text-emerald-700 dark:text-emerald-300">Propene</p>
+          </div>
+        </div>
+        <p className="mt-3 text-xs text-muted-foreground">Only one elimination pathway is possible here — no branching diagram is needed.</p>
+      </section>
+
+      {/* Design 03 — Multiple elimination products */}
+      <section className="my-5">
+        <p className="text-sm font-semibold">6.7.3 (B) 2‑Bromobutane — Zaitsev’s (Saytzeff’s) Rule</p>
+        <p className="mt-1 text-xs text-muted-foreground">Removal of β‑hydrogen from different β‑carbons can give two different alkenes.</p>
+        <PocketGrid
+          title="Which product forms?"
+
+          items={[
+            {
+              id: "h-6-7-3-but-1-ene",
+              icon: "🟨",
+              label: "But-1-ene (minor)",
+              note: "Less substituted alkene",
+              content: (
+                <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-3 dark:border-amber-900 dark:bg-amber-950/30">
+                  <p className="text-xs font-semibold text-amber-700 dark:text-amber-300">Minor</p>
+                  <p className="mt-1 font-mono text-sm font-bold">CH<sub>2</sub>=CHCH<sub>2</sub>CH<sub>3</sub></p>
+                </div>
+              ),
+            },
+            {
+              id: "h-6-7-3-but-2-ene",
+              icon: "🟢",
+              label: "But-2-ene (major)",
+              note: "More substituted alkene",
+              content: (
+                <div className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-3 dark:border-emerald-900 dark:bg-emerald-950/40">
+                  <p className="text-xs font-semibold text-emerald-700 dark:text-emerald-300">Major</p>
+                  <p className="mt-1 font-mono text-sm font-bold">CH<sub>3</sub>CH=CHCH<sub>3</sub></p>
+                </div>
+              ),
+            },
+          ]}
+        />
+        <div className="mt-3 rounded-xl border border-border/60 bg-muted/30 px-3 py-2 text-xs">
+          <strong>Zaitsev (Saytzeff) rule:</strong>{" "}
+          when different alkenes can form during dehydrohalogenation, the preferred major product is the
+          <Highlight>more highly substituted alkene</Highlight> (greater number of alkyl groups on the
+          double‑bonded carbons).
+        </div>
+      </section>
+
+      <h3 id="h-6-7-4">6.7.4 Reactions with Metals</h3>
+
+      <p>Active metals (Na, Mg) react with haloalkanes to give alkanes/organometallics.</p>
+
+      {/* Design 01 — Two pathways overview */}
+      <section className="my-5 rounded-2xl border-2 border-purple-200 bg-purple-50/40 p-4 dark:border-purple-900 dark:bg-purple-950/30">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-purple-700 dark:text-purple-300">Overview — two reaction pathways</p>
+        <PocketGrid
+          title="Choose your metal"
+          items={[
+            {
+              id: "h-6-7-4-wurtz",
+              icon: "🟢",
+              label: "Wurtz (Na)",
+              note: "C–C coupling",
+              content: (
+                <div className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-3 dark:border-emerald-900 dark:bg-emerald-950/40">
+                  <p className="text-xs font-semibold text-emerald-700 dark:text-emerald-300">Wurtz (Na)</p>
+                  <p className="mt-1 text-xs">Dry ether · C–C bond formed → alkane.</p>
+                </div>
+              ),
+            },
+            {
+              id: "h-6-7-4-grignard",
+              icon: "🟣",
+              label: "Grignard (Mg)",
+              note: "R–Mg–X",
+              content: (
+                <div className="rounded-xl border border-purple-200 bg-purple-50/70 p-3 dark:border-purple-700 dark:bg-purple-950/40">
+                  <p className="text-xs font-semibold text-purple-700 dark:text-purple-300">Grignard (Mg)</p>
+                  <p className="mt-1 text-xs">Dry ether · Mg inserted into C–X → R–Mg–X.</p>
+                </div>
+              ),
+            },
+          ]}
+        />
+      </section>
+
+      {/* Design 02 — Wurtz panel */}
+      <section className="my-5 rounded-2xl border-2 border-emerald-200 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/50">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700 dark:text-emerald-300">Wurtz reaction — important</p>
+        <div className="mt-3 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-900">
+          <p className="font-mono text-sm font-bold">R–X + 2Na + X–R</p>
+          <p className="mt-2 flex items-center gap-2">
+            <span className="text-xs text-slate-500 dark:text-slate-300">Dry Ether</span>
+            <span className="text-slate-400 dark:text-slate-500">→</span>
+            <span className="font-mono text-sm font-bold">R–R + 2NaX</span>
+          </p>
+          <p className="mt-3 text-xs text-emerald-700 dark:text-emerald-300">Product: Alkane (R–R) via C–C coupling.</p>
+          <div className="mt-4 rounded-xl border border-emerald-200 bg-emerald-50/40 p-3 dark:border-emerald-900 dark:bg-emerald-950/30">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700 dark:text-emerald-300">Example (chloromethane)</p>
+            <p className="mt-1 font-mono text-sm font-bold">2CH<sub>3</sub>Cl + 2Na → CH<sub>3</sub>CH<sub>3</sub> + 2NaCl</p>
+            <p className="mt-1 text-xs text-muted-foreground">Ethane (C–C bond highlighted above).</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Design 03 — Grignard formation panel */}
+      <section className="my-5 rounded-2xl border-2 border-purple-200 bg-purple-50/60 p-4 dark:border-purple-900 dark:bg-purple-950/50">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-purple-700 dark:text-purple-300">Grignard reagent formation</p>
+        <div className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-900">
+          <p className="font-mono text-sm font-bold">R–X + Mg</p>
+          <p className="mt-2 flex items-center gap-2">
+            <span className="text-xs text-slate-500 dark:text-slate-300">Dry Ether</span>
+            <span className="text-slate-400 dark:text-slate-500">→</span>
+            <span className="font-mono text-sm font-bold">R–Mg–X</span>
+          </p>
+          <p className="mt-3 text-xs text-purple-700 dark:text-purple-300">Grignard reagent (alkyl magnesium halide). Mg inserted into the C–X bond.</p>
+          <div className="mt-4 rounded-xl border border-purple-200 bg-purple-50/40 p-3 dark:border-purple-900 dark:bg-purple-950/30">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-purple-700 dark:text-purple-300">Example (methylmagnesium chloride)</p>
+            <p className="mt-1 font-mono text-sm font-bold">CH<sub>3</sub>Cl + Mg → CH<sub>3</sub>MgCl</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Design 04 — Comparison table */}
+      <section className="my-5">
+        <TableCard
+          caption="Wurtz vs Grignard — quick revision"
+          headers={["Feature", "Wurtz", "Grignard"]}
+          rows={[
+            { cells: ["Metal", "Sodium (Na)", "Magnesium (Mg)"] },
+            { cells: ["Starting material", "Haloalkane", "Haloalkane"] },
+            { cells: ["Condition", "Dry ether", "Dry ether"] },
+            { cells: ["Main product", "Alkane (R–R)", "R–Mg–X"] },
+            { cells: ["Key outcome", "C–C coupling", "RMgX formation"] },
+          ]}
+        />
+      </section>
+
+      <h2 id="h-6-8">6.8 Polyhalogen Compounds</h2>"
 
       <p>
         Carbon compounds containing more than one halogen atom are called <strong>polyhalogen
