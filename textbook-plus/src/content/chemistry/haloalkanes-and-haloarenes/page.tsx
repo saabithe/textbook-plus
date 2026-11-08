@@ -1913,163 +1913,141 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h3 id="h-6-7-2" className="text-2xl font-bold tracking-tight text-foreground">6.7.2 Reactions of Haloarenes</h3>
 
-      <h4 id="h-6-7-2-1" className="text-xl font-semibold tracking-tight text-foreground">1. Nucleophilic substitution</h4>
-
-      <p>
-        Aryl halides are <strong>extremely less reactive</strong> towards nucleophilic substitution than
-        haloalkanes, for four reasons:
-      </p>
-
-      <ol>
-        <li>
-          <strong>Resonance effect.</strong> In haloarenes the electron pairs on the halogen are in
-          conjugation with the p-electrons of the ring, so the C—Cl bond acquires partial double bond
-          character. Bond cleavage is therefore more difficult.
-        </li>
-        <li>
-          <strong>Difference in hybridisation.</strong> In a haloalkane the carbon bearing halogen is{" "}
-          <em>sp</em>
-          <sup>3</sup> hybridised; in a haloarene it is <em>sp</em>
-          <sup>2</sup>. The greater s-character makes the <em>sp</em>
-          <sup>2</sup> carbon more electronegative, so it holds the C—X electron pair more tightly.
-          The C—Cl bond is 177 pm in the haloalkane but only 169 pm in the haloarene, and a shorter bond
-          is harder to break.
-        </li>
-        <li>
-          <strong>Instability of the phenyl cation.</strong> The phenyl cation that would form by
-          self-ionisation is not stabilised by resonance, so an S<sub>N</sub>1 mechanism is ruled out.
-        </li>
-        <li>
-          <strong>Repulsion.</strong> The electron-rich nucleophile is less likely to approach the
-          electron-rich arene ring.
-        </li>
-      </ol>
-
-      
-
-      <p>
-        <strong>Replacement by a hydroxyl group.</strong> Chlorobenzene can be converted into phenol by
-        heating in aqueous sodium hydroxide at 623 K and 300 atmospheres.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{C}_6\text{H}_5\text{Cl} + \text{NaOH} \xrightarrow{623\ \text{K},\ 300\ \text{atm}} \text{C}_6\text{H}_5\text{OH} + \text{NaCl}`} />
-
-      <p>
-        An electron-withdrawing group (—NO<sub>2</sub>) at <em>ortho</em>- and <em>para</em>-positions
-        greatly increases the reactivity of haloarenes; at the <em>meta</em>-position it has no effect.
-      </p>
-
-      <FormulaBlock latex={String.raw`2,4\text{-dinitrochlorobenzene} + \text{NaOH(aq)} \xrightarrow{368\ \text{K}} 2,4\text{-dinitrophenol} + \text{NaCl}`} />
-
-      <Callout type="note" title="Why only ortho and para?">
-        A nitro group at <em>ortho</em> or <em>para</em> withdraws electron density from the ring and
-        so facilitates attack of the nucleophile; the carbanion (Meisenheimer complex) formed is
-        stabilised by resonance, and the negative charge appears at the positions carrying the —NO
-        <sub>2</sub>. With a <em>meta</em>-nitro group, none of the resonating structures bears the
-        negative charge on the carbon carrying —NO<sub>2</sub>, so the charge is not stabilised and
-        reactivity is unchanged.
-      </Callout>
-
-      <Expandable
-        title="Example 6.9 — Chlorine withdraws electrons, yet directs ortho/para. Why?"
-        variant="example"
-      >
-        <p>
-          Although chlorine is an electron withdrawing group, yet it is <em>ortho</em>-, <em>para</em>
-          -directing in electrophilic aromatic substitution reactions. Why?
-        </p>
-        <p className="mt-3 font-semibold">Solution</p>
-        <p>
-          Chlorine withdraws electrons through the inductive effect and releases electrons through
-          resonance. Through the inductive effect it destabilises the intermediate carbocation formed
-          during electrophilic substitution. Through resonance the halogen stabilises that carbocation,
-          and the effect is more pronounced at <em>ortho</em>- and <em>para</em>-positions. The
-          inductive effect is stronger than the resonance effect and causes net electron withdrawal,
-          hence net deactivation. The resonance effect opposes the inductive effect for attack at{" "}
-          <em>ortho</em>- and <em>para</em>-positions, making deactivation less there. So{" "}
-          <Highlight color="yellow">reactivity is controlled by the stronger inductive effect and
-          orientation by the resonance effect</Highlight>.
-        </p>
-      </Expandable>
-
-      <h4 id="h-6-7-2-2" className="text-xl font-semibold tracking-tight text-foreground">2. Electrophilic substitution reactions</h4>
-
-      <p>
-        Haloarenes undergo the usual electrophilic reactions of the benzene ring — halogenation,
-        nitration, sulphonation and Friedel–Crafts reactions. The halogen, besides being slightly
-        deactivating, is <strong>o,p-directing</strong>, so further substitution occurs at positions{" "}
-        <em>ortho</em> and <em>para</em> to it. Because of its −I effect the ring is somewhat
-        deactivated compared with benzene, so these reactions occur slowly and need more drastic
-        conditions.
-      </p>
-
-      <TableCard
-        caption="Electrophilic substitution of chlorobenzene"
-        headers={["Reaction", "Reagents", "Main product"]}
-        rows={[
-          { cells: ["Halogenation", "Cl₂ / FeCl₃", "p-Dichlorobenzene (with o-isomer)"] },
-          { cells: ["Nitration", "conc. HNO₃ / conc. H₂SO₄", "p-Nitrochlorobenzene (with o-isomer)"] },
-          { cells: ["Sulphonation", "conc. H₂SO₄", "p-Chlorobenzenesulphonic acid"] },
-          { cells: ["Friedel–Crafts alkylation", "CH₃Cl / anhydrous AlCl₃", "p-Chlorotoluene (with o-isomer)"] },
-        ]}
-      />
-
-      <h4 id="h-6-7-2-3" className="text-xl font-semibold tracking-tight text-foreground">3. Reaction with metals</h4>
-
-      <p>
-        <strong>Wurtz–Fittig reaction.</strong> A mixture of an alkyl halide and an aryl halide gives an
-        alkylarene when treated with sodium in dry ether.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{C}_6\text{H}_5\text{Br} + \text{C}_2\text{H}_5\text{Br} + 2\text{Na} \xrightarrow{\text{dry ether}} \text{C}_6\text{H}_5\text{C}_2\text{H}_5 + 2\text{NaBr}`} />
-
-      <p>
-        <strong>Fittig reaction.</strong> Aryl halides alone give analogous compounds when treated with
-        sodium in dry ether, two aryl groups being joined together.
-      </p>
-
-      <FormulaBlock latex={String.raw`2\text{C}_6\text{H}_5\text{Cl} + 2\text{Na} \xrightarrow{\text{dry ether}} \text{C}_6\text{H}_5\text{—C}_6\text{H}_5 + 2\text{NaCl}`} />
-
-      
-
-      <Expandable
-        title="Intext 6.3 — Dihalogen derivatives of propane"
-        variant="exercise"
-      >
-        <p>Write structures of different dihalogen derivatives of propane.</p>
-        <p className="mt-3 font-semibold">Answer</p>
-        <p>
-          Four are possible: ClCH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>Cl (1,3-), ClCH
-          <sub>2</sub>CHClCH<sub>3</sub> (1,2-), Cl<sub>2</sub>CHCH<sub>2</sub>CH<sub>3</sub> (1,1-)
-          and CH<sub>3</sub>CCl<sub>2</sub>CH<sub>3</sub> (2,2-dichloropropane).
-        </p>
-      </Expandable>
-
-      <Expandable
-        title="Intext 6.4 — Which C₅H₁₂ isomer gives one, three or four monochlorides?"
-        variant="exercise"
-      >
-        <p>
-          Among the isomeric alkanes of molecular formula C<sub>5</sub>H<sub>12</sub>, identify the one
-          that on photochemical chlorination yields (i) a single monochloride, (ii) three isomeric
-          monochlorides, (iii) four isomeric monochlorides.
-        </p>
-        <p className="mt-3 font-semibold">Answer</p>
-        <p>
-          (i) <strong>Neopentane</strong>, (CH<sub>3</sub>)<sub>4</sub>C — all twelve hydrogens are
-          equivalent, so replacing any one gives the same product.
-        </p>
-        <p>
-          (ii) <strong>n-Pentane</strong> — its hydrogens fall into three equivalent groups, giving
-          1-, 2- and 3-chloropentane.
-        </p>
-        <p>
-          (iii) <strong>Isopentane (2-methylbutane)</strong> — its hydrogens fall into four equivalent
-          groups, so four isomeric products are possible.
-        </p>
-      </Expandable>
-
-      <h2 id="h-6-8" className="text-3xl font-extrabold tracking-tight text-foreground">6.8 Polyhalogen Compounds</h2>"
+<PocketGrid columns={3} title="Reaction families – choose a pocket" items={[
+  {
+    id: "h-6-7-2-nucl",
+    icon: "🔄",
+    label: "1️⃣ Nucleophilic substitution",
+    note: "Extremely low reactivity – reasons & OH replacement",
+    content: (
+      <>
+        <Callout type="note" title="Reactivity">
+          Haloarenes are <strong>extremely less reactive</strong> towards nucleophilic substitution compared with haloalkanes.
+        </Callout>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-2">
+          <div className="p-4 border rounded-lg bg-muted">
+            <p className="font-semibold">Resonance effect</p>
+            <p>Halogen lone‑pair conjugates with the aromatic π‑system, giving partial C–X double‑bond character.</p>
+          </div>
+          <div className="p-4 border rounded-lg bg-muted">
+            <p className="font-semibold">Hybridisation</p>
+            <p>Carbon is sp² (more electronegative) → stronger C–X bond than sp³ haloalkanes.</p>
+          </div>
+          <div className="p-4 border rounded-lg bg-muted">
+            <p className="font-semibold">Phenyl‑cation instability</p>
+            <p>SN1 pathway is disfavoured; the phenyl cation lacks resonance stabilisation.</p>
+          </div>
+          <div className="p-4 border rounded-lg bg-muted">
+            <p className="font-semibold">π‑cloud repulsion</p>
+            <p>The electron‑rich aromatic ring repels the nucleophile.</p>
+          </div>
+        </div>
+        <div className="my-4 flex items-center justify-center">
+          <div className="grid grid-cols-3 items-center gap-2">
+            <div className="text-center">
+              <svg viewBox="0 0 100 100" className="h-12 w-12 inline-block"><circle cx="50" cy="50" r="40" stroke="black" fill="none"/><text x="50" y="55" textAnchor="middle" fontSize="12">C₆H₅Cl</text></svg>
+              <p className="text-sm">Chlorobenzene</p>
+            </div>
+            <div className="text-center"><p className="text-sm font-semibold">⇢<br/>623 K, 300 atm, H⁺</p></div>
+            <div className="text-center">
+              <svg viewBox="0 0 100 100" className="h-12 w-12 inline-block"><circle cx="50" cy="50" r="40" stroke="black" fill="none"/><text x="50" y="55" textAnchor="middle" fontSize="12">C₆H₅OH</text></svg>
+              <p className="text-sm">Phenol</p>
+            </div>
+          </div>
+        </div>
+        <TableCard
+          caption="NO₂‑substituted chlorobenzenes – temperature required"
+          headers={["Substrate","Conditions","Product"]}
+          rows={[
+            { cells: [<svg viewBox='0 0 100 100' className='h-6 w-6 inline'><circle cx='50' cy='50' r='40' stroke='black' fill='none'/><text x='50' y='55' textAnchor='middle' fontSize='10'>2‑NO₂‑Cl</text></svg>, "NaOH, 443 K → H⁺", "2‑NO₂‑Phenol"] },
+            { cells: [<svg viewBox='0 0 100 100' className='h-6 w-6 inline'><circle cx='50' cy='50' r='40' stroke='black' fill='none'/><text x='50' y='55' textAnchor='middle' fontSize='10'>4‑NO₂‑Cl</text></svg>, "NaOH, 443 K → H⁺", "4‑NO₂‑Phenol"] },
+            { cells: [<svg viewBox='0 0 100 100' className='h-6 w-6 inline'><circle cx='50' cy='50' r='40' stroke='black' fill='none'/><text x='50' y='55' textAnchor='middle' fontSize='10'>2,4‑NO₂‑Cl</text></svg>, "NaOH, 368 K → H⁺", "2,4‑NO₂‑Phenol"] },
+            { cells: [<svg viewBox='0 0 100 100' className='h-6 w-6 inline'><circle cx='50' cy='50' r='40' stroke='black' fill='none'/><text x='50' y='55' textAnchor='middle' fontSize='10'>2,4,6‑NO₂‑Cl</text></svg>, "Warm H₂O", "Picric acid"] },
+          ]}
+        />
+        <Callout type="note" title="Positional effect">
+          <ul className="list-disc pl-5">
+            <li><span className="text-green-600 font-semibold">Ortho/para –NO₂</span>: activates nucleophilic substitution.</li>
+            <li><span className="text-gray-600 font-semibold">Meta –NO₂</span>: no activating effect.</li>
+          </ul>
+        </Callout>
+      </>
+    ),
+  },
+  {
+    id: "h-6-7-2-elec",
+    icon: "⚛️",
+    label: "2️⃣ Electrophilic substitution",
+    note: "Halogen is o,p‑directing – resonance diagrams & reactions",
+    content: (
+      <>
+        <div className="my-4">
+          <h4 className="text-lg font-semibold">Resonance effect</h4>
+          <div className="border p-4 rounded-lg bg-muted">
+            {/* Simplified resonance diagram placeholder */}
+            <p>Resonance structures I‑IV show halogen lone‑pair donation to the ring, increasing electron density at ortho/para positions.</p>
+          </div>
+        </div>
+        <div className="space-y-4">
+          <div className="p-4 border rounded-lg bg-muted">
+            <h5 className="font-medium">Halogenation</h5>
+            <p><strong>Reagents:</strong> Cl₂ / FeCl₃ (anhydrous)</p>
+            <p><strong>Major (para):</strong> 1,4‑Dichlorobenzene</p>
+            <p><strong>Minor (ortho):</strong> 1,2‑Dichlorobenzene</p>
+          </div>
+          <div className="p-4 border rounded-lg bg-muted">
+            <h5 className="font-medium">Nitration</h5>
+            <p><strong>Reagents:</strong> conc. HNO₃ / conc. H₂SO₄</p>
+            <p><strong>Major (para):</strong> 1‑Chloro‑4‑nitrobenzene</p>
+            <p><strong>Minor (ortho):</strong> 1‑Chloro‑2‑nitrobenzene</p>
+          </div>
+          <div className="p-4 border rounded-lg bg-muted">
+            <h5 className="font-medium">Sulphonation</h5>
+            <p><strong>Reagents:</strong> conc. H₂SO₄, Δ</p>
+            <p><strong>Major (para):</strong> p‑Chlorobenzenesulphonic acid</p>
+            <p><strong>Minor (ortho):</strong> o‑Chlorobenzenesulphonic acid</p>
+          </div>
+          <div className="p-4 border rounded-lg bg-muted">
+            <h5 className="font-medium">Friedel‑Crafts alkylation</h5>
+            <p><strong>Reagents:</strong> CH₃Cl / anhydrous AlCl₃</p>
+            <p><strong>Major (para):</strong> 1‑Chloro‑4‑methylbenzene</p>
+            <p><strong>Minor (ortho):</strong> 1‑Chloro‑2‑methylbenzene</p>
+          </div>
+          <div className="p-4 border rounded-lg bg-muted">
+            <h5 className="font-medium">Friedel‑Crafts acylation</h5>
+            <p><strong>Reagents:</strong> CH₃COCl / anhydrous AlCl₃</p>
+            <p><strong>Major (para):</strong> 4‑Chloroacetophenone</p>
+            <p><strong>Minor (ortho):</strong> 2‑Chloroacetophenone</p>
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: "h-6-7-2-metals",
+    icon: "⚙️",
+    label: "3️⃣ Reaction with metals",
+    note: "Wurtz–Fittig & Fittig couplings",
+    content: (
+      <>
+        <div className="my-4">
+          <h4 className="text-lg font-semibold">Metal‑mediated couplings</h4>
+          <div className="flex flex-col gap-4 md:flex-row">
+            <div className="flex-1 p-4 border rounded-lg bg-muted">
+              <h5 className="font-medium">Wurtz–Fittig</h5>
+              <svg viewBox="0 0 200 80" className="w-full h-20"><text x="10" y="20">R‑X</text><text x="70" y="20">+ 2 Na + X‑C₆H₅</text><text x="150" y="20">→ R‑C₆H₅ + 2 NaX</text></svg>
+            </div>
+            <div className="flex-1 p-4 border rounded-lg bg-muted">
+              <h5 className="font-medium">Fittig</h5>
+              <svg viewBox="0 0 200 80" className="w-full h-20"><text x="10" y="20">2 C₆H₅‑X</text><text x="90" y="20">+ 2 Na</text><text x="150" y="20">→ C₆H₅‑C₆H₅ + 2 NaX</text></svg>
+            </div>
+          </div>
+        </div>
+      </>
+    ),
+  },
+]} />
+<h2 id="h-6-8" className="text-3xl font-extrabold tracking-tight text-foreground">6.8 Polyhalogen Compounds</h2>"
 
       <p>
         Carbon compounds containing more than one halogen atom are called <strong>polyhalogen
@@ -2326,3 +2304,4 @@ export default function HaloalkanesAndHaloarenesChapter() {
 </div>
   );
 }
+
