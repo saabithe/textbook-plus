@@ -613,58 +613,6 @@ export default function CoordinationCompoundsChapter() {
         </ul>
       </Expandable>
 
-      <h2 id="h-5-2">5.2 Definitions of Some Important Terms Pertaining to Coordination Compounds</h2>
-
-      <ConceptCard title="Coordination entity" icon="🧩">
-        <p>
-          A central metal atom or ion bonded to a fixed number of ions or molecules — e.g.
-          [CoCl<sub>3</sub>(NH<sub>3</sub>)<sub>3</sub>], [Ni(CO)<sub>4</sub>],
-          [Fe(CN)<sub>6</sub>]<sup>4−</sup>, [Co(NH<sub>3</sub>)<sub>6</sub>]<sup>3+</sup>.
-        </p>
-      </ConceptCard>
-
-      <ConceptCard title="Central atom / ion" icon="⚛️">
-        <p>
-          The atom/ion to which a fixed number of ions/groups are bound in a definite geometrical
-          arrangement. In [NiCl<sub>2</sub>(H<sub>2</sub>O)<sub>4</sub>],
-          [CoCl(NH<sub>3</sub>)<sub>5</sub>]<sup>2+</sup> and [Fe(CN)<sub>6</sub>]<sup>3−</sup> the
-          central ions are Ni<sup>2+</sup>, Co<sup>3+</sup> and Fe<sup>3+</sup>. They act as
-          <strong> Lewis acids</strong>.
-        </p>
-      </ConceptCard>
-
-      <ConceptCard title="Ligands and denticity" icon="🔗">
-        <ul>
-          <li><strong>Unidentate</strong> — binds through a single donor atom (Cl<sup>−</sup>, H<sub>2</sub>O, NH<sub>3</sub>).</li>
-          <li><strong>Didentate</strong> — binds through two donor atoms (ethane-1,2-diamine en, oxalate C<sub>2</sub>O<sub>4</sub><sup>2−</sup>).</li>
-          <li><strong>Polydentate</strong> — several donor atoms in one ligand (N(CH<sub>2</sub>CH<sub>2</sub>NH<sub>2</sub>)<sub>3</sub>).</li>
-          <li><strong>Hexadentate</strong> — EDTA<sup>4−</sup> binds through two N and four O atoms.</li>
-          <li><strong>Chelate</strong> — a di- or polydentate ligand using two or more donor atoms simultaneously for one metal ion; the number of ligating groups is the <em>denticity</em>. Chelate complexes are more stable than similar unidentate complexes.</li>
-          <li><strong>Ambidentate</strong> — two different donor atoms, either of which can bind: NO<sub>2</sub><sup>−</sup> (through N or O) and SCN<sup>−</sup> (through S or N).</li>
-        </ul>
-      </ConceptCard>
-
-      
-
-      <Callout type="important" title="Coordination number (CN)">
-        The number of <strong>ligand donor atoms</strong> to which the metal is directly bonded.
-        In [PtCl<sub>6</sub>]<sup>2−</sup> CN = 6; in [Ni(NH<sub>3</sub>)<sub>4</sub>]<sup>2+</sup>
-        CN = 4. Both [Fe(C<sub>2</sub>O<sub>4</sub>)<sub>3</sub>]<sup>3−</sup> and
-        [Co(en)<sub>3</sub>]<sup>3+</sup> have CN = 6 because the ligands are didentate.
-      </Callout>
-
-      <FactCard
-        title="Only sigma bonds count"
-        definition="The coordination number is determined only by the number of sigma bonds formed by the ligand with the central atom/ion. Pi bonds, if formed, are not counted."
-        icon="Σ"
-      />
-
-      <ul>
-        <li><strong>Coordination sphere</strong> — the central atom/ion plus attached ligands, enclosed in square brackets. Ionisable groups outside are the counter ions: in K<sub>4</sub>[Fe(CN)<sub>6</sub>] the sphere is [Fe(CN)<sub>6</sub>]<sup>4−</sup> and the counter ion is K<sup>+</sup>.</li>
-        <li><strong>Coordination polyhedron</strong> — the spatial arrangement of ligand atoms directly attached to the central atom. Common ones: octahedral, square planar, tetrahedral.</li>
-        <li><strong>Oxidation number</strong> — the charge the central atom would carry if all ligands were removed along with the shared electron pairs. Written as a Roman numeral in parentheses: copper in [Cu(CN)<sub>4</sub>]<sup>3−</sup> is Cu(I).</li>
-        <li><strong>Homoleptic</strong> — one kind of donor group, e.g. [Co(NH<sub>3</sub>)<sub>6</sub>]<sup>3+</sup>. <strong>Heteroleptic</strong> — more than one kind, e.g. [Co(NH<sub>3</sub>)<sub>4</sub>Cl<sub>2</sub>]<sup>+</sup>.</li>
-      </ul>
 
       <h2 id="h-5-3">5.3 Nomenclature of Coordination Compounds</h2>
 
