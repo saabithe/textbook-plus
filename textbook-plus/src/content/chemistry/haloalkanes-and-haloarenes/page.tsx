@@ -1,4 +1,4 @@
-﻿import { Callout } from "@/components/content/Callout";
+import { Callout } from "@/components/content/Callout";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
@@ -1547,546 +1547,132 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h3 id="h-6-7-1">6.7.1 Reactions of Haloalkanes</h3>
 
-      <p>The reactions of haloalkanes fall into three categories:</p>
-      <ol>
-        <li>Nucleophilic substitution</li>
-        <li>Elimination reactions</li>
-        <li>Reaction with metals</li>
-      </ol>
-
       <PocketGrid
-        title="6.7.1 — Nucleophilic substitution (pocket notes)"
+        title="6.7.1 — Learning blocks"
         items={[
-          { id: "h-6-7-1-overview", icon: "📋", label: "1. Overview of chemical reactions", note: "Three categories", content: (
-              <ul className="list-disc pl-5 space-y-1 text-sm">
-                <li>Nucleophilic substitution</li>
-                <li>Elimination reactions</li>
-                <li>Reaction with metals</li>
-              </ul>
-          ) },
-          { id: "h-6-7-1-reagent-table", icon: "📉", label: "2. Handwritten summary table", note: "Reagent → R–Nu", content: (
-              <TableCard
-                caption="Reagent vs substitution product"
-                headers={["Reagent", "Substitution product (R–Nu)"]}
-                rows={[
-                  { cells: ["NaOH / KOH", "R–OH"] },
-                  { cells: ["H₂O", "R–OH"] },
-                  { cells: ["NaI", "R–I"] },
-                  { cells: ["NH₃", "R–NH₂"] },
-                  { cells: ["KCN", "R–CN"] },
-                  { cells: ["AgCN", "R–NC"] },
-                  { cells: ["KNO₂", "R–ONO"] },
-                  { cells: ["AgNO₂", "R–NO₂"] },
-                  { cells: ["LiAlH₄", "R–H"] },
-                ]}
-              />
-          ) },
-          { id: "h-6-7-1-ethyl-bromide", icon: "🧪", label: "3. Practice examples — ethyl bromide", note: "Ethyl bromide", content: (
-              <div className="space-y-2 text-sm">
-                <p><strong>(a) Aqueous KOH:</strong> CH₃CH₂Br + aq. KOH → CH₃CH₂OH (ethanol) + KBr</p>
-                <p><strong>(b) KCN:</strong> CH₃CH₂Br + KCN → CH₃CH₂CN (propanenitrile) + KBr</p>
-                <p><strong>(c) AgCN:</strong> CH₃CH₂Br + AgCN → CH₃CH₂NC (ethyl isocyanide) + AgBr</p>
-              </div>
-          ) },
-          { id: "h-6-7-1-ambident", icon: "🔀", label: "4. Ambident nucleophiles", note: "Cyanide / nitrite", content: (
-              <p className="text-sm">Cyanide and nitrite each have two nucleophilic centres. With KCN, attack is mainly through C to give alkyl cyanides; with AgCN, through N to give isocyanides. Similarly KNO₂ gives alkyl nitrites and AgNO₂ gives nitroalkanes.</p>
-          ) },
-          { id: "h-6-7-1-sn2", icon: "🔄", label: "5. S_N2 mechanism", note: "Bimolecular", content: (
+          {
+            id: "h-6-7-1-block-1",
+            icon: "🔄",
+            label: "Block 1: Nucleophilic substitution (reagents, products, SN2 & SN1 mechanisms)",
+            note: "Reagents, Products, Mechanisms",
+            content: (
               <>
-                <p className="text-sm"><strong>Example:</strong> CH₃Cl + OH⁻ → CH₃OH + Cl⁻</p>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Pathway</p>
-                <p className="mt-1 text-sm font-mono">OH⁻ + CH₃Cl → [OH···CH₃···Cl]‡ → OH–CH₃ + Cl⁻</p>
-                <ul className="mt-2 list-disc pl-5 space-y-1 text-xs text-muted-foreground">
-                  <li>Single step; bond making and bond breaking simultaneous.</li>
-                  <li>No intermediate — transition state only.</li>
-                  <li>Molecularity = 2; reactivity: 1° &gt; 2° &gt; 3°.</li>
+                <p className="text-sm">Reactions fall into three categories:</p>
+                <ol className="list-decimal pl-5 space-y-1 text-sm">
+                  <li>Nucleophilic substitution</li>
+                  <li>Elimination reactions</li>
+                  <li>Reaction with metals</li>
+                </ol>
+
+                <p className="mt-3 text-sm font-semibold">Nucleophilic substitution Reactions ($R-X + Nu^- \rightarrow R-Nu + X^-$)</p>
+                <TableCard
+                  caption="Nucleophilic substitution of alkyl halides"
+                  headers={["Reagent", "Nucleophile (Nu⁻)", "Substitution Product (R–Nu)", "Class of Main Product"]}
+                  rows={[
+                    { cells: ["NaOH / KOH", "HO⁻", "ROH", "Alcohol"] },
+                    { cells: ["H₂O", "H₂O", "ROH", "Alcohol"] },
+                    { cells: ["NaOR′", "R′O⁻", "ROR′", "Ether"] },
+                    { cells: ["NaI", "I⁻", "R-I", "Alkyl iodide"] },
+                    { cells: ["NH₃", "NH₃", "RNH₂", "Primary amine"] },
+                    { cells: ["R′NH₂", "R′NH₂", "RNHR′", "Secondary amine"] },
+                    { cells: ["R′R″NH", "R′R″NH", "RNR′R″", "Tertiary amine"] },
+                    { cells: ["KCN", "CN⁻", "RCN", "Nitrile (cyanide)"] },
+                    { cells: ["AgCN", "AgCN⁻", "RNC", "Isonitrile"] },
+                    { cells: ["KNO₂", "O-N=O", "R-O-N=O", "Alkyl nitrite"] },
+                    { cells: ["AgNO₂", "Ag-O-N=O", "R-NO₂", "Nitroalkane"] },
+                    { cells: ["R′COOAg", "R′COO⁻", "R′COOR", "Ester"] },
+                    { cells: ["LiAlH₄", "H⁻", "RH", "Hydrocarbon"] },
+                    { cells: ["R′⁻M⁺", "R′⁻", "RR′", "Alkane"] },
+                  ]}
+                />
+
+                <p className="mt-3 text-sm font-semibold">Practice Reactions — Ethyl Bromide ($CH_3-CH_2-Br$)</p>
+                <div className="mt-1 space-y-1 text-sm">
+                  <p><strong>(a) with aq. KOH:</strong> CH₃-CH₂-Br + aq. KOH → CH₃-CH₂-OH + KBr</p>
+                  <p><strong>(b) with KCN:</strong> CH₃-CH₂-Br + KCN → CH₃-CH₂-CN + KBr</p>
+                  <p><strong>(c) with AgCN:</strong> CH₃-CH₂-Br + AgCN → CH₃-CH₂-NC + AgBr</p>
+                </div>
+
+                <h4 className="mt-3 text-sm font-semibold">S_N2 Mechanism</h4>
+                <ul className="list-disc pl-5 space-y-1 text-xs text-muted-foreground">
+                  <li>Example: CH₃-Cl + OH⁻ → CH₃-OH + Cl⁻</li>
+                  <li>Single step with transition state [OH···CH₃···Cl]‡.</li>
+                  <li>Bond making &amp; breaking simultaneous; no intermediate.</li>
+                  <li>Molecularity = 2; Order = 2.</li>
+                  <li>Reactivity: 1° &gt; 2° &gt; 3°.</li>
                   <li>Stereochemistry: inversion (Walden inversion).</li>
                 </ul>
+
+                <h4 className="mt-3 text-sm font-semibold">S_N1 Mechanism</h4>
+                <ul className="list-disc pl-5 space-y-1 text-xs text-muted-foreground">
+                  <li>Example: (CH₃)₃C–Cl + OH⁻ → (CH₃)₃C–OH + Cl⁻</li>
+                  <li>Step 1 (slow): ionisation → carbocation + Cl⁻.</li>
+                  <li>Step 2 (fast): nucleophile attack.</li>
+                  <li>Two steps; carbocation intermediate.</li>
+                  <li>Molecularity = 1; Order = 1.</li>
+                  <li>Reactivity: 3° &gt; 2° &gt; 1°.</li>
+                  <li>Stereochemistry: racemisation (inversion + retention).</li>
+                </ul>
+
+                <TableCard
+                  caption="Comparison: S_N1 vs. S_N2"
+                  headers={["Feature", "S_N1", "S_N2"]}
+                  rows={[
+                    { cells: ["Mechanism", "Unimolecular", "Bimolecular"] },
+                    { cells: ["Molecularity & Order", "1", "2"] },
+                    { cells: ["Steps", "Two steps", "Single step"] },
+                    { cells: ["Intermediate/State", "Carbocation", "Transition state"] },
+                    { cells: ["Reactivity", "3° > 2° > 1°", "1° > 2° > 3°"] },
+                    { cells: ["Stereochemical outcome", "Racemisation", "Inversion only"] },
+                  ]}
+                />
               </>
-          ) },
-          { id: "h-6-7-1-sn1", icon: "🧪", label: "6. S_N1 mechanism", note: "Unimolecular", content: (
+            ),
+          },
+          {
+            id: "h-6-7-1-block-2",
+            icon: "‣",
+            label: "Block 2: Stereochemistry — optical activity, chirality and enantiomers",
+            note: "Stereochemistry",
+            content: (
               <>
-                <p className="text-sm"><strong>Example:</strong> (CH₃)₃C–Cl + OH⁻ → (CH₃)₃C–OH + Cl⁻</p>
-                <ul className="mt-2 list-disc pl-5 space-y-1 text-xs text-muted-foreground">
-                  <li><strong>Step 1 (slow, rate-determining):</strong> ionisation → (CH₃)₃C⁺ + Cl⁻.</li>
-                  <li><strong>Step 2 (fast):</strong> carbocation attacked by OH⁻.</li>
-                  <li>Two steps; carbocation intermediate; molecularity = 1.</li>
-                  <li>Reactivity: 3° &gt; 2° &gt; 1°; racemisation.</li>
+                <p className="text-sm font-semibold">Optical Activity</p>
+                <ul className="list-disc pl-5 space-y-1 text-xs text-muted-foreground">
+                  <li><strong>Ordinary Light:</strong> vibrates in all planes perpendicular to propagation.</li>
+                  <li><strong>Nicol Prism:</strong> used to obtain plane-polarised light.</li>
+                  <li><strong>Dextrorotatory (d / +):</strong> rotates PPL to the right (clockwise).</li>
+                  <li><strong>Laevo (l / -):</strong> rotates PPL to the left (counter-clockwise).</li>
+                </ul>
+
+                <p className="mt-3 text-sm font-semibold">Chirality &amp; Asymmetric Carbon</p>
+                <ul className="list-disc pl-5 space-y-1 text-xs text-muted-foreground">
+                  <li>A carbon bonded to four different groups is a chiral/asymmetric carbon.</li>
+                  <li><strong>Example:</strong> H–C(Cl)(Br)–CH₃.</li>
+                  <li><strong>Achiral:</strong> super-imposable mirror images.</li>
+                  <li><strong>Chiral:</strong> non-super-imposable mirror images (enantiomers).</li>
                 </ul>
               </>
-          ) },
-          { id: "h-6-7-1-comparison", icon: "📊", label: "7. S_N1 vs S_N2 comparison", note: "Quick compare", content: (
-              <TableCard
-                caption="Mechanism comparison"
-                headers={["Feature", "S_N1", "S_N2"]}
-                rows={[
-                  { cells: ["Molecularity", "1", "2"] },
-                  { cells: ["Steps", "Two steps", "Single step"] },
-                  { cells: ["Intermediate", "Carbocation", "Transition state only"] },
-                  { cells: ["Reactivity", "3° > 2° > 1°", "1° > 2° > 3°"] },
-                  { cells: ["Stereochemistry", "Racemisation", "Inversion"] },
-                ]}
-              />
-          ) },
-          { id: "h-6-7-1-substrate", icon: "⚡", label: "8. Factors affecting SN reactions", note: "Atoms → rate", content: (
-              <ul className="list-disc pl-5 space-y-1 text-xs text-muted-foreground">
-                <li>Stronger nucleophile / larger halogen as leaving group favors SN2.</li>
-                <li>Better carbocation stability favors SN1.</li>
-                <li>Protic solvents help SN1; polar aprotic favors SN2.</li>
-              </ul>
-          ) },
-          { id: "h-6-7-1-stereochem", icon: "‣", label: "9. Stereochemical aspects", note: "Chiral / racemic", content: (
-              <ul className="list-disc pl-5 space-y-1 text-xs text-muted-foreground">
-                <li>Optical rotation depends on chirality; four different groups around a carbon makes it chiral.</li>
-                <li>Enantiomers rotate plane-polarised light in opposite directions; racemic mixture is optically inactive.</li>
-                <li>Walden inversion gives inversion in SN2; racemisation gives 50:50 outcomes in SN1.</li>
-              </ul>
-          ) },
-        ]}
-      />
-
-      <Expandable title="Check yourself — SN1, SN2 and stereochemistry" variant="exercise">
-        <ExerciseQa
-          questions={[
-            "Which factor generally increases the rate of an SN2 reaction?",
-            "Which compound undergoes SN2 substitution most rapidly with CN⁻?",
-            "What is the stereochemical outcome of an SN2 reaction at a chiral carbon?",
-            "Which haloalkane contains a chiral carbon atom?",
-            "Which compound can exhibit optical isomerism?",
-            "A racemic mixture of two enantiomers is optically inactive because:",
-            "Which reaction is stereospecific with respect to the configuration of the reacting chiral carbon?",
-            "Which stereochemical outcome is characteristic of an SN2 reaction at a chiral carbon?",
-          ]}
-          answers={[
-            "Using a strong nucleophile.",
-            "Bromomethane — minimum steric hindrance allows easy backside attack by CN⁻.",
-            "Inversion of configuration.",
-            "CH₃CHBrCH₂CH₃ (2-bromobutane): carbon-2 is bonded to H, Br, CH₃ and CH₂CH₃ — four different groups.",
-            "2-Bromobutane — only it has a carbon carrying four distinct groups (CH₃, H, Br, C₂H₅).",
-            "The optical rotations cancel each other (external compensation).",
-            "SN2 reaction.",
-            "Inversion of configuration (Walden inversion).",
-          ]}
-        />
-      </Expandable>
-
-      <h3 id="h-6-7-2">6.7.2 Reactions of Haloarenes</h3>
-
-      <p>
-        Nucleophiles are electron-rich species, so they attack the electron-deficient carbon of the
-        substrate. In a <strong>nucleophilic substitution reaction</strong> a nucleophile replaces an
-        already existing nucleophile (the <strong>leaving group</strong>, which departs as a halide
-        ion) in the molecule. Haloalkanes are the substrate; the reaction is initiated by the
-        nucleophile, and the halogen-bonded carbon carries a partial positive charge.
-      </p>
-
-      <TableCard
-        caption="Table 6.4: Nucleophilic Substitution of Alkyl Halides (R–X)"
-        headers={["Reagent", "Nucleophile (Nu⁻)", "Substitution product R–Nu", "Class of main product"]}
-        rows={[
-          { cells: ["NaOH (KOH)", "HO⁻", "ROH", "Alcohol"] },
-          { cells: ["H₂O", "H₂O", "ROH", "Alcohol"] },
-          { cells: ["NaOR′", "R′O⁻", "ROR′", "Ether"] },
-          { cells: ["NaI", "I⁻", "R—I", "Alkyl iodide"] },
-          { cells: ["NH₃", "NH₃", "RNH₂", "Primary amine"] },
-          { cells: ["R′NH₂", "R′NH₂", "RNHR′", "Secondary amine"] },
-          { cells: ["R′R″NH", "R′R″NH", "RNR′R″", "Tertiary amine"] },
-          { cells: ["KCN", "CN⁻", "RCN", "Nitrile (cyanide)"] },
-          { cells: ["AgCN", "Ag—CN:", "RNC", "Isonitrile (isocyanide)"] },
-          { cells: ["KNO₂", "O=N—O⁻", "R—O—N=O", "Alkyl nitrite"] },
-          { cells: ["AgNO₂", "Ag—O—N=O", "R—NO₂", "Nitroalkane"] },
-          { cells: ["R′COOAg", "R′COO⁻", "R′COOR", "Ester"] },
-          { cells: ["LiAlH₄", "H⁻", "RH", "Hydrocarbon"] },
-          { cells: ["R′—M⁺", "R′⁻", "RR′", "Alkane"] },
-        ]}
-      />
-
-      <p className="mt-4 text-sm font-semibold">Practice examples — ethyl bromide</p>
-
-      <div className="mt-2 space-y-2">
-        <p className="text-sm">
-          <strong>(a) Aqueous KOH:</strong>{" "}
-          CH₃CH₂Br + aq. KOH → CH₃CH₂OH (ethanol) + KBr
-        </p>
-        <p className="text-sm">
-          <strong>(b) KCN:</strong>{" "}
-          CH₃CH₂Br + KCN → CH₃CH₂CN (propanenitrile) + KBr
-        </p>
-        <p className="text-sm">
-          <strong>(c) AgCN:</strong>{" "}
-          CH₃CH₂Br + AgCN → CH₃CH₂NC (ethyl isocyanide) + AgBr
-        </p>
-      </div>
-
-      <ConceptCard title="Ambident nucleophiles" icon="🔀">
-        <p>
-          Groups such as cyanide and nitrite possess two nucleophilic centres and are called{" "}
-          <strong>ambident nucleophiles</strong>. The cyanide group is a hybrid of two contributing
-          structures, so it can link through carbon (giving alkyl cyanides) or through nitrogen
-          (giving isocyanides). Similarly the nitrite ion links through oxygen to give alkyl nitrites
-          and through nitrogen to give nitroalkanes.
-        </p>
-      </ConceptCard>
-
-      <Expandable title="Example 6.5 — Why KCN gives cyanides but AgCN gives isocyanides" variant="example">
-        <p>
-          Haloalkanes react with KCN to form alkyl cyanides as the main product, while AgCN forms
-          isocyanides as the chief product. Explain.
-        </p>
-        <p className="mt-3 font-semibold">Solution</p>
-        <p>
-          KCN is predominantly ionic and provides cyanide ions in solution. Although both carbon and
-          nitrogen can donate electron pairs, attack takes place mainly through carbon, because the
-          C—C bond is more stable than the C—N bond. AgCN, however, is mainly covalent, so nitrogen is
-          free to donate its electron pair and isocyanide becomes the main product.
-        </p>
-      </Expandable>
-
-      <h5 id="h-6-7-1-1-a">(a) Substitution nucleophilic bimolecular (S<sub>N</sub>2)</h5>
-
-      <p>
-        The reaction between CH<sub>3</sub>Cl and hydroxide ion to give methanol and chloride ion
-        follows <strong>second order kinetics</strong> — the rate depends on the concentration of both
-        reactants.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{Rate} = k[\text{CH}_3\text{Cl}][\text{OH}^-]`} important />
-
-      <Stepper
-        steps={[
-          {
-            label: "The nucleophile attacks from the side opposite the leaving group",
-            description: "The incoming OH⁻ approaches the carbon bearing the halogen; the C—Cl bond begins to weaken as the new C—O bond starts to form.",
-          },
-          {
-            label: "A single transition state — no intermediate",
-            description: "All three C—H bonds lie in one plane and the carbon is bonded to five atoms (three H, the incoming OH, the outgoing Cl). Such a structure is unstable and cannot be isolated.",
-          },
-          {
-            label: "The leaving group departs and the configuration inverts",
-            description: "The umbrella turns inside out: the product has the opposite spatial arrangement to the reactant. This is called inversion of configuration.",
-          },
-        ]}
-      />
-
-      <p>
-        Because the nucleophile must approach the carbon bearing the leaving group, bulky substituents
-        on or near that carbon have a dramatic inhibiting effect. Of the simple alkyl halides, methyl
-        halides react most rapidly in S<sub>N</sub>2 reactions (only three small hydrogens), while
-        tertiary halides are least reactive because bulky groups hinder the approaching nucleophile.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{Reactivity in S}_N2:\ \text{CH}_3\text{X} > 1^\circ > 2^\circ > 3^\circ`} important />
-
-      <h5 id="h-6-7-1-1-b">(b) Substitution nucleophilic unimolecular (S<sub>N</sub>1)</h5>
-
-      <p>
-        S<sub>N</sub>1 reactions are generally carried out in <strong>polar protic solvents</strong>{" "}
-        (water, alcohol, acetic acid). The reaction between <em>tert</em>-butyl bromide and hydroxide
-        ion follows <strong>first order kinetics</strong> — the rate depends only on the concentration
-        of the alkyl halide.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{Rate} = k[(\text{CH}_3)_3\text{CBr}]`} important />
-
-      <Stepper
-        steps={[
-          {
-            label: "Step I (slow, reversible): ionisation of the C—Br bond",
-            description: "The polarised C—Br bond cleaves heterolytically to give a carbocation and a bromide ion. Energy for this comes from solvation of the halide ion by the protic solvent. Being the slowest step, it controls the rate.",
-          },
-          {
-            label: "Step II (fast): attack of the nucleophile",
-            description: "The planar sp² carbocation is attacked by the nucleophile from either face to complete the substitution.",
-          },
-        ]}
-      />
-
-      <p>
-        The more stable the carbocation, the easier it forms and the faster the reaction. For alkyl
-        halides, 3° halides undergo S<sub>N</sub>1 very fast because of the high stability of 3°
-        carbocations. Allylic and benzylic halides are also highly reactive towards S<sub>N</sub>1,
-        because their carbocations are stabilised by resonance.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{Reactivity in S}_N1:\ 3^\circ > 2^\circ > 1^\circ > \text{CH}_3\text{X}`} important />
-
-      <Comparison
-        columns={[
-          {
-            title: "S_N2",
-            children: (
-              <>
-                <p>One step, bimolecular, second order.</p>
-                <p>Rate = k[RX][Nu⁻].</p>
-                <p>No carbocation; a five-coordinate transition state.</p>
-                <p>Product has inverted configuration.</p>
-                <p>Reactivity: CH₃X &gt; 1° &gt; 2° &gt; 3°.</p>
-              </>
             ),
           },
           {
-            title: "S_N1",
-            children: (
+            id: "h-6-7-1-block-3",
+            icon: "♻️",
+            label: "Block 3: Stereochemical outcomes — retention, inversion, racemisation",
+            note: "Outcomes",
+            content: (
               <>
-                <p>Two steps, unimolecular, first order.</p>
-                <p>Rate = k[RX].</p>
-                <p>Planar carbocation intermediate; polar protic solvent helps.</p>
-                <p>Product is racemised.</p>
-                <p>Reactivity: 3° &gt; 2° &gt; 1° &gt; CH₃X.</p>
+                <p className="text-sm font-semibold">Racemic mixture &amp; outcomes</p>
+                <ul className="list-disc pl-5 space-y-1 text-xs text-muted-foreground">
+                  <li><strong>Racemic mixture:</strong> 50% d + 50% l, optically inactive (external compensation).</li>
+                  <li><strong>Inversion:</strong> attack gives opposite spatial configuration.</li>
+                  <li><strong>Retention:</strong> original spatial configuration preserved.</li>
+                  <li><strong>Racemisation:</strong> equimolar mixture obtained, optically inactive.</li>
+                </ul>
               </>
             ),
           },
         ]}
       />
-
-      <Expandable title="Example 6.6 — Which halide reacts faster by Sₙ2?" variant="example">
-        <p>
-          In the following pairs of halogen compounds, which would undergo S<sub>N</sub>2 reaction
-          faster?
-        </p>
-        <p className="mt-3 font-semibold">Solution</p>
-        <p>
-          (i) The primary halide reacts faster, because a primary carbon offers little steric
-          hindrance to the approaching nucleophile.
-        </p>
-        <p>
-          (ii) The iodide reacts faster: iodine is a better leaving group because of its large size, so
-          it is released at a faster rate in the presence of the incoming nucleophile.
-        </p>
-      </Expandable>
-
-      <Expandable
-        title="Example 6.7 — Order of reactivity in Sₙ1 and Sₙ2"
-        variant="example"
-      >
-        <p>
-          Predict the order of reactivity of the following compounds in S<sub>N</sub>1 and S
-          <sub>N</sub>2 reactions: (i) the four isomeric bromobutanes; (ii) C<sub>6</sub>H
-          <sub>5</sub>CH<sub>2</sub>Br, C<sub>6</sub>H<sub>5</sub>CH(C<sub>6</sub>H<sub>5</sub>)Br,
-          C<sub>6</sub>H<sub>5</sub>CH(CH<sub>3</sub>)Br, C<sub>6</sub>H<sub>5</sub>C(CH<sub>3</sub>)
-          (C<sub>6</sub>H<sub>5</sub>)Br.
-        </p>
-        <p className="mt-3 font-semibold">Solution</p>
-        <p>
-          (i) S<sub>N</sub>1: CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>Br &lt; (CH
-          <sub>3</sub>)<sub>2</sub>CHCH<sub>2</sub>Br &lt; CH<sub>3</sub>CH<sub>2</sub>CH(Br)CH
-          <sub>3</sub> &lt; (CH<sub>3</sub>)<sub>3</sub>CBr.
-        </p>
-        <p>
-          S<sub>N</sub>2: CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>Br &gt; (CH
-          <sub>3</sub>)<sub>2</sub>CHCH<sub>2</sub>Br &gt; CH<sub>3</sub>CH<sub>2</sub>CH(Br)CH
-          <sub>3</sub> &gt; (CH<sub>3</sub>)<sub>3</sub>CBr.
-        </p>
-        <p>
-          Of the two primary bromides, the carbocation from (CH<sub>3</sub>)<sub>2</sub>CHCH
-          <sub>2</sub>Br is more stable than that from CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH
-          <sub>2</sub>Br, owing to the greater electron-donating inductive effect of the (CH
-          <sub>3</sub>)<sub>2</sub>CH– group. CH<sub>3</sub>CH<sub>2</sub>CH(Br)CH<sub>3</sub> is
-          secondary and (CH<sub>3</sub>)<sub>3</sub>CBr is tertiary, which fixes the S<sub>N</sub>1
-          order. In S<sub>N</sub>2 the order is reversed because steric hindrance around the
-          electrophilic carbon increases in that direction.
-        </p>
-        <p>
-          (ii) S<sub>N</sub>1: C<sub>6</sub>H<sub>5</sub>C(CH<sub>3</sub>)(C<sub>6</sub>H
-          <sub>5</sub>)Br &gt; C<sub>6</sub>H<sub>5</sub>CH(C<sub>6</sub>H<sub>5</sub>)Br &gt; C
-          <sub>6</sub>H<sub>5</sub>CH(CH<sub>3</sub>)Br &gt; C<sub>6</sub>H<sub>5</sub>CH
-          <sub>2</sub>Br.
-        </p>
-        <p>
-          S<sub>N</sub>2: C<sub>6</sub>H<sub>5</sub>C(CH<sub>3</sub>)(C<sub>6</sub>H<sub>5</sub>)Br
-          &lt; C<sub>6</sub>H<sub>5</sub>CH(C<sub>6</sub>H<sub>5</sub>)Br &lt; C<sub>6</sub>H
-          <sub>5</sub>CH(CH<sub>3</sub>)Br &lt; C<sub>6</sub>H<sub>5</sub>CH<sub>2</sub>Br.
-        </p>
-        <p>
-          The carbocation from C<sub>6</sub>H<sub>5</sub>CH(C<sub>6</sub>H<sub>5</sub>)Br is stabilised
-          by two phenyl groups through resonance, so it is more reactive than the one from C<sub>6</sub>H
-          <sub>5</sub>CH(CH<sub>3</sub>)Br in S<sub>N</sub>1. A phenyl group is bulkier than a methyl
-          group, so in S<sub>N</sub>2 the former is less reactive than the latter.
-        </p>
-      </Expandable>
-
-      <h5 id="h-6-7-1-1-c">(c) Stereochemical aspects of nucleophilic substitution</h5>
-
-      <p>
-        <strong>Optical activity.</strong> Plane-polarised light, produced by passing ordinary light
-        through a Nicol prism, is rotated when passed through solutions of certain compounds. Such
-        compounds are <strong>optically active</strong>, and the angle of rotation is measured with a{" "}
-        <strong>polarimeter</strong>. Rotation to the right (clockwise) is <strong>dextrorotatory</strong>{" "}
-        (d-form, positive sign); rotation to the left is <strong>laevorotatory</strong> (l-form,
-        negative sign). Such (+) and (−) isomers are <strong>optical isomers</strong> and the phenomenon
-        is <strong>optical isomerism</strong>.
-      </p>
-
-      <p>
-        <strong>Chirality and enantiomers.</strong> Louis Pasteur (1848) found that crystals of certain
-        compounds exist as mirror images and that aqueous solutions of both types rotate light equally
-        but in opposite directions. In 1874, J. van&apos;t Hoff and C. Le Bel independently argued that
-        the four groups around a carbon are arranged tetrahedrally, and that if all four substituents
-        are different the mirror image cannot be superimposed on the molecule. Such a carbon is an{" "}
-        <strong>asymmetric carbon</strong> or <strong>stereocentre</strong>, and the molecule is
-        asymmetric and optically active.
-      </p>
-
-      <p>
-        Objects that are non-superimposable on their mirror image (like a pair of hands) are{" "}
-        <strong>chiral</strong>; the property is <strong>chirality</strong>. Objects superimposable on
-        their mirror images are <strong>achiral</strong> and optically inactive. Stereoisomers related
-        as non-superimposable mirror images are <strong>enantiomers</strong>; they have identical
-        melting points, boiling points and refractive indices, and differ only in the direction of
-        rotation of plane-polarised light.
-      </p>
-
-      <div className="my-6 grid gap-3 sm:grid-cols-2">
-        
-        
-      </div>
-
-      <FactCard
-        title="Racemic mixture"
-        definition="A mixture of two enantiomers in equal proportions has zero optical rotation, because the rotations cancel. It is called a racemic mixture or racemic modification, written with the prefix dl or (±), e.g. (±)-butan-2-ol. Converting an enantiomer into a racemic mixture is racemisation."
-        icon="⚖️"
-      />
-
-      <Callout type="warning" title="Sign of rotation ≠ absolute configuration">
-        The sign of optical rotation is not necessarily related to the absolute (actual) configuration
-        of the molecule. Two compounds with the same configuration at the asymmetric centre may rotate
-        light in opposite directions.
-      </Callout>
-
-      <p>
-        <strong>Retention, inversion and racemisation.</strong> Three outcomes are possible when a bond
-        directly linked to an asymmetric carbon is broken in a reaction:
-      </p>
-
-      <TableCard
-        caption="Outcomes at a stereocentre"
-        headers={["Outcome", "Meaning"]}
-        rows={[
-          { cells: ["Retention", "The spatial arrangement of bonds at the stereocentre is preserved (no bond to the stereocentre is broken)."] },
-          { cells: ["Inversion", "The product has the opposite arrangement — the nucleophile attaches on the side opposite the leaving group."] },
-          { cells: ["Racemisation", "A 50:50 mixture of both configurations is obtained, so the product is optically inactive."] },
-        ]}
-      />
-
-      <p>
-        In optically active alkyl halides, an S<sub>N</sub>2 reaction gives the product with{" "}
-        <strong>inverted configuration</strong>: when (−)-2-bromooctane reacts with sodium hydroxide,
-        (+)-octan-2-ol is formed with the —OH occupying the position opposite to that of bromide.
-      </p>
-
-      <p>
-        S<sub>N</sub>1 reactions of optically active halides, on the other hand, are accompanied by{" "}
-        <strong>racemisation</strong>. The carbocation formed in the slow step is <em>sp</em>
-        <sup>2</sup> hybridised and planar (achiral), so the nucleophile can attack from either side of
-        the plane. Hydrolysis of optically active 2-bromobutane therefore gives (±)-butan-2-ol.
-      </p>
-
-      <h4 id="h-6-7-1-2">(2) Elimination reactions</h4>
-
-      <p>
-        When a haloalkane with a β-hydrogen is heated with an <strong>alcoholic solution of potassium
-        hydroxide</strong>, hydrogen is eliminated from the β-carbon and halogen from the α-carbon,
-        giving an alkene. Because a β-hydrogen is involved, this is called <strong>β-elimination</strong>.
-      </p>
-
-      <FactCard
-        title="α- and β-carbon"
-        definition="The carbon on which the halogen is directly attached is the α-carbon; the carbon adjacent to it is the β-carbon."
-        icon="🏷️"
-      />
-
-      <FormulaBlock latex={String.raw`\text{CH}_3\text{CH}_2\text{CH(Br)CH}_3 \xrightarrow{\text{alc. KOH}} \text{CH}_3\text{CH=CHCH}_3 \ (\text{major}) + \text{CH}_3\text{CH}_2\text{CH=CH}_2 \ (\text{minor})`} />
-
-      <p>
-        If more than one alkene can form, usually one is the major product. Alexander Zaitsev (1875)
-        summarised the pattern: <Highlight color="yellow">in dehydrohalogenation reactions the preferred
-        product is the alkene with the greater number of alkyl groups attached to the doubly bonded
-        carbon atoms</Highlight>. Thus 2-bromopentane gives pent-2-ene as the major product.
-      </p>
-
-      <Callout type="note" title="Elimination versus substitution">
-        <p>
-          A reaction is a race won by the fastest route. An alkyl halide with β-hydrogens, treated
-          with a base or nucleophile, faces two competing routes: substitution (S<sub>N</sub>1, S
-          <sub>N</sub>2) and elimination. Which one wins depends on the alkyl halide, the strength and
-          size of the base/nucleophile and the reaction conditions.
-        </p>
-        <ul>
-          <li>A bulkier nucleophile prefers to act as a base and abstracts a proton rather than approach a tetravalent carbon.</li>
-          <li>A primary halide prefers S<sub>N</sub>2; a secondary halide may do S<sub>N</sub>2 or eliminate; a tertiary halide follows S<sub>N</sub>1 or elimination, depending on carbocation stability versus the more substituted alkene.</li>
-        </ul>
-      </Callout>
-
-      <h4 id="h-6-7-1-3">(3) Reaction with metals</h4>
-
-      <p>
-        Most organic chlorides, bromides and iodides react with certain metals to give compounds
-        containing carbon–metal bonds, known as <strong>organometallic compounds</strong>. The most
-        important class — discovered by Victor Grignard in 1900 — is the alkyl magnesium halide RMgX,
-        called the <strong>Grignard reagent</strong>, obtained by the reaction of a haloalkane with
-        magnesium metal in dry ether.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{R–X} + \text{Mg} \xrightarrow{\text{dry ether}} \text{R–Mg–X}`} important />
-
-      <p>
-        In a Grignard reagent the carbon–magnesium bond is covalent but highly polar, with carbon
-        pulling electrons from electropositive magnesium; the magnesium–halogen bond is essentially
-        ionic. Grignard reagents are highly reactive and react with any source of proton to give
-        hydrocarbons — even water, alcohols and amines are sufficiently acidic.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{R–Mg–X} + \text{H}_2\text{O} \rightarrow \text{R–H} + \text{Mg(OH)X}`} />
-
-      <Callout type="warning">
-        Even traces of moisture must be avoided, which is why the reaction is carried out in dry ether.
-        On the other hand, this protonation can be used as a method for converting halides into
-        hydrocarbons.
-      </Callout>
-
-      <p>
-        <strong>Wurtz reaction.</strong> Alkyl halides react with sodium in dry ether to give
-        hydrocarbons containing double the number of carbon atoms present in the halide.
-      </p>
-
-      <FormulaBlock latex={String.raw`2\text{R–X} + 2\text{Na} \xrightarrow{\text{dry ether}} \text{R–R} + 2\text{NaX}`} />
-
-      <Expandable
-        title="Intext 6.7 — Which alkyl halide reacts faster by Sₙ2?"
-        variant="exercise"
-      >
-        <p>
-          Which alkyl halide from each pair would you expect to react more rapidly by an S<sub>N</sub>2
-          mechanism? Explain.
-        </p>
-        <p className="mt-3 font-semibold">Answer</p>
-        <p>
-          (i) The straight-chain primary bromide reacts faster — being primary, there is no steric
-          hindrance.
-        </p>
-        <p>(ii) The secondary halide reacts faster than the tertiary halide.</p>
-        <p>
-          (iii) A methyl group closer to the halogen increases steric hindrance and so decreases the
-          rate.
-        </p>
-      </Expandable>
-
-      <Expandable
-        title="Intext 6.8 — Which compound undergoes faster Sₙ1?"
-        variant="exercise"
-      >
-        <p>In each pair of halogen compounds, which compound undergoes a faster S<sub>N</sub>1 reaction?</p>
-        <p className="mt-3 font-semibold">Answer</p>
-        <p>
-          (i) The tertiary halide reacts faster than the secondary halide, because of the greater
-          stability of the tertiary carbocation.
-        </p>
-        <p>
-          (ii) The compound giving the secondary carbocation reacts faster, because a secondary
-          carbocation is more stable than a primary one.
-        </p>
-      </Expandable>
 
       <Expandable title="Check yourself — SN1, SN2 and stereochemistry" variant="exercise">
         <ExerciseQa
