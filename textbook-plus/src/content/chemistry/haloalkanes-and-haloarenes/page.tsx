@@ -1322,17 +1322,6 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h2 id="h-6-6">6.6 Physical Properties</h2>
 
-      <p>
-        Alkyl halides are colourless when pure, but bromides and iodides develop colour on exposure to
-        light. Many volatile halogen compounds have a sweet smell.
-      </p>
-
-      <p className="mt-4 text-sm font-semibold">1. Physical state</p>
-      <p className="text-sm">
-        Lower members are gases or liquids at room temperature; higher members are generally liquids or
-        solids. The state depends on molecular size and structure.
-      </p>
-
       <PocketGrid
         title="Physical properties at a glance"
         items={[
@@ -1343,6 +1332,11 @@ export default function HaloalkanesAndHaloarenesChapter() {
             note: "Gas → liquid / solid",
             content: (
               <>
+                <p className="text-sm font-semibold">1. Physical state</p>
+                <p className="text-sm">
+                  Lower members are gases or liquids at room temperature; higher members are generally
+                  liquids or solids. The state depends on molecular size and structure.
+                </p>
                 <div className="mt-3 grid gap-3 sm:grid-cols-2">
                   {[
                     { formula: "CH₃Cl", name: "Methyl chloride" },
@@ -1583,6 +1577,23 @@ export default function HaloalkanesAndHaloarenesChapter() {
           { cells: ["R′—M⁺", "R′⁻", "RR′", "Alkane"] },
         ]}
       />
+
+      <p className="mt-4 text-sm font-semibold">Practice examples — ethyl bromide</p>
+
+      <div className="mt-2 space-y-2">
+        <p className="text-sm">
+          <strong>(a) Aqueous KOH:</strong>{" "}
+          CH₃CH₂Br + aq. KOH → CH₃CH₂OH (ethanol) + KBr
+        </p>
+        <p className="text-sm">
+          <strong>(b) KCN:</strong>{" "}
+          CH₃CH₂Br + KCN → CH₃CH₂CN (propanenitrile) + KBr
+        </p>
+        <p className="text-sm">
+          <strong>(c) AgCN:</strong>{" "}
+          CH₃CH₂Br + AgCN → CH₃CH₂NC (ethyl isocyanide) + AgBr
+        </p>
+      </div>
 
       <ConceptCard title="Ambident nucleophiles" icon="🔀">
         <p>
@@ -1952,6 +1963,31 @@ export default function HaloalkanesAndHaloarenesChapter() {
           (ii) The compound giving the secondary carbocation reacts faster, because a secondary
           carbocation is more stable than a primary one.
         </p>
+      </Expandable>
+
+      <Expandable title="Check yourself — SN1, SN2 and stereochemistry" variant="exercise">
+        <ExerciseQa
+          questions={[
+            "Which factor generally increases the rate of an SN2 reaction?",
+            "Which compound undergoes SN2 substitution most rapidly with CN⁻?",
+            "What is the stereochemical outcome of an SN2 reaction at a chiral carbon?",
+            "Which haloalkane contains a chiral carbon atom?",
+            "Which compound can exhibit optical isomerism?",
+            "A racemic mixture of two enantiomers is optically inactive because:",
+            "Which reaction is stereospecific with respect to the configuration of the reacting chiral carbon?",
+            "Which stereochemical outcome is characteristic of an SN2 reaction at a chiral carbon?",
+          ]}
+          answers={[
+            "Using a strong nucleophile.",
+            "Bromomethane — minimum steric hindrance allows easy backside attack by CN⁻.",
+            "Inversion of configuration.",
+            "CH₃CHBrCH₂CH₃ (2-bromobutane): carbon-2 is bonded to H, Br, CH₃ and CH₂CH₃ — four different groups.",
+            "2-Bromobutane — only it has a carbon carrying four distinct groups (CH₃, H, Br, C₂H₅).",
+            "The optical rotations cancel each other (external compensation).",
+            "SN2 reaction.",
+            "Inversion of configuration (Walden inversion).",
+          ]}
+        />
       </Expandable>
 
       <h3 id="h-6-7-2">6.7.2 Reactions of Haloarenes</h3>
