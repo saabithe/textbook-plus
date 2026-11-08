@@ -323,6 +323,7 @@ export default function CoordinationCompoundsChapter() {
       ),
     },
   ]} />
+{/*
 <h3>b. 📦 Coordination Entity &amp; Coordination Sphere</h3>
       <ul>
         <li>Coordination entity: metal atom/ion bonded to a fixed number of ligands.</li>
@@ -546,7 +547,7 @@ export default function CoordinationCompoundsChapter() {
         ]}
       />
 
-      {/* END OLD INTRO */}
+      */}
 <h2 id="h-5-1">5.1 Werner&apos;s Theory of Coordination Compounds</h2>
 
       <p>
