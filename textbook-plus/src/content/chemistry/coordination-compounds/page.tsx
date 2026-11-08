@@ -15,6 +15,8 @@ export default function CoordinationCompoundsChapter() {
     <>
       <h2 id="h-5-intro">Introduction: Coordination Compounds</h2>
 
+<p>Navigate the concepts with our <strong>PocketGrid</strong> system – openable cards that let you explore each sub‑topic (coordination entity, ligands, denticity, coordination number, etc.) on demand.</p>
+
       <TableCard
         caption="a. 🔑 Key Terms at a Glance"
         headers={["Term", "Definition"]}
