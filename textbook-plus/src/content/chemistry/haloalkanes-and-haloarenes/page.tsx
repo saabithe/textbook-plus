@@ -1547,7 +1547,130 @@ export default function HaloalkanesAndHaloarenesChapter() {
 
       <h3 id="h-6-7-1">6.7.1 Reactions of Haloalkanes</h3>
 
-      <h4 id="h-6-7-1-1">(1) Nucleophilic substitution reactions</h4>
+      <p>The reactions of haloalkanes fall into three categories:</p>
+      <ol>
+        <li>Nucleophilic substitution</li>
+        <li>Elimination reactions</li>
+        <li>Reaction with metals</li>
+      </ol>
+
+      <PocketGrid
+        title="6.7.1 — Nucleophilic substitution (pocket notes)"
+        items={[
+          { id: "h-6-7-1-overview", icon: "📋", label: "1. Overview of chemical reactions", note: "Three categories", content: (
+              <ul className="list-disc pl-5 space-y-1 text-sm">
+                <li>Nucleophilic substitution</li>
+                <li>Elimination reactions</li>
+                <li>Reaction with metals</li>
+              </ul>
+          ) },
+          { id: "h-6-7-1-reagent-table", icon: "📉", label: "2. Handwritten summary table", note: "Reagent → R–Nu", content: (
+              <TableCard
+                caption="Reagent vs substitution product"
+                headers={["Reagent", "Substitution product (R–Nu)"]}
+                rows={[
+                  { cells: ["NaOH / KOH", "R–OH"] },
+                  { cells: ["H₂O", "R–OH"] },
+                  { cells: ["NaI", "R–I"] },
+                  { cells: ["NH₃", "R–NH₂"] },
+                  { cells: ["KCN", "R–CN"] },
+                  { cells: ["AgCN", "R–NC"] },
+                  { cells: ["KNO₂", "R–ONO"] },
+                  { cells: ["AgNO₂", "R–NO₂"] },
+                  { cells: ["LiAlH₄", "R–H"] },
+                ]}
+              />
+          ) },
+          { id: "h-6-7-1-ethyl-bromide", icon: "🧪", label: "3. Practice examples — ethyl bromide", note: "Ethyl bromide", content: (
+              <div className="space-y-2 text-sm">
+                <p><strong>(a) Aqueous KOH:</strong> CH₃CH₂Br + aq. KOH → CH₃CH₂OH (ethanol) + KBr</p>
+                <p><strong>(b) KCN:</strong> CH₃CH₂Br + KCN → CH₃CH₂CN (propanenitrile) + KBr</p>
+                <p><strong>(c) AgCN:</strong> CH₃CH₂Br + AgCN → CH₃CH₂NC (ethyl isocyanide) + AgBr</p>
+              </div>
+          ) },
+          { id: "h-6-7-1-ambident", icon: "🔀", label: "4. Ambident nucleophiles", note: "Cyanide / nitrite", content: (
+              <p className="text-sm">Cyanide and nitrite each have two nucleophilic centres. With KCN, attack is mainly through C to give alkyl cyanides; with AgCN, through N to give isocyanides. Similarly KNO₂ gives alkyl nitrites and AgNO₂ gives nitroalkanes.</p>
+          ) },
+          { id: "h-6-7-1-sn2", icon: "🔄", label: "5. S_N2 mechanism", note: "Bimolecular", content: (
+              <>
+                <p className="text-sm"><strong>Example:</strong> CH₃Cl + OH⁻ → CH₃OH + Cl⁻</p>
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Pathway</p>
+                <p className="mt-1 text-sm font-mono">OH⁻ + CH₃Cl → [OH···CH₃···Cl]‡ → OH–CH₃ + Cl⁻</p>
+                <ul className="mt-2 list-disc pl-5 space-y-1 text-xs text-muted-foreground">
+                  <li>Single step; bond making and bond breaking simultaneous.</li>
+                  <li>No intermediate — transition state only.</li>
+                  <li>Molecularity = 2; reactivity: 1° &gt; 2° &gt; 3°.</li>
+                  <li>Stereochemistry: inversion (Walden inversion).</li>
+                </ul>
+              </>
+          ) },
+          { id: "h-6-7-1-sn1", icon: "🧪", label: "6. S_N1 mechanism", note: "Unimolecular", content: (
+              <>
+                <p className="text-sm"><strong>Example:</strong> (CH₃)₃C–Cl + OH⁻ → (CH₃)₃C–OH + Cl⁻</p>
+                <ul className="mt-2 list-disc pl-5 space-y-1 text-xs text-muted-foreground">
+                  <li><strong>Step 1 (slow, rate-determining):</strong> ionisation → (CH₃)₃C⁺ + Cl⁻.</li>
+                  <li><strong>Step 2 (fast):</strong> carbocation attacked by OH⁻.</li>
+                  <li>Two steps; carbocation intermediate; molecularity = 1.</li>
+                  <li>Reactivity: 3° &gt; 2° &gt; 1°; racemisation.</li>
+                </ul>
+              </>
+          ) },
+          { id: "h-6-7-1-comparison", icon: "📊", label: "7. S_N1 vs S_N2 comparison", note: "Quick compare", content: (
+              <TableCard
+                caption="Mechanism comparison"
+                headers={["Feature", "S_N1", "S_N2"]}
+                rows={[
+                  { cells: ["Molecularity", "1", "2"] },
+                  { cells: ["Steps", "Two steps", "Single step"] },
+                  { cells: ["Intermediate", "Carbocation", "Transition state only"] },
+                  { cells: ["Reactivity", "3° > 2° > 1°", "1° > 2° > 3°"] },
+                  { cells: ["Stereochemistry", "Racemisation", "Inversion"] },
+                ]}
+              />
+          ) },
+          { id: "h-6-7-1-substrate", icon: "⚡", label: "8. Factors affecting SN reactions", note: "Atoms → rate", content: (
+              <ul className="list-disc pl-5 space-y-1 text-xs text-muted-foreground">
+                <li>Stronger nucleophile / larger halogen as leaving group favors SN2.</li>
+                <li>Better carbocation stability favors SN1.</li>
+                <li>Protic solvents help SN1; polar aprotic favors SN2.</li>
+              </ul>
+          ) },
+          { id: "h-6-7-1-stereochem", icon: "‣", label: "9. Stereochemical aspects", note: "Chiral / racemic", content: (
+              <ul className="list-disc pl-5 space-y-1 text-xs text-muted-foreground">
+                <li>Optical rotation depends on chirality; four different groups around a carbon makes it chiral.</li>
+                <li>Enantiomers rotate plane-polarised light in opposite directions; racemic mixture is optically inactive.</li>
+                <li>Walden inversion gives inversion in SN2; racemisation gives 50:50 outcomes in SN1.</li>
+              </ul>
+          ) },
+        ]}
+      />
+
+      <Expandable title="Check yourself — SN1, SN2 and stereochemistry" variant="exercise">
+        <ExerciseQa
+          questions={[
+            "Which factor generally increases the rate of an SN2 reaction?",
+            "Which compound undergoes SN2 substitution most rapidly with CN⁻?",
+            "What is the stereochemical outcome of an SN2 reaction at a chiral carbon?",
+            "Which haloalkane contains a chiral carbon atom?",
+            "Which compound can exhibit optical isomerism?",
+            "A racemic mixture of two enantiomers is optically inactive because:",
+            "Which reaction is stereospecific with respect to the configuration of the reacting chiral carbon?",
+            "Which stereochemical outcome is characteristic of an SN2 reaction at a chiral carbon?",
+          ]}
+          answers={[
+            "Using a strong nucleophile.",
+            "Bromomethane — minimum steric hindrance allows easy backside attack by CN⁻.",
+            "Inversion of configuration.",
+            "CH₃CHBrCH₂CH₃ (2-bromobutane): carbon-2 is bonded to H, Br, CH₃ and CH₂CH₃ — four different groups.",
+            "2-Bromobutane — only it has a carbon carrying four distinct groups (CH₃, H, Br, C₂H₅).",
+            "The optical rotations cancel each other (external compensation).",
+            "SN2 reaction.",
+            "Inversion of configuration (Walden inversion).",
+          ]}
+        />
+      </Expandable>
+
+      <h3 id="h-6-7-2">6.7.2 Reactions of Haloarenes</h3>
 
       <p>
         Nucleophiles are electron-rich species, so they attack the electron-deficient carbon of the
