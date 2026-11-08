@@ -9,13 +9,12 @@ import { ConceptCard } from "@/components/content/concept/ConceptCard";
 import { FactCard } from "@/components/content/concept/FactCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { PocketGrid } from "@/components/content/PocketGrid";
 
 export default function CoordinationCompoundsChapter() {
   return (
     <>
       <h2 id="h-5-intro">Introduction: Coordination Compounds</h2>
-
-<p>Navigate the concepts with our <strong>PocketGrid</strong> system – openable cards that let you explore each sub‑topic (coordination entity, ligands, denticity, coordination number, etc.) on demand.</p>
 
       <TableCard
         caption="a. 🔑 Key Terms at a Glance"
@@ -32,7 +31,299 @@ export default function CoordinationCompoundsChapter() {
         ]}
       />
 
-      <h3>b. 📦 Coordination Entity &amp; Coordination Sphere</h3>
+        <PocketGrid columns={3} title="Introduction – Coordination Compounds" items={[
+    {
+      id: "h-5-intro-entity",
+      icon: "📦",
+      label: "1️⃣ Coordination Entity & Coordination Sphere",
+      note: "Entity, sphere, counter‑ions",
+      content: (
+        <>
+          <h3>b. 📦 Coordination Entity &amp; Coordination Sphere</h3>
+          <ul>
+            <li>Coordination entity: metal atom/ion bonded to a fixed number of ligands.</li>
+            <li>Coordination sphere: central metal + attached ligands enclosed in square brackets [ ].</li>
+            <li>Counter ions: ionisable ions outside the brackets.</li>
+          </ul>
+          <p>Example: K₄[Fe(CN)₆].</p>
+          <ul className="list-disc pl-6 space-y-1 text-sm">
+            <li>Coordination sphere → [Fe(CN)₆]⁴⁻</li>
+            <li>Counter ions → 4K⁺</li>
+            <li>Central metal → Fe</li>
+            <li>Ligand → CN⁻</li>
+          </ul>
+          <p>Examples of coordination entities:</p>
+          <ul className="list-disc pl-6 space-y-1 text-sm">
+            <li>[CoCl₃(NH₃)₃]</li>
+            <li>[Ni(CO)₄]</li>
+            <li>[PtCl₂(NH₃)₂]</li>
+            <li>[Fe(CN)₆]⁴⁻</li>
+            <li>[Co(NH₃)₆]³+</li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      id: "h-5-intro-central",
+      icon: "⚛️",
+      label: "2️⃣ Central Atom / Ion",
+      note: "Representative central ions",
+      content: (
+        <>
+          <h3>c. ⚛️ Central Atom / Ion</h3>
+          <TableCard
+            caption="Central ion in representative complexes"
+            headers={["Complex", "Central ion"]}
+            rows={[
+              { cells: ["[NiCl₂(H₂O)₄]", "Ni²⁺"] },
+              { cells: ["[CoCl(NH₃)₅]²⁺", "Co³⁺"] },
+              { cells: ["[Fe(CN)₆]³⁻", "Fe³⁺"] },
+            ]}
+          />
+          <ul>
+            <li>Central metal: electron‑pair acceptor; acts as a Lewis acid.</li>
+            <li>Ligand: electron‑pair donor; acts as a Lewis base.</li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      id: "h-5-intro-ligands",
+      icon: "🔗",
+      label: "3️⃣ Ligands & Denticity",
+      note: "Types, denticity, chelate effect",
+      content: (
+        <>
+          <h3>d. 🔗 Ligands &amp; Denticity</h3>
+          <TableCard
+            caption="Ligand by denticity"
+            headers={["Type", "Attachment", "Examples"]}
+            rows={[
+              { cells: ["Unidentate", "1 donor atom → 1 attachment", "Cl⁻, H₂O, NH₃, CN⁻, OH⁻"] },
+              { cells: ["Didentate", "2 donor atoms → 2 attachments", "en (ethane-1,2-diamine), C₂O₄²⁻ (oxalate)"] },
+              { cells: ["Polydentate", "≥3 donor atoms → ≥3 attachments", "EDTA⁴⁻ (hexadentate), N(CH₂CH₂NH₂)₃"] },
+            ]}
+          />
+          <p className="mt-2">Important ligands:</p>
+          <TableCard
+            caption="Important ligands and their denticity"
+            headers={["Ligand", "Formula", "Denticity"]}
+            rows={[
+              { cells: ["Chloride", "Cl⁻", "1"] },
+              { cells: ["Water", "H₂O", "1"] },
+              { cells: ["Ammonia", "NH₃", "1"] },
+              { cells: ["Ethane-1,2-diamine (en)", "H₂NCH₂CH₂NH₂", "2"] },
+              { cells: ["Oxalate", "C₂O₄²⁻", "2"] },
+              { cells: ["EDTA", "EDTA⁴⁻", "6"] },
+            ]}
+          />
+          <KeyPoint title="Chelate effect">
+            <p>
+              Chelation: di‑or polydentate ligands bind through two or more donor atoms to the same metal,
+              forming ring complexes (chelates). Chelate complexes are more stable than complexes of
+              comparable unidentate ligands.
+            </p>
+            <p className="mt-2 text-sm">
+              Examples: C₂O₄²⁻ (oxalate), H₂NCH₂CH₂NH₂ (ethane‑1,2‑diamine).
+            </p>
+          </KeyPoint>
+          <p>Ambidentate ligands (two donor atoms, coordinate through one at a time):</p>
+          <TableCard
+            caption="Ambidentate ligands"
+            headers={["Ligand", "Donor atom", "Representation"]}
+            rows={[
+              { cells: ["Nitrite NO₂⁻", "N or O", "M–NO₂ / M–ONO"] },
+              { cells: ["Thiocyanate SCN⁻", "S or N", "M–SCN / M–NCS"] },
+            ]}
+          />
+        </>
+      ),
+    },
+    {
+      id: "h-5-intro-cn",
+      icon: "🔢",
+      label: "4️⃣ Coordination Number",
+      note: "CN calculation examples",
+      content: (
+        <>
+          <h3>e. 🔢 Coordination Number (CN)</h3>
+          <TableCard
+            caption="Coordination number examples"
+            headers={["Complex", "Calculation", "CN"]}
+            rows={[
+              { cells: ["[PtCl₆]²⁻", "6 × 1", "6"] },
+              { cells: ["[Ni(NH₃)₄]²⁺", "4 × 1", "4"] },
+              { cells: ["[Fe(C₂O₄)₃]³⁻", "3 × 2", "6"] },
+              { cells: ["[Co(en)₃]³⁺", "3 × 2", "6"] },
+            ]}
+          />
+          <FormulaBlock latex={String.raw`CN = \sum(\text{Ligand count} \times \text{Denticity})`} />
+          <p>CN counts donor atoms, not ligand molecules: 3 bidentate ligands → CN = 6; 6 monodentate ligands → CN = 6.</p>
+        </>
+      ),
+    },
+    {
+      id: "h-5-intro-polyhedron",
+      icon: "📐",
+      label: "5️⃣ Coordination Polyhedron",
+      note: "Octahedral, tetrahedral, square‑planar",
+      content: (
+        <>
+          <h3>f. 📐 Coordination Polyhedron</h3>
+          <p>Three‑dimensional geometrical arrangement of ligand donor atoms around the central metal.</p>
+          <Comparison
+            columns={[
+              {
+                title: "Octahedral (CN = 6)",
+                children: (
+                  <>
+                    <svg viewBox="0 0 120 120" width="120" height="120" className="mx-auto" aria-label="Octahedral geometry">
+                      <line x1="60" y1="60" x2="60" y2="12" stroke="currentColor" strokeWidth="1.5" />
+                      <line x1="60" y1="60" x2="60" y2="108" stroke="currentColor" strokeWidth="1.5" />
+                      <line x1="60" y1="60" x2="12" y2="60" stroke="currentColor" strokeWidth="1.5" />
+                      <line x1="60" y1="60" x2="108" y2="60" stroke="currentColor" strokeWidth="1.5" />
+                      <line x1="60" y1="60" x2="84" y2="36" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3,3" />
+                      <line x1="60" y1="60" x2="36" y2="84" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3,3" />
+                      <circle cx="60" cy="60" r="7" fill="currentColor" />
+                      <text x="60" y="62" textAnchor="middle" fontSize="8" fill="white">M</text>
+                      <circle cx="60" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="60" cy="108" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="12" cy="60" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="108" cy="60" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="84" cy="36" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="36" cy="84" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                    </svg>
+                    <p className="mt-2">Example: [Co(NH₃)₆]³⁺.</p>
+                  </>
+                ),
+              },
+              {
+                title: "Tetrahedral (CN = 4)",
+                children: (
+                  <>
+                    <svg viewBox="0 0 120 120" width="120" height="120" className="mx-auto" aria-label="Tetrahedral geometry">
+                      <line x1="60" y1="60" x2="32" y2="32" stroke="currentColor" strokeWidth="1.5" />
+                      <line x1="60" y1="60" x2="88" y2="32" stroke="currentColor" strokeWidth="1.5" />
+                      <line x1="60" y1="60" x2="32" y2="88" stroke="currentColor" strokeWidth="1.5" />
+                      <line x1="60" y1="60" x2="88" y2="88" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3,3" />
+                      <circle cx="60" cy="60" r="7" fill="currentColor" />
+                      <text x="60" y="62" textAnchor="middle" fontSize="8" fill="white">M</text>
+                      <circle cx="32" cy="32" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="88" cy="32" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="32" cy="88" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="88" cy="88" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                    </svg>
+                    <p className="mt-2">Example: [Ni(CO)₄].</p>
+                  </>
+                ),
+              },
+              {
+                title: "Square planar (CN = 4)",
+                children: (
+                  <>
+                    <svg viewBox="0 0 120 120" width="120" height="120" className="mx-auto" aria-label="Square planar geometry">
+                      <line x1="60" y1="60" x2="60" y2="18" stroke="currentColor" strokeWidth="1.5" />
+                      <line x1="60" y1="60" x2="60" y2="102" stroke="currentColor" strokeWidth="1.5" />
+                      <line x1="60" y1="60" x2="18" y2="60" stroke="currentColor" strokeWidth="1.5" />
+                      <line x1="60" y1="60" x2="102" y2="60" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="60" cy="60" r="7" fill="currentColor" />
+                      <text x="60" y="62" textAnchor="middle" fontSize="8" fill="white" />
+                      <circle cx="60" cy="18" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="60" cy="102" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="18" cy="60" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="102" cy="60" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                    </svg>
+                    <p className="mt-2">Example: [PtCl₄]²⁻.</p>
+                  </>
+                ),
+              },
+            ]}
+          />
+        </>
+      ),
+    },
+    {
+      id: "h-5-intro-oxidation",
+      icon: "🏷️",
+      label: "6️⃣ Oxidation Number",
+      note: "Definition + worked examples",
+      content: (
+        <>
+          <h3>g. 🏷️ Oxidation Number of Central Metal</h3>
+          <p>Definition: the residual charge on the central metal atom/ion if all ligands are removed along with their shared electron pairs. Notation: a Roman numeral in parentheses, e.g. Fe(II), Ni(II).</p>
+          <FormulaBlock latex={String.raw`x + \sum(\text{Ligand charges}) = \text{Complex charge}`} />
+          <p>Example: [Cu(CN)₄]³⁻.</p>
+          <FormulaBlock latex={String.raw`x + 4(-1) = -3 \;\Rightarrow\; x = +1`} />
+          <p>Copper oxidation state = +1 → Cu(I).</p>
+          <p className="mt-2 font-semibold">A. [Ni(NH₃)₄]²⁺</p>
+          <FormulaBlock latex={String.raw`x + 4(0) = +2 \;\Rightarrow\; x = +2 \;\Rightarrow\; \text{Ni} = +2 \;(\text{Ni(II)})`} />
+          <p className="mt-2 font-semibold">B. K₄[Fe(CN)₆]</p>
+          <FormulaBlock latex={String.raw`4(+1) + x + 6(-1) = 0 \;\Rightarrow\; x - 2 = 0 \;\Rightarrow\; x = +2 \;\Rightarrow\; \text{Fe} = +2 \;(\text{Fe(II)})`} />
+          <p className="mt-2 font-semibold">C. K₃[Fe(CN)₆]</p>
+          <FormulaBlock latex={String.raw`3(+1) + x + 6(-1) = 0 \;\Rightarrow\; x - 3 = 0 \;\Rightarrow\; x = +3 \;\Rightarrow\; \text{Fe} = +3 \;(\text{Fe(III)})`} />
+          <p className="mt-2 font-semibold">D. [Ni(CO)₄]</p>
+          <FormulaBlock latex={String.raw`x + 4(0) = 0 \;\Rightarrow\; x = 0 \;\Rightarrow\; \text{Ni} = 0`} />
+          <p className="mt-2 font-semibold">E. [Co(NH₃)₄Cl₂]⁺</p>
+          <FormulaBlock latex={String.raw`x + 4(0) + 2(-1) = +1 \;\Rightarrow\; x - 2 = +1 \;\Rightarrow\; x = +3 \;\Rightarrow\; \text{Co} = +3 \;(\text{Co(III)})`} />
+        </>
+      ),
+    },
+    {
+      id: "h-5-intro-homo-hetero",
+      icon: "🔀",
+      label: "7️⃣ Homoleptic vs Heteroleptic",
+      note: "Category comparison",
+      content: (
+        <>
+          <h3>h. 🔀 Homoleptic vs Heteroleptic</h3>
+          <TableCard
+            caption="Complex category (merged)"
+            headers={["Category", "Definition", "Representative example"]}
+            rows={[
+              { cells: ["Homoleptic", "Metal bound to only one kind of donor group.", "[Co(NH₃)₆]³+ (bound solely to NH₃)."] },
+              { cells: ["Heteroleptic", "Metal bound to more than one kind of donor group.", "[Co(NH₃)₄Cl₂]⁺ (bound to both NH₃ and Cl⁻)."] },
+            ]}
+          />
+        </>
+      ),
+    },
+    {
+      id: "h-5-intro-double-complex",
+      icon: "🧪",
+      label: "8️⃣ Double vs Complex Salt",
+      note: "Comparison of salt types",
+      content: (
+        <>
+          <h3>i. 🧪 Double Salt vs. Complex Salt</h3>
+          <Comparison
+            columns={[
+              {
+                title: "Double salt",
+                children: (
+                  <ul>
+                    <li>Keeps identity only in the solid state; dissociates completely in solution into simple ions.</li>
+                    <li>Mohr&apos;s salt: FeSO₄·(NH₄)₂SO₄·6H₂O.</li>
+                    <li>Carnallite: KCl·MgCl₂·6H₂O.</li>
+                    <li>Potash alum: K₂SO₄·Al₂(SO₄)₃·24H₂O.</li>
+                  </ul>
+                ),
+              },
+              {
+                title: "Complex salt",
+                children: (
+                  <ul>
+                    <li>Keeps identity in both solid and solution states.</li>
+                    <li>K₄[Fe(CN)₆], [Cu(NH₃)₄]SO₄, K₂[PtCl₄], [Ni(CO)₄].</li>
+                  </ul>
+                ),
+              },
+            ]}
+          />
+        </>
+      ),
+    },
+  ]} />
+<h3>b. 📦 Coordination Entity &amp; Coordination Sphere</h3>
       <ul>
         <li>Coordination entity: metal atom/ion bonded to a fixed number of ligands.</li>
         <li>Coordination sphere: central metal + attached ligands enclosed in square brackets [ ].</li>
@@ -255,7 +546,8 @@ export default function CoordinationCompoundsChapter() {
         ]}
       />
 
-      <h2 id="h-5-1">5.1 Werner&apos;s Theory of Coordination Compounds</h2>
+      {/* END OLD INTRO */}
+<h2 id="h-5-1">5.1 Werner&apos;s Theory of Coordination Compounds</h2>
 
       <p>
         Alfred Werner (1866–1919) was the first to formulate ideas about the structures of
