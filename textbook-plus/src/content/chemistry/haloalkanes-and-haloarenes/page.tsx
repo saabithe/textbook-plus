@@ -1553,7 +1553,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
           {
             id: "h-6-7-1-block-1",
             icon: "🔄",
-            label: "Block 1: Nucleophilic substitution (reagents, products, SN2 & SN1 mechanisms)",
+            label: "Block 1: Nucleophilic substitution (incl. stereochemistry)",
             note: "Reagents, Products, Mechanisms",
             content: (
               <>
@@ -1626,47 +1626,21 @@ export default function HaloalkanesAndHaloarenesChapter() {
                     { cells: ["Stereochemical outcome", "Racemisation", "Inversion only"] },
                   ]}
                 />
-              </>
-            ),
-          },
-          {
-            id: "h-6-7-1-block-2",
-            icon: "‣",
-            label: "Block 2: Stereochemistry — optical activity, chirality and enantiomers",
-            note: "Stereochemistry",
-            content: (
-              <>
-                <p className="text-sm font-semibold">Optical Activity</p>
+                <p className="mt-3 text-sm font-semibold">Optical Activity, Chirality &amp; Enantiomers</p>
                 <ul className="list-disc pl-5 space-y-1 text-xs text-muted-foreground">
                   <li><strong>Ordinary Light:</strong> vibrates in all planes perpendicular to propagation.</li>
                   <li><strong>Nicol Prism:</strong> used to obtain plane-polarised light.</li>
                   <li><strong>Dextrorotatory (d / +):</strong> rotates PPL to the right (clockwise).</li>
                   <li><strong>Laevo (l / -):</strong> rotates PPL to the left (counter-clockwise).</li>
+                  <li>A carbon bonded to four different groups is an asymmetric/chiral carbon; achiral = super-imposable mirror images; chiral = enantiomers.</li>
                 </ul>
 
-                <p className="mt-3 text-sm font-semibold">Chirality &amp; Asymmetric Carbon</p>
+                <p className="mt-3 text-sm font-semibold">Stereochemical outcomes / racemisation</p>
                 <ul className="list-disc pl-5 space-y-1 text-xs text-muted-foreground">
-                  <li>A carbon bonded to four different groups is a chiral/asymmetric carbon.</li>
-                  <li><strong>Example:</strong> H–C(Cl)(Br)–CH₃.</li>
-                  <li><strong>Achiral:</strong> super-imposable mirror images.</li>
-                  <li><strong>Chiral:</strong> non-super-imposable mirror images (enantiomers).</li>
-                </ul>
-              </>
-            ),
-          },
-          {
-            id: "h-6-7-1-block-3",
-            icon: "♻️",
-            label: "Block 3: Stereochemical outcomes — retention, inversion, racemisation",
-            note: "Outcomes",
-            content: (
-              <>
-                <p className="text-sm font-semibold">Racemic mixture &amp; outcomes</p>
-                <ul className="list-disc pl-5 space-y-1 text-xs text-muted-foreground">
-                  <li><strong>Racemic mixture:</strong> 50% d + 50% l, optically inactive (external compensation).</li>
-                  <li><strong>Inversion:</strong> attack gives opposite spatial configuration.</li>
-                  <li><strong>Retention:</strong> original spatial configuration preserved.</li>
-                  <li><strong>Racemisation:</strong> equimolar mixture obtained, optically inactive.</li>
+                  <li>Racemic mixture: 50% d + 50% l; optically inactive due to external compensation.</li>
+                  <li>Inversion: opposite spatial configuration (e.g., SN2).</li>
+                  <li>Retention: configuration preserved.</li>
+                  <li>Racemisation: equimolar mixture formed; inactive.</li>
                 </ul>
               </>
             ),
@@ -1858,7 +1832,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
       </Expandable>
 
       <h3 id="h-6-7-3">
-6.7.3 β-Elimination (Dehydrohalogenation)</h3>
+6.7.3 Block 2 — β-Elimination (Dehydrohalogenation)</h3>
 
       <p>Halides also undergo elimination: a halogen is removed from the α‑carbon and a hydrogen from the adjacent β‑carbon, producing an alkene.</p>
 
@@ -1963,7 +1937,7 @@ export default function HaloalkanesAndHaloarenesChapter() {
         </div>
       </section>
 
-      <h3 id="h-6-7-4">6.7.4 Reactions with Metals</h3>
+      <h3 id="h-6-7-4">6.7.4 Block 3 — Reactions with Metals</h3>
 
       <p>Active metals (Na, Mg) react with haloalkanes to give alkanes/organometallics.</p>
 
