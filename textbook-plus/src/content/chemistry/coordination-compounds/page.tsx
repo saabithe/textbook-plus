@@ -552,66 +552,74 @@ export default function CoordinationCompoundsChapter() {
 <h2 id="h-5-1">5.1 Werner&apos;s Theory of Coordination Compounds</h2>
 
       <p>
-        Alfred Werner (1866–1919) was the first to formulate ideas about the structures of
-        coordination compounds. He proposed the concept of a <strong>primary valence</strong> and a
-        <strong> secondary valence</strong> for a metal ion.
+        Alfred Werner (1866–1919) was the first to explain the structures of coordination compounds.
+        He proposed that every metal atom or ion in a complex has <strong>two types of valency</strong> —
+        primary and secondary.
       </p>
 
+      <Callout type="important" title="Two types of valency">
+        <ul>
+          <li><strong>Primary valency</strong> — ionisable and non‑directional; decides the oxidation state of the metal.</li>
+          <li><strong>Secondary valency</strong> — non‑ionisable and directional; decides the coordination number and spatial arrangement of ligands.</li>
+        </ul>
+      </Callout>
+
       <ul>
-        <li>Binary compounds such as CrCl<sub>3</sub>, CoCl<sub>2</sub>, PdCl<sub>2</sub> have primary valences of 3, 2 and 2 respectively.</li>
-        <li>In cobalt(III) chloride–ammonia complexes, some chloride ions precipitate as AgCl on adding excess AgNO<sub>3</sub> in cold, and some do not.</li>
+        <li>Primary valency is satisfied by negative ions.</li>
+        <li>Secondary valency is satisfied by negative ions or neutral molecules.</li>
+        <li>The geometry of the complex depends on the secondary valency.</li>
       </ul>
 
       <TableCard
-        caption="Table 5.1: Formulation of Cobalt(III) Chloride–Ammonia Complexes"
-        headers={["Colour", "Formula", "Solution conductivity corresponds to"]}
+        title="Primary vs secondary valency"
+        headers={["Feature", "Primary valency", "Secondary valency"]}
         rows={[
-          { cells: ["Yellow", "[Co(NH₃)₆]³⁺ 3Cl⁻", "1:3 electrolyte"] },
-          { cells: ["Purple", "[CoCl(NH₃)₅]²⁺ 2Cl⁻", "1:2 electrolyte"] },
-          { cells: ["Green", "[CoCl₂(NH₃)₄]⁺ Cl⁻", "1:1 electrolyte"] },
-          { cells: ["Violet", "[CoCl₂(NH₃)₄]⁺ Cl⁻", "1:1 electrolyte"] },
+          { cells: ["Meaning", <strong key="primary-meaning">Oxidation state</strong>, <strong key="secondary-meaning">Coordination number</strong>] },
+          { cells: ["Ionisability", "Ionisable", "Non-ionisable"] },
+          { cells: ["Satisfied by", "Negative ions", "Negative ions or neutral molecules"] },
+          { cells: ["Direction", "Non-directional", "Directional"] },
+          { cells: ["Determines", <strong key="primary-determines">Oxidation state</strong>, <strong key="secondary-determines">Geometry</strong>] },
+          { cells: ["Nature", "May vary with oxidation state", "Fixed for a given metal ion in a particular oxidation state"] },
         ]}
       />
 
-      <p>
-        The last two compounds have the same empirical formula CoCl<sub>3</sub>·4NH<sub>3</sub> but
-        different properties — they are <strong>isomers</strong>. The atoms inside the square brackets
-        form a single entity that does not dissociate under the reaction conditions.
-      </p>
+      <h3 id="h-5-1-board">Board Exam Questions &amp; Solutions</h3>
 
-      <KeyPoint title="Werner's postulates (1898)">
-        <ol>
-          <li>Metals in coordination compounds show two types of linkages — primary and secondary.</li>
-          <li>Primary valences are normally <strong>ionisable</strong> and are satisfied by negative ions.</li>
-          <li>Secondary valences are <strong>non-ionisable</strong>; they are satisfied by neutral molecules or negative ions. The secondary valence equals the coordination number and is fixed for a metal.</li>
-          <li>Ions/groups bound by secondary linkages to the metal have characteristic <strong>spatial arrangements</strong> corresponding to different coordination numbers (coordination polyhedra).</li>
-        </ol>
-      </KeyPoint>
-
-      <p>
-        Species inside the bracket are <strong>coordination entities</strong> (complexes); ions outside
-        the bracket are <strong>counter ions</strong>. Octahedral, tetrahedral and square planar
-        geometries are most common: [Co(NH<sub>3</sub>)<sub>6</sub>]<sup>3+</sup>,
-        [CoCl(NH<sub>3</sub>)<sub>5</sub>]<sup>2+</sup> and
-        [CoCl<sub>2</sub>(NH<sub>3</sub>)<sub>4</sub>]<sup>+</sup> are octahedral, while
-        [Ni(CO)<sub>4</sub>] is tetrahedral and [PtCl<sub>4</sub>]<sup>2−</sup> is square planar.
-      </p>
-
-      <Expandable title="Example 5.1 — Assign secondary valences from AgCl precipitation" variant="example">
-        <p>
-          <strong>Question:</strong> On the basis of the observations made with aqueous solutions,
-          assign secondary valences to metals in: (i) PdCl<sub>2</sub>·4NH<sub>3</sub> — 2 mol AgCl
-          (ii) NiCl<sub>2</sub>·6H<sub>2</sub>O — 2 mol AgCl (iii) PtCl<sub>4</sub>·2HCl — 0 mol AgCl
-          (iv) CoCl<sub>3</sub>·4NH<sub>3</sub> — 1 mol AgCl (v) PtCl<sub>2</sub>·2NH<sub>3</sub> — 0 mol AgCl.
-        </p>
-        <p><strong>Solution:</strong> The number of chloride ions precipitated gives the number of ionisable chlorides; the rest stay bound to the metal.</p>
-        <ul>
-          <li>(i) Secondary 4 — [Pd(NH<sub>3</sub>)<sub>4</sub>]Cl<sub>2</sub></li>
-          <li>(ii) Secondary 6 — [Ni(H<sub>2</sub>O)<sub>6</sub>]Cl<sub>2</sub></li>
-          <li>(iii) Secondary 6 — H<sub>2</sub>[PtCl<sub>6</sub>]</li>
-          <li>(iv) Secondary 6 — [CoCl<sub>2</sub>(NH<sub>3</sub>)<sub>4</sub>]Cl</li>
-          <li>(v) Secondary 4 — [PtCl<sub>2</sub>(NH<sub>3</sub>)<sub>2</sub>]</li>
-        </ul>
+      <Expandable title="Board Exam Questions & Solutions" variant="example">
+        <ExerciseQa
+          questions={[
+            <>Assign the primary and secondary valencies of the central metal in <code>[Ni(CO)₄]</code>.</>,
+            <>KCN is poisonous, but <code>K₄[Fe(CN)₆]</code> is not. Why?</>,
+            <>How many moles of <code>AgCl</code> are formed when each cobalt–ammonia complex reacts with <code>AgNO₃</code>?</>,
+            <>According to Werner&apos;s theory, the secondary valencies of a metal ion are:</>,
+            <>Which valency determines the spatial arrangement of ligands around the central metal ion?</>,
+          ]}
+          answers={[
+            <div key="q1" className="space-y-2">
+              <p><code>[Ni(CO)₄]⁰</code></p>
+              <ul>
+                <li>Primary valency = 0 (oxidation state).</li>
+                <li>Secondary valency = 4 (coordination number).</li>
+              </ul>
+              <p><em>March 2020</em></p>
+            </div>,
+            <div key="q2" className="space-y-2">
+              <ul>
+                <li><code>KCN → K⁺ + CN⁻</code> — releases free CN⁻ ions, which are toxic.</li>
+                <li><code>K₄[Fe(CN)₆] → 4K⁺ + [Fe(CN)₆]⁴⁻</code> — does not release free CN⁻ because the complex ion is stable.</li>
+              </ul>
+            </div>,
+            <div key="q3" className="space-y-2">
+              <ul>
+                <li><code>CoCl₃·6NH₃</code> (yellow) → <code>[Co(NH₃)₆]Cl₃ + 3Ag⁺ → 3AgCl</code> (3 moles).</li>
+                <li><code>CoCl₃·5NH₃</code> (purple) → <code>[Co(NH₃)₅Cl]Cl₂ + 2Ag⁺ → 2AgCl</code> (2 moles).</li>
+                <li><code>CoCl₃·4NH₃</code> (green/violet) → <code>[Co(NH₃)₄Cl₂]Cl + Ag⁺ → AgCl</code> (1 mole).</li>
+              </ul>
+            </div>,
+            <>Fixed for a given metal ion in a particular oxidation state.</>,
+            <>Secondary valency.</>,
+          ]}
+        />
       </Expandable>
 
 
