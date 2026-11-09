@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { SubjectCard } from "@/components/subject/SubjectCard";
+import Link from "next/link";
 import { subjects } from "@/data/subjects";
 
 export default function HomePage() {
@@ -31,6 +32,15 @@ export default function HomePage() {
             {subjects.map((subject) => (
               <SubjectCard key={subject.id} subject={subject} />
             ))}
+          </div>
+
+          {/* Component Library link */}
+          <div className="mt-12 border-t border-border pt-6 flex items-center justify-between">
+            <div className="space-y-1">
+              <h2 className="text-lg font-medium">Component Library</h2>
+              <p className="text-sm text-muted-foreground">All UI primitives, content blocks, and interactive widgets in one place (dev only).</p>
+            </div>
+            <Link href="/dev/components" className="text-sm font-medium text-primary underline">View library →</Link>
           </div>
         </section>
       </main>
