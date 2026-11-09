@@ -8,102 +8,339 @@ import { FactCard } from "@/components/content/concept/FactCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { HydroxylFormationCards } from "@/components/content/chemistry/HydroxylFormationCards";
+import { HydroxylGroupClassification } from "@/components/content/chemistry/HydroxylGroupClassification";
+import { AlcoholTypeCards } from "@/components/content/chemistry/AlcoholTypeCards";
+import { StructureFeatureCard } from "@/components/content/chemistry/StructureFeatureCard";
+import { Sp2HydroxylComparison } from "@/components/content/chemistry/Sp2HydroxylComparison";
+import { EtherClassification } from "@/components/content/chemistry/EtherClassification";
+import { BenzeneRing, StructureMark } from "@/components/content/chemistry/StructureGlyphs";
 
 export default function AlcoholsPhenolsEthersChapter() {
   return (
     <>
-      <Callout type="didyouknow">
-        Alcohols, phenols and ethers are the basic compounds for the formation of{" "}
-        <strong>detergents, antiseptics and fragrances</strong> respectively. The spirit used for
-        polishing wooden furniture is chiefly ethanol — a compound containing a hydroxyl group.
-      </Callout>
-
       <p>
-        An <strong>alcohol</strong> contains one or more hydroxyl (—OH) groups directly attached to
-        carbon atom(s) of an aliphatic system (CH<sub>3</sub>OH). A <strong>phenol</strong> contains
-        —OH group(s) directly attached to carbon atom(s) of an aromatic system (C<sub>6</sub>H
-        <sub>5</sub>OH). Replacing a hydrogen atom of a hydrocarbon by an alkoxy or aryloxy group
-        (R—O/Ar—O) gives an <strong>ether</strong>, for example CH<sub>3</sub>OCH<sub>3</sub>. Ethers
-        can also be seen as compounds formed by replacing the hydrogen of the hydroxyl group of an
-        alcohol or phenol by an alkyl or aryl group.
+        <strong>Alcohols</strong> and <strong>phenols</strong> are hydroxyl derivatives of
+        hydrocarbons.
       </p>
 
-      <h2 id="h-7-1">7.1 Classification</h2>
-
-      <h3 id="h-7-1-1">7.1.1 Alcohols — Mono, Di, Tri or Polyhydric</h3>
-
-      <p>
-        Alcohols and phenols are classified as mono-, di-, tri- or polyhydric depending on whether
-        they contain one, two, three or many hydroxyl groups.
-      </p>
-
-      <TableCard
-        caption="Classification by number of —OH groups"
-        headers={["Type", "—OH groups", "Example"]}
-        rows={[
-          { cells: ["Monohydric", "One", "CH₃CH₂OH (ethanol)"] },
-          { cells: ["Dihydric", "Two", "HOCH₂CH₂OH (ethane-1,2-diol, ethylene glycol)"] },
-          { cells: ["Trihydric", "Three", "HOCH₂CH(OH)CH₂OH (propane-1,2,3-triol, glycerol)"] },
-          { cells: ["Polyhydric", "Many", "Sugars, starch, cellulose"] },
+      <HydroxylFormationCards
+        transformations={[
+          {
+            label: "Methane → Methanol",
+            reactant: (
+              <>
+                CH<sub>4</sub>
+              </>
+            ),
+            product: (
+              <>
+                CH<sub>3</sub>
+                <StructureMark>OH</StructureMark>
+              </>
+            ),
+          },
+          {
+            label: "Benzene → Phenol",
+            reactant: <BenzeneRing />,
+            product: (
+              <>
+                <BenzeneRing bond />
+                <StructureMark>OH</StructureMark>
+              </>
+            ),
+          },
         ]}
       />
 
-      
+      <h2 id="h-7-1">7.1 Classification of Alcohols, Phenols and Ethers</h2>
+
+      <h3 id="h-7-1-1">7.1.1 Based on the Number of Hydroxyl Groups (–OH)</h3>
+
+      <HydroxylGroupClassification
+        alcoholRows={[
+          {
+            classification: "Monohydric",
+            groups: "1",
+            example: (
+              <>
+                Ethanol: C<sub>2</sub>H<sub>5</sub>OH
+              </>
+            ),
+          },
+          {
+            classification: "Dihydric",
+            groups: "2",
+            example: (
+              <>
+                Ethylene glycol: CH<sub>2</sub>OH–CH<sub>2</sub>OH
+              </>
+            ),
+          },
+          {
+            classification: "Trihydric",
+            groups: "3",
+            example: (
+              <>
+                Glycerol: CH<sub>2</sub>OH–CHOH–CH<sub>2</sub>OH
+              </>
+            ),
+          },
+          {
+            classification: "Polyhydric",
+            groups: "Many",
+            example: "Glucose, fructose",
+          },
+        ]}
+        phenolClasses={[
+          { classification: "Monohydric phenols", groups: "One –OH group" },
+          { classification: "Dihydric phenols", groups: "Two –OH groups" },
+          { classification: "Trihydric phenols", groups: "Three –OH groups" },
+        ]}
+      />
+
+      <h3 id="h-7-1-2">7.1.2 Monohydric Alcohols Containing an sp³ C—OH Bond</h3>
 
       <p>
-        Monohydric alcohols are further classified according to the hybridisation of the carbon
-        carrying the —OH group.
+        Monohydric alcohols in which the –OH group is bonded to an <em>sp</em>
+        <sup>3</sup> hybridised carbon atom are further classified into three structural categories.
       </p>
+
+      <h4 id="h-7-1-2-a">A. Primary, secondary and tertiary alcohols</h4>
+
+      <AlcoholTypeCards
+        types={[
+          {
+            type: "Primary",
+            degree: "1°",
+            classification: "–OH attached to a primary carbon.",
+            formula: {
+              before: (
+                <>
+                  CH<sub>3</sub>–
+                </>
+              ),
+              focus: (
+                <>
+                  CH<sub>2</sub>–OH
+                </>
+              ),
+              after: "",
+            },
+          },
+          {
+            type: "Secondary",
+            degree: "2°",
+            classification: "–OH attached to a secondary carbon.",
+            formula: {
+              before: (
+                <>
+                  CH<sub>3</sub>–
+                </>
+              ),
+              focus: "CH(OH)",
+              after: (
+                <>
+                  –CH<sub>3</sub>
+                </>
+              ),
+            },
+          },
+          {
+            type: "Tertiary",
+            degree: "3°",
+            classification: "–OH attached to a tertiary carbon.",
+            formula: {
+              before: (
+                <>
+                  CH<sub>3</sub>–
+                </>
+              ),
+              focus: (
+                <>
+                  C(OH)(CH<sub>3</sub>)
+                </>
+              ),
+              after: (
+                <>
+                  –CH<sub>3</sub>
+                </>
+              ),
+            },
+          },
+        ]}
+      />
+
+      <h4 id="h-7-1-2-b">B. Allylic alcohols</h4>
+
+      <StructureFeatureCard
+        title="Allylic alcohols"
+        definition={
+          <>
+            The –OH group is attached to an <em>sp</em>
+            <sup>3</sup> hybridised carbon adjacent to a carbon–carbon double bond (C=C). This
+            carbon is called an allylic carbon.
+          </>
+        }
+        structure={
+          <>
+            <StructureMark tone="warning">
+              CH<sub>2</sub>=CH
+            </StructureMark>
+            <span className="mx-0.5">–</span>
+            <StructureMark>
+              CH<sub>2</sub>–OH
+            </StructureMark>
+          </>
+        }
+        legend={[
+          { label: "C=C double bond", tone: "warning" },
+          { label: "sp³ carbon carrying –OH", tone: "chemistry" },
+        ]}
+        note={{
+          label: "Substitution degree",
+          text: "can be primary, secondary or tertiary depending on the substitution at the allylic carbon.",
+        }}
+      />
+
+      <h4 id="h-7-1-2-c">C. Benzylic alcohols</h4>
+
+      <StructureFeatureCard
+        title="Benzylic alcohols"
+        definition={
+          <>
+            The –OH group is attached to an <em>sp</em>
+            <sup>3</sup> hybridised carbon directly adjacent to an aromatic ring.
+          </>
+        }
+        structure={
+          <span className="inline-flex items-center gap-1">
+            <BenzeneRing tone="warning" bond />
+            <StructureMark>
+              CH<sub>2</sub>
+            </StructureMark>
+            <span>OH</span>
+          </span>
+        }
+        structureCaption="Benzene ring attached to –CH₂OH."
+        legend={[
+          { label: "Aromatic ring", tone: "warning" },
+          { label: "sp³ carbon carrying –OH", tone: "chemistry" },
+        ]}
+        note={{
+          label: "Substitution degree",
+          text: "can be primary, secondary or tertiary.",
+        }}
+      />
+
+      <h3 id="h-7-1-3">7.1.3 Compounds Containing an sp² C—OH Bond</h3>
 
       <p>
-        <strong>(i) Compounds containing an sp³ C—OH bond.</strong> The —OH group is attached to an{" "}
-        <em>sp</em>
-        <sup>3</sup> hybridised carbon of an alkyl group. These are further divided into:
+        These compounds contain an –OH group bonded directly to an <em>sp</em>
+        <sup>2</sup> hybridised carbon atom.
       </p>
 
-      <ul>
-        <li>
-          <strong>Primary, secondary and tertiary alcohols</strong> — the —OH group is attached to a
-          primary, secondary or tertiary carbon respectively.
-        </li>
-        <li>
-          <strong>Allylic alcohols</strong> — the —OH group is attached to an <em>sp</em>
-          <sup>3</sup> carbon adjacent to a C=C bond, i.e. to an allylic carbon.
-        </li>
-        <li>
-          <strong>Benzylic alcohols</strong> — the —OH group is attached to an <em>sp</em>
-          <sup>3</sup> carbon next to an aromatic ring.
-        </li>
-      </ul>
+      <Sp2HydroxylComparison
+        cases={[
+          {
+            title: "Vinylic alcohols",
+            structure: (
+              <>
+                CH<sub>2</sub>=<StructureMark>CH</StructureMark>–OH
+              </>
+            ),
+            caption: "Vinyl alcohol",
+            definition:
+              "The –OH group is bonded directly to a carbon–carbon double bond, i.e., to a vinylic carbon.",
+          },
+          {
+            title: "Phenols",
+            structure: (
+              <span className="inline-flex items-center gap-0.5">
+                <BenzeneRing bond vertexDot />
+                <span>OH</span>
+              </span>
+            ),
+            caption: "Phenol",
+            definition:
+              "The –OH group is bonded directly to an aryl carbon of an aromatic ring.",
+          },
+        ]}
+      />
+
+      <h3 id="h-7-1-4">7.1.4 Classification of Ethers</h3>
 
       <p>
-        Allylic and benzylic alcohols may themselves be primary, secondary or tertiary.
+        Ethers are classified based on whether the two alkyl or aryl groups attached to the oxygen
+        atom are identical or different.
       </p>
 
-      <p>
-        <strong>(ii) Compounds containing an sp² C—OH bond.</strong> These alcohols contain —OH bonded
-        to a carbon–carbon double bond (a vinylic carbon) or to an aryl carbon; they are also called{" "}
-        <strong>vinylic alcohols</strong>. Example: CH<sub>2</sub>=CH—OH.
-      </p>
-
-      <h3 id="h-7-1-2">7.1.2 Phenols — Mono, Di and Trihydric Phenols</h3>
-
-      <p>
-        Phenols containing one, two or three hydroxyl groups attached to an aromatic ring are called
-        monohydric, dihydric and trihydric phenols respectively.
-      </p>
-
-      
-
-      <h3 id="h-7-1-3">7.1.3 Ethers</h3>
-
-      <p>
-        Ethers are <strong>simple or symmetrical</strong> when the two alkyl or aryl groups attached to
-        oxygen are the same, and <strong>mixed or unsymmetrical</strong> when they differ. Diethyl
-        ether, C<sub>2</sub>H<sub>5</sub>OC<sub>2</sub>H<sub>5</sub>, is symmetrical, whereas C
-        <sub>2</sub>H<sub>5</sub>OCH<sub>3</sub> and C<sub>2</sub>H<sub>5</sub>OC<sub>6</sub>H
-        <sub>5</sub> are unsymmetrical.
-      </p>
+      <EtherClassification
+        kinds={[
+          {
+            title: "Simple / Symmetrical ethers",
+            description: "Identical alkyl or aryl groups attached to oxygen.",
+            examples: [
+              {
+                left: (
+                  <>
+                    CH<sub>3</sub>
+                  </>
+                ),
+                right: (
+                  <>
+                    CH<sub>3</sub>
+                  </>
+                ),
+              },
+              {
+                left: (
+                  <>
+                    C<sub>2</sub>H<sub>5</sub>
+                  </>
+                ),
+                right: (
+                  <>
+                    C<sub>2</sub>H<sub>5</sub>
+                  </>
+                ),
+              },
+            ],
+          },
+          {
+            title: "Mixed / Unsymmetrical ethers",
+            description: "Different alkyl or aryl groups attached to oxygen.",
+            examples: [
+              {
+                left: (
+                  <>
+                    CH<sub>3</sub>
+                  </>
+                ),
+                right: (
+                  <>
+                    C<sub>2</sub>H<sub>5</sub>
+                  </>
+                ),
+                name: "Ethyl methyl ether",
+              },
+              {
+                left: (
+                  <>
+                    C<sub>2</sub>H<sub>5</sub>
+                  </>
+                ),
+                right: (
+                  <>
+                    C<sub>6</sub>H<sub>5</sub>
+                  </>
+                ),
+                name: "Ethyl phenyl ether",
+              },
+            ],
+          },
+        ]}
+      />
 
       <h2 id="h-7-2">7.2 Nomenclature</h2>
 

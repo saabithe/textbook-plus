@@ -55,6 +55,13 @@ import { PolynuclearCarbonylCards } from "@/components/content/chemistry/Polynuc
 import { DonationDiagram } from "@/components/content/chemistry/DonationDiagram";
 import { SynergicSummary } from "@/components/content/chemistry/SynergicSummary";
 import { GeometryLabel } from "@/components/content/chemistry/GeometryLabel";
+import { HydroxylFormationCards } from "@/components/content/chemistry/HydroxylFormationCards";
+import { HydroxylGroupClassification } from "@/components/content/chemistry/HydroxylGroupClassification";
+import { AlcoholTypeCards } from "@/components/content/chemistry/AlcoholTypeCards";
+import { StructureFeatureCard } from "@/components/content/chemistry/StructureFeatureCard";
+import { Sp2HydroxylComparison } from "@/components/content/chemistry/Sp2HydroxylComparison";
+import { EtherClassification } from "@/components/content/chemistry/EtherClassification";
+import { BenzeneRing, StructureMark } from "@/components/content/chemistry/StructureGlyphs";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -347,6 +354,145 @@ export default function DesignPage() {
         <DonationDiagram variant="sigma" />
         <DonationDiagram variant="pi" />
         <SynergicSummary />
+      </Section>
+
+      <Section title="Chemistry — alcohols, phenols & ethers">
+        <HydroxylFormationCards
+          transformations={[
+            {
+              label: "Methane → Methanol",
+              reactant: <>CH<sub>4</sub></>,
+              product: (
+                <>
+                  CH<sub>3</sub>
+                  <StructureMark>OH</StructureMark>
+                </>
+              ),
+            },
+            {
+              label: "Benzene → Phenol",
+              reactant: <BenzeneRing />,
+              product: (
+                <>
+                  <BenzeneRing bond />
+                  <StructureMark>OH</StructureMark>
+                </>
+              ),
+            },
+          ]}
+        />
+        <HydroxylGroupClassification
+          alcoholRows={[
+            { classification: "Monohydric", groups: "1", example: <>Ethanol: C<sub>2</sub>H<sub>5</sub>OH</> },
+            {
+              classification: "Dihydric",
+              groups: "2",
+              example: <>Ethylene glycol: CH<sub>2</sub>OH–CH<sub>2</sub>OH</>,
+            },
+            {
+              classification: "Trihydric",
+              groups: "3",
+              example: <>Glycerol: CH<sub>2</sub>OH–CHOH–CH<sub>2</sub>OH</>,
+            },
+            { classification: "Polyhydric", groups: "Many", example: "Glucose, fructose" },
+          ]}
+          phenolClasses={[
+            { classification: "Monohydric phenols", groups: "One –OH group" },
+            { classification: "Dihydric phenols", groups: "Two –OH groups" },
+            { classification: "Trihydric phenols", groups: "Three –OH groups" },
+          ]}
+        />
+        <AlcoholTypeCards
+          types={[
+            {
+              type: "Primary",
+              degree: "1°",
+              classification: "–OH attached to a primary carbon.",
+              formula: { before: <>CH<sub>3</sub>–</>, focus: <>CH<sub>2</sub>–OH</>, after: "" },
+            },
+            {
+              type: "Secondary",
+              degree: "2°",
+              classification: "–OH attached to a secondary carbon.",
+              formula: {
+                before: <>CH<sub>3</sub>–</>,
+                focus: "CH(OH)",
+                after: <>–CH<sub>3</sub></>,
+              },
+            },
+            {
+              type: "Tertiary",
+              degree: "3°",
+              classification: "–OH attached to a tertiary carbon.",
+              formula: {
+                before: <>CH<sub>3</sub>–</>,
+                focus: <>C(OH)(CH<sub>3</sub>)</>,
+                after: <>–CH<sub>3</sub></>,
+              },
+            },
+          ]}
+        />
+        <StructureFeatureCard
+          title="Allylic alcohols"
+          definition="The –OH group is attached to an sp³ hybridised carbon adjacent to a carbon–carbon double bond (C=C)."
+          structure={
+            <>
+              <StructureMark tone="warning">CH<sub>2</sub>=CH</StructureMark>
+              <span className="mx-0.5">–</span>
+              <StructureMark>CH<sub>2</sub>–OH</StructureMark>
+            </>
+          }
+          legend={[
+            { label: "C=C double bond", tone: "warning" },
+            { label: "sp³ carbon carrying –OH", tone: "chemistry" },
+          ]}
+          note={{ label: "Substitution degree", text: "can be primary, secondary or tertiary." }}
+        />
+        <Sp2HydroxylComparison
+          cases={[
+            {
+              title: "Vinylic alcohols",
+              structure: <>CH<sub>2</sub>=<StructureMark>CH</StructureMark>–OH</>,
+              caption: "Vinyl alcohol",
+              definition: "The –OH group is bonded directly to a carbon–carbon double bond.",
+            },
+            {
+              title: "Phenols",
+              structure: (
+                <span className="inline-flex items-center gap-0.5">
+                  <BenzeneRing bond vertexDot />
+                  <span>OH</span>
+                </span>
+              ),
+              caption: "Phenol",
+              definition: "The –OH group is bonded directly to an aryl carbon of an aromatic ring.",
+            },
+          ]}
+        />
+        <EtherClassification
+          kinds={[
+            {
+              title: "Simple / Symmetrical ethers",
+              description: "Identical alkyl or aryl groups attached to oxygen.",
+              examples: [
+                { left: <>CH<sub>3</sub></>, right: <>CH<sub>3</sub></> },
+                { left: <>C<sub>2</sub>H<sub>5</sub></>, right: <>C<sub>2</sub>H<sub>5</sub></> },
+              ],
+            },
+            {
+              title: "Mixed / Unsymmetrical ethers",
+              description: "Different alkyl or aryl groups attached to oxygen.",
+              examples: [
+                { left: <>CH<sub>3</sub></>, right: <>C<sub>2</sub>H<sub>5</sub></>, name: "Ethyl methyl ether" },
+                {
+                  left: <>C<sub>2</sub>H<sub>5</sub></>,
+                  right: <>C<sub>6</sub>H<sub>5</sub></>,
+                  name: "Ethyl phenyl ether",
+                },
+              ],
+            },
+          ]}
+        />
       </Section>
 
       <Section title="Study & answers">
