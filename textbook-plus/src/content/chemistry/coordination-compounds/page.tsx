@@ -20,6 +20,12 @@ import { CftFactorCards } from "@/components/content/chemistry/CftFactorCards";
 import { CftLimitationCards } from "@/components/content/chemistry/CftLimitationCards";
 import { DdTransitionFlow } from "@/components/content/chemistry/DdTransitionFlow";
 import { BoardMcq } from "@/components/content/chemistry/BoardMcq";
+import { StabilityConstantCard } from "@/components/content/chemistry/StabilityConstantCard";
+import { StabilityFactorCards } from "@/components/content/chemistry/StabilityFactorCards";
+import { GeometryLabel } from "@/components/content/chemistry/GeometryLabel";
+import { PolynuclearCarbonylCards } from "@/components/content/chemistry/PolynuclearCarbonylCards";
+import { DonationDiagram } from "@/components/content/chemistry/DonationDiagram";
+import { SynergicSummary } from "@/components/content/chemistry/SynergicSummary";
 
 export default function CoordinationCompoundsChapter() {
   return (
@@ -1228,33 +1234,135 @@ export default function CoordinationCompoundsChapter() {
         />
       </Expandable>
 
-      <h2 id="h-5-6">5.6 Bonding in Metal Carbonyls</h2>
+      <h2 id="h-5-6">5.6 Stability of Coordination Compounds and Bonding in Metal Carbonyls</h2>
 
-      <p>
-        Homoleptic carbonyls contain only carbonyl ligands and are formed by most transition metals.
-        They have simple, well-defined structures.
-      </p>
+      <h3 id="h-5-6-1">5.6.1 Stability of Coordination Compounds</h3>
 
-      <TableCard
-        title="Structures of representative homoleptic metal carbonyls"
-        headers={["Carbonyl", "Structure"]}
-        rows={[
-          { cells: ["Ni(CO)₄", "Tetrahedral"] },
-          { cells: ["Fe(CO)₅", "Trigonal bipyramidal"] },
-          { cells: ["Cr(CO)₆", "Octahedral"] },
-          { cells: ["Mn₂(CO)₁₀", "Two square pyramidal Mn(CO)₅ units joined by a Mn–Mn bond"] },
-          { cells: ["Co₂(CO)₈", "Co–Co bond bridged by two CO groups"] },
+      <StabilityConstantCard />
+
+      <h4 id="h-5-6-1-factors">Factors affecting stability</h4>
+
+      <StabilityFactorCards
+        factors={[
+          {
+            factor: "Nature of the metal ion",
+            detail: (
+              <>
+                Greater charge-to-radius ratio (
+                <Formula>{String.raw`\dfrac{\text{charge}}{\text{radius}}`}</Formula>) of the
+                metal ion increases stability.
+              </>
+            ),
+          },
+          {
+            factor: "Nature of the ligand",
+            detail: "Greater basic strength of the ligand increases stability.",
+          },
+          {
+            factor: "Presence of chelating ligands",
+            detail: "Increases the stability of the complex (chelate effect).",
+          },
         ]}
       />
 
-      <KeyPoint title="Synergic bonding in metal carbonyls">
-        <p>The M–C bond has both σ and π character.</p>
-        <ul>
-          <li><strong>σ bond:</strong> donation of the lone pair on the carbonyl carbon into a vacant orbital of the metal (ligand → metal).</li>
-          <li><strong>π bond:</strong> donation of a pair of electrons from a filled d orbital of the metal into the vacant antibonding π* orbital of CO (metal → ligand).</li>
-          <li>This metal-to-ligand back donation is the <strong>synergic effect</strong>; it strengthens the metal–carbon bond.</li>
-        </ul>
-      </KeyPoint>
+      <h3 id="h-5-6-2">5.6.2 Bonding in Metal Carbonyls</h3>
+
+      <Callout type="important" title="Homoleptic metal carbonyls">
+        <p>
+          Transition metal complexes containing exclusively carbon monoxide (CO) as the ligand.
+        </p>
+      </Callout>
+
+      <h4 id="h-5-6-2-mononuclear">Mononuclear metal carbonyls</h4>
+
+      <TableCard
+        headers={["Metal carbonyl", "Geometry"]}
+        rows={[
+          { cells: ["[Ni(CO)₄]", <GeometryLabel kind="tetrahedral" label="Tetrahedral" />] },
+          {
+            cells: [
+              "[Fe(CO)₅]",
+              <GeometryLabel kind="trigonal-bipyramidal" label="Trigonal bipyramidal" />,
+            ],
+          },
+          { cells: ["[Cr(CO)₆]", <GeometryLabel kind="octahedral" label="Octahedral" />] },
+        ]}
+      />
+
+      <h4 id="h-5-6-2-polynuclear">Polynuclear metal carbonyls</h4>
+
+      <PolynuclearCarbonylCards
+        carbonyls={[
+          {
+            formula: "[Mn₂(CO)₁₀]",
+            description: (
+              <>
+                Two square pyramidal Mn(CO)<sub>5</sub> units joined by a <strong>Mn—Mn</strong>{" "}
+                bond.
+              </>
+            ),
+          },
+          {
+            formula: "[Co₂(CO)₈]",
+            description: (
+              <>
+                Contains a <strong>Co—Co</strong> bond bridged by{" "}
+                <strong>two carbonyl (CO) groups</strong>.
+              </>
+            ),
+          },
+        ]}
+      />
+
+      <h4 id="h-5-6-2-synergic">Synergic bonding mechanism</h4>
+
+      <p>
+        The metal–carbon (M–C) bond in metal carbonyls possesses both sigma (σ) and pi (π)
+        character.
+      </p>
+
+      <h4 id="h-5-6-2-sigma">A. Sigma (σ) bond formation</h4>
+
+      <p>
+        <strong>Ligand → metal donation</strong>
+      </p>
+
+      <ul>
+        <li>Carbonyl carbon donates a lone pair of electrons.</li>
+        <li>Donation occurs into a vacant d orbital of the metal.</li>
+      </ul>
+
+      <DonationDiagram variant="sigma" />
+
+      <h4 id="h-5-6-2-pi">B. Pi (π) bond formation</h4>
+
+      <p>
+        <strong>Metal → ligand back-donation</strong>
+      </p>
+
+      <ul>
+        <li>A filled d orbital of the metal donates an electron pair.</li>
+        <li>Donation occurs into the vacant antibonding π* orbital of carbon monoxide.</li>
+      </ul>
+
+      <DonationDiagram variant="pi" />
+
+      <h4 id="h-5-6-2-effect">C. Synergic effect</h4>
+
+      <ul>
+        <li>Sigma donation (σ) and pi back-donation (π) reinforce each other.</li>
+        <li>
+          Metal-to-ligand π-back-bonding:
+          <ul>
+            <li>Strengthens the M–CO bond.</li>
+            <li>
+              Weakens the C–O bond due to electron density accumulation in antibonding orbitals.
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <SynergicSummary />
 
       <h2 id="h-5-7">5.7 Importance and Applications of Coordination Compounds</h2>
 

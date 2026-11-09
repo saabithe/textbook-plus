@@ -49,6 +49,12 @@ import { CftLimitationCards } from "@/components/content/chemistry/CftLimitation
 import { DdTransitionFlow } from "@/components/content/chemistry/DdTransitionFlow";
 import { CfseCalculationCard } from "@/components/content/chemistry/CfseCalculationCard";
 import { BoardMcq } from "@/components/content/chemistry/BoardMcq";
+import { StabilityConstantCard } from "@/components/content/chemistry/StabilityConstantCard";
+import { StabilityFactorCards } from "@/components/content/chemistry/StabilityFactorCards";
+import { PolynuclearCarbonylCards } from "@/components/content/chemistry/PolynuclearCarbonylCards";
+import { DonationDiagram } from "@/components/content/chemistry/DonationDiagram";
+import { SynergicSummary } from "@/components/content/chemistry/SynergicSummary";
+import { GeometryLabel } from "@/components/content/chemistry/GeometryLabel";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -302,6 +308,45 @@ export default function DesignPage() {
             { label: "d", content: "9/4 Δₒ" },
           ]}
         />
+      </Section>
+
+      <Section title="Chemistry — stability & carbonyls">
+        <StabilityConstantCard />
+        <StabilityFactorCards
+          factors={[
+            { factor: "Nature of the metal ion", detail: "Greater charge-to-radius ratio increases stability." },
+            { factor: "Nature of the ligand", detail: "Greater basic strength increases stability." },
+            { factor: "Presence of chelating ligands", detail: "Increases stability (chelate effect)." },
+          ]}
+        />
+        <TableCard
+          headers={["Metal carbonyl", "Geometry"]}
+          rows={[
+            { cells: ["[Ni(CO)₄]", <GeometryLabel kind="tetrahedral" label="Tetrahedral" />] },
+            {
+              cells: [
+                "[Fe(CO)₅]",
+                <GeometryLabel kind="trigonal-bipyramidal" label="Trigonal bipyramidal" />,
+              ],
+            },
+            { cells: ["[Cr(CO)₆]", <GeometryLabel kind="octahedral" label="Octahedral" />] },
+          ]}
+        />
+        <PolynuclearCarbonylCards
+          carbonyls={[
+            {
+              formula: "[Mn₂(CO)₁₀]",
+              description: "Two square pyramidal Mn(CO)₅ units joined by a Mn—Mn bond.",
+            },
+            {
+              formula: "[Co₂(CO)₈]",
+              description: "Contains a Co—Co bond bridged by two carbonyl (CO) groups.",
+            },
+          ]}
+        />
+        <DonationDiagram variant="sigma" />
+        <DonationDiagram variant="pi" />
+        <SynergicSummary />
       </Section>
 
       <Section title="Study & answers">
