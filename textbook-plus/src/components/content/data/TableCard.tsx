@@ -21,6 +21,11 @@ interface TableCardProps {
   caption?: ReactNode;
   /** Optional heading shown above the table. Omit for a chromeless table. */
   title?: string;
+  /**
+   * Pin the first column while the rest scrolls sideways. Defaults to on for
+   * tables with five or more columns.
+   */
+  pinFirstColumn?: boolean;
 }
 
 /** Tables at least this wide pin their first column while scrolling. */
@@ -60,8 +65,8 @@ function isNumericColumn(rows: TableCardRow[], columnIndex: number): boolean {
  * rules only, no zebra, no vertical borders. The first column pins with a 1px
  * border (never a shadow). Numeric columns are right-aligned tabular-nums.
  */
-export function TableCard({ headers, rows, caption, title }: TableCardProps) {
-  const pinFirstColumn = headers.length >= STICKY_FIRST_COLUMN_FROM;
+export function TableCard({ headers, rows, caption, title, pinFirstColumn: pinFirstColumnProp }: TableCardProps) {
+  const pinFirstColumn = pinFirstColumnProp ?? headers.length >= STICKY_FIRST_COLUMN_FROM;
   const numeric = headers.map((_, columnIndex) =>
     isNumericColumn(rows, columnIndex)
   );

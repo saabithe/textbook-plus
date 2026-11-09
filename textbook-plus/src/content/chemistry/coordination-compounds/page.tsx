@@ -13,6 +13,13 @@ import { PocketGrid } from "@/components/content/PocketGrid";
 import { TreeDiagram } from "@/components/content/concept/TreeDiagram";
 import { VbtComplexCard } from "@/components/content/chemistry/VbtComplexCard";
 import { LigandStrengthComparison } from "@/components/content/chemistry/LigandStrengthComparison";
+import { CrystalFieldSplittingDiagram } from "@/components/content/chemistry/CrystalFieldSplittingDiagram";
+import { CfseCalculationCard } from "@/components/content/chemistry/CfseCalculationCard";
+import { SpectrochemicalSeries } from "@/components/content/chemistry/SpectrochemicalSeries";
+import { CftFactorCards } from "@/components/content/chemistry/CftFactorCards";
+import { CftLimitationCards } from "@/components/content/chemistry/CftLimitationCards";
+import { DdTransitionFlow } from "@/components/content/chemistry/DdTransitionFlow";
+import { BoardMcq } from "@/components/content/chemistry/BoardMcq";
 
 export default function CoordinationCompoundsChapter() {
   return (
@@ -999,114 +1006,227 @@ export default function CoordinationCompoundsChapter() {
 
       <h3 id="h-5-5-4">5.5.4 Crystal Field Theory</h3>
 
-      <p>
-        CFT is an <strong>electrostatic model</strong>: the metal–ligand bond is ionic, arising from
-        electrostatic interaction between the metal ion and the ligand. Ligands are point charges
-        (anions) or point dipoles (neutral molecules).
-      </p>
+      <Callout type="important" title="Crystal field theory (CFT)">
+        <ul>
+          <li><strong>Definition:</strong> electrostatic model considering the metal–ligand bond as purely ionic.</li>
+          <li><strong>Treatment of ligands:</strong> point charges (anions) or dipoles (neutral molecules).</li>
+          <li><strong>Degeneracy:</strong> the five d orbitals in an isolated gaseous metal atom/ion have the same energy — d<sub>xy</sub>, d<sub>yz</sub>, d<sub>xz</sub>, d<sub>x²−y²</sub>, d<sub>z²</sub>.</li>
+          <li><strong>Symmetrical field:</strong> degeneracy is maintained under a spherically symmetrical negative field.</li>
+          <li><strong>Crystal field splitting:</strong> when the negative field arises from specific directional ligands in a complex, degeneracy is lost, resulting in d-orbital splitting that depends on the nature of the field.</li>
+        </ul>
+      </Callout>
+
+      <h4 id="h-5-5-4-octahedral">Crystal field splitting in octahedral complexes</h4>
+
+      <p>In an octahedral complex, the five d orbitals split into two energy sets.</p>
+
+      <ul>
+        <li><strong>e<sub>g</sub> set (d<sub>x²−y²</sub>, d<sub>z²</sub>):</strong> raised by +0.6Δₒ (or 3/5 Δₒ) due to direct alignment along ligand axes.</li>
+        <li><strong>t<sub>2g</sub> set (d<sub>xy</sub>, d<sub>yz</sub>, d<sub>xz</sub>):</strong> lowered by −0.4Δₒ (or 2/5 Δₒ) due to orientation between ligand axes.</li>
+        <li><strong>Barycentre:</strong> average energy baseline of the d orbitals in a spherical crystal field.</li>
+      </ul>
+
+      <CrystalFieldSplittingDiagram field="octahedral" />
+
+      <h4 id="h-5-5-4-cfse">Crystal field stabilization energy (CFSE)</h4>
+
+      <FormulaBlock
+        latex={String.raw`\text{CFSE} = (0.6n_{e_g} - 0.4n_{t_{2g}})\Delta_o`}
+        label="Crystal field stabilization energy"
+        important
+      />
+
+      <CfseCalculationCard
+        complex="[Co(NH₃)₆]³⁺"
+        info={[
+          { label: "Oxidation state", value: <>Co³⁺ → [Ar]3d⁶</> },
+          { label: "Ligand field", value: <>Strong field (NH₃)</> },
+          {
+            label: "Electron configuration",
+            value: (
+              <>
+                t<sub>2g</sub><sup>6</sup> e<sub>g</sub><sup>0</sup>
+              </>
+            ),
+          },
+        ]}
+        steps={[
+          {
+            label: "Write the formula",
+            detail: (
+              <Formula>{String.raw`\text{CFSE} = (0.6n_{e_g} - 0.4n_{t_{2g}})\Delta_o`}</Formula>
+            ),
+          },
+          {
+            label: "Substitute the electron counts",
+            detail: (
+              <Formula>{String.raw`\text{CFSE} = (0.6 \times 0 - 0.4 \times 6)\Delta_o`}</Formula>
+            ),
+          },
+          {
+            label: "Evaluate",
+            detail: <Formula>{String.raw`\text{CFSE} = -2.4\Delta_o`}</Formula>,
+          },
+        ]}
+        result={<Formula>{String.raw`-2.4\Delta_o`}</Formula>}
+      />
+
+      <h4 id="h-5-5-4-filling">
+        Electron filling in t<sub>2g</sub> and e<sub>g</sub> (d¹ to d¹⁰)
+      </h4>
+
+      <TableCard
+        pinFirstColumn
+        headers={["d configuration", "Weak field configuration", "Strong field configuration"]}
+        rows={[
+          { cells: [<>d<sup>1</sup></>, <>t<sub>2g</sub><sup>1</sup> e<sub>g</sub><sup>0</sup></>, <>t<sub>2g</sub><sup>1</sup> e<sub>g</sub><sup>0</sup></>] },
+          { cells: [<>d<sup>2</sup></>, <>t<sub>2g</sub><sup>2</sup> e<sub>g</sub><sup>0</sup></>, <>t<sub>2g</sub><sup>2</sup> e<sub>g</sub><sup>0</sup></>] },
+          { cells: [<>d<sup>3</sup></>, <>t<sub>2g</sub><sup>3</sup> e<sub>g</sub><sup>0</sup></>, <>t<sub>2g</sub><sup>3</sup> e<sub>g</sub><sup>0</sup></>] },
+          { cells: [<>d<sup>4</sup></>, <>t<sub>2g</sub><sup>3</sup> e<sub>g</sub><sup>1</sup></>, <>t<sub>2g</sub><sup>4</sup> e<sub>g</sub><sup>0</sup></>] },
+          { cells: [<>d<sup>5</sup></>, <>t<sub>2g</sub><sup>3</sup> e<sub>g</sub><sup>2</sup></>, <>t<sub>2g</sub><sup>5</sup> e<sub>g</sub><sup>0</sup></>] },
+          { cells: [<>d<sup>6</sup></>, <>t<sub>2g</sub><sup>4</sup> e<sub>g</sub><sup>2</sup></>, <>t<sub>2g</sub><sup>6</sup> e<sub>g</sub><sup>0</sup></>] },
+          { cells: [<>d<sup>7</sup></>, <>t<sub>2g</sub><sup>5</sup> e<sub>g</sub><sup>2</sup></>, <>t<sub>2g</sub><sup>6</sup> e<sub>g</sub><sup>1</sup></>] },
+          { cells: [<>d<sup>8</sup></>, <>t<sub>2g</sub><sup>6</sup> e<sub>g</sub><sup>2</sup></>, <>t<sub>2g</sub><sup>6</sup> e<sub>g</sub><sup>2</sup></>] },
+          { cells: [<>d<sup>9</sup></>, <>t<sub>2g</sub><sup>6</sup> e<sub>g</sub><sup>3</sup></>, <>t<sub>2g</sub><sup>6</sup> e<sub>g</sub><sup>3</sup></>] },
+          { cells: [<>d<sup>10</sup></>, <>t<sub>2g</sub><sup>6</sup> e<sub>g</sub><sup>4</sup></>, <>t<sub>2g</sub><sup>6</sup> e<sub>g</sub><sup>4</sup></>] },
+        ]}
+      />
+
+      <h4 id="h-5-5-4-spectrochemical">Spectrochemical series</h4>
 
       <p>
-        The five d orbitals of an isolated gaseous metal ion are degenerate. A spherically symmetrical
-        field keeps them degenerate, but a ligand field is asymmetrical — the degeneracy is lifted and
-        the d orbitals split.
+        Ligands arranged in increasing order of crystal field splitting strength (Δₒ), based on
+        experimental light absorption.
       </p>
 
-      <p>The pattern depends on the geometry.</p>
+      <SpectrochemicalSeries
+        ligands={[
+          <>I<sup>−</sup></>,
+          <>Br<sup>−</sup></>,
+          <>SCN<sup>−</sup></>,
+          <>Cl<sup>−</sup></>,
+          <>S<sup>2−</sup></>,
+          <>F<sup>−</sup></>,
+          <>OH<sup>−</sup></>,
+          <>C<sub>2</sub>O<sub>4</sub><sup>2−</sup></>,
+          <>H<sub>2</sub>O</>,
+          <>NCS<sup>−</sup></>,
+          <>edta<sup>4−</sup></>,
+          <>NH<sub>3</sub></>,
+          <>en</>,
+          <>CN<sup>−</sup></>,
+          <>CO</>,
+        ]}
+      />
 
-      <Callout type="important" title="Splitting in an octahedral field">
-        The d<sub>x²−y²</sub> and d<sub>z²</sub> orbitals point towards the ligands, so they
-        experience more repulsion and are raised in energy — the <strong>e<sub>g</sub></strong> set.
-        The d<sub>xy</sub>, d<sub>yz</sub> and d<sub>xz</sub> orbitals point between the axes and are
-        lowered — the <strong>t<sub>2g</sub></strong> set. The separation is
-        <Formula>{String.raw`\Delta_o`}</Formula>; the e<sub>g</sub> orbitals rise by
-        (3/5)Δ<sub>o</sub> and the t<sub>2g</sub> fall by (2/5)Δ<sub>o</sub>.
+      <h3 id="h-5-5-5">5.5.5 Crystal Field Splitting in Tetrahedral Complexes</h3>
+
+      <p>The five d orbitals split into two energy sets.</p>
+
+      <ul>
+        <li><strong>e set (d<sub>x²−y²</sub>, d<sub>z²</sub>):</strong> lowered by −3/5 Δₜ (or −0.6Δₜ).</li>
+        <li><strong>t<sub>2</sub> set (d<sub>xy</sub>, d<sub>yz</sub>, d<sub>xz</sub>):</strong> raised by +2/5 Δₜ (or +0.4Δₜ).</li>
+      </ul>
+
+      <CrystalFieldSplittingDiagram field="tetrahedral" />
+
+      <FormulaBlock
+        latex={String.raw`\Delta_t = \tfrac{4}{9}\Delta_o`}
+        label="Splitting magnitude relationship"
+        important
+      />
+
+      <Callout type="important" title="Octahedral versus tetrahedral">
+        <p>
+          <Formula>{String.raw`\Delta_o > \Delta_t`}</Formula>
+        </p>
+        <p>
+          Tetrahedral splitting is smaller than octahedral splitting because there are only 4 ligands
+          instead of 6, and their directions do not coincide with the d orbitals.
+        </p>
       </Callout>
 
       <FormulaBlock
-        latex={String.raw`\text{I}^- < \text{Br}^- < \text{SCN}^- < \text{Cl}^- < \text{S}^{2-} < \text{F}^- < \text{OH}^- < \text{C}_2\text{O}_4^{2-} < \text{H}_2\text{O} < \text{NCS}^- < \text{edta}^{4-} < \text{NH}_3 < \text{en} < \text{CN}^- < \text{CO}`}
-        label="Spectrochemical series (increasing field strength)"
+        latex={String.raw`\text{CFSE} = (0.4n_{t_2} - 0.6n_e)\Delta_t`}
+        label="CFSE in a tetrahedral field"
+        important
       />
 
-      <p>
-        This is an experimentally determined series based on the absorption of light by complexes with
-        different ligands. Larger splitting is produced by strong-field ligands.
-      </p>
+      <h3 id="h-5-5-6">5.5.6 Factors Affecting Crystal Field Splitting</h3>
 
-      <TableCard
-        title="Filling the d orbitals — Δₒ versus pairing energy P"
-        headers={["Condition", "Configuration", "Ligand type", "Spin"]}
-        rows={[
-          { cells: ["Δₒ < P", "t₂g³ e_g¹", "weak field", "high spin"] },
-          { cells: ["Δₒ > P", "t₂g⁴ e_g⁰", "strong field", "low spin"] },
+      <CftFactorCards
+        factors={[
+          { factor: "Charge on metal ion", from: "Higher charge", to: "Greater splitting (Δ)" },
+          {
+            factor: "Structure of complex",
+            from: "Octahedral",
+            to: "Greater than tetrahedral (Δₒ > Δₜ)",
+          },
+          {
+            factor: "Nature of ligand",
+            from: "Strong field ligand",
+            to: "Greater splitting than weak field",
+          },
         ]}
       />
 
-      <p>
-        Calculations show that d<sup>4</sup> to d<sup>7</sup> coordination entities are more stable
-        for strong fields than for weak fields.
-      </p>
-
-      <Callout type="note" title="Tetrahedral splitting">
-        In tetrahedral entities the splitting is <strong>inverted</strong> and smaller:
-        <Formula>{String.raw`\Delta_t = \tfrac{4}{9}\Delta_o`}</Formula>. The splitting is not large
-        enough to force pairing, so low-spin tetrahedral configurations are rarely observed. The
-        subscript <em>g</em> is used only for octahedral and square planar complexes, which have a
-        centre of symmetry.
-      </Callout>
-
-      <h3 id="h-5-5-5">5.5.5 Colour in Coordination Compounds</h3>
+      <h3 id="h-5-5-7">5.5.7 Colour of Coordination Complexes</h3>
 
       <p>
-        The colour of a complex is <strong>complementary</strong> to the light absorbed: if green
-        light is absorbed, the complex looks red. CFT attributes the colour to
-        <strong>d–d transitions</strong>.
+        <strong>Mechanism:</strong> d–d transition.
       </p>
 
-      <TableCard
-        caption="Table 5.3: Relationship between the Wavelength of Light absorbed and the Colour observed"
-        headers={["Coordination entity", "λ absorbed (nm)", "Colour absorbed", "Colour observed"]}
-        rows={[
-          { cells: ["[CoCl(NH₃)₅]²⁺", "535", "Yellow", "Violet"] },
-          { cells: ["[Co(NH₃)₅(H₂O)]³⁺", "500", "Blue green", "Red"] },
-          { cells: ["[Co(NH₃)₆]³⁺", "475", "Blue", "Yellow orange"] },
-          { cells: ["[Co(CN)₆]³⁻", "310", "Ultraviolet", "Pale yellow"] },
-          { cells: ["[Cu(H₂O)₄]²⁺", "600", "Red", "Blue"] },
-          { cells: ["[Ti(H₂O)₆]³⁺", "498", "Blue green", "Violet"] },
+      <DdTransitionFlow
+        steps={[
+          "In the presence of ligands, d orbitals split into different energy levels.",
+          "Electrons from the lower d level absorb specific wavelengths of visible light.",
+          "Electrons jump to the higher d level.",
+          "The observed colour is the complementary colour of the light absorbed.",
         ]}
       />
 
-      <KeyPoint title="[Ti(H₂O)₆]³⁺ — the standard CFT example">
-        <p>
-          Ti<sup>3+</sup> is a 3d<sup>1</sup> system. The single electron sits in the t<sub>2g</sub>
-          level.
-        </p>
-        <p>
-          Absorption of blue-green light excites it to the empty e<sub>g</sub> level
-          (t<sub>2g</sub><sup>1</sup>e<sub>g</sub><sup>0</sup> → t<sub>2g</sub><sup>0</sup>e<sub>g</sub><sup>1</sup>),
-          so the complex appears violet.
-        </p>
-      </KeyPoint>
+      <h3 id="h-5-5-8">5.5.8 Limitations of Crystal Field Theory</h3>
 
-      <ul>
-        <li>Without a ligand there is no crystal field splitting and no colour — removing water from [Ti(H<sub>2</sub>O)<sub>6</sub>]Cl<sub>3</sub> on heating renders it colourless.</li>
-        <li>Anhydrous CuSO<sub>4</sub> is white; CuSO<sub>4</sub>·5H<sub>2</sub>O is blue.</li>
-        <li>Adding en to [Ni(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup> changes the colour from green → pale blue → blue/purple → violet as water is replaced by en.</li>
-      </ul>
+      <CftLimitationCards
+        limitations={[
+          {
+            title: "Anion charge assumption",
+            points: [
+              "Treats ligands as point charges.",
+              "Implies anionic ligands should exert the greatest splitting effect.",
+              "However, anionic ligands actually lie at the lower end of the spectrochemical series.",
+            ],
+          },
+          {
+            title: "Covalent character",
+            points: [
+              "Ignores the covalent character of bonding between the ligand and the central metal atom.",
+            ],
+          },
+        ]}
+      />
 
-      <Callout type="didyouknow" title="Colour of gem stones">
-        Ruby is aluminium oxide containing about 0.5–1% Cr<sup>3+</sup> (d<sup>3</sup>) in
-        octahedral sites; d–d transitions give the colour. In emerald, Cr<sup>3+</sup> occupies
-        octahedral sites in beryl (Be<sub>3</sub>Al<sub>2</sub>Si<sub>6</sub>O<sub>18</sub>); the
-        absorption bands shift to longer wavelength (yellow-red and blue), so emerald transmits green.
-      </Callout>
+      <h3 id="h-5-5-9">5.5.9 Board Exam Question</h3>
 
-      <h3 id="h-5-5-6">5.5.6 Limitations of Crystal Field Theory</h3>
-
-      <ul>
-        <li>If ligands were point charges, anionic ligands should exert the greatest splitting — but anions are found at the low end of the spectrochemical series.</li>
-        <li>It does not take into account the <strong>covalent character</strong> of the metal–ligand bond.</li>
-        <li>These weaknesses are addressed by ligand field theory and molecular orbital theory.</li>
-      </ul>
+      <Expandable
+        title="Board exam question"
+        variant="example"
+        subjectColor="var(--subject-chemistry)"
+      >
+        <BoardMcq
+          question="The crystal field splitting energy for octahedral (Δₒ) and tetrahedral (Δₜ) complexes are related as:"
+          options={[
+            { label: "a", content: <Formula>{String.raw`\Delta_t = \tfrac{3}{5}\Delta_o`}</Formula> },
+            { label: "b", content: <Formula>{String.raw`\Delta_t = \tfrac{5}{3}\Delta_o`}</Formula> },
+            {
+              label: "c",
+              content: <Formula>{String.raw`\Delta_t = \tfrac{4}{9}\Delta_o`}</Formula>,
+              correct: true,
+            },
+            { label: "d", content: <Formula>{String.raw`\Delta_t = \tfrac{9}{4}\Delta_o`}</Formula> },
+          ]}
+        />
+      </Expandable>
 
       <h2 id="h-5-6">5.6 Bonding in Metal Carbonyls</h2>
 

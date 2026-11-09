@@ -42,6 +42,13 @@ import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { TopicIndex } from "@/components/content/TopicIndex";
 import { VbtComplexCard } from "@/components/content/chemistry/VbtComplexCard";
 import { LigandStrengthComparison } from "@/components/content/chemistry/LigandStrengthComparison";
+import { CrystalFieldSplittingDiagram } from "@/components/content/chemistry/CrystalFieldSplittingDiagram";
+import { SpectrochemicalSeries } from "@/components/content/chemistry/SpectrochemicalSeries";
+import { CftFactorCards } from "@/components/content/chemistry/CftFactorCards";
+import { CftLimitationCards } from "@/components/content/chemistry/CftLimitationCards";
+import { DdTransitionFlow } from "@/components/content/chemistry/DdTransitionFlow";
+import { CfseCalculationCard } from "@/components/content/chemistry/CfseCalculationCard";
+import { BoardMcq } from "@/components/content/chemistry/BoardMcq";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -237,6 +244,64 @@ export default function DesignPage() {
             notes={["Uses outer 4d orbitals.", "Four unpaired electrons remain.", "High spin complex."]}
           />
         </div>
+      </Section>
+
+      <Section title="Chemistry — crystal field">
+        <CrystalFieldSplittingDiagram field="octahedral" />
+        <CrystalFieldSplittingDiagram field="tetrahedral" />
+        <SpectrochemicalSeries
+          ligands={["I⁻", "Br⁻", "SCN⁻", "Cl⁻", "S²⁻", "F⁻", "OH⁻", "C₂O₄²⁻", "H₂O", "NCS⁻", "edta⁴⁻", "NH₃", "en", "CN⁻", "CO"]}
+        />
+        <CftFactorCards
+          factors={[
+            { factor: "Charge on metal ion", from: "Higher charge", to: "Greater splitting (Δ)" },
+            { factor: "Structure of complex", from: "Octahedral", to: "Greater than tetrahedral (Δₒ > Δₜ)" },
+            { factor: "Nature of ligand", from: "Strong field ligand", to: "Greater splitting than weak field" },
+          ]}
+        />
+        <CftLimitationCards
+          limitations={[
+            {
+              title: "Anion charge assumption",
+              points: ["Treats ligands as point charges.", "Anionic ligands lie at the lower end of the series."],
+            },
+            {
+              title: "Covalent character",
+              points: ["Ignores the covalent character of the metal–ligand bond."],
+            },
+          ]}
+        />
+        <DdTransitionFlow
+          steps={[
+            "Ligands split the d orbitals.",
+            "The lower level absorbs visible light.",
+            "The electron jumps to the higher level.",
+            "The observed colour is the complementary colour.",
+          ]}
+        />
+        <CfseCalculationCard
+          complex="[Co(NH₃)₆]³⁺"
+          info={[
+            { label: "Oxidation state", value: "Co³⁺ → [Ar]3d⁶" },
+            { label: "Ligand field", value: "Strong field (NH₃)" },
+            { label: "Electron configuration", value: "t₂g⁶ e_g⁰" },
+          ]}
+          steps={[
+            { label: "Write the formula", detail: "CFSE = (0.6n_eg − 0.4n_t2g)Δₒ" },
+            { label: "Substitute", detail: "CFSE = (0.6 × 0 − 0.4 × 6)Δₒ" },
+            { label: "Evaluate", detail: "CFSE = −2.4Δₒ" },
+          ]}
+          result="−2.4Δₒ"
+        />
+        <BoardMcq
+          question="The crystal field splitting energy for octahedral (Δₒ) and tetrahedral (Δₜ) complexes are related as:"
+          options={[
+            { label: "a", content: "3/5 Δₒ" },
+            { label: "b", content: "5/3 Δₒ" },
+            { label: "c", content: "4/9 Δₒ", correct: true },
+            { label: "d", content: "9/4 Δₒ" },
+          ]}
+        />
       </Section>
 
       <Section title="Study & answers">
