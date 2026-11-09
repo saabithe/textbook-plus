@@ -15,6 +15,12 @@ import { StructureFeatureCard } from "@/components/content/chemistry/StructureFe
 import { Sp2HydroxylComparison } from "@/components/content/chemistry/Sp2HydroxylComparison";
 import { EtherClassification } from "@/components/content/chemistry/EtherClassification";
 import { BenzeneRing, StructureMark } from "@/components/content/chemistry/StructureGlyphs";
+import { NamingSystemCards } from "@/components/content/chemistry/NamingSystemCards";
+import { NumberedRuleRows } from "@/components/content/chemistry/NumberedRuleRows";
+import { PolyhydricAlcoholCards } from "@/components/content/chemistry/PolyhydricAlcoholCards";
+import { PhenolParentCard } from "@/components/content/chemistry/PhenolParentCard";
+import { PhenolPositionComparison } from "@/components/content/chemistry/PhenolPositionComparison";
+import { GroupedNameTable } from "@/components/content/chemistry/GroupedNameTable";
 
 export default function AlcoholsPhenolsEthersChapter() {
   return (
@@ -342,108 +348,207 @@ export default function AlcoholsPhenolsEthersChapter() {
         ]}
       />
 
-      <h2 id="h-7-2">7.2 Nomenclature</h2>
+      <h2 id="h-7-2">7.2 Nomenclature of Alcohols and Phenols</h2>
 
-      <h3 id="h-7-2-1">(a) Alcohols</h3>
+      <h3 id="h-7-2-1">7.2.1 Alcohols</h3>
 
-      <p>
-        The common name of an alcohol is derived from the common name of the alkyl group plus the word
-        alcohol (CH<sub>3</sub>OH is methyl alcohol). In the IUPAC system the name of the alkane is
-        modified by substituting the final &apos;e&apos; with the suffix &apos;ol&apos;; the longest
-        chain is numbered from the end nearest the hydroxyl group. For polyhydric alcohols the
-        &apos;e&apos; of the alkane is retained and the multiplicative prefix di, tri, etc. is added
-        before &apos;ol&apos; — HOCH<sub>2</sub>CH<sub>2</sub>OH is ethane-1,2-diol. Cyclic alcohols
-        use the prefix cyclo with —OH attached to C-1.
-      </p>
+      <h4 id="h-7-2-1-rules">Naming rules</h4>
+
+      <NamingSystemCards
+        systems={[
+          {
+            label: "Common name system",
+            rule: "Alkyl group name + alcohol.",
+            example: (
+              <>
+                CH<sub>3</sub>OH → Methyl alcohol
+              </>
+            ),
+          },
+          {
+            label: "IUPAC system",
+            rule: "Replace the terminal -e of the parent alkane with -ol.",
+            example: "Alkane − e + ol = Alkanol",
+          },
+        ]}
+      />
+
+      <NumberedRuleRows
+        rules={[
+          {
+            title: "Numbering",
+            detail: "number the parent chain from the end nearest to the –OH group.",
+          },
+          {
+            title: "Polyhydric alcohols",
+            detail:
+              "retain the terminal -e and add multiplicative suffixes such as -diol or -triol, with appropriate position locants.",
+          },
+          {
+            title: "Cyclic alcohols",
+            detail: "use the prefix cyclo-; the carbon bearing –OH is designated C-1.",
+          },
+        ]}
+      />
+
+      <h4 id="h-7-2-1-table">Common and IUPAC names</h4>
 
       <TableCard
         caption="Table 7.1: Common and IUPAC Names of Some Alcohols"
-        headers={["Compound", "Common name", "IUPAC name"]}
+        pinFirstColumn
+        headers={["Compound structure", "Common name", "IUPAC name"]}
         rows={[
-          { cells: ["CH₃—OH", "Methyl alcohol", "Methanol"] },
-          { cells: ["CH₃CH₂CH₂—OH", "n-Propyl alcohol", "Propan-1-ol"] },
-          { cells: ["CH₃CH(OH)CH₃", "Isopropyl alcohol", "Propan-2-ol"] },
-          { cells: ["CH₃CH₂CH₂CH₂—OH", "n-Butyl alcohol", "Butan-1-ol"] },
-          { cells: ["CH₃CH₂CH(OH)CH₃", "sec-Butyl alcohol", "Butan-2-ol"] },
-          { cells: ["(CH₃)₂CHCH₂OH", "Isobutyl alcohol", "2-Methylpropan-1-ol"] },
-          { cells: ["(CH₃)₃COH", "tert-Butyl alcohol", "2-Methylpropan-2-ol"] },
-          { cells: ["HOCH₂CH₂OH", "Ethylene glycol", "Ethane-1,2-diol"] },
-          { cells: ["HOCH₂CH(OH)CH₂OH", "Glycerol", "Propane-1,2,3-triol"] },
-          { cells: ["Cyclohexanol", "—", "Cyclohexanol"] },
-          { cells: ["2-Methylcyclopentanol", "—", "2-Methylcyclopentanol"] },
+          {
+            cells: [
+              "CH₃OH",
+              "Methyl alcohol",
+              <strong className="font-extrabold text-foreground">Methanol</strong>,
+            ],
+          },
+          {
+            cells: [
+              "CH₃CH₂CH₂OH",
+              "n-Propyl alcohol",
+              <strong className="font-extrabold text-foreground">Propan-1-ol</strong>,
+            ],
+          },
+          {
+            cells: [
+              "(CH₃)₂CHOH",
+              "Isopropyl alcohol",
+              <strong className="font-extrabold text-foreground">Propan-2-ol</strong>,
+            ],
+          },
+          {
+            cells: [
+              "CH₃CH₂CH₂CH₂OH",
+              "n-Butyl alcohol",
+              <strong className="font-extrabold text-foreground">Butan-1-ol</strong>,
+            ],
+          },
+          {
+            cells: [
+              "CH₃CH₂CH(OH)CH₃",
+              "sec-Butyl alcohol",
+              <strong className="font-extrabold text-foreground">Butan-2-ol</strong>,
+            ],
+          },
+          {
+            cells: [
+              "(CH₃)₂CHCH₂OH",
+              "Isobutyl alcohol",
+              <strong className="font-extrabold text-foreground">2-Methylpropan-1-ol</strong>,
+            ],
+          },
+          {
+            cells: [
+              "(CH₃)₃COH",
+              "tert-Butyl alcohol",
+              <strong className="font-extrabold text-foreground">2-Methylpropan-2-ol</strong>,
+            ],
+          },
+          {
+            cells: [
+              "CH₃C(CH₃)₂CH₂OH",
+              "Neopentyl alcohol",
+              <strong className="font-extrabold text-foreground">2,2-Dimethylpropan-1-ol</strong>,
+            ],
+          },
         ]}
       />
 
-      <h3 id="h-7-2-2">(b) Phenols</h3>
+      <h4 id="h-7-2-1-polyhydric">Polyhydric alcohols</h4>
+
+      <PolyhydricAlcoholCards
+        alcohols={[
+          {
+            common: "Ethylene glycol",
+            iupac: "Ethane-1,2-diol",
+            hydroxyls: 2,
+            structure: (
+              <>
+                <StructureMark>HO</StructureMark>–CH<sub>2</sub>–CH<sub>2</sub>–
+                <StructureMark>OH</StructureMark>
+              </>
+            ),
+          },
+          {
+            common: "Glycerol",
+            iupac: "Propane-1,2,3-triol",
+            hydroxyls: 3,
+            structure: (
+              <>
+                <StructureMark>HO</StructureMark>–CH<sub>2</sub>–CH(
+                <StructureMark>OH</StructureMark>)–CH<sub>2</sub>–
+                <StructureMark>OH</StructureMark>
+              </>
+            ),
+          },
+        ]}
+      />
+
+      <h3 id="h-7-2-2">7.2.2 Phenols</h3>
+
+      <h4 id="h-7-2-2-parent">Parent compound</h4>
+
+      <PhenolParentCard
+        name="Phenol"
+        formula="C₆H₅OH"
+        statements={[
+          "The simplest hydroxy derivative of benzene.",
+          "Both the common name and the accepted IUPAC name.",
+        ]}
+      />
+
+      <h4 id="h-7-2-2-substituted">Substituted monohydric phenols</h4>
 
       <p>
-        The simplest hydroxy derivative of benzene is <strong>phenol</strong> — both its common and
-        accepted IUPAC name. Because the structure involves a benzene ring, the terms <em>ortho</em>{" "}
-        (1,2-), <em>meta</em> (1,3-) and <em>para</em> (1,4-disubstituted) are often used in common
-        names.
+        The common name system uses prefixes to indicate the relative positions of substituents.
       </p>
 
-      <TableCard
-        caption="Cresols and benzenediols"
-        headers={["Common name", "IUPAC name"]}
-        rows={[
-          { cells: ["Phenol", "Phenol"] },
-          { cells: ["o-Cresol", "2-Methylphenol"] },
-          { cells: ["m-Cresol", "3-Methylphenol"] },
-          { cells: ["p-Cresol", "4-Methylphenol"] },
-          { cells: ["Catechol", "Benzene-1,2-diol"] },
-          { cells: ["Resorcinol", "Benzene-1,3-diol"] },
-          { cells: ["Hydroquinone (quinol)", "Benzene-1,4-diol"] },
+      <PhenolPositionComparison
+        positions={[
+          { prefix: "o-", name: "Ortho", locants: "1,2", position: 2 },
+          { prefix: "m-", name: "Meta", locants: "1,3", position: 3 },
+          { prefix: "p-", name: "Para", locants: "1,4", position: 4 },
         ]}
       />
 
-      <h3 id="h-7-2-3">(c) Ethers</h3>
+      <h4 id="h-7-2-2-table">Phenols and cresols nomenclature</h4>
 
-      <p>
-        Common names are derived from the alkyl/aryl groups written as separate words in alphabetical
-        order, followed by &apos;ether&apos; (CH<sub>3</sub>OC<sub>2</sub>H<sub>5</sub> is
-        ethylmethyl ether). If both groups are the same the prefix &apos;di&apos; is used. In the IUPAC
-        system ethers are regarded as hydrocarbon derivatives in which a hydrogen atom is replaced by
-        an —OR or —OAr group; the larger group is chosen as the parent hydrocarbon.
-      </p>
-
-      <TableCard
-        caption="Table 7.2: Common and IUPAC Names of Some Ethers"
-        headers={["Compound", "Common name", "IUPAC name"]}
-        rows={[
-          { cells: ["CH₃OCH₃", "Dimethyl ether", "Methoxymethane"] },
-          { cells: ["C₂H₅OC₂H₅", "Diethyl ether", "Ethoxyethane"] },
-          { cells: ["CH₃OCH₂CH₂CH₃", "Methyl n-propyl ether", "1-Methoxypropane"] },
-          { cells: ["C₆H₅OCH₃", "Methyl phenyl ether (anisole)", "Methoxybenzene (anisole)"] },
-          { cells: ["C₆H₅OCH₂CH₃", "Ethyl phenyl ether (phenetole)", "Ethoxybenzene"] },
-          { cells: ["C₆H₅O(CH₂)₆CH₃", "Heptyl phenyl ether", "1-Phenoxyheptane"] },
-          { cells: ["CH₃OCH(CH₃)₂", "Methyl isopropyl ether", "2-Methoxypropane"] },
-          { cells: ["C₆H₅OCH₂CH₂CH(CH₃)₂", "Phenyl isopentyl ether", "3-Methylbutoxybenzene"] },
-          { cells: ["CH₃OCH₂CH₂OCH₃", "—", "1,2-Dimethoxyethane"] },
-          { cells: ["2-ethoxy-1,1-dimethylcyclohexane", "—", "2-Ethoxy-1,1-dimethylcyclohexane"] },
+      <GroupedNameTable
+        groups={[
+          {
+            label: "Monohydric phenols (phenol and cresols)",
+            rows: [
+              { structure: "C₆H₅OH", common: "Phenol", iupac: "Phenol" },
+              { structure: "o-C₆H₄(CH₃)(OH)", common: "o-Cresol", iupac: "2-Methylphenol" },
+              { structure: "m-C₆H₄(CH₃)(OH)", common: "m-Cresol", iupac: "3-Methylphenol" },
+              { structure: "p-C₆H₄(CH₃)(OH)", common: "p-Cresol", iupac: "4-Methylphenol" },
+            ],
+          },
+          {
+            label: "Polyhydric phenols (benzenediols)",
+            rows: [
+              {
+                structure: "C₆H₄(OH)₂ (1,2-dihydroxy)",
+                common: "Catechol",
+                iupac: "Benzene-1,2-diol",
+              },
+              {
+                structure: "C₆H₄(OH)₂ (1,3-dihydroxy)",
+                common: "Resorcinol",
+                iupac: "Benzene-1,3-diol",
+              },
+              {
+                structure: "C₆H₄(OH)₂ (1,4-dihydroxy)",
+                common: "Quinol / Hydroquinone",
+                iupac: "Benzene-1,4-diol",
+              },
+            ],
+          },
         ]}
       />
-
-      <Expandable
-        title="Example 7.1 — Write structures from the IUPAC names"
-        variant="example"
-      >
-        <p>
-          Give IUPAC names of the following compounds: (i) 4-chloro-2,3-dimethylpentan-1-ol
-          (ii) 2-ethoxypropane (iii) 2,6-dimethylphenol (iv) 1-ethoxy-2-nitrocyclohexane.
-        </p>
-        <p className="mt-3 font-semibold">Solution</p>
-        <TableCard
-          caption="Name → structure"
-          headers={["Name", "Structure"]}
-          rows={[
-            { cells: ["4-Chloro-2,3-dimethylpentan-1-ol", "HOCH₂CH(CH₃)CH(CH₃)CH(Cl)CH₃"] },
-            { cells: ["2-Ethoxypropane", "CH₃CH(OCH₂CH₃)CH₃"] },
-            { cells: ["2,6-Dimethylphenol", "benzene ring with OH at C1, CH₃ at C2 and C6"] },
-            { cells: ["1-Ethoxy-2-nitrocyclohexane", "cyclohexane with OC₂H₅ at C1 and NO₂ at C2"] },
-          ]}
-        />
-      </Expandable>
 
       <h2 id="h-7-3">7.3 Structures of Functional Groups</h2>
 
@@ -1019,7 +1124,37 @@ export default function AlcoholsPhenolsEthersChapter() {
 
       <h2 id="h-7-6">7.6 Ethers</h2>
 
-      <h3 id="h-7-6-1">7.6.1 Preparation of Ethers</h3>
+      <h3 id="h-7-6-1">7.6.1 Nomenclature of Ethers</h3>
+
+      <p>
+        Common names are derived from the alkyl/aryl groups written as separate words in alphabetical
+        order, followed by &apos;ether&apos; (CH<sub>3</sub>OC<sub>2</sub>H<sub>5</sub> is
+        ethylmethyl ether). If both groups are the same the prefix &apos;di&apos; is used.
+      </p>
+
+      <p>
+        In the IUPAC system ethers are regarded as hydrocarbon derivatives in which a hydrogen atom is
+        replaced by an —OR or —OAr group. The larger group is chosen as the parent hydrocarbon.
+      </p>
+
+      <TableCard
+        caption="Table 7.2: Common and IUPAC Names of Some Ethers"
+        headers={["Compound", "Common name", "IUPAC name"]}
+        rows={[
+          { cells: ["CH₃OCH₃", "Dimethyl ether", "Methoxymethane"] },
+          { cells: ["C₂H₅OC₂H₅", "Diethyl ether", "Ethoxyethane"] },
+          { cells: ["CH₃OCH₂CH₂CH₃", "Methyl n-propyl ether", "1-Methoxypropane"] },
+          { cells: ["C₆H₅OCH₃", "Methyl phenyl ether (anisole)", "Methoxybenzene (anisole)"] },
+          { cells: ["C₆H₅OCH₂CH₃", "Ethyl phenyl ether (phenetole)", "Ethoxybenzene"] },
+          { cells: ["C₆H₅O(CH₂)₆CH₃", "Heptyl phenyl ether", "1-Phenoxyheptane"] },
+          { cells: ["CH₃OCH(CH₃)₂", "Methyl isopropyl ether", "2-Methoxypropane"] },
+          { cells: ["C₆H₅OCH₂CH₂CH(CH₃)₂", "Phenyl isopentyl ether", "3-Methylbutoxybenzene"] },
+          { cells: ["CH₃OCH₂CH₂OCH₃", "—", "1,2-Dimethoxyethane"] },
+          { cells: ["2-ethoxy-1,1-dimethylcyclohexane", "—", "2-Ethoxy-1,1-dimethylcyclohexane"] },
+        ]}
+      />
+
+      <h3 id="h-7-6-2">7.6.2 Preparation of Ethers</h3>
 
       <p>
         <strong>1. By dehydration of alcohols.</strong> Alcohols undergo dehydration in the presence of
@@ -1081,7 +1216,7 @@ export default function AlcoholsPhenolsEthersChapter() {
         </p>
       </Expandable>
 
-      <h3 id="h-7-6-2">7.6.2 Physical Properties</h3>
+      <h3 id="h-7-6-3">7.6.3 Physical Properties</h3>
 
       <p>
         The C—O bonds in ethers are polar, so ethers have a net dipole moment. That weak polarity does
@@ -1103,7 +1238,7 @@ export default function AlcoholsPhenolsEthersChapter() {
         with water.
       </p>
 
-      <h3 id="h-7-6-3">7.6.3 Chemical Reactions</h3>
+      <h3 id="h-7-6-4">7.6.4 Chemical Reactions</h3>
 
       <p>
         <strong>1. Cleavage of the C—O bond.</strong> Ethers are the least reactive of the functional

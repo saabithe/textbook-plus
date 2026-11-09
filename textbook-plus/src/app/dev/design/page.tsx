@@ -62,6 +62,12 @@ import { StructureFeatureCard } from "@/components/content/chemistry/StructureFe
 import { Sp2HydroxylComparison } from "@/components/content/chemistry/Sp2HydroxylComparison";
 import { EtherClassification } from "@/components/content/chemistry/EtherClassification";
 import { BenzeneRing, StructureMark } from "@/components/content/chemistry/StructureGlyphs";
+import { NamingSystemCards } from "@/components/content/chemistry/NamingSystemCards";
+import { NumberedRuleRows } from "@/components/content/chemistry/NumberedRuleRows";
+import { PolyhydricAlcoholCards } from "@/components/content/chemistry/PolyhydricAlcoholCards";
+import { PhenolParentCard } from "@/components/content/chemistry/PhenolParentCard";
+import { PhenolPositionComparison } from "@/components/content/chemistry/PhenolPositionComparison";
+import { GroupedNameTable } from "@/components/content/chemistry/GroupedNameTable";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -488,6 +494,104 @@ export default function DesignPage() {
                   left: <>C<sub>2</sub>H<sub>5</sub></>,
                   right: <>C<sub>6</sub>H<sub>5</sub></>,
                   name: "Ethyl phenyl ether",
+                },
+              ],
+            },
+          ]}
+        />
+      </Section>
+
+      <Section title="Chemistry — nomenclature">
+        <NamingSystemCards
+          systems={[
+            {
+              label: "Common name system",
+              rule: "Alkyl group name + alcohol.",
+              example: <>CH<sub>3</sub>OH → Methyl alcohol</>,
+            },
+            {
+              label: "IUPAC system",
+              rule: "Replace the terminal -e of the parent alkane with -ol.",
+              example: "Alkane − e + ol = Alkanol",
+            },
+          ]}
+        />
+        <NumberedRuleRows
+          rules={[
+            { title: "Numbering", detail: "number from the end nearest to the –OH group." },
+            {
+              title: "Polyhydric alcohols",
+              detail: "retain the terminal -e and add -diol or -triol with position locants.",
+            },
+            {
+              title: "Cyclic alcohols",
+              detail: "use the prefix cyclo-; the carbon bearing –OH is C-1.",
+            },
+          ]}
+        />
+        <PolyhydricAlcoholCards
+          alcohols={[
+            {
+              common: "Ethylene glycol",
+              iupac: "Ethane-1,2-diol",
+              hydroxyls: 2,
+              structure: (
+                <>
+                  <StructureMark>HO</StructureMark>–CH<sub>2</sub>–CH<sub>2</sub>–
+                  <StructureMark>OH</StructureMark>
+                </>
+              ),
+            },
+            {
+              common: "Glycerol",
+              iupac: "Propane-1,2,3-triol",
+              hydroxyls: 3,
+              structure: (
+                <>
+                  <StructureMark>HO</StructureMark>–CH<sub>2</sub>–CH(
+                  <StructureMark>OH</StructureMark>)–CH<sub>2</sub>–
+                  <StructureMark>OH</StructureMark>
+                </>
+              ),
+            },
+          ]}
+        />
+        <PhenolParentCard
+          name="Phenol"
+          formula="C₆H₅OH"
+          statements={[
+            "The simplest hydroxy derivative of benzene.",
+            "Both the common name and the accepted IUPAC name.",
+          ]}
+        />
+        <PhenolPositionComparison
+          positions={[
+            { prefix: "o-", name: "Ortho", locants: "1,2", position: 2 },
+            { prefix: "m-", name: "Meta", locants: "1,3", position: 3 },
+            { prefix: "p-", name: "Para", locants: "1,4", position: 4 },
+          ]}
+        />
+        <GroupedNameTable
+          groups={[
+            {
+              label: "Monohydric phenols (phenol and cresols)",
+              rows: [
+                { structure: "C₆H₅OH", common: "Phenol", iupac: "Phenol" },
+                { structure: "o-C₆H₄(CH₃)(OH)", common: "o-Cresol", iupac: "2-Methylphenol" },
+              ],
+            },
+            {
+              label: "Polyhydric phenols (benzenediols)",
+              rows: [
+                {
+                  structure: "C₆H₄(OH)₂ (1,2-dihydroxy)",
+                  common: "Catechol",
+                  iupac: "Benzene-1,2-diol",
+                },
+                {
+                  structure: "C₆H₄(OH)₂ (1,4-dihydroxy)",
+                  common: "Quinol / Hydroquinone",
+                  iupac: "Benzene-1,4-diol",
                 },
               ],
             },
