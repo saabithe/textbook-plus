@@ -32,7 +32,7 @@ export default function CoordinationCompoundsChapter() {
         ]}
       />
 
-        <PocketGrid columns={3} title="Introduction – Coordination Compounds" items={[
+        <PocketGrid columns={1} title="Introduction – Coordination Compounds" items={[
     {
       id: "h-5-intro-entity",
       icon: "📦",

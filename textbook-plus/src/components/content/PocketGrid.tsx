@@ -21,8 +21,8 @@ interface PocketGridProps {
   items: PocketItem[];
   /** Small uppercase label printed above the grid. */
   title?: string;
-  /** Grid columns on wide screens. Defaults to 3. */
-  columns?: 2 | 3;
+  /** Number of columns. `1` gives a vertical stack. Defaults to 3. */
+  columns?: 1 | 2 | 3;
 }
 
 /**
@@ -103,8 +103,9 @@ export function PocketGrid({ items, title, columns = 3 }: PocketGridProps) {
 
       <div
         className={cn(
-          "grid grid-cols-1 gap-6 sm:grid-cols-2",
-          columns === 3 && "lg:grid-cols-3",
+          "grid grid-cols-1 gap-6",
+          columns === 2 && "sm:grid-cols-2",
+          columns === 3 && "sm:grid-cols-2 lg:grid-cols-3",
         )}
         role="group"
         aria-label={title}
@@ -124,9 +125,10 @@ export function PocketGrid({ items, title, columns = 3 }: PocketGridProps) {
               className={cn(
                 "overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all duration-200 hover:shadow-md card-elevated",
                 isOpen
-                  ? "border-rule-strong sm:col-span-2"
+                  ? "border-rule-strong"
                   : "border-border hover:bg-foreground/[0.03]",
-                isOpen && columns === 3 && "lg:col-span-3",
+                isOpen && columns === 2 && "sm:col-span-2",
+                isOpen && columns === 3 && "sm:col-span-2 lg:col-span-3",
               )}
             >
               <button
