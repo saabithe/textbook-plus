@@ -40,6 +40,8 @@ import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { TopicIndex } from "@/components/content/TopicIndex";
+import { VbtComplexCard } from "@/components/content/chemistry/VbtComplexCard";
+import { LigandStrengthComparison } from "@/components/content/chemistry/LigandStrengthComparison";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -206,6 +208,35 @@ export default function DesignPage() {
             { label: "Substitute", description: "Plug in numbers and compute." },
           ]}
         />
+      </Section>
+
+      <Section title="Chemistry — VBT evidence">
+        <LigandStrengthComparison
+          weak={["I⁻", "Cl⁻", "Br⁻", "SCN⁻", "OH⁻", "H₂O"]}
+          strong={["CO", "NH₃", "CN⁻", "en", "EDTA⁴⁻"]}
+        />
+        <div className="grid gap-4 sm:grid-cols-2">
+          <VbtComplexCard
+            formula="[Co(NH₃)₆]³⁺"
+            geometry="Octahedral"
+            hybridisation="d²sp³"
+            magnetic="Diamagnetic"
+            orbitalType="Inner orbital"
+            config="Co³⁺ · 3d⁶"
+            unpaired="0"
+            notes={["Uses inner 3d orbitals.", "All electrons are paired.", "Low spin complex."]}
+          />
+          <VbtComplexCard
+            formula="[CoF₆]³⁻"
+            geometry="Octahedral"
+            hybridisation="sp³d²"
+            magnetic="Paramagnetic"
+            orbitalType="Outer orbital"
+            config="Co³⁺ · 3d⁶"
+            unpaired="4"
+            notes={["Uses outer 4d orbitals.", "Four unpaired electrons remain.", "High spin complex."]}
+          />
+        </div>
       </Section>
 
       <Section title="Study & answers">

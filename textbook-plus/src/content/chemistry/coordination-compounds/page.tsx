@@ -11,6 +11,8 @@ import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { PocketGrid } from "@/components/content/PocketGrid";
 import { TreeDiagram } from "@/components/content/concept/TreeDiagram";
+import { VbtComplexCard } from "@/components/content/chemistry/VbtComplexCard";
+import { LigandStrengthComparison } from "@/components/content/chemistry/LigandStrengthComparison";
 
 export default function CoordinationCompoundsChapter() {
   return (
@@ -854,61 +856,138 @@ export default function CoordinationCompoundsChapter() {
 
       <h3 id="h-5-5-1">5.5.1 Valence Bond Theory</h3>
 
+      <Callout type="note" title="Proposed by Linus Pauling">
+        <ul>
+          <li><strong>Core principle:</strong> the central metal atom/ion provides vacant orbitals to accommodate electron pairs donated by ligands.</li>
+          <li><strong>Coordination number:</strong> equals the number of vacant orbitals formed.</li>
+          <li><strong>Hybridisation:</strong> vacant metal orbitals mix to form new hybrid orbitals, determining the geometric shape of the complex.</li>
+        </ul>
+      </Callout>
+
       <p>
-        The metal atom or ion uses its (n−1)d, ns, np — or ns, np, nd — orbitals for hybridisation,
-        giving equivalent orbitals of definite geometry. These hybridised orbitals overlap with
-        ligand orbitals that donate electron pairs.
+        Under the influence of ligands, the central metal atom/ion uses its
+        <strong>(n−1)d, ns, np</strong> or <strong>ns, np, nd</strong> orbitals for hybridisation,
+        yielding a set of equivalent orbitals of definite geometry.
       </p>
 
       <TableCard
-        caption="Table 5.2: Number of Orbitals and Types of Hybridisations"
-        headers={["Coordination number", "Type of hybridisation", "Distribution of hybrid orbitals in space"]}
+        title="Coordination number, hybridisation and geometry"
+        headers={["Coordination number", "Hybridisation", "Spatial distribution of hybrid orbitals", "Complex type"]}
         rows={[
-          { cells: ["4", "sp³", "Tetrahedral"] },
-          { cells: ["4", "dsp²", "Square planar"] },
-          { cells: ["5", "sp³d", "Trigonal bipyramidal"] },
-          { cells: ["6", "sp³d²", "Octahedral"] },
-          { cells: ["6", "d²sp³", "Octahedral"] },
+          { cells: ["4", "sp³", "Tetrahedral", "—"] },
+          { cells: ["4", "dsp²", "Square planar", "—"] },
+          { cells: ["5", "sp³d", "Trigonal bipyramidal", "—"] },
+          { cells: ["6", "sp³d²", "Octahedral", "Outer orbital / high spin / spin free"] },
+          { cells: ["6", "d²sp³", "Octahedral", "Inner orbital / low spin / spin paired"] },
         ]}
       />
+
+      <h4 id="h-5-5-1-bonding">Bonding mechanics</h4>
+
+      <ul>
+        <li><strong>Ligand requirement:</strong> each ligand must contain at least one lone pair of electrons.</li>
+        <li><strong>Overlap:</strong> vacant metal hybrid orbitals overlap with filled ligand orbitals to form coordinate covalent bonds.</li>
+      </ul>
+
+      <h4 id="h-5-5-1-magnetic">Magnetic behaviour</h4>
 
       <Comparison
         columns={[
-          {
-            title: "[Co(NH₃)₆]³⁺ — inner orbital, diamagnetic",
-            children: (
-              <ul>
-                <li>Co is +3 with 3d⁶.</li>
-                <li>The 3d electrons pair up, leaving two 3d orbitals free.</li>
-                <li>Hybridisation is <strong>d²sp³</strong> — inner d orbital used.</li>
-                <li>Six electron pairs from six NH₃ molecules occupy the hybrid orbitals.</li>
-                <li>Octahedral; no unpaired electron → <strong>low spin / spin paired</strong>.</li>
-              </ul>
-            ),
-          },
-          {
-            title: "[CoF₆]³⁻ — outer orbital, paramagnetic",
-            children: (
-              <ul>
-                <li>Co is +3 with 3d⁶; F⁻ is a weak ligand and does not pair the electrons.</li>
-                <li>Hybridisation is <strong>sp³d²</strong> — outer 4d orbital used.</li>
-                <li>Octahedral; unpaired electrons remain → <strong>high spin / spin free</strong>.</li>
-              </ul>
-            ),
-          },
+          { title: "Paramagnetic", children: (<p>Contains unpaired electrons.</p>) },
+          { title: "Diamagnetic", children: (<p>Contains only paired electrons.</p>) },
         ]}
       />
 
-      <ul>
-        <li>[NiCl<sub>4</sub>]<sup>2−</sup>: Ni is +2, 3d<sup>8</sup>; one s and three p orbitals hybridise (sp<sup>3</sup>) → tetrahedral, paramagnetic with two unpaired electrons.</li>
-        <li>[Ni(CO)<sub>4</sub>]: nickel is in zero oxidation state, tetrahedral, diamagnetic — no unpaired electrons.</li>
-        <li>[Ni(CN)<sub>4</sub>]<sup>2−</sup>: Ni is +2, 3d<sup>8</sup>; hybridisation is <strong>dsp²</strong> → square planar; each hybrid orbital receives a pair from a cyanide ion, so it is diamagnetic.</li>
-      </ul>
+      <p>The spin-only formula and the inner/outer evidence are in §5.5.2.</p>
 
-      <Callout type="note">
-        Hybrid orbitals do not actually exist. Hybridisation is a mathematical manipulation of the
-        wave equation for the atomic orbitals involved.
-      </Callout>
+      <h4 id="h-5-5-1-ligands">Ligand classification and complex types</h4>
+
+      <LigandStrengthComparison
+        weak={["I⁻", "Cl⁻", "Br⁻", "SCN⁻", "OH⁻", "H₂O"]}
+        strong={["CO", "NH₃", "CN⁻", "en", "EDTA⁴⁻"]}
+      />
+
+      <h4 id="h-5-5-1-examples">Representative examples under VBT</h4>
+
+      <p className="t-micro mt-6 mb-2 flex items-center gap-3">
+        <span>A · Octahedral complexes</span>
+        <span aria-hidden className="h-px flex-1 bg-border" />
+      </p>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <VbtComplexCard
+          formula="[Co(NH₃)₆]³⁺"
+          geometry="Octahedral"
+          hybridisation="d²sp³"
+          magnetic="Diamagnetic"
+          orbitalType="Inner orbital"
+          config="Co³⁺ · 3d⁶"
+          unpaired="0"
+          notes={[
+            "Uses inner 3d orbitals.",
+            "All electrons are paired.",
+            "Low spin complex.",
+          ]}
+        />
+        <VbtComplexCard
+          formula="[CoF₆]³⁻"
+          geometry="Octahedral"
+          hybridisation="sp³d²"
+          magnetic="Paramagnetic"
+          orbitalType="Outer orbital"
+          config="Co³⁺ · 3d⁶"
+          unpaired="4"
+          notes={[
+            "Uses outer 4d orbitals.",
+            "Four unpaired electrons remain.",
+            "High spin complex.",
+          ]}
+        />
+      </div>
+
+      <p className="t-micro mt-6 mb-2 flex items-center gap-3">
+        <span>B · Tetrahedral complexes</span>
+        <span aria-hidden className="h-px flex-1 bg-border" />
+      </p>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <VbtComplexCard
+          formula="[NiCl₄]²⁻"
+          geometry="Tetrahedral"
+          hybridisation="sp³"
+          magnetic="Paramagnetic"
+          config="Ni²⁺ · 3d⁸"
+          unpaired="2"
+          notes={["Two unpaired electrons."]}
+        />
+        <VbtComplexCard
+          formula="[Ni(CO)₄]"
+          geometry="Tetrahedral"
+          hybridisation="sp³"
+          magnetic="Diamagnetic"
+          config="Ni(0) · 3d¹⁰"
+          unpaired="0"
+          notes={["No unpaired electrons."]}
+        />
+      </div>
+
+      <p className="t-micro mt-6 mb-2 flex items-center gap-3">
+        <span>C · Square planar complex</span>
+        <span aria-hidden className="h-px flex-1 bg-border" />
+      </p>
+      <div className="grid gap-4">
+        <VbtComplexCard
+          formula="[Ni(CN)₄]²⁻"
+          geometry="Square planar"
+          hybridisation="dsp²"
+          magnetic="Diamagnetic"
+          config="Ni²⁺ · 3d⁸"
+          unpaired="0"
+          notes={[
+            "Ni²⁺ undergoes electron pairing under cyanide influence.",
+            "One 3d orbital is freed.",
+            "Square planar geometry.",
+          ]}
+        />
+      </div>
 
       <h3 id="h-5-5-2">5.5.2 Magnetic Properties of Coordination Compounds</h3>
 
@@ -953,14 +1032,16 @@ export default function CoordinationCompoundsChapter() {
 
       <h3 id="h-5-5-3">5.5.3 Limitations of Valence Bond Theory</h3>
 
-      <ul>
-        <li>It involves a number of assumptions.</li>
-        <li>It does not give a quantitative interpretation of magnetic data.</li>
-        <li>It does not explain the colour of coordination compounds.</li>
-        <li>It does not quantitatively interpret thermodynamic or kinetic stabilities.</li>
-        <li>It does not make exact predictions regarding tetrahedral and square planar structures of 4-coordinate complexes.</li>
-        <li>It does not distinguish between weak and strong ligands.</li>
-      </ul>
+      <Callout type="warning" title="Limitations of Valence Bond Theory">
+        <ol>
+          <li><strong>Assumptions:</strong> the theory involves a number of assumptions.</li>
+          <li><strong>Magnetic data:</strong> it fails to provide a quantitative interpretation.</li>
+          <li><strong>Colour:</strong> it does not explain the colour exhibited by coordination compounds.</li>
+          <li><strong>Stability:</strong> it fails to quantitatively interpret thermodynamic or kinetic stabilities of complexes.</li>
+          <li><strong>4-coordinate geometry:</strong> it cannot make exact predictions regarding tetrahedral vs. square planar structures.</li>
+          <li><strong>Ligand strength:</strong> it does not distinguish between weak and strong ligands.</li>
+        </ol>
+      </Callout>
 
       <h3 id="h-5-5-4">5.5.4 Crystal Field Theory</h3>
 
@@ -973,8 +1054,10 @@ export default function CoordinationCompoundsChapter() {
       <p>
         The five d orbitals of an isolated gaseous metal ion are degenerate. A spherically symmetrical
         field keeps them degenerate, but a ligand field is asymmetrical — the degeneracy is lifted and
-        the d orbitals split. The pattern depends on the geometry.
+        the d orbitals split.
       </p>
+
+      <p>The pattern depends on the geometry.</p>
 
       <Callout type="important" title="Splitting in an octahedral field">
         The d<sub>x²−y²</sub> and d<sub>z²</sub> orbitals point towards the ligands, so they
@@ -1041,7 +1124,10 @@ export default function CoordinationCompoundsChapter() {
       <KeyPoint title="[Ti(H₂O)₆]³⁺ — the standard CFT example">
         <p>
           Ti<sup>3+</sup> is a 3d<sup>1</sup> system. The single electron sits in the t<sub>2g</sub>
-          level. Absorption of blue-green light excites it to the empty e<sub>g</sub> level
+          level.
+        </p>
+        <p>
+          Absorption of blue-green light excites it to the empty e<sub>g</sub> level
           (t<sub>2g</sub><sup>1</sup>e<sub>g</sub><sup>0</sup> → t<sub>2g</sub><sup>0</sup>e<sub>g</sub><sup>1</sup>),
           so the complex appears violet.
         </p>
