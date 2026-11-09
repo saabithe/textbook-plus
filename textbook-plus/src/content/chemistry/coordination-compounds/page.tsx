@@ -847,13 +847,6 @@ export default function CoordinationCompoundsChapter() {
 
       <h2 id="h-5-5">5.5 Bonding in Coordination Compounds</h2>
 
-      <p>
-        Werner&apos;s theory could not answer why only certain elements form complexes, why the bonds
-        are directional, or why the compounds have characteristic magnetic and optical properties.
-        The main approaches are Valence Bond Theory (VBT), Crystal Field Theory (CFT), Ligand Field
-        Theory (LFT) and Molecular Orbital Theory (MOT).
-      </p>
-
       <h3 id="h-5-5-1">5.5.1 Valence Bond Theory</h3>
 
       <Callout type="note" title="Proposed by Linus Pauling">
@@ -888,17 +881,6 @@ export default function CoordinationCompoundsChapter() {
         <li><strong>Ligand requirement:</strong> each ligand must contain at least one lone pair of electrons.</li>
         <li><strong>Overlap:</strong> vacant metal hybrid orbitals overlap with filled ligand orbitals to form coordinate covalent bonds.</li>
       </ul>
-
-      <h4 id="h-5-5-1-magnetic">Magnetic behaviour</h4>
-
-      <Comparison
-        columns={[
-          { title: "Paramagnetic", children: (<p>Contains unpaired electrons.</p>) },
-          { title: "Diamagnetic", children: (<p>Contains only paired electrons.</p>) },
-        ]}
-      />
-
-      <p>The spin-only formula and the inner/outer evidence are in §5.5.2.</p>
 
       <h4 id="h-5-5-1-ligands">Ligand classification and complex types</h4>
 
@@ -991,44 +973,16 @@ export default function CoordinationCompoundsChapter() {
 
       <h3 id="h-5-5-2">5.5.2 Magnetic Properties of Coordination Compounds</h3>
 
-      <p>
-        Magnetic susceptibility measurements give the number of unpaired electrons and hence the
-        structure. The magnetic moment follows the spin-only formula.
-      </p>
-
-      <FormulaBlock latex={String.raw`\mu = \sqrt{n(n+2)}\ \text{BM}`} important />
-
-      <ul>
-        <li>For ions with up to three d electrons — Ti<sup>3+</sup> (d<sup>1</sup>), V<sup>3+</sup> (d<sup>2</sup>), Cr<sup>3+</sup> (d<sup>3</sup>) — two vacant d orbitals are available for octahedral hybridisation, so the magnetic behaviour matches the free ion.</li>
-        <li>With more than three 3d electrons the required pair of 3d orbitals is not directly available (Hund&apos;s rule).</li>
-        <li>For d<sup>4</sup> (Cr<sup>2+</sup>, Mn<sup>3+</sup>), d<sup>5</sup> (Mn<sup>2+</sup>, Fe<sup>3+</sup>) and d<sup>6</sup> (Fe<sup>2+</sup>, Co<sup>3+</sup>), a vacant pair of d orbitals results only by pairing, leaving two, one and zero unpaired electrons respectively.</li>
-      </ul>
-
-      <TableCard
-        title="Inner vs outer orbital complexes — the evidence"
-        headers={["Complex", "Unpaired electrons", "Orbital type", "Hybridisation"]}
-        rows={[
-          { cells: ["[Mn(CN)₆]³⁻", "2", "inner", "d²sp³"] },
-          { cells: ["[Fe(CN)₆]³⁻", "1", "inner", "d²sp³"] },
-          { cells: ["[Co(C₂O₄)₃]³⁻", "0", "inner", "d²sp³"] },
-          { cells: ["[MnCl₆]³⁻", "4", "outer", "sp³d²"] },
-          { cells: ["[FeF₆]³⁻", "5", "outer", "sp³d²"] },
-          { cells: ["[CoF₆]³⁻", "4", "outer", "sp³d²"] },
+      <Comparison
+        columns={[
+          { title: "Paramagnetic", children: (<p>Contains unpaired electrons.</p>) },
+          { title: "Diamagnetic", children: (<p>Contains only paired electrons.</p>) },
         ]}
       />
 
-      <Expandable title="Example 5.7 — Geometry of [MnBr₄]²⁻ from its magnetic moment" variant="example">
-        <p>
-          <strong>Question:</strong> The spin-only magnetic moment of [MnBr<sub>4</sub>]<sup>2−</sup>
-          is 5.9 BM. Predict the geometry of the complex ion.
-        </p>
-        <p>
-          <strong>Solution:</strong> The coordination number of Mn<sup>2+</sup> is 4, so the ion is
-          either tetrahedral (sp<sup>3</sup>) or square planar (dsp<sup>2</sup>). A moment of 5.9 BM
-          corresponds to five unpaired electrons, which is possible only in the tetrahedral case —
-          dsp<sup>2</sup> would force pairing and leave fewer unpaired electrons.
-        </p>
-      </Expandable>
+      <FormulaBlock latex={String.raw`\mu = \sqrt{n(n+2)}\ \text{BM}`} important />
+
+      <p>where <em>n</em> = number of unpaired electrons.</p>
 
       <h3 id="h-5-5-3">5.5.3 Limitations of Valence Bond Theory</h3>
 
