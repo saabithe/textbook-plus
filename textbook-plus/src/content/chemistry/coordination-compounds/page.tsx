@@ -10,6 +10,7 @@ import { FactCard } from "@/components/content/concept/FactCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { PocketGrid } from "@/components/content/PocketGrid";
+import { TreeDiagram } from "@/components/content/concept/TreeDiagram";
 
 export default function CoordinationCompoundsChapter() {
   return (
@@ -680,99 +681,159 @@ export default function CoordinationCompoundsChapter() {
         </ul>
       </Expandable>
 
+
       <h2 id="h-5-4">5.4 Isomerism in Coordination Compounds</h2>
 
-      <p>
-        Isomers have the same chemical formula but a different arrangement of atoms, and hence differ
-        in one or more physical or chemical properties.
-      </p>
+      <Callout type="important" title="Definition">
+        Isomers are compounds with identical chemical formulae but different arrangements of atoms, resulting in different physical and chemical properties.
+      </Callout>
 
-      <TableCard
-        title="Types of isomerism"
-        headers={["Stereoisomerism (same bonds, different spatial arrangement)", "Structural isomerism (different bonds)"]}
-        rows={[
-          { cells: ["Geometrical isomerism", "Linkage isomerism"] },
-          { cells: ["Optical isomerism", "Coordination isomerism"] },
-          { cells: ["", "Ionisation isomerism"] },
-          { cells: ["", "Solvate isomerism"] },
+      <TreeDiagram
+        title="Classification of Isomerism"
+        nodes={[
+          { label: "Structural Isomerism", children: [
+            { label: "Ionisation" },
+            { label: "Linkage" },
+            { label: "Coordination" },
+            { label: "Solvate / Hydrate" },
+          ]},
+          { label: "Stereoisomerism", children: [
+            { label: "Geometrical" },
+            { label: "Optical" },
+          ]},
         ]}
       />
 
-      <h3 id="h-5-4-1">5.4.1 Geometric Isomerism</h3>
+      <Comparison
+        columns={[
+          { title: "Structural Isomerism", children: (<p>Different bonding / linkage; same formula.</p>) },
+          { title: "Stereoisomerism", children: (<p>Same bonding connectivity; different 3‑D spatial arrangement.</p>) },
+        ]}
+      />
 
-      <ul>
-        <li>Arises in heteroleptic complexes from different possible geometric arrangements of ligands; important for coordination numbers 4 and 6.</li>
-        <li>Square planar [MX<sub>2</sub>L<sub>2</sub>]: the two X ligands may be adjacent (<strong>cis</strong>) or opposite (<strong>trans</strong>).</li>
-        <li>Square planar MABXL gives three isomers — two cis and one trans.</li>
-        <li>Not possible for tetrahedral geometry.</li>
-        <li>Octahedral [MX<sub>2</sub>L<sub>4</sub>]: the two X ligands may be cis or trans.</li>
-        <li>Also arises with didentate ligands in [MX<sub>2</sub>(L–L)<sub>2</sub>].</li>
-        <li>Octahedral [Ma<sub>3</sub>b<sub>3</sub>]: <strong>facial (fac)</strong> when the three donor atoms of the same ligand occupy adjacent corners of an octahedral face; <strong>meridional (mer)</strong> when they lie around the meridian.</li>
-      </ul>
+      <h3 id="h-5-4-1">5.4.1 Structural Isomerism</h3>
 
-      <Expandable title="Example 5.4 — Why no geometrical isomerism in tetrahedral complexes?" variant="example">
-        <p>
-          <strong>Solution:</strong> Tetrahedral complexes do not show geometrical isomerism because
-          the relative positions of the unidentate ligands attached to the central metal atom are the
-          same with respect to each other.
-        </p>
+      <ConceptCard title="Ionisation Isomerism" icon="⚛️">
+        <p>Mechanism: interchange of an ion inside and outside the coordination sphere.</p>
+        <p>Example:</p>
+        <ul>
+          <li><code>[Co(NH₃)₅SO₄]Br</code></li>
+          <li><code>[Co(NH₃)₅Br]SO₄</code></li>
+        </ul>
+        <p>Distinguishing feature: counter‑ion can act as a ligand.</p>
+      </ConceptCard>
+
+      <ConceptCard title="Linkage Isomerism" icon="⚛️">
+        <p>Mechanism: ambidentate ligand binds through different donor atoms.</p>
+        <Comparison
+          columns={[
+            { title: "Nitro (N‑bound)", children: (<p><code>[Co(NH₃)₅(NO₂)]Cl₂</code> – N donor</p>) },
+            { title: "Nitrito (O‑bound)", children: (<p><code>[Co(NH₃)₅(ONO)]Cl₂</code> – O donor</p>) },
+          ]}
+        />
+        <p>Common ambidentate ligands: NO₂⁻, SCN⁻.</p>
+      </ConceptCard>
+
+      <ConceptCard title="Coordination Isomerism" icon="⚛️">
+        <p>Mechanism: ligand interchange between cationic and anionic complex entities.</p>
+        <ul>
+          <li><code>[Co(NH₃)₆][Cr(CN)₆]</code></li>
+          <li><code>[Cr(NH₃)₆][Co(CN)₆]</code></li>
+        </ul>
+      </ConceptCard>
+
+      <ConceptCard title="Solvate (Hydrate) Isomerism" icon="⚛️">
+        <p>Mechanism: difference in the number of solvent molecules directly coordinated.</p>
+        <ul>
+          <li><code>[Cr(H₂O)₆]Cl₃</code></li>
+          <li><code>[Cr(H₂O)₅Cl]Cl₂·H₂O</code></li>
+        </ul>
+      </ConceptCard>
+
+      <h3 id="h-5-4-2">5.4.2 Stereoisomerism</h3>
+
+      <Callout type="note" title="Definition">
+        Isomers having the same atom‑to‑atom bonding connectivity but different spatial arrangements of ligands around the central metal ion.
+      </Callout>
+
+      <Comparison
+        columns={[
+          { title: "Geometrical Isomerism", children: (<p>Cis/Trans, Fac/Mer.</p>) },
+          { title: "Optical Isomerism", children: (<p>Enantiomers – non‑superimposable mirror images.</p>) },
+        ]}
+      />
+
+      <h3 id="h-5-4-3">5.4.3 Geometrical Isomerism</h3>
+
+      <p>Cause: different arrangements of ligands around the central metal ion.</p>
+
+      <Comparison
+        columns={[
+          { title: "Square Planar (CN = 4)", children: (
+            <ul>
+              <li>Cis – adjacent ligands (90°)</li>
+              <li>Trans – opposite ligands (180°)</li>
+              <li>Example: <code>[Pt(NH₃)₂Cl₂]</code></li>
+            </ul>
+          ) },
+          { title: "Octahedral (CN = 6)", children: (
+            <ul>
+              <li>Cis – adjacent ligands</li>
+              <li>Trans – opposite ligands</li>
+              <li>Fac – three identical ligands occupy one face</li>
+              <li>Mer – three identical ligands lie on a meridian</li>
+              <li>Example: <code>[Co(NH₃)₄Cl₂]⁺</code></li>
+            </ul>
+          ) },
+        ]}
+      />
+
+      <Callout type="warning">
+        Tetrahedral complexes of the type <code>[MA₂B₂]</code> do not exhibit geometrical isomerism because all four positions are equivalent.
+      </Callout>
+
+      <h3 id="h-5-4-4">5.4.4 Optical Isomerism</h3>
+
+      <Callout type="note" title="Key points">
+        <ul>
+          <li>Chiral complexes are non‑superimposable on their mirror images.</li>
+          <li>Optically active complexes rotate plane‑polarised light (dextrorotatory ‘d’/‘+’, levorotatory ‘l’/‘‑’).</li>
+          <li>Typical example: <code>[Co(en)₃]³+</code> – Δ (right‑handed) and Λ (left‑handed) forms.</li>
+        </ul>
+      </Callout>
+
+      <TableCard
+        title="Optical activity of selected complexes"
+        headers={["Complex", "Isomer", "Optical activity"]}
+        rows={[
+          { cells: ["[PtCl₂(en)₂]²+", "Cis", "Active"] },
+          { cells: ["[PtCl₂(en)₂]²+", "Trans", "Inactive"] },
+          { cells: ["[Co(en)₃]³+", "Δ / Λ", "Active enantiomers"] },
+        ]}
+      />
+
+      <MistakeCard
+        mistake="cis‑[Co(NH₃)₄Cl₂]⁺ is optically active"
+        correction="Both cis and trans forms of [Co(NH₃)₄Cl₂]⁺ are achiral; they do not exhibit optical activity."
+        example="A common optically active example is cis‑[CoCl₂(en)₂]⁺."
+      />
+
+      <h3 id="h-5-4-5">5.4.5 Board Exam Questions</h3>
+
+      <Expandable title="Board exam practice" variant="example">
+        <ExerciseQa
+          questions={[
+            <>Medical application: The cis‑isomer of <code>[Pt(NH₃)₂Cl₂]</code> is used to inhibit tumour growth.</>,
+            <>Which complex shows optical isomerism? (A) [Ni(CO)₄] (B) [CoF₆]³⁻ (C) cis‑[Co(NH₃)₄Cl₂]⁺ (D) trans‑[Co(NH₃)₄Cl₂]⁺</>,
+            <>Identify the geometrical isomers of <code>[Co(NH₃)₃Cl₃]</code>.</>,
+          ]}
+          answers={[
+            <>IUPAC name: Diamminedichloridoplatinum(II). Difference: cis – Cl ligands adjacent; trans – opposite.</>,
+            <>None of the given options is correct. The intended optically active complex is cis‑[CoCl₂(en)₂]⁺.</>,
+            <>fac‑[Co(NH₃)₃Cl₃] and mer‑[Co(NH₃)₃Cl₃].</>,
+          ]}
+        />
       </Expandable>
-
-      <h3 id="h-5-4-2">5.4.2 Optical Isomerism</h3>
-
-      <p>
-        Optical isomers are mirror images that cannot be superimposed on one another —
-        <strong>enantiomers</strong>. The molecules or ions that cannot be superimposed are
-        <strong>chiral</strong>. The two forms are called <strong>dextro (d)</strong> and
-        <strong>laevo (l)</strong> according to the direction in which they rotate the plane of
-        polarised light (<em>d</em> rotates to the right, <em>l</em> to the left).
-      </p>
-
-      <ul>
-        <li>Optical isomerism is common in octahedral complexes involving didentate ligands, e.g. [Co(en)<sub>3</sub>]<sup>3+</sup>.</li>
-        <li>In [PtCl<sub>2</sub>(en)<sub>2</sub>]<sup>2+</sup>, only the <strong>cis</strong> isomer shows optical activity.</li>
-      </ul>
-
-      <Expandable title="Example 5.5 — Which is chiral: cis- or trans-[CrCl₂(ox)₂]³⁻?" variant="example">
-        <p>
-          <strong>Solution:</strong> Of the two, <strong>cis-[CrCl<sub>2</sub>(ox)<sub>2</sub>]<sup>3−</sup></strong>
-          is chiral (optically active). The trans isomer has a plane of symmetry.
-        </p>
-      </Expandable>
-
-      <h3 id="h-5-4-3">5.4.3 Linkage Isomerism</h3>
-
-      <p>
-        Arises in a compound containing an <strong>ambidentate ligand</strong>. The thiocyanate
-        ligand NCS<sup>−</sup> may bind through nitrogen (M–NCS) or through sulphur (M–SCN).
-        Jørgensen discovered this in [Co(NH<sub>3</sub>)<sub>5</sub>(NO<sub>2</sub>)]Cl<sub>2</sub>:
-        the red form has nitrite bound through oxygen (–ONO), the yellow form through nitrogen (–NO<sub>2</sub>).
-      </p>
-
-      <h3 id="h-5-4-4">5.4.4 Coordination Isomerism</h3>
-
-      <p>
-        Arises from interchange of ligands between cationic and anionic entities of different metal
-        ions. Example: [Co(NH<sub>3</sub>)<sub>6</sub>][Cr(CN)<sub>6</sub>] and its coordination
-        isomer [Cr(NH<sub>3</sub>)<sub>6</sub>][Co(CN)<sub>6</sub>].
-      </p>
-
-      <h3 id="h-5-4-5">5.4.5 Ionisation Isomerism</h3>
-
-      <p>
-        Arises when the counter ion is itself a potential ligand and can displace a ligand that then
-        becomes the counter ion: [Co(NH<sub>3</sub>)<sub>5</sub>(SO<sub>4</sub>)]Br and
-        [Co(NH<sub>3</sub>)<sub>5</sub>Br]SO<sub>4</sub>.
-      </p>
-
-      <h3 id="h-5-4-6">5.4.6 Solvate Isomerism</h3>
-
-      <p>
-        Also called <strong>hydrate isomerism</strong> when water is the solvent. Solvate isomers
-        differ in whether a solvent molecule is directly bonded to the metal or merely present as free
-        solvent in the crystal lattice: [Cr(H<sub>2</sub>O)<sub>6</sub>]Cl<sub>3</sub> (violet) and
-        [Cr(H<sub>2</sub>O)<sub>5</sub>Cl]Cl<sub>2</sub>·H<sub>2</sub>O (grey-green).
-      </p>
 
       <h2 id="h-5-5">5.5 Bonding in Coordination Compounds</h2>
 
