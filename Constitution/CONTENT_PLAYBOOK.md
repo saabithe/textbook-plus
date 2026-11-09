@@ -10,6 +10,8 @@ One page. Run it **before**, **during** and **after** every chapter. If a rule h
 - `AGENTS.md` — "Content Authoring Conventions".
 - The previous chapter's `page.tsx` in the same subject, as a quality reference.
 
+**Working contract (non-negotiable).** Presentation is the deliverable: every `[DESIGN: …]` or `{…}` instruction is a binding build specification, not a hint. Build or extend the component the note needs. The note is the only content source: never invent facts, examples, or explanations, and let a supplied replacement override the old section.
+
 ---
 
 ## 1. Pre-flight — before a line of JSX

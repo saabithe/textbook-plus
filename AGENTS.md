@@ -83,6 +83,8 @@ Component categories (under `src/components/content/`): Core (top level), `data/
 
 ## Content Preferences (must follow)
 
+- **Presentation is the deliverable.** Treat every `[DESIGN: …]` or `{…}` instruction as a binding build specification, not a hint. Spend the time; build or extend a reusable component when the note needs a shape that does not exist. Visual UI/UX quality is the primary success criterion — never trade it for speed or for reusing a weaker existing block.
+- **Notes are the source, not raw material.** Never invent, embellish, extrapolate, or fill gaps in the user's note. Present only the supplied content. When a supplied note replaces a section, it wins over the existing chapter content: remove or rewrite what it replaces, and do not preserve old examples, structure, or emphasis just because they are already there. Structural labels and headings may be added; new facts, examples, or explanations may not.
 - **Note-writing methodology (`USER_PREFERENCES.md` §11.4)** — compress the language, not the understanding: one idea per block, bold lead phrase per bullet, ≤2 sentences per paragraph, every enumeration becomes a list/`TableCard`/`Comparison`/`Stepper`, no "etc.", no private symbols, highlight only laws. `npm run verify:presentation -- --chapter <slug>` must be clean on any chapter being reworked (repo-wide it is not: 571 errors / 987 warnings as of Nov 2026).
 - **No Summary and no "Points to Ponder"** sections.
 - **Worked examples render collapsed** as `Expandable` (not expanded `Example`) — every sample, no exceptions; `Example` only inside an already-collapsed `Expandable`.
