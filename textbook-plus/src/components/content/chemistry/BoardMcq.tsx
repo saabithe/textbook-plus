@@ -8,16 +8,27 @@ interface BoardMcqOption {
   correct?: boolean;
 }
 
+interface BoardMcqExplanation {
+  /** Panel label, default "Why". */
+  heading?: ReactNode;
+  /** One reason per row. */
+  reasons: ReactNode[];
+}
+
 interface BoardMcqProps {
   question: ReactNode;
   options: BoardMcqOption[];
+  /** Optional reasoning panel under the options, for questions read openly. */
+  explanation?: BoardMcqExplanation;
 }
 
 /**
  * BoardMcq — one labelled question with its options as rows. The correct row
- * carries the emerald panel and a check; nothing is hidden.
+ * carries the emerald panel and a check; nothing is hidden. When the question
+ * is read openly rather than attempted, `explanation` adds the reasons under
+ * the options in the same emerald tone.
  */
-export function BoardMcq({ question, options }: BoardMcqProps) {
+export function BoardMcq({ question, options, explanation }: BoardMcqProps) {
   return (
     <div>
       <p className="text-sm font-semibold leading-relaxed text-foreground">{question}</p>
@@ -55,6 +66,21 @@ export function BoardMcq({ question, options }: BoardMcqProps) {
           </div>
         ))}
       </div>
+
+      {explanation && (
+        <div className="mt-2.5 rounded-md border border-ok/35 bg-ok/10 px-3 py-2.5">
+          <p className="t-micro text-ok">{explanation.heading ?? "Why"}</p>
+
+          <ul className="mt-1.5 space-y-1">
+            {explanation.reasons.map((reason, index) => (
+              <li key={index} className="flex gap-2 text-sm leading-relaxed text-foreground/90">
+                <Check aria-hidden className="mt-[0.3em] h-3.5 w-3.5 shrink-0 text-ok" strokeWidth={3} />
+                <span>{reason}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

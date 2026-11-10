@@ -38,109 +38,114 @@ import * as m35 from "@/components/content/biology/FinchBeaksDiagram";
 import * as m36 from "@/components/content/biology/MillerApparatusDiagram";
 import * as m37 from "@/components/content/chemistry/AlcoholTypeCards";
 import * as m38 from "@/components/content/chemistry/BoardMcq";
-import * as m39 from "@/components/content/chemistry/CarbonylClassTable";
-import * as m40 from "@/components/content/chemistry/CfseCalculationCard";
-import * as m41 from "@/components/content/chemistry/CftFactorCards";
-import * as m42 from "@/components/content/chemistry/CftLimitationCards";
-import * as m43 from "@/components/content/chemistry/CrystalFieldSplittingDiagram";
-import * as m44 from "@/components/content/chemistry/DdTransitionFlow";
-import * as m45 from "@/components/content/chemistry/DonationDiagram";
-import * as m46 from "@/components/content/chemistry/EtherClassification";
-import * as m47 from "@/components/content/chemistry/GeometryLabel";
-import * as m48 from "@/components/content/chemistry/GroupedNameTable";
-import * as m49 from "@/components/content/chemistry/HydroxylFormationCards";
-import * as m50 from "@/components/content/chemistry/HydroxylGroupClassification";
-import * as m51 from "@/components/content/chemistry/LigandStrengthComparison";
-import * as m52 from "@/components/content/chemistry/NamingSystemCards";
-import * as m53 from "@/components/content/chemistry/NumberedRuleRows";
-import * as m54 from "@/components/content/chemistry/PhenolParentCard";
-import * as m55 from "@/components/content/chemistry/PhenolPositionComparison";
-import * as m56 from "@/components/content/chemistry/PolyhydricAlcoholCards";
-import * as m57 from "@/components/content/chemistry/PolynuclearCarbonylCards";
-import * as m58 from "@/components/content/chemistry/ReactionPairCards";
-import * as m59 from "@/components/content/chemistry/ReactionPathway";
-import * as m60 from "@/components/content/chemistry/Sp2HydroxylComparison";
-import * as m61 from "@/components/content/chemistry/SpectrochemicalSeries";
-import * as m62 from "@/components/content/chemistry/StabilityConstantCard";
-import * as m63 from "@/components/content/chemistry/StabilityFactorCards";
-import * as m64 from "@/components/content/chemistry/StructureFeatureCard";
-import * as m65 from "@/components/content/chemistry/StructureGlyphs";
-import * as m66 from "@/components/content/chemistry/SynergicSummary";
-import * as m67 from "@/components/content/chemistry/VbtComplexCard";
-import * as m68 from "@/components/content/concept/ConceptCard";
-import * as m69 from "@/components/content/concept/FactCard";
-import * as m70 from "@/components/content/concept/TreeDiagram";
-import * as m71 from "@/components/content/data/Checklist";
-import * as m72 from "@/components/content/data/TableCard";
-import * as m73 from "@/components/content/physics/AmpereSurfaceToggle";
-import * as m74 from "@/components/content/physics/ChargeFateTrio";
-import * as m75 from "@/components/content/physics/DisplacementExplorer";
-import * as m76 from "@/components/content/physics/FieldRatio";
-import * as m77 from "@/components/content/physics/FormulaAnatomy";
-import * as m78 from "@/components/content/physics/OscillationPlayer";
-import * as m79 from "@/components/content/physics/PropagationExplorer";
-import * as m80 from "@/components/content/physics/SpectrumExplorer";
-import * as m81 from "@/components/content/physics/SpectrumTable";
-import * as m82 from "@/components/content/physics/SpeedLayers";
-import * as m83 from "@/components/content/physics/TransverseLongitudinal";
-import * as m84 from "@/components/content/physics/WaveAnatomyDiagram";
-import * as m85 from "@/components/content/physics/WaveTypesPanels";
-import * as m86 from "@/components/content/physics/diagram/PhysicsFigure";
-import * as m87 from "@/components/content/process/CycleDiagram";
-import * as m88 from "@/components/content/process/EquationLadder";
-import * as m89 from "@/components/content/process/ProblemInsightSolutionCard";
-import * as m90 from "@/components/content/process/ProcessCard";
-import * as m91 from "@/components/content/process/RevealAnswer";
-import * as m92 from "@/components/content/process/Timeline";
-import * as m93 from "@/components/content/study/MetricCard";
-import * as m94 from "@/components/content/study/MistakeCard";
-import * as m95 from "@/components/flashcard/FlashcardCard";
-import * as m96 from "@/components/flashcard/FlashcardDeck";
-import * as m97 from "@/components/flashcard/FlashcardProgress";
-import * as m98 from "@/components/grammar/GrammarQuiz";
-import * as m99 from "@/components/grammar/GrammarSection";
-import * as m100 from "@/components/grammar/GrammarTabs";
-import * as m101 from "@/components/grammar/GrammarTopicLayout";
-import * as m102 from "@/components/layout/CreditFooter";
-import * as m103 from "@/components/layout/UpdateBanner";
-import * as m104 from "@/components/practice/DifficultyFilter";
-import * as m105 from "@/components/practice/PracticeSession";
-import * as m106 from "@/components/practice/QuestionCard";
-import * as m107 from "@/components/subject/ChapterList";
-import * as m108 from "@/components/subject/SubjectCard";
-import * as m109 from "@/components/ui/accordion";
-import * as m110 from "@/components/ui/alert";
-import * as m111 from "@/components/ui/badge";
-import * as m112 from "@/components/ui/breadcrumb";
-import * as m113 from "@/components/ui/button-group";
-import * as m114 from "@/components/ui/button";
-import * as m115 from "@/components/ui/card";
-import * as m116 from "@/components/ui/carousel";
-import * as m117 from "@/components/ui/chart";
-import * as m118 from "@/components/ui/checkbox";
-import * as m119 from "@/components/ui/code-block";
-import * as m120 from "@/components/ui/collapsible";
-import * as m121 from "@/components/ui/command";
-import * as m122 from "@/components/ui/context-menu";
-import * as m123 from "@/components/ui/dialog";
-import * as m124 from "@/components/ui/dropdown-menu";
-import * as m125 from "@/components/ui/empty";
-import * as m126 from "@/components/ui/input-group";
-import * as m127 from "@/components/ui/input";
-import * as m128 from "@/components/ui/kbd";
-import * as m129 from "@/components/ui/label";
-import * as m130 from "@/components/ui/menubar";
-import * as m131 from "@/components/ui/navigation-menu";
-import * as m132 from "@/components/ui/progress";
-import * as m133 from "@/components/ui/separator";
-import * as m134 from "@/components/ui/sidebar";
-import * as m135 from "@/components/ui/skeleton";
-import * as m136 from "@/components/ui/sonner";
-import * as m137 from "@/components/ui/table";
-import * as m138 from "@/components/ui/tabs";
-import * as m139 from "@/components/ui/textarea";
-import * as m140 from "@/components/ui/toggle-group";
-import * as m141 from "@/components/ui/toggle";
+import * as m39 from "@/components/content/chemistry/BoardQuestionCard";
+import * as m40 from "@/components/content/chemistry/CarbonylClassTable";
+import * as m41 from "@/components/content/chemistry/CfseCalculationCard";
+import * as m42 from "@/components/content/chemistry/CftFactorCards";
+import * as m43 from "@/components/content/chemistry/CftLimitationCards";
+import * as m44 from "@/components/content/chemistry/CompoundOrderStrip";
+import * as m45 from "@/components/content/chemistry/CrystalFieldSplittingDiagram";
+import * as m46 from "@/components/content/chemistry/DdTransitionFlow";
+import * as m47 from "@/components/content/chemistry/DonationDiagram";
+import * as m48 from "@/components/content/chemistry/EtherClassification";
+import * as m49 from "@/components/content/chemistry/GeometryLabel";
+import * as m50 from "@/components/content/chemistry/GroupedNameTable";
+import * as m51 from "@/components/content/chemistry/HydrogenBondCard";
+import * as m52 from "@/components/content/chemistry/HydroxylFormationCards";
+import * as m53 from "@/components/content/chemistry/HydroxylGroupClassification";
+import * as m54 from "@/components/content/chemistry/LigandStrengthComparison";
+import * as m55 from "@/components/content/chemistry/NamingSystemCards";
+import * as m56 from "@/components/content/chemistry/NumberedRuleRows";
+import * as m57 from "@/components/content/chemistry/PhenolParentCard";
+import * as m58 from "@/components/content/chemistry/PhenolPositionComparison";
+import * as m59 from "@/components/content/chemistry/PolyhydricAlcoholCards";
+import * as m60 from "@/components/content/chemistry/PolynuclearCarbonylCards";
+import * as m61 from "@/components/content/chemistry/ReactionPairCards";
+import * as m62 from "@/components/content/chemistry/ReactionPathway";
+import * as m63 from "@/components/content/chemistry/SolubilityPanel";
+import * as m64 from "@/components/content/chemistry/Sp2HydroxylComparison";
+import * as m65 from "@/components/content/chemistry/SpectrochemicalSeries";
+import * as m66 from "@/components/content/chemistry/StabilityConstantCard";
+import * as m67 from "@/components/content/chemistry/StabilityFactorCards";
+import * as m68 from "@/components/content/chemistry/StructureFeatureCard";
+import * as m69 from "@/components/content/chemistry/StructureGlyphs";
+import * as m70 from "@/components/content/chemistry/SynergicSummary";
+import * as m71 from "@/components/content/chemistry/TrendCards";
+import * as m72 from "@/components/content/chemistry/VbtComplexCard";
+import * as m73 from "@/components/content/concept/ConceptCard";
+import * as m74 from "@/components/content/concept/FactCard";
+import * as m75 from "@/components/content/concept/TreeDiagram";
+import * as m76 from "@/components/content/data/Checklist";
+import * as m77 from "@/components/content/data/TableCard";
+import * as m78 from "@/components/content/physics/AmpereSurfaceToggle";
+import * as m79 from "@/components/content/physics/ChargeFateTrio";
+import * as m80 from "@/components/content/physics/DisplacementExplorer";
+import * as m81 from "@/components/content/physics/FieldRatio";
+import * as m82 from "@/components/content/physics/FormulaAnatomy";
+import * as m83 from "@/components/content/physics/OscillationPlayer";
+import * as m84 from "@/components/content/physics/PropagationExplorer";
+import * as m85 from "@/components/content/physics/SpectrumExplorer";
+import * as m86 from "@/components/content/physics/SpectrumTable";
+import * as m87 from "@/components/content/physics/SpeedLayers";
+import * as m88 from "@/components/content/physics/TransverseLongitudinal";
+import * as m89 from "@/components/content/physics/WaveAnatomyDiagram";
+import * as m90 from "@/components/content/physics/WaveTypesPanels";
+import * as m91 from "@/components/content/physics/diagram/PhysicsFigure";
+import * as m92 from "@/components/content/process/CycleDiagram";
+import * as m93 from "@/components/content/process/EquationLadder";
+import * as m94 from "@/components/content/process/ProblemInsightSolutionCard";
+import * as m95 from "@/components/content/process/ProcessCard";
+import * as m96 from "@/components/content/process/RevealAnswer";
+import * as m97 from "@/components/content/process/Timeline";
+import * as m98 from "@/components/content/study/MetricCard";
+import * as m99 from "@/components/content/study/MistakeCard";
+import * as m100 from "@/components/flashcard/FlashcardCard";
+import * as m101 from "@/components/flashcard/FlashcardDeck";
+import * as m102 from "@/components/flashcard/FlashcardProgress";
+import * as m103 from "@/components/grammar/GrammarQuiz";
+import * as m104 from "@/components/grammar/GrammarSection";
+import * as m105 from "@/components/grammar/GrammarTabs";
+import * as m106 from "@/components/grammar/GrammarTopicLayout";
+import * as m107 from "@/components/layout/CreditFooter";
+import * as m108 from "@/components/layout/UpdateBanner";
+import * as m109 from "@/components/practice/DifficultyFilter";
+import * as m110 from "@/components/practice/PracticeSession";
+import * as m111 from "@/components/practice/QuestionCard";
+import * as m112 from "@/components/subject/ChapterList";
+import * as m113 from "@/components/subject/SubjectCard";
+import * as m114 from "@/components/ui/accordion";
+import * as m115 from "@/components/ui/alert";
+import * as m116 from "@/components/ui/badge";
+import * as m117 from "@/components/ui/breadcrumb";
+import * as m118 from "@/components/ui/button-group";
+import * as m119 from "@/components/ui/button";
+import * as m120 from "@/components/ui/card";
+import * as m121 from "@/components/ui/carousel";
+import * as m122 from "@/components/ui/chart";
+import * as m123 from "@/components/ui/checkbox";
+import * as m124 from "@/components/ui/code-block";
+import * as m125 from "@/components/ui/collapsible";
+import * as m126 from "@/components/ui/command";
+import * as m127 from "@/components/ui/context-menu";
+import * as m128 from "@/components/ui/dialog";
+import * as m129 from "@/components/ui/dropdown-menu";
+import * as m130 from "@/components/ui/empty";
+import * as m131 from "@/components/ui/input-group";
+import * as m132 from "@/components/ui/input";
+import * as m133 from "@/components/ui/kbd";
+import * as m134 from "@/components/ui/label";
+import * as m135 from "@/components/ui/menubar";
+import * as m136 from "@/components/ui/navigation-menu";
+import * as m137 from "@/components/ui/progress";
+import * as m138 from "@/components/ui/separator";
+import * as m139 from "@/components/ui/sidebar";
+import * as m140 from "@/components/ui/skeleton";
+import * as m141 from "@/components/ui/sonner";
+import * as m142 from "@/components/ui/table";
+import * as m143 from "@/components/ui/tabs";
+import * as m144 from "@/components/ui/textarea";
+import * as m145 from "@/components/ui/toggle-group";
+import * as m146 from "@/components/ui/toggle";
 
 export const MODULES: Record<string, Record<string, unknown>> = {
   "app/ChapterRow.tsx": m0 as unknown as Record<string, unknown>,
@@ -182,107 +187,112 @@ export const MODULES: Record<string, Record<string, unknown>> = {
   "content/biology/MillerApparatusDiagram.tsx": m36 as unknown as Record<string, unknown>,
   "content/chemistry/AlcoholTypeCards.tsx": m37 as unknown as Record<string, unknown>,
   "content/chemistry/BoardMcq.tsx": m38 as unknown as Record<string, unknown>,
-  "content/chemistry/CarbonylClassTable.tsx": m39 as unknown as Record<string, unknown>,
-  "content/chemistry/CfseCalculationCard.tsx": m40 as unknown as Record<string, unknown>,
-  "content/chemistry/CftFactorCards.tsx": m41 as unknown as Record<string, unknown>,
-  "content/chemistry/CftLimitationCards.tsx": m42 as unknown as Record<string, unknown>,
-  "content/chemistry/CrystalFieldSplittingDiagram.tsx": m43 as unknown as Record<string, unknown>,
-  "content/chemistry/DdTransitionFlow.tsx": m44 as unknown as Record<string, unknown>,
-  "content/chemistry/DonationDiagram.tsx": m45 as unknown as Record<string, unknown>,
-  "content/chemistry/EtherClassification.tsx": m46 as unknown as Record<string, unknown>,
-  "content/chemistry/GeometryLabel.tsx": m47 as unknown as Record<string, unknown>,
-  "content/chemistry/GroupedNameTable.tsx": m48 as unknown as Record<string, unknown>,
-  "content/chemistry/HydroxylFormationCards.tsx": m49 as unknown as Record<string, unknown>,
-  "content/chemistry/HydroxylGroupClassification.tsx": m50 as unknown as Record<string, unknown>,
-  "content/chemistry/LigandStrengthComparison.tsx": m51 as unknown as Record<string, unknown>,
-  "content/chemistry/NamingSystemCards.tsx": m52 as unknown as Record<string, unknown>,
-  "content/chemistry/NumberedRuleRows.tsx": m53 as unknown as Record<string, unknown>,
-  "content/chemistry/PhenolParentCard.tsx": m54 as unknown as Record<string, unknown>,
-  "content/chemistry/PhenolPositionComparison.tsx": m55 as unknown as Record<string, unknown>,
-  "content/chemistry/PolyhydricAlcoholCards.tsx": m56 as unknown as Record<string, unknown>,
-  "content/chemistry/PolynuclearCarbonylCards.tsx": m57 as unknown as Record<string, unknown>,
-  "content/chemistry/ReactionPairCards.tsx": m58 as unknown as Record<string, unknown>,
-  "content/chemistry/ReactionPathway.tsx": m59 as unknown as Record<string, unknown>,
-  "content/chemistry/Sp2HydroxylComparison.tsx": m60 as unknown as Record<string, unknown>,
-  "content/chemistry/SpectrochemicalSeries.tsx": m61 as unknown as Record<string, unknown>,
-  "content/chemistry/StabilityConstantCard.tsx": m62 as unknown as Record<string, unknown>,
-  "content/chemistry/StabilityFactorCards.tsx": m63 as unknown as Record<string, unknown>,
-  "content/chemistry/StructureFeatureCard.tsx": m64 as unknown as Record<string, unknown>,
-  "content/chemistry/StructureGlyphs.tsx": m65 as unknown as Record<string, unknown>,
-  "content/chemistry/SynergicSummary.tsx": m66 as unknown as Record<string, unknown>,
-  "content/chemistry/VbtComplexCard.tsx": m67 as unknown as Record<string, unknown>,
-  "content/concept/ConceptCard.tsx": m68 as unknown as Record<string, unknown>,
-  "content/concept/FactCard.tsx": m69 as unknown as Record<string, unknown>,
-  "content/concept/TreeDiagram.tsx": m70 as unknown as Record<string, unknown>,
-  "content/data/Checklist.tsx": m71 as unknown as Record<string, unknown>,
-  "content/data/TableCard.tsx": m72 as unknown as Record<string, unknown>,
-  "content/physics/AmpereSurfaceToggle.tsx": m73 as unknown as Record<string, unknown>,
-  "content/physics/ChargeFateTrio.tsx": m74 as unknown as Record<string, unknown>,
-  "content/physics/DisplacementExplorer.tsx": m75 as unknown as Record<string, unknown>,
-  "content/physics/FieldRatio.tsx": m76 as unknown as Record<string, unknown>,
-  "content/physics/FormulaAnatomy.tsx": m77 as unknown as Record<string, unknown>,
-  "content/physics/OscillationPlayer.tsx": m78 as unknown as Record<string, unknown>,
-  "content/physics/PropagationExplorer.tsx": m79 as unknown as Record<string, unknown>,
-  "content/physics/SpectrumExplorer.tsx": m80 as unknown as Record<string, unknown>,
-  "content/physics/SpectrumTable.tsx": m81 as unknown as Record<string, unknown>,
-  "content/physics/SpeedLayers.tsx": m82 as unknown as Record<string, unknown>,
-  "content/physics/TransverseLongitudinal.tsx": m83 as unknown as Record<string, unknown>,
-  "content/physics/WaveAnatomyDiagram.tsx": m84 as unknown as Record<string, unknown>,
-  "content/physics/WaveTypesPanels.tsx": m85 as unknown as Record<string, unknown>,
-  "content/physics/diagram/PhysicsFigure.tsx": m86 as unknown as Record<string, unknown>,
-  "content/process/CycleDiagram.tsx": m87 as unknown as Record<string, unknown>,
-  "content/process/EquationLadder.tsx": m88 as unknown as Record<string, unknown>,
-  "content/process/ProblemInsightSolutionCard.tsx": m89 as unknown as Record<string, unknown>,
-  "content/process/ProcessCard.tsx": m90 as unknown as Record<string, unknown>,
-  "content/process/RevealAnswer.tsx": m91 as unknown as Record<string, unknown>,
-  "content/process/Timeline.tsx": m92 as unknown as Record<string, unknown>,
-  "content/study/MetricCard.tsx": m93 as unknown as Record<string, unknown>,
-  "content/study/MistakeCard.tsx": m94 as unknown as Record<string, unknown>,
-  "flashcard/FlashcardCard.tsx": m95 as unknown as Record<string, unknown>,
-  "flashcard/FlashcardDeck.tsx": m96 as unknown as Record<string, unknown>,
-  "flashcard/FlashcardProgress.tsx": m97 as unknown as Record<string, unknown>,
-  "grammar/GrammarQuiz.tsx": m98 as unknown as Record<string, unknown>,
-  "grammar/GrammarSection.tsx": m99 as unknown as Record<string, unknown>,
-  "grammar/GrammarTabs.tsx": m100 as unknown as Record<string, unknown>,
-  "grammar/GrammarTopicLayout.tsx": m101 as unknown as Record<string, unknown>,
-  "layout/CreditFooter.tsx": m102 as unknown as Record<string, unknown>,
-  "layout/UpdateBanner.tsx": m103 as unknown as Record<string, unknown>,
-  "practice/DifficultyFilter.tsx": m104 as unknown as Record<string, unknown>,
-  "practice/PracticeSession.tsx": m105 as unknown as Record<string, unknown>,
-  "practice/QuestionCard.tsx": m106 as unknown as Record<string, unknown>,
-  "subject/ChapterList.tsx": m107 as unknown as Record<string, unknown>,
-  "subject/SubjectCard.tsx": m108 as unknown as Record<string, unknown>,
-  "ui/accordion.tsx": m109 as unknown as Record<string, unknown>,
-  "ui/alert.tsx": m110 as unknown as Record<string, unknown>,
-  "ui/badge.tsx": m111 as unknown as Record<string, unknown>,
-  "ui/breadcrumb.tsx": m112 as unknown as Record<string, unknown>,
-  "ui/button-group.tsx": m113 as unknown as Record<string, unknown>,
-  "ui/button.tsx": m114 as unknown as Record<string, unknown>,
-  "ui/card.tsx": m115 as unknown as Record<string, unknown>,
-  "ui/carousel.tsx": m116 as unknown as Record<string, unknown>,
-  "ui/chart.tsx": m117 as unknown as Record<string, unknown>,
-  "ui/checkbox.tsx": m118 as unknown as Record<string, unknown>,
-  "ui/code-block.tsx": m119 as unknown as Record<string, unknown>,
-  "ui/collapsible.tsx": m120 as unknown as Record<string, unknown>,
-  "ui/command.tsx": m121 as unknown as Record<string, unknown>,
-  "ui/context-menu.tsx": m122 as unknown as Record<string, unknown>,
-  "ui/dialog.tsx": m123 as unknown as Record<string, unknown>,
-  "ui/dropdown-menu.tsx": m124 as unknown as Record<string, unknown>,
-  "ui/empty.tsx": m125 as unknown as Record<string, unknown>,
-  "ui/input-group.tsx": m126 as unknown as Record<string, unknown>,
-  "ui/input.tsx": m127 as unknown as Record<string, unknown>,
-  "ui/kbd.tsx": m128 as unknown as Record<string, unknown>,
-  "ui/label.tsx": m129 as unknown as Record<string, unknown>,
-  "ui/menubar.tsx": m130 as unknown as Record<string, unknown>,
-  "ui/navigation-menu.tsx": m131 as unknown as Record<string, unknown>,
-  "ui/progress.tsx": m132 as unknown as Record<string, unknown>,
-  "ui/separator.tsx": m133 as unknown as Record<string, unknown>,
-  "ui/sidebar.tsx": m134 as unknown as Record<string, unknown>,
-  "ui/skeleton.tsx": m135 as unknown as Record<string, unknown>,
-  "ui/sonner.tsx": m136 as unknown as Record<string, unknown>,
-  "ui/table.tsx": m137 as unknown as Record<string, unknown>,
-  "ui/tabs.tsx": m138 as unknown as Record<string, unknown>,
-  "ui/textarea.tsx": m139 as unknown as Record<string, unknown>,
-  "ui/toggle-group.tsx": m140 as unknown as Record<string, unknown>,
-  "ui/toggle.tsx": m141 as unknown as Record<string, unknown>,
+  "content/chemistry/BoardQuestionCard.tsx": m39 as unknown as Record<string, unknown>,
+  "content/chemistry/CarbonylClassTable.tsx": m40 as unknown as Record<string, unknown>,
+  "content/chemistry/CfseCalculationCard.tsx": m41 as unknown as Record<string, unknown>,
+  "content/chemistry/CftFactorCards.tsx": m42 as unknown as Record<string, unknown>,
+  "content/chemistry/CftLimitationCards.tsx": m43 as unknown as Record<string, unknown>,
+  "content/chemistry/CompoundOrderStrip.tsx": m44 as unknown as Record<string, unknown>,
+  "content/chemistry/CrystalFieldSplittingDiagram.tsx": m45 as unknown as Record<string, unknown>,
+  "content/chemistry/DdTransitionFlow.tsx": m46 as unknown as Record<string, unknown>,
+  "content/chemistry/DonationDiagram.tsx": m47 as unknown as Record<string, unknown>,
+  "content/chemistry/EtherClassification.tsx": m48 as unknown as Record<string, unknown>,
+  "content/chemistry/GeometryLabel.tsx": m49 as unknown as Record<string, unknown>,
+  "content/chemistry/GroupedNameTable.tsx": m50 as unknown as Record<string, unknown>,
+  "content/chemistry/HydrogenBondCard.tsx": m51 as unknown as Record<string, unknown>,
+  "content/chemistry/HydroxylFormationCards.tsx": m52 as unknown as Record<string, unknown>,
+  "content/chemistry/HydroxylGroupClassification.tsx": m53 as unknown as Record<string, unknown>,
+  "content/chemistry/LigandStrengthComparison.tsx": m54 as unknown as Record<string, unknown>,
+  "content/chemistry/NamingSystemCards.tsx": m55 as unknown as Record<string, unknown>,
+  "content/chemistry/NumberedRuleRows.tsx": m56 as unknown as Record<string, unknown>,
+  "content/chemistry/PhenolParentCard.tsx": m57 as unknown as Record<string, unknown>,
+  "content/chemistry/PhenolPositionComparison.tsx": m58 as unknown as Record<string, unknown>,
+  "content/chemistry/PolyhydricAlcoholCards.tsx": m59 as unknown as Record<string, unknown>,
+  "content/chemistry/PolynuclearCarbonylCards.tsx": m60 as unknown as Record<string, unknown>,
+  "content/chemistry/ReactionPairCards.tsx": m61 as unknown as Record<string, unknown>,
+  "content/chemistry/ReactionPathway.tsx": m62 as unknown as Record<string, unknown>,
+  "content/chemistry/SolubilityPanel.tsx": m63 as unknown as Record<string, unknown>,
+  "content/chemistry/Sp2HydroxylComparison.tsx": m64 as unknown as Record<string, unknown>,
+  "content/chemistry/SpectrochemicalSeries.tsx": m65 as unknown as Record<string, unknown>,
+  "content/chemistry/StabilityConstantCard.tsx": m66 as unknown as Record<string, unknown>,
+  "content/chemistry/StabilityFactorCards.tsx": m67 as unknown as Record<string, unknown>,
+  "content/chemistry/StructureFeatureCard.tsx": m68 as unknown as Record<string, unknown>,
+  "content/chemistry/StructureGlyphs.tsx": m69 as unknown as Record<string, unknown>,
+  "content/chemistry/SynergicSummary.tsx": m70 as unknown as Record<string, unknown>,
+  "content/chemistry/TrendCards.tsx": m71 as unknown as Record<string, unknown>,
+  "content/chemistry/VbtComplexCard.tsx": m72 as unknown as Record<string, unknown>,
+  "content/concept/ConceptCard.tsx": m73 as unknown as Record<string, unknown>,
+  "content/concept/FactCard.tsx": m74 as unknown as Record<string, unknown>,
+  "content/concept/TreeDiagram.tsx": m75 as unknown as Record<string, unknown>,
+  "content/data/Checklist.tsx": m76 as unknown as Record<string, unknown>,
+  "content/data/TableCard.tsx": m77 as unknown as Record<string, unknown>,
+  "content/physics/AmpereSurfaceToggle.tsx": m78 as unknown as Record<string, unknown>,
+  "content/physics/ChargeFateTrio.tsx": m79 as unknown as Record<string, unknown>,
+  "content/physics/DisplacementExplorer.tsx": m80 as unknown as Record<string, unknown>,
+  "content/physics/FieldRatio.tsx": m81 as unknown as Record<string, unknown>,
+  "content/physics/FormulaAnatomy.tsx": m82 as unknown as Record<string, unknown>,
+  "content/physics/OscillationPlayer.tsx": m83 as unknown as Record<string, unknown>,
+  "content/physics/PropagationExplorer.tsx": m84 as unknown as Record<string, unknown>,
+  "content/physics/SpectrumExplorer.tsx": m85 as unknown as Record<string, unknown>,
+  "content/physics/SpectrumTable.tsx": m86 as unknown as Record<string, unknown>,
+  "content/physics/SpeedLayers.tsx": m87 as unknown as Record<string, unknown>,
+  "content/physics/TransverseLongitudinal.tsx": m88 as unknown as Record<string, unknown>,
+  "content/physics/WaveAnatomyDiagram.tsx": m89 as unknown as Record<string, unknown>,
+  "content/physics/WaveTypesPanels.tsx": m90 as unknown as Record<string, unknown>,
+  "content/physics/diagram/PhysicsFigure.tsx": m91 as unknown as Record<string, unknown>,
+  "content/process/CycleDiagram.tsx": m92 as unknown as Record<string, unknown>,
+  "content/process/EquationLadder.tsx": m93 as unknown as Record<string, unknown>,
+  "content/process/ProblemInsightSolutionCard.tsx": m94 as unknown as Record<string, unknown>,
+  "content/process/ProcessCard.tsx": m95 as unknown as Record<string, unknown>,
+  "content/process/RevealAnswer.tsx": m96 as unknown as Record<string, unknown>,
+  "content/process/Timeline.tsx": m97 as unknown as Record<string, unknown>,
+  "content/study/MetricCard.tsx": m98 as unknown as Record<string, unknown>,
+  "content/study/MistakeCard.tsx": m99 as unknown as Record<string, unknown>,
+  "flashcard/FlashcardCard.tsx": m100 as unknown as Record<string, unknown>,
+  "flashcard/FlashcardDeck.tsx": m101 as unknown as Record<string, unknown>,
+  "flashcard/FlashcardProgress.tsx": m102 as unknown as Record<string, unknown>,
+  "grammar/GrammarQuiz.tsx": m103 as unknown as Record<string, unknown>,
+  "grammar/GrammarSection.tsx": m104 as unknown as Record<string, unknown>,
+  "grammar/GrammarTabs.tsx": m105 as unknown as Record<string, unknown>,
+  "grammar/GrammarTopicLayout.tsx": m106 as unknown as Record<string, unknown>,
+  "layout/CreditFooter.tsx": m107 as unknown as Record<string, unknown>,
+  "layout/UpdateBanner.tsx": m108 as unknown as Record<string, unknown>,
+  "practice/DifficultyFilter.tsx": m109 as unknown as Record<string, unknown>,
+  "practice/PracticeSession.tsx": m110 as unknown as Record<string, unknown>,
+  "practice/QuestionCard.tsx": m111 as unknown as Record<string, unknown>,
+  "subject/ChapterList.tsx": m112 as unknown as Record<string, unknown>,
+  "subject/SubjectCard.tsx": m113 as unknown as Record<string, unknown>,
+  "ui/accordion.tsx": m114 as unknown as Record<string, unknown>,
+  "ui/alert.tsx": m115 as unknown as Record<string, unknown>,
+  "ui/badge.tsx": m116 as unknown as Record<string, unknown>,
+  "ui/breadcrumb.tsx": m117 as unknown as Record<string, unknown>,
+  "ui/button-group.tsx": m118 as unknown as Record<string, unknown>,
+  "ui/button.tsx": m119 as unknown as Record<string, unknown>,
+  "ui/card.tsx": m120 as unknown as Record<string, unknown>,
+  "ui/carousel.tsx": m121 as unknown as Record<string, unknown>,
+  "ui/chart.tsx": m122 as unknown as Record<string, unknown>,
+  "ui/checkbox.tsx": m123 as unknown as Record<string, unknown>,
+  "ui/code-block.tsx": m124 as unknown as Record<string, unknown>,
+  "ui/collapsible.tsx": m125 as unknown as Record<string, unknown>,
+  "ui/command.tsx": m126 as unknown as Record<string, unknown>,
+  "ui/context-menu.tsx": m127 as unknown as Record<string, unknown>,
+  "ui/dialog.tsx": m128 as unknown as Record<string, unknown>,
+  "ui/dropdown-menu.tsx": m129 as unknown as Record<string, unknown>,
+  "ui/empty.tsx": m130 as unknown as Record<string, unknown>,
+  "ui/input-group.tsx": m131 as unknown as Record<string, unknown>,
+  "ui/input.tsx": m132 as unknown as Record<string, unknown>,
+  "ui/kbd.tsx": m133 as unknown as Record<string, unknown>,
+  "ui/label.tsx": m134 as unknown as Record<string, unknown>,
+  "ui/menubar.tsx": m135 as unknown as Record<string, unknown>,
+  "ui/navigation-menu.tsx": m136 as unknown as Record<string, unknown>,
+  "ui/progress.tsx": m137 as unknown as Record<string, unknown>,
+  "ui/separator.tsx": m138 as unknown as Record<string, unknown>,
+  "ui/sidebar.tsx": m139 as unknown as Record<string, unknown>,
+  "ui/skeleton.tsx": m140 as unknown as Record<string, unknown>,
+  "ui/sonner.tsx": m141 as unknown as Record<string, unknown>,
+  "ui/table.tsx": m142 as unknown as Record<string, unknown>,
+  "ui/tabs.tsx": m143 as unknown as Record<string, unknown>,
+  "ui/textarea.tsx": m144 as unknown as Record<string, unknown>,
+  "ui/toggle-group.tsx": m145 as unknown as Record<string, unknown>,
+  "ui/toggle.tsx": m146 as unknown as Record<string, unknown>,
 };

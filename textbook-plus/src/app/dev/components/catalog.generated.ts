@@ -2075,7 +2075,16 @@ export const CATALOG: CatalogEntry[] = [
     "name": "BoardMcq",
     "path": "content/chemistry/BoardMcq.tsx",
     "category": "chemistry",
-    "props": "question: ReactNode; options: BoardMcqOption[];",
+    "props": "question: ReactNode; options: BoardMcqOption[]; explanation?: BoardMcqExplanation;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/BoardQuestionCard.tsx#BoardQuestionCard",
+    "name": "BoardQuestionCard",
+    "path": "content/chemistry/BoardQuestionCard.tsx",
+    "category": "chemistry",
+    "props": "number: string; tag?: ReactNode; children: ReactNode;",
     "shell": false,
     "renderable": true
   },
@@ -2112,6 +2121,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/CftLimitationCards.tsx",
     "category": "chemistry",
     "props": "limitations: Limitation[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/CompoundOrderStrip.tsx#CompoundOrderStrip",
+    "name": "CompoundOrderStrip",
+    "path": "content/chemistry/CompoundOrderStrip.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; direction?: ReactNode; compounds: OrderedCompound[];",
     "shell": false,
     "renderable": true
   },
@@ -2166,6 +2184,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/GroupedNameTable.tsx",
     "category": "chemistry",
     "props": "groups: GroupedNameGroup[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/HydrogenBondCard.tsx#HydrogenBondCard",
+    "name": "HydrogenBondCard",
+    "path": "content/chemistry/HydrogenBondCard.tsx",
+    "category": "chemistry",
+    "props": "label?: ReactNode; statement: ReactNode; points?: ReactNode[]; comparisonLabel: ReactNode; comparisons: ReactNode[]; comparisonNote?: ReactNode;",
     "shell": false,
     "renderable": true
   },
@@ -2269,6 +2296,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/SolubilityPanel.tsx#SolubilityPanel",
+    "name": "SolubilityPanel",
+    "path": "content/chemistry/SolubilityPanel.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; sections: SolubilitySection[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/Sp2HydroxylComparison.tsx#Sp2HydroxylComparison",
     "name": "Sp2HydroxylComparison",
     "path": "content/chemistry/Sp2HydroxylComparison.tsx",
@@ -2337,6 +2373,24 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/SynergicSummary.tsx",
     "category": "chemistry",
     "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/TrendCards.tsx#TrendCards",
+    "name": "TrendCards",
+    "path": "content/chemistry/TrendCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; cards: TrendCard[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/TrendCards.tsx#TrendPair",
+    "name": "TrendPair",
+    "path": "content/chemistry/TrendCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; cards: TrendCard[];",
     "shell": false,
     "renderable": true
   },

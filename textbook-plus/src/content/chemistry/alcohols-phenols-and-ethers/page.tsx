@@ -24,6 +24,12 @@ import { GroupedNameTable } from "@/components/content/chemistry/GroupedNameTabl
 import { ReactionPathway } from "@/components/content/chemistry/ReactionPathway";
 import { ReactionPairCards } from "@/components/content/chemistry/ReactionPairCards";
 import { CarbonylClassTable } from "@/components/content/chemistry/CarbonylClassTable";
+import { TrendCards } from "@/components/content/chemistry/TrendCards";
+import { HydrogenBondCard } from "@/components/content/chemistry/HydrogenBondCard";
+import { SolubilityPanel } from "@/components/content/chemistry/SolubilityPanel";
+import { CompoundOrderStrip } from "@/components/content/chemistry/CompoundOrderStrip";
+import { BoardQuestionCard } from "@/components/content/chemistry/BoardQuestionCard";
+import { BoardMcq } from "@/components/content/chemistry/BoardMcq";
 import { Formula } from "@/components/content/Formula";
 
 export default function AlcoholsPhenolsEthersChapter() {
@@ -1143,35 +1149,130 @@ export default function AlcoholsPhenolsEthersChapter() {
 
       <h3 id="h-7-4-3">7.4.3 Physical Properties</h3>
 
-      <p>
-        Boiling points of alcohols and phenols increase with the number of carbon atoms (stronger van
-        der Waals forces) and, within alcohols, decrease with increasing branching (smaller surface
-        area). The —OH group is involved in <strong>intermolecular hydrogen bonding</strong>, so
-        alcohols and phenols boil much higher than hydrocarbons, ethers, haloalkanes and haloarenes of
-        comparable molecular mass. Ethanol and propane have comparable molecular masses but very
-        different boiling points, with methoxymethane lying in between.
-      </p>
+      <h4 id="h-7-4-3-a">1. Boiling Points</h4>
 
-      <p>
-        Solubility in water is due to hydrogen bonding with water molecules and decreases as the
-        hydrophobic alkyl/aryl group grows; several lower alcohols are miscible with water in all
-        proportions.
-      </p>
+      <TrendCards
+        title="General trends"
+        cards={[
+          {
+            title: "A. Carbon chain length",
+            from: "Carbon atoms",
+            fromDirection: "up",
+            to: "Boiling point",
+            toDirection: "up",
+            points: [
+              "Longer carbon chains give stronger van der Waals forces.",
+              "Stronger van der Waals forces give higher boiling points.",
+            ],
+          },
+          {
+            title: "B. Branching",
+            from: "Branching",
+            fromDirection: "up",
+            to: "Boiling point",
+            toDirection: "down",
+            points: [
+              "Branching reduces the overall surface area.",
+              "Weaker van der Waals forces give lower boiling points.",
+            ],
+          },
+        ]}
+      />
 
-      <Expandable
-        title="Example 7.3 — Arrange in order of increasing boiling point"
-        variant="example"
-      >
-        <p>
-          (a) Pentan-1-ol, butan-1-ol, butan-2-ol, ethanol, propan-1-ol, methanol.
-          (b) Pentan-1-ol, n-butane, pentanal, ethoxyethane.
+      <HydrogenBondCard
+        label="Intermolecular hydrogen bonding"
+        statement="Alcohols and phenols carry hydroxyl groups (–OH), which take part in extensive intermolecular hydrogen bonding."
+        comparisonLabel="Boiling points are higher than those of"
+        comparisons={["hydrocarbons", "haloalkanes", "haloarenes", "ethers"]}
+        comparisonNote="of comparable molar mass."
+      />
+
+      <h4 id="h-7-4-3-b">2. Solubility in Water</h4>
+
+      <SolubilityPanel
+        sections={[
+          {
+            label: "Hydrogen bonding with water",
+            body: "Alcohols and phenols are soluble in water because they form intermolecular hydrogen bonds with water molecules.",
+          },
+          {
+            label: "Alkyl/aryl group size",
+            trend: {
+              from: "Alkyl/aryl group size",
+              fromDirection: "up",
+              to: "Solubility",
+              toDirection: "down",
+            },
+            body: "Increasing the size of the hydrophobic group decreases solubility.",
+            emphasis: true,
+          },
+          {
+            label: "Miscibility",
+            body: "Lower molecular mass alcohols are miscible with water in all proportions.",
+            items: ["Methanol", "Ethanol", "Propanol"],
+            itemsLabel: "such as",
+          },
+        ]}
+      />
+
+      <h4 id="h-7-4-3-c">3. Review &amp; Board Exam Questions</h4>
+
+      <BoardQuestionCard number="Q1" tag="Boiling point ordering">
+        <p className="text-sm font-semibold leading-relaxed text-foreground">
+          Arrange the following compounds in increasing order of boiling points:
         </p>
-        <p className="mt-3 font-semibold">Solution</p>
-        <p>
-          (a) Methanol &lt; ethanol &lt; propan-1-ol &lt; butan-2-ol &lt; butan-1-ol &lt; pentan-1-ol.
-        </p>
-        <p>(b) n-Butane &lt; ethoxyethane &lt; pentanal &lt; pentan-1-ol.</p>
-      </Expandable>
+
+        <CompoundOrderStrip
+          title="Solution"
+          compounds={[
+            { name: "Ethanol", carbons: "2C" },
+            { name: "Propan-1-ol", carbons: "3C" },
+            { name: "Butan-2-ol", carbons: "4C" },
+            { name: "Butan-1-ol", carbons: "4C" },
+          ]}
+        />
+      </BoardQuestionCard>
+
+      <BoardQuestionCard number="Q2" tag="Highest boiling point">
+        <BoardMcq
+          question="Which of the following alcohols has the highest boiling point?"
+          options={[
+            {
+              label: "A",
+              content: (
+                <>
+                  CH<sub>3</sub>OH — Methanol
+                </>
+              ),
+            },
+            {
+              label: "B",
+              content: (
+                <>
+                  CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>OH — Butan-1-ol
+                </>
+              ),
+              correct: true,
+            },
+            {
+              label: "C",
+              content: (
+                <>
+                  CH<sub>3</sub>CH(OH)CH<sub>2</sub>CH<sub>3</sub> — Butan-2-ol
+                </>
+              ),
+            },
+          ]}
+          explanation={{
+            heading: "Answer (B) — reasons",
+            reasons: [
+              "Longest continuous carbon chain.",
+              "Maximum surface area.",
+              "Stronger van der Waals forces.",
+            ],
+          }}
+        />
+      </BoardQuestionCard>
 
       <h3 id="h-7-4-4">7.4.4 Chemical Reactions</h3>
 
