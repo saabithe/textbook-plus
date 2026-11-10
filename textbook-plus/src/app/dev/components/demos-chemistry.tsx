@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import { AlcoholTypeCards } from "@/components/content/chemistry/AlcoholTypeCards";
 import { BoardMcq } from "@/components/content/chemistry/BoardMcq";
+import { BoardQuestionCard } from "@/components/content/chemistry/BoardQuestionCard";
 import { CarbonylClassTable } from "@/components/content/chemistry/CarbonylClassTable";
 import { CfseCalculationCard } from "@/components/content/chemistry/CfseCalculationCard";
 import { CftFactorCards } from "@/components/content/chemistry/CftFactorCards";
@@ -25,6 +26,10 @@ import { Sp2HydroxylComparison } from "@/components/content/chemistry/Sp2Hydroxy
 import { SpectrochemicalSeries } from "@/components/content/chemistry/SpectrochemicalSeries";
 import { StabilityFactorCards } from "@/components/content/chemistry/StabilityFactorCards";
 import { StructureFeatureCard } from "@/components/content/chemistry/StructureFeatureCard";
+import { CompoundOrderStrip } from "@/components/content/chemistry/CompoundOrderStrip";
+import { HydrogenBondCard } from "@/components/content/chemistry/HydrogenBondCard";
+import { SolubilityPanel } from "@/components/content/chemistry/SolubilityPanel";
+import { TrendCards } from "@/components/content/chemistry/TrendCards";
 import { VbtComplexCard } from "@/components/content/chemistry/VbtComplexCard";
 
 const wrap = (node: ReactNode) => <div className="max-w-2xl">{node}</div>;
@@ -66,12 +71,32 @@ export const CHEMISTRY_DEMOS: Record<string, ReactNode> = {
     />
   ),
 
+  "content/chemistry/BoardQuestionCard.tsx#BoardQuestionCard": wrap(
+    <BoardQuestionCard number="1" tag="Board 2023">
+      <p className="text-sm text-muted-foreground">
+        Write the IUPAC name of the compound formed when phenol is treated with bromine water.
+      </p>
+    </BoardQuestionCard>
+  ),
+
   "content/chemistry/CarbonylClassTable.tsx#CarbonylClassTable": wrap(
     <CarbonylClassTable
       title="Carbonyl compounds and their alcohols"
       rows={[
         { carbonyl: "Aldehyde", formula: <>R–CHO</>, alcoholClass: "Primary" },
         { carbonyl: "Ketone", formula: <>R–CO–R′</>, alcoholClass: "Secondary" },
+      ]}
+    />
+  ),
+
+  "content/chemistry/CompoundOrderStrip.tsx#CompoundOrderStrip": wrap(
+    <CompoundOrderStrip
+      title="Order of acidity"
+      direction="Acidity increases →"
+      compounds={[
+        { name: "Ethanol", formula: <>C₂H₅OH</>, carbons: "2" },
+        { name: "Phenol", formula: <>C₆H₅OH</>, carbons: "6" },
+        { name: "p-Nitrophenol", formula: <>NO₂–C₆H₄–OH</>, carbons: "6" },
       ]}
     />
   ),
@@ -170,6 +195,17 @@ export const CHEMISTRY_DEMOS: Record<string, ReactNode> = {
     />
   ),
 
+  "content/chemistry/HydrogenBondCard.tsx#HydrogenBondCard": wrap(
+    <HydrogenBondCard
+      label="Intermolecular"
+      statement="Alcohols associate through hydrogen bonding between the –OH of one molecule and the oxygen of another."
+      points={["Explains the high boiling points of alcohols", "Solubility in water falls as the alkyl chain grows"]}
+      comparisonLabel="Boiling point"
+      comparisons={["Ethanol: 78 °C", "Dimethyl ether: −24 °C"]}
+      comparisonNote="Same formula, C₂H₆O — only the H-bonding differs."
+    />
+  ),
+
   "content/chemistry/LigandStrengthComparison.tsx#LigandStrengthComparison": wrap(
     <LigandStrengthComparison
       weak={["I⁻", "Br⁻", "Cl⁻", "F⁻", "H₂O"]}
@@ -257,6 +293,26 @@ export const CHEMISTRY_DEMOS: Record<string, ReactNode> = {
     />
   ),
 
+  "content/chemistry/SolubilityPanel.tsx#SolubilityPanel": wrap(
+    <SolubilityPanel
+      title="Solubility in water"
+      sections={[
+        {
+          label: "Lower alcohols",
+          body: "Methanol to propanol mix with water in all proportions — the –OH hydrogen bonds to water.",
+          itemsLabel: "Why",
+          items: ["One –OH can hydrate several water molecules", "The alkyl part is small enough to be shielded"],
+          emphasis: true,
+        },
+        {
+          label: "Higher alcohols",
+          body: "From butanol onwards the alkyl part dominates and solubility falls sharply.",
+          trend: { from: "Chain length", fromDirection: "up", to: "Solubility", toDirection: "down" },
+        },
+      ]}
+    />
+  ),
+
   "content/chemistry/Sp2HydroxylComparison.tsx#Sp2HydroxylComparison": wrap(
     <Sp2HydroxylComparison
       cases={[
@@ -299,6 +355,30 @@ export const CHEMISTRY_DEMOS: Record<string, ReactNode> = {
         { label: "Hydrogen", tone: "warning" },
       ]}
       note={{ label: "Remember", text: "Phenol has the –OH on a benzene ring." }}
+    />
+  ),
+
+  "content/chemistry/TrendCards.tsx#TrendCards": wrap(
+    <TrendCards
+      title="Boiling point trends"
+      cards={[
+        {
+          title: "Chain length",
+          from: "Carbon atoms",
+          fromDirection: "up",
+          to: "Boiling point",
+          toDirection: "up",
+          points: ["More surface area", "Stronger van der Waals forces", "More energy to separate molecules"],
+        },
+        {
+          title: "Branching",
+          from: "Branching",
+          fromDirection: "up",
+          to: "Boiling point",
+          toDirection: "down",
+          points: ["Molecule becomes more spherical", "Surface contact drops", "Weaker induced dipoles"],
+        },
+      ]}
     />
   ),
 
