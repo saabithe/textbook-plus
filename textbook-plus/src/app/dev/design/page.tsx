@@ -68,6 +68,9 @@ import { PolyhydricAlcoholCards } from "@/components/content/chemistry/Polyhydri
 import { PhenolParentCard } from "@/components/content/chemistry/PhenolParentCard";
 import { PhenolPositionComparison } from "@/components/content/chemistry/PhenolPositionComparison";
 import { GroupedNameTable } from "@/components/content/chemistry/GroupedNameTable";
+import { ReactionPathway } from "@/components/content/chemistry/ReactionPathway";
+import { ReactionPairCards } from "@/components/content/chemistry/ReactionPairCards";
+import { CarbonylClassTable } from "@/components/content/chemistry/CarbonylClassTable";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -595,6 +598,79 @@ export default function DesignPage() {
                 },
               ],
             },
+          ]}
+        />
+      </Section>
+
+      <Section title="Chemistry — preparation routes">
+        <ReactionPathway
+          orientation="horizontal"
+          title="Dow's process"
+          nodes={[
+            { title: "Chlorobenzene + NaOH" },
+            { step: "Step 1", title: "Sodium phenoxide", tone: "intermediate" },
+            { step: "Step 2", title: "Phenol + NaCl", tone: "product" },
+          ]}
+          links={[
+            { label: "Fusion", condition: "623 K · 300 atm" },
+            { label: "Acidification", condition: "HCl" },
+          ]}
+        />
+        <ReactionPathway
+          title="Reaction sequence — propene"
+          nodes={[
+            {
+              step: "Step 1",
+              title: "First addition",
+              equation: String.raw`\text{CH}_3\text{CH=CH}_2 + \text{BH}_3 \rightarrow \text{CH}_3\text{CH}_2\text{CH}_2\text{BH}_2`,
+            },
+            {
+              step: "Step 2",
+              title: "Third addition",
+              equation: String.raw`\rightarrow (\text{CH}_3\text{CH}_2\text{CH}_2)_3\text{B}`,
+              tone: "intermediate",
+              outcome: "Trialkylborane",
+            },
+          ]}
+        />
+        <ReactionPairCards
+          title="Markovnikov hydration vs anti-Markovnikov hydroboration"
+          cards={[
+            {
+              label: "Markovnikov hydration",
+              reagent: "H₂O / H⁺",
+              description: "–OH attaches to the carbon having fewer hydrogen atoms.",
+              substrate: <>CH<sub>3</sub>–CH=CH<sub>2</sub></>,
+              product: (
+                <>
+                  CH<sub>3</sub>–CH(<StructureMark>OH</StructureMark>)–CH<sub>3</sub>
+                </>
+              ),
+              productName: "Propan-2-ol",
+              productMeta: "Secondary (2°)",
+              badge: "–OH at C-2",
+            },
+            {
+              label: "Anti-Markovnikov hydroboration",
+              reagent: "BH₃, then H₂O₂ / NaOH",
+              description: "Boron adds to the sp² carbon having the greater number of hydrogen atoms.",
+              substrate: <>CH<sub>3</sub>–CH=CH<sub>2</sub></>,
+              product: (
+                <>
+                  CH<sub>3</sub>–CH<sub>2</sub>–CH<sub>2</sub>–<StructureMark>OH</StructureMark>
+                </>
+              ),
+              productName: "Propan-1-ol",
+              productMeta: "Primary (1°)",
+              badge: "–OH at C-1",
+            },
+          ]}
+        />
+        <CarbonylClassTable
+          rows={[
+            { carbonyl: "Methanal", formula: "HCHO", alcoholClass: "Primary (1°) alcohol" },
+            { carbonyl: "Other aldehydes", formula: "RCHO", alcoholClass: "Secondary (2°) alcohol" },
+            { carbonyl: "Ketones", formula: "RCOR′", alcoholClass: "Tertiary (3°) alcohol" },
           ]}
         />
       </Section>

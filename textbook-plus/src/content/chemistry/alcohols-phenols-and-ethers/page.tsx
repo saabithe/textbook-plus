@@ -21,6 +21,10 @@ import { PolyhydricAlcoholCards } from "@/components/content/chemistry/Polyhydri
 import { PhenolParentCard } from "@/components/content/chemistry/PhenolParentCard";
 import { PhenolPositionComparison } from "@/components/content/chemistry/PhenolPositionComparison";
 import { GroupedNameTable } from "@/components/content/chemistry/GroupedNameTable";
+import { ReactionPathway } from "@/components/content/chemistry/ReactionPathway";
+import { ReactionPairCards } from "@/components/content/chemistry/ReactionPairCards";
+import { CarbonylClassTable } from "@/components/content/chemistry/CarbonylClassTable";
+import { Formula } from "@/components/content/Formula";
 
 export default function AlcoholsPhenolsEthersChapter() {
   return (
@@ -402,56 +406,56 @@ export default function AlcoholsPhenolsEthersChapter() {
             cells: [
               "CH₃OH",
               "Methyl alcohol",
-              <strong className="font-extrabold text-foreground">Methanol</strong>,
+              <strong key="name" className="font-extrabold text-foreground">Methanol</strong>,
             ],
           },
           {
             cells: [
               "CH₃CH₂CH₂OH",
               "n-Propyl alcohol",
-              <strong className="font-extrabold text-foreground">Propan-1-ol</strong>,
+              <strong key="name" className="font-extrabold text-foreground">Propan-1-ol</strong>,
             ],
           },
           {
             cells: [
               "(CH₃)₂CHOH",
               "Isopropyl alcohol",
-              <strong className="font-extrabold text-foreground">Propan-2-ol</strong>,
+              <strong key="name" className="font-extrabold text-foreground">Propan-2-ol</strong>,
             ],
           },
           {
             cells: [
               "CH₃CH₂CH₂CH₂OH",
               "n-Butyl alcohol",
-              <strong className="font-extrabold text-foreground">Butan-1-ol</strong>,
+              <strong key="name" className="font-extrabold text-foreground">Butan-1-ol</strong>,
             ],
           },
           {
             cells: [
               "CH₃CH₂CH(OH)CH₃",
               "sec-Butyl alcohol",
-              <strong className="font-extrabold text-foreground">Butan-2-ol</strong>,
+              <strong key="name" className="font-extrabold text-foreground">Butan-2-ol</strong>,
             ],
           },
           {
             cells: [
               "(CH₃)₂CHCH₂OH",
               "Isobutyl alcohol",
-              <strong className="font-extrabold text-foreground">2-Methylpropan-1-ol</strong>,
+              <strong key="name" className="font-extrabold text-foreground">2-Methylpropan-1-ol</strong>,
             ],
           },
           {
             cells: [
               "(CH₃)₃COH",
               "tert-Butyl alcohol",
-              <strong className="font-extrabold text-foreground">2-Methylpropan-2-ol</strong>,
+              <strong key="name" className="font-extrabold text-foreground">2-Methylpropan-2-ol</strong>,
             ],
           },
           {
             cells: [
               "CH₃C(CH₃)₂CH₂OH",
               "Neopentyl alcohol",
-              <strong className="font-extrabold text-foreground">2,2-Dimethylpropan-1-ol</strong>,
+              <strong key="name" className="font-extrabold text-foreground">2,2-Dimethylpropan-1-ol</strong>,
             ],
           },
         ]}
@@ -578,151 +582,564 @@ export default function AlcoholsPhenolsEthersChapter() {
 
       <h3 id="h-7-4-1">7.4.1 Preparation of Alcohols</h3>
 
+      <p>Alcohols are prepared through three primary pathways.</p>
+
+      <ProcessCard
+        title="Three pathways to alcohols"
+        steps={[
+          { label: "Addition to alkenes" },
+          { label: "Reduction of carbonyl compounds" },
+          { label: "Addition of Grignard reagents" },
+        ]}
+      />
+
       <h4 id="h-7-4-1-1">1. From alkenes</h4>
 
       <p>
-        <strong>(i) By acid catalysed hydration.</strong> Alkenes react with water in the presence of
-        acid to form alcohols; with unsymmetrical alkenes the addition follows Markovnikov&apos;s rule.
+        <strong>Acid-catalysed hydration.</strong> Alkenes react with water in the presence of an acid
+        catalyst to produce alcohols.
       </p>
 
-      <FormulaBlock latex={String.raw`\text{CH}_2\text{=CH}_2 + \text{H}_2\text{O} \xrightarrow{\text{H}^+} \text{CH}_3\text{CH}_2\text{OH}`} />
+      <FormulaBlock latex={String.raw`\text{C=C} + \text{H}_2\text{O} \xrightleftharpoons{\text{H}^+} \text{C(H)}-\text{C(OH)}`} />
 
-      <Stepper
-        steps={[
+      <Callout type="important" title="Markovnikov's rule" subjectColor="var(--subject-chemistry)">
+        For unsymmetrical alkenes, the –OH group attaches to the carbon having fewer hydrogen atoms.
+      </Callout>
+
+      <p>
+        <strong>Hydroboration–oxidation.</strong> Diborane (B<sub>2</sub>H<sub>6</sub> or (BH
+        <sub>3</sub>)<sub>2</sub>) reacts with alkenes to form trialkylboranes.
+      </p>
+
+      <p>
+        The trialkylboranes are subsequently oxidised using hydrogen peroxide (H<sub>2</sub>O
+        <sub>2</sub>) and aqueous sodium hydroxide (NaOH).
+      </p>
+
+      <ul className="my-6 space-y-2 text-[1.03125rem] leading-[1.7] text-foreground/90">
+        <li className="flex gap-2.5">
+          <span
+            aria-hidden
+            className="mt-[0.62em] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--subject-chemistry)]"
+          />
+          <span>
+            <strong className="font-bold text-foreground">Regioselectivity:</strong> boron adds to the{" "}
+            <em>sp</em>
+            <sup>2</sup> carbon having the greater number of hydrogen atoms.
+          </span>
+        </li>
+        <li className="flex gap-2.5">
+          <span
+            aria-hidden
+            className="mt-[0.62em] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--subject-chemistry)]"
+          />
+          <span>Produces an anti-Markovnikov alcohol.</span>
+        </li>
+      </ul>
+
+      <ReactionPathway
+        title="Reaction sequence — propene"
+        nodes={[
           {
-            label: "Step 1: Protonation of the alkene",
-            description: (
-              <>
-                Electrophilic attack of H<sub>3</sub>O<sup>+</sup> on the double bond gives a
-                carbocation.
-                <FormulaBlock latex={String.raw`\text{CH}_2\text{=CH}_2 + \text{H}_3\text{O}^+ \rightarrow \text{CH}_3\text{CH}_2^+ + \text{H}_2\text{O}`} />
-              </>
-            ),
+            step: "Step 1",
+            title: "First addition",
+            equation: String.raw`\text{CH}_3\text{CH=CH}_2 + \text{BH}_3 \rightarrow \text{CH}_3\text{CH}_2\text{CH}_2\text{BH}_2`,
           },
           {
-            label: "Step 2: Nucleophilic attack of water",
-            description: "Water attacks the carbocation, giving a protonated alcohol.",
+            step: "Step 2",
+            title: "Second addition",
+            equation: String.raw`\rightarrow (\text{CH}_3\text{CH}_2\text{CH}_2)_2\text{BH}`,
           },
           {
-            label: "Step 3: Deprotonation",
-            description: "Loss of a proton gives the alcohol and regenerates the acid catalyst.",
+            step: "Step 3",
+            title: "Third addition",
+            equation: String.raw`\rightarrow (\text{CH}_3\text{CH}_2\text{CH}_2)_3\text{B}`,
+            tone: "intermediate",
+            outcome: "Trialkylborane",
+          },
+          {
+            step: "Step 4",
+            title: "Oxidation",
+            equation: String.raw`(\text{CH}_3\text{CH}_2\text{CH}_2)_3\text{B} + 3\text{H}_2\text{O}_2 \xrightarrow{\text{aq. NaOH}} 3\text{CH}_3\text{CH}_2\text{CH}_2\text{OH} + \text{B(OH)}_3`,
+            tone: "product",
+            outcome: "Propan-1-ol · primary (1°)",
           },
         ]}
       />
 
       <p>
-        <strong>(ii) By hydroboration–oxidation.</strong> Diborane (BH<sub>3</sub>)<sub>2</sub> adds to
-        alkenes giving trialkyl boranes, which are oxidised to alcohols by hydrogen peroxide in aqueous
-        sodium hydroxide. Boron attaches to the <em>sp</em>
-        <sup>2</sup> carbon carrying the greater number of hydrogen atoms, so the alcohol looks as if
-        water had added <em>against</em> Markovnikov&apos;s rule. Yields are excellent.
+        <strong>Net outcome.</strong> Anti-Markovnikov addition of water.
       </p>
 
-      <FormulaBlock latex={String.raw`3\text{CH}_3\text{CH=CH}_2 + \text{BH}_3 \rightarrow (\text{CH}_3\text{CH}_2\text{CH}_2)_3\text{B} \xrightarrow{\text{H}_2\text{O}_2/\text{OH}^-} 3\text{CH}_3\text{CH}_2\text{CH}_2\text{OH}`} />
+      <p>Produces primary or unhindered alcohols in excellent yields.</p>
 
-      <FactCard
-        title="Hydroboration–oxidation"
-        definition="First reported by H. C. Brown in 1959; he shared the 1979 Nobel Prize in Chemistry with G. Wittig for studies on boron-containing organic compounds."
-        icon="🧪"
+      <FactCard title="Discovery" definition="H. C. Brown — 1979 Nobel Prize." icon="🏅" />
+
+      <ReactionPairCards
+        title="Markovnikov hydration vs anti-Markovnikov hydroboration"
+        cards={[
+          {
+            label: "Markovnikov hydration",
+            reagent: "H₂O / H⁺",
+            description: "–OH attaches to the carbon having fewer hydrogen atoms.",
+            substrate: (
+              <>
+                CH<sub>3</sub>–CH=CH<sub>2</sub>
+              </>
+            ),
+            product: (
+              <>
+                CH<sub>3</sub>–CH(<StructureMark>OH</StructureMark>)–CH<sub>3</sub>
+              </>
+            ),
+            productName: "Propan-2-ol",
+            productMeta: "Secondary (2°)",
+            badge: "–OH at C-2",
+          },
+          {
+            label: "Anti-Markovnikov hydroboration",
+            reagent: "BH₃, then H₂O₂ / NaOH",
+            description: "Boron adds to the sp² carbon having the greater number of hydrogen atoms.",
+            substrate: (
+              <>
+                CH<sub>3</sub>–CH=CH<sub>2</sub>
+              </>
+            ),
+            product: (
+              <>
+                CH<sub>3</sub>–CH<sub>2</sub>–CH<sub>2</sub>–<StructureMark>OH</StructureMark>
+              </>
+            ),
+            productName: "Propan-1-ol",
+            productMeta: "Primary (1°)",
+            badge: "–OH at C-1",
+          },
+        ]}
       />
 
       <h4 id="h-7-4-1-2">2. From carbonyl compounds</h4>
 
       <p>
-        <strong>(i) By reduction of aldehydes and ketones.</strong> Aldehydes and ketones are reduced to
-        alcohols by catalytic hydrogenation over finely divided platinum, palladium or nickel, or by
-        treatment with NaBH<sub>4</sub> or LiAlH<sub>4</sub>. Aldehydes give primary alcohols; ketones
-        give secondary alcohols.
+        <strong>Reduction of aldehydes and ketones.</strong> Aldehydes and ketones are reduced to
+        alcohols by catalytic hydrogenation or by hydride reducing agents.
       </p>
 
-      <FormulaBlock latex={String.raw`\text{RCHO} + \text{H}_2 \xrightarrow{\text{Ni}} \text{RCH}_2\text{OH}`} />
-      <FormulaBlock latex={String.raw`\text{R}_2\text{CO} + \text{H}_2 \xrightarrow{\text{Ni}} \text{R}_2\text{CHOH}`} />
+      <Comparison
+        columns={[
+          {
+            title: "Catalytic hydrogenation",
+            children: <p>Finely divided metals: Pt, Pd, Ni.</p>,
+          },
+          {
+            title: "Hydride reducing agents",
+            children: (
+              <p>
+                Sodium borohydride (NaBH<sub>4</sub>) and lithium aluminium hydride (LiAlH
+                <sub>4</sub>).
+              </p>
+            ),
+          },
+        ]}
+      />
+
+      <TableCard
+        caption="Product specificity of carbonyl reduction"
+        headers={["Starting compound", "General reaction", "Product"]}
+        rows={[
+          {
+            cells: [
+              "Aldehyde (RCHO)",
+              <Formula key="reaction">{String.raw`\text{RCHO} + \text{H}_2 \xrightarrow{\text{Pd}} \text{RCH}_2\text{OH}`}</Formula>,
+              <strong key="name" className="font-extrabold text-foreground">Primary (1°) alcohol</strong>,
+            ],
+          },
+          {
+            cells: [
+              "Ketone (RCOR′)",
+              <Formula key="reaction">{String.raw`\text{RCOR}' \xrightarrow{\text{NaBH}_4} \text{RCH(OH)R}'`}</Formula>,
+              <strong key="name" className="font-extrabold text-foreground">Secondary (2°) alcohol</strong>,
+            ],
+          },
+        ]}
+      />
+
+      <ReactionPairCards
+        title="Catalytic hydrogenation — examples"
+        cards={[
+          {
+            label: "A. Aldehyde → primary alcohol",
+            reagent: "H₂ / Ni, Pd or Pt",
+            substrate: (
+              <>
+                CH<sub>3</sub>CHO
+              </>
+            ),
+            product: (
+              <>
+                CH<sub>3</sub>CH<sub>2</sub>OH
+              </>
+            ),
+            productName: "Ethanol",
+            productMeta: "Primary (1°)",
+          },
+          {
+            label: "B. Ketone → secondary alcohol",
+            reagent: "H₂ / Ni, Pd or Pt",
+            substrate: (
+              <>
+                CH<sub>3</sub>COCH<sub>3</sub>
+              </>
+            ),
+            product: (
+              <>
+                CH<sub>3</sub>CH(OH)CH<sub>3</sub>
+              </>
+            ),
+            productName: "Propan-2-ol",
+            productMeta: "Secondary (2°)",
+          },
+        ]}
+      />
 
       <p>
-        <strong>(ii) By reduction of carboxylic acids and esters.</strong> Carboxylic acids are reduced
-        to primary alcohols in excellent yields by LiAlH<sub>4</sub>, a strong reducing agent. Since
-        LiAlH<sub>4</sub> is expensive, it is used only for special chemicals; commercially acids are
-        converted to esters and then hydrogenated over a catalyst.
+        <strong>Carboxylic acids → alcohols.</strong> Carboxylic acids are directly reduced to primary
+        alcohols.
+      </p>
+
+      <p>
+        The reagent is LiAlH<sub>4</sub>, which produces alcohols in high yields.
       </p>
 
       <FormulaBlock latex={String.raw`\text{RCOOH} \xrightarrow[\text{(ii) H}_2\text{O}]{\text{(i) LiAlH}_4} \text{RCH}_2\text{OH}`} />
 
-      <h4 id="h-7-4-1-3">3. From Grignard reagents</h4>
+      <FormulaBlock
+        label="Ethanoic acid → ethanol"
+        latex={String.raw`\text{CH}_3\text{COOH} \xrightarrow{\text{LiAlH}_4} \text{CH}_3\text{CH}_2\text{OH}`}
+      />
 
       <p>
-        Alcohols are produced by the reaction of Grignard reagents with aldehydes and ketones. The first
-        step is nucleophilic addition of the Grignard reagent to the carbonyl group, giving an adduct;
-        hydrolysis of the adduct gives the alcohol.
+        <strong>Esters → alcohols.</strong> LiAlH<sub>4</sub> is expensive, so commercial production
+        first converts carboxylic acids into esters through esterification.
       </p>
 
-      <FormulaBlock latex={String.raw`\text{RMgX} + \text{R}'\text{CHO} \rightarrow \text{R–CH(OMgX)–R}' \xrightarrow{\text{H}_2\text{O}} \text{R–CH(OH)–R}'`} />
+      <p>The esters are subsequently reduced by catalytic hydrogenation.</p>
 
-      <TableCard
-        caption="Which alcohol you get depends on the carbonyl compound"
-        headers={["Carbonyl compound", "Product alcohol"]}
-        rows={[
-          { cells: ["Methanal, HCHO", "Primary alcohol"] },
-          { cells: ["Any other aldehyde, RCHO", "Secondary alcohol"] },
-          { cells: ["Ketone, R₂CO", "Tertiary alcohol"] },
+      <ReactionPathway
+        orientation="horizontal"
+        title="Commercial route — acid → ester → alcohol"
+        nodes={[
+          { title: "Carboxylic acid", note: "RCOOH + R′OH" },
+          {
+            step: "Stage 1",
+            title: "Ester",
+            note: "RCOOR′ + H₂O",
+            tone: "intermediate",
+          },
+          {
+            step: "Stage 2",
+            title: "Alcohols",
+            note: "RCH₂OH + R′OH",
+            tone: "product",
+          },
+        ]}
+        links={[
+          { label: "Esterification", condition: "H⁺" },
+          { label: "Catalytic hydrogenation", condition: "H₂ / catalyst" },
         ]}
       />
 
-      <Expandable
-        title="Example 7.2 — Predict the products of three standard preparations"
-        variant="example"
-      >
-        <p>
-          Give the structures and IUPAC names of the products expected from: (a) catalytic reduction of
-          butanal, (b) hydration of propene in dilute sulphuric acid, (c) reaction of propanone with
-          methylmagnesium bromide followed by hydrolysis.
-        </p>
-        <p className="mt-3 font-semibold">Solution</p>
-        <p>
-          (a) Butanal is an aldehyde, so reduction gives a primary alcohol — butan-1-ol,
-          CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>OH.
-        </p>
-        <p>
-          (b) Markovnikov addition of water gives propan-2-ol, CH<sub>3</sub>CH(OH)CH<sub>3</sub>.
-        </p>
-        <p>
-          (c) A ketone with a Grignard reagent gives a tertiary alcohol — 2-methylpropan-2-ol, (CH
-          <sub>3</sub>)<sub>3</sub>COH.
-        </p>
-      </Expandable>
+      <FormulaBlock
+        label="Example"
+        latex={String.raw`\begin{aligned} \text{CH}_3\text{COOH} + \text{CH}_3\text{OH} &\xrightarrow{-\text{H}_2\text{O}} \text{CH}_3\text{COOCH}_3 \\ \text{CH}_3\text{COOCH}_3 &\xrightarrow[\text{Ni/Pd/Pt}]{\text{H}_2} \text{CH}_3\text{CH}_2\text{OH} + \text{CH}_3\text{OH} \end{aligned}`}
+      />
+
+      <h4 id="h-7-4-1-3">3. From Grignard reagents (RMgX)</h4>
+
+      <p>
+        Grignard reagents react with carbonyl compounds to produce alcohols through two stages.
+      </p>
+
+      <ReactionPathway
+        title="Two-stage Grignard addition"
+        nodes={[
+          {
+            step: "Step 1",
+            title: "Nucleophilic addition",
+            note: "RMgX attacks the electrophilic carbonyl carbon.",
+          },
+          {
+            title: "Intermediate adduct",
+            tone: "intermediate",
+          },
+          {
+            step: "Step 2",
+            title: "Alcohol + Mg(OH)X",
+            tone: "product",
+          },
+        ]}
+        links={[
+          {},
+          { label: "Hydrolysis", condition: "H₂O" },
+        ]}
+      />
+
+      <CarbonylClassTable
+        rows={[
+          { carbonyl: "Methanal", formula: "HCHO", alcoholClass: "Primary (1°) alcohol" },
+          { carbonyl: "Other aldehydes", formula: "RCHO", alcoholClass: "Secondary (2°) alcohol" },
+          { carbonyl: "Ketones", formula: "RCOR′", alcoholClass: "Tertiary (3°) alcohol" },
+        ]}
+      />
 
       <h3 id="h-7-4-2">7.4.2 Preparation of Phenols</h3>
 
       <p>
-        Phenol, also known as carbolic acid, was first isolated in the early nineteenth century from
-        coal tar; today it is produced synthetically. In the laboratory, phenols are prepared from
-        benzene derivatives by four routes.
+        Phenol, historically known as carbolic acid, was first isolated in the early nineteenth century
+        from coal tar.
       </p>
 
-      <ProcessCard
-        title="Four laboratory routes to phenol"
-        steps={[
+      <p>
+        Phenol is now produced synthetically on an industrial scale and prepared in the laboratory
+        through four methods.
+      </p>
+
+      <h4 id="h-7-4-2-1">1. From haloarenes — Dow&apos;s process</h4>
+
+      <p>
+        <strong>Starting compound:</strong> chlorobenzene.
+      </p>
+
+      <p>
+        <strong>Conditions:</strong> high temperature of 623 K and high pressure of 300 atm.
+      </p>
+
+      <ReactionPathway
+        orientation="horizontal"
+        title="Dow's process"
+        nodes={[
+          { title: "Chlorobenzene + NaOH" },
           {
-            label: "1. From haloarenes",
-            description: "Chlorobenzene is fused with NaOH at 623 K and 320 atm; acidification of the sodium phenoxide so produced gives phenol.",
+            step: "Step 1",
+            title: "Sodium phenoxide",
+            tone: "intermediate",
           },
           {
-            label: "2. From benzenesulphonic acid",
-            description: "Benzene is sulphonated with oleum; the benzenesulphonic acid formed is heated with molten NaOH to give sodium phenoxide, and acidification liberates phenol.",
+            step: "Step 2",
+            title: "Phenol + NaCl",
+            tone: "product",
+          },
+        ]}
+        links={[
+          { label: "Fusion", condition: "623 K · 300 atm" },
+          { label: "Acidification", condition: "HCl" },
+        ]}
+      />
+
+      <Callout type="important" title="Key point" subjectColor="var(--subject-chemistry)">
+        The initial product is sodium phenoxide, which gives phenol upon acidification.
+      </Callout>
+
+      <h4 id="h-7-4-2-2">2. From benzenesulphonic acid</h4>
+
+      <p>
+        <strong>Step 1 — Sulphonation.</strong> Benzene is sulphonated using oleum (fuming sulphuric
+        acid, H<sub>2</sub>S<sub>2</sub>O<sub>7</sub>) to produce benzenesulphonic acid.
+      </p>
+
+      <p>
+        <strong>Step 2 — Fusion and acidification.</strong> Benzenesulphonic acid is heated with molten
+        NaOH to form sodium phenoxide.
+      </p>
+
+      <p>Acidification produces phenol.</p>
+
+      <ReactionPathway
+        title="Benzene → phenol"
+        nodes={[
+          { title: "Benzene" },
+          {
+            step: "Stage 1",
+            title: "Benzenesulphonic acid",
+            note: "Sulphonation with oleum.",
           },
           {
-            label: "3. From diazonium salts",
-            description: "Aniline is treated with NaNO2 + HCl at 273–278 K to give benzene diazonium chloride, which is hydrolysed by warming with water or dilute acid.",
+            step: "Stage 2",
+            title: "Sodium phenoxide",
+            note: "Heated with molten NaOH.",
+            tone: "intermediate",
           },
           {
-            label: "4. From cumene (industrial)",
-            description: "Cumene (isopropylbenzene) is oxidised by air to cumene hydroperoxide, which is decomposed by dilute acid into phenol and acetone. Most of the world production of phenol is by this route.",
+            step: "Stage 3",
+            title: "Phenol",
+            note: "Acidification.",
+            tone: "product",
+          },
+        ]}
+        links={[
+          { label: "Sulphonation", condition: "Oleum" },
+          { label: "Fusion", condition: "Molten NaOH" },
+          { label: "Acidification", condition: "H⁺" },
+        ]}
+      />
+
+      <h4 id="h-7-4-2-3">3. From diazonium salts</h4>
+
+      <p>
+        <strong>Step 1 — Diazotisation.</strong> A primary aromatic amine such as aniline is dissolved
+        in cold aqueous mineral acid.
+      </p>
+
+      <p>
+        It is treated with nitrous acid generated in situ from NaNO<sub>2</sub> + HCl at 273–278 K
+        (0–5 °C), producing benzene diazonium chloride.
+      </p>
+
+      <p>
+        <strong>Step 2 — Hydrolysis.</strong> Benzene diazonium salt is warmed with water to produce
+        phenol.
+      </p>
+
+      <ReactionPathway
+        orientation="horizontal"
+        title="Diazotisation and hydrolysis"
+        nodes={[
+          { title: "Aniline", note: "Cold aqueous mineral acid" },
+          {
+            step: "Stage 1",
+            title: "Benzene diazonium chloride",
+            note: "273–278 K (0–5 °C)",
+            tone: "intermediate",
+          },
+          {
+            step: "Stage 2",
+            title: "Phenol",
+            note: "+ N₂ + HCl",
+            tone: "product",
+          },
+        ]}
+        links={[
+          { label: "Diazotisation", condition: "NaNO₂ + HCl" },
+          { label: "Hydrolysis", condition: "Warm H₂O" },
+        ]}
+      />
+
+      <FormulaBlock
+        label="Complete reaction"
+        latex={String.raw`\begin{aligned} \text{C}_6\text{H}_5\text{NH}_2 &\xrightarrow[273\text{–}278\ \text{K}]{\text{NaNO}_2 + \text{HCl}} \text{C}_6\text{H}_5\text{N}_2^+\text{Cl}^- \\ \text{C}_6\text{H}_5\text{N}_2^+\text{Cl}^- &\xrightarrow{\text{Warm H}_2\text{O}} \text{C}_6\text{H}_5\text{OH} + \text{N}_2 + \text{HCl} \end{aligned}`}
+      />
+
+      <h4 id="h-7-4-2-4">4. From cumene (industrial production)</h4>
+
+      <p>
+        <strong>Cumene</strong> is isopropylbenzene.
+      </p>
+
+      <p>Most worldwide production of phenol is carried out using this method.</p>
+
+      <ReactionPathway
+        orientation="horizontal"
+        title="Cumene route"
+        nodes={[
+          { title: "Cumene", note: "Isopropylbenzene" },
+          {
+            step: "Step 1",
+            title: "Cumene hydroperoxide",
+            tone: "intermediate",
+          },
+          {
+            step: "Step 2",
+            title: "Phenol + acetone",
+            note: "Acetone: CH₃COCH₃",
+            tone: "product",
+            outcome: "Acetone · by-product",
+            outcomeTone: "byproduct",
+          },
+        ]}
+        links={[
+          { label: "Air oxidation", condition: "O₂" },
+          { label: "Acid cleavage", condition: "Dil. H₂SO₄" },
+        ]}
+      />
+
+      <Callout type="important" title="Key point" subjectColor="var(--subject-chemistry)">
+        Acetone is obtained as a valuable by-product in large quantities.
+      </Callout>
+
+      <h3 id="h-7-4-revision">Quick revision — preparation methods</h3>
+
+      <TableCard
+        title="Alcohols"
+        headers={["Preparation method", "Key reagent / condition", "Product"]}
+        rows={[
+          {
+            cells: [
+              "Acid-catalysed hydration",
+              <>H<sub>2</sub>O / H<sup>+</sup></>,
+              "Markovnikov alcohol",
+            ],
+          },
+          {
+            cells: [
+              "Hydroboration–oxidation",
+              <>BH<sub>3</sub>, H<sub>2</sub>O<sub>2</sub> / NaOH</>,
+              "Anti-Markovnikov alcohol",
+            ],
+          },
+          {
+            cells: [
+              "Aldehyde reduction",
+              <>
+                H<sub>2</sub>, NaBH<sub>4</sub> or LiAlH<sub>4</sub>
+              </>,
+              "Primary alcohol",
+            ],
+          },
+          {
+            cells: [
+              "Ketone reduction",
+              <>
+                H<sub>2</sub>, NaBH<sub>4</sub> or LiAlH<sub>4</sub>
+              </>,
+              "Secondary alcohol",
+            ],
+          },
+          {
+            cells: ["Carboxylic acid reduction", <>LiAlH<sub>4</sub></>, "Primary alcohol"],
+          },
+          {
+            cells: ["Ester reduction", <>H<sub>2</sub> / catalyst</>, "Alcohols"],
+          },
+          {
+            cells: [
+              "Grignard reaction",
+              <>RMgX, followed by hydrolysis</>,
+              "1°, 2° or 3° alcohol",
+            ],
           },
         ]}
       />
 
-      <FormulaBlock latex={String.raw`\text{C}_6\text{H}_5\text{Cl} \xrightarrow[\text{623 K, 320 atm}]{\text{NaOH}} \text{C}_6\text{H}_5\text{ONa} \xrightarrow{\text{H}^+} \text{C}_6\text{H}_5\text{OH}`} />
-      <FormulaBlock latex={String.raw`\text{C}_6\text{H}_5\text{N}_2^+\text{Cl}^- \xrightarrow{\text{warm H}_2\text{O}} \text{C}_6\text{H}_5\text{OH} + \text{N}_2 + \text{HCl}`} />
-      <FormulaBlock latex={String.raw`\text{C}_6\text{H}_5\text{CH(CH}_3)_2 \xrightarrow{\text{O}_2} \text{C}_6\text{H}_5\text{C(CH}_3)_2\text{OOH} \xrightarrow{\text{dil. H}^+} \text{C}_6\text{H}_5\text{OH} + (\text{CH}_3)_2\text{CO}`} />
+      <TableCard
+        title="Phenols"
+        headers={["Preparation method", "Key reagent / condition"]}
+        rows={[
+          {
+            cells: ["From haloarenes", "NaOH, 623 K, high pressure; acidification"],
+          },
+          {
+            cells: ["From benzenesulphonic acid", "Oleum → molten NaOH → acidification"],
+          },
+          {
+            cells: [
+              "From diazonium salts",
+              <>NaNO<sub>2</sub> + HCl, 273–278 K; warm water</>,
+            ],
+          },
+          {
+            cells: ["From cumene", "Air oxidation → dilute H₂SO₄"],
+          },
+        ]}
+      />
 
       <h3 id="h-7-4-3">7.4.3 Physical Properties</h3>
 
