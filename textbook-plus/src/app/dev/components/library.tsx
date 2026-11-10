@@ -33,6 +33,24 @@ for (const id of Object.keys(DEMOS)) {
 
 const FILE_COUNT = new Set(CATALOG.map((entry) => entry.path)).size;
 
+/** One line of orientation per section — the taxonomy is not self-evident. */
+const CATEGORY_BLURB: Record<string, string> = {
+  ui: "base-nova primitives — every variant, size and sub-part",
+  content: "reading blocks used inside chapter pages",
+  data: "tables and checklists",
+  process: "steps, timelines, cycles and ladders",
+  study: "revision and mistake blocks",
+  concept: "definition and classification cards",
+  chapter: "chapter-page chrome — tabs, nav, progress",
+  chemistry: "molecule and reaction schematics",
+  physics: "interactive physics figures",
+  biology: "anatomy and experiment diagrams",
+  practice: "question flow and difficulty filters",
+  flashcard: "deck and card surfaces",
+  grammar: "grammar topic shell and quiz",
+  shell: "project-shell modules and non-visual exports",
+};
+
 function modeOf(entry: CatalogEntry): SpecimenStatus {
   if (DEMOS[entry.id]) return "live";
   if (entry.shell || !entry.renderable) return "shell";
@@ -358,6 +376,7 @@ export function Library() {
                 <li key={category}>
                   <a
                     href={`#cat-${category}`}
+                    title={CATEGORY_BLURB[category]}
                     className={cn(
                       "flex items-center justify-between border-s-2 py-1.5 pe-2 ps-2.5 text-[12px] transition-colors",
                       isActive
@@ -481,6 +500,9 @@ export function Library() {
                         <span className="min-w-0 truncate text-[10.5px] uppercase tracking-[0.06em] text-muted-foreground/70">
                           {cards.length} {cards.length === 1 ? "component" : "components"}
                           {parts.length ? ` · ${parts.length} parts` : ""}
+                        </span>
+                        <span className="hidden min-w-0 truncate text-[11.5px] text-muted-foreground/60 xl:block">
+                          — {CATEGORY_BLURB[category]}
                         </span>
                       </button>
                       <a
