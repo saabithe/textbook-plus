@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "node scripts/generate-search-index.cjs && node scripts/generate-sw.js && next build --webpack",
+    "build": "node scripts/generate-search-index.cjs && node scripts/generate-component-catalog.cjs && node scripts/check-component-catalog.cjs && node scripts/generate-sw.js && next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
+    "verify:catalog": "node scripts/check-component-catalog.cjs",
     "verify:figures": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/verify-figures.mjs",
     "verify:latex": "node scripts/verify-latex.cjs",
     "verify:presentation": "node scripts/audit-presentation.cjs",
