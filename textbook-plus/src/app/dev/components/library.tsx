@@ -288,7 +288,7 @@ export function Library() {
           <span className="mx-1 h-4 w-px shrink-0 bg-border" />
 
           <span className="ms-auto hidden shrink-0 whitespace-nowrap pe-1 font-mono text-[10.5px] tabular-nums text-muted-foreground/70 md:inline">
-            <span aria-live="polite">{shown}</span> / {CATALOG.length} shown
+            {shown} / {CATALOG.length} shown
           </span>
 
           <button
@@ -419,6 +419,9 @@ export function Library() {
 
         {/* content */}
         <div id="specimens" className="min-w-0 flex-1 scroll-mt-[104px]">
+          <p aria-live="polite" className="sr-only">
+            {shown} of {CATALOG.length} exports shown
+          </p>
           {/* mobile category strip */}
           <div className="-mx-4 mb-6 overflow-x-auto px-4 lg:hidden [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <div className="flex w-max gap-1">
