@@ -2107,6 +2107,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/BoilingPointRamp.tsx#BoilingPointRamp",
+    "name": "BoilingPointRamp",
+    "path": "content/chemistry/BoilingPointRamp.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; massRange?: ReactNode; rows: RampRow[]; axisLabel?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/CarbonylClassTable.tsx#CarbonylClassTable",
     "name": "CarbonylClassTable",
     "path": "content/chemistry/CarbonylClassTable.tsx",
@@ -2260,6 +2269,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/ForceComparisonCards.tsx#ForceComparisonCards",
+    "name": "ForceComparisonCards",
+    "path": "content/chemistry/ForceComparisonCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; cards: ForceCard[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/GeometryLabel.tsx#GeometryLabel",
     "name": "GeometryLabel",
     "path": "content/chemistry/GeometryLabel.tsx",
@@ -2386,6 +2404,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/OrderingQuestionCards.tsx#OrderingQuestionCards",
+    "name": "OrderingQuestionCards",
+    "path": "content/chemistry/OrderingQuestionCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; questions: OrderingQuestion[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/PhenolAcidityCards.tsx#PhenolAcidityCards",
     "name": "PhenolAcidityCards",
     "path": "content/chemistry/PhenolAcidityCards.tsx",
@@ -2409,6 +2436,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/PhenolPositionComparison.tsx",
     "category": "chemistry",
     "props": "positions: PhenolPosition[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/PhysicalStateTable.tsx#PhysicalStateTable",
+    "name": "PhysicalStateTable",
+    "path": "content/chemistry/PhysicalStateTable.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; rows: PhysicalStateRow[];",
     "shell": false,
     "renderable": true
   },
@@ -2444,7 +2480,7 @@ export const CATALOG: CatalogEntry[] = [
     "name": "RankProgression",
     "path": "content/chemistry/RankProgression.tsx",
     "category": "chemistry",
-    "props": "title?: ReactNode; items: RankItem[]; orientation?: \"descending\" | \"inline\"; badge?: ReactNode; note?: ReactNode; axisLabel?: ReactNode; spacing?: \"default\" | \"tight\";",
+    "props": "title?: ReactNode; items: RankItem[]; orientation?: \"descending\" | \"inline\"; badge?: ReactNode; note?: ReactNode; axisLabel?: ReactNode; direction?: \"descending\" | \"ascending\"; spacing?: \"default\" | \"tight\";",
     "shell": false,
     "renderable": true
   },
@@ -2499,6 +2535,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/RevisionDashboard.tsx",
     "category": "chemistry",
     "props": "title?: ReactNode; groups: RevisionGroup[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/SolubilityPairCards.tsx#SolubilityPairCards",
+    "name": "SolubilityPairCards",
+    "path": "content/chemistry/SolubilityPairCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; cards: SolubilityCard[];",
     "shell": false,
     "renderable": true
   },

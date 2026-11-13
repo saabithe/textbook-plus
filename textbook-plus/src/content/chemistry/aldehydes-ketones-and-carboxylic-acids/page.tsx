@@ -16,6 +16,12 @@ import { GreekPositionLadder } from "@/components/content/chemistry/GreekPositio
 import { NamingRuleCards } from "@/components/content/chemistry/NamingRuleCards";
 import { PracticeProblemCards } from "@/components/content/chemistry/PracticeProblemCards";
 import { GroupedNameTable } from "@/components/content/chemistry/GroupedNameTable";
+import { PhysicalStateTable } from "@/components/content/chemistry/PhysicalStateTable";
+import { ForceComparisonCards } from "@/components/content/chemistry/ForceComparisonCards";
+import { BoilingPointRamp } from "@/components/content/chemistry/BoilingPointRamp";
+import { OrderingQuestionCards } from "@/components/content/chemistry/OrderingQuestionCards";
+import { SolubilityPairCards } from "@/components/content/chemistry/SolubilityPairCards";
+import { RankProgression } from "@/components/content/chemistry/RankProgression";
 
 export default function AldehydesKetonesCarboxylicAcidsChapter() {
   return (
@@ -649,99 +655,148 @@ export default function AldehydesKetonesCarboxylicAcidsChapter() {
         </ul>
       </Expandable>
 
-      <h2 id="h-8-3">8.3 Physical Properties</h2>
+      <h2 id="h-8-3">8.3 Physical Properties of Aldehydes and Ketones</h2>
 
-      <ul>
-        <li>
-          <strong>Methanal</strong> is a gas at room temperature and <strong>ethanal</strong>{" "}
-          a volatile liquid; other aldehydes and ketones are liquids or solids.
-        </li>
-        <li>
-          Boiling points are <strong>higher than those of hydrocarbons and ethers</strong> of
-          comparable molecular mass, because of weak molecular association through
-          dipole–dipole interactions.
-        </li>
-        <li>
-          They are <strong>lower than those of alcohols</strong> of similar molecular mass,
-          because there is no intermolecular hydrogen bonding.
-        </li>
-        <li>
-          The lower members (methanal, ethanal, propanone) are miscible with water in all
-          proportions — they form hydrogen bonds with water.
-        </li>
-        <li>
-          Solubility falls rapidly as the alkyl chain lengthens; all aldehydes and ketones are
-          fairly soluble in benzene, ether, methanol, chloroform, etc.
-        </li>
-        <li>
-          The lower aldehydes have sharp pungent odours; as the molecule grows the odour
-          becomes less pungent and more fragrant — many occur in perfumes and flavouring
-          agents.
-        </li>
-      </ul>
+      <h3 id="h-8-3-1">8.3.1 Physical State at Room Temperature</h3>
 
-      <TableCard
-        title="Boiling points of compounds of molecular mass 58–60"
-        headers={["Compound", "b.p. / K", "Molecular mass"]}
+      <PhysicalStateTable
         rows={[
-          { cells: ["n-Butane", "273", "58"] },
-          { cells: ["Methoxyethane", "281", "60"] },
-          { cells: ["Propanal", "322", "58"] },
-          { cells: ["Acetone", "329", "58"] },
-          { cells: ["Propan-1-ol", "370", "60"] },
+          { compound: "Methanal", formula: "HCHO", state: "Gas", highlight: true },
+          { compound: "Ethanal", formula: "CH₃CHO", state: "Volatile liquid", highlight: true },
+          { compound: "Higher aldehydes and ketones", state: "Liquids or solids" },
         ]}
-        caption="Hydrocarbon < ether < aldehyde/ketone < alcohol — the same molecular mass, a different set of forces holding the molecules together."
       />
 
-      <Expandable title="Example 8.2 — Ordering boiling points" variant="example">
-        <p>
-          <strong>Problem:</strong> Arrange the following in increasing order of boiling
-          point: CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CHO, CH<sub>3</sub>CH
-          <sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>OH, H<sub>5</sub>C<sub>2</sub>–O–C
-          <sub>2</sub>H<sub>5</sub>, CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH
-          <sub>3</sub>.
-        </p>
-        <p>
-          <strong>Solution:</strong> the molecular masses of these compounds are in the range
-          72–74.
-        </p>
-        <ul>
-          <li>
-            Only butan-1-ol molecules are associated through extensive intermolecular hydrogen
-            bonding, so butan-1-ol has the highest boiling point.
-          </li>
-          <li>
-            Butanal is more polar than ethoxyethane, so the intermolecular dipole–dipole
-            attraction is stronger in the aldehyde.
-          </li>
-          <li>The alkane molecules have only weak van der Waals forces.</li>
-        </ul>
-        <p>
-          <strong>Increasing order:</strong>
-        </p>
-        <FormulaBlock
-          latex={String.raw`\text{CH}_3\text{CH}_2\text{CH}_2\text{CH}_3 < \text{C}_2\text{H}_5\text{OC}_2\text{H}_5 < \text{CH}_3\text{CH}_2\text{CH}_2\text{CHO} < \text{CH}_3\text{CH}_2\text{CH}_2\text{CH}_2\text{OH}`}
-          important
-        />
-      </Expandable>
+      <h3 id="h-8-3-2">8.3.2 Boiling Point Trends and Intermolecular Forces</h3>
 
-      <Expandable title="Intext 8.3 — Arrange by boiling point" variant="exercise">
-        <p>
-          <strong>Question:</strong> Arrange CH<sub>3</sub>CHO, CH<sub>3</sub>CH
-          <sub>2</sub>OH, CH<sub>3</sub>OCH<sub>3</sub> and CH<sub>3</sub>CH<sub>2</sub>CH
-          <sub>3</sub> in increasing order of boiling points.
-        </p>
-        <p>
-          <strong>Answer:</strong>
-        </p>
-        <FormulaBlock
-          latex={String.raw`\text{CH}_3\text{CH}_2\text{CH}_3 < \text{CH}_3\text{OCH}_3 < \text{CH}_3\text{CHO} < \text{CH}_3\text{CH}_2\text{OH}`}
-        />
-        <p>
-          Propane has only van der Waals forces; ethoxyethane is weakly polar; ethanal is more
-          polar (dipole–dipole); ethanol alone has intermolecular hydrogen bonding.
-        </p>
-      </Expandable>
+      <h4>General boiling point order</h4>
+
+      <RankProgression
+        orientation="inline"
+        direction="ascending"
+        title="Boiling point order"
+        items={[
+          { label: "Hydrocarbon" },
+          { label: "Ether" },
+          { label: "Aldehyde" },
+          { label: "Ketone" },
+          { label: "Alcohol" },
+        ]}
+      />
+
+      <h4>Reason — intermolecular forces</h4>
+
+      <ForceComparisonCards
+        cards={[
+          {
+            title: "Dipole–dipole interactions",
+            direction: "higher",
+            against: ["Hydrocarbons", "Ethers"],
+            statement:
+              "Aldehydes and ketones have higher boiling points than hydrocarbons and ethers of comparable molecular masses.",
+            reason: "The molecules are held by dipole–dipole interactions.",
+            tone: "higher",
+          },
+          {
+            title: "Hydrogen bonding",
+            direction: "lower",
+            against: ["Alcohols"],
+            statement:
+              "They have lower boiling points than alcohols of similar molecular masses.",
+            reason: "They cannot form intermolecular hydrogen bonds among themselves.",
+            tone: "lower",
+          },
+        ]}
+      />
+
+      <h4>Comparative boiling points</h4>
+
+      <BoilingPointRamp
+        massRange="Molar mass ≈ 58–60 g mol⁻¹"
+        rows={[
+          {
+            compound: "n-Butane",
+            family: "Alkane",
+            mass: "58",
+            boiling: "273 K",
+            kelvin: 273,
+          },
+          {
+            compound: "Methoxyethane",
+            family: "Ether",
+            mass: "60",
+            boiling: "281 K",
+            kelvin: 281,
+          },
+          {
+            compound: "Propanal",
+            family: "Aldehyde",
+            mass: "58",
+            boiling: "322 K",
+            kelvin: 322,
+          },
+          {
+            compound: "Acetone (propanone)",
+            family: "Ketone",
+            mass: "58",
+            boiling: "329 K",
+            kelvin: 329,
+          },
+          {
+            compound: "Propan-1-ol",
+            family: "Alcohol",
+            mass: "60",
+            boiling: "370 K",
+            kelvin: 370,
+            highlight: true,
+          },
+        ]}
+        axisLabel="Increasing boiling point →"
+      />
+
+      <h4>Board-style boiling point ordering</h4>
+
+      <OrderingQuestionCards
+        questions={[
+          {
+            label: "Ordering 1",
+            prompt: "Arrange in increasing order of boiling point",
+            given: [
+              { label: "(a)", compound: "CH₃CH₂CH₂CH₃", family: "Alkane" },
+              { label: "(b)", compound: "CH₃CH₂CH₂CH₂OH", family: "Alcohol" },
+              { label: "(c)", compound: "CH₃CH₂CH₂CHO", family: "Aldehyde" },
+              { label: "(d)", compound: "CH₃COCH₂CH₃", family: "Ketone" },
+            ],
+            answer: "(a) < (c) < (d) < (b)",
+            answerNote: "Alkane < aldehyde < ketone < alcohol",
+          },
+          {
+            label: "Ordering 2",
+            prompt: "Molar mass ≈ 72–74",
+            answer: "n-Pentane < Ethoxyethane < Butanal < Butan-1-ol",
+          },
+        ]}
+      />
+
+      <h3 id="h-8-3-3">8.3.3 Solubility in Water</h3>
+
+      <SolubilityPairCards
+        cards={[
+          {
+            title: "Hydrogen bonding with water",
+            statement: "Methanal, ethanal and propanone are miscible with water in all proportions.",
+            structure: ">C=O ⋯ H–O–H",
+            note: "The carbonyl oxygen forms hydrogen bonds with water molecules.",
+            tone: "chemistry",
+          },
+          {
+            title: "Effect of alkyl chain length",
+            relation: "Alkyl chain length ↑ ⇒ water solubility ↓",
+            note: "Increasing the hydrophobic alkyl chain decreases water solubility rapidly.",
+            tone: "muted",
+          },
+        ]}
+      />
 
       <h2 id="h-8-4">8.4 Chemical Reactions</h2>
 

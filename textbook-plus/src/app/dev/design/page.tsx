@@ -102,6 +102,11 @@ import { CarbonylFamilyGrid } from "@/components/content/chemistry/CarbonylFamil
 import { GreekPositionLadder } from "@/components/content/chemistry/GreekPositionLadder";
 import { NamingRuleCards } from "@/components/content/chemistry/NamingRuleCards";
 import { PracticeProblemCards } from "@/components/content/chemistry/PracticeProblemCards";
+import { PhysicalStateTable } from "@/components/content/chemistry/PhysicalStateTable";
+import { ForceComparisonCards } from "@/components/content/chemistry/ForceComparisonCards";
+import { BoilingPointRamp } from "@/components/content/chemistry/BoilingPointRamp";
+import { OrderingQuestionCards } from "@/components/content/chemistry/OrderingQuestionCards";
+import { SolubilityPairCards } from "@/components/content/chemistry/SolubilityPairCards";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -1385,6 +1390,100 @@ export default function DesignPage() {
                 </p>
               ),
               answer: "4-Nitrobenzaldehyde",
+            },
+          ]}
+        />
+      </Section>
+
+      <Section title="Chemistry — physical properties of carbonyls">
+        <PhysicalStateTable
+          rows={[
+            { compound: "Methanal", formula: "HCHO", state: "Gas", highlight: true },
+            { compound: "Ethanal", formula: "CH₃CHO", state: "Volatile liquid", highlight: true },
+            { compound: "Higher aldehydes and ketones", state: "Liquids or solids" },
+          ]}
+        />
+
+        <RankProgression
+          orientation="inline"
+          direction="ascending"
+          title="Boiling point order"
+          items={[
+            { label: "Hydrocarbon" },
+            { label: "Ether" },
+            { label: "Aldehyde" },
+            { label: "Ketone" },
+            { label: "Alcohol" },
+          ]}
+        />
+
+        <ForceComparisonCards
+          cards={[
+            {
+              title: "Dipole–dipole interactions",
+              direction: "higher",
+              against: ["Hydrocarbons", "Ethers"],
+              statement: "Higher boiling points than hydrocarbons and ethers of comparable mass.",
+              reason: "The molecules are held by dipole–dipole interactions.",
+              tone: "higher",
+            },
+            {
+              title: "Hydrogen bonding",
+              direction: "lower",
+              against: ["Alcohols"],
+              statement: "Lower boiling points than alcohols of similar mass.",
+              reason: "No intermolecular hydrogen bonds among themselves.",
+              tone: "lower",
+            },
+          ]}
+        />
+
+        <BoilingPointRamp
+          massRange="Molar mass ≈ 58–60"
+          rows={[
+            { compound: "n-Butane", family: "Alkane", mass: "58", boiling: "273 K", kelvin: 273 },
+            { compound: "Propanal", family: "Aldehyde", mass: "58", boiling: "322 K", kelvin: 322 },
+            {
+              compound: "Propan-1-ol",
+              family: "Alcohol",
+              mass: "60",
+              boiling: "370 K",
+              kelvin: 370,
+              highlight: true,
+            },
+          ]}
+          axisLabel="Increasing boiling point"
+        />
+
+        <OrderingQuestionCards
+          questions={[
+            {
+              label: "Ordering 1",
+              prompt: "Arrange in increasing order of boiling point",
+              given: [
+                { label: "(a)", compound: "CH₃CH₂CH₂CH₃", family: "Alkane" },
+                { label: "(c)", compound: "CH₃CH₂CH₂CHO", family: "Aldehyde" },
+              ],
+              answer: "(a) < (c) < (d) < (b)",
+              answerNote: "Alkane < aldehyde < ketone < alcohol",
+            },
+          ]}
+        />
+
+        <SolubilityPairCards
+          cards={[
+            {
+              title: "Hydrogen bonding with water",
+              statement: "Methanal, ethanal and propanone are miscible with water in all proportions.",
+              structure: ">C=O ⋯ H–O–H",
+              note: "The carbonyl oxygen forms hydrogen bonds with water molecules.",
+              tone: "chemistry",
+            },
+            {
+              title: "Effect of alkyl chain length",
+              relation: "Alkyl chain length ↑ ⇒ water solubility ↓",
+              note: "Increasing the hydrophobic alkyl chain decreases water solubility rapidly.",
+              tone: "muted",
             },
           ]}
         />

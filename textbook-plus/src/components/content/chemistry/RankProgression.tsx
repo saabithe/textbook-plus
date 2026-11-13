@@ -25,6 +25,11 @@ interface RankProgressionProps {
   note?: ReactNode;
   /** What the order measures, e.g. "Acid strength". */
   axisLabel?: ReactNode;
+  /**
+   * Which way the order runs. "descending" prints > between inline items,
+   * "ascending" prints <.
+   */
+  direction?: "descending" | "ascending";
   /** "tight" reduces the vertical margin when two orders sit back to back. */
   spacing?: "default" | "tight";
 }
@@ -42,6 +47,7 @@ export function RankProgression({
   badge,
   note,
   axisLabel,
+  direction = "descending",
   spacing = "default",
 }: RankProgressionProps) {
   const inline = orientation === "inline";
@@ -72,7 +78,7 @@ export function RankProgression({
                 </span>
                 {index < items.length - 1 && (
                   <span aria-hidden className="text-base font-bold text-muted-foreground">
-                    &gt;
+                    {direction === "ascending" ? "<" : ">"}
                   </span>
                 )}
               </div>
