@@ -2134,6 +2134,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/ConditionColumns.tsx#ConditionColumns",
+    "name": "ConditionColumns",
+    "path": "content/chemistry/ConditionColumns.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; condition: ReactNode; temperature: ReactNode; columns: ConditionColumn[]; footnote?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/CrystalFieldSplittingDiagram.tsx#CrystalFieldSplittingDiagram",
     "name": "CrystalFieldSplittingDiagram",
     "path": "content/chemistry/CrystalFieldSplittingDiagram.tsx",
@@ -2224,6 +2233,33 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/LucasTestCards.tsx#LucasTestCards",
+    "name": "LucasTestCards",
+    "path": "content/chemistry/LucasTestCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; reagent?: ReactNode; observations: LucasObservation[]; footnote?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/MechanismFlow.tsx#MechanismFlow",
+    "name": "MechanismFlow",
+    "path": "content/chemistry/MechanismFlow.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; steps: MechanismStep[]; footnote?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/NamedReactionCard.tsx#NamedReactionCard",
+    "name": "NamedReactionCard",
+    "path": "content/chemistry/NamedReactionCard.tsx",
+    "category": "chemistry",
+    "props": "title: ReactNode; tag?: ReactNode; subtitle?: ReactNode; conditions?: NamedReactionCondition[]; equation?: string; equationLabel?: ReactNode; points?: ReactNode[]; product?: NamedReactionProduct;",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/NamingSystemCards.tsx#NamingSystemCards",
     "name": "NamingSystemCards",
     "path": "content/chemistry/NamingSystemCards.tsx",
@@ -2238,6 +2274,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/NumberedRuleRows.tsx",
     "category": "chemistry",
     "props": "rules: NamingRule[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/PhenolAcidityCards.tsx#PhenolAcidityCards",
+    "name": "PhenolAcidityCards",
+    "path": "content/chemistry/PhenolAcidityCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; hybridisation: AcidityFactorCard; resonance: AcidityFactorCard;",
     "shell": false,
     "renderable": true
   },
@@ -2278,6 +2323,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/RankProgression.tsx#RankProgression",
+    "name": "RankProgression",
+    "path": "content/chemistry/RankProgression.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; items: RankItem[]; orientation?: \"descending\" | \"inline\"; badge?: ReactNode; note?: ReactNode; axisLabel?: ReactNode; spacing?: \"default\" | \"tight\";",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/ReactionPairCards.tsx#ReactionPairCards",
     "name": "ReactionPairCards",
     "path": "content/chemistry/ReactionPairCards.tsx",
@@ -2292,6 +2346,33 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/ReactionPathway.tsx",
     "category": "chemistry",
     "props": "orientation?: \"vertical\" | \"horizontal\"; title?: ReactNode; nodes: PathwayNode[]; links?: PathwayLink[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/ReactionTable.tsx#ReactionTable",
+    "name": "ReactionTable",
+    "path": "content/chemistry/ReactionTable.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; headers: ReactNode[]; rows: ReactionTableRow[]; caption?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/ReactivityModeCards.tsx#ReactivityModeCards",
+    "name": "ReactivityModeCards",
+    "path": "content/chemistry/ReactivityModeCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; cards: ReactivityMode[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/ReagentReactionTable.tsx#ReagentReactionTable",
+    "name": "ReagentReactionTable",
+    "path": "content/chemistry/ReagentReactionTable.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; rows: ReagentReactionRow[];",
     "shell": false,
     "renderable": true
   },
@@ -2364,6 +2445,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/StructureGlyphs.tsx",
     "category": "chemistry",
     "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/SubstituentEffectCards.tsx#SubstituentEffectCards",
+    "name": "SubstituentEffectCards",
+    "path": "content/chemistry/SubstituentEffectCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; sides: SubstituentSide[];",
     "shell": false,
     "renderable": true
   },

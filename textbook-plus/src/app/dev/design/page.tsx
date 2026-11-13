@@ -76,6 +76,16 @@ import { HydrogenBondCard } from "@/components/content/chemistry/HydrogenBondCar
 import { SolubilityPanel } from "@/components/content/chemistry/SolubilityPanel";
 import { CompoundOrderStrip } from "@/components/content/chemistry/CompoundOrderStrip";
 import { BoardQuestionCard } from "@/components/content/chemistry/BoardQuestionCard";
+import { ReactivityModeCards } from "@/components/content/chemistry/ReactivityModeCards";
+import { ReagentReactionTable } from "@/components/content/chemistry/ReagentReactionTable";
+import { RankProgression } from "@/components/content/chemistry/RankProgression";
+import { PhenolAcidityCards } from "@/components/content/chemistry/PhenolAcidityCards";
+import { SubstituentEffectCards } from "@/components/content/chemistry/SubstituentEffectCards";
+import { NamedReactionCard } from "@/components/content/chemistry/NamedReactionCard";
+import { LucasTestCards } from "@/components/content/chemistry/LucasTestCards";
+import { ReactionTable } from "@/components/content/chemistry/ReactionTable";
+import { MechanismFlow } from "@/components/content/chemistry/MechanismFlow";
+import { ConditionColumns } from "@/components/content/chemistry/ConditionColumns";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -799,6 +809,218 @@ export default function DesignPage() {
             }}
           />
         </BoardQuestionCard>
+      </Section>
+
+      <Section title="Chemistry — reactions of alcohols and phenols">
+        <ReactivityModeCards
+          title="Reacting as a nucleophile or an electrophile"
+          cards={[
+            {
+              role: "Alcohol as nucleophile",
+              bond: "O—H",
+              tone: "chemistry",
+              statement: "The alcohol oxygen attacks an electrophile, so the O—H bond breaks.",
+              points: ["Alcohol oxygen participates in nucleophilic reactions."],
+              equations: [
+                {
+                  label: "General scheme",
+                  latex: String.raw`\text{R–}\ddot{\mathrm{O}}\text{–H} + \text{C}^+ \longrightarrow \text{R–}\ddot{\mathrm{O}}\text{–C} + \text{H}^+`,
+                },
+              ],
+            },
+            {
+              role: "Protonated alcohol as electrophile",
+              bond: "C—O",
+              tone: "ink",
+              statement: "A nucleophile replaces the –OH₂⁺ group, so the C—O bond breaks.",
+              points: ["Alcohol reacts with H⁺ to form a protonated alcohol."],
+              equations: [
+                {
+                  label: "Step 1 — Protonation",
+                  latex: String.raw`\text{R–CH}_2\text{–OH} + \text{H}^+ \rightleftharpoons \text{R–CH}_2\text{–OH}_2^+`,
+                },
+              ],
+            },
+          ]}
+        />
+
+        <ReagentReactionTable
+          title="Active metals and aqueous alkali"
+          rows={[
+            {
+              reagent: "Active metals",
+              reagentNote: "Na · K · Al",
+              alcohol: {
+                equation: String.raw`2\text{ROH} + 2\text{Na} \longrightarrow 2\text{RONa} + \text{H}_2`,
+                product: "Sodium alkoxide",
+                note: "Hydrogen gas is liberated.",
+              },
+              phenol: {
+                equation: String.raw`2\text{C}_6\text{H}_5\text{OH} + 2\text{Na} \longrightarrow 2\text{C}_6\text{H}_5\text{ONa} + \text{H}_2`,
+                product: "Sodium phenoxide",
+                note: "Hydrogen gas is liberated.",
+              },
+            },
+            {
+              reagent: "Aqueous NaOH",
+              reagentNote: "Phenols only",
+              alcohol: { state: "none" },
+              phenol: {
+                product: "Sodium phenoxide + water",
+              },
+            },
+          ]}
+        />
+
+        <RankProgression
+          title="Relative acidity"
+          badge="10⁶×"
+          items={[
+            { label: "Phenols", note: "strongest" },
+            { label: "Water" },
+            { label: "Alcohols", note: "weakest" },
+          ]}
+          note="Phenol is approximately one million times more acidic than ethanol."
+        />
+
+        <RankProgression
+          orientation="inline"
+          spacing="tight"
+          title="Hydrogen halide reactivity"
+          items={[{ label: "HI" }, { label: "HBr" }, { label: "HCl" }, { label: "HF" }]}
+        />
+
+        <PhenolAcidityCards
+          title="Why phenol is the stronger acid"
+          hybridisation={{
+            label: "Factor 1",
+            title: "Carbon hybridisation",
+            points: [
+              "The –OH group is attached to an sp²-hybridised carbon of the benzene ring.",
+              "That carbon acts as an electron-withdrawing group.",
+            ],
+          }}
+          resonance={{
+            label: "Factor 2",
+            title: "Resonance stabilisation of the phenoxide ion",
+            points: [
+              "In alkoxide ions the negative charge is localised on oxygen.",
+              "In phenoxide ions the negative charge is delocalised over the aromatic ring.",
+            ],
+          }}
+        />
+
+        <SubstituentEffectCards
+          title="Effect of substituents on acidity"
+          sides={[
+            {
+              kind: "EWG",
+              heading: "Electron-withdrawing groups",
+              groups: "e.g. —NO₂",
+              effect: "increase",
+              note: "Nitro groups at the ortho and para positions enhance acidity.",
+              highlight: {
+                name: "2,4,6-Trinitrophenol (picric acid)",
+                detail: "A very strong acid — three electron-withdrawing –NO₂ groups.",
+              },
+            },
+            {
+              kind: "EDG",
+              heading: "Electron-releasing groups",
+              groups: "e.g. alkyl groups",
+              effect: "decrease",
+              note: "Electron-releasing alkyl groups decrease acidity.",
+              highlight: { name: "Cresols", detail: "Less acidic than phenol." },
+            },
+          ]}
+        />
+
+        <NamedReactionCard
+          title="Esterification"
+          tag="Alcohol or phenol + acid"
+          subtitle="Alcohols and phenols react with acids, acid chlorides and anhydrides to form esters."
+          conditions={[
+            {
+              reactants: "Carboxylic acids and acid anhydrides",
+              condition: "Concentrated H₂SO₄; reversible reaction",
+            },
+            {
+              reactants: "Acid chlorides",
+              condition: "Pyridine to neutralise the HCl formed",
+            },
+          ]}
+          equation={String.raw`\text{Ethanol} + \text{Ethanoic acid} \rightleftharpoons \text{Ethyl acetate} + \text{H}_2\text{O}`}
+          equationLabel="Example"
+          product={{ name: "Ethyl acetate", detail: "An ester." }}
+        />
+
+        <LucasTestCards
+          title="Lucas test — time to turbidity"
+          reagent="Conc. HCl + anhydrous ZnCl₂"
+          observations={[
+            { time: "Immediate", alcoholClass: "Tertiary (3°)" },
+            { time: "Within 5 minutes", alcoholClass: "Secondary (2°)" },
+            { time: "No turbidity", alcoholClass: "Primary (1°)", detail: "at room temperature" },
+          ]}
+        />
+
+        <ReactionTable
+          title="Reagents that replace –OH by halogen"
+          headers={["Reagent", "Reaction product", "By-products"]}
+          rows={[
+            {
+              cells: ["Phosphorus trihalides (PX₃)", "Alkyl halide", "Phosphorous acid (H₃PO₃)"],
+              equation: String.raw`3\text{ROH} + \text{PX}_3 \longrightarrow 3\text{RX} + \text{H}_3\text{PO}_3`,
+              badge: "X = Cl, Br, I",
+            },
+            {
+              cells: ["Thionyl chloride (SOCl₂)", "Chloroethane", "HCl(g) + SO₂(g)"],
+              equation: String.raw`\text{CH}_3\text{CH}_2\text{OH} + \text{SOCl}_2 \longrightarrow \text{CH}_3\text{CH}_2\text{Cl} + \text{HCl}_{(g)} + \text{SO}_{2(g)}`,
+              tone: "mild",
+              badge: "Preferred",
+            },
+          ]}
+          caption="SOCl₂ is preferred because its gaseous by-products escape cleanly."
+        />
+
+        <MechanismFlow
+          title="Three-step mechanism"
+          steps={[
+            {
+              step: "Step 1",
+              title: "Protonation of the alcohol",
+              points: ["Fast proton transfer.", "Forms a protonated alcohol (oxonium ion)."],
+            },
+            {
+              step: "Step 2",
+              title: "Formation of the carbocation",
+              points: ["Slow cleavage of the C—O bond.", "The slowest step — rate-determining."],
+              tone: "warning",
+              tag: "Rate-determining",
+            },
+            {
+              step: "Step 3",
+              title: "Elimination of a proton",
+              points: ["A proton is removed from the β-carbon.", "Ethene is formed."],
+            },
+          ]}
+        />
+
+        <ConditionColumns
+          title="Alcohol vapours over heated copper"
+          temperature="573 K"
+          condition="Alcohol vapours are passed over heated copper."
+          columns={[
+            { alcoholClass: "Primary (1°)", product: "Aldehyde" },
+            { alcoholClass: "Secondary (2°)", product: "Ketone" },
+            {
+              alcoholClass: "Tertiary (3°)",
+              product: "Alkene",
+              note: "dehydration",
+              different: true,
+            },
+          ]}
+        />
       </Section>
 
       <Section title="Study & answers">

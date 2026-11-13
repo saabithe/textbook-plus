@@ -30,6 +30,16 @@ import { SolubilityPanel } from "@/components/content/chemistry/SolubilityPanel"
 import { CompoundOrderStrip } from "@/components/content/chemistry/CompoundOrderStrip";
 import { BoardQuestionCard } from "@/components/content/chemistry/BoardQuestionCard";
 import { BoardMcq } from "@/components/content/chemistry/BoardMcq";
+import { ReactivityModeCards } from "@/components/content/chemistry/ReactivityModeCards";
+import { ReagentReactionTable } from "@/components/content/chemistry/ReagentReactionTable";
+import { RankProgression } from "@/components/content/chemistry/RankProgression";
+import { PhenolAcidityCards } from "@/components/content/chemistry/PhenolAcidityCards";
+import { SubstituentEffectCards } from "@/components/content/chemistry/SubstituentEffectCards";
+import { NamedReactionCard } from "@/components/content/chemistry/NamedReactionCard";
+import { LucasTestCards } from "@/components/content/chemistry/LucasTestCards";
+import { ReactionTable } from "@/components/content/chemistry/ReactionTable";
+import { MechanismFlow } from "@/components/content/chemistry/MechanismFlow";
+import { ConditionColumns } from "@/components/content/chemistry/ConditionColumns";
 import { Formula } from "@/components/content/Formula";
 
 export default function AlcoholsPhenolsEthersChapter() {
@@ -1274,322 +1284,756 @@ export default function AlcoholsPhenolsEthersChapter() {
         />
       </BoardQuestionCard>
 
-      <h3 id="h-7-4-4">7.4.4 Chemical Reactions</h3>
+      <h3 id="h-7-4-4">7.4.4 Chemical Reactions of Alcohols and Phenols</h3>
+
+      <h4 id="h-7-4-4-1">1. General Reactivity of Alcohols</h4>
 
       <p>
-        Alcohols are versatile: they react both as nucleophiles and as electrophiles. The O—H bond
-        breaks when an alcohol acts as a nucleophile; the C—O bond breaks when it acts as an
-        electrophile (protonated alcohols react this way). On this basis the reactions fall into two
-        groups.
+        Alcohols show <strong>dual reactivity</strong> — they act as both nucleophiles and
+        electrophiles.
       </p>
 
-      <h4 id="h-7-4-4-a">(a) Reactions involving cleavage of the O—H bond</h4>
-
-      <p>
-        <strong>1. Acidity of alcohols and phenols.</strong> Alcohols and phenols react with active
-        metals such as sodium, potassium and aluminium to give alkoxides/phenoxides and hydrogen.
-        Phenols also react with aqueous NaOH to form sodium phenoxide. Both classes are Brønsted acids —
-        they donate a proton to a stronger base.
-      </p>
-
-      <FormulaBlock latex={String.raw`2\text{ROH} + 2\text{Na} \rightarrow 2\text{RONa} + \text{H}_2\uparrow`} />
-      <FormulaBlock latex={String.raw`\text{C}_6\text{H}_5\text{OH} + \text{NaOH} \rightarrow \text{C}_6\text{H}_5\text{ONa} + \text{H}_2\text{O}`} />
-
-      <p>
-        The acidic character of alcohols comes from the polar O—H bond. An electron-releasing group
-        (—CH<sub>3</sub>, —C<sub>2</sub>H<sub>5</sub>) increases electron density on oxygen and reduces
-        the polarity of O—H, so acid strength falls in the order{" "}
-        <strong>primary &gt; secondary &gt; tertiary</strong>. Alcohols are weaker acids than water:
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{C}_2\text{H}_5\text{ONa} + \text{H}_2\text{O} \rightarrow \text{C}_2\text{H}_5\text{OH} + \text{NaOH}`} />
-
-      <p>
-        This shows water to be a better proton donor (stronger acid) than an alcohol, and the alkoxide
-        ion to be a better proton acceptor than hydroxide — sodium ethoxide is a stronger base than
-        NaOH. Alcohols also act as Brønsted bases, because the unshared electron pairs on oxygen make
-        them proton acceptors.
-      </p>
-
-      <p>
-        <strong>Why phenols are stronger acids than alcohols and water.</strong> In phenol the —OH is
-        attached to an <em>sp</em>
-        <sup>2</sup> carbon of the ring, which acts as an electron-withdrawing group. The higher
-        electronegativity of that carbon decreases electron density on oxygen, increasing the polarity
-        of O—H and hence ionisation. Moreover, in the alkoxide ion the negative charge is localised on
-        oxygen, while in the phenoxide ion it is delocalised over the ring — the phenoxide is therefore
-        more stable, which favours ionisation of phenol. Phenol itself has charge separation in its
-        resonance structures, so the molecule is less stable than the phenoxide ion.
-      </p>
-
-      <TableCard
-        caption="Table 7.3: pKa Values of some Phenols and Ethanol"
-        headers={["Compound", "Formula", "pKa"]}
-        rows={[
-          { cells: ["o-Nitrophenol", "o-O₂N–C₆H₄–OH", "7.2"] },
-          { cells: ["m-Nitrophenol", "m-O₂N–C₆H₄–OH", "8.3"] },
-          { cells: ["p-Nitrophenol", "p-O₂N–C₆H₄–OH", "7.1"] },
-          { cells: ["Phenol", "C₆H₅–OH", "10.0"] },
-          { cells: ["o-Cresol", "o-CH₃–C₆H₄–OH", "10.2"] },
-          { cells: ["m-Cresol", "m-CH₃–C₆H₄–OH", "10.1"] },
-          { cells: ["p-Cresol", "p-CH₃–C₆H₄–OH", "10.2"] },
-          { cells: ["Ethanol", "C₂H₅OH", "15.9"] },
+      <ReactivityModeCards
+        title="Reacting as a nucleophile or an electrophile"
+        cards={[
+          {
+            role: "Alcohol as nucleophile",
+            bond: "O—H",
+            tone: "chemistry",
+            statement:
+              "The alcohol oxygen attacks an electrophile, so the O—H bond breaks.",
+            points: ["Alcohol oxygen participates in nucleophilic reactions."],
+            equations: [
+              {
+                label: "General scheme",
+                latex: String.raw`\text{R–}\ddot{\mathrm{O}}\text{–H} + \text{C}^+ \longrightarrow \text{R–}\ddot{\mathrm{O}}\text{–C} + \text{H}^+`,
+              },
+            ],
+          },
+          {
+            role: "Protonated alcohol as electrophile",
+            bond: "C—O",
+            tone: "ink",
+            statement:
+              "The alcohol takes a proton, then a nucleophile replaces the –OH₂⁺ group, so the C—O bond breaks.",
+            points: [
+              "Alcohol reacts with H⁺ to form a protonated alcohol.",
+              "The protonated alcohol is the electrophile.",
+            ],
+            equations: [
+              {
+                label: "Step 1 — Protonation",
+                latex: String.raw`\text{R–CH}_2\text{–OH} + \text{H}^+ \rightleftharpoons \text{R–CH}_2\text{–OH}_2^+`,
+              },
+              {
+                label: "Step 2 — Nucleophilic substitution",
+                latex: String.raw`\text{Br}^- + \text{CH}_2(\text{R})\text{–OH}_2^+ \longrightarrow \text{R–CH}_2\text{–Br} + \text{H}_2\text{O}`,
+              },
+            ],
+          },
         ]}
       />
 
-      <Callout type="note" title="Reading a pKa table">
-        The greater the pKa, the weaker the acid. From the table, phenol is about a million times more
-        acidic than ethanol. Electron-withdrawing groups (—NO<sub>2</sub>) enhance acidity, and the
-        effect is most pronounced at <em>ortho</em> and <em>para</em> positions because the negative
-        charge is delocalised onto those positions; electron-releasing groups such as alkyl decrease
-        acidity, so cresols are less acidic than phenol.
+      <h4 id="h-7-4-4-2">2. Reactions Involving Cleavage of the O—H Bond</h4>
+
+      <h5 id="h-7-4-4-2-1">2.1 Reaction with Active Metals and Alkalies</h5>
+
+      <ReagentReactionTable
+        title="Active metals and aqueous alkali"
+        rows={[
+          {
+            reagent: "Active metals",
+            reagentNote: "Na · K · Al",
+            alcohol: {
+              equation: String.raw`2\text{ROH} + 2\text{Na} \longrightarrow 2\text{RONa} + \text{H}_2`,
+              product: "Sodium alkoxide",
+              note: "Hydrogen gas is liberated.",
+            },
+            phenol: {
+              equation: String.raw`2\text{C}_6\text{H}_5\text{OH} + 2\text{Na} \longrightarrow 2\text{C}_6\text{H}_5\text{ONa} + \text{H}_2`,
+              product: "Sodium phenoxide",
+              note: "Hydrogen gas is liberated.",
+            },
+          },
+          {
+            reagent: "Aqueous NaOH",
+            reagentNote: "Phenols only",
+            alcohol: { state: "none" },
+            phenol: {
+              equation: String.raw`\text{C}_6\text{H}_5\text{OH} + \text{NaOH} \longrightarrow \text{C}_6\text{H}_5\text{ONa} + \text{H}_2\text{O}`,
+              product: "Sodium phenoxide + water",
+            },
+          },
+        ]}
+      />
+
+      <Callout
+        type="important"
+        title="Key concept — Brønsted acidity"
+        subjectColor="var(--subject-chemistry)"
+      >
+        These reactions demonstrate the Brønsted acidic behaviour of alcohols and phenols — the –OH
+        group donates H⁺.
       </Callout>
 
-      <Expandable
-        title="Example 7.4 — Increasing order of acid strength"
-        variant="example"
-      >
-        <p>
-          Arrange in increasing order of acid strength: propan-1-ol, 2,4,6-trinitrophenol,
-          3-nitrophenol, 3,5-dinitrophenol, phenol, 4-methylphenol.
+      <h5 id="h-7-4-4-2-2">2.2 Acidity of Alcohols</h5>
+
+      <p>
+        The acidity comes from the polar O—H bond. Electron-releasing alkyl groups (—CH₃, —C₂H₅)
+        increase electron density on oxygen, which decreases O—H bond polarity and reduces acid
+        strength.
+      </p>
+
+      <RankProgression
+        title="Acid strength of alcohols"
+        axisLabel="Acid strength"
+        items={[
+          { label: "Primary (1°)", note: "strongest" },
+          { label: "Secondary (2°)" },
+          { label: "Tertiary (3°)", note: "weakest" },
+        ]}
+      />
+
+      <Comparison
+        columns={[
+          {
+            title: "Compared with water",
+            children: (
+              <ul className="space-y-2">
+                <li>Alcohols are weaker acids than water.</li>
+                <li>
+                  Alkoxide ions (RO<sup>−</sup>) are stronger proton acceptors than hydroxide ions
+                  (OH<sup>−</sup>).
+                </li>
+                <li>Therefore alkoxides are stronger bases than hydroxide ions.</li>
+              </ul>
+            ),
+          },
+          {
+            title: "Dual behaviour — base as well",
+            children: (
+              <p>
+                Alcohols also act as Brønsted bases: oxygen contains unshared electron pairs and can
+                accept protons.
+              </p>
+            ),
+          },
+        ]}
+      />
+
+      <h5 id="h-7-4-4-2-3">2.3 Acidity of Phenols</h5>
+
+      <RankProgression
+        title="Relative acidity"
+        badge="10⁶×"
+        items={[
+          { label: "Phenols", note: "strongest" },
+          { label: "Water" },
+          { label: "Alcohols", note: "weakest" },
+        ]}
+        note="Phenol is approximately one million times more acidic than ethanol."
+      />
+
+      <PhenolAcidityCards
+        title="Why phenol is the stronger acid"
+        hybridisation={{
+          label: "Factor 1",
+          title: "Carbon hybridisation",
+          points: [
+            "The –OH group is attached to an sp²-hybridised carbon of the benzene ring.",
+            "That carbon acts as an electron-withdrawing group.",
+            "It increases O—H bond polarity and facilitates ionisation.",
+          ],
+        }}
+        resonance={{
+          label: "Factor 2",
+          title: "Resonance stabilisation of the phenoxide ion",
+          points: [
+            "In alkoxide ions the negative charge is localised on oxygen.",
+            "In phenoxide ions the negative charge is delocalised over the aromatic ring.",
+            "This stabilises the phenoxide ion and favours ionisation.",
+          ],
+        }}
+      />
+
+      <SubstituentEffectCards
+        title="Effect of substituents on acidity"
+        sides={[
+          {
+            kind: "EWG",
+            heading: "Electron-withdrawing groups",
+            groups: "e.g. —NO₂",
+            effect: "increase",
+            note: "Nitro groups at the ortho and para positions enhance acidity.",
+            highlight: {
+              name: "2,4,6-Trinitrophenol (picric acid)",
+              detail: "A very strong acid — three electron-withdrawing –NO₂ groups.",
+            },
+          },
+          {
+            kind: "EDG",
+            heading: "Electron-releasing groups",
+            groups: "e.g. alkyl groups",
+            effect: "decrease",
+            note: "Electron-releasing alkyl groups decrease acidity.",
+            highlight: {
+              name: "Cresols",
+              detail: "Less acidic than phenol.",
+            },
+          },
+        ]}
+      />
+
+      <h5 id="h-7-4-4-2-4">2.4 Esterification</h5>
+
+      <NamedReactionCard
+        title="Esterification"
+        tag="Alcohol or phenol + acid"
+        subtitle="Alcohols and phenols react with carboxylic acids, acid chlorides and acid anhydrides to form esters."
+        conditions={[
+          {
+            reactants: "Carboxylic acids and acid anhydrides",
+            condition: "Concentrated H₂SO₄; reversible reaction",
+          },
+          {
+            reactants: "Acid chlorides",
+            condition: "Pyridine to neutralise the HCl formed",
+          },
+        ]}
+        equation={String.raw`\text{Ethanol} + \text{Ethanoic acid} \rightleftharpoons \text{Ethyl acetate} + \text{H}_2\text{O}`}
+        equationLabel="Example"
+        points={[
+          "Water is removed as it forms with carboxylic acids and anhydrides, shifting the equilibrium towards ester formation.",
+        ]}
+      />
+
+      <NamedReactionCard
+        title="Aspirin synthesis"
+        tag="Acetylation"
+        subtitle="Acetylation of salicylic acid."
+        equation={String.raw`\text{2-Hydroxybenzoic acid} + (\text{CH}_3\text{CO})_2\text{O} \longrightarrow \text{Acetylsalicylic acid} + \text{CH}_3\text{COOH}`}
+        equationLabel="Salicylic acid + acetic anhydride → aspirin + acetic acid"
+        product={{
+          name: "Acetylsalicylic acid (aspirin)",
+          detail: "Made by acetylating salicylic acid.",
+          badges: ["Analgesic", "Antipyretic", "Anti-inflammatory"],
+        }}
+      />
+
+      <h4 id="h-7-4-4-3">3. Reactions Involving Cleavage of the C—O Bond</h4>
+
+      <p>
+        These reactions occur in alcohols. Phenols undergo C—O cleavage only under specific
+        conditions — heating with zinc dust.
+      </p>
+
+      <h5 id="h-7-4-4-3-1">3.1 Reaction with Hydrogen Halides (HX)</h5>
+
+      <p>
+        Alcohols react with hydrogen halides to form the corresponding alkyl halides and water.
+      </p>
+
+      <FormulaBlock latex={String.raw`\text{ROH} + \text{HX} \longrightarrow \text{RX} + \text{H}_2\text{O}`} />
+
+      <RankProgression
+        orientation="inline"
+        title="Alcohol reactivity"
+        axisLabel="Alcohol reactivity"
+        items={[
+          { label: "Tertiary (3°)" },
+          { label: "Secondary (2°)" },
+          { label: "Primary (1°)" },
+        ]}
+      />
+
+      <RankProgression
+        orientation="inline"
+        spacing="tight"
+        title="Hydrogen halide reactivity"
+        axisLabel="Hydrogen halide reactivity"
+        items={[{ label: "HI" }, { label: "HBr" }, { label: "HCl" }, { label: "HF" }]}
+      />
+
+      <h5 id="h-7-4-4-3-2">3.2 Lucas Test</h5>
+
+      <p>
+        The Lucas test distinguishes primary, secondary and tertiary alcohols. Alcohols dissolve in
+        Lucas reagent, while the alkyl halides formed are immiscible and produce turbidity.
+      </p>
+
+      <LucasTestCards
+        title="Lucas test — time to turbidity"
+        reagent="Conc. HCl + anhydrous ZnCl₂"
+        observations={[
+          { time: "Immediate", alcoholClass: "Tertiary (3°)" },
+          { time: "Within 5 minutes", alcoholClass: "Secondary (2°)" },
+          {
+            time: "No turbidity",
+            alcoholClass: "Primary (1°)",
+            detail: "at room temperature",
+          },
+        ]}
+      />
+
+      <h5 id="h-7-4-4-3-3">
+        3.3–3.5 Reaction with Phosphorus Trihalides, PCl₅ and SOCl₂
+      </h5>
+
+      <ReactionTable
+        title="Reagents that replace –OH by halogen"
+        headers={["Reagent", "Reaction product", "By-products"]}
+        rows={[
+          {
+            cells: [
+              "Phosphorus trihalides (PX₃)",
+              "Alkyl halide — ethanol → chloroethane",
+              "Phosphorous acid (H₃PO₃)",
+            ],
+            equation: String.raw`3\text{ROH} + \text{PX}_3 \longrightarrow 3\text{RX} + \text{H}_3\text{PO}_3`,
+            badge: "X = Cl, Br, I",
+          },
+          {
+            cells: [
+              "Phosphorus pentachloride (PCl₅)",
+              "Chloroethane (CH₃CH₂Cl)",
+              "HCl + POCl₃",
+            ],
+            equation: String.raw`\text{CH}_3\text{CH}_2\text{OH} + \text{PCl}_5 \longrightarrow \text{CH}_3\text{CH}_2\text{Cl} + \text{HCl} + \text{POCl}_3`,
+          },
+          {
+            cells: [
+              "Thionyl chloride (SOCl₂)",
+              "Chloroethane (CH₃CH₂Cl)",
+              <>
+                HCl<sub>(g)</sub> + SO<sub>2(g)</sub>
+              </>,
+            ],
+            equation: String.raw`\text{CH}_3\text{CH}_2\text{OH} + \text{SOCl}_2 \longrightarrow \text{CH}_3\text{CH}_2\text{Cl} + \text{HCl}_{(g)} + \text{SO}_{2(g)}`,
+            tone: "mild",
+            badge: "Preferred",
+          },
+        ]}
+        caption="SOCl₂ is preferred because its gaseous by-products escape cleanly."
+      />
+
+      <BoardQuestionCard number="Q1" tag="Lucas test">
+        <p className="text-sm font-semibold leading-relaxed text-foreground">
+          A mixture of anhydrous ZnCl₂ and concentrated HCl is an important reagent used to
+          distinguish primary, secondary and tertiary alcohols. How is it used?
         </p>
-        <p className="mt-3 font-semibold">Solution</p>
-        <p>
-          Propan-1-ol &lt; 4-methylphenol &lt; phenol &lt; 3-nitrophenol &lt; 3,5-dinitrophenol &lt;
-          2,4,6-trinitrophenol.
-        </p>
-      </Expandable>
+
+        <div className="mt-3 rounded-md border border-ok/35 bg-ok/10 px-3 py-2.5">
+          <p className="t-micro text-ok">Answer</p>
+          <p className="mt-1 text-sm leading-relaxed text-foreground/90">
+            Based on the time required for turbidity to appear upon reaction with Lucas reagent.
+          </p>
+
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {[
+              "3° — immediately",
+              "2° — within 5 minutes",
+              "1° — no reaction at room temperature",
+            ].map((row) => (
+              <span
+                key={row}
+                className="rounded-[3px] border border-ok/30 bg-card px-2 py-0.5 text-[0.7rem] font-bold text-foreground/85"
+              >
+                {row}
+              </span>
+            ))}
+          </div>
+        </div>
+      </BoardQuestionCard>
+
+      <h4 id="h-7-4-4-4">4. Dehydration of Alcohols</h4>
+
+      <h5 id="h-7-4-4-4-1">4.1 General Principle</h5>
 
       <p>
-        <strong>2. Esterification.</strong> Alcohols and phenols react with carboxylic acids, acid
-        chlorides and acid anhydrides to form esters. The reaction with a carboxylic acid or anhydride
-        is carried out with a small amount of concentrated sulphuric acid; it is reversible, so water is
-        removed as soon as it forms. With an acid chloride a base (pyridine) is used to neutralise the
-        HCl formed and shift the equilibrium to the right.
+        Dehydration is the removal of a water molecule. Alcohols undergo dehydration to form
+        alkenes.
       </p>
 
-      <FormulaBlock latex={String.raw`\text{R/Ar–OH} + \text{R}'\text{COOH} \rightleftharpoons \text{R/Ar–OCOR}' + \text{H}_2\text{O}`} />
-      <FormulaBlock latex={String.raw`\text{R/Ar–OH} + \text{R}'\text{COCl} \xrightarrow{\text{pyridine}} \text{R/Ar–OCOR}' + \text{HCl}`} />
+      <div className="my-4 flex flex-wrap items-center gap-1.5">
+        <span className="t-micro mr-1">Catalysts and reagents</span>
+        {["Conc. H₂SO₄", "H₃PO₄", "Anhydrous ZnCl₂", "Al₂O₃"].map((catalyst) => (
+          <span
+            key={catalyst}
+            className="rounded-[3px] border border-border bg-card px-2 py-0.5 text-[0.72rem] font-bold text-foreground/85"
+          >
+            {catalyst}
+          </span>
+        ))}
+      </div>
 
-      <p>
-        Introducing an acetyl (CH<sub>3</sub>CO) group into an alcohol or phenol is called{" "}
-        <strong>acetylation</strong>. Acetylation of salicylic acid produces{" "}
-        <strong>aspirin</strong>, which possesses analgesic, anti-inflammatory and antipyretic
-        properties.
-      </p>
+      <ReactionTable
+        title="Dehydration conditions by alcohol type"
+        headers={["Alcohol", "Temperature", "Reagent", "Product"]}
+        rows={[
+          {
+            cells: ["Primary — ethanol", "443 K", "Conc. H₂SO₄", "Ethene (CH₂=CH₂)"],
+            equation: String.raw`\text{C}_2\text{H}_5\text{OH} \xrightarrow[443\ \text{K}]{\text{conc. H}_2\text{SO}_4} \text{CH}_2\text{=CH}_2 + \text{H}_2\text{O}`,
+          },
+          {
+            cells: [
+              "Secondary — propan-2-ol",
+              "440 K",
+              "85% H₃PO₄",
+              "Propene (CH₃CH=CH₂)",
+            ],
+            equation: String.raw`\text{CH}_3\text{CH(OH)CH}_3 \xrightarrow[440\ \text{K}]{85\%\ \text{H}_3\text{PO}_4} \text{CH}_3\text{CH=CH}_2 + \text{H}_2\text{O}`,
+          },
+          {
+            cells: [
+              "Tertiary — 2-methylpropan-2-ol",
+              "358 K",
+              "20% H₃PO₄",
+              "2-Methylpropene ((CH₃)₂C=CH₂)",
+            ],
+            equation: String.raw`(\text{CH}_3)_3\text{COH} \xrightarrow[358\ \text{K}]{20\%\ \text{H}_3\text{PO}_4} (\text{CH}_3)_2\text{C=CH}_2 + \text{H}_2\text{O}`,
+          },
+        ]}
+      />
 
-      <h4 id="h-7-4-4-b">(b) Reactions involving cleavage of the C—O bond in alcohols</h4>
+      <RankProgression
+        title="Ease of dehydration"
+        items={[
+          { label: "Tertiary (3°)", note: "most easily" },
+          { label: "Secondary (2°)" },
+          { label: "Primary (1°)", note: "most difficult" },
+        ]}
+        note="Tertiary carbocations are the most stable and easiest to form."
+      />
 
-      <p>
-        These take place only in alcohols; phenols show this type of reaction only with zinc.
-      </p>
+      <h5 id="h-7-4-4-4-2">4.2 Mechanism of Dehydration of Ethanol</h5>
 
-      <p>
-        <strong>1. Reaction with hydrogen halides.</strong> Alcohols react with hydrogen halides to form
-        alkyl halides.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{R–OH} + \text{HX} \rightarrow \text{R–X} + \text{H}_2\text{O}`} />
-
-      <p>
-        The difference in reactivity of the three classes of alcohols with HCl distinguishes them — the{" "}
-        <strong>Lucas test</strong>. Alcohols dissolve in Lucas reagent (conc. HCl + ZnCl
-        <sub>2</sub>) while their halides are immiscible and produce turbidity. Tertiary alcohols give
-        turbidity immediately, secondary alcohols on heating, and primary alcohols do not give turbidity
-        at room temperature.
-      </p>
-
-      <p>
-        <strong>2. Reaction with phosphorus trihalides.</strong> Alcohols are converted to alkyl
-        bromides by reaction with phosphorus tribromide.
-      </p>
-
-      <FormulaBlock latex={String.raw`3\text{R–OH} + \text{PBr}_3 \rightarrow 3\text{R–Br} + \text{H}_3\text{PO}_3`} />
-
-      <p>
-        <strong>3. Dehydration.</strong> Alcohols lose a molecule of water to form alkenes when treated
-        with a protic acid such as concentrated H<sub>2</sub>SO<sub>4</sub> or H<sub>3</sub>PO
-        <sub>4</sub>, or with catalysts such as anhydrous ZnCl<sub>2</sub> or alumina. Ethanol is
-        dehydrated by heating with concentrated H<sub>2</sub>SO<sub>4</sub> at 443 K.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{CH}_3\text{CH}_2\text{OH} \xrightarrow[\text{443 K}]{\text{conc. H}_2\text{SO}_4} \text{CH}_2\text{=CH}_2 + \text{H}_2\text{O}`} />
-
-      <p>
-        Secondary and tertiary alcohols are dehydrated under milder conditions, so the ease of
-        dehydration follows <strong>tertiary &gt; secondary &gt; primary</strong>.
-      </p>
-
-      <Stepper
+      <MechanismFlow
+        title="Three-step mechanism"
         steps={[
           {
-            label: "Step 1: Formation of the protonated alcohol",
-            description: "The alcohol takes a proton from the acid, giving ROH₂⁺.",
+            step: "Step 1",
+            title: "Protonation of the alcohol",
+            points: [
+              "Fast proton transfer.",
+              "Forms a protonated alcohol (oxonium ion).",
+            ],
           },
           {
-            label: "Step 2: Formation of the carbocation (slowest, rate determining)",
-            description: "Water departs from the protonated alcohol, leaving a carbocation. Tertiary carbocations are more stable and easier to form, which is why tertiary alcohols dehydrate most readily.",
+            step: "Step 2",
+            title: "Formation of the carbocation",
+            points: [
+              "Slow cleavage of the C—O bond.",
+              "Forms a carbocation intermediate.",
+              "The slowest step — rate-determining.",
+            ],
+            tone: "warning",
+            tag: "Rate-determining",
           },
           {
-            label: "Step 3: Elimination of a proton to give the alkene",
-            description: "Loss of H⁺ from the adjacent carbon forms the double bond and releases the acid used in step 1. Removing ethene as it forms drives the equilibrium to the right.",
+            step: "Step 3",
+            title: "Elimination of a proton",
+            points: [
+              "A proton is removed from the β-carbon.",
+              "Ethene is formed.",
+              "The acid catalyst is regenerated.",
+            ],
           },
         ]}
       />
 
+      <h4 id="h-7-4-4-5">5. Oxidation of Alcohols (Dehydrogenation)</h4>
+
       <p>
-        <strong>4. Oxidation.</strong> Oxidation of an alcohol forms a C=O double bond with cleavage of
-        an O—H and a C—H bond, so these are also called dehydrogenation reactions. Depending on the
-        oxidising agent, a primary alcohol is oxidised to an aldehyde and then to a carboxylic acid.
+        Oxidation cleaves an O—H bond and a C—H bond and forms a carbon–oxygen double bond (C=O).
+        Because hydrogen is removed, these reactions are also called dehydrogenation reactions.
       </p>
 
-      <TableCard
-        caption="Oxidation products and the usual reagents"
-        headers={["Alcohol", "Product", "Reagent"]}
+      <h5 id="h-7-4-4-5-1">5.1 Product Formation Based on Alcohol Type and Reagent</h5>
+
+      <ReactionTable
+        title="Oxidation products"
+        headers={["Alcohol type", "Oxidising reagent", "Product"]}
         rows={[
-          { cells: ["Primary", "Aldehyde (then carboxylic acid)", "CrO₃ in anhydrous medium, or PCC"] },
-          { cells: ["Primary", "Carboxylic acid directly", "Acidified KMnO₄ (strong oxidant)"] },
-          { cells: ["Secondary", "Ketone", "Chromic anhydride (CrO₃)"] },
-          { cells: ["Tertiary", "No oxidation", "—"] },
-          { cells: ["Primary/secondary (vapour over Cu at 573 K)", "Aldehyde / ketone", "Heated copper (dehydrogenation)"] },
+          {
+            cells: ["Primary (1°)", "Mild: PCC", "Aldehyde (RCHO)"],
+            tone: "mild",
+          },
+          {
+            cells: [
+              "Primary (1°)",
+              "Acidified KMnO₄ or K₂Cr₂O₇",
+              "Carboxylic acid (RCOOH)",
+            ],
+            tone: "strong",
+          },
+          {
+            cells: ["Secondary (2°)", "CrO₃", "Ketone (RCOR′)"],
+          },
+          {
+            cells: ["Tertiary (3°)", "Normal conditions", "Resistant to oxidation"],
+            tone: "resistant",
+          },
+          {
+            cells: [
+              "Tertiary (3°)",
+              "Vigorous conditions",
+              "Mixture of carboxylic acids with fewer carbons due to C—C bond cleavage",
+            ],
+            tone: "strong",
+          },
         ]}
       />
 
-      <p>
-        Strong oxidising agents such as acidified potassium permanganate give carboxylic acids directly
-        from alcohols. CrO<sub>3</sub> in anhydrous medium is used to isolate aldehydes, and a better
-        reagent for oxidising primary alcohols to aldehydes in good yield is{" "}
-        <strong>pyridinium chlorochromate (PCC)</strong>, a complex of CrO<sub>3</sub> with pyridine and
-        HCl.
-      </p>
+      <h5 id="h-7-4-4-5-2">5.2 Dehydrogenation over Heated Copper</h5>
 
-      <FormulaBlock latex={String.raw`\text{RCH}_2\text{OH} \xrightarrow[\text{anhydrous}]{\text{CrO}_3} \text{RCHO}`} />
-      <FormulaBlock latex={String.raw`\text{RCH}_2\text{OH} \xrightarrow{\text{PCC}} \text{RCHO}`} />
-      <FormulaBlock latex={String.raw`\text{R}_2\text{CHOH} \xrightarrow{\text{CrO}_3} \text{R}_2\text{CO}`} />
+      <ConditionColumns
+        title="Alcohol vapours over heated copper"
+        temperature="573 K"
+        condition="Alcohol vapours are passed over heated copper."
+        columns={[
+          { alcoholClass: "Primary (1°)", product: "Aldehyde" },
+          { alcoholClass: "Secondary (2°)", product: "Ketone" },
+          {
+            alcoholClass: "Tertiary (3°)",
+            product: "Alkene",
+            note: "dehydration",
+            different: true,
+          },
+        ]}
+      />
 
-      <p>
-        Tertiary alcohols do not undergo oxidation. Under strong conditions (KMnO<sub>4</sub>, elevated
-        temperature) C—C bonds cleave as well, giving a mixture of carboxylic acids with fewer carbon
-        atoms. Passing vapours of a primary or secondary alcohol over heated copper at 573 K
-        dehydrogenates it to an aldehyde or ketone, while tertiary alcohols undergo dehydration.
-      </p>
+      <h4 id="h-7-4-4-6">6. Reactions of Phenols</h4>
 
-      <Callout type="warning" title="Methanol poisoning">
-        Biological oxidation of methanol and ethanol in the body produces the corresponding aldehyde
-        followed by the acid. Methanol is oxidised first to methanal and then to methanoic acid, which
-        may cause blindness and death. A methanol-poisoned patient is treated with intravenous infusions
-        of diluted ethanol: the enzyme that oxidises HCHO to acid is swamped, allowing time for the
-        kidneys to excrete methanol.
+      <h5 id="h-7-4-4-6-1">6.1 Electrophilic Aromatic Substitution</h5>
+
+      <Callout
+        type="important"
+        title="Two effects of the –OH group"
+        subjectColor="var(--subject-chemistry)"
+      >
+        <ul className="space-y-2">
+          <li>
+            <strong>Strongly activating</strong> — the –OH group strongly activates the benzene ring
+            towards electrophilic substitution.
+          </li>
+          <li>
+            <strong>Ortho/para directing</strong> — resonance delocalisation directs incoming
+            electrophiles to the ortho and para positions.
+          </li>
+        </ul>
       </Callout>
 
-      <h4 id="h-7-4-4-c">(c) Reactions of phenols</h4>
+      <h5 id="h-7-4-4-6-2">6.2 Nitration</h5>
 
-      <p>
-        The following reactions are shown by phenols only.
-      </p>
+      <NamedReactionCard
+        title="With dilute nitric acid"
+        tag="298 K"
+        subtitle="Dilute HNO₃ at 298 K gives a mixture of ortho- and para-nitrophenol."
+        points={["The two isomers are separated by steam distillation."]}
+        product={{
+          name: "o-Nitrophenol and p-Nitrophenol",
+          detail: "A mixture of the two isomers.",
+        }}
+      />
 
-      <p>
-        <strong>1. Electrophilic aromatic substitution.</strong> The —OH group activates the benzene ring
-        towards electrophilic substitution and directs the incoming group to <em>ortho</em> and{" "}
-        <em>para</em> positions, which become electron-rich through the resonance effect.
-      </p>
+      <Comparison
+        columns={[
+          {
+            title: "o-Nitrophenol — intramolecular",
+            children: (
+              <>
+                <p>Intramolecular hydrogen bonding.</p>
+                <p className="mt-2 font-semibold">Steam volatile.</p>
+              </>
+            ),
+          },
+          {
+            title: "p-Nitrophenol — intermolecular",
+            children: (
+              <>
+                <p>Intermolecular hydrogen bonding.</p>
+                <p className="mt-2 font-semibold">
+                  Less volatile due to molecular association.
+                </p>
+              </>
+            ),
+          },
+        ]}
+      />
 
-      <p>
-        <strong>(i) Nitration.</strong> With dilute nitric acid at low temperature (298 K) phenol gives a
-        mixture of <em>ortho</em> and <em>para</em> nitrophenols. The isomers are separated by steam
-        distillation: <em>o</em>-nitrophenol is steam volatile because of intramolecular hydrogen
-        bonding, while <em>p</em>-nitrophenol is less volatile because intermolecular hydrogen bonding
-        causes association. With concentrated nitric acid phenol gives 2,4,6-trinitrophenol (picric
-        acid), though in poor yield; today picric acid is made by first converting phenol to
-        phenol-2,4-disulphonic acid with concentrated sulphuric acid and then treating it with
-        concentrated nitric acid.
-      </p>
+      <NamedReactionCard
+        title="With concentrated nitric acid"
+        tag="Direct nitration"
+        equation={String.raw`\text{Phenol} \xrightarrow{\text{conc. HNO}_3} \text{2,4,6-Trinitrophenol}`}
+        product={{ name: "2,4,6-Trinitrophenol (picric acid)" }}
+      />
 
-      <Callout type="note">
-        2,4,6-Trinitrophenol is a strong acid because the three electron-withdrawing —NO<sub>2</sub>{" "}
-        groups facilitate release of the hydrogen ion.
-      </Callout>
+      <ReactionPathway
+        orientation="vertical"
+        title="Commercial route to picric acid"
+        nodes={[
+          {
+            step: "Step 1",
+            title: "Phenol",
+            note: "Phenol reacts with concentrated H₂SO₄.",
+          },
+          {
+            step: "Step 2",
+            title: "Phenol-2,4-disulphonic acid",
+            note: "Formed from phenol and concentrated H₂SO₄.",
+            tone: "intermediate",
+            outcome: "Disulphonic acid",
+          },
+          {
+            step: "Steps 3–4",
+            title: "Picric acid",
+            note: "Reacts with concentrated HNO₃; produced in higher yields.",
+            tone: "product",
+            outcome: "2,4,6-Trinitrophenol",
+          },
+        ]}
+        links={[
+          { label: "Sulphonation", condition: "Conc. H₂SO₄" },
+          { label: "Nitration", condition: "Conc. HNO₃" },
+        ]}
+      />
 
-      <p>
-        <strong>(ii) Halogenation.</strong> On treating phenol with bromine, different products form
-        under different conditions:
-      </p>
+      <h5 id="h-7-4-4-6-3">6.3 Halogenation</h5>
+
+      <ReactionPairCards
+        title="Bromination of phenol"
+        cards={[
+          {
+            label: "Low-polarity solvent",
+            reagent: "Br₂ / CS₂ or CHCl₃ · 273 K",
+            description:
+              "No Lewis acid such as FeBr₃ is needed — the highly activating –OH group polarises Br₂ directly.",
+            substrate: "Phenol",
+            product: "p-Bromophenol (major) + o-Bromophenol (minor)",
+            productName: "Monobromophenols",
+            productMeta: "In CS₂ or CHCl₃ at 273 K",
+          },
+          {
+            label: "Bromine water",
+            reagent: "Br₂ (aq)",
+            description: "Phenol reacts rapidly with bromine water.",
+            substrate: "Phenol",
+            product: "2,4,6-Tribromophenol",
+            productName: "2,4,6-Tribromophenol",
+            productMeta: "Rapid reaction with bromine water",
+            badge: "White precipitate",
+          },
+        ]}
+      />
+
+      <h5 id="h-7-4-4-6-4">6.4 Kolbe&apos;s Reaction</h5>
 
       <ul>
+        <li>Phenol reacts with NaOH to form sodium phenoxide.</li>
         <li>
-          In solvents of low polarity such as CHCl<sub>3</sub> or CS<sub>2</sub> at low temperature,{" "}
-          <strong>monobromophenols</strong> are formed.
-        </li>
-        <li>
-          With <strong>bromine water</strong>, 2,4,6-tribromophenol is formed as a white precipitate.
+          The phenoxide ion is more reactive than phenol towards electrophilic aromatic substitution.
         </li>
       </ul>
 
-      <p>
-        The usual halogenation of benzene needs a Lewis acid such as FeBr<sub>3</sub> to polarise the
-        halogen molecule. In phenol the polarisation of bromine occurs even without a Lewis acid,
-        because of the highly activating effect of the —OH group.
-      </p>
+      <ReactionPathway
+        orientation="vertical"
+        title="Kolbe&apos;s reaction"
+        nodes={[
+          {
+            step: "Step 1",
+            title: "Phenol",
+            note: "Treated with NaOH.",
+          },
+          {
+            step: "Step 2",
+            title: "Sodium phenoxide",
+            note: "More reactive than phenol towards electrophilic aromatic substitution.",
+            tone: "intermediate",
+            outcome: "Phenoxide ion",
+          },
+          {
+            step: "Step 3",
+            title: "Carboxylation with CO₂",
+            tone: "intermediate",
+          },
+          {
+            step: "Step 4",
+            title: "Salicylic acid",
+            note: "Acidification gives 2-hydroxybenzoic acid.",
+            tone: "product",
+            outcome: "2-Hydroxybenzoic acid",
+          },
+        ]}
+        links={[{ label: "NaOH" }, { label: "CO₂" }, { label: "Acidification", condition: "H⁺" }]}
+      />
 
-      <Expandable
-        title="Example 7.5 — Major products of nitration"
-        variant="example"
-      >
-        <p>
-          Write the structures of the major products expected from: (a) mononitration of
-          3-methylphenol, (b) dinitration of 3-methylphenol, (c) mononitration of phenyl methanoate.
-        </p>
-        <p className="mt-3 font-semibold">Solution</p>
-        <p>
-          The combined influence of the —OH and —CH<sub>3</sub> groups decides the position of the
-          incoming group. Both are <em>o,p</em>-directing, so substitution goes to positions activated by
-          both groups:
-        </p>
-        <p>
-          (a) Mononitration gives 4-nitro-3-methylphenol (the position <em>para</em> to —OH is also{" "}
-          <em>ortho</em> to —CH<sub>3</sub>).
-        </p>
-        <p>
-          (b) Dinitration gives 2,4-dinitro-3-methylphenol — the two positions <em>ortho</em> and{" "}
-          <em>para</em> to —OH.
-        </p>
-        <p>
-          (c) In phenyl methanoate the —OH of phenol is acetylated, so only the ester group directs;
-          nitration gives mainly the <em>para</em> product, methyl 4-nitrophenyl methanoate.
-        </p>
-      </Expandable>
+      <h5 id="h-7-4-4-6-5">6.5 Reimer–Tiemann Reaction</h5>
 
-      <p>
-        <strong>2. Kolbe&apos;s reaction.</strong> The phenoxide ion generated by treating phenol with
-        sodium hydroxide is even more reactive than phenol towards electrophilic aromatic substitution,
-        so it undergoes substitution with carbon dioxide, a weak electrophile.{" "}
-        <strong>Ortho hydroxybenzoic acid (salicylic acid)</strong> is the main product.
-      </p>
+      <ReactionPathway
+        orientation="vertical"
+        title="Reimer–Tiemann reaction"
+        nodes={[
+          {
+            step: "Step 1",
+            title: "Phenol + CHCl₃ + aqueous NaOH",
+            note: "Reaction temperature 340 K.",
+          },
+          {
+            step: "Step 2",
+            title: "Substituted benzal chloride",
+            note: "Intermediate carrying the formyl group (–CHO) at the ortho position.",
+            tone: "intermediate",
+            outcome: "Intermediate",
+          },
+          {
+            step: "Step 3",
+            title: "Salicylaldehyde",
+            note: "Hydrolysis in alkaline medium.",
+            tone: "product",
+            outcome: "2-Hydroxybenzaldehyde",
+          },
+        ]}
+        links={[
+          { label: "Formylation", condition: "–CHO at ortho" },
+          { label: "Hydrolysis", condition: "Alkaline medium" },
+        ]}
+      />
 
-      <FormulaBlock latex={String.raw`\text{C}_6\text{H}_5\text{ONa} + \text{CO}_2 \xrightarrow[\text{4–7 atm}]{\text{400 K}} \xrightarrow{\text{H}^+} o\text{-HOOC–C}_6\text{H}_4\text{OH}`} />
+      <h5 id="h-7-4-4-6-6">6.6 Reduction with Zinc Dust</h5>
 
-      
+      <NamedReactionCard
+        title="Reduction with zinc dust"
+        equation={String.raw`\text{C}_6\text{H}_5\text{OH} + \text{Zn} \xrightarrow{\Delta} \text{C}_6\text{H}_6 + \text{ZnO}`}
+        points={[
+          "Heating phenol with zinc dust converts it into benzene.",
+          "Zinc oxide is formed.",
+        ]}
+        product={{ name: "Benzene (C₆H₆)" }}
+      />
 
-      <p>
-        <strong>3. Reimer–Tiemann reaction.</strong> Treating phenol with chloroform in the presence of
-        sodium hydroxide introduces a —CHO group at the <em>ortho</em> position. The intermediate
-        substituted benzal chloride is hydrolysed in alkali to give <strong>salicylaldehyde</strong>.
-      </p>
+      <h5 id="h-7-4-4-6-7">6.7 Oxidation of Phenol</h5>
 
-      <FormulaBlock latex={String.raw`\text{C}_6\text{H}_5\text{OH} + \text{CHCl}_3 + 3\text{NaOH} \rightarrow o\text{-HOC}_6\text{H}_4\text{CHO} + 3\text{NaCl} + 2\text{H}_2\text{O}`} />
-
-      <p>
-        <strong>4. Reaction with zinc dust.</strong> Phenol is converted to benzene on heating with zinc
-        dust.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{C}_6\text{H}_5\text{OH} + \text{Zn} \xrightarrow{\Delta} \text{C}_6\text{H}_6 + \text{ZnO}`} />
-
-      <p>
-        <strong>5. Oxidation.</strong> Oxidation of phenol with chromic acid produces a conjugated
-        diketone known as <strong>benzoquinone</strong>. In air, phenols are slowly oxidised to dark
-        coloured mixtures containing quinones.
-      </p>
+      <ReactionPairCards
+        title="Oxidation of phenol"
+        cards={[
+          {
+            label: "Chromic acid oxidation",
+            reagent: "Na₂Cr₂O₇ / H₂SO₄",
+            substrate: "Phenol",
+            product: "Benzoquinone",
+            productName: "Benzoquinone",
+            productMeta: "A conjugated diketone",
+          },
+          {
+            label: "Air oxidation",
+            reagent: "O₂ (air)",
+            substrate: "Phenols",
+            product: "Dark-coloured mixtures",
+            productName: "Quinone-containing mixtures",
+            productMeta: "Slow oxidation in air",
+          },
+        ]}
+      />
 
       <h2 id="h-7-5">7.5 Some Commercially Important Alcohols</h2>
 
