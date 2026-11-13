@@ -125,11 +125,16 @@ function Connector({ link, horizontal }: { link?: PathwayLink; horizontal: boole
         horizontal ? "w-full sm:w-24" : "w-full",
       )}
     >
-      <ArrowDown aria-hidden className="h-4 w-4 text-muted-foreground sm:hidden" />
-      <ArrowRight
+      <ArrowDown
         aria-hidden
-        className="hidden h-4 w-4 shrink-0 text-muted-foreground sm:block"
+        className={cn("h-4 w-4 text-muted-foreground", horizontal && "sm:hidden")}
       />
+      {horizontal && (
+        <ArrowRight
+          aria-hidden
+          className="hidden h-4 w-4 shrink-0 text-muted-foreground sm:block"
+        />
+      )}
       {(link?.label || link?.condition) && (
         <div className="max-w-[7.5rem] text-center">
           {link?.label && (

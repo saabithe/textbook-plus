@@ -2,10 +2,8 @@
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { FormulaBlock } from "@/components/content/Formula";
-import { Stepper } from "@/components/content/Stepper";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
-import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { HydroxylFormationCards } from "@/components/content/chemistry/HydroxylFormationCards";
@@ -46,6 +44,12 @@ import { UsesBoard } from "@/components/content/chemistry/UsesBoard";
 import { FermentationRoute } from "@/components/content/chemistry/FermentationRoute";
 import { ConcentrationLadder } from "@/components/content/chemistry/ConcentrationLadder";
 import { DenaturationCard } from "@/components/content/chemistry/DenaturationCard";
+import { TemperatureBranch } from "@/components/content/chemistry/TemperatureBranch";
+import { BoilingPointCompare } from "@/components/content/chemistry/BoilingPointCompare";
+import { EtherWaterBonding } from "@/components/content/chemistry/EtherWaterBonding";
+import { CleavageCards } from "@/components/content/chemistry/CleavageCards";
+import { AnisoleSubstitutionGrid } from "@/components/content/chemistry/AnisoleSubstitutionGrid";
+import { RevisionDashboard } from "@/components/content/chemistry/RevisionDashboard";
 import { Formula } from "@/components/content/Formula";
 
 export default function AlcoholsPhenolsEthersChapter() {
@@ -2171,271 +2175,513 @@ export default function AlcoholsPhenolsEthersChapter() {
 
       <h2 id="h-7-6">7.6 Ethers</h2>
 
-      <h3 id="h-7-6-1">7.6.1 Nomenclature of Ethers</h3>
+      <h3 id="h-7-6-1">7.6.1 Classification of Ethers</h3>
 
-      <p>
-        Common names are derived from the alkyl/aryl groups written as separate words in alphabetical
-        order, followed by &apos;ether&apos; (CH<sub>3</sub>OC<sub>2</sub>H<sub>5</sub> is
-        ethylmethyl ether). If both groups are the same the prefix &apos;di&apos; is used.
-      </p>
-
-      <p>
-        In the IUPAC system ethers are regarded as hydrocarbon derivatives in which a hydrogen atom is
-        replaced by an —OR or —OAr group. The larger group is chosen as the parent hydrocarbon.
-      </p>
-
-      <TableCard
-        caption="Table 7.2: Common and IUPAC Names of Some Ethers"
-        headers={["Compound", "Common name", "IUPAC name"]}
-        rows={[
-          { cells: ["CH₃OCH₃", "Dimethyl ether", "Methoxymethane"] },
-          { cells: ["C₂H₅OC₂H₅", "Diethyl ether", "Ethoxyethane"] },
-          { cells: ["CH₃OCH₂CH₂CH₃", "Methyl n-propyl ether", "1-Methoxypropane"] },
-          { cells: ["C₆H₅OCH₃", "Methyl phenyl ether (anisole)", "Methoxybenzene (anisole)"] },
-          { cells: ["C₆H₅OCH₂CH₃", "Ethyl phenyl ether (phenetole)", "Ethoxybenzene"] },
-          { cells: ["C₆H₅O(CH₂)₆CH₃", "Heptyl phenyl ether", "1-Phenoxyheptane"] },
-          { cells: ["CH₃OCH(CH₃)₂", "Methyl isopropyl ether", "2-Methoxypropane"] },
-          { cells: ["C₆H₅OCH₂CH₂CH(CH₃)₂", "Phenyl isopentyl ether", "3-Methylbutoxybenzene"] },
-          { cells: ["CH₃OCH₂CH₂OCH₃", "—", "1,2-Dimethoxyethane"] },
-          { cells: ["2-ethoxy-1,1-dimethylcyclohexane", "—", "2-Ethoxy-1,1-dimethylcyclohexane"] },
+      <EtherClassification
+        kinds={[
+          {
+            title: "Symmetrical / simple ethers",
+            description: "Identical alkyl or aryl groups attached to oxygen.",
+            examples: [
+              {
+                left: (
+                  <>
+                    CH<sub>3</sub>
+                  </>
+                ),
+                right: (
+                  <>
+                    CH<sub>3</sub>
+                  </>
+                ),
+                name: "Dimethyl ether",
+              },
+            ],
+          },
+          {
+            title: "Unsymmetrical / mixed ethers",
+            description: "Different alkyl or aryl groups attached to oxygen.",
+            examples: [
+              {
+                left: (
+                  <>
+                    CH<sub>3</sub>
+                  </>
+                ),
+                right: (
+                  <>
+                    C<sub>2</sub>H<sub>5</sub>
+                  </>
+                ),
+                name: "Ethyl methyl ether",
+              },
+            ],
+          },
         ]}
       />
 
-      <h3 id="h-7-6-2">7.6.2 Preparation of Ethers</h3>
+      <h3 id="h-7-6-2">7.6.2 Nomenclature of Ethers</h3>
 
-      <p>
-        <strong>1. By dehydration of alcohols.</strong> Alcohols undergo dehydration in the presence of
-        protic acids (H<sub>2</sub>SO<sub>4</sub>, H<sub>3</sub>PO<sub>4</sub>); whether an alkene or an
-        ether is formed depends on the conditions. Ethanol gives ethene with sulphuric acid at 443 K,
-        but at 413 K ethoxyethane is the main product.
-      </p>
+      <GroupedNameTable
+        rows={[
+          {
+            structure: (
+              <>
+                CH<sub>3</sub>—O—CH<sub>3</sub>
+              </>
+            ),
+            common: "Dimethyl ether",
+            iupac: "Methoxymethane",
+          },
+          {
+            structure: (
+              <>
+                CH<sub>3</sub>—O—CH<sub>2</sub>CH<sub>3</sub>
+              </>
+            ),
+            common: "Ethyl methyl ether",
+            iupac: "Methoxyethane",
+          },
+          {
+            structure: (
+              <>
+                CH<sub>3</sub>—O—CH<sub>2</sub>CH<sub>2</sub>CH<sub>3</sub>
+              </>
+            ),
+            common: "Methyl n-propyl ether",
+            iupac: "1-Methoxypropane",
+          },
+          {
+            structure: (
+              <>
+                C<sub>2</sub>H<sub>5</sub>—O—C<sub>2</sub>H<sub>5</sub>
+              </>
+            ),
+            common: "Diethyl ether",
+            iupac: "Ethoxyethane",
+          },
+          {
+            structure: (
+              <>
+                CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>—O—C<sub>2</sub>H<sub>5</sub>
+              </>
+            ),
+            common: "Ethyl propyl ether",
+            iupac: "Ethoxypropane",
+          },
+          {
+            structure: (
+              <>
+                C<sub>6</sub>H<sub>5</sub>—O—CH<sub>3</sub>
+              </>
+            ),
+            common: "Methyl phenyl ether (Anisole)",
+            iupac: "Methoxybenzene",
+          },
+          {
+            structure: (
+              <>
+                C<sub>6</sub>H<sub>5</sub>—O—C<sub>2</sub>H<sub>5</sub>
+              </>
+            ),
+            common: "Ethyl phenyl ether (Phenetole)",
+            iupac: "Ethoxybenzene",
+          },
+          {
+            structure: (
+              <>
+                C<sub>6</sub>H<sub>5</sub>—O—(CH<sub>2</sub>)<sub>6</sub>—CH<sub>3</sub>
+              </>
+            ),
+            common: "Heptyl phenyl ether",
+            iupac: "1-Phenoxyheptane",
+          },
+          {
+            structure: (
+              <>
+                CH<sub>3</sub>—O—CH(CH<sub>3</sub>)<sub>2</sub>
+              </>
+            ),
+            common: "Methyl isopropyl ether",
+            iupac: "2-Methoxypropane",
+          },
+          {
+            structure: (
+              <>
+                C<sub>6</sub>H<sub>5</sub>—O—CH<sub>2</sub>CH<sub>2</sub>CH(CH<sub>3</sub>)<sub>2</sub>
+              </>
+            ),
+            common: "Phenyl isopentyl ether",
+            iupac: "3-Methylbutoxybenzene",
+          },
+          {
+            structure: (
+              <>
+                CH<sub>3</sub>—O—CH<sub>2</sub>CH<sub>2</sub>—O—CH<sub>3</sub>
+              </>
+            ),
+            common: "—",
+            iupac: "1,2-Dimethoxyethane",
+          },
+        ]}
+      />
 
-      <FormulaBlock latex={String.raw`2\text{C}_2\text{H}_5\text{OH} \xrightarrow[\text{413 K}]{\text{H}_2\text{SO}_4} \text{C}_2\text{H}_5\text{OC}_2\text{H}_5 + \text{H}_2\text{O}`} />
-      <FormulaBlock latex={String.raw`\text{C}_2\text{H}_5\text{OH} \xrightarrow[\text{443 K}]{\text{H}_2\text{SO}_4} \text{CH}_2\text{=CH}_2 + \text{H}_2\text{O}`} />
+      <h3 id="h-7-6-3">7.6.3 Preparation of Ethers</h3>
 
-      <p>
-        Formation of the ether is a nucleophilic bimolecular (S<sub>N</sub>2) reaction: an alcohol
-        molecule attacks a protonated alcohol. The method is suitable only for ethers with primary alkyl
-        groups — the alkyl group must be unhindered and the temperature kept low, otherwise alkene
-        formation wins. Dehydration of secondary and tertiary alcohols to ethers is unsuccessful because
-        elimination competes with substitution.
-      </p>
+      <p>Ethers are prepared by two main methods — acid dehydration of alcohols and Williamson&apos;s synthesis.</p>
 
-      <Callout type="note" title="Why not ethyl methyl ether this way?">
-        Bimolecular dehydration of a mixture of two alcohols gives a mixture of three ethers (two
-        symmetrical and one unsymmetrical), so it is not appropriate for making a single unsymmetrical
-        ether such as ethyl methyl ether. Williamson synthesis is used instead.
+      <h4>By Acid Dehydration of Alcohols</h4>
+
+      <TemperatureBranch
+        mixture="Ethanol"
+        reagent="conc. H₂SO₄"
+        branches={[
+          {
+            temperature: "413 K",
+            title: "Ether formation",
+            equation: String.raw`2\text{C}_2\text{H}_5\text{OH} \xrightarrow[\text{413 K}]{\text{H}_2\text{SO}_4} \text{C}_2\text{H}_5\text{OC}_2\text{H}_5 + \text{H}_2\text{O}`,
+            product: "Diethyl ether (ethoxyethane)",
+            note: "Proceeds through an Sₙ2 nucleophilic substitution mechanism.",
+          },
+          {
+            temperature: "443 K",
+            title: "Alkene formation",
+            equation: String.raw`\text{C}_2\text{H}_5\text{OH} \xrightarrow[\text{443 K}]{\text{H}_2\text{SO}_4} \text{CH}_2\text{=CH}_2 + \text{H}_2\text{O}`,
+            product: "Ethene",
+          },
+        ]}
+      />
+
+      <FormulaBlock
+        latex={String.raw`\text{C}_2\text{H}_5\text{OH} + \text{CH}_3\text{CH}_2\text{CH}_2\text{OH} \xrightarrow[\text{413 K}]{\text{H}_2\text{SO}_4} \text{C}_2\text{H}_5\text{OCH}_2\text{CH}_2\text{CH}_3 + \text{H}_2\text{O}`}
+        label="Mixed ether formation"
+      />
+
+      <Callout type="warning" title="Limitations">
+        <ul className="space-y-1 pl-4 list-disc">
+          <li>Suitable mainly for preparing symmetrical ethers from primary alcohols.</li>
+          <li>
+            Secondary and tertiary alcohols undergo elimination, so alkenes are the major products.
+          </li>
+        </ul>
       </Callout>
 
-      <p>
-        <strong>2. Williamson synthesis.</strong> An important laboratory method for symmetrical and
-        unsymmetrical ethers: an alkyl halide is allowed to react with a sodium alkoxide.
-      </p>
+      <h4>Williamson&apos;s Ether Synthesis</h4>
 
-      <FormulaBlock latex={String.raw`\text{R–X} + \text{R}'\text{–ONa} \rightarrow \text{R–O–R}' + \text{NaX}`} important />
-
-      <p>
-        The reaction involves S<sub>N</sub>2 attack of the alkoxide ion on a primary alkyl halide, and
-        better results are obtained when the halide is primary. With secondary and tertiary halides,
-        elimination competes with substitution: alkoxides are not only nucleophiles but strong bases. If
-        a tertiary halide is used, an alkene is the only product — CH<sub>3</sub>ONa with (CH
-        <sub>3</sub>)<sub>3</sub>C—Br gives exclusively 2-methylpropene. Phenols are also converted to
-        ethers by this method, using phenoxide as the phenoxide moiety.
-      </p>
-
-      <Expandable
-        title="Example 7.6 — Why t-butyl ethyl ether cannot be made this way"
-        variant="example"
-      >
-        <p>
-          (i) What would be the major product of CH<sub>3</sub>CH<sub>2</sub>ONa + (CH<sub>3</sub>)
-          <sub>3</sub>C—Br? (ii) Write a suitable reaction for the preparation of t-butyl ethyl ether.
-        </p>
-        <p className="mt-3 font-semibold">Solution</p>
-        <p>
-          (i) The major product is 2-methylprop-1-ene. Sodium ethoxide is a strong nucleophile as well
-          as a strong base, so elimination predominates over substitution.
-        </p>
-        <p>
-          (ii) Use the tertiary alkoxide with a primary halide: (CH<sub>3</sub>)<sub>3</sub>C—ONa +
-          CH<sub>3</sub>CH<sub>2</sub>Br → (CH<sub>3</sub>)<sub>3</sub>C—O—CH<sub>2</sub>CH<sub>3</sub>{" "}
-          + NaBr.
-        </p>
-      </Expandable>
-
-      <h3 id="h-7-6-3">7.6.3 Physical Properties</h3>
-
-      <p>
-        The C—O bonds in ethers are polar, so ethers have a net dipole moment. That weak polarity does
-        not appreciably raise their boiling points, which are comparable to those of alkanes of similar
-        molecular mass and much lower than those of alcohols.
-      </p>
-
-      <TableCard
-        caption="Boiling points of an alkane, an ether and an alcohol of similar mass"
-        headers={["Compound", "n-Pentane", "Ethoxyethane", "Butan-1-ol"]}
-        rows={[{ cells: ["b.p. / K", "309.1", "307.6", "390"] }]}
-      />
-
-      <p>
-        The large difference between ethers and alcohols is due to hydrogen bonding in alcohols. Ethers
-        are, however, about as miscible with water as alcohols of the same molecular mass — ethoxyethane
-        and butan-1-ol dissolve to almost the same extent (7.5 and 9 g per 100 mL of water), while
-        pentane is essentially immiscible — because the oxygen of an ether can also form hydrogen bonds
-        with water.
-      </p>
-
-      <h3 id="h-7-6-4">7.6.4 Chemical Reactions</h3>
-
-      <p>
-        <strong>1. Cleavage of the C—O bond.</strong> Ethers are the least reactive of the functional
-        groups. Cleavage takes place under drastic conditions with excess hydrogen halide: a dialkyl
-        ether gives two alkyl halide molecules.
-      </p>
-
-      <FormulaBlock latex={String.raw`\text{R–O–R} + 2\text{HX} \rightarrow 2\text{R–X} + \text{H}_2\text{O}`} />
-
-      <p>
-        Alkyl aryl ethers are cleaved at the alkyl–oxygen bond, because the aryl–oxygen bond is more
-        stable; the products are phenol and an alkyl halide. Ethers with two different alkyl groups are
-        cleaved in the same manner. The reactivity order of hydrogen halides is{" "}
-        <strong>HI &gt; HBr &gt; HCl</strong>, and cleavage is carried out with concentrated HI or HBr
-        at high temperature.
-      </p>
-
-      <Stepper
-        steps={[
-          {
-            label: "Step 1: Protonation of the ether oxygen",
-            description: "Concentrated HI (or HBr) is acidic enough to protonate the ether, giving an oxonium ion.",
-          },
-          {
-            label: "Step 2: Attack of the halide ion",
-            description: "Iodide, a good nucleophile, attacks the least substituted carbon of the oxonium ion and displaces an alcohol molecule by Sₙ2. With primary or secondary alkyl groups it is the lower alkyl group that becomes the alkyl iodide.",
-          },
-          {
-            label: "Step 3: Reaction of the alcohol with a second HI (when HI is in excess)",
-            description: "At high temperature the alcohol reacts with another molecule of HI and is converted to the alkyl iodide, so both alkyl groups end up as iodides.",
-          },
+      <NamedReactionCard
+        title="Williamson ether synthesis"
+        tag="Sₙ2"
+        subtitle="An alkyl halide reacts with sodium alkoxide to produce an ether."
+        equation={String.raw`\text{R–X} + \text{R}'–\text{ONa} \longrightarrow \text{R–O–R}' + \text{NaX}`}
+        points={[
+          "The alkoxide ion attacks the alkyl halide.",
+          "Mechanism: Sₙ2 nucleophilic substitution.",
         ]}
       />
 
-      <p>
-        When one alkyl group is tertiary, that group forms the halide instead, because departure of the
-        leaving group creates a stable tertiary carbocation and the reaction follows S<sub>N</sub>1.
-      </p>
+      <FormulaBlock
+        latex={String.raw`\text{CH}_3\text{ONa} + \text{CH}_3\text{Cl} \longrightarrow \text{CH}_3\text{OCH}_3 + \text{NaCl}`}
+        label="Example — dimethyl ether"
+      />
 
-      <p>
-        In anisole, protonation gives the methylphenyl oxonium ion. The O—CH<sub>3</sub> bond is weaker
-        than the O—C<sub>6</sub>H<sub>5</sub> bond, because the carbon of the phenyl group is{" "}
-        <em>sp</em>
-        <sup>2</sup> hybridised and has partial double bond character, so attack by I<sup>−</sup> breaks
-        O—CH<sub>3</sub> to give CH<sub>3</sub>I. Phenols do not react further to give halides, since
-        the <em>sp</em>
-        <sup>2</sup> carbon of phenol cannot undergo the nucleophilic substitution needed.
-      </p>
+      <RankProgression
+        orientation="inline"
+        title="Reactivity of alkyl halides"
+        items={[{ label: "1°" }, { label: "2°" }, { label: "3°" }]}
+        note="Best yields are obtained with primary alkyl halides."
+      />
 
-      
+      <Callout type="warning" title="Tertiary halides — elimination instead of substitution">
+        <p>
+          Steric hindrance and the strong basicity of alkoxide ions make elimination the favoured
+          path.
+        </p>
+        <div className="mt-2 overflow-x-auto text-center">
+          <Formula>{String.raw`(\text{CH}_3)_3\text{C–X} + \text{R}'–\text{ONa} \longrightarrow (\text{CH}_3)_2\text{C=CH}_2 + \text{other products}`}</Formula>
+        </div>
+        <p className="mt-1 text-center text-xs font-bold uppercase tracking-[0.08em] text-muted-foreground">
+          Elimination favoured
+        </p>
+      </Callout>
+
+      <h5>Preparation of Methoxybenzene (Anisole)</h5>
+
+      <ReactionPathway
+        nodes={[
+          {
+            step: "Step 1",
+            title: "Sodium phenoxide",
+            equation: String.raw`\text{C}_6\text{H}_5\text{OH} + \text{NaOH} \longrightarrow \text{C}_6\text{H}_5\text{ONa} + \text{H}_2\text{O}`,
+            tone: "intermediate",
+          },
+          {
+            step: "Step 2",
+            title: "Methoxybenzene (anisole)",
+            equation: String.raw`\text{C}_6\text{H}_5\text{ONa} + \text{CH}_3\text{Cl} \longrightarrow \text{C}_6\text{H}_5\text{OCH}_3 + \text{NaCl}`,
+            tone: "product",
+          },
+        ]}
+        links={[{ condition: "CH₃Cl" }]}
+      />
 
       <Expandable
-        title="Example 7.7 — Products of heating ethers with HI"
-        variant="example"
+        title="Board exam question — Williamson's synthesis (3 marks)"
+        variant="exercise"
       >
-        <p>Give the major products formed by heating each ether with HI.</p>
-        <p className="mt-3 font-semibold">Solution</p>
-        <p>
-          Cleavage occurs at the alkyl–oxygen bond, and the smaller/less substituted group becomes the
-          iodide (S<sub>N</sub>2). So a dialkyl ether gives an alkyl iodide plus an alcohol, an alkyl
-          aryl ether gives an alkyl iodide plus phenol, and with excess HI the alcohol is converted to a
-          second molecule of alkyl iodide. Where a tertiary group is present, the tertiary iodide is
-          formed by the S<sub>N</sub>1 route.
-        </p>
+        <ExerciseQa
+          questions={[
+            <>
+              What is Williamson&apos;s synthesis? How is it used to prepare methoxybenzene?{" "}
+              <strong>[3 Marks]</strong>
+            </>,
+          ]}
+          answers={[
+            <>
+              <p>
+                Williamson&apos;s synthesis is a method of preparing ethers by reacting an alkyl
+                halide with sodium alkoxide.
+              </p>
+              <p className="mt-2 font-semibold">Preparation of methoxybenzene</p>
+              <ol className="mt-1 list-decimal space-y-1 pl-4">
+                <li>Phenol reacts with NaOH to form sodium phenoxide.</li>
+                <li>Sodium phenoxide reacts with chloromethane to form methoxybenzene.</li>
+              </ol>
+              <div className="mt-2 overflow-x-auto text-center">
+                <Formula>{String.raw`\text{C}_6\text{H}_5\text{OH} \xrightarrow{\text{NaOH}} \text{C}_6\text{H}_5\text{ONa}`}</Formula>
+              </div>
+              <div className="mt-1 overflow-x-auto text-center">
+                <Formula>{String.raw`\text{C}_6\text{H}_5\text{ONa} + \text{CH}_3\text{Cl} \longrightarrow \text{C}_6\text{H}_5\text{OCH}_3 + \text{NaCl}`}</Formula>
+              </div>
+            </>,
+          ]}
+        />
       </Expandable>
 
-      <p>
-        <strong>2. Electrophilic substitution.</strong> The alkoxy group (—OR) is <em>ortho, para</em>
-        -directing and activates the aromatic ring towards electrophilic substitution in the same way as
-        in phenol.
-      </p>
+      <h3 id="h-7-6-4">7.6.4 Physical Properties</h3>
 
-      <p>
-        <strong>(i) Halogenation.</strong> Anisole undergoes bromination with bromine in ethanoic acid
-        even without an FeBr<sub>3</sub> catalyst, because the methoxy group activates the ring. The
-        para isomer is obtained in 90% yield.
-      </p>
+      <h4>Boiling Points</h4>
 
-      <FormulaBlock latex={String.raw`\text{C}_6\text{H}_5\text{OCH}_3 + \text{Br}_2 \xrightarrow{\text{ethanoic acid}} p\text{-Br–C}_6\text{H}_4\text{OCH}_3 + \text{HBr}`} />
+      <h5>Polarity</h5>
 
-      <p>
-        <strong>(ii) Friedel–Crafts reaction.</strong> Anisole undergoes Friedel–Crafts reactions: alkyl
-        and acyl groups are introduced at <em>ortho</em> and <em>para</em> positions by reaction with an
-        alkyl halide or acyl halide in the presence of anhydrous aluminium chloride.
-      </p>
+      <p>The C—O bond in ethers is polar.</p>
 
-      <p>
-        <strong>(iii) Nitration.</strong> Anisole reacts with a mixture of concentrated sulphuric and
-        nitric acids to yield a mixture of <em>ortho</em> and <em>para</em> nitroanisole.
-      </p>
+      <h5>Comparative Boiling Points</h5>
 
-      <TableCard
-        caption="Electrophilic substitution of anisole"
-        headers={["Reaction", "Reagents", "Products"]}
+      <BoilingPointCompare
         rows={[
-          { cells: ["Bromination", "Br₂ in ethanoic acid", "p-Bromoanisole (90%)"] },
-          { cells: ["Nitration", "conc. HNO₃ + conc. H₂SO₄", "o- and p-Nitroanisole"] },
-          { cells: ["Friedel–Crafts alkylation", "RCl / anhydrous AlCl₃", "o- and p-alkylanisole"] },
-          { cells: ["Friedel–Crafts acylation", "RCOCl / anhydrous AlCl₃", "o- and p-acylanisole"] },
+          {
+            formula: (
+              <>
+                CH<sub>3</sub>(CH<sub>2</sub>)<sub>3</sub>CH<sub>3</sub>
+              </>
+            ),
+            name: "n-Pentane",
+            boiling: "309.1 K",
+            kelvin: 309.1,
+          },
+          {
+            formula: (
+              <>
+                C<sub>2</sub>H<sub>5</sub>OC<sub>2</sub>H<sub>5</sub>
+              </>
+            ),
+            name: "Ethoxyethane",
+            boiling: "307.6 K",
+            kelvin: 307.6,
+          },
+          {
+            formula: (
+              <>
+                CH<sub>3</sub>(CH<sub>2</sub>)<sub>3</sub>OH
+              </>
+            ),
+            name: "Butan-1-ol",
+            boiling: "390 K",
+            kelvin: 390,
+            highlight: true,
+            tag: "hydrogen-bonded",
+          },
+        ]}
+        explanationTitle="Key observation"
+        explanation="Alcohols have significantly higher boiling points than hydrocarbons and ethers of comparable molecular mass, because alcohols form intermolecular hydrogen bonds."
+        note="Ethanol and methoxymethane are functional isomers (C₂H₆O); ethanol boils higher for the same reason."
+      />
+
+      <h4>Solubility in Water</h4>
+
+      <p>Ethers are soluble in water because they form hydrogen bonds with water molecules.</p>
+
+      <EtherWaterBonding />
+
+      <h3 id="h-7-6-5">7.6.5 Chemical Reactions</h3>
+
+      <h4>Cleavage of the C—O Bond by Hydrogen Halides</h4>
+
+      <p>
+        Ethers undergo C—O bond cleavage when heated with excess hydrogen halides — commonly HI and
+        HBr.
+      </p>
+
+      <ReactionPathway
+        title="Two-stage cleavage"
+        nodes={[
+          {
+            step: "First cleavage",
+            title: "Alkyl halide + alcohol",
+            equation: String.raw`\text{R–O–R}' + \text{HX} \longrightarrow \text{R–X} + \text{R}'–\text{OH}`,
+          },
+          {
+            step: "Further reaction",
+            title: "Further alkyl halide + water",
+            equation: String.raw`\text{R}'–\text{OH} + \text{HX} \longrightarrow \text{R}'–\text{X} + \text{H}_2\text{O}`,
+            tone: "product",
+          },
+        ]}
+        links={[{ condition: "excess HX" }]}
+      />
+
+      <CleavageCards
+        cases={[
+          {
+            title: "Dimethyl ether",
+            formula: (
+              <>
+                CH<sub>3</sub>—O—CH<sub>3</sub>
+              </>
+            ),
+            reagent: "HI",
+            mechanism: "Sₙ2",
+            equation: String.raw`\text{CH}_3\text{–O–CH}_3 + \text{HI} \longrightarrow \text{CH}_3\text{I} + \text{CH}_3\text{OH}`,
+            second: {
+              label: "Excess HI",
+              equation: String.raw`\text{CH}_3\text{OH} + \text{HI} \longrightarrow \text{CH}_3\text{I} + \text{H}_2\text{O}`,
+            },
+          },
+          {
+            title: "Primary and secondary groups",
+            formula: (
+              <>
+                CH<sub>3</sub>—O—CH<sub>2</sub>CH<sub>3</sub>
+              </>
+            ),
+            reagent: "HI",
+            mechanism: "Sₙ2",
+            equation: String.raw`\text{CH}_3\text{–O–CH}_2\text{CH}_3 + \text{HI} \longrightarrow \text{CH}_3\text{I} + \text{CH}_3\text{CH}_2\text{OH}`,
+            points: [
+              "The iodide ion attacks the smaller, less sterically hindered alkyl group.",
+            ],
+          },
+          {
+            title: "Tertiary group present",
+            formula: (
+              <>
+                (CH<sub>3</sub>)<sub>3</sub>C—O—CH<sub>3</sub>
+              </>
+            ),
+            reagent: "HI",
+            mechanism: "Sₙ1",
+            tone: "warning",
+            equation: String.raw`(\text{CH}_3)_3\text{C–O–CH}_3 + \text{HI} \longrightarrow (\text{CH}_3)_3\text{C–I} + \text{CH}_3\text{OH}`,
+            points: [
+              "A stable tertiary carbocation forms.",
+              "The product is a tertiary alkyl halide.",
+            ],
+          },
+          {
+            title: "Anisole",
+            formula: (
+              <>
+                C<sub>6</sub>H<sub>5</sub>—O—CH<sub>3</sub>
+              </>
+            ),
+            reagent: "HI",
+            mechanism: "Aryl C—O",
+            equation: String.raw`\text{C}_6\text{H}_5\text{OCH}_3 + \text{HI} \longrightarrow \text{C}_6\text{H}_5\text{OH} + \text{CH}_3\text{I}`,
+            highlight:
+              "The aryl C(sp²)—O bond cannot be easily cleaved: resonance gives it partial double bond character.",
+          },
         ]}
       />
 
-      <Comparison
-        columns={[
+      <h4>Electrophilic Substitution Reactions of Anisole</h4>
+
+      <Callout
+        type="important"
+        title="Activation by the methoxy group"
+        subjectColor="var(--subject-chemistry)"
+      >
+        The methoxy group strongly activates the benzene ring and directs incoming electrophiles to
+        the ortho and para positions. The reason is +M electron donation through resonance.
+      </Callout>
+
+      <AnisoleSubstitutionGrid
+        cases={[
           {
-            title: "Alcohol",
-            children: (
-              <>
-                <p>—OH on an sp³ carbon.</p>
-                <p>Boils high; H-bonded.</p>
-                <p>Weakly acidic (pKa ≈ 16).</p>
-                <p>O—H and C—O bonds both cleave.</p>
-              </>
-            ),
+            name: "Halogenation — bromination",
+            reagents: ["Br₂ in ethanoic acid"],
+            note: "No FeBr₃ catalyst is required.",
+            para: { name: "p-Bromoanisole", share: "≈90%" },
+            ortho: { name: "o-Bromoanisole" },
           },
           {
-            title: "Phenol",
-            children: (
-              <>
-                <p>—OH on an sp² aromatic carbon.</p>
-                <p>Boils high; H-bonded.</p>
-                <p>More acidic (pKa = 10), dissolves in NaOH.</p>
-                <p>Ring activated, o/p-directing; C—O breaks only with Zn.</p>
-              </>
-            ),
+            name: "Friedel–Crafts alkylation",
+            reagents: ["CH₃Cl", "anhydrous AlCl₃", "CS₂"],
+            para: { name: "4-Methoxytoluene" },
+            ortho: { name: "2-Methoxytoluene" },
           },
           {
-            title: "Ether",
-            children: (
-              <>
-                <p>R—O—R′, no O—H.</p>
-                <p>Boils like an alkane; still H-bonds to water.</p>
-                <p>Neutral.</p>
-                <p>C—O cleaved by conc. HI/HBr.</p>
-              </>
-            ),
+            name: "Friedel–Crafts acylation",
+            reagents: ["CH₃COCl", "anhydrous AlCl₃"],
+            para: { name: "4-Methoxyacetophenone" },
+            ortho: { name: "2-Methoxyacetophenone" },
+          },
+          {
+            name: "Nitration",
+            reagents: ["conc. HNO₃", "conc. H₂SO₄"],
+            para: { name: "4-Nitroanisole" },
+            ortho: { name: "2-Nitroanisole" },
           },
         ]}
       />
 
-      <MistakeCard
-        mistake="Using a tertiary alkyl halide in Williamson synthesis and expecting an ether."
-        correction="Alkoxides are strong bases too; with a tertiary halide elimination dominates and only the alkene is formed. Pair the alkoxide with a primary halide instead."
-        example="CH₃ONa + (CH₃)₃CBr → 2-methylpropene (no ether)."
-      />
+      <h3 id="h-7-6-revision">Quick Revision — Ethers</h3>
 
-      <MistakeCard
-        mistake="Thinking phenol is acidic because of the ring, and that all phenols are equally acidic."
-        correction="Acidity comes from stabilisation of the phenoxide ion. Electron-withdrawing groups at o/p raise acidity (p-nitrophenol pKa 7.1 vs phenol 10.0); alkyl groups lower it (p-cresol 10.2)."
-        example="Order: propan-1-ol < p-cresol < phenol < 3-nitrophenol < 3,5-dinitrophenol < picric acid."
+      <RevisionDashboard
+        groups={[
+          {
+            title: "Classification & preparation",
+            items: [
+              { label: "Symmetrical", value: "Identical groups" },
+              { label: "Unsymmetrical", value: "Different groups" },
+              { label: "Acid dehydration", value: "Alcohol → ether" },
+              { label: "Williamson", value: "Alkyl halide + alkoxide" },
+            ],
+          },
+          {
+            title: "Conditions",
+            items: [
+              { label: "413 K", value: "Ether" },
+              { label: "443 K", value: "Alkene" },
+              { label: "Williamson reactivity", value: "1° > 2° > 3°" },
+            ],
+          },
+          {
+            title: "Physical properties",
+            items: [
+              { label: "Boiling point", value: "Alcohols > ethers" },
+              { label: "Water solubility", value: "H-bonding" },
+            ],
+          },
+          {
+            title: "Reactions",
+            items: [
+              { label: "Cleavage", value: "HI or HBr" },
+              { label: "1° / 2° ethers", value: "Sₙ2" },
+              { label: "3° ethers", value: "Sₙ1" },
+              { label: "Anisole substitution", value: "o/p, para major" },
+            ],
+          },
+        ]}
       />
 
       <h2 id="h-7-exercises">Exercises</h2>

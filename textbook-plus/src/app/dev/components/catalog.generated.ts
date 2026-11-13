@@ -2071,6 +2071,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/AnisoleSubstitutionGrid.tsx#AnisoleSubstitutionGrid",
+    "name": "AnisoleSubstitutionGrid",
+    "path": "content/chemistry/AnisoleSubstitutionGrid.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; cases: SubstitutionCase[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/BoardMcq.tsx#BoardMcq",
     "name": "BoardMcq",
     "path": "content/chemistry/BoardMcq.tsx",
@@ -2085,6 +2094,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/BoardQuestionCard.tsx",
     "category": "chemistry",
     "props": "number: string; tag?: ReactNode; children: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/BoilingPointCompare.tsx#BoilingPointCompare",
+    "name": "BoilingPointCompare",
+    "path": "content/chemistry/BoilingPointCompare.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; rows: BoilingRow[]; explanationTitle?: ReactNode; explanation: ReactNode; note?: ReactNode;",
     "shell": false,
     "renderable": true
   },
@@ -2121,6 +2139,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/CftLimitationCards.tsx",
     "category": "chemistry",
     "props": "limitations: Limitation[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/CleavageCards.tsx#CleavageCards",
+    "name": "CleavageCards",
+    "path": "content/chemistry/CleavageCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; cases: CleavageCase[];",
     "shell": false,
     "renderable": true
   },
@@ -2206,6 +2233,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/EtherWaterBonding.tsx#EtherWaterBonding",
+    "name": "EtherWaterBonding",
+    "path": "content/chemistry/EtherWaterBonding.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; etherLabel?: ReactNode; waterLabel?: ReactNode; note?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/FermentationRoute.tsx#FermentationRoute",
     "name": "FermentationRoute",
     "path": "content/chemistry/FermentationRoute.tsx",
@@ -2228,7 +2264,7 @@ export const CATALOG: CatalogEntry[] = [
     "name": "GroupedNameTable",
     "path": "content/chemistry/GroupedNameTable.tsx",
     "category": "chemistry",
-    "props": "groups: GroupedNameGroup[];",
+    "props": "rows?: GroupedNameRow[]; groups?: GroupedNameGroup[];",
     "shell": false,
     "renderable": true
   },
@@ -2422,6 +2458,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/RevisionDashboard.tsx#RevisionDashboard",
+    "name": "RevisionDashboard",
+    "path": "content/chemistry/RevisionDashboard.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; groups: RevisionGroup[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/SolubilityPanel.tsx#SolubilityPanel",
     "name": "SolubilityPanel",
     "path": "content/chemistry/SolubilityPanel.tsx",
@@ -2508,6 +2553,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/SynergicSummary.tsx",
     "category": "chemistry",
     "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/TemperatureBranch.tsx#TemperatureBranch",
+    "name": "TemperatureBranch",
+    "path": "content/chemistry/TemperatureBranch.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; mixture: ReactNode; reagent?: ReactNode; branches: TemperatureBranch[];",
     "shell": false,
     "renderable": true
   },

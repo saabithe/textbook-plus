@@ -92,6 +92,12 @@ import { UsesBoard } from "@/components/content/chemistry/UsesBoard";
 import { FermentationRoute } from "@/components/content/chemistry/FermentationRoute";
 import { ConcentrationLadder } from "@/components/content/chemistry/ConcentrationLadder";
 import { DenaturationCard } from "@/components/content/chemistry/DenaturationCard";
+import { TemperatureBranch } from "@/components/content/chemistry/TemperatureBranch";
+import { BoilingPointCompare } from "@/components/content/chemistry/BoilingPointCompare";
+import { EtherWaterBonding } from "@/components/content/chemistry/EtherWaterBonding";
+import { CleavageCards } from "@/components/content/chemistry/CleavageCards";
+import { AnisoleSubstitutionGrid } from "@/components/content/chemistry/AnisoleSubstitutionGrid";
+import { RevisionDashboard } from "@/components/content/chemistry/RevisionDashboard";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -1141,6 +1147,167 @@ export default function DesignPage() {
               tone: "colour",
             },
             { name: "Pyridine", effect: "Foul smell", tone: "odour" },
+          ]}
+        />
+      </Section>
+
+      <Section title="Chemistry — ethers">
+        <TemperatureBranch
+          mixture="Ethanol"
+          reagent="conc. H₂SO₄"
+          branches={[
+            {
+              temperature: "413 K",
+              title: "Ether formation",
+              equation: String.raw`2\text{C}_2\text{H}_5\text{OH} \xrightarrow[\text{413 K}]{\text{H}_2\text{SO}_4} \text{C}_2\text{H}_5\text{OC}_2\text{H}_5 + \text{H}_2\text{O}`,
+              product: "Diethyl ether (ethoxyethane)",
+              note: "Proceeds through an Sₙ2 nucleophilic substitution mechanism.",
+            },
+            {
+              temperature: "443 K",
+              title: "Alkene formation",
+              equation: String.raw`\text{C}_2\text{H}_5\text{OH} \xrightarrow[\text{443 K}]{\text{H}_2\text{SO}_4} \text{CH}_2\text{=CH}_2 + \text{H}_2\text{O}`,
+              product: "Ethene",
+            },
+          ]}
+        />
+
+        <BoilingPointCompare
+          rows={[
+            {
+              formula: (
+                <>
+                  CH<sub>3</sub>(CH<sub>2</sub>)<sub>3</sub>CH<sub>3</sub>
+                </>
+              ),
+              name: "n-Pentane",
+              boiling: "309.1 K",
+              kelvin: 309.1,
+            },
+            {
+              formula: (
+                <>
+                  C<sub>2</sub>H<sub>5</sub>OC<sub>2</sub>H<sub>5</sub>
+                </>
+              ),
+              name: "Ethoxyethane",
+              boiling: "307.6 K",
+              kelvin: 307.6,
+            },
+            {
+              formula: (
+                <>
+                  CH<sub>3</sub>(CH<sub>2</sub>)<sub>3</sub>OH
+                </>
+              ),
+              name: "Butan-1-ol",
+              boiling: "390 K",
+              kelvin: 390,
+              highlight: true,
+              tag: "hydrogen-bonded",
+            },
+          ]}
+          explanationTitle="Key observation"
+          explanation="Alcohols have significantly higher boiling points than hydrocarbons and ethers of comparable molecular mass, because alcohols form intermolecular hydrogen bonds."
+          note="Ethanol and methoxymethane are functional isomers (C₂H₆O)."
+        />
+
+        <EtherWaterBonding note="The ether oxygen accepts a hydrogen bond from water." />
+
+        <CleavageCards
+          cases={[
+            {
+              title: "Dimethyl ether",
+              formula: (
+                <>
+                  CH<sub>3</sub>—O—CH<sub>3</sub>
+                </>
+              ),
+              reagent: "HI",
+              mechanism: "Sₙ2",
+              equation: String.raw`\text{CH}_3\text{–O–CH}_3 + \text{HI} \longrightarrow \text{CH}_3\text{I} + \text{CH}_3\text{OH}`,
+              second: {
+                label: "Excess HI",
+                equation: String.raw`\text{CH}_3\text{OH} + \text{HI} \longrightarrow \text{CH}_3\text{I} + \text{H}_2\text{O}`,
+              },
+            },
+            {
+              title: "Tertiary group present",
+              formula: (
+                <>
+                  (CH<sub>3</sub>)<sub>3</sub>C—O—CH<sub>3</sub>
+                </>
+              ),
+              reagent: "HI",
+              mechanism: "Sₙ1",
+              tone: "warning",
+              equation: String.raw`(\text{CH}_3)_3\text{C–O–CH}_3 + \text{HI} \longrightarrow (\text{CH}_3)_3\text{C–I} + \text{CH}_3\text{OH}`,
+              points: ["A stable tertiary carbocation forms."],
+            },
+            {
+              title: "Anisole",
+              formula: (
+                <>
+                  C<sub>6</sub>H<sub>5</sub>—O—CH<sub>3</sub>
+                </>
+              ),
+              reagent: "HI",
+              mechanism: "Aryl C—O",
+              equation: String.raw`\text{C}_6\text{H}_5\text{OCH}_3 + \text{HI} \longrightarrow \text{C}_6\text{H}_5\text{OH} + \text{CH}_3\text{I}`,
+              highlight:
+                "Resonance gives the aryl C(sp²)—O bond partial double bond character.",
+            },
+          ]}
+        />
+
+        <AnisoleSubstitutionGrid
+          cases={[
+            {
+              name: "Halogenation — bromination",
+              reagents: ["Br₂ in ethanoic acid"],
+              note: "No FeBr₃ catalyst is required.",
+              para: { name: "p-Bromoanisole", share: "≈90%" },
+              ortho: { name: "o-Bromoanisole" },
+            },
+            {
+              name: "Nitration",
+              reagents: ["conc. HNO₃", "conc. H₂SO₄"],
+              para: { name: "4-Nitroanisole" },
+              ortho: { name: "2-Nitroanisole" },
+            },
+          ]}
+        />
+
+        <RevisionDashboard
+          groups={[
+            {
+              title: "Classification & preparation",
+              items: [
+                { label: "Symmetrical", value: "Identical groups" },
+                { label: "Williamson", value: "Halide + alkoxide" },
+              ],
+            },
+            {
+              title: "Conditions",
+              items: [
+                { label: "413 K", value: "Ether" },
+                { label: "443 K", value: "Alkene" },
+              ],
+            },
+            {
+              title: "Physical properties",
+              items: [
+                { label: "Boiling point", value: "Alcohols > ethers" },
+                { label: "Solubility", value: "H-bonding" },
+              ],
+            },
+            {
+              title: "Reactions",
+              items: [
+                { label: "Cleavage", value: "HI or HBr" },
+                { label: "Anisole", value: "para major" },
+              ],
+            },
           ]}
         />
       </Section>
