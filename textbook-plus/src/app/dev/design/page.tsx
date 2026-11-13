@@ -86,6 +86,12 @@ import { LucasTestCards } from "@/components/content/chemistry/LucasTestCards";
 import { ReactionTable } from "@/components/content/chemistry/ReactionTable";
 import { MechanismFlow } from "@/components/content/chemistry/MechanismFlow";
 import { ConditionColumns } from "@/components/content/chemistry/ConditionColumns";
+import { CompoundHeader } from "@/components/content/chemistry/CompoundHeader";
+import { IndustrialPrepCard } from "@/components/content/chemistry/IndustrialPrepCard";
+import { UsesBoard } from "@/components/content/chemistry/UsesBoard";
+import { FermentationRoute } from "@/components/content/chemistry/FermentationRoute";
+import { ConcentrationLadder } from "@/components/content/chemistry/ConcentrationLadder";
+import { DenaturationCard } from "@/components/content/chemistry/DenaturationCard";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -1019,6 +1025,122 @@ export default function DesignPage() {
               note: "dehydration",
               different: true,
             },
+          ]}
+        />
+      </Section>
+
+      <Section title="Chemistry — commercially important alcohols">
+        <CompoundHeader
+          index="01"
+          name="Methanol"
+          formula={
+            <>
+              CH<sub>3</sub>OH
+            </>
+          }
+          alias={{ label: "Common name", value: "Wood spirit" }}
+        />
+
+        <CompoundHeader
+          index="02"
+          name="Ethanol"
+          formula={
+            <>
+              C<sub>2</sub>H<sub>5</sub>OH
+            </>
+          }
+        />
+
+        <IndustrialPrepCard
+          tag="Catalytic hydrogenation"
+          method="Manufactured by catalytic hydrogenation of carbon monoxide (CO) at high temperature and pressure."
+          equation={String.raw`\text{CO} + 2\text{H}_2 \xrightarrow[\text{200--300 atm, 573--673 K}]{\text{ZnO–Cr}_2\text{O}_3} \text{CH}_3\text{OH}`}
+          reagents={{
+            label: "Reagents",
+            value: (
+              <>
+                Water gas / synthesis gas (CO + 2H<sub>2</sub>)
+              </>
+            ),
+          }}
+          catalyst={{
+            label: "Catalyst",
+            value: (
+              <>
+                ZnO–Cr<sub>2</sub>O<sub>3</sub>
+              </>
+            ),
+          }}
+          conditions={[
+            { label: "Pressure", value: "200–300 atm" },
+            { label: "Temperature", value: "573–673 K" },
+          ]}
+        />
+
+        <UsesBoard
+          uses={[<>Preparation of formaldehyde</>, <>Solvent in paints and varnishes</>]}
+        />
+
+        <FermentationRoute
+          tag="Fermentation"
+          source={{
+            materials: ["Molasses", "Cane sugar", "Starch"],
+            raw: "~40% sugar",
+            diluted: "~10% sugar solution",
+          }}
+          steps={[
+            {
+              name: "Inversion",
+              enzyme: "Invertase",
+              equation: String.raw`\text{C}_{12}\text{H}_{22}\text{O}_{11} + \text{H}_2\text{O} \xrightarrow{\text{Invertase}} \text{C}_6\text{H}_{12}\text{O}_6 \text{ (glucose)} + \text{C}_6\text{H}_{12}\text{O}_6 \text{ (fructose)}`,
+            },
+            {
+              name: "Conversion",
+              enzyme: "Zymase",
+              equation: String.raw`\text{C}_6\text{H}_{12}\text{O}_6 \xrightarrow{\text{Zymase}} 2\text{C}_2\text{H}_5\text{OH} + 2\text{CO}_2`,
+            },
+          ]}
+          footnote="Invertase and zymase are the enzymes present in yeast."
+        />
+
+        <ConcentrationLadder
+          rungs={[
+            {
+              name: "Wash",
+              value: "8–10%",
+              detail: "Ethanol solution produced by fermentation.",
+              percent: 9,
+            },
+            {
+              name: "Rectified spirit",
+              value: "95.6% by mass",
+              badge: "Industrial alcohol",
+              percent: 95.6,
+            },
+            {
+              name: "Absolute alcohol",
+              value: "100%",
+              detail: "Pure ethanol.",
+              percent: 100,
+            },
+          ]}
+        />
+
+        <DenaturationCard
+          tag="Unfit for drinking"
+          definition="Process of making commercial alcohol unfit for drinking by adding toxic or foul-smelling substances."
+          additives={[
+            {
+              name: "Copper sulfate",
+              formula: (
+                <>
+                  CuSO<sub>4</sub>
+                </>
+              ),
+              effect: "Blue colour",
+              tone: "colour",
+            },
+            { name: "Pyridine", effect: "Foul smell", tone: "odour" },
           ]}
         />
       </Section>

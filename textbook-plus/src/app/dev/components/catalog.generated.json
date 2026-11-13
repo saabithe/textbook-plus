@@ -2079,11 +2079,29 @@
     "renderable": true
   },
   {
+    "id": "content/chemistry/CompoundHeader.tsx#CompoundHeader",
+    "name": "CompoundHeader",
+    "path": "content/chemistry/CompoundHeader.tsx",
+    "category": "chemistry",
+    "props": "index: string; name: ReactNode; formula: ReactNode; alias?: { label: ReactNode; value: ReactNode };",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/CompoundOrderStrip.tsx#CompoundOrderStrip",
     "name": "CompoundOrderStrip",
     "path": "content/chemistry/CompoundOrderStrip.tsx",
     "category": "chemistry",
     "props": "title?: ReactNode; direction?: ReactNode; compounds: OrderedCompound[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/ConcentrationLadder.tsx#ConcentrationLadder",
+    "name": "ConcentrationLadder",
+    "path": "content/chemistry/ConcentrationLadder.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; rungs: ConcentrationRung[]; footnote?: ReactNode;",
     "shell": false,
     "renderable": true
   },
@@ -2115,6 +2133,15 @@
     "renderable": true
   },
   {
+    "id": "content/chemistry/DenaturationCard.tsx#DenaturationCard",
+    "name": "DenaturationCard",
+    "path": "content/chemistry/DenaturationCard.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; tag?: ReactNode; definition: ReactNode; additives: Denaturant[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/DonationDiagram.tsx#DonationDiagram",
     "name": "DonationDiagram",
     "path": "content/chemistry/DonationDiagram.tsx",
@@ -2129,6 +2156,15 @@
     "path": "content/chemistry/EtherClassification.tsx",
     "category": "chemistry",
     "props": "kinds: EtherKind[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/FermentationRoute.tsx#FermentationRoute",
+    "name": "FermentationRoute",
+    "path": "content/chemistry/FermentationRoute.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; tag?: ReactNode; source: FermentationSource; steps: FermentationStep[]; footnote?: ReactNode;",
     "shell": false,
     "renderable": true
   },
@@ -2174,6 +2210,15 @@
     "path": "content/chemistry/HydroxylGroupClassification.tsx",
     "category": "chemistry",
     "props": "alcoholRows: AlcoholClassRow[]; phenolClasses: PhenolClass[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/IndustrialPrepCard.tsx#IndustrialPrepCard",
+    "name": "IndustrialPrepCard",
+    "path": "content/chemistry/IndustrialPrepCard.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; tag?: ReactNode; method: ReactNode; equation: string; equationLabel?: ReactNode; reagents?: SpecRow; catalyst?: SpecRow; conditions?: PrepCondition[];",
     "shell": false,
     "renderable": true
   },
@@ -2435,6 +2480,15 @@
     "path": "content/chemistry/TrendCards.tsx",
     "category": "chemistry",
     "props": "title?: ReactNode; cards: TrendCard[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/UsesBoard.tsx#UsesBoard",
+    "name": "UsesBoard",
+    "path": "content/chemistry/UsesBoard.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; uses: ReactNode[];",
     "shell": false,
     "renderable": true
   },

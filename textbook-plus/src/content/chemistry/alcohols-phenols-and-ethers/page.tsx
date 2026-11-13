@@ -40,6 +40,12 @@ import { LucasTestCards } from "@/components/content/chemistry/LucasTestCards";
 import { ReactionTable } from "@/components/content/chemistry/ReactionTable";
 import { MechanismFlow } from "@/components/content/chemistry/MechanismFlow";
 import { ConditionColumns } from "@/components/content/chemistry/ConditionColumns";
+import { CompoundHeader } from "@/components/content/chemistry/CompoundHeader";
+import { IndustrialPrepCard } from "@/components/content/chemistry/IndustrialPrepCard";
+import { UsesBoard } from "@/components/content/chemistry/UsesBoard";
+import { FermentationRoute } from "@/components/content/chemistry/FermentationRoute";
+import { ConcentrationLadder } from "@/components/content/chemistry/ConcentrationLadder";
+import { DenaturationCard } from "@/components/content/chemistry/DenaturationCard";
 import { Formula } from "@/components/content/Formula";
 
 export default function AlcoholsPhenolsEthersChapter() {
@@ -2039,50 +2045,129 @@ export default function AlcoholsPhenolsEthersChapter() {
 
       <h3 id="h-7-5-1">1. Methanol</h3>
 
-      <p>
-        Methanol, CH<sub>3</sub>OH, also known as &apos;wood spirit&apos;, was formerly produced by
-        destructive distillation of wood. Today most methanol is made by catalytic hydrogenation of
-        carbon monoxide at high pressure and temperature over a ZnO–Cr<sub>2</sub>O<sub>3</sub>{" "}
-        catalyst.
-      </p>
+      <CompoundHeader
+        index="01"
+        name="Methanol"
+        formula={
+          <>
+            CH<sub>3</sub>OH
+          </>
+        }
+        alias={{ label: "Common name", value: "Wood spirit" }}
+      />
 
-      <FormulaBlock latex={String.raw`\text{CO} + 2\text{H}_2 \xrightarrow[\text{high } T,\ p]{\text{ZnO–Cr}_2\text{O}_3} \text{CH}_3\text{OH}`} />
+      <IndustrialPrepCard
+        tag="Catalytic hydrogenation"
+        method="Manufactured by catalytic hydrogenation of carbon monoxide (CO) at high temperature and pressure."
+        equation={String.raw`\text{CO} + 2\text{H}_2 \xrightarrow[\text{200--300 atm, 573--673 K}]{\text{ZnO–Cr}_2\text{O}_3} \text{CH}_3\text{OH}`}
+        reagents={{
+          label: "Reagents",
+          value: (
+            <>
+              Water gas / synthesis gas (CO + 2H<sub>2</sub>)
+            </>
+          ),
+        }}
+        catalyst={{
+          label: "Catalyst",
+          value: (
+            <>
+              ZnO–Cr<sub>2</sub>O<sub>3</sub>
+            </>
+          ),
+        }}
+        conditions={[
+          { label: "Pressure", value: "200–300 atm" },
+          { label: "Temperature", value: "573–673 K" },
+        ]}
+      />
 
-      <p>
-        Methanol is a colourless liquid boiling at 337 K. It is highly poisonous: ingestion of even
-        small quantities can cause blindness, and large quantities cause death. It is used as a solvent
-        in paints and varnishes and chiefly for making formaldehyde.
-      </p>
+      <UsesBoard
+        uses={[<>Preparation of formaldehyde</>, <>Solvent in paints and varnishes</>]}
+      />
+
+      <Callout type="warning" title="Highly poisonous">
+        Ingestion of even small quantities causes blindness; larger quantities lead to death.
+      </Callout>
 
       <h3 id="h-7-5-2">2. Ethanol</h3>
 
-      <p>
-        Ethanol, C<sub>2</sub>H<sub>5</sub>OH, is obtained commercially by fermentation — the oldest
-        method, starting from sugars. Sugar in molasses, sugarcane or fruits such as grapes is converted
-        to glucose and fructose (both C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>) by the enzyme{" "}
-        <strong>invertase</strong>. Glucose and fructose then undergo fermentation under the enzyme{" "}
-        <strong>zymase</strong>, found in yeast.
-      </p>
+      <CompoundHeader
+        index="02"
+        name="Ethanol"
+        formula={
+          <>
+            C<sub>2</sub>H<sub>5</sub>OH
+          </>
+        }
+      />
 
-      <FormulaBlock latex={String.raw`\text{C}_{12}\text{H}_{22}\text{O}_{11} \xrightarrow{\text{invertase}} \text{C}_6\text{H}_{12}\text{O}_6 + \text{C}_6\text{H}_{12}\text{O}_6`} />
-      <FormulaBlock latex={String.raw`\text{C}_6\text{H}_{12}\text{O}_6 \xrightarrow{\text{zymase}} 2\text{C}_2\text{H}_5\text{OH} + 2\text{CO}_2`} />
+      <FermentationRoute
+        tag="Fermentation"
+        source={{
+          materials: ["Molasses", "Cane sugar", "Starch"],
+          raw: "~40% sugar",
+          diluted: "~10% sugar solution",
+        }}
+        steps={[
+          {
+            name: "Inversion",
+            enzyme: "Invertase",
+            equation: String.raw`\text{C}_{12}\text{H}_{22}\text{O}_{11} + \text{H}_2\text{O} \xrightarrow{\text{Invertase}} \text{C}_6\text{H}_{12}\text{O}_6 \text{ (glucose)} + \text{C}_6\text{H}_{12}\text{O}_6 \text{ (fructose)}`,
+          },
+          {
+            name: "Conversion",
+            enzyme: "Zymase",
+            equation: String.raw`\text{C}_6\text{H}_{12}\text{O}_6 \xrightarrow{\text{Zymase}} 2\text{C}_2\text{H}_5\text{OH} + 2\text{CO}_2`,
+          },
+        ]}
+        footnote="Invertase and zymase are the enzymes present in yeast."
+      />
 
-      <p>
-        In wine making, grapes are the source of both sugar and yeast. As grapes ripen the sugar content
-        rises and yeast grows on the outer skin; when grapes are crushed the two come into contact and
-        fermentation starts. Fermentation takes place under anaerobic conditions and carbon dioxide is
-        released. The action of zymase is inhibited once the alcohol content exceeds 14 per cent. If air
-        enters the mixture, oxygen oxidises ethanol to ethanoic acid, which destroys the taste of
-        alcoholic drinks.
-      </p>
+      <ConcentrationLadder
+        rungs={[
+          {
+            name: "Wash",
+            value: "8–10%",
+            detail: "Ethanol solution produced by fermentation.",
+            percent: 9,
+          },
+          {
+            name: "Rectified spirit",
+            value: "95.6% by mass",
+            badge: "Industrial alcohol",
+            percent: 95.6,
+          },
+          {
+            name: "Absolute alcohol",
+            value: "100%",
+            detail: "Pure ethanol.",
+            percent: 100,
+          },
+        ]}
+      />
 
-      <p>
-        Ethanol is a colourless liquid boiling at 351 K, used as a solvent in the paint industry and in
-        the preparation of many carbon compounds. Commercial alcohol is made unfit for drinking by
-        adding copper sulphate (for colour) and pyridine (a foul-smelling liquid) — this is{" "}
-        <strong>denaturation</strong>. Large quantities of ethanol are now obtained by hydration of
-        ethene.
-      </p>
+      <DenaturationCard
+        tag="Unfit for drinking"
+        definition="Process of making commercial alcohol unfit for drinking by adding toxic or foul-smelling substances."
+        additives={[
+          {
+            name: "Copper sulfate",
+            formula: (
+              <>
+                CuSO<sub>4</sub>
+              </>
+            ),
+            effect: "Blue colour",
+            tone: "colour",
+          },
+          {
+            name: "Pyridine",
+            effect: "Foul smell",
+            tone: "odour",
+          },
+        ]}
+      />
 
       <h2 id="h-7-6">7.6 Ethers</h2>
 
