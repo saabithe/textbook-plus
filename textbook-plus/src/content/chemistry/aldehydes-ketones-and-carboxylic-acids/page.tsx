@@ -11,192 +11,403 @@ import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { EquationLadder } from "@/components/content/process/EquationLadder";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { CarbonylFamilyGrid } from "@/components/content/chemistry/CarbonylFamilyGrid";
+import { GreekPositionLadder } from "@/components/content/chemistry/GreekPositionLadder";
+import { NamingRuleCards } from "@/components/content/chemistry/NamingRuleCards";
+import { PracticeProblemCards } from "@/components/content/chemistry/PracticeProblemCards";
+import { GroupedNameTable } from "@/components/content/chemistry/GroupedNameTable";
 
 export default function AldehydesKetonesCarboxylicAcidsChapter() {
   return (
     <>
+      <CarbonylFamilyGrid
+        lead="The carbonyl group is the core functional group defining every family below."
+        families={[
+          "Aldehydes",
+          "Ketones",
+          "Carboxylic acids",
+          "Esters",
+          "Amides",
+          "Acid chlorides",
+          "Acid anhydrides",
+        ]}
+        cards={[
+          { name: "Aldehyde", structure: "R–CHO" },
+          { name: "Ketone", structure: "R–CO–R′" },
+          { name: "Ester", structure: "R–COOR′" },
+          { name: "Amide", structure: "R–CONH₂" },
+          { name: "Acid chloride", structure: "R–COCl" },
+          { name: "Acid anhydride", structure: "(R–CO)₂O" },
+        ]}
+      />
+
+      <h2 id="h-8-1">8.1 Nomenclature and Structure of the Carbonyl Group</h2>
+
+      <h3 id="h-8-1-1">8.1.1 Nomenclature of Aldehydes and Ketones</h3>
+
       <p>
-        In the previous Unit you studied organic compounds with a carbon–oxygen
-        <strong> single</strong> bond. This Unit is about compounds containing the
-        carbon–oxygen <strong>double</strong> bond (&gt;C=O) — the{" "}
-        <strong>carbonyl group</strong>, one of the most important functional groups in
-        organic chemistry. Carbonyl compounds are constituents of fabrics, flavourings,
-        plastics and drugs.
+        Aldehydes and ketones are the simplest and most fundamental carbonyl compounds. They are named
+        using two systems — <strong>common nomenclature</strong> and <strong>IUPAC nomenclature</strong>.
       </p>
 
-      <Callout type="important" title="One functional group, six families">
+      <h4>Common names</h4>
+
+      <h5>Aldehydes</h5>
+
+      <ul>
+        <li>
+          <strong>Origin</strong> — derived from the common names of the corresponding carboxylic acids.
+        </li>
+        <li>
+          <strong>Change</strong> — the suffix <em>-ic acid</em> is replaced with <em>aldehyde</em>.
+        </li>
+        <li>
+          <strong>Source</strong> — the names reflect Latin or Greek terms associated with their natural
+          sources.
+        </li>
+      </ul>
+
+      <GreekPositionLadder
+        title="Aldehyde positions"
+        anchor="CHO"
+        anchorNote="carbonyl"
+        right={[
+          { symbol: "α", note: "next to C=O", highlight: true },
+          { symbol: "β" },
+          { symbol: "γ" },
+          { symbol: "δ" },
+        ]}
+        note="Substituent positions are designated with Greek letters — the α-carbon is the one directly linked to the carbonyl carbon."
+      />
+
+      <h5>Ketones</h5>
+
+      <ul>
+        <li>
+          <strong>Naming</strong> — name the two alkyl or aryl groups attached to the carbonyl group
+          separately, then follow with the word <em>ketone</em>.
+        </li>
+        <li>
+          <strong>Positions</strong> — the Greek letters α, α′, β, β′ start from the carbons adjacent to
+          the carbonyl carbon.
+        </li>
+      </ul>
+
+      <GreekPositionLadder
+        title="Ketone positions"
+        anchor=">C=O"
+        anchorNote="carbonyl"
+        left={[{ symbol: "β" }, { symbol: "α", highlight: true }]}
+        right={[{ symbol: "α′", highlight: true }, { symbol: "β′" }]}
+      />
+
+      <Callout type="note" title="Historical common names">
         <ul className="space-y-1.5">
           <li>
-            <strong>Aldehyde</strong> — the carbonyl carbon is bonded to a carbon and a
-            hydrogen.
+            <strong>Dimethyl ketone</strong> is called <em>acetone</em>.
           </li>
           <li>
-            <strong>Ketone</strong> — the carbonyl carbon is bonded to two carbon atoms.
-          </li>
-          <li>
-            <strong>Carboxylic acid</strong> — the carbonyl carbon is bonded to carbon or
-            hydrogen and to the oxygen of a hydroxyl moiety (–OH).
-          </li>
-          <li>
-            <strong>Amide</strong> — the carbonyl carbon is bonded to the nitrogen of an
-            –NH<sub>2</sub> moiety.
-          </li>
-          <li>
-            <strong>Acyl halide</strong> — the carbonyl carbon is bonded to a halogen.
-          </li>
-          <li>
-            <strong>Esters and anhydrides</strong> are derivatives of carboxylic acids.
+            <strong>Alkyl phenyl ketones</strong> are named by adding the acyl group as a prefix to{" "}
+            <em>phenone</em> — acetophenone, benzophenone.
           </li>
         </ul>
       </Callout>
 
-      <p>
-        Aldehydes, ketones and carboxylic acids are widespread in the plant and animal
-        kingdoms and play an important role in biochemical processes of life. They also add
-        fragrance and flavour to nature — <strong>vanillin</strong> (from vanilla beans),{" "}
-        <strong>salicylaldehyde</strong> (from meadow sweet) and{" "}
-        <strong>cinnamaldehyde</strong> (from cinnamon) all have very pleasant fragrances.
-        Many of these families are manufactured for use as solvents (acetone) and for
-        preparing adhesives, paints, resins, perfumes, plastics and fabrics.
-      </p>
+      <h4>IUPAC nomenclature rules</h4>
 
-      <h2 id="h-8-1">8.1 Nomenclature and Structure of the Carbonyl Group</h2>
-
-      <h3 id="h-8-1-1">8.1.1 Nomenclature</h3>
-
-      <p>
-        Aldehydes and ketones are the simplest and most important carbonyl compounds. There
-        are two systems of naming them.
-      </p>
-
-      <h4 className="mt-5 mb-2 text-base font-bold">(a) Common names</h4>
-
-      <ul>
-        <li>
-          The common names of most aldehydes are derived from the common names of the
-          corresponding carboxylic acids by replacing the ending <em>–ic</em> of the acid
-          with <em>aldehyde</em>.
-        </li>
-        <li>
-          These names also reflect the Latin or Greek term for the original source of the
-          acid or aldehyde.
-        </li>
-        <li>
-          The position of a substituent in the chain is shown by Greek letters α, β, γ, δ,
-          … — the <strong>α-carbon</strong> is the one directly linked to the aldehyde
-          group, β the next, and so on.
-        </li>
-        <li>
-          The common names of ketones are derived by naming the two alkyl or aryl groups
-          bonded to the carbonyl group.
-        </li>
-        <li>
-          For ketones the positions are marked αα′, ββ′, … starting from the carbon atoms
-          next to the carbonyl group.
-        </li>
-        <li>
-          Some ketones have historical common names — the simplest dimethyl ketone is
-          called <strong>acetone</strong>.
-        </li>
-        <li>
-          Alkyl phenyl ketones are named by adding the name of the acyl group as a prefix to
-          the word <em>phenone</em> (acetophenone, propiophenone, butyrophenone).
-        </li>
-      </ul>
-
-      <h4 className="mt-5 mb-2 text-base font-bold">(b) IUPAC names</h4>
-
-      <ul>
-        <li>
-          The IUPAC names of open-chain aliphatic aldehydes and ketones are derived from the
-          corresponding alkanes by replacing the ending <em>–e</em> with <em>–al</em> and{" "}
-          <em>–one</em> respectively.
-        </li>
-        <li>
-          For aldehydes the longest chain is numbered starting from the carbon of the
-          aldehyde group.
-        </li>
-        <li>
-          For ketones the numbering begins from the end nearer to the carbonyl group.
-        </li>
-        <li>
-          Substituents are prefixed in alphabetical order with numerals showing their
-          positions.
-        </li>
-        <li>
-          In cyclic ketones the carbonyl carbon is numbered one.
-        </li>
-        <li>
-          When the aldehyde group is attached to a ring, the suffix{" "}
-          <strong>carbaldehyde</strong> is added after the full name of the cycloalkane; ring
-          numbering starts from the carbon carrying the –CHO group.
-        </li>
-        <li>
-          The simplest aromatic aldehyde is <strong>benzenecarbaldehyde</strong>; the common
-          name <strong>benzaldehyde</strong> is also accepted by IUPAC, and other aromatic
-          aldehydes are named as substituted benzaldehydes.
-        </li>
-      </ul>
-
-      <TableCard
-        title="Table 8.1: Common and IUPAC names of some aldehydes and ketones"
-        headers={["Structure", "Common name", "IUPAC name"]}
-        rows={[
-          { cells: ["HCHO", "Formaldehyde", "Methanal"] },
-          { cells: ["CH₃CHO", "Acetaldehyde", "Ethanal"] },
+      <NamingRuleCards
+        rules={[
           {
-            cells: ["(CH₃)₂CHCHO", "Isobutyraldehyde", "2-Methylpropanal"],
+            label: "A",
+            title: "Open-chain aliphatic aldehydes",
+            suffix: "–al",
+            rule: "Replace the terminal -e of the parent alkane with -al.",
+            numbering: "Numbering always begins from the aldehyde carbon — CHO carbon = C-1.",
+            equation: String.raw`\text{Alkane} - \text{e} + \text{al} = \text{Alkanal}`,
           },
           {
-            cells: [
-              "γ-Methylcyclohexanecarbaldehyde",
-              "—",
-              "3-Methylcyclohexanecarbaldehyde",
+            label: "B",
+            title: "Open-chain aliphatic ketones",
+            suffix: "–one",
+            rule: "Replace the terminal -e of the parent alkane with -one.",
+            numbering: "Number the chain from the end nearer to the carbonyl group.",
+            equation: String.raw`\text{Alkane} - \text{e} + \text{one} = \text{Alkanone}`,
+          },
+          {
+            label: "C",
+            title: "Cyclic ketones",
+            rule: "The carbonyl carbon of the ring is designated as C-1.",
+          },
+          {
+            label: "D",
+            title: "Ring-attached aldehydes",
+            suffix: "carbaldehyde",
+            rule: "When the –CHO group is attached directly to a ring, use the suffix carbaldehyde.",
+            numbering: "Ring numbering starts from the carbon bearing –CHO.",
+            example: "Benzenecarbaldehyde — accepted IUPAC name, benzaldehyde.",
+          },
+          {
+            label: "E",
+            title: "Polycarbaldehydes",
+            suffix: "carbaldehyde",
+            rule: "When three or more –CHO groups are attached to an unbranched carbon chain, use the prefix carbaldehyde.",
+            example: "Propane-1,2,3-tricarbaldehyde.",
+            wide: true,
+          },
+        ]}
+      />
+
+      <h4>Common and IUPAC names of aldehydes</h4>
+
+      <GroupedNameTable
+        groups={[
+          {
+            label: "Simple aliphatic aldehydes",
+            rows: [
+              { structure: "HCHO", common: "Formaldehyde", iupac: "Methanal" },
+              {
+                structure: (
+                  <>
+                    CH<sub>3</sub>CHO
+                  </>
+                ),
+                common: "Acetaldehyde",
+                iupac: "Ethanal",
+              },
+              {
+                structure: (
+                  <>
+                    CH<sub>3</sub>CH<sub>2</sub>CHO
+                  </>
+                ),
+                common: "Propionaldehyde",
+                iupac: "Propanal",
+              },
+              {
+                structure: (
+                  <>
+                    CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CHO
+                  </>
+                ),
+                common: "Butyraldehyde",
+                iupac: "Butanal",
+              },
+              {
+                structure: (
+                  <>
+                    CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>CHO
+                  </>
+                ),
+                common: "Valeraldehyde",
+                iupac: "Pentanal",
+              },
+              {
+                structure: (
+                  <>
+                    (CH<sub>3</sub>)<sub>2</sub>CHCHO
+                  </>
+                ),
+                common: "Isobutyraldehyde",
+                iupac: "2-Methylpropanal",
+              },
+              {
+                structure: (
+                  <>
+                    CH<sub>2</sub>=CHCHO
+                  </>
+                ),
+                common: "Acrolein",
+                iupac: "Prop-2-enal",
+              },
             ],
           },
           {
-            cells: [
-              "CH₃CH(OCH₃)CHO",
-              "α-Methoxypropionaldehyde",
-              "2-Methoxypropanal",
-            ],
-          },
-          { cells: ["CH₃CH₂CH₂CH₂CHO", "Valeraldehyde", "Pentanal"] },
-          { cells: ["CH₂=CHCHO", "Acrolein", "Prop-2-enal"] },
-          {
-            cells: ["C₆H₄(CHO)₂ (1,2)", "Phthaldehyde", "Benzene-1,2-dicarbaldehyde"],
-          },
-          {
-            cells: [
-              "m-BrC₆H₄CHO",
-              "m-Bromobenzaldehyde",
-              "3-Bromobenzaldehyde (3-bromobenzenecarbaldehyde)",
-            ],
-          },
-          { cells: ["CH₃COCH₂CH₂CH₃", "Methyl n-propyl ketone", "Pentan-2-one"] },
-          {
-            cells: [
-              "(CH₃)₂CHCOCH(CH₃)₂",
-              "Diisopropyl ketone",
-              "2,4-Dimethylpentan-3-one",
-            ],
-          },
-          { cells: ["α-Methylcyclohexanone", "—", "2-Methylcyclohexanone"] },
-          {
-            cells: [
-              "(CH₃)₂C=CHCOCH₃",
-              "Mesityl oxide",
-              "4-Methylpent-3-en-2-one",
+            label: "Aromatic and substituted aldehydes",
+            rows: [
+              {
+                structure: (
+                  <>
+                    C<sub>6</sub>H<sub>5</sub>CHO
+                  </>
+                ),
+                common: "Benzaldehyde",
+                iupac: "Benzaldehyde",
+              },
+              {
+                structure: (
+                  <>
+                    C<sub>6</sub>H<sub>4</sub>(CHO)<sub>2</sub> (1,2-)
+                  </>
+                ),
+                common: "Phthaldehyde",
+                iupac: "Benzene-1,2-dicarbaldehyde",
+              },
+              {
+                structure: (
+                  <>
+                    C<sub>6</sub>H<sub>4</sub>(OH)(CHO)
+                  </>
+                ),
+                common: "Salicylaldehyde",
+                iupac: "2-Hydroxybenzaldehyde",
+              },
+              {
+                structure: "—",
+                common: "Vanillin",
+                iupac: "4-Hydroxy-3-methoxybenzaldehyde",
+              },
+              {
+                structure: (
+                  <>
+                    C<sub>6</sub>H<sub>5</sub>CH=CHCHO
+                  </>
+                ),
+                common: "Cinnamaldehyde",
+                iupac: "—",
+              },
             ],
           },
         ]}
-        caption="The ketone column shows how the two groups attached to the carbonyl carbon decide the common name."
       />
 
-      <MistakeCard
-        mistake="Numbering an aldehyde chain from the end that gives the substituent the lowest locant."
-        correction="For aldehydes the aldehyde carbon is always C-1 — the chain is numbered from –CHO, never from the other end."
-        example="CH₃CH(CH₃)CH₂CH₂CHO is 4-methylpentanal, not 2-methylpentanal."
+      <h4>Common names of ketones</h4>
+
+      <GroupedNameTable
+        emphasis="common"
+        rows={[
+          {
+            structure: (
+              <>
+                CH<sub>3</sub>COCH<sub>3</sub>
+              </>
+            ),
+            common: "Acetone",
+            iupac: "Propanone",
+          },
+          {
+            structure: (
+              <>
+                C<sub>6</sub>H<sub>5</sub>COCH<sub>3</sub>
+              </>
+            ),
+            common: "Acetophenone / Hypnone",
+            iupac: "Acetophenone",
+          },
+          {
+            structure: (
+              <>
+                C<sub>6</sub>H<sub>5</sub>COC<sub>6</sub>H<sub>5</sub>
+              </>
+            ),
+            common: "Benzophenone",
+            iupac: "Benzophenone",
+          },
+          {
+            structure: (
+              <>
+                CH<sub>3</sub>COCH<sub>2</sub>CH<sub>2</sub>CH<sub>3</sub>
+              </>
+            ),
+            common: "Methyl n-propyl ketone",
+            iupac: "Pentan-2-one",
+          },
+          {
+            structure: (
+              <>
+                (CH<sub>3</sub>)<sub>2</sub>C=CHCOCH<sub>3</sub>
+              </>
+            ),
+            common: "Mesityl oxide",
+            iupac: "4-Methylpent-3-en-2-one",
+          },
+        ]}
+      />
+
+      <h3 id="h-8-1-practice">Practice — IUPAC Names</h3>
+
+      <h4>Aldehydes</h4>
+
+      <PracticeProblemCards
+        problems={[
+          {
+            structure: String.raw`\text{CH}_3\text{–CH}_2\text{–CH}_2\text{–CH(Br)–CH}_2\text{–CH}_2\text{–CHO}`,
+            answer: "4-Bromo-3-methylheptanal",
+            flag: "The displayed structure has seven carbons including the aldehyde carbon and a bromine substituent, but no methyl substituent is visible — verify the supplied name.",
+          },
+          {
+            structure: String.raw`\text{CH}_3\text{–CH}_2\text{–CO–CH}_2\text{–CHO}`,
+            answer: "3-Oxopentanal",
+          },
+          {
+            structureNode: (
+              <p className="text-sm leading-relaxed text-foreground/85">
+                Nitro group at the 4-position of a benzene ring containing an aldehyde group (–CHO).
+              </p>
+            ),
+            answer: "4-Nitrobenzaldehyde",
+          },
+        ]}
+      />
+
+      <h4>Ketones</h4>
+
+      <PracticeProblemCards
+        problems={[
+          {
+            structureNode: (
+              <svg
+                aria-hidden
+                viewBox="0 0 150 132"
+                className="mx-auto h-[6.5rem] w-[7.4rem] text-foreground/80"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polygon points="66,40 102.1,66.3 88.3,108.7 43.7,108.7 29.9,66.3" />
+                <line x1="62.5" y1="38" x2="62.5" y2="16" />
+                <line x1="69.5" y1="38" x2="69.5" y2="16" />
+                <line x1="88.3" y1="108.7" x2="102.4" y2="128.1" />
+                <text
+                  x="66"
+                  y="11"
+                  textAnchor="middle"
+                  fontSize="12"
+                  fontWeight="700"
+                  fill="currentColor"
+                  stroke="none"
+                >
+                  O
+                </text>
+                <text
+                  x="105"
+                  y="131"
+                  fontSize="11"
+                  fontWeight="700"
+                  fill="currentColor"
+                  stroke="none"
+                >
+                  CH3
+                </text>
+              </svg>
+            ),
+            answer: "3-Methylcyclopentanone",
+          },
+          {
+            structure: String.raw`\text{CH}_3\text{–CH(CH}_3\text{)–CO–CH(CH}_3\text{)–CH}_3`,
+            answer: "2,4-Dimethylpentan-3-one",
+          },
+          {
+            structure: String.raw`\text{CH}_3\text{–CH=CH–CO–CH}_3`,
+            answer: "Pent-3-en-2-one",
+          },
+          {
+            structure: String.raw`\text{CH}_3\text{–C(CH}_3\text{)=CH–CO–CH}_3`,
+            answer: "4-Methylpent-3-en-2-one",
+            answerNote: "Common name: mesityl oxide.",
+          },
+        ]}
       />
 
       <h3 id="h-8-1-2">8.1.2 Structure of the Carbonyl Group</h3>

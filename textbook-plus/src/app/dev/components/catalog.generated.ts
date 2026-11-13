@@ -2116,6 +2116,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/CarbonylFamilyGrid.tsx#CarbonylFamilyGrid",
+    "name": "CarbonylFamilyGrid",
+    "path": "content/chemistry/CarbonylFamilyGrid.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; formula?: ReactNode; lead?: ReactNode; families: ReactNode[]; cards: CarbonylFamilyCard[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/CfseCalculationCard.tsx#CfseCalculationCard",
     "name": "CfseCalculationCard",
     "path": "content/chemistry/CfseCalculationCard.tsx",
@@ -2260,11 +2269,20 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/GreekPositionLadder.tsx#GreekPositionLadder",
+    "name": "GreekPositionLadder",
+    "path": "content/chemistry/GreekPositionLadder.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; anchor: ReactNode; anchorNote?: ReactNode; left?: GreekPosition[]; right: GreekPosition[]; note?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/GroupedNameTable.tsx#GroupedNameTable",
     "name": "GroupedNameTable",
     "path": "content/chemistry/GroupedNameTable.tsx",
     "category": "chemistry",
-    "props": "rows?: GroupedNameRow[]; groups?: GroupedNameGroup[];",
+    "props": "rows?: GroupedNameRow[]; groups?: GroupedNameGroup[]; emphasis?: \"iupac\" | \"common\";",
     "shell": false,
     "renderable": true
   },
@@ -2341,6 +2359,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/NamingRuleCards.tsx#NamingRuleCards",
+    "name": "NamingRuleCards",
+    "path": "content/chemistry/NamingRuleCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; rules: NamingRule[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/NamingSystemCards.tsx#NamingSystemCards",
     "name": "NamingSystemCards",
     "path": "content/chemistry/NamingSystemCards.tsx",
@@ -2400,6 +2427,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/PolynuclearCarbonylCards.tsx",
     "category": "chemistry",
     "props": "carbonyls: PolynuclearCarbonyl[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/PracticeProblemCards.tsx#PracticeProblemCards",
+    "name": "PracticeProblemCards",
+    "path": "content/chemistry/PracticeProblemCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; problems: PracticeProblem[]; structureLabel?: ReactNode; answerLabel?: ReactNode;",
     "shell": false,
     "renderable": true
   },

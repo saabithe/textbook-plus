@@ -98,6 +98,10 @@ import { EtherWaterBonding } from "@/components/content/chemistry/EtherWaterBond
 import { CleavageCards } from "@/components/content/chemistry/CleavageCards";
 import { AnisoleSubstitutionGrid } from "@/components/content/chemistry/AnisoleSubstitutionGrid";
 import { RevisionDashboard } from "@/components/content/chemistry/RevisionDashboard";
+import { CarbonylFamilyGrid } from "@/components/content/chemistry/CarbonylFamilyGrid";
+import { GreekPositionLadder } from "@/components/content/chemistry/GreekPositionLadder";
+import { NamingRuleCards } from "@/components/content/chemistry/NamingRuleCards";
+import { PracticeProblemCards } from "@/components/content/chemistry/PracticeProblemCards";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -1307,6 +1311,80 @@ export default function DesignPage() {
                 { label: "Cleavage", value: "HI or HBr" },
                 { label: "Anisole", value: "para major" },
               ],
+            },
+          ]}
+        />
+      </Section>
+
+      <Section title="Chemistry — carbonyl group & naming">
+        <CarbonylFamilyGrid
+          families={["Aldehydes", "Ketones", "Carboxylic acids", "Esters", "Amides"]}
+          cards={[
+            { name: "Aldehyde", structure: "R–CHO" },
+            { name: "Ketone", structure: "R–CO–R′" },
+            { name: "Ester", structure: "R–COOR′" },
+          ]}
+        />
+
+        <GreekPositionLadder
+          anchor="CHO"
+          anchorNote="carbonyl"
+          right={[
+            { symbol: "α", note: "next to C=O", highlight: true },
+            { symbol: "β" },
+            { symbol: "γ" },
+          ]}
+          note="The α-carbon is the carbon directly linked to the carbonyl carbon."
+        />
+
+        <GreekPositionLadder
+          title="Ketone positions"
+          anchor=">C=O"
+          left={[{ symbol: "β" }, { symbol: "α", highlight: true }]}
+          right={[{ symbol: "α′", highlight: true }, { symbol: "β′" }]}
+        />
+
+        <NamingRuleCards
+          rules={[
+            {
+              label: "A",
+              title: "Open-chain aliphatic aldehydes",
+              suffix: "–al",
+              rule: "Replace the terminal -e of the parent alkane with -al.",
+              numbering: "Numbering always begins from the aldehyde carbon.",
+              equation: String.raw`\text{Alkane} - \text{e} + \text{al} = \text{Alkanal}`,
+            },
+            {
+              label: "B",
+              title: "Open-chain aliphatic ketones",
+              suffix: "–one",
+              rule: "Replace the terminal -e of the parent alkane with -one.",
+              numbering: "Number from the end nearer to the carbonyl group.",
+            },
+            {
+              label: "C",
+              title: "Polycarbaldehydes",
+              suffix: "carbaldehyde",
+              rule: "Three or more –CHO groups on an unbranched chain use the prefix carbaldehyde.",
+              example: "Propane-1,2,3-tricarbaldehyde.",
+              wide: true,
+            },
+          ]}
+        />
+
+        <PracticeProblemCards
+          problems={[
+            {
+              structure: String.raw`\text{CH}_3\text{–CH}_2\text{–CO–CH}_2\text{–CHO}`,
+              answer: "3-Oxopentanal",
+            },
+            {
+              structureNode: (
+                <p className="text-sm leading-relaxed text-foreground/85">
+                  A nitro group at the 4-position of a benzene ring that carries –CHO.
+                </p>
+              ),
+              answer: "4-Nitrobenzaldehyde",
             },
           ]}
         />

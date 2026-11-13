@@ -580,30 +580,6 @@ export default function AlcoholsPhenolsEthersChapter() {
         ]}
       />
 
-      <h2 id="h-7-3">7.3 Structures of Functional Groups</h2>
-
-      <p>
-        In alcohols the oxygen of the —OH group is attached to carbon by a σ bond formed by overlap of
-        an <em>sp</em>
-        <sup>3</sup> orbital of carbon with an <em>sp</em>
-        <sup>3</sup> orbital of oxygen. The bond angle in alcohols is slightly less than the tetrahedral
-        angle (109°28′) because of repulsion between the unshared electron pairs of oxygen.
-      </p>
-
-      <p>
-        In phenols the —OH group is attached to an <em>sp</em>
-        <sup>2</sup> hybridised carbon of an aromatic ring. The C—O bond length in phenol (136 pm) is
-        slightly less than in methanol, because of (i) partial double bond character arising from
-        conjugation of the oxygen lone pair with the ring and (ii) the <em>sp</em>
-        <sup>2</sup> hybridised state of the carbon bearing oxygen.
-      </p>
-
-      <p>
-        In ethers the two bond pairs and two lone pairs on oxygen are arranged approximately
-        tetrahedrally. The bond angle is slightly greater than tetrahedral because of repulsion between
-        the two bulky —R groups, and the C—O bond length (141 pm) is almost the same as in alcohols.
-      </p>
-
       <h2 id="h-7-4">7.4 Alcohols and Phenols</h2>
 
       <h3 id="h-7-4-1">7.4.1 Preparation of Alcohols</h3>
