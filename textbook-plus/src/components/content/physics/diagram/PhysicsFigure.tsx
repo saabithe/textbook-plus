@@ -184,6 +184,7 @@ export function PhysicsFigure({
       </svg>
       {showCaption && (
         <figcaption className="mx-auto mt-2 max-w-2xl text-center text-[0.8125rem] leading-snug text-muted-foreground">
+          {spec.source && <span className="mr-1.5 font-medium text-foreground/70">{spec.source}</span>}
           {spec.caption}
         </figcaption>
       )}

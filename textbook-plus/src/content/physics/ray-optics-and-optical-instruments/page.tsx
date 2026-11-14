@@ -18,19 +18,24 @@ import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { Highlight } from "@/components/content/Highlight";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { TableCard } from "@/components/content/data/TableCard";
+import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { PhysicsFigure } from "@/components/content/physics/diagram/PhysicsFigure";
 import {
+  apparentDepth,
   concaveMirrorTerms,
   concaveRealImage,
   convexMirrorTerms,
   mirrorEquationGeometry,
   planeReflection,
+  rayAndBeam,
+  refractionAtSurface,
   ruleCentre,
   ruleFocus,
   ruleParallel,
   rulePole,
   signConventionConcave,
   signConventionConvex,
+  slabShift,
 } from "./figures";
 
 export default function RayOpticsAndOpticalInstrumentsChapter() {
@@ -38,22 +43,83 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
     <>
       <h2 id="h-9-1">9.1 Introduction</h2>
 
-      <h3 id="h-9-1-light">Light and the visible spectrum</h3>
+      <h3 id="h-9-1-light">9.1.1 Light, and the sense of vision</h3>
+      <p>
+        Nature has endowed the human eye — the retina — with the sensitivity to detect electromagnetic waves within a
+        small range of the electromagnetic spectrum.
+      </p>
       <Callout type="note" title="Light — definition">
         <p>
-          <strong>Light</strong> is electromagnetic radiation within a narrow range of wavelengths,{" "}
-          <Highlight>400 nm to 750 nm</Highlight>, which the retina of the human eye can detect.
+          <strong>Light</strong> is electromagnetic radiation with a wavelength of about{" "}
+          <Highlight>400 nm to 750 nm</Highlight> — the band the retina can detect.
         </p>
       </Callout>
+      <p>It is mainly through light and the sense of vision that we know and interpret the world around us.</p>
 
-      <h3 id="h-9-1-speed">Speed of light</h3>
+      <h3 id="h-9-1-facts">9.1.2 Two facts common experience gives</h3>
+      <p>Two things about light can be stated from common experience alone.</p>
       <ul className="my-6 list-none space-y-2 pl-0">
         <li>
-          <strong>Vacuum</strong> —{" "}
-          <Formula>{String.raw`c = 2.99792458 \times 10^{8}\ \text{m s}^{-1}`}</Formula>
+          <strong>It travels with enormous speed.</strong> That speed is finite and measurable, but it took people
+          some time to realise it.
         </li>
         <li>
-          <strong>Approximation</strong> — <Formula>{String.raw`c \approx 3 \times 10^{8}\ \text{m s}^{-1}`}</Formula>
+          <strong>It travels in a straight line.</strong>
+        </li>
+      </ul>
+
+      <h3 id="h-9-1-speed">9.1.3 The speed of light</h3>
+      <p>Its presently accepted value in vacuum is</p>
+      <FormulaBlock
+        important
+        label="Speed of light in vacuum"
+        latex={String.raw`c = 2.99792458 \times 10^{8}\ \text{m s}^{-1}`}
+      />
+      <p>
+        For many purposes it suffices to take{" "}
+        <Formula>{String.raw`c \approx 3 \times 10^{8}\ \text{m s}^{-1}`}</Formula>.
+      </p>
+      <KeyPoint title="Highest speed attainable in nature">
+        <p>Light in vacuum has no faster traveller to compete with: this is the highest speed attainable in nature.</p>
+      </KeyPoint>
+
+      <h3 id="h-9-1-ray">9.1.4 Why the straight line is still the right picture</h3>
+      <p>
+        Chapter 8 called light an electromagnetic wave. On its own, that description seems to contradict a
+        straight-line path.
+      </p>
+      <p>
+        The resolution is one of scale. The wavelength of light is very small compared with the ordinary objects we
+        meet — generally a few centimetres or larger.
+      </p>
+      <p>
+        At that scale a light wave can be treated as travelling from one point to another along the straight line
+        joining them.
+      </p>
+      <PhysicsFigure spec={rayAndBeam} />
+      <div className="my-6 grid gap-3 sm:grid-cols-2">
+        <div className="rounded-lg border border-border bg-card p-4">
+          <p className="text-sm font-semibold tracking-tight text-foreground">Ray</p>
+          <p className="mt-1 text-sm leading-relaxed text-foreground/75">
+            The straight-line path the wave is treated as taking.
+          </p>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <p className="text-sm font-semibold tracking-tight text-foreground">Beam</p>
+          <p className="mt-1 text-sm leading-relaxed text-foreground/75">A bundle of such rays.</p>
+        </div>
+      </div>
+
+      <h3 id="h-9-1-ahead">9.1.5 The chapter ahead</h3>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Mirrors.</strong> Image formation by spherical mirrors, and the mirror equation.
+        </li>
+        <li>
+          <strong>Refraction.</strong> At plane and spherical surfaces, through lenses and through a prism.
+        </li>
+        <li>
+          <strong>Instruments.</strong> The microscope and the telescope built from these surfaces.
         </li>
       </ul>
 
@@ -605,6 +671,132 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
           <FormulaBlock important latex={String.raw`u = -15\ \text{cm}`} />
         </ProblemSolution.Solution>
       </Expandable>
+
+      <h2 id="h-9-3">9.3 Refraction</h2>
+
+      <h3 id="h-9-3-what">9.3.1 What refraction is</h3>
+      <p>
+        When a beam of light meets another transparent medium, part of it is reflected back into the first medium and
+        the rest enters the second.
+      </p>
+      <p>
+        The part that enters changes direction at the interface, provided the ray is obliquely incident —{" "}
+        <Formula>{String.raw`0^\circ < i < 90^\circ`}</Formula>.
+      </p>
+      <Callout type="note" title="Refraction — definition">
+        <p>
+          <strong>Refraction</strong> is the change in direction of a ray when it passes obliquely from one
+          transparent medium into another.
+        </p>
+      </Callout>
+      <PhysicsFigure spec={refractionAtSurface} />
+
+      <h3 id="h-9-3-laws">9.3.2 Snell&rsquo;s laws of refraction</h3>
+      <p>Snell obtained two laws experimentally.</p>
+      <KeyPoint title="Laws of refraction">
+        <ol className="mt-1 list-decimal space-y-2 pl-5">
+          <li>
+            <strong>One plane.</strong> The incident ray, the refracted ray and the normal to the interface at the
+            point of incidence all lie in the same plane.
+          </li>
+          <li>
+            <strong>Constant ratio.</strong> The ratio of the sine of the angle of incidence to the sine of the angle
+            of refraction is a constant.
+          </li>
+        </ol>
+      </KeyPoint>
+      <Callout type="important" title="Which angles">
+        <p>
+          <Formula>{String.raw`i`}</Formula> and <Formula>{String.raw`r`}</Formula> are measured from the{" "}
+          <strong>normal</strong>, never from the surface.
+        </p>
+      </Callout>
+      <FormulaBlock
+        important
+        label="Snell&rsquo;s law of refraction"
+        tag="Eq. 9.10"
+        latex={String.raw`n_{21} = \frac{\sin i}{\sin r}`}
+      />
+      <p>
+        The constant <Formula>{String.raw`n_{21}`}</Formula> is the{" "}
+        <strong>refractive index of the second medium with respect to the first</strong>.
+      </p>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>It belongs to the pair.</strong> It is a characteristic of the two media together.
+        </li>
+        <li>
+          <strong>The wavelength matters.</strong> The value depends on the wavelength of the light used.
+        </li>
+        <li>
+          <strong>The angle does not.</strong> It is independent of the angle of incidence.
+        </li>
+      </ul>
+
+      <h3 id="h-9-3-bend">9.3.3 Which way the ray bends</h3>
+      <p>The size of <Formula>{String.raw`n_{21}`}</Formula> against 1 decides the direction of the bend.</p>
+      <TableCard
+        title="Bending towards or away from the normal"
+        headers={["Refractive index", "The ray", "The media"]}
+        rows={[
+          {
+            cells: [
+              "n₂₁ > 1",
+              "r < i — bends towards the normal",
+              "medium 2 is optically denser than medium 1",
+            ],
+          },
+          {
+            cells: [
+              "n₂₁ < 1",
+              "r > i — bends away from the normal",
+              "the light passes from a denser to a rarer medium",
+            ],
+          },
+        ]}
+      />
+
+      <h3 id="h-9-3-density">9.3.4 Optical density is not mass density</h3>
+      <p>
+        Optical density is the ratio of the speed of light in the two media. Mass density is mass per unit volume.
+      </p>
+      <MistakeCard
+        mistake="A liquid with a higher mass density must be the optically denser medium."
+        correction="The two densities measure different things and need not agree. An optically denser medium can have the lower mass density."
+        example="Turpentine has a lower mass density than water, but a higher optical density."
+      />
+
+      <h3 id="h-9-3-chain">9.3.5 Reversing the pair, and adding a third medium</h3>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Reverse the pair.</strong> <Formula>{String.raw`n_{12} = \frac{1}{n_{21}}`}</Formula>
+        </li>
+        <li>
+          <strong>Insert a third medium.</strong>{" "}
+          <Formula>{String.raw`n_{32} = n_{31} \times n_{12}`}</Formula>, where{" "}
+          <Formula>{String.raw`n_{31}`}</Formula> is the index of medium 3 with respect to medium 1.
+        </li>
+      </ul>
+
+      <h3 id="h-9-3-slab">9.3.6 A slab: no deviation, only a side-step</h3>
+      <p>A rectangular slab refracts twice — air to glass at the first face, glass to air at the second.</p>
+      <p>The faces are parallel, so the angles repeat:</p>
+      <FormulaBlock label="The emergent angle repeats the incident one" latex={String.raw`r_2 = i_1`} />
+      <p>
+        The emergent ray is therefore parallel to the incident ray. It suffers no deviation, but it is displaced
+        sideways (Fig. 9.9).
+      </p>
+      <PhysicsFigure spec={slabShift} />
+
+      <h3 id="h-9-3-depth">9.3.7 The bottom of the tank looks raised</h3>
+      <p>A familiar consequence: a tank full of water looks shallower than it is (Fig. 9.10).</p>
+      <p>For viewing near the normal direction, the apparent depth is the real depth divided by the refractive index:</p>
+      <FormulaBlock
+        important
+        label="Apparent depth"
+        latex={String.raw`h' = \frac{h}{n}`}
+      />
+      <PhysicsFigure spec={apparentDepth} />
     </>
   );
 }

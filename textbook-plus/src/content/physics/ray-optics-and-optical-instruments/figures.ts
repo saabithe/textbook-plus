@@ -10,6 +10,7 @@
 import {
   add,
   angleBetween,
+  angleOf,
   arcPoints,
   dir,
   dot,
@@ -17,19 +18,25 @@ import {
   polar,
   sub,
   unit,
+  vec,
   type Vec,
 } from "../../../components/content/physics/diagram/geometry.ts";
-import { reflect } from "../../../components/content/physics/diagram/optics.ts";
+import { reflect, traceRay, type RefractingBody } from "../../../components/content/physics/diagram/optics.ts";
 import {
   AXIS,
+  EMERGENT,
   GUIDE,
   INCIDENT,
   RAY,
+  REFLECTED,
+  VIRTUAL,
   angleMark,
   arrow,
+  body,
   dot as point,
   label,
   line,
+  normal,
   s,
   type Element,
   type FigureSpec,
@@ -733,7 +740,207 @@ export const mirrorEquationGeometry: FigureSpec = {
   ],
 };
 
+/* ────────────────────────────────────────────────────────────────────────
+ * 0. A ray against a beam (9.1: the ray picture)
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const RB_RAY_FROM: Vec = { x: 8, y: 26 };
+const RB_RAY_TO: Vec = { x: 58, y: 26 };
+const RB_SRC: Vec = { x: 82, y: 26 };
+const RB_FAN = [-28, -14, 0, 14, 28] as const;
+const RB_LEN = 40;
+const RB_TIPS: Vec[] = RB_FAN.map((a) => polar(RB_SRC, a, RB_LEN));
+
+export const rayAndBeam: FigureSpec = {
+  id: "ray-and-beam",
+  title: "A ray is one path; a beam is a bundle of rays",
+  alt:
+    "Left: a single straight arrow labelled 'a ray'. Right: a point source S sending five straight arrows fanning out to the right, labelled 'a beam' — a bundle of such rays.",
+  caption:
+    "A ray is the straight-line path a light wave is treated as taking. A beam is a bundle of rays: five are drawn from the source S, and every one of them is a straight line.",
+  frame: { width: 132, height: 68 },
+  elements: [
+    arrow(RB_RAY_FROM, RB_RAY_TO, RAY),
+    label({ x: 8, y: 38 }, "a ray", { anchor: "start", size: 3, color: "muted" }),
+    label({ x: 33, y: 14 }, "one straight path", { size: 2.7, color: "muted" }),
+    line({ x: 68, y: 6 }, { x: 68, y: 62 }, GUIDE),
+    ...RB_TIPS.map((tip, i) => arrow(RB_SRC, tip, i === 2 ? RAY : s("ray", 0.4))),
+    point(RB_SRC, 1.3, "ink"),
+    label({ x: 77, y: 26 }, "S", { anchor: "end", math: true, size: 3.2 }),
+    label({ x: 98, y: 58 }, "a beam", { size: 3, color: "muted" }),
+    label({ x: 98, y: 50 }, "a bundle of rays", { size: 2.7, color: "muted" }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "adjacent rays in the fan are 14° apart",
+      actual: angleBetween(sub(RB_TIPS[3], RB_SRC), sub(RB_TIPS[2], RB_SRC)),
+      expected: 14,
+      tol: 1e-6,
+    },
+    {
+      kind: "value",
+      label: "the middle ray is horizontal",
+      actual: angleBetween(sub(RB_TIPS[2], RB_SRC), { x: 1, y: 0 }),
+      expected: 0,
+      tol: 1e-6,
+    },
+  ],
+};
+
+/* ────────────────────────────────────────────────────────────────────────
+ * 0b. Refraction at a plane surface (9.3: the direction changes)
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const RS_DEG = Math.PI / 180;
+const RS_P: Vec = { x: 70, y: 34 };
+const RS_I = 45;
+const RS_N2 = 1.5;
+const RS_R = (Math.asin(Math.sin(RS_I * RS_DEG) / RS_N2) / RS_DEG) as number;
+const RS_IN: Vec = { x: RS_P.x - 30 * Math.sin(RS_I * RS_DEG), y: RS_P.y + 30 * Math.cos(RS_I * RS_DEG) };
+const RS_OUT: Vec = { x: RS_P.x + 30 * Math.sin(RS_R * RS_DEG), y: RS_P.y - 30 * Math.cos(RS_R * RS_DEG) };
+const RS_BACK: Vec = { x: RS_P.x + 22 * Math.sin(RS_I * RS_DEG), y: RS_P.y + 22 * Math.cos(RS_I * RS_DEG) };
+
+export const refractionAtSurface: FigureSpec = {
+  id: "refraction-plane-direction",
+  title: "Refraction at a plane surface: the ray bends towards the normal",
+  alt:
+    "A ray arriving from the upper left at 45 degrees to the normal bends at the interface to 28 degrees from the normal inside the denser medium, while a weak reflected ray leaves at 45 degrees.",
+  caption:
+    "The refracted ray bends towards the normal because the lower medium is optically denser. The weak ray reflected back into the first medium leaves at the same angle it arrived with, i = r.",
+  frame: { width: 132, height: 70 },
+  elements: [
+    body([{ x: 0, y: 0 }, { x: 132, y: 0 }, { x: 132, y: RS_P.y }, { x: 0, y: RS_P.y }], "glass"),
+    line({ x: 0, y: RS_P.y }, { x: 132, y: RS_P.y }, s("ink", 1.2)),
+    ...normal(RS_P, 90, 24, { text: "normal" }),
+    arrow(RS_IN, RS_P, INCIDENT),
+    arrow(RS_P, RS_BACK, REFLECTED),
+    arrow(RS_P, RS_OUT, EMERGENT),
+    ...angleMark(RS_P, 90, 135, { r: 10, label: "i", labelR: 14 }),
+    ...angleMark(RS_P, 270, 270 + RS_R, { r: 10, label: "r", labelR: 14, color: "ok" }),
+    label({ x: 6, y: 62 }, "medium 1", { anchor: "start", size: 3, color: "muted" }),
+    label({ x: 6, y: 14 }, "medium 2", { anchor: "start", size: 3, color: "muted" }),
+  ],
+  checks: [
+    { kind: "snell", i: RS_I, r: RS_R, n1: 1, n2: RS_N2 },
+    { kind: "reflect", i: RS_I, r: RS_I },
+  ],
+};
+
+/* ────────────────────────────────────────────────────────────────────────
+ * 0c. Apparent depth (9.3: the bottom of a tank looks raised)
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const AD_SURFACE = 46;
+const AD_O: Vec = { x: 78, y: 10 };
+const AD_I = 22;
+const AD_N = 4 / 3;
+const AD_R = (Math.asin(AD_N * Math.sin(AD_I * RS_DEG)) / RS_DEG) as number;
+const AD_P: Vec = {
+  x: AD_O.x + (AD_SURFACE - AD_O.y) * Math.tan(AD_I * RS_DEG),
+  y: AD_SURFACE,
+};
+const AD_OUT: Vec = { x: AD_P.x + 24 * Math.sin(AD_R * RS_DEG), y: AD_P.y + 24 * Math.cos(AD_R * RS_DEG) };
+const AD_IMAGE: Vec = {
+  x: AD_O.x,
+  y: AD_P.y - (AD_P.x - AD_O.x) / Math.tan(AD_R * RS_DEG),
+};
+
+export const apparentDepth: FigureSpec = {
+  id: "apparent-depth-water",
+  title: "Apparent depth: the bottom of the tank is seen higher than it is",
+  alt:
+    "A point O at the bottom of a tank sends a ray to the surface, where it bends away from the normal into the air; produced backwards, that ray meets the vertical through O at O′, above O.",
+  caption:
+    "The ray from O leaves the water and bends away from the normal. The eye traces it backwards and places the bottom at O′, shallower than O. For viewing near the normal, apparent depth is real depth divided by the refractive index.",
+  frame: { width: 132, height: 78 },
+  source: "Fig. 9.10",
+  elements: [
+    body([{ x: 44, y: 0 }, { x: 132, y: 0 }, { x: 132, y: AD_SURFACE }, { x: 44, y: AD_SURFACE }], "glass"),
+    line({ x: 44, y: AD_SURFACE }, { x: 132, y: AD_SURFACE }, s("ink", 1.2)),
+    ...normal(AD_P, 90, 26),
+    arrow(AD_O, AD_P, RAY),
+    arrow(AD_P, AD_OUT, EMERGENT),
+    line(AD_P, AD_IMAGE, VIRTUAL),
+    point(AD_O, 1.2, "ink"),
+    point(AD_IMAGE, 1.2, "warn"),
+    label({ x: 72, y: 10 }, "O", { anchor: "end", math: true, size: 3 }),
+    label({ x: 72, y: AD_IMAGE.y + 0.8 }, "O′", { anchor: "end", math: true, size: 3, color: "warn" }),
+    ...angleMark(AD_P, 270 - AD_I, 270, { r: 6, label: "i", labelR: 14 }),
+    ...angleMark(AD_P, 90 - AD_R, 90, { r: 6, label: "r", labelR: 13, color: "ok" }),
+    label({ x: 50, y: 70 }, "air", { anchor: "start", size: 3, color: "muted" }),
+    label({ x: 50, y: 26 }, "water", { anchor: "start", size: 3, color: "muted" }),
+    label({ x: 126, y: 71 }, "to the eye", { anchor: "end", size: 2.7, color: "muted" }),
+  ],
+  checks: [
+    { kind: "snell", i: AD_I, r: AD_R, n1: AD_N, n2: 1 },
+    {
+      kind: "value",
+      label: "O′ is shallower than O",
+      actual: AD_SURFACE - AD_IMAGE.y < AD_SURFACE - AD_O.y ? 1 : 0,
+      expected: 1,
+      tol: 1e-9,
+    },
+  ],
+};
+
+/* ────────────────────────────────────────────────────────────────────────
+ * 0d. A parallel-sided slab: no deviation, only a side-step (Fig. 9.9)
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const SLAB: RefractingBody = {
+  n: 1.5,
+  id: "slab-9-3",
+  polygon: [vec(48, 14), vec(88, 14), vec(88, 54), vec(48, 54)],
+};
+const SLAB_FROM: Vec = { x: 16, y: 68 };
+const SLAB_INCIDENCE = -30;
+const SLAB_TRACE = traceRay({ from: SLAB_FROM, angleDeg: SLAB_INCIDENCE, bodies: [SLAB], tail: 26 });
+const SLAB_IN = SLAB_TRACE.events[0];
+const SLAB_OUT = SLAB_TRACE.events[1];
+const SLAB_INSIDE = angleOf(SLAB_TRACE.points[1], SLAB_TRACE.points[2]);
+
+export const slabShift: FigureSpec = {
+  id: "slab-lateral-shift-9-3",
+  title: "Glass slab: parallel emergent ray, laterally shifted",
+  alt:
+    "A ray enters a rectangular glass slab at 30 degrees to the normal, bends to 19.5 degrees inside, leaves parallel to its original direction but shifted sideways; the un-deviated path is dashed.",
+  caption:
+    "Two refractions, equal and opposite, so r₂ = i₁: the emergent ray is parallel to the incident ray — not deviated, only displaced sideways. The dashed line is where it would have gone with no slab.",
+  frame: { width: 132, height: 84 },
+  source: "Fig. 9.9",
+  elements: [
+    body(SLAB.polygon),
+    arrow(SLAB_TRACE.points[0], SLAB_TRACE.points[1], INCIDENT),
+    arrow(SLAB_TRACE.points[1], SLAB_TRACE.points[2], s("ray", 0.5)),
+    arrow(SLAB_TRACE.points[2], SLAB_TRACE.points[3], EMERGENT),
+    line(SLAB_IN.at, add(SLAB_IN.at, mul(dir(SLAB_INCIDENCE), 58)), VIRTUAL),
+    ...normal(SLAB_IN.at, 0, 12),
+    ...normal(SLAB_OUT.at, 0, 10),
+    ...angleMark(SLAB_IN.at, angleOf(SLAB_IN.at, SLAB_FROM), 180, { r: 10, label: "i", labelR: 13.5 }),
+    ...angleMark(SLAB_IN.at, SLAB_INSIDE, 0, { r: 6, label: "r", labelR: 13 }),
+    label({ x: 8, y: 78 }, "air", { anchor: "start", size: 3.2, color: "muted" }),
+    label({ x: 68, y: 27 }, "glass", { anchor: "middle", size: 3.2, color: "muted" }),
+    label({ x: 68, y: 21 }, "n = 1.5", { anchor: "middle", size: 2.9, color: "muted" }),
+    label({ x: 128, y: 15 }, "∥ incident", { anchor: "end", size: 2.8, color: "ok" }),
+  ],
+  checks: [
+    { kind: "snell", i: 30, r: 19.47, n2: 1.5 },
+    {
+      kind: "value",
+      label: "emergent ∥ incident",
+      actual: Math.abs(SLAB_OUT.outDeg - SLAB_IN.inDeg),
+      expected: 0,
+      tol: 1e-9,
+    },
+  ],
+};
+
 export const RAY_OPTICS_FIGURES: readonly FigureSpec[] = [
+  rayAndBeam,
+  refractionAtSurface,
+  apparentDepth,
+  slabShift,
   planeReflection,
   concaveMirrorTerms,
   convexMirrorTerms,
