@@ -113,6 +113,15 @@ import { RouteChainCards } from "@/components/content/chemistry/RouteChainCards"
 import { PrepMethodCard } from "@/components/content/chemistry/PrepMethodCard";
 import { ReactionFormulaCard } from "@/components/content/chemistry/ReactionFormulaCard";
 import { ReactionOverviewCard } from "@/components/content/chemistry/ReactionOverviewCard";
+import { ReactivityOrderBoard } from "@/components/content/chemistry/ReactivityOrderBoard";
+import { AdditionOverviewTable } from "@/components/content/chemistry/AdditionOverviewTable";
+import { AdditionReactionCard } from "@/components/content/chemistry/AdditionReactionCard";
+import { CyanohydrinSpotlight } from "@/components/content/chemistry/CyanohydrinSpotlight";
+import { GrignardBranchFlow } from "@/components/content/chemistry/GrignardBranchFlow";
+import { AlcoholAdditionPaths } from "@/components/content/chemistry/AlcoholAdditionPaths";
+import { CondensationFlow } from "@/components/content/chemistry/CondensationFlow";
+import { NhDerivativeTable } from "@/components/content/chemistry/NhDerivativeTable";
+import { DnpIdentificationCard } from "@/components/content/chemistry/DnpIdentificationCard";
 
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -1666,6 +1675,215 @@ export default function DesignPage() {
           ]}
           catalyst="Anhydrous aluminium chloride (AlCl₃)"
           product="Aromatic ketones"
+        />
+      </Section>
+
+      <Section title="Chemistry — nucleophilic addition">
+        <ReactivityOrderBoard
+          formula={String.raw`\text{Reactivity} \propto \frac{1}{\text{Steric Effect} + \text{Electronic Effect (Inductive Effect)}}`}
+          cards={[
+            {
+              name: "Aldehydes",
+              structure: String.raw`\text{R–CHO}`,
+              groups: [{ label: "R", bulky: true }, { label: "H" }],
+              hindrance: "Less sterically hindered",
+              verdict: "More reactive",
+              tone: "higher",
+            },
+            {
+              name: "Ketones",
+              structure: String.raw`\text{R}_2\text{C=O}`,
+              groups: [
+                { label: "R", bulky: true },
+                { label: "R", bulky: true },
+              ],
+              hindrance: "More sterically crowded",
+              verdict: "Less reactive",
+              tone: "lower",
+            },
+          ]}
+          takeaway="Aldehydes > Ketones"
+        />
+
+        <AdditionOverviewTable
+          rows={[
+            { reagent: "HCN", aldehydes: true, ketones: true, product: "Cyanohydrin" },
+            {
+              reagent: (
+                <>
+                  NaHSO<sub>3</sub>
+                </>
+              ),
+              aldehydes: true,
+              ketones: "Limited (steric)",
+              product: "Bisulphite addition product",
+            },
+            {
+              reagent: "Grignard reagent (RMgX)",
+              aldehydes: true,
+              ketones: true,
+              product: "Alcohols",
+            },
+            {
+              reagent: <>Alcohols (R–OH)</>,
+              aldehydes: "Aldehydes only",
+              ketones: "Via glycol",
+              product: "Hemiacetal / Acetal / Ketal",
+            },
+            {
+              reagent: (
+                <>
+                  NH<sub>3</sub> & derivatives
+                </>
+              ),
+              aldehydes: true,
+              ketones: true,
+              product: "Nitrogen derivatives",
+            },
+          ]}
+        />
+
+        <AdditionReactionCard
+          title="Addition of HCN"
+          reactants={["Aldehyde or ketone", "HCN"]}
+          mechanism={[
+            <>
+              Cyanide ion (CN<sup>−</sup>) attacks the carbonyl carbon.
+            </>,
+            "Protonation follows.",
+          ]}
+          product="Cyanohydrin"
+          productExtra={
+            <CyanohydrinSpotlight
+              equation={String.raw`\mathrm{R_2C(OH)(CN)}`}
+              groups={[
+                { symbol: "–OH", label: "Hydroxyl" },
+                { symbol: "–CN", label: "Cyano" },
+              ]}
+              cases={[
+                {
+                  family: "Aldehyde",
+                  equation: String.raw`\text{R–CH(OH)CN}`,
+                  groups: "R and H",
+                },
+                {
+                  family: "Ketone",
+                  equation: String.raw`\mathrm{R_2C(OH)CN}`,
+                  groups: "R and R",
+                },
+              ]}
+            />
+          }
+          facts={[
+            "For aldehydes, one of the groups is H; for ketones, both groups are R groups.",
+          ]}
+        />
+
+        <AdditionReactionCard
+          title="Addition of sodium hydrogen sulphite (NaHSO₃)"
+          reactants={[
+            "Aldehyde or ketone (sterically unhindered)",
+            <>
+              NaHSO<sub>3</sub>
+            </>,
+          ]}
+          mechanism={["Nucleophilic attack", "Proton transfer"]}
+          product="Bisulphite addition compound"
+          facts={["Crystalline solid."]}
+          application="Separation and purification"
+        />
+
+        <GrignardBranchFlow
+          title="Products depend on the carbonyl compound"
+          source="Carbonyl compound + Grignard reagent (RMgX)"
+          branches={[
+            { family: "Formaldehyde", degree: "1°", product: "Alcohol" },
+            { family: "Other aldehydes", degree: "2°", product: "Alcohol" },
+            { family: "Ketones", degree: "3°", product: "Alcohol" },
+          ]}
+          note="Reference — Preparation of alcohols."
+        />
+
+        <AlcoholAdditionPaths
+          aldehyde={[
+            {
+              label: "Step 1 · Hemiacetal formation",
+              equation: String.raw`\text{Aldehyde} + 1\ \text{eq. R-OH} \longrightarrow \text{Hemiacetal}`,
+              note: "Unstable intermediate",
+              tone: "intermediate",
+            },
+            {
+              label: "Step 2 · Acetal formation",
+              equation: String.raw`\text{Aldehyde} + 2\ \text{eq. R-OH} \xrightarrow{\text{Dry HCl}} \text{Acetal}`,
+              tone: "product",
+            },
+          ]}
+          ketone={{
+            note: "Do not react directly with mono-alcohols efficiently.",
+            reagent: "Ethylene glycol",
+            reagentEquation: String.raw`\mathrm{HO-CH_2-CH_2-OH}`,
+            equation: String.raw`\text{Ketone} + \text{Ethylene glycol} \longrightarrow \text{Cyclic Ketal}`,
+          }}
+        />
+
+        <CondensationFlow
+          startFormula={
+            <>
+              &gt;C=O + H<sub>2</sub>N–Z
+            </>
+          }
+          intermediate="Addition intermediate"
+          keyPoints={[
+            <>
+              H<sub>2</sub>N–Z nucleophiles add reversibly to the carbonyl group.
+            </>,
+            "Reaction occurs under acid catalysis.",
+            "Water is eliminated rapidly.",
+            "Produces C=N–Z derivatives.",
+          ]}
+        />
+
+        <NhDerivativeTable
+          rows={[
+            {
+              reagent: (
+                <>
+                  Ammonia (NH<sub>3</sub>)
+                </>
+              ),
+              group: "–H",
+              product: "Imine",
+            },
+            {
+              reagent: (
+                <>
+                  Hydroxylamine (NH<sub>2</sub>OH)
+                </>
+              ),
+              group: "–OH",
+              product: "Oxime",
+            },
+            {
+              reagent: (
+                <>
+                  Phenylhydrazine (NH<sub>2</sub>NH–Ph)
+                </>
+              ),
+              group: (
+                <>
+                  –NH–C<sub>6</sub>H<sub>5</sub>
+                </>
+              ),
+              product: "Phenylhydrazone",
+            },
+          ]}
+        />
+
+        <DnpIdentificationCard
+          title="2,4-Dinitrophenylhydrazone"
+          reagent="2,4-Dinitrophenylhydrazine (2,4-DNP)"
+          product="2,4-DNP derivative"
+          colours={["yellow", "orange", "red"]}
         />
       </Section>
 

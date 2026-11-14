@@ -66,7 +66,7 @@ interface MethodSectionTabsProps {
 }
 
 /**
- * MethodSectionTabs — the one-of-three navigator used where a chapter splits a
+ * MethodSectionTabs — the one-of-N navigator used where a chapter splits a
  * topic into scopes (methods common to both families, then the routes that only
  * one family takes). Each tab is a card carrying its numeral, label and scope
  * line, with its own accent; the selected section renders alone in the panel
@@ -78,6 +78,12 @@ export function MethodSectionTabs({ label, panes }: MethodSectionTabsProps) {
 
   const pane = panes[active];
   const accent = ACCENT[pane.accent];
+  const grid =
+    panes.length >= 4
+      ? "grid-cols-2 lg:grid-cols-4"
+      : panes.length === 2
+        ? "grid-cols-2"
+        : "sm:grid-cols-3";
 
   function goTo(next: number, focusTab = false) {
     const clamped = Math.max(0, Math.min(panes.length - 1, next));
@@ -106,7 +112,7 @@ export function MethodSectionTabs({ label, panes }: MethodSectionTabsProps) {
         role="tablist"
         aria-label={label}
         onKeyDown={handleKeyDown}
-        className="grid gap-2 sm:grid-cols-3"
+        className={cn("grid gap-2", grid)}
       >
         {panes.map((item, index) => {
           const itemAccent = ACCENT[item.accent];

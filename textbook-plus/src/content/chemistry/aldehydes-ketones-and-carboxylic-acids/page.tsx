@@ -29,6 +29,15 @@ import { PrepMethodCard } from "@/components/content/chemistry/PrepMethodCard";
 import { ReactionFormulaCard } from "@/components/content/chemistry/ReactionFormulaCard";
 import { ReactionOverviewCard } from "@/components/content/chemistry/ReactionOverviewCard";
 import { ReactionPathway } from "@/components/content/chemistry/ReactionPathway";
+import { ReactivityOrderBoard } from "@/components/content/chemistry/ReactivityOrderBoard";
+import { AdditionOverviewTable } from "@/components/content/chemistry/AdditionOverviewTable";
+import { AdditionReactionCard } from "@/components/content/chemistry/AdditionReactionCard";
+import { CyanohydrinSpotlight } from "@/components/content/chemistry/CyanohydrinSpotlight";
+import { GrignardBranchFlow } from "@/components/content/chemistry/GrignardBranchFlow";
+import { AlcoholAdditionPaths } from "@/components/content/chemistry/AlcoholAdditionPaths";
+import { CondensationFlow } from "@/components/content/chemistry/CondensationFlow";
+import { NhDerivativeTable } from "@/components/content/chemistry/NhDerivativeTable";
+import { DnpIdentificationCard } from "@/components/content/chemistry/DnpIdentificationCard";
 
 export default function AldehydesKetonesCarboxylicAcidsChapter() {
   return (
@@ -1048,168 +1057,310 @@ export default function AldehydesKetonesCarboxylicAcidsChapter() {
 
       <h2 id="h-8-4">8.4 Chemical Reactions</h2>
 
-      <p>
-        Because both aldehydes and ketones carry the carbonyl group, they undergo similar
-        chemical reactions.
-      </p>
+      <h3 id="h-8-4-1">Nucleophilic addition reactions</h3>
 
-      <h3 id="h-8-4-1">1. Nucleophilic addition reactions</h3>
-
-      <p>
-        Contrary to the electrophilic additions of alkenes, aldehydes and ketones undergo{" "}
-        <strong>nucleophilic addition</strong>.
-      </p>
-
-      <ProcessCard
-        title="Mechanism of nucleophilic addition"
-        steps={[
+      <MethodSectionTabs
+        label="Nucleophilic addition of aldehydes and ketones"
+        panes={[
           {
-            label: "Attack from above or below the plane",
-            description:
-              "A nucleophile attacks the electrophilic carbonyl carbon from a direction approximately perpendicular to the plane of the sp² orbitals.",
+            id: "nucleophilic-reactivity",
+            numeral: "I",
+            label: "Reactivity Order",
+            caption: "Why aldehydes react faster than ketones",
+            accent: "chemistry",
+            content: (
+              <ReactivityOrderBoard
+                formula={String.raw`\text{Reactivity} \propto \frac{1}{\text{Steric Effect} + \text{Electronic Effect (Inductive Effect)}}`}
+                cards={[
+                  {
+                    name: "Aldehydes",
+                    structure: String.raw`\text{R–CHO}`,
+                    groups: [{ label: "R", bulky: true }, { label: "H" }],
+                    hindrance: "Less sterically hindered",
+                    verdict: "More reactive",
+                    tone: "higher",
+                  },
+                  {
+                    name: "Ketones",
+                    structure: String.raw`\text{R}_2\text{C=O}`,
+                    groups: [
+                      { label: "R", bulky: true },
+                      { label: "R", bulky: true },
+                    ],
+                    hindrance: "More sterically crowded",
+                    verdict: "Less reactive",
+                    tone: "lower",
+                  },
+                ]}
+                takeaway="Aldehydes > Ketones"
+              />
+            ),
           },
           {
-            label: "sp² → sp³",
-            description:
-              "The hybridisation of the carbonyl carbon changes from sp² to sp³ and a tetrahedral alkoxide intermediate is produced.",
+            id: "nucleophilic-overview",
+            numeral: "II",
+            label: "Reaction Overview",
+            caption: "Reagent, applicability and product",
+            accent: "ink",
+            content: (
+              <AdditionOverviewTable
+                rows={[
+                  {
+                    reagent: "HCN",
+                    aldehydes: true,
+                    ketones: true,
+                    product: "Cyanohydrin",
+                  },
+                  {
+                    reagent: (
+                      <>
+                        NaHSO<sub>3</sub>
+                      </>
+                    ),
+                    aldehydes: true,
+                    ketones: "Limited (steric)",
+                    product: "Bisulphite addition product",
+                  },
+                  {
+                    reagent: "Grignard reagent (RMgX)",
+                    aldehydes: true,
+                    ketones: true,
+                    product: "Alcohols",
+                  },
+                  {
+                    reagent: <>Alcohols (R–OH)</>,
+                    aldehydes: "Aldehydes only",
+                    ketones: "Via glycol",
+                    product: "Hemiacetal / Acetal / Ketal",
+                  },
+                  {
+                    reagent: (
+                      <>
+                        NH<sub>3</sub> & derivatives
+                      </>
+                    ),
+                    aldehydes: true,
+                    ketones: true,
+                    product: "Nitrogen derivatives",
+                  },
+                ]}
+              />
+            ),
           },
           {
-            label: "Protonation",
-            description:
-              "The alkoxide takes a proton from the reaction medium to give the electrically neutral product.",
-          },
-          {
-            label: "Net result",
-            description:
-              "Nu⁻ and H⁺ are added across the carbon–oxygen double bond.",
-          },
-        ]}
-      />
+            id: "nucleophilic-detailed",
+            numeral: "III",
+            label: "Nucleophilic Addition Reactions",
+            caption: "HCN, bisulphite, Grignard, alcohols",
+            accent: "chemistry",
+            content: (
+              <>
+                <AdditionReactionCard
+                  title="Addition of HCN"
+                  reactants={["Aldehyde or ketone", "HCN"]}
+                  mechanism={[
+                    <>
+                      Cyanide ion (CN<sup>−</sup>) attacks the carbonyl carbon.
+                    </>,
+                    "Protonation follows.",
+                  ]}
+                  product="Cyanohydrin"
+                  productExtra={
+                    <CyanohydrinSpotlight
+                      equation={String.raw`\mathrm{R_2C(OH)(CN)}`}
+                      groups={[
+                        { symbol: "–OH", label: "Hydroxyl" },
+                        { symbol: "–CN", label: "Cyano" },
+                      ]}
+                      cases={[
+                        {
+                          family: "Aldehyde",
+                          equation: String.raw`\text{R–CH(OH)CN}`,
+                          groups: "R and H",
+                        },
+                        {
+                          family: "Ketone",
+                          equation: String.raw`\mathrm{R_2C(OH)CN}`,
+                          groups: "R and R",
+                        },
+                      ]}
+                    />
+                  }
+                  facts={[
+                    "For aldehydes, one of the groups is H; for ketones, both groups are R groups.",
+                  ]}
+                />
 
-      <FormulaBlock
-        latex={String.raw`\text{>C=O} + \text{Nu}^{-} \longrightarrow \text{tetrahedral alkoxide} \xrightarrow{\text{H}^{+}} \text{>C(OH)(Nu)}`}
-        label="Nucleophilic addition"
-      />
+                <AdditionReactionCard
+                  title="Addition of sodium hydrogen sulphite (NaHSO₃)"
+                  reactants={[
+                    "Aldehyde or ketone (sterically unhindered)",
+                    <>
+                      NaHSO<sub>3</sub>
+                    </>,
+                  ]}
+                  mechanism={["Nucleophilic attack", "Proton transfer"]}
+                  product="Bisulphite addition compound"
+                  facts={["Crystalline solid."]}
+                  application="Separation and purification"
+                />
 
-      <KeyPoint title="Reactivity: aldehydes beat ketones">
-        <p>
-          Aldehydes are generally <strong>more reactive than ketones</strong> towards
-          nucleophilic addition, for two reasons:
-        </p>
-        <ul>
-          <li>
-            <strong>Steric</strong> — two relatively large substituents in a ketone hinder the
-            approach of the nucleophile; an aldehyde has only one such substituent.
-          </li>
-          <li>
-            <strong>Electronic</strong> — two alkyl groups reduce the electrophilicity of the
-            carbonyl carbon more effectively than one does.
-          </li>
-        </ul>
-      </KeyPoint>
+                <GrignardBranchFlow
+                  title="Products depend on the carbonyl compound"
+                  source="Carbonyl compound + Grignard reagent (RMgX)"
+                  branches={[
+                    { family: "Formaldehyde", degree: "1°", product: "Alcohol" },
+                    { family: "Other aldehydes", degree: "2°", product: "Alcohol" },
+                    { family: "Ketones", degree: "3°", product: "Alcohol" },
+                  ]}
+                  note="Reference — Preparation of alcohols."
+                />
 
-      <Expandable title="Example 8.3 — Benzaldehyde or propanal: which is more reactive?" variant="example">
-        <p>
-          <strong>Problem:</strong> Would you expect benzaldehyde to be more or less reactive
-          than propanal in nucleophilic addition reactions? Explain.
-        </p>
-        <p>
-          <strong>Solution:</strong> <strong>Less reactive.</strong> The carbonyl carbon of
-          benzaldehyde is less electrophilic than that of propanal, because the polarity of
-          the carbonyl group is reduced by resonance with the ring:
-        </p>
-        <FormulaBlock
-          latex={String.raw`\text{C}_6\text{H}_5\text{CH=O} \ \longleftrightarrow \ \text{C}_6\text{H}_5\text{CH}^{+}-\text{O}^{-}`}
-        />
-        <p>
-          The ring donates electron density into the carbonyl group, so the partial positive
-          charge on carbon is smaller and the nucleophile attacks more slowly.
-        </p>
-      </Expandable>
-
-      <h3 id="h-8-4-2">2. Important addition reactions</h3>
-
-      <EquationLadder
-        title="Nucleophilic addition at the carbonyl carbon"
-        steps={[
-          {
-            label: "Hydrogen cyanide → cyanohydrin",
-            equation: String.raw`\text{R}_2\text{C=O} + \text{HCN} \xrightarrow{\text{base}} \text{R}_2\text{C(OH)CN}`,
-            note: "The reaction is very slow with pure HCN, so it is catalysed by a base; the CN⁻ generated is a stronger nucleophile. Cyanohydrins are useful synthetic intermediates.",
+                <AlcoholAdditionPaths
+                  aldehyde={[
+                    {
+                      label: "Step 1 · Hemiacetal formation",
+                      equation: String.raw`\text{Aldehyde} + 1\ \text{eq. R-OH} \longrightarrow \text{Hemiacetal}`,
+                      note: "Unstable intermediate",
+                      tone: "intermediate",
+                    },
+                    {
+                      label: "Step 2 · Acetal formation",
+                      equation: String.raw`\text{Aldehyde} + 2\ \text{eq. R-OH} \xrightarrow{\text{Dry HCl}} \text{Acetal}`,
+                      tone: "product",
+                    },
+                  ]}
+                  ketone={{
+                    note: "Do not react directly with mono-alcohols efficiently.",
+                    reagent: "Ethylene glycol",
+                    reagentEquation: String.raw`\mathrm{HO-CH_2-CH_2-OH}`,
+                    equation: String.raw`\text{Ketone} + \text{Ethylene glycol} \longrightarrow \text{Cyclic Ketal}`,
+                  }}
+                />
+              </>
+            ),
           },
           {
-            label: "Sodium hydrogensulphite → bisulphite addition product",
-            equation: String.raw`\text{R}_2\text{C=O} + \text{NaHSO}_3 \longrightarrow \text{R}_2\text{C(OH)SO}_3\text{Na}`,
-            note: "The equilibrium lies largely to the right for most aldehydes and to the left for most ketones, for steric reasons. The adduct is water soluble and is reversed by dilute mineral acid or alkali — so it is used to separate and purify aldehydes.",
-          },
-          {
-            label: "Alcohol (one equivalent) → hemiacetal",
-            equation: String.raw`\text{RCHO} + \text{R}'\text{OH} \xrightarrow{\text{dry HCl}} \text{RCH(OH)OR}'`,
-            note: "Dry HCl protonates the carbonyl oxygen and increases the electrophilicity of the carbonyl carbon.",
-          },
-          {
-            label: "A second alcohol → acetal",
-            equation: String.raw`\text{RCH(OH)OR}' + \text{R}'\text{OH} \longrightarrow \text{RCH(OR}')_2 + \text{H}_2\text{O}`,
-            note: "The gem-dialkoxy compound is an acetal. Ketones with ethylene glycol give cyclic ethylene glycol ketals under the same conditions.",
-          },
-          {
-            label: "Aqueous mineral acid reverses it",
-            equation: String.raw`\text{RCH(OR}')_2 + \text{H}_2\text{O} \xrightarrow{\text{H}^{+}} \text{RCHO} + 2\,\text{R}'\text{OH}`,
-            note: "Acetals and ketals are hydrolysed back to the corresponding aldehyde and ketone.",
-            final: true,
+            id: "nucleophilic-nh3",
+            numeral: "IV",
+            label: "NH₃ Derivatives",
+            caption: "Addition–elimination with H₂N–Z",
+            accent: "warning",
+            content: (
+              <>
+                <p className="t-micro">
+                  Nucleophilic addition–elimination / condensation
+                </p>
+
+                <CondensationFlow
+                  startFormula={
+                    <>
+                      &gt;C=O + H<sub>2</sub>N–Z
+                    </>
+                  }
+                  intermediate="Addition intermediate"
+                  keyPoints={[
+                    <>
+                      H<sub>2</sub>N–Z nucleophiles add reversibly to the carbonyl
+                      group.
+                    </>,
+                    "Reaction occurs under acid catalysis.",
+                    "Water is eliminated rapidly.",
+                    "Produces C=N–Z derivatives.",
+                  ]}
+                />
+
+                <NhDerivativeTable
+                  rows={[
+                    {
+                      reagent: (
+                        <>
+                          Ammonia (NH<sub>3</sub>)
+                        </>
+                      ),
+                      group: "–H",
+                      product: "Imine",
+                    },
+                    {
+                      reagent: (
+                        <>
+                          Primary amine (R–NH<sub>2</sub>)
+                        </>
+                      ),
+                      group: "–R",
+                      product: "Schiff's base",
+                    },
+                    {
+                      reagent: (
+                        <>
+                          Hydroxylamine (NH<sub>2</sub>OH)
+                        </>
+                      ),
+                      group: "–OH",
+                      product: "Oxime",
+                    },
+                    {
+                      reagent: (
+                        <>
+                          Hydrazine (NH<sub>2</sub>NH<sub>2</sub>)
+                        </>
+                      ),
+                      group: (
+                        <>
+                          –NH<sub>2</sub>
+                        </>
+                      ),
+                      product: "Hydrazone",
+                    },
+                    {
+                      reagent: (
+                        <>
+                          Phenylhydrazine (NH<sub>2</sub>NH–Ph)
+                        </>
+                      ),
+                      group: (
+                        <>
+                          –NH–C<sub>6</sub>H<sub>5</sub>
+                        </>
+                      ),
+                      product: "Phenylhydrazone",
+                    },
+                    {
+                      reagent: "2,4-Dinitrophenylhydrazine (2,4-DNP)",
+                      group: (
+                        <>
+                          –NH–C<sub>6</sub>H<sub>3</sub>(NO<sub>2</sub>)<sub>2</sub>
+                        </>
+                      ),
+                      product: "2,4-DNP derivative",
+                    },
+                    {
+                      reagent: "Semicarbazide",
+                      group: (
+                        <>
+                          –NHCONH<sub>2</sub>
+                        </>
+                      ),
+                      product: "Semicarbazone",
+                    },
+                  ]}
+                />
+
+                <DnpIdentificationCard
+                  title="2,4-Dinitrophenylhydrazone"
+                  reagent="2,4-Dinitrophenylhydrazine (2,4-DNP)"
+                  product="2,4-DNP derivative"
+                  colours={["yellow", "orange", "red"]}
+                />
+              </>
+            ),
           },
         ]}
       />
 
       
 
-      <h4 className="mt-5 mb-2 text-base font-bold">Addition of ammonia and its derivatives</h4>
-
-      <p>
-        Nucleophiles of the type H<sub>2</sub>N–Z add to the carbonyl group. The reaction is
-        reversible and acid-catalysed; the equilibrium favours the product because the
-        intermediate dehydrates rapidly to &gt;C=N–Z.
-      </p>
-
-      <FormulaBlock
-        latex={String.raw`\text{R}_2\text{C=O} + \text{H}_2\text{N-Z} \ \rightleftharpoons \ \text{R}_2\text{C=N-Z} + \text{H}_2\text{O}`}
-        label="General condensation with H₂N–Z"
-      />
-
-      <TableCard
-        title="Table 8.2: Some N-substituted derivatives of aldehydes and ketones (>C=N–Z)"
-        headers={["Z", "Reagent name", "Carbonyl derivative", "Product name"]}
-        rows={[
-          { cells: ["–H", "Ammonia", "Imine", "Imine"] },
-          { cells: ["–R", "Amine", "Substituted imine", "Schiff's base"] },
-          { cells: ["–OH", "Hydroxylamine", "Oxime", "Oxime"] },
-          { cells: ["–NH₂", "Hydrazine", "Hydrazone", "Hydrazone"] },
-          {
-            cells: ["–C₆H₅NH", "Phenylhydrazine", "Phenylhydrazone", "Phenylhydrazone"],
-          },
-          {
-            cells: [
-              "–NHCONH₂",
-              "Semicarbazide",
-              "Semicarbazone",
-              "Semicarbazone",
-            ],
-          },
-          {
-            cells: [
-              "2,4-dinitrophenyl",
-              "2,4-Dinitrophenylhydrazine",
-              "2,4-DNP derivative",
-              "2,4-Dinitrophenylhydrazone",
-            ],
-          },
-        ]}
-        caption="2,4-DNP derivatives are yellow, orange or red solids — useful for characterising aldehydes and ketones."
-      />
-
-      
-
-      <h3 id="h-8-4-3">3. Reduction</h3>
+      <h3 id="h-8-4-3">Reduction</h3>
 
       <Comparison
         columns={[
@@ -1259,7 +1410,7 @@ export default function AldehydesKetonesCarboxylicAcidsChapter() {
         label="Wolff–Kishner reduction"
       />
 
-      <h3 id="h-8-4-4">4. Oxidation</h3>
+      <h3 id="h-8-4-4">Oxidation</h3>
 
       <p>
         This is where aldehydes and ketones part ways. Aldehydes are <strong>easily
@@ -1372,7 +1523,7 @@ export default function AldehydesKetonesCarboxylicAcidsChapter() {
         />
       </Expandable>
 
-      <h3 id="h-8-4-5">5. Reactions due to α-hydrogens</h3>
+      <h3 id="h-8-4-5">Reactions due to α-hydrogens</h3>
 
       <p>
         The α-hydrogens of aldehydes and ketones are <strong>acidic</strong>. The acidity comes
@@ -1406,7 +1557,7 @@ export default function AldehydesKetonesCarboxylicAcidsChapter() {
         </p>
       </Callout>
 
-      <h3 id="h-8-4-6">6. Other reactions</h3>
+      <h3 id="h-8-4-6">Other reactions</h3>
 
       <KeyPoint title="Cannizzaro reaction">
         <p>

@@ -2016,6 +2016,33 @@
     "renderable": true
   },
   {
+    "id": "content/chemistry/AdditionOverviewTable.tsx#AdditionOverviewTable",
+    "name": "AdditionOverviewTable",
+    "path": "content/chemistry/AdditionOverviewTable.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; rows: OverviewRow[]; caption?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/AdditionReactionCard.tsx#AdditionReactionCard",
+    "name": "AdditionReactionCard",
+    "path": "content/chemistry/AdditionReactionCard.tsx",
+    "category": "chemistry",
+    "props": "title: ReactNode; tag?: ReactNode; reactants: ReactNode[]; mechanism?: ReactNode[]; product: ReactNode; productEquation?: string; productExtra?: ReactNode; facts?: ReactNode[]; application?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/AlcoholAdditionPaths.tsx#AlcoholAdditionPaths",
+    "name": "AlcoholAdditionPaths",
+    "path": "content/chemistry/AlcoholAdditionPaths.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; aldehyde: AlcoholStage[]; ketone: KetoneAlcoholRoute;",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/AlcoholTypeCards.tsx#AlcoholTypeCards",
     "name": "AlcoholTypeCards",
     "path": "content/chemistry/AlcoholTypeCards.tsx",
@@ -2151,6 +2178,15 @@
     "renderable": true
   },
   {
+    "id": "content/chemistry/CondensationFlow.tsx#CondensationFlow",
+    "name": "CondensationFlow",
+    "path": "content/chemistry/CondensationFlow.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; startFormula: ReactNode; intermediate: ReactNode; intermediateNote?: ReactNode; keyPoints: ReactNode[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/ConditionColumns.tsx#ConditionColumns",
     "name": "ConditionColumns",
     "path": "content/chemistry/ConditionColumns.tsx",
@@ -2169,6 +2205,15 @@
     "renderable": true
   },
   {
+    "id": "content/chemistry/CyanohydrinSpotlight.tsx#CyanohydrinSpotlight",
+    "name": "CyanohydrinSpotlight",
+    "path": "content/chemistry/CyanohydrinSpotlight.tsx",
+    "category": "chemistry",
+    "props": "label?: ReactNode; equation: string; groups: CyanohydrinGroup[]; cases: CyanohydrinCase[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/DdTransitionFlow.tsx#DdTransitionFlow",
     "name": "DdTransitionFlow",
     "path": "content/chemistry/DdTransitionFlow.tsx",
@@ -2183,6 +2228,15 @@
     "path": "content/chemistry/DenaturationCard.tsx",
     "category": "chemistry",
     "props": "title?: ReactNode; tag?: ReactNode; definition: ReactNode; additives: Denaturant[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/DnpIdentificationCard.tsx#DnpIdentificationCard",
+    "name": "DnpIdentificationCard",
+    "path": "content/chemistry/DnpIdentificationCard.tsx",
+    "category": "chemistry",
+    "props": "title: ReactNode; reagent: ReactNode; product: ReactNode; colours: DnpColour[];",
     "shell": false,
     "renderable": true
   },
@@ -2246,6 +2300,15 @@
     "path": "content/chemistry/GreekPositionLadder.tsx",
     "category": "chemistry",
     "props": "title?: ReactNode; anchor: ReactNode; anchorNote?: ReactNode; left?: GreekPosition[]; right: GreekPosition[]; note?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/GrignardBranchFlow.tsx#GrignardBranchFlow",
+    "name": "GrignardBranchFlow",
+    "path": "content/chemistry/GrignardBranchFlow.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; source: ReactNode; branches: GrignardBranch[]; note?: ReactNode;",
     "shell": false,
     "renderable": true
   },
@@ -2354,6 +2417,15 @@
     "path": "content/chemistry/NamingSystemCards.tsx",
     "category": "chemistry",
     "props": "systems: NamingSystem[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/NhDerivativeTable.tsx#NhDerivativeTable",
+    "name": "NhDerivativeTable",
+    "path": "content/chemistry/NhDerivativeTable.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; rows: NhDerivativeRow[]; caption?: ReactNode;",
     "shell": false,
     "renderable": true
   },
@@ -2516,6 +2588,15 @@
     "path": "content/chemistry/ReactivityModeCards.tsx",
     "category": "chemistry",
     "props": "title?: ReactNode; cards: ReactivityMode[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/ReactivityOrderBoard.tsx#ReactivityOrderBoard",
+    "name": "ReactivityOrderBoard",
+    "path": "content/chemistry/ReactivityOrderBoard.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; formula: string; cards: ReactivityCard[]; takeaway: ReactNode;",
     "shell": false,
     "renderable": true
   },
