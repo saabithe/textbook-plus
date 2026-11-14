@@ -21,7 +21,7 @@ import {
   vec,
   type Vec,
 } from "../../../components/content/physics/diagram/geometry.ts";
-import { reflect, traceRay, type RefractingBody } from "../../../components/content/physics/diagram/optics.ts";
+import { criticalAngleDeg, reflect, refract, traceRay, type RefractingBody } from "../../../components/content/physics/diagram/optics.ts";
 import {
   AXIS,
   EMERGENT,
@@ -29,6 +29,7 @@ import {
   INCIDENT,
   RAY,
   REFLECTED,
+  THIN,
   VIRTUAL,
   angleMark,
   arrow,
@@ -936,11 +937,166 @@ export const slabShift: FigureSpec = {
   ],
 };
 
+/* ────────────────────────────────────────────────────────────────────────
+ * 0e. Total internal reflection: one source, four angles (Fig. 9.11)
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const TI_N = 1.33;
+const TI_SURF = 58;
+const TI_A: Vec = { x: 24, y: 12 };
+const TI_IC_DEG = criticalAngleDeg(TI_N, 1)!;
+const TI_ANGLES: readonly number[] = [20, 35, TI_IC_DEG, 60];
+
+const TI_RAYS = TI_ANGLES.map((i) => {
+  const P: Vec = { x: TI_A.x + (TI_SURF - TI_A.y) * Math.tan(i * RS_DEG), y: TI_SURF };
+  const d = sub(P, TI_A);
+  return { i, P, d, out: refract(d, { x: 0, y: 1 }, TI_N, 1), back: reflect(d, { x: 0, y: 1 }) };
+});
+
+/** The ray that grazes: its emergent direction lies along the interface. */
+const TI_GRAZE = TI_RAYS[2];
+const TI_CRIT = TI_GRAZE.out.angleOfRefraction;
+
+export const totalInternalReflection: FigureSpec = {
+  id: "total-internal-reflection-water",
+  title: "Rays from A: partial refraction, grazing, then total internal reflection",
+  alt:
+    "Four rays leave a point A under water at increasing angles to the normal. The first two split into a refracted ray in the air and a weaker reflected ray in the water; the third, at the critical angle, sends its refracted ray along the surface; the fourth is entirely reflected back into the water.",
+  caption:
+    "Rays from A in water, at increasing angles of incidence. The first two split — part refracted into the air, part reflected back into the water. At the critical angle the refracted ray grazes the surface. Past it there is no refracted ray at all: total internal reflection.",
+  frame: { width: 140, height: 84 },
+  source: "Fig. 9.11",
+  elements: [
+    body([{ x: 8, y: 8 }, { x: 136, y: 8 }, { x: 136, y: TI_SURF }, { x: 8, y: TI_SURF }], "glass"),
+    line({ x: 8, y: TI_SURF }, { x: 136, y: TI_SURF }, s("ink", 1.2)),
+    ...TI_RAYS.map((ray) => arrow(TI_A, ray.P, RAY)),
+    ...TI_RAYS.map((ray) => {
+      const end = add(ray.P, mul(ray.back, 15));
+      return arrow(ray.P, end, ray.out.tir ? s("hot", 0.7) : REFLECTED);
+    }),
+    ...TI_RAYS.map((ray) =>
+      ray.out.dir ? [arrow(ray.P, add(ray.P, mul(ray.out.dir, 22)), EMERGENT)] : [],
+    ).flat(),
+    point(TI_A, 1.3, "ink"),
+    label({ x: 19, y: 12 }, "A", { anchor: "end", math: true, size: 3.2 }),
+    label({ x: 12, y: 52 }, "water", { anchor: "start", size: 3.2, color: "muted" }),
+    label({ x: 12, y: 74 }, "air", { anchor: "start", size: 3.2, color: "muted" }),
+    ...angleMark(TI_GRAZE.P, 270 - TI_GRAZE.out.angleOfIncidence, 270, { r: 7, label: "i_c", labelR: 11 }),
+    label({ x: 96, y: 63 }, "r = 90°", { anchor: "middle", size: 2.8, color: "ok" }),
+    label({ x: 134, y: 26 }, "totally reflected", { anchor: "end", size: 2.8, color: "hot" }),
+  ],
+  checks: [
+    { kind: "snell", i: 35, r: TI_RAYS[1].out.angleOfRefraction, n1: TI_N, n2: 1 },
+    {
+      kind: "value",
+      label: "the grazing ray emerges at 90°",
+      actual: TI_CRIT,
+      expected: 90,
+      tol: 0.2,
+    },
+    {
+      kind: "value",
+      label: "the fourth ray is totally internally reflected",
+      actual: TI_RAYS[3].out.tir ? 1 : 0,
+      expected: 1,
+      tol: 1e-9,
+    },
+    {
+      kind: "value",
+      label: "the critical angle is asin(1 / 1.33)",
+      actual: TI_GRAZE.out.angleOfIncidence,
+      expected: TI_IC_DEG,
+      tol: 1e-9,
+    },
+  ],
+};
+
+/* ────────────────────────────────────────────────────────────────────────
+ * 0f. Optical fibre: total internal reflection at every wall (Fig. 9.14)
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const FB_TOP = 33;
+const FB_BOT = 23;
+const FB_X0 = 24;
+const FB_X1 = 120;
+
+const FB_PTS: Vec[] = (() => {
+  let p: Vec = { x: FB_X0, y: 28 };
+  let d = dir(20);
+  const out: Vec[] = [p];
+  for (let bounce = 0; bounce < 6; bounce += 1) {
+    const wall = d.y > 0 ? FB_TOP : FB_BOT;
+    const t = (wall - p.y) / d.y;
+    const hit: Vec = { x: p.x + d.x * t, y: wall };
+    if (hit.x >= FB_X1) {
+      out.push({ x: FB_X1, y: p.y + ((FB_X1 - p.x) * d.y) / d.x });
+      break;
+    }
+    out.push(hit);
+    p = hit;
+    d = reflect(d, { x: 0, y: 1 });
+  }
+  return out;
+})();
+
+export const opticalFibre: FigureSpec = {
+  id: "optical-fibre-tir",
+  title: "Optical fibre: the ray is totally reflected at every wall",
+  alt:
+    "A fibre drawn as a cladding tube with a core inside it. A ray entering at the left zig-zags down the core, reflecting off the core wall at every bounce, and leaves at the right end.",
+  caption:
+    "Core inside cladding, the core the denser of the two. A ray launched at a suitable angle strikes each core wall past the critical angle, is totally reflected, and so travels the whole length with no appreciable loss.",
+  frame: { width: 140, height: 58 },
+  source: "Fig. 9.14",
+  elements: [
+    body(
+      [
+        { x: FB_X0 - 4, y: FB_BOT - 7 },
+        { x: FB_X1 + 4, y: FB_BOT - 7 },
+        { x: FB_X1 + 4, y: FB_TOP + 7 },
+        { x: FB_X0 - 4, y: FB_TOP + 7 },
+      ],
+      "glass",
+    ),
+    line({ x: FB_X0 - 4, y: FB_TOP }, { x: FB_X1 + 4, y: FB_TOP }, THIN),
+    line({ x: FB_X0 - 4, y: FB_BOT }, { x: FB_X1 + 4, y: FB_BOT }, THIN),
+    { kind: "poly", points: FB_PTS, stroke: RAY },
+    arrow(FB_PTS[FB_PTS.length - 2], FB_PTS[FB_PTS.length - 1], RAY),
+    ...FB_PTS.slice(1, -1).map((hit) => point(hit, 0.8, "ok")),
+    label({ x: FB_X0 - 8, y: FB_TOP + 3 }, "cladding", { anchor: "end", size: 2.9, color: "muted" }),
+    label({ x: FB_X0 - 8, y: 28 }, "core", { anchor: "end", size: 2.9, color: "muted" }),
+    label({ x: FB_X1 + 4, y: FB_TOP + 12 }, "n core > n cladding", { anchor: "end", size: 2.8, color: "muted" }),
+    label({ x: FB_X1 + 4, y: FB_BOT - 12 }, "totally reflected at each wall", {
+      anchor: "end",
+      size: 2.8,
+      color: "ok",
+    }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "every bounce stays inside the core",
+      actual: FB_PTS.every((p) => p.y >= FB_BOT - 1e-9 && p.y <= FB_TOP + 1e-9) ? 1 : 0,
+      expected: 1,
+      tol: 1e-9,
+    },
+    {
+      kind: "value",
+      label: "the ray leaves at the far end",
+      actual: Number(FB_PTS[FB_PTS.length - 1].x.toFixed(6)),
+      expected: FB_X1,
+      tol: 1e-9,
+    },
+  ],
+};
+
 export const RAY_OPTICS_FIGURES: readonly FigureSpec[] = [
   rayAndBeam,
   refractionAtSurface,
   apparentDepth,
   slabShift,
+  totalInternalReflection,
+  opticalFibre,
   planeReflection,
   concaveMirrorTerms,
   convexMirrorTerms,

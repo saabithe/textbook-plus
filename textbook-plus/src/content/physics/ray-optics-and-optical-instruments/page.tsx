@@ -26,6 +26,7 @@ import {
   concaveRealImage,
   convexMirrorTerms,
   mirrorEquationGeometry,
+  opticalFibre,
   planeReflection,
   rayAndBeam,
   refractionAtSurface,
@@ -36,6 +37,7 @@ import {
   signConventionConcave,
   signConventionConvex,
   slabShift,
+  totalInternalReflection,
 } from "./figures";
 
 export default function RayOpticsAndOpticalInstrumentsChapter() {
@@ -797,6 +799,254 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         latex={String.raw`h' = \frac{h}{n}`}
       />
       <PhysicsFigure spec={apparentDepth} />
+
+      <h2 id="h-9-4">9.4 Total Internal Reflection</h2>
+
+      <h3 id="h-9-4-internal">9.4.1 The reflection inside the denser medium</h3>
+      <p>
+        When light travels from an optically denser medium to a rarer one, the interface splits it: part is reflected
+        back into the same medium, and part is refracted into the second.
+      </p>
+      <Callout type="note" title="Internal reflection">
+        <p>
+          <strong>Internal reflection</strong> is that reflection back into the medium the light came from, at the
+          interface with the rarer medium.
+        </p>
+      </Callout>
+
+      <h3 id="h-9-4-angle">9.4.2 What happens as the angle of incidence grows</h3>
+      <p>
+        Entering the rarer medium the ray bends away from the normal, so <Formula>{String.raw`r > i`}</Formula> from
+        the start. Increase the angle of incidence, and the angle of refraction grows with it (Fig. 9.11).
+      </p>
+      <Stepper
+        steps={[
+          {
+            label: "A small angle — the ray splits",
+            description: (
+              <p>
+                Part of the ray is reflected back into the denser medium; the rest is transmitted, or refracted, into
+                the rarer one.
+              </p>
+            ),
+          },
+          {
+            label: "A larger angle — the refracted ray swings further out",
+            description: <p>The angle of refraction grows as the angle of incidence grows.</p>,
+          },
+          {
+            label: "The critical angle — r reaches 90°",
+            description: (
+              <p>
+                The refracted ray is bent so far away from the normal that it grazes the surface between the two
+                media.
+              </p>
+            ),
+          },
+          {
+            label: "Past the critical angle — refraction stops",
+            description: (
+              <p>
+                Refraction is not possible, so the incident ray is <strong>totally reflected</strong>. That is total
+                internal reflection.
+              </p>
+            ),
+          },
+        ]}
+      />
+      <PhysicsFigure spec={totalInternalReflection} />
+
+      <h3 id="h-9-4-total">9.4.3 Why &ldquo;total&rdquo; is the operative word</h3>
+      <p>
+        When light is reflected by a surface, normally some fraction of it is transmitted. The reflected ray is
+        therefore always less intense than the incident ray, however smooth the reflecting surface.
+      </p>
+      <KeyPoint title="The difference total internal reflection makes">
+        <p>
+          In total internal reflection, <Highlight>no transmission of light takes place</Highlight> at all.
+        </p>
+      </KeyPoint>
+
+      <h3 id="h-9-4-critical">9.4.4 The critical angle</h3>
+      <Callout type="note" title="Critical angle — definition">
+        <p>
+          The <strong>critical angle</strong> <Formula>{String.raw`i_c`}</Formula> of a given pair of media is the
+          angle of incidence for which the angle of refraction is 90°.
+        </p>
+      </Callout>
+      <p>
+        Snell&rsquo;s law can only be satisfied while <Formula>{String.raw`\sin r`}</Formula> stays within its
+        maximum value of unity.
+      </p>
+      <EquationLadder
+        title="Where the ceiling comes from"
+        steps={[
+          {
+            label: "Snell's law, denser to rarer",
+            equation: String.raw`n_{21} = \frac{\sin i}{\sin r}`,
+            tag: "Eq. 9.10",
+          },
+          {
+            label: "The largest value sin r can take",
+            equation: String.raw`\sin r \le 1`,
+            note: "So there is an upper limit to the value of sin i for which the law can be satisfied.",
+          },
+          {
+            label: "At the critical angle, sin r is exactly 1",
+            equation: String.raw`\sin i_c = n_{21}`,
+            tag: "Eq. 9.12",
+            final: true,
+          },
+        ]}
+      />
+      <p>
+        For values of <Formula>{String.raw`i`}</Formula> larger than <Formula>{String.raw`i_c`}</Formula>, Snell&rsquo;s
+        law cannot be satisfied — and hence no refraction is possible.
+      </p>
+      <FormulaBlock
+        label="Index of the denser medium with respect to the rarer one"
+        latex={String.raw`n_{12} = \frac{1}{\sin i_c}`}
+      />
+      <TableCard
+        title="Critical angle of some transparent media with respect to air"
+        headers={["Substance (medium)", "Refractive index", "Critical angle (°)"]}
+        rows={[
+          { cells: ["Water", "1.33", "48.75"] },
+          { cells: ["Crown glass", "1.52", "41.14"] },
+          { cells: ["Dense flint glass", "1.62", "37.31"] },
+          { cells: ["Diamond", "2.42", "24.41"] },
+        ]}
+      />
+
+      <h3 id="h-9-4-demo">9.4.5 Seeing it: a beaker, a little milk and a laser</h3>
+      <p>All optical phenomena can be demonstrated very easily with a laser torch or pointer.</p>
+      <Stepper
+        steps={[
+          {
+            label: "Make the beam visible",
+            description: (
+              <p>
+                A glass beaker of clear water, a few drops of milk or another suspension stirred in until the water is
+                a little turbid. Shine the laser through it: the path of the beam inside the water shines brightly.
+              </p>
+            ),
+          },
+          {
+            label: "Partial reflection and partial refraction",
+            description: (
+              <p>
+                Shine the beam from below the beaker so that it strikes the upper water surface at the far end. Part is
+                reflected — a spot on the table below — and part is refracted out into the air — a spot on the roof.
+              </p>
+            ),
+          },
+          {
+            label: "Total internal reflection",
+            description: (
+              <p>
+                Direct the beam from the side so that it strikes the upper surface more obliquely, and adjust the
+                direction until the refraction above the water is totally absent and the beam is totally reflected
+                back into the water.
+              </p>
+            ),
+          },
+          {
+            label: "The same thing in a test tube",
+            description: (
+              <p>
+                Pour the water into a long test tube and shine the laser from the top, adjusting until the beam is
+                totally internally reflected every time it strikes the walls of the tube. This is similar to what
+                happens in optical fibres.
+              </p>
+            ),
+          },
+        ]}
+      />
+      <Callout type="warning" title="Laser safety">
+        <p>Never look into the laser beam directly, and never point it at anybody&rsquo;s face.</p>
+      </Callout>
+
+      <h3 id="h-9-4-prism">9.4.6 Prisms that turn a ray by 90° or 180°</h3>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Bending the beam.</strong> Prisms designed to bend light by 90° or by 180° make use of total internal
+          reflection.
+        </li>
+        <li>
+          <strong>Inverting an image.</strong> Such a prism is also used to invert images without changing their size.
+        </li>
+        <li>
+          <strong>The condition on the glass.</strong> For the 90° and 180° bends, the critical angle for the material
+          of the prism must be less than 45° — true of both crown glass and dense flint glass.
+        </li>
+      </ul>
+
+      <h3 id="h-9-4-fibre">9.4.7 Optical fibres</h3>
+      <p>
+        Optical fibres are used extensively for transmitting audio and video signals over long distances, and they too
+        rest on total internal reflection (Fig. 9.14).
+      </p>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Built from glass or quartz.</strong> High-quality composite glass/quartz fibres.
+        </li>
+        <li>
+          <strong>Core and cladding.</strong> Each fibre consists of a core and a cladding, and the refractive index of
+          the core is higher than that of the cladding.
+        </li>
+        <li>
+          <strong>Launched at a suitable angle.</strong> A signal directed at one end undergoes repeated total internal
+          reflections along the length of the fibre and finally comes out at the other end.
+        </li>
+        <li>
+          <strong>No appreciable loss.</strong> Because every stage is total, the intensity of the light signal is not
+          appreciably reduced.
+        </li>
+      </ul>
+      <p>
+        The fibre is fabricated so that light reflected at one side of the inner surface strikes the other side at an
+        angle larger than the critical angle. Even if the fibre is bent, light travels easily along its length.
+      </p>
+      <KeyPoint title="An optical pipe">
+        <p>An optical fibre can act as an optical pipe.</p>
+      </KeyPoint>
+      <PhysicsFigure spec={opticalFibre} />
+
+      <h3 id="h-9-4-uses">9.4.8 What a bundle of fibres is used for</h3>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Signals, not just light.</strong> A bundle of optical fibres is used for transmitting and receiving
+          electrical signals, which are converted to light by suitable transducers.
+        </li>
+        <li>
+          <strong>Optical signals too.</strong> The same fibres can transmit optical signals directly.
+        </li>
+        <li>
+          <strong>A light pipe into the body.</strong> Used to make visual examination of internal organs — the
+          esophagus, the stomach, the intestines — possible.
+        </li>
+        <li>
+          <strong>Decorative lamps.</strong> Fine plastic fibres with their free ends forming a fountain-like structure,
+          the other end fixed over an electric lamp. Switch the lamp on and the light travels from the bottom of each
+          fibre and appears at the tip of its free end as a dot of light.
+        </li>
+      </ul>
+
+      <h3 id="h-9-4-absorption">9.4.9 What a fibre must not do: absorb</h3>
+      <p>
+        The main requirement in fabricating an optical fibre is that there should be very little absorption of light as
+        it travels the long distances inside it.
+      </p>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>How it is met.</strong> By purification and special preparation of materials such as quartz.
+        </li>
+        <li>
+          <strong>How well it is met.</strong> In silica glass fibres, more than 95% of the light can be transmitted
+          over a fibre length of 1 km.
+        </li>
+      </ul>
+      <p>Compare that with what you would expect for a block of ordinary window glass 1 km thick.</p>
     </>
   );
 }
