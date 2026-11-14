@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -27,6 +27,30 @@ export function CollapsibleSection({
   children,
 }: CollapsibleSectionProps) {
   const [open, setOpen] = useState(defaultOpen);
+
+  // A jump list elsewhere on the page links to this section by id. Opening the
+  // section on that hash keeps the target visible after the browser scrolls to
+  // it, so the anchor does not land on a closed header.
+  useEffect(() => {
+    if (!id) return;
+    const sync = () => {
+      if (window.location.hash === `#${id}`) setOpen(true);
+    };
+    // Clicking the same anchor twice does not fire `hashchange`; catching the
+    // link click as well keeps a closed target reopening on the second click.
+    const onClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      const link = target?.closest?.('a[href^="#"]');
+      if (link?.getAttribute("href") === `#${id}`) setOpen(true);
+    };
+    sync();
+    window.addEventListener("hashchange", sync);
+    document.addEventListener("click", onClick);
+    return () => {
+      window.removeEventListener("hashchange", sync);
+      document.removeEventListener("click", onClick);
+    };
+  }, [id]);
 
   return (
     <Collapsible open={open} onOpenChange={setOpen}>

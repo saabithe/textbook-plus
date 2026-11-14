@@ -1,13 +1,9 @@
 ﻿import { Callout } from "@/components/content/Callout";
-import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { TableCard } from "@/components/content/data/TableCard";
-import { ConceptCard } from "@/components/content/concept/ConceptCard";
-import { ProcessCard } from "@/components/content/process/ProcessCard";
-import { EquationLadder } from "@/components/content/process/EquationLadder";
-import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
+import { CollapsibleSection } from "@/components/content/CollapsibleSection";
 import { CarbonylFamilyGrid } from "@/components/content/chemistry/CarbonylFamilyGrid";
 import { GreekPositionLadder } from "@/components/content/chemistry/GreekPositionLadder";
 import { NamingRuleCards } from "@/components/content/chemistry/NamingRuleCards";
@@ -51,6 +47,25 @@ import { CannizzaroCompoundCards } from "@/components/content/chemistry/Cannizza
 import { DisproportionationBoard } from "@/components/content/chemistry/DisproportionationBoard";
 import { CannizzaroEquationCards } from "@/components/content/chemistry/CannizzaroEquationCards";
 import { MetaDirectingCards } from "@/components/content/chemistry/MetaDirectingCards";
+import { ReactionTable } from "@/components/content/chemistry/ReactionTable";
+import { SectionNavGrid } from "@/components/content/chemistry/SectionNavGrid";
+import { AcidNameTable } from "@/components/content/chemistry/AcidNameTable";
+import { DicarboxylicSeriesTable } from "@/components/content/chemistry/DicarboxylicSeriesTable";
+import { MnemonicCard } from "@/components/content/chemistry/MnemonicCard";
+import { PhthalicAcidCard } from "@/components/content/chemistry/PhthalicAcidCard";
+import { AcidStateCards } from "@/components/content/chemistry/AcidStateCards";
+import { AcidBoilingBoard } from "@/components/content/chemistry/AcidBoilingBoard";
+import { AcidSolubilityCards } from "@/components/content/chemistry/AcidSolubilityCards";
+import { HydrolysisCards } from "@/components/content/chemistry/HydrolysisCards";
+import { StackedReactionCard } from "@/components/content/chemistry/StackedReactionCard";
+import { AcidChlorideCards } from "@/components/content/chemistry/AcidChlorideCards";
+import { ReagentExceptionStrip } from "@/components/content/chemistry/ReagentExceptionStrip";
+import { DecarboxylationCard } from "@/components/content/chemistry/DecarboxylationCard";
+import { AlphaHalogenationCard } from "@/components/content/chemistry/AlphaHalogenationCard";
+import { IonizationCard } from "@/components/content/chemistry/IonizationCard";
+import { AcidReactionCards } from "@/components/content/chemistry/AcidReactionCards";
+import { AcidityEffectCards } from "@/components/content/chemistry/AcidityEffectCards";
+import { UsesBoard } from "@/components/content/chemistry/UsesBoard";
 
 export default function AldehydesKetonesCarboxylicAcidsChapter() {
   return (
@@ -1816,656 +1831,758 @@ export default function AldehydesKetonesCarboxylicAcidsChapter() {
         ]}
       />
 
-      <h2 id="h-8-5">8.5 Uses of Aldehydes and Ketones</h2>
+      <h2 id="h-8-5">8.5 Nomenclature of Carboxylic Acids</h2>
 
-      <ConceptCard title="Industrial solvents, starting materials and reagents" icon="⚗️">
-        <ul>
-          <li>
-            <strong>Formaldehyde</strong> — well known as <em>formalin</em> (40% solution),
-            used to preserve biological specimens and to prepare bakelite (a
-            phenol–formaldehyde resin), urea–formaldehyde glues and other polymeric products.
-          </li>
-          <li>
-            <strong>Acetaldehyde</strong> — the starting material for acetic acid, ethyl
-            acetate, vinyl acetate, polymers and drugs.
-          </li>
-          <li>
-            <strong>Benzaldehyde</strong> — used in perfumery and in the dye industry.
-          </li>
-          <li>
-            <strong>Acetone</strong> and <strong>ethyl methyl ketone</strong> — common
-            industrial solvents.
-          </li>
-          <li>
-            Butyraldehyde, vanillin, acetophenone and camphor are well known for their odours
-            and flavours.
-          </li>
-        </ul>
-      </ConceptCard>
-
-      <h2 id="h-8-6">8.6 Nomenclature and Structure of the Carboxyl Group</h2>
-
-      <Callout type="important">
-        Carbon compounds containing a <strong>carboxyl functional group, –COOH</strong>, are
-        called <strong>carboxylic acids</strong>. The carboxyl group consists of a carbonyl
-        group attached to a hydroxyl group — hence its name. Carboxylic acids may be aliphatic
-        (RCOOH) or aromatic (ArCOOH), depending on whether an alkyl or an aryl group is
-        attached to the carboxyl carbon.
-      </Callout>
-
-      <ul>
-        <li>
-          Large numbers of carboxylic acids occur in nature; the higher aliphatic members
-          (C<sub>12</sub>–C<sub>18</sub>), known as <strong>fatty acids</strong>, occur in
-          natural fats as esters of glycerol.
-        </li>
-        <li>
-          Carboxylic acids are starting materials for anhydrides, esters, acid chlorides,
-          amides and many other compounds.
-        </li>
-        <li>
-          Because they were among the earliest organic compounds isolated from nature, most
-          have common names ending in <em>–ic acid</em>, derived from the Latin or Greek names
-          of their sources.
-        </li>
-        <li>
-          Formic acid (HCOOH) — from red ants (<em>formica</em> means ant). Acetic acid (CH
-          <sub>3</sub>COOH) — from vinegar (<em>acetum</em>). Butyric acid (CH<sub>3</sub>CH
-          <sub>2</sub>CH<sub>2</sub>COOH) — from rancid butter (<em>butyrum</em>).
-        </li>
-      </ul>
-
-      <h3 id="h-8-6-1">8.6.1 Nomenclature</h3>
-
-      <ul>
-        <li>
-          In the IUPAC system, aliphatic carboxylic acids are named by replacing the ending{" "}
-          <em>–e</em> of the corresponding alkane with <em>–oic acid</em>.
-        </li>
-        <li>In numbering the chain, the carboxyl carbon is numbered one.</li>
-        <li>
-          For compounds with more than one carboxyl group, the alkyl chain is numbered and the
-          number of –COOH groups is shown by a multiplicative prefix: <em>dicarboxylic acid</em>,{" "}
-          <em>tricarboxylic acid</em>, etc.
-        </li>
-        <li>
-          The positions of the –COOH groups are indicated by arabic numerals before the
-          multiplicative prefix.
-        </li>
-      </ul>
-
-      <TableCard
-        title="Table 8.3: Names and structures of some carboxylic acids"
-        headers={["Structure", "Common name", "IUPAC name"]}
-        rows={[
-          { cells: ["HCOOH", "Formic acid", "Methanoic acid"] },
-          { cells: ["CH₃COOH", "Acetic acid", "Ethanoic acid"] },
-          { cells: ["CH₃CH₂COOH", "Propionic acid", "Propanoic acid"] },
-          { cells: ["CH₃CH₂CH₂COOH", "Butyric acid", "Butanoic acid"] },
-          { cells: ["(CH₃)₂CHCOOH", "Isobutyric acid", "2-Methylpropanoic acid"] },
-          { cells: ["HOOC–COOH", "Oxalic acid", "Ethanedioic acid"] },
-          { cells: ["HOOC–CH₂–COOH", "Malonic acid", "Propanedioic acid"] },
-          { cells: ["HOOC–(CH₂)₂–COOH", "Succinic acid", "Butanedioic acid"] },
-          { cells: ["HOOC–(CH₂)₃–COOH", "Glutaric acid", "Pentanedioic acid"] },
-          { cells: ["HOOC–(CH₂)₄–COOH", "Adipic acid", "Hexanedioic acid"] },
+      <SectionNavGrid
+        title="Carboxylic acids — four sections"
+        columns={4}
+        items={[
           {
-            cells: [
-              "HOOC–CH₂–CH(COOH)–CH₂–COOH",
-              "Tricarballylic (carballylic) acid",
-              "Propane-1,2,3-tricarboxylic acid",
-            ],
+            id: "h-8-5",
+            label: "Nomenclature",
+            hint: "Monocarboxylic, dicarboxylic, aromatic",
           },
-          { cells: ["C₆H₅COOH", "Benzoic acid", "Benzenecarboxylic acid (benzoic acid)"] },
-          { cells: ["C₆H₅CH₂COOH", "Phenylacetic acid", "2-Phenylethanoic acid"] },
           {
-            cells: [
-              "o-HOOC–C₆H₄–COOH",
-              "Phthalic acid",
-              "Benzene-1,2-dicarboxylic acid",
-            ],
+            id: "h-8-6",
+            label: "Physical properties",
+            hint: "State, boiling point, solubility",
+          },
+          {
+            id: "h-8-7",
+            label: "Methods of preparation",
+            hint: "Five routes",
+          },
+          {
+            id: "h-8-8",
+            label: "Chemical properties",
+            hint: "Nine reactions",
           },
         ]}
       />
 
-      <h3 id="h-8-6-2">8.6.2 Structure of the Carboxyl Group</h3>
+      <h3 id="h-8-5-mono">Monocarboxylic acids</h3>
 
-      <ul>
-        <li>
-          The bonds to the carboxyl carbon lie <strong>in one plane</strong> and are separated
-          by about <strong>120°</strong>.
-        </li>
-        <li>
-          The carboxylic carbon is <strong>less electrophilic than the carbonyl carbon</strong>{" "}
-          because of resonance — the lone pair on the hydroxyl oxygen is delocalised into the
-          carbonyl group.
-        </li>
-        <li>
-          That same resonance is why the –OH hydrogen is acidic: the resulting carboxylate ion
-          is stabilised by two equivalent resonance structures.
-        </li>
-      </ul>
-
-      <FormulaBlock
-        latex={String.raw`\text{R-C(=O)-OH} \ \longleftrightarrow \ \text{R-C(O}^{-}\text{)=O}^{+}\text{H} \ \longleftrightarrow \ \text{R-C(O}^{-}\text{)-O}^{+}\text{H}`}
-        label="Resonance in the carboxyl group"
+      <AcidNameTable
+        title="Monocarboxylic acids"
+        lead="Aliphatic & aromatic."
+        rows={[
+          { formula: "H–COOH", common: "Formic acid", iupac: "Methanoic acid" },
+          { formula: "CH₃–COOH", common: "Acetic acid", iupac: "Ethanoic acid" },
+          { formula: "CH₃–CH₂–COOH", common: "Propionic acid", iupac: "Propanoic acid" },
+          {
+            formula: "CH₃–CH₂–CH₂–COOH",
+            common: "Butyric acid",
+            iupac: "Butanoic acid",
+          },
+          {
+            formula: "CH₃–CH₂–CH₂–CH₂–COOH",
+            common: "Valeric acid",
+            iupac: "Pentanoic acid",
+          },
+          { formula: "C₆H₅–COOH", common: "Benzoic acid", iupac: "Benzoic acid" },
+        ]}
       />
 
-      <Expandable title="Intext 8.6 — Give the IUPAC names" variant="exercise">
-        <p>
-          <strong>Question:</strong> Give the IUPAC names of: (i) PhCH<sub>2</sub>CH
-          <sub>2</sub>COOH (ii) (CH<sub>3</sub>)<sub>2</sub>C=CHCOOH (iii) the cyclohexane
-          carboxylic acid with a methyl at C-2.
-        </p>
-        <p>
-          <strong>Answer:</strong>
-        </p>
-        <ul>
-          <li>(i) 3-Phenylpropanoic acid</li>
-          <li>(ii) 3-Methylbut-2-enoic acid</li>
-          <li>(iii) 2-Methylcyclohexanecarboxylic acid</li>
-        </ul>
-      </Expandable>
+      <h3 id="h-8-5-di">Dicarboxylic acids</h3>
+
+      <FormulaBlock
+        latex={String.raw`\text{HOOC–(CH}_2\text{)}_n\text{–COOH}`}
+        label="General formula"
+      />
+
+      <DicarboxylicSeriesTable
+        title="Dicarboxylic acid series"
+        caption="n increases down the series; the carbon chain grows by one CH₂ each step."
+        rows={[
+          {
+            n: "0",
+            formula: "COOH–COOH",
+            common: "Oxalic acid",
+            iupac: "Ethanedioic acid",
+          },
+          {
+            n: "1",
+            formula: "COOH–CH₂–COOH",
+            common: "Malonic acid",
+            iupac: "Propanedioic acid",
+          },
+          {
+            n: "2",
+            formula: "COOH–(CH₂)₂–COOH",
+            common: "Succinic acid",
+            iupac: "Butanedioic acid",
+          },
+          {
+            n: "3",
+            formula: "COOH–(CH₂)₃–COOH",
+            common: "Glutaric acid",
+            iupac: "Pentanedioic acid",
+          },
+          {
+            n: "4",
+            formula: "COOH–(CH₂)₄–COOH",
+            common: "Adipic acid",
+            iupac: "Hexanedioic acid",
+          },
+          {
+            n: "5",
+            formula: "COOH–(CH₂)₅–COOH",
+            common: "Pimelic acid",
+            iupac: "Heptanedioic acid",
+          },
+          {
+            n: "6",
+            formula: "COOH–(CH₂)₆–COOH",
+            common: "Suberic acid",
+            iupac: "Octanedioic acid",
+          },
+        ]}
+      />
+
+      <MnemonicCard
+        title="Mnemonic — dicarboxylic acid series"
+        phrase="Oh My Son Go And Pray Splendidly"
+        entries={[
+          { letter: "O", name: "Oxalic" },
+          { letter: "M", name: "Malonic" },
+          { letter: "S", name: "Succinic" },
+          { letter: "G", name: "Glutaric" },
+          { letter: "A", name: "Adipic" },
+          { letter: "P", name: "Pimelic" },
+          { letter: "S", name: "Suberic" },
+        ]}
+      />
+
+      <h3 id="h-8-5-ortho">Aromatic dicarboxylic acid</h3>
+
+      <PhthalicAcidCard
+        title="Aromatic dicarboxylic acid"
+        common="Phthalic acid"
+        iupac="Benzene-1,2-dicarboxylic acid"
+        formula="C₆H₄(COOH)₂"
+        note="Two –COOH groups occupy adjacent positions."
+      />
+
+      <h2 id="h-8-6">8.6 Physical Properties of Carboxylic Acids</h2>
+
+      <h3 id="h-8-6-state">Physical state</h3>
+
+      <AcidStateCards
+        title="Physical state"
+        liquid={{ limit: "Up to 9 C", state: "Colourless liquids." }}
+        solid={{ limit: "Above 9 C", state: "Colourless waxy solids." }}
+        verification="the note writes “9 C” for both boundaries; kept as written until its intended meaning is confirmed."
+      />
+
+      <h3 id="h-8-6-boiling">Boiling point</h3>
+
+      <AcidBoilingBoard
+        title="Boiling point order"
+        order={[
+          { label: "HC" },
+          { label: "Ald" },
+          { label: "Ketone" },
+          { label: "Alcohol" },
+          { label: "C. acids", highlight: true },
+        ]}
+        reasons={[
+          "Strong intermolecular hydrogen bonding.",
+          "Carboxylic acids often form stable dimers.",
+        ]}
+        dimerCaption="Two O–H⋯O hydrogen bonds hold the pair together."
+      />
+
+      <h3 id="h-8-6-solubility">Solubility</h3>
+
+      <AcidSolubilityCards
+        title="Solubility in water"
+        cards={[
+          {
+            title: "Lower members",
+            verdict: "Soluble in water",
+            points: ["Form hydrogen bonds with water molecules."],
+            tone: "soluble",
+          },
+          {
+            title: "Higher members",
+            verdict: "Insoluble in water",
+            points: ["Increasing size of the hydrophobic hydrocarbon chain."],
+            tone: "insoluble",
+          },
+          {
+            title: "Benzoic acid",
+            verdict: "Crystalline solid",
+            cold: { label: "Cold water", value: "Insoluble" },
+            hot: { label: "Hot water", value: "Soluble" },
+            tone: "aromatic",
+          },
+        ]}
+      />
 
       <h2 id="h-8-7">8.7 Methods of Preparation of Carboxylic Acids</h2>
 
-      <TableCard
-        title="Six routes to a carboxylic acid"
-        headers={["From", "Reagents / conditions", "Note"]}
-        rows={[
+      <SectionNavGrid
+        title="Methods of preparation"
+        columns={5}
+        items={[
           {
-            cells: [
-              "Primary alcohols and aldehydes",
-              "KMnO₄ (neutral, acidic or alkaline), K₂Cr₂O₇ or CrO₃ in acid (Jones reagent)",
-              "The alcohol is oxidised through the aldehyde to the acid; aldehydes give acids with mild oxidising agents.",
-            ],
+            id: "h-8-7-oxidation",
+            label: "From primary alcohols and aldehydes",
+            hint: "Alcohol → aldehyde → acid",
           },
           {
-            cells: [
-              "Alkylbenzenes",
-              "Chromic acid, or acidic/alkaline KMnO₄, heat",
-              "The entire side chain becomes –COOH, whatever its length. Primary and secondary alkyl groups are oxidised; a tertiary group resists.",
-            ],
+            id: "h-8-7-alkylbenzene",
+            label: "From alkyl benzene",
+            hint: "Benzylic hydrogen required",
           },
           {
-            cells: [
-              "Nitriles and amides",
-              "H⁺ or OH⁻ hydrolysis",
-              "Nitrile → amide → acid. Mild conditions stop the reaction at the amide.",
-            ],
+            id: "h-8-7-grignard",
+            label: "From Grignard reagent",
+            hint: "Dry ice, then H₃O⁺",
           },
           {
-            cells: [
-              "Grignard reagents",
-              "Dry CO₂ (dry ice), then acidification",
-              "Adds one carbon — a way of ascending the series from an alkyl halide.",
-            ],
+            id: "h-8-7-hydrolysis",
+            label: "Hydrolysis of nitriles",
+            hint: "Nitrile card",
           },
           {
-            cells: [
-              "Acyl halides and anhydrides",
-              "Water, or aqueous base then acidification",
-              "Acid chlorides hydrolyse to acids; anhydrides give the acid(s) on hydrolysis.",
-            ],
-          },
-          {
-            cells: [
-              "Esters",
-              "Acidic hydrolysis (direct) or basic hydrolysis then acidification",
-              "Basic hydrolysis gives the carboxylate, which needs acidification.",
-            ],
+            id: "h-8-7-hydrolysis",
+            label: "Hydrolysis of amides, acid chlorides, anhydrides and esters",
+            hint: "Four derivative cards",
           },
         ]}
       />
 
-      <Callout type="note" title="Ascending the series">
-        Nitriles and Grignard reagents can themselves be made from alkyl halides, so methods
-        3 and 4 convert an alkyl halide into a carboxylic acid having{" "}
-        <strong>one carbon more</strong> than the halide.
-      </Callout>
-
-      <FormulaBlock
-        latex={String.raw`\text{RMgX} + \text{CO}_2 \longrightarrow \text{RCOO}^{-}\text{MgX}^{+} \xrightarrow{\text{H}_3\text{O}^{+}} \text{RCOOH}`}
-        label="Grignard reagent + dry ice"
-      />
-
-      <Expandable title="Example 8.5 — Reactions for the transformations" variant="example">
-        <p>
-          <strong>Problem:</strong> Write chemical reactions to carry out the following
-          transformations:
-        </p>
-        <ul>
-          <li>(i) Butan-1-ol to butanoic acid</li>
-          <li>(ii) Benzyl alcohol to phenylethanoic acid</li>
-          <li>(iii) 3-Nitrobromobenzene to 3-nitrobenzoic acid</li>
-          <li>(iv) 4-Methylacetophenone to benzene-1,4-dicarboxylic acid</li>
-          <li>(v) Cyclohexene to hexane-1,6-dioic acid</li>
-          <li>(vi) Butanal to butanoic acid</li>
-        </ul>
-        <p>
-          <strong>Solution:</strong>
-        </p>
-        <ul>
-          <li>
-            (i) <strong>Jones reagent</strong> (CrO<sub>3</sub>/H<sub>2</sub>SO<sub>4</sub>) or
-            hot acidified KMnO<sub>4</sub>: primary alcohol → carboxylic acid.
-          </li>
-          <li>
-            (ii) Hot alkaline KMnO<sub>4</sub>, then acidification — the –CH<sub>2</sub>OH is
-            oxidised to –COOH.
-          </li>
-          <li>
-            (iii) (a) Mg/dry ether to form the Grignard reagent, (b) dry CO<sub>2</sub>, (c)
-            H<sub>3</sub>O<sup>+</sup>.
-          </li>
-          <li>
-            (iv) Hot alkaline KMnO<sub>4</sub>, then H<sub>3</sub>O<sup>+</sup> — both side
-            chains (–CH<sub>3</sub> and –COCH<sub>3</sub>) are oxidised to –COOH.
-          </li>
-          <li>
-            (v) Hot acidified KMnO<sub>4</sub>: oxidative cleavage of the ring double bond gives
-            the dioic acid.
-          </li>
-          <li>
-            (vi) A mild oxidising agent such as Tollens’ reagent, followed by acidification.
-          </li>
-        </ul>
-      </Expandable>
-
-      <Expandable title="Intext 8.7 — Convert each compound to benzoic acid" variant="exercise">
-        <p>
-          <strong>Question:</strong> Show how each of the following can be converted to benzoic
-          acid: (i) ethylbenzene (ii) acetophenone (iii) bromobenzene (iv) phenylethene
-          (styrene).
-        </p>
-        <p>
-          <strong>Answer:</strong>
-        </p>
-        <ul>
-          <li>
-            (i) and (ii) Vigorous oxidation with hot alkaline KMnO<sub>4</sub> (or chromic
-            acid) oxidises the whole side chain to –COOH.
-          </li>
-          <li>
-            (iii) Mg/dry ether → phenylmagnesium bromide → dry CO<sub>2</sub> → H<sub>3</sub>O
-            <sup>+</sup>.
-          </li>
-          <li>
-            (iv) Hot alkaline KMnO<sub>4</sub> cleaves the vinyl side chain and oxidises it to
-            –COOH.
-          </li>
-        </ul>
-      </Expandable>
-
-      <h2 id="h-8-8">8.8 Physical Properties</h2>
-
-      <ul>
-        <li>
-          Aliphatic carboxylic acids up to nine carbon atoms are colourless liquids at room
-          temperature with unpleasant odours.
-        </li>
-        <li>
-          Higher acids are wax-like solids that are practically odourless because of their low
-          volatility.
-        </li>
-        <li>
-          Carboxylic acids boil <strong>higher than aldehydes, ketones and even alcohols</strong>{" "}
-          of comparable molecular mass, because of more extensive association through
-          intermolecular hydrogen bonding.
-        </li>
-        <li>
-          The hydrogen bonds are not broken completely even in the vapour phase — most
-          carboxylic acids exist as a <strong>dimer</strong> in the vapour phase or in aprotic
-          solvents.
-        </li>
-        <li>
-          Simple aliphatic acids with up to four carbons are miscible with water (hydrogen
-          bonding with water); solubility decreases as the number of carbons increases.
-        </li>
-        <li>
-          Higher acids are practically insoluble in water because of the hydrophobic
-          hydrocarbon part; benzoic acid, the simplest aromatic carboxylic acid, is nearly
-          insoluble in cold water.
-        </li>
-        <li>
-          Carboxylic acids are soluble in less polar organic solvents — benzene, ether,
-          alcohol, chloroform.
-        </li>
-      </ul>
-
-      <h2 id="h-8-9">8.9 Chemical Reactions</h2>
-
-      <p>The reactions of carboxylic acids fall into four groups, decided by which bond breaks.</p>
-
-      <h3 id="h-8-9-1">8.9.1 Reactions involving cleavage of the O–H bond</h3>
-
-      <h4 className="mt-5 mb-2 text-base font-bold">Reactions with metals and alkalies</h4>
-
-      <ul>
-        <li>
-          Like alcohols, carboxylic acids evolve hydrogen with electropositive metals and form
-          salts with alkalies.
-        </li>
-        <li>
-          Unlike phenols, they react with <strong>weaker bases</strong> such as carbonates and
-          hydrogencarbonates to evolve carbon dioxide.
-        </li>
-        <li>
-          That effervescence is the standard test for the presence of a carboxyl group in an
-          organic compound.
-        </li>
-      </ul>
-
-      <FormulaBlock
-        latex={String.raw`\text{RCOOH} + \text{NaHCO}_3 \longrightarrow \text{RCOONa} + \text{H}_2\text{O} + \text{CO}_2\uparrow`}
-        label="Bicarbonate test"
-      />
-
-      <h4 className="mt-5 mb-2 text-base font-bold">Acidity</h4>
-
-      <p>
-        Carboxylic acids dissociate in water to give resonance-stabilised carboxylate anions
-        and the hydronium ion.
-      </p>
-
-      <FormulaBlock
-        latex={String.raw`\text{RCOOH} + \text{H}_2\text{O} \ \rightleftharpoons \ \text{RCOO}^{-} + \text{H}_3\text{O}^{+}`}
-      />
-
-      <EquationLadder
-        title="Measuring acid strength"
-        steps={[
-          {
-            label: "Acid dissociation constant",
-            equation: String.raw`K_a = \frac{[\text{RCOO}^{-}][\text{H}_3\text{O}^{+}]}{[\text{RCOOH}]}`,
-            note: "K(eq) is the equilibrium constant; K(a) is the acid dissociation constant.",
-          },
-          {
-            label: "The pKa scale",
-            equation: String.raw`\text{p}K_a = -\log K_a`,
-            note: "For convenience the strength of an acid is usually quoted as pKa rather than Ka.",
-            final: true,
-          },
-        ]}
-      />
-
-      <TableCard
-        title="pKa values to remember"
-        headers={["Acid", "pKa"]}
-        rows={[
-          { cells: ["HCl (mineral acid)", "−7.0"] },
-          { cells: ["CF₃COOH (strongest carboxylic acid)", "0.23"] },
-          { cells: ["Benzoic acid", "4.19"] },
-          { cells: ["Acetic acid", "4.76"] },
-          { cells: ["Phenol", "10"] },
-          { cells: ["Ethanol", "~16"] },
-        ]}
-        caption="Smaller pKa → stronger acid (better proton donor). Strong acids have pKa < 1; 1–5 moderately strong; 5–15 weak; > 15 extremely weak."
-      />
-
-      <KeyPoint title="Why carboxylic acids beat phenols">
-        <ul>
-          <li>
-            The carboxylate ion is stabilised by <strong>two equivalent resonance
-            structures</strong> in which the negative charge sits on the more electronegative
-            oxygen atom.
-          </li>
-          <li>
-            The phenoxide ion has <strong>non-equivalent</strong> resonance structures in which
-            the negative charge sits on the less electronegative carbon atom — so resonance in
-            phenoxide is not as important.
-          </li>
-          <li>
-            In the carboxylate ion the charge is delocalised over <strong>two oxygen
-            atoms</strong>; in the phenoxide ion it is delocalised less effectively over one
-            oxygen and several carbons.
-          </li>
-          <li>
-            The more stabilised conjugate base makes the acid stronger: carboxylic acids &gt;
-            phenols &gt; alcohols.
-          </li>
-        </ul>
-      </KeyPoint>
-
-      <h4 className="mt-5 mb-2 text-base font-bold">Effect of substituents on acidity</h4>
-
-      <ul>
-        <li>
-          <strong>Electron withdrawing groups (EWG)</strong> increase acidity — they stabilise
-          the carboxylate anion by delocalising the negative charge through inductive and/or
-          resonance effects.
-        </li>
-        <li>
-          <strong>Electron donating groups (EDG)</strong> decrease acidity — they destabilise the
-          carboxylate anion.
-        </li>
-        <li>
-          Increasing acidity order of the groups:{" "}
-          <Formula>{String.raw`\text{Ph} < \text{I} < \text{Br} < \text{Cl} < \text{F} < \text{CN} < \text{NO}_2 < \text{CF}_3`}</Formula>
-        </li>
-      </ul>
-
-      <FormulaBlock
-        latex={String.raw`\text{CF}_3\text{COOH} > \text{CCl}_3\text{COOH} > \text{CHCl}_2\text{COOH} > \text{NO}_2\text{CH}_2\text{COOH} > \text{NC-CH}_2\text{COOH} > \text{FCH}_2\text{COOH} > \text{ClCH}_2\text{COOH} > \text{BrCH}_2\text{COOH} > \text{HCOOH} > \text{ClCH}_2\text{CH}_2\text{COOH} > \text{C}_6\text{H}_5\text{COOH} > \text{C}_6\text{H}_5\text{CH}_2\text{COOH} > \text{CH}_3\text{COOH} > \text{CH}_3\text{CH}_2\text{COOH}`}
-        label="Acidity decreases from left to right"
-      />
-
-      <Callout type="note">
-        Groups such as phenyl or vinyl, attached <em>directly</em> to the carboxyl carbon,
-        actually <strong>increase</strong> acidity — contrary to the decrease expected from
-        their resonance effect. The reason is the greater electronegativity of the sp
-        <sup>2</sup>-hybridised carbon to which the carboxyl carbon is attached. On an aromatic
-        ring, electron-withdrawing substituents increase acidity and electron-donating
-        substituents decrease it.
-      </Callout>
-
-      <TableCard
-        title="Substituted benzoic acids"
-        headers={["Acid", "pKa"]}
-        rows={[
-          { cells: ["4-Methoxybenzoic acid", "4.46"] },
-          { cells: ["Benzoic acid", "4.19"] },
-          { cells: ["4-Nitrobenzoic acid", "3.41"] },
-        ]}
-        caption="–OCH₃ is an EDG (weaker acid); –NO₂ is an EWG (stronger acid)."
-      />
-
-      <h3 id="h-8-9-2">8.9.2 Reactions involving cleavage of the C–OH bond</h3>
-
-      <ProcessCard
-        title="Four reactions that replace –OH"
-        steps={[
-          {
-            label: "Anhydride formation",
-            description:
-              "Carboxylic acids on heating with mineral acids such as H₂SO₄, or with P₂O₅, give the corresponding anhydride.",
-          },
-          {
-            label: "Esterification",
-            description:
-              "Carboxylic acids are esterified with alcohols or phenols using concentrated H₂SO₄ or HCl gas as catalyst.",
-          },
-          {
-            label: "Reaction with PCl₅, PCl₃ and SOCl₂",
-            description:
-              "The –OH group is replaced by chlorine. SOCl₂ is preferred because the other two products are gaseous and escape, making purification of the acid chloride easier.",
-          },
-          {
-            label: "Reaction with ammonia",
-            description:
-              "The acid gives an ammonium salt, which on heating at high temperature gives the amide.",
-          },
-        ]}
-      />
-
-      <FormulaBlock
-        latex={String.raw`2\,\text{CH}_3\text{COOH} \xrightarrow{\text{P}_2\text{O}_5} (\text{CH}_3\text{CO})_2\text{O} + \text{H}_2\text{O}`}
-        label="Anhydride formation"
-      />
-
-      <FormulaBlock
-        latex={String.raw`\text{CH}_3\text{COOH} + \text{C}_2\text{H}_5\text{OH} \xrightarrow{\text{conc. H}_2\text{SO}_4} \text{CH}_3\text{COOC}_2\text{H}_5 + \text{H}_2\text{O}`}
-        label="Esterification"
-      />
-
-      <FormulaBlock
-        latex={String.raw`\text{RCOOH} + \text{SOCl}_2 \longrightarrow \text{RCOCl} + \text{SO}_2\uparrow + \text{HCl}\uparrow`}
-        label="Preferred route to the acid chloride"
-      />
-
-      <FormulaBlock
-        latex={String.raw`\text{RCOOH} + \text{NH}_3 \longrightarrow \text{RCOO}^{-}\text{NH}_4^{+} \xrightarrow{\Delta} \text{RCONH}_2 + \text{H}_2\text{O}`}
-        label="Amide formation"
-      />
-
-      <Expandable title="Mechanism — esterification is nucleophilic acyl substitution" variant="misc">
-        <p>
-          Esterification of a carboxylic acid with an alcohol is a kind of{" "}
-          <strong>nucleophilic acyl substitution</strong>. Step by step:
-        </p>
-        <ProcessCard
-          steps={[
+      <CollapsibleSection
+        title="1 · From primary alcohols and aldehydes"
+        id="h-8-7-oxidation"
+      >
+        <ReactionPathway
+          title="General reaction pathway"
+          orientation="vertical"
+          nodes={[
+            { step: "Start", title: "1° Alcohol (–CH₂OH)" },
+            { step: "Intermediate", title: "Aldehyde (–CHO)", tone: "intermediate" },
             {
-              label: "Protonation of the carbonyl oxygen",
-              description:
-                "The acid catalyst protonates the carbonyl oxygen, activating the carbonyl group towards nucleophilic addition of the alcohol.",
+              step: "Product",
+              title: "Carboxylic acid (–COOH)",
+              tone: "product",
+              outcome: "–COOH",
+            },
+          ]}
+          links={[{ label: "[O]" }, { label: "[O]" }]}
+        />
+
+        <ReagentGrid
+          title="Reagents"
+          items={[
+            { name: "KMnO₄", detail: "Potassium permanganate" },
+            { name: "K₂Cr₂O₇", detail: "Potassium dichromate" },
+            { name: "CrO₃ / H₂SO₄", detail: "Jones' reagent" },
+          ]}
+        />
+
+        <EquationProductCards
+          title="Examples"
+          columns={2}
+          cards={[
+            {
+              title: "From primary alcohol",
+              tag: "KMnO₄",
+              equation: String.raw`\text{CH}_3\text{CH}_2\text{CH}_2\text{OH} \xrightarrow{\text{KMnO}_4} \text{CH}_3\text{CH}_2\text{COOH}`,
             },
             {
-              label: "Nucleophilic addition of the alcohol",
-              description:
-                "The alcohol oxygen attacks the carbonyl carbon and a tetrahedral intermediate is formed.",
-            },
-            {
-              label: "Proton transfer",
-              description:
-                "Proton transfer in the tetrahedral intermediate converts the hydroxyl group into –OH₂⁺.",
-            },
-            {
-              label: "Loss of water",
-              description:
-                "–OH₂⁺ is a better leaving group and is eliminated as a neutral water molecule, giving the protonated ester.",
-            },
-            {
-              label: "Deprotonation",
-              description: "The protonated ester loses a proton to give the ester.",
+              title: "From aldehyde",
+              tag: "CrO₃/H⁺",
+              equation: String.raw`\text{CH}_3\text{CH}_2\text{CHO} \xrightarrow{\text{CrO}_3/\text{H}^{+}} \text{CH}_3\text{CH}_2\text{COOH}`,
             },
           ]}
         />
-      </Expandable>
+      </CollapsibleSection>
 
-      <h3 id="h-8-9-3">8.9.3 Reactions involving the –COOH group</h3>
+      <CollapsibleSection title="2 · From alkyl benzene" id="h-8-7-alkylbenzene">
+        <Callout type="important" title="Essential condition">
+          Presence of benzylic hydrogen.
+        </Callout>
 
-      <ul>
-        <li>
-          <strong>Reduction:</strong> carboxylic acids are reduced to primary alcohols by lithium
-          aluminium hydride, or better by diborane. Diborane does not easily reduce ester, nitro
-          or halo groups, so it is the selective choice. Sodium borohydride does{" "}
-          <em>not</em> reduce the carboxyl group.
-        </li>
-        <li>
-          <strong>Decarboxylation:</strong> carboxylic acids lose carbon dioxide to form
-          hydrocarbons when their sodium salts are heated with soda lime (NaOH and CaO in the
-          ratio 3 : 1).
-        </li>
-        <li>
-          <strong>Kolbe electrolysis:</strong> alkali metal salts of carboxylic acids also
-          decarboxylate on electrolysis of their aqueous solutions, forming hydrocarbons with{" "}
-          <strong>twice</strong> the number of carbon atoms present in the alkyl group of the
-          acid.
-        </li>
-      </ul>
+        <FormulaBlock
+          latex={String.raw`\text{Alkylbenzene} \xrightarrow{\text{Alkaline KMnO}_4/\Delta} \text{Benzoic acid}`}
+          label="General reaction"
+        />
 
-      <FormulaBlock
-        latex={String.raw`\text{RCOOH} \xrightarrow{\text{LiAlH}_4} \text{RCH}_2\text{OH}`}
-        label="Reduction to a primary alcohol"
+        <ReactionTable
+          title="Examples & exceptions"
+          headers={["Alkyl benzene", "Product", "Result"]}
+          rows={[
+            {
+              cells: ["Toluene (C₆H₅–CH₃)", "Benzoic acid", "✓"],
+              tone: "mild",
+            },
+            {
+              cells: ["Ethylbenzene", "Benzoic acid", "✓"],
+              tone: "mild",
+            },
+            {
+              cells: ["Isopropylbenzene (Cumene)", "Benzoic acid", "✓"],
+              tone: "mild",
+            },
+            {
+              cells: ["Tert-butylbenzene [C₆H₅–C(CH₃)₃]", "—", "✗ No reaction"],
+              tone: "resistant",
+            },
+          ]}
+          caption="Ethylbenzene and isopropylbenzene produce benzoic acid regardless of alkyl chain length, provided benzylic hydrogen exists."
+        />
+
+        <Callout type="warning" title="Tert-butylbenzene — no reaction">
+          Tert-butylbenzene does not react because it lacks benzylic hydrogen.
+        </Callout>
+      </CollapsibleSection>
+
+      <CollapsibleSection
+        title="3 · From Grignard reagent (RMgX)"
+        id="h-8-7-grignard"
+      >
+        <ReactionPathway
+          title="Reaction sequence"
+          orientation="horizontal"
+          nodes={[
+            { step: "Stage 1", title: "Grignard reagent", equation: String.raw`\text{RMgX}` },
+            {
+              step: "Stage 2",
+              title: "Addition product",
+              tone: "intermediate",
+              outcome: "Addition product",
+            },
+            {
+              step: "Stage 3",
+              title: "Carboxylic acid",
+              equation: String.raw`\text{R–COOH}`,
+              tone: "product",
+              outcome: "Carboxylic acid",
+            },
+          ]}
+          links={[
+            { label: "Dry ice", condition: "Solid CO₂" },
+            { label: "Hydrolysis", condition: "H₃O⁺" },
+          ]}
+        />
+
+        <StackedReactionCard
+          title="Example"
+          steps={[
+            {
+              label: "Addition",
+              equation: String.raw`\text{CH}_3\text{MgBr} + \text{CO}_2 \longrightarrow \text{Addition product}`,
+            },
+            {
+              label: "Acid hydrolysis",
+              equation: String.raw`\text{Addition product} \xrightarrow{\text{H}_3\text{O}^{+}} \text{CH}_3\text{COOH}`,
+              product: "Acetic acid",
+            },
+          ]}
+        />
+      </CollapsibleSection>
+
+      <CollapsibleSection
+        title="4–5 · By hydrolysis of derivatives"
+        id="h-8-7-hydrolysis"
+      >
+        <HydrolysisCards
+          title="Hydrolysis of derivatives"
+          cards={[
+            {
+              letter: "A",
+              name: "Hydrolysis of nitriles",
+              starting: String.raw`\text{R–C}\equiv\text{N}`,
+              equation: String.raw`\text{R–C}\equiv\text{N} + \text{H}_2\text{O} \xrightarrow{\text{H}^{+}\text{ or OH}^{-}} \text{R–COOH} + \text{NH}_3`,
+            },
+            {
+              letter: "B",
+              name: "Hydrolysis of amides",
+              starting: String.raw`\text{R–CONH}_2`,
+              equation: String.raw`\text{R–CONH}_2 + \text{H}_2\text{O} \longrightarrow \text{R–COOH} + \text{NH}_3`,
+            },
+            {
+              letter: "C",
+              name: "Hydrolysis of acid chlorides",
+              starting: String.raw`\text{R–COCl}`,
+              equation: String.raw`\text{R–COCl} + \text{H}_2\text{O} \longrightarrow \text{R–COOH} + \text{HCl}`,
+            },
+            {
+              letter: "D",
+              name: "Hydrolysis of acid anhydrides",
+              starting: String.raw`\text{(R–CO)}_2\text{O}`,
+              equation: String.raw`\text{(R–CO)}_2\text{O} + \text{H}_2\text{O} \longrightarrow 2\,\text{R–COOH}`,
+            },
+          ]}
+          featured={{
+            letter: "E",
+            name: "Hydrolysis of esters",
+            starting: String.raw`\text{R–COOR}'`,
+            equation: String.raw`\text{R–COOR}' + \text{H}_2\text{O} \xrightarrow{\text{H}^{+}} \text{R–COOH} + \text{R}'\text{–OH}`,
+            example: {
+              equation: String.raw`\text{CH}_3\text{COOCH}_3 + \text{H}_2\text{O} \xrightarrow{\text{H}^{+}} \text{CH}_3\text{COOH} + \text{CH}_3\text{OH}`,
+              products: ["Ethanoic acid", "Methanol"],
+            },
+          }}
+        />
+      </CollapsibleSection>
+
+      <h2 id="h-8-8">8.8 Chemical Properties of Carboxylic Acids</h2>
+
+      <SectionNavGrid
+        title="Nine reactions"
+        columns={3}
+        items={[
+          { id: "h-8-8-acidity", label: "Acidity", hint: "Ionization and substituents" },
+          {
+            id: "h-8-8-anhydride",
+            label: "Formation of anhydride",
+            hint: "P₂O₅ or H₂SO₄",
+          },
+          {
+            id: "h-8-8-esterification",
+            label: "Esterification",
+            hint: "Acid + alcohol or phenol",
+          },
+          {
+            id: "h-8-8-acid-chloride",
+            label: "Reaction with PCl₃, PCl₅ and SOCl₂",
+            hint: "Three reagents, one product",
+          },
+          {
+            id: "h-8-8-amide",
+            label: "Reaction with NH₃",
+            hint: "Ammonium salt, then heat",
+          },
+          { id: "h-8-8-reduction", label: "Reduction", hint: "LiAlH₄ or B₂H₆" },
+          {
+            id: "h-8-8-decarboxylation",
+            label: "Decarboxylation",
+            hint: "Soda lime, 3 : 1",
+          },
+          {
+            id: "h-8-8-halogenation",
+            label: "Halogenation",
+            hint: "HVZ reaction",
+          },
+          {
+            id: "h-8-8-substitution",
+            label: "Electrophilic substitution",
+            hint: "Benzoic acid, meta",
+          },
+        ]}
       />
 
-      <FormulaBlock
-        latex={String.raw`\text{CH}_3\text{COONa} + \text{NaOH(CaO)} \xrightarrow{\Delta} \text{CH}_4 + \text{Na}_2\text{CO}_3`}
-        label="Decarboxylation with soda lime"
-      />
+      <CollapsibleSection title="1 · Acidity" id="h-8-8-acidity">
+        <IonizationCard
+          title="General ionization"
+          equation={String.raw`\text{R–COOH} \rightleftharpoons \text{R–COO}^{-} + \text{H}^{+}`}
+          ion="R–COO⁻"
+        />
 
-      <FormulaBlock
-        latex={String.raw`2\,\text{CH}_3\text{COONa} + 2\text{H}_2\text{O} \xrightarrow{\text{electrolysis}} \text{C}_2\text{H}_6 + 2\text{CO}_2 + 2\text{NaOH} + \text{H}_2`}
-        label="Kolbe electrolysis"
-      />
+        <AcidReactionCards
+          title="Reactions demonstrating acidity"
+          cards={[
+            {
+              title: "Reaction with active metals",
+              examples: "Na · Mg · Zn",
+              general: String.raw`\text{Carboxylic acid} + \text{Active metal} \longrightarrow \text{Salt} + \text{H}_2\uparrow`,
+              example: String.raw`2\,\text{CH}_3\text{COOH} + 2\,\text{Na} \longrightarrow 2\,\text{CH}_3\text{COONa} + \text{H}_2\uparrow`,
+            },
+            {
+              title: "Reaction with bases / alkalis",
+              examples: "NaOH",
+              general: String.raw`\text{Carboxylic acid} + \text{Base} \longrightarrow \text{Salt} + \text{H}_2\text{O}`,
+              example: String.raw`\text{CH}_3\text{COOH} + \text{NaOH} \longrightarrow \text{CH}_3\text{COONa} + \text{H}_2\text{O}`,
+            },
+            {
+              title: "Reaction with carbonates & bicarbonates",
+              examples: "NaHCO₃",
+              general: String.raw`\text{Carboxylic acid} + \text{NaHCO}_3 \longrightarrow \text{Salt} + \text{H}_2\text{O} + \text{CO}_2\uparrow`,
+              example: String.raw`\text{CH}_3\text{COOH} + \text{NaHCO}_3 \longrightarrow \text{CH}_3\text{COONa} + \text{H}_2\text{O} + \text{CO}_2\uparrow`,
+            },
+          ]}
+        />
 
-      <h3 id="h-8-9-4">8.9.4 Substitution reactions in the hydrocarbon part</h3>
+        <Callout type="note" title="Laboratory test">
+          Effervescence due to CO₂ formation is used to detect the carboxylic acid group.
+        </Callout>
 
-      <ul>
-        <li>
-          <strong>Halogenation (Hell–Volhard–Zelinsky reaction):</strong> carboxylic acids having
-          an α-hydrogen are halogenated at the α-position by chlorine or bromine in the presence
-          of a small amount of red phosphorus, giving α-halocarboxylic acids.
-        </li>
-        <li>
-          <strong>Ring substitution:</strong> aromatic carboxylic acids undergo electrophilic
-          substitution in which the carboxyl group is <strong>deactivating and
-          meta-directing</strong>.
-        </li>
-        <li>
-          Aromatic carboxylic acids do <strong>not</strong> undergo Friedel–Crafts reactions — the
-          carboxyl group is deactivating and the Lewis acid catalyst (AlCl<sub>3</sub>) bonds to
-          the carboxyl group.
-        </li>
-      </ul>
+        <AcidityEffectCards
+          title="Effect of substituents on acidity"
+          sides={[
+            {
+              kind: "EWG",
+              heading: "Electron-Withdrawing Groups",
+              direction: "increase",
+              points: ["Stabilize carboxylate anion.", "Disperse negative charge."],
+              groups: ["–NO₂", "–X", "–CF₃"],
+            },
+            {
+              kind: "EDG",
+              heading: "Electron-Donating Groups",
+              direction: "decrease",
+              points: ["Intensify negative charge on carboxylate anion."],
+              groups: ["–CH₃", "–R"],
+            },
+          ]}
+        />
+      </CollapsibleSection>
 
-      <FormulaBlock
-        latex={String.raw`\text{RCH}_2\text{COOH} \xrightarrow[\text{red P}]{\text{Cl}_2} \text{RCH(Cl)COOH}`}
-        label="Hell–Volhard–Zelinsky reaction"
-      />
+      <CollapsibleSection title="2 · Formation of anhydride" id="h-8-8-anhydride">
+        <ReagentGrid
+          title="Dehydrating agents"
+          items={[
+            { name: "Concentrated H₂SO₄" },
+            { name: "P₂O₅" },
+            { name: "Heating" },
+          ]}
+        />
 
-      <Expandable title="Intext 8.8 — Which acid of each pair is stronger?" variant="exercise">
-        <p>
-          <strong>Question:</strong> Which acid of each pair is stronger?
-        </p>
-        <ul>
-          <li>(i) CH<sub>3</sub>CO<sub>2</sub>H or CH<sub>2</sub>FCO<sub>2</sub>H</li>
-          <li>(ii) CH<sub>2</sub>FCO<sub>2</sub>H or CH<sub>2</sub>ClCO<sub>2</sub>H</li>
-          <li>(iii) CH<sub>2</sub>FCH<sub>2</sub>CH<sub>2</sub>CO<sub>2</sub>H or CH
-          <sub>3</sub>CHFCH<sub>2</sub>CO<sub>2</sub>H</li>
-        </ul>
-        <p>
-          <strong>Answer:</strong>
-        </p>
-        <ul>
-          <li>(i) CH<sub>2</sub>FCO<sub>2</sub>H — fluorine withdraws electrons inductively.</li>
-          <li>(ii) CH<sub>2</sub>FCO<sub>2</sub>H — F is more electronegative than Cl.</li>
-          <li>
-            (iii) CH<sub>3</sub>CHFCH<sub>2</sub>CO<sub>2</sub>H — the fluorine is closer to the
-            carboxyl group, so its inductive withdrawal is stronger.
-          </li>
-        </ul>
-      </Expandable>
+        <StackedReactionCard
+          title="Formation of anhydride"
+          tag="Dehydration"
+          steps={[
+            {
+              label: "General reaction",
+              equation: String.raw`2\,\text{R–COOH} \xrightarrow{\text{P}_2\text{O}_5/\Delta} \text{(R–CO)}_2\text{O} + \text{H}_2\text{O}`,
+            },
+            {
+              label: "Example",
+              equation: String.raw`2\,\text{CH}_3\text{COOH} \xrightarrow{\text{P}_2\text{O}_5/\Delta} \text{(CH}_3\text{CO)}_2\text{O} + \text{H}_2\text{O}`,
+              product: "Ethanoic anhydride / Acetic anhydride",
+            },
+          ]}
+        />
+      </CollapsibleSection>
 
-      <h2 id="h-8-10">8.10 Uses of Carboxylic Acids</h2>
+      <CollapsibleSection
+        title="3 · Esterification"
+        id="h-8-8-esterification"
+      >
+        <StackedReactionCard
+          title="Esterification"
+          tag="H⁺"
+          steps={[
+            {
+              label: "General reaction",
+              equation: String.raw`\text{Carboxylic acid} + \text{Alcohol/Phenol} \xrightarrow{\text{H}^{+}} \text{Ester} + \text{H}_2\text{O}`,
+            },
+            {
+              label: "General formula",
+              equation: String.raw`\text{R–COOH} + \text{HO–R}' \xrightarrow{\text{H}^{+}} \text{R–COOR}' + \text{H}_2\text{O}`,
+            },
+            {
+              label: "Example — methyl ethanoate",
+              equation: String.raw`\text{CH}_3\text{COOH} + \text{HOCH}_3 \xrightarrow{\text{H}^{+}} \text{CH}_3\text{COOCH}_3 + \text{H}_2\text{O}`,
+              product: "Methyl ethanoate",
+            },
+          ]}
+          footer={
+            <>
+              The ester functional group is <strong>–COOR′</strong>.
+            </>
+          }
+        />
+      </CollapsibleSection>
 
-      <ConceptCard title="Where these acids are used" icon="🏭">
-        <ul>
-          <li>
-            <strong>Methanoic acid</strong> — rubber, textile, dyeing, leather and electroplating
-            industries.
-          </li>
-          <li>
-            <strong>Ethanoic acid</strong> — as a solvent, and as vinegar in the food industry.
-          </li>
-          <li>
-            <strong>Hexanedioic acid</strong> — manufacture of nylon-6,6.
-          </li>
-          <li>
-            <strong>Esters of benzoic acid</strong> — perfumery; <strong>sodium benzoate</strong>{" "}
-            — food preservative.
-          </li>
-          <li>
-            <strong>Higher fatty acids</strong> — manufacture of soaps and detergents.
-          </li>
-        </ul>
-      </ConceptCard>
+      <CollapsibleSection
+        title="4 · Reaction with PCl₃, PCl₅ & SOCl₂"
+        id="h-8-8-acid-chloride"
+      >
+        <AcidChlorideCards
+          title="Acid chloride formation"
+          transformation={String.raw`\text{Carboxylic acid} \longrightarrow \text{Acid chloride}`}
+          cards={[
+            {
+              name: "With PCl₃",
+              formula: "PCl₃",
+              equation: String.raw`3\,\text{R–COOH} + \text{PCl}_3 \longrightarrow 3\,\text{R–COCl} + \text{H}_3\text{PO}_3`,
+            },
+            {
+              name: "With PCl₅",
+              formula: "PCl₅",
+              equation: String.raw`\text{R–COOH} + \text{PCl}_5 \longrightarrow \text{R–COCl} + \text{HCl} + \text{POCl}_3`,
+            },
+            {
+              name: "With SOCl₂",
+              formula: "SOCl₂",
+              equation: String.raw`\text{R–COOH} + \text{SOCl}_2 \longrightarrow \text{R–COCl} + \text{HCl} + \text{SO}_2\uparrow`,
+              best: true,
+              reason: "Byproducts are gaseous.",
+            },
+          ]}
+        />
+      </CollapsibleSection>
 
-      <MistakeCard
-        mistake="Using NaBH₄ to reduce a carboxylic acid to an alcohol."
-        correction="NaBH₄ does not touch the carboxyl group. Use LiAlH₄, or diborane when other reducible groups must survive."
-        example="4-Nitrobenzoic acid → 4-nitrobenzyl alcohol needs diborane, because LiAlH₄ would also attack the nitro group."
-      />
+      <CollapsibleSection title="5 · Reaction with NH₃" id="h-8-8-amide">
+        <ReactionPathway
+          title="Reaction sequence"
+          orientation="vertical"
+          nodes={[
+            {
+              step: "Stage 1",
+              title: "Ammonium carboxylate",
+              equation: String.raw`\text{R–COOH} + \text{NH}_3 \rightleftharpoons \text{R–COONH}_4`,
+              tone: "intermediate",
+              outcome: "R–COONH₄",
+            },
+            {
+              step: "Stage 2",
+              title: "Amide",
+              equation: String.raw`\text{R–CONH}_2 + \text{H}_2\text{O}`,
+              tone: "product",
+              outcome: "Amide",
+            },
+          ]}
+          links={[{ label: "Heating", condition: "Δ" }]}
+        />
+      </CollapsibleSection>
+
+      <CollapsibleSection title="6 · Reduction" id="h-8-8-reduction">
+        <ReactionFormulaCard
+          title="Reduction"
+          tag="LiAlH₄"
+          equation={String.raw`\text{R–COOH} \xrightarrow{\text{LiAlH}_4} \text{R–CH}_2\text{OH}`}
+          equationLabel="General reaction"
+          reagentTitle="Reducing agents"
+          reagents={[
+            { name: "LiAlH₄", formula: "Lithium aluminium hydride" },
+            { name: "B₂H₆", formula: "Diborane — better/selective" },
+          ]}
+          footnote="Product: Primary alcohol (1° alcohol)."
+        />
+
+        <ReagentExceptionStrip
+          agent="NaBH₄"
+          formula="Sodium borohydride"
+          statement="Does not reduce carboxylic acids."
+        />
+      </CollapsibleSection>
+
+      <CollapsibleSection
+        title="7 · Decarboxylation"
+        id="h-8-8-decarboxylation"
+      >
+        <DecarboxylationCard
+          title="Decarboxylation"
+          reagent={{ name: "Soda lime", formula: "NaOH + CaO" }}
+          ratio={String.raw`\boxed{\text{NaOH}:\text{CaO}=3:1}`}
+          condition="Heating (Δ)"
+          equation={String.raw`\text{R–COO}^{-}\text{Na}^{+} \xrightarrow{\text{Soda lime}/\Delta} \text{R–H} + \text{Na}_2\text{CO}_3`}
+          example={{
+            equation: String.raw`\text{CH}_3\text{CH}_2\text{COO}^{-}\text{Na}^{+} \longrightarrow \text{CH}_3\text{CH}_3`,
+            product: "Ethane",
+          }}
+        />
+      </CollapsibleSection>
+
+      <CollapsibleSection
+        title="8 · Halogenation — α-halogenation"
+        id="h-8-8-halogenation"
+      >
+        <AlphaHalogenationCard
+          title="Halogenation — α-halogenation"
+          name="Hell–Volhard–Zelinsky (HVZ) Reaction"
+          tag="Named reaction"
+          reagents={["X₂ (Cl₂ or Br₂)", "Red phosphorus (Red P)", "Followed by H₂O"]}
+          condition="Presence of at least one α-hydrogen."
+          equation={String.raw`\text{R–CH}_2\text{–COOH} \xrightarrow{\text{Br}_2/\text{Red P}} \text{R–CH(Br)–COOH}`}
+        />
+      </CollapsibleSection>
+
+      <CollapsibleSection
+        title="9 · Electrophilic substitution"
+        id="h-8-8-substitution"
+      >
+        <MetaDirectingCards
+          title="Electrophilic substitution (aromatic)"
+          group="–COOH"
+          groupLabel="Carboxyl group"
+          ringGroup="COOH"
+          effect="Meta-directing"
+          note="–COOH is a deactivating group."
+          cards={[
+            {
+              title: "Nitration",
+              reagent: "Conc. HNO₃/H₂SO₄",
+              equation: String.raw`\text{Benzoic acid} \longrightarrow m\text{-Nitrobenzoic acid}`,
+              product: "m-Nitrobenzoic acid",
+              substituent: "NO₂",
+            },
+            {
+              title: "Bromination",
+              reagent: "Br₂/FeBr₃",
+              equation: String.raw`\text{Benzoic acid} \longrightarrow m\text{-Bromobenzoic acid}`,
+              product: "m-Bromobenzoic acid",
+              substituent: "Br",
+            },
+          ]}
+        />
+      </CollapsibleSection>
+
+      <h2 id="h-8-9">8.9 Uses of Aldehydes, Ketones and Carboxylic Acids</h2>
+
+      <CollapsibleSection
+        title="Uses of aldehydes and ketones"
+        id="h-8-9-aldehydes"
+      >
+        <UsesBoard
+          title="Uses of aldehydes and ketones"
+          uses={[
+            <>
+              <strong>Formaldehyde</strong> — well known as <em>formalin</em> (40% solution),
+              used to preserve biological specimens and to prepare bakelite (a
+              phenol–formaldehyde resin), urea–formaldehyde glues and other polymeric products.
+            </>,
+            <>
+              <strong>Acetaldehyde</strong> — the starting material for acetic acid, ethyl
+              acetate, vinyl acetate, polymers and drugs.
+            </>,
+            <>
+              <strong>Benzaldehyde</strong> — used in perfumery and in the dye industry.
+            </>,
+            <>
+              <strong>Acetone</strong> and <strong>ethyl methyl ketone</strong> — common
+              industrial solvents.
+            </>,
+            <>
+              Butyraldehyde, vanillin, acetophenone and camphor are well known for their odours
+              and flavours.
+            </>,
+          ]}
+        />
+      </CollapsibleSection>
+
+      <CollapsibleSection
+        title="Uses of carboxylic acids"
+        id="h-8-9-acids"
+      >
+        <UsesBoard
+          title="Uses of carboxylic acids"
+          uses={[
+            <>
+              <strong>Methanoic acid</strong> — rubber, textile, dyeing, leather and electroplating
+              industries.
+            </>,
+            <>
+              <strong>Ethanoic acid</strong> — as a solvent, and as vinegar in the food industry.
+            </>,
+            <>
+              <strong>Hexanedioic acid</strong> — manufacture of nylon-6,6.
+            </>,
+            <>
+              <strong>Esters of benzoic acid</strong> — perfumery; <strong>sodium benzoate</strong>{" "}
+              — food preservative.
+            </>,
+            <>
+              <strong>Higher fatty acids</strong> — manufacture of soaps and detergents.
+            </>,
+          ]}
+        />
+      </CollapsibleSection>
 
       <h2 id="h-8-exercises">Exercises</h2>
 

@@ -2062,6 +2062,69 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/AcidBoilingBoard.tsx#AcidBoilingBoard",
+    "name": "AcidBoilingBoard",
+    "path": "content/chemistry/AcidBoilingBoard.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; order: BoilingRung[]; reasons: ReactNode[]; dimerCaption?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/AcidChlorideCards.tsx#AcidChlorideCards",
+    "name": "AcidChlorideCards",
+    "path": "content/chemistry/AcidChlorideCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; transformation: string; cards: AcidChlorideCard[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/AcidityEffectCards.tsx#AcidityEffectCards",
+    "name": "AcidityEffectCards",
+    "path": "content/chemistry/AcidityEffectCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; sides: AciditySide[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/AcidNameTable.tsx#AcidNameTable",
+    "name": "AcidNameTable",
+    "path": "content/chemistry/AcidNameTable.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; lead?: ReactNode; rows: AcidNameRow[]; caption?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/AcidReactionCards.tsx#AcidReactionCards",
+    "name": "AcidReactionCards",
+    "path": "content/chemistry/AcidReactionCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; cards: AcidReactionCard[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/AcidSolubilityCards.tsx#AcidSolubilityCards",
+    "name": "AcidSolubilityCards",
+    "path": "content/chemistry/AcidSolubilityCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; cards: AcidSolubilityCard[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/AcidStateCards.tsx#AcidStateCards",
+    "name": "AcidStateCards",
+    "path": "content/chemistry/AcidStateCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; liquid: AcidStateSide; solid: AcidStateSide; verification?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/AdditionOverviewTable.tsx#AdditionOverviewTable",
     "name": "AdditionOverviewTable",
     "path": "content/chemistry/AdditionOverviewTable.tsx",
@@ -2112,6 +2175,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/AldolStepFlow.tsx",
     "category": "chemistry",
     "props": "title: ReactNode; steps: AldolStep[]; linkLabel?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/AlphaHalogenationCard.tsx#AlphaHalogenationCard",
+    "name": "AlphaHalogenationCard",
+    "path": "content/chemistry/AlphaHalogenationCard.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; name: ReactNode; tag?: ReactNode; reagents: ReactNode[]; condition: ReactNode; equation: string;",
     "shell": false,
     "renderable": true
   },
@@ -2332,11 +2404,29 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/DecarboxylationCard.tsx#DecarboxylationCard",
+    "name": "DecarboxylationCard",
+    "path": "content/chemistry/DecarboxylationCard.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; reagent: { name: ReactNode; formula: ReactNode }; ratio: string; condition: ReactNode; equation: string; example: { equation: string; product: ReactNode };",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/DenaturationCard.tsx#DenaturationCard",
     "name": "DenaturationCard",
     "path": "content/chemistry/DenaturationCard.tsx",
     "category": "chemistry",
     "props": "title?: ReactNode; tag?: ReactNode; definition: ReactNode; additives: Denaturant[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/DicarboxylicSeriesTable.tsx#DicarboxylicSeriesTable",
+    "name": "DicarboxylicSeriesTable",
+    "path": "content/chemistry/DicarboxylicSeriesTable.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; rows: DicarboxylicRow[]; caption?: ReactNode;",
     "shell": false,
     "renderable": true
   },
@@ -2372,7 +2462,7 @@ export const CATALOG: CatalogEntry[] = [
     "name": "EquationProductCards",
     "path": "content/chemistry/EquationProductCards.tsx",
     "category": "chemistry",
-    "props": "title?: ReactNode; cards: EquationProductCard[];",
+    "props": "title?: ReactNode; cards: EquationProductCard[]; columns?: 1 | 2 | 3;",
     "shell": false,
     "renderable": true
   },
@@ -2458,6 +2548,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/HydrolysisCards.tsx#HydrolysisCards",
+    "name": "HydrolysisCards",
+    "path": "content/chemistry/HydrolysisCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; cards: HydrolysisCard[]; featured: FeaturedHydrolysisCard;",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/HydroxylFormationCards.tsx#HydroxylFormationCards",
     "name": "HydroxylFormationCards",
     "path": "content/chemistry/HydroxylFormationCards.tsx",
@@ -2481,6 +2580,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/IndustrialPrepCard.tsx",
     "category": "chemistry",
     "props": "title?: ReactNode; tag?: ReactNode; method: ReactNode; equation: string; equationLabel?: ReactNode; reagents?: SpecRow; catalyst?: SpecRow; conditions?: PrepCondition[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/IonizationCard.tsx#IonizationCard",
+    "name": "IonizationCard",
+    "path": "content/chemistry/IonizationCard.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; equation: string; ion: ReactNode; note?: ReactNode;",
     "shell": false,
     "renderable": true
   },
@@ -2525,7 +2633,7 @@ export const CATALOG: CatalogEntry[] = [
     "name": "MetaDirectingCards",
     "path": "content/chemistry/MetaDirectingCards.tsx",
     "category": "chemistry",
-    "props": "title?: ReactNode; group: ReactNode; effect: ReactNode; cards: MetaDirectingCard[];",
+    "props": "title?: ReactNode; group: ReactNode; effect: ReactNode; groupLabel?: ReactNode; ringGroup?: string; note?: ReactNode; cards: MetaDirectingCard[];",
     "shell": false,
     "renderable": true
   },
@@ -2544,6 +2652,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/MethyleneReductionCards.tsx",
     "category": "chemistry",
     "props": "title?: ReactNode; routes: MethyleneRoute[]; common: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/MnemonicCard.tsx#MnemonicCard",
+    "name": "MnemonicCard",
+    "path": "content/chemistry/MnemonicCard.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; phrase: string; entries: MnemonicEntry[];",
     "shell": false,
     "renderable": true
   },
@@ -2643,6 +2760,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/PhenolPositionComparison.tsx",
     "category": "chemistry",
     "props": "positions: PhenolPosition[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/PhthalicAcidCard.tsx#PhthalicAcidCard",
+    "name": "PhthalicAcidCard",
+    "path": "content/chemistry/PhthalicAcidCard.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; common: ReactNode; iupac: ReactNode; formula: ReactNode; note?: ReactNode;",
     "shell": false,
     "renderable": true
   },
@@ -2764,6 +2890,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/ReagentExceptionStrip.tsx#ReagentExceptionStrip",
+    "name": "ReagentExceptionStrip",
+    "path": "content/chemistry/ReagentExceptionStrip.tsx",
+    "category": "chemistry",
+    "props": "agent: ReactNode; formula?: ReactNode; statement: ReactNode; note?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/ReagentGrid.tsx#ReagentGrid",
     "name": "ReagentGrid",
     "path": "content/chemistry/ReagentGrid.tsx",
@@ -2805,6 +2940,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/RouteChainCards.tsx",
     "category": "chemistry",
     "props": "title?: ReactNode; conditions?: Array<{ label: ReactNode; value: ReactNode }>; chains: RouteChain[]; footnote?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/SectionNavGrid.tsx#SectionNavGrid",
+    "name": "SectionNavGrid",
+    "path": "content/chemistry/SectionNavGrid.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; lead?: ReactNode; items: SectionNavItem[]; columns?: 2 | 3 | 4 | 5;",
     "shell": false,
     "renderable": true
   },
@@ -2859,6 +3003,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/StabilityFactorCards.tsx",
     "category": "chemistry",
     "props": "factors: StabilityFactor[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/StackedReactionCard.tsx#StackedReactionCard",
+    "name": "StackedReactionCard",
+    "path": "content/chemistry/StackedReactionCard.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; tag?: ReactNode; steps: StackedReactionStep[]; footer?: ReactNode;",
     "shell": false,
     "renderable": true
   },

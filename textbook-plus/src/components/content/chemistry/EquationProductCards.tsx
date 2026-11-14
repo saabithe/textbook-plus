@@ -19,6 +19,8 @@ interface EquationProductCardsProps {
   /** Heading strip. */
   title?: ReactNode;
   cards: EquationProductCard[];
+  /** Columns from the small breakpoint. Defaults to three. */
+  columns?: 1 | 2 | 3;
 }
 
 /**
@@ -29,6 +31,7 @@ interface EquationProductCardsProps {
 export function EquationProductCards({
   title,
   cards,
+  columns = 3,
 }: EquationProductCardsProps) {
   return (
     <section className="my-6 overflow-hidden rounded-lg border border-border bg-card">
@@ -39,7 +42,15 @@ export function EquationProductCards({
         </span>
       </div>
 
-      <div className="grid gap-2 p-3 sm:grid-cols-3 sm:p-4">
+      <div
+        className={
+          columns === 2
+            ? "grid gap-2 p-3 sm:grid-cols-2 sm:p-4"
+            : columns === 1
+              ? "grid gap-2 p-3 sm:p-4"
+              : "grid gap-2 p-3 sm:grid-cols-3 sm:p-4"
+        }
+      >
         {cards.map((card, index) => (
           <article
             key={index}

@@ -22,16 +22,22 @@ interface MetaDirectingCardsProps {
   group: ReactNode;
   /** What the group directs, e.g. "Meta-directing". */
   effect: ReactNode;
+  /** Label beside the group, e.g. "Carbonyl group". */
+  groupLabel?: ReactNode;
+  /** Group drawn on the ring at position 1, e.g. "CHO" or "COOH". */
+  ringGroup?: string;
+  /** Line under the group band, e.g. a deactivating note. */
+  note?: ReactNode;
   cards: MetaDirectingCard[];
 }
 
-/** Benzene ring with –CHO at position 1 and the incoming group at position 3. */
-function MetaRing({ substituent }: { substituent: string }) {
+/** Benzene ring with the directing group at position 1 and the incoming group at position 3. */
+function MetaRing({ substituent, group }: { substituent: string; group: string }) {
   return (
     <svg
       viewBox="0 0 170 118"
       role="img"
-      aria-label={`Benzene ring with CHO at position 1 and ${substituent} at the meta position`}
+      aria-label={`Benzene ring with ${group} at position 1 and ${substituent} at the meta position`}
       className="h-auto w-28 shrink-0 text-foreground"
     >
       <g fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth={1.3}>
@@ -45,11 +51,11 @@ function MetaRing({ substituent }: { substituent: string }) {
         x="62"
         y="18"
         textAnchor="middle"
-        fontSize={9}
+        fontSize={8}
         fontWeight={700}
         fill="currentColor"
       >
-        CHO
+        {group}
       </text>
       <text
         x="106"
@@ -97,6 +103,9 @@ export function MetaDirectingCards({
   title,
   group,
   effect,
+  groupLabel,
+  ringGroup = "CHO",
+  note,
   cards,
 }: MetaDirectingCardsProps) {
   return (
@@ -112,7 +121,7 @@ export function MetaDirectingCards({
         <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 rounded-md border border-[color-mix(in_oklab,var(--subject-chemistry)_40%,transparent)] bg-[color-mix(in_oklab,var(--subject-chemistry)_8%,transparent)] px-3 py-2.5">
           <span className="flex items-baseline gap-2">
             <span className="text-[0.6rem] font-extrabold uppercase tracking-[0.09em] text-muted-foreground">
-              Carbonyl group
+              {groupLabel ?? "Carbonyl group"}
             </span>
             <span className="text-[0.95rem] font-extrabold leading-none text-foreground">
               {group}
@@ -122,6 +131,12 @@ export function MetaDirectingCards({
             {effect}
           </p>
         </div>
+
+        {note && (
+          <p className="mt-1.5 px-1 text-[0.74rem] leading-relaxed text-foreground/80">
+            {note}
+          </p>
+        )}
 
         <div className="mt-2 grid gap-2 sm:grid-cols-2">
           {cards.map((card, index) => (
@@ -139,7 +154,7 @@ export function MetaDirectingCards({
               </div>
 
               <div className="flex items-start gap-2 px-2.5 py-2.5">
-                <MetaRing substituent={card.substituent} />
+                <MetaRing substituent={card.substituent} group={ringGroup} />
 
                 <div className="min-w-0 flex-1">
                   {card.reagent && (

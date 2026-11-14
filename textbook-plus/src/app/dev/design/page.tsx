@@ -138,6 +138,23 @@ import { CannizzaroCompoundCards } from "@/components/content/chemistry/Cannizza
 import { DisproportionationBoard } from "@/components/content/chemistry/DisproportionationBoard";
 import { CannizzaroEquationCards } from "@/components/content/chemistry/CannizzaroEquationCards";
 import { MetaDirectingCards } from "@/components/content/chemistry/MetaDirectingCards";
+import { SectionNavGrid } from "@/components/content/chemistry/SectionNavGrid";
+import { AcidNameTable } from "@/components/content/chemistry/AcidNameTable";
+import { DicarboxylicSeriesTable } from "@/components/content/chemistry/DicarboxylicSeriesTable";
+import { MnemonicCard } from "@/components/content/chemistry/MnemonicCard";
+import { PhthalicAcidCard } from "@/components/content/chemistry/PhthalicAcidCard";
+import { AcidStateCards } from "@/components/content/chemistry/AcidStateCards";
+import { AcidBoilingBoard } from "@/components/content/chemistry/AcidBoilingBoard";
+import { AcidSolubilityCards } from "@/components/content/chemistry/AcidSolubilityCards";
+import { HydrolysisCards } from "@/components/content/chemistry/HydrolysisCards";
+import { StackedReactionCard } from "@/components/content/chemistry/StackedReactionCard";
+import { AcidChlorideCards } from "@/components/content/chemistry/AcidChlorideCards";
+import { ReagentExceptionStrip } from "@/components/content/chemistry/ReagentExceptionStrip";
+import { DecarboxylationCard } from "@/components/content/chemistry/DecarboxylationCard";
+import { AlphaHalogenationCard } from "@/components/content/chemistry/AlphaHalogenationCard";
+import { IonizationCard } from "@/components/content/chemistry/IonizationCard";
+import { AcidReactionCards } from "@/components/content/chemistry/AcidReactionCards";
+import { AcidityEffectCards } from "@/components/content/chemistry/AcidityEffectCards";
 
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -2202,6 +2219,332 @@ export default function DesignPage() {
               equation: String.raw`\text{Benzaldehyde} \longrightarrow m\text{-Formylbenzenesulfonic acid}`,
               product: "m-Formylbenzenesulfonic acid",
               substituent: "SO₃H",
+            },
+          ]}
+        />
+      </Section>
+
+      <Section title="Chemistry — carboxylic acids">
+        <SectionNavGrid
+          title="Demo dashboard"
+          columns={4}
+          items={[
+            { id: "demo-acid-nomenclature", label: "Nomenclature", hint: "Names and series" },
+            { id: "demo-acid-physical", label: "Physical properties", hint: "State, boiling, solubility" },
+            { id: "demo-acid-prep", label: "Preparation", hint: "Five routes" },
+            { id: "demo-acid-chemical", label: "Chemical properties", hint: "Nine reactions" },
+          ]}
+        />
+
+        <AcidNameTable
+          title="Monocarboxylic acids"
+          lead="Aliphatic and aromatic, one line each."
+          rows={[
+            { formula: "H–COOH", common: "Formic acid", iupac: "Methanoic acid" },
+            { formula: "CH₃–COOH", common: "Acetic acid", iupac: "Ethanoic acid" },
+            { formula: "C₆H₅–COOH", common: "Benzoic acid", iupac: "Benzoic acid" },
+          ]}
+          caption="Both names are set at the same weight."
+        />
+
+        <DicarboxylicSeriesTable
+          title="Dicarboxylic acid series"
+          caption="n grows by one CH₂ each step."
+          rows={[
+            { n: "0", formula: "COOH–COOH", common: "Oxalic acid", iupac: "Ethanedioic acid" },
+            {
+              n: "1",
+              formula: "COOH–CH₂–COOH",
+              common: "Malonic acid",
+              iupac: "Propanedioic acid",
+            },
+            {
+              n: "2",
+              formula: "COOH–(CH₂)₂–COOH",
+              common: "Succinic acid",
+              iupac: "Butanedioic acid",
+            },
+            {
+              n: "3",
+              formula: "COOH–(CH₂)₃–COOH",
+              common: "Glutaric acid",
+              iupac: "Pentanedioic acid",
+            },
+            {
+              n: "4",
+              formula: "COOH–(CH₂)₄–COOH",
+              common: "Adipic acid",
+              iupac: "Hexanedioic acid",
+            },
+          ]}
+        />
+
+        <MnemonicCard
+          title="Mnemonic — dicarboxylic acid series"
+          phrase="Oh My Son Go And Pray Splendidly"
+          entries={[
+            { letter: "O", name: "Oxalic" },
+            { letter: "M", name: "Malonic" },
+            { letter: "S", name: "Succinic" },
+            { letter: "G", name: "Glutaric" },
+            { letter: "A", name: "Adipic" },
+            { letter: "P", name: "Pimelic" },
+            { letter: "S", name: "Suberic" },
+          ]}
+        />
+
+        <PhthalicAcidCard
+          title="Aromatic dicarboxylic acid"
+          common="Phthalic acid"
+          iupac="Benzene-1,2-dicarboxylic acid"
+          formula="C₆H₄(COOH)₂"
+          note="Two –COOH groups occupy adjacent positions."
+        />
+
+        <AcidStateCards
+          title="Physical state"
+          liquid={{ limit: "Up to 9 C", state: "Colourless liquids." }}
+          solid={{ limit: "Above 9 C", state: "Colourless waxy solids." }}
+          verification="the note writes “9 C” for both boundaries."
+        />
+
+        <AcidBoilingBoard
+          title="Boiling point order"
+          order={[
+            { label: "HC" },
+            { label: "Ald" },
+            { label: "Ketone" },
+            { label: "Alcohol" },
+            { label: "C. acids", highlight: true },
+          ]}
+          reasons={[
+            "Strong intermolecular hydrogen bonding.",
+            "Carboxylic acids often form stable dimers.",
+          ]}
+          dimerCaption="Two O–H⋯O hydrogen bonds hold the pair together."
+        />
+
+        <AcidSolubilityCards
+          title="Solubility in water"
+          cards={[
+            {
+              title: "Lower members",
+              verdict: "Soluble in water",
+              points: ["Form hydrogen bonds with water molecules."],
+              tone: "soluble",
+            },
+            {
+              title: "Higher members",
+              verdict: "Insoluble in water",
+              points: ["Increasing size of the hydrophobic hydrocarbon chain."],
+              tone: "insoluble",
+            },
+            {
+              title: "Benzoic acid",
+              verdict: "Crystalline solid",
+              cold: { label: "Cold water", value: "Insoluble" },
+              hot: { label: "Hot water", value: "Soluble" },
+              tone: "aromatic",
+            },
+          ]}
+        />
+
+        <HydrolysisCards
+          title="Hydrolysis of derivatives"
+          cards={[
+            {
+              letter: "A",
+              name: "Hydrolysis of nitriles",
+              starting: String.raw`\text{R–C}\equiv\text{N}`,
+              equation: String.raw`\text{R–C}\equiv\text{N} + \text{H}_2\text{O} \xrightarrow{\text{H}^{+}} \text{R–COOH} + \text{NH}_3`,
+            },
+            {
+              letter: "B",
+              name: "Hydrolysis of amides",
+              starting: String.raw`\text{R–CONH}_2`,
+              equation: String.raw`\text{R–CONH}_2 + \text{H}_2\text{O} \longrightarrow \text{R–COOH} + \text{NH}_3`,
+            },
+            {
+              letter: "C",
+              name: "Hydrolysis of acid chlorides",
+              starting: String.raw`\text{R–COCl}`,
+              equation: String.raw`\text{R–COCl} + \text{H}_2\text{O} \longrightarrow \text{R–COOH} + \text{HCl}`,
+            },
+            {
+              letter: "D",
+              name: "Hydrolysis of acid anhydrides",
+              starting: String.raw`\text{(R–CO)}_2\text{O}`,
+              equation: String.raw`\text{(R–CO)}_2\text{O} + \text{H}_2\text{O} \longrightarrow 2\,\text{R–COOH}`,
+            },
+          ]}
+          featured={{
+            letter: "E",
+            name: "Hydrolysis of esters",
+            starting: String.raw`\text{R–COOR}'`,
+            equation: String.raw`\text{R–COOR}' + \text{H}_2\text{O} \xrightarrow{\text{H}^{+}} \text{R–COOH} + \text{R}'\text{–OH}`,
+            example: {
+              equation: String.raw`\text{CH}_3\text{COOCH}_3 + \text{H}_2\text{O} \xrightarrow{\text{H}^{+}} \text{CH}_3\text{COOH} + \text{CH}_3\text{OH}`,
+              products: ["Ethanoic acid", "Methanol"],
+            },
+          }}
+        />
+
+        <StackedReactionCard
+          title="Formation of anhydride"
+          tag="Dehydration"
+          steps={[
+            {
+              label: "General reaction",
+              equation: String.raw`2\,\text{R–COOH} \xrightarrow{\text{P}_2\text{O}_5/\Delta} \text{(R–CO)}_2\text{O} + \text{H}_2\text{O}`,
+            },
+            {
+              label: "Example",
+              equation: String.raw`2\,\text{CH}_3\text{COOH} \xrightarrow{\text{P}_2\text{O}_5/\Delta} \text{(CH}_3\text{CO)}_2\text{O} + \text{H}_2\text{O}`,
+              product: "Ethanoic anhydride",
+            },
+          ]}
+          footer={
+            <>
+              The anhydride bridges two acyl groups through one oxygen.
+            </>
+          }
+        />
+
+        <AcidChlorideCards
+          title="Acid chloride formation"
+          transformation={String.raw`\text{Carboxylic acid} \longrightarrow \text{Acid chloride}`}
+          cards={[
+            {
+              name: "With PCl₃",
+              formula: "PCl₃",
+              equation: String.raw`3\,\text{R–COOH} + \text{PCl}_3 \longrightarrow 3\,\text{R–COCl} + \text{H}_3\text{PO}_3`,
+            },
+            {
+              name: "With PCl₅",
+              formula: "PCl₅",
+              equation: String.raw`\text{R–COOH} + \text{PCl}_5 \longrightarrow \text{R–COCl} + \text{HCl} + \text{POCl}_3`,
+            },
+            {
+              name: "With SOCl₂",
+              formula: "SOCl₂",
+              equation: String.raw`\text{R–COOH} + \text{SOCl}_2 \longrightarrow \text{R–COCl} + \text{HCl} + \text{SO}_2\uparrow`,
+              best: true,
+              reason: "Byproducts are gaseous.",
+            },
+          ]}
+        />
+
+        <ReagentExceptionStrip
+          agent="NaBH₄"
+          formula="Sodium borohydride"
+          statement="Does not reduce carboxylic acids."
+          note="The same reagent does reduce aldehydes and ketones."
+        />
+
+        <DecarboxylationCard
+          title="Decarboxylation"
+          reagent={{ name: "Soda lime", formula: "NaOH + CaO" }}
+          ratio={String.raw`\boxed{\text{NaOH}:\text{CaO}=3:1}`}
+          condition="Heating (Δ)"
+          equation={String.raw`\text{R–COO}^{-}\text{Na}^{+} \xrightarrow{\text{Soda lime}/\Delta} \text{R–H} + \text{Na}_2\text{CO}_3`}
+          example={{
+            equation: String.raw`\text{CH}_3\text{CH}_2\text{COO}^{-}\text{Na}^{+} \longrightarrow \text{CH}_3\text{CH}_3`,
+            product: "Ethane",
+          }}
+        />
+
+        <AlphaHalogenationCard
+          title="Halogenation — α-halogenation"
+          name="Hell–Volhard–Zelinsky (HVZ) Reaction"
+          tag="Named reaction"
+          reagents={["X₂ (Cl₂ or Br₂)", "Red phosphorus (Red P)", "Followed by H₂O"]}
+          condition="Presence of at least one α-hydrogen."
+          equation={String.raw`\text{R–CH}_2\text{–COOH} \xrightarrow{\text{Br}_2/\text{Red P}} \text{R–CH(Br)–COOH}`}
+        />
+
+        <IonizationCard
+          title="General ionization"
+          equation={String.raw`\text{R–COOH} \rightleftharpoons \text{R–COO}^{-} + \text{H}^{+}`}
+          ion="R–COO⁻"
+          note="The anion's stability decides the acidity."
+        />
+
+        <AcidReactionCards
+          title="Reactions demonstrating acidity"
+          cards={[
+            {
+              title: "Reaction with active metals",
+              examples: "Na · Mg · Zn",
+              general: String.raw`\text{Carboxylic acid} + \text{Active metal} \longrightarrow \text{Salt} + \text{H}_2\uparrow`,
+              example: String.raw`2\,\text{CH}_3\text{COOH} + 2\,\text{Na} \longrightarrow 2\,\text{CH}_3\text{COONa} + \text{H}_2\uparrow`,
+            },
+            {
+              title: "Reaction with bases",
+              examples: "NaOH",
+              general: String.raw`\text{Carboxylic acid} + \text{Base} \longrightarrow \text{Salt} + \text{H}_2\text{O}`,
+              example: String.raw`\text{CH}_3\text{COOH} + \text{NaOH} \longrightarrow \text{CH}_3\text{COONa} + \text{H}_2\text{O}`,
+            },
+          ]}
+        />
+
+        <AcidityEffectCards
+          title="Effect of substituents on acidity"
+          sides={[
+            {
+              kind: "EWG",
+              heading: "Electron-Withdrawing Groups",
+              direction: "increase",
+              points: ["Stabilize carboxylate anion.", "Disperse negative charge."],
+              groups: ["–NO₂", "–X", "–CF₃"],
+            },
+            {
+              kind: "EDG",
+              heading: "Electron-Donating Groups",
+              direction: "decrease",
+              points: ["Intensify negative charge on carboxylate anion."],
+              groups: ["–CH₃", "–R"],
+            },
+          ]}
+        />
+
+        <MetaDirectingCards
+          title="Electrophilic substitution (aromatic)"
+          group="–COOH"
+          groupLabel="Carboxyl group"
+          ringGroup="COOH"
+          effect="Meta-directing"
+          note="–COOH is a deactivating group."
+          cards={[
+            {
+              title: "Nitration",
+              reagent: "Conc. HNO₃/H₂SO₄",
+              equation: String.raw`\text{Benzoic acid} \longrightarrow m\text{-Nitrobenzoic acid}`,
+              product: "m-Nitrobenzoic acid",
+              substituent: "NO₂",
+            },
+            {
+              title: "Bromination",
+              reagent: "Br₂/FeBr₃",
+              equation: String.raw`\text{Benzoic acid} \longrightarrow m\text{-Bromobenzoic acid}`,
+              product: "m-Bromobenzoic acid",
+              substituent: "Br",
+            },
+          ]}
+        />
+
+        <EquationProductCards
+          title="Two-column comparison"
+          columns={2}
+          cards={[
+            {
+              title: "From primary alcohol",
+              tag: "KMnO₄",
+              equation: String.raw`\text{CH}_3\text{CH}_2\text{CH}_2\text{OH} \xrightarrow{\text{KMnO}_4} \text{CH}_3\text{CH}_2\text{COOH}`,
+            },
+            {
+              title: "From aldehyde",
+              tag: "CrO₃/H⁺",
+              equation: String.raw`\text{CH}_3\text{CH}_2\text{CHO} \xrightarrow{\text{CrO}_3/\text{H}^{+}} \text{CH}_3\text{CH}_2\text{COOH}`,
             },
           ]}
         />
