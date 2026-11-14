@@ -354,6 +354,18 @@
   text-wrap: balance;
 }
 
+/* Below xl the mobile contents bar pins under the navbar, so a jump target
+   needs the height of both bars (64px + ~61px) to clear the chrome. */
+@media (max-width: 1279px) {
+  .prose-custom h1,
+  .prose-custom h2,
+  .prose-custom h3,
+  .prose-custom h4,
+  .prose-custom h5 {
+    scroll-margin-top: 8.5rem;
+  }
+}
+
 .prose-custom h1 {
   font-family: var(--font-sans);
   font-size: 2.25rem;

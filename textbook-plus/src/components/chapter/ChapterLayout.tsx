@@ -1,7 +1,8 @@
 "use client";
 
-import { Fragment, useEffect, useRef, useState, type RefObject } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState, type RefObject } from "react";
 import Link from "next/link";
+import { List, X } from "lucide-react";
 import { ChapterNav } from "./ChapterNav";
 import { ChapterTabs, PracticePlaceholder } from "./ChapterTabs";
 import { ChapterToc } from "./ChapterToc";
@@ -62,6 +63,47 @@ export function ChapterLayout({
   const [tocAvailable, setTocAvailable] = useState(false);
   const showPractice = subjectSlug !== "english" && subjectSlug !== "arabic";
   const articleRef = useRef<HTMLDivElement | null>(null);
+  const tocTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const tocPanelRef = useRef<HTMLDivElement | null>(null);
+  /**
+   * The trigger lives while the TOC is available *or* the drawer is open, so a
+   * late availability report from the child can never unmount an open drawer
+   * or steal focus back out of it. Only an explicit close ends the session.
+   */
+  const showContents = activeTab === "learning" && (tocAvailable || mobileTocOpen);
+
+  const closeMobileToc = useCallback(() => {
+    setMobileTocOpen(false);
+    // Restore focus without yanking the reader back up the page after a jump.
+    requestAnimationFrame(() => tocTriggerRef.current?.focus({ preventScroll: true }));
+  }, []);
+
+  // The drawer belongs to the Learning tab only; leaving it drops the session.
+  useEffect(() => {
+    if (activeTab !== "learning") setMobileTocOpen(false);
+  }, [activeTab]);
+
+  // Drawer open → lock body scroll, focus the panel, Escape closes.
+  // The cleanup restores the previous overflow on close *and* on unmount.
+  useEffect(() => {
+    if (!mobileTocOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    tocPanelRef.current?.focus({ preventScroll: true });
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      event.stopPropagation();
+      closeMobileToc();
+    };
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [mobileTocOpen, closeMobileToc]);
 
   async function copySelection() {
     const sel = window.getSelection()?.toString() ?? "";
@@ -163,6 +205,27 @@ export function ChapterLayout({
         />
       )}
 
+      {/* Mobile contents — an in-flow sub-bar under the tabs. It never covers
+          the reading column and never collides with the progress badge. */}
+      {showContents && (
+        <div className="sticky top-16 z-30 -mx-6 mb-6 flex items-center justify-between gap-3 border-b border-border bg-background px-6 py-2 xl:hidden">
+          <p className="t-micro">On this page</p>
+          <button
+            ref={tocTriggerRef}
+            type="button"
+            aria-label="Open contents"
+            aria-haspopup="dialog"
+            aria-expanded={mobileTocOpen}
+            aria-controls="chapter-contents-drawer"
+            onClick={() => setMobileTocOpen(true)}
+            className="inline-flex h-11 min-w-11 items-center gap-2 rounded-[3px] border border-border bg-card px-4 text-[12px] font-semibold text-foreground outline-none transition-colors duration-[120ms] ease-[var(--ease-blueprint)] active:bg-foreground/[0.04] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            <List aria-hidden className="h-3.5 w-3.5" strokeWidth={2} />
+            Contents
+          </button>
+        </div>
+      )}
+
       {/* Content — railed on Learning only */}
       {activeTab === "learning" ? (
         <div className="xl:grid xl:grid-cols-[200px_minmax(0,72ch)_200px] xl:gap-12">
@@ -192,29 +255,40 @@ export function ChapterLayout({
           <ChapterNav prev={adjacent.prev ?? null} next={adjacent.next ?? null} basePath={navBase} />
         </div>
       )}
-      {activeTab === "learning" && tocAvailable && (
-        <>
-          <button
-            type="button"
-            aria-label="Open contents"
-            onClick={() => setMobileTocOpen(true)}
-            className="xl:hidden fixed right-4 top-24 z-40 inline-flex h-9 items-center rounded-[3px] border border-border bg-card px-3 text-[12px] font-semibold text-foreground"
+      {mobileTocOpen && (
+        <div
+          className="fixed inset-0 z-[60] flex justify-end bg-foreground/40 backdrop-blur-sm xl:hidden"
+          role="presentation"
+          onClick={closeMobileToc}
+        >
+          <div
+            ref={tocPanelRef}
+            id="chapter-contents-drawer"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Contents"
+            tabIndex={-1}
+            onClick={(event) => event.stopPropagation()}
+            className="flex h-[100dvh] w-[280px] max-w-[85vw] flex-col border-l border-border bg-card pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] outline-none"
           >
-            Contents
-          </button>
-          {mobileTocOpen && (
-            <div
-              className="xl:hidden fixed inset-0 z-50 flex justify-end bg-foreground/30 backdrop-blur-sm"
-              role="dialog"
-              aria-modal="true"
-              onClick={() => setMobileTocOpen(false)}
-            >
-              <div onClick={(e) => e.stopPropagation()}>
-                <ChapterToc mobile onAvailableChange={setTocAvailable} />
-              </div>
+            <div className="flex shrink-0 items-center justify-end px-1 pt-1">
+              <button
+                type="button"
+                aria-label="Close contents"
+                onClick={closeMobileToc}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-[3px] text-muted-foreground outline-none transition-colors duration-[120ms] ease-[var(--ease-blueprint)] active:bg-foreground/[0.04] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                <X aria-hidden className="h-4 w-4" strokeWidth={2} />
+              </button>
             </div>
-          )}
-        </>
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain [&>[data-slot=sidebar]]:w-full">
+              {/* Availability from the drawer's own TOC is deliberately ignored:
+                  the desktop rail owns `tocAvailable`, so a re-report can never
+                  close the drawer mid-flight. A jump closes it. */}
+              <ChapterToc mobile onNavigate={closeMobileToc} />
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
