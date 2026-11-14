@@ -107,6 +107,13 @@ import { ForceComparisonCards } from "@/components/content/chemistry/ForceCompar
 import { BoilingPointRamp } from "@/components/content/chemistry/BoilingPointRamp";
 import { OrderingQuestionCards } from "@/components/content/chemistry/OrderingQuestionCards";
 import { SolubilityPairCards } from "@/components/content/chemistry/SolubilityPairCards";
+import { MethodSectionTabs } from "@/components/content/chemistry/MethodSectionTabs";
+import { OxidationSplitCards } from "@/components/content/chemistry/OxidationSplitCards";
+import { RouteChainCards } from "@/components/content/chemistry/RouteChainCards";
+import { PrepMethodCard } from "@/components/content/chemistry/PrepMethodCard";
+import { ReactionFormulaCard } from "@/components/content/chemistry/ReactionFormulaCard";
+import { ReactionOverviewCard } from "@/components/content/chemistry/ReactionOverviewCard";
+
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -1486,6 +1493,179 @@ export default function DesignPage() {
               tone: "muted",
             },
           ]}
+        />
+      </Section>
+
+      <Section title="Chemistry — preparation of carbonyls">
+        <MethodSectionTabs
+          label="Preparation methods"
+          panes={[
+            {
+              id: "demo-prep-common",
+              numeral: "I",
+              label: "Common methods",
+              caption: "Oxidation, dehydrogenation, from hydrocarbons",
+              accent: "chemistry",
+              content: <p className="t-body">Methods both families take.</p>,
+            },
+            {
+              id: "demo-prep-aldehydes",
+              numeral: "II",
+              label: "Aldehydes only",
+              caption: "Rosenmund, Stephen, DIBAL-H, toluene",
+              accent: "warning",
+              content: <p className="t-body">Routes that stop at the aldehyde.</p>,
+            },
+            {
+              id: "demo-prep-ketones",
+              numeral: "III",
+              label: "Ketones only",
+              caption: "Dialkylcadmium, nitriles, Friedel–Crafts",
+              accent: "ink",
+              content: <p className="t-body">Routes that give ketones.</p>,
+            },
+          ]}
+        />
+
+        <OxidationSplitCards
+          cards={[
+            {
+              alcoholClass: "Primary alcohol (1°)",
+              product: "Aldehyde",
+              general: String.raw`1^{\circ}\ \text{Alcohol} \xrightarrow{\text{Oxidation}} \text{Aldehyde}`,
+              example: String.raw`\text{CH}_3\text{CH}_2\text{CH}_2\text{CH}_2\text{OH} \xrightarrow{\text{PCC}} \text{CH}_3\text{CH}_2\text{CH}_2\text{CHO}`,
+              exampleName: "Butan-1-ol → Butanal",
+              tone: "aldehyde",
+            },
+            {
+              alcoholClass: "Secondary alcohol (2°)",
+              product: "Ketone",
+              general: String.raw`2^{\circ}\ \text{Alcohol} \xrightarrow{\text{Oxidation}} \text{Ketone}`,
+              example: String.raw`\text{CH}_3\text{CH}_2\text{CH(OH)CH}_3 \xrightarrow{\text{CrO}_3} \text{CH}_3\text{COCH}_2\text{CH}_3`,
+              exampleName: "Butan-2-ol → Butan-2-one",
+              tone: "ketone",
+            },
+          ]}
+        />
+
+        <RouteChainCards
+          title="Dehydrogenation over a heated metal"
+          conditions={[
+            { label: "Catalysts", value: "Ag or Cu" },
+            { label: "Conditions in examples", value: "Cu / 573 K" },
+          ]}
+          chains={[
+            {
+              label: "Primary alcohol (1°)",
+              badge: "→ Aldehyde",
+              stages: [
+                {
+                  title: "General reaction",
+                  equation: String.raw`\text{R–CH}_2\text{OH} \xrightarrow{-\text{H}_2} \text{R–CHO}`,
+                },
+                {
+                  title: "Ethanol",
+                  equation: String.raw`\text{CH}_3\text{CH}_2\text{OH} \xrightarrow{\text{Cu/573 K}} \text{CH}_3\text{CHO}`,
+                  note: "Ethanal",
+                  tone: "product",
+                },
+              ],
+            },
+            {
+              label: "Secondary alcohol (2°)",
+              badge: "→ Ketone",
+              stages: [
+                {
+                  title: "Propan-2-ol",
+                  equation: String.raw`\text{CH}_3\text{CH(OH)CH}_3 \xrightarrow{\text{Cu/573 K}} \text{CH}_3\text{COCH}_3`,
+                  note: "Propanone (acetone)",
+                  tone: "product",
+                },
+              ],
+            },
+          ]}
+        />
+
+        <PrepMethodCard
+          title="Rosenmund reduction"
+          tag="From acid chlorides"
+          zones={[
+            {
+              label: "Reaction",
+              equations: [
+                {
+                  latex: String.raw`\text{R–COCl} + \text{H}_2 \xrightarrow{\text{Pd/BaSO}_4} \text{R–CHO} + \text{HCl}`,
+                },
+              ],
+            },
+            {
+              label: "Catalyst & function",
+              items: [
+                "Palladium on barium sulfate (Pd/BaSO₄).",
+                "Prevents over-reduction of the aldehyde to the alcohol.",
+              ],
+            },
+            {
+              label: "Limitation",
+              items: ["Formyl chloride (HCOCl) is unstable at room temperature."],
+              tone: "warning",
+            },
+          ]}
+        />
+
+        <PrepMethodCard
+          title="Reduction using DIBAL-H"
+          tag="Nitriles & esters"
+          zones={[
+            {
+              label: "Selectivity",
+              text: "DIBAL-H leaves double bonds intact.",
+              tone: "highlight",
+            },
+            {
+              label: "Preparation of dialkylcadmium",
+              items: ["Cadmium chloride (CdCl₂) reacts with a Grignard reagent (RMgX)."],
+              tone: "quiet",
+            },
+          ]}
+        />
+
+        <ReactionPathway
+          orientation="horizontal"
+          title="Etard's reaction"
+          nodes={[
+            { title: "Toluene" },
+            { title: "Chromium complex", tone: "intermediate" },
+            { title: "Benzaldehyde", tone: "product" },
+          ]}
+          links={[
+            { label: "Oxidation", condition: "CrO₂Cl₂ / CS₂" },
+            { label: "Hydrolysis", condition: "H₃O⁺" },
+          ]}
+        />
+
+        <ReactionFormulaCard
+          title="Gattermann–Koch reaction"
+          tag="From benzene"
+          equation={String.raw`\text{Benzene} \xrightarrow[\text{AlCl}_3,\ \text{CuCl}]{\text{CO},\ \text{HCl}} \text{Benzaldehyde}`}
+          reagentTitle="Reagents"
+          reagents={[
+            { name: "Carbon monoxide", formula: "CO" },
+            { name: "Hydrogen chloride", formula: "HCl" },
+            { name: "Anhydrous aluminium chloride", formula: "AlCl₃" },
+            { name: "Cuprous chloride", formula: "CuCl" },
+          ]}
+        />
+
+        <ReactionOverviewCard
+          name="Friedel–Crafts Acylation Reaction"
+          tag="Acylation"
+          reactants={[
+            "Benzene or substituted benzenes",
+            "Acyl chloride or acid anhydride",
+          ]}
+          catalyst="Anhydrous aluminium chloride (AlCl₃)"
+          product="Aromatic ketones"
         />
       </Section>
 

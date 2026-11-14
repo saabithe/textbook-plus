@@ -2368,6 +2368,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/MethodSectionTabs.tsx#MethodSectionTabs",
+    "name": "MethodSectionTabs",
+    "path": "content/chemistry/MethodSectionTabs.tsx",
+    "category": "chemistry",
+    "props": "label: string; panes: MethodSectionPane[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/NamedReactionCard.tsx#NamedReactionCard",
     "name": "NamedReactionCard",
     "path": "content/chemistry/NamedReactionCard.tsx",
@@ -2409,6 +2418,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/OrderingQuestionCards.tsx",
     "category": "chemistry",
     "props": "title?: ReactNode; questions: OrderingQuestion[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/OxidationSplitCards.tsx#OxidationSplitCards",
+    "name": "OxidationSplitCards",
+    "path": "content/chemistry/OxidationSplitCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; cards: OxidationCard[];",
     "shell": false,
     "renderable": true
   },
@@ -2476,11 +2494,38 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/chemistry/PrepMethodCard.tsx#PrepMethodCard",
+    "name": "PrepMethodCard",
+    "path": "content/chemistry/PrepMethodCard.tsx",
+    "category": "chemistry",
+    "props": "title: ReactNode; tag?: ReactNode; principle?: ReactNode; zones: PrepZone[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/chemistry/RankProgression.tsx#RankProgression",
     "name": "RankProgression",
     "path": "content/chemistry/RankProgression.tsx",
     "category": "chemistry",
     "props": "title?: ReactNode; items: RankItem[]; orientation?: \"descending\" | \"inline\"; badge?: ReactNode; note?: ReactNode; axisLabel?: ReactNode; direction?: \"descending\" | \"ascending\"; spacing?: \"default\" | \"tight\";",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/ReactionFormulaCard.tsx#ReactionFormulaCard",
+    "name": "ReactionFormulaCard",
+    "path": "content/chemistry/ReactionFormulaCard.tsx",
+    "category": "chemistry",
+    "props": "title: ReactNode; tag?: ReactNode; equation: string; equationLabel?: ReactNode; reagentTitle?: ReactNode; reagents?: FormulaReagent[]; footnote?: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/ReactionOverviewCard.tsx#ReactionOverviewCard",
+    "name": "ReactionOverviewCard",
+    "path": "content/chemistry/ReactionOverviewCard.tsx",
+    "category": "chemistry",
+    "props": "name: ReactNode; tag?: ReactNode; reactants: ReactNode[]; catalyst: ReactNode; product: ReactNode;",
     "shell": false,
     "renderable": true
   },
@@ -2535,6 +2580,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/chemistry/RevisionDashboard.tsx",
     "category": "chemistry",
     "props": "title?: ReactNode; groups: RevisionGroup[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/chemistry/RouteChainCards.tsx#RouteChainCards",
+    "name": "RouteChainCards",
+    "path": "content/chemistry/RouteChainCards.tsx",
+    "category": "chemistry",
+    "props": "title?: ReactNode; conditions?: Array<{ label: ReactNode; value: ReactNode }>; chains: RouteChain[]; footnote?: ReactNode;",
     "shell": false,
     "renderable": true
   },

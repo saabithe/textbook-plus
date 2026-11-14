@@ -22,6 +22,13 @@ import { BoilingPointRamp } from "@/components/content/chemistry/BoilingPointRam
 import { OrderingQuestionCards } from "@/components/content/chemistry/OrderingQuestionCards";
 import { SolubilityPairCards } from "@/components/content/chemistry/SolubilityPairCards";
 import { RankProgression } from "@/components/content/chemistry/RankProgression";
+import { MethodSectionTabs } from "@/components/content/chemistry/MethodSectionTabs";
+import { OxidationSplitCards } from "@/components/content/chemistry/OxidationSplitCards";
+import { RouteChainCards } from "@/components/content/chemistry/RouteChainCards";
+import { PrepMethodCard } from "@/components/content/chemistry/PrepMethodCard";
+import { ReactionFormulaCard } from "@/components/content/chemistry/ReactionFormulaCard";
+import { ReactionOverviewCard } from "@/components/content/chemistry/ReactionOverviewCard";
+import { ReactionPathway } from "@/components/content/chemistry/ReactionPathway";
 
 export default function AldehydesKetonesCarboxylicAcidsChapter() {
   return (
@@ -450,214 +457,455 @@ export default function AldehydesKetonesCarboxylicAcidsChapter() {
 
       <h2 id="h-8-2">8.2 Preparation of Aldehydes and Ketones</h2>
 
-      <h3 id="h-8-2-1">8.2.1 Preparation of Aldehydes</h3>
-
-      <p>The general routes, then the specific named methods:</p>
-
-      <ul>
-        <li>
-          <strong>By oxidation of alcohols</strong> — primary alcohols give aldehydes
-          (Unit 7).
-        </li>
-        <li>
-          <strong>By dehydrogenation of alcohols</strong> — alcohol vapours are passed over
-          heavy metal catalysts (Ag or Cu); suitable for volatile alcohols and used
-          industrially. Primary alcohols → aldehydes, secondary alcohols → ketones.
-        </li>
-        <li>
-          <strong>By ozonolysis of alkenes</strong> — ozonolysis followed by reaction with
-          zinc dust and water gives aldehydes, ketones or a mixture, depending on the
-          substitution pattern of the alkene (Unit 9).
-        </li>
-        <li>
-          <strong>By hydration of alkynes</strong> — addition of water to ethyne in the
-          presence of H<sub>2</sub>SO<sub>4</sub> and HgSO<sub>4</sub> gives acetaldehyde;
-          all other alkynes give ketones.
-        </li>
-      </ul>
-
-      <FormulaBlock
-        latex={String.raw`\text{HC}\equiv\text{CH} + \text{H}_2\text{O} \xrightarrow{\text{H}_2\text{SO}_4,\ \text{HgSO}_4} \text{CH}_3\text{CHO}`}
-        label="Hydration of ethyne"
-      />
-
-      <EquationLadder
-        title="Named methods that stop cleanly at the aldehyde"
-        steps={[
+      <MethodSectionTabs
+        label="Preparation methods"
+        panes={[
           {
-            label: "Rosenmund reduction — from acyl chloride",
-            equation: String.raw`\text{RCOCl} + \text{H}_2 \xrightarrow{\text{Pd/BaSO}_4} \text{RCHO} + \text{HCl}`,
-            note: "Acyl chloride is hydrogenated over palladium on barium sulphate. The catalyst is deliberately poisoned so that the aldehyde is not reduced further.",
+            id: "h-8-2-common",
+            numeral: "I",
+            label: "Common methods",
+            caption: "Oxidation, dehydrogenation, from hydrocarbons",
+            accent: "chemistry",
+            content: (
+              <>
+                <Expandable title="Oxidation of alcohols">
+                  <p>
+                    Oxidation of alcohols produces different carbonyl compounds
+                    depending on the type of alcohol.
+                  </p>
+
+                  <OxidationSplitCards
+                    title="Primary and secondary alcohols"
+                    cards={[
+                      {
+                        alcoholClass: "Primary alcohol (1°)",
+                        product: "Aldehyde",
+                        general: String.raw`1^{\circ}\ \text{Alcohol} \xrightarrow{\text{Oxidation}} \text{Aldehyde}`,
+                        example: String.raw`\text{CH}_3\text{CH}_2\text{CH}_2\text{CH}_2\text{OH} \xrightarrow{\text{PCC}} \text{CH}_3\text{CH}_2\text{CH}_2\text{CHO}`,
+                        exampleName: "Butan-1-ol → Butanal",
+                        tone: "aldehyde",
+                      },
+                      {
+                        alcoholClass: "Secondary alcohol (2°)",
+                        product: "Ketone",
+                        general: String.raw`2^{\circ}\ \text{Alcohol} \xrightarrow{\text{Oxidation}} \text{Ketone}`,
+                        example: String.raw`\text{CH}_3\text{CH}_2\text{CH(OH)CH}_3 \xrightarrow{\text{CrO}_3} \text{CH}_3\text{COCH}_2\text{CH}_3`,
+                        exampleName: "Butan-2-ol → Butan-2-one",
+                        tone: "ketone",
+                      },
+                    ]}
+                  />
+                </Expandable>
+
+                <Expandable title="Dehydrogenation of alcohols">
+                  <ul>
+                    <li>
+                      <strong>Removal of hydrogen</strong> using metallic
+                      catalysts.
+                    </li>
+                    <li>
+                      Suitable for <strong>volatile alcohols</strong>.
+                    </li>
+                    <li>
+                      Applied <strong>industrially</strong>.
+                    </li>
+                  </ul>
+
+                  <RouteChainCards
+                    title="Dehydrogenation over a heated metal"
+                    conditions={[
+                      { label: "Catalysts", value: "Ag or Cu" },
+                      { label: "Conditions in examples", value: "Cu / 573 K" },
+                    ]}
+                    chains={[
+                      {
+                        label: "Primary alcohol (1°)",
+                        badge: "→ Aldehyde",
+                        stages: [
+                          {
+                            title: "General reaction",
+                            equation: String.raw`\text{R–CH}_2\text{OH} \xrightarrow{-\text{H}_2} \text{R–CHO}`,
+                          },
+                          {
+                            title: "Ethanol",
+                            equation: String.raw`\text{CH}_3\text{CH}_2\text{OH} \xrightarrow{\text{Cu/573 K}} \text{CH}_3\text{CHO}`,
+                            note: "Ethanal",
+                            tone: "product",
+                          },
+                        ],
+                      },
+                      {
+                        label: "Secondary alcohol (2°)",
+                        badge: "→ Ketone",
+                        stages: [
+                          {
+                            title: "Propan-2-ol",
+                            equation: String.raw`\text{CH}_3\text{CH(OH)CH}_3 \xrightarrow{\text{Cu/573 K}} \text{CH}_3\text{COCH}_3`,
+                            note: "Propanone (acetone)",
+                            tone: "product",
+                          },
+                        ],
+                      },
+                    ]}
+                  />
+                </Expandable>
+
+                <Expandable title="Ozonolysis of alkenes">
+                  <ul>
+                    <li>
+                      <strong>Cleavage of the C=C double bond.</strong>
+                    </li>
+                    <li>
+                      <strong>Followed by reduction</strong> using Zn / H
+                      <sub>2</sub>O.
+                    </li>
+                    <li>
+                      Produces <strong>aldehydes, ketones or a mixture</strong>,
+                      depending on the substitution pattern of the alkene.
+                    </li>
+                  </ul>
+
+                  <ReactionPathway
+                    orientation="horizontal"
+                    title="Alkene → carbonyl"
+                    nodes={[
+                      {
+                        title: "But-2-ene",
+                        note: "CH₃–CH=CH–CH₃",
+                      },
+                      {
+                        title: "Ozonolysis",
+                        note: "O₃ cleaves the C=C double bond.",
+                      },
+                      {
+                        title: "Reduction",
+                        note: "Zn / H₂O",
+                      },
+                      {
+                        title: "2 × Ethanal",
+                        tone: "product",
+                        equation: String.raw`2\,\text{CH}_3\text{CHO}`,
+                      },
+                    ]}
+                  />
+
+                  <FormulaBlock
+                    latex={String.raw`\text{CH}_3\text{–CH=CH–CH}_3 \xrightarrow[\text{Zn/H}_2\text{O}]{\text{O}_3} 2\,\text{CH}_3\text{CHO}`}
+                    label="But-2-ene → two molecules of ethanal"
+                  />
+                </Expandable>
+
+                <Expandable title="Hydration of alkynes">
+                  <RouteChainCards
+                    title="Ethyne and other alkynes"
+                    conditions={[
+                      {
+                        label: "Reagents",
+                        value: "H₂O / H₂SO₄ / HgSO₄",
+                      },
+                    ]}
+                    chains={[
+                      {
+                        label: "Ethyne",
+                        badge: "→ Ethanal",
+                        stages: [
+                          { title: "Ethyne" },
+                          {
+                            title: "Unstable enol",
+                            via: "Hydration",
+                            tone: "intermediate",
+                          },
+                          {
+                            title: "Ethanal",
+                            via: "Keto–enol tautomerism",
+                            equation: String.raw`\text{CH}_3\text{CHO}`,
+                            note: "Acetaldehyde",
+                            tone: "product",
+                          },
+                        ],
+                      },
+                      {
+                        label: "Other alkynes",
+                        badge: "→ Ketones",
+                        stages: [
+                          { title: "Other alkynes" },
+                          {
+                            title: "Ketone",
+                            via: "Hydration",
+                            note: "Propyne → propanone (acetone)",
+                            tone: "product",
+                          },
+                        ],
+                      },
+                    ]}
+                    footnote={
+                      <>
+                        <strong>Keto–enol tautomerism</strong> converts the
+                        unstable enol into ethanal.
+                      </>
+                    }
+                  />
+                </Expandable>
+              </>
+            ),
           },
           {
-            label: "Stephen reaction — from a nitrile",
-            equation: String.raw`\text{RCN} + \text{SnCl}_2 + \text{HCl} \longrightarrow \text{RCH=NH} \xrightarrow{\text{H}_3\text{O}^+} \text{RCHO}`,
-            note: "Nitriles are reduced to the corresponding imine with stannous chloride in the presence of hydrochloric acid; hydrolysis of the imine gives the aldehyde.",
+            id: "h-8-2-aldehydes",
+            numeral: "II",
+            label: "Aldehydes only",
+            caption: "Rosenmund, Stephen, DIBAL-H, toluene, Gattermann–Koch",
+            accent: "warning",
+            content: (
+              <>
+                <h3>From acid chlorides</h3>
+
+                <PrepMethodCard
+                  title="Rosenmund reduction"
+                  tag="Named reaction"
+                  zones={[
+                    {
+                      label: "Reaction",
+                      equations: [
+                        {
+                          latex: String.raw`\text{R–COCl} + \text{H}_2 \xrightarrow{\text{Pd/BaSO}_4} \text{R–CHO} + \text{HCl}`,
+                        },
+                      ],
+                    },
+                    {
+                      label: "Catalyst & function",
+                      items: [
+                        "Palladium on barium sulfate (Pd/BaSO₄).",
+                        "A poisoned palladium catalyst.",
+                        "Prevents over-reduction of the aldehyde to the alcohol.",
+                        "Also identified as Lindlar's catalyst.",
+                      ],
+                    },
+                    {
+                      label: "Limitation",
+                      items: [
+                        "Formaldehyde (HCHO) cannot be prepared by this method.",
+                        "Formyl chloride (HCOCl) is unstable at room temperature.",
+                      ],
+                      tone: "warning",
+                    },
+                  ]}
+                />
+
+                <h3>From nitriles and esters</h3>
+
+                <ReactionPathway
+                  title="Stephen's reduction"
+                  nodes={[
+                    {
+                      step: "Step 1",
+                      title: "Nitrile + SnCl₂ / HCl",
+                      equation: String.raw`\text{R–CN} + \text{SnCl}_2 + \text{HCl} \longrightarrow \text{R–CH=NH}`,
+                      note: (
+                        <>
+                          Example: CH<sub>3</sub>C≡N + SnCl<sub>2</sub> + HCl →
+                          CH<sub>3</sub>CH=NH
+                        </>
+                      ),
+                    },
+                    {
+                      step: "Intermediate",
+                      title: "R–CH=NH",
+                      tone: "intermediate",
+                    },
+                    {
+                      step: "Step 2",
+                      title: "Aldehyde",
+                      equation: String.raw`\text{R–CH=NH} \xrightarrow{\text{H}_3\text{O}^+} \text{R–CHO}`,
+                      tone: "product",
+                    },
+                  ]}
+                  links={[
+                    { label: "Reduction" },
+                    { label: "Hydrolysis", condition: "H₃O⁺" },
+                  ]}
+                />
+
+                <PrepMethodCard
+                  title="Reduction using DIBAL-H"
+                  tag="Selective reduction"
+                  principle={
+                    <>
+                      Diisobutylaluminium hydride — AlH(i-Bu)<sub>2</sub>.
+                    </>
+                  }
+                  zones={[
+                    {
+                      label: "Nitriles → aldehydes",
+                      equations: [
+                        {
+                          latex: String.raw`\text{R–CN} \xrightarrow{\text{DIBAL-H}} \text{R–CHO}`,
+                          label: "General reaction",
+                        },
+                        {
+                          latex: String.raw`\text{CH}_3\text{CH}_2\text{CN} \xrightarrow{\text{DIBAL-H}} \text{CH}_3\text{CH}_2\text{CHO}`,
+                          label: "Example",
+                        },
+                      ],
+                    },
+                    {
+                      label: "Selectivity",
+                      text: "DIBAL-H leaves double bonds intact.",
+                      equations: [
+                        {
+                          latex: String.raw`\text{CH}_2\text{=CH–CH}_2\text{–CH}_2\text{–CN} \xrightarrow{\text{DIBAL-H}} \text{CH}_2\text{=CH–CH}_2\text{–CH}_2\text{–CHO}`,
+                        },
+                      ],
+                      tone: "highlight",
+                    },
+                    {
+                      label: "Esters → aldehydes",
+                      equations: [
+                        {
+                          latex: String.raw`\text{R–COO–R}' \xrightarrow{\text{DIBAL-H}} \text{R–CHO}`,
+                        },
+                      ],
+                    },
+                  ]}
+                />
+
+                <h3>From toluene</h3>
+
+                <ReactionPathway
+                  orientation="horizontal"
+                  title="Etard's reaction"
+                  nodes={[
+                    { title: "Toluene" },
+                    { title: "Chromium complex", tone: "intermediate" },
+                    { title: "Benzaldehyde", tone: "product" },
+                  ]}
+                  links={[
+                    { label: "Oxidation", condition: "CrO₂Cl₂ / CS₂" },
+                    { label: "Hydrolysis", condition: "H₃O⁺" },
+                  ]}
+                />
+
+                <ReactionPathway
+                  orientation="horizontal"
+                  title="Side-chain chlorination"
+                  nodes={[
+                    { title: "Toluene" },
+                    { title: "Benzal chloride", tone: "intermediate" },
+                    { title: "Benzaldehyde", tone: "product" },
+                  ]}
+                  links={[
+                    { label: "Chlorination", condition: "Cl₂ / hν" },
+                    { label: "Hydrolysis", condition: "H₂O, 373 K" },
+                  ]}
+                />
+
+                <ReactionPathway
+                  orientation="horizontal"
+                  title="Chromic anhydride (CrO₃)"
+                  nodes={[
+                    { title: "Toluene", note: "Treated with CrO₃" },
+                    { title: "Benzylidene diacetate", tone: "intermediate" },
+                    { title: "Benzaldehyde", tone: "product" },
+                  ]}
+                  links={[
+                    { label: "Acetic anhydride" },
+                    { label: "Hydrolysis", condition: "H₃O⁺" },
+                  ]}
+                />
+
+                <h3>From benzene</h3>
+
+                <ReactionFormulaCard
+                  title="Gattermann–Koch reaction"
+                  tag="Named reaction"
+                  equation={String.raw`\text{Benzene} \xrightarrow[\text{AlCl}_3,\ \text{CuCl}]{\text{CO},\ \text{HCl}} \text{Benzaldehyde}`}
+                  reagentTitle="Reagents"
+                  reagents={[
+                    { name: "Carbon monoxide", formula: "CO" },
+                    { name: "Hydrogen chloride", formula: "HCl" },
+                    {
+                      name: "Anhydrous aluminium chloride",
+                      formula: "AlCl₃",
+                    },
+                    { name: "Cuprous chloride", formula: "CuCl" },
+                  ]}
+                />
+              </>
+            ),
           },
           {
-            label: "Selective reduction with DIBAL-H",
-            equation: String.raw`\text{RCN} \xrightarrow{\text{DIBAL-H}} \text{RCH=NH} \xrightarrow{\text{H}_2\text{O}} \text{RCHO}`,
-            note: "Diisobutylaluminium hydride (DIBAL-H) reduces nitriles selectively to imines, hydrolysed to aldehydes. Esters are also reduced to aldehydes with DIBAL-H.",
-            final: true,
+            id: "h-8-2-ketones",
+            numeral: "III",
+            label: "Ketones only",
+            caption: "Dialkylcadmium, nitriles, Friedel–Crafts acylation",
+            accent: "ink",
+            content: (
+              <>
+                <h3>From acid chlorides</h3>
+
+                <PrepMethodCard
+                  title="Reaction with dialkylcadmium"
+                  tag="R′₂Cd"
+                  zones={[
+                    {
+                      label: "General reaction",
+                      equations: [
+                        {
+                          latex: String.raw`2\,\text{R–COCl} + \text{R}'_2\text{Cd} \longrightarrow 2\,\text{R–CO–R}' + \text{CdCl}_2`,
+                        },
+                      ],
+                    },
+                    {
+                      label: "Example",
+                      equations: [
+                        {
+                          latex: String.raw`2\,\text{CH}_3\text{CH}_2\text{COCl} + (\text{CH}_3)_2\text{Cd} \longrightarrow 2\,\text{CH}_3\text{CH}_2\text{COCH}_3 + \text{CdCl}_2`,
+                        },
+                      ],
+                    },
+                    {
+                      label: "Preparation of dialkylcadmium",
+                      items: [
+                        "Cadmium chloride (CdCl₂) reacts with a Grignard reagent (RMgX).",
+                        "The product is dialkylcadmium.",
+                      ],
+                      tone: "quiet",
+                    },
+                  ]}
+                />
+
+                <h3>From nitriles</h3>
+
+                <ReactionPathway
+                  title="Nitrile → ketone"
+                  nodes={[
+                    { title: "Nitrile" },
+                    { title: "Grignard reagent", tone: "intermediate" },
+                    { title: "Acid hydrolysis" },
+                    { title: "Ketone", tone: "product" },
+                  ]}
+                />
+
+                <h3>From benzene or substituted benzenes</h3>
+
+                <ReactionOverviewCard
+                  name="Friedel–Crafts Acylation Reaction"
+                  tag="Acylation"
+                  reactants={[
+                    "Benzene or substituted benzenes",
+                    "Acyl chloride or acid anhydride",
+                  ]}
+                  catalyst="Anhydrous aluminium chloride (AlCl₃)"
+                  product="Aromatic ketones"
+                />
+              </>
+            ),
           },
         ]}
       />
-
-      <h4 className="mt-5 mb-2 text-base font-bold">
-        Aromatic aldehydes from aromatic hydrocarbons
-      </h4>
-
-      <p>
-        Strong oxidising agents oxidise toluene and its derivatives all the way to benzoic
-        acids. The oxidation can be stopped at the aldehyde stage with reagents that convert
-        the methyl group into an intermediate difficult to oxidise further.
-      </p>
-
-      <TableCard
-        title="Four routes to benzaldehyde"
-        headers={["Method", "Reagents", "Key point"]}
-        rows={[
-          {
-            cells: [
-              "Etard reaction",
-              "CrO₂Cl₂ (chromyl chloride), then H₃O⁺",
-              "The methyl group becomes a chromium complex which hydrolyses to –CHO.",
-            ],
-          },
-          {
-            cells: [
-              "Chromic oxide in acetic anhydride",
-              "CrO₃ / (CH₃CO)₂O, then aqueous acid",
-              "Toluene gives benzylidene diacetate, hydrolysed to benzaldehyde.",
-            ],
-          },
-          {
-            cells: [
-              "Side-chain chlorination",
-              "Cl₂ / hν, then hydrolysis",
-              "Toluene → benzal chloride → benzaldehyde; the commercial manufacture of benzaldehyde.",
-            ],
-          },
-          {
-            cells: [
-              "Gattermann–Koch reaction",
-              "CO + HCl, anhydrous AlCl₃ or CuCl",
-              "Formylation of benzene or a substituted benzene gives benzaldehyde or a substituted benzaldehyde.",
-            ],
-          },
-        ]}
-      />
-
-      <FormulaBlock
-        latex={String.raw`\text{C}_6\text{H}_5\text{CH}_3 \xrightarrow[\text{2. H}_3\text{O}^{+}]{\text{1. CrO}_2\text{Cl}_2} \text{C}_6\text{H}_5\text{CHO}`}
-        label="Etard reaction"
-      />
-
-      <FormulaBlock
-        latex={String.raw`\text{C}_6\text{H}_6 + \text{CO} + \text{HCl} \xrightarrow{\text{anhyd. AlCl}_3} \text{C}_6\text{H}_5\text{CHO}`}
-        label="Gattermann–Koch reaction"
-      />
-
-      <h3 id="h-8-2-2">8.2.2 Preparation of Ketones</h3>
-
-      <ProcessCard
-        title="Three routes to ketones"
-        steps={[
-          {
-            label: "From acyl chlorides",
-            description:
-              "Treatment of acyl chlorides with dialkylcadmium — prepared from cadmium chloride and a Grignard reagent — gives ketones.",
-          },
-          {
-            label: "From nitriles",
-            description:
-              "Treating a nitrile with a Grignard reagent followed by hydrolysis yields a ketone.",
-          },
-          {
-            label: "From benzene or substituted benzenes",
-            description:
-              "Benzene with an acid chloride in the presence of anhydrous aluminium chloride gives the corresponding ketone — the Friedel–Crafts acylation reaction.",
-          },
-        ]}
-      />
-
-      <FormulaBlock
-        latex={String.raw`2\,\text{CH}_3\text{COCl} + (\text{C}_6\text{H}_5\text{CH}_2)_2\text{Cd} \longrightarrow 2\,\text{C}_6\text{H}_5\text{CH}_2\text{COCH}_3`}
-        label="Acyl chloride + dialkylcadmium"
-      />
-
-      <FormulaBlock
-        latex={String.raw`\text{C}_6\text{H}_6 + \text{CH}_3\text{COCl} \xrightarrow{\text{anhyd. AlCl}_3} \text{C}_6\text{H}_5\text{COCH}_3 + \text{HCl}`}
-        label="Friedel–Crafts acylation"
-      />
-
-      <Expandable title="Example 8.1 — Naming the reagent for a transformation" variant="example">
-        <p>
-          <strong>Problem:</strong> Give the names of the reagents to bring about the
-          following transformations:
-        </p>
-        <ul>
-          <li>(i) Hexan-1-ol to hexanal</li>
-          <li>(ii) Cyclohexanol to cyclohexanone</li>
-          <li>(iii) p-Fluorotoluene to p-fluorobenzaldehyde</li>
-          <li>(iv) Ethanenitrile to ethanal</li>
-          <li>(v) Allyl alcohol to propenal</li>
-          <li>(vi) But-2-ene to ethanal</li>
-        </ul>
-        <p>
-          <strong>Solution:</strong>
-        </p>
-        <ul>
-          <li>
-            (i) Pyridinium chlorochromate (PCC) — it oxidises a primary alcohol only up to the
-            aldehyde.
-          </li>
-          <li>(ii) Anhydrous CrO<sub>3</sub> (a secondary alcohol gives a ketone).</li>
-          <li>
-            (iii) CrO<sub>3</sub> in the presence of acetic anhydride, followed by hydrolysis.
-          </li>
-          <li>
-            (iv) Diisobutylaluminium hydride (DIBAL-H), followed by hydrolysis.
-          </li>
-          <li>(v) PCC.</li>
-          <li>
-            (vi) O<sub>3</sub>/H<sub>2</sub>O–Zn dust (ozonolysis).
-          </li>
-        </ul>
-      </Expandable>
-
-      <Expandable title="Intext 8.2 — Products of the given reactions" variant="exercise">
-        <p>
-          <strong>Question:</strong> Write the structures of the products of the given
-          reactions.
-        </p>
-        <p>
-          <strong>How to read them:</strong> each of these is a “stop at the carbonyl”
-          reaction, so the product keeps the carbonyl group intact —
-        </p>
-        <ul>
-          <li>
-            an acid chloride with H<sub>2</sub>/Pd–BaSO<sub>4</sub> gives the{" "}
-            <strong>aldehyde</strong> with the same number of carbons;
-          </li>
-          <li>
-            a nitrile with SnCl<sub>2</sub>/HCl followed by hydrolysis gives the{" "}
-            <strong>aldehyde</strong>;
-          </li>
-          <li>
-            a methylbenzene with CrO<sub>2</sub>Cl<sub>2</sub> then H<sub>3</sub>O
-            <sup>+</sup> gives the <strong>benzaldehyde</strong>;
-          </li>
-          <li>
-            an alkyne with Hg<sup>2+</sup>/H<sub>2</sub>SO<sub>4</sub> gives the{" "}
-            <strong>ketone</strong> (except ethyne, which gives ethanal).
-          </li>
-        </ul>
-      </Expandable>
 
       <h2 id="h-8-3">8.3 Physical Properties of Aldehydes and Ketones</h2>
 
-      <h3 id="h-8-3-1">8.3.1 Physical State at Room Temperature</h3>
+      <h3 id="h-8-3-state">Physical state at room temperature</h3>
 
       <PhysicalStateTable
         rows={[
@@ -667,7 +915,7 @@ export default function AldehydesKetonesCarboxylicAcidsChapter() {
         ]}
       />
 
-      <h3 id="h-8-3-2">8.3.2 Boiling Point Trends and Intermolecular Forces</h3>
+      <h3 id="h-8-3-boiling">Boiling point trends and intermolecular forces</h3>
 
       <h4>General boiling point order</h4>
 
@@ -778,7 +1026,7 @@ export default function AldehydesKetonesCarboxylicAcidsChapter() {
         ]}
       />
 
-      <h3 id="h-8-3-3">8.3.3 Solubility in Water</h3>
+      <h3 id="h-8-3-solubility">Solubility in water</h3>
 
       <SolubilityPairCards
         cards={[
