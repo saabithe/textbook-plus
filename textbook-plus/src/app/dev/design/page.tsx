@@ -122,6 +122,22 @@ import { AlcoholAdditionPaths } from "@/components/content/chemistry/AlcoholAddi
 import { CondensationFlow } from "@/components/content/chemistry/CondensationFlow";
 import { NhDerivativeTable } from "@/components/content/chemistry/NhDerivativeTable";
 import { DnpIdentificationCard } from "@/components/content/chemistry/DnpIdentificationCard";
+import { ReductionRouteCards } from "@/components/content/chemistry/ReductionRouteCards";
+import { AlcoholReductionBoard } from "@/components/content/chemistry/AlcoholReductionBoard";
+import { MethyleneReductionCards } from "@/components/content/chemistry/MethyleneReductionCards";
+import { OxidationScopeCards } from "@/components/content/chemistry/OxidationScopeCards";
+import { ReagentGrid } from "@/components/content/chemistry/ReagentGrid";
+import { EquationProductCards } from "@/components/content/chemistry/EquationProductCards";
+import { TestObservationCard } from "@/components/content/chemistry/TestObservationCard";
+import { KetoneCleavageDiagram } from "@/components/content/chemistry/KetoneCleavageDiagram";
+import { ConditionCard } from "@/components/content/chemistry/ConditionCard";
+import { AlphaHydrogenTable } from "@/components/content/chemistry/AlphaHydrogenTable";
+import { AldolStepFlow } from "@/components/content/chemistry/AldolStepFlow";
+import { CrossedAldolBoard } from "@/components/content/chemistry/CrossedAldolBoard";
+import { CannizzaroCompoundCards } from "@/components/content/chemistry/CannizzaroCompoundCards";
+import { DisproportionationBoard } from "@/components/content/chemistry/DisproportionationBoard";
+import { CannizzaroEquationCards } from "@/components/content/chemistry/CannizzaroEquationCards";
+import { MetaDirectingCards } from "@/components/content/chemistry/MetaDirectingCards";
 
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -1884,6 +1900,310 @@ export default function DesignPage() {
           reagent="2,4-Dinitrophenylhydrazine (2,4-DNP)"
           product="2,4-DNP derivative"
           colours={["yellow", "orange", "red"]}
+        />
+      </Section>
+
+      <Section title="Chemistry — reduction, oxidation & α-hydrogens">
+        <ReductionRouteCards
+          routes={[
+            {
+              id: "demo-reduction-alcohols",
+              letter: "A",
+              title: "Reduction into alcohols",
+              transformation: String.raw`\text{>C=O} \longrightarrow \text{>CH–OH}`,
+              note: "Aldehydes give 1° alcohols; ketones give 2° alcohols.",
+              tone: "chemistry",
+            },
+            {
+              id: "demo-reduction-hydrocarbons",
+              letter: "B",
+              title: "Reduction into hydrocarbons",
+              transformation: String.raw`\text{>C=O} \longrightarrow \text{>CH}_2`,
+              note: "Both named routes land on a methylene group.",
+              tone: "ink",
+            },
+          ]}
+        />
+
+        <AlcoholReductionBoard
+          transformation={String.raw`\text{>C=O} \longrightarrow \text{>CH–OH}`}
+          agents={[
+            { name: "Lithium aluminium hydride", formula: String.raw`\text{LiAlH}_4` },
+            { name: "Sodium borohydride", formula: String.raw`\text{NaBH}_4` },
+            { name: "Catalytic hydrogenation", formula: String.raw`\text{Ni/Pd/Pt}` },
+          ]}
+          conversions={[
+            {
+              name: "Formaldehyde",
+              equation: String.raw`\text{HCHO} \longrightarrow \text{CH}_3\text{OH}`,
+              classification: "1° Alcohol",
+              tone: "primary",
+            },
+            {
+              name: "Other aldehydes",
+              equation: String.raw`\text{RCHO} \longrightarrow \text{R–CH}_2\text{OH}`,
+              classification: "1° Alcohol",
+              tone: "primary",
+            },
+            {
+              name: "Ketones",
+              equation: String.raw`\text{R}_2\text{CO} \longrightarrow \text{R}_2\text{CH–OH}`,
+              classification: "2° Alcohol",
+              tone: "secondary",
+            },
+          ]}
+        />
+
+        <MethyleneReductionCards
+          routes={[
+            {
+              name: "Clemmensen's reduction",
+              reagent: "Zinc amalgam and hydrochloric acid.",
+              reagentFormula: String.raw`\text{Zn–Hg / Conc. HCl}`,
+              points: ["Converts the carbonyl group directly into a methylene group."],
+              conversion: String.raw`\text{>C=O} \longrightarrow \text{–CH}_2\text{–}`,
+              tone: "chemistry",
+            },
+            {
+              name: "Wolff–Kishner reduction",
+              reagent: "Hydrazine, then potassium hydroxide, in a high-boiling solvent.",
+              reagentFormula: String.raw`\text{NH}_2\text{NH}_2 / \text{KOH}`,
+              points: ["Conversion takes place via a hydrazone intermediate."],
+              conversion: String.raw`\text{>C=O} \longrightarrow \text{–CH}_2\text{–}`,
+              tone: "ink",
+            },
+          ]}
+          common={<>Carbonyl group → methylene group</>}
+        />
+
+        <OxidationScopeCards
+          aldehyde={{
+            name: "Aldehydes",
+            equation: String.raw`\text{Aldehyde} \xrightarrow{[O]} \text{Carboxylic acid}`,
+            verdict: "Oxidation occurs",
+            tone: "reacts",
+          }}
+          ketone={{
+            name: "Ketones",
+            equation: String.raw`\text{Ketone} \longrightarrow \text{No oxidation}`,
+            verdict: "No oxidation",
+            note: "Under normal conditions.",
+            tone: "resists",
+          }}
+        />
+
+        <ReagentGrid
+          title="Oxidising agents"
+          items={[
+            { name: "KMnO₄" },
+            { name: "K₂Cr₂O₇" },
+            { name: "HNO₃" },
+            { name: "Tollen's reagent" },
+            { name: "Fehling's reagent" },
+          ]}
+        />
+
+        <EquationProductCards
+          cards={[
+            {
+              title: "Oxidation of ethanal",
+              tag: "KMnO₄",
+              equation: String.raw`\text{CH}_3\text{CHO} \xrightarrow{\text{KMnO}_4} \text{CH}_3\text{COOH}`,
+            },
+            {
+              title: "Oxidation of benzaldehyde",
+              tag: "Conc. HNO₃",
+              equation: String.raw`\text{C}_6\text{H}_5\text{CHO} \xrightarrow{\text{Conc. HNO}_3} \text{C}_6\text{H}_5\text{COOH}`,
+              product: "Benzoic acid",
+            },
+            {
+              title: "Oxidation of propanal",
+              tag: "TR",
+              equation: String.raw`\text{CH}_3\text{CH}_2\text{CHO} \xrightarrow{\text{TR}} \text{CH}_3\text{CH}_2\text{COOH}`,
+            },
+          ]}
+        />
+
+        <TestObservationCard
+          title="Tollen's test"
+          tag="Identification test"
+          reagent={{
+            label: "Tollen's reagent (TR)",
+            formula: String.raw`\text{TR} = \text{Ammoniacal AgNO}_3 \text{ solution}`,
+          }}
+          reaction={String.raw`\text{Aldehyde} \longrightarrow \text{Carboxylic acid} + \text{Ag}`}
+          observation={{ value: "Silver mirror formation", note: "Silver (Ag) is formed." }}
+        />
+
+        <TestObservationCard
+          title="Fehling's test"
+          tag="Identification test"
+          parts={[
+            { label: "Fehling solution A", text: "Aqueous CuSO₄ solution." },
+            {
+              label: "Fehling solution B",
+              text: "Sodium potassium tartrate (Rochelle salt).",
+            },
+          ]}
+          combine={{
+            label: "Fehling's reagent",
+            formula: String.raw`\text{FR} = \text{Solution A} + \text{Solution B}`,
+          }}
+          reaction={String.raw`\text{Aldehyde} \longrightarrow \text{Carboxylic acid} + \text{Cu}_2\text{O}`}
+          observation={{ value: "Reddish-brown precipitate" }}
+          warning="Aromatic aldehydes do not show Fehling's test."
+        />
+
+        <KetoneCleavageDiagram
+          conditions={["Strong oxidising agents", "High temperature"]}
+          ketone={String.raw`\text{CH}_3\text{CH}_2\text{CO–CH}_3`}
+          products={[
+            String.raw`\text{HCOOH}`,
+            String.raw`\text{CH}_3\text{COOH}`,
+            String.raw`\text{CH}_3\text{CH}_2\text{COOH}`,
+          ]}
+          points={["Asymmetric ketones undergo cleavage."]}
+          warning="Carbon count does not balance in the supplied example."
+        />
+
+        <ConditionCard
+          catalyst={{
+            label: "Catalyst",
+            formula: String.raw`\text{Dil. NaOH} / \text{Dil. KOH}`,
+          }}
+          condition={{
+            label: "Essential condition",
+            value: "Presence of at least one α-hydrogen (α-H)",
+          }}
+        />
+
+        <ConditionCard
+          catalyst={{
+            label: "Catalyst",
+            formula: String.raw`\text{Conc. NaOH} / \text{Conc. KOH}`,
+          }}
+          condition={{ label: "Essential condition", value: "Absence of α-hydrogen" }}
+          conditionIcon="cross"
+        />
+
+        <AlphaHydrogenTable
+          rows={[
+            { compound: "CH₃–CHO", count: "3", present: true },
+            { compound: "CH₃–CH₂–CHO", count: "2", present: true },
+            { compound: "CH₃–CH(CH₃)–CHO", count: "1", present: true },
+            { compound: "CH₃–C(CH₃)₂–CHO", present: false },
+            { compound: "H–CHO", present: false },
+            { compound: "C₆H₅CHO", present: false },
+            { compound: "CH₃–CO–CH₃", present: true },
+          ]}
+        />
+
+        <AldolStepFlow
+          title="Aldol condensation of acetaldehyde"
+          linkLabel="Δ, −H₂O"
+          steps={[
+            {
+              label: "Step 1 · Aldol formation",
+              equation: String.raw`2\,\text{CH}_3\text{CHO} \xrightarrow{\text{Dil. NaOH}} \text{CH}_3\text{CH(OH)CH}_2\text{CHO}`,
+              product: "Aldol",
+              detail: "β-hydroxy aldehyde",
+              tone: "intermediate",
+            },
+            {
+              label: "Step 2 · Dehydration",
+              equation: String.raw`\text{CH}_3\text{CH(OH)CH}_2\text{CHO} \xrightarrow{\Delta} \text{CH}_3\text{CH=CHCHO}`,
+              product: "But-2-enal (Crotonaldehyde)",
+              tone: "product",
+            },
+          ]}
+        />
+
+        <CrossedAldolBoard
+          principle={[
+            "Uses different aldehydes or ketones containing α-hydrogens.",
+            "Two different carbonyl compounds participate.",
+          ]}
+          example={String.raw`\text{CH}_3\text{CHO} + \text{CH}_3\text{CH}_2\text{CHO} \xrightarrow[\Delta]{\text{Dil. NaOH}}`}
+          exampleResult="?"
+          count="4 possible combinations"
+          combinations={[
+            { label: "A–A", caption: "Self product 1", kind: "self" },
+            { label: "B–B", caption: "Self product 2", kind: "self" },
+            { label: "A–B", caption: "Cross product 1", kind: "cross" },
+            { label: "B–A", caption: "Cross product 2", kind: "cross" },
+          ]}
+          products={[
+            {
+              title: "Self product 1 (A–A)",
+              kind: "self",
+              equation: String.raw`\text{CH}_3\text{CHO} + \text{CH}_3\text{CHO} \longrightarrow \text{CH}_3\text{CH=CHCHO}`,
+              product: "But-2-enal",
+            },
+            {
+              title: "Cross product 1 (A–B)",
+              kind: "cross",
+              equation: String.raw`\text{CH}_3\text{CHO} + \text{CH}_3\text{CH}_2\text{CHO} \longrightarrow \text{CH}_3\text{CH=C(CH}_3\text{)CHO}`,
+              product: "2-Methylbut-2-enal",
+            },
+          ]}
+          warning="Check the pairing in the second product entry."
+        />
+
+        <CannizzaroCompoundCards
+          condition="No α-H"
+          cards={[
+            { name: "Formaldehyde", formula: "HCHO" },
+            { name: "Benzaldehyde", formula: "C₆H₅CHO" },
+            { name: "Trimethylacetaldehyde", formula: "(CH₃)₃C–CHO" },
+          ]}
+        />
+
+        <DisproportionationBoard
+          oxidation={{
+            equation: String.raw`\text{Aldehyde} \longrightarrow \text{Carboxylic acid salt}`,
+            product: "Carboxylic acid salt",
+          }}
+          reduction={{
+            equation: String.raw`\text{Aldehyde} \longrightarrow 1^\circ \text{Alcohol}`,
+            product: "1° alcohol",
+          }}
+        />
+
+        <CannizzaroEquationCards
+          cards={[
+            {
+              title: "Formaldehyde",
+              equation: String.raw`2\,\text{HCHO} \xrightarrow{\text{Conc. NaOH}} \text{HCOONa} + \text{CH}_3\text{OH}`,
+              oxidation: "Sodium formate",
+              reduction: "Methanol",
+            },
+            {
+              title: "Benzaldehyde",
+              equation: String.raw`2\,\text{C}_6\text{H}_5\text{CHO} \xrightarrow{\text{Conc. NaOH}} \text{C}_6\text{H}_5\text{COONa} + \text{C}_6\text{H}_5\text{CH}_2\text{OH}`,
+              oxidation: "Sodium benzoate",
+              reduction: "Benzyl alcohol",
+            },
+          ]}
+        />
+
+        <MetaDirectingCards
+          group="–CHO"
+          effect="Meta-directing"
+          cards={[
+            {
+              title: "Nitration",
+              reagent: "Conc. HNO₃/H₂SO₄ or fuming HNO₃.",
+              equation: String.raw`\text{Benzaldehyde} \longrightarrow m\text{-Nitrobenzaldehyde}`,
+              product: "m-Nitrobenzaldehyde",
+              substituent: "NO₂",
+            },
+            {
+              title: "Sulfonation",
+              equation: String.raw`\text{Benzaldehyde} \longrightarrow m\text{-Formylbenzenesulfonic acid}`,
+              product: "m-Formylbenzenesulfonic acid",
+              substituent: "SO₃H",
+            },
+          ]}
         />
       </Section>
 
