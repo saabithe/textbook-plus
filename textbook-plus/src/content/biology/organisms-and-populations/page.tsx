@@ -1,8 +1,8 @@
 import { Callout } from "@/components/content/Callout";
-import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FormulaBlock } from "@/components/content/Formula";
 import { AgePyramidsFigure11_1 } from "@/components/content/biology/AgePyramidsFigure11_1";
+import { PopulationGrowthGraphs } from "@/components/content/biology/PopulationGrowthGraphs";
 
 export default function OrganismsAndPopulationsChapter() {
   return (
@@ -53,28 +53,6 @@ export default function OrganismsAndPopulationsChapter() {
       </Callout>
 
       <h3 id="h-11-1b">B. Examples of Population</h3>
-      <div className="my-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {[
-          { n: 1, name: "Cormorants", habitat: "Wetland", icon: "🪶" },
-          { n: 2, name: "Rats", habitat: "Abandoned dwelling", icon: "🐀" },
-          { n: 3, name: "Teakwood trees", habitat: "Forest tract", icon: "🌳" },
-          { n: 4, name: "Bacteria", habitat: "Culture plate", icon: "🦠" },
-          { n: 5, name: "Lotus plants", habitat: "Pond", icon: "🪷" },
-        ].map((e) => (
-          <div key={e.n} className="rounded-2xl border border-border/60 bg-card p-4 shadow-sm">
-            <div className="flex items-start gap-3">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-lg" aria-hidden>
-                {e.icon}
-              </span>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">No. {e.n}</p>
-                <p className="mt-0.5 text-sm font-semibold text-foreground">{e.name}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{e.habitat}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
       <TableCard
         title="Examples of population"
         headers={["No.", "Example", "Habitat"]}
@@ -331,6 +309,112 @@ export default function OrganismsAndPopulationsChapter() {
         </li>
         <li>Example: Colonising a brand-new habitat.</li>
       </ul>
+
+      <h2 id="h-11-6">🌱 Population Growth Models</h2>
+
+      <h3 id="h-11-6-1">1. Exponential Growth (Geometric Growth)</h3>
+      <p>
+        <strong>Condition:</strong> Unlimited resources (food and space).
+      </p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Species realise their full innate growth potential.</li>
+        <li>
+          <strong>Intrinsic rate of natural increase (r):</strong> Measures the potential of population growth.
+        </li>
+        <li>
+          <FormulaBlock latex={String.raw`r=b-d`} /> (b = per capita birth rate, d = per capita death rate)
+        </li>
+      </ul>
+      <p className="mt-2 text-sm font-medium text-foreground">Differential equation:</p>
+      <FormulaBlock latex={String.raw`\frac{dN}{dt}=rN`} />
+      <p className="mt-2 text-sm font-medium text-foreground">Integral form:</p>
+      <FormulaBlock latex={String.raw`N_t=N_0e^{rt}`} />
+      <p className="mt-2 text-sm text-muted-foreground">
+        Where: N<sub>t</sub> = population density at time t; N<sub>0</sub> = initial population density; r = intrinsic
+        rate of natural increase; e = 2.71828.
+      </p>
+      <p className="mt-3 text-sm font-medium text-foreground">Examples of intrinsic growth rate (r)</p>
+      <TableCard
+        title="Examples of r"
+        headers={["Population", "r"]}
+        rows={[
+          { cells: ["Norway rat", "0.015"] },
+          { cells: ["Flour beetle", "0.12"] },
+          { cells: ["Human population in India (1981)", "0.0205"] },
+        ]}
+      />
+      <ul className="mt-2 list-disc pl-5 space-y-1">
+        <li>
+          <strong>Curve:</strong> J-shaped.
+        </li>
+        <li>Even slow-breeding animals like elephants can build enormous populations if unchecked.</li>
+      </ul>
+
+      <h3 id="h-11-6-2">2. Verhulst–Pearl Logistic Growth</h3>
+      <p>
+        <strong>Condition:</strong> Limited resources in nature.
+      </p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Resources are finite and limiting.</li>
+        <li>Competition occurs; only the fittest survive.</li>
+      </ul>
+      <div className="my-3 rounded-2xl border border-amber-500/40 bg-amber-50/60 p-4 dark:bg-amber-950/20">
+        <p className="text-sm font-semibold text-foreground">Carrying Capacity (K)</p>
+        <p className="mt-1 text-sm text-muted-foreground">Maximum population density that a habitat can sustain.</p>
+      </div>
+      <p className="text-sm font-medium text-foreground">Phases of growth:</p>
+      <ol className="list-decimal pl-5 space-y-1">
+        <li>Lag phase</li>
+        <li>Acceleration phase</li>
+        <li>Deceleration phase</li>
+        <li>Asymptote (population reaches K)</li>
+      </ol>
+      <p className="mt-3 text-sm font-medium text-foreground">Logistic growth equation:</p>
+      <FormulaBlock latex={String.raw`\frac{dN}{dt}=rN\left(\frac{K-N}{K}\right)`} />
+      <p className="mt-2 text-sm text-muted-foreground">
+        Where: N = population density at time t; r = intrinsic rate of natural increase; K = carrying capacity.
+      </p>
+      <ul className="mt-2 list-disc pl-5 space-y-1">
+        <li>
+          <strong>Curve:</strong> Sigmoid (S-shaped).
+        </li>
+        <li>More realistic for natural populations because resources are rarely unlimited.</li>
+      </ul>
+
+      <h3 id="h-11-6-3">3. 📈 Graphical Comparison</h3>
+      <div className="flex flex-wrap gap-4 text-sm">
+        <div>
+          <span className="font-semibold text-foreground">Exponential growth</span> — <span className="text-muted-foreground">J-shaped</span>
+        </div>
+        <div>
+          <span className="font-semibold text-foreground">Logistic growth</span> — <span className="text-muted-foreground">S-shaped</span>
+        </div>
+      </div>
+      <p className="text-sm text-muted-foreground">Population density vs. time. Schematic representations of the two growth models.</p>
+      <PopulationGrowthGraphs />
+
+      <h3 id="h-11-6-4">4. ⚖️ Comparison Summary</h3>
+      <TableCard
+        title="Exponential vs logistic growth"
+        headers={["Feature", "Exponential", "Logistic"]}
+        rows={[
+          { cells: ["Resources", "Unlimited", "Limited"] },
+          { cells: ["Curve", "J-shaped", "S-shaped"] },
+          { cells: ["Carrying capacity", "Not applicable", "Present (K)"] },
+          { cells: ["Equation", String.raw`\frac{dN}{dt}=rN`, String.raw`\frac{dN}{dt}=rN\left(\frac{K-N}{K}\right)`] },
+          { cells: ["Realism", "Less realistic", "More realistic"] },
+        ]}
+      />
+      <Callout type="important" title="Exam takeaway">
+        <ul className="list-disc pl-5 space-y-1">
+          <li>
+            <strong>Exponential</strong> → Unlimited resources → J-shaped curve.
+          </li>
+          <li>
+            <strong>Logistic</strong> → Limited resources → S-shaped curve → Carrying capacity (K).
+          </li>
+        </ul>
+      </Callout>
     </>
   );
 }
