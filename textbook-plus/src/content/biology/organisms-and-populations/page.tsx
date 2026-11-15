@@ -26,6 +26,7 @@ import {
   ParasiteTree,
 } from "@/components/content/biology/ParasitismDiagrams";
 import { CommensalismGallery } from "@/components/content/biology/CommensalismGallery";
+import { AmensalismExamples } from "@/components/content/biology/AmensalismExamples";
 import {
   SymbiosisExchange,
   FigWaspSequence,
@@ -91,7 +92,7 @@ const INTERACTIONS: InteractionEntry[] = [
   },
   {
     name: "Amensalism",
-    href: "#h-11-8",
+    href: "#h-11-7-7",
     a: "−",
     b: "0",
     aSpecies: "Species A",
@@ -681,6 +682,23 @@ export default function OrganismsAndPopulationsChapter() {
         4. Orchid (<em>Ophrys</em>) and bee — sexual deceit
       </p>
       <OphrysBeeSequence />
+
+      <h3 id="h-11-7-7">7. 🧬 Amensalism</h3>
+      <p>
+        <strong>Definition:</strong> One species is harmed or inhibited while the other remains unaffected.
+      </p>
+      <SignPair
+        className="mt-3"
+        a="−"
+        b="0"
+        aSpecies="Harmed species"
+        bSpecies="Unaffected partner"
+        aRole="Harmed or inhibited"
+        bRole="Unaffected"
+      />
+
+      <h4>Examples</h4>
+      <AmensalismExamples />
 
       <h2 id="h-11-8">Chapter revision — the six interactions</h2>
       <p>

@@ -160,6 +160,7 @@ import {
   ParasiteTree,
 } from "@/components/content/biology/ParasitismDiagrams";
 import { CommensalismGallery } from "@/components/content/biology/CommensalismGallery";
+import { AmensalismExamples } from "@/components/content/biology/AmensalismExamples";
 import {
   SymbiosisExchange,
   FigWaspSequence,
@@ -2699,6 +2700,11 @@ export default function DesignPage() {
           <div>
             <p className="t-micro">Commensalism</p>
             <CommensalismGallery />
+          </div>
+
+          <div>
+            <p className="t-micro">Amensalism</p>
+            <AmensalismExamples />
           </div>
 
           <div>

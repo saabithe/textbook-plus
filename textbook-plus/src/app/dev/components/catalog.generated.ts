@@ -3259,6 +3259,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/AmensalismExamples.tsx#AmensalismExamples",
+    "name": "AmensalismExamples",
+    "path": "content/biology/AmensalismExamples.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/BrainSizeBars.tsx#BrainSizeBars",
     "name": "BrainSizeBars",
     "path": "content/biology/BrainSizeBars.tsx",
