@@ -427,29 +427,54 @@ export default function OrganismsAndPopulationsChapter() {
       <p className="mt-2">
         <strong>Interspecific interactions</strong> = interactions between populations of two different species.
       </p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li><code>+</code> → Beneficial</li>
-        <li><code>−</code> → Detrimental</li>
-        <li><code>0</code> → No effect</li>
-      </ul>
+      <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4" aria-label="Interaction sign legend">
+        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Sign legend (used throughout)</p>
+        <div className="mt-3 flex flex-wrap items-center gap-4 sm:gap-8">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-100 text-lg font-bold text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200" aria-hidden>+</span>
+            <span className="text-sm"><span className="font-medium text-foreground">Beneficial</span> <span className="text-muted-foreground">(+)</span></span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-rose-100 text-lg font-bold text-rose-800 dark:bg-rose-900/40 dark:text-rose-200" aria-hidden>−</span>
+            <span className="text-sm"><span className="font-medium text-foreground">Detrimental</span> <span className="text-muted-foreground">(−)</span></span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-slate-200 text-lg font-bold text-slate-800 dark:bg-slate-700 dark:text-slate-100" aria-hidden>0</span>
+            <span className="text-sm"><span className="font-medium text-foreground">Neutral / no effect</span> <span className="text-muted-foreground">(0)</span></span>
+          </div>
+        </div>
+      </div>
       <p className="mt-2 text-sm text-muted-foreground">
         <strong>Common characteristic:</strong> Predation, parasitism and commensalism involve closely living interacting
         species.
       </p>
 
       <h4 id="h-11-7-1-summary">Summary of interactions</h4>
-      <TableCard
-        title="Population interactions summary"
-        headers={["Interaction", "Species A", "Species B", "Effect"]}
-        rows={[
-          { cells: ["Mutualism", "+", "+", "Both benefit"] },
-          { cells: ["Competition", "−", "−", "Both are adversely affected"] },
-          { cells: ["Predation", "+", "−", "Predator benefits; prey is harmed"] },
-          { cells: ["Parasitism", "+", "−", "Parasite benefits; host is harmed"] },
-          { cells: ["Commensalism", "+", "0", "One benefits; other is unaffected"] },
-          { cells: ["Amensalism", "−", "0", "One is harmed; other is unaffected"] },
-        ]}
-      />
+      <div className="my-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {[
+          { name: "Mutualism", href: "#h-11-7-6", a: "+", b: "+", effect: "Both benefit", aCls: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200", bCls: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200" },
+          { name: "Competition", href: "#h-11-7-3", a: "−", b: "−", effect: "Both are adversely affected", aCls: "bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-200", bCls: "bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-200" },
+          { name: "Predation", href: "#h-11-7-2", a: "+", b: "−", effect: "Predator benefits; prey is harmed", aCls: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200", bCls: "bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-200" },
+          { name: "Parasitism", href: "#h-11-7-4", a: "+", b: "−", effect: "Parasite benefits; host is harmed", aCls: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200", bCls: "bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-200" },
+          { name: "Commensalism", href: "#h-11-7-5", a: "+", b: "0", effect: "One benefits; other is unaffected", aCls: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200", bCls: "bg-slate-200 text-slate-800 dark:bg-slate-700 dark:text-slate-100" },
+          { name: "Amensalism", href: "#h-11-7-3a", a: "−", b: "0", effect: "One is harmed; other is unaffected", aCls: "bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-200", bCls: "bg-slate-200 text-slate-800 dark:bg-slate-700 dark:text-slate-100" },
+        ].map((it) => (
+          <a
+            key={it.name}
+            href={it.href}
+            className="block rounded-2xl border border-border/60 bg-card p-4 shadow-sm transition hover:border-emerald-500/40 hover:shadow-md"
+          >
+            <p className="text-sm font-semibold text-foreground">{it.name}</p>
+            <div className="mt-3 flex items-center gap-2">
+              <span className="text-xs text-muted-foreground">A</span>
+              <span className={`inline-flex h-8 w-8 items-center justify-center rounded-lg text-base font-bold ${it.aCls}`}>{it.a}</span>
+              <span className="text-xs text-muted-foreground">B</span>
+              <span className={`inline-flex h-8 w-8 items-center justify-center rounded-lg text-base font-bold ${it.bCls}`}>{it.b}</span>
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground">{it.effect}</p>
+          </a>
+        ))}
+      </div>
 
       <h3 id="h-11-7-2">2. 🐅 Predation (+ / −)</h3>
       <p>
@@ -458,6 +483,17 @@ export default function OrganismsAndPopulationsChapter() {
       </p>
       <h4 id="h-11-7-2a">A. Ecological significance</h4>
       <p className="text-sm font-medium text-foreground">1. Energy transfer</p>
+      <div className="my-3 rounded-2xl border border-border/60 bg-muted/20 p-4">
+        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Trophic energy transfer (direction = energy flow)</p>
+        <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
+          <span className="rounded-lg bg-emerald-100 px-3 py-1.5 font-medium text-emerald-900 dark:bg-emerald-900/40 dark:text-emerald-100">Autotrophs</span>
+          <span className="text-muted-foreground" aria-hidden>→</span>
+          <span className="rounded-lg bg-amber-100 px-3 py-1.5 font-medium text-amber-900 dark:bg-amber-900/40 dark:text-amber-100">Herbivore / seed-eater</span>
+          <span className="text-muted-foreground" aria-hidden>→</span>
+          <span className="rounded-lg bg-rose-100 px-3 py-1.5 font-medium text-rose-900 dark:bg-rose-900/40 dark:text-rose-100">Higher-level predator</span>
+        </div>
+        <p className="mt-2 text-xs text-muted-foreground">Examples: sparrow eating a seed; tiger eating a deer (both are predation in this ecological sense).</p>
+      </div>
       <ul className="list-disc pl-5 space-y-1">
         <li>Acts as a conduit for transferring energy fixed by autotrophs to higher trophic levels.</li>
         <li>Even a sparrow eating a seed is ecologically a predator, just like a tiger eating a deer.</li>
@@ -484,6 +520,17 @@ export default function OrganismsAndPopulationsChapter() {
         </li>
       </ul>
       <h4 id="h-11-7-2b">B. Prudent nature of predators</h4>
+      <div className="my-3 rounded-2xl border border-amber-500/30 bg-amber-50/40 p-4 dark:bg-amber-950/20">
+        <p className="text-xs font-semibold uppercase tracking-wide text-amber-800 dark:text-amber-200">Consequence of overexploitation (not a normal cycle)</p>
+        <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
+          <span className="rounded-lg border border-border/60 bg-card px-2 py-1">Predator overexploits prey</span>
+          <span aria-hidden>→</span>
+          <span className="rounded-lg border border-border/60 bg-card px-2 py-1">Prey extinction</span>
+          <span aria-hidden>→</span>
+          <span className="rounded-lg border border-border/60 bg-card px-2 py-1">Predator extinction</span>
+        </div>
+        <p className="mt-2 text-xs text-muted-foreground">Arrow loop conceptually returns to predator dependence on prey (overexploitation breaks the system).</p>
+      </div>
       <ul className="list-disc pl-5 space-y-1">
         <li>Predators do not overexploit prey.</li>
         <li>Overexploitation → Prey extinction → Predator extinction.</li>
