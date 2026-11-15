@@ -9,6 +9,7 @@
  * The retired NCERT-based version is frozen in the tag
  * `backup/ray-optics-full-2026-11-04`.
  */
+import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Expandable } from "@/components/content/Expandable";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
@@ -47,6 +48,16 @@ import {
   slabShift,
   totalInternalReflection,
 } from "./figures";
+
+/** One answer-key row: the result on top, the working underneath. */
+function AnswerQa({ result, work }: { result: string; work: string }) {
+  return (
+    <div>
+      <p className="text-[0.9375rem] font-semibold leading-[1.5] tracking-[-0.01em] text-foreground">{result}</p>
+      <p className="mt-1 text-[0.875rem] leading-[1.75] text-foreground/75">{work}</p>
+    </div>
+  );
+}
 
 export default function RayOpticsAndOpticalInstrumentsChapter() {
   return (
@@ -1348,7 +1359,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
                 label: "What that does to the lens",
                 description: (
                   <p>
-                    The lens maker's formula gives <Formula>{String.raw`\frac{1}{f} = 0`}</Formula>, so{" "}
+                    The lens maker&apos;s formula gives <Formula>{String.raw`\frac{1}{f} = 0`}</Formula>, so{" "}
                     <Formula>{String.raw`f \to \infty`}</Formula>. The lens acts like a plane sheet of glass.
                   </p>
                 ),
@@ -1724,7 +1735,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         ]}
       />
       <p>
-        The refractive index of the material of the prism is then given by Snell's law at either face.
+        The refractive index of the material of the prism is then given by Snell&apos;s law at either face.
       </p>
       <FormulaBlock
         important
@@ -1998,7 +2009,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </p>
       </Callout>
       <p>
-        The eyepiece's own angular magnification is the simple-microscope result, Eq. 9.39 or Eq. 9.42, depending on where
+        The eyepiece&apos;s own angular magnification is the simple-microscope result, Eq. 9.39 or Eq. 9.42, depending on where
         the final image is.
       </p>
       <EquationLadder
@@ -2267,7 +2278,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
             <span className="ml-1.5 align-baseline text-[0.9375rem] font-normal text-muted-foreground">≈ 5.08 m</span>
           </p>
           <p className="mt-2 text-sm leading-relaxed text-foreground/75">
-            The observer sits in a small cage near the mirror's focus.
+            The observer sits in a small cage near the mirror&apos;s focus.
           </p>
         </div>
         <div className="rounded-lg border border-border bg-card p-4">
@@ -2288,6 +2299,83 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
           </p>
         </div>
       </div>
+
+      <h2 id="h-9-exercises">Back-of-Chapter Exercises</h2>
+      <p>
+        Every exercise of this chapter&apos;s printed text, with the complete answer key. Work each one out on paper
+        before opening the panel.
+      </p>
+
+      <Expandable title="Exercises 9.1 – 9.31 — questions and answer key" variant="exercise">
+        <ExerciseQa
+          questions={[
+            "A small candle, 2.5 cm in size is placed at 27 cm in front of a concave mirror of radius of curvature 36 cm. At what distance from the mirror should a screen be placed in order to obtain a sharp image? Describe the nature and size of the image. If the candle is moved closer to the mirror, how would the screen have to be moved?",
+            "A 4.5 cm needle is placed 12 cm away from a convex mirror of focal length 15 cm. Give the location of the image and the magnification. Describe what happens as the needle is moved farther from the mirror.",
+            "A tank is filled with water to a height of 12.5 cm. The apparent depth of a needle lying at the bottom of the tank is measured by a microscope to be 9.4 cm. What is the refractive index of water? If water is replaced by a liquid of refractive index 1.63 up to the same height, by what distance would the microscope have to be moved to focus on the needle again?",
+            "Figures 9.27(a) and (b) show the refraction of a ray in air incident at 60° with the normal to a glass-air and a water-air interface — it bends to about 35° in glass and about 40° in water. Predict the angle of refraction in glass when the angle of incidence in water is 45° with the normal to a water-glass interface [Fig. 9.27(c)].",
+            "A small bulb is placed at the bottom of a tank containing water to a depth of 80 cm. What is the area of the surface of water through which light from the bulb can emerge out? Refractive index of water is 1.33. (Consider the bulb to be a point source.)",
+            "A prism is made of glass of unknown refractive index. A parallel beam of light is incident on a face of the prism. The angle of minimum deviation is measured to be 40°. What is the refractive index of the material of the prism? The refracting angle of the prism is 60°. If the prism is placed in water (refractive index 1.33), predict the new angle of minimum deviation of a parallel beam of light.",
+            "Double-convex lenses are to be manufactured from a glass of refractive index 1.55, with both faces of the same radius of curvature. What is the radius of curvature required if the focal length is to be 20 cm?",
+            "A beam of light converges at a point P. Now a lens is placed in the path of the convergent beam 12 cm from P. At what point does the beam converge if the lens is (a) a convex lens of focal length 20 cm, and (b) a concave lens of focal length 16 cm?",
+            "An object of size 3.0 cm is placed 14 cm in front of a concave lens of focal length 21 cm. Describe the image produced by the lens. What happens if the object is moved further away from the lens?",
+            "What is the focal length of a convex lens of focal length 30 cm in contact with a concave lens of focal length 20 cm? Is the system a converging or a diverging lens? Ignore thickness of the lenses.",
+            "A compound microscope consists of an objective lens of focal length 2.0 cm and an eyepiece of focal length 6.25 cm separated by a distance of 15 cm. How far from the objective should an object be placed in order to obtain the final image at (a) the least distance of distinct vision (25 cm), and (b) at infinity? What is the magnifying power of the microscope in each case?",
+            "A person with a normal near point (25 cm) using a compound microscope with objective of focal length 8.0 mm and an eyepiece of focal length 2.5 cm can bring an object placed at 9.0 mm from the objective in sharp focus. What is the separation between the two lenses? Calculate the magnifying power of the microscope.",
+            "A small telescope has an objective lens of focal length 144 cm and an eyepiece of focal length 6.0 cm. What is the magnifying power of the telescope? What is the separation between the objective and the eyepiece?",
+            "(a) A giant refracting telescope at an observatory has an objective lens of focal length 15 m. If an eyepiece of focal length 1.0 cm is used, what is the angular magnification of the telescope? (b) If this telescope is used to view the moon, what is the diameter of the image of the moon formed by the objective lens? The diameter of the moon is 3.48 × 10⁶ m, and the radius of the lunar orbit is 3.8 × 10⁸ m.",
+            "Use the mirror equation to deduce that: (a) an object placed between f and 2f of a concave mirror produces a real image beyond 2f; (b) a convex mirror always produces a virtual image independent of the location of the object; (c) the virtual image produced by a convex mirror is always diminished in size and is located between the focus and the pole; (d) an object placed between the pole and focus of a concave mirror produces a virtual and enlarged image.",
+            "A small pin fixed on a table top is viewed from above from a distance of 50 cm. By what distance would the pin appear to be raised if it is viewed from the same point through a 15 cm thick glass slab held parallel to the table? Refractive index of glass = 1.5. Does the answer depend on the location of the slab?",
+            "(a) Figure 9.28 shows a cross-section of a light pipe made of a glass fibre of refractive index 1.68. The outer covering of the pipe is made of a material of refractive index 1.44. What is the range of the angles of the incident rays with the axis of the pipe for which total reflection inside the pipe takes place? (b) What is the answer if there is no outer covering of the pipe?",
+            "The image of a small electric bulb fixed on the wall of a room is to be obtained on the opposite wall 3 m away by means of a large convex lens. What is the maximum possible focal length of the lens required for the purpose?",
+            "A screen is placed 90 cm from an object. The image of the object on the screen is formed by a convex lens at two different locations separated by 20 cm. Determine the focal length of the lens.",
+            "(a) Determine the effective focal length of the combination of the two lenses in Exercise 9.10, if they are placed 8.0 cm apart with their principal axes coincident. Does the answer depend on which side of the combination a beam of parallel light is incident? Is the notion of effective focal length of this system useful at all? (b) An object 1.5 cm in size is placed on the side of the convex lens in the arrangement (a) above, 40 cm from it. Determine the magnification produced by the two-lens system, and the size of the image.",
+            "At what angle should a ray of light be incident on the face of a prism of refracting angle 60° so that it just suffers total internal reflection at the other face? The refractive index of the material of the prism is 1.524.",
+            "A card sheet divided into squares each of size 1 mm² is being viewed at a distance of 9 cm through a magnifying glass (a converging lens of focal length 9 cm) held close to the eye. (a) What is the magnification produced by the lens? How much is the area of each square in the virtual image? (b) What is the angular magnification (magnifying power) of the lens? (c) Is the magnification in (a) equal to the magnifying power in (b)? Explain.",
+            "(a) At what distance should the lens be held from the card sheet in Exercise 9.22 in order to view the squares distinctly with the maximum possible magnifying power? (b) What is the magnification in this case? (c) Is the magnification equal to the magnifying power in this case? Explain.",
+            "What should be the distance between the object in Exercise 9.23 and the magnifying glass if the virtual image of each square is to have an area of 6.25 mm²? Would you be able to see the squares distinctly with your eyes very close to the magnifier?",
+            "Answer the following questions: (a) The angle subtended at the eye by an object is equal to the angle subtended at the eye by the virtual image produced by a magnifying glass. In what sense then does a magnifying glass provide angular magnification? (b) In viewing through a magnifying glass, one usually positions one's eyes very close to the lens. Does angular magnification change if the eye is moved back? (c) Magnifying power of a simple microscope is inversely proportional to the focal length of the lens. What then stops us from using a convex lens of smaller and smaller focal length and achieving greater and greater magnifying power? (d) Why must both the objective and the eyepiece of a compound microscope have short focal lengths? (e) When viewing through a compound microscope, our eyes should be positioned not on the eyepiece but a short distance away from it for best viewing. Why?",
+            "An angular magnification (magnifying power) of 30X is desired using an objective of focal length 1.25 cm and an eyepiece of focal length 5 cm. How will you set up the compound microscope?",
+            "A small telescope has an objective lens of focal length 140 cm and an eyepiece of focal length 5.0 cm. What is the magnifying power of the telescope for viewing distant objects when (a) the telescope is in normal adjustment (i.e., when the final image is at infinity)? (b) the final image is formed at the least distance of distinct vision (25 cm)?",
+            "(a) For the telescope described in Exercise 9.27(a), what is the separation between the objective lens and the eyepiece? (b) If this telescope is used to view a 100 m tall tower 3 km away, what is the height of the image of the tower formed by the objective lens? (c) What is the height of the final image of the tower if it is formed at 25 cm?",
+            "A Cassegrain telescope uses two mirrors, as shown in Fig. 9.26. Such a telescope is built with the mirrors 20 mm apart. If the radius of curvature of the large mirror is 220 mm and that of the small mirror is 140 mm, where will the final image of an object at infinity be?",
+            "Light incident normally on a plane mirror attached to a galvanometer coil retraces backwards. A current in the coil produces a deflection of 3.5° of the mirror. What is the displacement of the reflected spot of light on a screen placed 1.5 m away?",
+            "An equiconvex lens (of refractive index 1.50) is in contact with a liquid layer on top of a plane mirror. A small needle with its tip on the principal axis is moved along the axis until its inverted image is found at the position of the needle. The distance of the needle from the lens is measured to be 45.0 cm. The liquid is removed and the experiment is repeated; the new distance is 30.0 cm. What is the refractive index of the liquid?",
+          ]}
+          answers={[
+            <AnswerQa key={1} result="Screen at 54 cm · image 5.0 cm, real and inverted" work="f = R/2 = −18 cm and u = −27 cm, so 1/v = 1/f − 1/u = −1/18 + 1/27 = −1/54 and v = −54 cm, with m = −v/u = −2. Bringing the candle nearer (still outside f) pushes the image farther out and makes it grow, so the screen must move away; inside the focus the image turns virtual and no screen can catch it." />,
+            <AnswerQa key={2} result="6.7 cm behind the mirror · m = +0.56, image 2.5 cm tall" work="For a convex mirror f = +15 cm and u = −12 cm: 1/v = 1/15 + 1/12 = 9/60, so v = +6.7 cm, virtual and erect. As the needle moves farther away the image slides towards the focus (v → 15 cm) and keeps shrinking (m → 0)." />,
+            <AnswerQa key={3} result="n = 1.33 · microscope raised by 1.7 cm" work="The index is real depth over apparent depth: 12.5/9.4 = 1.33. With the liquid the apparent depth becomes 12.5/1.63 = 7.7 cm, so the tube must come up by 9.4 − 7.7 ≈ 1.7 cm." />,
+            <AnswerQa key={4} result="r ≈ 39°" work="The two panels give n_glass ≈ 1.5 and n_water ≈ 1.33. Water to glass: 1.33 sin 45° = 1.5 sin r, so sin r = 0.63." />,
+            <AnswerQa key={5} result="2.6 m²" work="sin c = 1/1.33 = 0.75 gives c = 48.8°. The escaping patch is a circle of radius r = h tan c = 80 × 1.14 ≈ 91 cm, so its area is πr²." />,
+            <AnswerQa key={6} result="n = 1.53 · new δm ≈ 10°" work="n = sin[(A + δm)/2] ÷ sin(A/2) = sin 50°/sin 30° = 1.53. In water the relative index is 1.53/1.33 = 1.15, so sin[(60° + δm′)/2] = 0.575 and (60° + δm′)/2 = 35.1°." />,
+            <AnswerQa key={7} result="R = 22 cm" work="Equiconvex means R₁ = +R and R₂ = −R, so 1/f = (n − 1)(2/R). With 1/20 = 0.55 × 2/R the radius comes out at 22 cm." />,
+            <AnswerQa key={8} result="(a) 7.5 cm past the lens (b) 48 cm past the lens" work="The beam is converging on P, so the lens meets a virtual object at u = +12 cm. (a) 1/v = 1/20 + 1/12 = 8/60 gives v = 7.5 cm, short of P. (b) 1/v = −1/16 + 1/12 = 1/48 gives v = 48 cm, well beyond P." />,
+            <AnswerQa key={9} result="8.4 cm from the lens, virtual · m = +0.6" work="With f = −21 cm and u = −14 cm, 1/v = 1/f + 1/u = −5/42, so v = −8.4 cm on the object's side: erect, and 1.8 cm tall. Moving the object away slides the image towards the focus at 21 cm and shrinks it further." />,
+            <AnswerQa key={10} result="F = −60 cm · diverging" work="In contact 1/F = 1/30 − 1/20 = −1/60, so the pair behaves as a diverging lens of focal length 60 cm." />,
+            <AnswerQa key={11} result="(a) object at 2.5 cm, power 20 (b) 2.6 cm, power 13.5" work="(a) 1/u_e = −1/25 − 1/6.25 gives u_e = −5 cm, so the objective's image must sit 10 cm behind it; 1/u_o = 1/10 − 1/2 gives u_o = −2.5 cm, with m_o = −4 and m_e = +5. (b) With the image at infinity v_o = 15 − 6.25 = 8.75 cm, so u_o = −2.6 cm and the power is 3.4 × 4." />,
+            <AnswerQa key={12} result="9.5 cm apart · m = 88" work="1/v_o = 1/8 − 1/9 gives v_o = 72 mm = 7.2 cm. For the final image at 25 cm, 1/u_e = −1/25 − 1/2.5 gives u_e = −2.27 cm, so the lenses sit 7.2 + 2.3 ≈ 9.5 cm apart and m = (7.2/0.9)(1 + 25/2.5) = 8 × 11." />,
+            <AnswerQa key={13} result="m = 24 · separation 150 cm" work="In normal adjustment the power is f_o/f_e and the separation is the sum of the focal lengths." />,
+            <AnswerQa key={14} result="(a) 1500 (b) 13.7 cm" work="m = 15/0.01. The moon subtends 3.48 × 10⁶ / 3.8 × 10⁸ = 9.16 × 10⁻³ rad, so the image at the objective's focus is 15 × 9.16 × 10⁻³ = 0.137 m across." />,
+            <AnswerQa key={15} result="all four follow from 1/v = 1/f − 1/u" work="(a) With f = −f₀ and f₀ < u₀ < 2f₀, 1/v = −1/f₀ + 1/u₀ = (f₀ − u₀)/(f₀u₀) is negative, a real image in front of the mirror, and its distance f₀u₀/(u₀ − f₀) exceeds 2f₀ exactly when u₀ < 2f₀. (b) For a convex mirror f = +f₀, so 1/v = 1/f₀ + 1/u₀ > 0 for every u₀: always behind the mirror, always virtual. (c) That gives v = f₀u₀/(u₀ + f₀) < f₀, between the pole and the focus, with |m| = f₀/(u₀ + f₀) < 1. (d) For a concave mirror with u₀ < f₀, 1/v = (f₀ − u₀)/(f₀u₀) > 0 — virtual — and |m| = f₀/(f₀ − u₀) > 1." />,
+            <AnswerQa key={16} result="raised by 5.0 cm · pin appears 45 cm away" work="A slab shifts the image by t(1 − 1/n) = 15(1 − 2/3) = 5.0 cm. The shift depends only on the thickness and the index, not on where the slab sits." />,
+            <AnswerQa key={17} result="(a) i ≤ 60° (b) every ray is trapped" work="(a) sin c = 1.44/1.68 = 0.86 gives c = 59°, so the ray inside may make at most 31° with the axis, and sin i = 1.68 sin 31° = 0.87 gives i ≤ 60°. (b) With no covering c = 36.5° and the internal angle may reach 53.5°, but 1.68 sin 53.5° = 1.35 exceeds 1, so no ray escapes through the wall." />,
+            <AnswerQa key={18} result="75 cm" work="Object and image are 3 m apart, and f = uv/(u + v) peaks at u = v = 1.5 m, giving f = 1.5/2." />,
+            <AnswerQa key={19} result="≈ 21.4 cm" work="Displacement method: f = (D² − d²)/4D = (0.81 − 0.04)/3.6." />,
+            <AnswerQa key={20} result="(a) F = −300 cm, same from either side (b) m = 0.65, image 0.98 cm" work="(a) 1/F = 1/30 − 1/20 − 8/(30 × −20) = −1/300. The expression is symmetric, so the incident side does not matter; with F so large and the principal planes far outside the lenses, the notion is of little practical use. (b) 1/v₁ = 1/30 − 1/40 gives v₁ = 120 cm and m₁ = −3; that image is a virtual object 112 cm beyond the concave lens, so 1/v₂ = −1/20 + 1/112 gives v₂ = −24.3 cm and m₂ = −0.22. The final image lands 24.3 cm to the left of the concave lens." />,
+            <AnswerQa key={21} result="i ≈ 30°" work="Total internal reflection at the second face means r₂ = c, with sin c = 1/1.524 and c = 41°. Then r₁ = 60° − 41° = 19° and sin i = 1.524 sin 19° = 0.50." />,
+            <AnswerQa key={22} result="(a) image at infinity (b) 2.8 (c) no" work="(a) The object sits at the focus, so the rays leave parallel: the virtual image is at infinity and its linear size is unbounded. (b) Magnifying power is D/f = 25/9. (c) One compares image and object sizes, the other compares angles at the eye — the infinitely distant, infinitely large image still subtends only 2.8 times the unaided angle." />,
+            <AnswerQa key={23} result="(a) 6.6 cm from the card (b) 3.8 (c) yes" work="(a) Put the image at D: 1/u = −1/25 − 1/9 gives u = −6.6 cm. (b) m = 1 + D/f = 1 + 25/9. (c) With the image at the near point its angle at the eye is h′/D against the unaided h/D, so the two magnifications coincide." />,
+            <AnswerQa key={24} result="5.4 cm · image at 13.5 cm, not seen distinctly" work="An area ratio of 6.25 is a linear magnification of 2.5, so the image sits at 2.5 times the object distance: −1/(2.5u) + 1/u = 1/9 gives 0.6/u = 1/9. The image at 13.5 cm is nearer than the 25 cm near point, so a normal eye cannot focus on it." />,
+            <AnswerQa key={25} result="(a) it changes where the object can sit (b) yes, it falls (c) aberration (d) the two gains multiply (e) sit at the exit pupil" work="(a) The angle itself is unchanged, but the lens lets the object come far inside 25 cm and still be sharp, so the angle beats the unaided h/D. (b) The power is a ratio of angles at the eye, and moving back shrinks the image angle. (c) Stronger curvature brings spherical and chromatic aberration, and the lens would have to touch the eye, so the pupil and the field set the ceiling. (d) A short objective f lets the object sit just outside the focus and throw a big real image; a short eyepiece f then adds a large D/f_e. (e) At the exit pupil — the image of the objective formed by the eyepiece, a couple of centimetres behind the glass — the whole field is visible." />,
+            <AnswerQa key={26} result="object 1.5 cm out · lenses 11.7 cm apart" work="With the image at 25 cm, m_e = 1 + 25/5 = 6, so m_o = 5 and v_o = 5u_o; then 1/(5u) + 1/u = 1/1.25 gives u = 1.5 cm and v_o = 7.5 cm. The eyepiece needs u_e = −4.2 cm." />,
+            <AnswerQa key={27} result="(a) 28 (b) 33.6" work="(a) f_o/f_e = 140/5.0. (b) 28(1 + 5/25) = 28 × 1.2." />,
+            <AnswerQa key={28} result="(a) 145 cm (b) 4.67 cm (c) 28 cm" work="(a) f_o + f_e. (b) The tower subtends 1/30 rad, so the objective's image is 140/30 cm tall. (c) The eyepiece then magnifies by 1 + 25/5 = 6." />,
+            <AnswerQa key={29} result="19.4 mm behind the large mirror" work="The primary focuses parallel light 110 mm in front of it; the secondary stands 20 mm out, 90 mm short of that focus, so the beam reaches it converging on a point 90 mm behind it. With u = −90 mm and f = +70 mm, 1/v + 1/u = 1/f gives v = +39.4 mm: 39.4 mm in front of the secondary, that is 19.4 mm behind the primary, out through its hole." />,
+            <AnswerQa key={30} result="≈ 18 cm" work="The mirror turns by θ and the ray turns by 2θ = 7.0°, so the spot moves 1.5 tan 7.0° = 0.18 m." />,
+            <AnswerQa key={31} result="n ≈ 1.33" work="For the image to land on the needle the light must retrace its path, so the needle sits at the focal length of lens plus liquid: 45.0 cm. With the liquid gone f_lens = 30.0 cm, so 1/45 = 1/30 + 1/f_liquid gives f_liquid = −90 cm. The liquid is plano-concave with R = 30 cm, and 1/90 = (n − 1)/30." />,
+          ]}
+        />
+      </Expandable>
     </>
   );
 }
