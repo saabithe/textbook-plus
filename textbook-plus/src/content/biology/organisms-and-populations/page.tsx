@@ -3,6 +3,104 @@ import { TableCard } from "@/components/content/data/TableCard";
 import { FormulaBlock } from "@/components/content/Formula";
 import { AgePyramidsFigure11_1 } from "@/components/content/biology/AgePyramidsFigure11_1";
 import { PopulationGrowthGraphs } from "@/components/content/biology/PopulationGrowthGraphs";
+import { SignLegend, SignPair } from "@/components/content/biology/InteractionSigns";
+import { InteractionMatrix, type InteractionEntry } from "@/components/content/biology/InteractionMatrix";
+import {
+  TrophicEnergyDiagram,
+  PredationRoles,
+  OverexploitationLoop,
+} from "@/components/content/biology/PredationDiagrams";
+import { PreyDefenceTree } from "@/components/content/biology/PreyDefenceTree";
+import {
+  MisconceptionRows,
+  FlamingoFishStrip,
+  InterferenceMechanism,
+  GauseTheoremPanel,
+  AbingdonSequence,
+  CompetitiveReleaseDiagram,
+  WarblerPartitionDiagram,
+} from "@/components/content/biology/CompetitionDiagrams";
+import {
+  AdaptationGrid,
+  HostDependencyDiagram,
+  ParasiteTree,
+} from "@/components/content/biology/ParasitismDiagrams";
+import { CommensalismGallery } from "@/components/content/biology/CommensalismGallery";
+import {
+  SymbiosisExchange,
+  FigWaspSequence,
+  OphrysBeeSequence,
+} from "@/components/content/biology/MutualismDiagrams";
+import { InteractionDashboard } from "@/components/content/biology/InteractionDashboard";
+
+const INTERACTIONS: InteractionEntry[] = [
+  {
+    name: "Mutualism",
+    href: "#h-11-7-6",
+    a: "+",
+    b: "+",
+    aSpecies: "Species A",
+    bSpecies: "Species B",
+    aRole: "Benefits",
+    bRole: "Benefits",
+    meaning: "Both interacting species benefit.",
+  },
+  {
+    name: "Competition",
+    href: "#h-11-7-3",
+    a: "−",
+    b: "−",
+    aSpecies: "Species A",
+    bSpecies: "Species B",
+    aRole: "Adversely affected",
+    bRole: "Adversely affected",
+    meaning: "Both species are adversely affected.",
+  },
+  {
+    name: "Predation",
+    href: "#h-11-7-2",
+    a: "+",
+    b: "−",
+    aSpecies: "Predator",
+    bSpecies: "Prey",
+    aRole: "Benefits",
+    bRole: "Harmed",
+    meaning: "Predator feeds on prey.",
+  },
+  {
+    name: "Parasitism",
+    href: "#h-11-7-4",
+    a: "+",
+    b: "−",
+    aSpecies: "Parasite",
+    bSpecies: "Host",
+    aRole: "Benefits",
+    bRole: "Harmed",
+    meaning: "Parasite lives on or inside the host.",
+  },
+  {
+    name: "Commensalism",
+    href: "#h-11-7-5",
+    a: "+",
+    b: "0",
+    aSpecies: "Beneficiary",
+    bSpecies: "Partner",
+    aRole: "Benefits",
+    bRole: "Unaffected",
+    meaning: "One benefits; the other is unaffected.",
+  },
+  {
+    name: "Amensalism",
+    href: "#h-11-8",
+    a: "−",
+    b: "0",
+    aSpecies: "Species A",
+    bSpecies: "Species B",
+    aRole: "Harmed",
+    bRole: "Unaffected",
+    meaning: "One is harmed; the other is unaffected.",
+  },
+];
 
 export default function OrganismsAndPopulationsChapter() {
   return (
@@ -427,289 +525,169 @@ export default function OrganismsAndPopulationsChapter() {
       <p className="mt-2">
         <strong>Interspecific interactions</strong> = interactions between populations of two different species.
       </p>
-      <div className="my-4 rounded-2xl border border-border/60 bg-muted/30 p-4" aria-label="Interaction sign legend">
-        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Sign legend (used throughout)</p>
-        <div className="mt-3 flex flex-wrap items-center gap-4 sm:gap-8">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-100 text-lg font-bold text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200" aria-hidden>+</span>
-            <span className="text-sm"><span className="font-medium text-foreground">Beneficial</span> <span className="text-muted-foreground">(+)</span></span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-rose-100 text-lg font-bold text-rose-800 dark:bg-rose-900/40 dark:text-rose-200" aria-hidden>−</span>
-            <span className="text-sm"><span className="font-medium text-foreground">Detrimental</span> <span className="text-muted-foreground">(−)</span></span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-slate-200 text-lg font-bold text-slate-800 dark:bg-slate-700 dark:text-slate-100" aria-hidden>0</span>
-            <span className="text-sm"><span className="font-medium text-foreground">Neutral / no effect</span> <span className="text-muted-foreground">(0)</span></span>
-          </div>
-        </div>
-      </div>
+
+      <SignLegend />
+
       <p className="mt-2 text-sm text-muted-foreground">
         <strong>Common characteristic:</strong> Predation, parasitism and commensalism involve closely living interacting
         species.
       </p>
 
       <h4 id="h-11-7-1-summary">Summary of interactions</h4>
-      <div className="my-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {[
-          { name: "Mutualism", href: "#h-11-7-6", a: "+", b: "+", effect: "Both benefit", aCls: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200", bCls: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200" },
-          { name: "Competition", href: "#h-11-7-3", a: "−", b: "−", effect: "Both are adversely affected", aCls: "bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-200", bCls: "bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-200" },
-          { name: "Predation", href: "#h-11-7-2", a: "+", b: "−", effect: "Predator benefits; prey is harmed", aCls: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200", bCls: "bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-200" },
-          { name: "Parasitism", href: "#h-11-7-4", a: "+", b: "−", effect: "Parasite benefits; host is harmed", aCls: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200", bCls: "bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-200" },
-          { name: "Commensalism", href: "#h-11-7-5", a: "+", b: "0", effect: "One benefits; other is unaffected", aCls: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200", bCls: "bg-slate-200 text-slate-800 dark:bg-slate-700 dark:text-slate-100" },
-          { name: "Amensalism", href: "#h-11-7-3a", a: "−", b: "0", effect: "One is harmed; other is unaffected", aCls: "bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-200", bCls: "bg-slate-200 text-slate-800 dark:bg-slate-700 dark:text-slate-100" },
-        ].map((it) => (
-          <a
-            key={it.name}
-            href={it.href}
-            className="block rounded-2xl border border-border/60 bg-card p-4 shadow-sm transition hover:border-emerald-500/40 hover:shadow-md"
-          >
-            <p className="text-sm font-semibold text-foreground">{it.name}</p>
-            <div className="mt-3 flex items-center gap-2">
-              <span className="text-xs text-muted-foreground">A</span>
-              <span className={`inline-flex h-8 w-8 items-center justify-center rounded-lg text-base font-bold ${it.aCls}`}>{it.a}</span>
-              <span className="text-xs text-muted-foreground">B</span>
-              <span className={`inline-flex h-8 w-8 items-center justify-center rounded-lg text-base font-bold ${it.bCls}`}>{it.b}</span>
-            </div>
-            <p className="mt-2 text-sm text-muted-foreground">{it.effect}</p>
-          </a>
-        ))}
-      </div>
+      <InteractionMatrix items={INTERACTIONS} />
 
-      <h3 id="h-11-7-2">2. 🐅 Predation (+ / −)</h3>
+      <h3 id="h-11-7-2">2. 🐅 Predation</h3>
       <p>
         <strong>Definition:</strong> One species (predator) benefits by feeding on another species (prey), which is
         harmed.
       </p>
+      <SignPair
+        className="mt-3"
+        a="+"
+        b="−"
+        aSpecies="Predator"
+        bSpecies="Prey"
+        aRole="Benefits"
+        bRole="Harmed"
+      />
+
       <h4 id="h-11-7-2a">A. Ecological significance</h4>
       <p className="text-sm font-medium text-foreground">1. Energy transfer</p>
-      <div className="my-3 rounded-2xl border border-border/60 bg-muted/20 p-4">
-        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Trophic energy transfer (direction = energy flow)</p>
-        <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
-          <span className="rounded-lg bg-emerald-100 px-3 py-1.5 font-medium text-emerald-900 dark:bg-emerald-900/40 dark:text-emerald-100">Autotrophs</span>
-          <span className="text-muted-foreground" aria-hidden>→</span>
-          <span className="rounded-lg bg-amber-100 px-3 py-1.5 font-medium text-amber-900 dark:bg-amber-900/40 dark:text-amber-100">Herbivore / seed-eater</span>
-          <span className="text-muted-foreground" aria-hidden>→</span>
-          <span className="rounded-lg bg-rose-100 px-3 py-1.5 font-medium text-rose-900 dark:bg-rose-900/40 dark:text-rose-100">Higher-level predator</span>
-        </div>
-        <p className="mt-2 text-xs text-muted-foreground">Examples: sparrow eating a seed; tiger eating a deer (both are predation in this ecological sense).</p>
-      </div>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Acts as a conduit for transferring energy fixed by autotrophs to higher trophic levels.</li>
-        <li>Even a sparrow eating a seed is ecologically a predator, just like a tiger eating a deer.</li>
-      </ul>
-      <p className="mt-2 text-sm font-medium text-foreground">2. Prey population control</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Keeps prey populations under check.</li>
-        <li>Helps prevent ecosystem instability.</li>
-      </ul>
-      <p className="mt-2 text-sm font-medium text-foreground">3. Biological control of invasive species</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>
-          <em>Prickly pear cactus</em> introduced into Australia (1920s) was controlled using a cactus-feeding moth
-          predator.
-        </li>
-        <li>Biological pest control in agriculture uses this principle.</li>
-      </ul>
-      <p className="mt-2 text-sm font-medium text-foreground">4. Maintenance of species diversity</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Predation reduces competition among competing prey species.</li>
-        <li>
-          <strong>Example — Starfish (Pisaster):</strong> Removal from American Pacific Coast intertidal areas → over 10
-          invertebrate species became extinct due to interspecific competition.
-        </li>
-      </ul>
-      <h4 id="h-11-7-2b">B. Prudent nature of predators</h4>
-      <div className="my-3 rounded-2xl border border-amber-500/30 bg-amber-50/40 p-4 dark:bg-amber-950/20">
-        <p className="text-xs font-semibold uppercase tracking-wide text-amber-800 dark:text-amber-200">Consequence of overexploitation (not a normal cycle)</p>
-        <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
-          <span className="rounded-lg border border-border/60 bg-card px-2 py-1">Predator overexploits prey</span>
-          <span aria-hidden>→</span>
-          <span className="rounded-lg border border-border/60 bg-card px-2 py-1">Prey extinction</span>
-          <span aria-hidden>→</span>
-          <span className="rounded-lg border border-border/60 bg-card px-2 py-1">Predator extinction</span>
-        </div>
-        <p className="mt-2 text-xs text-muted-foreground">Arrow loop conceptually returns to predator dependence on prey (overexploitation breaks the system).</p>
-      </div>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Predators do not overexploit prey.</li>
-        <li>Overexploitation → Prey extinction → Predator extinction.</li>
-      </ul>
-      <h4 id="h-11-7-2c">C. Prey defences</h4>
-      <p className="text-sm font-medium text-foreground">Animal defences</p>
-      <TableCard
-        title="Animal defences"
-        headers={["Defence", "Example"]}
-        rows={[
-          { cells: ["Camouflage / cryptic coloration", "Insects, frogs"] },
-          { cells: ["Toxicity", "Monarch butterfly"] },
-        ]}
-      />
-      <p className="mt-2 text-sm text-muted-foreground">
-        <strong>Monarch butterfly:</strong> During its caterpillar stage, it feeds on a poisonous weed and accumulates
-        distasteful chemicals.
-      </p>
-      <p className="mt-3 text-sm font-medium text-foreground">Plant defences against herbivores</p>
-      <p className="text-sm text-muted-foreground">Approximately 25% of insects are phytophagous (plant-eating).</p>
-      <TableCard
-        title="Plant defences against herbivores"
-        headers={["Defence type", "Mechanism", "Examples"]}
-        rows={[
-          { cells: ["Morphological", "Physical structures", "Thorns in Acacia and Cactus"] },
-          { cells: ["Chemical", "Chemical substances", "Cardiac glycosides in Calotropis; secondary metabolites"] },
-        ]}
-      />
-      <p className="mt-2 text-sm font-medium text-foreground">Chemical defences</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Cardiac glycosides in <em>Calotropis</em> → protect against browsing by cattle and goats.</li>
-        <li>Secondary metabolites → nicotine, caffeine, quinine, strychnine and opium.</li>
-      </ul>
+      <p>Acts as a conduit for transferring energy fixed by autotrophs to higher trophic levels.</p>
+      <TrophicEnergyDiagram />
 
-      <h3 id="h-11-7-3">3. ⚔️ Competition (− / −)</h3>
+      <p className="mt-5 text-sm font-medium text-foreground">Three further ecological roles</p>
+      <PredationRoles />
+
+      <h4 id="h-11-7-2b">B. Prudent nature of predators</h4>
+      <p>Predators do not overexploit prey.</p>
+      <OverexploitationLoop />
+
+      <h4 id="h-11-7-2c">C. Prey defences</h4>
+      <PreyDefenceTree />
+
+      <h3 id="h-11-7-3">3. ⚔️ Competition</h3>
       <p>
         <strong>Definition:</strong> An interaction in which the fitness of one species is significantly reduced in the
         presence of another species. Fitness is measured by the <strong>intrinsic rate of increase (r)</strong>.
       </p>
-      <h4 id="h-11-7-3a">A. Misconceptions and realities</h4>
-      <TableCard
-        title="Misconceptions vs realities"
-        headers={["Misconception", "Reality"]}
-        rows={[
-          { cells: ["Competition occurs only between closely related species.", "Unrelated species can also compete."] },
-          { cells: ["Competition requires limited resources.", "Interference competition can occur even when resources are abundant."] },
-        ]}
+      <SignPair
+        className="mt-3"
+        a="−"
+        b="−"
+        aSpecies="Species A"
+        bSpecies="Species B"
+        aRole="Adversely affected"
+        bRole="Adversely affected"
       />
-      <p className="mt-2 text-sm font-medium text-foreground">Example — Unrelated competitors</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Visiting flamingos and resident fishes in shallow South American lakes.</li>
-        <li>Both compete for zooplankton.</li>
-      </ul>
-      <p className="mt-2 text-sm font-medium text-foreground">Interference competition</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>One species interferes with another.</li>
-        <li>Result → Reduced feeding efficiency, even when resources are abundant.</li>
-      </ul>
+
+      <h4 id="h-11-7-3a">A. Misconceptions and realities</h4>
+      <MisconceptionRows />
+      <FlamingoFishStrip />
+      <InterferenceMechanism />
+
       <h4 id="h-11-7-3b">B. Gause’s Competitive Exclusion Principle</h4>
-      <Callout type="important" title="Competitive Exclusion Principle (Gause)">
-        Two closely related species competing for the same limiting resources cannot coexist indefinitely. The inferior
-        competitor is eliminated.
-      </Callout>
-      <p className="mt-2 text-sm font-medium text-foreground">Example — Abingdon tortoise</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Goats introduced into the Galapagos.</li>
-        <li>Goats had greater browsing efficiency.</li>
-        <li>Result → Abingdon tortoise became extinct within a decade.</li>
-      </ul>
+      <GauseTheoremPanel />
+      <AbingdonSequence />
+
       <h4 id="h-11-7-3c">C. Competitive release</h4>
       <p>
         <strong>Definition:</strong> A restricted species expands its distributional range dramatically when its
         superior competitor is experimentally removed.
       </p>
-      <p className="mt-2 text-sm font-medium text-foreground">Example — Connell’s field experiments</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Location → Scotland’s rocky coast.</li>
-        <li>Barnacle <em>Balanus</em> competitively excludes <em>Chathamalus</em>.</li>
-      </ul>
-      <h4 id="h-11-7-3d">D. Coexistence through resource partitioning</h4>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Competing species may evolve mechanisms that promote coexistence rather than exclusion.</li>
-        <li>
-          <strong>Example — MacArthur’s warblers:</strong> Five warbler species coexist on the same tree, using
-          different foraging patterns and feeding times (resource partitioning).
-        </li>
-      </ul>
+      <CompetitiveReleaseDiagram />
 
-      <h3 id="h-11-7-4">4. 🦟 Parasitism (+ / −)</h3>
+      <h4 id="h-11-7-3d">D. Coexistence through resource partitioning</h4>
+      <p>
+        Competing species may evolve mechanisms that promote coexistence rather than exclusion. One such mechanism is
+        resource partitioning — choosing different times for feeding or different foraging patterns.
+      </p>
+      <WarblerPartitionDiagram />
+
+      <h3 id="h-11-7-4">4. 🦟 Parasitism</h3>
       <p>
         <strong>Definition:</strong> A parasite benefits by living on or inside a host, which is harmed.
       </p>
-      <h4 id="h-11-7-4a">A. Adaptations of parasites</h4>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Loss of unnecessary sense organs.</li>
-        <li>Adhesive organs or suckers.</li>
-        <li>Loss of digestive system.</li>
-        <li>High reproductive capacity.</li>
-      </ul>
-      <h4 id="h-11-7-4b">B. Complex life cycles</h4>
-      <TableCard
-        title="Complex life cycles"
-        headers={["Parasite", "Requirement"]}
-        rows={[
-          { cells: ["Human liver fluke", "Two intermediate hosts → Snail and fish"] },
-          { cells: ["Malarial parasite", "Mosquito vector for transmission"] },
-        ]}
+      <SignPair
+        className="mt-3"
+        a="+"
+        b="−"
+        aSpecies="Parasite"
+        bSpecies="Host"
+        aRole="Benefits"
+        bRole="Harmed"
       />
-      <h4 id="h-11-7-4c">C. Types of parasites</h4>
-      <p className="text-sm font-medium text-foreground">1. Ectoparasites</p>
-      <p className="text-sm text-muted-foreground">Live on the external surface of the host.</p>
-      <TableCard
-        title="Ectoparasites"
-        headers={["Example", "Host"]}
-        rows={[
-          { cells: ["Lice", "Humans"] },
-          { cells: ["Ticks", "Dogs"] },
-          { cells: ["Copepods", "Marine fish"] },
-          { cells: ["Cuscuta", "Hedge plants"] },
-        ]}
-      />
-      <p className="mt-2 text-sm text-muted-foreground">
-        <em>Cuscuta</em> → parasitic plant that has lost its leaves and chlorophyll.
-      </p>
-      <p className="mt-3 text-sm font-medium text-foreground">2. Endoparasites</p>
-      <p className="text-sm text-muted-foreground">Live inside the host body at different sites.</p>
-      <p className="text-sm text-muted-foreground">Possible locations: liver, kidneys, lungs and red blood cells (RBCs).</p>
-      <p className="mt-3 text-sm font-medium text-foreground">3. Brood parasitism</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Parasitic bird lays eggs in another bird’s nest; host bird incubates the eggs.</li>
-        <li>
-          <strong>Example — Cuckoo/Koel:</strong> lays eggs in a crow’s nest during spring to summer.
-        </li>
-      </ul>
 
-      <h3 id="h-11-7-5">5. 🪺 Commensalism (+ / 0)</h3>
+      <h4 id="h-11-7-4a">A. Adaptations of parasites</h4>
+      <AdaptationGrid />
+
+      <h4 id="h-11-7-4b">B. Complex life cycles</h4>
+      <HostDependencyDiagram />
+
+      <h4 id="h-11-7-4c">C. Types of parasites</h4>
+      <ParasiteTree />
+
+      <h3 id="h-11-7-5">5. 🪺 Commensalism</h3>
       <p>
         <strong>Definition:</strong> One species benefits while the other remains unaffected.
       </p>
-      <TableCard
-        title="Commensalism examples"
-        headers={["Example", "Benefiting species (+)", "Unaffected species (0)"]}
-        rows={[
-          { cells: ["Epiphytic orchid on mango branch", "Orchid → gets space", "Mango tree"] },
-          { cells: ["Barnacles on whale’s back", "Barnacles → get transport and food", "Whale"] },
-          { cells: ["Cattle egrets and grazing cattle", "Egrets → catch insects flushed out by cattle", "Cattle"] },
-          { cells: ["Clown fish and sea anemone", "Fish → gets protection among stinging tentacles", "Sea anemone"] },
-        ]}
+      <SignPair
+        className="mt-3"
+        a="+"
+        b="0"
+        aSpecies="Beneficiary"
+        bSpecies="Unaffected partner"
+        aRole="Benefits"
+        bRole="Unaffected"
       />
+      <CommensalismGallery />
 
-      <h3 id="h-11-7-6">6. 🌸 Mutualism (+ / +)</h3>
+      <h3 id="h-11-7-6">6. 🌸 Mutualism</h3>
       <p>
         <strong>Definition:</strong> Both interacting species benefit.
       </p>
+      <SignPair
+        className="mt-3"
+        a="+"
+        b="+"
+        aSpecies="Species A"
+        bSpecies="Species B"
+        aRole="Benefits"
+        bRole="Benefits"
+      />
+
       <h4>Key examples</h4>
+
       <p className="text-sm font-medium text-foreground">1. Lichens</p>
-      <p className="text-sm text-muted-foreground">Symbiotic association between:</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li><strong>Fungus</strong> → protection and absorption.</li>
-        <li><strong>Photosynthesising algae / cyanobacteria</strong> → food.</li>
-      </ul>
-      <p className="mt-2 text-sm font-medium text-foreground">2. Mycorrhizae</p>
-      <p className="text-sm text-muted-foreground">Symbiotic association between:</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li><strong>Fungi</strong> → absorb essential phosphorus from soil.</li>
-        <li><strong>Roots of higher plants</strong> → provide carbohydrates.</li>
-      </ul>
-      <p className="mt-2 text-sm font-medium text-foreground">3. Fig tree and wasp</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>One-to-one obligate relationship.</li>
-        <li>Female wasp pollinates the fig inflorescence while laying eggs in the ovary locule.</li>
-        <li>Developing seeds provide food for wasp larvae.</li>
-      </ul>
-      <p className="mt-2 text-sm font-medium text-foreground">4. Orchid (Ophrys) and bee — Sexual deceit</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>One petal resembles a female bee.</li>
-        <li>Male bee pseudocopulates with the flower.</li>
-        <li>Pollen gets transferred; demonstrates tight co-evolution.</li>
-      </ul>
+      <SymbiosisExchange
+        title="Lichens — symbiotic association"
+        left={{ name: "Fungus", gives: "Protection and absorption" }}
+        right={{ name: "Photosynthesising algae / cyanobacteria", gives: "Food" }}
+        caption="Both partners contribute; both benefit."
+      />
+
+      <p className="mt-4 text-sm font-medium text-foreground">2. Mycorrhizae</p>
+      <SymbiosisExchange
+        title="Mycorrhizae — symbiotic association"
+        left={{ name: "Fungi", gives: "Absorb essential phosphorus from soil" }}
+        right={{ name: "Roots of higher plants", gives: "Provide carbohydrates" }}
+        caption="Fungi deliver phosphorus; the plant roots deliver carbohydrates."
+      />
+
+      <p className="mt-4 text-sm font-medium text-foreground">3. Fig tree and wasp</p>
+      <FigWaspSequence />
+
+      <p className="mt-4 text-sm font-medium text-foreground">
+        4. Orchid (<em>Ophrys</em>) and bee — sexual deceit
+      </p>
+      <OphrysBeeSequence />
+
+      <h2 id="h-11-8">Chapter revision — the six interactions</h2>
+      <p>
+        One row per interaction: the sign combination, who gains or loses, and the defining relationship. Filter by sign
+        combination to revise a single pattern at a time.
+      </p>
+      <InteractionDashboard />
 
       <p className="mt-6 text-sm text-muted-foreground">
         <strong>Chapter 11 — Organisms and Populations</strong>

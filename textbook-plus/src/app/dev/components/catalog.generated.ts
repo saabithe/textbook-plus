@@ -3250,11 +3250,92 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/AgePyramidsFigure11_1.tsx#AgePyramidsFigure11_1",
+    "name": "AgePyramidsFigure11_1",
+    "path": "content/biology/AgePyramidsFigure11_1.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/BrainSizeBars.tsx#BrainSizeBars",
     "name": "BrainSizeBars",
     "path": "content/biology/BrainSizeBars.tsx",
     "category": "biology",
     "props": "title?: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CommensalismGallery.tsx#CommensalismGallery",
+    "name": "CommensalismGallery",
+    "path": "content/biology/CommensalismGallery.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CompetitionDiagrams.tsx#AbingdonSequence",
+    "name": "AbingdonSequence",
+    "path": "content/biology/CompetitionDiagrams.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CompetitionDiagrams.tsx#CompetitiveReleaseDiagram",
+    "name": "CompetitiveReleaseDiagram",
+    "path": "content/biology/CompetitionDiagrams.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CompetitionDiagrams.tsx#FlamingoFishStrip",
+    "name": "FlamingoFishStrip",
+    "path": "content/biology/CompetitionDiagrams.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CompetitionDiagrams.tsx#GauseTheoremPanel",
+    "name": "GauseTheoremPanel",
+    "path": "content/biology/CompetitionDiagrams.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CompetitionDiagrams.tsx#InterferenceMechanism",
+    "name": "InterferenceMechanism",
+    "path": "content/biology/CompetitionDiagrams.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CompetitionDiagrams.tsx#MisconceptionRows",
+    "name": "MisconceptionRows",
+    "path": "content/biology/CompetitionDiagrams.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CompetitionDiagrams.tsx#WarblerPartitionDiagram",
+    "name": "WarblerPartitionDiagram",
+    "path": "content/biology/CompetitionDiagrams.tsx",
+    "category": "biology",
+    "props": null,
     "shell": false,
     "renderable": true
   },
@@ -3268,11 +3349,191 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/FlowRow.tsx#FlowRow",
+    "name": "FlowRow",
+    "path": "content/biology/FlowRow.tsx",
+    "category": "biology",
+    "props": "items: FlowItem[]; caption?: string; className?: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/InteractionDashboard.tsx#InteractionDashboard",
+    "name": "InteractionDashboard",
+    "path": "content/biology/InteractionDashboard.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/InteractionMatrix.tsx#InteractionMatrix",
+    "name": "InteractionMatrix",
+    "path": "content/biology/InteractionMatrix.tsx",
+    "category": "biology",
+    "props": "items: InteractionEntry[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/InteractionSigns.tsx#SIGN_STYLES",
+    "name": "SIGN_STYLES",
+    "path": "content/biology/InteractionSigns.tsx",
+    "category": "biology",
+    "props": "sign: Sign; size?: SignSize; className?: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/InteractionSigns.tsx#SignBadge",
+    "name": "SignBadge",
+    "path": "content/biology/InteractionSigns.tsx",
+    "category": "biology",
+    "props": "sign: Sign; size?: SignSize; className?: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/InteractionSigns.tsx#SignLegend",
+    "name": "SignLegend",
+    "path": "content/biology/InteractionSigns.tsx",
+    "category": "biology",
+    "props": "sign: Sign; size?: SignSize; className?: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/InteractionSigns.tsx#SignPair",
+    "name": "SignPair",
+    "path": "content/biology/InteractionSigns.tsx",
+    "category": "biology",
+    "props": "sign: Sign; size?: SignSize; className?: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/MillerApparatusDiagram.tsx#MillerApparatusDiagram",
     "name": "MillerApparatusDiagram",
     "path": "content/biology/MillerApparatusDiagram.tsx",
     "category": "biology",
     "props": "title?: string; compact?: boolean;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/MutualismDiagrams.tsx#FigWaspSequence",
+    "name": "FigWaspSequence",
+    "path": "content/biology/MutualismDiagrams.tsx",
+    "category": "biology",
+    "props": "title: string; left: { name: string; gives: string }; right: { name: string; gives: string }; caption?: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/MutualismDiagrams.tsx#OphrysBeeSequence",
+    "name": "OphrysBeeSequence",
+    "path": "content/biology/MutualismDiagrams.tsx",
+    "category": "biology",
+    "props": "title: string; left: { name: string; gives: string }; right: { name: string; gives: string }; caption?: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/MutualismDiagrams.tsx#SymbiosisExchange",
+    "name": "SymbiosisExchange",
+    "path": "content/biology/MutualismDiagrams.tsx",
+    "category": "biology",
+    "props": "title: string; left: { name: string; gives: string }; right: { name: string; gives: string }; caption?: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ParasitismDiagrams.tsx#AdaptationGrid",
+    "name": "AdaptationGrid",
+    "path": "content/biology/ParasitismDiagrams.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ParasitismDiagrams.tsx#BodySiteSilhouette",
+    "name": "BodySiteSilhouette",
+    "path": "content/biology/ParasitismDiagrams.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ParasitismDiagrams.tsx#HostDependencyDiagram",
+    "name": "HostDependencyDiagram",
+    "path": "content/biology/ParasitismDiagrams.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ParasitismDiagrams.tsx#ParasiteTree",
+    "name": "ParasiteTree",
+    "path": "content/biology/ParasitismDiagrams.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PopulationGrowthGraphs.tsx#PopulationGrowthGraphs",
+    "name": "PopulationGrowthGraphs",
+    "path": "content/biology/PopulationGrowthGraphs.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PredationDiagrams.tsx#OverexploitationLoop",
+    "name": "OverexploitationLoop",
+    "path": "content/biology/PredationDiagrams.tsx",
+    "category": "biology",
+    "props": "index: number; title: string; summary: string; children: React.ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PredationDiagrams.tsx#PisasterCauseEffect",
+    "name": "PisasterCauseEffect",
+    "path": "content/biology/PredationDiagrams.tsx",
+    "category": "biology",
+    "props": "index: number; title: string; summary: string; children: React.ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PredationDiagrams.tsx#PredationRoles",
+    "name": "PredationRoles",
+    "path": "content/biology/PredationDiagrams.tsx",
+    "category": "biology",
+    "props": "index: number; title: string; summary: string; children: React.ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PredationDiagrams.tsx#TrophicEnergyDiagram",
+    "name": "TrophicEnergyDiagram",
+    "path": "content/biology/PredationDiagrams.tsx",
+    "category": "biology",
+    "props": "index: number; title: string; summary: string; children: React.ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PreyDefenceTree.tsx#PreyDefenceTree",
+    "name": "PreyDefenceTree",
+    "path": "content/biology/PreyDefenceTree.tsx",
+    "category": "biology",
+    "props": null,
     "shell": false,
     "renderable": true
   },

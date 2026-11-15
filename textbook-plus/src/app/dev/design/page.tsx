@@ -137,6 +137,106 @@ import { CrossedAldolBoard } from "@/components/content/chemistry/CrossedAldolBo
 import { CannizzaroCompoundCards } from "@/components/content/chemistry/CannizzaroCompoundCards";
 import { DisproportionationBoard } from "@/components/content/chemistry/DisproportionationBoard";
 import { CannizzaroEquationCards } from "@/components/content/chemistry/CannizzaroEquationCards";
+import { SignLegend, SignPair } from "@/components/content/biology/InteractionSigns";
+import { InteractionMatrix, type InteractionEntry } from "@/components/content/biology/InteractionMatrix";
+import {
+  TrophicEnergyDiagram,
+  PredationRoles,
+  OverexploitationLoop,
+} from "@/components/content/biology/PredationDiagrams";
+import { PreyDefenceTree } from "@/components/content/biology/PreyDefenceTree";
+import {
+  MisconceptionRows,
+  FlamingoFishStrip,
+  InterferenceMechanism,
+  GauseTheoremPanel,
+  AbingdonSequence,
+  CompetitiveReleaseDiagram,
+  WarblerPartitionDiagram,
+} from "@/components/content/biology/CompetitionDiagrams";
+import {
+  AdaptationGrid,
+  HostDependencyDiagram,
+  ParasiteTree,
+} from "@/components/content/biology/ParasitismDiagrams";
+import { CommensalismGallery } from "@/components/content/biology/CommensalismGallery";
+import {
+  SymbiosisExchange,
+  FigWaspSequence,
+  OphrysBeeSequence,
+} from "@/components/content/biology/MutualismDiagrams";
+import { InteractionDashboard } from "@/components/content/biology/InteractionDashboard";
+import { AgePyramidsFigure11_1 } from "@/components/content/biology/AgePyramidsFigure11_1";
+import { PopulationGrowthGraphs } from "@/components/content/biology/PopulationGrowthGraphs";
+
+const MATRIX_ITEMS: InteractionEntry[] = [
+  {
+    name: "Mutualism",
+    href: "#bio-signs",
+    a: "+",
+    b: "+",
+    aSpecies: "Species A",
+    bSpecies: "Species B",
+    aRole: "Benefits",
+    bRole: "Benefits",
+    meaning: "Both interacting species benefit.",
+  },
+  {
+    name: "Competition",
+    href: "#bio-signs",
+    a: "−",
+    b: "−",
+    aSpecies: "Species A",
+    bSpecies: "Species B",
+    aRole: "Adversely affected",
+    bRole: "Adversely affected",
+    meaning: "Both species are adversely affected.",
+  },
+  {
+    name: "Predation",
+    href: "#bio-signs",
+    a: "+",
+    b: "−",
+    aSpecies: "Predator",
+    bSpecies: "Prey",
+    aRole: "Benefits",
+    bRole: "Harmed",
+    meaning: "Predator feeds on prey.",
+  },
+  {
+    name: "Parasitism",
+    href: "#bio-signs",
+    a: "+",
+    b: "−",
+    aSpecies: "Parasite",
+    bSpecies: "Host",
+    aRole: "Benefits",
+    bRole: "Harmed",
+    meaning: "Parasite lives on or inside the host.",
+  },
+  {
+    name: "Commensalism",
+    href: "#bio-signs",
+    a: "+",
+    b: "0",
+    aSpecies: "Beneficiary",
+    bSpecies: "Partner",
+    aRole: "Benefits",
+    bRole: "Unaffected",
+    meaning: "One benefits; the other is unaffected.",
+  },
+  {
+    name: "Amensalism",
+    href: "#bio-signs",
+    a: "−",
+    b: "0",
+    aSpecies: "Species A",
+    bSpecies: "Species B",
+    aRole: "Harmed",
+    bRole: "Unaffected",
+    meaning: "One is harmed; the other is unaffected.",
+  },
+];
 import { MetaDirectingCards } from "@/components/content/chemistry/MetaDirectingCards";
 import { SectionNavGrid } from "@/components/content/chemistry/SectionNavGrid";
 import { AcidNameTable } from "@/components/content/chemistry/AcidNameTable";
@@ -2548,6 +2648,83 @@ export default function DesignPage() {
             },
           ]}
         />
+      </Section>
+
+      <Section title="Biology — population interactions">
+        <div className="space-y-10">
+          <div id="bio-signs">
+            <p className="t-micro">Sign legend</p>
+            <SignLegend />
+            <p className="t-micro mt-4">Sign pair</p>
+            <SignPair a="+" b="−" aSpecies="Predator" bSpecies="Prey" aRole="Benefits" bRole="Harmed" />
+          </div>
+
+          <div>
+            <p className="t-micro">Interaction matrix</p>
+            <InteractionMatrix items={MATRIX_ITEMS} />
+          </div>
+
+          <div>
+            <p className="t-micro">Trophic energy transfer</p>
+            <TrophicEnergyDiagram />
+            <p className="t-micro mt-6">Ecological roles</p>
+            <PredationRoles />
+            <p className="t-micro mt-6">Overexploitation loop</p>
+            <OverexploitationLoop />
+          </div>
+
+          <div>
+            <p className="t-micro">Prey defence tree</p>
+            <PreyDefenceTree />
+          </div>
+
+          <div>
+            <p className="t-micro">Competition</p>
+            <MisconceptionRows />
+            <FlamingoFishStrip />
+            <InterferenceMechanism />
+            <GauseTheoremPanel />
+            <AbingdonSequence />
+            <CompetitiveReleaseDiagram />
+            <WarblerPartitionDiagram />
+          </div>
+
+          <div>
+            <p className="t-micro">Parasitism</p>
+            <AdaptationGrid />
+            <HostDependencyDiagram />
+            <ParasiteTree />
+          </div>
+
+          <div>
+            <p className="t-micro">Commensalism</p>
+            <CommensalismGallery />
+          </div>
+
+          <div>
+            <p className="t-micro">Mutualism</p>
+            <SymbiosisExchange
+              title="Lichens — symbiotic association"
+              left={{ name: "Fungus", gives: "Protection and absorption" }}
+              right={{ name: "Photosynthesising algae / cyanobacteria", gives: "Food" }}
+              caption="Both partners contribute; both benefit."
+            />
+            <FigWaspSequence />
+            <OphrysBeeSequence />
+          </div>
+
+          <div>
+            <p className="t-micro">Revision dashboard</p>
+            <InteractionDashboard />
+          </div>
+
+          <div>
+            <p className="t-micro">Age pyramids (Figure 11.1)</p>
+            <AgePyramidsFigure11_1 />
+            <p className="t-micro mt-6">Population growth graphs</p>
+            <PopulationGrowthGraphs />
+          </div>
+        </div>
       </Section>
 
       <Section title="Study & answers">
