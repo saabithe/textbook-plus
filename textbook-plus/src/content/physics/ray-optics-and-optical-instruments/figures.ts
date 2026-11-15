@@ -21,7 +21,16 @@ import {
   vec,
   type Vec,
 } from "../../../components/content/physics/diagram/geometry.ts";
-import { criticalAngleDeg, reflect, refract, traceRay, type RefractingBody } from "../../../components/content/physics/diagram/optics.ts";
+import {
+  criticalAngleDeg,
+  minimumDeviation,
+  minimumDeviationIncidence,
+  prismDeviation,
+  reflect,
+  refract,
+  traceRay,
+  type RefractingBody,
+} from "../../../components/content/physics/diagram/optics.ts";
 import {
   AXIS,
   EMERGENT,
@@ -40,6 +49,7 @@ import {
   lensOutline,
   line,
   normal,
+  rightAngle,
   s,
   type Element,
   type FigureSpec,
@@ -1255,6 +1265,228 @@ export const concaveLensRays: FigureSpec = {
   ],
 };
 
+/* ────────────────────────────────────────────────────────────────────────
+ * 0i. The prism: a ray through ABC (Fig. 9.21)
+ *
+ * The path is traced by `traceRay`, so i, r₁, r₂ and e fall out of Snell's law
+ * instead of being drawn by eye. The two normals are solved to their crossing
+ * N — that is the quadrilateral AQNR the derivation turns on.
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const PR_A = vec(32, 58);
+const PR_B = vec(14, 26);
+const PR_C = vec(50, 26);
+const PR_INDEX = 1.5;
+const PR_BODY: RefractingBody = { polygon: [PR_A, PR_B, PR_C], n: PR_INDEX, id: "prism" };
+const PR_CENTRE = mul(add(add(PR_A, PR_B), PR_C), 1 / 3);
+
+/** Outward normal of a face, from the face's direction and a point on it. */
+function faceNormalDeg(at: Vec, faceDirDeg: number): number {
+  const a = faceDirDeg + 90;
+  const b = faceDirDeg - 90;
+  return dot(dir(a), sub(at, PR_CENTRE)) > 0 ? a : b;
+}
+
+/** Where the line p + t·dir(aDeg) meets q + s·dir(bDeg). */
+function meet(p: Vec, aDeg: number, q: Vec, bDeg: number): Vec | null {
+  const u = dir(aDeg);
+  const w = dir(bDeg);
+  const det = u.x * w.y - u.y * w.x;
+  if (Math.abs(det) < 1e-9) return null;
+  const t = ((q.x - p.x) * w.y - (q.y - p.y) * w.x) / det;
+  return add(p, mul(u, t));
+}
+
+const PR_PATH = traceRay({ from: vec(2, 30.5), angleDeg: 15.6, bodies: [PR_BODY], tail: 40 });
+const PR_P = PR_PATH.points[0];
+const PR_Q = PR_PATH.points[1];
+const PR_R = PR_PATH.points[2];
+const PR_S = PR_PATH.points[3];
+const PR_AT_Q = PR_PATH.events[0];
+const PR_AT_R = PR_PATH.events[1];
+const PR_I = PR_AT_Q.angleOfIncidence;
+const PR_R1 = PR_AT_Q.angleAfter;
+const PR_R2 = PR_AT_R.angleOfIncidence;
+const PR_E = PR_AT_R.angleAfter;
+const PR_APEX = angleBetween(sub(PR_B, PR_A), sub(PR_C, PR_A));
+const PR_DEV = PR_I + PR_E - PR_APEX;
+const PR_NQ = faceNormalDeg(PR_Q, angleOf(PR_A, PR_B));
+const PR_NR = faceNormalDeg(PR_R, angleOf(PR_A, PR_C));
+/** N — where the normals at Q and at R meet. */
+const PR_NPT = meet(PR_Q, PR_NQ, PR_R, PR_NR + 180) ?? mul(add(PR_B, PR_C), 0.5);
+const PR_ARC_I = arcPair(PR_NQ, PR_AT_Q.inDeg + 180);
+const PR_ARC_R1 = arcPair(PR_NQ + 180, PR_AT_Q.outDeg);
+const PR_ARC_R2 = arcPair(PR_AT_R.inDeg + 180, PR_NR + 180);
+const PR_ARC_E = arcPair(PR_AT_R.outDeg, PR_NR);
+const PR_ARC_D = arcPair(PR_AT_R.outDeg, PR_AT_Q.inDeg);
+const midOf = (a: [number, number]) => (a[0] + a[1]) / 2;
+
+/** The two angles as a short CCW arc: both wrapped, the far one pulled within 180°. */
+function arcPair(aDeg: number, bDeg: number): [number, number] {
+  const a = ((aDeg % 360) + 360) % 360;
+  let b = ((bDeg % 360) + 360) % 360;
+  if (b - a > 180) b -= 360;
+  if (a - b > 180) b += 360;
+  return [a, b];
+}
+
+export const prismPath: FigureSpec = {
+  id: "prism-ray-path",
+  title: "A ray through a glass prism",
+  alt:
+    "An equilateral glass prism ABC. A ray PQ enters face AB, is refracted along QR inside the glass and leaves face AC as RS. The dashed normals at Q and R meet inside the prism at N. The angles i, r₁, r₂ and e are marked at the two faces, and the emergent ray leaves the incident direction by the deviation d.",
+  caption:
+    "The ray bends towards the base at each face. The dashed normals at Q and R meet at N, which is what makes r₁ + r₂ = A.",
+  frame: { width: 96, height: 72 },
+  source: "Fig. 9.21",
+  elements: [
+    body([PR_A, PR_B, PR_C], "glass"),
+    arrow(PR_P, PR_Q, INCIDENT),
+    arrow(PR_Q, PR_R, RAY),
+    arrow(PR_R, PR_S, EMERGENT),
+    line(add(PR_Q, mul(dir(PR_NQ), 6)), PR_NPT, GUIDE),
+    line(add(PR_R, mul(dir(PR_NR), 6)), PR_NPT, GUIDE),
+    rightAngle(PR_Q, angleOf(PR_A, PR_B), PR_NQ, 2.4),
+    rightAngle(PR_R, angleOf(PR_A, PR_C), PR_NR, 2.4),
+    ...angleMark(PR_Q, ...PR_ARC_I, { r: 6, label: "i", labelR: 9.6 }),
+    ...angleMark(PR_Q, ...PR_ARC_R1, { r: 7.5 }),
+    label(polar(PR_Q, midOf(PR_ARC_R1), 11), "r", { sub: "1", anchor: "middle", math: true, size: 3 }),
+    ...angleMark(PR_R, ...PR_ARC_R2, { r: 6 }),
+    label(polar(PR_R, midOf(PR_ARC_R2), 9.6), "r", { sub: "2", anchor: "middle", math: true, size: 3 }),
+    ...angleMark(PR_R, ...PR_ARC_E, { r: 8, label: "e", labelR: 11 }),
+    line(PR_S, add(PR_S, mul(dir(PR_AT_Q.inDeg), 11)), GUIDE),
+    ...angleMark(PR_S, ...PR_ARC_D, { r: 6.5, label: "d", labelR: 10 }),
+    point(PR_Q, 0.8),
+    point(PR_R, 0.8),
+    label({ x: PR_A.x, y: PR_A.y + 3.6 }, "A", { anchor: "middle", math: true, size: 3 }),
+    label({ x: PR_B.x - 2.6, y: PR_B.y - 3 }, "B", { anchor: "end", math: true, size: 3 }),
+    label({ x: PR_C.x + 2.6, y: PR_C.y - 3 }, "C", { anchor: "start", math: true, size: 3 }),
+    label({ x: PR_P.x + 3, y: PR_P.y + 3.2 }, "P", { anchor: "start", math: true, size: 2.8 }),
+    label({ x: PR_Q.x - 2.6, y: PR_Q.y + 3 }, "Q", { anchor: "end", math: true, size: 2.8 }),
+    label({ x: PR_R.x + 3, y: PR_R.y + 3.4 }, "R", { anchor: "start", math: true, size: 2.8 }),
+    label({ x: PR_S.x + 2.4, y: PR_S.y - 3 }, "S", { anchor: "start", math: true, size: 2.8 }),
+    label({ x: PR_NPT.x - 2.6, y: PR_NPT.y - 0.6 }, "N", { anchor: "end", math: true, size: 2.8 }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "first face: sin i = n sin r₁",
+      actual: Math.sin(PR_I * RS_DEG),
+      expected: PR_INDEX * Math.sin(PR_R1 * RS_DEG),
+      tol: 1e-9,
+    },
+    {
+      kind: "value",
+      label: "second face: n sin r₂ = sin e",
+      actual: PR_INDEX * Math.sin(PR_R2 * RS_DEG),
+      expected: Math.sin(PR_E * RS_DEG),
+      tol: 1e-9,
+    },
+    {
+      kind: "value",
+      label: "r₁ + r₂ = A",
+      actual: PR_R1 + PR_R2,
+      expected: PR_APEX,
+      tol: 1e-9,
+    },
+    {
+      kind: "value",
+      label: "the angle between the incident and emergent directions is d = i + e − A",
+      actual: angleBetween(dir(PR_AT_Q.inDeg), dir(PR_AT_R.outDeg)),
+      expected: PR_DEV,
+      tol: 1e-6,
+    },
+  ],
+};
+
+/* ────────────────────────────────────────────────────────────────────────
+ * 0j. Deviation against incidence (Fig. 9.22)
+ *
+ * The curve is sampled from `prismDeviation`, the minimum from
+ * `minimumDeviation`, and the two equal-deviation incidences are a pair
+ * (i, e) — the symmetry the text describes.
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const PD_APEX = 60;
+const PD_INDEX = 1.5;
+const PD_I0 = 30;
+const PD_I1 = 80;
+const PD_X0 = 16;
+const PD_X1 = 90;
+const PD_Y0 = 12;
+const PD_Y1 = 46;
+const PD_D0 = 36;
+const PD_D1 = 50;
+
+const pdX = (i: number) => PD_X0 + ((i - PD_I0) / (PD_I1 - PD_I0)) * (PD_X1 - PD_X0);
+const pdY = (d: number) => PD_Y0 + ((d - PD_D0) / (PD_D1 - PD_D0)) * (PD_Y1 - PD_Y0);
+
+const PD_SAMPLES = Array.from({ length: 101 }, (_, k) => PD_I0 + ((PD_I1 - PD_I0) * k) / 100)
+  .map((i) => ({ i, d: prismDeviation(PD_APEX, PD_INDEX, i) }))
+  .filter((p): p is { i: number; d: number } => p.d !== null);
+const PD_CURVE = PD_SAMPLES.map((p) => vec(pdX(p.i), pdY(p.d)));
+const PD_DMIN = minimumDeviation(PD_APEX, PD_INDEX) ?? 37.2;
+const PD_IMIN = minimumDeviationIncidence(PD_APEX, PD_INDEX) ?? 48.6;
+const PD_MIN = vec(pdX(PD_IMIN), pdY(PD_DMIN));
+
+/** The emergence angle e at incidence i — the deviation is the same at both. */
+const pdEmergent = (i: number): number => {
+  const r1 = Math.asin(Math.sin(i * RS_DEG) / PD_INDEX);
+  return Math.asin(PD_INDEX * Math.sin(PD_APEX * RS_DEG - r1)) / RS_DEG;
+};
+const PD_PAIR_I = 35;
+const PD_PAIR_E = pdEmergent(PD_PAIR_I);
+const PD_PAIR_D = prismDeviation(PD_APEX, PD_INDEX, PD_PAIR_I) ?? 43;
+
+export const deviationCurve: FigureSpec = {
+  id: "prism-deviation-curve",
+  title: "Angle of deviation against angle of incidence",
+  alt:
+    "A graph of the angle of deviation d against the angle of incidence i for a 60-degree glass prism. The curve falls to a minimum, Dm, at i = e, then rises again. A horizontal dashed line cuts the curve in two places, showing that one value of d corresponds to two angles of incidence.",
+  caption:
+    "Every deviation except the smallest comes from two angles of incidence. The lowest point, Dm, is reached when i = e and the ray inside the prism runs parallel to the base.",
+  frame: { width: 96, height: 58 },
+  source: "Fig. 9.22",
+  elements: [
+    line({ x: PD_X0 - 2, y: PD_Y0 }, { x: 93, y: PD_Y0 }, AXIS),
+    line({ x: PD_X0, y: PD_Y0 - 3 }, { x: PD_X0, y: PD_Y1 + 5 }, AXIS),
+    { kind: "poly", points: PD_CURVE, stroke: s("ray", 0.8) },
+    line(PD_MIN, { x: PD_MIN.x, y: PD_Y0 }, GUIDE),
+    line(PD_MIN, { x: PD_X0, y: PD_MIN.y }, GUIDE),
+    point(PD_MIN, 1, "ok"),
+    line({ x: pdX(PD_PAIR_I), y: pdY(PD_PAIR_D) }, { x: pdX(PD_PAIR_E), y: pdY(PD_PAIR_D) }, GUIDE),
+    point({ x: pdX(PD_PAIR_I), y: pdY(PD_PAIR_D) }, 0.8, "ink"),
+    point({ x: pdX(PD_PAIR_E), y: pdY(PD_PAIR_D) }, 0.8, "ink"),
+    label({ x: PD_MIN.x + 2.6, y: PD_MIN.y + 3.6 }, "D", { sub: "m", math: true, size: 3, color: "ok" }),
+    label({ x: PD_MIN.x, y: PD_Y0 - 3.6 }, "i = e", { anchor: "middle", math: true, size: 2.7 }),
+    label({ x: PD_X0 - 3.6, y: PD_Y1 + 3 }, "d", { anchor: "middle", math: true, size: 3 }),
+    label({ x: 92, y: PD_Y0 - 3.6 }, "i", { anchor: "middle", math: true, size: 3 }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "the lowest point of the curve is the minimum deviation",
+      actual: Math.min(...PD_SAMPLES.map((p) => p.d)),
+      expected: PD_DMIN,
+      tol: 0.02,
+    },
+    {
+      kind: "value",
+      label: "the curve is symmetric: d(i) = d(e)",
+      actual: prismDeviation(PD_APEX, PD_INDEX, 40) ?? 0,
+      expected: prismDeviation(PD_APEX, PD_INDEX, pdEmergent(40)) ?? 1,
+      tol: 1e-6,
+    },
+    {
+      kind: "value",
+      label: "one deviation, two angles of incidence: d(i) = d(e)",
+      actual: prismDeviation(PD_APEX, PD_INDEX, PD_PAIR_E) ?? 0,
+      expected: PD_PAIR_D,
+      tol: 1e-6,
+    },
+  ],
+};
+
 export const RAY_OPTICS_FIGURES: readonly FigureSpec[] = [
   rayAndBeam,
   refractionAtSurface,
@@ -1264,6 +1496,8 @@ export const RAY_OPTICS_FIGURES: readonly FigureSpec[] = [
   opticalFibre,
   convexLensRays,
   concaveLensRays,
+  prismPath,
+  deviationCurve,
   planeReflection,
   concaveMirrorTerms,
   convexMirrorTerms,

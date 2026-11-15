@@ -27,9 +27,11 @@ import {
   concaveRealImage,
   convexLensRays,
   convexMirrorTerms,
+  deviationCurve,
   mirrorEquationGeometry,
   opticalFibre,
   planeReflection,
+  prismPath,
   rayAndBeam,
   refractionAtSurface,
   ruleCentre,
@@ -1600,6 +1602,158 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
           </p>
         </ProblemSolution.Solution>
       </Expandable>
+
+      <h2 id="h-9-6">9.6 Refraction Through a Prism</h2>
+
+      <h3 id="h-9-6-angles">9.6.1 The prism and its angles</h3>
+      <p>
+        Fig. 9.21 shows the passage of light through a triangular prism <Formula>{String.raw`ABC`}</Formula>.
+      </p>
+      <PhysicsFigure spec={prismPath} />
+      <TableCard
+        title="The angles of Fig. 9.21"
+        headers={["Symbol", "What it measures"]}
+        rows={[
+          { cells: ["i", "angle of incidence at the first face AB"] },
+          { cells: ["r₁", "angle of refraction at the first face AB"] },
+          { cells: ["r₂", "angle of incidence at the second face AC — glass to air"] },
+          { cells: ["e", "angle of refraction, or emergence, at the second face AC"] },
+          { cells: ["d", "angle between the emergent ray RS and the direction of the incident ray PQ"] },
+        ]}
+      />
+      <p>
+        The angle <Formula>{String.raw`d`}</Formula> is the <strong>angle of deviation</strong>: the angle through which
+        the emergent ray has been turned away from where the incident ray was going.
+      </p>
+
+      <h3 id="h-9-6-sum">9.6.2 Why r₁ + r₂ = A</h3>
+      <p>
+        In the quadrilateral <Formula>{String.raw`AQNR`}</Formula>, two of the angles — at the vertices{" "}
+        <Formula>{String.raw`Q`}</Formula> and <Formula>{String.raw`R`}</Formula> — are right angles. The sum of the
+        other two angles of the quadrilateral is therefore 180°.
+      </p>
+      <EquationLadder
+        steps={[
+          {
+            label: "Quadrilateral AQNR",
+            equation: String.raw`A + \angle QNR = 180^\circ`,
+          },
+          {
+            label: "Triangle QNR",
+            equation: String.raw`r_1 + r_2 + \angle QNR = 180^\circ`,
+          },
+          {
+            label: "Compare the two",
+            equation: String.raw`r_1 + r_2 = A`,
+            tag: "Eq. 9.34",
+            final: true,
+          },
+        ]}
+      />
+      <p>
+        So the two angles inside the prism at the two faces always add up to the apex angle <Formula>{String.raw`A`}</Formula>.
+      </p>
+
+      <h3 id="h-9-6-deviation">9.6.3 The angle of deviation</h3>
+      <p>
+        The total deviation <Formula>{String.raw`d`}</Formula> is the sum of the deviations at the two faces.
+      </p>
+      <EquationLadder
+        steps={[
+          {
+            label: "Deviations at the two faces",
+            equation: String.raw`d = (i - r_1) + (e - r_2)`,
+          },
+          {
+            label: "Use Eq. 9.34",
+            equation: String.raw`d = i + e - A`,
+            tag: "Eq. 9.35",
+            final: true,
+          },
+        ]}
+      />
+      <p>
+        So the angle of deviation depends on the angle of incidence — the ray is not simply turned by a fixed amount.
+      </p>
+
+      <h3 id="h-9-6-curve">9.6.4 Deviation against incidence</h3>
+      <p>
+        Fig. 9.22 plots the angle of deviation against the angle of incidence. What the plot shows is a curve with a
+        single lowest point, <Formula>{String.raw`D_m`}</Formula>.
+      </p>
+      <PhysicsFigure spec={deviationCurve} />
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Two incidences, one deviation.</strong> Any given <Formula>{String.raw`d`}</Formula>, except at{" "}
+          <Formula>{String.raw`i = e`}</Formula>, corresponds to two values of <Formula>{String.raw`i`}</Formula> and
+          hence of <Formula>{String.raw`e`}</Formula>.
+        </li>
+        <li>
+          <strong>It is the symmetry of Eq. 9.35.</strong> The deviation stays the same if{" "}
+          <Formula>{String.raw`i`}</Formula> and <Formula>{String.raw`e`}</Formula> are interchanged.
+        </li>
+        <li>
+          <strong>Physically, the path can be traced back.</strong> Run the ray backwards through Fig. 9.21 and it leaves
+          along the original incident line, through the same deviation.
+        </li>
+      </ul>
+
+      <h3 id="h-9-6-minimum">9.6.5 Minimum deviation</h3>
+      <p>
+        At the minimum deviation <Formula>{String.raw`D_m`}</Formula>, the refracted ray inside the prism becomes
+        parallel to its base. That is the same as <Formula>{String.raw`d = D_m`}</Formula> and{" "}
+        <Formula>{String.raw`i = e`}</Formula>, which implies <Formula>{String.raw`r_1 = r_2`}</Formula>.
+      </p>
+      <EquationLadder
+        steps={[
+          {
+            label: "Eq. 9.34, with the two refractions equal",
+            equation: String.raw`2r = A \quad \text{or} \quad r = \frac{A}{2}`,
+            tag: "Eq. 9.36",
+          },
+          {
+            label: "Eq. 9.35, the same way",
+            equation: String.raw`D_m = 2i - A \quad \text{or} \quad i = \frac{A + D_m}{2}`,
+            tag: "Eq. 9.37",
+            final: true,
+          },
+        ]}
+      />
+      <p>
+        The refractive index of the material of the prism is then given by Snell's law at either face.
+      </p>
+      <FormulaBlock
+        important
+        label="Refractive index of the prism"
+        tag="Eq. 9.38"
+        latex={String.raw`n_{21} = \frac{n_2}{n_1} = \frac{\sin[(A + D_m)/2]}{\sin[A/2]}`}
+      />
+      <Callout type="note" title="A measurement method">
+        <p>
+          The angles <Formula>{String.raw`A`}</Formula> and <Formula>{String.raw`D_m`}</Formula> can be measured
+          experimentally, so Eq. 9.38 provides a method of determining the refractive index of the material of the prism.
+        </p>
+      </Callout>
+
+      <h3 id="h-9-6-thin">9.6.6 The thin prism</h3>
+      <p>
+        For a small-angle prism — a thin prism — <Formula>{String.raw`D_m`}</Formula> is also very small, and the sines
+        in Eq. 9.38 can be replaced by the angles themselves.
+      </p>
+      <EquationLadder
+        steps={[
+          {
+            label: "Small angles: sin θ ≈ θ",
+            equation: String.raw`n_{21} \simeq \frac{(A + D_m)/2}{A/2}`,
+          },
+          {
+            label: "Rearrange",
+            equation: String.raw`D_m = (n_{21} - 1)A`,
+            final: true,
+          },
+        ]}
+      />
+      <p>It follows that thin prisms do not deviate light much.</p>
     </>
   );
 }
