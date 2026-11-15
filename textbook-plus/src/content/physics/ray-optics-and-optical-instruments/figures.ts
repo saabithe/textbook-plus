@@ -27,6 +27,7 @@ import {
   EMERGENT,
   GUIDE,
   INCIDENT,
+  INK,
   RAY,
   REFLECTED,
   THIN,
@@ -36,6 +37,7 @@ import {
   body,
   dot as point,
   label,
+  lensOutline,
   line,
   normal,
   s,
@@ -1090,6 +1092,169 @@ export const opticalFibre: FigureSpec = {
   ],
 };
 
+/* ────────────────────────────────────────────────────────────────────────
+ * 0g. The three construction rays, convex lens (Fig. 9.17a)
+ *
+ * Object at u = −2f, so v = +2f and m = −1: every ray below is a straight
+ * line through the object point, the lens plane and the image point, and the
+ * spec's checks re-derive u, v and f with the lens equation.
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const CV_AXIS = 34;
+const CV_X = 44;
+const CV_F = 18;
+const CV_OBJ: Vec = { x: 8, y: 42 };
+const CV_U = CV_OBJ.x - CV_X; // −36
+const CV_V = (1 / (1 / CV_F + 1 / CV_U)) as number; // +36
+const CV_IMG: Vec = { x: CV_X + CV_V, y: CV_AXIS - (CV_OBJ.y - CV_AXIS) };
+const CV_F1: Vec = { x: CV_X - CV_F, y: CV_AXIS };
+const CV_F2: Vec = { x: CV_X + CV_F, y: CV_AXIS };
+/** Where a line from `from` through `through` crosses the plane x = `atX`. */
+const atPlane = (from: Vec, through: Vec, atX: number): Vec => ({
+  x: atX,
+  y: from.y + ((atX - from.x) * (through.y - from.y)) / (through.x - from.x),
+});
+
+export const convexLensRays: FigureSpec = {
+  id: "convex-lens-three-rays",
+  title: "Convex lens: three construction rays meet at the image",
+  alt:
+    "A convex lens on an axis with an object arrow on the left. Three rays leave the object's tip: one parallel to the axis that bends through the second focus, one through the optical centre that goes straight on, and one through the first focus that leaves parallel. All three meet at the inverted image on the right.",
+  caption:
+    "Object at twice the focal length, so the image is real, inverted and the same size. The three construction rays meet at one point — that point is the image.",
+  frame: { width: 96, height: 64 },
+  source: "Fig. 9.17",
+  elements: [
+    line({ x: 4, y: CV_AXIS }, { x: 92, y: CV_AXIS }, AXIS),
+    { kind: "poly", points: lensOutline({ x: CV_X, y: CV_AXIS }, 16, 3.4), stroke: INK, fill: "glass" },
+    arrow({ x: CV_OBJ.x, y: CV_AXIS }, CV_OBJ, INK),
+    arrow({ x: CV_IMG.x, y: CV_AXIS }, CV_IMG, EMERGENT),
+    // ray 1: parallel in, through F′
+    arrow(CV_OBJ, { x: CV_X, y: CV_OBJ.y }, RAY),
+    arrow({ x: CV_X, y: CV_OBJ.y }, CV_IMG, RAY),
+    // ray 2: through the optical centre, undeviated
+    arrow(CV_OBJ, { x: CV_X, y: CV_AXIS }, s("ray", 0.5)),
+    arrow({ x: CV_X, y: CV_AXIS }, CV_IMG, RAY),
+    // ray 3: through F, out parallel
+    arrow(CV_OBJ, { x: CV_X, y: CV_IMG.y }, s("ray", 0.5)),
+    arrow({ x: CV_X, y: CV_IMG.y }, CV_IMG, RAY),
+    point(CV_F1, 0.9, "ink"),
+    point(CV_F2, 0.9, "ink"),
+    label({ x: CV_OBJ.x, y: CV_AXIS - 6 }, "O", { anchor: "middle", math: true, size: 3 }),
+    label({ x: CV_F1.x, y: CV_AXIS - 5 }, "F", { anchor: "middle", math: true, size: 3 }),
+    label({ x: CV_F2.x, y: CV_AXIS - 5 }, "F′", { anchor: "middle", math: true, size: 3 }),
+    label({ x: CV_IMG.x, y: CV_IMG.y - 4.8 }, "I", { anchor: "middle", math: true, size: 3.2, color: "ok" }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "lens equation in Cartesian signs: 1/v − 1/u = 1/f",
+      actual: 1 / CV_V - 1 / CV_U,
+      expected: 1 / CV_F,
+      tol: 1e-12,
+    },
+    {
+      kind: "value",
+      label: "the parallel ray heads for F′",
+      actual: atPlane({ x: CV_X, y: CV_OBJ.y }, CV_F2, CV_IMG.x).y,
+      expected: CV_IMG.y,
+      tol: 1e-6,
+    },
+    {
+      kind: "value",
+      label: "the ray through the centre reaches the image point",
+      actual: atPlane(CV_OBJ, { x: CV_X, y: CV_AXIS }, CV_IMG.x).y,
+      expected: CV_IMG.y,
+      tol: 1e-6,
+    },
+    {
+      kind: "value",
+      label: "the ray through F passes through F₁ and leaves level with the image",
+      actual: atPlane(CV_OBJ, CV_F1, CV_X).y,
+      expected: CV_IMG.y,
+      tol: 1e-9,
+    },
+  ],
+};
+
+/* ────────────────────────────────────────────────────────────────────────
+ * 0h. The same three rays, concave lens (Fig. 9.17b)
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const CC_AXIS = 30;
+const CC_X = 44;
+const CC_F = -30;
+const CC_OBJ: Vec = { x: 6, y: 44 };
+const CC_U = CC_OBJ.x - CC_X; // −38
+const CC_V = (1 / (1 / CC_F + 1 / CC_U)) as number; // −15.4
+const CC_H = CC_OBJ.y - CC_AXIS;
+const CC_IMG: Vec = { x: CC_X + CC_V, y: CC_AXIS + (CC_V / CC_U) * CC_H };
+/** The focus a parallel ray appears to diverge from: on the incident side. */
+const CC_FRONT: Vec = { x: CC_X + CC_F, y: CC_AXIS };
+/** The focus a ray must aim at to emerge parallel: on the far side. */
+const CC_BACK: Vec = { x: CC_X - CC_F, y: CC_AXIS };
+/** Where the ray aimed at F′ crosses the lens plane — level with the image. */
+const CC_HIT = atPlane(CC_OBJ, CC_BACK, CC_X);
+/** A point on the ray that leaves the lens parallel to the axis, far side. */
+const CC_THROUGH = atPlane(CC_FRONT, { x: CC_X, y: CC_OBJ.y }, 86);
+
+export const concaveLensRays: FigureSpec = {
+  id: "concave-lens-three-rays",
+  title: "Concave lens: the same three rays, all virtual",
+  alt:
+    "A concave lens on an axis with an object arrow on the left. One ray parallel to the axis bends away from it, as if it came from the near focus; one through the optical centre goes straight on; one aimed at the far focus leaves parallel. Their backward extensions meet at the virtual image, smaller and upright.",
+  caption:
+    "A concave lens produces a virtual, erect, diminished image. The emergent rays themselves never meet; their backward extensions do.",
+  frame: { width: 96, height: 72 },
+  source: "Fig. 9.17",
+  elements: [
+    line({ x: 4, y: CC_AXIS }, { x: 92, y: CC_AXIS }, AXIS),
+    { kind: "poly", points: lensOutline({ x: CC_X, y: CC_AXIS }, 16, -2.6), stroke: INK, fill: "glass" },
+    arrow({ x: CC_OBJ.x, y: CC_AXIS }, CC_OBJ, INK),
+    arrow({ x: CC_IMG.x, y: CC_AXIS }, CC_IMG, VIRTUAL),
+    // ray 1: parallel in, out as if from F
+    arrow(CC_OBJ, { x: CC_X, y: CC_OBJ.y }, RAY),
+    arrow({ x: CC_X, y: CC_OBJ.y }, CC_THROUGH, RAY),
+    line({ x: CC_X, y: CC_OBJ.y }, { x: 12, y: atPlane(CC_FRONT, { x: CC_X, y: CC_OBJ.y }, 12).y }, GUIDE),
+    // ray 2: through the optical centre, undeviated
+    arrow(CC_OBJ, { x: CC_X, y: CC_AXIS }, s("ray", 0.5)),
+    arrow({ x: CC_X, y: CC_AXIS }, { x: 78, y: atPlane(CC_OBJ, { x: CC_X, y: CC_AXIS }, 78).y }, RAY),
+    // ray 3: aimed at F′, out parallel
+    arrow(CC_OBJ, CC_HIT, s("ray", 0.5)),
+    arrow(CC_HIT, { x: 86, y: CC_HIT.y }, RAY),
+    line(CC_HIT, { x: 20, y: CC_HIT.y }, GUIDE),
+    point(CC_FRONT, 0.9, "ink"),
+    point(CC_BACK, 0.9, "ink"),
+    label({ x: CC_OBJ.x, y: CC_AXIS - 6 }, "O", { anchor: "middle", math: true, size: 3 }),
+    label({ x: CC_FRONT.x, y: CC_AXIS - 5 }, "F", { anchor: "middle", math: true, size: 3 }),
+    label({ x: CC_BACK.x, y: CC_AXIS - 5 }, "F′", { anchor: "middle", math: true, size: 3 }),
+    label({ x: CC_IMG.x, y: CC_IMG.y + 4.2 }, "I", { anchor: "middle", math: true, size: 3.2, color: "warn" }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "lens equation in Cartesian signs: 1/v − 1/u = 1/f",
+      actual: 1 / CC_V - 1 / CC_U,
+      expected: 1 / CC_F,
+      tol: 1e-12,
+    },
+    {
+      kind: "value",
+      label: "the incident ray through the centre points at I",
+      actual: atPlane(CC_OBJ, { x: CC_X, y: CC_AXIS }, CC_IMG.x).y,
+      expected: CC_IMG.y,
+      tol: 1e-6,
+    },
+    {
+      kind: "value",
+      label: "the ray aimed at F′ leaves the lens level with I",
+      actual: CC_HIT.y,
+      expected: CC_IMG.y,
+      tol: 1e-9,
+    },
+  ],
+};
+
 export const RAY_OPTICS_FIGURES: readonly FigureSpec[] = [
   rayAndBeam,
   refractionAtSurface,
@@ -1097,6 +1262,8 @@ export const RAY_OPTICS_FIGURES: readonly FigureSpec[] = [
   slabShift,
   totalInternalReflection,
   opticalFibre,
+  convexLensRays,
+  concaveLensRays,
   planeReflection,
   concaveMirrorTerms,
   convexMirrorTerms,
