@@ -415,6 +415,260 @@ export default function OrganismsAndPopulationsChapter() {
           </li>
         </ul>
       </Callout>
+
+      <h2 id="h-11-7">11.1.4 Population Interactions</h2>
+
+      <h3 id="h-11-7-1">1. 🤝 Interspecific Interactions</h3>
+      <p className="text-sm font-medium text-foreground">Ecological necessity</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>No species lives in isolation.</li>
+        <li>Animals, plants and microbes interact to form biological communities.</li>
+      </ul>
+      <p className="mt-2">
+        <strong>Interspecific interactions</strong> = interactions between populations of two different species.
+      </p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li><code>+</code> → Beneficial</li>
+        <li><code>−</code> → Detrimental</li>
+        <li><code>0</code> → No effect</li>
+      </ul>
+      <p className="mt-2 text-sm text-muted-foreground">
+        <strong>Common characteristic:</strong> Predation, parasitism and commensalism involve closely living interacting
+        species.
+      </p>
+
+      <h4 id="h-11-7-1-summary">Summary of interactions</h4>
+      <TableCard
+        title="Population interactions summary"
+        headers={["Interaction", "Species A", "Species B", "Effect"]}
+        rows={[
+          { cells: ["Mutualism", "+", "+", "Both benefit"] },
+          { cells: ["Competition", "−", "−", "Both are adversely affected"] },
+          { cells: ["Predation", "+", "−", "Predator benefits; prey is harmed"] },
+          { cells: ["Parasitism", "+", "−", "Parasite benefits; host is harmed"] },
+          { cells: ["Commensalism", "+", "0", "One benefits; other is unaffected"] },
+          { cells: ["Amensalism", "−", "0", "One is harmed; other is unaffected"] },
+        ]}
+      />
+
+      <h3 id="h-11-7-2">2. 🐅 Predation (+ / −)</h3>
+      <p>
+        <strong>Definition:</strong> One species (predator) benefits by feeding on another species (prey), which is
+        harmed.
+      </p>
+      <h4 id="h-11-7-2a">A. Ecological significance</h4>
+      <p className="text-sm font-medium text-foreground">1. Energy transfer</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Acts as a conduit for transferring energy fixed by autotrophs to higher trophic levels.</li>
+        <li>Even a sparrow eating a seed is ecologically a predator, just like a tiger eating a deer.</li>
+      </ul>
+      <p className="mt-2 text-sm font-medium text-foreground">2. Prey population control</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Keeps prey populations under check.</li>
+        <li>Helps prevent ecosystem instability.</li>
+      </ul>
+      <p className="mt-2 text-sm font-medium text-foreground">3. Biological control of invasive species</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>
+          <em>Prickly pear cactus</em> introduced into Australia (1920s) was controlled using a cactus-feeding moth
+          predator.
+        </li>
+        <li>Biological pest control in agriculture uses this principle.</li>
+      </ul>
+      <p className="mt-2 text-sm font-medium text-foreground">4. Maintenance of species diversity</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Predation reduces competition among competing prey species.</li>
+        <li>
+          <strong>Example — Starfish (Pisaster):</strong> Removal from American Pacific Coast intertidal areas → over 10
+          invertebrate species became extinct due to interspecific competition.
+        </li>
+      </ul>
+      <h4 id="h-11-7-2b">B. Prudent nature of predators</h4>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Predators do not overexploit prey.</li>
+        <li>Overexploitation → Prey extinction → Predator extinction.</li>
+      </ul>
+      <h4 id="h-11-7-2c">C. Prey defences</h4>
+      <p className="text-sm font-medium text-foreground">Animal defences</p>
+      <TableCard
+        title="Animal defences"
+        headers={["Defence", "Example"]}
+        rows={[
+          { cells: ["Camouflage / cryptic coloration", "Insects, frogs"] },
+          { cells: ["Toxicity", "Monarch butterfly"] },
+        ]}
+      />
+      <p className="mt-2 text-sm text-muted-foreground">
+        <strong>Monarch butterfly:</strong> During its caterpillar stage, it feeds on a poisonous weed and accumulates
+        distasteful chemicals.
+      </p>
+      <p className="mt-3 text-sm font-medium text-foreground">Plant defences against herbivores</p>
+      <p className="text-sm text-muted-foreground">Approximately 25% of insects are phytophagous (plant-eating).</p>
+      <TableCard
+        title="Plant defences against herbivores"
+        headers={["Defence type", "Mechanism", "Examples"]}
+        rows={[
+          { cells: ["Morphological", "Physical structures", "Thorns in Acacia and Cactus"] },
+          { cells: ["Chemical", "Chemical substances", "Cardiac glycosides in Calotropis; secondary metabolites"] },
+        ]}
+      />
+      <p className="mt-2 text-sm font-medium text-foreground">Chemical defences</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Cardiac glycosides in <em>Calotropis</em> → protect against browsing by cattle and goats.</li>
+        <li>Secondary metabolites → nicotine, caffeine, quinine, strychnine and opium.</li>
+      </ul>
+
+      <h3 id="h-11-7-3">3. ⚔️ Competition (− / −)</h3>
+      <p>
+        <strong>Definition:</strong> An interaction in which the fitness of one species is significantly reduced in the
+        presence of another species. Fitness is measured by the <strong>intrinsic rate of increase (r)</strong>.
+      </p>
+      <h4 id="h-11-7-3a">A. Misconceptions and realities</h4>
+      <TableCard
+        title="Misconceptions vs realities"
+        headers={["Misconception", "Reality"]}
+        rows={[
+          { cells: ["Competition occurs only between closely related species.", "Unrelated species can also compete."] },
+          { cells: ["Competition requires limited resources.", "Interference competition can occur even when resources are abundant."] },
+        ]}
+      />
+      <p className="mt-2 text-sm font-medium text-foreground">Example — Unrelated competitors</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Visiting flamingos and resident fishes in shallow South American lakes.</li>
+        <li>Both compete for zooplankton.</li>
+      </ul>
+      <p className="mt-2 text-sm font-medium text-foreground">Interference competition</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>One species interferes with another.</li>
+        <li>Result → Reduced feeding efficiency, even when resources are abundant.</li>
+      </ul>
+      <h4 id="h-11-7-3b">B. Gause’s Competitive Exclusion Principle</h4>
+      <Callout type="important" title="Competitive Exclusion Principle (Gause)">
+        Two closely related species competing for the same limiting resources cannot coexist indefinitely. The inferior
+        competitor is eliminated.
+      </Callout>
+      <p className="mt-2 text-sm font-medium text-foreground">Example — Abingdon tortoise</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Goats introduced into the Galapagos.</li>
+        <li>Goats had greater browsing efficiency.</li>
+        <li>Result → Abingdon tortoise became extinct within a decade.</li>
+      </ul>
+      <h4 id="h-11-7-3c">C. Competitive release</h4>
+      <p>
+        <strong>Definition:</strong> A restricted species expands its distributional range dramatically when its
+        superior competitor is experimentally removed.
+      </p>
+      <p className="mt-2 text-sm font-medium text-foreground">Example — Connell’s field experiments</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Location → Scotland’s rocky coast.</li>
+        <li>Barnacle <em>Balanus</em> competitively excludes <em>Chathamalus</em>.</li>
+      </ul>
+      <h4 id="h-11-7-3d">D. Coexistence through resource partitioning</h4>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Competing species may evolve mechanisms that promote coexistence rather than exclusion.</li>
+        <li>
+          <strong>Example — MacArthur’s warblers:</strong> Five warbler species coexist on the same tree, using
+          different foraging patterns and feeding times (resource partitioning).
+        </li>
+      </ul>
+
+      <h3 id="h-11-7-4">4. 🦟 Parasitism (+ / −)</h3>
+      <p>
+        <strong>Definition:</strong> A parasite benefits by living on or inside a host, which is harmed.
+      </p>
+      <h4 id="h-11-7-4a">A. Adaptations of parasites</h4>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Loss of unnecessary sense organs.</li>
+        <li>Adhesive organs or suckers.</li>
+        <li>Loss of digestive system.</li>
+        <li>High reproductive capacity.</li>
+      </ul>
+      <h4 id="h-11-7-4b">B. Complex life cycles</h4>
+      <TableCard
+        title="Complex life cycles"
+        headers={["Parasite", "Requirement"]}
+        rows={[
+          { cells: ["Human liver fluke", "Two intermediate hosts → Snail and fish"] },
+          { cells: ["Malarial parasite", "Mosquito vector for transmission"] },
+        ]}
+      />
+      <h4 id="h-11-7-4c">C. Types of parasites</h4>
+      <p className="text-sm font-medium text-foreground">1. Ectoparasites</p>
+      <p className="text-sm text-muted-foreground">Live on the external surface of the host.</p>
+      <TableCard
+        title="Ectoparasites"
+        headers={["Example", "Host"]}
+        rows={[
+          { cells: ["Lice", "Humans"] },
+          { cells: ["Ticks", "Dogs"] },
+          { cells: ["Copepods", "Marine fish"] },
+          { cells: ["Cuscuta", "Hedge plants"] },
+        ]}
+      />
+      <p className="mt-2 text-sm text-muted-foreground">
+        <em>Cuscuta</em> → parasitic plant that has lost its leaves and chlorophyll.
+      </p>
+      <p className="mt-3 text-sm font-medium text-foreground">2. Endoparasites</p>
+      <p className="text-sm text-muted-foreground">Live inside the host body at different sites.</p>
+      <p className="text-sm text-muted-foreground">Possible locations: liver, kidneys, lungs and red blood cells (RBCs).</p>
+      <p className="mt-3 text-sm font-medium text-foreground">3. Brood parasitism</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Parasitic bird lays eggs in another bird’s nest; host bird incubates the eggs.</li>
+        <li>
+          <strong>Example — Cuckoo/Koel:</strong> lays eggs in a crow’s nest during spring to summer.
+        </li>
+      </ul>
+
+      <h3 id="h-11-7-5">5. 🪺 Commensalism (+ / 0)</h3>
+      <p>
+        <strong>Definition:</strong> One species benefits while the other remains unaffected.
+      </p>
+      <TableCard
+        title="Commensalism examples"
+        headers={["Example", "Benefiting species (+)", "Unaffected species (0)"]}
+        rows={[
+          { cells: ["Epiphytic orchid on mango branch", "Orchid → gets space", "Mango tree"] },
+          { cells: ["Barnacles on whale’s back", "Barnacles → get transport and food", "Whale"] },
+          { cells: ["Cattle egrets and grazing cattle", "Egrets → catch insects flushed out by cattle", "Cattle"] },
+          { cells: ["Clown fish and sea anemone", "Fish → gets protection among stinging tentacles", "Sea anemone"] },
+        ]}
+      />
+
+      <h3 id="h-11-7-6">6. 🌸 Mutualism (+ / +)</h3>
+      <p>
+        <strong>Definition:</strong> Both interacting species benefit.
+      </p>
+      <h4>Key examples</h4>
+      <p className="text-sm font-medium text-foreground">1. Lichens</p>
+      <p className="text-sm text-muted-foreground">Symbiotic association between:</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li><strong>Fungus</strong> → protection and absorption.</li>
+        <li><strong>Photosynthesising algae / cyanobacteria</strong> → food.</li>
+      </ul>
+      <p className="mt-2 text-sm font-medium text-foreground">2. Mycorrhizae</p>
+      <p className="text-sm text-muted-foreground">Symbiotic association between:</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li><strong>Fungi</strong> → absorb essential phosphorus from soil.</li>
+        <li><strong>Roots of higher plants</strong> → provide carbohydrates.</li>
+      </ul>
+      <p className="mt-2 text-sm font-medium text-foreground">3. Fig tree and wasp</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>One-to-one obligate relationship.</li>
+        <li>Female wasp pollinates the fig inflorescence while laying eggs in the ovary locule.</li>
+        <li>Developing seeds provide food for wasp larvae.</li>
+      </ul>
+      <p className="mt-2 text-sm font-medium text-foreground">4. Orchid (Ophrys) and bee — Sexual deceit</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>One petal resembles a female bee.</li>
+        <li>Male bee pseudocopulates with the flower.</li>
+        <li>Pollen gets transferred; demonstrates tight co-evolution.</li>
+      </ul>
+
+      <p className="mt-6 text-sm text-muted-foreground">
+        <strong>Chapter 11 — Organisms and Populations</strong>
+        <br />
+        Population interactions and their ecological significance — consolidated for revision.
+      </p>
     </>
   );
 }
