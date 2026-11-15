@@ -22,6 +22,8 @@ import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { PhysicsFigure } from "@/components/content/physics/diagram/PhysicsFigure";
 import {
   apparentDepth,
+  cassegrain,
+  compoundMicroscope,
   concaveLensRays,
   concaveMirrorTerms,
   concaveRealImage,
@@ -33,6 +35,7 @@ import {
   planeReflection,
   prismPath,
   rayAndBeam,
+  refractingTelescope,
   refractionAtSurface,
   ruleCentre,
   ruleFocus,
@@ -40,6 +43,7 @@ import {
   rulePole,
   signConventionConcave,
   signConventionConvex,
+  simpleMicroscope,
   slabShift,
   totalInternalReflection,
 } from "./figures";
@@ -1754,6 +1758,536 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         ]}
       />
       <p>It follows that thin prisms do not deviate light much.</p>
+
+      <h2 id="h-9-7">9.7 Optical Instruments</h2>
+
+      <p>
+        A number of optical devices and instruments have been designed utilising the reflecting and refracting properties
+        of <strong>mirrors, lenses and prisms</strong>.
+      </p>
+      <div className="my-6 flex flex-wrap gap-2">
+        {["Periscope", "Kaleidoscope", "Binoculars", "Telescope", "Microscope"].map((device) => (
+          <span
+            key={device}
+            className="rounded-full border border-border bg-muted/40 px-3 py-1 text-sm text-foreground/80"
+          >
+            {device}
+          </span>
+        ))}
+      </div>
+      <p>Those are some of the optical devices and instruments in common use.</p>
+      <Callout type="note" title="The eye">
+        <p>
+          Our eye is one of the most important optical devices nature has endowed us with. We have already studied the
+          human eye in Class X.
+        </p>
+      </Callout>
+      <p>We now go on to describe the principles of working of the microscope and the telescope.</p>
+
+      <h3 id="h-9-7-microscope">9.7.1 The microscope</h3>
+
+      <p className="t-micro">The simple magnifier</p>
+      <p>
+        A simple magnifier or microscope is a <strong>converging lens of small focal length</strong> (Fig. 9.23).
+      </p>
+      <PhysicsFigure spec={simpleMicroscope} />
+      <p>To use such a lens as a microscope:</p>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>The lens is held near the object</strong>, one focal length away or less.
+        </li>
+        <li>
+          <strong>The eye sits close to the lens</strong>, on the other side of it.
+        </li>
+      </ul>
+      <p>
+        The idea is to get an <strong>erect, magnified and virtual image</strong> of the object at a distance where it can
+        be viewed comfortably — 25 cm or more.
+      </p>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Object at a distance f</strong> — the image is at infinity.
+        </li>
+        <li>
+          <strong>Object slightly less than f</strong> — the image is virtual, and closer than infinity.
+        </li>
+      </ul>
+      <Callout type="note" title="Why the image at infinity is the comfortable setting">
+        <p>
+          The closest comfortable distance for viewing the image is the near point, <Formula>{String.raw`D \approx 25\ \text{cm}`}</Formula>,
+          but it causes some strain on the eye.
+        </p>
+        <p>
+          The image formed at infinity is therefore often considered most suitable for viewing by the relaxed eye.
+          Fig. 9.23 shows both cases.
+        </p>
+      </Callout>
+
+      <p className="t-micro">Magnification with the image at the near point</p>
+      <p>
+        The linear magnification <Formula>{String.raw`m`}</Formula>, for the image formed at the near point{" "}
+        <Formula>{String.raw`D`}</Formula>, follows from <Formula>{String.raw`m = v/u`}</Formula> and the lens formula.
+      </p>
+      <EquationLadder
+        steps={[
+          {
+            label: "Magnification by a single lens",
+            equation: String.raw`m = \frac{v}{u}`,
+          },
+          {
+            label: "Thin lens formula, rearranged",
+            equation: String.raw`\frac{1}{u} = \frac{1}{v} - \frac{1}{f}`,
+          },
+          {
+            label: "Substitute",
+            equation: String.raw`m = \frac{v}{u} = 1 - \frac{v}{f}`,
+          },
+          {
+            label: "Sign convention: the image is virtual, so |v| = D",
+            equation: String.raw`m = 1 + \frac{D}{f}`,
+            tag: "Eq. 9.39",
+            final: true,
+          },
+        ]}
+      />
+      <Expandable title="Example — the lens that gives a magnification of six" variant="example">
+        <p>
+          With <Formula>{String.raw`D \approx 25\ \text{cm}`}</Formula>, a magnification of six needs a focal length of:
+        </p>
+        <Stepper
+          steps={[
+            {
+              label: "Eq. 9.39 with m = 6",
+              description: (
+                <p>
+                  <Formula>{String.raw`6 = 1 + \frac{25}{f}`}</Formula>
+                </p>
+              ),
+            },
+            {
+              label: "Solve for f",
+              description: (
+                <p>
+                  <Formula>{String.raw`\frac{25}{f} = 5`}</Formula>
+                </p>
+              ),
+            },
+          ]}
+        />
+        <FormulaBlock important latex={String.raw`f = 5\ \text{cm}`} />
+      </Expandable>
+      <p>
+        Note that <Formula>{String.raw`m = h'/h`}</Formula>, where <Formula>{String.raw`h`}</Formula> is the size of the
+        object and <Formula>{String.raw`h'`}</Formula> the size of the image.
+      </p>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>It is also an angle ratio.</strong> It is the ratio of the angle subtended by the image to that
+          subtended by the object if placed at <Formula>{String.raw`D`}</Formula> for comfortable viewing.
+        </li>
+        <li>
+          <strong>But not the angle the object actually subtends</strong> at the eye, which is{" "}
+          <Formula>{String.raw`h/u`}</Formula>.
+        </li>
+        <li>
+          <strong>What a single-lens magnifier achieves</strong> is that it allows the object to be brought closer to the
+          eye than <Formula>{String.raw`D`}</Formula>.
+        </li>
+      </ul>
+
+      <p className="t-micro">The image at infinity: angular magnification</p>
+      <p>
+        With the image at infinity the magnification has to be an <strong>angular</strong> one. Take an object of height{" "}
+        <Formula>{String.raw`h`}</Formula>.
+      </p>
+      <EquationLadder
+        steps={[
+          {
+            label: "Largest angle it can subtend and still be clearly visible — at the near point, a distance D away",
+            equation: String.raw`\tan\theta_o = \frac{h}{D} \simeq \theta_o`,
+            tag: "Eq. 9.40",
+          },
+          {
+            label: "Angle subtended at the eye by the image, from m = h′/h = v/u",
+            equation: String.raw`\tan\theta_i = \frac{h'}{|v|} = \frac{h}{|u|} \simeq \theta_i`,
+          },
+          {
+            label: "Object at u = f",
+            equation: String.raw`\theta_i = \frac{h}{f}`,
+            tag: "Eq. 9.41",
+            final: true,
+          },
+        ]}
+      />
+      <FormulaBlock
+        important
+        label="Angular magnification of a simple microscope"
+        tag="Eq. 9.42"
+        latex={String.raw`m = \frac{\theta_i}{\theta_o} = \frac{D}{f}`}
+      />
+      <p>
+        This is one less than the magnification when the image is at the near point, Eq. 9.39, but the viewing is more
+        comfortable and the difference in magnification is usually small.
+      </p>
+      <TableCard
+        title="One lens, two settings"
+        headers={["Image at", "Magnification", "The eye"]}
+        rows={[
+          { cells: ["the near point, D", "m = 1 + D/f", "some strain"] },
+          { cells: ["infinity", "m = D/f", "relaxed — the setting assumed from here on"] },
+        ]}
+      />
+      <p>
+        In the discussions of optical instruments that follow — microscope and telescope — the image is assumed to be at
+        infinity.
+      </p>
+      <p>
+        A simple microscope has a <Highlight>limited maximum magnification (≲ 9)</Highlight> for realistic focal lengths.
+        For much larger magnifications one uses two lenses, one compounding the effect of the other — the{" "}
+        <strong>compound microscope</strong>.
+      </p>
+
+      <p className="t-micro">The compound microscope</p>
+      <p>A schematic diagram of a compound microscope is shown in Fig. 9.24.</p>
+      <PhysicsFigure spec={compoundMicroscope} />
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>The objective</strong>, the lens nearest the object, forms a real, inverted, magnified image.
+        </li>
+        <li>
+          <strong>The eyepiece</strong> then works on that image like a simple microscope or magnifier, producing the
+          final image — enlarged and virtual.
+        </li>
+        <li>
+          <strong>The first inverted image sits near the focal plane of the eyepiece</strong> — at or within it, at a
+          distance appropriate for final image formation at infinity, or a little closer for image formation at the near
+          point.
+        </li>
+        <li>
+          <strong>The final image is inverted</strong> with respect to the original object.
+        </li>
+      </ul>
+      <p>
+        The ray diagram of Fig. 9.24 shows that the linear magnification due to the objective,{" "}
+        <Formula>{String.raw`h'/h`}</Formula>, equals <Formula>{String.raw`L/f_o`}</Formula>.
+      </p>
+      <EquationLadder
+        steps={[
+          {
+            label: "The same angle β at both ends of the tube",
+            equation: String.raw`\tan\beta = \frac{h}{f_o} = \frac{h'}{L}`,
+          },
+          {
+            label: "Rearrange",
+            equation: String.raw`m_o = \frac{h'}{h} = \frac{L}{f_o}`,
+            tag: "Eq. 9.43",
+            final: true,
+          },
+        ]}
+      />
+      <p>
+        Here <Formula>{String.raw`h'`}</Formula> is the size of the first image, the object size being{" "}
+        <Formula>{String.raw`h`}</Formula>, and <Formula>{String.raw`f_o`}</Formula> is the focal length of the objective.
+      </p>
+      <Callout type="note" title="Tube length">
+        <p>
+          The first image is formed near the focal point of the eyepiece. The distance{" "}
+          <Formula>{String.raw`L`}</Formula> — between the second focal point of the objective and the first focal point
+          of the eyepiece, of focal length <Formula>{String.raw`f_e`}</Formula> — is called the{" "}
+          <strong>tube length</strong> of the compound microscope.
+        </p>
+      </Callout>
+      <p>
+        The eyepiece's own angular magnification is the simple-microscope result, Eq. 9.39 or Eq. 9.42, depending on where
+        the final image is.
+      </p>
+      <EquationLadder
+        steps={[
+          {
+            label: "Final image at the near point",
+            equation: String.raw`m_e = 1 + \frac{D}{f_e}`,
+            tag: "Eq. 9.44(a)",
+          },
+          {
+            label: "Final image at infinity",
+            equation: String.raw`m_e = \frac{D}{f_e}`,
+            tag: "Eq. 9.44(b)",
+            final: true,
+          },
+        ]}
+      />
+      <p>So the total magnification, with the image at infinity, is the product of the two.</p>
+      <FormulaBlock
+        important
+        label="Magnification of a compound microscope"
+        tag="Eq. 9.45"
+        latex={String.raw`m = m_o m_e = \left(\frac{L}{f_o}\right)\left(\frac{D}{f_e}\right)`}
+      />
+      <p>
+        Clearly, to achieve a large magnification of a small object — hence the name microscope — the objective and the
+        eyepiece should have small focal lengths.
+      </p>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>A focal length much below 1 cm is difficult to make</strong> in practice.
+        </li>
+        <li>
+          <strong>L must be large</strong>, which needs large lenses.
+        </li>
+      </ul>
+      <Expandable
+        title="Example — f_o = 1.0 cm, f_e = 2.0 cm, tube length 20 cm"
+        variant="example"
+      >
+        <Stepper
+          steps={[
+            {
+              label: "Magnification of the objective",
+              description: (
+                <p>
+                  <Formula>{String.raw`m_o = \frac{L}{f_o} = \frac{20}{1.0} = 20`}</Formula>
+                </p>
+              ),
+            },
+            {
+              label: "Magnification of the eyepiece, image at infinity",
+              description: (
+                <p>
+                  <Formula>{String.raw`m_e = \frac{D}{f_e} = \frac{25}{2.0} = 12.5`}</Formula>
+                </p>
+              ),
+            },
+            {
+              label: "Total",
+              description: (
+                <p>
+                  <Formula>{String.raw`m = 20 \times 12.5`}</Formula>
+                </p>
+              ),
+            },
+          ]}
+        />
+        <FormulaBlock important latex={String.raw`m = \left(\frac{20}{1}\right)\left(\frac{25}{2}\right) = 250`} />
+      </Expandable>
+      <p>
+        Various other factors, such as the illumination of the object, contribute to the quality and visibility of the
+        image.
+      </p>
+      <p>
+        In modern microscopes <strong>multi-component lenses</strong> are used for both the objective and the eyepiece, to
+        improve image quality by minimising various optical aberrations (defects) in lenses.
+      </p>
+
+      <h3 id="h-9-7-telescope">9.7.2 The telescope</h3>
+
+      <p>
+        The telescope is used to provide <strong>angular magnification of distant objects</strong> (Fig. 9.25). It also
+        has an objective and an eyepiece.
+      </p>
+      <PhysicsFigure spec={refractingTelescope} />
+      <p>
+        But here the objective has a <strong>large focal length</strong> and a <strong>much larger aperture</strong> than
+        the eyepiece.
+      </p>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Light from a distant object</strong> enters the objective.
+        </li>
+        <li>
+          <strong>A real image is formed</strong> in the tube, at its second focal point.
+        </li>
+        <li>
+          <strong>The eyepiece magnifies that image</strong>, producing a final inverted image.
+        </li>
+      </ul>
+      <p>
+        The magnifying power <Formula>{String.raw`m`}</Formula> is the ratio of the angle{" "}
+        <Formula>{String.raw`\beta`}</Formula> subtended at the eye by the final image to the angle{" "}
+        <Formula>{String.raw`\alpha`}</Formula> which the object subtends at the lens or the eye.
+      </p>
+      <EquationLadder
+        steps={[
+          {
+            label: "Fig. 9.25: one image height h, two focal lengths",
+            equation: String.raw`\tan\alpha = \frac{h}{f_o}, \qquad \tan\beta = \frac{h}{f_e}`,
+          },
+          {
+            label: "Ratio of the angles, for small angles",
+            equation: String.raw`m = \frac{\beta}{\alpha} = \frac{h/f_e}{h/f_o}`,
+          },
+          {
+            label: "Simplify",
+            equation: String.raw`m = \frac{f_o}{f_e}`,
+            tag: "Eq. 9.46",
+            final: true,
+          },
+        ]}
+      />
+      <KeyPoint title="Tube length">
+        <p>
+          In this case the length of the telescope tube is{" "}
+          <Formula>{String.raw`f_o + f_e`}</Formula>.
+        </p>
+      </KeyPoint>
+      <p>
+        <strong>Terrestrial telescopes</strong> have, in addition, a pair of inverting lenses to make the final image
+        erect. Refracting telescopes can be used both for terrestrial and astronomical observations.
+      </p>
+      <Expandable title="Example — a 100 cm objective and a 1 cm eyepiece" variant="example">
+        <Stepper
+          steps={[
+            {
+              label: "Eq. 9.46",
+              description: (
+                <p>
+                  <Formula>{String.raw`m = \frac{f_o}{f_e} = \frac{100}{1}`}</Formula>
+                </p>
+              ),
+            },
+            {
+              label: "The magnifying power",
+              description: (
+                <p>
+                  <Formula>{String.raw`m = 100`}</Formula>
+                </p>
+              ),
+            },
+          ]}
+        />
+        <FormulaBlock important latex={String.raw`m = \frac{100}{1} = 100`} />
+      </Expandable>
+      <Expandable title="Example — a pair of stars 1′ apart" variant="example">
+        <Stepper
+          steps={[
+            {
+              label: "Actual separation",
+              description: (
+                <p>1′ (one minute of arc).</p>
+              ),
+            },
+            {
+              label: "Apparent separation through the telescope",
+              description: (
+                <p>
+                  <Formula>{String.raw`100 \times 1' = 100'`}</Formula>
+                </p>
+              ),
+            },
+            {
+              label: "Convert to degrees, 60′ = 1°",
+              description: (
+                <p>
+                  <Formula>{String.raw`100' = 1.67^\circ`}</Formula>
+                </p>
+              ),
+            },
+          ]}
+        />
+        <FormulaBlock important latex={String.raw`100\,' = 1.67^\circ`} />
+      </Expandable>
+
+      <p className="t-micro">What an astronomical telescope is judged on</p>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Light gathering power</strong> — it clearly depends on the area of the objective. With larger
+          diameters, fainter objects can be observed.
+        </li>
+        <li>
+          <strong>Resolution, or resolving power</strong> — the ability to observe two objects distinctly when they are
+          in very nearly the same direction. It also depends on the diameter of the objective.
+        </li>
+      </ul>
+      <p>
+        So the desirable aim in optical telescopes is to make them with an objective of <strong>large diameter</strong>.
+      </p>
+      <p>
+        The largest lens objective in use is at the Yerkes Observatory in Wisconsin, USA. Such big lenses tend to be very
+        heavy, and therefore difficult to make and to support by their edges.
+      </p>
+      <p>
+        Further, it is rather difficult and expensive to make such large-sized lenses which form images that are free from
+        any kind of chromatic aberration and distortions.
+      </p>
+
+      <p className="t-micro">Why modern telescopes use a mirror</p>
+      <p>
+        For these reasons modern telescopes use a <strong>concave mirror</strong> rather than a lens for the objective.
+        Telescopes with mirror objectives are called <strong>reflecting telescopes</strong>.
+      </p>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>No chromatic aberration</strong> — there is none in a mirror.
+        </li>
+        <li>
+          <strong>Mechanical support is much less of a problem.</strong> A mirror weighs much less than a lens of
+          equivalent optical quality, and can be supported over its entire back surface, not just over its rim.
+        </li>
+      </ul>
+      <Callout type="warning" title="One obvious problem">
+        <p>
+          The objective mirror focuses light <strong>inside the telescope tube</strong>. One must have an eyepiece and the
+          observer right there, obstructing some light — depending on the size of the observer cage.
+        </p>
+        <p>
+          This is what is done in the very large Mt Palomar telescope in California: the viewer sits near the focal point
+          of the mirror, in a small cage.
+        </p>
+      </Callout>
+      <p>
+        Another solution to the problem is to <strong>deflect the light</strong> being focused by another mirror.
+      </p>
+      <p>
+        One such arrangement uses a <strong>convex secondary mirror</strong> to focus the incident light, which now passes
+        through a hole in the objective primary mirror (Fig. 9.26). This is known as a <strong>Cassegrain telescope</strong>,
+        after its inventor.
+      </p>
+      <PhysicsFigure spec={cassegrain} />
+      <p>It has the advantages of a large focal length in a short telescope.</p>
+
+      <p className="t-micro">The largest optical telescopes</p>
+      <div className="my-6 grid gap-3 sm:grid-cols-2">
+        <div className="rounded-lg border border-border bg-card p-4">
+          <p className="t-micro">Lens</p>
+          <p className="mt-2 text-[1.0625rem] font-semibold tracking-tight text-foreground">
+            Yerkes Observatory, Wisconsin, USA
+          </p>
+          <p className="mt-3 text-[2rem] font-semibold leading-none tracking-tight tabular-nums text-foreground">
+            40 inch
+            <span className="ml-1.5 align-baseline text-[0.9375rem] font-normal text-muted-foreground">≈ 1.02 m</span>
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-foreground/75">The largest lens objective in use.</p>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <p className="t-micro">Mirror</p>
+          <p className="mt-2 text-[1.0625rem] font-semibold tracking-tight text-foreground">
+            Mt Palomar, California, USA
+          </p>
+          <p className="mt-3 text-[2rem] font-semibold leading-none tracking-tight tabular-nums text-foreground">
+            200 inch
+            <span className="ml-1.5 align-baseline text-[0.9375rem] font-normal text-muted-foreground">≈ 5.08 m</span>
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-foreground/75">
+            The observer sits in a small cage near the mirror's focus.
+          </p>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <p className="t-micro">Cassegrain mirror</p>
+          <p className="mt-2 text-[1.0625rem] font-semibold tracking-tight text-foreground">Kavalur, Tamil Nadu, India</p>
+          <p className="mt-3 text-[2rem] font-semibold leading-none tracking-tight tabular-nums text-foreground">2.34 m</p>
+          <p className="mt-2 text-sm leading-relaxed text-foreground/75">
+            The largest telescope in India. Ground and polished, set up and used by the Indian Institute of Astrophysics,
+            Bangalore.
+          </p>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <p className="t-micro">Mirror · a pair</p>
+          <p className="mt-2 text-[1.0625rem] font-semibold tracking-tight text-foreground">Keck, Hawaii, USA</p>
+          <p className="mt-3 text-[2rem] font-semibold leading-none tracking-tight tabular-nums text-foreground">10 m</p>
+          <p className="mt-2 text-sm leading-relaxed text-foreground/75">
+            The largest reflecting telescopes in the world.
+          </p>
+        </div>
+      </div>
     </>
   );
 }

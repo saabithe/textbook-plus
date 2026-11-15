@@ -1487,6 +1487,422 @@ export const deviationCurve: FigureSpec = {
   ],
 };
 
+/* ────────────────────────────────────────────────────────────────────────
+ * 0k. The simple microscope (Fig. 9.23)
+ *
+ * One lens, twice. In (a) the object sits just inside f, so the image lands
+ * at the near point — u = −6, f = 10, v = −15, m = 2.5 — and the backward
+ * extensions of the emergent rays meet at the image tip. In (b) the object is
+ * exactly at f, so the emergent bundle is parallel and the image is at
+ * infinity.
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const SM_AXIS = 26;
+const SM_X = 38;
+const SM_F = 10;
+const SM_OBJ: Vec = { x: 32, y: 29 };
+const SM_U = SM_OBJ.x - SM_X; // −6
+const SM_V = (1 / (1 / SM_F + 1 / SM_U)) as number; // −15
+const SM_IMG: Vec = { x: SM_X + SM_V, y: SM_AXIS + (SM_V / SM_U) * (SM_OBJ.y - SM_AXIS) };
+const SM_HIT: Vec = { x: SM_X, y: SM_OBJ.y };
+const SM_FOCUS: Vec = { x: SM_X + SM_F, y: SM_AXIS };
+/** The parallel ray, after the lens: straight from the lens to F′ and on. */
+const SM_OUT1: Vec = atPlane(SM_HIT, SM_FOCUS, 62);
+/** The ray through the optical centre continues undeviated. */
+const SM_OUT2: Vec = atPlane(SM_OBJ, { x: SM_X, y: SM_AXIS }, 62);
+
+const SMB_X = 104;
+const SMB_F = 8;
+const SMB_OBJ: Vec = { x: SMB_X - SMB_F, y: SM_AXIS + 3 };
+const SMB_OUT = (y: number): Vec => ({ x: 134, y: y - (30 * (SMB_OBJ.y - SM_AXIS)) / SMB_F });
+
+export const simpleMicroscope: FigureSpec = {
+  id: "simple-microscope",
+  title: "A simple microscope: image at the near point, and at infinity",
+  alt:
+    "Two panels of one short-focal-length lens. In (a) a small object just inside the focus gives a larger, erect virtual image at the near point on the left, and the dashed backward extensions of the two emergent rays meet at its tip. In (b) the object is exactly at the focal point, so the emergent rays leave parallel and the image is at infinity.",
+  caption:
+    "One short-focal-length lens. With the object just inside f the image is erect, magnified and at the near point (a); with the object exactly at f the emergent rays are parallel and the relaxed eye sees the image at infinity (b).",
+  frame: { width: 140, height: 50 },
+  source: "Fig. 9.23",
+  elements: [
+    line({ x: 6, y: SM_AXIS }, { x: 68, y: SM_AXIS }, AXIS),
+    { kind: "poly", points: lensOutline({ x: SM_X, y: SM_AXIS }, 10, 2), stroke: INK, fill: "glass" },
+    arrow({ x: SM_OBJ.x, y: SM_AXIS }, SM_OBJ, INK),
+    arrow({ x: SM_IMG.x, y: SM_AXIS }, SM_IMG, VIRTUAL),
+    arrow(SM_OBJ, SM_HIT, RAY),
+    arrow(SM_HIT, SM_OUT1, RAY),
+    line(SM_HIT, SM_IMG, GUIDE),
+    arrow(SM_OBJ, { x: SM_X, y: SM_AXIS }, s("ray", 0.5)),
+    arrow({ x: SM_X, y: SM_AXIS }, SM_OUT2, RAY),
+    line(SM_OBJ, SM_IMG, GUIDE),
+    point(SM_FOCUS, 0.8, "ink"),
+    line({ x: 70, y: 7 }, { x: 70, y: 44 }, s("rule", 0.3, "dash")),
+    line({ x: 74, y: SM_AXIS }, { x: 138, y: SM_AXIS }, AXIS),
+    { kind: "poly", points: lensOutline({ x: SMB_X, y: SM_AXIS }, 10, 2), stroke: INK, fill: "glass" },
+    arrow({ x: SMB_OBJ.x, y: SM_AXIS }, SMB_OBJ, INK),
+    arrow(SMB_OBJ, { x: SMB_X, y: SMB_OBJ.y }, RAY),
+    arrow({ x: SMB_X, y: SMB_OBJ.y }, SMB_OUT(SMB_OBJ.y), RAY),
+    arrow(SMB_OBJ, { x: SMB_X, y: SM_AXIS }, s("ray", 0.5)),
+    arrow({ x: SMB_X, y: SM_AXIS }, SMB_OUT(SM_AXIS), RAY),
+    point({ x: SMB_X + SMB_F, y: SM_AXIS }, 0.8, "ink"),
+    label({ x: SM_OBJ.x, y: SM_AXIS - 3.8 }, "O", { anchor: "middle", math: true, size: 2.8 }),
+    label({ x: SM_IMG.x, y: SM_IMG.y + 3 }, "I", { anchor: "middle", math: true, size: 2.8, color: "warn" }),
+    label({ x: SM_FOCUS.x, y: SM_AXIS + 4.2 }, "F′", { anchor: "middle", math: true, size: 2.8 }),
+    label({ x: 5, y: 43 }, "(a)", { size: 2.8, color: "muted" }),
+    label({ x: SMB_OBJ.x, y: SM_AXIS - 3.8 }, "O", { anchor: "middle", math: true, size: 2.8 }),
+    label({ x: SMB_X + SMB_F, y: SM_AXIS + 4.2 }, "F′", { anchor: "middle", math: true, size: 2.8 }),
+    label({ x: 75, y: 43 }, "(b)", { size: 2.8, color: "muted" }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "simple microscope, image at D: 1/v − 1/u = 1/f",
+      actual: 1 / SM_V - 1 / SM_U,
+      expected: 1 / SM_F,
+      tol: 1e-12,
+    },
+    {
+      kind: "value",
+      label: "the bent parallel ray passes through F′ and on to the image tip",
+      actual: atPlane(SM_HIT, SM_FOCUS, SM_IMG.x).y,
+      expected: SM_IMG.y,
+      tol: 1e-9,
+    },
+    {
+      kind: "value",
+      label: "the ray through the optical centre points at the image tip too",
+      actual: atPlane({ x: SM_X, y: SM_AXIS }, SM_OBJ, SM_IMG.x).y,
+      expected: SM_IMG.y,
+      tol: 1e-9,
+    },
+    {
+      kind: "value",
+      label: "with the object at f the two emergent rays are parallel",
+      actual: (SMB_OUT(SMB_OBJ.y).y - SMB_OBJ.y) / (134 - SMB_X),
+      expected: (SMB_OUT(SM_AXIS).y - SM_AXIS) / (134 - SMB_X),
+      tol: 1e-12,
+    },
+  ],
+};
+
+/* ────────────────────────────────────────────────────────────────────────
+ * 0l. The compound microscope (Fig. 9.24)
+ *
+ * Objective at f_o = 9 with the object 12 in front: v = 36, m = −3, and the
+ * first image lands exactly on the eyepiece's front focus, six in front of the
+ * eyepiece. Its height is −6, so the emergent bundle has slope +1 and the eye
+ * sees the final image at infinity, inverted.
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const CM_AXIS = 30;
+const CM_X = 44;
+const CM_FO = 12;
+const CM_OBJ: Vec = { x: 28, y: 34 };
+const CM_U = CM_OBJ.x - CM_X; // −16
+const CM_V = (1 / (1 / CM_FO + 1 / CM_U)) as number; // +48
+const CM_M = CM_V / CM_U; // −3
+const CM_I: Vec = { x: CM_X + CM_V, y: CM_AXIS + CM_M * (CM_OBJ.y - CM_AXIS) };
+const CM_FE = 10;
+const CM_EYE_X = CM_I.x + CM_FE;
+const CM_L = CM_I.x - (CM_X + CM_FO); // 36
+/** Slope after the eyepiece for a ray through the first image and the lens. */
+const cmAfter = (yHit: number): number => (yHit - CM_I.y) / CM_FE - (yHit - CM_AXIS) / CM_FE;
+
+export const compoundMicroscope: FigureSpec = {
+  id: "compound-microscope",
+  title: "A compound microscope: objective and eyepiece",
+  alt:
+    "A compound microscope on an axis. A small object beyond the objective's focus is imaged by the objective as a real, inverted, magnified first image at the eyepiece's front focal point. Rays from that image leave the eyepiece parallel, so the final image seen by the eye is at infinity and inverted. The tube length, from the objective's second focus to the eyepiece's first focus, is marked L.",
+  caption:
+    "The objective makes a real, inverted first image at the eyepiece's focal point; the eyepiece then acts as a simple magnifier, so the final image is at infinity and inverted. L is the tube length.",
+  frame: { width: 152, height: 70 },
+  source: "Fig. 9.24",
+  elements: [
+    line({ x: 6, y: CM_AXIS }, { x: 146, y: CM_AXIS }, AXIS),
+    { kind: "poly", points: lensOutline({ x: CM_X, y: CM_AXIS }, 11, 2.2), stroke: INK, fill: "glass" },
+    { kind: "poly", points: lensOutline({ x: CM_EYE_X, y: CM_AXIS }, 10, 2), stroke: INK, fill: "glass" },
+    arrow({ x: CM_OBJ.x, y: CM_AXIS }, CM_OBJ, INK),
+    arrow({ x: CM_I.x, y: CM_AXIS }, CM_I, EMERGENT),
+    arrow(CM_OBJ, { x: CM_X, y: CM_OBJ.y }, RAY),
+    arrow({ x: CM_X, y: CM_OBJ.y }, CM_I, RAY),
+    arrow(CM_OBJ, { x: CM_X, y: CM_AXIS }, s("ray", 0.5)),
+    arrow({ x: CM_X, y: CM_AXIS }, CM_I, RAY),
+    line(CM_I, { x: CM_EYE_X, y: 24 }, s("ray", 0.5)),
+    line(CM_I, { x: CM_EYE_X, y: 28 }, s("ray", 0.5)),
+    arrow({ x: CM_EYE_X, y: 24 }, { x: 140, y: 39.2 }, EMERGENT),
+    arrow({ x: CM_EYE_X, y: 28 }, { x: 140, y: 43.2 }, EMERGENT),
+    line({ x: CM_I.x, y: 18 }, { x: CM_I.x, y: 38 }, GUIDE),
+    line({ x: CM_X + CM_FO, y: 12 }, { x: CM_I.x, y: 12 }, THIN),
+    line({ x: CM_X + CM_FO, y: 10.6 }, { x: CM_X + CM_FO, y: 13.4 }, THIN),
+    line({ x: CM_I.x, y: 10.6 }, { x: CM_I.x, y: 13.4 }, THIN),
+    point({ x: CM_X + CM_FO, y: CM_AXIS }, 0.8, "ink"),
+    point({ x: CM_I.x, y: CM_AXIS }, 0.8, "ink"),
+    label({ x: CM_OBJ.x - 0.8, y: CM_OBJ.y + 2.6 }, "O", { anchor: "end", math: true, size: 2.8 }),
+    label({ x: CM_I.x - 1.6, y: CM_I.y - 3.4 }, "I", { sub: "1", anchor: "end", math: true, size: 2.8 }),
+    label({ x: CM_X, y: 16.2 }, "objective", { anchor: "middle", size: 2.7, color: "muted" }),
+    label({ x: CM_EYE_X, y: 16.2 }, "eyepiece", { anchor: "middle", size: 2.7, color: "muted" }),
+    label({ x: (CM_X + CM_FO + CM_I.x) / 2, y: 8.6 }, "L", { anchor: "middle", math: true, size: 2.8 }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "the objective forms the first image: 1/v − 1/u = 1/f_o",
+      actual: 1 / CM_V - 1 / CM_U,
+      expected: 1 / CM_FO,
+      tol: 1e-12,
+    },
+    {
+      kind: "value",
+      label: "the first image sits at the eyepiece's front focus",
+      actual: CM_I.x,
+      expected: CM_EYE_X - CM_FE,
+      tol: 1e-12,
+    },
+    {
+      kind: "value",
+      label: "m_o = L/f_o (the objective's magnification, in size)",
+      actual: -CM_M,
+      expected: CM_L / CM_FO,
+      tol: 1e-12,
+    },
+    {
+      kind: "value",
+      label: "both emergent rays have the same slope: the bundle is parallel",
+      actual: cmAfter(22),
+      expected: cmAfter(26),
+      tol: 1e-12,
+    },
+  ],
+};
+
+/* ────────────────────────────────────────────────────────────────────────
+ * 0m. The refracting telescope (Fig. 9.25)
+ *
+ * Parallel light enters the objective at slope 0.12 and is brought to the
+ * shared focal plane; the eyepiece, whose front focus sits there too, throws
+ * the bundle out at slope −0.48. Slope ratio 0.48/0.12 = 4 = f_o/f_e, and the
+ * tube is f_o + f_e = 30 long.
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const RT_AXIS = 26;
+const RT_X = 36;
+const RT_FO = 24;
+const RT_FE = 6;
+const RT_EYE_X = RT_X + RT_FO + RT_FE; // 66
+const RT_SLOPE = 0.12;
+const RT_HALF = 10;
+const RT_HIT: readonly [number, number] = [RT_AXIS + RT_HALF, RT_AXIS - RT_HALF];
+const RT_IMG: Vec = { x: RT_X + RT_FO, y: RT_AXIS + RT_FO * RT_SLOPE };
+const RT_IN = (y: number): Vec => ({ x: 4, y: y - RT_SLOPE * (RT_X - 4) });
+const RT_AFTER_OBJ = (y: number): number => RT_SLOPE - (y - RT_AXIS) / RT_FO;
+const RT_EYE = (y: number): Vec => ({ x: RT_EYE_X, y: RT_IMG.y + RT_AFTER_OBJ(y) * RT_FE });
+const RT_AFTER_EYE = (RT_AXIS - RT_IMG.y) / RT_FE; // −0.48
+const RT_END_X = 100;
+const RT_END = (p: Vec): Vec => ({ x: RT_END_X, y: p.y + (RT_END_X - RT_EYE_X) * RT_AFTER_EYE });
+const RT_ALPHA = (Math.atan(RT_SLOPE) * 180) / Math.PI;
+const RT_BETA = (Math.atan(Math.abs(RT_AFTER_EYE)) * 180) / Math.PI;
+/** Where the upper emergent ray crosses the axis: the vertex for the β mark. */
+const RT_BETA_V: Vec = { x: RT_EYE_X - (RT_EYE(RT_HIT[1]).y - RT_AXIS) / RT_AFTER_EYE, y: RT_AXIS };
+const RT_VERTEX: Vec = { x: RT_X, y: RT_AXIS };
+
+export const refractingTelescope: FigureSpec = {
+  id: "refracting-telescope",
+  title: "A refracting telescope",
+  alt:
+    "A refracting telescope on an axis. Two parallel rays from a distant object enter the large objective at a small angle α to the axis and meet at its second focal point, which is also the eyepiece's first focal point. The eyepiece sends them out parallel at the larger angle β, so the final image of the distant object is inverted and magnified.",
+  caption:
+    "The objective forms a real image at its second focus; the eyepiece magnifies it. The emergent bundle leaves at angle β, and the object subtends α, so m = β/α = f_o/f_e. The tube is f_o + f_e long.",
+  frame: { width: 112, height: 44 },
+  source: "Fig. 9.25",
+  elements: [
+    line({ x: 4, y: RT_AXIS }, { x: 106, y: RT_AXIS }, AXIS),
+    { kind: "poly", points: lensOutline({ x: RT_X, y: RT_AXIS }, 12, 2.4), stroke: INK, fill: "glass" },
+    { kind: "poly", points: lensOutline({ x: RT_EYE_X, y: RT_AXIS }, 8, 1.6), stroke: INK, fill: "glass" },
+    arrow(RT_IN(RT_HIT[0]), { x: RT_X, y: RT_HIT[0] }, INCIDENT),
+    arrow(RT_IN(RT_HIT[1]), { x: RT_X, y: RT_HIT[1] }, INCIDENT),
+    arrow({ x: RT_X, y: RT_HIT[0] }, RT_EYE(RT_HIT[0]), RAY),
+    arrow({ x: RT_X, y: RT_HIT[1] }, RT_EYE(RT_HIT[1]), RAY),
+    arrow(RT_EYE(RT_HIT[0]), RT_END(RT_EYE(RT_HIT[0])), EMERGENT),
+    arrow(RT_EYE(RT_HIT[1]), RT_END(RT_EYE(RT_HIT[1])), EMERGENT),
+    line({ x: RT_IMG.x, y: 18 }, { x: RT_IMG.x, y: 36 }, GUIDE),
+    ...angleMark(RT_VERTEX, 180 - RT_ALPHA, 180, { r: 10 }),
+    ...angleMark(RT_BETA_V, -RT_BETA, 0, { r: 10 }),
+    point(RT_IMG, 0.9, "ink"),
+    label({ x: RT_IMG.x + 2.4, y: RT_IMG.y + 2.4 }, "I", { anchor: "start", size: 2.8 }),
+    label(polar(RT_VERTEX, 180 - RT_ALPHA / 2, 12.6), "α", { anchor: "middle", math: true, size: 2.8 }),
+    label(polar(RT_BETA_V, -RT_BETA / 2, 13), "β", { anchor: "middle", math: true, size: 2.8 }),
+    label({ x: RT_X, y: 12.2 }, "objective", { anchor: "middle", size: 2.7, color: "muted" }),
+    label({ x: RT_EYE_X + 6, y: 12.2 }, "eyepiece", { anchor: "middle", size: 2.7, color: "muted" }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "parallel rays at slope m meet the focal plane at the same height",
+      actual: RT_HIT[0] + RT_AFTER_OBJ(RT_HIT[0]) * RT_FO,
+      expected: RT_HIT[1] + RT_AFTER_OBJ(RT_HIT[1]) * RT_FO,
+      tol: 1e-12,
+    },
+    {
+      kind: "value",
+      label: "the emergent rays are parallel",
+      actual: (RT_END(RT_EYE(RT_HIT[0])).y - RT_EYE(RT_HIT[0]).y) / (RT_END_X - RT_EYE_X),
+      expected: (RT_END(RT_EYE(RT_HIT[1])).y - RT_EYE(RT_HIT[1]).y) / (RT_END_X - RT_EYE_X),
+      tol: 1e-12,
+    },
+    {
+      kind: "value",
+      label: "m = f_o/f_e: the emergent slope is that many times the incident slope",
+      actual: Math.abs(RT_AFTER_EYE) / RT_SLOPE,
+      expected: RT_FO / RT_FE,
+      tol: 1e-12,
+    },
+    {
+      kind: "value",
+      label: "the tube is f_o + f_e long",
+      actual: RT_EYE_X - RT_X,
+      expected: RT_FO + RT_FE,
+      tol: 1e-12,
+    },
+  ],
+};
+
+/* ────────────────────────────────────────────────────────────────────────
+ * 0n. The Cassegrain reflecting telescope (Fig. 9.26)
+ *
+ * Every ray below is `reflect`ed, twice: off the concave primary (centre C1,
+ * radius 96, vertex at x = 68) and off the small convex secondary (centre C2,
+ * radius 60, vertex at x = 60) that sends the light back through the hole in
+ * the primary. The secondary sits well inside the primary's focus (x = 20), so
+ * Δx = uR/(R + 2u) = 40·60/140 = 17.1 puts the final crossing 9 behind the
+ * mirror — the reality that makes a Cassegrain long-focus but short.
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const CS_AXIS = 34;
+const CS_C1: Vec = { x: -28, y: CS_AXIS };
+const CS_R1 = 96;
+const CS_C2: Vec = { x: 120, y: CS_AXIS };
+const CS_R2 = 60;
+/** Half-angle of the hole in the primary: 96 sin 6° = 10. */
+const CS_HOLE_DEG = 6;
+/** Outer half-angle of the primary's surface: 96 sin 14.5° = 24. */
+const CS_PRIM_DEG = 14.5;
+/** Half-angle of the secondary: 60 sin 11.1° = 11.6 — just wide enough for the beam. */
+const CS_SEC_DEG = 11.1;
+const CS_RAY = 13;
+const CS_HOLE_HALF = CS_R1 * Math.sin((CS_HOLE_DEG * Math.PI) / 180);
+const CS_PRIMARY_X = CS_C1.x + CS_R1; // 68
+
+/** Where two rays cross. */
+function csCross(p: Vec, dp: Vec, q: Vec, dq: Vec): Vec | null {
+  const den = dp.x * dq.y - dp.y * dq.x;
+  if (Math.abs(den) < 1e-9) return null;
+  const t = ((q.x - p.x) * dq.y - (q.y - p.y) * dq.x) / den;
+  return add(p, mul(dp, t));
+}
+
+/** A mirror: the arc plus short ticks on its back. */
+function csBand(C: Vec, R: number, fromDeg: number, toDeg: number): Element[] {
+  const out: Element[] = [{ kind: "poly", points: arcPoints(C, R, fromDeg, toDeg), stroke: s("ink", 1.7) }];
+  for (let a = fromDeg; a <= toDeg + 1e-9; a += 2.4) {
+    out.push(line(polar(C, a, R + 0.6), polar(C, a, R + 2.4), s("ink", 0.28)));
+  }
+  return out;
+}
+
+const csTrace = (y: number) => {
+  const from = vec(8, y);
+  const p1 = hitCircle(from, dir(0), CS_C1, CS_R1, "far");
+  const d1 = reflect(dir(0), unit(sub(p1, CS_C1)));
+  const p2 = hitCircle(p1, d1, CS_C2, CS_R2, "far");
+  const d2 = reflect(d1, unit(sub(p2, CS_C2)));
+  return { from, p1, d1, p2, d2 };
+};
+
+const CS_HI = csTrace(CS_AXIS + CS_RAY);
+const CS_LO = csTrace(CS_AXIS - CS_RAY);
+const CS_FOCUS = csCross(CS_HI.p2, CS_HI.d2, CS_LO.p2, CS_LO.d2) ?? vec(73, CS_AXIS);
+const csEnd = (r: { p2: Vec; d2: Vec }): Vec => add(r.p2, mul(r.d2, (100 - r.p2.x) / r.d2.x));
+const CS_OUT_HI = csEnd(CS_HI);
+const CS_OUT_LO = csEnd(CS_LO);
+/** The emergent rays' height where they cross the primary's plane. */
+const CS_AT_HOLE = Math.abs(
+  CS_HI.p2.y + ((CS_PRIMARY_X - CS_HI.p2.x) * CS_HI.d2.y) / CS_HI.d2.x - CS_AXIS,
+);
+const CS_SEC_TOP = CS_AXIS + CS_R2 * Math.sin((CS_SEC_DEG * Math.PI) / 180);
+
+export const cassegrain: FigureSpec = {
+  id: "cassegrain-telescope",
+  title: "A Cassegrain reflecting telescope",
+  alt:
+    "A Cassegrain telescope on an axis. Parallel light enters from the left past the small convex secondary, meets the concave primary mirror at the right, and returns to the secondary, which sends the converging beam back through a hole in the centre of the primary to a focus just behind it.",
+  caption:
+    "Parallel light hits the concave primary, comes back to the convex secondary and is sent through the hole in the primary. A long focal length fits in a short tube.",
+  frame: { width: 116, height: 68 },
+  source: "Fig. 9.26",
+  elements: [
+    line({ x: 6, y: CS_AXIS }, { x: 108, y: CS_AXIS }, AXIS),
+    ...csBand(CS_C1, CS_R1, CS_HOLE_DEG, CS_PRIM_DEG),
+    ...csBand(CS_C1, CS_R1, -CS_PRIM_DEG, -CS_HOLE_DEG),
+    ...csBand(CS_C2, CS_R2, 180 - CS_SEC_DEG, 180 + CS_SEC_DEG),
+    arrow(CS_HI.from, CS_HI.p1, INCIDENT),
+    arrow(CS_LO.from, CS_LO.p1, INCIDENT),
+    arrow(CS_HI.p1, CS_HI.p2, RAY),
+    arrow(CS_LO.p1, CS_LO.p2, RAY),
+    arrow(CS_HI.p2, CS_OUT_HI, EMERGENT),
+    arrow(CS_LO.p2, CS_OUT_LO, EMERGENT),
+    point(CS_FOCUS, 0.9, "ok"),
+    label({ x: 52, y: 13 }, "secondary", { anchor: "middle", size: 2.7, color: "muted" }),
+    label({ x: 78, y: 13 }, "primary", { anchor: "middle", size: 2.7, color: "muted" }),
+    label({ x: CS_FOCUS.x + 1.4, y: CS_FOCUS.y + 3.8 }, "I", { anchor: "start", size: 2.8, color: "ok" }),
+  ],
+  checks: [
+    {
+      kind: "reflect",
+      i: angleBetween(mul(dir(0), -1), unit(sub(CS_HI.p1, CS_C1))),
+      r: angleBetween(CS_HI.d1, unit(sub(CS_HI.p1, CS_C1))),
+      tolDeg: 1e-9,
+    },
+    {
+      kind: "reflect",
+      i: angleBetween(mul(CS_HI.d1, -1), unit(sub(CS_HI.p2, CS_C2))),
+      r: angleBetween(CS_HI.d2, unit(sub(CS_HI.p2, CS_C2))),
+      tolDeg: 1e-9,
+    },
+    {
+      kind: "value",
+      label: "the reflected rays meet at the primary's paraxial focus (within the drawing's spherical aberration)",
+      actual: Math.hypot(
+        (csCross(CS_HI.p1, CS_HI.d1, CS_LO.p1, CS_LO.d1) ?? vec(0, 0)).x - (CS_C1.x + CS_R1 / 2),
+        (csCross(CS_HI.p1, CS_HI.d1, CS_LO.p1, CS_LO.d1) ?? vec(0, 0)).y - CS_AXIS,
+      ),
+      expected: 0,
+      tol: 1.5,
+    },
+    {
+      kind: "value",
+      label: "the beam reaches the secondary: the reflected rays land inside its rim",
+      actual: Math.max(...[CS_HI, CS_LO].map((r) => Math.abs(r.p2.y - CS_AXIS))),
+      expected: CS_SEC_TOP - CS_AXIS,
+      tol: CS_SEC_TOP - CS_AXIS,
+    },
+    {
+      kind: "value",
+      label: "the emergent rays cross on the axis",
+      actual: CS_FOCUS.y,
+      expected: CS_AXIS,
+      tol: 1e-9,
+    },
+    {
+      kind: "value",
+      label: "the emergent rays pass inside the hole in the primary",
+      actual: CS_AT_HOLE,
+      expected: CS_HOLE_HALF,
+      tol: CS_HOLE_HALF,
+    },
+  ],
+};
+
 export const RAY_OPTICS_FIGURES: readonly FigureSpec[] = [
   rayAndBeam,
   refractionAtSurface,
@@ -1498,6 +1914,10 @@ export const RAY_OPTICS_FIGURES: readonly FigureSpec[] = [
   concaveLensRays,
   prismPath,
   deviationCurve,
+  simpleMicroscope,
+  compoundMicroscope,
+  refractingTelescope,
+  cassegrain,
   planeReflection,
   concaveMirrorTerms,
   convexMirrorTerms,
