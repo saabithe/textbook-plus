@@ -876,22 +876,16 @@ export default function EvolutionChapter() {
         About 2000 mya the first cellular life appeared. Some cells could release O₂ — much as the light reaction of
         photosynthesis splits water — and single cells slowly became multicellular.
       </p>
-      <p>
-        How non-cellular aggregates of giant molecules became cells with a membranous envelope is still unknown.
-      </p>
       <Timeline
         title="Landmarks on the geological clock"
         rtl={false}
         events={[
-          { date: "500 mya", label: "Invertebrates", detail: "Invertebrates were formed and active." },
-          { date: "350 mya", label: "Jawless fish", detail: "Jawless fish probably evolved around this time." },
-          {
-            date: "350 mya",
-            label: "Life invades land",
-            detail: "Plants were the first organisms to invade land.",
-          },
-          { date: "320 mya", label: "Sea weeds and a few plants", detail: "Sea weeds and few plants existed probably around this time." },
-          { date: "200 mya", label: "Fish-like reptiles", detail: "Some land reptiles went back into water to evolve into fish-like reptiles, e.g. Ichthyosaurs." },
+          { date: "2000 mya", label: "First cellular life", detail: "O₂-releasing photosynthesis appeared." },
+          { date: "500 mya", label: "Invertebrates active" },
+          { date: "350 mya", label: "Jawless fish & stout-finned lobe-fins", detail: "Ancestors of amphibians." },
+          { date: "320 mya", label: "Seaweeds & early land plants" },
+          { date: "200 mya", label: "Fish-like reptiles & dinosaur diversification", detail: "Ichthyosaurs and other forms." },
+          { date: "65 mya", label: "Dinosaurs extinct; mammals take over" },
         ]}
       />
       <ul className="list-disc pl-5 space-y-1.5">
@@ -988,66 +982,63 @@ export default function EvolutionChapter() {
       <h2 id="h-6-8">6.8 Origin and Evolution of Man</h2>
       <p>
         About 15 mya, <strong>Dryopithecus</strong> and <strong>Ramapithecus</strong> lived. Both were hairy and walked
-        like gorillas, but Ramapithecus was more man-like and Dryopithecus more ape-like.
+        like gorillas and chimpanzees; Dryopithecus was more ape-like, Ramapithecus more man-like.
       </p>
       <Timeline
         title="The human story"
-        orientation="vertical"
+        orientation="horizontal"
         rtl={false}
         events={[
           {
+            date: "15 mya",
+            label: "Dryopithecus",
+            detail: "Hairy; walked like gorillas/chimps — more ape-like.",
+          },
+          {
+            date: "15 mya",
+            label: "Ramapithecus",
+            detail: "Similar build — more man-like.",
+          },
+          {
             date: "3–4 mya",
-            label: "Man-like primates in eastern Africa",
-            detail: "Fossils of man-like bones discovered in Ethiopia and Tanzania revealed hominid features. They were probably not taller than 4 feet but walked upright.",
+            label: "Early hominid primates",
+            detail: "Eastern Africa (Ethiopia & Tanzania); walked upright; < 4 ft tall.",
           },
           {
             date: "2 mya",
             label: "Australopithecines",
-            detail: "Probably lived in East African grasslands; evidence shows they hunted with stone weapons but essentially ate fruit.",
+            detail: "East African grasslands; stone tools; ate fruit.",
           },
           {
             date: "2 mya",
             label: "Homo habilis",
-            detail: "Some of the bones among the bones discovered were different. This creature was called the first human-like being, the hominid — Homo habilis.",
+            detail: "First human-like being; brain 650–800 cc; did not eat meat.",
           },
           {
             date: "1.5 mya",
             label: "Homo erectus",
-            detail: "Fossils discovered in Java in 1891 revealed this next stage.",
+            detail: "Java (1891); brain ~900 cc; probably ate meat.",
           },
           {
-            date: "1,00,000–40,000 years back",
+            date: "1,00,000–40,000 ya",
             label: "Neanderthal man",
-            detail: "Lived in near east and central Asia. Used hides to protect their body and buried their dead.",
+            detail: "Near East & Central Asia; hides, buried dead; ~1400 cc.",
           },
           {
-            date: "75,000–10,000 years ago",
-            label: "Modern Homo sapiens",
-            detail: "Arose during the ice age.",
+            date: "75,000–10,000 ya",
+            label: "Homo sapiens",
+            detail: "Arose in Africa, spread globally; cave art (~18,000 ya), agriculture (~10,000 ya).",
           },
         ]}
       />
       <BrainSizeBars />
-      <p>
-        <strong>Homo sapiens</strong> arose in Africa, spread across continents, and developed into distinct races.
-      </p>
       <ul className="list-disc pl-5 space-y-1.5">
         <li>
           <strong>Cave art</strong> — about 18,000 years ago; see the paintings at the{" "}
           <strong>Bhimbetka rock shelter</strong>, Raisen district, Madhya Pradesh.
         </li>
         <li><strong>Agriculture</strong> — around 10,000 years ago; human settlements began.</li>
-        <li><strong>History</strong> — the growth and decline of civilisations.</li>
       </ul>
-      <MistakeCard
-        mistake="Homo habilis had the largest brain of the human line."
-        correction="Homo habilis had a brain of 650–800 cc; Homo erectus about 900 cc; the Neanderthal man 1400 cc. Brain size increased along the line, it did not decrease."
-        example="The order to remember is habilis → erectus → Neanderthal."
-      />
-      <KeyPoint title="The pattern in the record">
-        Upright walking appears early, brain size rises steadily along the line, the diet shifts from fruit to meat,
-        and the later stages add culture — hides, deliberate burial, cave art and finally agriculture.
-      </KeyPoint>
 
       <h2 id="h-6-exercises">Exercises</h2>
       <Expandable title="Exercises — all questions with answers" variant="exercise">
