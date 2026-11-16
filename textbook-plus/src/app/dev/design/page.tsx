@@ -2961,21 +2961,8 @@ export default function DesignPage() {
         </div>
       </Section>
 
-      <Section title="Biology — PCR and gel electrophoresis">
+      <Section title="Biology — gel electrophoresis and PCR">
         <div className="space-y-8">
-          <div>
-            <p className="t-micro">PCR — concept</p>
-            <PcrConcept />
-            <p className="t-micro mt-6">PCR — components</p>
-            <PcrComponents />
-            <p className="t-micro mt-6">PCR — thermal cycle</p>
-            <PcrCycle />
-            <p className="t-micro mt-6">PCR — Taq polymerase</p>
-            <TaqPolymerase />
-            <p className="t-micro mt-6">PCR — exponential amplification</p>
-            <ExponentialAmplification />
-          </div>
-
           <div>
             <p className="t-micro">AGE — why separation</p>
             <SeparationNeed />
@@ -2991,6 +2978,19 @@ export default function DesignPage() {
             <Elution />
             <p className="t-micro mt-6">AGE — complete workflow</p>
             <AgeWorkflow />
+          </div>
+
+          <div>
+            <p className="t-micro">PCR — concept</p>
+            <PcrConcept />
+            <p className="t-micro mt-6">PCR — components</p>
+            <PcrComponents />
+            <p className="t-micro mt-6">PCR — thermal cycle</p>
+            <PcrCycle />
+            <p className="t-micro mt-6">PCR — Taq polymerase</p>
+            <TaqPolymerase />
+            <p className="t-micro mt-6">PCR — exponential amplification</p>
+            <ExponentialAmplification />
           </div>
         </div>
       </Section>
