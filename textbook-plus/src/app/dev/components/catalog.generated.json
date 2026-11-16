@@ -3411,6 +3411,51 @@
     "renderable": true
   },
   {
+    "id": "content/biology/DnaIsolation.tsx#CellWallEnzymes",
+    "name": "CellWallEnzymes",
+    "path": "content/biology/DnaIsolation.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/DnaIsolation.tsx#IsolationWorkflow",
+    "name": "IsolationWorkflow",
+    "path": "content/biology/DnaIsolation.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/DnaIsolation.tsx#MacromoleculeRemoval",
+    "name": "MacromoleculeRemoval",
+    "path": "content/biology/DnaIsolation.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/DnaIsolation.tsx#PrecipitationSpooling",
+    "name": "PrecipitationSpooling",
+    "path": "content/biology/DnaIsolation.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/DnaIsolation.tsx#PurityRequirement",
+    "name": "PurityRequirement",
+    "path": "content/biology/DnaIsolation.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/EfbConcept.tsx#EfbConceptFlow",
     "name": "EfbConceptFlow",
     "path": "content/biology/EfbConcept.tsx",
@@ -3423,6 +3468,15 @@
     "id": "content/biology/EfbConcept.tsx#EfbQuoteCard",
     "name": "EfbQuoteCard",
     "path": "content/biology/EfbConcept.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/EnzymeToolkitTable.tsx#EnzymeToolkitTable",
+    "name": "EnzymeToolkitTable",
+    "path": "content/biology/EnzymeToolkitTable.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
@@ -3600,6 +3654,33 @@
     "renderable": true
   },
   {
+    "id": "content/biology/PalindromeSites.tsx#EcoRICutSite",
+    "name": "EcoRICutSite",
+    "path": "content/biology/PalindromeSites.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PalindromeSites.tsx#EcoRIRecognitionSite",
+    "name": "EcoRIRecognitionSite",
+    "path": "content/biology/PalindromeSites.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PalindromeSites.tsx#PalindromeDefinition",
+    "name": "PalindromeDefinition",
+    "path": "content/biology/PalindromeSites.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/ParasitismDiagrams.tsx#AdaptationGrid",
     "name": "AdaptationGrid",
     "path": "content/biology/ParasitismDiagrams.tsx",
@@ -3702,6 +3783,114 @@
     "id": "content/biology/RdnaSteps.tsx#RdnaStepsTimeline",
     "name": "RdnaStepsTimeline",
     "path": "content/biology/RdnaSteps.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/RestrictionEnzymes.tsx#BacterialDefence",
+    "name": "BacterialDefence",
+    "path": "content/biology/RestrictionEnzymes.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/RestrictionEnzymes.tsx#NucleaseTypes",
+    "name": "NucleaseTypes",
+    "path": "content/biology/RestrictionEnzymes.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/RestrictionEnzymes.tsx#RestrictionEnzymeConcept",
+    "name": "RestrictionEnzymeConcept",
+    "path": "content/biology/RestrictionEnzymes.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/RestrictionEnzymes.tsx#RestrictionMechanism",
+    "name": "RestrictionMechanism",
+    "path": "content/biology/RestrictionEnzymes.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/RestrictionEnzymes.tsx#StickyEndsDiagram",
+    "name": "StickyEndsDiagram",
+    "path": "content/biology/RestrictionEnzymes.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/RestrictionHistory.tsx#CommonEnzymesGrid",
+    "name": "CommonEnzymesGrid",
+    "path": "content/biology/RestrictionHistory.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/RestrictionHistory.tsx#EnzymeLibraryStats",
+    "name": "EnzymeLibraryStats",
+    "path": "content/biology/RestrictionHistory.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/RestrictionHistory.tsx#HindIICard",
+    "name": "HindIICard",
+    "path": "content/biology/RestrictionHistory.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/RestrictionHistory.tsx#RestrictionHistoryTimeline",
+    "name": "RestrictionHistoryTimeline",
+    "path": "content/biology/RestrictionHistory.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/RestrictionNaming.tsx#EcoRINamingDiagram",
+    "name": "EcoRINamingDiagram",
+    "path": "content/biology/RestrictionNaming.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/RestrictionNaming.tsx#NamingRulesTable",
+    "name": "NamingRulesTable",
+    "path": "content/biology/RestrictionNaming.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ThreeBasicSteps.tsx#ThreeBasicSteps",
+    "name": "ThreeBasicSteps",
+    "path": "content/biology/ThreeBasicSteps.tsx",
     "category": "biology",
     "props": null,
     "shell": false,

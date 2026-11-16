@@ -1,14 +1,5 @@
-import { Callout } from "@/components/content/Callout";
-import { KeyPoint } from "@/components/content/KeyPoint";
-import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
-import { Highlight } from "@/components/content/Highlight";
-import { ProcessCard } from "@/components/content/process/ProcessCard";
-import { MetricCard } from "@/components/content/study/MetricCard";
-import { MistakeCard } from "@/components/content/study/MistakeCard";
-import { TableCard } from "@/components/content/data/TableCard";
-import { FactCard } from "@/components/content/concept/FactCard";
 import { BiotechDefinitionCard } from "@/components/content/biology/BiotechDefinition";
 import { CurdFormationStrip } from "@/components/content/biology/CurdFormation";
 import { EfbQuoteCard, EfbConceptFlow } from "@/components/content/biology/EfbConcept";
@@ -30,6 +21,30 @@ import {
   HybridisationVsEngineering,
   HybridisationCrossing,
 } from "@/components/content/biology/HybridisationComparison";
+import { ThreeBasicSteps } from "@/components/content/biology/ThreeBasicSteps";
+import {
+  PurityRequirement,
+  CellWallEnzymes,
+  MacromoleculeRemoval,
+  IsolationWorkflow,
+  PrecipitationSpooling,
+} from "@/components/content/biology/DnaIsolation";
+import {
+  RestrictionEnzymeConcept,
+  BacterialDefence,
+  NucleaseTypes,
+  RestrictionMechanism,
+  StickyEndsDiagram,
+} from "@/components/content/biology/RestrictionEnzymes";
+import {
+  RestrictionHistoryTimeline,
+  EnzymeLibraryStats,
+  HindIICard,
+  CommonEnzymesGrid,
+} from "@/components/content/biology/RestrictionHistory";
+import { NamingRulesTable, EcoRINamingDiagram } from "@/components/content/biology/RestrictionNaming";
+import { PalindromeDefinition, EcoRIRecognitionSite, EcoRICutSite } from "@/components/content/biology/PalindromeSites";
+import { EnzymeToolkitTable } from "@/components/content/biology/EnzymeToolkitTable";
 import { RdnaStepsOverview, RdnaStepsTimeline } from "@/components/content/biology/RdnaSteps";
 import {
   CohenBoyerStages,
@@ -110,490 +125,81 @@ export default function BiotechnologyPrinciplesAndProcessesChapter() {
       <HybridisationCrossing />
 
       <h2 id="h-9-2">9.2 Tools of Recombinant DNA Technology</h2>
+
+      <h3 id="h-9-2-1">1. Three Basic Steps in Genetically Modifying an Organism</h3>
+      <p>Genetic modification involves <strong>three basic steps</strong>.</p>
+      <ThreeBasicSteps />
+
+      <h3 id="h-9-2-2">2. Isolation of Genetic Material (DNA)</h3>
+
+      <h4 id="h-9-2-2-purity">A. Purity requirement</h4>
+      <PurityRequirement />
+
+      <h4 id="h-9-2-2-wall">B. Cell wall breakdown</h4>
+      <CellWallEnzymes />
+
+      <h4 id="h-9-2-2-macromolecules">C. Subsequent breakdown and removal of macromolecules</h4>
+      <MacromoleculeRemoval />
+
+      <h4 id="h-9-2-2-workflow">D. Sequential workflow of DNA isolation</h4>
+      <IsolationWorkflow />
+
+      <h4 id="h-9-2-2-spooling">E. Precipitation and spooling</h4>
+      <PrecipitationSpooling />
+
+      <h3 id="h-9-2-3">3. Fragmentation of DNA by Restriction Enzymes (RE)</h3>
+
+      <h4 id="h-9-2-3-scissors">A. Restriction enzymes — molecular scissors</h4>
+      <RestrictionEnzymeConcept />
+
+      <h4 id="h-9-2-3-defence">B. Bacterial defence mechanism</h4>
+      <BacterialDefence />
+
+      <h4 id="h-9-2-3-types">C. Types of nucleases</h4>
+      <NucleaseTypes />
+
+      <h3 id="h-9-2-4">4. Discovery and Origin of Restriction Enzymes</h3>
+
+      <h4 id="h-9-2-4-history">A. Historical development</h4>
+      <RestrictionHistoryTimeline />
+      <EnzymeLibraryStats />
+
+      <h4 id="h-9-2-4-hind">B. First restriction endonuclease</h4>
+      <HindIICard />
+
+      <h4 id="h-9-2-4-common">C. Commonly used restriction enzymes</h4>
+      <CommonEnzymesGrid />
+
+      <h3 id="h-9-2-5">5. Nomenclature of Restriction Enzymes</h3>
+      <p>The names of restriction enzymes are derived from their <strong>source bacteria</strong>.</p>
+      <NamingRulesTable />
+
+      <h4 id="h-9-2-5-example">Example: EcoRI</h4>
+      <EcoRINamingDiagram />
+
+      <h3 id="h-9-2-6">6. Action of Restriction Endonucleases</h3>
+      <p>Restriction endonucleases act through <strong>four major stages</strong>.</p>
+      <RestrictionMechanism />
+
+      <h4 id="h-9-2-6-sticky">Sticky ends</h4>
+      <StickyEndsDiagram />
+
+      <h3 id="h-9-2-7">7. Palindromic DNA Sequences</h3>
+
+      <h4 id="h-9-2-7-definition">A. Definition</h4>
+      <PalindromeDefinition />
+
+      <h4 id="h-9-2-7-site">B. Example: EcoRI recognition site</h4>
+      <EcoRIRecognitionSite />
+
+      <h4 id="h-9-2-7-cut">C. EcoRI cleavage site</h4>
+      <EcoRICutSite />
+
+      <h3 id="h-9-2-8">8. Combined Enzymatic and Chemical Toolkit</h3>
       <p>
-        Genetic engineering or recombinant DNA technology can be accomplished only if we have the key tools. Five of
-        them are named in the chapter:
+        A consolidated reference of the enzymes and reagents used during DNA isolation, cleavage and joining.
       </p>
-      <TableCard
-        title="The five key tools"
-        headers={["Tool", "Its job"]}
-        rows={[
-          {
-            cells: [
-              "Restriction enzymes",
-              "Cut DNA at specific locations — the 'molecular scissors' of the trade.",
-            ],
-          },
-          {
-            cells: ["Polymerase enzymes", "Extend a growing DNA strand, copying the template."],
-          },
-          {
-            cells: ["Ligases", "Join the ends of cut DNA molecules."],
-          },
-          {
-            cells: [
-              "Vectors",
-              "Carry the alien piece of DNA into the host, where it is multiplied.",
-            ],
-          },
-          {
-            cells: [
-              "The host organism",
-              "The bacterium, plant or animal cell in which the recombinant DNA replicates.",
-            ],
-          },
-        ]}
-      />
-
-      <h3 id="h-9-2-1">9.2.1 Restriction Enzymes</h3>
-      <p>
-        In the year <strong>1963</strong>, the two enzymes responsible for restricting the growth of bacteriophage in{" "}
-        <em>Escherichia coli</em> were isolated. One of these added methyl groups to DNA, while the other cut DNA. The
-        latter was called <strong>restriction endonuclease</strong>.
-      </p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          The first restriction endonuclease — <strong>Hind II</strong> — whose functioning depended on a specific DNA
-          nucleotide sequence, was isolated and characterised five years later.
-        </li>
-        <li>
-          Hind II always cut DNA molecules at a particular point by recognising a specific sequence of{" "}
-          <strong>six base pairs</strong>.
-        </li>
-        <li>
-          This specific base sequence is known as the <strong>recognition sequence</strong> for Hind II.
-        </li>
-        <li>
-          Today we know more than <strong>900 restriction enzymes</strong>, isolated from over{" "}
-          <strong>230 strains of bacteria</strong>, each of which recognises different recognition sequences.
-        </li>
-      </ul>
-      <div className="grid gap-4 sm:grid-cols-3 [&>div]:my-0">
-        <MetricCard
-          label="Known today"
-          value="900+"
-          unit="restriction enzymes"
-          description="Each recognises a different sequence."
-        />
-        <MetricCard
-          label="Source strains"
-          value="230+"
-          unit="strains of bacteria"
-          description="From which these enzymes have been isolated."
-        />
-        <MetricCard
-          label="Hind II recognition site"
-          value="6"
-          unit="base pairs"
-          description="A specific six-base-pair sequence."
-        />
-      </div>
-
-      <h3 id="h-9-2-1-naming">How these enzymes are named</h3>
-      <p>
-        The convention is that the first letter of the name comes from the <strong>genus</strong> and the second two
-        letters come from the <strong>species</strong> of the prokaryotic cell from which they were isolated. Roman
-        numbers following the names indicate the order in which the enzymes were isolated from that strain of bacteria.
-      </p>
-      <TableCard
-        title="Reading the name EcoRI"
-        headers={["Part of the name", "Comes from"]}
-        rows={[
-          { cells: ["E", "First letter of the genus — Escherichia"] },
-          { cells: ["co", "First two letters of the species — coli"] },
-          { cells: ["R", "The strain — RY 13"] },
-          { cells: ["I", "Roman number — the first enzyme isolated from that strain"] },
-        ]}
-        caption="EcoRI therefore comes from Escherichia coli RY 13."
-      />
-
-      <h3 id="h-9-2-1-nucleases">Nucleases: exo and endo</h3>
-      <p>Restriction enzymes belong to a larger class of enzymes called <strong>nucleases</strong>.</p>
-      <Comparison
-        columns={[
-          {
-            title: "Exonucleases",
-            children: (
-              <ul className="list-disc pl-5 space-y-1.5">
-                <li>Remove nucleotides from the <strong>ends</strong> of the DNA.</li>
-                <li>They nibble inwards from a terminus.</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Endonucleases",
-            children: (
-              <ul className="list-disc pl-5 space-y-1.5">
-                <li>Make cuts at <strong>specific positions within</strong> the DNA.</li>
-                <li>Restriction endonucleases belong to this group.</li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-
-      <h3 id="h-9-2-1-action">How a restriction endonuclease works</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          Each restriction endonuclease functions by &lsquo;<strong>inspecting</strong>&rsquo; the length of a DNA
-          sequence.
-        </li>
-        <li>
-          Once it finds its specific recognition sequence, it binds to the DNA.
-        </li>
-        <li>
-          It then cuts <strong>each of the two strands</strong> of the double helix at specific points in their
-          sugar-phosphate backbones.
-        </li>
-        <li>
-          Each restriction endonuclease recognises a specific <strong>palindromic</strong> nucleotide sequence in the
-          DNA.
-        </li>
-      </ul>
-      <Callout type="note" title="What a palindrome means in DNA">
-        Palindromes are groups of letters that form the same words when read both forward and backward, e.g.
-        &ldquo;MALAYALAM&rdquo;. As against a word-palindrome, where the same word is read in both directions, the
-        palindrome in DNA is a sequence of base pairs that reads the same on the two strands when the orientation of
-        reading is kept the same.
-        <div className="my-3 overflow-x-auto rounded-xl border border-border/40 bg-muted/25 px-4 py-3">
-          <pre className="text-center font-mono text-sm leading-relaxed text-foreground">
-            {"5' —— GAATTC —— 3'\n3' —— CTTAAG —— 5'"}
-          </pre>
-        </div>
-        These sequences read the same on the two strands in the 5&prime; → 3&prime; direction — and this is also true
-        if read in the 3&prime; → 5&prime; direction.
-      </Callout>
-
-      <h3 id="h-9-2-1-sticky">Sticky ends</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          Restriction enzymes cut the strand of DNA <strong>a little away from the centre</strong> of the palindrome
-          sites, but <strong>between the same two bases</strong> on the opposite strands.
-        </li>
-        <li>This leaves single stranded portions at the ends.</li>
-        <li>
-          These overhanging stretches are called <strong>sticky ends</strong>, on each strand.
-        </li>
-        <li>
-          They are named so because they form <strong>hydrogen bonds</strong> with their complementary cut
-          counterparts.
-        </li>
-        <li>
-          This stickiness of the ends facilitates the action of the enzyme <strong>DNA ligase</strong>.
-        </li>
-      </ul>
-      <Callout type="important" title="One enzyme, two DNAs">
-        Restriction endonucleases are used in genetic engineering to form &lsquo;recombinant&rsquo; molecules of DNA,
-        which are composed of DNA from different sources/genomes.
-        <p className="mt-2">
-          When cut by the <strong>same</strong> restriction enzyme, the resultant DNA fragments have the same kind of
-          sticky ends, and these can be joined together (end-to-end) using DNA ligases.{" "}
-          <Highlight color="yellow">
-            Unless one cuts the vector and the source DNA with the same restriction enzyme, the recombinant vector
-            molecule cannot be created.
-          </Highlight>
-        </p>
-      </Callout>
-
-      <h3 id="h-9-2-1-gel">Separation and isolation of DNA fragments</h3>
-      <p>
-        The cutting of DNA by restriction endonucleases results in fragments of DNA. These fragments can be separated
-        by a technique known as <strong>gel electrophoresis</strong>.
-      </p>
-      <FactCard
-        title="Why DNA moves at all"
-        definition="DNA fragments are negatively charged molecules, so they can be separated by forcing them to move towards the anode under an electric field through a medium/matrix."
-        icon="⚡"
-      />
-      <ProcessCard
-        title="Gel electrophoresis, step by step"
-        steps={[
-          {
-            label: "Load the digest on the gel",
-            description:
-              "The matrix used nowadays is agarose — a natural polymer extracted from sea weeds. The sample is loaded in wells.",
-          },
-          {
-            label: "Switch on the field",
-            description:
-              "Being negatively charged, the DNA fragments are forced to move towards the anode through the agarose matrix.",
-          },
-          {
-            label: "The gel sieves by size",
-            description:
-              "The DNA fragments separate (resolve) according to their size through the sieving effect provided by the agarose gel. Hence, the smaller the fragment size, the farther it moves.",
-          },
-          {
-            label: "Stain and see the bands",
-            description:
-              "Pure DNA fragments cannot be seen in visible light and without staining. The DNA is stained with ethidium bromide and exposed to UV radiation, which shows bright orange coloured bands of DNA.",
-          },
-          {
-            label: "Elute the wanted band",
-            description:
-              "The separated bands of DNA are cut out from the agarose gel and extracted from the gel piece. This step is known as elution.",
-          },
-        ]}
-      />
-      <MistakeCard
-        mistake="In gel electrophoresis, the DNA fragments travel towards the cathode (the negative electrode)."
-        correction="DNA is negatively charged, so it moves towards the anode, the positive electrode. The wells are therefore at the cathode end, and the smallest fragments travel farthest from them."
-        example="The chapter tells you to look at the gel and guess at which end the sample was loaded — the answer follows from the charge on DNA."
-      />
-      <p>
-        The DNA fragments purified in this way are used in constructing recombinant DNA by joining them with cloning
-        vectors.
-      </p>
-
-      <h3 id="h-9-2-2">9.2.2 Cloning Vectors</h3>
-      <p>
-        Plasmids and bacteriophages have the ability to <strong>replicate within bacterial cells independent of the
-        control of chromosomal DNA</strong>. Bacteriophages, because of their high number per cell, have very high copy
-        numbers of their genome within the bacterial cells.
-      </p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          Some plasmids may have only <strong>one or two copies</strong> per cell.
-        </li>
-        <li>
-          Others may have <strong>15–100 copies</strong> per cell, and their numbers can go even higher.
-        </li>
-        <li>
-          Link an alien piece of DNA with bacteriophage or plasmid DNA, and its numbers can be multiplied equal to the
-          copy number of the plasmid or bacteriophage.
-        </li>
-        <li>
-          Vectors used at present are engineered in such a way that they help easy linking of foreign DNA and selection
-          of recombinants from non-recombinants.
-        </li>
-      </ul>
-
-      <h3 id="h-9-2-2-ori">Origin of replication (ori)</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          This is a sequence <strong>from where replication starts</strong>.
-        </li>
-        <li>
-          Any piece of DNA, when linked to this sequence, can be made to replicate within the host cells.
-        </li>
-        <li>
-          This sequence is also responsible for <strong>controlling the copy number</strong> of the linked DNA.
-        </li>
-        <li>
-          So, if one wants to recover many copies of the target DNA, it should be cloned in a vector whose origin
-          supports a <strong>high copy number</strong>.
-        </li>
-      </ul>
-
-      <h3 id="h-9-2-2-marker">Selectable marker</h3>
-      <p>
-        In addition to &lsquo;ori&rsquo;, the vector requires a <strong>selectable marker</strong>, which helps in
-        identifying and eliminating non-transformants and selectively permitting the growth of the transformants.
-      </p>
-      <FactCard
-        title="Transformation"
-        definition="A procedure through which a piece of DNA is introduced in a host bacterium."
-        icon="↔"
-      />
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          Normally, the genes encoding resistance to antibiotics such as <strong>ampicillin, chloramphenicol,
-          tetracycline or kanamycin</strong>, etc., are considered useful selectable markers for <em>E. coli</em>.
-        </li>
-        <li>
-          The normal <em>E. coli</em> cells do <strong>not</strong> carry resistance against any of these antibiotics.
-        </li>
-      </ul>
-
-      <h3 id="h-9-2-2-sites">Cloning sites</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          In order to link the alien DNA, the vector needs to have <strong>very few, preferably single</strong>,
-          recognition sites for the commonly used restriction enzymes.
-        </li>
-        <li>
-          Presence of more than one recognition site within the vector will generate several fragments, which will
-          complicate the gene cloning.
-        </li>
-        <li>
-          The ligation of alien DNA is carried out at a restriction site present in one of the two antibiotic
-          resistance genes.
-        </li>
-        <li>
-          For example, you can ligate a foreign DNA at the <em>BamH</em> I site of the tetracycline resistance gene in
-          the vector <strong>pBR322</strong>.
-        </li>
-      </ul>
-      <Callout type="note" title="Inside pBR322">
-        The <em>E. coli</em> cloning vector pBR322 shows restriction sites (Hind III, EcoR I, BamH I, Sal I, Pvu II,
-        Pst I, Cla I), an <strong>ori</strong> and the antibiotic resistance genes (amp<sup>R</sup> and tet
-        <sup>R</sup>). <strong>rop</strong> codes for the proteins involved in the replication of the plasmid.
-      </Callout>
-      <p>
-        The recombinant plasmids will <strong>lose tetracycline resistance</strong> due to insertion of foreign DNA,
-        but can still be selected out from non-recombinant ones by plating the transformants on an ampicillin
-        containing medium. The transformants growing on ampicillin containing medium are then transferred on a medium
-        containing tetracycline.
-      </p>
-      <TableCard
-        title="What grows where"
-        headers={["Medium", "Recombinants", "Non-recombinants"]}
-        rows={[
-          { cells: ["Ampicillin", "Grow", "Grow"] },
-          { cells: ["Ampicillin + tetracycline", "Do not grow", "Grow"] },
-        ]}
-        caption="Both recombinants and non-recombinants are transformants that carry a plasmid, so both grow on ampicillin. One antibiotic resistance gene helps in selecting the transformants; the other gets 'inactivated due to insertion' of alien DNA and helps in selection of recombinants."
-      />
-      <Callout type="important" title="Insertional inactivation — the colour screen">
-        Selection of recombinants due to inactivation of antibiotics is a <em>cumbersome</em> procedure, because it
-        requires simultaneous plating on two plates having different antibiotics. Alternative selectable markers
-        therefore differentiate recombinants from non-recombinants on the basis of their ability to produce colour in
-        the presence of a <strong>chromogenic substrate</strong>.
-        <p className="mt-2">
-          In this, a recombinant DNA is inserted within the coding sequence of an enzyme,{" "}
-          <strong>β-galactosidase</strong>. This results into inactivation of the gene for synthesis of this enzyme —
-          referred to as <strong>insertional inactivation</strong>.
-        </p>
-        <p className="mt-2">
-          The presence of a chromogenic substrate gives <strong>blue coloured colonies</strong> if the plasmid in the
-          bacteria does not have an insert. Presence of an insert results in insertional inactivation of the
-          β-galactosidase gene, so the colonies <strong>do not produce any colour</strong> — these are identified as
-          recombinant colonies.
-        </p>
-      </Callout>
-      <Comparison
-        columns={[
-          {
-            title: "Selectable marker",
-            children: (
-              <ul className="list-disc pl-5 space-y-1.5">
-                <li>
-                  Identifies and eliminates <strong>non-transformants</strong>; permits growth of the transformants
-                  only.
-                </li>
-                <li>
-                  Usually a gene for resistance to an antibiotic the normal host cell is <em>not</em> resistant to.
-                </li>
-                <li>Tells you that DNA got into the cell — nothing about whether that DNA is recombinant.</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Insertional inactivation",
-            children: (
-              <ul className="list-disc pl-5 space-y-1.5">
-                <li>
-                  Separates <strong>recombinants</strong> from non-recombinants, both of which are already
-                  transformants.
-                </li>
-                <li>
-                  Works because the insert disrupts a <em>second</em> gene — an antibiotic resistance gene, or the gene
-                  for β-galactosidase.
-                </li>
-                <li>
-                  The antibiotic version needs two plates; the chromogenic version reads the colour of the colonies on
-                  one plate.
-                </li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-      <MistakeCard
-        mistake="A blue colony on the chromogenic plate is the recombinant one."
-        correction="Blue means β-galactosidase is still active, so the plasmid has no insert. The recombinant colony is the one that produces no colour, because the inserted DNA has inactivated the β-galactosidase gene."
-      />
-
-      <h3 id="h-9-2-2-plants">Vectors for cloning genes in plants and animals</h3>
-      <p>
-        We have learnt the lesson of transferring genes into plants and animals from bacteria and viruses, which have
-        known this for ages — how to deliver genes to transform eukaryotic cells and force them to do what the bacteria
-        or viruses want.
-      </p>
-      <TableCard
-        title="Pathogens that taught us to deliver genes"
-        headers={["Vector", "Host", "What it does naturally", "After being disarmed"]}
-        rows={[
-          {
-            cells: [
-              "Agrobacterium tumifaciens",
-              "Several dicot plants",
-              "Delivers a piece of DNA known as 'T-DNA' to transform normal plant cells into a tumor, and directs these tumor cells to produce the chemicals required by the pathogen.",
-              "The tumor inducing (Ti) plasmid has been modified into a cloning vector that is no more pathogenic to the plants but is still able to deliver genes of our interest into a variety of plants.",
-            ],
-          },
-          {
-            cells: [
-              "Retroviruses",
-              "Animals",
-              "Have the ability to transform normal cells into cancerous cells.",
-              "Retroviruses have also been disarmed and are now used to deliver desirable genes into animal cells.",
-            ],
-          },
-        ]}
-      />
-      <KeyPoint title="What happens after ligation">
-        Once a gene or a DNA fragment has been ligated into a suitable vector, it is transferred into a bacterial,
-        plant or animal host — where it multiplies.
-      </KeyPoint>
-
-      <h3 id="h-9-2-3">9.2.3 Competent Host (For Transformation with Recombinant DNA)</h3>
-      <p>
-        DNA is a <strong>hydrophilic</strong> molecule, so it cannot pass through cell membranes. In order to force
-        bacteria to take up the plasmid, the bacterial cells must first be made &lsquo;
-        <strong>competent</strong>&rsquo; to take up DNA.
-      </p>
-      <ProcessCard
-        title="Making a cell competent, then transforming it"
-        steps={[
-          {
-            label: "Treat with a divalent cation",
-            description:
-              "The cells are treated with a specific concentration of a divalent cation, such as calcium. This increases the efficiency with which DNA enters the bacterium through pores in its cell wall.",
-          },
-          {
-            label: "Incubate with the recombinant DNA on ice",
-            description: "Recombinant DNA is placed in contact with the competent cells, on ice.",
-          },
-          {
-            label: "Heat shock at 42 °C",
-            description: "The cells are placed briefly at 42 °C.",
-          },
-          {
-            label: "Back on ice",
-            description:
-              "The cells are put back on ice. This enables the bacteria to take up the recombinant DNA.",
-          },
-        ]}
-      />
-      <p>This is not the only way to introduce alien DNA into host cells.</p>
-      <TableCard
-        title="Other ways in"
-        headers={["Method", "How it works", "Best suited to"]}
-        rows={[
-          {
-            cells: [
-              "Micro-injection",
-              "Recombinant DNA is directly injected into the nucleus of the cell.",
-              "Animal cells",
-            ],
-          },
-          {
-            cells: [
-              "Biolistics (gene gun)",
-              "Cells are bombarded with high velocity micro-particles of gold or tungsten coated with DNA.",
-              "Plants",
-            ],
-          },
-          {
-            cells: [
-              "Disarmed pathogen vectors",
-              "The pathogen is allowed to infect the cell, and in doing so transfers the recombinant DNA into the host.",
-              "Host cells the pathogen naturally infects",
-            ],
-          },
-        ]}
-      />
+      <EnzymeToolkitTable />
 
       <h2 id="h-9-3">9.3 Processes of Recombinant DNA Technology</h2>
 

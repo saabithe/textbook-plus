@@ -198,6 +198,30 @@ import {
   CohenBoyerFlow,
 } from "@/components/content/biology/CohenBoyerProcess";
 import { BiotechGlossary } from "@/components/content/biology/BiotechGlossary";
+import { ThreeBasicSteps } from "@/components/content/biology/ThreeBasicSteps";
+import {
+  PurityRequirement,
+  CellWallEnzymes,
+  MacromoleculeRemoval,
+  IsolationWorkflow,
+  PrecipitationSpooling,
+} from "@/components/content/biology/DnaIsolation";
+import {
+  RestrictionEnzymeConcept,
+  BacterialDefence,
+  NucleaseTypes,
+  RestrictionMechanism,
+  StickyEndsDiagram,
+} from "@/components/content/biology/RestrictionEnzymes";
+import {
+  RestrictionHistoryTimeline,
+  EnzymeLibraryStats,
+  HindIICard,
+  CommonEnzymesGrid,
+} from "@/components/content/biology/RestrictionHistory";
+import { NamingRulesTable, EcoRINamingDiagram } from "@/components/content/biology/RestrictionNaming";
+import { PalindromeDefinition, EcoRIRecognitionSite, EcoRICutSite } from "@/components/content/biology/PalindromeSites";
+import { EnzymeToolkitTable } from "@/components/content/biology/EnzymeToolkitTable";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -2850,6 +2874,73 @@ export default function DesignPage() {
           <div>
             <p className="t-micro">Glossary</p>
             <BiotechGlossary />
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Biology — tools of recombinant DNA">
+        <div className="space-y-8">
+          <div>
+            <p className="t-micro">Three basic steps</p>
+            <ThreeBasicSteps />
+          </div>
+
+          <div>
+            <p className="t-micro">Isolation — purity requirement</p>
+            <PurityRequirement />
+            <p className="t-micro mt-6">Isolation — cell wall enzymes</p>
+            <CellWallEnzymes />
+            <p className="t-micro mt-6">Isolation — macromolecule removal</p>
+            <MacromoleculeRemoval />
+            <p className="t-micro mt-6">Isolation — workflow</p>
+            <IsolationWorkflow />
+            <p className="t-micro mt-6">Isolation — precipitation and spooling</p>
+            <PrecipitationSpooling />
+          </div>
+
+          <div>
+            <p className="t-micro">Restriction enzymes — concept</p>
+            <RestrictionEnzymeConcept />
+            <p className="t-micro mt-6">Restriction enzymes — bacterial defence</p>
+            <BacterialDefence />
+            <p className="t-micro mt-6">Restriction enzymes — nuclease types</p>
+            <NucleaseTypes />
+            <p className="t-micro mt-6">Restriction enzymes — mechanism</p>
+            <RestrictionMechanism />
+            <p className="t-micro mt-6">Restriction enzymes — sticky ends</p>
+            <StickyEndsDiagram />
+          </div>
+
+          <div>
+            <p className="t-micro">History — timeline</p>
+            <RestrictionHistoryTimeline />
+            <p className="t-micro mt-6">History — enzyme library stats</p>
+            <EnzymeLibraryStats />
+            <p className="t-micro mt-6">History — Hind II</p>
+            <HindIICard />
+            <p className="t-micro mt-6">History — commonly used enzymes</p>
+            <CommonEnzymesGrid />
+          </div>
+
+          <div>
+            <p className="t-micro">Nomenclature — rules</p>
+            <NamingRulesTable />
+            <p className="t-micro mt-6">Nomenclature — EcoRI breakdown</p>
+            <EcoRINamingDiagram />
+          </div>
+
+          <div>
+            <p className="t-micro">Palindromes — definition</p>
+            <PalindromeDefinition />
+            <p className="t-micro mt-6">Palindromes — EcoRI recognition site</p>
+            <EcoRIRecognitionSite />
+            <p className="t-micro mt-6">Palindromes — EcoRI cut site</p>
+            <EcoRICutSite />
+          </div>
+
+          <div>
+            <p className="t-micro">Combined toolkit table</p>
+            <EnzymeToolkitTable />
           </div>
         </div>
       </Section>
