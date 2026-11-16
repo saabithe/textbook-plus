@@ -222,6 +222,22 @@ import {
 import { NamingRulesTable, EcoRINamingDiagram } from "@/components/content/biology/RestrictionNaming";
 import { PalindromeDefinition, EcoRIRecognitionSite, EcoRICutSite } from "@/components/content/biology/PalindromeSites";
 import { EnzymeToolkitTable } from "@/components/content/biology/EnzymeToolkitTable";
+import {
+  PcrConcept,
+  PcrComponents,
+  PcrCycle,
+  TaqPolymerase,
+  ExponentialAmplification,
+} from "@/components/content/biology/Pcr";
+import {
+  SeparationNeed,
+  AgePrinciple,
+  GelSetupDiagram,
+  GelSizeSeparation,
+  StainingVisualisation,
+  Elution,
+  AgeWorkflow,
+} from "@/components/content/biology/GelElectrophoresis";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -2941,6 +2957,40 @@ export default function DesignPage() {
           <div>
             <p className="t-micro">Combined toolkit table</p>
             <EnzymeToolkitTable />
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Biology — PCR and gel electrophoresis">
+        <div className="space-y-8">
+          <div>
+            <p className="t-micro">PCR — concept</p>
+            <PcrConcept />
+            <p className="t-micro mt-6">PCR — components</p>
+            <PcrComponents />
+            <p className="t-micro mt-6">PCR — thermal cycle</p>
+            <PcrCycle />
+            <p className="t-micro mt-6">PCR — Taq polymerase</p>
+            <TaqPolymerase />
+            <p className="t-micro mt-6">PCR — exponential amplification</p>
+            <ExponentialAmplification />
+          </div>
+
+          <div>
+            <p className="t-micro">AGE — why separation</p>
+            <SeparationNeed />
+            <p className="t-micro mt-6">AGE — principle</p>
+            <AgePrinciple />
+            <p className="t-micro mt-6">AGE — setup</p>
+            <GelSetupDiagram />
+            <p className="t-micro mt-6">AGE — size separation</p>
+            <GelSizeSeparation />
+            <p className="t-micro mt-6">AGE — staining</p>
+            <StainingVisualisation />
+            <p className="t-micro mt-6">AGE — elution</p>
+            <Elution />
+            <p className="t-micro mt-6">AGE — complete workflow</p>
+            <AgeWorkflow />
           </div>
         </div>
       </Section>

@@ -3547,6 +3547,69 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/GelElectrophoresis.tsx#AgePrinciple",
+    "name": "AgePrinciple",
+    "path": "content/biology/GelElectrophoresis.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GelElectrophoresis.tsx#AgeWorkflow",
+    "name": "AgeWorkflow",
+    "path": "content/biology/GelElectrophoresis.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GelElectrophoresis.tsx#Elution",
+    "name": "Elution",
+    "path": "content/biology/GelElectrophoresis.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GelElectrophoresis.tsx#GelSetupDiagram",
+    "name": "GelSetupDiagram",
+    "path": "content/biology/GelElectrophoresis.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GelElectrophoresis.tsx#GelSizeSeparation",
+    "name": "GelSizeSeparation",
+    "path": "content/biology/GelElectrophoresis.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GelElectrophoresis.tsx#SeparationNeed",
+    "name": "SeparationNeed",
+    "path": "content/biology/GelElectrophoresis.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GelElectrophoresis.tsx#StainingVisualisation",
+    "name": "StainingVisualisation",
+    "path": "content/biology/GelElectrophoresis.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/GeneticEngineeringFlow.tsx#GeneticEngineeringDefinition",
     "name": "GeneticEngineeringDefinition",
     "path": "content/biology/GeneticEngineeringFlow.tsx",
@@ -3757,6 +3820,51 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/ParasitismDiagrams.tsx#ParasiteTree",
     "name": "ParasiteTree",
     "path": "content/biology/ParasitismDiagrams.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Pcr.tsx#ExponentialAmplification",
+    "name": "ExponentialAmplification",
+    "path": "content/biology/Pcr.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Pcr.tsx#PcrComponents",
+    "name": "PcrComponents",
+    "path": "content/biology/Pcr.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Pcr.tsx#PcrConcept",
+    "name": "PcrConcept",
+    "path": "content/biology/Pcr.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Pcr.tsx#PcrCycle",
+    "name": "PcrCycle",
+    "path": "content/biology/Pcr.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Pcr.tsx#TaqPolymerase",
+    "name": "TaqPolymerase",
+    "path": "content/biology/Pcr.tsx",
     "category": "biology",
     "props": null,
     "shell": false,

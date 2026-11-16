@@ -45,6 +45,22 @@ import {
 import { NamingRulesTable, EcoRINamingDiagram } from "@/components/content/biology/RestrictionNaming";
 import { PalindromeDefinition, EcoRIRecognitionSite, EcoRICutSite } from "@/components/content/biology/PalindromeSites";
 import { EnzymeToolkitTable } from "@/components/content/biology/EnzymeToolkitTable";
+import {
+  PcrConcept,
+  PcrComponents,
+  PcrCycle,
+  TaqPolymerase,
+  ExponentialAmplification,
+} from "@/components/content/biology/Pcr";
+import {
+  SeparationNeed,
+  AgePrinciple,
+  GelSetupDiagram,
+  GelSizeSeparation,
+  StainingVisualisation,
+  Elution,
+  AgeWorkflow,
+} from "@/components/content/biology/GelElectrophoresis";
 import { RdnaStepsOverview, RdnaStepsTimeline } from "@/components/content/biology/RdnaSteps";
 import {
   CohenBoyerStages,
@@ -200,6 +216,48 @@ export default function BiotechnologyPrinciplesAndProcessesChapter() {
         A consolidated reference of the enzymes and reagents used during DNA isolation, cleavage and joining.
       </p>
       <EnzymeToolkitTable />
+
+      <h3 id="h-9-2-9">9. Polymerase Chain Reaction (PCR)</h3>
+
+      <h4 id="h-9-2-9-definition">Definition</h4>
+      <PcrConcept />
+
+      <h4 id="h-9-2-9-requirements">Requirements and key components</h4>
+      <PcrComponents />
+
+      <h4 id="h-9-2-9-cycle">Three core steps of PCR (thermal cycling)</h4>
+      <PcrCycle />
+
+      <h4 id="h-9-2-9-taq">Taq polymerase — thermostable enzyme</h4>
+      <TaqPolymerase />
+
+      <h4 id="h-9-2-9-exponential">Exponential amplification</h4>
+      <ExponentialAmplification />
+
+      <h3 id="h-9-2-10">10. Separation and Isolation of DNA Fragments</h3>
+
+      <h4 id="h-9-2-10-why">Why is separation necessary?</h4>
+      <SeparationNeed />
+
+      <h4 id="h-9-2-10-age">Agarose gel electrophoresis (AGE)</h4>
+
+      <h5 id="h-9-2-10-principle">Principle</h5>
+      <AgePrinciple />
+
+      <h5 id="h-9-2-10-setup">Setup and direction of migration</h5>
+      <GelSetupDiagram />
+
+      <h5 id="h-9-2-10-size">Size-based separation (sieving effect)</h5>
+      <GelSizeSeparation />
+
+      <h5 id="h-9-2-10-staining">Staining and visualisation</h5>
+      <StainingVisualisation />
+
+      <h5 id="h-9-2-10-elution">Elution</h5>
+      <Elution />
+
+      <h5 id="h-9-2-10-workflow">Complete AGE workflow — quick revision</h5>
+      <AgeWorkflow />
 
       <h2 id="h-9-3">9.3 Processes of Recombinant DNA Technology</h2>
 
