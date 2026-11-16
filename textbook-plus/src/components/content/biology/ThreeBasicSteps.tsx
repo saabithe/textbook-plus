@@ -1,5 +1,6 @@
 /**
- * ThreeBasicSteps — the overview that opens the tools section.
+ * ThreeBasicSteps — the coarsest map of the process, opening the processes
+ * section ahead of the eight-step sequence.
  *
  * Three equally sized stages on one rail, so the third stage's two actions
  * (maintenance and transfer) read as the pair they are. Deliberately plainer

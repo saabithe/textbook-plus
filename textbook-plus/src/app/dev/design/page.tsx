@@ -192,7 +192,6 @@ import {
 } from "@/components/content/biology/HybridisationComparison";
 import { RdnaStepsOverview, RdnaStepsTimeline } from "@/components/content/biology/RdnaSteps";
 import {
-  CohenBoyerStages,
   CohenBoyerMilestone,
   CohenBoyerProcedure,
   CohenBoyerFlow,
@@ -215,7 +214,6 @@ import {
 } from "@/components/content/biology/RestrictionEnzymes";
 import {
   RestrictionHistoryTimeline,
-  EnzymeLibraryStats,
   HindIICard,
   CommonEnzymesGrid,
 } from "@/components/content/biology/RestrictionHistory";
@@ -2890,16 +2888,16 @@ export default function DesignPage() {
       <Section title="Biology — recombinant DNA process">
         <div className="space-y-8">
           <div>
-            <p className="t-micro">Eight steps — overview</p>
+            <p className="t-micro">Three basic steps</p>
+            <ThreeBasicSteps />
+            <p className="t-micro mt-6">Eight steps — overview</p>
             <RdnaStepsOverview />
             <p className="t-micro mt-6">Eight steps — timeline</p>
             <RdnaStepsTimeline />
           </div>
 
           <div>
-            <p className="t-micro">Cohen–Boyer — four stages</p>
-            <CohenBoyerStages />
-            <p className="t-micro mt-6">Cohen–Boyer — milestone</p>
+            <p className="t-micro">Cohen–Boyer — milestone</p>
             <CohenBoyerMilestone />
             <p className="t-micro mt-6">Cohen–Boyer — procedure</p>
             <CohenBoyerProcedure />
@@ -2916,11 +2914,6 @@ export default function DesignPage() {
 
       <Section title="Biology — tools of recombinant DNA">
         <div className="space-y-8">
-          <div>
-            <p className="t-micro">Three basic steps</p>
-            <ThreeBasicSteps />
-          </div>
-
           <div>
             <p className="t-micro">Isolation — purity requirement</p>
             <PurityRequirement />
@@ -2950,8 +2943,6 @@ export default function DesignPage() {
           <div>
             <p className="t-micro">History — timeline</p>
             <RestrictionHistoryTimeline />
-            <p className="t-micro mt-6">History — enzyme library stats</p>
-            <EnzymeLibraryStats />
             <p className="t-micro mt-6">History — Hind II</p>
             <HindIICard />
             <p className="t-micro mt-6">History — commonly used enzymes</p>

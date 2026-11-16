@@ -38,7 +38,6 @@ import {
 } from "@/components/content/biology/RestrictionEnzymes";
 import {
   RestrictionHistoryTimeline,
-  EnzymeLibraryStats,
   HindIICard,
   CommonEnzymesGrid,
 } from "@/components/content/biology/RestrictionHistory";
@@ -83,7 +82,6 @@ import {
 import { DownstreamProcessing } from "@/components/content/biology/DownstreamProcessing";
 import { RdnaStepsOverview, RdnaStepsTimeline } from "@/components/content/biology/RdnaSteps";
 import {
-  CohenBoyerStages,
   CohenBoyerMilestone,
   CohenBoyerProcedure,
   CohenBoyerFlow,
@@ -160,189 +158,13 @@ export default function BiotechnologyPrinciplesAndProcessesChapter() {
       <h4 id="h-9-core-4-example">Hybridisation example</h4>
       <HybridisationCrossing />
 
-      <h2 id="h-9-2">9.2 Tools of Recombinant DNA Technology</h2>
+      <h2 id="h-9-2">9.2 Processes of Recombinant DNA Technology</h2>
 
       <h3 id="h-9-2-1">1. Three Basic Steps in Genetically Modifying an Organism</h3>
       <p>Genetic modification involves <strong>three basic steps</strong>.</p>
       <ThreeBasicSteps />
 
-      <h3 id="h-9-2-2">2. Isolation of Genetic Material (DNA)</h3>
-
-      <h4 id="h-9-2-2-purity">A. Purity requirement</h4>
-      <PurityRequirement />
-
-      <h4 id="h-9-2-2-wall">B. Cell wall breakdown</h4>
-      <CellWallEnzymes />
-
-      <h4 id="h-9-2-2-macromolecules">C. Subsequent breakdown and removal of macromolecules</h4>
-      <MacromoleculeRemoval />
-
-      <h4 id="h-9-2-2-workflow">D. Sequential workflow of DNA isolation</h4>
-      <IsolationWorkflow />
-
-      <h4 id="h-9-2-2-spooling">E. Precipitation and spooling</h4>
-      <PrecipitationSpooling />
-
-      <h3 id="h-9-2-3">3. Fragmentation of DNA by Restriction Enzymes (RE)</h3>
-
-      <h4 id="h-9-2-3-scissors">A. Restriction enzymes — molecular scissors</h4>
-      <RestrictionEnzymeConcept />
-
-      <h4 id="h-9-2-3-defence">B. Bacterial defence mechanism</h4>
-      <BacterialDefence />
-
-      <h4 id="h-9-2-3-types">C. Types of nucleases</h4>
-      <NucleaseTypes />
-
-      <h3 id="h-9-2-4">4. Discovery and Origin of Restriction Enzymes</h3>
-
-      <h4 id="h-9-2-4-history">A. Historical development</h4>
-      <RestrictionHistoryTimeline />
-      <EnzymeLibraryStats />
-
-      <h4 id="h-9-2-4-hind">B. First restriction endonuclease</h4>
-      <HindIICard />
-
-      <h4 id="h-9-2-4-common">C. Commonly used restriction enzymes</h4>
-      <CommonEnzymesGrid />
-
-      <h3 id="h-9-2-5">5. Nomenclature of Restriction Enzymes</h3>
-      <p>The names of restriction enzymes are derived from their <strong>source bacteria</strong>.</p>
-      <NamingRulesTable />
-
-      <h4 id="h-9-2-5-example">Example: EcoRI</h4>
-      <EcoRINamingDiagram />
-
-      <h3 id="h-9-2-6">6. Action of Restriction Endonucleases</h3>
-      <p>Restriction endonucleases act through <strong>four major stages</strong>.</p>
-      <RestrictionMechanism />
-
-      <h4 id="h-9-2-6-sticky">Sticky ends</h4>
-      <StickyEndsDiagram />
-
-      <h3 id="h-9-2-7">7. Palindromic DNA Sequences</h3>
-
-      <h4 id="h-9-2-7-definition">A. Definition</h4>
-      <PalindromeDefinition />
-
-      <h4 id="h-9-2-7-site">B. Example: EcoRI recognition site</h4>
-      <EcoRIRecognitionSite />
-
-      <h4 id="h-9-2-7-cut">C. EcoRI cleavage site</h4>
-      <EcoRICutSite />
-
-      <h3 id="h-9-2-8">8. Combined Enzymatic and Chemical Toolkit</h3>
-      <p>
-        A consolidated reference of the enzymes and reagents used during DNA isolation, cleavage and joining.
-      </p>
-      <EnzymeToolkitTable />
-
-      <h3 id="h-9-2-9">9. Separation and Isolation of DNA Fragments</h3>
-
-      <h4 id="h-9-2-9-why">Why is separation necessary?</h4>
-      <SeparationNeed />
-
-      <h4 id="h-9-2-9-age">Agarose gel electrophoresis (AGE)</h4>
-
-      <h5 id="h-9-2-9-principle">Principle</h5>
-      <AgePrinciple />
-
-      <h5 id="h-9-2-9-setup">Setup and direction of migration</h5>
-      <GelSetupDiagram />
-
-      <h5 id="h-9-2-9-size">Size-based separation (sieving effect)</h5>
-      <GelSizeSeparation />
-
-      <h5 id="h-9-2-9-staining">Staining and visualisation</h5>
-      <StainingVisualisation />
-
-      <h5 id="h-9-2-9-elution">Elution</h5>
-      <Elution />
-
-      <h5 id="h-9-2-9-workflow">Complete AGE workflow — quick revision</h5>
-      <AgeWorkflow />
-
-      <h3 id="h-9-2-10">10. Polymerase Chain Reaction (PCR)</h3>
-
-      <h4 id="h-9-2-10-definition">Definition</h4>
-      <PcrConcept />
-
-      <h4 id="h-9-2-10-requirements">Requirements and key components</h4>
-      <PcrComponents />
-
-      <h4 id="h-9-2-10-cycle">Three core steps of PCR (thermal cycling)</h4>
-      <PcrCycle />
-
-      <h4 id="h-9-2-10-taq">Taq polymerase — thermostable enzyme</h4>
-      <TaqPolymerase />
-
-      <h4 id="h-9-2-10-exponential">Exponential amplification</h4>
-      <ExponentialAmplification />
-
-      <h3 id="h-9-2-11">11. Ligation of DNA Fragment into a Vector</h3>
-
-      <h4 id="h-9-2-11-principle">Formation of recombinant DNA (rDNA)</h4>
-      <LigationPrinciple />
-
-      <h4 id="h-9-2-11-stages">Stages of ligation</h4>
-      <LigationStages />
-
-      <h3 id="h-9-2-12">12. Vectors</h3>
-
-      <h4 id="h-9-2-12-definition">Definition</h4>
-      <VectorDefinition />
-
-      <h5 id="h-9-2-12-types">Common types of vectors</h5>
-      <VectorTypes />
-
-      <h5 id="h-9-2-12-features">Essential features of a cloning vector</h5>
-      <CloningVectorFeatures />
-
-      <h3 id="h-9-2-13">13. Introduction of Recombinant DNA into Host Cells</h3>
-
-      <h4 id="h-9-2-13-competent">Competent host cells</h4>
-      <CompetentHostConcept />
-
-      <h4 id="h-9-2-13-chemical">Chemical treatment and heat shock</h4>
-      <CationTreatment />
-      <HeatShockTimeline />
-
-      <h4 id="h-9-2-13-direct">5.1 Direct (vectorless) and alternative gene transfer methods</h4>
-      <DirectTransferMethods />
-
-      <h3 id="h-9-2-14">14. Obtaining the Foreign Gene Product</h3>
-
-      <h4 id="h-9-2-14-protein">Recombinant protein</h4>
-      <RecombinantProtein />
-
-      <h4 id="h-9-2-14-small-scale">Small-scale culturing</h4>
-      <SmallScaleCulturing />
-
-      <h4 id="h-9-2-14-continuous">Continuous culture system</h4>
-      <ContinuousCulture />
-
-      <h3 id="h-9-2-15">15. Bioreactors and Mass Production</h3>
-
-      <h4 id="h-9-2-15-need">Need for bioreactors</h4>
-      <BioreactorNeed />
-
-      <h5 id="h-9-2-15-environment">Optimal growth environment</h5>
-      <BioreactorEnvironment />
-
-      <h4 id="h-9-2-15-types">Types of stirred-tank bioreactors</h4>
-      <StirredTankTypes />
-
-      <h4 id="h-9-2-15-controls">Essential control systems</h4>
-      <BioreactorControls />
-
-      <h3 id="h-9-2-16">16. Downstream Processing</h3>
-
-      <h4 id="h-9-2-16-steps">Definition and major steps</h4>
-      <DownstreamProcessing />
-
-      <h2 id="h-9-3">9.3 Processes of Recombinant DNA Technology</h2>
-
-      <h3 id="h-9-3-1">1. Sequential Steps in Recombinant DNA Technology</h3>
+      <h3 id="h-9-2-2">2. Sequential Steps in Recombinant DNA Technology</h3>
       <p>
         Recombinant DNA technology involves <strong>8 sequential steps</strong>, from isolating the desired gene to
         separating and purifying the final product.
@@ -350,22 +172,196 @@ export default function BiotechnologyPrinciplesAndProcessesChapter() {
       <RdnaStepsOverview />
       <RdnaStepsTimeline />
 
-      <h3 id="h-9-3-2">2. Construction of First Recombinant DNA — Cohen &amp; Boyer (1972)</h3>
+      <h3 id="h-9-2-3">3. Construction of First Recombinant DNA — Cohen &amp; Boyer (1972)</h3>
       <p>
         This process flow describes the use of an <strong>Antibiotic Resistance Gene (ABRG)</strong> from a{" "}
         <em>Salmonella typhimurium</em> plasmid and its introduction into <em>E. coli</em>.
       </p>
-      <CohenBoyerStages />
       <CohenBoyerMilestone />
 
-      <h4 id="h-9-3-2-procedure">Procedure</h4>
+      <h4 id="h-9-2-3-procedure">Procedure</h4>
       <CohenBoyerProcedure />
 
-      <h4 id="h-9-3-2-flow">Complete Cohen–Boyer process flow</h4>
+      <h4 id="h-9-2-3-flow">Complete Cohen–Boyer process flow</h4>
       <CohenBoyerFlow />
 
-      <h3 id="h-9-3-3">3. Important Terms — Quick Reference</h3>
+      <h3 id="h-9-2-4">4. Important Terms — Quick Reference</h3>
       <BiotechGlossary />
+
+      <h2 id="h-9-3">9.3 Tools of Recombinant DNA Technology</h2>
+
+      <h3 id="h-9-3-1">1. Isolation of Genetic Material (DNA)</h3>
+
+      <h4 id="h-9-3-1-purity">A. Purity requirement</h4>
+      <PurityRequirement />
+
+      <h4 id="h-9-3-1-wall">B. Cell wall breakdown</h4>
+      <CellWallEnzymes />
+
+      <h4 id="h-9-3-1-macromolecules">C. Subsequent breakdown and removal of macromolecules</h4>
+      <MacromoleculeRemoval />
+
+      <h4 id="h-9-3-1-workflow">D. Sequential workflow of DNA isolation</h4>
+      <IsolationWorkflow />
+
+      <h4 id="h-9-3-1-spooling">E. Precipitation and spooling</h4>
+      <PrecipitationSpooling />
+
+      <h3 id="h-9-3-2">2. Fragmentation of DNA by Restriction Enzymes (RE)</h3>
+
+      <h4 id="h-9-3-2-scissors">A. Restriction enzymes — molecular scissors</h4>
+      <RestrictionEnzymeConcept />
+
+      <h4 id="h-9-3-2-defence">B. Bacterial defence mechanism</h4>
+      <BacterialDefence />
+
+      <h4 id="h-9-3-2-types">C. Types of nucleases</h4>
+      <NucleaseTypes />
+
+      <h3 id="h-9-3-3">3. Discovery and Origin of Restriction Enzymes</h3>
+
+      <h4 id="h-9-3-3-history">A. Historical development</h4>
+      <RestrictionHistoryTimeline />
+
+      <h4 id="h-9-3-3-hind">B. First restriction endonuclease</h4>
+      <HindIICard />
+
+      <h4 id="h-9-3-3-common">C. Commonly used restriction enzymes</h4>
+      <CommonEnzymesGrid />
+
+      <h3 id="h-9-3-4">4. Nomenclature of Restriction Enzymes</h3>
+      <p>The names of restriction enzymes are derived from their <strong>source bacteria</strong>.</p>
+      <NamingRulesTable />
+
+      <h4 id="h-9-3-4-example">Example: EcoRI</h4>
+      <EcoRINamingDiagram />
+
+      <h3 id="h-9-3-5">5. Action of Restriction Endonucleases</h3>
+      <p>Restriction endonucleases act through <strong>four major stages</strong>.</p>
+      <RestrictionMechanism />
+
+      <h4 id="h-9-3-5-sticky">Sticky ends</h4>
+      <StickyEndsDiagram />
+
+      <h3 id="h-9-3-6">6. Palindromic DNA Sequences</h3>
+
+      <h4 id="h-9-3-6-definition">A. Definition</h4>
+      <PalindromeDefinition />
+
+      <h4 id="h-9-3-6-site">B. Example: EcoRI recognition site</h4>
+      <EcoRIRecognitionSite />
+
+      <h4 id="h-9-3-6-cut">C. EcoRI cleavage site</h4>
+      <EcoRICutSite />
+
+      <h3 id="h-9-3-7">7. Combined Enzymatic and Chemical Toolkit</h3>
+      <p>
+        A consolidated reference of the enzymes and reagents used during DNA isolation, cleavage and joining.
+      </p>
+      <EnzymeToolkitTable />
+
+      <h3 id="h-9-3-8">8. Separation and Isolation of DNA Fragments</h3>
+
+      <h4 id="h-9-3-8-why">Why is separation necessary?</h4>
+      <SeparationNeed />
+
+      <h4 id="h-9-3-8-age">Agarose gel electrophoresis (AGE)</h4>
+
+      <h5 id="h-9-3-8-principle">Principle</h5>
+      <AgePrinciple />
+
+      <h5 id="h-9-3-8-setup">Setup and direction of migration</h5>
+      <GelSetupDiagram />
+
+      <h5 id="h-9-3-8-size">Size-based separation (sieving effect)</h5>
+      <GelSizeSeparation />
+
+      <h5 id="h-9-3-8-staining">Staining and visualisation</h5>
+      <StainingVisualisation />
+
+      <h5 id="h-9-3-8-elution">Elution</h5>
+      <Elution />
+
+      <h5 id="h-9-3-8-workflow">Complete AGE workflow — quick revision</h5>
+      <AgeWorkflow />
+
+      <h3 id="h-9-3-9">9. Polymerase Chain Reaction (PCR)</h3>
+
+      <h4 id="h-9-3-9-definition">Definition</h4>
+      <PcrConcept />
+
+      <h4 id="h-9-3-9-requirements">Requirements and key components</h4>
+      <PcrComponents />
+
+      <h4 id="h-9-3-9-cycle">Three core steps of PCR (thermal cycling)</h4>
+      <PcrCycle />
+
+      <h4 id="h-9-3-9-taq">Taq polymerase — thermostable enzyme</h4>
+      <TaqPolymerase />
+
+      <h4 id="h-9-3-9-exponential">Exponential amplification</h4>
+      <ExponentialAmplification />
+
+      <h3 id="h-9-3-10">10. Ligation of DNA Fragment into a Vector</h3>
+
+      <h4 id="h-9-3-10-principle">Formation of recombinant DNA (rDNA)</h4>
+      <LigationPrinciple />
+
+      <h4 id="h-9-3-10-stages">Stages of ligation</h4>
+      <LigationStages />
+
+      <h3 id="h-9-3-11">11. Vectors</h3>
+
+      <h4 id="h-9-3-11-definition">Definition</h4>
+      <VectorDefinition />
+
+      <h5 id="h-9-3-11-types">Common types of vectors</h5>
+      <VectorTypes />
+
+      <h5 id="h-9-3-11-features">Essential features of a cloning vector</h5>
+      <CloningVectorFeatures />
+
+      <h3 id="h-9-3-12">12. Introduction of Recombinant DNA into Host Cells</h3>
+
+      <h4 id="h-9-3-12-competent">Competent host cells</h4>
+      <CompetentHostConcept />
+
+      <h4 id="h-9-3-12-chemical">Chemical treatment and heat shock</h4>
+      <CationTreatment />
+      <HeatShockTimeline />
+
+      <h4 id="h-9-3-12-direct">Direct (vectorless) and alternative gene transfer methods</h4>
+      <DirectTransferMethods />
+
+      <h3 id="h-9-3-13">13. Obtaining the Foreign Gene Product</h3>
+
+      <h4 id="h-9-3-13-protein">Recombinant protein</h4>
+      <RecombinantProtein />
+
+      <h4 id="h-9-3-13-small-scale">Small-scale culturing</h4>
+      <SmallScaleCulturing />
+
+      <h4 id="h-9-3-13-continuous">Continuous culture system</h4>
+      <ContinuousCulture />
+
+      <h3 id="h-9-3-14">14. Bioreactors and Mass Production</h3>
+
+      <h4 id="h-9-3-14-need">Need for bioreactors</h4>
+      <BioreactorNeed />
+
+      <h5 id="h-9-3-14-environment">Optimal growth environment</h5>
+      <BioreactorEnvironment />
+
+      <h4 id="h-9-3-14-types">Types of stirred-tank bioreactors</h4>
+      <StirredTankTypes />
+
+      <h4 id="h-9-3-14-controls">Essential control systems</h4>
+      <BioreactorControls />
+
+      <h3 id="h-9-3-15">15. Downstream Processing</h3>
+
+      <h4 id="h-9-3-15-steps">Definition and major steps</h4>
+      <DownstreamProcessing />
 
       <h2 id="h-9-exercises">Exercises</h2>
       <Expandable title="NCERT Exercises" variant="exercise">

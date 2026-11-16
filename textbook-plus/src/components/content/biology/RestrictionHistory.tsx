@@ -1,10 +1,9 @@
 /**
  * RestrictionHistory — where the enzymes came from.
  *
- * A three-point timeline (1963, Hind II, the current library) with the library
- * statistics lifted into their own strip, then a focused Hind II discovery card,
- * then the plain list of enzymes in use. Kept apart from the naming and action
- * panels so the history reads as history.
+ * A three-point timeline (1963, Hind II, the current library), then a focused
+ * Hind II discovery card, then the plain list of enzymes in use. Kept apart
+ * from the naming and action panels so the history reads as history.
  */
 
 const TIMELINE = [
@@ -85,26 +84,6 @@ export function RestrictionHistoryTimeline() {
           </div>
         </div>
       ))}
-    </div>
-  );
-}
-
-export function EnzymeLibraryStats() {
-  return (
-    <div className="my-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
-      <div className="rounded-xl border border-border bg-card px-4 py-3">
-        <div className="text-3xl font-bold tabular-nums leading-none tracking-tight text-indigo-800 dark:text-indigo-300">
-          900+
-        </div>
-        <div className="mt-1 text-xs font-medium text-foreground">restriction enzymes isolated</div>
-      </div>
-
-      <div className="rounded-xl border border-border bg-card px-4 py-3">
-        <div className="text-3xl font-bold tabular-nums leading-none tracking-tight text-teal-800 dark:text-teal-300">
-          230+
-        </div>
-        <div className="mt-1 text-xs font-medium text-foreground">bacterial strains they came from</div>
-      </div>
     </div>
   );
 }

@@ -3367,15 +3367,6 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
-    "id": "content/biology/CohenBoyerProcess.tsx#CohenBoyerStages",
-    "name": "CohenBoyerStages",
-    "path": "content/biology/CohenBoyerProcess.tsx",
-    "category": "biology",
-    "props": null,
-    "shell": false,
-    "renderable": true
-  },
-  {
     "id": "content/biology/CommensalismGallery.tsx#CommensalismGallery",
     "name": "CommensalismGallery",
     "path": "content/biology/CommensalismGallery.tsx",
@@ -4116,15 +4107,6 @@ export const CATALOG: CatalogEntry[] = [
   {
     "id": "content/biology/RestrictionHistory.tsx#CommonEnzymesGrid",
     "name": "CommonEnzymesGrid",
-    "path": "content/biology/RestrictionHistory.tsx",
-    "category": "biology",
-    "props": null,
-    "shell": false,
-    "renderable": true
-  },
-  {
-    "id": "content/biology/RestrictionHistory.tsx#EnzymeLibraryStats",
-    "name": "EnzymeLibraryStats",
     "path": "content/biology/RestrictionHistory.tsx",
     "category": "biology",
     "props": null,

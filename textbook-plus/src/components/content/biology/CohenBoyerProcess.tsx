@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -7,95 +6,12 @@ import { cn } from "@/lib/utils";
  *
  * Deliberately kept visually apart from the eight-step insulin sequence: a
  * different gene (antibiotic resistance, ABRG), a different purpose (proving
- * the technique), and a different shape — four wide stages, then the detailed
+ * the technique), and a different shape — the milestone, then the detailed
  * five-step procedure, then one full-width flow.
  *
  * Blue (indigo) marks DNA manipulation; green (emerald) marks the cloning
  * outcome, as the brief asks.
  */
-
-const STAGES = [
-  {
-    n: "1",
-    title: "Isolation & resistance",
-    lines: [
-      <>
-        Antibiotic Resistance Gene (ABRG) isolated from <em>Salmonella typhimurium</em> plasmid.
-      </>,
-    ],
-  },
-  {
-    n: "2",
-    title: "Recombination",
-    lines: [
-      <>Desirable DNA (dG) joined with a vector.</>,
-      <>Restriction enzymes (RE) and DNA ligase used.</>,
-      <>Product → Recombinant DNA (rDNA).</>,
-    ],
-  },
-  {
-    n: "3",
-    title: "Transformation & multiplication",
-    lines: [
-      <>
-        rDNA transferred into host cell (<em>E. coli</em>).
-      </>,
-    ],
-  },
-  {
-    n: "4",
-    title: "Cloning",
-    lines: [<>Multiplication of ABRG.</>, <>Amplification / cloning of rDNA inside the host cell.</>],
-  },
-];
-
-const SUMMARY = ["Isolation", "Recombination", "Transformation", "Cloning"];
-
-export function CohenBoyerStages() {
-  return (
-    <div className="my-5">
-      <div className="flex flex-col gap-1.5 lg:flex-row lg:items-stretch lg:gap-2">
-        {STAGES.map((stage, index) => (
-          <Fragment key={stage.n}>
-            <div className="flex-1 rounded-xl border border-border bg-card p-3">
-              <div className="flex items-center gap-2">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-indigo-600/30 bg-indigo-50 text-[11px] font-bold tabular-nums text-indigo-800 dark:bg-indigo-950/30 dark:text-indigo-300">
-                  {stage.n}
-                </span>
-                <div className="text-xs font-semibold leading-tight text-foreground">{stage.title}</div>
-              </div>
-
-              <div className="mt-2 space-y-1">
-                {stage.lines.map((line, i) => (
-                  <div key={i} className="flex items-start gap-1.5">
-                    <span className="mt-[0.4rem] h-1 w-1 shrink-0 rounded-full bg-foreground/35" aria-hidden />
-                    <div className="text-xs leading-snug text-foreground">{line}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {index < STAGES.length - 1 && <StageArrow />}
-          </Fragment>
-        ))}
-      </div>
-
-      <div className="mt-2 flex flex-wrap items-center gap-1.5 rounded-lg border border-border bg-muted/30 px-3 py-2">
-        <span className="text-[9px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">Summary</span>
-        {SUMMARY.map((label, index) => (
-          <Fragment key={label}>
-            <span className="text-xs font-medium text-foreground">{label}</span>
-            {index < SUMMARY.length - 1 && (
-              <span className="text-[10px] text-muted-foreground" aria-hidden>
-                →
-              </span>
-            )}
-          </Fragment>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export function CohenBoyerMilestone() {
   return (
@@ -353,15 +269,6 @@ export function CohenBoyerFlow() {
 }
 
 /* ------------------------------------------------------------------ atoms */
-
-function StageArrow() {
-  return (
-    <div className="flex items-center justify-center py-0.5 text-muted-foreground" aria-hidden>
-      <ArrowDown className="h-3.5 w-3.5 lg:hidden" />
-      <ArrowRight className="hidden h-3.5 w-3.5 lg:block" />
-    </div>
-  );
-}
 
 function Node({
   label,
