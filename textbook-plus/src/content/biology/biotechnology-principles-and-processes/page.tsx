@@ -50,9 +50,6 @@ export default function BiotechnologyPrinciplesAndProcessesChapter() {
       <h4 id="h-9-1-2-components">Conceptual components</h4>
       <EfbConceptFlow />
 
-      <h4 id="h-9-1-2-example">Example</h4>
-      <CurdFormationStrip compact />
-
       <h3 id="h-9-1-3">3. Modern Context of Biotechnology</h3>
       <p>
         Modern biotechnology refers more restrictively to processes involving{" "}
@@ -104,33 +101,6 @@ export default function BiotechnologyPrinciplesAndProcessesChapter() {
 
       <h4 id="h-9-core-4-example">Hybridisation example</h4>
       <HybridisationCrossing />
-
-      <Expandable title="Scientist spotlight — Herbert Boyer and the sticky end" variant="misc">
-        <p>
-          Herbert Boyer was born in 1936 and brought up in a corner of western Pennsylvania where railroads and mines
-          were the destiny of most young men. He completed graduate work at the University of Pittsburgh in 1963,
-          followed by three years of post-graduate studies at Yale. In 1966, Boyer took over assistant professorship at
-          the University of California at San Francisco.
-        </p>
-        <p className="mt-2">
-          By 1969, he performed studies on a couple of restriction enzymes of the <em>E. coli</em> bacterium with
-          especially useful properties. Boyer observed that these enzymes have the capability of cutting DNA strands in
-          a particular fashion, which left what has become known as &lsquo;sticky ends&rsquo; on the strands. These
-          clipped ends made pasting together pieces of DNA a precise exercise.
-        </p>
-        <p className="mt-2">
-          This discovery, in turn, led to a rich and rewarding conversation in Hawaii with a Stanford scientist named
-          Stanley Cohen. Cohen had been studying small ringlets of DNA called plasmids, which float about freely in the
-          cytoplasm of certain bacterial cells and replicate independently from the coding strand of DNA. Cohen had
-          developed a method of removing these plasmids from the cell and then reinserting them in other cells.
-          Combining this process with that of DNA splicing enabled Boyer and Cohen to recombine segments of DNA in
-          desired configurations and insert the DNA in bacterial cells, which could then act as manufacturing plants
-          for specific proteins.
-        </p>
-        <p className="mt-2">
-          <strong>This breakthrough was the basis upon which the discipline of biotechnology was founded.</strong>
-        </p>
-      </Expandable>
 
       <h2 id="h-9-2">9.2 Tools of Recombinant DNA Technology</h2>
       <p>

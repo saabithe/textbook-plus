@@ -1,9 +1,7 @@
-import { CurdFormationStrip } from "@/components/content/biology/CurdFormation";
-
 /**
  * OldNewBiotech — the same anatomy on both sides so the comparison is the
- * only thing that varies: basis, examples, and (on the old side) the one
- * worked process. A single hairline divides the two halves.
+ * only thing that varies: basis and examples. A single hairline divides the
+ * two halves.
  */
 
 export function OldNewBiotech() {
@@ -33,8 +31,6 @@ export function OldNewBiotech() {
             ))}
           </div>
         </div>
-
-        <CurdFormationStrip compact className="mt-3" />
       </section>
 
       <section className="flex flex-col bg-card p-4">
