@@ -122,6 +122,8 @@ Never hand-type ray coordinates into an `<svg>`. A physics schematic is a `Figur
 
 Push whole batches, not individual tweaks. A batch = any coherent unit (section restructured, component added, structural change, finished chapter). If you can describe the change as one thing, it's a batch — commit + push it. The user calling it a batch overrides your judgment. Never end a session with a finished batch unpushed. Shorthand `p` = commit + push.
 
+**Never commit work you did not do.** Uncommitted changes in the tree that you cannot tie to the current batch are the user's in-progress work: read them to know what they are, then leave them alone — do not stage, revert, delete, or "tidy" them. Stage explicit paths (`git add <path>`), never `git add -A` / `git add .`, and name in the report which files you deliberately kept out. They ship with whatever change finishes that work, not with yours.
+
 ## Agent Workflow Rules
 
 - **Todo list**: create a `todowrite` at the start of any multi-step task; mark `in_progress`/`completed`/`cancelled`; clear all when done.

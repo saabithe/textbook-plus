@@ -169,6 +169,27 @@ import {
 import { InteractionDashboard } from "@/components/content/biology/InteractionDashboard";
 import { AgePyramidsFigure11_1 } from "@/components/content/biology/AgePyramidsFigure11_1";
 import { PopulationGrowthGraphs } from "@/components/content/biology/PopulationGrowthGraphs";
+import { BiotechDefinitionCard } from "@/components/content/biology/BiotechDefinition";
+import { CurdFormationStrip } from "@/components/content/biology/CurdFormation";
+import { EfbQuoteCard, EfbConceptFlow } from "@/components/content/biology/EfbConcept";
+import { ModernBiotechGrid } from "@/components/content/biology/ModernBiotechGrid";
+import { OldNewBiotech } from "@/components/content/biology/OldNewBiotech";
+import { CoreTechniques } from "@/components/content/biology/CoreTechniques";
+import {
+  GeneticEngineeringDefinition,
+  GeneticEngineeringFlow,
+  GeneticEngineeringExample,
+} from "@/components/content/biology/GeneticEngineeringFlow";
+import { BioprocessEngineering } from "@/components/content/biology/BioprocessEngineering";
+import {
+  ReproductionComparison,
+  HybridisationLimitation,
+  GeneticEngineeringSolution,
+} from "@/components/content/biology/ConceptualBasis";
+import {
+  HybridisationVsEngineering,
+  HybridisationCrossing,
+} from "@/components/content/biology/HybridisationComparison";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -2729,6 +2750,71 @@ export default function DesignPage() {
             <AgePyramidsFigure11_1 />
             <p className="t-micro mt-6">Population growth graphs</p>
             <PopulationGrowthGraphs />
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Biology — biotechnology">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <div>
+            <p className="t-micro">Definition card</p>
+            <BiotechDefinitionCard />
+          </div>
+
+          <div>
+            <p className="t-micro">Curd formation strip</p>
+            <CurdFormationStrip compact />
+            <p className="t-micro mt-6">EFB quotation</p>
+            <EfbQuoteCard />
+          </div>
+
+          <div>
+            <p className="t-micro">EFB concept flow</p>
+            <EfbConceptFlow />
+          </div>
+
+          <div>
+            <p className="t-micro">Modern biotechnology grid</p>
+            <ModernBiotechGrid />
+          </div>
+
+          <div>
+            <p className="t-micro">Old vs new biotechnology</p>
+            <OldNewBiotech />
+          </div>
+
+          <div>
+            <p className="t-micro">Core techniques</p>
+            <CoreTechniques />
+          </div>
+
+          <div>
+            <p className="t-micro">Genetic engineering — definition</p>
+            <GeneticEngineeringDefinition />
+            <p className="t-micro mt-6">Process flow</p>
+            <GeneticEngineeringFlow />
+            <GeneticEngineeringExample />
+          </div>
+
+          <div>
+            <p className="t-micro">Bioprocess engineering</p>
+            <BioprocessEngineering />
+          </div>
+
+          <div>
+            <p className="t-micro">Reproduction comparison</p>
+            <ReproductionComparison />
+            <p className="t-micro mt-6">Hybridisation limitation</p>
+            <HybridisationLimitation />
+            <p className="t-micro mt-6">Solution</p>
+            <GeneticEngineeringSolution />
+          </div>
+
+          <div>
+            <p className="t-micro">Hybridisation vs genetic engineering</p>
+            <HybridisationVsEngineering />
+            <p className="t-micro mt-6">Crossing</p>
+            <HybridisationCrossing />
           </div>
         </div>
       </Section>

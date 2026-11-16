@@ -3268,6 +3268,24 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/BioprocessEngineering.tsx#BioprocessEngineering",
+    "name": "BioprocessEngineering",
+    "path": "content/biology/BioprocessEngineering.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/BiotechDefinition.tsx#BiotechDefinitionCard",
+    "name": "BiotechDefinitionCard",
+    "path": "content/biology/BiotechDefinition.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/BrainSizeBars.tsx#BrainSizeBars",
     "name": "BrainSizeBars",
     "path": "content/biology/BrainSizeBars.tsx",
@@ -3349,6 +3367,69 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/ConceptualBasis.tsx#GeneticEngineeringSolution",
+    "name": "GeneticEngineeringSolution",
+    "path": "content/biology/ConceptualBasis.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ConceptualBasis.tsx#HybridisationLimitation",
+    "name": "HybridisationLimitation",
+    "path": "content/biology/ConceptualBasis.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ConceptualBasis.tsx#ReproductionComparison",
+    "name": "ReproductionComparison",
+    "path": "content/biology/ConceptualBasis.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CoreTechniques.tsx#CoreTechniques",
+    "name": "CoreTechniques",
+    "path": "content/biology/CoreTechniques.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CurdFormation.tsx#CurdFormationStrip",
+    "name": "CurdFormationStrip",
+    "path": "content/biology/CurdFormation.tsx",
+    "category": "biology",
+    "props": "compact?: boolean; caption?: string; className?: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/EfbConcept.tsx#EfbConceptFlow",
+    "name": "EfbConceptFlow",
+    "path": "content/biology/EfbConcept.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/EfbConcept.tsx#EfbQuoteCard",
+    "name": "EfbQuoteCard",
+    "path": "content/biology/EfbConcept.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/FinchBeaksDiagram.tsx#FinchBeaksDiagram",
     "name": "FinchBeaksDiagram",
     "path": "content/biology/FinchBeaksDiagram.tsx",
@@ -3363,6 +3444,51 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/biology/FlowRow.tsx",
     "category": "biology",
     "props": "items: FlowItem[]; caption?: string; className?: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GeneticEngineeringFlow.tsx#GeneticEngineeringDefinition",
+    "name": "GeneticEngineeringDefinition",
+    "path": "content/biology/GeneticEngineeringFlow.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GeneticEngineeringFlow.tsx#GeneticEngineeringExample",
+    "name": "GeneticEngineeringExample",
+    "path": "content/biology/GeneticEngineeringFlow.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GeneticEngineeringFlow.tsx#GeneticEngineeringFlow",
+    "name": "GeneticEngineeringFlow",
+    "path": "content/biology/GeneticEngineeringFlow.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/HybridisationComparison.tsx#HybridisationCrossing",
+    "name": "HybridisationCrossing",
+    "path": "content/biology/HybridisationComparison.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/HybridisationComparison.tsx#HybridisationVsEngineering",
+    "name": "HybridisationVsEngineering",
+    "path": "content/biology/HybridisationComparison.tsx",
+    "category": "biology",
+    "props": null,
     "shell": false,
     "renderable": true
   },
@@ -3430,6 +3556,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/ModernBiotechGrid.tsx#ModernBiotechGrid",
+    "name": "ModernBiotechGrid",
+    "path": "content/biology/ModernBiotechGrid.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/MutualismDiagrams.tsx#FigWaspSequence",
     "name": "FigWaspSequence",
     "path": "content/biology/MutualismDiagrams.tsx",
@@ -3453,6 +3588,15 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/biology/MutualismDiagrams.tsx",
     "category": "biology",
     "props": "title: string; left: { name: string; gives: string }; right: { name: string; gives: string }; caption?: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/OldNewBiotech.tsx#OldNewBiotech",
+    "name": "OldNewBiotech",
+    "path": "content/biology/OldNewBiotech.tsx",
+    "category": "biology",
+    "props": null,
     "shell": false,
     "renderable": true
   },

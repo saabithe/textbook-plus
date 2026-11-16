@@ -4,48 +4,107 @@ import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
-import { Stepper } from "@/components/content/Stepper";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { CycleDiagram } from "@/components/content/process/CycleDiagram";
 import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
+import { BiotechDefinitionCard } from "@/components/content/biology/BiotechDefinition";
+import { CurdFormationStrip } from "@/components/content/biology/CurdFormation";
+import { EfbQuoteCard, EfbConceptFlow } from "@/components/content/biology/EfbConcept";
+import { ModernBiotechGrid } from "@/components/content/biology/ModernBiotechGrid";
+import { OldNewBiotech } from "@/components/content/biology/OldNewBiotech";
+import { CoreTechniques } from "@/components/content/biology/CoreTechniques";
+import {
+  GeneticEngineeringDefinition,
+  GeneticEngineeringFlow,
+  GeneticEngineeringExample,
+} from "@/components/content/biology/GeneticEngineeringFlow";
+import { BioprocessEngineering } from "@/components/content/biology/BioprocessEngineering";
+import {
+  ReproductionComparison,
+  HybridisationLimitation,
+  GeneticEngineeringSolution,
+} from "@/components/content/biology/ConceptualBasis";
+import {
+  HybridisationVsEngineering,
+  HybridisationCrossing,
+} from "@/components/content/biology/HybridisationComparison";
 
 export default function BiotechnologyPrinciplesAndProcessesChapter() {
   return (
     <>
-      <FactCard
-        title="What biotechnology is"
-        definition="Biotechnology deals with techniques of using live organisms or enzymes from organisms to produce products and processes useful to humans."
-        icon="🧬"
+      <h2 id="h-9-1">9.1 Principles of Biotechnology</h2>
+
+      <h3 id="h-9-1-1">1. Definition of Biotechnology</h3>
+      <BiotechDefinitionCard />
+      <CurdFormationStrip
+        className="mt-4"
+        caption="Lactobacillus (B) acts on milk; curd is the product."
       />
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          Making <strong>curd, bread or wine</strong> — all microbe-mediated processes — could also be thought of as a
-          form of biotechnology.
-        </li>
-        <li>
-          In the restricted sense used today, it refers to those processes which use{" "}
-          <strong>genetically modified organisms</strong> to achieve the same on a larger scale.
-        </li>
-        <li>
-          Many other techniques are included too — <em>in vitro</em> fertilisation leading to a &lsquo;test-tube&rsquo;
-          baby, synthesising a gene and using it, developing a DNA vaccine, or correcting a defective gene.
-        </li>
-      </ul>
-      <Callout type="important" title="The EFB definition of biotechnology">
-        The European Federation of Biotechnology (EFB) has given a definition of biotechnology that encompasses both
-        the traditional view and modern molecular biotechnology:
-        <p className="mt-2">
-          &lsquo;
-          <Highlight color="yellow">
-            The integration of natural science and organisms, cells, parts thereof, and molecular analogues for
-            products and services
-          </Highlight>
-          &rsquo;.
-        </p>
-      </Callout>
+
+      <h3 id="h-9-1-2">2. European Federation of Biotechnology (EFB) Definition</h3>
+      <EfbQuoteCard />
+
+      <h4 id="h-9-1-2-components">Conceptual components</h4>
+      <EfbConceptFlow />
+
+      <h4 id="h-9-1-2-example">Example</h4>
+      <CurdFormationStrip compact />
+
+      <h3 id="h-9-1-3">3. Modern Context of Biotechnology</h3>
+      <p>
+        Modern biotechnology refers more restrictively to processes involving{" "}
+        <strong>genetically modified organisms (GMOs)</strong> to produce goods on a larger scale.
+      </p>
+      <ModernBiotechGrid />
+
+      <h3 id="h-9-1-4">4. Evolution of Biotechnology: Old BT vs New BT</h3>
+      <p>
+        Biotechnology has evolved from using the natural abilities of organisms to genetically modifying organisms for
+        obtaining products.
+      </p>
+      <OldNewBiotech />
+
+      <h2 id="h-9-core">Core Techniques of Modern Biotechnology</h2>
+      <p>
+        Modern biotechnology is based on <strong>two core techniques</strong>: genetic engineering and bioprocess
+        engineering.
+      </p>
+      <CoreTechniques />
+
+      <h3 id="h-9-core-1">1. Genetic Engineering 🧬</h3>
+
+      <h4 id="h-9-core-1-definition">Definition and mechanism</h4>
+      <GeneticEngineeringDefinition />
+
+      <h4 id="h-9-core-1-flow">Process flow</h4>
+      <GeneticEngineeringFlow />
+      <GeneticEngineeringExample />
+
+      <h3 id="h-9-core-2">2. Bioprocess Engineering 🧫</h3>
+
+      <h4 id="h-9-core-2-definition">Definition and mechanism</h4>
+      <BioprocessEngineering />
+
+      <h3 id="h-9-core-3">3. Conceptual Basis &amp; Advantages of Genetic Engineering</h3>
+
+      <h4 id="h-9-core-3-asexual">Asexual vs sexual reproduction</h4>
+      <ReproductionComparison />
+
+      <h4 id="h-9-core-3-limitation">Limitation of traditional hybridisation</h4>
+      <HybridisationLimitation />
+
+      <h4 id="h-9-core-3-solution">Solution: genetic engineering</h4>
+      <GeneticEngineeringSolution />
+
+      <h3 id="h-9-core-4">4. Traditional Hybridisation vs Genetic Engineering</h3>
+      <HybridisationVsEngineering />
+
+      <h4 id="h-9-core-4-example">Hybridisation example</h4>
+      <HybridisationCrossing />
+
       <Expandable title="Scientist spotlight — Herbert Boyer and the sticky end" variant="misc">
         <p>
           Herbert Boyer was born in 1936 and brought up in a corner of western Pennsylvania where railroads and mines
@@ -72,162 +131,6 @@ export default function BiotechnologyPrinciplesAndProcessesChapter() {
           <strong>This breakthrough was the basis upon which the discipline of biotechnology was founded.</strong>
         </p>
       </Expandable>
-
-      <h2 id="h-9-1">9.1 Principles of Biotechnology</h2>
-      <p>Among many, the two core techniques that enabled birth of modern biotechnology are:</p>
-      <Comparison
-        columns={[
-          {
-            title: "Genetic engineering",
-            children: (
-              <ul className="list-disc pl-5 space-y-1.5">
-                <li>
-                  Techniques to alter the <strong>chemistry of genetic material</strong> — DNA and RNA.
-                </li>
-                <li>
-                  Introduce these into <strong>host organisms</strong>.
-                </li>
-                <li>
-                  Thus change the <strong>phenotype</strong> of the host organism.
-                </li>
-              </ul>
-            ),
-          },
-          {
-            title: "Bioprocess engineering",
-            children: (
-              <ul className="list-disc pl-5 space-y-1.5">
-                <li>
-                  Maintenance of a <strong>sterile</strong> (microbial contamination-free) ambience in chemical
-                  engineering processes.
-                </li>
-                <li>
-                  Enables growth of only the <strong>desired microbe/eukaryotic cell</strong> in large quantities.
-                </li>
-                <li>
-                  For manufacture of biotechnological products like <strong>antibiotics, vaccines, enzymes</strong>,
-                  etc.
-                </li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-
-      <h3 id="h-9-1-principles">The conceptual development of genetic engineering</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          <strong>Sexual reproduction</strong> provides opportunities for variations and formulation of unique
-          combinations of genetic setup, some of which may be beneficial to the organism as well as the population.
-        </li>
-        <li>
-          <strong>Asexual reproduction</strong> preserves the genetic information, while sexual reproduction permits
-          variation.
-        </li>
-        <li>
-          <strong>Traditional hybridisation</strong> procedures used in plant and animal breeding very often lead to
-          inclusion and multiplication of <em>undesirable</em> genes along with the desired genes.
-        </li>
-        <li>
-          The techniques of genetic engineering — creation of recombinant DNA, use of gene cloning and gene transfer —
-          overcome this limitation.
-        </li>
-        <li>
-          They allow us to isolate and introduce <strong>only one or a set of desirable genes</strong> without
-          introducing undesirable genes into the target organism.
-        </li>
-      </ul>
-
-      <h3 id="h-9-1-ori">Why an alien piece of DNA needs an origin of replication</h3>
-      <p>
-        Most likely, a piece of DNA transferred into an alien organism would <em>not</em> be able to multiply itself in
-        the progeny cells of the organism. But when it gets integrated into the genome of the recipient, it may
-        multiply and be inherited along with the host DNA — because the alien piece has become part of a{" "}
-        <strong>chromosome</strong>, which has the ability to replicate.
-      </p>
-      <Callout type="important" title="Origin of replication">
-        In a chromosome there is a specific DNA sequence called the{" "}
-        <Highlight color="yellow">origin of replication</Highlight>, which is responsible for initiating replication.
-        <p className="mt-2">
-          An alien DNA is linked with the origin of replication, so that this alien piece of DNA can replicate and
-          multiply itself in the host organism.
-        </p>
-      </Callout>
-      <FactCard
-        title="Cloning"
-        definition="Making multiple identical copies of any template DNA."
-        icon="⧉"
-      />
-      <Callout type="didyouknow" title="A vector is a carrier — in two very different worlds">
-        A mosquito acts as an <strong>insect vector</strong> to transfer the malarial parasite into the human body. In
-        the same way, a <strong>plasmid</strong> can be used as a vector to deliver an alien piece of DNA into the host
-        organism.
-      </Callout>
-
-      <h3 id="h-9-1-first">The first artificial recombinant DNA molecule</h3>
-      <p>
-        The construction of the first recombinant DNA emerged from the possibility of linking a gene encoding
-        antibiotic resistance with a native <strong>plasmid</strong> — autonomously replicating circular
-        extra-chromosomal DNA — of <em>Salmonella typhimurium</em>. Stanley Cohen and Herbert Boyer accomplished this in{" "}
-        <strong>1972</strong>.
-      </p>
-      <ProcessCard
-        title="How Cohen and Boyer built the first recombinant DNA"
-        steps={[
-          {
-            label: "Isolate the antibiotic resistance gene",
-            description:
-              "A piece of DNA responsible for conferring antibiotic resistance was cut out of a plasmid.",
-          },
-          {
-            label: "Cut at specific locations",
-            description:
-              "The cutting of DNA at specific locations became possible with the discovery of the so-called 'molecular scissors' — restriction enzymes.",
-          },
-          {
-            label: "Link the cut piece to plasmid DNA",
-            description:
-              "The cut piece of DNA was then linked with the plasmid DNA. These plasmid DNA act as vectors to transfer the piece of DNA attached to it.",
-          },
-          {
-            label: "Join the ends with DNA ligase",
-            description:
-              "The linking of the antibiotic resistance gene with the plasmid vector became possible with the enzyme DNA ligase, which acts on cut DNA molecules and joins their ends.",
-          },
-          {
-            label: "A new combination — recombinant DNA",
-            description:
-              "This makes a new combination of circular autonomously replicating DNA created in vitro, known as recombinant DNA.",
-          },
-          {
-            label: "Transfer into E. coli and multiply",
-            description:
-              "When this DNA is transferred into Escherichia coli, a bacterium closely related to Salmonella, it could replicate using the new host's DNA polymerase enzyme and make multiple copies.",
-          },
-          {
-            label: "Cloning of the antibiotic resistance gene",
-            description:
-              "The ability to multiply copies of the antibiotic resistance gene in E. coli was called cloning of antibiotic resistance gene in E. coli.",
-          },
-        ]}
-      />
-      <h3 id="h-9-1-steps">Three basic steps in genetically modifying an organism</h3>
-      <Stepper
-        steps={[
-          {
-            label: "(i) Identification of DNA with desirable genes",
-            description: "Find the DNA that carries the gene you actually want.",
-          },
-          {
-            label: "(ii) Introduction of the identified DNA into the host",
-            description: "Carry that DNA into the host organism with a suitable vector.",
-          },
-          {
-            label: "(iii) Maintenance of introduced DNA in the host",
-            description: "Keep it there, and transfer the DNA to the progeny of the host.",
-          },
-        ]}
-      />
 
       <h2 id="h-9-2">9.2 Tools of Recombinant DNA Technology</h2>
       <p>
