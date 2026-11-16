@@ -3240,11 +3240,56 @@
     "renderable": true
   },
   {
+    "id": "content/biology/BiotechGlossary.tsx#BiotechGlossary",
+    "name": "BiotechGlossary",
+    "path": "content/biology/BiotechGlossary.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/BrainSizeBars.tsx#BrainSizeBars",
     "name": "BrainSizeBars",
     "path": "content/biology/BrainSizeBars.tsx",
     "category": "biology",
     "props": "title?: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CohenBoyerProcess.tsx#CohenBoyerFlow",
+    "name": "CohenBoyerFlow",
+    "path": "content/biology/CohenBoyerProcess.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CohenBoyerProcess.tsx#CohenBoyerMilestone",
+    "name": "CohenBoyerMilestone",
+    "path": "content/biology/CohenBoyerProcess.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CohenBoyerProcess.tsx#CohenBoyerProcedure",
+    "name": "CohenBoyerProcedure",
+    "path": "content/biology/CohenBoyerProcess.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CohenBoyerProcess.tsx#CohenBoyerStages",
+    "name": "CohenBoyerStages",
+    "path": "content/biology/CohenBoyerProcess.tsx",
+    "category": "biology",
+    "props": null,
     "shell": false,
     "renderable": true
   },
@@ -3639,6 +3684,24 @@
     "id": "content/biology/PreyDefenceTree.tsx#PreyDefenceTree",
     "name": "PreyDefenceTree",
     "path": "content/biology/PreyDefenceTree.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/RdnaSteps.tsx#RdnaStepsOverview",
+    "name": "RdnaStepsOverview",
+    "path": "content/biology/RdnaSteps.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/RdnaSteps.tsx#RdnaStepsTimeline",
+    "name": "RdnaStepsTimeline",
+    "path": "content/biology/RdnaSteps.tsx",
     "category": "biology",
     "props": null,
     "shell": false,

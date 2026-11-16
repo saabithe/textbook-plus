@@ -190,6 +190,14 @@ import {
   HybridisationVsEngineering,
   HybridisationCrossing,
 } from "@/components/content/biology/HybridisationComparison";
+import { RdnaStepsOverview, RdnaStepsTimeline } from "@/components/content/biology/RdnaSteps";
+import {
+  CohenBoyerStages,
+  CohenBoyerMilestone,
+  CohenBoyerProcedure,
+  CohenBoyerFlow,
+} from "@/components/content/biology/CohenBoyerProcess";
+import { BiotechGlossary } from "@/components/content/biology/BiotechGlossary";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -2815,6 +2823,33 @@ export default function DesignPage() {
             <HybridisationVsEngineering />
             <p className="t-micro mt-6">Crossing</p>
             <HybridisationCrossing />
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Biology — recombinant DNA process">
+        <div className="space-y-8">
+          <div>
+            <p className="t-micro">Eight steps — overview</p>
+            <RdnaStepsOverview />
+            <p className="t-micro mt-6">Eight steps — timeline</p>
+            <RdnaStepsTimeline />
+          </div>
+
+          <div>
+            <p className="t-micro">Cohen–Boyer — four stages</p>
+            <CohenBoyerStages />
+            <p className="t-micro mt-6">Cohen–Boyer — milestone</p>
+            <CohenBoyerMilestone />
+            <p className="t-micro mt-6">Cohen–Boyer — procedure</p>
+            <CohenBoyerProcedure />
+            <p className="t-micro mt-6">Cohen–Boyer — complete flow</p>
+            <CohenBoyerFlow />
+          </div>
+
+          <div>
+            <p className="t-micro">Glossary</p>
+            <BiotechGlossary />
           </div>
         </div>
       </Section>

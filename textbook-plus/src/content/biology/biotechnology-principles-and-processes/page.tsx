@@ -5,7 +5,6 @@ import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
-import { CycleDiagram } from "@/components/content/process/CycleDiagram";
 import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
@@ -31,6 +30,14 @@ import {
   HybridisationVsEngineering,
   HybridisationCrossing,
 } from "@/components/content/biology/HybridisationComparison";
+import { RdnaStepsOverview, RdnaStepsTimeline } from "@/components/content/biology/RdnaSteps";
+import {
+  CohenBoyerStages,
+  CohenBoyerMilestone,
+  CohenBoyerProcedure,
+  CohenBoyerFlow,
+} from "@/components/content/biology/CohenBoyerProcess";
+import { BiotechGlossary } from "@/components/content/biology/BiotechGlossary";
 
 export default function BiotechnologyPrinciplesAndProcessesChapter() {
   return (
@@ -589,295 +596,31 @@ export default function BiotechnologyPrinciplesAndProcessesChapter() {
       />
 
       <h2 id="h-9-3">9.3 Processes of Recombinant DNA Technology</h2>
-      <p>Recombinant DNA technology involves several steps in a specific sequence:</p>
-      <ProcessCard
-        title="The recombinant DNA workflow"
-        steps={[
-          {
-            label: "Isolation of DNA",
-            description: "The genetic material is released from the cell and purified.",
-          },
-          {
-            label: "Fragmentation of DNA by restriction endonucleases",
-            description: "The purified DNA is cut into fragments at specific recognition sequences.",
-          },
-          {
-            label: "Isolation of a desired DNA fragment",
-            description: "The fragments are separated by gel electrophoresis and the wanted band is eluted.",
-          },
-          {
-            label: "Ligation of the DNA fragment into a vector",
-            description:
-              "The cut out gene of interest and the cut vector are mixed and ligase is added, giving recombinant DNA.",
-          },
-          {
-            label: "Transferring the recombinant DNA into the host",
-            description: "The ligated DNA is introduced into recipient cells made competent to receive it.",
-          },
-          {
-            label: "Culturing the host cells in a medium at large scale",
-            description: "The transformed cells are grown in large volumes so that the product accumulates.",
-          },
-          {
-            label: "Extraction of the desired product",
-            description: "The product is recovered and processed before it can be marketed.",
-          },
-        ]}
-      />
 
-      <h3 id="h-9-3-1">9.3.1 Isolation of the Genetic Material (DNA)</h3>
+      <h3 id="h-9-3-1">1. Sequential Steps in Recombinant DNA Technology</h3>
       <p>
-        Nucleic acid is the genetic material of all organisms without exception; in the majority of organisms this is
-        deoxyribonucleic acid, or <strong>DNA</strong>. In order to cut the DNA with restriction enzymes, it needs to be
-        in <strong>pure form</strong>, free from other macro-molecules.
+        Recombinant DNA technology involves <strong>8 sequential steps</strong>, from isolating the desired gene to
+        separating and purifying the final product.
       </p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>DNA is enclosed within membranes, so the cell has to be broken open.</li>
-        <li>
-          That releases DNA along with other macromolecules — <strong>RNA, proteins, polysaccharides</strong> and also{" "}
-          <strong>lipids</strong>.
-        </li>
-        <li>
-          Genes are located on long molecules of DNA intertwined with proteins such as <strong>histones</strong>.
-        </li>
-      </ul>
-      <TableCard
-        title="Which enzyme opens which cell"
-        headers={["Enzyme used", "Acts on"]}
-        rows={[
-          { cells: ["Lysozyme", "Bacteria"] },
-          { cells: ["Cellulase", "Plant cells"] },
-          { cells: ["Chitinase", "Fungus"] },
-        ]}
-      />
-      <TableCard
-        title="Clearing away the contaminants"
-        headers={["Unwanted molecule", "Removed by"]}
-        rows={[
-          { cells: ["RNA", "Treatment with ribonuclease"] },
-          { cells: ["Proteins", "Treatment with protease"] },
-          { cells: ["Other molecules", "Appropriate treatments"] },
-        ]}
-        caption="Purified DNA ultimately precipitates out after the addition of chilled ethanol, and can be seen as a collection of fine threads in the suspension. It is then removed by spooling."
-      />
+      <RdnaStepsOverview />
+      <RdnaStepsTimeline />
 
-      <h3 id="h-9-3-2">9.3.2 Cutting of DNA at Specific Locations</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          Restriction enzyme digestions are performed by incubating purified DNA molecules with the restriction enzyme,
-          at the <strong>optimal conditions</strong> for that specific enzyme.
-        </li>
-        <li>
-          <strong>Agarose gel electrophoresis</strong> is employed to check the progression of a restriction enzyme
-          digestion.
-        </li>
-        <li>
-          DNA is a negatively charged molecule, hence it moves towards the positive electrode (anode).
-        </li>
-        <li>
-          The process is repeated with the <strong>vector DNA</strong> also.
-        </li>
-      </ul>
-      <KeyPoint title="The joining step">
-        After having cut the source DNA as well as the vector DNA with a specific restriction enzyme, the cut out
-        &lsquo;gene of interest&rsquo; from the source DNA and the cut vector with space are mixed and{" "}
-        <strong>ligase</strong> is added. This results in the preparation of recombinant DNA.
-      </KeyPoint>
-
-      <h3 id="h-9-3-3">9.3.3 Amplification of Gene of Interest using PCR</h3>
+      <h3 id="h-9-3-2">2. Construction of First Recombinant DNA — Cohen &amp; Boyer (1972)</h3>
       <p>
-        <strong>PCR</strong> stands for <strong>Polymerase Chain Reaction</strong>. In this reaction, multiple copies of
-        the gene (or DNA) of interest is synthesised <em>in vitro</em> using two sets of <strong>primers</strong> and
-        the enzyme <strong>DNA polymerase</strong>.
+        This process flow describes the use of an <strong>Antibiotic Resistance Gene (ABRG)</strong> from a{" "}
+        <em>Salmonella typhimurium</em> plasmid and its introduction into <em>E. coli</em>.
       </p>
-      <FactCard
-        title="Primers"
-        definition="Small chemically synthesised oligonucleotides that are complementary to the regions of DNA."
-        icon="🧫"
-      />
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          The enzyme extends the primers using the <strong>nucleotides</strong> provided in the reaction and the{" "}
-          <strong>genomic DNA as template</strong>.
-        </li>
-        <li>
-          If the process of replication of DNA is repeated many times, the segment of DNA can be amplified to
-          approximately <strong>billion times</strong> — that is, 1 billion copies are made.
-        </li>
-        <li>
-          Such repeated amplification is achieved by the use of a <strong>thermostable DNA polymerase</strong>, isolated
-          from a bacterium, <em>Thermus aquaticus</em>.
-        </li>
-        <li>
-          This enzyme remains active during the high temperature induced denaturation of double stranded DNA.
-        </li>
-        <li>
-          The amplified fragment, if desired, can now be used to ligate with a vector for further cloning.
-        </li>
-      </ul>
-      <CycleDiagram
-        title="Each PCR cycle has three steps"
-        steps={[
-          {
-            label: "Denaturation",
-            detail:
-              "The double stranded DNA is separated into single strands by high temperature.",
-          },
-          {
-            label: "Primer annealing",
-            detail:
-              "The two sets of primers, complementary to the regions of DNA, anneal to the separated strands.",
-          },
-          {
-            label: "Extension of primers",
-            detail:
-              "DNA polymerase extends the primers using the nucleotides provided in the reaction and the genomic DNA as template.",
-          },
-        ]}
-      />
-      <MistakeCard
-        mistake="PCR is how a gene is cloned inside a bacterial cell."
-        correction="PCR multiplies the gene in vitro, in a reaction tube, with primers, DNA polymerase and nucleotides. Cloning in a host comes later: the amplified fragment is ligated with a vector, put into a bacterial, plant or animal host, and multiplied there using the host's own replication machinery."
-      />
+      <CohenBoyerStages />
+      <CohenBoyerMilestone />
 
-      <h3 id="h-9-3-4">9.3.4 Insertion of Recombinant DNA into the Host Cell/Organism</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>There are several methods of introducing the ligated DNA into recipient cells.</li>
-        <li>
-          Recipient cells, after making them &lsquo;competent&rsquo; to receive, take up DNA present in their
-          surroundings.
-        </li>
-        <li>
-          If a recombinant DNA bearing a gene for resistance to an antibiotic (e.g. ampicillin) is transferred into{" "}
-          <em>E. coli</em> cells, the host cells become transformed into <strong>ampicillin-resistant cells</strong>.
-        </li>
-        <li>
-          Spread the transformed cells on agar plates containing ampicillin: only <strong>transformants</strong> will
-          grow, untransformed recipient cells will die.
-        </li>
-        <li>
-          Because of the ampicillin resistance gene, one is able to select a transformed cell in the presence of
-          ampicillin — the gene in this case is called a <strong>selectable marker</strong>.
-        </li>
-      </ul>
+      <h4 id="h-9-3-2-procedure">Procedure</h4>
+      <CohenBoyerProcedure />
 
-      <h3 id="h-9-3-5">9.3.5 Obtaining the Foreign Gene Product</h3>
-      <p>
-        When you insert a piece of alien DNA into a cloning vector and transfer it into a bacterial, plant or animal
-        cell, the alien DNA gets multiplied. In almost all recombinant technologies, the ultimate aim is to produce a{" "}
-        <strong>desirable protein</strong>, so there is a need for the recombinant DNA to be expressed. The foreign gene
-        gets expressed under appropriate conditions.
-      </p>
-      <FactCard
-        title="Recombinant protein"
-        definition="If any protein encoding gene is expressed in a heterologous host, it is called a recombinant protein."
-        icon="🧪"
-      />
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          The cells harbouring cloned genes of interest may be grown on a{" "}
-          <strong>small scale in the laboratory</strong>.
-        </li>
-        <li>
-          The cultures may be used for extracting the desired protein and then purifying it by using different
-          separation techniques.
-        </li>
-        <li>
-          The cells can also be multiplied in a <strong>continuous culture system</strong>, wherein the used medium is
-          drained out from one side while fresh medium is added from the other.
-        </li>
-        <li>
-          This maintains the cells in their physiologically most active <strong>log/exponential phase</strong>.
-        </li>
-        <li>
-          This type of culturing method produces a larger biomass, leading to higher yields of the desired protein.
-        </li>
-      </ul>
-      <Callout type="important" title="Why bioreactors were needed">
-        Small volume cultures cannot yield appreciable quantities of products. To produce in large quantities, the
-        development of <strong>bioreactors</strong> — where large volumes (100–1000 litres) of culture can be
-        processed — was required.
-        <p className="mt-2">
-          Bioreactors can be thought of as vessels in which raw materials are biologically converted into specific
-          products, individual enzymes, etc., using microbial, plant, animal or human cells.
-        </p>
-      </Callout>
-      <p>
-        A bioreactor provides the optimal conditions for achieving the desired product by providing optimum growth
-        conditions — <strong>temperature, pH, substrate, salts, vitamins, oxygen</strong>. The most commonly used
-        bioreactors are of <strong>stirring type</strong>.
-      </p>
-      <TableCard
-        title="Parts of a stirred-tank bioreactor"
-        headers={["System or part", "What it does"]}
-        rows={[
-          {
-            cells: [
-              "Vessel shape",
-              "Usually cylindrical, or with a curved base, to facilitate the mixing of the reactor contents.",
-            ],
-          },
-          {
-            cells: [
-              "Stirrer / agitator system",
-              "Facilitates even mixing and oxygen availability throughout the bioreactor.",
-            ],
-          },
-          {
-            cells: [
-              "Oxygen delivery system",
-              "Supplies oxygen — alternatively, air can be bubbled (sparged) through the reactor.",
-            ],
-          },
-          { cells: ["Foam control system", "Keeps the foam produced during stirring under control."] },
-          { cells: ["Temperature control system", "Holds the culture at the optimum temperature."] },
-          { cells: ["pH control system", "Holds the culture at the optimum pH."] },
-          {
-            cells: [
-              "Sampling ports",
-              "Let small volumes of the culture be withdrawn periodically for checking.",
-            ],
-          },
-        ]}
-      />
-      <MistakeCard
-        mistake="A bioreactor is simply a large flask in which cells are grown."
-        correction="A stirred-tank bioreactor is a controlled vessel. Besides holding a large volume, it has an agitator system, an oxygen delivery system, a foam control system, a temperature control system, a pH control system and sampling ports — none of which a shake flask provides."
-        example="Exercise 6 asks exactly what a stirred tank bioreactor offers over a shake flask, apart from better aeration and mixing."
-      />
+      <h4 id="h-9-3-2-flow">Complete Cohen–Boyer process flow</h4>
+      <CohenBoyerFlow />
 
-      <h3 id="h-9-3-6">9.3.6 Downstream Processing</h3>
-      <p>
-        After completion of the biosynthetic stage, the product has to be subjected through a series of processes before
-        it is ready for marketing as a finished product. The processes include separation and purification, which are
-        collectively referred to as <strong>downstream processing</strong>.
-      </p>
-      <ProcessCard
-        title="From bioreactor to market"
-        steps={[
-          {
-            label: "Separation and purification",
-            description:
-              "The product is separated from the culture and purified — together these are downstream processing.",
-          },
-          {
-            label: "Formulation",
-            description: "The product has to be formulated with suitable preservatives.",
-          },
-          {
-            label: "Clinical trials",
-            description: "Such formulation has to undergo thorough clinical trials as in case of drugs.",
-          },
-          {
-            label: "Quality control testing",
-            description: "Strict quality control testing for each product is also required.",
-          },
-        ]}
-      />
-      <Callout type="note" title="No single recipe">
-        The downstream processing and quality control testing <strong>vary from product to product</strong>. There is no
-        one protocol that fits every product coming out of a bioreactor.
-      </Callout>
+      <h3 id="h-9-3-3">3. Important Terms — Quick Reference</h3>
+      <BiotechGlossary />
 
       <h2 id="h-9-exercises">Exercises</h2>
       <Expandable title="NCERT Exercises" variant="exercise">
