@@ -61,6 +61,26 @@ import {
   Elution,
   AgeWorkflow,
 } from "@/components/content/biology/GelElectrophoresis";
+import { LigationPrinciple, LigationStages } from "@/components/content/biology/Ligation";
+import { VectorDefinition, VectorTypes, CloningVectorFeatures } from "@/components/content/biology/Vectors";
+import {
+  CompetentHostConcept,
+  CationTreatment,
+  HeatShockTimeline,
+  DirectTransferMethods,
+} from "@/components/content/biology/HostIntroduction";
+import {
+  RecombinantProtein,
+  SmallScaleCulturing,
+  ContinuousCulture,
+} from "@/components/content/biology/GeneProduct";
+import {
+  BioreactorNeed,
+  BioreactorEnvironment,
+  StirredTankTypes,
+  BioreactorControls,
+} from "@/components/content/biology/Bioreactor";
+import { DownstreamProcessing } from "@/components/content/biology/DownstreamProcessing";
 import { RdnaStepsOverview, RdnaStepsTimeline } from "@/components/content/biology/RdnaSteps";
 import {
   CohenBoyerStages,
@@ -258,6 +278,67 @@ export default function BiotechnologyPrinciplesAndProcessesChapter() {
 
       <h4 id="h-9-2-10-exponential">Exponential amplification</h4>
       <ExponentialAmplification />
+
+      <h3 id="h-9-2-11">11. Ligation of DNA Fragment into a Vector</h3>
+
+      <h4 id="h-9-2-11-principle">Formation of recombinant DNA (rDNA)</h4>
+      <LigationPrinciple />
+
+      <h4 id="h-9-2-11-stages">Stages of ligation</h4>
+      <LigationStages />
+
+      <h3 id="h-9-2-12">12. Vectors</h3>
+
+      <h4 id="h-9-2-12-definition">Definition</h4>
+      <VectorDefinition />
+
+      <h5 id="h-9-2-12-types">Common types of vectors</h5>
+      <VectorTypes />
+
+      <h5 id="h-9-2-12-features">Essential features of a cloning vector</h5>
+      <CloningVectorFeatures />
+
+      <h3 id="h-9-2-13">13. Introduction of Recombinant DNA into Host Cells</h3>
+
+      <h4 id="h-9-2-13-competent">Competent host cells</h4>
+      <CompetentHostConcept />
+
+      <h4 id="h-9-2-13-chemical">Chemical treatment and heat shock</h4>
+      <CationTreatment />
+      <HeatShockTimeline />
+
+      <h4 id="h-9-2-13-direct">5.1 Direct (vectorless) and alternative gene transfer methods</h4>
+      <DirectTransferMethods />
+
+      <h3 id="h-9-2-14">14. Obtaining the Foreign Gene Product</h3>
+
+      <h4 id="h-9-2-14-protein">Recombinant protein</h4>
+      <RecombinantProtein />
+
+      <h4 id="h-9-2-14-small-scale">Small-scale culturing</h4>
+      <SmallScaleCulturing />
+
+      <h4 id="h-9-2-14-continuous">Continuous culture system</h4>
+      <ContinuousCulture />
+
+      <h3 id="h-9-2-15">15. Bioreactors and Mass Production</h3>
+
+      <h4 id="h-9-2-15-need">Need for bioreactors</h4>
+      <BioreactorNeed />
+
+      <h5 id="h-9-2-15-environment">Optimal growth environment</h5>
+      <BioreactorEnvironment />
+
+      <h4 id="h-9-2-15-types">Types of stirred-tank bioreactors</h4>
+      <StirredTankTypes />
+
+      <h4 id="h-9-2-15-controls">Essential control systems</h4>
+      <BioreactorControls />
+
+      <h3 id="h-9-2-16">16. Downstream Processing</h3>
+
+      <h4 id="h-9-2-16-steps">Definition and major steps</h4>
+      <DownstreamProcessing />
 
       <h2 id="h-9-3">9.3 Processes of Recombinant DNA Technology</h2>
 

@@ -238,6 +238,26 @@ import {
   Elution,
   AgeWorkflow,
 } from "@/components/content/biology/GelElectrophoresis";
+import { LigationPrinciple, LigationStages } from "@/components/content/biology/Ligation";
+import { VectorDefinition, VectorTypes, CloningVectorFeatures } from "@/components/content/biology/Vectors";
+import {
+  CompetentHostConcept,
+  CationTreatment,
+  HeatShockTimeline,
+  DirectTransferMethods,
+} from "@/components/content/biology/HostIntroduction";
+import {
+  RecombinantProtein,
+  SmallScaleCulturing,
+  ContinuousCulture,
+} from "@/components/content/biology/GeneProduct";
+import {
+  BioreactorNeed,
+  BioreactorEnvironment,
+  StirredTankTypes,
+  BioreactorControls,
+} from "@/components/content/biology/Bioreactor";
+import { DownstreamProcessing } from "@/components/content/biology/DownstreamProcessing";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -2991,6 +3011,59 @@ export default function DesignPage() {
             <TaqPolymerase />
             <p className="t-micro mt-6">PCR — exponential amplification</p>
             <ExponentialAmplification />
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Biology — ligation, vectors, hosts and bioprocessing">
+        <div className="space-y-8">
+          <div>
+            <p className="t-micro">Ligation — principle</p>
+            <LigationPrinciple />
+            <p className="t-micro mt-6">Ligation — stages</p>
+            <LigationStages />
+          </div>
+
+          <div>
+            <p className="t-micro">Vectors — definition</p>
+            <VectorDefinition />
+            <p className="t-micro mt-6">Vectors — types</p>
+            <VectorTypes />
+            <p className="t-micro mt-6">Vectors — cloning features</p>
+            <CloningVectorFeatures />
+          </div>
+
+          <div>
+            <p className="t-micro">Host — competent cells</p>
+            <CompetentHostConcept />
+            <p className="t-micro mt-6">Host — cation treatment</p>
+            <CationTreatment />
+            <p className="t-micro mt-6">Host — heat shock</p>
+            <HeatShockTimeline />
+            <p className="t-micro mt-6">Host — direct transfer</p>
+            <DirectTransferMethods />
+          </div>
+
+          <div>
+            <p className="t-micro">Product — recombinant protein</p>
+            <RecombinantProtein />
+            <p className="t-micro mt-6">Product — small-scale culturing</p>
+            <SmallScaleCulturing />
+            <p className="t-micro mt-6">Product — continuous culture</p>
+            <ContinuousCulture />
+          </div>
+
+          <div>
+            <p className="t-micro">Bioreactor — need</p>
+            <BioreactorNeed />
+            <p className="t-micro mt-6">Bioreactor — growth environment</p>
+            <BioreactorEnvironment />
+            <p className="t-micro mt-6">Bioreactor — tank types</p>
+            <StirredTankTypes />
+            <p className="t-micro mt-6">Bioreactor — control systems</p>
+            <BioreactorControls />
+            <p className="t-micro mt-6">Downstream processing</p>
+            <DownstreamProcessing />
           </div>
         </div>
       </Section>
