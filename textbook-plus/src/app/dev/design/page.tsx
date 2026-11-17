@@ -256,6 +256,20 @@ import {
   BioreactorControls,
 } from "@/components/content/biology/Bioreactor";
 import { DownstreamProcessing } from "@/components/content/biology/DownstreamProcessing";
+import { BiotechApplicationsGrid } from "@/components/content/biology/BiotechApplications";
+import { ResearchAreas } from "@/components/content/biology/ResearchAreas";
+import { FoodYieldOptions } from "@/components/content/biology/FoodYieldOptions";
+import {
+  CultureMediumRequirements,
+  ExplantDefinition,
+  ExplantTotipotencyDiagram,
+} from "@/components/content/biology/TissueCulture";
+import { MicropropagationFlow, SomaclonesCard } from "@/components/content/biology/Micropropagation";
+import {
+  PomatoCard,
+  SomaticFusionFlow,
+  SomaticHybridisationPrinciple,
+} from "@/components/content/biology/SomaticHybridisation";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -3055,6 +3069,31 @@ export default function DesignPage() {
             <BioreactorControls />
             <p className="t-micro mt-6">Downstream processing</p>
             <DownstreamProcessing />
+          </div>
+
+          <div>
+            <p className="t-micro">Applications — seven fields</p>
+            <BiotechApplicationsGrid />
+            <p className="t-micro mt-6">Research areas — three stages</p>
+            <ResearchAreas />
+            <p className="t-micro mt-6">Food yield — three options</p>
+            <FoodYieldOptions />
+            <p className="t-micro mt-6">Tissue culture — explant</p>
+            <ExplantDefinition />
+            <p className="t-micro mt-6">Tissue culture — totipotency diagram</p>
+            <ExplantTotipotencyDiagram />
+            <p className="t-micro mt-6">Tissue culture — medium</p>
+            <CultureMediumRequirements />
+            <p className="t-micro mt-6">Micro-propagation flow</p>
+            <MicropropagationFlow />
+            <p className="t-micro mt-6">Somaclones</p>
+            <SomaclonesCard />
+            <p className="t-micro mt-6">Somatic hybridisation — principle</p>
+            <SomaticHybridisationPrinciple />
+            <p className="t-micro mt-6">Somatic hybridisation — fusion flow</p>
+            <SomaticFusionFlow />
+            <p className="t-micro mt-6">Somatic hybrid — pomato</p>
+            <PomatoCard />
           </div>
         </div>
       </Section>

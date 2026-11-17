@@ -3267,6 +3267,15 @@
     "renderable": true
   },
   {
+    "id": "content/biology/BiotechApplications.tsx#BiotechApplicationsGrid",
+    "name": "BiotechApplicationsGrid",
+    "path": "content/biology/BiotechApplications.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/BiotechDefinition.tsx#BiotechDefinitionCard",
     "name": "BiotechDefinitionCard",
     "path": "content/biology/BiotechDefinition.tsx",
@@ -3537,6 +3546,15 @@
     "renderable": true
   },
   {
+    "id": "content/biology/FoodYieldOptions.tsx#FoodYieldOptions",
+    "name": "FoodYieldOptions",
+    "path": "content/biology/FoodYieldOptions.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/GelElectrophoresis.tsx#AgePrinciple",
     "name": "AgePrinciple",
     "path": "content/biology/GelElectrophoresis.tsx",
@@ -3780,6 +3798,24 @@
     "renderable": true
   },
   {
+    "id": "content/biology/Micropropagation.tsx#MicropropagationFlow",
+    "name": "MicropropagationFlow",
+    "path": "content/biology/Micropropagation.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Micropropagation.tsx#SomaclonesCard",
+    "name": "SomaclonesCard",
+    "path": "content/biology/Micropropagation.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/MillerApparatusDiagram.tsx#MillerApparatusDiagram",
     "name": "MillerApparatusDiagram",
     "path": "content/biology/MillerApparatusDiagram.tsx",
@@ -4014,6 +4050,15 @@
     "renderable": true
   },
   {
+    "id": "content/biology/ResearchAreas.tsx#ResearchAreas",
+    "name": "ResearchAreas",
+    "path": "content/biology/ResearchAreas.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/RestrictionEnzymes.tsx#BacterialDefence",
     "name": "BacterialDefence",
     "path": "content/biology/RestrictionEnzymes.tsx",
@@ -4104,9 +4149,63 @@
     "renderable": true
   },
   {
+    "id": "content/biology/SomaticHybridisation.tsx#PomatoCard",
+    "name": "PomatoCard",
+    "path": "content/biology/SomaticHybridisation.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/SomaticHybridisation.tsx#SomaticFusionFlow",
+    "name": "SomaticFusionFlow",
+    "path": "content/biology/SomaticHybridisation.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/SomaticHybridisation.tsx#SomaticHybridisationPrinciple",
+    "name": "SomaticHybridisationPrinciple",
+    "path": "content/biology/SomaticHybridisation.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/ThreeBasicSteps.tsx#ThreeBasicSteps",
     "name": "ThreeBasicSteps",
     "path": "content/biology/ThreeBasicSteps.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/TissueCulture.tsx#CultureMediumRequirements",
+    "name": "CultureMediumRequirements",
+    "path": "content/biology/TissueCulture.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/TissueCulture.tsx#ExplantDefinition",
+    "name": "ExplantDefinition",
+    "path": "content/biology/TissueCulture.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/TissueCulture.tsx#ExplantTotipotencyDiagram",
+    "name": "ExplantTotipotencyDiagram",
+    "path": "content/biology/TissueCulture.tsx",
     "category": "biology",
     "props": null,
     "shell": false,

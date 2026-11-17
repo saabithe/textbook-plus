@@ -9,66 +9,41 @@ import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { RevealAnswer } from "@/components/content/process/RevealAnswer";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
-import { ConceptCard } from "@/components/content/concept/ConceptCard";
 import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
+import { BiotechApplicationsGrid } from "@/components/content/biology/BiotechApplications";
+import { ResearchAreas } from "@/components/content/biology/ResearchAreas";
+import { FoodYieldOptions } from "@/components/content/biology/FoodYieldOptions";
+import {
+  CultureMediumRequirements,
+  ExplantDefinition,
+  ExplantTotipotencyDiagram,
+} from "@/components/content/biology/TissueCulture";
+import { MicropropagationFlow, SomaclonesCard } from "@/components/content/biology/Micropropagation";
+import {
+  PomatoCard,
+  SomaticFusionFlow,
+  SomaticHybridisationPrinciple,
+} from "@/components/content/biology/SomaticHybridisation";
 
 export default function BiotechnologyAndItsApplicationsChapter() {
   return (
     <>
-      <p>
-        Biotechnology, as you would have learnt from the previous chapter, essentially deals with
-        industrial scale production of biopharmaceuticals and biologicals using genetically modified
-        microbes, fungi, plants and animals.
-      </p>
-      <TableCard
-        title="Three critical research areas of biotechnology"
-        headers={["Research area", "What it means"]}
-        rows={[
-          {
-            cells: [
-              "Providing the best catalyst",
-              "An improved organism — usually a microbe — or a pure enzyme.",
-            ],
-          },
-          {
-            cells: [
-              "Creating optimal conditions",
-              "Conditions created through engineering, so that the catalyst can act.",
-            ],
-          },
-          {
-            cells: [
-              "Downstream processing",
-              "Technologies to purify the protein or organic compound that has been made.",
-            ],
-          },
-        ]}
-      />
-      <ConceptCard title="Where biotechnology is applied" icon="🧬">
-        <ul className="list-disc pl-5 space-y-1.5">
-          <li>Therapeutics</li>
-          <li>Diagnostics</li>
-          <li>Genetically modified crops for agriculture</li>
-          <li>Processed food</li>
-          <li>Bioremediation</li>
-          <li>Waste treatment</li>
-          <li>Energy production</li>
-        </ul>
-      </ConceptCard>
-      <KeyPoint title="This chapter in one line">
-        Human beings have used biotechnology to improve the quality of human life, especially in the
-        field of <strong>food production</strong> and <strong>health</strong> — and those two arenas
-        are exactly the two halves of this chapter.
-      </KeyPoint>
+      <h2 id="h-10-intro">1. Introduction to Biotechnology</h2>
+
+      <h3 id="h-10-intro-applications">Applications of Biotechnology</h3>
+      <p>Biotechnology has applications in several fields.</p>
+      <BiotechApplicationsGrid />
+
+      <h2 id="h-10-research">2. Three Critical Research Areas of Biotechnology</h2>
+      <p>Three major research areas are:</p>
+      <ResearchAreas />
 
       <h2 id="h-10-1">10.1 Biotechnological Applications in Agriculture</h2>
-      <p>Let us take a look at the three options that can be thought for increasing food production.</p>
-      <ol className="list-decimal pl-5 space-y-1.5">
-        <li>Agro-chemical based agriculture.</li>
-        <li>Organic agriculture.</li>
-        <li>Genetically engineered crop-based agriculture.</li>
-      </ol>
+
+      <h3 id="h-10-1-options">3. Three Options to Increase Food Yield</h3>
+      <p>Three approaches are available to increase food production:</p>
+      <FoodYieldOptions />
       <p>
         Why was a third option even needed? The Green Revolution succeeded in tripling the food supply,
         but yet it was not enough to feed the growing human population.
@@ -96,61 +71,18 @@ export default function BiotechnologyAndItsApplicationsChapter() {
         gap — <strong>tissue culture</strong> and, later, <strong>genetically modified crops</strong>.
       </Callout>
 
-      <h3 id="h-10-1-tissue-culture">Tissue culture and micro-propagation</h3>
-      <p>
-        It was learnt by scientists, during the 1950s, that whole plants could be regenerated from
-        explants — any part of a plant taken out and grown in a test tube, under sterile conditions in
-        special nutrient media.
-      </p>
-      <Callout type="important" title="Totipotency">
-        This capacity to generate a whole plant from any cell/explant is called{" "}
-        <Highlight color="yellow">totipotency</Highlight>.
-      </Callout>
-      <TableCard
-        title="The vocabulary of tissue culture"
-        headers={["Term", "Meaning"]}
-        rows={[
-          {
-            cells: [
-              "Explant",
-              "Any part of a plant taken out and grown in a test tube, under sterile conditions in special nutrient media.",
-            ],
-          },
-          {
-            cells: [
-              "Totipotency",
-              "The capacity to generate a whole plant from any cell/explant.",
-            ],
-          },
-          {
-            cells: [
-              "Micro-propagation",
-              "The method of producing thousands of plants through tissue culture.",
-            ],
-          },
-          {
-            cells: [
-              "Somaclone",
-              "Each plant produced this way is genetically identical to the original plant from which it was grown.",
-            ],
-          },
-        ]}
-      />
-      <Callout type="note" title="What the nutrient medium must supply">
-        The nutrient medium must provide a <strong>carbon source</strong> such as sucrose, and also{" "}
-        <strong>inorganic salts</strong>, <strong>vitamins</strong>, <strong>amino acids</strong> and{" "}
-        <strong>growth regulators</strong> like auxins and cytokinins.
-      </Callout>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          By application of these methods it is possible to achieve propagation of a{" "}
-          <strong>large number of plants in very short durations</strong>.
-        </li>
-        <li>
-          Many important food plants — <strong>tomato</strong>, <strong>banana</strong>,{" "}
-          <strong>apple</strong> — have been produced on commercial scale using this method.
-        </li>
-      </ul>
+      <h3 id="h-10-1-tissue-culture">4. Tissue Culture</h3>
+
+      <h4 id="h-10-1-explant">Explant and Totipotency</h4>
+      <ExplantDefinition />
+      <ExplantTotipotencyDiagram />
+
+      <h4 id="h-10-1-medium">Medium Requirements</h4>
+      <CultureMediumRequirements />
+
+      <h4 id="h-10-1-micropropagation">4.1 Micro-propagation and Somaclones</h4>
+      <MicropropagationFlow />
+      <SomaclonesCard />
 
       <h3 id="h-10-1-virus-free">Recovery of healthy plants from diseased plants</h3>
       <Callout type="important" title="Why the meristem is the answer">
@@ -163,47 +95,16 @@ export default function BiotechnologyAndItsApplicationsChapter() {
         <strong>sugarcane</strong>, <strong>potato</strong>, etc.
       </p>
 
-      <h3 id="h-10-1-somatic-hybrids">Somatic hybrids</h3>
-      <p>
-        Scientists have even isolated single cells from plants and, after digesting their cell walls,
-        have been able to isolate naked protoplasts (surrounded by plasma membranes).
-      </p>
-      <Stepper
-        steps={[
-          {
-            label: "Single cells are isolated from plants",
-            description: "The starting material is an isolated plant cell.",
-          },
-          {
-            label: "Cell walls are digested",
-            description: "Naked protoplasts are obtained — each surrounded only by its plasma membrane.",
-          },
-          {
-            label: "Protoplasts of two varieties are fused",
-            description:
-              "One protoplast from each of two different varieties of plants, each having a desirable character, is fused.",
-          },
-          {
-            label: "Hybrid protoplasts are formed",
-            description: "The fused product is a hybrid protoplast.",
-          },
-          {
-            label: "A new plant is grown",
-            description: "The hybrid protoplast is grown further to form a new plant.",
-          },
-        ]}
-      />
-      <FactCard
-        title="Somatic hybrid / somatic hybridisation"
-        definition="Hybrids produced by fusing protoplasts of two different varieties are called somatic hybrids, and the process is called somatic hybridisation."
-        icon="🌱"
-      />
-      <Callout type="note" title="The pomato story">
-        A protoplast of tomato was fused with that of potato and grown — forming new hybrid plants
-        combining tomato and potato characteristics. This was achieved, giving{" "}
-        <strong>pomato</strong>. Unfortunately, the plant did not have all the desired combination of
-        characteristics for its commercial utilisation.
-      </Callout>
+      <h3 id="h-10-1-somatic-hybrids">5. Somatic Hybridisation</h3>
+
+      <h4 id="h-10-1-somatic-principle">Definition and Principle</h4>
+      <SomaticHybridisationPrinciple />
+
+      <h4 id="h-10-1-somatic-process">Process of Somatic Hybridisation</h4>
+      <SomaticFusionFlow />
+
+      <h4 id="h-10-1-somatic-example">Example of Somatic Hybrid</h4>
+      <PomatoCard />
 
       <h3 id="h-10-1-gm-crops">Genetically modified crops</h3>
       <p>
