@@ -4276,6 +4276,69 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/Rnai.tsx#NematodeTargetCard",
+    "name": "NematodeTargetCard",
+    "path": "content/biology/Rnai.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Rnai.tsx#RnaiDefinitionCard",
+    "name": "RnaiDefinitionCard",
+    "path": "content/biology/Rnai.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Rnai.tsx#RnaiDsRnaFlow",
+    "name": "RnaiDsRnaFlow",
+    "path": "content/biology/Rnai.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Rnai.tsx#RnaiMolecularFlow",
+    "name": "RnaiMolecularFlow",
+    "path": "content/biology/Rnai.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Rnai.tsx#RnaiNaturalSources",
+    "name": "RnaiNaturalSources",
+    "path": "content/biology/Rnai.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Rnai.tsx#RnaiOutcomeCard",
+    "name": "RnaiOutcomeCard",
+    "path": "content/biology/Rnai.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Rnai.tsx#RnaiSilencingFlow",
+    "name": "RnaiSilencingFlow",
+    "path": "content/biology/Rnai.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/SomaticHybridisation.tsx#PomatoCard",
     "name": "PomatoCard",
     "path": "content/biology/SomaticHybridisation.tsx",

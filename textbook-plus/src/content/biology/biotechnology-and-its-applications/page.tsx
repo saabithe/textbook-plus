@@ -28,6 +28,15 @@ import {
 import { GmAdvantages, GmoDefinitionCard, TailorMadeCrops } from "@/components/content/biology/GmOrganisms";
 import { BtInsectGroups, BtOverview, CryGeneTargets } from "@/components/content/biology/BtCrops";
 import { BtExamFlowchart, BtProtoxinState, BtToxinAction } from "@/components/content/biology/BtMechanism";
+import {
+  NematodeTargetCard,
+  RnaiDefinitionCard,
+  RnaiDsRnaFlow,
+  RnaiMolecularFlow,
+  RnaiNaturalSources,
+  RnaiOutcomeCard,
+  RnaiSilencingFlow,
+} from "@/components/content/biology/Rnai";
 
 export default function BiotechnologyAndItsApplicationsChapter() {
   return (
@@ -110,69 +119,25 @@ export default function BiotechnologyAndItsApplicationsChapter() {
       <h4 id="h-10-3-exam-flow">Complete Mechanism — Board Exam Flowchart</h4>
       <BtExamFlowchart />
 
-      <h3 id="h-10-1-pest-resistant">Pest resistant plants — RNA interference</h3>
-      <p>
-        Several nematodes parasitise a wide variety of plants and animals, including human beings. A
-        nematode, <em>Meloidegyne incognitia</em>, infects the roots of tobacco plants and causes a
-        great reduction in yield.
-      </p>
-      <p>
-        A novel strategy was adopted to prevent this infestation, based on the process of{" "}
-        <strong>RNA interference (RNAi)</strong>.
-      </p>
-      <Callout type="important" title="RNA interference">
-        RNAi takes place in <strong>all eukaryotic organisms</strong> as a method of cellular defense.
-        This method involves <Highlight color="yellow">silencing of a specific mRNA</Highlight> due to a
-        complementary dsRNA molecule that binds to and prevents translation of the mRNA (silencing).
-      </Callout>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          The source of this complementary RNA could be an infection by{" "}
-          <strong>viruses having RNA genomes</strong>.
-        </li>
-        <li>
-          It could also come from <strong>mobile genetic elements (transposons)</strong> that replicate
-          via an RNA intermediate.
-        </li>
-      </ul>
-      <Stepper
-        steps={[
-          {
-            label: "Nematode-specific genes are introduced into the host plant",
-            description: "Agrobacterium vectors are used to carry the genes into the plant.",
-          },
-          {
-            label: "The introduced DNA produces both sense and anti-sense RNA",
-            description: "The DNA is designed so that both strands are transcribed in the host cells.",
-          },
-          {
-            label: "The two RNAs are complementary, so they pair",
-            description: "They form a double stranded RNA — dsRNA.",
-          },
-          {
-            label: "The dsRNA initiates RNAi",
-            description: "RNA interference is set off inside the host cell.",
-          },
-          {
-            label: "The specific mRNA of the nematode is silenced",
-            description: "The complementary dsRNA binds to it and prevents its translation.",
-          },
-          {
-            label: "The parasite cannot survive in the transgenic host",
-            description:
-              "The nematode fails to establish itself in a host expressing the specific interfering RNA.",
-          },
-          {
-            label: "The transgenic plant is protected",
-            description: "The plant therefore gets itself protected from the parasite.",
-          },
-        ]}
-      />
-      <KeyPoint title="No toxin — silence instead">
-        In the Bt strategy the plant makes a <strong>toxic protein</strong>. In the RNAi strategy the
-        plant makes an <strong>RNA that silences the nematode&apos;s own mRNA</strong>. Both protect
-        the plant, but only the first is a toxin.
-      </KeyPoint>
+      <h2 id="h-10-1-rnai">Pest-Resistant Plants via RNA Interference (RNAi)</h2>
+
+      <h3 id="h-10-1-rnai-target">1. Introduction and Target Organism</h3>
+      <NematodeTargetCard />
+
+      <h3 id="h-10-1-rnai-principle">2. Principle of RNA Interference (RNAi)</h3>
+      <RnaiDefinitionCard />
+      <RnaiMolecularFlow />
+      <RnaiNaturalSources />
+
+      <h3 id="h-10-1-rnai-mechanism">3. RNAi Mechanism in Transgenic Tobacco</h3>
+      <RnaiDsRnaFlow />
+
+      <h3 id="h-10-1-rnai-silencing">4. Gene Silencing in the Nematode</h3>
+      <p>When the nematode infects the transgenic tobacco plant:</p>
+      <RnaiSilencingFlow />
+
+      <h3 id="h-10-1-rnai-outcome">5. Final Outcome</h3>
+      <RnaiOutcomeCard />
 
       <h2 id="h-10-2">10.2 Biotechnological Applications in Medicine</h2>
       <p>

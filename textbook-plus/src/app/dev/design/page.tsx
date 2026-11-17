@@ -273,6 +273,15 @@ import {
 import { GmAdvantages, GmoDefinitionCard, TailorMadeCrops } from "@/components/content/biology/GmOrganisms";
 import { BtInsectGroups, BtOverview, CryGeneTargets } from "@/components/content/biology/BtCrops";
 import { BtExamFlowchart, BtProtoxinState, BtToxinAction } from "@/components/content/biology/BtMechanism";
+import {
+  NematodeTargetCard,
+  RnaiDefinitionCard,
+  RnaiDsRnaFlow,
+  RnaiMolecularFlow,
+  RnaiNaturalSources,
+  RnaiOutcomeCard,
+  RnaiSilencingFlow,
+} from "@/components/content/biology/Rnai";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -3115,6 +3124,20 @@ export default function DesignPage() {
             <BtToxinAction />
             <p className="t-micro mt-6">Bt — exam flowchart</p>
             <BtExamFlowchart />
+            <p className="t-micro mt-6">RNAi — target parasite</p>
+            <NematodeTargetCard />
+            <p className="t-micro mt-6">RNAi — definition</p>
+            <RnaiDefinitionCard />
+            <p className="t-micro mt-6">RNAi — molecular flow</p>
+            <RnaiMolecularFlow />
+            <p className="t-micro mt-6">RNAi — natural sources</p>
+            <RnaiNaturalSources />
+            <p className="t-micro mt-6">RNAi — dsRNA formation</p>
+            <RnaiDsRnaFlow />
+            <p className="t-micro mt-6">RNAi — silencing pathways</p>
+            <RnaiSilencingFlow />
+            <p className="t-micro mt-6">RNAi — final outcome</p>
+            <RnaiOutcomeCard />
           </div>
         </div>
       </Section>
