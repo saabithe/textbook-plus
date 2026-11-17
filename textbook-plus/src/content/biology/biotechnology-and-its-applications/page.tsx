@@ -4,13 +4,9 @@ import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
-import { Stepper } from "@/components/content/Stepper";
-import { ProcessCard } from "@/components/content/process/ProcessCard";
-import { RevealAnswer } from "@/components/content/process/RevealAnswer";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
 import { MetricCard } from "@/components/content/study/MetricCard";
-import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { BiotechApplicationsGrid } from "@/components/content/biology/BiotechApplications";
 import { ResearchAreas } from "@/components/content/biology/ResearchAreas";
 import { FoodYieldOptions } from "@/components/content/biology/FoodYieldOptions";
@@ -37,6 +33,23 @@ import {
   RnaiOutcomeCard,
   RnaiSilencingFlow,
 } from "@/components/content/biology/Rnai";
+import {
+  AdaScidBranchDiagram,
+  DiagnosisProblemSolution,
+  EliLillyProcess,
+  EliLillyTakeaway,
+  ElisaBranches,
+  GeneTherapyApproaches,
+  GeneTherapyDefinitionCard,
+  GeneTherapyLimitationCard,
+  GeneTherapyPermanentCure,
+  GeneTherapyWorkflow,
+  InsulinMaturationTable,
+  InsulinNeedCard,
+  InsulinStructureDiagram,
+  PcrTechniqueCard,
+  ProbeHybridisationFlow,
+} from "@/components/content/biology/Medicine";
 
 export default function BiotechnologyAndItsApplicationsChapter() {
   return (
@@ -140,265 +153,53 @@ export default function BiotechnologyAndItsApplicationsChapter() {
       <RnaiOutcomeCard />
 
       <h2 id="h-10-2">10.2 Biotechnological Applications in Medicine</h2>
-      <p>
-        The recombinant DNA technological processes have made immense impact in the area of healthcare
-        by enabling mass production of safe and more effective therapeutic drugs.
-      </p>
-      <Callout type="important" title="Why recombinant therapeutics are safer">
-        Recombinant therapeutics <Highlight color="yellow">do not induce unwanted immunological responses</Highlight>{" "}
-        as is common in case of similar products isolated from non-human sources.
-      </Callout>
-      <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
-        <MetricCard
-          label="Recombinant therapeutics approved"
-          value="30"
-          unit="world over"
-          description="Approved for human use at the time of writing."
-        />
-        <MetricCard
-          label="Marketed in India"
-          value="12"
-          unit="of those 30"
-          description="Presently being marketed in India."
-        />
-      </div>
 
       <h3 id="h-10-2-insulin">10.2.1 Genetically Engineered Insulin</h3>
-      <p>
-        Management of adult-onset diabetes is possible by taking insulin at regular time intervals.
-        What would a diabetic patient do if enough human insulin was not available? One would have to
-        isolate and use insulin from other animals.
-      </p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          Insulin used for diabetes was earlier extracted from the{" "}
-          <strong>pancreas of slaughtered cattle and pigs</strong>.
-        </li>
-        <li>
-          Insulin from an animal source, though, caused some patients to develop{" "}
-          <strong>allergy or other types of reactions to the foreign protein</strong>.
-        </li>
-        <li>
-          Imagine if a bacterium were available that could make human insulin — you could grow a large
-          quantity of the bacteria and make as much insulin as you need.
-        </li>
-      </ul>
-      <Callout type="note" title="The structure that makes it hard">
-        Insulin consists of <strong>two short polypeptide chains</strong> — chain A and chain B — that
-        are linked together by <strong>disulphide bridges</strong>.
-      </Callout>
-      <p>
-        In mammals, including humans, insulin is synthesised as a <strong>pro-hormone</strong> (like a
-        pro-enzyme, the pro-hormone also needs to be processed before it becomes a fully mature and
-        functional hormone) which contains an extra stretch called the <strong>C peptide</strong>.
-      </p>
-      <TableCard
-        title="The parts of pro-insulin"
-        headers={["Part", "What happens to it"]}
-        rows={[
-          {
-            cells: [
-              "Chain A",
-              "One of the two short polypeptide chains of mature insulin.",
-            ],
-          },
-          {
-            cells: [
-              "Chain B",
-              "The other short polypeptide chain; the two are linked by disulphide bridges.",
-            ],
-          },
-          {
-            cells: [
-              "C peptide",
-              "An extra stretch present in the pro-hormone. It is not present in mature insulin — it is removed during maturation into insulin.",
-            ],
-          },
-        ]}
-      />
-      <KeyPoint title="The real challenge">
-        The main challenge for production of insulin using rDNA techniques was{" "}
-        <Highlight color="yellow">getting insulin assembled into a mature form</Highlight> — not
-        making the chains, but joining them correctly.
-      </KeyPoint>
-      <ProcessCard
-        title="How Eli Lilly made human insulin — 1983"
-        steps={[
-          {
-            label: "Prepare two DNA sequences",
-            description:
-              "Two DNA sequences were prepared, corresponding to the A and B chains of human insulin.",
-          },
-          {
-            label: "Introduce them into plasmids of E. coli",
-            description: "The sequences were introduced into the plasmids of Escherichia coli.",
-          },
-          {
-            label: "E. coli produces the insulin chains",
-            description: "The bacteria expressed the introduced sequences as insulin chains.",
-          },
-          {
-            label: "Chains A and B are produced separately and extracted",
-            description: "Each chain was made on its own and then recovered from the bacteria.",
-          },
-          {
-            label: "The chains are combined by creating disulfide bonds",
-            description: "This final joining step assembles mature human insulin.",
-          },
-        ]}
-      />
-      <RevealAnswer
-        title="Think about it"
-        question="Can insulin be orally administered to diabetic people or not? Why?"
-        answer="No. Insulin is a protein hormone, so taken by mouth it would be digested by the proteases of the digestive tract and lose its activity before it could act. It therefore has to be given by injection."
-      />
+
+      <h4 id="h-10-2-insulin-why">1. Why Genetically Engineered Insulin?</h4>
+      <InsulinNeedCard />
+
+      <h4 id="h-10-2-insulin-structure">2. Structure of Human Insulin</h4>
+      <InsulinStructureDiagram />
+      <InsulinMaturationTable />
+
+      <h4 id="h-10-2-insulin-production">3. Production of Human Insulin by Eli Lilly (1983)</h4>
+      <EliLillyProcess />
+      <EliLillyTakeaway />
 
       <h3 id="h-10-2-gene-therapy">10.2.2 Gene Therapy</h3>
-      <p>
-        If a person is born with a hereditary disease, can a corrective therapy be taken for such a
-        disease? Gene therapy is an attempt to do this.
-      </p>
-      <Callout type="important" title="Gene therapy">
-        Gene therapy is a collection of methods that allows correction of a gene defect that has been
-        diagnosed in a child/embryo. Here genes are inserted into a person&apos;s cells and tissues to
-        treat a disease.
-      </Callout>
-      <p>
-        Correction of a genetic defect involves{" "}
-        <Highlight color="blue">delivery of a normal gene</Highlight> into the individual or embryo to
-        take over the function of, and compensate for, the non-functional gene.
-      </p>
-      <p>
-        The first clinical gene therapy was given in <strong>1990</strong> to a{" "}
-        <strong>4-year old girl with adenosine deaminase (ADA) deficiency</strong>.
-      </p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          <strong>ADA</strong> is an enzyme crucial for the immune system to function.
-        </li>
-        <li>
-          The disorder is caused due to the <strong>deletion of the gene for adenosine deaminase</strong>.
-        </li>
-      </ul>
-      <Comparison
-        columns={[
-          {
-            title: "Bone marrow transplantation",
-            children: (
-              <ul className="list-disc pl-5 space-y-1.5">
-                <li>Can cure ADA deficiency in some children.</li>
-                <li>The patient receives bone marrow from a donor.</li>
-                <li>
-                  <strong>Not completely curative.</strong>
-                </li>
-              </ul>
-            ),
-          },
-          {
-            title: "Enzyme replacement therapy",
-            children: (
-              <ul className="list-disc pl-5 space-y-1.5">
-                <li>Used for other children with the same disorder.</li>
-                <li>Functional ADA is given to the patient by injection.</li>
-                <li>
-                  <strong>Not completely curative.</strong>
-                </li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-      <p>
-        Both approaches work, but neither is a complete cure — which is what pushed the search towards
-        gene therapy.
-      </p>
-      <Stepper
-        steps={[
-          {
-            label: "Lymphocytes are taken from the patient's blood",
-            description: "As a first step, lymphocytes from the blood of the patient are collected.",
-          },
-          {
-            label: "They are grown in culture outside the body",
-            description: "The cells are cultured in vitro.",
-          },
-          {
-            label: "A functional ADA cDNA is introduced",
-            description: "A retroviral vector is used to carry the functional ADA cDNA into these lymphocytes.",
-          },
-          {
-            label: "The engineered lymphocytes are returned to the patient",
-            description: "The corrected cells are put back into the patient's body.",
-          },
-          {
-            label: "The patient needs periodic infusion",
-            description:
-              "These cells are not immortal, so the correction does not last — genetically engineered lymphocytes have to be infused again and again.",
-          },
-          {
-            label: "A permanent cure is possible in principle",
-            description:
-              "If the gene isolated from marrow cells producing ADA is introduced into cells at early embryonic stages, it could be a permanent cure.",
-          },
-        ]}
-      />
-      <MistakeCard
-        mistake="The 1990 gene therapy for ADA deficiency was a permanent, one-time cure."
-        correction="The engineered lymphocytes are not immortal, so the patient requires periodic infusion of such genetically engineered lymphocytes. A permanent cure needs the ADA gene to be introduced into cells at early embryonic stages."
-        example="This single limitation is the reason gene therapy is described as an attempt, not a routine cure."
-      />
+
+      <h4 id="h-10-2-gene-therapy-definition">1. Definition</h4>
+      <GeneTherapyDefinitionCard />
+
+      <h4 id="h-10-2-ada-scid">2. ADA Deficiency and SCID</h4>
+      <AdaScidBranchDiagram />
+
+      <h4 id="h-10-2-first-therapy">3. First Clinical Gene Therapy (1990)</h4>
+      <GeneTherapyApproaches />
+
+      <h4 id="h-10-2-procedure">4. Gene Therapy Procedure for ADA Deficiency</h4>
+      <GeneTherapyWorkflow />
+
+      <h4 id="h-10-2-limitation">5. Limitation of the Treatment</h4>
+      <GeneTherapyLimitationCard />
+
+      <h4 id="h-10-2-permanent-cure">6. Permanent Cure Strategy</h4>
+      <GeneTherapyPermanentCure />
 
       <h3 id="h-10-2-diagnosis">10.2.3 Molecular Diagnosis</h3>
-      <p>
-        For effective treatment of a disease, <strong>early diagnosis</strong> and understanding its
-        pathophysiology is very important. Using conventional methods of diagnosis — serum and urine
-        analysis, etc. — early detection is not possible.
-      </p>
-      <Callout type="note" title="Why early detection needs a different tool">
-        Presence of a pathogen (bacteria, viruses, etc.) is normally suspected only when it has
-        produced a <strong>disease symptom</strong>. By this time the concentration of the pathogen is
-        already very high in the body.
-      </Callout>
-      <TableCard
-        title="Three techniques that serve the purpose of early diagnosis"
-        headers={["Technique", "Principle", "What it detects"]}
-        rows={[
-          {
-            cells: [
-              "Recombinant DNA technology (probe hybridisation)",
-              "A single stranded DNA or RNA tagged with a radioactive molecule — a probe — hybridises to its complementary DNA in a clone of cells; detection is by autoradiography.",
-              "Mutated genes: the clone carrying the mutation does not appear on the photographic film.",
-            ],
-          },
-          {
-            cells: [
-              "PCR — Polymerase Chain Reaction",
-              "Amplification of the nucleic acid of the pathogen.",
-              "Very low concentrations of bacteria or viruses, HIV in suspected AIDS patients, mutations in genes in suspected cancer patients, and many other genetic disorders.",
-            ],
-          },
-          {
-            cells: [
-              "ELISA — Enzyme Linked Immuno-sorbent Assay",
-              "Antigen–antibody interaction.",
-              "The presence of antigens (proteins, glycoproteins, etc.) or the antibodies synthesised against the pathogen.",
-            ],
-          },
-        ]}
-      />
-      <p>
-        Very low concentration of a bacteria or virus — at a time when the symptoms of the disease are
-        not yet visible — can be detected by amplification of their nucleic acid by PCR.
-      </p>
-      <Callout type="important" title="Why the probe goes silent on a mutated gene">
-        The clone having the mutated gene will not appear on the photographic film, because the probe
-        will <Highlight color="yellow">not have complementarity</Highlight> with the mutated gene.
-      </Callout>
-      <MistakeCard
-        mistake="ELISA amplifies the DNA of a pathogen, just like PCR."
-        correction="ELISA is based on the principle of antigen–antibody interaction; it detects antigens of the pathogen or the antibodies raised against it. PCR is the technique that amplifies nucleic acid."
-        example="PCR asks whether the DNA of the pathogen is present; ELISA asks whether its antigen, or the antibody against it, is present in the blood."
-      />
+
+      <h4 id="h-10-2-diagnosis-why">1. Why Molecular Diagnosis?</h4>
+      <DiagnosisProblemSolution />
+
+      <h4 id="h-10-2-pcr">2. Polymerase Chain Reaction (PCR)</h4>
+      <PcrTechniqueCard />
+
+      <h4 id="h-10-2-probe">3. Probe Hybridisation and Autoradiography</h4>
+      <ProbeHybridisationFlow />
+
+      <h4 id="h-10-2-elisa">4. ELISA — Enzyme-Linked Immunosorbent Assay</h4>
+      <ElisaBranches />
 
       <h2 id="h-10-3">10.3 Transgenic Animals</h2>
       <Callout type="important" title="Transgenic animals">

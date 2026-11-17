@@ -282,6 +282,23 @@ import {
   RnaiOutcomeCard,
   RnaiSilencingFlow,
 } from "@/components/content/biology/Rnai";
+import {
+  AdaScidBranchDiagram,
+  DiagnosisProblemSolution,
+  EliLillyProcess,
+  EliLillyTakeaway,
+  ElisaBranches,
+  GeneTherapyApproaches,
+  GeneTherapyDefinitionCard,
+  GeneTherapyLimitationCard,
+  GeneTherapyPermanentCure,
+  GeneTherapyWorkflow,
+  InsulinMaturationTable,
+  InsulinNeedCard,
+  InsulinStructureDiagram,
+  PcrTechniqueCard,
+  ProbeHybridisationFlow,
+} from "@/components/content/biology/Medicine";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -3138,6 +3155,36 @@ export default function DesignPage() {
             <RnaiSilencingFlow />
             <p className="t-micro mt-6">RNAi — final outcome</p>
             <RnaiOutcomeCard />
+            <p className="t-micro mt-6">Medicine — why engineered insulin</p>
+            <InsulinNeedCard />
+            <p className="t-micro mt-6">Medicine — insulin structure</p>
+            <InsulinStructureDiagram />
+            <p className="t-micro mt-6">Medicine — pro-insulin vs mature insulin</p>
+            <InsulinMaturationTable />
+            <p className="t-micro mt-6">Medicine — Eli Lilly process</p>
+            <EliLillyProcess />
+            <p className="t-micro mt-6">Medicine — Eli Lilly takeaway</p>
+            <EliLillyTakeaway />
+            <p className="t-micro mt-6">Medicine — gene therapy definition</p>
+            <GeneTherapyDefinitionCard />
+            <p className="t-micro mt-6">Medicine — ADA / SCID branches</p>
+            <AdaScidBranchDiagram />
+            <p className="t-micro mt-6">Medicine — 1990 treatment approaches</p>
+            <GeneTherapyApproaches />
+            <p className="t-micro mt-6">Medicine — gene therapy workflow</p>
+            <GeneTherapyWorkflow />
+            <p className="t-micro mt-6">Medicine — gene therapy limitation</p>
+            <GeneTherapyLimitationCard />
+            <p className="t-micro mt-6">Medicine — permanent cure strategy</p>
+            <GeneTherapyPermanentCure />
+            <p className="t-micro mt-6">Medicine — diagnosis problem and techniques</p>
+            <DiagnosisProblemSolution />
+            <p className="t-micro mt-6">Medicine — PCR</p>
+            <PcrTechniqueCard />
+            <p className="t-micro mt-6">Medicine — probe hybridisation</p>
+            <ProbeHybridisationFlow />
+            <p className="t-micro mt-6">Medicine — ELISA branches</p>
+            <ElisaBranches />
           </div>
         </div>
       </Section>

@@ -3879,6 +3879,141 @@
     "renderable": true
   },
   {
+    "id": "content/biology/Medicine.tsx#AdaScidBranchDiagram",
+    "name": "AdaScidBranchDiagram",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Medicine.tsx#DiagnosisProblemSolution",
+    "name": "DiagnosisProblemSolution",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Medicine.tsx#EliLillyProcess",
+    "name": "EliLillyProcess",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Medicine.tsx#EliLillyTakeaway",
+    "name": "EliLillyTakeaway",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Medicine.tsx#ElisaBranches",
+    "name": "ElisaBranches",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Medicine.tsx#GeneTherapyApproaches",
+    "name": "GeneTherapyApproaches",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Medicine.tsx#GeneTherapyDefinitionCard",
+    "name": "GeneTherapyDefinitionCard",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Medicine.tsx#GeneTherapyLimitationCard",
+    "name": "GeneTherapyLimitationCard",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Medicine.tsx#GeneTherapyPermanentCure",
+    "name": "GeneTherapyPermanentCure",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Medicine.tsx#GeneTherapyWorkflow",
+    "name": "GeneTherapyWorkflow",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Medicine.tsx#InsulinMaturationTable",
+    "name": "InsulinMaturationTable",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Medicine.tsx#InsulinNeedCard",
+    "name": "InsulinNeedCard",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Medicine.tsx#InsulinStructureDiagram",
+    "name": "InsulinStructureDiagram",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Medicine.tsx#PcrTechniqueCard",
+    "name": "PcrTechniqueCard",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Medicine.tsx#ProbeHybridisationFlow",
+    "name": "ProbeHybridisationFlow",
+    "path": "content/biology/Medicine.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/Micropropagation.tsx#MicropropagationFlow",
     "name": "MicropropagationFlow",
     "path": "content/biology/Micropropagation.tsx",
