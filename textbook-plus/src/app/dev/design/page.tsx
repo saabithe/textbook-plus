@@ -312,6 +312,26 @@ import {
   RegulationCard,
   TraditionalHerbalResources,
 } from "@/components/content/biology/EthicalIssues";
+import {
+  DiseaseDefinitionCard,
+  DiseaseTypesComparison,
+  HealthDeterminantsRadial,
+  HealthEvolutionTimeline,
+  HealthFactorsTrio,
+  HealthImportanceAndMeasures,
+  MindImmunityCard,
+  WhoHealthDefinition,
+} from "@/components/content/biology/HealthConcept";
+import {
+  AlveoliComparison,
+  BacterialDiseaseIndex,
+  HostAdaptationCallout,
+  PathogenDefinitionCard,
+  PathogenesisFlow,
+  PneumoniaCard,
+  TyphoidCard,
+  TyphoidMaryCard,
+} from "@/components/content/biology/Pathogens";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -3216,6 +3236,38 @@ export default function DesignPage() {
             <TraditionalHerbalResources />
             <p className="t-micro mt-6">Ethical issues — Indian Patents Bill</p>
             <IndianPatentsBill />
+            <p className="t-micro mt-6">Health — evolution of the concept</p>
+            <HealthEvolutionTimeline />
+            <p className="t-micro mt-6">Health — mind and immunity</p>
+            <MindImmunityCard />
+            <p className="t-micro mt-6">Health — three damaging factors</p>
+            <HealthFactorsTrio />
+            <p className="t-micro mt-6">Health — determinants radial map</p>
+            <HealthDeterminantsRadial />
+            <p className="t-micro mt-6">Health — WHO definition</p>
+            <WhoHealthDefinition />
+            <p className="t-micro mt-6">Health — importance and measures</p>
+            <HealthImportanceAndMeasures />
+            <p className="t-micro mt-6">Disease — definition</p>
+            <DiseaseDefinitionCard />
+            <p className="t-micro mt-6">Disease — infectious vs non-infectious</p>
+            <DiseaseTypesComparison />
+            <p className="t-micro mt-6">Pathogens — definition</p>
+            <PathogenDefinitionCard />
+            <p className="t-micro mt-6">Pathogens — pathogenesis flow</p>
+            <PathogenesisFlow />
+            <p className="t-micro mt-6">Pathogens — host adaptation</p>
+            <HostAdaptationCallout />
+            <p className="t-micro mt-6">Diseases — bacterial index</p>
+            <BacterialDiseaseIndex />
+            <p className="t-micro mt-6">Diseases — typhoid card</p>
+            <TyphoidCard />
+            <p className="t-micro mt-6">Diseases — Typhoid Mary</p>
+            <TyphoidMaryCard />
+            <p className="t-micro mt-6">Diseases — pneumonia card</p>
+            <PneumoniaCard />
+            <p className="t-micro mt-6">Diseases — alveoli comparison</p>
+            <AlveoliComparison />
           </div>
         </div>
       </Section>

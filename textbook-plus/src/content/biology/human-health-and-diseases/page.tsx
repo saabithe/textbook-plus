@@ -11,211 +11,62 @@ import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
 import { ConceptCard } from "@/components/content/concept/ConceptCard";
+import {
+  DiseaseDefinitionCard,
+  DiseaseTypesComparison,
+  HealthDeterminantsRadial,
+  HealthEvolutionTimeline,
+  HealthFactorsTrio,
+  HealthImportanceAndMeasures,
+  MindImmunityCard,
+  WhoHealthDefinition,
+} from "@/components/content/biology/HealthConcept";
+import {
+  AlveoliComparison,
+  BacterialDiseaseIndex,
+  HostAdaptationCallout,
+  PathogenDefinitionCard,
+  PathogenesisFlow,
+  PneumoniaCard,
+  TyphoidCard,
+  TyphoidMaryCard,
+} from "@/components/content/biology/Pathogens";
 
 export default function HumanHealthAndDiseasesChapter() {
   return (
     <>
-      <FactCard
-        title="What health actually is"
-        definition="Health does not simply mean ‘absence of disease’ or ‘physical fitness’. It could be defined as a state of complete physical, mental and social well-being."
-        icon="🫀"
-      />
-      <Callout type="note" title="From ‘good humours’ to the immune system">
-        <p>
-          Health was once explained as a balance of certain ‘humors’ — the view of early Greeks like Hippocrates and of
-          the Indian Ayurveda system of medicine. Persons with ‘blackbile’ were thought to have a hot personality and to
-          get fevers. That idea came from pure reflective thought, not experiment.
-        </p>
-        <p className="mt-2">
-          It was overturned by experiment: William Harvey discovered blood circulation, and a thermometer showed that
-          persons with blackbile had normal body temperature. Later biology showed that the mind influences the immune
-          system through the <strong>neural system</strong> and the <strong>endocrine system</strong>, and the immune
-          system maintains our health.
-        </p>
-      </Callout>
-      <TableCard
-        title="What health is affected by"
-        headers={["Factor", "What it covers"]}
-        rows={[
-          {
-            cells: [
-              "Genetic disorders",
-              "Deficiencies with which a child is born, and deficiencies/defects which the child inherits from parents from birth",
-            ],
-          },
-          { cells: ["Infections", "Disease-causing organisms gaining entry into the body"] },
-          {
-            cells: [
-              "Life style",
-              "Food and water we take, rest and exercise we give to our bodies, habits that we have or lack",
-            ],
-          },
-        ]}
-      />
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Healthy people are more efficient at work — this increases productivity and brings economic prosperity.</li>
-        <li>Health increases longevity of people and reduces infant and maternal mortality.</li>
-        <li>
-          <strong>Balanced diet, personal hygiene and regular exercise</strong> are very important to maintain good
-          health.
-        </li>
-        <li>Yoga has been practised since time immemorial to achieve physical and mental health.</li>
-        <li>
-          Awareness about diseases, vaccination (immunisation) against infectious diseases, proper disposal of wastes,
-          control of vectors and hygiene in food and water resources are necessary for good health.
-        </li>
-      </ul>
-      <Callout type="important" title="What a disease is">
-        When the functioning of one or more organs or systems of the body is adversely affected, characterised by
-        appearance of various signs and symptoms, we say that we are not healthy, i.e., we have a{" "}
-        <strong>disease</strong>.
-      </Callout>
-      <Comparison
-        columns={[
-          {
-            title: "Infectious diseases",
-            children: (
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Easily transmitted from one person to another.</li>
-                <li>Very common — everyone suffers from them at sometime or other.</li>
-                <li>Some, like AIDS, are fatal.</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Non-infectious diseases",
-            children: (
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Not transmitted from person to person.</li>
-                <li>Cancer is the major cause of death among them.</li>
-                <li>Drug and alcohol abuse also affect our health adversely.</li>
-              </ul>
-            ),
-          },
-        ]}
-      />
+      <h2 id="h-7-health-evolution">1. Evolution of the Concept of Health</h2>
+      <HealthEvolutionTimeline />
+      <MindImmunityCard />
+
+      <h2 id="h-7-health-factors">2. Factors Influencing Health</h2>
+      <HealthFactorsTrio />
+      <HealthDeterminantsRadial />
+
+      <h2 id="h-7-health-definition">3. Definition and Importance of Health</h2>
+      <WhoHealthDefinition />
+      <HealthImportanceAndMeasures />
+
+      <h2 id="h-7-disease-concept">4. Concept and Classification of Diseases</h2>
+      <DiseaseDefinitionCard />
+      <DiseaseTypesComparison />
 
       <h2 id="h-7-1">7.1 Common Diseases in Humans</h2>
-      <Callout type="important" title="Pathogen">
-        A wide range of organisms belonging to bacteria, viruses, fungi, protozoans, helminths, etc., could cause
-        diseases in man. Such disease-causing organisms are called <strong>pathogens</strong>.
-      </Callout>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Most parasites are therefore pathogens — they cause harm to the host by living in (or on) them.</li>
-        <li>
-          Pathogens enter the body by various means, multiply, and interfere with normal vital activities — resulting in{" "}
-          <strong>morphological and functional damage</strong>.
-        </li>
-        <li>
-          A pathogen must adapt to life inside the host. Pathogens that enter the gut must survive the{" "}
-          <strong>low pH of the stomach</strong> and resist the various digestive enzymes.
-        </li>
-      </ul>
-      <TableCard
-        title="Common human diseases — agent, group and symptoms"
-        headers={["Disease", "Causative agent", "Group", "Main symptoms"]}
-        rows={[
-          {
-            cells: [
-              "Typhoid",
-              "Salmonella typhi",
-              "Bacterium",
-              "Sustained high fever (39°–40 °C), weakness, stomach pain, constipation, headache, loss of appetite",
-            ],
-          },
-          {
-            cells: [
-              "Pneumonia",
-              "Streptococcus pneumoniae, Haemophilus influenzae",
-              "Bacterium",
-              "Fever, chills, cough, headache; in severe cases lips and finger nails turn gray to bluish",
-            ],
-          },
-          {
-            cells: [
-              "Common cold",
-              "Rhino viruses",
-              "Virus",
-              "Nasal congestion and discharge, sore throat, hoarseness, cough, headache, tiredness",
-            ],
-          },
-          {
-            cells: [
-              "Malaria",
-              "Plasmodium vivax, P. malaria, P. falciparum",
-              "Protozoan",
-              "Chill and high fever recurring every three to four days",
-            ],
-          },
-          {
-            cells: [
-              "Amoebiasis (amoebic dysentery)",
-              "Entamoeba histolytica",
-              "Protozoan",
-              "Constipation, abdominal pain and cramps, stools with excess mucous and blood clots",
-            ],
-          },
-          {
-            cells: [
-              "Ascariasis",
-              "Ascaris (common round worm)",
-              "Helminth",
-              "Internal bleeding, muscular pain, fever, anemia, blockage of the intestinal passage",
-            ],
-          },
-          {
-            cells: [
-              "Filariasis (elephantiasis)",
-              "Wuchereria bancrofti, W. malayi",
-              "Helminth",
-              "Chronic inflammation of the lymphatic vessels of the lower limbs; genital organs often affected, causing gross deformities",
-            ],
-          },
-          {
-            cells: [
-              "Ringworms",
-              "Microsporum, Trichophyton, Epidermophyton",
-              "Fungus",
-              "Dry, scaly lesions on skin, nails and scalp, accompanied by intense itching",
-            ],
-          },
-        ]}
-      />
+      <h3 id="h-7-1-pathogens">1. Concept of Pathogens</h3>
+      <PathogenDefinitionCard />
+      <PathogenesisFlow />
+      <HostAdaptationCallout />
 
-      <h3 id="h-7-1-typhoid">Typhoid</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          <em>Salmonella typhi</em> is a pathogenic bacterium which causes typhoid fever in human beings.
-        </li>
-        <li>
-          The pathogens generally enter the <strong>small intestine</strong> through food and water contaminated with
-          them, and migrate to other organs <strong>through blood</strong>.
-        </li>
-        <li>
-          In severe cases, <strong>intestinal perforation</strong> and death may occur.
-        </li>
-        <li>
-          Typhoid fever could be confirmed by the <Highlight color="yellow">Widal test</Highlight>.
-        </li>
-      </ul>
-      <Callout type="didyouknow" title="Typhoid Mary — a classic case in medicine">
-        Mary Mallon, nicknamed <strong>Typhoid Mary</strong>, was a cook by profession and was a <strong>typhoid carrier</strong>{" "}
-        who continued to spread typhoid for several years through the food she prepared.
-      </Callout>
+      <h3 id="h-7-1-bacterial">2. Bacterial Diseases</h3>
+      <BacterialDiseaseIndex />
 
-      <h3 id="h-7-1-pneumonia">Pneumonia</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          <em>Streptococcus pneumoniae</em> and <em>Haemophilus influenzae</em> cause pneumonia in humans, infecting the{" "}
-          <strong>alveoli</strong> (air filled sacs) of the lungs.
-        </li>
-        <li>As a result of the infection, the alveoli get filled with fluid, leading to severe problems in respiration.</li>
-        <li>
-          A healthy person acquires the infection by <strong>inhaling the droplets/aerosols</strong> released by an
-          infected person, or even by <strong>sharing glasses and utensils</strong> with an infected person.
-        </li>
-        <li>Dysentery, plague, diphtheria, etc., are some of the other bacterial diseases in man.</li>
-      </ul>
+      <h4 id="h-7-1-typhoid">A. Typhoid Fever</h4>
+      <TyphoidCard />
+      <TyphoidMaryCard />
+
+      <h4 id="h-7-1-pneumonia">B. Pneumonia</h4>
+      <PneumoniaCard />
+      <AlveoliComparison />
 
       <h3 id="h-7-1-cold">Common cold</h3>
       <ul className="list-disc pl-5 space-y-1.5">

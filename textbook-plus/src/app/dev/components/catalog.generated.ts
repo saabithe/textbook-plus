@@ -3853,6 +3853,78 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/HealthConcept.tsx#DiseaseDefinitionCard",
+    "name": "DiseaseDefinitionCard",
+    "path": "content/biology/HealthConcept.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/HealthConcept.tsx#DiseaseTypesComparison",
+    "name": "DiseaseTypesComparison",
+    "path": "content/biology/HealthConcept.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/HealthConcept.tsx#HealthDeterminantsRadial",
+    "name": "HealthDeterminantsRadial",
+    "path": "content/biology/HealthConcept.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/HealthConcept.tsx#HealthEvolutionTimeline",
+    "name": "HealthEvolutionTimeline",
+    "path": "content/biology/HealthConcept.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/HealthConcept.tsx#HealthFactorsTrio",
+    "name": "HealthFactorsTrio",
+    "path": "content/biology/HealthConcept.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/HealthConcept.tsx#HealthImportanceAndMeasures",
+    "name": "HealthImportanceAndMeasures",
+    "path": "content/biology/HealthConcept.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/HealthConcept.tsx#MindImmunityCard",
+    "name": "MindImmunityCard",
+    "path": "content/biology/HealthConcept.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/HealthConcept.tsx#WhoHealthDefinition",
+    "name": "WhoHealthDefinition",
+    "path": "content/biology/HealthConcept.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/HostIntroduction.tsx#CationTreatment",
     "name": "CationTreatment",
     "path": "content/biology/HostIntroduction.tsx",
@@ -4243,6 +4315,78 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/ParasitismDiagrams.tsx#ParasiteTree",
     "name": "ParasiteTree",
     "path": "content/biology/ParasitismDiagrams.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Pathogens.tsx#AlveoliComparison",
+    "name": "AlveoliComparison",
+    "path": "content/biology/Pathogens.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Pathogens.tsx#BacterialDiseaseIndex",
+    "name": "BacterialDiseaseIndex",
+    "path": "content/biology/Pathogens.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Pathogens.tsx#HostAdaptationCallout",
+    "name": "HostAdaptationCallout",
+    "path": "content/biology/Pathogens.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Pathogens.tsx#PathogenDefinitionCard",
+    "name": "PathogenDefinitionCard",
+    "path": "content/biology/Pathogens.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Pathogens.tsx#PathogenesisFlow",
+    "name": "PathogenesisFlow",
+    "path": "content/biology/Pathogens.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Pathogens.tsx#PneumoniaCard",
+    "name": "PneumoniaCard",
+    "path": "content/biology/Pathogens.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Pathogens.tsx#TyphoidCard",
+    "name": "TyphoidCard",
+    "path": "content/biology/Pathogens.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Pathogens.tsx#TyphoidMaryCard",
+    "name": "TyphoidMaryCard",
+    "path": "content/biology/Pathogens.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
