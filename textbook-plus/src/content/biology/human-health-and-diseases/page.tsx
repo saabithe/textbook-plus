@@ -35,19 +35,21 @@ import {
 export default function HumanHealthAndDiseasesChapter() {
   return (
     <>
-      <h2 id="h-7-health-evolution">1. Evolution of the Concept of Health</h2>
+      <h2 id="h-7-intro">Introduction</h2>
+
+      <h3 id="h-7-health-evolution">1. Evolution of the Concept of Health</h3>
       <HealthEvolutionTimeline />
       <MindImmunityCard />
 
-      <h2 id="h-7-health-factors">2. Factors Influencing Health</h2>
+      <h3 id="h-7-health-factors">2. Factors Influencing Health</h3>
       <HealthFactorsTrio />
       <HealthDeterminantsRadial />
 
-      <h2 id="h-7-health-definition">3. Definition and Importance of Health</h2>
+      <h3 id="h-7-health-definition">3. Definition and Importance of Health</h3>
       <WhoHealthDefinition />
       <HealthImportanceAndMeasures />
 
-      <h2 id="h-7-disease-concept">4. Concept and Classification of Diseases</h2>
+      <h3 id="h-7-disease-concept">4. Concept and Classification of Diseases</h3>
       <DiseaseDefinitionCard />
       <DiseaseTypesComparison />
 
