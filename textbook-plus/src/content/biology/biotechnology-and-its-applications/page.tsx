@@ -44,32 +44,6 @@ export default function BiotechnologyAndItsApplicationsChapter() {
       <h3 id="h-10-1-options">3. Three Options to Increase Food Yield</h3>
       <p>Three approaches are available to increase food production:</p>
       <FoodYieldOptions />
-      <p>
-        Why was a third option even needed? The Green Revolution succeeded in tripling the food supply,
-        but yet it was not enough to feed the growing human population.
-      </p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          Increased yields have <strong>partly</strong> been due to the use of improved crop
-          varieties.
-        </li>
-        <li>
-          But they were <strong>mainly</strong> due to better management practices and the use of
-          agrochemicals — fertilisers and pesticides.
-        </li>
-        <li>
-          For farmers in the developing world, agrochemicals are often <strong>too expensive</strong>.
-        </li>
-        <li>
-          Further increases in yield with existing varieties are{" "}
-          <strong>not possible using conventional breeding</strong>.
-        </li>
-      </ul>
-      <Callout type="note" title="The gap that opened up">
-        Traditional breeding techniques failed to keep pace with demand and to provide sufficiently
-        fast and efficient systems for crop improvement. Two technologies were developed to fill that
-        gap — <strong>tissue culture</strong> and, later, <strong>genetically modified crops</strong>.
-      </Callout>
 
       <h3 id="h-10-1-tissue-culture">4. Tissue Culture</h3>
 
@@ -83,17 +57,6 @@ export default function BiotechnologyAndItsApplicationsChapter() {
       <h4 id="h-10-1-micropropagation">4.1 Micro-propagation and Somaclones</h4>
       <MicropropagationFlow />
       <SomaclonesCard />
-
-      <h3 id="h-10-1-virus-free">Recovery of healthy plants from diseased plants</h3>
-      <Callout type="important" title="Why the meristem is the answer">
-        Even if the plant is infected with a virus, the <strong>meristem</strong> (apical and axillary)
-        is free of virus. Hence, one can remove the meristem and grow it{" "}
-        <em>in vitro</em> to obtain virus-free plants.
-      </Callout>
-      <p>
-        Scientists have succeeded in culturing meristems of <strong>banana</strong>,{" "}
-        <strong>sugarcane</strong>, <strong>potato</strong>, etc.
-      </p>
 
       <h3 id="h-10-1-somatic-hybrids">5. Somatic Hybridisation</h3>
 
