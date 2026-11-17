@@ -25,6 +25,9 @@ import {
   SomaticFusionFlow,
   SomaticHybridisationPrinciple,
 } from "@/components/content/biology/SomaticHybridisation";
+import { GmAdvantages, GmoDefinitionCard, TailorMadeCrops } from "@/components/content/biology/GmOrganisms";
+import { BtInsectGroups, BtOverview, CryGeneTargets } from "@/components/content/biology/BtCrops";
+import { BtExamFlowchart, BtProtoxinState, BtToxinAction } from "@/components/content/biology/BtMechanism";
 
 export default function BiotechnologyAndItsApplicationsChapter() {
   return (
@@ -69,145 +72,43 @@ export default function BiotechnologyAndItsApplicationsChapter() {
       <h4 id="h-10-1-somatic-example">Example of Somatic Hybrid</h4>
       <PomatoCard />
 
-      <h3 id="h-10-1-gm-crops">Genetically modified crops</h3>
-      <p>
-        Is there an alternative path that our understanding of genetics can show, so that farmers may
-        obtain maximum yield from their fields, and the use of fertilisers and chemicals can be
-        minimised? Use of <strong>genetically modified crops</strong> is a possible solution.
-      </p>
-      <Callout type="important" title="Genetically Modified Organisms (GMO)">
-        Plants, bacteria, fungi and animals whose genes have been altered by manipulation are called{" "}
-        <Highlight color="yellow">Genetically Modified Organisms (GMO)</Highlight>.
-      </Callout>
-      <TableCard
-        title="What genetic modification has done for crops"
-        headers={["Benefit", "Detail"]}
-        rows={[
-          {
-            cells: [
-              "More tolerant to abiotic stresses",
-              "Cold, drought, salt, heat.",
-            ],
-          },
-          {
-            cells: [
-              "Reduced reliance on chemical pesticides",
-              "Pest-resistant crops.",
-            ],
-          },
-          {
-            cells: ["Fewer post-harvest losses", "Losses after harvesting are reduced."],
-          },
-          {
-            cells: [
-              "More efficient mineral usage",
-              "This prevents early exhaustion of the fertility of the soil.",
-            ],
-          },
-          {
-            cells: [
-              "Enhanced nutritional value of food",
-              "e.g., golden rice — Vitamin 'A' enriched rice.",
-            ],
-          },
-        ]}
-      />
-      <p>
-        In addition to these uses, GM has been used to create{" "}
-        <strong>tailor-made plants</strong> to supply alternative resources to industries, in the form
-        of <strong>starches</strong>, <strong>fuels</strong> and <strong>pharmaceuticals</strong>.
-      </p>
-      <p>
-        The application studied in detail here is the production of{" "}
-        <strong>pest resistant plants</strong>, which could decrease the amount of pesticide used.{" "}
-        <strong>Bt toxin</strong> is produced by a bacterium called{" "}
-        <em>Bacillus thuringiensis</em> (Bt for short).
-      </p>
-      <Callout type="important" title="A bio-pesticide, not a sprayed pesticide">
-        The Bt toxin gene has been <strong>cloned from the bacteria</strong> and{" "}
-        <strong>expressed in plants</strong> to provide resistance to insects without the need for
-        insecticides — in effect creating a <Highlight color="yellow">bio-pesticide</Highlight>.
-      </Callout>
-      <p>
-        Examples are <strong>Bt cotton</strong>, <strong>Bt corn</strong>, <strong>rice</strong>,{" "}
-        <strong>tomato</strong>, <strong>potato</strong> and <strong>soyabean</strong>.
-      </p>
+      <h3 id="h-10-1-gm-crops">Genetically Modified Organisms (GMOs)</h3>
 
-      <h3 id="h-10-1-bt-cotton">Bt cotton — how the toxin works</h3>
-      <p>
-        Some strains of <em>Bacillus thuringiensis</em> produce proteins that kill certain insects.
-      </p>
-      <TableCard
-        title="Insects killed by Bt toxin"
-        headers={["Group", "Examples"]}
-        rows={[
-          { cells: ["Lepidopterans", "Tobacco budworm, armyworm"] },
-          { cells: ["Coleopterans", "Beetles"] },
-          { cells: ["Dipterans", "Flies, mosquitoes"] },
-        ]}
-      />
-      <p>
-        <em>B. thuringiensis</em> forms <strong>protein crystals</strong> during a particular phase of
-        its growth. These crystals contain a toxic insecticidal protein.
-      </p>
-      <Callout type="warning" title="Why the toxin does not kill the Bacillus itself">
-        The Bt toxin protein exists as an <strong>inactive protoxin</strong>. It becomes active only
-        after an insect ingests it — so the bacterium that stores the crystal is never harmed by its
-        own product.
-      </Callout>
-      <Stepper
-        steps={[
-          {
-            label: "The bacterium forms protein crystals",
-            description:
-              "B. thuringiensis forms crystals during a particular phase of growth; the crystals contain the toxic insecticidal protein.",
-          },
-          {
-            label: "An insect ingests the inactive toxin",
-            description: "The protein enters the insect gut still in its inactive protoxin form.",
-          },
-          {
-            label: "The alkaline pH of the gut solubilises the crystals",
-            description: "This converts the inactive toxin into the active form of the toxin.",
-          },
-          {
-            label: "The activated toxin binds midgut epithelial cells",
-            description: "It binds to the surface of the midgut epithelial cells.",
-          },
-          {
-            label: "Pores are created",
-            description: "The toxin creates pores in the membrane of these cells.",
-          },
-          {
-            label: "Cells swell and lyse",
-            description: "Cell swelling and lysis follow.",
-          },
-          {
-            label: "The insect dies",
-            description: "Death of the insect is the eventual outcome.",
-          },
-        ]}
-      />
-      <p>
-        Specific Bt toxin genes were isolated from <em>Bacillus thuringiensis</em> and incorporated
-        into several crop plants such as cotton. The choice of genes depends upon the crop and the
-        targeted pest, as most Bt toxins are <strong>insect-group specific</strong>.
-      </p>
-      <TableCard
-        title="cry genes and the pests they control"
-        headers={["Gene", "Protein controls"]}
-        rows={[
-          { cells: ["cryIAc", "Cotton bollworms"] },
-          { cells: ["cryIIAb", "Cotton bollworms"] },
-          { cells: ["cryIAb", "Corn borer"] },
-        ]}
-        caption="The toxin is coded by a gene named cry — cryIAc is one of a number of them."
-      />
-      <MistakeCard
-        mistake="Bt cotton is a variety that is sprayed with the Bt toxin."
-        correction="The Bt toxin gene (cry) is cloned from Bacillus thuringiensis and expressed inside the cotton plant itself, so the plant makes the toxin. The advantage is resistance to insects without the need for insecticides."
-        example="That is why Bt cotton is called a bio-pesticide rather than a pesticide-treated crop."
-      />
+      <h4 id="h-10-1-gmo-definition">1. Definition</h4>
+      <GmoDefinitionCard />
+
+      <h4 id="h-10-1-gmo-advantages">2. Advantages of Genetically Modified Crops</h4>
+      <p>GM crops offer five major advantages:</p>
+      <GmAdvantages />
+
+      <h4 id="h-10-1-tailor-made">3. Tailor-Made Industrial Crops</h4>
+      <p>GM technology can produce specialised crops to supply industries with raw materials such as:</p>
+      <TailorMadeCrops />
+
+      <h2 id="h-10-3-bt">10.3 Pest-Resistant Plants: Bt Crops</h2>
+
+      <h3 id="h-10-3-bt-overview">4. Overview of <em>Bacillus thuringiensis</em> (Bt)</h3>
+      <BtOverview />
+
+      <h3 id="h-10-3-insect-groups">5. Insect Groups Targeted by Bt Toxins</h3>
+      <p>Bt proteins act against specific insect groups.</p>
+      <BtInsectGroups />
+
+      <h3 id="h-10-3-cry-genes">6. <em>cry</em> Genes and Their Specificity</h3>
+      <p>Bt toxin production is coded by genes called <em>cry</em> genes.</p>
+      <CryGeneTargets />
+
+      <h3 id="h-10-3-mechanism">7. Mechanism of Bt Toxin Action</h3>
+
+      <h4 id="h-10-3-protoxin">7.1 Formation of Inactive Protoxin</h4>
+      <BtProtoxinState />
+
+      <h4 id="h-10-3-gut-action">7.2 Activation and Action in the Insect Gut</h4>
+      <p>When an insect ingests the Bt toxin:</p>
+      <BtToxinAction />
+
+      <h4 id="h-10-3-exam-flow">Complete Mechanism — Board Exam Flowchart</h4>
+      <BtExamFlowchart />
 
       <h3 id="h-10-1-pest-resistant">Pest resistant plants — RNA interference</h3>
       <p>

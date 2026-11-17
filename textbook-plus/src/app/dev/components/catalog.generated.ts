@@ -3349,6 +3349,60 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/BtCrops.tsx#BtInsectGroups",
+    "name": "BtInsectGroups",
+    "path": "content/biology/BtCrops.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/BtCrops.tsx#BtOverview",
+    "name": "BtOverview",
+    "path": "content/biology/BtCrops.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/BtCrops.tsx#CryGeneTargets",
+    "name": "CryGeneTargets",
+    "path": "content/biology/BtCrops.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/BtMechanism.tsx#BtExamFlowchart",
+    "name": "BtExamFlowchart",
+    "path": "content/biology/BtMechanism.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/BtMechanism.tsx#BtProtoxinState",
+    "name": "BtProtoxinState",
+    "path": "content/biology/BtMechanism.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/BtMechanism.tsx#BtToxinAction",
+    "name": "BtToxinAction",
+    "path": "content/biology/BtMechanism.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/CohenBoyerProcess.tsx#CohenBoyerFlow",
     "name": "CohenBoyerFlow",
     "path": "content/biology/CohenBoyerProcess.tsx",
@@ -3712,6 +3766,33 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/GeneticEngineeringFlow.tsx#GeneticEngineeringFlow",
     "name": "GeneticEngineeringFlow",
     "path": "content/biology/GeneticEngineeringFlow.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GmOrganisms.tsx#GmAdvantages",
+    "name": "GmAdvantages",
+    "path": "content/biology/GmOrganisms.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GmOrganisms.tsx#GmoDefinitionCard",
+    "name": "GmoDefinitionCard",
+    "path": "content/biology/GmOrganisms.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GmOrganisms.tsx#TailorMadeCrops",
+    "name": "TailorMadeCrops",
+    "path": "content/biology/GmOrganisms.tsx",
     "category": "biology",
     "props": null,
     "shell": false,

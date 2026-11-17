@@ -270,6 +270,9 @@ import {
   SomaticFusionFlow,
   SomaticHybridisationPrinciple,
 } from "@/components/content/biology/SomaticHybridisation";
+import { GmAdvantages, GmoDefinitionCard, TailorMadeCrops } from "@/components/content/biology/GmOrganisms";
+import { BtInsectGroups, BtOverview, CryGeneTargets } from "@/components/content/biology/BtCrops";
+import { BtExamFlowchart, BtProtoxinState, BtToxinAction } from "@/components/content/biology/BtMechanism";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -3094,6 +3097,24 @@ export default function DesignPage() {
             <SomaticFusionFlow />
             <p className="t-micro mt-6">Somatic hybrid — pomato</p>
             <PomatoCard />
+            <p className="t-micro mt-6">GMO — definition</p>
+            <GmoDefinitionCard />
+            <p className="t-micro mt-6">GM crops — five advantages</p>
+            <GmAdvantages />
+            <p className="t-micro mt-6">GM — tailor-made industrial crops</p>
+            <TailorMadeCrops />
+            <p className="t-micro mt-6">Bt — overview</p>
+            <BtOverview />
+            <p className="t-micro mt-6">Bt — insect groups</p>
+            <BtInsectGroups />
+            <p className="t-micro mt-6">Bt — cry gene targets</p>
+            <CryGeneTargets />
+            <p className="t-micro mt-6">Bt — protoxin states</p>
+            <BtProtoxinState />
+            <p className="t-micro mt-6">Bt — toxin action</p>
+            <BtToxinAction />
+            <p className="t-micro mt-6">Bt — exam flowchart</p>
+            <BtExamFlowchart />
           </div>
         </div>
       </Section>
