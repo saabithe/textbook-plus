@@ -1,12 +1,5 @@
-import { Callout } from "@/components/content/Callout";
-import { KeyPoint } from "@/components/content/KeyPoint";
-import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
-import { Highlight } from "@/components/content/Highlight";
-import { TableCard } from "@/components/content/data/TableCard";
-import { FactCard } from "@/components/content/concept/FactCard";
-import { MetricCard } from "@/components/content/study/MetricCard";
 import { BiotechApplicationsGrid } from "@/components/content/biology/BiotechApplications";
 import { ResearchAreas } from "@/components/content/biology/ResearchAreas";
 import { FoodYieldOptions } from "@/components/content/biology/FoodYieldOptions";
@@ -50,6 +43,19 @@ import {
   PcrTechniqueCard,
   ProbeHybridisationFlow,
 } from "@/components/content/biology/Medicine";
+import {
+  TransgenicApplications,
+  TransgenicDefinitionCard,
+  TransgenicMiceStat,
+} from "@/components/content/biology/TransgenicAnimals";
+import {
+  BasmatiCaseStudy,
+  BiopiracyDefinitionCard,
+  GlobalImbalance,
+  IndianPatentsBill,
+  RegulationCard,
+  TraditionalHerbalResources,
+} from "@/components/content/biology/EthicalIssues";
 
 export default function BiotechnologyAndItsApplicationsChapter() {
   return (
@@ -202,226 +208,32 @@ export default function BiotechnologyAndItsApplicationsChapter() {
       <ElisaBranches />
 
       <h2 id="h-10-3">10.3 Transgenic Animals</h2>
-      <Callout type="important" title="Transgenic animals">
-        Animals that have had their DNA manipulated to possess and express an extra (foreign) gene are
-        known as <Highlight color="yellow">transgenic animals</Highlight>.
-      </Callout>
-      <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
-        <MetricCard
-          label="Transgenic animals produced"
-          value="6"
-          unit="kinds"
-          description="Rats, rabbits, pigs, sheep, cows and fish."
-        />
-        <MetricCard
-          label="Of all existing transgenic animals"
-          value="95%+"
-          description="Over 95 per cent of them are mice."
-        />
-      </div>
-      <TableCard
-        title="Why transgenic animals are produced"
-        headers={["Purpose", "What it involves", "Example"]}
-        rows={[
-          {
-            cells: [
-              "Normal physiology and development",
-              "Study of how genes are regulated, and how they affect the normal functions of the body and its development. Genes from other species that alter the formation of a factor are introduced, and the biological effects studied.",
-              "Complex factors involved in growth, such as insulin-like growth factor.",
-            ],
-          },
-          {
-            cells: [
-              "Study of disease",
-              "Designed to increase our understanding of how genes contribute to the development of disease; they serve as models for human diseases so that new treatments can be investigated.",
-              "Cancer, cystic fibrosis, rheumatoid arthritis, Alzheimer's.",
-            ],
-          },
-          {
-            cells: [
-              "Biological products",
-              "The portion of DNA (or genes) that codes for a particular product is introduced, so the animal makes that product.",
-              "Human protein α-1-antitrypsin, used to treat emphysema.",
-            ],
-          },
-          {
-            cells: [
-              "Vaccine safety",
-              "Testing the safety of vaccines before they are used on humans.",
-              "Transgenic mice used to test the safety of the polio vaccine.",
-            ],
-          },
-          {
-            cells: [
-              "Chemical safety testing",
-              "Also known as toxicity/safety testing; the procedure is the same as that used for testing toxicity of drugs. The animals carry genes that make them more sensitive to toxic substances than non-transgenic animals, are exposed to the substance, and the effects are studied.",
-              "Results are obtained in less time.",
-            ],
-          },
-        ]}
-      />
-      <FactCard
-        title="Rosie — the first transgenic cow, 1997"
-        definition="Rosie produced human protein-enriched milk, 2.4 grams per litre. The milk contained the human alpha-lactalbumin and was nutritionally a more balanced product for human babies than natural cow-milk."
-        icon="🐄"
-      />
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          Medicines required to treat certain human diseases can contain biological products, but such
-          products are often <strong>expensive to make</strong>.
-        </li>
-        <li>
-          Similar attempts to the α-1-antitrypsin work are being made for treatment of{" "}
-          <strong>phenylketonuria (PKU)</strong> and <strong>cystic fibrosis</strong>.
-        </li>
-        <li>
-          Transgenic mice are being used to test the safety of the polio vaccine; if successful and
-          found to be reliable, they could <strong>replace the use of monkeys</strong> to test the
-          safety of batches of the vaccine.
-        </li>
-      </ul>
-      <KeyPoint title="Two words cover all five reasons">
-        <strong>Understand</strong> (physiology, disease) and <strong>manufacture or test</strong>{" "}
-        (biological products, vaccine safety, chemical safety). Every reason in the table falls under
-        one of those two.
-      </KeyPoint>
+
+      <h3 id="h-10-3-definition">1. Definition and Scope</h3>
+      <TransgenicDefinitionCard />
+      <TransgenicMiceStat />
+
+      <h3 id="h-10-3-applications">2. Five Core Applications</h3>
+      <TransgenicApplications />
 
       <h2 id="h-10-4">10.4 Ethical Issues</h2>
-      <p>
-        The manipulation of living organisms by the human race cannot go on any further, without
-        regulation. Some <strong>ethical standards</strong> are required to evaluate the morality of
-        all human activities that might help or harm living organisms.
-      </p>
-      <Callout type="warning" title="Going beyond morality — the biological risk">
-        Genetic modification of organisms can have{" "}
-        <Highlight color="yellow">unpredictable results</Highlight> when such organisms are introduced
-        into the ecosystem.
-      </Callout>
-      <FactCard
-        title="GEAC — Genetic Engineering Approval Committee"
-        definition="An organisation set up by the Indian Government, which will make decisions regarding the validity of GM research and the safety of introducing GM-organisms for public services."
-        icon="⚖️"
-      />
-      <p>
-        The modification/usage of living organisms for public services — as food and medicine sources,
-        for example — has also created problems with <strong>patents</strong> granted for the same.
-      </p>
-      <Callout type="note" title="The public anger behind the patent debate">
-        Certain companies are being granted patents for products and technologies that make use of the
-        genetic materials, plants and other biological resources that have{" "}
-        <strong>long been identified, developed and used by farmers and indigenous people</strong> of a
-        specific region or country.
-      </Callout>
 
-      <h3 id="h-10-4-basmati">The Basmati rice patent</h3>
-      <p>
-        Rice is an important food grain, the presence of which goes back thousands of years in
-        Asia&apos;s agricultural history. The diversity of rice in India is one of the richest in the
-        world. Basmati rice is distinct for its unique aroma and flavour, and there is reference to
-        Basmati in ancient texts, folklore and poetry, as it has been grown for centuries.
-      </p>
-      <TableCard
-        title="The Basmati patent — what happened"
-        headers={["Fact", "Detail"]}
-        rows={[
-          {
-            cells: ["Rice varieties in India", "An estimated 200,000 varieties, in India alone."],
-          },
-          {
-            cells: ["Documented Basmati varieties", "27, grown in India."],
-          },
-          {
-            cells: [
-              "1997 — the patent",
-              "An American company got patent rights on Basmati rice through the US Patent and Trademark Office.",
-            ],
-          },
-          {
-            cells: [
-              "What the patent allowed",
-              "The company could sell a 'new' variety of Basmati in the US and abroad.",
-            ],
-          },
-          {
-            cells: [
-              "Where that 'new' variety came from",
-              "It had actually been derived from Indian farmers' varieties — Indian Basmati was crossed with semi-dwarf varieties and claimed as an invention or a novelty.",
-            ],
-          },
-          {
-            cells: [
-              "How far the patent reaches",
-              "It extends to functional equivalents, implying that other people selling Basmati rice could be restricted by the patent.",
-            ],
-          },
-        ]}
-      />
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          Several attempts have also been made to patent uses, products and processes based on Indian
-          traditional herbal medicines — e.g., <strong>turmeric</strong>, <strong>neem</strong>.
-        </li>
-        <li>
-          If we are not vigilant and do not immediately counter these patent applications, other
-          countries/individuals may encash on our rich legacy, and we may not be able to do anything
-          about it.
-        </li>
-      </ul>
+      <h3 id="h-10-4-regulation">1. Need for Regulation</h3>
+      <RegulationCard />
 
-      <h3 id="h-10-4-biopiracy">Biopiracy</h3>
-      <Callout type="important" title="Biopiracy">
-        Biopiracy is the term used to refer to the use of bio-resources by multinational companies and
-        other organisations{" "}
-        <Highlight color="yellow">
-          without proper authorisation from the countries and people concerned without compensatory
-          payment
-        </Highlight>
-        .
-      </Callout>
-      <Comparison
-        columns={[
-          {
-            title: "Industrialised nations",
-            children: (
-              <ul className="list-disc pl-5 space-y-1.5">
-                <li>
-                  <strong>Rich financially.</strong>
-                </li>
-                <li>Poor in biodiversity.</li>
-                <li>Poor in traditional knowledge related to bio-resources.</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Developing and underdeveloped world",
-            children: (
-              <ul className="list-disc pl-5 space-y-1.5">
-                <li>Rich in biodiversity.</li>
-                <li>Rich in traditional knowledge related to bio-resources.</li>
-                <li>
-                  Traditional knowledge can be exploited to develop modern applications, and can save
-                  time, effort and expenditure during commercialisation.
-                </li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-      <p>
-        There has been growing realisation of the injustice, inadequate compensation, and benefit
-        sharing between developed and developing countries. Therefore, some nations are developing laws
-        to prevent such unauthorised exploitation of their bio-resources and traditional knowledge.
-      </p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          The Indian Parliament has recently cleared the <strong>second amendment of the Indian
-          Patents Bill</strong>.
-        </li>
-        <li>
-          The amendment takes such issues into consideration, including patent terms, emergency
-          provisions, research, and development initiatives.
-        </li>
-      </ul>
+      <h3 id="h-10-4-biopiracy">2. Biopiracy and Patent Issues</h3>
+
+      <h4 id="h-10-4-biopiracy-definition">Definition of Biopiracy</h4>
+      <BiopiracyDefinitionCard />
+
+      <h4 id="h-10-4-imbalance">Global Imbalance</h4>
+      <GlobalImbalance />
+
+      <h4 id="h-10-4-indian-examples">Indian Examples and Patent Issues</h4>
+      <BasmatiCaseStudy />
+      <TraditionalHerbalResources />
+
+      <IndianPatentsBill />
 
       <h2 id="h-10-exercises">Exercises</h2>
       <Expandable title="Exercises — all questions with answers" variant="exercise">

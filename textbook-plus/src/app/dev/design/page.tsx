@@ -299,6 +299,19 @@ import {
   PcrTechniqueCard,
   ProbeHybridisationFlow,
 } from "@/components/content/biology/Medicine";
+import {
+  TransgenicApplications,
+  TransgenicDefinitionCard,
+  TransgenicMiceStat,
+} from "@/components/content/biology/TransgenicAnimals";
+import {
+  BasmatiCaseStudy,
+  BiopiracyDefinitionCard,
+  GlobalImbalance,
+  IndianPatentsBill,
+  RegulationCard,
+  TraditionalHerbalResources,
+} from "@/components/content/biology/EthicalIssues";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -3185,6 +3198,24 @@ export default function DesignPage() {
             <ProbeHybridisationFlow />
             <p className="t-micro mt-6">Medicine — ELISA branches</p>
             <ElisaBranches />
+            <p className="t-micro mt-6">Transgenic animals — definition and species</p>
+            <TransgenicDefinitionCard />
+            <p className="t-micro mt-6">Transgenic animals — the mice statistic</p>
+            <TransgenicMiceStat />
+            <p className="t-micro mt-6">Transgenic animals — five applications</p>
+            <TransgenicApplications />
+            <p className="t-micro mt-6">Ethical issues — regulation and GEAC</p>
+            <RegulationCard />
+            <p className="t-micro mt-6">Ethical issues — biopiracy definition</p>
+            <BiopiracyDefinitionCard />
+            <p className="t-micro mt-6">Ethical issues — global imbalance</p>
+            <GlobalImbalance />
+            <p className="t-micro mt-6">Ethical issues — Basmati case study</p>
+            <BasmatiCaseStudy />
+            <p className="t-micro mt-6">Ethical issues — traditional herbal medicines</p>
+            <TraditionalHerbalResources />
+            <p className="t-micro mt-6">Ethical issues — Indian Patents Bill</p>
+            <IndianPatentsBill />
           </div>
         </div>
       </Section>

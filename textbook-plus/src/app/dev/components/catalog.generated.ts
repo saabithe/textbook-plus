@@ -3628,6 +3628,60 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/EthicalIssues.tsx#BasmatiCaseStudy",
+    "name": "BasmatiCaseStudy",
+    "path": "content/biology/EthicalIssues.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/EthicalIssues.tsx#BiopiracyDefinitionCard",
+    "name": "BiopiracyDefinitionCard",
+    "path": "content/biology/EthicalIssues.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/EthicalIssues.tsx#GlobalImbalance",
+    "name": "GlobalImbalance",
+    "path": "content/biology/EthicalIssues.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/EthicalIssues.tsx#IndianPatentsBill",
+    "name": "IndianPatentsBill",
+    "path": "content/biology/EthicalIssues.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/EthicalIssues.tsx#RegulationCard",
+    "name": "RegulationCard",
+    "path": "content/biology/EthicalIssues.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/EthicalIssues.tsx#TraditionalHerbalResources",
+    "name": "TraditionalHerbalResources",
+    "path": "content/biology/EthicalIssues.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/FinchBeaksDiagram.tsx#FinchBeaksDiagram",
     "name": "FinchBeaksDiagram",
     "path": "content/biology/FinchBeaksDiagram.tsx",
@@ -4531,6 +4585,33 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/TissueCulture.tsx#ExplantTotipotencyDiagram",
     "name": "ExplantTotipotencyDiagram",
     "path": "content/biology/TissueCulture.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/TransgenicAnimals.tsx#TransgenicApplications",
+    "name": "TransgenicApplications",
+    "path": "content/biology/TransgenicAnimals.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/TransgenicAnimals.tsx#TransgenicDefinitionCard",
+    "name": "TransgenicDefinitionCard",
+    "path": "content/biology/TransgenicAnimals.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/TransgenicAnimals.tsx#TransgenicMiceStat",
+    "name": "TransgenicMiceStat",
+    "path": "content/biology/TransgenicAnimals.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
