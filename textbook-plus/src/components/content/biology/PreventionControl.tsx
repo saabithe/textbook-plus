@@ -14,8 +14,9 @@ import {
 
 /**
  * PreventionPathway — the five major prevention-and-control approaches, shown
- * as a connected, numbered pathway (vertical on mobile, horizontal on desktop)
- * with the four early warning signs split out into their own caution checklist.
+ * as a connected, numbered pathway in a horizontally scrollable row of fixed-
+ * width cards (so no card gets squeezed in the narrow chapter column), with the
+ * four early warning signs split out into their own caution checklist.
  *
  * teal → emerald → sky → amber → deep amber; checklist = rose / amber caution.
  */
@@ -76,9 +77,8 @@ function Eyebrow({ children }: { children: ReactNode }) {
 
 function Connector() {
   return (
-    <div className="flex h-6 shrink-0 items-center justify-center lg:h-auto lg:w-5" aria-hidden>
-      <ArrowDown className="h-3.5 w-3.5 text-muted-foreground/50 lg:hidden" />
-      <ArrowRight className="hidden h-3.5 w-3.5 text-muted-foreground/50 lg:block" />
+    <div className="flex w-6 shrink-0 items-center justify-center" aria-hidden>
+      <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/50" />
     </div>
   );
 }
@@ -249,15 +249,21 @@ export function PreventionPathway() {
         A stepwise path from family and peer support to professional assistance.
       </p>
 
-      <div className="mt-3 flex flex-col lg:flex-row lg:items-stretch">
-        {STEPS.map((step, index) => (
-          <Fragment key={step.numeral}>
-            <div className="min-w-0 flex-1">
-              <StepCard {...step} />
-            </div>
-            {index < STEPS.length - 1 && <Connector />}
-          </Fragment>
-        ))}
+      <div className="mt-3">
+        <div className="mb-1.5 flex items-center gap-1.5 text-[9px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
+          <span>Scroll to follow the pathway</span>
+          <ArrowRight className="h-3 w-3" aria-hidden />
+        </div>
+        <div className="-mx-1 flex snap-x snap-mandatory items-stretch overflow-x-auto px-1 pb-3 [scrollbar-width:thin]">
+          {STEPS.map((step, index) => (
+            <Fragment key={step.numeral}>
+              <div className="w-[260px] shrink-0 snap-start">
+                <StepCard {...step} />
+              </div>
+              {index < STEPS.length - 1 && <Connector />}
+            </Fragment>
+          ))}
+        </div>
       </div>
 
       <WarningSignChecklist />
