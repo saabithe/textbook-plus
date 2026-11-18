@@ -43,6 +43,13 @@ import {
   HivTreatmentCard,
   HivTreatmentCorrection,
 } from "@/components/content/biology/Aids";
+import {
+  AmoebiasisCard,
+  HaemozoinFlow,
+  MalariaLifeCycle,
+  MalariaProfileCard,
+} from "@/components/content/biology/ProtozoanDiseases";
+import { AscariasisCard, FilariasisCard } from "@/components/content/biology/HelminthicDiseases";
 
 export default function HumanHealthAndDiseasesChapter() {
   return (
@@ -108,83 +115,96 @@ export default function HumanHealthAndDiseasesChapter() {
       <HivTreatmentCorrection />
       <HivPreventionBlock />
 
-      <h3 id="h-7-1-malaria">Malaria</h3>
-      <p>
-        <em>Plasmodium</em>, a tiny protozoan, is responsible for malaria. Different species cause different types of
-        malaria; <strong>malignant malaria</strong> caused by <em>Plasmodium falciparum</em> is the most serious one and
-        can even be fatal.
-      </p>
-      <Stepper
-        steps={[
+      <h3 id="h-7-1-protozoan">4. Protozoan Diseases</h3>
+
+      <h4 id="h-7-1-malaria">E. Malaria</h4>
+      <MalariaProfileCard />
+
+      <h5 id="h-7-1-malaria-lifecycle">
+        1. Life Cycle of <em>Plasmodium</em>
+      </h5>
+      <MalariaLifeCycle />
+
+      <h5 id="h-7-1-malaria-symptoms">2. Haemozoin and Malaria Symptoms</h5>
+      <HaemozoinFlow />
+
+      <h4 id="h-7-1-amoebiasis">F. Amoebiasis (Amoebic Dysentery)</h4>
+      <AmoebiasisCard />
+
+      <TableCard
+        title="Malaria vs amoebiasis"
+        headers={["Feature", "Malaria", "Amoebiasis"]}
+        rows={[
           {
-            label: "Sporozoites enter the human",
-            description:
-              "Plasmodium enters the human body as sporozoites (the infectious form) through the bite of an infected female Anopheles mosquito.",
+            cells: [
+              "Pathogen",
+              <em key="m">Plasmodium</em>,
+              <em key="a">Entamoeba histolytica</em>,
+            ],
+          },
+          { cells: ["Disease-causing group", "Protozoan", "Protozoan"] },
+          {
+            cells: [
+              "Transmission",
+              <>
+                Bite of an infected female <em>Anopheles</em> mosquito
+              </>,
+              "Contaminated food and water",
+            ],
           },
           {
-            label: "Multiplication in liver cells",
-            description: "The parasites initially multiply within the liver cells.",
+            cells: [
+              "Vector / carrier",
+              <>
+                Female <em>Anopheles</em> mosquito
+              </>,
+              "Housefly — mechanical carrier",
+            ],
           },
+          { cells: ["Main affected site", "Liver and RBCs", "Large intestine"] },
           {
-            label: "Attack on red blood cells",
-            description: "The parasites then attack the red blood cells (RBCs), resulting in their rupture.",
-          },
-          {
-            label: "Haemozoin → chill and fever",
-            description:
-              "Rupture of RBCs releases a toxic substance, haemozoin, which is responsible for the chill and high fever recurring every three to four days.",
-          },
-          {
-            label: "Parasites enter the mosquito",
-            description:
-              "When a female Anopheles mosquito bites an infected person, these parasites enter the mosquito’s body and undergo further development.",
-          },
-          {
-            label: "Sporozoites stored in salivary glands",
-            description:
-              "The parasites multiply within the mosquito to form sporozoites, which are stored in its salivary glands. The next bite introduces them into a human, starting the cycle again.",
+            cells: [
+              "Major symptoms",
+              "Chills and recurring fever",
+              "Constipation, abdominal pain and cramps, mucus and blood in stools",
+            ],
           },
         ]}
       />
-      <KeyPoint title="Two hosts, one vector">
-        The malarial parasite requires <strong>two hosts — human and mosquitoes</strong> — to complete its life cycle,
-        and the female <em>Anopheles</em> mosquito is the <strong>vector</strong> (transmitting agent) too.
-      </KeyPoint>
 
-      <h3 id="h-7-1-amoebiasis">Amoebiasis (amoebic dysentery)</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          <em>Entamoeba histolytica</em> is a protozoan parasite in the <strong>large intestine</strong> of human which
-          causes amoebiasis.
-        </li>
-        <li>
-          <strong>Houseflies act as mechanical carriers</strong> — they transmit the parasite from the faeces of an
-          infected person to food and food products, thereby contaminating them.
-        </li>
-        <li>Drinking water and food contaminated by faecal matter are the main source of infection.</li>
-      </ul>
+      <h3 id="h-7-1-helminthic">5. Helminthic Diseases</h3>
 
-      <h3 id="h-7-1-ascariasis">Ascariasis</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          <em>Ascaris</em>, the common round worm, is an intestinal parasite that causes ascariasis.
-        </li>
-        <li>
-          The eggs of the parasite are excreted along with the faeces of infected persons, which contaminate soil, water,
-          plants, etc.
-        </li>
-        <li>A healthy person acquires this infection through contaminated water, vegetables, fruits, etc.</li>
-      </ul>
+      <h4 id="h-7-1-ascariasis">G. Ascariasis</h4>
+      <AscariasisCard />
 
-      <h3 id="h-7-1-filariasis">Filariasis (elephantiasis)</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          <em>Wuchereria</em> (<em>W. bancrofti</em> and <em>W. malayi</em>), the filarial worms, live for many years in
-          the organ they infect, causing a slowly developing <strong>chronic inflammation</strong>.
-        </li>
-        <li>The disease is called elephantiasis or filariasis.</li>
-        <li>The pathogens are transmitted to a healthy person through the bite of female mosquito vectors.</li>
-      </ul>
+      <h4 id="h-7-1-filariasis">H. Filariasis — Elephantiasis</h4>
+      <FilariasisCard />
+
+      <TableCard
+        title="Ascariasis vs filariasis"
+        headers={["Feature", "Ascariasis", "Filariasis / Elephantiasis"]}
+        rows={[
+          { cells: ["Pathogen", <em key="p">Ascaris</em>, <><em>W. bancrofti</em>, <em>W. malayi</em></>] },
+          { cells: ["Disease-causing organism", "Roundworm", "Filarial worms"] },
+          {
+            cells: [
+              "Transmission",
+              "Contaminated food and water",
+              <>
+                Bite of an infected female <em>Culex</em> mosquito
+              </>,
+            ],
+          },
+          { cells: ["Main affected part", "Intestine", "Lymphatic vessels"] },
+          {
+            cells: [
+              "Major effects",
+              "Internal bleeding, anaemia, muscular pain, intestinal blockage",
+              "Chronic inflammation, lymphatic blockage, gross deformities",
+            ],
+          },
+        ]}
+      />
 
       <h3 id="h-7-1-ringworm">Ringworms</h3>
       <ul className="list-disc pl-5 space-y-1.5">

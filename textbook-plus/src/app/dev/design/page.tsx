@@ -346,6 +346,13 @@ import {
   HivTreatmentCard,
   HivTreatmentCorrection,
 } from "@/components/content/biology/Aids";
+import {
+  AmoebiasisCard,
+  HaemozoinFlow,
+  MalariaLifeCycle,
+  MalariaProfileCard,
+} from "@/components/content/biology/ProtozoanDiseases";
+import { AscariasisCard, FilariasisCard } from "@/components/content/biology/HelminthicDiseases";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -3306,6 +3313,18 @@ export default function DesignPage() {
             <HivTreatmentCorrection />
             <p className="t-micro mt-6">AIDS — prevention and NACO</p>
             <HivPreventionBlock />
+            <p className="t-micro mt-6">Protozoa — malaria profile</p>
+            <MalariaProfileCard />
+            <p className="t-micro mt-6">Protozoa — malaria life cycle</p>
+            <MalariaLifeCycle />
+            <p className="t-micro mt-6">Protozoa — haemozoin flow</p>
+            <HaemozoinFlow />
+            <p className="t-micro mt-6">Protozoa — amoebiasis profile</p>
+            <AmoebiasisCard />
+            <p className="t-micro mt-6">Helminths — ascariasis profile</p>
+            <AscariasisCard />
+            <p className="t-micro mt-6">Helminths — filariasis profile</p>
+            <FilariasisCard />
           </div>
         </div>
       </Section>

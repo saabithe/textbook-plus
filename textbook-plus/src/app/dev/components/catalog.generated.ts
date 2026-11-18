@@ -4024,6 +4024,24 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/HelminthicDiseases.tsx#AscariasisCard",
+    "name": "AscariasisCard",
+    "path": "content/biology/HelminthicDiseases.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/HelminthicDiseases.tsx#FilariasisCard",
+    "name": "FilariasisCard",
+    "path": "content/biology/HelminthicDiseases.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/HostIntroduction.tsx#CationTreatment",
     "name": "CationTreatment",
     "path": "content/biology/HostIntroduction.tsx",
@@ -4585,6 +4603,42 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/PreyDefenceTree.tsx#PreyDefenceTree",
     "name": "PreyDefenceTree",
     "path": "content/biology/PreyDefenceTree.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ProtozoanDiseases.tsx#AmoebiasisCard",
+    "name": "AmoebiasisCard",
+    "path": "content/biology/ProtozoanDiseases.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ProtozoanDiseases.tsx#HaemozoinFlow",
+    "name": "HaemozoinFlow",
+    "path": "content/biology/ProtozoanDiseases.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ProtozoanDiseases.tsx#MalariaLifeCycle",
+    "name": "MalariaLifeCycle",
+    "path": "content/biology/ProtozoanDiseases.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ProtozoanDiseases.tsx#MalariaProfileCard",
+    "name": "MalariaProfileCard",
+    "path": "content/biology/ProtozoanDiseases.tsx",
     "category": "biology",
     "props": null,
     "shell": false,

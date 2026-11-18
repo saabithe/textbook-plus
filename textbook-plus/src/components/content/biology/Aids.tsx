@@ -266,7 +266,7 @@ export function HivReplicationCycle() {
         <div className="rounded-lg border border-border/60 bg-white p-1.5">
           <img
             src="/images/biology/human-health-and-diseases/hiv-replication-cycle.png"
-            alt="HIV replication cycle — entry into macrophages, reverse transcription, integration into host DNA and release of new virus particles."
+            alt="HIV RNA entering a macrophage and the events that follow inside the cell."
             className="h-auto w-full rounded object-contain"
             loading="lazy"
           />
@@ -302,7 +302,8 @@ export function HivReplicationCycle() {
       </div>
 
       <figcaption className="mt-2 border-t border-border pt-2 text-[10px] leading-snug text-muted-foreground">
-        The three steps that carry the mechanism are marked in amber: reverse transcriptase, integration, and
+        The illustration follows the viral RNA from its entry into the macrophage through the events inside the cell.
+        The three steps that carry the mechanism are marked in amber: reverse transcriptase, integration and
         T<sub>H</sub>-cell depletion.
       </figcaption>
     </figure>
