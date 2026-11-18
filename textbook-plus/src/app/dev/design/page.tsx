@@ -396,6 +396,17 @@ import { CarcinogensSection } from "@/components/content/biology/Carcinogens";
 import { DiagnosisDashboard } from "@/components/content/biology/CancerDiagnosis";
 import { TreatmentCards } from "@/components/content/biology/CancerTreatment";
 import { CancerQuickRevisionSheet } from "@/components/content/biology/CancerRevision";
+import {
+  CannabinoidsSection,
+  CommonlyAbusedDrugs,
+  OpioidsSection,
+} from "@/components/content/biology/DrugSources";
+import { CocaineProfile, HallucinogensPrescription } from "@/components/content/biology/CocaineHallucinogens";
+import { TobaccoSmokingSection } from "@/components/content/biology/TobaccoSmoking";
+import { AddictionDependence, AdolescenceVulnerability } from "@/components/content/biology/AdolescenceAddiction";
+import { SteroidMisuse, SystemicEffects } from "@/components/content/biology/HarmfulEffects";
+import { PreventionPathway } from "@/components/content/biology/PreventionControl";
+import { DrugsFinalRevisionSheet } from "@/components/content/biology/DrugsRevision";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -3437,6 +3448,31 @@ export default function DesignPage() {
             <TreatmentCards />
             <p className="t-micro mt-6">7.4 — quick revision sheet</p>
             <CancerQuickRevisionSheet />
+
+            <p className="t-micro mt-6">7.5 — commonly abused drugs classification</p>
+            <CommonlyAbusedDrugs />
+            <p className="t-micro mt-6">7.5 — opioids</p>
+            <OpioidsSection />
+            <p className="t-micro mt-6">7.5 — cannabinoids</p>
+            <CannabinoidsSection />
+            <p className="t-micro mt-6">7.5 — cocaine</p>
+            <CocaineProfile />
+            <p className="t-micro mt-6">7.5 — hallucinogens &amp; prescription drugs</p>
+            <HallucinogensPrescription />
+            <p className="t-micro mt-6">7.5 — tobacco and smoking</p>
+            <TobaccoSmokingSection />
+            <p className="t-micro mt-6">7.5 — adolescence vulnerability</p>
+            <AdolescenceVulnerability />
+            <p className="t-micro mt-6">7.5 — addiction and dependence</p>
+            <AddictionDependence />
+            <p className="t-micro mt-6">7.5 — systemic effects</p>
+            <SystemicEffects />
+            <p className="t-micro mt-6">7.5 — steroid misuse</p>
+            <SteroidMisuse />
+            <p className="t-micro mt-6">7.5 — prevention and control</p>
+            <PreventionPathway />
+            <p className="t-micro mt-6">7.5 — final revision sheet</p>
+            <DrugsFinalRevisionSheet />
           </div>
         </div>
       </Section>

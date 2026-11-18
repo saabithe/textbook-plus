@@ -1,9 +1,5 @@
-import { Callout } from "@/components/content/Callout";
-import { KeyPoint } from "@/components/content/KeyPoint";
-import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
-import { Highlight } from "@/components/content/Highlight";
 import { TableCard } from "@/components/content/data/TableCard";
 import {
   DiseaseDefinitionCard,
@@ -84,6 +80,17 @@ import { CarcinogensSection } from "@/components/content/biology/Carcinogens";
 import { DiagnosisDashboard } from "@/components/content/biology/CancerDiagnosis";
 import { TreatmentCards } from "@/components/content/biology/CancerTreatment";
 import { CancerQuickRevisionSheet } from "@/components/content/biology/CancerRevision";
+import {
+  CannabinoidsSection,
+  CommonlyAbusedDrugs,
+  OpioidsSection,
+} from "@/components/content/biology/DrugSources";
+import { CocaineProfile, HallucinogensPrescription } from "@/components/content/biology/CocaineHallucinogens";
+import { TobaccoSmokingSection } from "@/components/content/biology/TobaccoSmoking";
+import { AddictionDependence, AdolescenceVulnerability } from "@/components/content/biology/AdolescenceAddiction";
+import { SteroidMisuse, SystemicEffects } from "@/components/content/biology/HarmfulEffects";
+import { PreventionPathway } from "@/components/content/biology/PreventionControl";
+import { DrugsFinalRevisionSheet } from "@/components/content/biology/DrugsRevision";
 
 export default function HumanHealthAndDiseasesChapter() {
   return (
@@ -315,311 +322,30 @@ export default function HumanHealthAndDiseasesChapter() {
       <CancerQuickRevisionSheet />
 
       <h2 id="h-7-5">7.5 Drugs and Alcohol Abuse</h2>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Surveys and statistics show that use of drugs and alcohol has been on the rise, especially among the youth.</li>
-        <li>Proper education and guidance would enable youth to safeguard themselves against these behaviour patterns.</li>
-        <li>
-          The drugs commonly abused are <strong>opioids, cannabinoids and coca alkaloids</strong>.
-        </li>
-        <li>Majority of these are obtained from flowering plants; some are obtained from fungi.</li>
-      </ul>
-      <TableCard
-        title="The three commonly abused drug groups"
-        headers={["Group", "Common forms", "Obtained from"]}
-        rows={[
-          {
-            cells: [
-              "Opioids",
-              "Heroin (smack), chemically diacetylmorphine",
-              "Latex of the poppy plant Papaver somniferum",
-            ],
-          },
-          {
-            cells: [
-              "Cannabinoids",
-              "Marijuana, hashish, charas, ganja — from flower tops, leaves and the resin",
-              "Inflorescences of the plant Cannabis sativa",
-            ],
-          },
-          {
-            cells: [
-              "Coca alkaloids",
-              "Cocaine (coke, crack)",
-              "Coca plant Erythroxylum coca, native to South America",
-            ],
-          },
-        ]}
-      />
 
-      <h3 id="h-7-5-opioids">Opioids and heroin</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Opioids bind to specific opioid receptors present in our central nervous system and gastrointestinal tract.</li>
-        <li>
-          <strong>Heroin</strong> is a white, odourless, bitter crystalline compound.
-        </li>
-        <li>It is obtained by <strong>acetylation of morphine</strong>.</li>
-        <li>Generally taken by snorting and injection, heroin is a <strong>depressant</strong> and slows down body functions.</li>
-      </ul>
+      <h3 id="h-7-5-sources">1. Commonly Abused Drugs and Their Sources</h3>
+      <CommonlyAbusedDrugs />
+      <OpioidsSection />
+      <CannabinoidsSection />
+      <CocaineProfile />
+      <HallucinogensPrescription />
 
-      <h3 id="h-7-5-cannabinoids">Cannabinoids</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Cannabinoids interact with cannabinoid receptors present principally in the brain.</li>
-        <li>Generally taken by inhalation and oral ingestion, these are known for their effects on the cardiovascular system.</li>
-      </ul>
+      <h3 id="h-7-5-tobacco">2. Tobacco and Smoking</h3>
+      <TobaccoSmokingSection />
 
-      <h3 id="h-7-5-cocaine">Coca alkaloid (cocaine)</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>It interferes with the transport of the neurotransmitter <strong>dopamine</strong>.</li>
-        <li>
-          Cocaine is usually snorted. It has a potent stimulating action on the central nervous system, producing a sense of
-          euphoria and increased energy.
-        </li>
-        <li>Excessive dosage of cocaine causes hallucinations.</li>
-        <li>
-          Other well-known plants with hallucinogenic properties are <em>Atropa belladona</em> and <em>Datura</em>.
-        </li>
-        <li>These days cannabinoids are also being abused by some sportspersons.</li>
-      </ul>
+      <h3 id="h-7-5-adolescence">3. Adolescence, Addiction and Dependence</h3>
+      <AdolescenceVulnerability />
+      <AddictionDependence />
 
-      <h3 id="h-7-5-other">Other drugs, and what drug abuse means</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Barbiturates, amphetamines, benzodiazepines and similar drugs are normally used as medicines to help patients cope with mental illnesses like depression and insomnia — but are often abused.</li>
-        <li>Morphine is a very effective sedative and painkiller, and is very useful in patients who have undergone surgery.</li>
-        <li>Several plants, fruits and seeds with hallucinogenic properties have been used for hundreds of years in folk-medicine, religious ceremonies and rituals all over the globe.</li>
-      </ul>
-      <Callout type="important" title="Drug abuse — definition">
-        When these are taken <strong>for a purpose other than medicinal use</strong>, or in{" "}
-        <strong>amounts/frequency that impairs one’s physical, physiological or psychological functions</strong>, it
-        constitutes <strong>drug abuse</strong>.
-      </Callout>
+      <h3 id="h-7-5-effects">4. Harmful Effects of Drug and Alcohol Abuse</h3>
+      <SystemicEffects />
+      <SteroidMisuse />
 
-      <h3 id="h-7-5-tobacco">Tobacco</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Smoking also paves the way to hard drugs.</li>
-        <li>Tobacco has been used by human beings for more than 400 years; it is smoked, chewed or used as a snuff.</li>
-        <li>
-          Tobacco contains a large number of chemical substances including <strong>nicotine</strong>, an alkaloid.
-        </li>
-        <li>
-          Nicotine stimulates the adrenal gland to release <strong>adrenaline and nor-adrenaline</strong> into blood
-          circulation, both of which raise blood pressure and increase heart rate.
-        </li>
-        <li>
-          Smoking is associated with increased incidence of cancers of lung, urinary bladder and throat, bronchitis,
-          emphysema, coronary heart disease, gastric ulcer, etc.
-        </li>
-        <li>Tobacco chewing is associated with increased risk of cancer of the oral cavity.</li>
-        <li>
-          Smoking increases carbon monoxide (CO) content in blood and reduces the concentration of haem-bound oxygen —
-          this causes oxygen deficiency in the body.
-        </li>
-      </ul>
-      <Callout type="warning" title="The warning on the packet">
-        The statutory warning on cigarette packets warns against smoking and says how it is injurious to health, yet
-        smoking is very prevalent in society, both among young and old. Any addict requires counselling and medical help
-        to get rid of the habit.
-      </Callout>
+      <h3 id="h-7-5-prevention">5. Prevention and Control Strategies</h3>
+      <PreventionPathway />
 
-      <h3 id="h-7-5-1">7.5.1 Adolescence and Drug/Alcohol Abuse</h3>
-      <p>
-        Adolescence means both ‘a period’ and ‘a process’ during which a child becomes mature in terms of his/her
-        attitudes and beliefs for effective participation in society. The period between <strong>12–18 years</strong> of
-        age may be thought of as adolescence. In other words, adolescence is a <strong>bridge linking childhood and
-        adulthood</strong> — a very vulnerable phase of mental and psychological development.
-      </p>
-      <TableCard
-        title="What pushes a youngster towards drugs or alcohol"
-        headers={["Cause", "Detail"]}
-        rows={[
-          {
-            cells: [
-              "Curiosity, adventure and experimentation",
-              "A child’s natural curiosity motivates him/her to experiment; this is complicated further by effects that might be perceived as benefits",
-              ],
-          },
-          {
-            cells: [
-              "Escape from problems",
-              "The first use may be out of curiosity, but later the child starts using these to escape facing problems",
-            ],
-          },
-          {
-            cells: [
-              "Academic and examination stress",
-              "Pressure to excel in academics or examinations persuades youngsters to try alcohol and drugs",
-            ],
-          },
-          {
-            cells: [
-              "The ‘cool’ perception",
-              "The belief that it is ‘cool’ or progressive to smoke, use drugs or alcohol; television, movies, newspapers and internet help promote this perception",
-            ],
-          },
-          {
-            cells: [
-              "Family and peers",
-              "Unstable or unsupportive family structures and peer pressure",
-            ],
-          },
-        ]}
-      />
+      <DrugsFinalRevisionSheet />
 
-      <h3 id="h-7-5-2">7.5.2 Addiction and Dependence</h3>
-      <Callout type="important" title="Addiction">
-        Addiction is a <strong>psychological attachment</strong> to certain effects — such as euphoria and a temporary
-        feeling of well-being — associated with drugs and alcohol. These drive people to take them even when these are not
-        needed, or even when their use becomes self-destructive.
-      </Callout>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>With repeated use, the <strong>tolerance level</strong> of the receptors present in our body increases.</li>
-        <li>Consequently the receptors respond only to higher doses, leading to greater intake and addiction.</li>
-        <li>
-          Use of these drugs <Highlight color="pink">even once</Highlight> can be a fore-runner to addiction.
-        </li>
-        <li>The addictive potential pulls the user into a vicious circle of regular use (abuse) from which he/she may not be able to get out.</li>
-        <li>In the absence of any guidance or counselling, the person gets addicted and becomes dependent.</li>
-      </ul>
-      <Callout type="important" title="Dependence">
-        Dependence is the tendency of the body to manifest a characteristic and unpleasant{" "}
-        <strong>withdrawal syndrome</strong> if the regular dose of drugs/alcohol is abruptly discontinued. This is
-        characterised by anxiety, shakiness, nausea and sweating, which may be relieved when use is resumed again.
-      </Callout>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>In some cases, withdrawal symptoms can be severe and even life threatening — the person may need medical supervision.</li>
-        <li>Dependence leads the patient to ignore all social norms in order to get sufficient funds to satiate his/her needs.</li>
-        <li>These result in many social adjustment problems.</li>
-      </ul>
-
-      <h3 id="h-7-5-3">7.5.3 Effects of Drug/Alcohol Abuse</h3>
-      <p>The immediate adverse effects are manifested in the form of reckless behaviour, vandalism and violence.</p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Excessive doses of drugs may lead to coma and death due to respiratory failure, heart failure or cerebral hemorrhage.</li>
-        <li>A combination of drugs, or their intake along with alcohol, generally results in overdosing and even deaths.</li>
-      </ul>
-      <Callout type="warning" title="Warning signs of drug and alcohol abuse among youth">
-        <ul className="list-disc pl-5 space-y-1">
-          <li>Drop in academic performance.</li>
-          <li>Unexplained absence from school/college.</li>
-          <li>Lack of interest in personal hygiene.</li>
-          <li>Withdrawal, isolation, depression, fatigue.</li>
-          <li>Aggressive and rebellious behaviour.</li>
-          <li>Deteriorating relationships with family and friends.</li>
-          <li>Loss of interest in hobbies.</li>
-          <li>Change in sleeping and eating habits; fluctuations in weight, appetite, etc.</li>
-        </ul>
-      </Callout>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>If an abuser is unable to get money to buy drugs/alcohol, he/she may turn to stealing.</li>
-        <li>A drug/alcohol addict often becomes the cause of mental and financial distress to his/her entire family and friends.</li>
-        <li>
-          Those who take drugs intravenously (direct injection into the vein using a needle and syringe) are much more
-          likely to acquire serious infections like <strong>AIDS and Hepatitis B</strong>.
-        </li>
-        <li>
-          The viruses responsible are transferred from one person to another by sharing infected needles and syringes.
-          Both are chronic infections and ultimately fatal, and both can be transmitted through sexual contact or infected
-          blood.
-        </li>
-        <li>The use of alcohol during adolescence may lead to heavy drinking in adulthood.</li>
-        <li>The chronic use of drugs and alcohol damages the nervous system and liver (<strong>cirrhosis</strong>).</li>
-        <li>The use of drugs and alcohol during pregnancy is known to adversely affect the foetus.</li>
-      </ul>
-      <h4 className="mt-6 mb-2 text-[15px] font-semibold">Drug misuse by sportspersons</h4>
-      <p>
-        Certain sportspersons misuse <strong>narcotic analgesics, anabolic steroids, diuretics and certain hormones</strong>{" "}
-        to increase muscle strength and bulk, to promote aggressiveness, and as a result increase athletic performance.
-      </p>
-      <Comparison
-        columns={[
-          {
-            title: "Anabolic steroids — side effects in females",
-            children: (
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Masculinisation (features like males).</li>
-                <li>Increased aggressiveness, mood swings, depression.</li>
-                <li>Abnormal menstrual cycles.</li>
-                <li>Excessive hair growth on the face and body.</li>
-                <li>Enlargement of clitoris, deepening of voice.</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Anabolic steroids — side effects in males",
-            children: (
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Acne, increased aggressiveness, mood swings, depression.</li>
-                <li>Reduction of size of the testicles, decreased sperm production.</li>
-                <li>Potential for kidney and liver dysfunction.</li>
-                <li>Breast enlargement, premature baldness.</li>
-                <li>Enlargement of the prostate gland.</li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>These effects may be permanent with prolonged use.</li>
-        <li>
-          In the adolescent male or female, severe facial and body acne and premature closure of the growth centres of the
-          long bones may result in <strong>stunted growth</strong>.
-        </li>
-      </ul>
-
-      <h3 id="h-7-5-4">7.5.4 Prevention and Control</h3>
-      <p>
-        The age-old adage of ‘prevention is better than cure’ holds true here also. Habits such as smoking, taking drugs or
-        alcohol are more likely to be taken up at a young age, more during adolescence — so it is best to identify the
-        situations that may push an adolescent towards use of drugs or alcohol, and to take remedial measures well in
-        time.
-      </p>
-      <p>
-        In this regard, <strong>parents and teachers have a special responsibility</strong>. Parenting that combines high
-        levels of nurturance with consistent discipline has been associated with lowered risk of substance
-        (alcohol/drugs/tobacco) abuse.
-      </p>
-      <TableCard
-        title="Measures for prevention and control among adolescents"
-        headers={["Measure", "In practice"]}
-        rows={[
-          {
-            cells: [
-              "Avoid undue peer pressure",
-              "Every child has his/her own choice and personality, which should be respected and nurtured. A child should not be pushed unduly to perform beyond his/her threshold limits — be it studies, sports or other activities.",
-            ],
-          },
-          {
-            cells: [
-              "Education and counselling",
-              "Educating and counselling him/her to face problems and stresses, and to accept disappointments and failures as a part of life. Channelise the child’s energy into healthy pursuits like sports, reading, music, yoga and other extracurricular activities.",
-            ],
-          },
-          {
-            cells: [
-              "Seeking help from parents and peers",
-              "Help should be sought immediately so that they can guide appropriately; help may even be sought from close and trusted friends. Besides getting proper advice, this helps the young to vent feelings of anxiety and guilt.",
-            ],
-          },
-          {
-            cells: [
-              "Looking for danger signs",
-              "Alert parents and teachers need to look for and identify the danger signs. Even friends, if they find someone using drugs or alcohol, should not hesitate to bring this to the notice of parents or teacher in the best interests of the person concerned.",
-            ],
-          },
-          {
-            cells: [
-              "Seeking professional and medical help",
-              "Highly qualified psychologists, psychiatrists, and de-addiction and rehabilitation programmes are available. With such help, and sufficient efforts and will power, the affected individual can get rid of the problem completely.",
-            ],
-          },
-        ]}
-      />
-      <KeyPoint title="Identify early, act early">
-        Because these habits are most often picked up during adolescence, the critical move is to{" "}
-        <strong>identify the situations</strong> that may push an adolescent towards drugs or alcohol and take remedial
-        measures well in time.
-      </KeyPoint>
-
-      <h2 id="h-7-exercises">Exercises</h2>
       <Expandable title="Exercises — all questions with answers" variant="exercise">
         <ExerciseQa
           questions={[

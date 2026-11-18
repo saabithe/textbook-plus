@@ -3250,6 +3250,24 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/AdolescenceAddiction.tsx#AddictionDependence",
+    "name": "AddictionDependence",
+    "path": "content/biology/AdolescenceAddiction.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/AdolescenceAddiction.tsx#AdolescenceVulnerability",
+    "name": "AdolescenceVulnerability",
+    "path": "content/biology/AdolescenceAddiction.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/AgePyramidsFigure11_1.tsx#AgePyramidsFigure11_1",
     "name": "AgePyramidsFigure11_1",
     "path": "content/biology/AgePyramidsFigure11_1.tsx",
@@ -3583,6 +3601,24 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/CocaineHallucinogens.tsx#CocaineProfile",
+    "name": "CocaineProfile",
+    "path": "content/biology/CocaineHallucinogens.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CocaineHallucinogens.tsx#HallucinogensPrescription",
+    "name": "HallucinogensPrescription",
+    "path": "content/biology/CocaineHallucinogens.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/CohenBoyerProcess.tsx#CohenBoyerFlow",
     "name": "CohenBoyerFlow",
     "path": "content/biology/CohenBoyerProcess.tsx",
@@ -3775,6 +3811,42 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/DownstreamProcessing.tsx#DownstreamProcessing",
     "name": "DownstreamProcessing",
     "path": "content/biology/DownstreamProcessing.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/DrugSources.tsx#CannabinoidsSection",
+    "name": "CannabinoidsSection",
+    "path": "content/biology/DrugSources.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/DrugSources.tsx#CommonlyAbusedDrugs",
+    "name": "CommonlyAbusedDrugs",
+    "path": "content/biology/DrugSources.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/DrugSources.tsx#OpioidsSection",
+    "name": "OpioidsSection",
+    "path": "content/biology/DrugSources.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/DrugsRevision.tsx#DrugsFinalRevisionSheet",
+    "name": "DrugsFinalRevisionSheet",
+    "path": "content/biology/DrugsRevision.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
@@ -4036,6 +4108,24 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/GmOrganisms.tsx#TailorMadeCrops",
     "name": "TailorMadeCrops",
     "path": "content/biology/GmOrganisms.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/HarmfulEffects.tsx#SteroidMisuse",
+    "name": "SteroidMisuse",
+    "path": "content/biology/HarmfulEffects.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/HarmfulEffects.tsx#SystemicEffects",
+    "name": "SystemicEffects",
+    "path": "content/biology/HarmfulEffects.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
@@ -4843,6 +4933,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/PreventionControl.tsx#PreventionPathway",
+    "name": "PreventionPathway",
+    "path": "content/biology/PreventionControl.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/PreventionOfDiseases.tsx#AirborneTransmissionCard",
     "name": "AirborneTransmissionCard",
     "path": "content/biology/PreventionOfDiseases.tsx",
@@ -5188,6 +5287,15 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/TissueCulture.tsx#ExplantTotipotencyDiagram",
     "name": "ExplantTotipotencyDiagram",
     "path": "content/biology/TissueCulture.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/TobaccoSmoking.tsx#TobaccoSmokingSection",
+    "name": "TobaccoSmokingSection",
+    "path": "content/biology/TobaccoSmoking.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
