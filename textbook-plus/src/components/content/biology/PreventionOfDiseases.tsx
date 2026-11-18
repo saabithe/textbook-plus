@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { ArrowRight, Check, Droplets, FlaskConical, ShieldCheck, Sparkles } from "lucide-react";
 
 /**
@@ -137,22 +138,7 @@ export function AirborneTransmissionCard() {
   );
 }
 
-function Mosquito({ tone }: { tone: string }) {
-  return (
-    <span className={tone}>
-      <svg viewBox="0 0 42 32" className="h-7 w-9" aria-hidden>
-        <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-          <ellipse cx="20" cy="16" rx="9" ry="3" className="fill-current opacity-20" />
-          <ellipse cx="14" cy="9" rx="6" ry="3" />
-          <ellipse cx="14" cy="23" rx="6" ry="3" />
-          <path d="M29 15 L38 12 M29 18 L37 22 M18 19 L13 29 M23 19 L22 29 M12 15 L5 12" />
-        </g>
-      </svg>
-    </span>
-  );
-}
-
-const VECTORS = [
+const VECTORS: { vector: ReactNode; disease: string }[] = [
   {
     vector: (
       <>
@@ -160,7 +146,6 @@ const VECTORS = [
       </>
     ),
     disease: "Malaria",
-    tone: "text-rose-600 dark:text-rose-400",
   },
   {
     vector: (
@@ -169,7 +154,6 @@ const VECTORS = [
       </>
     ),
     disease: "Filariasis",
-    tone: "text-orange-600 dark:text-orange-400",
   },
   {
     vector: (
@@ -178,7 +162,6 @@ const VECTORS = [
       </>
     ),
     disease: "Chikungunya",
-    tone: "text-violet-600 dark:text-violet-400",
   },
 ];
 
@@ -191,21 +174,14 @@ export function VectorBorneCard() {
         <div className="text-[8.5px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">Vector → disease</div>
 
         <div className="mt-1.5 overflow-hidden rounded-lg border border-border">
-          <div className="grid grid-cols-[minmax(0,1fr)_3rem_minmax(0,1fr)] border-b border-border bg-muted/40 text-[8.5px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
+          <div className="grid grid-cols-2 border-b border-border bg-muted/40 text-[8.5px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
             <div className="px-2.5 py-1.5">Vector</div>
-            <div className="px-1 py-1.5 text-center" aria-hidden />
             <div className="px-2.5 py-1.5">Disease</div>
           </div>
 
           {VECTORS.map((row) => (
-            <div
-              key={row.disease}
-              className="grid grid-cols-[minmax(0,1fr)_3rem_minmax(0,1fr)] items-center border-b border-border last:border-b-0"
-            >
+            <div key={row.disease} className="grid grid-cols-2 border-b border-border last:border-b-0">
               <div className="px-2.5 py-2 text-[10.5px] leading-snug text-foreground">{row.vector}</div>
-              <div className="flex justify-center">
-                <Mosquito tone={row.tone} />
-              </div>
               <div className="px-2.5 py-2 text-[11px] font-bold leading-snug text-foreground">{row.disease}</div>
             </div>
           ))}

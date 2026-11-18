@@ -229,18 +229,18 @@ export default function HumanHealthAndDiseasesChapter() {
         <li>Discovery of antibiotics and various other drugs has enabled us to effectively treat infectious diseases.</li>
       </ul>
 
-      <h2 id="h-7-prevention">7.2 Prevention of Common Diseases</h2>
+      <h3 id="h-7-1-prevention">7. Prevention of Common Diseases</h3>
 
-      <h3 id="h-7-prevention-food">1. Food- and Water-Borne Diseases</h3>
+      <h4 id="h-7-prevention-food">1. Food- and Water-Borne Diseases</h4>
       <FoodWaterBorneCard />
 
-      <h3 id="h-7-prevention-air">2. Air-Borne Diseases</h3>
+      <h4 id="h-7-prevention-air">2. Air-Borne Diseases</h4>
       <AirborneTransmissionCard />
 
-      <h3 id="h-7-prevention-vector">3. Vector-Borne Diseases</h3>
+      <h4 id="h-7-prevention-vector">3. Vector-Borne Diseases</h4>
       <VectorBorneCard />
 
-      <h2 id="h-7-2">7.3 Immunity</h2>
+      <h2 id="h-7-2">7.2 Immunity</h2>
       <p>
         Everyday we are exposed to a large number of infectious agents, yet only a few of these exposures result in
         disease. The body is able to defend itself from most of these foreign agents.
@@ -255,7 +255,7 @@ export default function HumanHealthAndDiseasesChapter() {
         <li>Acquired immunity</li>
       </ol>
 
-      <h3 id="h-7-2-1">7.3.1 Innate Immunity</h3>
+      <h3 id="h-7-2-1">7.2.1 Innate Immunity</h3>
       <Callout type="important" title="Innate immunity">
         Innate immunity is <strong>non-specific</strong> type of defence, that is{" "}
         <Highlight color="yellow">present at the time of birth</Highlight>. This is accomplished by providing different
@@ -297,7 +297,7 @@ export default function HumanHealthAndDiseasesChapter() {
         ]}
       />
 
-      <h3 id="h-7-2-2">7.3.2 Acquired Immunity</h3>
+      <h3 id="h-7-2-2">7.2.2 Acquired Immunity</h3>
       <p>
         Acquired immunity, on the other hand, is <strong>pathogen specific</strong>. It is characterised by{" "}
         <strong>memory</strong>.
@@ -390,7 +390,7 @@ export default function HumanHealthAndDiseasesChapter() {
         </li>
       </ul>
 
-      <h3 id="h-7-2-3">7.3.3 Active and Passive Immunity</h3>
+      <h3 id="h-7-2-3">7.2.3 Active and Passive Immunity</h3>
       <Comparison
         columns={[
           {
@@ -421,7 +421,7 @@ export default function HumanHealthAndDiseasesChapter() {
         itself — this borrowed protection is passive immunity.
       </KeyPoint>
 
-      <h3 id="h-7-2-4">7.3.4 Vaccination and Immunisation</h3>
+      <h3 id="h-7-2-4">7.2.4 Vaccination and Immunisation</h3>
       <p>
         The principle of immunisation or vaccination is based on the property of <strong>‘memory’</strong> of the immune
         system.
@@ -473,7 +473,7 @@ export default function HumanHealthAndDiseasesChapter() {
         </li>
       </ul>
 
-      <h3 id="h-7-2-5">7.3.5 Allergies</h3>
+      <h3 id="h-7-2-5">7.2.5 Allergies</h3>
       <Callout type="important" title="Allergy and allergens">
         The exaggerated response of the immune system to certain antigens present in the environment is called{" "}
         <strong>allergy</strong>. The substances to which such an immune response is produced are called{" "}
@@ -495,7 +495,7 @@ export default function HumanHealthAndDiseasesChapter() {
         </li>
       </ul>
 
-      <h3 id="h-7-2-6">7.3.6 Auto Immunity</h3>
+      <h3 id="h-7-2-6">7.2.6 Auto Immunity</h3>
       <p>
         Memory-based acquired immunity evolved in higher vertebrates based on the ability to differentiate foreign
         organisms (e.g., pathogens) from self-cells. Two corollaries follow:
@@ -513,7 +513,7 @@ export default function HumanHealthAndDiseasesChapter() {
         icon="🦴"
       />
 
-      <h3 id="h-7-2-7">7.3.7 Immune System in the Body</h3>
+      <h3 id="h-7-2-7">7.2.7 Immune System in the Body</h3>
       <p>
         The human immune system consists of <strong>lymphoid organs, tissues, cells and soluble molecules like
         antibodies</strong>. It recognises foreign antigens, responds to these and remembers them. It also plays an
