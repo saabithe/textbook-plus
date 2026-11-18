@@ -3213,6 +3213,105 @@
     "renderable": true
   },
   {
+    "id": "content/biology/Aids.tsx#AidsDefinitionCard",
+    "name": "AidsDefinitionCard",
+    "path": "content/biology/Aids.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Aids.tsx#HivCasualContactCallout",
+    "name": "HivCasualContactCallout",
+    "path": "content/biology/Aids.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Aids.tsx#HivDiagnosisCard",
+    "name": "HivDiagnosisCard",
+    "path": "content/biology/Aids.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Aids.tsx#HivExposureGroups",
+    "name": "HivExposureGroups",
+    "path": "content/biology/Aids.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Aids.tsx#HivNonIsolationCallout",
+    "name": "HivNonIsolationCallout",
+    "path": "content/biology/Aids.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Aids.tsx#HivPreventionBlock",
+    "name": "HivPreventionBlock",
+    "path": "content/biology/Aids.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Aids.tsx#HivReplicationCycle",
+    "name": "HivReplicationCycle",
+    "path": "content/biology/Aids.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Aids.tsx#HivTimeLag",
+    "name": "HivTimeLag",
+    "path": "content/biology/Aids.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Aids.tsx#HivTransmissionRoutes",
+    "name": "HivTransmissionRoutes",
+    "path": "content/biology/Aids.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Aids.tsx#HivTreatmentCard",
+    "name": "HivTreatmentCard",
+    "path": "content/biology/Aids.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Aids.tsx#HivTreatmentCorrection",
+    "name": "HivTreatmentCorrection",
+    "path": "content/biology/Aids.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/AmensalismExamples.tsx#AmensalismExamples",
     "name": "AmensalismExamples",
     "path": "content/biology/AmensalismExamples.tsx",
@@ -4737,6 +4836,15 @@
     "id": "content/biology/Vectors.tsx#VectorTypes",
     "name": "VectorTypes",
     "path": "content/biology/Vectors.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ViralDiseases.tsx#CommonColdCard",
+    "name": "CommonColdCard",
+    "path": "content/biology/ViralDiseases.tsx",
     "category": "biology",
     "props": null,
     "shell": false,

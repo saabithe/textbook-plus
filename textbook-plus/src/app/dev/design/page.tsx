@@ -332,6 +332,20 @@ import {
   TyphoidCard,
   TyphoidMaryCard,
 } from "@/components/content/biology/Pathogens";
+import { CommonColdCard } from "@/components/content/biology/ViralDiseases";
+import {
+  AidsDefinitionCard,
+  HivCasualContactCallout,
+  HivDiagnosisCard,
+  HivExposureGroups,
+  HivNonIsolationCallout,
+  HivPreventionBlock,
+  HivReplicationCycle,
+  HivTimeLag,
+  HivTransmissionRoutes,
+  HivTreatmentCard,
+  HivTreatmentCorrection,
+} from "@/components/content/biology/Aids";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -3268,6 +3282,30 @@ export default function DesignPage() {
             <PneumoniaCard />
             <p className="t-micro mt-6">Diseases — alveoli comparison</p>
             <AlveoliComparison />
+            <p className="t-micro mt-6">Diseases — common cold profile</p>
+            <CommonColdCard />
+            <p className="t-micro mt-6">AIDS — definition</p>
+            <AidsDefinitionCard />
+            <p className="t-micro mt-6">AIDS — transmission routes</p>
+            <HivTransmissionRoutes />
+            <p className="t-micro mt-6">AIDS — exposure categories</p>
+            <HivExposureGroups />
+            <p className="t-micro mt-6">AIDS — casual contact callout</p>
+            <HivCasualContactCallout />
+            <p className="t-micro mt-6">AIDS — non-isolation policy</p>
+            <HivNonIsolationCallout />
+            <p className="t-micro mt-6">AIDS — time lag</p>
+            <HivTimeLag />
+            <p className="t-micro mt-6">AIDS — replication cycle</p>
+            <HivReplicationCycle />
+            <p className="t-micro mt-6">AIDS — diagnosis</p>
+            <HivDiagnosisCard />
+            <p className="t-micro mt-6">AIDS — treatment</p>
+            <HivTreatmentCard />
+            <p className="t-micro mt-6">AIDS — outdated claim correction</p>
+            <HivTreatmentCorrection />
+            <p className="t-micro mt-6">AIDS — prevention and NACO</p>
+            <HivPreventionBlock />
           </div>
         </div>
       </Section>

@@ -5,8 +5,6 @@ import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
 import { Stepper } from "@/components/content/Stepper";
-import { ProcessCard } from "@/components/content/process/ProcessCard";
-import { MetricCard } from "@/components/content/study/MetricCard";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
@@ -31,6 +29,20 @@ import {
   TyphoidCard,
   TyphoidMaryCard,
 } from "@/components/content/biology/Pathogens";
+import { CommonColdCard } from "@/components/content/biology/ViralDiseases";
+import {
+  AidsDefinitionCard,
+  HivCasualContactCallout,
+  HivDiagnosisCard,
+  HivExposureGroups,
+  HivNonIsolationCallout,
+  HivPreventionBlock,
+  HivReplicationCycle,
+  HivTimeLag,
+  HivTransmissionRoutes,
+  HivTreatmentCard,
+  HivTreatmentCorrection,
+} from "@/components/content/biology/Aids";
 
 export default function HumanHealthAndDiseasesChapter() {
   return (
@@ -70,20 +82,31 @@ export default function HumanHealthAndDiseasesChapter() {
       <PneumoniaCard />
       <AlveoliComparison />
 
-      <h3 id="h-7-1-cold">Common cold</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Rhino viruses cause one of the most infectious human ailments — the common cold.</li>
-        <li>
-          They infect the <strong>nose and respiratory passage but not the lungs</strong>.
-        </li>
-        <li>
-          Symptoms usually last for <strong>3–7 days</strong>.
-        </li>
-        <li>
-          Droplets from cough or sneezes of an infected person are either inhaled directly or transmitted through
-          contaminated objects — pens, books, cups, doorknobs, computer keyboard or mouse, etc.
-        </li>
-      </ul>
+      <h3 id="h-7-1-viral">3. Viral Diseases</h3>
+
+      <h4 id="h-7-1-cold">C. Common Cold</h4>
+      <CommonColdCard />
+
+      <h4 id="h-7-1-aids">D. AIDS — Acquired Immunodeficiency Syndrome</h4>
+
+      <h5 id="h-7-1-aids-definition">1. Definition and Causative Agent</h5>
+      <AidsDefinitionCard />
+
+      <h5 id="h-7-1-aids-transmission">2. Modes of Transmission and Risk Categories</h5>
+      <HivTransmissionRoutes />
+      <HivExposureGroups />
+      <HivCasualContactCallout />
+      <HivNonIsolationCallout />
+      <HivTimeLag />
+
+      <h5 id="h-7-1-aids-replication">3. Replication Cycle and Mechanism of HIV</h5>
+      <HivReplicationCycle />
+
+      <h5 id="h-7-1-aids-treatment">4. Diagnosis, Treatment and Prevention</h5>
+      <HivDiagnosisCard />
+      <HivTreatmentCard />
+      <HivTreatmentCorrection />
+      <HivPreventionBlock />
 
       <h3 id="h-7-1-malaria">Malaria</h3>
       <p>
@@ -568,140 +591,6 @@ export default function HumanHealthAndDiseasesChapter() {
         ]}
         caption="Both bone marrow and thymus provide micro-environments for the development and maturation of T-lymphocytes."
       />
-
-      <h2 id="h-7-3">7.3 AIDS</h2>
-      <Callout type="important" title="What the word AIDS means">
-        The word AIDS stands for <strong>Acquired Immuno Deficiency Syndrome</strong>. This means deficiency of immune
-        system, <strong>acquired during the lifetime</strong> of an individual, indicating that it is not a congenital
-        disease. ‘Syndrome’ means a group of symptoms.
-      </Callout>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 [&>div]:my-0">
-        <MetricCard
-          label="First reported"
-          value="1981"
-          description="AIDS has since spread all over the world."
-        />
-        <MetricCard
-          label="Deaths worldwide"
-          value="25 million+"
-          description="Killed in the last twenty-five years or so."
-        />
-        <MetricCard
-          label="Time-lag"
-          value="5–10"
-          unit="years"
-          description="Usual gap between infection and appearance of AIDS symptoms."
-        />
-      </div>
-      <p>
-        AIDS is caused by the <strong>Human Immuno deficiency Virus (HIV)</strong>, a member of a group of viruses called{" "}
-        <strong>retrovirus</strong>, which have an envelope enclosing the RNA genome.
-      </p>
-      <TableCard
-        title="How HIV is transmitted"
-        headers={["Route", "Detail"]}
-        rows={[
-          { cells: ["Sexual contact", "With an infected person"] },
-          { cells: ["Transfusion", "Of contaminated blood and blood products"] },
-          { cells: ["Shared needles", "As in the case of intravenous drug abusers"] },
-          { cells: ["Mother to child", "From an infected mother to her child through the placenta"] },
-        ]}
-      />
-      <p>People at high risk of getting this infection include:</p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Individuals who have multiple sexual partners.</li>
-        <li>Drug addicts who take drugs intravenously.</li>
-        <li>Individuals who require repeated blood transfusions.</li>
-        <li>Children born to an HIV infected mother.</li>
-      </ul>
-      <Callout type="warning" title="How HIV does not spread">
-        HIV/AIDS is <Highlight color="yellow">not spread by mere touch or physical contact</Highlight>; it spreads only
-        through <strong>body fluids</strong>. It is, hence, imperative, for the physical and psychological well-being of
-        the infected, that HIV/AIDS infected persons are not isolated from family and society.
-      </Callout>
-      <Expandable title="Do you know? — When do people need repeated blood transfusions?">
-        <p>The chapter asks you to find out and make a list. Conditions in which repeated transfusion is needed include:</p>
-        <ul className="mt-2 list-disc pl-5 space-y-1">
-          <li>Thalassaemia and other inherited haemoglobin disorders.</li>
-          <li>Haemophilia and other severe bleeding disorders.</li>
-          <li>Severe anaemia, including that caused by chronic kidney disease.</li>
-          <li>Major surgery, trauma and severe blood loss.</li>
-          <li>Cancer chemotherapy and bone-marrow disorders, where blood cells are not produced adequately.</li>
-        </ul>
-      </Expandable>
-
-      <h3 id="h-7-3-mechanism">How HIV disables the immune system</h3>
-      <ProcessCard
-        title="From infection to immuno-deficiency"
-        steps={[
-          {
-            label: "Entry into macrophages",
-            description:
-              "After getting into the body, the virus enters macrophages, where the RNA genome of the virus replicates to form viral DNA with the help of the enzyme reverse transcriptase.",
-          },
-          {
-            label: "Viral DNA joins the host DNA",
-            description:
-              "This viral DNA gets incorporated into the host cell’s DNA and directs the infected cells to produce virus particles.",
-          },
-          {
-            label: "The macrophage becomes an HIV factory",
-            description: "Macrophages continue to produce virus and in this way act like a HIV factory.",
-          },
-          {
-            label: "Helper T-lymphocytes are infected",
-            description: (
-              <>
-                Simultaneously, HIV enters helper T-lymphocytes (T<sub>H</sub>), replicates and produces progeny viruses.
-              </>
-            ),
-          },
-          {
-            label: "Progressive loss of helper T-cells",
-            description:
-              "Progeny viruses released in the blood attack other helper T-lymphocytes. This is repeated, leading to a progressive decrease in the number of helper T-lymphocytes.",
-          },
-          {
-            label: "Opportunistic infections take over",
-            description:
-              "The person suffers from bouts of fever, diarrhoea and weight loss, then from infections that could otherwise be overcome — bacteria especially Mycobacterium, viruses, fungi and even parasites like Toxoplasma.",
-          },
-        ]}
-      />
-      <Callout type="note" title="Diagnosis and treatment">
-        <ul className="list-disc pl-5 space-y-1.5">
-          <li>
-            A widely used diagnostic test for AIDS is <strong>enzyme linked immuno-sorbent assay (ELISA)</strong>.
-          </li>
-          <li>Treatment with anti-retroviral drugs is only partially effective.</li>
-          <li>These drugs can only prolong the life of the patient but cannot prevent death, which is inevitable.</li>
-        </ul>
-      </Callout>
-
-      <h3 id="h-7-3-prevention">Prevention of AIDS</h3>
-      <p>
-        As AIDS has no cure, <strong>prevention is the best option</strong>. HIV infection, more often, spreads due to
-        conscious behaviour patterns and is not something that happens inadvertently, like pneumonia or typhoid.
-      </p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Making blood (from blood banks) safe from HIV.</li>
-        <li>Ensuring the use of only disposable needles and syringes in public and private hospitals and clinics.</li>
-        <li>Free distribution of condoms.</li>
-        <li>Controlling drug abuse.</li>
-        <li>Advocating safe sex.</li>
-        <li>Promoting regular check-ups for HIV in susceptible populations.</li>
-      </ul>
-      <p>
-        In our country the <strong>National AIDS Control Organisation (NACO)</strong> and other non-governmental
-        organisations (NGOs) are doing a lot to educate people about AIDS. <strong>WHO</strong> has started a number of
-        programmes to prevent the spreading of HIV infection.
-      </p>
-      <KeyPoint title="The only excuse may be ignorance">
-        “Don’t die of ignorance.” Infection with HIV or having AIDS is something that should not be hidden — since then
-        the infection may spread to many more people. HIV/AIDS-infected people need help and sympathy instead of being
-        shunned by society. It is a malady that can only be tackled by the society and medical fraternity acting
-        together.
-      </KeyPoint>
 
       <h2 id="h-7-4">7.4 Cancer</h2>
       <ul className="list-disc pl-5 space-y-1.5">
