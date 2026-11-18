@@ -3529,6 +3529,60 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/CancerDiagnosis.tsx#DiagnosisDashboard",
+    "name": "DiagnosisDashboard",
+    "path": "content/biology/CancerDiagnosis.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CancerOverview.tsx#ContactInhibitionSection",
+    "name": "ContactInhibitionSection",
+    "path": "content/biology/CancerOverview.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CancerOverview.tsx#TumourTypesSection",
+    "name": "TumourTypesSection",
+    "path": "content/biology/CancerOverview.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CancerRevision.tsx#CancerQuickRevisionSheet",
+    "name": "CancerQuickRevisionSheet",
+    "path": "content/biology/CancerRevision.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/CancerTreatment.tsx#TreatmentCards",
+    "name": "TreatmentCards",
+    "path": "content/biology/CancerTreatment.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Carcinogens.tsx#CarcinogensSection",
+    "name": "CarcinogensSection",
+    "path": "content/biology/Carcinogens.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/CohenBoyerProcess.tsx#CohenBoyerFlow",
     "name": "CohenBoyerFlow",
     "path": "content/biology/CohenBoyerProcess.tsx",

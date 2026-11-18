@@ -391,6 +391,11 @@ import {
 } from "@/components/content/biology/ImmuneSystem";
 import { MaltCard, SecondaryLymphoidOrgans } from "@/components/content/biology/LymphoidOrgans";
 import { QuickRevisionSheet } from "@/components/content/biology/ImmunityRevision";
+import { ContactInhibitionSection, TumourTypesSection } from "@/components/content/biology/CancerOverview";
+import { CarcinogensSection } from "@/components/content/biology/Carcinogens";
+import { DiagnosisDashboard } from "@/components/content/biology/CancerDiagnosis";
+import { TreatmentCards } from "@/components/content/biology/CancerTreatment";
+import { CancerQuickRevisionSheet } from "@/components/content/biology/CancerRevision";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -3419,6 +3424,19 @@ export default function DesignPage() {
             <MaltCard />
             <p className="t-micro mt-6">Quick revision sheet</p>
             <QuickRevisionSheet />
+
+            <p className="t-micro mt-6">7.4 — contact inhibition &amp; tumour development</p>
+            <ContactInhibitionSection />
+            <p className="t-micro mt-6">7.4 — tumour types &amp; metastasis</p>
+            <TumourTypesSection />
+            <p className="t-micro mt-6">7.4 — carcinogens</p>
+            <CarcinogensSection />
+            <p className="t-micro mt-6">7.4 — cancer diagnosis</p>
+            <DiagnosisDashboard />
+            <p className="t-micro mt-6">7.4 — cancer treatment</p>
+            <TreatmentCards />
+            <p className="t-micro mt-6">7.4 — quick revision sheet</p>
+            <CancerQuickRevisionSheet />
           </div>
         </div>
       </Section>

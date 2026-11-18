@@ -4,7 +4,6 @@ import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
-import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
 import {
   DiseaseDefinitionCard,
@@ -80,6 +79,11 @@ import {
 } from "@/components/content/biology/ImmuneSystem";
 import { MaltCard, SecondaryLymphoidOrgans } from "@/components/content/biology/LymphoidOrgans";
 import { QuickRevisionSheet } from "@/components/content/biology/ImmunityRevision";
+import { ContactInhibitionSection, TumourTypesSection } from "@/components/content/biology/CancerOverview";
+import { CarcinogensSection } from "@/components/content/biology/Carcinogens";
+import { DiagnosisDashboard } from "@/components/content/biology/CancerDiagnosis";
+import { TreatmentCards } from "@/components/content/biology/CancerTreatment";
+import { CancerQuickRevisionSheet } from "@/components/content/biology/CancerRevision";
 
 export default function HumanHealthAndDiseasesChapter() {
   return (
@@ -291,156 +295,24 @@ export default function HumanHealthAndDiseasesChapter() {
 
       <QuickRevisionSheet />
 
-
       <h2 id="h-7-4">7.4 Cancer</h2>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Cancer is one of the most dreaded diseases of human beings and a major cause of death all over the globe.</li>
-        <li>More than a million Indians suffer from cancer and a large number of them die from it annually.</li>
-        <li>
-          The mechanisms that underlie development of cancer, or oncogenic transformation of cells, its treatment and
-          control have been some of the most intense areas of research in biology and medicine.
-        </li>
-      </ul>
-      <p>
-        In our body, cell growth and differentiation is highly controlled and regulated. In cancer cells, there is
-        breakdown of these regulatory mechanisms.
-      </p>
-      <Callout type="important" title="Contact inhibition">
-        Normal cells show a property called <strong>contact inhibition</strong>, by virtue of which contact with other
-        cells inhibits their uncontrolled growth. Cancer cells appear to have lost this property. As a result, cancerous
-        cells just continue to divide, giving rise to masses of cells called <strong>tumors</strong>.
-      </Callout>
-      <Comparison
-        columns={[
-          {
-            title: "Benign tumors",
-            children: (
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Normally remain confined to their original location.</li>
-                <li>Do not spread to other parts of the body.</li>
-                <li>Cause little damage.</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Malignant tumors",
-            children: (
-              <ul className="list-disc pl-4 space-y-1">
-                <li>A mass of proliferating cells called neoplastic or tumor cells.</li>
-                <li>Grow very rapidly, invading and damaging the surrounding normal tissues.</li>
-                <li>Starve normal cells by competing for vital nutrients.</li>
-                <li>Cells sloughed from them travel through blood and start new tumors elsewhere.</li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-      <KeyPoint title="Metastasis — the most feared property">
-        Cells sloughed from malignant tumors reach distant sites through blood, and wherever they get lodged in the body,
-        they start a new tumor there. This property called <Highlight color="pink">metastasis</Highlight> is the most
-        feared property of malignant tumors.
-      </KeyPoint>
 
-      <h3 id="h-7-4-causes">Causes of cancer</h3>
-      <p>
-        Transformation of normal cells into cancerous neoplastic cells may be induced by physical, chemical or biological
-        agents. These agents are called <strong>carcinogens</strong>.
-      </p>
-      <TableCard
-        title="Carcinogens and how they act"
-        headers={["Type", "Examples", "Effect"]}
-        rows={[
-          {
-            cells: [
-              "Physical",
-              "Ionising radiations like X-rays and gamma rays; non-ionizing radiations like UV",
-              "Cause DNA damage leading to neoplastic transformation",
-            ],
-          },
-          {
-            cells: ["Chemical", "Chemical carcinogens present in tobacco smoke", "Identified as a major cause of lung cancer"],
-          },
-          {
-            cells: [
-              "Biological",
-              "Cancer causing viruses, called oncogenic viruses, which have genes called viral oncogenes",
-              "Lead to oncogenic transformation of cells",
-            ],
-          },
-        ]}
-      />
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          Several genes called <strong>cellular oncogenes (c-onc)</strong> or <strong>proto oncogenes</strong> have been
-          identified in normal cells.
-        </li>
-        <li>When activated under certain conditions, these could lead to oncogenic transformation of the cells.</li>
-      </ul>
+      <h3 id="h-7-4-overview">1. Overview and Development of Cancer</h3>
+      <ContactInhibitionSection />
 
-      <h3 id="h-7-4-detection">Cancer detection and diagnosis</h3>
-      <p>Early detection of cancers is essential as it allows the disease to be treated successfully in many cases.</p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          <strong>Biopsy and histopathological studies</strong> of the tissue: a piece of the suspected tissue is cut into
-          thin sections, stained and examined under the microscope by a pathologist.
-        </li>
-        <li>
-          <strong>Blood and bone marrow tests</strong> for increased cell counts, in the case of leukemias.
-        </li>
-      </ul>
-      <TableCard
-        title="Imaging techniques"
-        headers={["Technique", "What it uses", "What it gives"]}
-        rows={[
-          { cells: ["Radiography", "X-rays", "Useful to detect cancers of the internal organs"] },
-          {
-            cells: ["CT (computed tomography)", "X-rays", "A three-dimensional image of the internals of an object"],
-          },
-          {
-            cells: [
-              "MRI (magnetic resonance imaging)",
-              "Strong magnetic fields and non-ionising radiations",
-              "Accurately detects pathological and physiological changes in the living tissue",
-            ],
-          },
-        ]}
-      />
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Antibodies against cancer-specific antigens are also used for detection of certain cancers.</li>
-        <li>
-          Techniques of molecular biology can detect genes in individuals with inherited susceptibility to certain
-          cancers.
-        </li>
-        <li>
-          Identifying such genes is very helpful in prevention — such individuals may be advised to avoid exposure to
-          particular carcinogens (e.g., tobacco smoke in case of lung cancer).
-        </li>
-      </ul>
+      <h3 id="h-7-4-types">2. Types of Tumours</h3>
+      <TumourTypesSection />
 
-      <h3 id="h-7-4-treatment">Treatment of cancer</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>The common approaches are <strong>surgery, radiation therapy and immunotherapy</strong>.</li>
-        <li>
-          In radiotherapy, tumor cells are irradiated lethally, taking proper care of the normal tissues surrounding the
-          tumor mass.
-        </li>
-        <li>
-          Several <strong>chemotherapeutic drugs</strong> are used to kill cancerous cells; some are specific for
-          particular tumors.
-        </li>
-        <li>Majority of drugs have side effects like hair loss, anemia, etc.</li>
-        <li>Most cancers are treated by a combination of surgery, radiotherapy and chemotherapy.</li>
-        <li>
-          Tumor cells avoid detection and destruction by the immune system, so patients are given{" "}
-          <strong>biological response modifiers</strong> such as <Highlight color="green">α-interferon</Highlight>, which
-          activates the immune system and helps in destroying the tumor.
-        </li>
-      </ul>
-      <MistakeCard
-        mistake="A benign tumor is just an early stage of cancer."
-        correction="Benign tumors remain confined to their original location, do not spread, and cause little damage. Only malignant tumors invade tissues and metastasise."
-        example="A benign tumor has not acquired the properties that make a malignant tumor dangerous."
-      />
+      <h3 id="h-7-4-carcinogens">3. Causes of Cancer — Carcinogens</h3>
+      <CarcinogensSection />
+
+      <h3 id="h-7-4-diagnosis">4. Cancer Detection and Diagnosis</h3>
+      <DiagnosisDashboard />
+
+      <h3 id="h-7-4-treatment">5. Treatment of Cancer</h3>
+      <TreatmentCards />
+
+      <CancerQuickRevisionSheet />
 
       <h2 id="h-7-5">7.5 Drugs and Alcohol Abuse</h2>
       <ul className="list-disc pl-5 space-y-1.5">
