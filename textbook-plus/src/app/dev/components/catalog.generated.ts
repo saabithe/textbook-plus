@@ -3358,9 +3358,36 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/Allergies.tsx#AllergyQuickRevision",
+    "name": "AllergyQuickRevision",
+    "path": "content/biology/Allergies.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Allergies.tsx#AllergySection",
+    "name": "AllergySection",
+    "path": "content/biology/Allergies.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/AmensalismExamples.tsx#AmensalismExamples",
     "name": "AmensalismExamples",
     "path": "content/biology/AmensalismExamples.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/Autoimmunity.tsx#AutoimmunitySection",
+    "name": "AutoimmunitySection",
+    "path": "content/biology/Autoimmunity.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
@@ -4105,6 +4132,33 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/ImmuneSystem.tsx#ImmuneSystemOverview",
+    "name": "ImmuneSystemOverview",
+    "path": "content/biology/ImmuneSystem.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ImmuneSystem.tsx#LymphoidOrgansBranch",
+    "name": "LymphoidOrgansBranch",
+    "path": "content/biology/ImmuneSystem.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ImmuneSystem.tsx#PrimaryLymphoidOrgans",
+    "name": "PrimaryLymphoidOrgans",
+    "path": "content/biology/ImmuneSystem.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/ImmunityAcquired.tsx#AcquiredImmunityIntro",
     "name": "AcquiredImmunityIntro",
     "path": "content/biology/ImmunityAcquired.tsx",
@@ -4204,6 +4258,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/ImmunityRevision.tsx#QuickRevisionSheet",
+    "name": "QuickRevisionSheet",
+    "path": "content/biology/ImmunityRevision.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/InteractionDashboard.tsx#InteractionDashboard",
     "name": "InteractionDashboard",
     "path": "content/biology/InteractionDashboard.tsx",
@@ -4270,6 +4333,24 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/Ligation.tsx#LigationStages",
     "name": "LigationStages",
     "path": "content/biology/Ligation.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/LymphoidOrgans.tsx#MaltCard",
+    "name": "MaltCard",
+    "path": "content/biology/LymphoidOrgans.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/LymphoidOrgans.tsx#SecondaryLymphoidOrgans",
+    "name": "SecondaryLymphoidOrgans",
+    "path": "content/biology/LymphoidOrgans.tsx",
     "category": "biology",
     "props": null,
     "shell": false,

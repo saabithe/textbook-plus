@@ -382,6 +382,15 @@ import {
   FinalRevisionSheet,
   VaccinationProcess,
 } from "@/components/content/biology/ImmunityApplied";
+import { AllergyQuickRevision, AllergySection } from "@/components/content/biology/Allergies";
+import { AutoimmunitySection } from "@/components/content/biology/Autoimmunity";
+import {
+  ImmuneSystemOverview,
+  LymphoidOrgansBranch,
+  PrimaryLymphoidOrgans,
+} from "@/components/content/biology/ImmuneSystem";
+import { MaltCard, SecondaryLymphoidOrgans } from "@/components/content/biology/LymphoidOrgans";
+import { QuickRevisionSheet } from "@/components/content/biology/ImmunityRevision";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -3392,6 +3401,24 @@ export default function DesignPage() {
             <VaccinationProcess />
             <p className="t-micro mt-6">Final revision sheet</p>
             <FinalRevisionSheet />
+            <p className="t-micro mt-6">7.2.5 — allergies</p>
+            <AllergySection />
+            <p className="t-micro mt-6">7.2.5 — allergy quick revision</p>
+            <AllergyQuickRevision />
+            <p className="t-micro mt-6">7.2.6 — autoimmunity</p>
+            <AutoimmunitySection />
+            <p className="t-micro mt-6">7.2.7 — immune system overview</p>
+            <ImmuneSystemOverview />
+            <p className="t-micro mt-6">7.2.7 — lymphoid organs classification</p>
+            <LymphoidOrgansBranch />
+            <p className="t-micro mt-6">7.2.7 — primary lymphoid organs</p>
+            <PrimaryLymphoidOrgans />
+            <p className="t-micro mt-6">7.2.7 — secondary lymphoid organs</p>
+            <SecondaryLymphoidOrgans />
+            <p className="t-micro mt-6">7.2.7 — MALT</p>
+            <MaltCard />
+            <p className="t-micro mt-6">Quick revision sheet</p>
+            <QuickRevisionSheet />
           </div>
         </div>
       </Section>

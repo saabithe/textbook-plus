@@ -71,6 +71,15 @@ import {
   FinalRevisionSheet,
   VaccinationProcess,
 } from "@/components/content/biology/ImmunityApplied";
+import { AllergySection } from "@/components/content/biology/Allergies";
+import { AutoimmunitySection } from "@/components/content/biology/Autoimmunity";
+import {
+  ImmuneSystemOverview,
+  LymphoidOrgansBranch,
+  PrimaryLymphoidOrgans,
+} from "@/components/content/biology/ImmuneSystem";
+import { MaltCard, SecondaryLymphoidOrgans } from "@/components/content/biology/LymphoidOrgans";
+import { QuickRevisionSheet } from "@/components/content/biology/ImmunityRevision";
 
 export default function HumanHealthAndDiseasesChapter() {
   return (
@@ -265,6 +274,22 @@ export default function HumanHealthAndDiseasesChapter() {
       <VaccinationProcess />
 
       <FinalRevisionSheet />
+      <h3 id="h-7-2-5">7.2.5 Allergies</h3>
+      <AllergySection />
+
+      <h3 id="h-7-2-6">7.2.6 Autoimmunity</h3>
+      <AutoimmunitySection />
+
+      <h3 id="h-7-2-7">7.2.7 Immune System</h3>
+      <ImmuneSystemOverview />
+
+      <h4 id="h-7-2-7-organs">3. Lymphoid Organs</h4>
+      <LymphoidOrgansBranch />
+      <PrimaryLymphoidOrgans />
+      <SecondaryLymphoidOrgans />
+      <MaltCard />
+
+      <QuickRevisionSheet />
 
 
       <h2 id="h-7-4">7.4 Cancer</h2>
