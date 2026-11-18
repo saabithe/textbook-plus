@@ -3808,6 +3808,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/FungalDiseases.tsx#RingwormCard",
+    "name": "RingwormCard",
+    "path": "content/biology/FungalDiseases.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/GelElectrophoresis.tsx#AgePrinciple",
     "name": "AgePrinciple",
     "path": "content/biology/GelElectrophoresis.tsx",
@@ -4596,6 +4605,42 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/biology/PredationDiagrams.tsx",
     "category": "biology",
     "props": "index: number; title: string; summary: string; children: React.ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PreventionOfDiseases.tsx#AirborneTransmissionCard",
+    "name": "AirborneTransmissionCard",
+    "path": "content/biology/PreventionOfDiseases.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PreventionOfDiseases.tsx#EduportMcqNote",
+    "name": "EduportMcqNote",
+    "path": "content/biology/PreventionOfDiseases.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PreventionOfDiseases.tsx#FoodWaterBorneCard",
+    "name": "FoodWaterBorneCard",
+    "path": "content/biology/PreventionOfDiseases.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PreventionOfDiseases.tsx#VectorBorneCard",
+    "name": "VectorBorneCard",
+    "path": "content/biology/PreventionOfDiseases.tsx",
+    "category": "biology",
+    "props": null,
     "shell": false,
     "renderable": true
   },

@@ -353,6 +353,13 @@ import {
   MalariaProfileCard,
 } from "@/components/content/biology/ProtozoanDiseases";
 import { AscariasisCard, FilariasisCard } from "@/components/content/biology/HelminthicDiseases";
+import { RingwormCard } from "@/components/content/biology/FungalDiseases";
+import {
+  AirborneTransmissionCard,
+  EduportMcqNote,
+  FoodWaterBorneCard,
+  VectorBorneCard,
+} from "@/components/content/biology/PreventionOfDiseases";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -3325,6 +3332,16 @@ export default function DesignPage() {
             <AscariasisCard />
             <p className="t-micro mt-6">Helminths — filariasis profile</p>
             <FilariasisCard />
+            <p className="t-micro mt-6">Fungal — ringworm profile</p>
+            <RingwormCard />
+            <p className="t-micro mt-6">Prevention — food- and water-borne</p>
+            <FoodWaterBorneCard />
+            <p className="t-micro mt-6">Prevention — air-borne transmission</p>
+            <AirborneTransmissionCard />
+            <p className="t-micro mt-6">Prevention — vector-borne</p>
+            <VectorBorneCard />
+            <p className="t-micro mt-6">Closing note — Eduport MCQs</p>
+            <EduportMcqNote />
           </div>
         </div>
       </Section>
