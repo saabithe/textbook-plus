@@ -360,6 +360,28 @@ import {
   FoodWaterBorneCard,
   VectorBorneCard,
 } from "@/components/content/biology/PreventionOfDiseases";
+import {
+  HygieneCards,
+  VaccinationImpactCard,
+  VectorControlMeasures,
+} from "@/components/content/biology/PublicHealthMeasures";
+import {
+  ImmunityOverview,
+  InnateBarrierCards,
+  InnateQuickRevision,
+} from "@/components/content/biology/ImmunityCore";
+import {
+  AcquiredImmunityIntro,
+  AntibodyStructure,
+  HumoralVsCmi,
+  LymphocyteRoles,
+  PrimarySecondaryResponse,
+} from "@/components/content/biology/ImmunityAcquired";
+import {
+  ActivePassiveImmunity,
+  FinalRevisionSheet,
+  VaccinationProcess,
+} from "@/components/content/biology/ImmunityApplied";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -3342,6 +3364,34 @@ export default function DesignPage() {
             <VectorBorneCard />
             <p className="t-micro mt-6">Closing note — Eduport MCQs</p>
             <EduportMcqNote />
+            <p className="t-micro mt-6">7.1 — hygiene practices</p>
+            <HygieneCards />
+            <p className="t-micro mt-6">7.1 — vector control measures</p>
+            <VectorControlMeasures />
+            <p className="t-micro mt-6">7.1 — vaccination impact</p>
+            <VaccinationImpactCard />
+            <p className="t-micro mt-6">7.2 — immunity overview</p>
+            <ImmunityOverview />
+            <p className="t-micro mt-6">7.2.1 — innate barrier cards</p>
+            <InnateBarrierCards />
+            <p className="t-micro mt-6">7.2.1 — innate quick revision</p>
+            <InnateQuickRevision />
+            <p className="t-micro mt-6">7.2.2 — acquired immunity intro</p>
+            <AcquiredImmunityIntro />
+            <p className="t-micro mt-6">7.2.2 — primary and secondary response</p>
+            <PrimarySecondaryResponse />
+            <p className="t-micro mt-6">7.2.2 — lymphocyte roles</p>
+            <LymphocyteRoles />
+            <p className="t-micro mt-6">7.2.2 — antibody structure</p>
+            <AntibodyStructure />
+            <p className="t-micro mt-6">7.2.2 — humoral vs cell-mediated</p>
+            <HumoralVsCmi />
+            <p className="t-micro mt-6">7.2.3 — active and passive immunity</p>
+            <ActivePassiveImmunity />
+            <p className="t-micro mt-6">7.2.4 — vaccination process</p>
+            <VaccinationProcess />
+            <p className="t-micro mt-6">Final revision sheet</p>
+            <FinalRevisionSheet />
           </div>
         </div>
       </Section>

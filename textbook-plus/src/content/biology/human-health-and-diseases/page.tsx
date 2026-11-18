@@ -4,11 +4,8 @@ import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Highlight } from "@/components/content/Highlight";
-import { Stepper } from "@/components/content/Stepper";
 import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
-import { FactCard } from "@/components/content/concept/FactCard";
-import { ConceptCard } from "@/components/content/concept/ConceptCard";
 import {
   DiseaseDefinitionCard,
   DiseaseTypesComparison,
@@ -51,12 +48,29 @@ import {
 } from "@/components/content/biology/ProtozoanDiseases";
 import { AscariasisCard, FilariasisCard } from "@/components/content/biology/HelminthicDiseases";
 import { RingwormCard } from "@/components/content/biology/FungalDiseases";
+import { EduportMcqNote } from "@/components/content/biology/PreventionOfDiseases";
 import {
-  AirborneTransmissionCard,
-  EduportMcqNote,
-  FoodWaterBorneCard,
-  VectorBorneCard,
-} from "@/components/content/biology/PreventionOfDiseases";
+  HygieneCards,
+  VaccinationImpactCard,
+  VectorControlMeasures,
+} from "@/components/content/biology/PublicHealthMeasures";
+import {
+  ImmunityOverview,
+  InnateBarrierCards,
+  InnateQuickRevision,
+} from "@/components/content/biology/ImmunityCore";
+import {
+  AcquiredImmunityIntro,
+  AntibodyStructure,
+  HumoralVsCmi,
+  LymphocyteRoles,
+  PrimarySecondaryResponse,
+} from "@/components/content/biology/ImmunityAcquired";
+import {
+  ActivePassiveImmunity,
+  FinalRevisionSheet,
+  VaccinationProcess,
+} from "@/components/content/biology/ImmunityApplied";
 
 export default function HumanHealthAndDiseasesChapter() {
   return (
@@ -218,367 +232,40 @@ export default function HumanHealthAndDiseasesChapter() {
       <h4 id="h-7-1-ringworm">I. Ringworm</h4>
       <RingwormCard />
 
-      <h3 id="h-7-1-vaccines">Vaccines, immunisation and antibiotics</h3>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          The use of vaccines and immunisation programmes has enabled us to{" "}
-          <Highlight color="green">completely eradicate a deadly disease like smallpox</Highlight>.
-        </li>
-        <li>Polio, diphtheria, pneumonia and tetanus have been controlled to a large extent by the use of vaccines.</li>
-        <li>Biotechnology is at the verge of making available newer and safer vaccines.</li>
-        <li>Discovery of antibiotics and various other drugs has enabled us to effectively treat infectious diseases.</li>
-      </ul>
+      <h3 id="h-7-1-hygiene">7. Hygiene Practices</h3>
+      <HygieneCards />
 
-      <h3 id="h-7-1-prevention">7. Prevention of Common Diseases</h3>
+      <h3 id="h-7-1-vector-control">8. Vector Control Measures</h3>
+      <VectorControlMeasures />
 
-      <h4 id="h-7-prevention-food">1. Food- and Water-Borne Diseases</h4>
-      <FoodWaterBorneCard />
+      <h3 id="h-7-1-vaccination">9. Vaccination and Scientific Advances</h3>
+      <VaccinationImpactCard />
 
-      <h4 id="h-7-prevention-air">2. Air-Borne Diseases</h4>
-      <AirborneTransmissionCard />
-
-      <h4 id="h-7-prevention-vector">3. Vector-Borne Diseases</h4>
-      <VectorBorneCard />
 
       <h2 id="h-7-2">7.2 Immunity</h2>
-      <p>
-        Everyday we are exposed to a large number of infectious agents, yet only a few of these exposures result in
-        disease. The body is able to defend itself from most of these foreign agents.
-      </p>
-      <Callout type="important" title="Immunity — definition">
-        This overall ability of the host to fight the disease-causing organisms, conferred by the immune system is
-        called <strong>immunity</strong>.
-      </Callout>
-      <p>Immunity is of two types:</p>
-      <ol className="list-decimal pl-5 space-y-1">
-        <li>Innate immunity</li>
-        <li>Acquired immunity</li>
-      </ol>
 
-      <h3 id="h-7-2-1">7.2.1 Innate Immunity</h3>
-      <Callout type="important" title="Innate immunity">
-        Innate immunity is <strong>non-specific</strong> type of defence, that is{" "}
-        <Highlight color="yellow">present at the time of birth</Highlight>. This is accomplished by providing different
-        types of barriers to the entry of the foreign agents into our body. Innate immunity consist of four types of
-        barriers.
-      </Callout>
-      <TableCard
-        title="The four barriers of innate immunity"
-        headers={["Barrier", "What provides it", "How it works"]}
-        rows={[
-          {
-            cells: [
-              "Physical",
-              "Skin; mucus coating of the epithelium lining the respiratory, gastrointestinal and urogenital tracts",
-              "Skin is the main barrier that prevents entry of micro-organisms; mucus traps microbes entering the body",
-            ],
-          },
-          {
-            cells: [
-              "Physiological",
-              "Acid in the stomach, saliva in the mouth, tears from eyes",
-              "All prevent microbial growth",
-            ],
-          },
-          {
-            cells: [
-              "Cellular",
-              "Polymorpho-nuclear leukocytes (PMNL-neutrophils), monocytes, natural killer cells (a type of lymphocyte) in the blood, and macrophages in tissues",
-              "Phagocytose and destroy microbes",
-            ],
-          },
-          {
-            cells: [
-              "Cytokine",
-              "Proteins called interferons, secreted by virus-infected cells",
-              "Protect non-infected cells from further viral infection",
-            ],
-          },
-        ]}
-      />
+      <h3 id="h-7-2-general">1. General Concept of Immunity</h3>
+      <ImmunityOverview />
+
+      <h3 id="h-7-2-1">7.2.1 Innate Immunity — Non-Specific Defence</h3>
+      <InnateBarrierCards />
+      <InnateQuickRevision />
 
       <h3 id="h-7-2-2">7.2.2 Acquired Immunity</h3>
-      <p>
-        Acquired immunity, on the other hand, is <strong>pathogen specific</strong>. It is characterised by{" "}
-        <strong>memory</strong>.
-      </p>
-      <Comparison
-        columns={[
-          {
-            title: "Primary response",
-            children: (
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Produced on the first encounter with a pathogen.</li>
-                <li>Of low intensity.</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Secondary (anamnestic) response",
-            children: (
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Produced on a subsequent encounter with the same pathogen.</li>
-                <li>Highly intensified — the body appears to have memory of the first encounter.</li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-      <p>
-        Both responses are carried out with the help of two special types of lymphocytes present in our blood —{" "}
-        <strong>B-lymphocytes</strong> and <strong>T-lymphocytes</strong>.
-      </p>
-      <ConceptCard title="B-lymphocytes and T-lymphocytes" icon="🧫">
-        <ul className="list-disc pl-5 space-y-1.5">
-          <li>
-            <strong>B-lymphocytes</strong> produce an army of proteins in response to pathogens into our blood to fight
-            with them. These proteins are called <strong>antibodies</strong>.
-          </li>
-          <li>
-            <strong>T-cells</strong> themselves do not secrete antibodies but help B cells to produce them.
-          </li>
-        </ul>
-      </ConceptCard>
-      <ConceptCard title="The antibody molecule" icon="🧬">
-        <p>
-          Each antibody molecule has <strong>four peptide chains</strong> — two small called <strong>light chains</strong>{" "}
-          and two longer called <strong>heavy chains</strong>. Hence, an antibody is represented as{" "}
-          <Highlight color="yellow">H₂L₂</Highlight>.
-        </p>
-        <ul className="mt-2 list-disc pl-5 space-y-1">
-          <li>Different types of antibodies are produced in our body.</li>
-          <li>IgA, IgM, IgE and IgG are some of them.</li>
-        </ul>
-      </ConceptCard>
-      <Comparison
-        columns={[
-          {
-            title: "Humoral immune response",
-            children: (
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Also called antibody mediated response.</li>
-                <li>Carried out by antibodies produced by B-lymphocytes.</li>
-                <li>Antibodies circulate in the blood.</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Cell-mediated immune response (CMI)",
-            children: (
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Mediated by T-lymphocytes.</li>
-                <li>Responsible for graft rejection.</li>
-                <li>Lets the body differentiate ‘self’ and ‘nonself’.</li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-      <h4 className="mt-6 mb-2 text-[15px] font-semibold">Why transplanted organs are rejected</h4>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>When organs like heart, eye, liver or kidney fail, transplantation is the only remedy.</li>
-        <li>
-          Grafts from just any source — an animal, another primate, or any human being — cannot be made, since the
-          grafts would be rejected sooner or later.
-        </li>
-        <li>
-          <strong>Tissue matching</strong> and <strong>blood group matching</strong> are essential before any
-          graft/transplant.
-        </li>
-        <li>
-          Even after this, the patient has to take <strong>immuno-suppressants</strong> all his/her life.
-        </li>
-      </ul>
+      <AcquiredImmunityIntro />
+      <PrimarySecondaryResponse />
+      <LymphocyteRoles />
+      <AntibodyStructure />
+      <HumoralVsCmi />
 
       <h3 id="h-7-2-3">7.2.3 Active and Passive Immunity</h3>
-      <Comparison
-        columns={[
-          {
-            title: "Active immunity",
-            children: (
-              <ul className="list-disc pl-4 space-y-1">
-                <li>The host is exposed to antigens — living or dead microbes, or other proteins — and antibodies are produced in the host body.</li>
-                <li>Slow, and takes time to give its full effective response.</li>
-                <li>Induced by injecting microbes during immunisation, or by infectious organisms gaining access during natural infection.</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Passive immunity",
-            children: (
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Ready-made antibodies are directly given to protect the body against foreign agents.</li>
-                <li>Example: the foetus receives some antibodies from the mother through the placenta during pregnancy.</li>
-                <li>Ready-made preparations — antitoxin, antivenom — are covered under passive immunisation.</li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-      <KeyPoint title="Why colostrum matters">
-        The yellowish fluid <strong>colostrum</strong>, secreted by the mother during the initial days of lactation, has
-        abundant <Highlight color="yellow">antibodies (IgA)</Highlight> to protect the infant. The infant has not made them
-        itself — this borrowed protection is passive immunity.
-      </KeyPoint>
+      <ActivePassiveImmunity />
 
       <h3 id="h-7-2-4">7.2.4 Vaccination and Immunisation</h3>
-      <p>
-        The principle of immunisation or vaccination is based on the property of <strong>‘memory’</strong> of the immune
-        system.
-      </p>
-      <Stepper
-        steps={[
-          {
-            label: "A vaccine is introduced",
-            description:
-              "A preparation of antigenic proteins of pathogen, or inactivated/weakened pathogen, is introduced into the body.",
-          },
-          {
-            label: "Antibodies are raised",
-            description:
-              "Antibodies produced in the body against these antigens would neutralise the pathogenic agents during actual infection.",
-          },
-          {
-            label: "Memory cells are created",
-            description:
-              "The vaccines also generate memory B and T-cells that recognise the pathogen quickly on subsequent exposure.",
-          },
-          {
-            label: "The invaders are overwhelmed",
-            description: "On re-exposure, these cells overwhelm the invaders with a massive production of antibodies.",
-          },
-        ]}
-      />
-      <Callout type="note" title="When there is no time to wait — passive immunisation">
-        <ul className="list-disc pl-5 space-y-1.5">
-          <li>
-            For deadly microbes needing a quick immune response — as in <strong>tetanus</strong> — preformed antibodies,
-            or <strong>antitoxin</strong> (a preparation containing antibodies to the toxin), are injected directly.
-          </li>
-          <li>
-            In cases of <strong>snakebites</strong>, the injection given to the patient contains preformed antibodies
-            against the snake venom.
-          </li>
-          <li>This type of immunisation is called passive immunisation.</li>
-        </ul>
-      </Callout>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>
-          Recombinant DNA technology has allowed the production of antigenic polypeptides of pathogen in bacteria or
-          yeast.
-        </li>
-        <li>Vaccines produced this way allow large scale production and hence greater availability for immunisation.</li>
-        <li>
-          Example: the <Highlight color="green">hepatitis B vaccine produced from yeast</Highlight>.
-        </li>
-      </ul>
+      <VaccinationProcess />
 
-      <h3 id="h-7-2-5">7.2.5 Allergies</h3>
-      <Callout type="important" title="Allergy and allergens">
-        The exaggerated response of the immune system to certain antigens present in the environment is called{" "}
-        <strong>allergy</strong>. The substances to which such an immune response is produced are called{" "}
-        <strong>allergens</strong>. The antibodies produced to these are of <strong>IgE</strong> type.
-      </Callout>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Common allergens: mites in dust, pollens, animal dander, etc.</li>
-        <li>Symptoms: sneezing, watery eyes, running nose and difficulty in breathing.</li>
-        <li>Allergy is due to the release of chemicals like <strong>histamine and serotonin</strong> from the mast cells.</li>
-        <li>
-          For determining the cause, the patient is exposed to or injected with very small doses of possible allergens,
-          and the reactions are studied.
-        </li>
-        <li>Drugs like anti-histamine, adrenalin and steroids quickly reduce the symptoms of allergy.</li>
-        <li>
-          Modern-day life style has resulted in lowering of immunity and more sensitivity to allergens — more and more
-          children in metro cities of India suffer from allergies and asthma. This could be because of the protected
-          environment provided early in life.
-        </li>
-      </ul>
+      <FinalRevisionSheet />
 
-      <h3 id="h-7-2-6">7.2.6 Auto Immunity</h3>
-      <p>
-        Memory-based acquired immunity evolved in higher vertebrates based on the ability to differentiate foreign
-        organisms (e.g., pathogens) from self-cells. Two corollaries follow:
-      </p>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Higher vertebrates can distinguish foreign molecules as well as foreign organisms — most experimental immunology deals with this aspect.</li>
-        <li>
-          Sometimes, due to genetic and other unknown reasons, the body attacks self-cells. This results in damage to the
-          body and is called <strong>auto-immune disease</strong>.
-        </li>
-      </ul>
-      <FactCard
-        title="Auto-immune disease — the textbook example"
-        definition="Rheumatoid arthritis, which affects many people in our society, is an auto-immune disease."
-        icon="🦴"
-      />
-
-      <h3 id="h-7-2-7">7.2.7 Immune System in the Body</h3>
-      <p>
-        The human immune system consists of <strong>lymphoid organs, tissues, cells and soluble molecules like
-        antibodies</strong>. It recognises foreign antigens, responds to these and remembers them. It also plays an
-        important role in allergic reactions, auto-immune diseases and organ transplantation.
-      </p>
-      <Callout type="note" title="Lymphoid organs">
-        These are the organs where <strong>origin and/or maturation and proliferation of lymphocytes</strong> occur.
-      </Callout>
-      <TableCard
-        title="Primary and secondary lymphoid organs"
-        headers={["Type", "Organs", "What happens there"]}
-        rows={[
-          {
-            cells: [
-              "Primary",
-              "Bone marrow, thymus",
-              "Immature lymphocytes differentiate into antigen-sensitive lymphocytes",
-            ],
-          },
-          {
-            cells: [
-              "Secondary",
-              "Spleen, lymph nodes, tonsils, Peyer’s patches of small intestine, appendix",
-              "Sites for interaction of lymphocytes with the antigen, which then proliferate to become effector cells",
-            ],
-          },
-        ]}
-      />
-      <TableCard
-        title="Organ by organ"
-        headers={["Organ", "Key facts"]}
-        rows={[
-          {
-            cells: [
-              "Bone marrow",
-              "The main lymphoid organ where all blood cells including lymphocytes are produced",
-            ],
-          },
-          {
-            cells: [
-              "Thymus",
-              "A lobed organ located near the heart and beneath the breastbone; quite large at birth, keeps reducing in size with age, and is very small by puberty",
-            ],
-          },
-          {
-            cells: [
-              "Spleen",
-              "A large bean-shaped organ containing mainly lymphocytes and phagocytes; filters the blood by trapping blood-borne micro-organisms; has a large reservoir of erythrocytes",
-            ],
-          },
-          {
-            cells: [
-              "Lymph nodes",
-              "Small solid structures located at different points along the lymphatic system; trap micro-organisms or other antigens that get into the lymph and tissue fluid, activating the lymphocytes present there",
-            ],
-          },
-          {
-            cells: [
-              "MALT",
-              "Mucosa-associated lymphoid tissue, located within the lining of the major tracts (respiratory, digestive and urogenital); constitutes about 50 per cent of the lymphoid tissue in the human body",
-            ],
-          },
-        ]}
-        caption="Both bone marrow and thymus provide micro-environments for the development and maturation of T-lymphocytes."
-      />
 
       <h2 id="h-7-4">7.4 Cancer</h2>
       <ul className="list-disc pl-5 space-y-1.5">

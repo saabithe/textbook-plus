@@ -4105,6 +4105,105 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/ImmunityAcquired.tsx#AcquiredImmunityIntro",
+    "name": "AcquiredImmunityIntro",
+    "path": "content/biology/ImmunityAcquired.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ImmunityAcquired.tsx#AntibodyStructure",
+    "name": "AntibodyStructure",
+    "path": "content/biology/ImmunityAcquired.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ImmunityAcquired.tsx#HumoralVsCmi",
+    "name": "HumoralVsCmi",
+    "path": "content/biology/ImmunityAcquired.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ImmunityAcquired.tsx#LymphocyteRoles",
+    "name": "LymphocyteRoles",
+    "path": "content/biology/ImmunityAcquired.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ImmunityAcquired.tsx#PrimarySecondaryResponse",
+    "name": "PrimarySecondaryResponse",
+    "path": "content/biology/ImmunityAcquired.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ImmunityApplied.tsx#ActivePassiveImmunity",
+    "name": "ActivePassiveImmunity",
+    "path": "content/biology/ImmunityApplied.tsx",
+    "category": "biology",
+    "props": "number: string; title: string; mechanism: string; bullets: string[]; tone: ImmunityTone; types: { number: number; title: string; lines: string[] }[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ImmunityApplied.tsx#FinalRevisionSheet",
+    "name": "FinalRevisionSheet",
+    "path": "content/biology/ImmunityApplied.tsx",
+    "category": "biology",
+    "props": "number: string; title: string; mechanism: string; bullets: string[]; tone: ImmunityTone; types: { number: number; title: string; lines: string[] }[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ImmunityApplied.tsx#VaccinationProcess",
+    "name": "VaccinationProcess",
+    "path": "content/biology/ImmunityApplied.tsx",
+    "category": "biology",
+    "props": "number: string; title: string; mechanism: string; bullets: string[]; tone: ImmunityTone; types: { number: number; title: string; lines: string[] }[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ImmunityCore.tsx#ImmunityOverview",
+    "name": "ImmunityOverview",
+    "path": "content/biology/ImmunityCore.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ImmunityCore.tsx#InnateBarrierCards",
+    "name": "InnateBarrierCards",
+    "path": "content/biology/ImmunityCore.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ImmunityCore.tsx#InnateQuickRevision",
+    "name": "InnateQuickRevision",
+    "path": "content/biology/ImmunityCore.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/InteractionDashboard.tsx#InteractionDashboard",
     "name": "InteractionDashboard",
     "path": "content/biology/InteractionDashboard.tsx",
@@ -4684,6 +4783,33 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/ProtozoanDiseases.tsx#MalariaProfileCard",
     "name": "MalariaProfileCard",
     "path": "content/biology/ProtozoanDiseases.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PublicHealthMeasures.tsx#HygieneCards",
+    "name": "HygieneCards",
+    "path": "content/biology/PublicHealthMeasures.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PublicHealthMeasures.tsx#VaccinationImpactCard",
+    "name": "VaccinationImpactCard",
+    "path": "content/biology/PublicHealthMeasures.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PublicHealthMeasures.tsx#VectorControlMeasures",
+    "name": "VectorControlMeasures",
+    "path": "content/biology/PublicHealthMeasures.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
