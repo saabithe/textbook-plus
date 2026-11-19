@@ -19,6 +19,21 @@ import { NucleotideComponents, PentoseSugar } from "@/components/content/biology
 import { NitrogenousBases } from "@/components/content/biology/NitrogenousBases";
 import { NucleosideFormation, PhosphateAndNucleotide } from "@/components/content/biology/NucleosideNucleotide";
 import { PolynucleotideChainSection } from "@/components/content/biology/PolynucleotideChain";
+import { DnaDiscoveryTimeline } from "@/components/content/biology/DnaDiscoveryTimeline";
+import { ChargaffPrinciple, ChargaffSolvedExample } from "@/components/content/biology/ChargaffRule";
+import {
+  PolynucleotideStrands,
+  AntiparallelPolarity,
+  ComplementaryBasePairing,
+  HelicalDimensions,
+} from "@/components/content/biology/DnaHelixFeatures";
+import {
+  CentralDogmaPrinciple,
+  ReplicationNote,
+  ReverseTranscriptionNote,
+} from "@/components/content/biology/CentralDogma";
+import { CentralDogmaDiagram } from "@/components/content/biology/CentralDogmaDiagram";
+import { DnaLengthFormula, DnaLengthSolvedExample } from "@/components/content/biology/DnaLength";
 import { InheritanceRevisionSheet } from "@/components/content/biology/InheritanceRevision";
 
 export default function MolecularBasisOfInheritanceChapter() {
@@ -37,6 +52,58 @@ export default function MolecularBasisOfInheritanceChapter() {
       <NucleosideFormation />
       <PhosphateAndNucleotide />
       <PolynucleotideChainSection />
+
+      <h2>4. History of DNA Double Helix Discovery</h2>
+      <h3>4.1 Major Discoveries — Timeline</h3>
+      <DnaDiscoveryTimeline />
+
+      <h2>5. Chargaff&apos;s Rule</h2>
+      <h3>5.1 Principle</h3>
+      <ChargaffPrinciple />
+      <h3>5.2 Solved Example</h3>
+      <ChargaffSolvedExample />
+
+      <h2>6. Salient Features of DNA Double Helix</h2>
+      <h3>6.1 Polynucleotide Strands</h3>
+      <PolynucleotideStrands />
+      <h3>6.2 Antiparallel Polarity</h3>
+      <AntiparallelPolarity />
+      <h3>6.3 Complementary Base Pairing</h3>
+      <ComplementaryBasePairing />
+      <h3>6.4 Helical Nature and Dimensions</h3>
+      <HelicalDimensions />
+      <h3>6.5 Complete Structural Summary</h3>
+      <TableCard
+        headers={["Feature", "Description"]}
+        rows={[
+          { cells: ["Number of strands", "Two polynucleotide chains"] },
+          { cells: ["Backbone", "Sugar-phosphate"] },
+          { cells: ["Base arrangement", "Project inward"] },
+          { cells: ["Strand orientation", "Antiparallel"] },
+          { cells: ["Helical direction", "Right-handed"] },
+          { cells: ["A–T pairing", "2 hydrogen bonds"] },
+          { cells: ["G–C pairing", "3 hydrogen bonds"] },
+          { cells: ["Base stacking", "One above another"] },
+          { cells: ["One complete turn", "10 bp"] },
+          { cells: ["Pitch", "3.4 nm"] },
+          { cells: ["Adjacent base-pair distance", "0.34 nm"] },
+        ]}
+      />
+
+      <h2>7. Central Dogma of Molecular Biology 🔄</h2>
+      <h3>7.1 Central Dogma</h3>
+      <CentralDogmaPrinciple />
+      <h3>7.2 Replication</h3>
+      <ReplicationNote />
+      <h3>7.3 Reverse Transcription</h3>
+      <ReverseTranscriptionNote />
+      <CentralDogmaDiagram />
+
+      <h2>8. Length of DNA 📏</h2>
+      <h3>8.1 Formula</h3>
+      <DnaLengthFormula />
+      <h3>8.2 Solved Example — Human Diploid DNA (2n)</h3>
+      <DnaLengthSolvedExample />
 
       <InheritanceRevisionSheet />
 
