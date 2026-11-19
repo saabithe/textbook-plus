@@ -3421,6 +3421,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/AveryExperiment.tsx#AveryExperiment",
+    "name": "AveryExperiment",
+    "path": "content/biology/AveryExperiment.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/BioprocessEngineering.tsx#BioprocessEngineering",
     "name": "BioprocessEngineering",
     "path": "content/biology/BioprocessEngineering.tsx",
@@ -3970,9 +3979,27 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/DnaMaterialTimeline.tsx#DnaMaterialTimeline",
+    "name": "DnaMaterialTimeline",
+    "path": "content/biology/DnaMaterialTimeline.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/DnaPackagingComparison.tsx#DnaPackagingComparison",
     "name": "DnaPackagingComparison",
     "path": "content/biology/DnaPackagingComparison.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/DnaVsRnaComparison.tsx#DnaVsRnaComparison",
+    "name": "DnaVsRnaComparison",
+    "path": "content/biology/DnaVsRnaComparison.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
@@ -4258,6 +4285,24 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/GeneticMaterialCriteria.tsx#GeneticMaterialCriteria",
+    "name": "GeneticMaterialCriteria",
+    "path": "content/biology/GeneticMaterialCriteria.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GeneticMaterialRevisionSheet.tsx#GeneticMaterialRevisionSheet",
+    "name": "GeneticMaterialRevisionSheet",
+    "path": "content/biology/GeneticMaterialRevisionSheet.tsx",
+    "category": "biology",
+    "props": "headers: string[]; rows: string[][]; highlightRows?: number[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/GmOrganisms.tsx#GmAdvantages",
     "name": "GmAdvantages",
     "path": "content/biology/GmOrganisms.tsx",
@@ -4279,6 +4324,15 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/GmOrganisms.tsx#TailorMadeCrops",
     "name": "TailorMadeCrops",
     "path": "content/biology/GmOrganisms.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GriffithExperiment.tsx#GriffithExperiment",
+    "name": "GriffithExperiment",
+    "path": "content/biology/GriffithExperiment.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
@@ -4387,6 +4441,15 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/HelminthicDiseases.tsx#FilariasisCard",
     "name": "FilariasisCard",
     "path": "content/biology/HelminthicDiseases.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/HersheyChaseExperiment.tsx#HersheyChaseExperiment",
+    "name": "HersheyChaseExperiment",
+    "path": "content/biology/HersheyChaseExperiment.tsx",
     "category": "biology",
     "props": null,
     "shell": false,

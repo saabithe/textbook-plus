@@ -37,6 +37,13 @@ import { DnaPackagingComparison } from "@/components/content/biology/DnaPackagin
 import { NucleosomeStructure } from "@/components/content/biology/NucleosomeStructure";
 import { HigherLevelPackaging } from "@/components/content/biology/HigherLevelPackaging";
 import { ChromatinTypes } from "@/components/content/biology/ChromatinTypes";
+import { DnaMaterialTimeline } from "@/components/content/biology/DnaMaterialTimeline";
+import { GriffithExperiment } from "@/components/content/biology/GriffithExperiment";
+import { AveryExperiment } from "@/components/content/biology/AveryExperiment";
+import { HersheyChaseExperiment } from "@/components/content/biology/HersheyChaseExperiment";
+import { GeneticMaterialCriteria } from "@/components/content/biology/GeneticMaterialCriteria";
+import { DnaVsRnaComparison } from "@/components/content/biology/DnaVsRnaComparison";
+import { GeneticMaterialRevisionSheet } from "@/components/content/biology/GeneticMaterialRevisionSheet";
 import { InheritanceRevisionSheet } from "@/components/content/biology/InheritanceRevision";
 
 export default function MolecularBasisOfInheritanceChapter() {
@@ -128,150 +135,27 @@ export default function MolecularBasisOfInheritanceChapter() {
       <ChromatinTypes />
 
       <h2 id="h-5-2">5.2 The Search for Genetic Material</h2>
-      <ul className="list-disc pl-5 space-y-1 text-sm">
-        <li>
-          <strong>1869:</strong> Identification of Nuclein (Miescher).
-        </li>
-        <li>
-          <strong>1926:</strong> Core question raised — chemical nature of genetic material?
-        </li>
-      </ul>
-      <p className="text-sm text-muted-foreground">Meischer’s nuclein and Mendel’s factors were simultaneous, but “DNA is the genetic material” took decades. By 1926 chromosomes were narrowed as carriers — but which molecule?</p>
 
-      <h3 id="h-5-2-transforming">1. Transforming Principle — Frederick Griffith (1928)</h3>
-      <ul className="list-disc pl-5 space-y-1 text-sm">
-        <li>
-          <strong>Organism Used:</strong> <em>Streptococcus pneumoniae</em>
-        </li>
-        <li>
-          <strong>Bacterial Strains:</strong>
-          <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
-            <li>
-              <strong>S strain (Smooth):</strong> mucus polysaccharide coat; virulent
-            </li>
-            <li>
-              <strong>R strain (Rough):</strong> lacks coat; non-virulent
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <h4 className="text-sm font-semibold mt-4">Experimental Procedure & Results:</h4>
-      <TableCard
-        headers={["Treatment", "Result"]}
-        rows={[
-          { cells: ["S strain → Injected into Mice", "Mice Died"] },
-          { cells: ["R strain → Injected into Mice", "Mice Lived"] },
-          { cells: ["Heat-Killed S strain → Injected into Mice", "Mice Lived"] },
-          { cells: ["Heat-Killed S + Live R → Injected into Mice", "Mice Died (Live S recovered)"] },
-        ]}
-      />
-      <KeyPoint title="Griffith’s conclusion">
-        Some <Highlight color="yellow">transforming principle</Highlight> from heat-killed S enabled R to make a smooth coat and become virulent — transfer of genetic material. Biochemical nature not defined yet.
-      </KeyPoint>
+      <h3 id="h-5-2-history">1. Historical Background</h3>
+      <DnaMaterialTimeline />
 
-      <h3 id="h-5-2-avery">2. Biochemical Characterisation — Avery, MacLeod, McCarty (1933–44)</h3>
-      <ul className="list-disc pl-5 space-y-1 text-sm">
-        <li>
-          <strong>Researchers:</strong> Oswald Avery, Colin MacLeod, Maclyn McCarty
-        </li>
-        <li>
-          <strong>Objective:</strong> Determine chemical nature of transforming principle from Griffith’s experiment.
-        </li>
-      </ul>
-      <h4 className="text-sm font-semibold mt-4">Experimental Setup & Findings:</h4>
-      <p className="text-sm">Purified biomolecules (RNA, Protein, DNA) from Heat-Killed S strain and added them to Live R strain:</p>
-      <TableCard
-        headers={["Enzyme Added", "Effect", "Conclusion"]}
-        rows={[
-          { cells: ["Protease (destroys protein)", "Transformation still occurs (R → S)", "Protein is NOT genetic material"] },
-          { cells: ["RNase (destroys RNA)", "Transformation still occurs (R → S)", "RNA is NOT genetic material"] },
-          { cells: ["DNase (destroys DNA)", "Transformation inhibited (remains R)", "DNA IS the transforming principle"] },
-        ]}
-      />
-      <Expandable title="DNAs vs DNase — what’s the difference?">
-        <p>
-          <strong>DNA</strong> is the polymer (genetic material). <strong>DNase</strong> is the enzyme that digests DNA. Avery used DNase to prove DNA’s role.
-        </p>
-      </Expandable>
+      <h3 id="h-5-2-transforming">2. Griffith&apos;s Experiment — Transforming Principle (1928)</h3>
+      <GriffithExperiment />
 
-      <h3 id="h-5-2-1">3. Proof That DNA is the Genetic Material — Hershey & Chase (1952)</h3>
-      <ul className="list-disc pl-5 space-y-1 text-sm">
-        <li>
-          <strong>Researchers:</strong> Alfred Hershey and Martha Chase
-        </li>
-        <li>
-          <strong>Experimental System:</strong> Bacteriophages (viruses that infect bacteria) and <em>E. coli</em>
-        </li>
-        <li>
-          <strong>Radioactive Isotope Labeling:</strong>
-          <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
-            <li>
-              <strong>³⁵S (Radioactive Sulfur):</strong> Labels viral <strong>protein coat</strong> (Sulfur in protein, absent in DNA)
-            </li>
-            <li>
-              <strong>³²P (Radioactive Phosphorus):</strong> Labels viral <strong>DNA</strong> (Phosphorus in DNA, absent in protein)
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <h4 className="text-sm font-semibold mt-4">Experimental Steps:</h4>
-      <Stepper
-        steps={[
-          { label: "Infection", description: "Radiolabeled phages allowed to infect E. coli." },
-          { label: "Blending", description: "Agitation in a blender to separate viral coats from bacterial cells." },
-          { label: "Centrifugation", description: "Separation of lighter viral particles (supernatant) from heavier bacterial cells (pellet)." },
-        ]}
-      />
-      <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hershey_Chase_experiment.png" alt="Figure 5.5 The Hershey-Chase experiment — 35S protein vs 32P DNA labeling, blender and centrifuge separation" className="w-full h-auto rounded-lg object-contain max-h-[320px] mx-auto bg-white" loading="lazy" />
-        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.5 — Hershey–Chase experiment (³⁵S protein vs ³²P DNA)</figcaption>
-      </figure>
-      <KeyPoint title="Unequivocal proof">
-        <Highlight color="yellow">DNA is the genetic material</Highlight> passed from virus to bacteria (Figure 5.5).
-      </KeyPoint>
-      <h3 id="h-5-2-2">5.2.2 Properties of Genetic Material (DNA vs RNA)</h3>
-      <p>In some viruses (TMV, QB bacteriophage) RNA is the genetic material. Why is DNA predominant while RNA is messenger/adapter? To function as genetic material, a molecule must fulfill four requirements:</p>
-      <ul className="list-disc pl-5 space-y-1 text-sm">
-        <li>
-          <strong>1. Replication:</strong> It should be able to generate its replica.
-        </li>
-        <li>
-          <strong>2. Stability:</strong> It should be structurally and chemically stable.
-        </li>
-        <li>
-          <strong>3. Mutation/Evolution:</strong> It should undergo slow changes that lead to evolution.
-        </li>
-        <li>
-          <strong>4. Expression:</strong> It should be able to express itself in the form of Mendelian characters.
-        </li>
-      </ul>
-      <TableCard
-        caption="Four criteria for a molecule to act as genetic material"
-        headers={["Criterion", "DNA", "RNA", "Protein"]}
-        rows={[
-          { cells: ["1. Replication", "Yes — complementarity directs duplication", "Yes — can duplicate", "Cannot direct its own duplication"] },
-          { cells: ["2. Stability", "High — less reactive, double-stranded, thymine + repair", "Low — 2'-OH reactive, catalytic, labile", "Varies"] },
-          { cells: ["3. Mutation / Evolution", "Mutates but slower (stable)", "Mutates faster (unstable) → RNA viruses evolve faster", "—"] },
-          { cells: ["4. Expression", "Via RNA → protein (needs RNA for expression)", "Directly codes for protein", "End product"] },
-        ]}
-      />
-      <TableCard
-        caption="DNA vs RNA"
-        headers={["Feature", "DNA (Deoxyribonucleic Acid)", "RNA (Ribonucleic Acid)"]}
-        rows={[
-          { cells: ["Structure", "Double-stranded", "Single-stranded"] },
-          { cells: ["Sugar reactive group", "2'-H group (non-reactive)", "2'-OH group (highly reactive, labile)"] },
-          { cells: ["Catalytic role", "No role as catalyst", "Can act as catalyst"] },
-          { cells: ["Base stability", "Contains Thymine (confers higher stability)", "Contains Uracil (less stable)"] },
-          { cells: ["Primary function", "Storing genetic information", "Transferring genetic information"] },
-        ]}
-      />
-      <Callout type="note">
-        <strong>Why DNA is better for storage:</strong> 2&apos;-OH in every RNA nucleotide makes RNA labile; RNA is catalytic/reactive; DNA is less reactive, double-stranded, with repair. Thymine (vs uracil) adds stability.
-      </Callout>
-      <KeyPoint title="Which for what?">
-        <Highlight color="yellow">DNA</Highlight> for <strong>storage</strong>, <Highlight color="green">RNA</Highlight> for <strong>transmission</strong>. RNA is more reactive and mutates faster — hence RNA-genome viruses have short life and evolve fast.
-      </KeyPoint>
+      <h3 id="h-5-2-avery">3. Biochemical Characterisation of the Transforming Principle (1933–1944)</h3>
+      <AveryExperiment />
+
+      <h3 id="h-5-2-1">4. Hershey–Chase Experiment (1952)</h3>
+      <HersheyChaseExperiment />
+
+      <h3 id="h-5-2-2">5.2.2 Essential Criteria of Genetic Material</h3>
+      <h4 id="h-5-2-criteria">5. Requirements of a Genetic Material</h4>
+      <GeneticMaterialCriteria />
+
+      <h4 id="h-5-2-dna-rna">6. DNA vs RNA as Genetic Material</h4>
+      <DnaVsRnaComparison />
+
+      <GeneticMaterialRevisionSheet />
 
       <h2 id="h-5-3">5.3 RNA World</h2>
       <Callout type="important">
