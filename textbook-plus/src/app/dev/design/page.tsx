@@ -407,6 +407,13 @@ import { AddictionDependence, AdolescenceVulnerability } from "@/components/cont
 import { SteroidMisuse, SystemicEffects } from "@/components/content/biology/HarmfulEffects";
 import { PreventionPathway } from "@/components/content/biology/PreventionControl";
 import { DrugsFinalRevisionSheet } from "@/components/content/biology/DrugsRevision";
+import { NucleicAcidsSection } from "@/components/content/biology/NucleicAcidsGeneticMaterial";
+import { DnaPolymerSection } from "@/components/content/biology/DnaGeneticPolymer";
+import { NucleotideComponents, PentoseSugar } from "@/components/content/biology/NucleotideComponents";
+import { NitrogenousBases } from "@/components/content/biology/NitrogenousBases";
+import { NucleosideFormation, PhosphateAndNucleotide } from "@/components/content/biology/NucleosideNucleotide";
+import { PolynucleotideChainSection } from "@/components/content/biology/PolynucleotideChain";
+import { InheritanceRevisionSheet } from "@/components/content/biology/InheritanceRevision";
 
 const MATRIX_ITEMS: InteractionEntry[] = [
   {
@@ -3473,6 +3480,25 @@ export default function DesignPage() {
             <PreventionPathway />
             <p className="t-micro mt-6">7.5 — final revision sheet</p>
             <DrugsFinalRevisionSheet />
+
+            <p className="t-micro mt-6">Ch.5 — nucleic acids &amp; RNA roles</p>
+            <NucleicAcidsSection />
+            <p className="t-micro mt-6">Ch.5 — DNA genetic polymer &amp; genome table</p>
+            <DnaPolymerSection />
+            <p className="t-micro mt-6">Ch.5 — nucleotide components</p>
+            <NucleotideComponents />
+            <p className="t-micro mt-6">Ch.5 — pentose sugar</p>
+            <PentoseSugar />
+            <p className="t-micro mt-6">Ch.5 — nitrogenous bases</p>
+            <NitrogenousBases />
+            <p className="t-micro mt-6">Ch.5 — nucleoside formation</p>
+            <NucleosideFormation />
+            <p className="t-micro mt-6">Ch.5 — phosphate &amp; nucleotide formation</p>
+            <PhosphateAndNucleotide />
+            <p className="t-micro mt-6">Ch.5 — polynucleotide chain</p>
+            <PolynucleotideChainSection />
+            <p className="t-micro mt-6">Ch.5 — complete revision sheet</p>
+            <InheritanceRevisionSheet />
           </div>
         </div>
       </Section>

@@ -3763,6 +3763,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/DnaGeneticPolymer.tsx#DnaPolymerSection",
+    "name": "DnaPolymerSection",
+    "path": "content/biology/DnaGeneticPolymer.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/DnaIsolation.tsx#CellWallEnzymes",
     "name": "CellWallEnzymes",
     "path": "content/biology/DnaIsolation.tsx",
@@ -4411,6 +4420,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/InheritanceRevision.tsx#InheritanceRevisionSheet",
+    "name": "InheritanceRevisionSheet",
+    "path": "content/biology/InheritanceRevision.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/InteractionDashboard.tsx#InteractionDashboard",
     "name": "InteractionDashboard",
     "path": "content/biology/InteractionDashboard.tsx",
@@ -4699,6 +4717,60 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/NitrogenousBases.tsx#NitrogenousBases",
+    "name": "NitrogenousBases",
+    "path": "content/biology/NitrogenousBases.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/NucleicAcidsGeneticMaterial.tsx#NucleicAcidsSection",
+    "name": "NucleicAcidsSection",
+    "path": "content/biology/NucleicAcidsGeneticMaterial.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/NucleosideNucleotide.tsx#NucleosideFormation",
+    "name": "NucleosideFormation",
+    "path": "content/biology/NucleosideNucleotide.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/NucleosideNucleotide.tsx#PhosphateAndNucleotide",
+    "name": "PhosphateAndNucleotide",
+    "path": "content/biology/NucleosideNucleotide.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/NucleotideComponents.tsx#NucleotideComponents",
+    "name": "NucleotideComponents",
+    "path": "content/biology/NucleotideComponents.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/NucleotideComponents.tsx#PentoseSugar",
+    "name": "PentoseSugar",
+    "path": "content/biology/NucleotideComponents.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/OldNewBiotech.tsx#OldNewBiotech",
     "name": "OldNewBiotech",
     "path": "content/biology/OldNewBiotech.tsx",
@@ -4882,6 +4954,15 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/Pcr.tsx#TaqPolymerase",
     "name": "TaqPolymerase",
     "path": "content/biology/Pcr.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/PolynucleotideChain.tsx#PolynucleotideChainSection",
+    "name": "PolynucleotideChainSection",
+    "path": "content/biology/PolynucleotideChain.tsx",
     "category": "biology",
     "props": null,
     "shell": false,

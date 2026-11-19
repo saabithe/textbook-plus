@@ -13,277 +13,32 @@ import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
 import { ConceptCard } from "@/components/content/concept/ConceptCard";
-import { TreeDiagram } from "@/components/content/concept/TreeDiagram";
+import { NucleicAcidsSection } from "@/components/content/biology/NucleicAcidsGeneticMaterial";
+import { DnaPolymerSection } from "@/components/content/biology/DnaGeneticPolymer";
+import { NucleotideComponents, PentoseSugar } from "@/components/content/biology/NucleotideComponents";
+import { NitrogenousBases } from "@/components/content/biology/NitrogenousBases";
+import { NucleosideFormation, PhosphateAndNucleotide } from "@/components/content/biology/NucleosideNucleotide";
+import { PolynucleotideChainSection } from "@/components/content/biology/PolynucleotideChain";
+import { InheritanceRevisionSheet } from "@/components/content/biology/InheritanceRevision";
 
 export default function MolecularBasisOfInheritanceChapter() {
   return (
     <>
-      <h2 id="h-5-1">5.1 The DNA</h2>
-      <div className="my-4 rounded-xl border border-border/60 bg-card p-3">
-        <div className="flex flex-col items-center gap-0">
-          <div className="rounded-lg border border-border/60 bg-muted/30 px-4 py-2.5 text-center">
-            <p className="text-sm font-semibold leading-none">Nucleic Acids</p>
-            <p className="text-[11px] text-muted-foreground">— polymers of nucleotides</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-px h-3 bg-border/60" />
-            <div className="relative w-[280px] sm:w-[360px] h-px bg-border/60">
-              <div className="absolute left-[25%] -top-0 w-px h-3 bg-border/60" style={{ left: "25%" }} />
-              <div className="absolute right-[25%] -top-0 w-px h-3 bg-border/60" style={{ right: "25%" }} />
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-2 w-full max-w-[560px] mt-0">
-            <div className="rounded-lg border border-blue-500/20 bg-blue-500/[0.06] px-3 py-2.5">
-              <p className="text-xs font-semibold text-blue-900 dark:text-blue-100">DNA</p>
-              <p className="text-[11px] font-medium text-blue-800/80 dark:text-blue-200/80 -mt-0.5">Deoxyribonucleic acid</p>
-              <p className="text-xs text-muted-foreground mt-1">Genetic material for most organisms.</p>
-            </div>
-            <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/[0.06] px-3 py-2.5">
-              <p className="text-xs font-semibold text-emerald-900 dark:text-emerald-100">RNA</p>
-              <p className="text-[11px] font-medium text-emerald-800/80 dark:text-emerald-200/80 -mt-0.5">Ribonucleic acid</p>
-              <p className="text-xs text-muted-foreground mt-1">Genetic material for some viruses.</p>
-              <ul className="list-disc pl-4 text-[11px] text-muted-foreground mt-1.5 space-y-0.5">
-                <li>Messenger</li>
-                <li>Adapter</li>
-                <li>Structural role</li>
-                <li>Catalytic role</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <Callout type="important">
-        DNA is a <Highlight color="yellow">long polymer of deoxyribonucleotides</Highlight>.
-        Length is defined as number of nucleotides / base pairs (bp) — a characteristic of the organism.
-      </Callout>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 [&>div]:my-0">
-        <MetricCard label="φ ×174 bacteriophage" value="5386" unit="nucleotides" description="Single-stranded DNA phage — smallest in the list." />
-        <MetricCard label="λ bacteriophage" value="48,502" unit="bp" description="Double-stranded DNA phage." />
-        <MetricCard label="E. coli" value="4.6 × 10⁶" unit="bp" description="Bacterial genome — completes replication in 18 min." />
-        <MetricCard label="Human (haploid)" value="3.3 × 10⁹" unit="bp" description="Diploid content 6.6 × 10⁹ bp → 2.2 m of DNA per cell." />
-      </div>
+      <h2>1. Nucleic Acids and Genetic Material</h2>
+      <NucleicAcidsSection />
 
-      <h3 id="h-5-1-1">5.1.1 Structure of Polynucleotide Chain</h3>
-      <p>A nucleotide consists of three main components:</p>
-      <ol className="list-decimal pl-5 space-y-1">
-        <li><strong>Pentose Sugar</strong></li>
-        <li><strong>Nitrogenous Base</strong></li>
-        <li><strong>Phosphate Group</strong></li>
-      </ol>
+      <h2>2. DNA — Structure as a Genetic Polymer</h2>
+      <DnaPolymerSection />
 
-      <h4 className="text-[15px] font-semibold mt-6 mb-2">1. Pentose Sugar</h4>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Formed of 5 carbons (<strong>C<sub>5</sub></strong>).</li>
-        <li><strong>RNA:</strong> Ribose (<strong>C<sub>5</sub>H<sub>10</sub>O<sub>5</sub></strong>)</li>
-        <li><strong>DNA:</strong> Deoxyribose (<strong>C<sub>5</sub>H<sub>10</sub>O<sub>4</sub></strong>)</li>
-      </ul>
-      <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/The_difference_between_ribose_and_deoxyribose.png" alt="Ribose vs Deoxyribose — difference at 2' carbon: –OH vs –H" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
-        <figcaption className="text-xs text-muted-foreground mt-3 text-center">Ribose (RNA, C<sub>5</sub>H<sub>10</sub>O<sub>5</sub>) vs Deoxyribose (DNA, C<sub>5</sub>H<sub>10</sub>O<sub>4</sub>) — difference at 2&apos; carbon: –OH vs –H. Carbon numbering 1&apos;–5&apos;.</figcaption>
-      </figure>
+      <h2>3. Structure of a Polynucleotide Chain</h2>
+      <NucleotideComponents />
+      <PentoseSugar />
+      <NitrogenousBases />
+      <NucleosideFormation />
+      <PhosphateAndNucleotide />
+      <PolynucleotideChainSection />
 
-      <h4 className="text-[15px] font-semibold mt-6 mb-2">2. Nitrogenous Bases</h4>
-      <p>Classified into two major types:</p>
-      <Comparison
-        columns={[
-          {
-            title: "Purines (double ring)",
-            children: (
-              <ul>
-                <li>Ring positions: <strong>1, 3, 7, 9</strong></li>
-                <li>Adenine (<strong>A</strong>)</li>
-                <li>Guanine (<strong>G</strong>)</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Pyrimidines (single ring)",
-            children: (
-              <ul>
-                <li>Ring positions: <strong>1, 3</strong></li>
-                <li>Cytosine (<strong>C</strong>)</li>
-                <li>Thymine (<strong>T</strong>) — in DNA</li>
-                <li>Uracil (<strong>U</strong>) — in RNA</li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-      <p className="text-sm mt-3">
-        <strong>DNA:</strong> Adenine (A), Guanine (G), Thymine (T), Cytosine (C)<br />
-        <strong>RNA:</strong> Adenine (A), Guanine (G), Uracil (U), Cytosine (C)
-      </p>
-
-      <h4 className="text-[15px] font-semibold mt-6 mb-2">Nucleoside Formation</h4>
-      <p>
-        A nucleoside is formed by the combination of a <strong>Sugar + Nitrogenous Base</strong> linked via an <Highlight color="yellow">N-Glycosidic bond</Highlight> at 1&apos; C.
-      </p>
-      <TableCard
-        headers={["Nitrogenous Base", "RNA Nucleoside", "DNA Nucleoside"]}
-        rows={[
-          { cells: ["Adenine", "Adenosine", "Deoxyadenosine"] },
-          { cells: ["Guanine", "Guanosine", "Deoxyguanosine"] },
-          { cells: ["Cytosine", "Cytidine", "Deoxycytidine"] },
-          { cells: ["Thymine", "—", "Deoxythymidine"] },
-          { cells: ["Uracil", "Uridine", "—"] },
-        ]}
-      />
-
-      <h4 className="text-[15px] font-semibold mt-6 mb-2">3. Phosphate Group (H<sub>3</sub>PO<sub>4</sub>)</h4>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Linked via a <Highlight color="blue">phosphoester bond</Highlight> to the sugar at 5&apos; C.</li>
-        <li>
-          <strong>Nucleotide Definition:</strong> <Highlight color="yellow">Nucleotide = Sugar + Nitrogenous Base + Phosphate = Nucleoside + Phosphate</Highlight>
-        </li>
-      </ul>
-      <TableCard
-        caption="Nucleotide / Nucleic acid nomenclature"
-        headers={["Type", "Nucleotides (Phosphate + Sugar + Base)"]}
-        rows={[
-          { cells: ["RNA Nucleotides (Ribonucleotides)", "Adenylic acid (A), Guanylic acid (G), Cytidylic acid (C), Uridylic acid (U)"] },
-          { cells: ["DNA Nucleotides (Deoxyribonucleotides)", "Deoxyadenylic acid (A), Deoxyguanylic acid (G), Deoxycytidylic acid (C), Deoxythymidylic acid (T)"] },
-        ]}
-      />
-
-      <h4 className="text-[15px] font-semibold mt-6 mb-2">Polynucleotide Chain Backbone</h4>
-      <ul className="list-disc pl-5 space-y-1.5">
-        <li>Nucleotides are linked together through <Highlight color="blue">phosphodiester bonds</Highlight> (3&apos;–5&apos;) forming a dinucleotide and subsequently a polynucleotide chain.</li>
-        <li>The backbone consists of alternating <strong>sugar and phosphate</strong> residues, with nitrogenous bases projecting outward from the sugar-phosphate backbone.</li>
-        <li>
-          <strong>Directionality:</strong> Free phosphate moiety at the 5&apos; carbon end (<strong>5&apos; → P</strong>) and free hydroxyl group at the 3&apos; carbon end (<strong>3&apos; → OH</strong>).
-        </li>
-      </ul>
-      <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="/images/biology/molecular-basis-of-inheritance/polynucleotide-chain.png" alt="A schematic illustration of a polynucleotide chain backbone showing alternating pentose sugar pentagons and phosphate circles connected by phosphodiester bonds, oriented vertically with a 5-prime phosphate end at the top and a 3-prime hydroxyl group at the bottom, with nitrogenous bases extending to the right from each sugar unit." className="w-full h-auto rounded-lg object-contain max-h-[520px] mx-auto bg-white" loading="lazy" />
-        <figcaption className="text-xs text-muted-foreground mt-3 text-center">Figure 5.1 — Polynucleotide chain: alternating sugar (pentagon) — phosphate (P) via 3&apos;–5&apos; phosphodiester bonds; 5&apos; phosphate (top) → 3&apos; OH (bottom); bases to the right.</figcaption>
-      </figure>
-      <Callout type="note" title="Polarity — quick recap">
-        Polymer has <Highlight color="yellow">5&apos; end</Highlight> (free phosphate at 5&apos; sugar) and <Highlight color="green">3&apos; end</Highlight> (free –OH at 3&apos; sugar). Backbone = sugar-phosphate; bases project from it. Same convention defines Template (3&apos;→5&apos;) vs Coding (5&apos;→3&apos;) later in Transcription.
-      </Callout>
-      <Callout type="note" title="DNA Double Helix – History">
-        <ul className="list-disc pl-5 space-y-2">
-          <li>
-            <strong>1869 – Friedrich Miescher</strong>
-            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
-              <li>Identified &ldquo;Nuclein&rdquo; — an acidic substance in nucleus</li>
-              <li>Progress delayed — technical limitations in isolating long polymer intact</li>
-            </ul>
-          </li>
-          <li>
-            <strong>1953 – Watson & Crick</strong>
-            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
-              <li>Proposed <Highlight color="yellow">DNA double helical model</Highlight></li>
-              <li>Based on X-ray diffraction data — <strong>Maurice Wilkins & Rosalind Franklin</strong></li>
-            </ul>
-          </li>
-          <li>
-            <strong>Hallmark</strong> — <Highlight color="yellow">base pairing</Highlight>
-            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
-              <li>Purine opposite pyrimidine</li>
-              <li>Gives uniform distance between strands</li>
-            </ul>
-          </li>
-        </ul>
-      </Callout>
-      <Callout type="important" title="Chargaff's Rule — Erwin Chargaff">
-        <p>Applicable only to <strong>double-stranded DNA</strong>. In a given DNA molecule, total purines = total pyrimidines:</p>
-        <FormulaBlock latex={String.raw`\text{Purines} = \text{Pyrimidines}`} />
-        <FormulaBlock latex={String.raw`A + G = T + C`} />
-        <FormulaBlock latex={String.raw`\frac{A + G}{T + C} = 1`} important />
-      </Callout>
-      <Expandable title="Example: A = 22% → find T, G, C (Chargaff)">
-        <p>
-          <strong>Problem:</strong> In a DNA sample, Adenine (A) is 22%. Find Thymine (T), Guanine (G), and Cytosine (C).
-        </p>
-        <ul className="list-disc pl-5 space-y-1 mt-2">
-          <li>
-            Since <Formula>{String.raw`A = T`}</Formula>, then <Formula>{String.raw`T = 22\%`}</Formula>.
-          </li>
-          <li>
-            <Formula>{String.raw`A + T = 44\%`}</Formula>.
-          </li>
-          <li>
-            Remaining <Formula>{String.raw`G + C = 100\% - 44\% = 56\%`}</Formula>.
-          </li>
-          <li>
-            Since <Formula>{String.raw`G = C`}</Formula>, then <Formula>{String.raw`G = 56\%/2 = 28\%`}</Formula> and <Formula>{String.raw`C = 28\%`}</Formula>.
-          </li>
-        </ul>
-        <p className="mt-2">
-          <strong>Final:</strong> <Highlight color="yellow">A = 22%, T = 22%, G = 28%, C = 28%</Highlight>.
-        </p>
-      </Expandable>
-      <p>Because strands are complementary, knowing one strand predicts the other. Each parental strand as template → two daughter DNAs identical to parental.</p>
-      <ConceptCard title="Salient Features of DNA Double Helix (Figure 5.2, 5.3)">
-        <ul className="list-disc pl-5 space-y-3">
-          <li>
-            <strong>1. Composition & Backbone</strong>
-            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
-              <li>Composed of <strong>2 polynucleotide chains</strong></li>
-              <li><strong>Sugar-phosphate</strong> forms outer backbone</li>
-              <li><strong>Bases project inside</strong></li>
-            </ul>
-          </li>
-          <li>
-            <strong>2. Antiparallel Polarity</strong>
-            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
-              <li>Two chains run opposite</li>
-              <li>One <strong>5&apos; → 3&apos;</strong>, the other <strong>3&apos; → 5&apos;</strong></li>
-            </ul>
-          </li>
-          <li>
-            <strong>3. Hydrogen Bonding</strong>
-            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
-              <li>Held together by <strong>H-bonds</strong> between complementary pairs</li>
-              <li><strong>A = T</strong> via <strong>2 H-bonds</strong></li>
-              <li><strong>G ≡ C</strong> via <strong>3 H-bonds</strong></li>
-            </ul>
-          </li>
-          <li>
-            <strong>4. Coiling & Pitch</strong>
-            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
-              <li>Coiled in <strong>right-handed</strong> fashion</li>
-              <li><strong>Pitch</strong> (one turn) = <strong>3.4 nm</strong> — contains <strong>10 bp</strong></li>
-              <li>Distance between 2 consecutive bp = <strong>0.34 nm</strong></li>
-            </ul>
-          </li>
-          <li>
-            <strong>5. Stability</strong>
-            <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
-              <li>Base pairs <strong>stack</strong> one over the other</li>
-              <li>In addition to H-bonds, confers stability</li>
-            </ul>
-          </li>
-        </ul>
-      </ConceptCard>
-      <div className="grid gap-4 sm:grid-cols-2 my-6">
-        <figure className="rounded-xl border border-border/60 bg-card p-3">
-          <img src="/images/biology/molecular-basis-of-inheritance/ds-polynucleotide-chain.png" alt="Double stranded polynucleotide chain — two anti-parallel strands with complementary base pairing, purine opposite pyrimidine" className="w-full h-auto rounded-lg object-contain max-h-[320px] mx-auto bg-white" loading="lazy" />
-          <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.2 — Double stranded polynucleotide chain</figcaption>
-        </figure>
-        <figure className="rounded-xl border border-border/60 bg-card p-3">
-          <img src="/images/biology/molecular-basis-of-inheritance/dna-double-helix.png" alt="A detailed structural diagram of antiparallel double-stranded DNA showing a 5&apos; to 3&apos; strand paired with a 3&apos; to 5&apos; strand. Sugar-phosphate backbones form the outer structural support, with complementary nitrogenous bases extending inwards—Adenine paired to Thymine via double hydrogen bonds, and Guanine paired to Cytosine via triple hydrogen bonds." className="w-full h-auto rounded-lg object-contain max-h-[320px] mx-auto bg-white" loading="lazy" />
-          <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.3 — DNA double helix (pitch 3.4 nm, 10 bp/turn)</figcaption>
-        </figure>
-      </div>
-      <Expandable title="Why does purine–pyrimidine pairing keep distance constant?">
-        <p>Purine (double ring) opposite pyrimidine (single ring) gives roughly constant width. Purine–purine would be too wide, pyrimidine–pyrimidine too narrow — Chargaff’s pairing solves this.</p>
-      </Expandable>
-      <KeyPoint title="Central Dogma — Crick">
-        Proposed by <Highlight color="yellow">Francis Crick</Highlight> — explains the flow of genetic information.
-      </KeyPoint>
-      <FormulaBlock latex={String.raw`\text{DNA} \xrightarrow{\text{Replication}} \text{DNA} \xrightarrow{\text{Transcription}} \text{mRNA} \xrightarrow{\text{Translation}} \text{Protein}`} important />
-      <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="/images/biology/molecular-basis-of-inheritance/central-dogma.png" alt="A flow diagram representing the Central Dogma of Molecular Biology by Francis Crick, depicting a circular loop on DNA for replication, a forward arrow to mRNA labeled transcription, and a forward arrow to protein labeled translation." className="w-full h-auto rounded-lg object-contain max-h-[360px] mx-auto bg-white" loading="lazy" />
-        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Central Dogma — DNA → (Replication) → DNA → (Transcription) → mRNA → (Translation) → Protein</figcaption>
-      </figure>
-      <Callout type="note" title="Reverse Transcription">
-        <p>Information flow from <Highlight color="yellow">RNA to DNA</Highlight>:</p>
-        <FormulaBlock latex={String.raw`\text{RNA} \xrightarrow{\text{Reverse Transcription}} \text{DNA}`} />
-        <p className="text-sm text-muted-foreground">
-          <strong>Example:</strong> HIV (retrovirus).
-        </p>
-      </Callout>
+      <InheritanceRevisionSheet />
 
       <h3 id="h-5-1-2">5.1.2 Packaging of DNA Helix</h3>
       <Callout type="note" title="Calculation of DNA Length">
