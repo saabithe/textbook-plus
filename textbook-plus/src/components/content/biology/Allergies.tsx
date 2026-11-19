@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { ArrowDown, ArrowRight, Pill, Sparkles, Zap } from "lucide-react";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 
 /**
  * Allergies — the allergy block: the exaggerated-response definition, the
@@ -148,12 +149,16 @@ const REVISION_ROWS: [string, string][] = [
 
 export function AllergyQuickRevision() {
   return (
-    <div className="my-5 overflow-hidden rounded-xl border border-border bg-card">
-      <div className="flex items-center gap-2 border-b border-border bg-muted/25 px-3.5 py-2.5">
-        <Zap className="h-3.5 w-3.5 shrink-0 text-rose-700 dark:text-rose-300" aria-hidden />
-        <div className="text-sm font-bold tracking-tight text-foreground">Allergy — Quick Revision</div>
-      </div>
-
+    <CollapsibleRevision
+      className="my-5"
+      label="Allergy quick revision"
+      header={
+        <div className="flex items-center gap-2 border-b border-border bg-muted/25 px-3.5 py-2.5 pr-11">
+          <Zap className="h-3.5 w-3.5 shrink-0 text-rose-700 dark:text-rose-300" aria-hidden />
+          <div className="text-sm font-bold tracking-tight text-foreground">Allergy — Quick Revision</div>
+        </div>
+      }
+    >
       <div className="overflow-hidden">
         <div className="grid grid-cols-2 border-b border-border bg-muted/40 text-[8.5px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
           <div className="px-2.5 py-1.5">Feature</div>
@@ -166,6 +171,6 @@ export function AllergyQuickRevision() {
           </div>
         ))}
       </div>
-    </div>
+    </CollapsibleRevision>
   );
 }

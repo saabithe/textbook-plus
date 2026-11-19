@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Callout } from "@/components/content/Callout";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -1608,8 +1609,19 @@ export default function WaveOpticsChapter() {
         </p>
       </Callout>
 
-      <h2 id="h-10-equations">Key Equations — Revision Board</h2>
-      <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4"
+        label="Key Equations — Revision Board"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h2 id="h-10-equations" className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!">
+              Key Equations — Revision Board
+            </h2>
+          </div>
+        }
+      >
+        <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
         <FormulaCard>
           <p className="text-[0.75rem] font-medium text-muted-foreground">Refraction (Huygens)</p>
           <FormulaBlock latex={String.raw`\frac{\sin i}{\sin r}=\frac{v_1}{v_2},\qquad n_1\sin i=n_2\sin r`} important />
@@ -1642,7 +1654,8 @@ export default function WaveOpticsChapter() {
           <p className="text-[0.75rem] font-medium text-muted-foreground">Polarisation</p>
           <FormulaBlock latex={String.raw`I=I_0\cos^2\theta,\qquad \tan\theta_B=\frac{n_2}{n_1}`} important />
         </FormulaCard>
-      </div>
+        </div>
+      </CollapsibleRevision>
 
       <h2 id="h-10-exercises">Back-of-Chapter Exercises</h2>
 

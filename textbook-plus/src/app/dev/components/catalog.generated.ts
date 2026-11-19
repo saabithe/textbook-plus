@@ -1693,6 +1693,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/CollapsibleRevision.tsx#CollapsibleRevision",
+    "name": "CollapsibleRevision",
+    "path": "content/CollapsibleRevision.tsx",
+    "category": "content",
+    "props": "header: React.ReactNode; children: React.ReactNode; className?: string; contentClassName?: string; label?: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/CollapsibleSection.tsx#CollapsibleSection",
     "name": "CollapsibleSection",
     "path": "content/CollapsibleSection.tsx",

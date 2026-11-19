@@ -2,6 +2,7 @@ import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
@@ -709,8 +710,19 @@ export default function ElectromagneticInductionChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h2 id="h-6-appendix">Key Equations — Revision Board</h2>
-      <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4"
+        label="Key Equations — Revision Board"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h2 id="h-6-appendix" className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!">
+              Key Equations — Revision Board
+            </h2>
+          </div>
+        }
+      >
+        <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
         <FormulaCard>
           <p className="text-[0.75rem] font-medium text-muted-foreground">Faraday&apos;s law (N turns)</p>
           <FormulaBlock latex={String.raw`\varepsilon = -N\frac{\mathrm{d}\Phi_B}{\mathrm{d}t}`} important />
@@ -735,7 +747,8 @@ export default function ElectromagneticInductionChapter() {
           <p className="text-[0.75rem] font-medium text-muted-foreground">AC generator emf</p>
           <FormulaBlock latex={String.raw`\varepsilon = \varepsilon_0\sin\omega t, \quad \varepsilon_0 = NBA\omega`} important />
         </FormulaCard>
-      </div>
+        </div>
+      </CollapsibleRevision>
 
       <h2 id="h-6-exercises">Back-of-Chapter Exercises</h2>
 

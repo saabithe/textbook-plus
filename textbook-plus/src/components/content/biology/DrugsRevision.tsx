@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import {
   ClipboardList,
   FlaskConical,
@@ -95,20 +96,24 @@ function RevisionSubheading({ Icon, children }: { Icon: LucideIcon; children: Re
 
 export function DrugsFinalRevisionSheet() {
   return (
-    <div className="my-8 overflow-hidden rounded-2xl border-2 border-rose-500/50 bg-gradient-to-br from-rose-50/60 via-card to-indigo-50/50 shadow-sm dark:from-rose-950/20 dark:via-card dark:to-indigo-950/20">
-      <div className="flex items-start gap-3 border-b border-rose-500/30 bg-rose-50/50 px-4 py-3.5 dark:bg-rose-950/25">
-        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-rose-600 text-white shadow-sm dark:bg-rose-500">
-          <Pill className="h-5 w-5" aria-hidden />
-        </span>
-        <div className="min-w-0">
-          <div className="text-[9px] font-bold uppercase tracking-[0.14em] text-indigo-700 dark:text-indigo-300">
-            Chapter revision
+    <CollapsibleRevision
+      className="my-8 rounded-2xl border-2 border-rose-500/50 bg-gradient-to-br from-rose-50/60 via-card to-indigo-50/50 shadow-sm dark:from-rose-950/20 dark:via-card dark:to-indigo-950/20"
+      label="Final Revision Sheet"
+      header={
+        <div className="flex items-start gap-3 border-b border-rose-500/30 bg-rose-50/50 px-4 py-3.5 pr-12 dark:bg-rose-950/25">
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-rose-600 text-white shadow-sm dark:bg-rose-500">
+            <Pill className="h-5 w-5" aria-hidden />
+          </span>
+          <div className="min-w-0">
+            <div className="text-[9px] font-bold uppercase tracking-[0.14em] text-indigo-700 dark:text-indigo-300">
+              Chapter revision
+            </div>
+            <div className="text-lg font-bold tracking-tight text-foreground">Final Revision Sheet</div>
           </div>
-          <div className="text-lg font-bold tracking-tight text-foreground">Final Revision Sheet</div>
+          <FlaskConical className="ml-auto hidden h-5 w-5 shrink-0 text-rose-500 sm:block" aria-hidden />
         </div>
-        <FlaskConical className="ml-auto hidden h-5 w-5 shrink-0 text-rose-500 sm:block" aria-hidden />
-      </div>
-
+      }
+    >
       <div className="space-y-5 p-4">
         <div>
           <RevisionSubheading Icon={Pill}>Common Drugs and Their Sources</RevisionSubheading>
@@ -123,6 +128,6 @@ export function DrugsFinalRevisionSheet() {
           <MiniTable headers={["Topic", "Must remember"]} rows={HIGH_PRIORITY_ROWS} />
         </div>
       </div>
-    </div>
+    </CollapsibleRevision>
   );
 }

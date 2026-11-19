@@ -1,6 +1,7 @@
 ﻿import { Callout } from "@/components/content/Callout";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import { FormulaBlock } from "@/components/content/Formula";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FactCard } from "@/components/content/concept/FactCard";
@@ -2620,9 +2621,19 @@ export default function AlcoholsPhenolsEthersChapter() {
         ]}
       />
 
-      <h3 id="h-7-6-revision">Quick Revision — Ethers</h3>
-
-      <RevisionDashboard
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4"
+        label="Quick Revision — Ethers"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h3 id="h-7-6-revision" className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!">
+              Quick Revision — Ethers
+            </h3>
+          </div>
+        }
+      >
+        <RevisionDashboard
         groups={[
           {
             title: "Classification & preparation",
@@ -2659,6 +2670,7 @@ export default function AlcoholsPhenolsEthersChapter() {
           },
         ]}
       />
+      </CollapsibleRevision>
 
       <h2 id="h-7-exercises">Exercises</h2>
 

@@ -2,6 +2,7 @@ import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
@@ -1650,8 +1651,19 @@ export default function ElectrostaticPotentialChapter() {
         example="Example 2.10: 4.5 × 10⁻⁶ J falls to 2.25 × 10⁻⁶ J — exactly half is lost."
       />
 
-      <h2 id="h-2-appendix">Key Equations — Revision Board</h2>
-      <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="space-y-4 p-4"
+        label="Key Equations — Revision Board"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h2 id="h-2-appendix" className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!">
+              Key Equations — Revision Board
+            </h2>
+          </div>
+        }
+      >
+        <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
         <FormulaCard>
           <p className="text-[0.75rem] font-medium text-muted-foreground">Potential due to a point charge</p>
           <FormulaBlock latex={String.raw`V = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r}`} important />
@@ -1711,6 +1723,7 @@ export default function ElectrostaticPotentialChapter() {
           { cells: ["Dielectric constant", "K", "dimensionless", "—", "Ratio ε/ε₀, greater than 1"] },
         ]}
       />
+      </CollapsibleRevision>
 
       <h2 id="h-2-exercises">Back-of-Chapter Exercises</h2>
 

@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Callout } from "@/components/content/Callout";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -918,8 +919,19 @@ export default function NucleiPage() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h2 id="h-13-equations">Key Equations — Revision Board</h2>
-      <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4"
+        label="Key Equations — Revision Board"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h2 id="h-13-equations" className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!">
+              Key Equations — Revision Board
+            </h2>
+          </div>
+        }
+      >
+        <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
         <FormulaCard>
           <p className="text-[0.75rem] font-medium text-muted-foreground">Atomic mass unit</p>
           <FormulaBlock latex={String.raw`1\ \text{u}=1.660539\times 10^{-27}\ \text{kg}=931.5\ \text{MeV}/c^{2}`} important />
@@ -954,7 +966,8 @@ export default function NucleiPage() {
           <p className="text-[0.75rem] font-medium text-muted-foreground">Q value of a reaction</p>
           <FormulaBlock latex={String.raw`Q=K_{\text{final}}-K_{\text{initial}}=\left(\sum m_{\text{initial}}-\sum m_{\text{final}}\right)c^{2}`} important />
         </FormulaCard>
-      </div>
+        </div>
+      </CollapsibleRevision>
 
       <h2 id="h-13-exercises">Back-of-Chapter Exercises</h2>
 

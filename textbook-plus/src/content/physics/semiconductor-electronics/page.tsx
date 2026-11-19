@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Callout } from "@/components/content/Callout";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -880,8 +881,19 @@ export default function SemiconductorElectronicsChapter() {
         example="With a 50 Hz input, the half-wave output is 50 Hz and the full-wave output is 100 Hz."
       />
 
-      <h2 id="h-14-equations">Key Equations — Revision Board</h2>
-      <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4"
+        label="Key Equations — Revision Board"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h2 id="h-14-equations" className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!">
+              Key Equations — Revision Board
+            </h2>
+          </div>
+        }
+      >
+        <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
         <FormulaCard>
           <p className="text-[0.75rem] font-medium text-muted-foreground">Intrinsic carrier concentration</p>
           <FormulaBlock latex={String.raw`n_e = n_h = n_i`} important tag="(14.1)" />
@@ -906,7 +918,8 @@ export default function SemiconductorElectronicsChapter() {
           <p className="text-[0.75rem] font-medium text-muted-foreground">Barrier under bias</p>
           <FormulaBlock latex={String.raw`V_0 - V\ \text{(forward)},\qquad V_0 + V\ \text{(reverse)}`} />
         </FormulaCard>
-      </div>
+        </div>
+      </CollapsibleRevision>
 
       <h2 id="h-14-exercises">Back-of-Chapter Exercises</h2>
 

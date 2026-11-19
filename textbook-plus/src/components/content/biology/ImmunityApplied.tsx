@@ -9,6 +9,7 @@ import {
   Syringe,
 } from "lucide-react";
 import { Highlight } from "@/components/content/Highlight";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 
 /**
  * ImmunityApplied — applied immunity from the notes: active vs passive
@@ -471,20 +472,24 @@ function RevisionSubheading({ children }: { children: ReactNode }) {
 
 export function FinalRevisionSheet() {
   return (
-    <div className="my-8 overflow-hidden rounded-2xl border-2 border-indigo-500/50 bg-gradient-to-br from-amber-50/60 via-card to-indigo-50/50 shadow-sm dark:from-amber-950/20 dark:via-card dark:to-indigo-950/20">
-      <div className="flex items-start gap-3 border-b border-indigo-500/30 bg-indigo-50/50 px-4 py-3.5 dark:bg-indigo-950/25">
-        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-indigo-600 text-white shadow-sm dark:bg-indigo-500">
-          <ShieldCheck className="h-5 w-5" aria-hidden />
-        </span>
-        <div className="min-w-0">
-          <div className="text-[9px] font-bold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">
-            Chapter revision
+    <CollapsibleRevision
+      className="my-8 rounded-2xl border-2 border-indigo-500/50 bg-gradient-to-br from-amber-50/60 via-card to-indigo-50/50 shadow-sm dark:from-amber-950/20 dark:via-card dark:to-indigo-950/20"
+      label="Final Revision Sheet"
+      header={
+        <div className="flex items-start gap-3 border-b border-indigo-500/30 bg-indigo-50/50 px-4 py-3.5 pr-12 dark:bg-indigo-950/25">
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-indigo-600 text-white shadow-sm dark:bg-indigo-500">
+            <ShieldCheck className="h-5 w-5" aria-hidden />
+          </span>
+          <div className="min-w-0">
+            <div className="text-[9px] font-bold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">
+              Chapter revision
+            </div>
+            <div className="text-lg font-bold tracking-tight text-foreground">Final Revision Sheet</div>
           </div>
-          <div className="text-lg font-bold tracking-tight text-foreground">Final Revision Sheet</div>
+          <FlaskConical className="ml-auto hidden h-5 w-5 shrink-0 text-indigo-500 sm:block" aria-hidden />
         </div>
-        <FlaskConical className="ml-auto hidden h-5 w-5 shrink-0 text-indigo-500 sm:block" aria-hidden />
-      </div>
-
+      }
+    >
       <div className="space-y-4 p-4">
         <div>
           <RevisionSubheading>Immunity — Core Concepts</RevisionSubheading>
@@ -531,6 +536,6 @@ export function FinalRevisionSheet() {
           </div>
         </div>
       </div>
-    </div>
+    </CollapsibleRevision>
   );
 }

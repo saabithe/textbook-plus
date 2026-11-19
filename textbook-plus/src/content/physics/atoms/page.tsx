@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Callout } from "@/components/content/Callout";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -759,8 +760,19 @@ export default function AtomsChapter() {
         Three postulates account for almost all the general features of the hydrogen spectrum, so the model remains the working picture for one-electron atoms — even though the true description is quantum mechanical, and a given energy level there need not correspond to a single quantum state.
       </KeyPoint>
 
-      <h2 id="h-12-equations">Key Equations — Revision Board</h2>
-      <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4"
+        label="Key Equations — Revision Board"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h2 id="h-12-equations" className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!">
+              Key Equations — Revision Board
+            </h2>
+          </div>
+        }
+      >
+        <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
         <FormulaCard>
           <p className="text-[0.75rem] font-medium text-muted-foreground">Coulomb force on the α-particle</p>
           <FormulaBlock latex={String.raw`F=\frac{1}{4\pi\varepsilon_0}\frac{(2e)(Ze)}{r^{2}}`} important />
@@ -793,7 +805,9 @@ export default function AtomsChapter() {
           <p className="text-[0.75rem] font-medium text-muted-foreground">Constants for numericals</p>
           <FormulaBlock latex={String.raw`a_0=5.3\times10^{-11}\ \text{m},\quad R=1.097\times10^{7}\ \text{m}^{-1},\quad hc=1240\ \text{eV nm}`} />
         </FormulaCard>
-      </div>
+        </div>
+      </CollapsibleRevision>
+
       <h2 id="h-12-exercises">Back-of-Chapter Exercises</h2>
 
       <Expandable title="Back-of-Chapter Exercises" variant="exercise">

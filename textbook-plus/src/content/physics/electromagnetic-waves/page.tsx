@@ -1,6 +1,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
@@ -601,8 +602,18 @@ export default function ElectromagneticWavesChapter() {
         />
       </Expandable>
 
-      <h2 id="h-8-rev">Key Equations — Revision Board</h2>
-      <Expandable title="Key Equations — Revision Board (grid)" id="h-8-rev-board" variant="exercise">
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4"
+        label="Key Equations — Revision Board"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h2 id="h-8-rev" className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!">
+              Key Equations — Revision Board
+            </h2>
+          </div>
+        }
+      >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <div className="rounded-xl border border-violet-500/25 bg-violet-500/[0.05] p-4 text-center shadow-sm">
             <p className="mb-2 text-[0.72rem] font-extrabold uppercase tracking-widest text-violet-600 dark:text-violet-300">Displacement current</p>
@@ -629,7 +640,7 @@ export default function ElectromagneticWavesChapter() {
             <FormulaBlock latex={String.raw`v = \frac{1}{\sqrt{\mu\varepsilon}}`} important />
           </div>
         </div>
-      </Expandable>
+      </CollapsibleRevision>
 
       <h2 id="h-8-exercises">Back-of-Chapter Exercises</h2>
 

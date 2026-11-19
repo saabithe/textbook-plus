@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import {
   Bug,
   ClipboardList,
@@ -162,20 +163,24 @@ function LymphoidOrgansTable() {
 
 export function QuickRevisionSheet() {
   return (
-    <div className="my-8 overflow-hidden rounded-2xl border-2 border-amber-500/50 bg-gradient-to-br from-indigo-50/50 via-card to-amber-50/60 shadow-sm dark:from-indigo-950/20 dark:via-card dark:to-amber-950/20">
-      <div className="flex items-start gap-3 border-b border-amber-500/30 bg-amber-50/50 px-4 py-3.5 dark:bg-amber-950/25">
-        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-amber-600 text-white shadow-sm dark:bg-amber-500">
-          <ClipboardList className="h-5 w-5" aria-hidden />
-        </span>
-        <div className="min-w-0">
-          <div className="text-[9px] font-bold uppercase tracking-[0.14em] text-indigo-700 dark:text-indigo-300">
-            At a glance
+    <CollapsibleRevision
+      className="my-8 rounded-2xl border-2 border-amber-500/50 bg-gradient-to-br from-indigo-50/50 via-card to-amber-50/60 shadow-sm dark:from-indigo-950/20 dark:via-card dark:to-amber-950/20"
+      label="Quick Revision Sheet"
+      header={
+        <div className="flex items-start gap-3 border-b border-amber-500/30 bg-amber-50/50 px-4 py-3.5 pr-12 dark:bg-amber-950/25">
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-amber-600 text-white shadow-sm dark:bg-amber-500">
+            <ClipboardList className="h-5 w-5" aria-hidden />
+          </span>
+          <div className="min-w-0">
+            <div className="text-[9px] font-bold uppercase tracking-[0.14em] text-indigo-700 dark:text-indigo-300">
+              At a glance
+            </div>
+            <div className="text-lg font-bold tracking-tight text-foreground">Quick Revision Sheet</div>
           </div>
-          <div className="text-lg font-bold tracking-tight text-foreground">Quick Revision Sheet</div>
+          <Bug className="ml-auto hidden h-5 w-5 shrink-0 text-amber-500 sm:block" aria-hidden />
         </div>
-        <Bug className="ml-auto hidden h-5 w-5 shrink-0 text-amber-500 sm:block" aria-hidden />
-      </div>
-
+      }
+    >
       <div className="space-y-4 p-4">
         <div>
           <Subhead Icon={Bug}>Allergy and Autoimmunity</Subhead>
@@ -187,6 +192,6 @@ export function QuickRevisionSheet() {
           <LymphoidOrgansTable />
         </div>
       </div>
-    </div>
+    </CollapsibleRevision>
   );
 }
