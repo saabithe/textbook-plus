@@ -3,7 +3,6 @@ import { KeyPoint } from "@/components/content/KeyPoint";
 import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { Highlight } from "@/components/content/Highlight";
-import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { Stepper } from "@/components/content/Stepper";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
 import { CycleDiagram } from "@/components/content/process/CycleDiagram";
@@ -34,6 +33,10 @@ import {
 } from "@/components/content/biology/CentralDogma";
 import { CentralDogmaDiagram } from "@/components/content/biology/CentralDogmaDiagram";
 import { DnaLengthFormula, DnaLengthSolvedExample } from "@/components/content/biology/DnaLength";
+import { DnaPackagingComparison } from "@/components/content/biology/DnaPackagingComparison";
+import { NucleosomeStructure } from "@/components/content/biology/NucleosomeStructure";
+import { HigherLevelPackaging } from "@/components/content/biology/HigherLevelPackaging";
+import { ChromatinTypes } from "@/components/content/biology/ChromatinTypes";
 import { InheritanceRevisionSheet } from "@/components/content/biology/InheritanceRevision";
 
 export default function MolecularBasisOfInheritanceChapter() {
@@ -108,46 +111,21 @@ export default function MolecularBasisOfInheritanceChapter() {
       <InheritanceRevisionSheet />
 
       <h3 id="h-5-1-2">5.1.2 Packaging of DNA Helix</h3>
-      <Callout type="note" title="Calculation of DNA Length">
-        <p>
-          <strong>Formula:</strong> <Formula>{String.raw`\text{Length of DNA} = \text{Total number of base pairs (bp)} \times \text{Distance between 2 bp}`}</Formula>
-        </p>
-        <p className="mt-2">
-          <strong>Human DNA (2n):</strong>
-        </p>
-        <FormulaBlock latex={String.raw`\text{Length} = 6.6 \times 10^{9}\,\text{bp} \times 0.34\,\text{nm}`} />
-        <FormulaBlock latex={String.raw`\text{Length} = 6.6 \times 10^{9} \times 0.34 \times 10^{-9}\,\text{m}`} />
-        <FormulaBlock latex={String.raw`\text{Length} = 2.2\,\text{meters}`} important />
-      </Callout>
-      <MetricCard label="DNA in a mammalian cell" value="2.2 metres" unit="6.6 × 10⁹ bp × 0.34 nm/bp" trend="up" description="Far larger than nucleus (~10⁻⁶ m). Must be packaged." />
-      <Expandable title="Do the calculation: E. coli DNA 1.36 mm → how many bp?">
-        <p>1.36 mm = 1.36 × 10⁻³ m. Divide by 0.34 × 10⁻⁹ m/bp → <strong>4 × 10⁶ bp</strong> (≈ 4.6 × 10⁶ bp with precise constants).</p>
-      </Expandable>
-      <ProcessCard
-        steps={[
-          { label: "1. Prokaryotes — Nucleoid", description: "Negatively charged DNA wrapped around positively charged proteins — held in large loops in region called nucleoid (no defined nucleus)." },
-          { label: "2. Eukaryotes — Histone octamer", description: "Positively charged basic proteins rich in Lysine (Lys) & Arginine (Arg) — Lys & Arg carry positive charges. Eight molecules form histone octamer." },
-          { label: "Nucleosome — H1 stabilised", description: "Negatively charged DNA wraps around histone octamer core, stabilised by H1 histone (Figure 5.4a). ~200 bp per nucleosome — repeating unit of chromatin." },
-          { label: "Beads-on-string → Chromatin fibre → Chromosome", description: "Nucleosomes give beads-on-string appearance under EM (Figure 5.4b). Further coiled with NHC proteins into chromatin fibres. Hierarchy: DNA → Nucleosome → Chromatin fibre → Chromosome (metaphase condensed)." },
-        ]}
-      />
-      <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
-        <img src="/images/biology/molecular-basis-of-inheritance/figure-5.4a-nucleosome.png" alt="A structural model of a nucleosome core showing a spherical octamer composed of 8 histone proteins wrapped by a double-stranded DNA thread, secured at the entry/exit point by an H1 histone protein unit." className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
-        <figcaption className="text-xs text-muted-foreground mt-3 text-center">Figure 5.4a — Nucleosome core: 8 histones wrapped by DNA, secured by H1</figcaption>
-      </figure>
-      <FormulaBlock latex={String.raw`\text{DNA} \rightarrow \text{Nucleosome} \rightarrow \text{Chromatin fibre} \rightarrow \text{Chromosome}`} />
-      <TableCard
-        caption="Types of Chromatin"
-        headers={["Feature", "Heterochromatin", "Euchromatin"]}
-        rows={[
-          { cells: ["Arrangement", "Densely arranged", "Loosely arranged"] },
-          { cells: ["Staining", "Stains darker", "Stains lighter"] },
-          { cells: ["Activity", "Transcriptionally inactive", "Transcriptionally active"] },
-        ]}
-      />
-      <Expandable title="How many nucleosomes in a mammalian cell?">
-        <p>Diploid DNA 6.6 × 10⁹ bp ÷ 200 bp/nucleosome ≈ <strong>3.3 × 10⁷ nucleosomes</strong>. Tightly coiled at metaphase into 46 chromosomes via NHC proteins.</p>
-      </Expandable>
+      <p className="my-4 text-sm leading-relaxed text-foreground">
+        DNA is a long molecule that must be compactly organised inside cells. Its packaging differs between prokaryotic and eukaryotic organisms.
+      </p>
+
+      <h4>1. DNA Packaging: Prokaryotes vs Eukaryotes</h4>
+      <DnaPackagingComparison />
+
+      <h4>2. Nucleosome and Histones</h4>
+      <NucleosomeStructure />
+
+      <h4>3. Higher-Level Packaging of DNA</h4>
+      <HigherLevelPackaging />
+
+      <h4>4. Euchromatin vs Heterochromatin</h4>
+      <ChromatinTypes />
 
       <h2 id="h-5-2">5.2 The Search for Genetic Material</h2>
       <ul className="list-disc pl-5 space-y-1 text-sm">

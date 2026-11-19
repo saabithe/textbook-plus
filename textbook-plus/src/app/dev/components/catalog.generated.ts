@@ -3664,6 +3664,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/ChromatinTypes.tsx#ChromatinTypes",
+    "name": "ChromatinTypes",
+    "path": "content/biology/ChromatinTypes.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/CocaineHallucinogens.tsx#CocaineProfile",
     "name": "CocaineProfile",
     "path": "content/biology/CocaineHallucinogens.tsx",
@@ -3955,6 +3964,15 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/DnaLength.tsx#DnaLengthSolvedExample",
     "name": "DnaLengthSolvedExample",
     "path": "content/biology/DnaLength.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/DnaPackagingComparison.tsx#DnaPackagingComparison",
+    "name": "DnaPackagingComparison",
+    "path": "content/biology/DnaPackagingComparison.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
@@ -4369,6 +4387,15 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/HelminthicDiseases.tsx#FilariasisCard",
     "name": "FilariasisCard",
     "path": "content/biology/HelminthicDiseases.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/HigherLevelPackaging.tsx#HigherLevelPackaging",
+    "name": "HigherLevelPackaging",
+    "path": "content/biology/HigherLevelPackaging.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
@@ -4891,6 +4918,15 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/NucleosideNucleotide.tsx#PhosphateAndNucleotide",
     "name": "PhosphateAndNucleotide",
     "path": "content/biology/NucleosideNucleotide.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/NucleosomeStructure.tsx#NucleosomeStructure",
+    "name": "NucleosomeStructure",
+    "path": "content/biology/NucleosomeStructure.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
