@@ -1,6 +1,5 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { Comparison } from "@/components/content/Comparison";
 import { Expandable } from "@/components/content/Expandable";
 import { Highlight } from "@/components/content/Highlight";
 import { ProcessCard } from "@/components/content/process/ProcessCard";
@@ -49,6 +48,14 @@ import { TaylorExperiment } from "@/components/content/biology/TaylorExperiment"
 import { ReplicationMachinery } from "@/components/content/biology/ReplicationMachinery";
 import { ReplicationFork } from "@/components/content/biology/ReplicationFork";
 import { CellCycleReplication } from "@/components/content/biology/CellCycleReplication";
+import { TranscriptionFundamentals } from "@/components/content/biology/TranscriptionFundamentals";
+import { TranscriptionUnit } from "@/components/content/biology/TranscriptionUnit";
+import { GeneOrganisation } from "@/components/content/biology/GeneOrganisation";
+import { ProkaryoticTranscription } from "@/components/content/biology/ProkaryoticTranscription";
+import { ProkaryoticTranscriptionDiagram } from "@/components/content/biology/ProkaryoticTranscriptionDiagram";
+import { EukaryoticTranscription } from "@/components/content/biology/EukaryoticTranscription";
+import { StructuralGeneOrganisation } from "@/components/content/biology/StructuralGeneOrganisation";
+import { TranscriptionReferenceDiagrams } from "@/components/content/biology/TranscriptionReferenceDiagrams";
 import { InheritanceRevisionSheet } from "@/components/content/biology/InheritanceRevision";
 
 export default function MolecularBasisOfInheritanceChapter() {
@@ -200,102 +207,28 @@ export default function MolecularBasisOfInheritanceChapter() {
       <CellCycleReplication />
 
       <h2 id="h-5-5">5.5 Transcription</h2>
-      <Callout type="important">
-        Copying genetic information from <Highlight color="yellow">one strand of DNA into RNA</Highlight>. Principle of complementarity — but A pairs with <strong>U</strong> (not T). Unlike replication (whole DNA duplicated), only <strong>one segment + one strand</strong> is copied.
-      </Callout>
-      <Expandable title="Why aren’t both strands copied?">
-        <ul>
-          <li>If both strands as templates → two different RNAs (complementary ≠ identical) → code for two different proteins from one segment → complicates information transfer.</li>
-          <li>Two complementary RNAs made simultaneously would form dsRNA → cannot be translated → transcription becomes futile.</li>
-        </ul>
-      </Expandable>
 
-      <h3 id="h-5-5-1">5.5.1 Transcription Unit</h3>
-      <p>A transcription unit in DNA is defined by three regions:</p>
-      <ConceptCard title="Transcription unit — three parts">
-        <ul className="list-disc pl-5 space-y-1.5">
-          <li><strong>Promoter:</strong> Towards 5&apos; end (upstream) of structural gene (w.r.t. coding strand). Binding site for RNA polymerase; defines template vs coding strands.</li>
-          <li><strong>Structural gene:</strong> Region transcribed.</li>
-          <li><strong>Terminator:</strong> Towards 3&apos; end (downstream) of coding strand; defines end of transcription.</li>
-        </ul>
-      </ConceptCard>
-      <figure className="my-4 rounded-xl border border-border/60 bg-card p-3">
-        <img src="/images/biology/molecular-basis-of-inheritance/transcription-unit.png" alt="Schematic structure of a transcription unit — promoter (upstream, 5' end), structural gene, terminator (downstream, 3' end)" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
-        <figcaption className="text-xs text-muted-foreground mt-2 text-center">Figure 5.9 Schematic structure of a transcription unit</figcaption>
-      </figure>
-      <Callout type="note" title="Template vs Coding strand — convention">
-        <p>Polymerase also works 5&apos;→3&apos;, so the strand with polarity <Highlight color="yellow">3&apos;→5&apos;</Highlight> acts as <strong>template strand</strong>. The other strand (5&apos;→3&apos;), same sequence as RNA (T instead of U), is <strong>coding strand</strong> (does not code, strange name) — displaced during transcription. Reference point is coding strand. Example:</p>
-        <p className="font-mono text-sm bg-muted p-2 rounded">3&apos;-ATGCATGCATGC-5&apos; Template<br />5&apos;-TACGTACGTACG-3&apos; Coding</p>
-        <p className="text-sm">RNA transcribed from above template? <strong>5&apos;-UACGUACGUACG-3&apos;</strong> (complement of template, same as coding except U).</p>
-        <p className="text-sm text-muted-foreground mt-2">Figure 5.9 schematic. Promoter↔terminator swap would reverse coding/template definitions. Additional regulatory sequences may lie further upstream/downstream — discussed in gene regulation.</p>
-      </Callout>
+      <h3 id="h-5-5-1">1. Definition and Fundamental Principle</h3>
+      <TranscriptionFundamentals />
 
-            <h3 id="h-5-5-2">5.5.2 Transcription Unit and the Gene</h3>
-      <Callout type="note">
-        <strong>Gene</strong> = functional unit of inheritance. Difficult to define strictly as DNA sequence.
-      </Callout>
-      <ul>
-        <li>tRNA/rRNA coding DNA also defines a <strong>gene</strong>.</li>
-        <li>Define <Highlight color="yellow">cistron</Highlight> as segment coding for polypeptide → structural gene can be <strong>monocistronic</strong> (mostly eukaryotes) or <strong>polycistronic</strong> (mostly bacteria/prokaryotes).</li>
-        <li>Eukaryotic monocistronic genes are <strong>split</strong>: coding <strong>exons</strong> (appear in mature RNA) interrupted by <strong>introns</strong> (intervening, removed). Split arrangement complicates gene definition.</li>
-        <li>Promoter/regulatory sequences affect inheritance but don’t code → loosely called <strong>regulatory genes</strong>.</li>
-      </ul>
+      <h3 id="h-5-5-2">2. Transcription Unit and Strand Nomenclature</h3>
+      <TranscriptionUnit />
 
-      <h3 id="h-5-5-3">5.5.3 Types of RNA and the process of Transcription</h3>
-      <TableCard
-        caption="Three major RNAs in bacteria"
-        headers={["RNA", "Role"]}
-        rows={[
-          { cells: ["mRNA (messenger)", "Provides template"] },
-          { cells: ["tRNA (transfer)", "Brings amino acids, reads code"] },
-          { cells: ["rRNA (ribosomal)", "Structural + catalytic during translation"] },
-        ]}
-      />
-      <ProcessCard
-        steps={[
-          { label: "Bacteria — single polymerase", description: "One DNA-dependent RNA polymerase transcribes all RNAs. Binds promoter → initiation (uses NTPs as substrate, opens helix, elongates; short RNA stays bound). At terminator, nascent RNA + polymerase fall off → termination (Figure 5.10)." },
-          { label: "σ and ρ factors", description: "Polymerase alone can only elongate. Associates transiently with initiation-factor σ and termination-factor ρ to alter specificity to initiate/terminate." },
-          { label: "Coupled in bacteria", description: "mRNA needs no processing and transcription/translation in same compartment → translation can begin before mRNA fully transcribed — coupled." },
-        ]}
-      />
-            <Comparison
-        columns={[{
-            title: "Bacteria",
-            children: (
-              <ul>
-                <li>One polymerase for all RNAs</li>
-                <li>σ/ρ factors</li>
-                <li>No processing; coupled transcription-translation</li>
-              </ul>
-            ),
-          },
-          {
-            title: "Eukaryotes — two complexities",
-            children: (
-              <ul>
-                <li>3 polymerases in nucleus + organellar ones</li>
-                <li>Primary transcripts have exons + introns → splicing + capping + tailing</li>
-              </ul>
-            ),
-          },
-        ]}
-      />
-      <FactCard
-        title="Eukaryotic polymerases — division of labour"
-        definition="Pol I → rRNAs (28S, 18S, 5.8S); Pol III → tRNA, 5S rRNA, snRNAs; Pol II → precursor mRNA (hnRNA)."
-        icon="🧬"
-      />
-      <ProcessCard
-        steps={[
-          { label: "Splicing", description: "Introns removed, exons joined in defined order." },
-          { label: "Capping", description: "Unusual nucleotide methyl guanosine triphosphate added to 5&apos; end of hnRNA." },
-          { label: "Tailing", description: "Adenylate residues (200–300) added at 3&apos; end template-independently (poly-A tail)." },
-          { label: "Export", description: "Fully processed hnRNA now called mRNA transported out of nucleus for translation (Figure 5.11)." },
-        ]}
-      />
-            <KeyPoint title="Why such complexity?">
-        Split genes probably ancient; introns reminiscent of antiquity; splicing represents dominance of <Highlight color="yellow">RNA world</Highlight>. RNA-dependent processes gaining importance.
-      </KeyPoint>
+      <h3 id="h-5-5-3">3. Gene Organisation</h3>
+      <GeneOrganisation />
+
+      <h3 id="h-5-5-4">4. Transcription in Prokaryotes</h3>
+      <ProkaryoticTranscription />
+      <ProkaryoticTranscriptionDiagram />
+
+      <h3 id="h-5-5-5">5. Transcription in Eukaryotes</h3>
+      <EukaryoticTranscription />
+
+      <h3 id="h-5-5-6">6. Structural Gene Organisation in Eukaryotes</h3>
+      <StructuralGeneOrganisation />
+
+      <h3 id="h-5-5-7">7. Reference Diagrams</h3>
+      <TranscriptionReferenceDiagrams />
 
       <h2 id="h-5-6">5.6 Genetic Code</h2>
       <p>

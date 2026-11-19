@@ -4141,6 +4141,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/EukaryoticTranscription.tsx#EukaryoticTranscription",
+    "name": "EukaryoticTranscription",
+    "path": "content/biology/EukaryoticTranscription.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/FinchBeaksDiagram.tsx#FinchBeaksDiagram",
     "name": "FinchBeaksDiagram",
     "path": "content/biology/FinchBeaksDiagram.tsx",
@@ -4234,6 +4243,15 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/GelElectrophoresis.tsx#StainingVisualisation",
     "name": "StainingVisualisation",
     "path": "content/biology/GelElectrophoresis.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/GeneOrganisation.tsx#GeneOrganisation",
+    "name": "GeneOrganisation",
+    "path": "content/biology/GeneOrganisation.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
@@ -5329,6 +5347,24 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/ProkaryoticTranscription.tsx#ProkaryoticTranscription",
+    "name": "ProkaryoticTranscription",
+    "path": "content/biology/ProkaryoticTranscription.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ProkaryoticTranscriptionDiagram.tsx#ProkaryoticTranscriptionDiagram",
+    "name": "ProkaryoticTranscriptionDiagram",
+    "path": "content/biology/ProkaryoticTranscriptionDiagram.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/ProtozoanDiseases.tsx#AmoebiasisCard",
     "name": "AmoebiasisCard",
     "path": "content/biology/ProtozoanDiseases.tsx",
@@ -5635,6 +5671,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/StructuralGeneOrganisation.tsx#StructuralGeneOrganisation",
+    "name": "StructuralGeneOrganisation",
+    "path": "content/biology/StructuralGeneOrganisation.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/TaylorExperiment.tsx#TaylorExperiment",
     "name": "TaylorExperiment",
     "path": "content/biology/TaylorExperiment.tsx",
@@ -5683,6 +5728,33 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/TobaccoSmoking.tsx#TobaccoSmokingSection",
     "name": "TobaccoSmokingSection",
     "path": "content/biology/TobaccoSmoking.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/TranscriptionFundamentals.tsx#TranscriptionFundamentals",
+    "name": "TranscriptionFundamentals",
+    "path": "content/biology/TranscriptionFundamentals.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/TranscriptionReferenceDiagrams.tsx#TranscriptionReferenceDiagrams",
+    "name": "TranscriptionReferenceDiagrams",
+    "path": "content/biology/TranscriptionReferenceDiagrams.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/TranscriptionUnit.tsx#TranscriptionUnit",
+    "name": "TranscriptionUnit",
+    "path": "content/biology/TranscriptionUnit.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
