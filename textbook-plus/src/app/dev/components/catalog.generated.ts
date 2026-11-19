@@ -3619,6 +3619,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/CellCycleReplication.tsx#CellCycleReplication",
+    "name": "CellCycleReplication",
+    "path": "content/biology/CellCycleReplication.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/CentralDogma.tsx#CentralDogmaPrinciple",
     "name": "CentralDogmaPrinciple",
     "path": "content/biology/CentralDogma.tsx",
@@ -4888,6 +4897,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/MeselsonStahlExperiment.tsx#MeselsonStahlExperiment",
+    "name": "MeselsonStahlExperiment",
+    "path": "content/biology/MeselsonStahlExperiment.tsx",
+    "category": "biology",
+    "props": "pattern: BandPattern; x: number; y: number;",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/Micropropagation.tsx#MicropropagationFlow",
     "name": "MicropropagationFlow",
     "path": "content/biology/Micropropagation.tsx",
@@ -5392,6 +5410,24 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/ReplicationFork.tsx#ReplicationFork",
+    "name": "ReplicationFork",
+    "path": "content/biology/ReplicationFork.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/ReplicationMachinery.tsx#ReplicationMachinery",
+    "name": "ReplicationMachinery",
+    "path": "content/biology/ReplicationMachinery.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/ResearchAreas.tsx#ResearchAreas",
     "name": "ResearchAreas",
     "path": "content/biology/ResearchAreas.tsx",
@@ -5554,6 +5590,24 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/biology/RnaWorld.tsx#RnaWorld",
+    "name": "RnaWorld",
+    "path": "content/biology/RnaWorld.tsx",
+    "category": "biology",
+    "props": "title: string; tone: StageTone; tags?: string[];",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/SemiconservativeReplication.tsx#SemiconservativeReplication",
+    "name": "SemiconservativeReplication",
+    "path": "content/biology/SemiconservativeReplication.tsx",
+    "category": "biology",
+    "props": "left: StrandKind; right: StrandKind; label: string;",
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/biology/SomaticHybridisation.tsx#PomatoCard",
     "name": "PomatoCard",
     "path": "content/biology/SomaticHybridisation.tsx",
@@ -5575,6 +5629,15 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/biology/SomaticHybridisation.tsx#SomaticHybridisationPrinciple",
     "name": "SomaticHybridisationPrinciple",
     "path": "content/biology/SomaticHybridisation.tsx",
+    "category": "biology",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/biology/TaylorExperiment.tsx#TaylorExperiment",
+    "name": "TaylorExperiment",
+    "path": "content/biology/TaylorExperiment.tsx",
     "category": "biology",
     "props": null,
     "shell": false,
