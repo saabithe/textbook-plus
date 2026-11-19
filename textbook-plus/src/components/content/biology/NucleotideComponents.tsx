@@ -50,8 +50,8 @@ function PartBox({ numeral, title, detail, tone }: NucleotidePart) {
       <div className="text-[8.5px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
         Component {numeral}
       </div>
-      <div className={`mt-1 text-[11px] font-bold tracking-tight ${titleTone}`}>{title}</div>
-      <div className="mt-0.5 text-[10.5px] leading-snug text-foreground">{detail}</div>
+      <div className={`mt-1 text-sm font-bold tracking-tight ${titleTone}`}>{title}</div>
+      <div className="mt-0.5 text-sm leading-relaxed text-foreground">{detail}</div>
     </div>
   );
 }
@@ -91,14 +91,14 @@ export function NucleotideComponents() {
   return (
     <div className="my-5 space-y-4">
       <div>
-        <p className="text-[10.5px] leading-snug text-foreground">A nucleotide consists of three components:</p>
+        <p className="text-sm leading-relaxed text-foreground">A nucleotide consists of three components:</p>
         <ol className="mt-2 space-y-1.5">
           {NUCLEOTIDE_PARTS.map((part) => (
             <li key={part.title} className="flex items-start gap-2">
               <span className="mt-px grid h-4 w-4 shrink-0 place-items-center rounded-full border border-emerald-600/40 bg-card text-[8.5px] font-bold text-emerald-900 dark:text-emerald-200">
                 {part.numeral}
               </span>
-              <span className="text-[10.5px] leading-snug text-foreground">
+              <span className="text-sm leading-relaxed text-foreground">
                 <strong>{part.title}</strong>
               </span>
             </li>
@@ -137,9 +137,9 @@ function CarbonCard({
 
   return (
     <div className={`rounded-xl border-2 p-3.5 ${palette}`}>
-      <div className={`text-[11px] font-bold tracking-tight ${titleTone}`}>{title}</div>
+      <div className={`text-sm font-bold tracking-tight ${titleTone}`}>{title}</div>
       <div className={`mt-2 text-2xl font-bold tracking-tight ${formulaTone}`}>{formula}</div>
-      <div className="mt-1 text-[10.5px] leading-snug text-foreground">{detail}</div>
+      <div className="mt-1 text-sm leading-relaxed text-foreground">{detail}</div>
     </div>
   );
 }
@@ -147,7 +147,7 @@ function CarbonCard({
 export function PentoseSugar() {
   return (
     <div className="my-5 space-y-4">
-      <p className="text-[10.5px] leading-snug text-foreground">
+      <p className="text-sm leading-relaxed text-foreground">
         <strong>Pentose sugars</strong> are five-carbon sugars present in nucleotides.
       </p>
 
@@ -186,14 +186,14 @@ export function PentoseSugar() {
         <div className="mt-2 space-y-1.5">
           <div className="flex items-start gap-2">
             <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-emerald-600/70" aria-hidden />
-            <span className="text-[10.5px] leading-snug text-foreground">
+            <span className="text-sm leading-relaxed text-foreground">
               <strong className="text-emerald-800 dark:text-emerald-200">Ribose:</strong> Contains an –OH group at the
               2′ carbon.
             </span>
           </div>
           <div className="flex items-start gap-2">
             <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-blue-600/70" aria-hidden />
-            <span className="text-[10.5px] leading-snug text-foreground">
+            <span className="text-sm leading-relaxed text-foreground">
               <strong className="text-blue-800 dark:text-blue-200">Deoxyribose:</strong> Has –H instead of –OH at the
               2′ carbon.
             </span>
@@ -211,11 +211,11 @@ export function PentoseSugar() {
 
       <figure className="my-6 rounded-xl border border-border/60 bg-card p-4">
         <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/The_difference_between_ribose_and_deoxyribose.png" alt="Ribose vs Deoxyribose — difference at 2' carbon: –OH vs –H" className="w-full h-auto rounded-lg object-contain max-h-[420px] mx-auto bg-white" loading="lazy" />
-        <figcaption className="mt-3 text-[10.5px] leading-snug text-muted-foreground">
+        <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">
           Chemical structures of ribose and deoxyribose, with carbons labelled C1′–C5′. The difference is highlighted at{" "}
           <Highlight color="orange">C2′</Highlight>.
         </figcaption>
-        <div className="mt-2 inline-flex items-center gap-1.5 rounded-md border border-amber-600/30 bg-amber-50/50 px-2 py-1 text-[9.5px] font-semibold text-amber-900 dark:bg-amber-950/20 dark:text-amber-200">
+        <div className="mt-2 inline-flex items-center gap-1.5 rounded-md border border-amber-600/30 bg-amber-50/50 px-2 py-1 text-xs font-semibold text-amber-900 dark:bg-amber-950/20 dark:text-amber-200">
           <ArrowUpRight className="h-3 w-3 shrink-0" aria-hidden />
           C2′ — the only difference: –OH in ribose, –H in deoxyribose
         </div>
@@ -226,7 +226,7 @@ export function PentoseSugar() {
           className="mt-0.5 h-4 w-4 shrink-0 text-amber-700 dark:text-amber-300"
           aria-hidden
         />
-        <p className="text-[10.5px] leading-snug text-foreground">
+        <p className="text-sm leading-relaxed text-foreground">
           <strong className="text-amber-900 dark:text-amber-200">Consequence:</strong> The additional 2′-OH group makes
           RNA <strong>chemically more reactive and easily degradable</strong>.
         </p>

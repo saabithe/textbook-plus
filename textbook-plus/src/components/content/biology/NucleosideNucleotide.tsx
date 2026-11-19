@@ -45,7 +45,7 @@ const CHIP_TONES: Record<ChipTone, string> = {
 function EquationChip({ children, tone }: { children: ReactNode; tone: ChipTone }) {
   return (
     <span
-      className={`whitespace-nowrap rounded-lg border px-2.5 py-1.5 text-[10.5px] font-bold leading-snug ${CHIP_TONES[tone]}`}
+      className={`whitespace-nowrap rounded-lg border px-2.5 py-1.5 text-sm font-bold leading-snug ${CHIP_TONES[tone]}`}
     >
       {children}
     </span>
@@ -96,20 +96,20 @@ function ThreeColumnTable({
               key={row[0]}
               className="grid grid-cols-[minmax(6rem,0.9fr)_minmax(0,1.25fr)_minmax(0,1fr)] border-b border-border last:border-b-0"
             >
-              <div className="px-2.5 py-1.5 text-[10.5px] font-semibold leading-snug text-foreground">
+              <div className="px-2.5 py-1.5 text-sm font-semibold leading-snug text-foreground">
                 <TableCell value={row[0]} />
               </div>
-              <div className="px-2.5 py-1.5 text-[10.5px] leading-snug text-foreground">
+              <div className="px-2.5 py-1.5 text-sm leading-relaxed text-foreground">
                 <TableCell value={row[1]} deoxy />
               </div>
-              <div className="px-2.5 py-1.5 text-[10.5px] leading-snug text-foreground/85">
+              <div className="px-2.5 py-1.5 text-sm leading-relaxed text-foreground/85">
                 <TableCell value={row[2]} />
               </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="border-t border-border bg-muted/20 px-2.5 py-1.5 text-[10.5px] leading-snug text-muted-foreground">
+      <div className="border-t border-border bg-muted/20 px-2.5 py-1.5 text-sm leading-relaxed text-muted-foreground">
         <strong className="text-emerald-800 dark:text-emerald-300">Naming pattern</strong> — DNA forms carry the
         deoxy- prefix; RNA forms do not.
       </div>
@@ -135,7 +135,7 @@ export function NucleosideFormation() {
       {/* Definition */}
       <div className="rounded-xl border-2 border-emerald-600/35 bg-emerald-50/35 p-4 dark:bg-emerald-950/20">
         <Eyebrow>Nucleoside</Eyebrow>
-        <p className="mt-1 text-[10.5px] leading-snug text-foreground">
+        <p className="mt-1 text-sm leading-relaxed text-foreground">
           <strong>Nucleoside = Pentose sugar + Nitrogenous base</strong>
         </p>
       </div>
@@ -147,7 +147,7 @@ export function NucleosideFormation() {
             className="mt-px h-3.5 w-3.5 shrink-0 text-emerald-700 dark:text-emerald-300"
             aria-hidden
           />
-          <span className="text-[10.5px] leading-snug text-foreground">
+          <span className="text-sm leading-relaxed text-foreground">
             <strong>Formation</strong> → Formed through an N-glycosidic bond.
           </span>
         </div>
@@ -156,7 +156,7 @@ export function NucleosideFormation() {
             className="mt-px h-3.5 w-3.5 shrink-0 text-emerald-700 dark:text-emerald-300"
             aria-hidden
           />
-          <span className="text-[10.5px] leading-snug text-foreground">
+          <span className="text-sm leading-relaxed text-foreground">
             <strong>Connection</strong> → Connects the C1′ carbon of the sugar to a nitrogen atom of the nitrogenous
             base.
           </span>
@@ -207,7 +207,7 @@ function StageBox({
     <div
       className={`shrink-0 rounded-lg border-2 px-3 py-2 text-center ${CHIP_TONES[tone]}`}
     >
-      <span className="whitespace-nowrap text-[10.5px] font-bold leading-snug">{title}</span>
+      <span className="whitespace-nowrap text-sm font-bold leading-snug">{title}</span>
     </div>
   );
 }
@@ -271,7 +271,7 @@ export function PhosphateAndNucleotide() {
               className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-blue-600/60"
               aria-hidden
             />
-            <span className="text-[10.5px] leading-snug text-foreground">
+            <span className="text-sm leading-relaxed text-foreground">
               <strong>Formula</strong>: H₃PO₄.
             </span>
           </li>
@@ -280,7 +280,7 @@ export function PhosphateAndNucleotide() {
               className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-blue-600/60"
               aria-hidden
             />
-            <span className="text-[10.5px] leading-snug text-foreground">
+            <span className="text-sm leading-relaxed text-foreground">
               Connected to the C5′ carbon of the pentose sugar through a{" "}
               <strong>phosphoester bond</strong>.
             </span>
@@ -292,7 +292,7 @@ export function PhosphateAndNucleotide() {
       <div>
         <div className="text-sm font-bold tracking-tight text-foreground">Formation of a Nucleotide</div>
         <div className="mt-2 rounded-lg border-2 border-indigo-600/35 bg-indigo-50/40 px-3 py-2 dark:bg-indigo-950/20">
-          <p className="text-[10.5px] leading-snug text-foreground">
+          <p className="text-sm leading-relaxed text-foreground">
             <strong>Nucleotide = Nucleoside + Phosphate</strong>
           </p>
         </div>

@@ -51,7 +51,7 @@ function CompositionCard({
           {eyebrow}
         </div>
       </div>
-      <p className="mt-2 text-[10.5px] leading-snug text-foreground">{body}</p>
+      <p className="mt-2 text-sm leading-relaxed text-foreground">{body}</p>
       <span className={`mt-2 block h-0.5 w-6 rounded-full bg-current opacity-50 ${iconClass}`} aria-hidden />
     </div>
   );
@@ -132,7 +132,7 @@ function UnitCard({
         <Icon className={`h-4 w-4 shrink-0 ${iconClass}`} aria-hidden />
         <span className="text-sm font-bold tracking-tight text-foreground">{title}</span>
       </div>
-      <p className="mt-1.5 text-[10.5px] leading-snug text-foreground/90">{detail}</p>
+      <p className="mt-1.5 text-sm leading-relaxed text-foreground/90">{detail}</p>
     </div>
   );
 }
@@ -167,7 +167,7 @@ function BenchmarkTable() {
           {row.map((cell, cellIndex) => (
             <div
               key={cellIndex}
-              className={`px-2.5 py-2 text-[10.5px] leading-snug ${
+              className={`px-2.5 py-2 text-sm leading-relaxed ${
                 cellIndex === 2
                   ? "font-bold text-teal-800 dark:text-teal-300"
                   : "text-foreground"
@@ -185,14 +185,14 @@ function BenchmarkTable() {
 function HaploidDiploidStrip() {
   return (
     <div className="flex flex-col items-stretch gap-2 rounded-lg border border-teal-600/30 bg-teal-50/40 p-2.5 dark:bg-teal-950/20 sm:flex-row sm:items-center sm:justify-center">
-      <div className="text-center text-[10.5px] font-semibold leading-snug text-foreground">
+      <div className="text-center text-sm font-semibold leading-snug text-foreground">
         Human haploid → <span className="text-teal-800 dark:text-teal-300">3.3 × 10⁹ bp</span>
       </div>
       <ArrowRight
         className="mx-auto h-4 w-4 shrink-0 rotate-90 text-teal-700 dark:text-teal-300 sm:rotate-0"
         aria-hidden
       />
-      <div className="text-center text-[10.5px] font-semibold leading-snug text-foreground">
+      <div className="text-center text-sm font-semibold leading-snug text-foreground">
         Human diploid → <span className="text-teal-800 dark:text-teal-300">6.6 × 10⁹ bp</span>
       </div>
     </div>
@@ -211,7 +211,7 @@ function LengthMeasurements() {
       </div>
 
       <div className="mt-2.5">
-        <p className="text-[10.5px] leading-snug text-foreground">DNA length is expressed using:</p>
+        <p className="text-sm leading-relaxed text-foreground">DNA length is expressed using:</p>
         <div className="mt-2 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
           <UnitCard Icon={Hash} title="Nucleotides" detail="Used for single-stranded DNA." tone="sky" />
           <UnitCard
@@ -227,7 +227,7 @@ function LengthMeasurements() {
             className="mt-0.5 h-4 w-4 shrink-0 text-amber-700 dark:text-amber-300"
             aria-hidden
           />
-          <p className="text-[10.5px] leading-snug text-amber-900 dark:text-amber-200">
+          <p className="text-sm leading-relaxed text-amber-900 dark:text-amber-200">
             <strong>Nucleotides and base pairs are not interchangeable.</strong>
           </p>
         </div>

@@ -97,7 +97,7 @@ function BaseClassCard({
 
       <div className="mt-2.5 flex items-center gap-2.5 rounded-lg border border-border bg-card px-2.5 py-2">
         <RingGlyph rings={rings} tone={tone} />
-        <span className={`text-[10.5px] font-semibold leading-snug ${structureClass}`}>{structure}</span>
+        <span className={`text-sm font-semibold leading-snug ${structureClass}`}>{structure}</span>
       </div>
 
       <div className="mt-2.5">
@@ -106,14 +106,14 @@ function BaseClassCard({
           {bases.map((base) => (
             <li key={base} className="flex items-start gap-2">
               <span className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${dotClass}`} aria-hidden />
-              <span className="text-[10.5px] leading-snug text-foreground">{base}</span>
+              <span className="text-sm leading-relaxed text-foreground">{base}</span>
             </li>
           ))}
         </ul>
       </div>
 
       <div className="mt-2.5 rounded-md border border-border bg-muted/25 px-2.5 py-1.5">
-        <p className="text-[10.5px] leading-snug text-foreground/85">
+        <p className="text-sm leading-relaxed text-foreground/85">
           <strong>Nitrogen positions:</strong> {nitrogenPositions}
         </p>
       </div>
@@ -165,7 +165,7 @@ function BaseCell({ name, tone }: { name: string; tone: CompositionTone }) {
   const t = CELL_TONES[tone];
   return (
     <div className={`flex items-center justify-between gap-2 rounded-md border px-2.5 py-1.5 ${t.row}`}>
-      <span className="text-[10.5px] font-semibold leading-snug text-foreground">{name}</span>
+      <span className="text-sm font-semibold leading-snug text-foreground">{name}</span>
       <span className={`shrink-0 rounded border px-1.5 py-px text-[8px] font-bold uppercase tracking-[0.06em] ${t.badge}`}>
         {t.label}
       </span>
@@ -193,7 +193,7 @@ function CompositionPanel({
     <div className="overflow-hidden rounded-xl border border-border bg-card">
       <div className={`flex items-center gap-2 border-b px-3 py-2 ${headerClass}`}>
         <Dna className={`h-3.5 w-3.5 shrink-0 ${headerText}`} aria-hidden />
-        <span className={`text-[11px] font-bold tracking-tight ${headerText}`}>{title}</span>
+        <span className={`text-sm font-bold tracking-tight ${headerText}`}>{title}</span>
       </div>
       <div className="space-y-1.5 p-2.5">
         {COMPOSITION_ROWS.map((row) => (
@@ -214,15 +214,15 @@ function Legend() {
       <span className="text-[8.5px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">Legend</span>
       <span className="flex items-center gap-1.5">
         <span className="h-2.5 w-2.5 shrink-0 rounded-sm border border-emerald-600/50 bg-emerald-500/70" aria-hidden />
-        <span className="text-[9.5px] leading-snug text-foreground">Shared — A, G, C</span>
+        <span className="text-xs leading-snug text-foreground">Shared — A, G, C</span>
       </span>
       <span className="flex items-center gap-1.5">
         <span className="h-2.5 w-2.5 shrink-0 rounded-sm border border-blue-600/50 bg-blue-500/70" aria-hidden />
-        <span className="text-[9.5px] leading-snug text-foreground">Thymine (T) — DNA</span>
+        <span className="text-xs leading-snug text-foreground">Thymine (T) — DNA</span>
       </span>
       <span className="flex items-center gap-1.5">
         <span className="h-2.5 w-2.5 shrink-0 rounded-sm border border-violet-600/50 bg-violet-500/70" aria-hidden />
-        <span className="text-[9.5px] leading-snug text-foreground">Uracil (U) — RNA</span>
+        <span className="text-xs leading-snug text-foreground">Uracil (U) — RNA</span>
       </span>
     </div>
   );
@@ -247,7 +247,7 @@ export function NitrogenousBases() {
   return (
     <div className="my-5 space-y-5">
       {/* Intro */}
-      <p className="text-[10.5px] leading-snug text-foreground">
+      <p className="text-sm leading-relaxed text-foreground">
         <strong>Nitrogenous bases</strong> are classified into two groups.
       </p>
 
@@ -299,7 +299,7 @@ export function NitrogenousBases() {
           {DISTINCTIONS.map((item, index) => (
             <li key={index} className="flex items-start gap-2">
               <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-sky-600/60" aria-hidden />
-              <span className="text-[10.5px] leading-snug text-foreground">{item}</span>
+              <span className="text-sm leading-relaxed text-foreground">{item}</span>
             </li>
           ))}
         </ul>

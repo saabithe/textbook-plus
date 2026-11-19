@@ -52,7 +52,7 @@ function FormationBlock() {
     <section className="rounded-xl border border-border bg-card p-3.5">
       <div className="text-sm font-bold tracking-tight text-foreground">Formation of a Dinucleotide</div>
 
-      <p className="mt-2 rounded-lg border border-amber-600/35 bg-amber-50/40 px-2.5 py-2 text-[10.5px] font-semibold leading-snug text-foreground dark:bg-amber-950/15">
+      <p className="mt-2 rounded-lg border border-amber-600/35 bg-amber-50/40 px-2.5 py-2 text-sm font-semibold leading-snug text-foreground dark:bg-amber-950/15">
         Two nucleotides join through a 3′–5′ phosphodiester linkage.
       </p>
 
@@ -60,14 +60,14 @@ function FormationBlock() {
         {DINUCLEOTIDE_FLOW.map((node, index) => (
           <div key={node.title} className="flex items-center gap-1.5">
             <div className={`max-w-[150px] rounded-md border px-2 py-1.5 text-center ${flowChipClass(node.tone)}`}>
-              <div className="flex items-center justify-center gap-1 text-[10.5px] font-bold leading-snug text-foreground">
+              <div className="flex items-center justify-center gap-1 text-sm font-bold leading-snug text-foreground">
                 {node.tone === "amber" && (
                   <Link2 className="h-3 w-3 shrink-0 text-amber-700 dark:text-amber-300" aria-hidden />
                 )}
                 {node.title}
               </div>
               {node.caption && (
-                <div className="mt-0.5 text-[9px] leading-snug text-muted-foreground">{node.caption}</div>
+                <div className="mt-0.5 text-xs leading-snug text-muted-foreground">{node.caption}</div>
               )}
             </div>
             {index < DINUCLEOTIDE_FLOW.length - 1 && (
@@ -92,13 +92,13 @@ function BackboneBlock() {
       <ul className="mt-2 space-y-1.5">
         <li className="flex items-start gap-2">
           <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-teal-600/60" aria-hidden />
-          <span className="text-[10.5px] leading-snug text-foreground">
+          <span className="text-sm leading-relaxed text-foreground">
             <strong>Repeated sugar and phosphate groups</strong> form the sugar-phosphate backbone.
           </span>
         </li>
         <li className="flex items-start gap-2">
           <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-teal-600/60" aria-hidden />
-          <span className="text-[10.5px] leading-snug text-foreground">
+          <span className="text-sm leading-relaxed text-foreground">
             <strong>Nitrogenous bases</strong> project from this backbone.
           </span>
         </li>
@@ -111,7 +111,7 @@ function BackboneBlock() {
           className="w-full h-auto rounded-lg object-contain max-h-[520px] mx-auto bg-white"
           loading="lazy"
         />
-        <figcaption className="mt-2 text-[10.5px] leading-snug text-muted-foreground">
+        <figcaption className="mt-2 text-sm leading-relaxed text-muted-foreground">
           Alternating sugar and phosphate groups form the backbone; nitrogenous bases project from the sugars, and
           adjacent nucleotides are joined by a 3′–5′ phosphodiester linkage.
         </figcaption>
@@ -268,17 +268,17 @@ function PolarityDiagram() {
           <div className="text-[8.5px] font-semibold uppercase tracking-[0.08em] text-blue-800 dark:text-blue-300">
             5′ end
           </div>
-          <div className="text-[10.5px] font-semibold leading-snug text-foreground">Free phosphate (P)</div>
+          <div className="text-sm font-semibold leading-snug text-foreground">Free phosphate (P)</div>
         </div>
         <div className="rounded-md border border-rose-600/25 bg-rose-50/40 px-2 py-1.5 text-right dark:bg-rose-950/20">
           <div className="text-[8.5px] font-semibold uppercase tracking-[0.08em] text-rose-800 dark:text-rose-300">
             3′ end
           </div>
-          <div className="text-[10.5px] font-semibold leading-snug text-foreground">Free hydroxyl (OH)</div>
+          <div className="text-sm font-semibold leading-snug text-foreground">Free hydroxyl (OH)</div>
         </div>
       </div>
 
-      <div className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[9px] leading-snug text-muted-foreground">
+      <div className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs leading-snug text-muted-foreground">
         <span className="flex items-center gap-1">
           <span className="h-2 w-2 rounded-full bg-teal-500" aria-hidden /> Sugar-phosphate backbone
         </span>
@@ -301,7 +301,7 @@ function PolarityBlock() {
     <section className="rounded-xl border border-border bg-card p-3.5">
       <div className="text-sm font-bold tracking-tight text-foreground">Chain Polarity</div>
 
-      <p className="mt-2 text-[10.5px] leading-snug text-foreground">
+      <p className="mt-2 text-sm leading-relaxed text-foreground">
         <strong>A polynucleotide chain</strong> has two distinct ends:
       </p>
 
@@ -312,8 +312,8 @@ function PolarityBlock() {
         </div>
         {CHAIN_ENDS.map(([end, characteristic]) => (
           <div key={end} className="grid grid-cols-2 border-b border-border last:border-b-0">
-            <div className="px-2.5 py-1.5 text-[10.5px] font-semibold leading-snug text-foreground">{end}</div>
-            <div className="px-2.5 py-1.5 text-[10.5px] leading-snug text-foreground/85">{characteristic}</div>
+            <div className="px-2.5 py-1.5 text-sm font-semibold leading-snug text-foreground">{end}</div>
+            <div className="px-2.5 py-1.5 text-sm leading-relaxed text-foreground/85">{characteristic}</div>
           </div>
         ))}
       </div>

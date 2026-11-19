@@ -23,7 +23,7 @@ import {
 
 const EYEBROW =
   "text-[8.5px] font-semibold uppercase tracking-[0.08em] text-muted-foreground";
-const BODY = "text-[10.5px] leading-snug text-foreground";
+const BODY = "text-sm leading-relaxed text-foreground";
 
 type BranchTone = "blue" | "emerald";
 
@@ -111,7 +111,7 @@ function BranchChain({ branch }: { branch: BranchData }) {
       <ChainArrow tone={branch.tone} />
 
       <div className={`rounded-md border px-2 py-1.5 text-center ${style.node}`}>
-        <span className={`text-[10.5px] font-bold leading-snug ${style.code}`}>
+        <span className={`text-sm font-bold leading-snug ${style.code}`}>
           {branch.role}
         </span>
       </div>
@@ -206,10 +206,10 @@ function RolesTable() {
       </div>
       {RNA_ROLES.map(([role, type]) => (
         <div key={role} className="grid grid-cols-2 border-b border-border last:border-b-0">
-          <div className="px-2.5 py-1.5 text-[10.5px] font-semibold leading-snug text-foreground">
+          <div className="px-2.5 py-1.5 text-sm font-semibold leading-snug text-foreground">
             {role}
           </div>
-          <div className="px-2.5 py-1.5 text-[10.5px] leading-snug text-foreground/85">
+          <div className="px-2.5 py-1.5 text-sm leading-relaxed text-foreground/85">
             {type}
           </div>
         </div>
