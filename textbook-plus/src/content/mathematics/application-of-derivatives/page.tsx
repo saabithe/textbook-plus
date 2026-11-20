@@ -17,6 +17,13 @@ import {
   CircularWaveDiagram,
   CubeEdgeDiagram,
 } from "@/components/content/mathematics/RateDiagrams";
+import {
+  RectangleRateDiagram,
+  BalloonInflationDiagram,
+  SphereRadiusDiagram,
+  SphereDiameterDiagram,
+  LadderDiagram,
+} from "@/components/content/mathematics/RateDiagramsPart2";
 
 /** One labelled stage inside a worked solution. */
 function SolutionStep({ label, children }: { label: string; children: React.ReactNode }) {
@@ -587,6 +594,562 @@ export default function ApplicationOfDerivativesChapter() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* ── Part 2: Solved Problems & Exercises ───────────────────────────── */}
+      <div className="mt-10 border-t border-border pt-8">
+        <div className="my-6 rounded-lg border border-border bg-muted/40 px-5 py-5 sm:px-6">
+          <span className="t-micro">
+            Chapter 6 · Mathematics · Continued from the formula reference
+          </span>
+          <p className="mt-2 text-lg font-semibold tracking-tight text-foreground">
+            Solved Problems &amp; Exercises — Part 2
+          </p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Related rates applied to familiar shapes.
+          </p>
+          <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-2 border-t border-border pt-4">
+            {["Related Rates", "Rectangles", "Spheres", "Ladder Problem"].map((topic, i) => (
+              <span key={topic} className="flex items-center gap-2">
+                <span className="rounded-full border border-border bg-card px-2.5 py-1 text-xs font-medium text-foreground/80">
+                  {topic}
+                </span>
+                {i < 3 && (
+                  <span className="text-muted-foreground" aria-hidden>
+                    →
+                  </span>
+                )}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <h3 id="h-6-2-p2-1">1. Rate of Change of Rectangle — Perimeter and Area</h3>
+
+        <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+          <div className="border-b border-border px-4 py-3 sm:px-5">
+            <span className="t-micro">Question 1 — Rectangle · Perimeter and Area</span>
+          </div>
+          <div className="px-4 py-4 sm:px-5">
+            <p>
+              The length <Formula>x</Formula> of a rectangle is decreasing at{" "}
+              <Formula>{String.raw`5\ \text{cm/min}`}</Formula> and the width{" "}
+              <Formula>y</Formula> is increasing at{" "}
+              <Formula>{String.raw`4\ \text{cm/min}`}</Formula>. When{" "}
+              <Formula>{String.raw`x=8\ \text{cm}`}</Formula> and{" "}
+              <Formula>{String.raw`y=6\ \text{cm}`}</Formula>, find the rates of change of the
+              perimeter and the area.
+            </p>
+            <div className="mt-4 grid gap-5 sm:grid-cols-[minmax(0,190px)_minmax(0,1fr)]">
+              <div className="flex flex-col items-center gap-2">
+                <RectangleRateDiagram />
+                <span className="t-micro text-center">Length falls · width rises</span>
+              </div>
+              <div className="rounded-md border border-border bg-muted/40 p-3 [&>div]:my-0">
+                <span className="t-micro mb-2 block">Given</span>
+                <FormulaBlock latex={String.raw`\frac{dx}{dt}=-5\ \text{cm/min}`} />
+                <FormulaBlock latex={String.raw`\frac{dy}{dt}=4\ \text{cm/min}`} />
+                <span className="t-micro mb-2 mt-3 block">At the given instant</span>
+                <FormulaBlock latex={String.raw`x=8\ \text{cm},\qquad y=6\ \text{cm}`} />
+                <span className="t-micro mb-2 mt-3 block">Required</span>
+                <div className="space-y-1.5">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-xs text-muted-foreground">(a)</span>
+                    <Formula>{String.raw`\frac{dP}{dt}`}</Formula>
+                  </div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-xs text-muted-foreground">(b)</span>
+                    <Formula>{String.raw`\frac{dA}{dt}`}</Formula>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <Callout type="note" title="Sign convention">
+          <div className="grid gap-2 sm:grid-cols-2">
+            <p>
+              <strong>Increasing quantity →</strong> positive rate, written with a + sign.
+            </p>
+            <p>
+              <strong>Decreasing quantity →</strong> negative rate, written with a − sign.
+            </p>
+          </div>
+        </Callout>
+
+        <Expandable
+          title="Show solution — perimeter and area"
+          variant="example"
+          subjectColor="var(--subject-mathematics)"
+        >
+          <div className="grid gap-5 lg:grid-cols-2">
+            <div className="rounded-md border border-border p-3 [&>div]:my-0">
+              <span className="t-micro mb-3 block">(a) Rate of change of perimeter</span>
+              <FormulaBlock latex={String.raw`P=2(x+y)`} />
+              <FormulaBlock latex={String.raw`\frac{dP}{dt}=2\frac{d(x+y)}{dt}`} />
+              <FormulaBlock latex={String.raw`=2\left(\frac{dx}{dt}+\frac{dy}{dt}\right)`} />
+              <FormulaBlock latex={String.raw`=2(-5+4)`} />
+              <FormulaBlock latex={String.raw`=2(-1)`} />
+              <FormulaBlock latex={String.raw`\boxed{\frac{dP}{dt}=-2\ \text{cm/min}}`} important />
+              <p className="mt-2 text-sm text-muted-foreground">
+                The perimeter is <Highlight color="yellow">decreasing at 2 cm/min</Highlight>.
+              </p>
+            </div>
+            <div className="rounded-md border border-border p-3 [&>div]:my-0">
+              <span className="t-micro mb-3 block">(b) Rate of change of area</span>
+              <FormulaBlock latex={String.raw`A=xy`} />
+              <div className="rounded-md border border-border bg-muted px-3 py-2 [&>div]:my-0">
+                <span className="t-micro mb-1 block">
+                  <Highlight color="yellow">Product rule</Highlight>
+                </span>
+                <FormulaBlock latex={String.raw`(uv)'=uv'+vu'`} />
+              </div>
+              <FormulaBlock latex={String.raw`\frac{dA}{dt}=x\frac{dy}{dt}+y\frac{dx}{dt}`} />
+              <FormulaBlock latex={String.raw`=x(4)+y(-5)`} />
+              <FormulaBlock latex={String.raw`=4x-5y`} />
+              <FormulaBlock latex={String.raw`=4(8)-5(6)`} />
+              <FormulaBlock latex={String.raw`=32-30`} />
+              <FormulaBlock latex={String.raw`\boxed{\frac{dA}{dt}=2\ \text{cm}^2/\text{min}}`} important />
+              <p className="mt-2 text-sm text-muted-foreground">
+                The area is <Highlight color="yellow">increasing at 2 cm²/min</Highlight>.
+              </p>
+            </div>
+          </div>
+        </Expandable>
+
+        <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+          <div className="border-b border-border px-4 py-3 sm:px-5">
+            <span className="t-micro">Question 2 — Practice · Rectangle (Work)</span>
+          </div>
+          <div className="px-4 py-4 sm:px-5">
+            <p>
+              The length <Formula>x</Formula> of a rectangle is decreasing at{" "}
+              <Formula>{String.raw`3\ \text{cm/min}`}</Formula> and the width{" "}
+              <Formula>y</Formula> is increasing at{" "}
+              <Formula>{String.raw`2\ \text{cm/min}`}</Formula>. When{" "}
+              <Formula>{String.raw`x=10\ \text{cm}`}</Formula> and{" "}
+              <Formula>{String.raw`y=6\ \text{cm}`}</Formula>, find the rates of change of the
+              perimeter and the area.
+            </p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-md border border-border p-3 [&>div]:my-0">
+                <span className="t-micro mb-2 block">Given</span>
+                <FormulaBlock latex={String.raw`\frac{dx}{dt}=-3\ \text{cm/min}`} />
+                <FormulaBlock latex={String.raw`\frac{dy}{dt}=2\ \text{cm/min}`} />
+                <FormulaBlock latex={String.raw`x=10\ \text{cm},\qquad y=6\ \text{cm}`} />
+              </div>
+              <div className="rounded-md border border-border p-3">
+                <span className="t-micro mb-2 block">Two answer slots</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-xs text-muted-foreground">(a)</span>
+                  <Formula>{String.raw`\frac{dP}{dt}=?`}</Formula>
+                </div>
+                <div className="mt-2 flex items-baseline gap-2">
+                  <span className="text-xs text-muted-foreground">(b)</span>
+                  <Formula>{String.raw`\frac{dA}{dt}=?`}</Formula>
+                </div>
+              </div>
+            </div>
+            <Expandable
+              title="Show answers"
+              variant="example"
+              subjectColor="var(--subject-mathematics)"
+            >
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="rounded-md border-l-[3px] border-ok bg-muted p-3 [&>div]:my-0">
+                  <span className="t-micro mb-2 block">Answer (a)</span>
+                  <FormulaBlock latex={String.raw`\boxed{\frac{dP}{dt}=-2\ \text{cm/min}}`} important />
+                </div>
+                <div className="rounded-md border-l-[3px] border-ok bg-muted p-3 [&>div]:my-0">
+                  <span className="t-micro mb-2 block">Answer (b)</span>
+                  <FormulaBlock latex={String.raw`\boxed{\frac{dA}{dt}=2\ \text{cm}^2/\text{min}}`} important />
+                </div>
+              </div>
+            </Expandable>
+          </div>
+        </div>
+
+        <h3 id="h-6-2-p2-2">2. Rate of Change of a Sphere — Volume and Radius</h3>
+
+        <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+          <div className="border-b border-border px-4 py-3 sm:px-5">
+            <span className="t-micro">Question 3 — Inflating Balloon</span>
+          </div>
+          <div className="px-4 py-4 sm:px-5">
+            <p>
+              A balloon, which always remains spherical on inflation, is being inflated by pumping
+              in <Formula>{String.raw`900\ \text{cm}^3`}</Formula> of gas per second. Find the rate
+              at which the radius increases when the radius is{" "}
+              <Formula>{String.raw`15\ \text{cm}`}</Formula>.
+            </p>
+            <div className="mt-4 grid gap-5 sm:grid-cols-[minmax(0,170px)_minmax(0,1fr)]">
+              <div className="flex flex-col items-center gap-2">
+                <BalloonInflationDiagram />
+                <span className="t-micro text-center">Gas pumped inward</span>
+              </div>
+              <div className="rounded-md border border-border bg-muted/40 p-3 [&>div]:my-0">
+                <span className="t-micro mb-2 block">Given</span>
+                <FormulaBlock latex={String.raw`V=\frac43\pi r^3`} />
+                <FormulaBlock latex={String.raw`\frac{dV}{dt}=900\ \text{cm}^3/\text{s}`} />
+                <FormulaBlock latex={String.raw`r=15\ \text{cm}`} />
+                <span className="t-micro mb-2 mt-3 block">Required</span>
+                <FormulaBlock latex={String.raw`\frac{dr}{dt}=?`} />
+              </div>
+            </div>
+            <Expandable
+              title="Show solution"
+              variant="example"
+              subjectColor="var(--subject-mathematics)"
+            >
+              <EquationLadder
+                title="Differentiate the volume"
+                steps={[
+                  {
+                    label: "Differentiate with respect to time",
+                    equation: String.raw`\frac{d}{dt}\left(\frac43\pi r^3\right)=900`,
+                  },
+                  {
+                    label: "Apply the chain rule",
+                    equation: String.raw`\frac43\pi(3r^2)\frac{dr}{dt}=900`,
+                  },
+                  {
+                    label: "Simplify",
+                    equation: String.raw`4\pi r^2\frac{dr}{dt}=900`,
+                    final: true,
+                  },
+                ]}
+              />
+              <div className="[&>aside]:my-0">
+                <KeyPoint title="Intermediate relationship">
+                  <FormulaBlock
+                    latex={String.raw`\boxed{\frac{dV}{dt}=4\pi r^2\frac{dr}{dt}}`}
+                    important
+                  />
+                </KeyPoint>
+              </div>
+              <EquationLadder
+                title="Substitute r = 15"
+                steps={[
+                  {
+                    label: "Rearrange for dr/dt",
+                    equation: String.raw`\frac{dr}{dt}=\frac{900}{4\pi r^2}`,
+                  },
+                  {
+                    label: "Put in the radius",
+                    equation: String.raw`=\frac{900}{4\pi(15)^2}`,
+                  },
+                  {
+                    label: "Simplify",
+                    equation: String.raw`=\frac{900}{900\pi}`,
+                  },
+                  {
+                    label: "Final answer",
+                    equation: String.raw`\boxed{\frac{dr}{dt}=\frac1\pi\ \text{cm/s}}`,
+                    final: true,
+                  },
+                ]}
+              />
+            </Expandable>
+          </div>
+        </div>
+
+        <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+          <div className="border-b border-border px-4 py-3 sm:px-5">
+            <span className="t-micro">Question 4 — Sphere Volume w.r.t. Radius</span>
+          </div>
+          <div className="px-4 py-4 sm:px-5">
+            <p>
+              A balloon, which always remains spherical, has a variable radius. Find the rate at
+              which its volume is increasing with the radius when the radius is{" "}
+              <Formula>{String.raw`10\ \text{cm}`}</Formula>.
+            </p>
+            <div className="mt-4 grid gap-5 sm:grid-cols-[minmax(0,150px)_minmax(0,1fr)]">
+              <div className="flex flex-col items-center gap-2">
+                <SphereRadiusDiagram radiusLabel="r = 10 cm" />
+                <span className="t-micro text-center">Variable radius</span>
+              </div>
+              <div className="rounded-md border border-border bg-muted/40 p-3 [&>div]:my-0">
+                <span className="t-micro mb-2 block">Given</span>
+                <FormulaBlock latex={String.raw`V=\frac43\pi r^3`} />
+                <FormulaBlock latex={String.raw`r=10\ \text{cm}`} />
+                <span className="t-micro mb-2 mt-3 block">Required</span>
+                <FormulaBlock latex={String.raw`\left.\frac{dV}{dr}\right|_{r=10}=?`} />
+              </div>
+            </div>
+            <Callout
+              type="important"
+              title="Radius or time?"
+              subjectColor="var(--subject-mathematics)"
+            >
+              <div className="grid gap-2 sm:grid-cols-2">
+                <p>
+                  <strong>With respect to time:</strong> the radius itself changes, so the chain
+                  rule supplies <Formula>{String.raw`\frac{dr}{dt}`}</Formula>.
+                </p>
+                <p>
+                  <strong>With respect to radius:</strong> the radius is the variable, so no extra
+                  factor appears.
+                </p>
+              </div>
+            </Callout>
+            <Expandable
+              title="Show solution"
+              variant="example"
+              subjectColor="var(--subject-mathematics)"
+            >
+              <SolutionStep label="Differentiate with respect to r">
+                <FormulaBlock latex={String.raw`\frac{dV}{dr}=\frac{d}{dr}\left(\frac43\pi r^3\right)`} />
+                <FormulaBlock latex={String.raw`=\frac43\pi(3r^2)`} />
+                <FormulaBlock latex={String.raw`\boxed{\frac{dV}{dr}=4\pi r^2}`} important />
+              </SolutionStep>
+              <SolutionStep label="Substitute r = 10">
+                <FormulaBlock latex={String.raw`=4\pi(10)^2`} />
+                <FormulaBlock
+                  latex={String.raw`\boxed{\left.\frac{dV}{dr}\right|_{r=10}=400\pi\ \text{cm}^2}`}
+                  important
+                />
+                <p className="text-center text-sm text-muted-foreground">
+                  <Formula>
+                    {String.raw`400\pi\ \text{cm}^3/\text{cm}=400\pi\ \text{cm}^2`}
+                  </Formula>
+                </p>
+              </SolutionStep>
+            </Expandable>
+          </div>
+        </div>
+
+        <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+          <div className="border-b border-border px-4 py-3 sm:px-5">
+            <span className="t-micro">Question 5 — Sphere with Variable Diameter</span>
+          </div>
+          <div className="px-4 py-4 sm:px-5">
+            <div className="grid gap-5 sm:grid-cols-[minmax(0,150px)_minmax(0,1fr)]">
+              <div className="flex flex-col items-center gap-2">
+                <SphereDiameterDiagram />
+                <span className="t-micro text-center">Diameter d</span>
+              </div>
+              <div>
+                <p>
+                  A balloon, which always remains spherical, has a variable diameter{" "}
+                  <Formula>{String.raw`d=\frac32(2x+1)`}</Formula>. Find the rate of change of its
+                  volume with respect to <Formula>x</Formula>.
+                </p>
+                <div className="mt-4 grid gap-2 sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)] sm:items-center">
+                  <div className="rounded-md border border-border p-3 [&>div]:my-0">
+                    <span className="t-micro mb-1 block">Diameter</span>
+                    <FormulaBlock latex={String.raw`d=\frac32(2x+1)`} />
+                  </div>
+                  <span className="text-center text-muted-foreground" aria-hidden>
+                    →
+                  </span>
+                  <div className="rounded-md border border-border p-3 [&>div]:my-0">
+                    <span className="t-micro mb-1 block">Radius</span>
+                    <FormulaBlock latex={String.raw`r=\frac d2`} />
+                    <FormulaBlock latex={String.raw`\boxed{r=\frac34(2x+1)}`} />
+                  </div>
+                  <span className="text-center text-muted-foreground" aria-hidden>
+                    →
+                  </span>
+                  <div className="rounded-md border border-border p-3 [&>div]:my-0">
+                    <span className="t-micro mb-1 block">Volume</span>
+                    <FormulaBlock latex={String.raw`V=\frac43\pi r^3`} />
+                  </div>
+                </div>
+                <div className="mt-3 flex items-baseline gap-2">
+                  <span className="t-micro">Required</span>
+                  <Formula>{String.raw`\frac{dV}{dx}=?`}</Formula>
+                </div>
+              </div>
+            </div>
+            <Expandable
+              title="Show solution"
+              variant="example"
+              subjectColor="var(--subject-mathematics)"
+            >
+              <Stepper
+                steps={[
+                  {
+                    label: "Convert diameter into radius",
+                    description: (
+                      <div className="[&>div]:my-0">
+                        <FormulaBlock latex={String.raw`r=\frac12\times\frac32(2x+1)`} />
+                        <FormulaBlock latex={String.raw`\boxed{r=\frac34(2x+1)}`} important />
+                      </div>
+                    ),
+                  },
+                  {
+                    label: "Substitute into the volume formula",
+                    description: (
+                      <div className="[&>div]:my-0">
+                        <FormulaBlock latex={String.raw`V=\frac43\pi\left[\frac34(2x+1)\right]^3`} />
+                        <FormulaBlock latex={String.raw`=\frac43\pi\times\frac{27}{64}(2x+1)^3`} />
+                      </div>
+                    ),
+                  },
+                  {
+                    label: "Differentiate using the chain rule",
+                    description: (
+                      <div className="[&>div]:my-0">
+                        <FormulaBlock
+                          latex={String.raw`\frac{dV}{dx}=\frac43\pi\times\frac{27}{64}\frac{d}{dx}(2x+1)^3`}
+                        />
+                        <FormulaBlock
+                          latex={String.raw`=\frac43\pi\times\frac{27}{64}\times3(2x+1)^2\times2`}
+                        />
+                        <span className="t-micro mb-1 mt-3 block">
+                          <Highlight color="yellow">Final expression</Highlight>
+                        </span>
+                        <FormulaBlock
+                          latex={String.raw`\boxed{\frac{dV}{dx}=\frac{27\pi}{8}(2x+1)^2}`}
+                          important
+                        />
+                      </div>
+                    ),
+                  },
+                ]}
+              />
+            </Expandable>
+          </div>
+        </div>
+
+        <h3 id="h-6-2-p2-3">3. Related Rates — Pythagorean Theorem</h3>
+
+        <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+          <div className="border-b border-border px-4 py-3 sm:px-5">
+            <span className="t-micro">Question 6 — Sliding Ladder Problem</span>
+          </div>
+          <div className="px-4 py-4 sm:px-5">
+            <p>
+              A ladder <Formula>{String.raw`5\ \text{m}`}</Formula> long leans against a wall, and
+              its bottom is pulled along the ground away from the wall at{" "}
+              <Formula>{String.raw`2\ \text{cm/s}`}</Formula>. How fast is its height on the wall
+              decreasing when the foot is <Formula>{String.raw`4\ \text{m}`}</Formula> away from the
+              wall?
+            </p>
+            <div className="mt-4 grid gap-5 lg:grid-cols-[minmax(0,260px)_minmax(0,1fr)]">
+              <div className="flex flex-col items-center gap-2">
+                <LadderDiagram />
+                <span className="t-micro text-center">The ladder forms a right triangle</span>
+              </div>
+              <div className="rounded-md border border-border bg-muted/40 p-3 [&>div]:my-0">
+                <span className="t-micro mb-2 block">Given</span>
+                <FormulaBlock latex={String.raw`\text{Ladder length}=5\ \text{m}`} />
+                <FormulaBlock latex={String.raw`\frac{dx}{dt}=2\ \text{cm/s}`} />
+                <span className="t-micro mb-2 mt-3 block">Convert into metres</span>
+                <FormulaBlock latex={String.raw`\frac{dx}{dt}=\frac{2}{100}\ \text{m/s}`} />
+                <FormulaBlock latex={String.raw`x=4\ \text{m}`} />
+                <span className="t-micro mb-2 mt-3 block">Required</span>
+                <FormulaBlock latex={String.raw`\frac{dy}{dt}=?`} />
+              </div>
+            </div>
+            <Expandable
+              title="Show solution"
+              variant="example"
+              subjectColor="var(--subject-mathematics)"
+            >
+              <Stepper
+                steps={[
+                  {
+                    label: "Step 1 — Find the height",
+                    description: (
+                      <div className="[&>div]:my-0">
+                        <FormulaBlock
+                          latex={String.raw`\text{Hypotenuse}^2=\text{Base}^2+\text{Altitude}^2`}
+                        />
+                        <FormulaBlock latex={String.raw`5^2=x^2+y^2`} />
+                        <FormulaBlock latex={String.raw`25=4^2+y^2`} />
+                        <FormulaBlock latex={String.raw`25-16=y^2`} />
+                        <FormulaBlock latex={String.raw`y^2=9`} />
+                        <FormulaBlock latex={String.raw`\boxed{y=3\ \text{m}}`} important />
+                      </div>
+                    ),
+                  },
+                  {
+                    label: "Step 2 — Differentiate the relationship",
+                    description: (
+                      <div className="[&>div]:my-0">
+                        <FormulaBlock latex={String.raw`x^2+y^2=5^2`} />
+                        <FormulaBlock latex={String.raw`\frac{d}{dt}(x^2+y^2)=0`} />
+                        <FormulaBlock latex={String.raw`2x\frac{dx}{dt}+2y\frac{dy}{dt}=0`} />
+                      </div>
+                    ),
+                  },
+                  {
+                    label: "Step 3 — Substitute the given values",
+                    description: (
+                      <div className="[&>div]:my-0">
+                        <FormulaBlock latex={String.raw`2(4)\left(\frac{2}{100}\right)+2(3)\frac{dy}{dt}=0`} />
+                        <FormulaBlock latex={String.raw`\frac{16}{100}+6\frac{dy}{dt}=0`} />
+                        <FormulaBlock latex={String.raw`6\frac{dy}{dt}=-\frac{16}{100}`} />
+                        <FormulaBlock latex={String.raw`\frac{dy}{dt}=-\frac{16}{600}`} />
+                        <FormulaBlock latex={String.raw`=-\frac{16}{600}\times100`} />
+                        <FormulaBlock
+                          latex={String.raw`\boxed{\frac{dy}{dt}=-\frac83\ \text{cm/s}}`}
+                          important
+                        />
+                      </div>
+                    ),
+                  },
+                ]}
+              />
+              <div className="rounded-md border-l-[3px] border-l-warning bg-muted px-4 py-4 [&>p]:mb-0">
+                <span className="t-micro">Interpretation</span>
+                <p className="mt-1 text-2xl font-bold tracking-tight text-foreground">2.67 cm/s</p>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/80">
+                  The height of the ladder on the wall is decreasing at this rate. The{" "}
+                  <Highlight color="yellow">negative sign indicates a decreasing height</Highlight>.
+                </p>
+              </div>
+            </Expandable>
+          </div>
+        </div>
+
+        <h3 id="h-6-2-p2-4">4. Formula &amp; Concept Reference</h3>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <FormulaCard label="Rectangle" subjectColor="var(--subject-mathematics)">
+            <FormulaBlock latex={String.raw`A=xy,\qquad P=2(x+y)`} />
+            <FormulaBlock latex={String.raw`\frac{dA}{dt}=x\frac{dy}{dt}+y\frac{dx}{dt}`} />
+            <FormulaBlock latex={String.raw`\frac{dP}{dt}=2\left(\frac{dx}{dt}+\frac{dy}{dt}\right)`} />
+          </FormulaCard>
+          <FormulaCard label="Sphere" subjectColor="var(--subject-mathematics)">
+            <FormulaBlock latex={String.raw`V=\frac43\pi r^3`} />
+            <FormulaBlock latex={String.raw`\frac{dV}{dt}=4\pi r^2\frac{dr}{dt}`} />
+            <FormulaBlock latex={String.raw`\frac{dV}{dr}=4\pi r^2`} />
+          </FormulaCard>
+          <FormulaCard label="Sliding ladder" subjectColor="var(--subject-mathematics)">
+            <FormulaBlock latex={String.raw`x^2+y^2=L^2`} />
+            <FormulaBlock latex={String.raw`x\frac{dx}{dt}+y\frac{dy}{dt}=0`} />
+          </FormulaCard>
+        </div>
+        <div className="mt-5">
+          <TableCard
+            title="Differentiation rules used"
+            headers={["Rule", "Formula"]}
+            rows={[
+              {
+                cells: [
+                  "Product rule",
+                  <Formula key="rule-product">{String.raw`(uv)'=uv'+vu'`}</Formula>,
+                ],
+              },
+              {
+                cells: [
+                  "Chain rule",
+                  <Formula key="rule-chain">
+                    {String.raw`\frac{d}{dx}f(g(x))=f'(g(x))g'(x)`}
+                  </Formula>,
+                ],
+              },
+              {
+                cells: [
+                  "Power rule",
+                  <Formula key="rule-power">{String.raw`\frac{d}{dx}x^n=nx^{n-1}`}</Formula>,
+                ],
+              },
+            ]}
+          />
+        </div>
       </div>
 
       <h2 id="h-6-3">6.3 Increasing and Decreasing Functions</h2>
