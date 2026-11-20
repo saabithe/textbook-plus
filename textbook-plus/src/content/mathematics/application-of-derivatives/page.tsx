@@ -6,390 +6,588 @@ import { Highlight } from "@/components/content/Highlight";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
+import { FormulaCard } from "@/components/content/FormulaCard";
 import { TableCard } from "@/components/content/data/TableCard";
 import { SpeedTricks } from "@/components/content/SpeedTricks";
 import { Stepper } from "@/components/content/Stepper";
+import { EquationLadder } from "@/components/content/process/EquationLadder";
+import {
+  RateVisual,
+  CircleRadiusDiagram,
+  CircularWaveDiagram,
+  CubeEdgeDiagram,
+} from "@/components/content/mathematics/RateDiagrams";
+
+/** One labelled stage inside a worked solution. */
+function SolutionStep({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="border-t border-border pt-3 first:border-t-0 first:pt-0">
+      <div className="t-micro mb-1.5">{label}</div>
+      <div className="space-y-2 [&>div]:my-0 [&>p]:mb-0">{children}</div>
+    </div>
+  );
+}
+
+/** A collapsed worked example: question first, then the step-by-step stages. */
+function WorkedExample({
+  title,
+  question,
+  children,
+}: {
+  title: string;
+  question: React.ReactNode;
+  children: React.ReactNode;
+}) {
+  return (
+    <Expandable title={title} subjectColor="var(--subject-mathematics)">
+      <div className="space-y-3">
+        <SolutionStep label="Question">{question}</SolutionStep>
+        {children}
+      </div>
+    </Expandable>
+  );
+}
 
 export default function ApplicationOfDerivativesChapter() {
   return (
     <>
-      <h2 id="h-6-1">6.1 Introduction</h2>
-      <blockquote>
-        <p>
-          &ldquo;With the Calculus as a key, Mathematics can be successfully applied to the
-          explanation of the course of Nature.&rdquo;
-        </p>
-        <p>
-          <strong>— A. N. Whitehead</strong>
-        </p>
-      </blockquote>
-      <p>
-        In Chapter 5 we learnt how to find the derivative of composite functions, inverse
-        trigonometric functions, implicit functions, exponential functions and logarithmic
-        functions. In this chapter we put that machinery to work. The derivative is not an end in
-        itself — it is a <strong>rate-measuring instrument</strong>, and every application below is
-        a different reading of the same instrument.
-      </p>
-      <Callout type="note">
-        <p>The derivative is used in this chapter to:</p>
-        <ul className="mt-2 space-y-1.5">
-          <li>(i) determine the <strong>rate of change</strong> of one quantity with respect to another;</li>
-          <li>(ii) find the equations of the <strong>tangent and normal</strong> to a curve at a point;</li>
-          <li>(iii) locate the <strong>turning points</strong> of a graph — the points where the largest or smallest (local) value of a function occurs;</li>
-          <li>(iv) find the <strong>intervals</strong> on which a function is increasing or decreasing;</li>
-          <li>(v) find the <strong>approximate value</strong> of certain quantities.</li>
-        </ul>
-      </Callout>
-      <p>
-        The same ideas travel far outside the mathematics classroom — into engineering, the
-        physical and life sciences, economics and the social sciences. A biologist tracking a
-        growing colony, an engineer minimising the metal in a can and an economist maximising
-        profit are all solving the same problem: <em>where is the derivative zero, and what does
-        the sign of the derivative tell me there?</em>
-      </p>
+      <h2 id="h-6-1">Applications of Derivatives</h2>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>Rate of Change of Quantities</li>
+        <li>Increasing and Decreasing Functions</li>
+        <li>Maxima and Minima</li>
+      </ul>
 
-      <h2 id="h-6-2">6.2 Rate of Change of Quantities</h2>
-      <p>
-        Recall that by the derivative{" "}
-        <Formula>{String.raw`\frac{ds}{dt}`}</Formula> we mean the rate of change of distance{" "}
-        <Formula>s</Formula> with respect to time <Formula>t</Formula>. In the same fashion,
-        whenever one quantity <Formula>y</Formula> varies with another quantity{" "}
-        <Formula>x</Formula> satisfying some rule{" "}
-        <Formula>{String.raw`y = f(x)`}</Formula>, the derivative{" "}
-        <Formula>{String.raw`\frac{dy}{dx}`}</Formula> represents the rate of change of{" "}
-        <Formula>y</Formula> with respect to <Formula>x</Formula>, and its value at{" "}
-        <Formula>{String.raw`x = x_0`}</Formula> is the rate of change <em>at that instant</em>.
-      </p>
-      <FormulaBlock
-        latex={String.raw`\left.\frac{dy}{dx}\right|_{x=x_0} = f'(x_0)`}
-        label="Rate of change at a point"
-        important
+      <h2 id="h-6-2">Rate of Change of Quantities</h2>
+      <div className="my-6 flex flex-col gap-5 rounded-lg border border-border bg-card px-5 py-5 sm:flex-row sm:items-center sm:gap-8 sm:px-6">
+        <div className="min-w-0 flex-1">
+          <span className="t-micro">Chapter 6 · Mathematics</span>
+          <p className="mt-2 text-lg font-semibold tracking-tight text-foreground">
+            How fast does one quantity change with respect to another?
+          </p>
+        </div>
+        <div className="w-40 shrink-0 sm:w-52" aria-hidden>
+          <RateVisual />
+        </div>
+      </div>
+
+      <h3 id="h-6-2-1">1. Meaning of Rate of Change</h3>
+      <p>The rate of change describes how one quantity changes with respect to another quantity.</p>
+
+      <h4 id="h-6-2-1-1">1.1 Mathematical Notation</h4>
+      <TableCard
+        title="Notation at a glance"
+        headers={["Notation", "Meaning"]}
+        rows={[
+          {
+            cells: [
+              <Formula key="n1">{String.raw`\frac{dy}{dx}`}</Formula>,
+              <span key="m1">Rate of change of <Formula>y</Formula> with respect to <Formula>x</Formula></span>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="n2">{String.raw`\frac{ds}{dt}`}</Formula>,
+              <span key="m2">Rate of change of <Formula>s</Formula> with respect to <Formula>t</Formula></span>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="n3">{String.raw`\frac{dA}{dt}`}</Formula>,
+              <span key="m3">Rate of change of area with respect to time</span>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="n4">{String.raw`\frac{dr}{dt}`}</Formula>,
+              <span key="m4">Rate of change of radius with respect to time</span>,
+            ],
+          },
+        ]}
       />
-      <p>
-        Very often both quantities are functions of a third variable — time, say — so that{" "}
-        <Formula>{String.raw`x = f(t)`}</Formula> and{" "}
-        <Formula>{String.raw`y = g(t)`}</Formula>. The Chain Rule then converts their separate
-        rates into the rate of one with respect to the other.
-      </p>
-      <FormulaBlock
-        latex={String.raw`\frac{dy}{dx} = \frac{dy/dt}{dx/dt},\qquad \frac{dx}{dt} \neq 0`}
-        label="Chain rule for related rates"
-        important
-      />
-      <p>
-        So the rate of change of <Formula>y</Formula> with respect to <Formula>x</Formula> is the
-        ratio of two <em>time</em> rates. This is the whole technique of &ldquo;related
-        rates&rdquo;: differentiate the relation connecting the quantities with respect to{" "}
-        <Formula>t</Formula>, then substitute the known rate.
-      </p>
-      <Callout type="note">
-        <p>
-          <Formula>{String.raw`\frac{dy}{dx}`}</Formula> is{" "}
-          <Highlight color="blue">positive</Highlight> if <Formula>y</Formula> increases as{" "}
-          <Formula>x</Formula> increases, and{" "}
-          <Highlight color="blue">negative</Highlight> if <Formula>y</Formula> decreases as{" "}
-          <Formula>x</Formula> increases. A negative answer is not an error — it is the word
-          &ldquo;decreasing&rdquo; written in symbols.
-        </p>
+      <Callout type="note" title="Read the denominator first">
+        <p>The denominator names the quantity with respect to which the rate is measured.</p>
       </Callout>
 
-      <Expandable title="Examples 1 to 6 — NCERT">
-        <KeyPoint title="Example 1">
-          <p>
-            Find the rate of change of the area of a circle per second with respect to its radius{" "}
-            <Formula>r</Formula> when <Formula>{String.raw`r = 5`}</Formula> cm.
-          </p>
-          <p>
-            <strong>Solution.</strong> The area is{" "}
-            <Formula>{String.raw`A = \pi r^2`}</Formula>, so
-          </p>
-          <p>
-            <Formula>{String.raw`\frac{dA}{dr} = \frac{d}{dr}\left(\pi r^2\right) = 2\pi r`}</Formula>
-          </p>
-          <p>
-            When <Formula>{String.raw`r = 5`}</Formula> cm,{" "}
-            <Formula>{String.raw`\frac{dA}{dr} = 10\pi`}</Formula>. The area is changing at{" "}
-            <Formula>{String.raw`10\pi\ \text{cm}^2/\text{s}`}</Formula>.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 2">
-          <p>
-            The volume of a cube is increasing at <Formula>{String.raw`9\ \text{cm}^3/\text{s}`}</Formula>.
-            How fast is the surface area increasing when the edge is <Formula>10</Formula> cm?
-          </p>
-          <p>
-            <strong>Solution.</strong> Let <Formula>x</Formula> be the edge,{" "}
-            <Formula>V</Formula> the volume and <Formula>S</Formula> the surface area:
-          </p>
-          <p>
-            <Formula>{String.raw`V = x^3,\qquad S = 6x^2`}</Formula>
-          </p>
-          <p>
-            Given <Formula>{String.raw`\frac{dV}{dt} = 9`}</Formula>. By the Chain Rule,
-          </p>
-          <p>
-            <Formula>{String.raw`9 = \frac{dV}{dt} = \frac{d}{dx}\left(x^3\right)\cdot\frac{dx}{dt} = 3x^2\frac{dx}{dt}`}</Formula>
-          </p>
-          <p>
-            so <Formula>{String.raw`\frac{dx}{dt} = \frac{3}{x^2}`}</Formula>. Next,
-          </p>
-          <p>
-            <Formula>{String.raw`\frac{dS}{dt} = \frac{d}{dx}\left(6x^2\right)\cdot\frac{dx}{dt} = 12x\cdot\frac{3}{x^2} = \frac{36}{x}`}</Formula>
-          </p>
-          <p>
-            At <Formula>{String.raw`x = 10`}</Formula> cm,{" "}
-            <Formula>{String.raw`\frac{dS}{dt} = 3.6\ \text{cm}^2/\text{s}`}</Formula>.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 3">
-          <p>
-            A stone is dropped into a quiet lake and waves move in circles at{" "}
-            <Formula>{String.raw`4`}</Formula> cm/s. When the radius is <Formula>10</Formula> cm,
-            how fast is the enclosed area increasing?
-          </p>
-          <p>
-            <strong>Solution.</strong> With <Formula>{String.raw`A = \pi r^2`}</Formula>,
-          </p>
-          <p>
-            <Formula>{String.raw`\frac{dA}{dt} = \frac{d}{dr}\left(\pi r^2\right)\cdot\frac{dr}{dt} = 2\pi r\frac{dr}{dt}`}</Formula>
-          </p>
-          <p>
-            Here <Formula>{String.raw`\frac{dr}{dt} = 4`}</Formula> cm/s, so at{" "}
-            <Formula>{String.raw`r = 10`}</Formula> cm,
-          </p>
-          <p>
-            <Formula>{String.raw`\frac{dA}{dt} = 2\pi(10)(4) = 80\pi\ \text{cm}^2/\text{s}`}</Formula>
-          </p>
-          <p>The enclosed area grows at <Formula>{String.raw`80\pi\ \text{cm}^2/\text{s}`}</Formula>.</p>
-        </KeyPoint>
-        <KeyPoint title="Example 4">
-          <p>
-            The length <Formula>x</Formula> of a rectangle decreases at{" "}
-            <Formula>{String.raw`3`}</Formula> cm/min and the width <Formula>y</Formula> increases
-            at <Formula>{String.raw`2`}</Formula> cm/min. When{" "}
-            <Formula>{String.raw`x = 10`}</Formula> cm and <Formula>{String.raw`y = 6`}</Formula>{" "}
-            cm, find the rates of change of (a) the perimeter and (b) the area.
-          </p>
-          <p>
-            <strong>Solution.</strong> Signs matter:{" "}
-            <Formula>{String.raw`\frac{dx}{dt} = -3`}</Formula> and{" "}
-            <Formula>{String.raw`\frac{dy}{dt} = 2`}</Formula>.
-          </p>
-          <p>
-            (a) <Formula>{String.raw`P = 2(x+y)`}</Formula>, so
-          </p>
-          <p>
-            <Formula>{String.raw`\frac{dP}{dt} = 2\left(\frac{dx}{dt} + \frac{dy}{dt}\right) = 2(-3+2) = -2\ \text{cm/min}`}</Formula>
-          </p>
-          <p>
-            (b) <Formula>{String.raw`A = xy`}</Formula> (product rule), so
-          </p>
-          <p>
-            <Formula>{String.raw`\frac{dA}{dt} = y\frac{dx}{dt} + x\frac{dy}{dt} = 6(-3) + 10(2) = 2\ \text{cm}^2/\text{min}`}</Formula>
-          </p>
-          <p>
-            The perimeter decreases at <Formula>2</Formula> cm/min while the area increases at{" "}
-            <Formula>{String.raw`2\ \text{cm}^2/\text{min}`}</Formula>.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 5">
-          <p>
-            The total cost of producing <Formula>x</Formula> units is{" "}
-            <Formula>{String.raw`C(x) = 0.005x^3 - 0.02x^2 + 30x + 5000`}</Formula> rupees. Find
-            the marginal cost when 3 units are produced (marginal cost = instantaneous rate of
-            change of total cost with respect to output).
-          </p>
-          <p>
-            <strong>Solution.</strong>
-          </p>
-          <p>
-            <Formula>{String.raw`\text{MC} = \frac{dC}{dx} = 0.005\left(3x^2\right) - 0.02(2x) + 30 = 0.015x^2 - 0.04x + 30`}</Formula>
-          </p>
-          <p>
-            At <Formula>{String.raw`x = 3`}</Formula>:
-          </p>
-          <p>
-            <Formula>{String.raw`\text{MC} = 0.015(9) - 0.04(3) + 30 = 0.135 - 0.12 + 30 = 30.015`}</Formula>
-          </p>
-          <p>
-            The marginal cost is about <Formula>{String.raw`\text{Rs }30.02`}</Formula>.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 6">
-          <p>
-            The total revenue from the sale of <Formula>x</Formula> units is{" "}
-            <Formula>{String.raw`R(x) = 3x^2 + 36x + 5`}</Formula> rupees. Find the marginal
-            revenue when <Formula>{String.raw`x = 5`}</Formula>.
-          </p>
-          <p>
-            <strong>Solution.</strong>
-          </p>
-          <p>
-            <Formula>{String.raw`\text{MR} = \frac{dR}{dx} = 6x + 36`}</Formula>
-          </p>
-          <p>
-            At <Formula>{String.raw`x = 5`}</Formula>,{" "}
-            <Formula>{String.raw`\text{MR} = 6(5) + 36 = 66`}</Formula>. The marginal revenue is{" "}
-            <Formula>{String.raw`\text{Rs }66`}</Formula>.
-          </p>
-        </KeyPoint>
-      </Expandable>
+      <h4 id="h-6-2-1-2">1.2 Rate of Change at a Particular Point</h4>
+      <Callout
+        type="important"
+        title="Derivative vs. value at a point"
+        subjectColor="var(--subject-mathematics)"
+      >
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div className="[&>div]:my-0">
+            <p className="t-micro mb-1">The derivative</p>
+            <FormulaBlock latex={String.raw`\frac{dy}{dx}`} />
+          </div>
+          <div className="[&>div]:my-0">
+            <p className="t-micro mb-1">Evaluated at x = x₀</p>
+            <FormulaBlock latex={String.raw`\left.\frac{dy}{dx}\right|_{x=x_0}`} important />
+            <p className="text-center text-sm text-muted-foreground">or</p>
+            <FormulaBlock latex={String.raw`f'(x_0)`} important />
+          </div>
+        </div>
+        <p className="mt-3">
+          Rate of change of <Formula>y</Formula> with respect to <Formula>x</Formula>, evaluated at{" "}
+          <Formula>{String.raw`x=x_0`}</Formula>.
+        </p>
+      </Callout>
 
-      <Expandable title="Exercise 6.1 — Rate of Change of Quantities">
-        <ExerciseQa
-          questions={[
-            <>
-              Find the rate of change of the area of a circle with respect to its radius{" "}
-              <Formula>r</Formula> when (a) <Formula>{String.raw`r = 3`}</Formula> cm, (b){" "}
-              <Formula>{String.raw`r = 4`}</Formula> cm.
-            </>,
-            <>
-              The volume of a cube is increasing at <Formula>{String.raw`8\ \text{cm}^3/\text{s}`}</Formula>.
-              How fast is the surface area increasing when the edge is <Formula>12</Formula> cm?
-            </>,
-            <>
-              The radius of a circle increases uniformly at <Formula>{String.raw`3`}</Formula>{" "}
-              cm/s. Find the rate at which the area increases when{" "}
-              <Formula>{String.raw`r = 10`}</Formula> cm.
-            </>,
-            <>
-              An edge of a variable cube increases at <Formula>{String.raw`3`}</Formula> cm/s. How
-              fast is the volume increasing when the edge is <Formula>10</Formula> cm long?
-            </>,
-            <>
-              A stone is dropped into a quiet lake and waves move in circles at{" "}
-              <Formula>{String.raw`5`}</Formula> cm/s. When the radius of the wave is{" "}
-              <Formula>8</Formula> cm, how fast is the enclosed area increasing?
-            </>,
-            <>
-              The radius of a circle increases at <Formula>{String.raw`0.7`}</Formula> cm/s. What
-              is the rate of increase of its circumference?
-            </>,
-            <>
-              The length <Formula>x</Formula> of a rectangle decreases at{" "}
-              <Formula>{String.raw`5`}</Formula> cm/min and the width <Formula>y</Formula>{" "}
-              increases at <Formula>{String.raw`4`}</Formula> cm/min. When{" "}
-              <Formula>{String.raw`x = 8`}</Formula> cm and{" "}
-              <Formula>{String.raw`y = 6`}</Formula> cm, find the rates of change of (a) the
-              perimeter, (b) the area.
-            </>,
-            <>
-              A spherical balloon is inflated by pumping in <Formula>{String.raw`900`}</Formula>{" "}
-              cm³ of gas per second. Find the rate at which the radius increases when{" "}
-              <Formula>{String.raw`r = 15`}</Formula> cm.
-            </>,
-            <>
-              A spherical balloon has a variable radius. Find the rate at which its volume
-              increases with the radius when the radius is <Formula>10</Formula> cm.
-            </>,
-            <>
-              A ladder <Formula>5</Formula> m long leans against a wall. Its foot is pulled away
-              from the wall at <Formula>{String.raw`2`}</Formula> cm/s. How fast is its height on
-              the wall decreasing when the foot is <Formula>4</Formula> m from the wall?
-            </>,
-            <>
-              A particle moves along the curve{" "}
-              <Formula>{String.raw`6y = x^3 + 2`}</Formula>. Find the points on the curve at which
-              the <Formula>y</Formula>-coordinate changes 8 times as fast as the{" "}
-              <Formula>x</Formula>-coordinate.
-            </>,
-            <>
-              The radius of an air bubble increases at{" "}
-              <Formula>{String.raw`\frac{1}{2}`}</Formula> cm/s. At what rate is the volume
-              increasing when <Formula>{String.raw`r = 1`}</Formula> cm?
-            </>,
-            <>
-              A spherical balloon has variable diameter{" "}
-              <Formula>{String.raw`\frac{3}{2}(2x+1)`}</Formula>. Find the rate of change of its
-              volume with respect to <Formula>x</Formula>.
-            </>,
-            <>
-              Sand pours from a pipe at <Formula>{String.raw`12\ \text{cm}^3/\text{s}`}</Formula>{" "}
-              and forms a cone whose height is always one-sixth of the base radius. How fast is
-              the height increasing when <Formula>{String.raw`h = 4`}</Formula> cm?
-            </>,
-            <>
-              The total cost of producing <Formula>x</Formula> units is{" "}
-              <Formula>{String.raw`C(x) = 0.007x^3 - 0.003x^2 + 15x + 4000`}</Formula> rupees.
-              Find the marginal cost when 17 units are produced.
-            </>,
-            <>
-              The total revenue from <Formula>x</Formula> units is{" "}
-              <Formula>{String.raw`R(x) = 13x^2 + 26x + 15`}</Formula> rupees. Find the marginal
-              revenue when <Formula>{String.raw`x = 7`}</Formula>.
-            </>,
-            <>
-              The rate of change of the area of a circle with respect to its radius at{" "}
-              <Formula>{String.raw`r = 6`}</Formula> cm is: (A) <Formula>{String.raw`10\pi`}</Formula>{" "}
-              (B) <Formula>{String.raw`12\pi`}</Formula> (C){" "}
-              <Formula>{String.raw`8\pi`}</Formula> (D) <Formula>{String.raw`11\pi`}</Formula>
-            </>,
-            <>
-              For <Formula>{String.raw`R(x) = 3x^2 + 36x + 5`}</Formula>, the marginal revenue at{" "}
-              <Formula>{String.raw`x = 15`}</Formula> is: (A) 116 (B) 96 (C) 90 (D) 126
-            </>,
-          ]}
-          answers={[
-            <>
-              (a) <Formula>{String.raw`6\pi\ \text{cm}^2/\text{cm}`}</Formula> (b){" "}
-              <Formula>{String.raw`8\pi\ \text{cm}^2/\text{cm}`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`\frac{8}{3}\ \text{cm}^2/\text{s}`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`60\pi\ \text{cm}^2/\text{s}`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`900\ \text{cm}^3/\text{s}`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`80\pi\ \text{cm}^2/\text{s}`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`1.4\pi\ \text{cm/s}`}</Formula>
-            </>,
-            <>
-              (a) <Formula>{String.raw`-2`}</Formula> cm/min (decreasing) (b){" "}
-              <Formula>{String.raw`2\ \text{cm}^2/\text{min}`}</Formula> (increasing)
-            </>,
-            <>
-              <Formula>{String.raw`\frac{1}{\pi}`}</Formula> cm/s
-            </>,
-            <>
-              <Formula>{String.raw`400\pi\ \text{cm}^3/\text{cm}`}</Formula>
-            </>,
-            <>
-              Decreasing at <Formula>{String.raw`\frac{8}{3}`}</Formula> cm/s
-            </>,
-            <>
-              <Formula>{String.raw`(4,\,11)`}</Formula> and{" "}
-              <Formula>{String.raw`\left(-4,\,-\frac{31}{3}\right)`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`2\pi\ \text{cm}^3/\text{s}`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`\frac{27\pi}{8}(2x+1)^2`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`\frac{1}{48\pi}`}</Formula> cm/s
-            </>,
-            <>
-              <Formula>{String.raw`\text{Rs }20.97`}</Formula> (nearly)
-            </>,
-            <>
-              <Formula>{String.raw`\text{Rs }208`}</Formula>
-            </>,
-            <>
-              (B)
-            </>,
-            <>
-              (D)
-            </>,
-          ]}
-        />
-      </Expandable>
+      <h3 id="h-6-2-2">2. Differentiation of Related Quantities</h3>
+      <p>When a quantity depends on another variable, differentiation can be used to determine its rate of change.</p>
+
+      <h4 id="h-6-2-2-1">Example: Area of a Circle</h4>
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_200px]">
+        <div className="min-w-0 [&>div]:my-0">
+          <EquationLadder
+            title="Area of a circle"
+            steps={[
+              { label: "Given", equation: String.raw`A=\pi r^2` },
+              { label: "Differentiate with respect to time", equation: String.raw`\frac{dA}{dt}=\frac{d(\pi r^2)}{dt}` },
+              { label: "Apply the chain rule", equation: String.raw`=\pi\times 2r\times\frac{dr}{dt}` },
+              { label: "Final result", equation: String.raw`\boxed{\frac{dA}{dt}=2\pi r\frac{dr}{dt}}`, final: true },
+            ]}
+          />
+        </div>
+        <div className="flex flex-col items-center gap-2">
+          <CircleRadiusDiagram />
+          <span className="t-micro text-center">Circle of radius r</span>
+        </div>
+      </div>
+      <span className="t-micro mt-4 block">Interpretation</span>
+      <ul className="mt-2 list-disc space-y-1.5 pl-5">
+        <li><Formula>{String.raw`\frac{dA}{dt}`}</Formula> = Rate of change of area.</li>
+        <li><Formula>r</Formula> = Radius at that instant.</li>
+        <li><Formula>{String.raw`\frac{dr}{dt}`}</Formula> = Rate of change of radius.</li>
+      </ul>
+
+      <h3 id="h-6-2-3">3. Standard Geometric Rate Formulas</h3>
+
+      <h4 id="h-6-2-3-1">3.1 Circle — Area and Circumference</h4>
+      <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+        <div className="border-b border-border px-4 py-3 sm:px-5">
+          <span className="t-micro">Circle — Area and Circumference</span>
+          <div className="mt-2 grid gap-1 sm:grid-cols-2">
+            <div className="flex items-baseline gap-2">
+              <span className="text-xs text-muted-foreground">Given</span>
+              <Formula>{String.raw`A=\pi r^2`}</Formula>
+            </div>
+            <div>
+              <Formula>{String.raw`C=2\pi r`}</Formula>
+            </div>
+          </div>
+        </div>
+        <div className="grid gap-6 px-4 py-5 sm:grid-cols-2 sm:px-5">
+          <div>
+            <span className="t-micro">Area</span>
+            <div className="mt-3 flex flex-col gap-3">
+              <div className="[&>div]:my-0">
+                <span className="mb-2 block text-xs text-muted-foreground">With respect to radius</span>
+                <FormulaBlock latex={String.raw`\boxed{\frac{dA}{dr}=2\pi r}`} />
+              </div>
+              <div className="[&>div]:my-0">
+                <span className="mb-2 block text-xs text-muted-foreground">With respect to time</span>
+                <FormulaBlock latex={String.raw`\boxed{\frac{dA}{dt}=2\pi r\frac{dr}{dt}}`} />
+              </div>
+            </div>
+          </div>
+          <div>
+            <span className="t-micro">Circumference</span>
+            <div className="mt-3 flex flex-col gap-3">
+              <div className="[&>div]:my-0">
+                <span className="mb-2 block text-xs text-muted-foreground">With respect to radius</span>
+                <FormulaBlock latex={String.raw`\boxed{\frac{dC}{dr}=2\pi}`} />
+              </div>
+              <div className="[&>div]:my-0">
+                <span className="mb-2 block text-xs text-muted-foreground">With respect to time</span>
+                <FormulaBlock latex={String.raw`\boxed{\frac{dC}{dt}=2\pi\frac{dr}{dt}}`} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4 id="h-6-2-3-2">3.2 Cube — Volume and Surface Area</h4>
+      <p>Let <Formula>x</Formula> represent the edge length of a cube.</p>
+      <span className="t-micro mt-4 block">Key formulas</span>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="rounded-lg border border-border bg-card px-4 py-3 [&>div]:my-0">
+          <span className="t-micro mb-2 block">Volume</span>
+          <FormulaBlock latex={String.raw`V=x^3`} />
+        </div>
+        <div className="rounded-lg border border-border bg-card px-4 py-3 [&>div]:my-0">
+          <span className="t-micro mb-2 block">Surface area</span>
+          <FormulaBlock latex={String.raw`S=6x^2`} />
+        </div>
+      </div>
+      <span className="t-micro mt-5 block">Rate of change with respect to time</span>
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_200px]">
+        <div className="grid gap-3 sm:grid-cols-2">
+          <FormulaCard label="Volume" subjectColor="var(--subject-mathematics)">
+            <FormulaBlock latex={String.raw`\boxed{\frac{dV}{dt}=3x^2\frac{dx}{dt}}`} important />
+          </FormulaCard>
+          <FormulaCard label="Surface area" subjectColor="var(--subject-mathematics)">
+            <FormulaBlock latex={String.raw`\boxed{\frac{dS}{dt}=12x\frac{dx}{dt}}`} important />
+          </FormulaCard>
+        </div>
+        <div className="flex flex-col items-center gap-2">
+          <CubeEdgeDiagram />
+          <span className="t-micro text-center">Cube of edge x</span>
+        </div>
+      </div>
+
+      <h3 id="h-6-2-4">4. Solved Examples</h3>
+
+      <WorkedExample
+        title="Question 1 — Rate of Change of Circle Area"
+        question={
+          <>
+            Find the rate of change of the area of a circle with respect to its radius{" "}
+            <Formula>r</Formula> when (a) <Formula>{String.raw`r=3\ \text{cm}`}</Formula> and (b){" "}
+            <Formula>{String.raw`r=4\ \text{cm}`}</Formula>.
+          </>
+        }
+      >
+        <SolutionStep label="Given">
+          <FormulaBlock latex={String.raw`A=\pi r^2`} />
+        </SolutionStep>
+        <SolutionStep label="Differentiation">
+          <FormulaBlock latex={String.raw`\frac{dA}{dr}=\frac{d(\pi r^2)}{dr}`} />
+          <FormulaBlock latex={String.raw`\boxed{\frac{dA}{dr}=2\pi r}`} important />
+        </SolutionStep>
+        <SolutionStep label="Substitution">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-md border border-border p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">(a) r = 3 cm</span>
+              <FormulaBlock latex={String.raw`\left.\frac{dA}{dr}\right|_{r=3}=2\pi(3)`} />
+              <FormulaBlock latex={String.raw`\boxed{6\pi\ \text{cm}^2/\text{cm}}`} important />
+            </div>
+            <div className="rounded-md border border-border p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">(b) r = 4 cm</span>
+              <FormulaBlock latex={String.raw`\left.\frac{dA}{dr}\right|_{r=4}=2\pi(4)`} />
+              <FormulaBlock latex={String.raw`\boxed{8\pi\ \text{cm}^2/\text{cm}}`} important />
+            </div>
+          </div>
+        </SolutionStep>
+      </WorkedExample>
+
+      <WorkedExample
+        title="Question 2 — Increasing Volume of a Cube"
+        question={
+          <>
+            The volume of a cube is increasing at a rate of{" "}
+            <Formula>{String.raw`8\ \text{cm}^3/\text{s}`}</Formula>. How fast is the surface area
+            increasing when the length of an edge is <Formula>{String.raw`12\ \text{cm}`}</Formula>?
+          </>
+        }
+      >
+        <SolutionStep label="Given">
+          <FormulaBlock latex={String.raw`\frac{dV}{dt}=8\ \text{cm}^3/\text{s}`} />
+          <FormulaBlock latex={String.raw`x=12\ \text{cm}`} />
+        </SolutionStep>
+        <SolutionStep label="Required">
+          <FormulaBlock latex={String.raw`\frac{dS}{dt}=?`} />
+        </SolutionStep>
+        <SolutionStep label="Step 1 — Differentiate the volume equation">
+          <FormulaBlock latex={String.raw`V=x^3`} />
+          <FormulaBlock latex={String.raw`\frac{dV}{dt}=3x^2\frac{dx}{dt}`} />
+          <FormulaBlock latex={String.raw`8=3x^2\frac{dx}{dt}`} />
+          <div className="[&>aside]:my-0">
+            <KeyPoint title="Intermediate result — edge rate">
+              <FormulaBlock latex={String.raw`\boxed{\frac{dx}{dt}=\frac{8}{3x^2}}`} important />
+            </KeyPoint>
+          </div>
+        </SolutionStep>
+        <SolutionStep label="Step 2 — Differentiate the surface area equation">
+          <FormulaBlock latex={String.raw`S=6x^2`} />
+          <FormulaBlock latex={String.raw`\frac{dS}{dt}=12x\frac{dx}{dt}`} />
+        </SolutionStep>
+        <SolutionStep label="Step 3 — Substitute the edge rate">
+          <FormulaBlock latex={String.raw`\frac{dS}{dt}=12x\times\frac{8}{3x^2}`} />
+        </SolutionStep>
+        <SolutionStep label="Step 4 — Substitute x = 12">
+          <FormulaBlock latex={String.raw`=\frac{12\times12\times8}{3\times12^2}`} />
+          <FormulaBlock latex={String.raw`\boxed{\frac{dS}{dt}=\frac{8}{3}\ \text{cm}^2/\text{s}}`} important />
+        </SolutionStep>
+      </WorkedExample>
+
+      <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+        <div className="border-b border-border px-4 py-3 sm:px-5">
+          <span className="t-micro">Question 3 — Practice · Increasing Surface Area of a Cube</span>
+        </div>
+        <div className="px-4 py-4 sm:px-5">
+          <p>
+            The volume of a cube is increasing at a rate of{" "}
+            <Formula>{String.raw`9\ \text{cm}^3/\text{s}`}</Formula>. How fast is the surface area
+            increasing when the length of an edge is <Formula>{String.raw`10\ \text{cm}`}</Formula>?
+          </p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-md border border-border p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">Given</span>
+              <FormulaBlock latex={String.raw`\frac{dV}{dt}=9,\qquad x=10`} />
+            </div>
+            <div className="rounded-md border-l-[3px] border-ok bg-muted p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">Answer</span>
+              <FormulaBlock latex={String.raw`\boxed{\frac{dS}{dt}=3.6\ \text{cm}^2/\text{s}}`} important />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <WorkedExample
+        title="Question 4 — Area of a Circular Wave"
+        question={
+          <>
+            A stone is dropped into a quiet lake and waves move in circles at a speed of{" "}
+            <Formula>{String.raw`5\ \text{cm}/\text{s}`}</Formula>. At the instant when the radius of
+            the circular wave is <Formula>{String.raw`8\ \text{cm}`}</Formula>, how fast is the
+            enclosed area increasing?
+          </>
+        }
+      >
+        <SolutionStep label="Data panel">
+          <div className="grid gap-4 sm:grid-cols-[minmax(0,180px)_minmax(0,1fr)]">
+            <CircularWaveDiagram />
+            <div className="rounded-md border border-border bg-muted/40 p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">Given</span>
+              <FormulaBlock latex={String.raw`\frac{dr}{dt}=5\ \text{cm}/\text{s}`} />
+              <FormulaBlock latex={String.raw`r=8\ \text{cm}`} />
+              <span className="t-micro mb-2 mt-3 block">Required</span>
+              <FormulaBlock latex={String.raw`\frac{dA}{dt}=?`} />
+            </div>
+          </div>
+        </SolutionStep>
+        <SolutionStep label="Differentiation">
+          <FormulaBlock latex={String.raw`A=\pi r^2`} />
+          <FormulaBlock latex={String.raw`\frac{dA}{dt}=2\pi r\frac{dr}{dt}`} />
+        </SolutionStep>
+        <SolutionStep label="Substitution">
+          <FormulaBlock latex={String.raw`=2\pi(8)(5)`} />
+        </SolutionStep>
+        <SolutionStep label="Final Answer">
+          <FormulaBlock latex={String.raw`\boxed{\frac{dA}{dt}=80\pi\ \text{cm}^2/\text{s}}`} important />
+        </SolutionStep>
+      </WorkedExample>
+
+      <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+        <div className="border-b border-border px-4 py-3 sm:px-5">
+          <span className="t-micro">Question 5 — Practice · Area of a Circular Wave</span>
+        </div>
+        <div className="px-4 py-4 sm:px-5">
+          <div className="grid gap-4 sm:grid-cols-[minmax(0,180px)_minmax(0,1fr)]">
+            <CircularWaveDiagram />
+            <div>
+              <p>
+                A stone is dropped into a quiet lake and waves move in circles at a speed of{" "}
+                <Formula>{String.raw`4\ \text{cm}/\text{s}`}</Formula>. At the instant when the radius
+                of the circular wave is <Formula>{String.raw`10\ \text{cm}`}</Formula>, how fast is
+                the enclosed area increasing?
+              </p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-md border border-border p-3 [&>div]:my-0">
+                  <span className="t-micro mb-2 block">Given</span>
+                  <FormulaBlock latex={String.raw`\frac{dr}{dt}=4\ \text{cm}/\text{s}`} />
+                  <FormulaBlock latex={String.raw`r=10\ \text{cm}`} />
+                </div>
+                <div className="rounded-md border-l-[3px] border-ok bg-muted p-3 [&>div]:my-0">
+                  <span className="t-micro mb-2 block">Answer</span>
+                  <FormulaBlock latex={String.raw`=2\pi(10)(4)`} />
+                  <FormulaBlock latex={String.raw`\boxed{80\pi\ \text{cm}^2/\text{s}}`} important />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-4 border-t border-border pt-3 [&>div]:my-0">
+            <span className="t-micro mb-2 block">Using</span>
+            <FormulaBlock latex={String.raw`\frac{dA}{dt}=2\pi r\frac{dr}{dt}`} />
+          </div>
+        </div>
+      </div>
+
+      <WorkedExample
+        title="Question 6 — Rate of Change of Circumference"
+        question={
+          <>
+            The radius of a circle is increasing at the rate of{" "}
+            <Formula>{String.raw`0.7\ \text{cm}/\text{s}`}</Formula>. What is the rate of increase of
+            its circumference?
+          </>
+        }
+      >
+        <SolutionStep label="Given">
+          <FormulaBlock latex={String.raw`\frac{dr}{dt}=0.7\ \text{cm}/\text{s}`} />
+        </SolutionStep>
+        <SolutionStep label="Circumference">
+          <FormulaBlock latex={String.raw`C=2\pi r`} />
+        </SolutionStep>
+        <SolutionStep label="Differentiation">
+          <FormulaBlock latex={String.raw`\frac{dC}{dt}=2\pi\frac{dr}{dt}`} />
+        </SolutionStep>
+        <SolutionStep label="Substitution">
+          <FormulaBlock latex={String.raw`=2\pi(0.7)`} />
+        </SolutionStep>
+        <SolutionStep label="Final Answer">
+          <FormulaBlock latex={String.raw`\boxed{\frac{dC}{dt}=1.4\pi\ \text{cm}/\text{s}}`} important />
+          <div className="rounded-md border border-border bg-muted/40 p-3">
+            <CircleRadiusDiagram showArrow />
+            <p className="mt-2 text-center text-xs text-muted-foreground">
+              Circumference changes at a <Highlight color="yellow">constant rate</Highlight> when the
+              radius changes at a constant rate.
+            </p>
+          </div>
+        </SolutionStep>
+      </WorkedExample>
+
+      <WorkedExample
+        title="Question 7 — Rate of Increase of Circle Area"
+        question={
+          <>
+            The radius of a circle is increasing uniformly at the rate of{" "}
+            <Formula>{String.raw`3\ \text{cm}/\text{s}`}</Formula>. Find the rate at which the area of
+            the circle is increasing when the radius is <Formula>{String.raw`10\ \text{cm}`}</Formula>.
+          </>
+        }
+      >
+        <SolutionStep label="Given">
+          <FormulaBlock latex={String.raw`\frac{dr}{dt}=3\ \text{cm}/\text{s}`} />
+          <FormulaBlock latex={String.raw`r=10\ \text{cm}`} />
+        </SolutionStep>
+        <SolutionStep label="Differentiation">
+          <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_160px]">
+            <div className="min-w-0 [&>div]:my-0">
+              <FormulaBlock latex={String.raw`A=\pi r^2`} />
+              <FormulaBlock latex={String.raw`\frac{dA}{dt}=2\pi r\frac{dr}{dt}`} />
+            </div>
+            <CircleRadiusDiagram />
+          </div>
+        </SolutionStep>
+        <SolutionStep label="Substitution">
+          <span className="t-micro mb-2 block">
+            <Highlight color="yellow">Substitution stage</Highlight>
+          </span>
+          <FormulaBlock latex={String.raw`=2\pi r(3)`} />
+          <FormulaBlock latex={String.raw`=6\pi r`} />
+        </SolutionStep>
+        <SolutionStep label="Final Answer">
+          <FormulaBlock latex={String.raw`=6\pi(10)`} />
+          <FormulaBlock latex={String.raw`\boxed{\frac{dA}{dt}=60\pi\ \text{cm}^2/\text{s}}`} important />
+        </SolutionStep>
+      </WorkedExample>
+
+      <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+        <div className="border-b border-border px-4 py-3 sm:px-5">
+          <span className="t-micro">Question 8 — Multiple Choice (Work)</span>
+        </div>
+        <div className="px-4 py-4 sm:px-5">
+          <p>
+            The rate of change of the area of a circle with respect to its radius <Formula>r</Formula>{" "}
+            at <Formula>{String.raw`r=6\ \text{cm}`}</Formula> is <Formula>{String.raw`\frac{dA}{dr}=?`}</Formula>
+          </p>
+          <div className="mt-4 grid grid-cols-2 gap-2 sm:gap-3">
+            {[
+              { label: "(A)", value: String.raw`10\pi` },
+              { label: "(B)", value: String.raw`12\pi` },
+              { label: "(C)", value: String.raw`8\pi` },
+              { label: "(D)", value: String.raw`11\pi` },
+            ].map((option) => (
+              <div
+                key={option.label}
+                className="flex items-center gap-2.5 rounded-md border border-border bg-card px-3 py-2.5"
+              >
+                <span className="t-micro">{option.label}</span>
+                <Formula>{option.value}</Formula>
+              </div>
+            ))}
+          </div>
+          <Expandable
+            title="Show solution"
+            variant="example"
+            subjectColor="var(--subject-mathematics)"
+          >
+            <div className="space-y-2 [&>div]:my-0">
+              <FormulaBlock latex={String.raw`A=\pi r^2`} />
+              <FormulaBlock latex={String.raw`\frac{dA}{dr}=2\pi r`} />
+              <FormulaBlock latex={String.raw`=2\pi(6)`} />
+              <FormulaBlock latex={String.raw`\boxed{12\pi}`} important />
+            </div>
+            <p className="mt-3 text-sm font-semibold text-ok">Correct option: B</p>
+          </Expandable>
+        </div>
+      </div>
+
+      <WorkedExample
+        title="Question 9 — Increasing Volume of a Cube"
+        question={
+          <>
+            An edge of a variable cube is increasing at the rate of{" "}
+            <Formula>{String.raw`3\ \text{cm}/\text{s}`}</Formula>. How fast is the volume of the cube
+            increasing when the edge is <Formula>{String.raw`10\ \text{cm}`}</Formula> long?
+          </>
+        }
+      >
+        <SolutionStep label="Given">
+          <FormulaBlock latex={String.raw`\frac{dx}{dt}=3\ \text{cm}/\text{s}`} />
+          <FormulaBlock latex={String.raw`x=10\ \text{cm}`} />
+        </SolutionStep>
+        <SolutionStep label="Required">
+          <FormulaBlock latex={String.raw`\frac{dV}{dt}=?`} />
+        </SolutionStep>
+        <SolutionStep label="Formula">
+          <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_160px]">
+            <div className="min-w-0 [&>div]:my-0">
+              <FormulaBlock latex={String.raw`V=x^3`} />
+              <FormulaBlock latex={String.raw`\frac{dV}{dt}=3x^2\frac{dx}{dt}`} />
+            </div>
+            <CubeEdgeDiagram showArrow />
+          </div>
+        </SolutionStep>
+        <SolutionStep label="Substitution">
+          <FormulaBlock latex={String.raw`=3x^2(3)`} />
+          <FormulaBlock latex={String.raw`=9x^2`} />
+          <FormulaBlock latex={String.raw`=9(10)^2`} />
+        </SolutionStep>
+        <SolutionStep label="Final Answer">
+          <FormulaBlock latex={String.raw`\boxed{\frac{dV}{dt}=900\ \text{cm}^3/\text{s}}`} important />
+        </SolutionStep>
+      </WorkedExample>
+
+      <h3 id="h-6-2-5">5. Quick Formula Reference</h3>
+      <div className="grid gap-3 sm:grid-cols-2">
+        {[
+          {
+            name: "Circle area",
+            formula: String.raw`A=\pi r^2`,
+            rate: String.raw`\frac{dA}{dt}=2\pi r\frac{dr}{dt}`,
+          },
+          {
+            name: "Circumference",
+            formula: String.raw`C=2\pi r`,
+            rate: String.raw`\frac{dC}{dt}=2\pi\frac{dr}{dt}`,
+          },
+          {
+            name: "Cube volume",
+            formula: String.raw`V=x^3`,
+            rate: String.raw`\frac{dV}{dt}=3x^2\frac{dx}{dt}`,
+          },
+          {
+            name: "Cube surface area",
+            formula: String.raw`S=6x^2`,
+            rate: String.raw`\frac{dS}{dt}=12x\frac{dx}{dt}`,
+          },
+        ].map((card) => (
+          <div key={card.name} className="rounded-lg border border-border bg-card p-4">
+            <span className="t-micro mb-3 block">{card.name}</span>
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="text-xs text-muted-foreground">Formula</span>
+              <Formula>{card.formula}</Formula>
+            </div>
+            <div className="mt-2 flex items-baseline justify-between gap-3 border-t border-border pt-2">
+              <span className="text-xs text-muted-foreground">w.r.t. time</span>
+              <Formula>{card.rate}</Formula>
+            </div>
+          </div>
+        ))}
+      </div>
 
       <h2 id="h-6-3">6.3 Increasing and Decreasing Functions</h2>
       <p>

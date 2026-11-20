@@ -1801,6 +1801,42 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/mathematics/RateDiagrams.tsx#CircleRadiusDiagram",
+    "name": "CircleRadiusDiagram",
+    "path": "content/mathematics/RateDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/RateDiagrams.tsx#CircularWaveDiagram",
+    "name": "CircularWaveDiagram",
+    "path": "content/mathematics/RateDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/RateDiagrams.tsx#CubeEdgeDiagram",
+    "name": "CubeEdgeDiagram",
+    "path": "content/mathematics/RateDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/RateDiagrams.tsx#RateVisual",
+    "name": "RateVisual",
+    "path": "content/mathematics/RateDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/OrgChart.tsx#OrgChart",
     "name": "OrgChart",
     "path": "content/OrgChart.tsx",
