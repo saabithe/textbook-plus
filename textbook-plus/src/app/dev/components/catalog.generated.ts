@@ -1801,6 +1801,69 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/mathematics/BehaviourGraphs.tsx#DecisionFlowDiagram",
+    "name": "DecisionFlowDiagram",
+    "path": "content/mathematics/BehaviourGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/BehaviourGraphs.tsx#DecreasingGraph",
+    "name": "DecreasingGraph",
+    "path": "content/mathematics/BehaviourGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/BehaviourGraphs.tsx#IncreasingGraph",
+    "name": "IncreasingGraph",
+    "path": "content/mathematics/BehaviourGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/BehaviourGraphs.tsx#ParabolaDiagram",
+    "name": "ParabolaDiagram",
+    "path": "content/mathematics/BehaviourGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/BehaviourGraphs.tsx#StrictlyDecreasingGraph",
+    "name": "StrictlyDecreasingGraph",
+    "path": "content/mathematics/BehaviourGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/BehaviourGraphs.tsx#StrictlyIncreasingGraph",
+    "name": "StrictlyIncreasingGraph",
+    "path": "content/mathematics/BehaviourGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/BehaviourGraphs.tsx#WaveCurveDiagram",
+    "name": "WaveCurveDiagram",
+    "path": "content/mathematics/BehaviourGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/mathematics/RateDiagrams.tsx#CircleRadiusDiagram",
     "name": "CircleRadiusDiagram",
     "path": "content/mathematics/RateDiagrams.tsx",
@@ -1885,6 +1948,105 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/mathematics/RateDiagramsPart3.tsx#SandConeDiagram",
     "name": "SandConeDiagram",
     "path": "content/mathematics/RateDiagramsPart3.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/SignDiagrams.tsx#CosDecreasingStrip",
+    "name": "CosDecreasingStrip",
+    "path": "content/mathematics/SignDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/SignDiagrams.tsx#InequalityNumberLine",
+    "name": "InequalityNumberLine",
+    "path": "content/mathematics/SignDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/SignDiagrams.tsx#RisingLineDiagram",
+    "name": "RisingLineDiagram",
+    "path": "content/mathematics/SignDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/SignDiagrams.tsx#SignNumberLine",
+    "name": "SignNumberLine",
+    "path": "content/mathematics/SignDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/SignDiagrams.tsx#WavyCurveProcess",
+    "name": "WavyCurveProcess",
+    "path": "content/mathematics/SignDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/TrigGraphs.tsx#AstcQuadrantDiagram",
+    "name": "AstcQuadrantDiagram",
+    "path": "content/mathematics/TrigGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/TrigGraphs.tsx#CosineCurveDiagram",
+    "name": "CosineCurveDiagram",
+    "path": "content/mathematics/TrigGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/TrigGraphs.tsx#ExponentialCurveDiagram",
+    "name": "ExponentialCurveDiagram",
+    "path": "content/mathematics/TrigGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/TrigGraphs.tsx#LogCurveDiagram",
+    "name": "LogCurveDiagram",
+    "path": "content/mathematics/TrigGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/TrigGraphs.tsx#SineCurveDiagram",
+    "name": "SineCurveDiagram",
+    "path": "content/mathematics/TrigGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/TrigGraphs.tsx#UnitCircleTanDiagram",
+    "name": "UnitCircleTanDiagram",
+    "path": "content/mathematics/TrigGraphs.tsx",
     "category": "content",
     "props": null,
     "shell": false,

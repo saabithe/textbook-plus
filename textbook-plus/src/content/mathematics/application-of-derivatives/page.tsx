@@ -25,6 +25,30 @@ import {
   LadderDiagram,
 } from "@/components/content/mathematics/RateDiagramsPart2";
 import { SandConeDiagram } from "@/components/content/mathematics/RateDiagramsPart3";
+import {
+  StrictlyIncreasingGraph,
+  IncreasingGraph,
+  StrictlyDecreasingGraph,
+  DecreasingGraph,
+  WaveCurveDiagram,
+  ParabolaDiagram,
+  DecisionFlowDiagram,
+} from "@/components/content/mathematics/BehaviourGraphs";
+import {
+  ExponentialCurveDiagram,
+  LogCurveDiagram,
+  AstcQuadrantDiagram,
+  SineCurveDiagram,
+  CosineCurveDiagram,
+  UnitCircleTanDiagram,
+} from "@/components/content/mathematics/TrigGraphs";
+import {
+  RisingLineDiagram,
+  SignNumberLine,
+  InequalityNumberLine,
+  WavyCurveProcess,
+  CosDecreasingStrip,
+} from "@/components/content/mathematics/SignDiagrams";
 import { PocketGrid } from "@/components/content/PocketGrid";
 
 /** One labelled stage inside a worked solution. */
@@ -1631,522 +1655,1360 @@ export default function ApplicationOfDerivativesChapter() {
 
       <h2 id="h-6-3">6.3 Increasing and Decreasing Functions</h2>
       <p>
-        Look at the graph of <Formula>{String.raw`f(x) = x^2`}</Formula>. To the right of the
-        origin the height of the graph rises continuously as we move from left to right — the
-        function is <strong>increasing</strong> for <Formula>{String.raw`x > 0`}</Formula>. To the
-        left of the origin the height falls continuously — the function is{" "}
-        <strong>decreasing</strong> for <Formula>{String.raw`x < 0`}</Formula>. The derivative
-        turns this visual observation into arithmetic.
+        A function is classified according to how its output <Formula>f(x)</Formula> changes as its
+        input <Formula>x</Formula> increases.
       </p>
-      <KeyPoint title="Definition 1 — increasing / decreasing on an interval">
+      <p>The material is organized into two connected units:</p>
+      <ol className="list-decimal space-y-1.5 pl-5">
+        <li>
+          <strong>Increasing and Decreasing Functions</strong> — derivative conditions, graphical
+          interpretation, solved problems and exercises.
+        </li>
+        <li>
+          <strong>Solving Inequalities</strong> — linear inequalities, quadratic inequalities and
+          the wavy-curve method.
+        </li>
+      </ol>
+      <Callout type="note" title="About the working">
         <p>
-          Let <Formula>I</Formula> be an interval in the domain of a real valued function{" "}
-          <Formula>f</Formula>, and let{" "}
-          <Formula>{String.raw`x_1, x_2 \in I`}</Formula>.
-        </p>
-        <p>
-          (i) <Formula>f</Formula> is <strong>increasing</strong> on <Formula>I</Formula> if{" "}
-          <Formula>{String.raw`x_1 < x_2 \Rightarrow f(x_1) \le f(x_2)`}</Formula>.
-        </p>
-        <p>
-          (ii) <Formula>f</Formula> is <strong>decreasing</strong> on <Formula>I</Formula> if{" "}
-          <Formula>{String.raw`x_1 < x_2 \Rightarrow f(x_1) \ge f(x_2)`}</Formula>.
-        </p>
-        <p>
-          (iii) <Formula>f</Formula> is <strong>constant</strong> on <Formula>I</Formula> if{" "}
-          <Formula>{String.raw`f(x) = c`}</Formula> for all <Formula>{String.raw`x \in I`}</Formula>.
-        </p>
-        <p>
-          (iv) <strong>Strictly increasing</strong>:{" "}
-          <Formula>{String.raw`x_1 < x_2 \Rightarrow f(x_1) < f(x_2)`}</Formula>;{" "}
-          <strong>strictly decreasing</strong>:{" "}
-          <Formula>{String.raw`x_1 < x_2 \Rightarrow f(x_1) > f(x_2)`}</Formula>.
-        </p>
-      </KeyPoint>
-      <p>
-        A function is increasing <em>at a point</em> <Formula>{String.raw`x_0`}</Formula> when it
-        is increasing on some open interval containing <Formula>{String.raw`x_0`}</Formula>
-        (Definition 2). But checking every pair of points is slow. The Mean Value Theorem of
-        Chapter 5 gives a shortcut that needs only the sign of one derivative.
-      </p>
-      <KeyPoint title="Theorem 1 — first derivative test for monotonicity">
-        <p>
-          Let <Formula>f</Formula> be continuous on{" "}
-          <Formula>{String.raw`[a,b]`}</Formula> and differentiable on{" "}
-          <Formula>{String.raw`(a,b)`}</Formula>. Then <Formula>f</Formula> is
-        </p>
-        <p>
-          (a) <strong>increasing</strong> in <Formula>{String.raw`[a,b]`}</Formula> if{" "}
-          <Formula>{String.raw`f'(x) > 0`}</Formula> for each{" "}
-          <Formula>{String.raw`x \in (a,b)`}</Formula>;
-        </p>
-        <p>
-          (b) <strong>decreasing</strong> in <Formula>{String.raw`[a,b]`}</Formula> if{" "}
-          <Formula>{String.raw`f'(x) < 0`}</Formula> for each{" "}
-          <Formula>{String.raw`x \in (a,b)`}</Formula>;
-        </p>
-        <p>
-          (c) <strong>constant</strong> in <Formula>{String.raw`[a,b]`}</Formula> if{" "}
-          <Formula>{String.raw`f'(x) = 0`}</Formula> for each{" "}
-          <Formula>{String.raw`x \in (a,b)`}</Formula>.
-        </p>
-        <p>
-          <strong>Proof of (a).</strong> Let{" "}
-          <Formula>{String.raw`x_1 < x_2`}</Formula> in{" "}
-          <Formula>{String.raw`[a,b]`}</Formula>. By the Mean Value Theorem there is a{" "}
-          <Formula>c</Formula> between <Formula>{String.raw`x_1`}</Formula> and{" "}
-          <Formula>{String.raw`x_2`}</Formula> with
-        </p>
-        <p>
-          <Formula>{String.raw`f(x_2) - f(x_1) = f'(c)(x_2 - x_1) > 0`}</Formula>
-        </p>
-        <p>
-          since <Formula>{String.raw`f'(c) > 0`}</Formula> and{" "}
-          <Formula>{String.raw`x_2 - x_1 > 0`}</Formula>. Hence{" "}
-          <Formula>{String.raw`f(x_1) < f(x_2)`}</Formula> and <Formula>f</Formula> is increasing.
-          Parts (b) and (c) are proved similarly.
-        </p>
-      </KeyPoint>
-      <Callout type="note">
-        <p>
-          A more general statement: if <Formula>{String.raw`f'(x) > 0`}</Formula> on an interval
-          except at isolated points where it vanishes, and <Formula>f</Formula> is continuous
-          there, then <Formula>f</Formula> is still increasing. A derivative that is zero at one
-          point (like <Formula>{String.raw`f'(x) = 3(x-1)^2`}</Formula>) does not break
-          monotonicity.
+          The original question sequence and mathematical working are retained. Obvious
+          transcription errors and inconsistent answers are corrected and identified.
         </p>
       </Callout>
 
-      <Expandable title="Examples 7 to 13 — NCERT">
-        <KeyPoint title="Example 7">
+      <h3 id="h-6-3-1">1. Understanding Function Behaviour</h3>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="rounded-lg border border-border bg-card p-4">
+          <div className="grid gap-3 sm:grid-cols-[130px_minmax(0,1fr)] sm:items-center">
+            <StrictlyIncreasingGraph />
+            <div>
+              <span className="t-micro">Strictly increasing</span>
+              <p className="mt-2">
+                <Formula>{String.raw`f'(x)>0`}</Formula>
+              </p>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+                <li>Rises continuously from left to right.</li>
+                <li>
+                  If <Formula>{String.raw`x_1<x_2`}</Formula>, then{" "}
+                  <Formula>{String.raw`f(x_1)<f(x_2)`}</Formula>.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <div className="grid gap-3 sm:grid-cols-[130px_minmax(0,1fr)] sm:items-center">
+            <IncreasingGraph />
+            <div>
+              <span className="t-micro">Increasing</span>
+              <p className="mt-2">
+                <Formula>{String.raw`f'(x)\geq0`}</Formula>
+              </p>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+                <li>Never decreases.</li>
+                <li>May have horizontal portions or isolated stationary points.</li>
+                <li>
+                  <Formula>{String.raw`f'(x)=0`}</Formula> at some points is allowed.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <div className="grid gap-3 sm:grid-cols-[130px_minmax(0,1fr)] sm:items-center">
+            <StrictlyDecreasingGraph />
+            <div>
+              <span className="t-micro">Strictly decreasing</span>
+              <p className="mt-2">
+                <Formula>{String.raw`f'(x)<0`}</Formula>
+              </p>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+                <li>Falls continuously from left to right.</li>
+                <li>
+                  If <Formula>{String.raw`x_1<x_2`}</Formula>, then{" "}
+                  <Formula>{String.raw`f(x_1)>f(x_2)`}</Formula>.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <div className="grid gap-3 sm:grid-cols-[130px_minmax(0,1fr)] sm:items-center">
+            <DecreasingGraph />
+            <div>
+              <span className="t-micro">Decreasing</span>
+              <p className="mt-2">
+                <Formula>{String.raw`f'(x)\leq0`}</Formula>
+              </p>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+                <li>Never increases.</li>
+                <li>May have horizontal portions or stationary points.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4 id="h-6-3-1-5">1.5 Neither Increasing Nor Decreasing</h4>
+      <p>
+        A function is neither increasing nor decreasing over an interval if its direction changes
+        within that interval.
+      </p>
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+        <div className="min-w-0">
+          <span className="t-micro">Example — wave-like curve</span>
+          <ul className="mt-2 list-disc space-y-1.5 pl-5">
+            <li>Initially increases.</li>
+            <li>Reaches a local maximum.</li>
+            <li>Decreases.</li>
+            <li>Reaches a local minimum.</li>
+            <li>Increases again.</li>
+          </ul>
+        </div>
+        <WaveCurveDiagram />
+      </div>
+      <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+        <div className="min-w-0">
+          <span className="t-micro">Example</span>
+          <div className="mt-2 [&>div]:my-0">
+            <FormulaBlock latex={String.raw`f:\mathbb{R}\rightarrow\mathbb{R},\qquad f(x)=x^2`} />
+          </div>
+          <ul className="mt-2 list-disc space-y-1.5 pl-5">
+            <li>
+              Decreasing for <Formula>{String.raw`x<0`}</Formula>.
+            </li>
+            <li>
+              Increasing for <Formula>{String.raw`x>0`}</Formula>.
+            </li>
+            <li>
+              Therefore, neither increasing nor decreasing over all of{" "}
+              <Formula>{String.raw`\mathbb{R}`}</Formula>.
+            </li>
+          </ul>
+        </div>
+        <ParabolaDiagram />
+      </div>
+
+      <h3 id="h-6-3-2">2. Core Method: Using Derivatives</h3>
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+        <div className="min-w-0">
+          <p>Determine whether a function is increasing or decreasing:</p>
+          <ol className="mt-2 list-decimal space-y-1.5 pl-5">
+            <li>
+              Find <Formula>{String.raw`f'(x)`}</Formula>.
+            </li>
+            <li>
+              Solve <Formula>{String.raw`f'(x)=0`}</Formula> to find critical points.
+            </li>
+            <li>
+              Divide the domain into intervals and determine the sign of{" "}
+              <Formula>{String.raw`f'(x)`}</Formula>.
+            </li>
+          </ol>
+          <Callout type="important" title="Important distinction" subjectColor="var(--subject-mathematics)">
+            <ul className="list-disc space-y-1.5 pl-5">
+              <li>
+                <Formula>{String.raw`f'(x)>0`}</Formula> throughout an interval → strictly
+                increasing.
+              </li>
+              <li>
+                <Formula>{String.raw`f'(x)<0`}</Formula> throughout an interval → strictly
+                decreasing.
+              </li>
+              <li>
+                <Formula>{String.raw`f'(x)\geq0`}</Formula> → non-decreasing; it can still be
+                strictly increasing if it does not remain constant over any subinterval.
+              </li>
+              <li>
+                <Formula>{String.raw`f'(x)\leq0`}</Formula> → non-increasing; it can still be
+                strictly decreasing under the corresponding condition.
+              </li>
+            </ul>
+          </Callout>
+        </div>
+        <DecisionFlowDiagram />
+      </div>
+
+      <h3 id="h-6-3-3">3. Solved Problems: Basic Derivative Conditions</h3>
+
+      <WorkedExample
+        title="Question 1 — Linear Function"
+        question={
+          <>
+            Show that <Formula>{String.raw`f(x)=7x-3`}</Formula> is strictly increasing on{" "}
+            <Formula>{String.raw`\mathbb{R}`}</Formula>.
+          </>
+        }
+      >
+        <SolutionStep label="Derivative and conclusion">
+          <div className="grid gap-4 sm:grid-cols-[110px_minmax(0,1fr)_minmax(0,1fr)]">
+            <RisingLineDiagram />
+            <div className="rounded-md border border-border p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">Condition: f&apos;(x) &gt; 0</span>
+              <FormulaBlock latex={String.raw`f(x)=7x-3`} />
+              <FormulaBlock latex={String.raw`f'(x)=7`} />
+              <FormulaBlock latex={String.raw`7>0`} />
+            </div>
+            <div className="rounded-md border-l-[3px] border-ok bg-muted p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">Conclusion</span>
+              <FormulaBlock
+                latex={String.raw`\boxed{f(x)\text{ is strictly increasing on }\mathbb{R}}`}
+                important
+              />
+            </div>
+          </div>
+        </SolutionStep>
+      </WorkedExample>
+
+      <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+        <div className="border-b border-border px-4 py-3 sm:px-5">
+          <span className="t-micro">Question 2 — Work · Linear Function</span>
+        </div>
+        <div className="px-4 py-4 sm:px-5">
           <p>
-            Show that <Formula>{String.raw`f(x) = 7x - 3`}</Formula> is increasing on{" "}
+            Show that <Formula>{String.raw`f(x)=3x+17`}</Formula> is strictly increasing on{" "}
             <Formula>{String.raw`\mathbb{R}`}</Formula>.
           </p>
-          <p>
-            <strong>Solution.</strong> Let{" "}
-            <Formula>{String.raw`x_1 < x_2`}</Formula>. Then{" "}
-            <Formula>{String.raw`7x_1 < 7x_2`}</Formula>, hence{" "}
-            <Formula>{String.raw`7x_1 - 3 < 7x_2 - 3`}</Formula>, i.e.{" "}
-            <Formula>{String.raw`f(x_1) < f(x_2)`}</Formula>. By Definition 1,{" "}
-            <Formula>f</Formula> is strictly increasing on <Formula>{String.raw`\mathbb{R}`}</Formula>.
+          <Expandable
+            title="Show answer"
+            variant="example"
+            subjectColor="var(--subject-mathematics)"
+          >
+            <SolutionStep label="Derivative">
+              <p className="text-sm text-muted-foreground">
+                Since <Formula>f</Formula> is a polynomial, it is continuous and differentiable on{" "}
+                <Formula>{String.raw`\mathbb{R}`}</Formula>.
+              </p>
+              <FormulaBlock latex={String.raw`f'(x)=3`} />
+              <FormulaBlock latex={String.raw`3>0,\qquad \forall x\in\mathbb{R}`} />
+            </SolutionStep>
+            <SolutionStep label="Conclusion">
+              <FormulaBlock
+                latex={String.raw`\boxed{f(x)\text{ is strictly increasing on }\mathbb{R}}`}
+                important
+              />
+            </SolutionStep>
+          </Expandable>
+        </div>
+      </div>
+
+      <WorkedExample
+        title="Question 3 — Exponential Function"
+        question={
+          <>
+            Show that <Formula>{String.raw`f(x)=e^{2x}`}</Formula> is strictly increasing on{" "}
+            <Formula>{String.raw`\mathbb{R}`}</Formula>.
+          </>
+        }
+      >
+        <SolutionStep label="Reference notes">
+          <div className="grid gap-4 sm:grid-cols-[160px_minmax(0,1fr)] sm:items-center">
+            <ExponentialCurveDiagram />
+            <ul className="list-disc space-y-1.5 pl-5">
+              <li>
+                <Formula>{String.raw`e^x,e^{2x},e^{3x},\ldots>0`}</Formula>
+              </li>
+              <li>
+                <Formula>{String.raw`e=2.718\ldots`}</Formula>
+              </li>
+            </ul>
+          </div>
+        </SolutionStep>
+        <SolutionStep label="Chain rule">
+          <FormulaBlock latex={String.raw`f(x)=e^{2x}`} />
+          <FormulaBlock latex={String.raw`f'(x)=e^{2x}\frac{d(2x)}{dx}`} />
+          <FormulaBlock latex={String.raw`f'(x)=2e^{2x}`} />
+        </SolutionStep>
+        <SolutionStep label="Conclusion">
+          <p className="text-sm text-muted-foreground">
+            Since <Formula>{String.raw`e^{2x}>0`}</Formula>, we get{" "}
+            <Formula>{String.raw`f'(x)>0`}</Formula>.
           </p>
-        </KeyPoint>
-        <KeyPoint title="Example 8">
+          <FormulaBlock
+            latex={String.raw`\boxed{f(x)\text{ is strictly increasing on }\mathbb{R}}`}
+            important
+          />
+        </SolutionStep>
+      </WorkedExample>
+
+      <WorkedExample
+        title="Question 4 — Perfect Square Factorisation"
+        question={
+          <>
+            Prove that <Formula>{String.raw`f(x)=x^3-3x^2+3x-100`}</Formula> is strictly increasing
+            on <Formula>{String.raw`\mathbb{R}`}</Formula>.
+          </>
+        }
+      >
+        <SolutionStep label="Condition: f'(x) ≥ 0">
+          <FormulaBlock latex={String.raw`f'(x)=3x^2-6x+3`} />
+        </SolutionStep>
+        <SolutionStep label="Factorise">
+          <FormulaBlock latex={String.raw`=3(x^2-2x+1)`} />
+          <FormulaBlock latex={String.raw`=3(x-1)^2`} />
+          <div className="[&>div]:my-0">
+            <KeyPoint title="Identity used">
+              <FormulaBlock latex={String.raw`(x-1)^2=x^2-2x+1`} />
+            </KeyPoint>
+          </div>
+        </SolutionStep>
+        <SolutionStep label="Conclusion">
+          <p className="text-sm text-muted-foreground">
+            A square is always non-negative, so <Formula>{String.raw`f'(x)\geq0`}</Formula>.
+            Equality occurs only at <Formula>{String.raw`x=1`}</Formula> — a stationary point, not a
+            turning point.
+          </p>
+          <FormulaBlock
+            latex={String.raw`\boxed{f(x)\text{ is strictly increasing on }\mathbb{R}}`}
+            important
+          />
+        </SolutionStep>
+      </WorkedExample>
+
+      <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+        <div className="border-b border-border px-4 py-3 sm:px-5">
+          <span className="t-micro">Question 5 — Work · Perfect Square</span>
+        </div>
+        <div className="px-4 py-4 sm:px-5">
           <p>
-            Show that{" "}
-            <Formula>{String.raw`f(x) = x^3 - 3x^2 + 4x`}</Formula> is increasing on{" "}
+            Show that <Formula>{String.raw`f(x)=x^3-3x^2+4x`}</Formula> is strictly increasing on{" "}
             <Formula>{String.raw`\mathbb{R}`}</Formula>.
           </p>
-          <p>
-            <strong>Solution.</strong> Complete the square in the derivative:
+          <Expandable
+            title="Show answer"
+            variant="example"
+            subjectColor="var(--subject-mathematics)"
+          >
+            <SolutionStep label="Differentiate and complete the square">
+              <FormulaBlock latex={String.raw`f'(x)=3x^2-6x+4`} />
+              <FormulaBlock latex={String.raw`=3(x^2-2x+1)+1`} />
+              <FormulaBlock latex={String.raw`=3(x-1)^2+1`} />
+            </SolutionStep>
+            <SolutionStep label="Key insight and conclusion">
+              <div className="[&>div]:my-0">
+                <KeyPoint title="Completed-square form">
+                  <FormulaBlock latex={String.raw`3(x-1)^2+1>0`} important />
+                </KeyPoint>
+              </div>
+              <FormulaBlock
+                latex={String.raw`\boxed{f(x)\text{ is strictly increasing on }\mathbb{R}}`}
+                important
+              />
+            </SolutionStep>
+          </Expandable>
+        </div>
+      </div>
+
+      <h3 id="h-6-3-4">4. Logarithmic and Trigonometric Functions</h3>
+
+      <WorkedExample
+        title="Question 1 — Logarithmic Function"
+        question={<>Prove that the logarithmic function is increasing on <Formula>{String.raw`(0,\infty)`}</Formula>.</>}
+      >
+        <SolutionStep label="Given and domain">
+          <div className="grid gap-4 sm:grid-cols-[160px_minmax(0,1fr)] sm:items-center">
+            <LogCurveDiagram />
+            <div className="rounded-md border border-border bg-muted/40 p-3 [&>div]:my-0">
+              <FormulaBlock latex={String.raw`f(x)=\log x`} />
+              <FormulaBlock latex={String.raw`x\in(0,\infty)\Rightarrow x>0`} />
+            </div>
+          </div>
+        </SolutionStep>
+        <SolutionStep label="Differentiate">
+          <FormulaBlock latex={String.raw`f'(x)=\frac1x`} />
+          <p className="text-sm text-muted-foreground">
+            Since <Formula>{String.raw`x>0`}</Formula>, we get <Formula>{String.raw`f'(x)>0`}</Formula>.
           </p>
+        </SolutionStep>
+        <SolutionStep label="Conclusion">
+          <FormulaBlock
+            latex={String.raw`\boxed{\log x\text{ is strictly increasing on }(0,\infty)}`}
+            important
+          />
+        </SolutionStep>
+      </WorkedExample>
+
+      <WorkedExample
+        title="Question 2 — Sine Function"
+        question={
+          <>
+            Show that <Formula>{String.raw`f(x)=\sin x`}</Formula> is increasing in{" "}
+            <Formula>{String.raw`\left(0,\frac\pi2\right)`}</Formula>, decreasing in{" "}
+            <Formula>{String.raw`\left(\frac\pi2,\pi\right)`}</Formula>, and neither in{" "}
+            <Formula>{String.raw`(0,\pi)`}</Formula>.
+          </>
+        }
+      >
+        <SolutionStep label="Reference — ASTC rule: signs by quadrant">
+          <div className="grid gap-4 sm:grid-cols-[220px_minmax(0,1fr)]">
+            <AstcQuadrantDiagram />
+            <div className="grid gap-2 sm:grid-cols-2">
+              {[
+                { q: "I Quadrant", range: String.raw`\left(0,\frac\pi2\right)`, signs: "All are positive." },
+                { q: "II Quadrant", range: String.raw`\left(\frac\pi2,\pi\right)`, signs: "Sine, cosecant positive." },
+                { q: "III Quadrant", range: String.raw`\left(\pi,\frac{3\pi}2\right)`, signs: "Tangent, cotangent positive." },
+                { q: "IV Quadrant", range: String.raw`\left(\frac{3\pi}2,2\pi\right)`, signs: "Cosine, secant positive." },
+              ].map((item) => (
+                <div key={item.q} className="rounded-md border border-border p-3">
+                  <span className="t-micro block">{item.q}</span>
+                  <Formula>{item.range}</Formula>
+                  <p className="mt-1 text-sm text-foreground/80">{item.signs}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </SolutionStep>
+        <SolutionStep label="Derivative">
+          <FormulaBlock latex={String.raw`f'(x)=\cos x`} />
+        </SolutionStep>
+        <SolutionStep label="(a) In the first quadrant">
+          <ul className="list-disc space-y-1 pl-5 text-sm">
+            <li>First quadrant.</li>
+            <li>
+              <Formula>{String.raw`\cos x>0`}</Formula>, so <Formula>{String.raw`f'(x)>0`}</Formula>.
+            </li>
+          </ul>
+          <p className="mt-2 text-sm font-semibold">Therefore, <Formula>{String.raw`\sin x`}</Formula> is increasing.</p>
+        </SolutionStep>
+        <SolutionStep label="(b) In the second quadrant">
+          <ul className="list-disc space-y-1 pl-5 text-sm">
+            <li>Second quadrant.</li>
+            <li>
+              <Formula>{String.raw`\cos x<0`}</Formula>, so <Formula>{String.raw`f'(x)<0`}</Formula>.
+            </li>
+          </ul>
+          <p className="mt-2 text-sm font-semibold">Therefore, <Formula>{String.raw`\sin x`}</Formula> is decreasing.</p>
+        </SolutionStep>
+        <SolutionStep label="(c) Over the whole interval">
+          <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_260px]">
+            <div>
+              <ul className="list-disc space-y-1 pl-5 text-sm">
+                <li>Increasing in the first interval.</li>
+                <li>Decreasing in the second interval.</li>
+              </ul>
+              <FormulaBlock
+                latex={String.raw`\boxed{\sin x\text{ is neither increasing nor decreasing on }(0,\pi)}`}
+                important
+              />
+            </div>
+            <SineCurveDiagram />
+          </div>
+        </SolutionStep>
+      </WorkedExample>
+
+      <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+        <div className="border-b border-border px-4 py-3 sm:px-5">
+          <span className="t-micro">Question 3 — Work · Cosine Function</span>
+        </div>
+        <div className="px-4 py-4 sm:px-5">
           <p>
-            <Formula>{String.raw`f'(x) = 3x^2 - 6x + 4 = 3\left(x^2 - 2x + 1\right) + 1 = 3(x-1)^2 + 1 > 0`}</Formula>
-          </p>
-          <p>
-            The derivative is positive on every interval of{" "}
-            <Formula>{String.raw`\mathbb{R}`}</Formula>, so <Formula>f</Formula> is increasing.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 9">
-          <p>
-            Prove that <Formula>{String.raw`f(x) = \cos x`}</Formula> is (a) decreasing in{" "}
-            <Formula>{String.raw`(0,\pi)`}</Formula>, (b) increasing in{" "}
-            <Formula>{String.raw`(\pi, 2\pi)`}</Formula>, and (c) neither in{" "}
+            Prove that <Formula>{String.raw`f(x)=\cos x`}</Formula> is decreasing in{" "}
+            <Formula>{String.raw`(0,\pi)`}</Formula>, increasing in{" "}
+            <Formula>{String.raw`(\pi,2\pi)`}</Formula>, and neither in{" "}
             <Formula>{String.raw`(0,2\pi)`}</Formula>.
           </p>
-          <p>
-            <strong>Solution.</strong>{" "}
-            <Formula>{String.raw`f'(x) = -\sin x`}</Formula>.
-          </p>
-          <p>
-            (a) For <Formula>{String.raw`x \in (0,\pi)`}</Formula>,{" "}
-            <Formula>{String.raw`\sin x > 0`}</Formula>, so{" "}
-            <Formula>{String.raw`f'(x) < 0`}</Formula> — decreasing.
-          </p>
-          <p>
-            (b) For <Formula>{String.raw`x \in (\pi, 2\pi)`}</Formula>,{" "}
-            <Formula>{String.raw`\sin x < 0`}</Formula>, so{" "}
-            <Formula>{String.raw`f'(x) > 0`}</Formula> — increasing.
-          </p>
-          <p>
-            (c) Both behaviours occur in{" "}
-            <Formula>{String.raw`(0,2\pi)`}</Formula>, so <Formula>f</Formula> is neither
-            increasing nor decreasing there.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 10">
-          <p>
-            Find the intervals in which{" "}
-            <Formula>{String.raw`f(x) = x^2 - 4x + 6`}</Formula> is (a) increasing (b) decreasing.
-          </p>
-          <p>
-            <strong>Solution.</strong>{" "}
-            <Formula>{String.raw`f'(x) = 2x - 4`}</Formula>, which vanishes at{" "}
-            <Formula>{String.raw`x = 2`}</Formula>. This point splits{" "}
-            <Formula>{String.raw`\mathbb{R}`}</Formula> into{" "}
-            <Formula>{String.raw`(-\infty, 2)`}</Formula> and{" "}
-            <Formula>{String.raw`(2, \infty)`}</Formula>.
-          </p>
-          <p>
-            On <Formula>{String.raw`(-\infty, 2)`}</Formula>:{" "}
-            <Formula>{String.raw`f'(x) < 0`}</Formula> — decreasing. On{" "}
-            <Formula>{String.raw`(2, \infty)`}</Formula>:{" "}
-            <Formula>{String.raw`f'(x) > 0`}</Formula> — increasing.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 11">
-          <p>
-            Find the intervals in which{" "}
-            <Formula>{String.raw`f(x) = 4x^3 - 6x^2 - 72x + 30`}</Formula> is (a) increasing (b)
-            decreasing.
-          </p>
-          <p>
-            <strong>Solution.</strong>
-          </p>
-          <p>
-            <Formula>{String.raw`f'(x) = 12x^2 - 12x - 72 = 12\left(x^2 - x - 6\right) = 12(x-3)(x+2)`}</Formula>
-          </p>
-          <p>
-            So <Formula>{String.raw`f'(x) = 0`}</Formula> at{" "}
-            <Formula>{String.raw`x = -2`}</Formula> and{" "}
-            <Formula>{String.raw`x = 3`}</Formula>, which divide{" "}
-            <Formula>{String.raw`\mathbb{R}`}</Formula> into three intervals. Test the sign of
-            each factor:
-          </p>
-          <TableCard
-            headers={["Interval", "Sign of f'(x)", "Nature of f"]}
-            rows={[
-              {
-                cells: [
-                  <span key="r1">
-                    <Formula>{String.raw`(-\infty,-2)`}</Formula>
-                  </span>,
-                  <span key="r1s">
-                    <Formula>{String.raw`(-)(-) > 0`}</Formula>
-                  </span>,
-                  "increasing",
-                ],
-              },
-              {
-                cells: [
-                  <span key="r2">
-                    <Formula>{String.raw`(-2,3)`}</Formula>
-                  </span>,
-                  <span key="r2s">
-                    <Formula>{String.raw`(-)(+) < 0`}</Formula>
-                  </span>,
-                  "decreasing",
-                ],
-              },
-              {
-                cells: [
-                  <span key="r3">
-                    <Formula>{String.raw`(3,\infty)`}</Formula>
-                  </span>,
-                  <span key="r3s">
-                    <Formula>{String.raw`(+)(+) > 0`}</Formula>
-                  </span>,
-                  "increasing",
-                ],
-              },
-            ]}
-          />
-          <p>
-            The function is increasing in{" "}
-            <Formula>{String.raw`(-\infty,-2) \cup (3,\infty)`}</Formula> and decreasing in{" "}
-            <Formula>{String.raw`(-2,3)`}</Formula>; it is neither increasing nor decreasing on
-            the whole of <Formula>{String.raw`\mathbb{R}`}</Formula>.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 12">
-          <p>
-            Find the intervals in which{" "}
-            <Formula>{String.raw`f(x) = \sin 3x`}</Formula>,{" "}
-            <Formula>{String.raw`x \in \left[0,\frac{\pi}{2}\right]`}</Formula>, is (a) increasing
-            (b) decreasing.
-          </p>
-          <p>
-            <strong>Solution.</strong>{" "}
-            <Formula>{String.raw`f'(x) = 3\cos 3x`}</Formula>. Now{" "}
-            <Formula>{String.raw`f'(x) = 0`}</Formula> when{" "}
-            <Formula>{String.raw`\cos 3x = 0`}</Formula>, i.e.{" "}
-            <Formula>{String.raw`3x = \frac{\pi}{2},\ \frac{3\pi}{2}`}</Formula>; with{" "}
-            <Formula>{String.raw`x \in \left[0,\frac{\pi}{2}\right]`}</Formula> this gives{" "}
-            <Formula>{String.raw`x = \frac{\pi}{6}`}</Formula> and{" "}
-            <Formula>{String.raw`x = \frac{\pi}{2}`}</Formula>.
-          </p>
-          <p>
-            For <Formula>{String.raw`0 \le x < \frac{\pi}{6}`}</Formula> we have{" "}
-            <Formula>{String.raw`0 \le 3x < \frac{\pi}{2}`}</Formula>, so{" "}
-            <Formula>{String.raw`\cos 3x > 0`}</Formula> and{" "}
-            <Formula>{String.raw`f'(x) > 0`}</Formula>. For{" "}
-            <Formula>{String.raw`\frac{\pi}{6} < x < \frac{\pi}{2}`}</Formula> we have{" "}
-            <Formula>{String.raw`\frac{\pi}{2} < 3x < \frac{3\pi}{2}`}</Formula>, so{" "}
-            <Formula>{String.raw`\cos 3x < 0`}</Formula> and{" "}
-            <Formula>{String.raw`f'(x) < 0`}</Formula>.
-          </p>
-          <p>
-            As <Formula>f</Formula> is continuous at{" "}
-            <Formula>{String.raw`x = \frac{\pi}{6}`}</Formula>, <Formula>f</Formula> is increasing
-            on <Formula>{String.raw`\left[0,\frac{\pi}{6}\right]`}</Formula> and decreasing on{" "}
-            <Formula>{String.raw`\left[\frac{\pi}{6},\frac{\pi}{2}\right]`}</Formula>.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 13">
-          <p>
-            Find the intervals in which{" "}
-            <Formula>{String.raw`f(x) = \sin x + \cos x`}</Formula>,{" "}
-            <Formula>{String.raw`0 \le x \le 2\pi`}</Formula>, is increasing or decreasing.
-          </p>
-          <p>
-            <strong>Solution.</strong>{" "}
-            <Formula>{String.raw`f'(x) = \cos x - \sin x`}</Formula>. Now{" "}
-            <Formula>{String.raw`f'(x) = 0`}</Formula> gives{" "}
-            <Formula>{String.raw`\sin x = \cos x`}</Formula>, i.e.{" "}
-            <Formula>{String.raw`x = \frac{\pi}{4}`}</Formula> and{" "}
-            <Formula>{String.raw`x = \frac{5\pi}{4}`}</Formula> in{" "}
-            <Formula>{String.raw`[0,2\pi]`}</Formula>.
-          </p>
-          <TableCard
-            headers={["Interval", "Sign of f'(x)", "Nature of f"]}
-            rows={[
-              {
-                cells: [
-                  <span key="s1">
-                    <Formula>{String.raw`\left[0,\frac{\pi}{4}\right)`}</Formula>
-                  </span>,
-                  <span key="s1v">
-                    <Formula>{String.raw`> 0`}</Formula>
-                  </span>,
-                  "increasing",
-                ],
-              },
-              {
-                cells: [
-                  <span key="s2">
-                    <Formula>{String.raw`\left(\frac{\pi}{4},\frac{5\pi}{4}\right)`}</Formula>
-                  </span>,
-                  <span key="s2v">
-                    <Formula>{String.raw`< 0`}</Formula>
-                  </span>,
-                  "decreasing",
-                ],
-              },
-              {
-                cells: [
-                  <span key="s3">
-                    <Formula>{String.raw`\left(\frac{5\pi}{4},2\pi\right]`}</Formula>
-                  </span>,
-                  <span key="s3v">
-                    <Formula>{String.raw`> 0`}</Formula>
-                  </span>,
-                  "increasing",
-                ],
-              },
-            ]}
-          />
-          <p>
-            Hence <Formula>f</Formula> is increasing in{" "}
-            <Formula>{String.raw`\left[0,\frac{\pi}{4}\right] \cup \left[\frac{5\pi}{4},2\pi\right]`}</Formula>{" "}
-            and decreasing in{" "}
-            <Formula>{String.raw`\left[\frac{\pi}{4},\frac{5\pi}{4}\right]`}</Formula>.
-          </p>
-        </KeyPoint>
-      </Expandable>
+          <Expandable
+            title="Show solution"
+            variant="example"
+            subjectColor="var(--subject-mathematics)"
+          >
+            <SolutionStep label="Derivative">
+              <FormulaBlock latex={String.raw`f'(x)=-\sin x`} />
+            </SolutionStep>
+            <SolutionStep label="(a) In (0, π)">
+              <FormulaBlock latex={String.raw`\sin x>0`} />
+              <FormulaBlock latex={String.raw`f'(x)=-\sin x<0`} />
+              <p className="text-sm font-semibold">Therefore, <Formula>f</Formula> is decreasing.</p>
+            </SolutionStep>
+            <SolutionStep label="(b) In (π, 2π)">
+              <FormulaBlock latex={String.raw`\sin x<0`} />
+              <FormulaBlock latex={String.raw`f'(x)=-\sin x>0`} />
+              <p className="text-sm font-semibold">Therefore, <Formula>f</Formula> is increasing.</p>
+            </SolutionStep>
+            <SolutionStep label="(c) Over the whole interval">
+              <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_280px]">
+                <div>
+                  <p className="text-sm text-muted-foreground">
+                    The function first decreases and then increases.
+                  </p>
+                  <FormulaBlock latex={String.raw`\boxed{f(x)\text{ is neither increasing nor decreasing}}`} important />
+                </div>
+                <CosineCurveDiagram />
+              </div>
+            </SolutionStep>
+          </Expandable>
+        </div>
+      </div>
 
-      <Expandable title="Exercise 6.2 — Increasing and Decreasing Functions">
-        <ExerciseQa
-          questions={[
-            <>
-              Show that <Formula>{String.raw`f(x) = 3x + 17`}</Formula> is increasing on{" "}
-              <Formula>{String.raw`\mathbb{R}`}</Formula>.
-            </>,
-            <>
-              Show that <Formula>{String.raw`f(x) = e^{2x}`}</Formula> is increasing on{" "}
-              <Formula>{String.raw`\mathbb{R}`}</Formula>.
-            </>,
-            <>
-              Show that <Formula>{String.raw`f(x) = \sin x`}</Formula> is (a) increasing in{" "}
-              <Formula>{String.raw`\left(0,\frac{\pi}{2}\right)`}</Formula> (b) decreasing in{" "}
-              <Formula>{String.raw`\left(\frac{\pi}{2},\pi\right)`}</Formula> (c) neither
-              increasing nor decreasing in <Formula>{String.raw`(0,\pi)`}</Formula>.
-            </>,
-            <>
-              Find the intervals in which{" "}
-              <Formula>{String.raw`f(x) = 2x^2 - 3x`}</Formula> is (a) increasing (b) decreasing.
-            </>,
-            <>
-              Find the intervals in which{" "}
-              <Formula>{String.raw`f(x) = 2x^3 - 3x^2 - 36x + 7`}</Formula> is (a) increasing (b)
-              decreasing.
-            </>,
-            <>
-              Find the intervals in which the following are strictly increasing or decreasing:
-              (a) <Formula>{String.raw`x^2 + 2x - 5`}</Formula> (b){" "}
-              <Formula>{String.raw`10 - 6x - 2x^2`}</Formula> (c){" "}
-              <Formula>{String.raw`-2x^3 - 9x^2 - 12x + 1`}</Formula> (d){" "}
-              <Formula>{String.raw`6 - 9x - x^2`}</Formula> (e){" "}
-              <Formula>{String.raw`(x+1)^3(x-3)^3`}</Formula>.
-            </>,
-            <>
-              Show that{" "}
-              <Formula>{String.raw`y = \log(1+x) - \frac{2x}{2+x}`}</Formula>,{" "}
-              <Formula>{String.raw`x > -1`}</Formula>, is an increasing function of{" "}
-              <Formula>x</Formula> throughout its domain.
-            </>,
-            <>
-              Find the values of <Formula>x</Formula> for which{" "}
-              <Formula>{String.raw`y = \left[x(x-2)\right]^2`}</Formula> is increasing.
-            </>,
-            <>
-              Prove that{" "}
-              <Formula>{String.raw`y = \frac{4\sin\theta}{2+\cos\theta} - \theta`}</Formula> is an
-              increasing function of <Formula>\theta</Formula> in{" "}
-              <Formula>{String.raw`\left[0,\frac{\pi}{2}\right]`}</Formula>.
-            </>,
-            <>
-              Prove that the logarithmic function is increasing on{" "}
-              <Formula>{String.raw`(0,\infty)`}</Formula>.
-            </>,
-            <>
-              Prove that <Formula>{String.raw`f(x) = x^2 - x + 1`}</Formula> is neither strictly
-              increasing nor decreasing on <Formula>{String.raw`(-1,1)`}</Formula>.
-            </>,
-            <>
-              Which of the following functions are decreasing on{" "}
-              <Formula>{String.raw`\left(0,\frac{\pi}{2}\right)`}</Formula>? (A){" "}
-              <Formula>{String.raw`\cos x`}</Formula> (B){" "}
-              <Formula>{String.raw`\cos 2x`}</Formula> (C){" "}
-              <Formula>{String.raw`\cos 3x`}</Formula> (D) <Formula>{String.raw`\tan x`}</Formula>
-            </>,
-            <>
-              On which interval is{" "}
-              <Formula>{String.raw`f(x) = x^{100} + \sin x - 1`}</Formula> decreasing? (A){" "}
-              <Formula>{String.raw`(0,1)`}</Formula> (B){" "}
-              <Formula>{String.raw`\left(\frac{\pi}{2},\pi\right)`}</Formula> (C){" "}
-              <Formula>{String.raw`\left(0,\frac{\pi}{2}\right)`}</Formula> (D) None of these
-            </>,
-            <>
-              For what values of <Formula>a</Formula> is{" "}
-              <Formula>{String.raw`f(x) = x^2 + ax + 1`}</Formula> increasing on{" "}
-              <Formula>{String.raw`[1,2]`}</Formula>?
-            </>,
-            <>
-              Let <Formula>I</Formula> be any interval disjoint from{" "}
-              <Formula>{String.raw`[-1,1]`}</Formula>. Prove that{" "}
-              <Formula>{String.raw`f(x) = x + \frac{1}{x}`}</Formula> is increasing on{" "}
-              <Formula>I</Formula>.
-            </>,
-            <>
-              Prove that <Formula>{String.raw`f(x) = \log\sin x`}</Formula> is increasing on{" "}
-              <Formula>{String.raw`\left(0,\frac{\pi}{2}\right)`}</Formula> and decreasing on{" "}
-              <Formula>{String.raw`\left(\frac{\pi}{2},\pi\right)`}</Formula>.
-            </>,
-            <>
-              Prove that <Formula>{String.raw`f(x) = \log|\cos x|`}</Formula> is decreasing on{" "}
-              <Formula>{String.raw`\left(0,\frac{\pi}{2}\right)`}</Formula> and increasing on{" "}
-              <Formula>{String.raw`\left(\frac{3\pi}{2},2\pi\right)`}</Formula>.
-            </>,
-            <>
-              Prove that{" "}
-              <Formula>{String.raw`f(x) = x^3 - 3x^2 + 3x - 100`}</Formula> is increasing in{" "}
-              <Formula>{String.raw`\mathbb{R}`}</Formula>.
-            </>,
-            <>
-              The interval in which <Formula>{String.raw`y = x^2 e^{-x}`}</Formula> is increasing
-              is (A) <Formula>{String.raw`(-\infty,\infty)`}</Formula> (B){" "}
-              <Formula>{String.raw`(-2,0)`}</Formula> (C){" "}
-              <Formula>{String.raw`(2,\infty)`}</Formula> (D){" "}
-              <Formula>{String.raw`(0,2)`}</Formula>
-            </>,
-          ]}
-          answers={[
-            <>
-              <Formula>{String.raw`f'(x) = 3 > 0`}</Formula> for all <Formula>x</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`f'(x) = 2e^{2x} > 0`}</Formula> for all <Formula>x</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`f'(x) = \cos x`}</Formula>: positive on{" "}
-              <Formula>{String.raw`\left(0,\frac{\pi}{2}\right)`}</Formula>, negative on{" "}
-              <Formula>{String.raw`\left(\frac{\pi}{2},\pi\right)`}</Formula>
-            </>,
-            <>
-              decreasing on <Formula>{String.raw`\left(-\infty,\frac{3}{4}\right)`}</Formula>,
-              increasing on{" "}
-              <Formula>{String.raw`\left(\frac{3}{4},\infty\right)`}</Formula>
-            </>,
-            <>
-              increasing on{" "}
-              <Formula>{String.raw`(-\infty,-2) \cup (3,\infty)`}</Formula>, decreasing on{" "}
-              <Formula>{String.raw`(-2,3)`}</Formula>
-            </>,
-            <>
-              (a) decreasing <Formula>{String.raw`(-\infty,-1)`}</Formula>, increasing{" "}
-              <Formula>{String.raw`(-1,\infty)`}</Formula>; (b) increasing{" "}
-              <Formula>{String.raw`(-\infty,-\frac{3}{2})`}</Formula>, decreasing{" "}
-              <Formula>{String.raw`(-\frac{3}{2},\infty)`}</Formula>; (c) increasing on{" "}
-              <Formula>{String.raw`(-2,-1)`}</Formula>, decreasing on{" "}
-              <Formula>{String.raw`(-\infty,-2) \cup (-1,\infty)`}</Formula>; (d) increasing{" "}
-              <Formula>{String.raw`(-\infty,-\frac{9}{2})`}</Formula>, decreasing{" "}
-              <Formula>{String.raw`(-\frac{9}{2},\infty)`}</Formula>; (e) increasing for{" "}
-              <Formula>{String.raw`x > 1`}</Formula>, decreasing for{" "}
-              <Formula>{String.raw`x < 1`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`\frac{dy}{dx} = \frac{1}{1+x} - \frac{4}{(2+x)^2} = \frac{x^2}{(1+x)(2+x)^2} > 0`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`(0,1) \cup (2,\infty)`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`\frac{dy}{d\theta} = \frac{\cos\theta\,(4-\cos\theta)}{(2+\cos\theta)^2} > 0`}</Formula>{" "}
-              on <Formula>{String.raw`\left(0,\frac{\pi}{2}\right)`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`\frac{d}{dx}\log x = \frac{1}{x} > 0`}</Formula> for{" "}
-              <Formula>{String.raw`x > 0`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`f'(x) = 2x - 1`}</Formula> changes sign at{" "}
-              <Formula>{String.raw`x = \frac{1}{2}`}</Formula>, which lies in{" "}
-              <Formula>{String.raw`(-1,1)`}</Formula>
-            </>,
-            <>
-              (A) and (B)
-            </>,
-            <>
-              (D)
-            </>,
-            <>
-              <Formula>{String.raw`a \ge -2`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`f'(x) = 1 - \frac{1}{x^2} > 0`}</Formula> when{" "}
-              <Formula>{String.raw`|x| > 1`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`f'(x) = \cot x`}</Formula>{" "}
-            </>,
-            <>
-              <Formula>{String.raw`f'(x) = -\tan x`}</Formula>;{" "}
-              <Formula>{String.raw`\tan x > 0`}</Formula> on{" "}
-              <Formula>{String.raw`\left(0,\frac{\pi}{2}\right)`}</Formula>,{" "}
-              <Formula>{String.raw`\tan x < 0`}</Formula> on{" "}
-              <Formula>{String.raw`\left(\frac{3\pi}{2},2\pi\right)`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`f'(x) = 3(x-1)^2 \ge 0`}</Formula>
-            </>,
-            <>
-              (D)
-            </>,
-          ]}
-        />
-      </Expandable>
+      <WorkedExample
+        title="Question 4 — Logarithm of Absolute Cosine"
+        question={
+          <>
+            Prove that <Formula>{String.raw`f(x)=\log|\cos x|`}</Formula> is decreasing on{" "}
+            <Formula>{String.raw`\left(0,\frac\pi2\right)`}</Formula> and increasing on{" "}
+            <Formula>{String.raw`\left(\frac{3\pi}2,2\pi\right)`}</Formula>.
+          </>
+        }
+      >
+        <SolutionStep label="Derivative">
+          <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_190px] sm:items-center">
+            <div className="[&>div]:my-0">
+              <p className="text-sm text-muted-foreground">
+                On the specified intervals, <Formula>{String.raw`\cos x>0`}</Formula>, so{" "}
+                <Formula>{String.raw`f(x)=\log(\cos x)`}</Formula>.
+              </p>
+              <FormulaBlock latex={String.raw`f'(x)=\frac1{\cos x}(-\sin x)`} />
+              <FormulaBlock latex={String.raw`\boxed{f'(x)=-\tan x}`} important />
+            </div>
+            <UnitCircleTanDiagram />
+          </div>
+        </SolutionStep>
+        <SolutionStep label="Two intervals">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-md border border-border p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">First interval</span>
+              <FormulaBlock latex={String.raw`x\in\left(0,\frac\pi2\right)`} />
+              <p className="text-sm text-muted-foreground">First quadrant.</p>
+              <FormulaBlock latex={String.raw`\tan x>0`} />
+              <FormulaBlock latex={String.raw`f'(x)=-\tan x<0`} />
+              <p className="text-sm font-semibold">Therefore, decreasing.</p>
+            </div>
+            <div className="rounded-md border border-border p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">Second interval</span>
+              <FormulaBlock latex={String.raw`x\in\left(\frac{3\pi}2,2\pi\right)`} />
+              <p className="text-sm text-muted-foreground">Fourth quadrant.</p>
+              <FormulaBlock latex={String.raw`\tan x<0`} />
+              <FormulaBlock latex={String.raw`f'(x)=-\tan x>0`} />
+              <p className="text-sm font-semibold">Therefore, increasing.</p>
+            </div>
+          </div>
+        </SolutionStep>
+        <SolutionStep label="Conclusion">
+          <FormulaBlock latex={String.raw`\boxed{\text{Decreasing: }\left(0,\frac\pi2\right)}`} important />
+          <FormulaBlock latex={String.raw`\boxed{\text{Increasing: }\left(\frac{3\pi}2,2\pi\right)}`} important />
+        </SolutionStep>
+      </WorkedExample>
+
+      <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+        <div className="border-b border-border px-4 py-3 sm:px-5">
+          <span className="t-micro">Question 5 — Work · Logarithm of Sine</span>
+        </div>
+        <div className="px-4 py-4 sm:px-5">
+          <p>
+            Prove that <Formula>{String.raw`f(x)=\log(\sin x)`}</Formula> is increasing on{" "}
+            <Formula>{String.raw`\left(0,\frac\pi2\right)`}</Formula> and decreasing on{" "}
+            <Formula>{String.raw`\left(\frac\pi2,\pi\right)`}</Formula>.
+          </p>
+          <Expandable
+            title="Show solution"
+            variant="example"
+            subjectColor="var(--subject-mathematics)"
+          >
+            <SolutionStep label="Graph reference and derivative">
+              <div className="grid gap-4 sm:grid-cols-[260px_minmax(0,1fr)]">
+                <SineCurveDiagram />
+                <div className="[&>div]:my-0">
+                  <FormulaBlock latex={String.raw`f'(x)=\frac1{\sin x}\cos x`} />
+                  <FormulaBlock latex={String.raw`f'(x)=\cot x`} important />
+                </div>
+              </div>
+            </SolutionStep>
+            <SolutionStep label="First interval">
+              <FormulaBlock latex={String.raw`\cot x>0\quad\text{for }x\in\left(0,\frac\pi2\right)`} />
+              <p className="text-sm font-semibold">Therefore, increasing.</p>
+            </SolutionStep>
+            <SolutionStep label="Second interval">
+              <FormulaBlock latex={String.raw`\cot x<0\quad\text{for }x\in\left(\frac\pi2,\pi\right)`} />
+              <p className="text-sm font-semibold">Therefore, decreasing.</p>
+            </SolutionStep>
+            <SolutionStep label="Conclusion">
+              <FormulaBlock latex={String.raw`\boxed{\text{Increasing: }\left(0,\frac\pi2\right)}`} important />
+              <FormulaBlock latex={String.raw`\boxed{\text{Decreasing: }\left(\frac\pi2,\pi\right)}`} important />
+            </SolutionStep>
+          </Expandable>
+        </div>
+      </div>
+
+      <WorkedExample
+        title="Question 6 — Neither Strictly Increasing Nor Decreasing"
+        question={
+          <>
+            Prove that <Formula>{String.raw`f(x)=x^2-x+1`}</Formula> is neither strictly increasing
+            nor strictly decreasing on <Formula>{String.raw`(-1,1)`}</Formula>.
+          </>
+        }
+      >
+        <SolutionStep label="Critical point">
+          <FormulaBlock latex={String.raw`f'(x)=2x-1`} />
+          <FormulaBlock latex={String.raw`2x-1=0`} />
+          <FormulaBlock latex={String.raw`x=\frac12=0.5`} />
+          <p className="text-sm text-muted-foreground">This divides the domain into two intervals.</p>
+          <SignNumberLine points={["−1", "1/2", "1"]} signs={["", "−", "+", ""]} note="sign of f'(x)" />
+        </SolutionStep>
+        <SolutionStep label="Test point 1: x = 0">
+          <FormulaBlock latex={String.raw`f'(0)=2(0)-1=-1<0`} />
+          <p className="text-sm font-semibold">
+            So the function is decreasing on <Formula>{String.raw`\left(-1,\frac12\right)`}</Formula>.
+          </p>
+        </SolutionStep>
+        <SolutionStep label="Test point 2: x = 0.75">
+          <FormulaBlock latex={String.raw`f'(0.75)=2(0.75)-1=0.5>0`} />
+          <p className="text-sm font-semibold">
+            So the function is increasing on <Formula>{String.raw`\left(\frac12,1\right)`}</Formula>.
+          </p>
+        </SolutionStep>
+        <SolutionStep label="Conclusion">
+          <FormulaBlock
+            latex={String.raw`\boxed{\text{Neither increasing nor decreasing on }(-1,1)}`}
+            important
+          />
+        </SolutionStep>
+      </WorkedExample>
+
+      <WorkedExample
+        title="Question 7 — Logarithm of (1 + x)"
+        question={
+          <>
+            Show that <Formula>{String.raw`y=\log(1+x)-\frac{2x}{2+x}`}</Formula>, for{" "}
+            <Formula>{String.raw`x>-1`}</Formula>, is an increasing function throughout its domain.
+          </>
+        }
+      >
+        <SolutionStep label="Domain and derivative">
+          <FormulaBlock latex={String.raw`1+x>0\quad\Rightarrow\quad x>-1`} />
+          <FormulaBlock latex={String.raw`\frac{dy}{dx}=\frac1{1+x}-\frac4{(2+x)^2}`} />
+        </SolutionStep>
+        <SolutionStep label="Combine into one fraction">
+          <FormulaBlock latex={String.raw`\frac{dy}{dx}=\frac{(2+x)^2-4(1+x)}{(1+x)(2+x)^2}`} />
+          <FormulaBlock latex={String.raw`=\frac{x^2}{(1+x)(2+x)^2}`} important />
+        </SolutionStep>
+        <SolutionStep label="Sign conclusion">
+          <ul className="list-disc space-y-1 pl-5 text-sm">
+            <li>
+              <Formula>{String.raw`(1+x)>0`}</Formula> in the domain.
+            </li>
+            <li>
+              <Formula>{String.raw`(2+x)^2>0`}</Formula> for every allowed{" "}
+              <Formula>x</Formula>.
+            </li>
+            <li>
+              <Formula>{String.raw`x^2\geq0`}</Formula>, and it vanishes only at{" "}
+              <Formula>{String.raw`x=0`}</Formula>.
+            </li>
+          </ul>
+          <div className="[&>div]:my-0">
+            <KeyPoint title="An isolated zero is allowed">
+              <FormulaBlock latex={String.raw`\frac{dy}{dx}\geq0\text{ on the domain, with equality only at }x=0`} />
+            </KeyPoint>
+          </div>
+          <FormulaBlock latex={String.raw`\boxed{y\text{ is increasing for }x>-1}`} important />
+        </SolutionStep>
+      </WorkedExample>
+
+      <WorkedExample
+        title="Question 8 — Trigonometric Quotient"
+        question={
+          <>
+            Prove that <Formula>{String.raw`y=\frac{4\sin\theta}{2+\cos\theta}-\theta`}</Formula>{" "}
+            is an increasing function of <Formula>\theta</Formula> on{" "}
+            <Formula>{String.raw`\left[0,\frac\pi2\right]`}</Formula>.
+          </>
+        }
+      >
+        <SolutionStep label="Differentiate the quotient">
+          <FormulaBlock
+            latex={String.raw`\frac{dy}{d\theta}=\frac{4\cos\theta(2+\cos\theta)+4\sin^2\theta}{(2+\cos\theta)^2}-1`}
+          />
+          <FormulaBlock latex={String.raw`=\frac{8\cos\theta+4\cos^2\theta+4\sin^2\theta}{(2+\cos\theta)^2}-1`} />
+          <FormulaBlock latex={String.raw`=\frac{8\cos\theta+4}{(2+\cos\theta)^2}-1`} />
+        </SolutionStep>
+        <SolutionStep label="Simplify the numerator">
+          <FormulaBlock
+            latex={String.raw`\frac{dy}{d\theta}=\frac{8\cos\theta+4-(2+\cos\theta)^2}{(2+\cos\theta)^2}`}
+          />
+          <FormulaBlock
+            latex={String.raw`=\frac{\cos\theta\,(4-\cos\theta)}{(2+\cos\theta)^2}`}
+            important
+          />
+        </SolutionStep>
+        <SolutionStep label="Sign on the given interval">
+          <div className="grid gap-4 sm:grid-cols-[220px_minmax(0,1fr)] sm:items-center">
+            <CosDecreasingStrip />
+            <ul className="list-disc space-y-1 pl-5 text-sm">
+              <li>
+                <Formula>{String.raw`0\leq\theta\leq\frac\pi2`}</Formula> gives{" "}
+                <Formula>{String.raw`0\leq\cos\theta\leq1`}</Formula>.
+              </li>
+              <li>
+                <Formula>{String.raw`4-\cos\theta>0`}</Formula> and{" "}
+                <Formula>{String.raw`(2+\cos\theta)^2>0`}</Formula>.
+              </li>
+              <li>
+                Hence <Formula>{String.raw`\frac{dy}{d\theta}\geq0`}</Formula>; the derivative is
+                zero only at <Formula>{String.raw`\theta=\frac\pi2`}</Formula>.
+              </li>
+            </ul>
+          </div>
+          <FormulaBlock
+            latex={String.raw`\boxed{y\text{ is increasing on }\left[0,\frac\pi2\right]}`}
+            important
+          />
+        </SolutionStep>
+      </WorkedExample>
+
+      <h3 id="h-6-3-5">5. Finding Intervals of Increase and Decrease</h3>
+      <p>
+        Solve <Formula>{String.raw`f'(x)=0`}</Formula>, split the domain at the critical points, and
+        test the sign of <Formula>{String.raw`f'(x)`}</Formula> in every interval.
+      </p>
+
+      <WorkedExample
+        title="Question 1 — Quadratic"
+        question={
+          <>
+            Find the intervals in which <Formula>{String.raw`f(x)=x^2-4x+6`}</Formula> is
+            increasing and decreasing.
+          </>
+        }
+      >
+        <SolutionStep label="Critical point">
+          <FormulaBlock latex={String.raw`f'(x)=2x-4=2(x-2)`} />
+          <FormulaBlock latex={String.raw`2(x-2)=0\quad\Rightarrow\quad x=2`} />
+          <SignNumberLine points={["2"]} signs={["−", "+"]} note="sign of f'(x)" />
+        </SolutionStep>
+        <SolutionStep label="Interval-wise conclusion">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-md border border-border p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">Decreasing</span>
+              <FormulaBlock latex={String.raw`x<2\;\Rightarrow\;f'(x)<0`} />
+              <FormulaBlock latex={String.raw`(-\infty,2)`} important />
+            </div>
+            <div className="rounded-md border border-border p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">Increasing</span>
+              <FormulaBlock latex={String.raw`x>2\;\Rightarrow\;f'(x)>0`} />
+              <FormulaBlock latex={String.raw`(2,\infty)`} important />
+            </div>
+          </div>
+        </SolutionStep>
+      </WorkedExample>
+
+      <WorkedExample
+        title="Question 2 — Three Functions"
+        question={<>Find the intervals of increase and decrease for each function.</>}
+      >
+        <SolutionStep label="(i) f(x) = 6 − 9x − x²">
+          <FormulaBlock latex={String.raw`f'(x)=-9-2x`} />
+          <FormulaBlock latex={String.raw`-9-2x=0\quad\Rightarrow\quad x=-\frac92`} />
+          <FormulaBlock latex={String.raw`-9-2x>0\quad\Rightarrow\quad x<-\frac92`} />
+          <SignNumberLine points={["−9/2"]} signs={["+", "−"]} note="sign of f'(x)" />
+          <FormulaBlock latex={String.raw`\boxed{\text{Increasing: }\left(-\infty,-\frac92\right)\quad\text{Decreasing: }\left(-\frac92,\infty\right)}`} important />
+          <Callout type="warning" title="Correction applied">
+            <p>
+              Dividing <Formula>{String.raw`-9-2x>0`}</Formula> by{" "}
+              <Formula>{String.raw`-2`}</Formula> reverses the inequality, giving{" "}
+              <Formula>{String.raw`x<-\frac92`}</Formula>.
+            </p>
+          </Callout>
+        </SolutionStep>
+        <SolutionStep label="(ii) f(x) = −2x³ − 9x² − 12x + 1">
+          <FormulaBlock latex={String.raw`f'(x)=-6x^2-18x-12`} />
+          <FormulaBlock latex={String.raw`=-6(x^2+3x+2)`} />
+          <FormulaBlock latex={String.raw`=-6(x+1)(x+2)`} important />
+          <FormulaBlock latex={String.raw`f'(x)=0\quad\Rightarrow\quad x=-2,\,-1`} />
+          <SignNumberLine points={["−2", "−1"]} signs={["−", "+", "−"]} note="sign of f'(x)" />
+          <FormulaBlock latex={String.raw`\boxed{\text{Increasing: }(-2,-1)}`} important />
+          <FormulaBlock latex={String.raw`\boxed{\text{Decreasing: }(-\infty,-2)\cup(-1,\infty)}`} important />
+        </SolutionStep>
+        <SolutionStep label="(iii) f(x) = (x + 1)³(x − 3)³">
+          <FormulaBlock latex={String.raw`f'(x)=3(x+1)^2(x-3)^3+3(x+1)^3(x-3)^2`} />
+          <FormulaBlock latex={String.raw`=3(x+1)^2(x-3)^2\big[(x-3)+(x+1)\big]`} />
+          <FormulaBlock latex={String.raw`=6(x-1)(x+1)^2(x-3)^2`} important />
+          <p className="text-sm text-muted-foreground">
+            The squared factors never change sign. Only <Formula>{String.raw`x=1`}</Formula> changes
+            the sign of <Formula>{String.raw`f'(x)`}</Formula>.
+          </p>
+          <SignNumberLine
+            points={["−1", "1", "3"]}
+            signs={["−", "−", "+", "+"]}
+            note="no sign change at −1 or 3"
+          />
+          <FormulaBlock latex={String.raw`\boxed{\text{Increasing: }(1,\infty)}`} important />
+          <FormulaBlock latex={String.raw`\boxed{\text{Decreasing: }(-\infty,1)}`} important />
+          <Callout type="warning" title="Correction applied">
+            <p>
+              The points <Formula>{String.raw`x=-1`}</Formula> and{" "}
+              <Formula>{String.raw`x=3`}</Formula> are stationary points. The derivative does not
+              change sign there, so they do not split the monotonic intervals.
+            </p>
+          </Callout>
+        </SolutionStep>
+      </WorkedExample>
+
+      <WorkedExample
+        title="Question 3 — Strict Monotonicity"
+        question={<>Find where each function is strictly increasing or strictly decreasing.</>}
+      >
+        <SolutionStep label="(a) f(x) = x² + 2x − 5">
+          <FormulaBlock latex={String.raw`f'(x)=2x+2=2(x+1)`} />
+          <SignNumberLine points={["−1"]} signs={["−", "+"]} note="sign of f'(x)" />
+          <FormulaBlock latex={String.raw`\boxed{\text{Decreasing: }(-\infty,-1)\quad\text{Increasing: }(-1,\infty)}`} important />
+        </SolutionStep>
+        <SolutionStep label="(b) f(x) = 10 − 6x − 2x²">
+          <FormulaBlock latex={String.raw`f'(x)=-6-4x=-2(2x+3)`} />
+          <FormulaBlock latex={String.raw`-2(2x+3)=0\quad\Rightarrow\quad x=-\frac32`} />
+          <FormulaBlock
+            latex={String.raw`x<-\frac32\;\Rightarrow\;2x+3<0\;\Rightarrow\;f'(x)>0`}
+          />
+          <FormulaBlock
+            latex={String.raw`x>-\frac32\;\Rightarrow\;2x+3>0\;\Rightarrow\;f'(x)<0`}
+          />
+          <SignNumberLine points={["−3/2"]} signs={["+", "−"]} note="sign of f'(x)" />
+          <FormulaBlock latex={String.raw`\boxed{\text{Increasing: }\left(-\infty,-\frac32\right)}`} important />
+          <FormulaBlock latex={String.raw`\boxed{\text{Decreasing: }\left(-\frac32,\infty\right)}`} important />
+        </SolutionStep>
+      </WorkedExample>
+
+      <h3 id="h-6-3-6">6. Application Exercises</h3>
+      <p>
+        These questions combine trigonometric derivatives, sign tables and multiple-choice
+        judgement.
+      </p>
+
+      <WorkedExample
+        title="Question 1 — sin 3x on a Closed Interval"
+        question={
+          <>
+            Find the intervals in which <Formula>{String.raw`f(x)=\sin 3x`}</Formula>,{" "}
+            <Formula>{String.raw`x\in\left[0,\frac\pi2\right]`}</Formula>, is increasing and
+            decreasing.
+          </>
+        }
+      >
+        <SolutionStep label="Derivative and critical points">
+          <FormulaBlock latex={String.raw`f'(x)=3\cos 3x`} />
+          <FormulaBlock latex={String.raw`\cos 3x=0\;\Rightarrow\;3x=\frac\pi2,\ \frac{3\pi}2`} />
+          <FormulaBlock latex={String.raw`x=\frac\pi6,\ \frac\pi2`} important />
+        </SolutionStep>
+        <SolutionStep label="Sign of the derivative">
+          <SignNumberLine points={["0", "π/6", "π/2"]} signs={["", "+", "−", ""]} note="sign of f'(x)" />
+          <FormulaBlock latex={String.raw`0<x<\frac\pi6\;\Rightarrow\;f'(x)>0`} />
+          <FormulaBlock latex={String.raw`\frac\pi6<x<\frac\pi2\;\Rightarrow\;f'(x)<0`} />
+        </SolutionStep>
+        <SolutionStep label="Conclusion">
+          <FormulaBlock latex={String.raw`\boxed{\text{Increasing: }\left[0,\frac\pi6\right]}`} important />
+          <FormulaBlock latex={String.raw`\boxed{\text{Decreasing: }\left[\frac\pi6,\frac\pi2\right]}`} important />
+          <Callout type="warning" title="Correction applied">
+            <p>
+              The decreasing interval ends at <Formula>{String.raw`\frac\pi2`}</Formula>. Because{" "}
+              <Formula>f</Formula> is continuous there, the endpoint is included.
+            </p>
+          </Callout>
+        </SolutionStep>
+      </WorkedExample>
+
+      <WorkedExample
+        title="Question 2 — sin x + cos x"
+        question={
+          <>
+            Find the intervals in which <Formula>{String.raw`f(x)=\sin x+\cos x`}</Formula>,{" "}
+            <Formula>{String.raw`0\leq x\leq2\pi`}</Formula>, is increasing or decreasing.
+          </>
+        }
+      >
+        <SolutionStep label="Derivative and critical points">
+          <FormulaBlock latex={String.raw`f'(x)=\cos x-\sin x`} />
+          <FormulaBlock latex={String.raw`\cos x=\sin x\;\Rightarrow\;x=\frac\pi4,\ \frac{5\pi}4`} />
+        </SolutionStep>
+        <SolutionStep label="Sign table">
+          <TableCard
+            headers={["Interval", "Sign of f'(x)", "Nature of f"]}
+            rows={[
+              {
+                cells: [
+                  <Formula key="i1">{String.raw`\left[0,\frac\pi4\right)`}</Formula>,
+                  <Formula key="i1s">{String.raw`>0`}</Formula>,
+                  "increasing",
+                ],
+              },
+              {
+                cells: [
+                  <Formula key="i2">{String.raw`\left(\frac\pi4,\frac{5\pi}4\right)`}</Formula>,
+                  <Formula key="i2s">{String.raw`<0`}</Formula>,
+                  "decreasing",
+                ],
+              },
+              {
+                cells: [
+                  <Formula key="i3">{String.raw`\left(\frac{5\pi}4,2\pi\right]`}</Formula>,
+                  <Formula key="i3s">{String.raw`>0`}</Formula>,
+                  "increasing",
+                ],
+              },
+            ]}
+          />
+        </SolutionStep>
+        <SolutionStep label="Conclusion">
+          <FormulaBlock
+            latex={String.raw`\boxed{\text{Increasing: }\left[0,\frac\pi4\right]\cup\left[\frac{5\pi}4,2\pi\right]}`}
+            important
+          />
+          <FormulaBlock
+            latex={String.raw`\boxed{\text{Decreasing: }\left[\frac\pi4,\frac{5\pi}4\right]}`}
+            important
+          />
+        </SolutionStep>
+      </WorkedExample>
+
+      <WorkedExample
+        title="Question 3 — A Squared Product"
+        question={
+          <>
+            Find the values of <Formula>x</Formula> for which{" "}
+            <Formula>{String.raw`y=\big[x(x-2)\big]^2`}</Formula> is increasing.
+          </>
+        }
+      >
+        <SolutionStep label="Rewrite and differentiate">
+          <FormulaBlock latex={String.raw`y=(x^2-2x)^2`} />
+          <FormulaBlock latex={String.raw`\frac{dy}{dx}=2(x^2-2x)(2x-2)`} />
+          <FormulaBlock latex={String.raw`=4x(x-2)(x-1)`} important />
+        </SolutionStep>
+        <SolutionStep label="Critical points and sign chart">
+          <FormulaBlock latex={String.raw`x=0,\ 1,\ 2`} />
+          <SignNumberLine points={["0", "1", "2"]} signs={["−", "+", "−", "+"]} note="sign of dy/dx" />
+        </SolutionStep>
+        <SolutionStep label="Conclusion">
+          <FormulaBlock latex={String.raw`\boxed{\text{Increasing: }(0,1)\cup(2,\infty)}`} important />
+          <FormulaBlock latex={String.raw`\boxed{\text{Decreasing: }(-\infty,0)\cup(1,2)}`} important />
+        </SolutionStep>
+      </WorkedExample>
+
+      <WorkedExample
+        title="Question 4 — Multiple Choice"
+        question={
+          <>
+            The interval in which <Formula>{String.raw`y=x^2e^{-x}`}</Formula> is increasing is:
+            (A) <Formula>{String.raw`(-\infty,\infty)`}</Formula> (B){" "}
+            <Formula>{String.raw`(-2,0)`}</Formula> (C){" "}
+            <Formula>{String.raw`(2,\infty)`}</Formula> (D){" "}
+            <Formula>{String.raw`(0,2)`}</Formula>.
+          </>
+        }
+      >
+        <SolutionStep label="Derivative">
+          <FormulaBlock latex={String.raw`\frac{dy}{dx}=2xe^{-x}-x^2e^{-x}`} />
+          <FormulaBlock latex={String.raw`=x(2-x)e^{-x}`} important />
+          <p className="text-sm text-muted-foreground">
+            Since <Formula>{String.raw`e^{-x}>0`}</Formula>, the sign depends on{" "}
+            <Formula>{String.raw`x(2-x)`}</Formula>.
+          </p>
+          <SignNumberLine points={["0", "2"]} signs={["−", "+", "−"]} note="sign of dy/dx" />
+        </SolutionStep>
+        <SolutionStep label="Answer">
+          <FormulaBlock latex={String.raw`\boxed{0<x<2\quad\Rightarrow\quad\text{(D) }(0,2)}`} important />
+        </SolutionStep>
+      </WorkedExample>
+
+      <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+        <div className="border-b border-border px-4 py-3 sm:px-5">
+          <span className="t-micro">Question 5 — Work · Multiple Choice</span>
+        </div>
+        <div className="px-4 py-4 sm:px-5">
+          <p>
+            On which interval is <Formula>{String.raw`f(x)=x^{100}+\sin x-1`}</Formula> decreasing?
+            (A) <Formula>{String.raw`(0,1)`}</Formula> (B){" "}
+            <Formula>{String.raw`\left(\frac\pi2,\pi\right)`}</Formula> (C){" "}
+            <Formula>{String.raw`\left(0,\frac\pi2\right)`}</Formula> (D) None of these.
+          </p>
+          <Expandable
+            title="Show solution"
+            variant="example"
+            subjectColor="var(--subject-mathematics)"
+          >
+            <SolutionStep label="Derivative">
+              <FormulaBlock latex={String.raw`f'(x)=100x^{99}+\cos x`} />
+            </SolutionStep>
+            <SolutionStep label="Test each option">
+              <ul className="list-disc space-y-1.5 pl-5 text-sm">
+                <li>
+                  <Formula>{String.raw`(0,1)`}</Formula>:{" "}
+                  <Formula>{String.raw`x^{99}>0`}</Formula> and{" "}
+                  <Formula>{String.raw`\cos x>0`}</Formula>, so{" "}
+                  <Formula>{String.raw`f'(x)>0`}</Formula>.
+                </li>
+                <li>
+                  <Formula>{String.raw`\left(\frac\pi2,\pi\right)`}</Formula>:{" "}
+                  <Formula>{String.raw`\cos x<0`}</Formula>, but{" "}
+                  <Formula>{String.raw`100x^{99}>100\left(\frac\pi2\right)^{99}>1`}</Formula>, so{" "}
+                  <Formula>{String.raw`f'(x)>0`}</Formula>.
+                </li>
+                <li>
+                  <Formula>{String.raw`\left(0,\frac\pi2\right)`}</Formula>: both terms are
+                  positive, so <Formula>{String.raw`f'(x)>0`}</Formula>.
+                </li>
+              </ul>
+            </SolutionStep>
+            <SolutionStep label="Answer">
+              <FormulaBlock latex={String.raw`\boxed{\text{The function is never decreasing: (D) None of these}}`} important />
+            </SolutionStep>
+          </Expandable>
+        </div>
+      </div>
+
+      <h2 id="h-6-3b">Solving Inequalities</h2>
+      <p>
+        An inequality compares expressions using <Formula>{String.raw`<`}</Formula>,{" "}
+        <Formula>{String.raw`>`}</Formula>, <Formula>{String.raw`\leq`}</Formula> or{" "}
+        <Formula>{String.raw`\geq`}</Formula>. The solution is a set of intervals, not a single
+        value.
+      </p>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro">Linear inequality</span>
+          <p className="mt-2 text-sm">
+            The variable appears only to the first power.
+          </p>
+          <div className="mt-2">
+            <Formula>{String.raw`ax+b>0`}</Formula>
+          </div>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro">Quadratic inequality</span>
+          <p className="mt-2 text-sm">
+            The variable appears up to the second power.
+          </p>
+          <div className="mt-2">
+            <Formula>{String.raw`ax^2+bx+c>0`}</Formula>
+          </div>
+        </div>
+      </div>
+
+      <h3 id="h-6-3b-7">7. Linear Inequalities</h3>
+      <p>
+        Solve a linear inequality like a linear equation, with one extra rule: reverse the sign
+        when you multiply or divide by a negative number.
+      </p>
+      <Callout type="warning" title="The reversal rule" subjectColor="var(--subject-mathematics)">
+        <ul className="list-disc space-y-1.5 pl-5">
+          <li>
+            Multiplying or dividing by a <strong>positive</strong> number keeps the inequality sign.
+          </li>
+          <li>
+            Multiplying or dividing by a <strong>negative</strong> number reverses the inequality
+            sign.
+          </li>
+          <li>
+            An open endpoint uses <Formula>{String.raw`(`}</Formula> or{" "}
+            <Formula>{String.raw`)`}</Formula>; a closed endpoint uses{" "}
+            <Formula>{String.raw`[`}</Formula> or <Formula>{String.raw`]`}</Formula>.
+          </li>
+        </ul>
+      </Callout>
+
+      <div className="grid gap-4 lg:grid-cols-2">
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro">Example 1</span>
+          <FormulaBlock latex={String.raw`x+3>-2`} />
+          <div className="space-y-1 [&>div]:my-0">
+            <FormulaBlock latex={String.raw`x>-2-3`} />
+            <FormulaBlock latex={String.raw`x>-5`} />
+            <FormulaBlock latex={String.raw`x\in(-5,\infty)`} important />
+          </div>
+          <InequalityNumberLine value="−5" direction="right" label="x > −5" />
+          <Expandable title="Show answer" subjectColor="var(--subject-mathematics)">
+            <FormulaBlock latex={String.raw`\boxed{(-5,\infty)}`} important />
+          </Expandable>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro">Example 2</span>
+          <FormulaBlock latex={String.raw`3x-9<3`} />
+          <div className="space-y-1 [&>div]:my-0">
+            <FormulaBlock latex={String.raw`3x<12`} />
+            <FormulaBlock latex={String.raw`x<4`} />
+            <FormulaBlock latex={String.raw`x\in(-\infty,4)`} important />
+          </div>
+          <InequalityNumberLine value="4" direction="left" label="x < 4" />
+          <Expandable title="Show answer" subjectColor="var(--subject-mathematics)">
+            <FormulaBlock latex={String.raw`\boxed{(-\infty,4)}`} important />
+          </Expandable>
+        </div>
+      </div>
+
+      <h3 id="h-6-3b-8">8. Quadratic Inequalities and the Wavy Curve</h3>
+      <p>
+        Factorise the quadratic, mark its roots on a number line, and read the sign in each region.
+        The method extends to any product of linear factors.
+      </p>
+      <WavyCurveProcess />
+      <ol className="mt-4 list-decimal space-y-1.5 pl-5">
+        <li>Factorise the expression completely.</li>
+        <li>Find the critical points where a factor is zero.</li>
+        <li>Arrange the critical points in increasing order on a number line.</li>
+        <li>Determine the sign of the expression in each region.</li>
+        <li>Select the regions that satisfy the inequality.</li>
+      </ol>
+
+      <div className="grid gap-4 lg:grid-cols-2">
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro">Example 1 — greater than zero</span>
+          <FormulaBlock latex={String.raw`x^2+3x+2>0`} />
+          <Expandable
+            title="Show solution"
+            variant="example"
+            subjectColor="var(--subject-mathematics)"
+          >
+            <FormulaBlock latex={String.raw`(x+1)(x+2)>0`} />
+            <FormulaBlock latex={String.raw`x=-2,\ -1`} />
+            <SignNumberLine points={["−2", "−1"]} signs={["+", "−", "+"]} note="sign of (x+1)(x+2)" />
+            <FormulaBlock latex={String.raw`\boxed{(-\infty,-2)\cup(-1,\infty)}`} important />
+          </Expandable>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro">Example 2 — less than zero</span>
+          <FormulaBlock latex={String.raw`x^2-4x+3<0`} />
+          <Expandable
+            title="Show solution"
+            variant="example"
+            subjectColor="var(--subject-mathematics)"
+          >
+            <FormulaBlock latex={String.raw`(x-1)(x-3)<0`} />
+            <FormulaBlock latex={String.raw`x=1,\ 3`} />
+            <SignNumberLine points={["1", "3"]} signs={["+", "−", "+"]} note="sign of (x−1)(x−3)" />
+            <FormulaBlock latex={String.raw`\boxed{(1,3)}`} important />
+          </Expandable>
+        </div>
+      </div>
+      <Callout type="note" title="Why the signs alternate">
+        <p>
+          Each simple linear factor changes sign at its root. Crossing a root therefore flips the
+          sign of the whole product, giving the wavy pattern.
+        </p>
+      </Callout>
+
+      <h3 id="h-6-3b-9">9. Quick Practice</h3>
+      <ExerciseQa
+        questions={[
+          <>
+            Find the intervals in which <Formula>{String.raw`f(x)=x^2-4x+6`}</Formula> is
+            increasing and decreasing.
+          </>,
+        ]}
+        answers={[
+          <>
+            <Formula>{String.raw`f'(x)=2(x-2)`}</Formula>; decreasing on{" "}
+            <Formula>{String.raw`(-\infty,2)`}</Formula>, increasing on{" "}
+            <Formula>{String.raw`(2,\infty)`}</Formula>.
+          </>,
+        ]}
+      />
+
+      <h3 id="h-6-3b-10">10. Corrections Made to the Source Note</h3>
+      <p>
+        The original question order and working are preserved. These six points were corrected or
+        clarified.
+      </p>
+      <TableCard
+        headers={["#", "Point in the working", "Correction"]}
+        rows={[
+          {
+            cells: [
+              "1",
+              <Formula key="c1">{String.raw`f'(x)\geq0`}</Formula>,
+              <>Means non-decreasing; it is not automatically strictly increasing.</>,
+            ],
+          },
+          {
+            cells: [
+              "2",
+              <Formula key="c2">{String.raw`f'(x)=3(x-1)^2`}</Formula>,
+              <>A zero at one isolated point does not break strict increase.</>,
+            ],
+          },
+          {
+            cells: [
+              "3",
+              <Formula key="c3">{String.raw`(x+1)^3(x-3)^3`}</Formula>,
+              <>
+                Increasing on <Formula>{String.raw`(1,\infty)`}</Formula>, decreasing on{" "}
+                <Formula>{String.raw`(-\infty,1)`}</Formula>; no sign change at{" "}
+                <Formula>{String.raw`-1`}</Formula> or <Formula>{String.raw`3`}</Formula>.
+              </>,
+            ],
+          },
+          {
+            cells: [
+              "4",
+              <Formula key="c4">{String.raw`-9-2x>0`}</Formula>,
+              <>
+                Gives <Formula>{String.raw`x<-\frac92`}</Formula>, not{" "}
+                <Formula>{String.raw`x>-\frac92`}</Formula>.
+              </>,
+            ],
+          },
+          {
+            cells: [
+              "5",
+              <Formula key="c5">{String.raw`\sin 3x`}</Formula>,
+              <>
+                The decreasing interval includes the endpoint{" "}
+                <Formula>{String.raw`\frac\pi2`}</Formula>.
+              </>,
+            ],
+          },
+          {
+            cells: [
+              "6",
+              <Formula key="c6">{String.raw`f'(x)=-\tan x`}</Formula>,
+              <>Valid wherever <Formula>{String.raw`\cos x\neq0`}</Formula>.</>,
+            ],
+          },
+        ]}
+      />
+
+      <h3 id="h-6-3b-11">11. Quick Revision Sheets</h3>
+      <p>Open one pocket at a time for a compact revision table.</p>
+      <PocketGrid
+        title="Revision sheets"
+        columns={2}
+        items={[
+          {
+            id: "h-6-3b-11-conditions",
+            icon: "📈",
+            label: "1 · Derivative conditions",
+            note: "Strict, non-strict and neither",
+            content: (
+              <TableCard
+                headers={["Derivative", "Behaviour", "Meaning"]}
+                rows={[
+                  {
+                    cells: [
+                      <Formula key="r1a">{String.raw`f'(x)>0`}</Formula>,
+                      "Strictly increasing",
+                      "Rises throughout the interval.",
+                    ],
+                  },
+                  {
+                    cells: [
+                      <Formula key="r1b">{String.raw`f'(x)\geq0`}</Formula>,
+                      "Non-decreasing",
+                      "Never falls; flat parts are allowed.",
+                    ],
+                  },
+                  {
+                    cells: [
+                      <Formula key="r1c">{String.raw`f'(x)<0`}</Formula>,
+                      "Strictly decreasing",
+                      "Falls throughout the interval.",
+                    ],
+                  },
+                  {
+                    cells: [
+                      <Formula key="r1d">{String.raw`f'(x)\leq0`}</Formula>,
+                      "Non-increasing",
+                      "Never rises; flat parts are allowed.",
+                    ],
+                  },
+                ]}
+              />
+            ),
+          },
+          {
+            id: "h-6-3b-11-method",
+            icon: "🧭",
+            label: "2 · Monotonicity method",
+            note: "Four moves from f to interval",
+            content: (
+              <TableCard
+                headers={["Step", "Action"]}
+                rows={[
+                  { cells: ["1", <>Differentiate to get <Formula>{String.raw`f'(x)`}</Formula>.</>] },
+                  { cells: ["2", <>Solve <Formula>{String.raw`f'(x)=0`}</Formula>.</>] },
+                  { cells: ["3", "Split the domain at the critical points."] },
+                  { cells: ["4", "Test the sign in each interval and state the answer."] },
+                ]}
+              />
+            ),
+          },
+          {
+            id: "h-6-3b-11-derivatives",
+            icon: "∂",
+            label: "3 · Common derivatives",
+            note: "Functions used in this section",
+            content: (
+              <TableCard
+                headers={["f(x)", "f'(x)"]}
+                rows={[
+                  {
+                    cells: [
+                      <Formula key="r3a">{String.raw`e^{2x}`}</Formula>,
+                      <Formula key="r3b">{String.raw`2e^{2x}`}</Formula>,
+                    ],
+                  },
+                  {
+                    cells: [
+                      <Formula key="r3c">{String.raw`\log x`}</Formula>,
+                      <Formula key="r3d">{String.raw`\frac1x`}</Formula>,
+                    ],
+                  },
+                  {
+                    cells: [
+                      <Formula key="r3e">{String.raw`\sin x`}</Formula>,
+                      <Formula key="r3f">{String.raw`\cos x`}</Formula>,
+                    ],
+                  },
+                  {
+                    cells: [
+                      <Formula key="r3g">{String.raw`\cos x`}</Formula>,
+                      <Formula key="r3h">{String.raw`-\sin x`}</Formula>,
+                    ],
+                  },
+                  {
+                    cells: [
+                      <Formula key="r3i">{String.raw`\log|\cos x|`}</Formula>,
+                      <Formula key="r3j">{String.raw`-\tan x`}</Formula>,
+                    ],
+                  },
+                ]}
+              />
+            ),
+          },
+          {
+            id: "h-6-3b-11-inequalities",
+            icon: "⚖️",
+            label: "4 · Inequality rules",
+            note: "Endpoints and reversal",
+            content: (
+              <TableCard
+                headers={["Situation", "Rule"]}
+                rows={[
+                  { cells: ["Strict < or >", "Open endpoint: use ( or )."] },
+                  { cells: ["Non-strict ≤ or ≥", "Closed endpoint: use [ or ]."] },
+                  { cells: ["Multiply by positive", "Keep the inequality sign."] },
+                  { cells: ["Multiply by negative", "Reverse the inequality sign."] },
+                ]}
+              />
+            ),
+          },
+          {
+            id: "h-6-3b-11-wavy",
+            icon: "〰️",
+            label: "5 · Wavy-curve method",
+            note: "From factors to intervals",
+            content: (
+              <TableCard
+                headers={["Stage", "What to do"]}
+                rows={[
+                  { cells: ["Factorise", "Write the expression as a product of factors."] },
+                  { cells: ["Critical points", "Set each factor equal to zero."] },
+                  { cells: ["Arrange on line", "Place the roots in increasing order."] },
+                  { cells: ["Determine signs", "Mark + and − in each region."] },
+                  { cells: ["Select intervals", "Choose the regions that match the inequality."] },
+                ]}
+              />
+            ),
+          },
+        ]}
+      />
 
       <h2 id="h-6-4">6.4 Maxima and Minima</h2>
       <p>
