@@ -1882,6 +1882,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/mathematics/RateDiagramsPart3.tsx#SandConeDiagram",
+    "name": "SandConeDiagram",
+    "path": "content/mathematics/RateDiagramsPart3.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/OrgChart.tsx#OrgChart",
     "name": "OrgChart",
     "path": "content/OrgChart.tsx",

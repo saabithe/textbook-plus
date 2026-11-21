@@ -24,6 +24,8 @@ import {
   SphereDiameterDiagram,
   LadderDiagram,
 } from "@/components/content/mathematics/RateDiagramsPart2";
+import { SandConeDiagram } from "@/components/content/mathematics/RateDiagramsPart3";
+import { PocketGrid } from "@/components/content/PocketGrid";
 
 /** One labelled stage inside a worked solution. */
 function SolutionStep({ label, children }: { label: string; children: React.ReactNode }) {
@@ -1150,6 +1152,481 @@ export default function ApplicationOfDerivativesChapter() {
             ]}
           />
         </div>
+      </div>
+
+      {/* ── Part 3: Continued ──────────────────────────────────────────────── */}
+      <div className="mt-10 border-t border-border pt-8">
+        <div className="my-6 rounded-lg border border-border bg-muted/40 px-5 py-5 sm:px-6">
+          <span className="t-micro">Chapter 6 · Mathematics · Continued</span>
+          <p className="mt-2 text-lg font-semibold tracking-tight text-foreground">
+            Rate of Change of Quantities — Continued
+          </p>
+          <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-2 border-t border-border pt-4">
+            {["Sand Cones", "Motion Along Curves", "Marginal Functions", "Rate Types"].map(
+              (topic, i) => (
+                <span key={topic} className="flex items-center gap-2">
+                  <span className="rounded-full border border-border bg-card px-2.5 py-1 text-xs font-medium text-foreground/80">
+                    {topic}
+                  </span>
+                  {i < 3 && (
+                    <span className="text-muted-foreground" aria-hidden>
+                      →
+                    </span>
+                  )}
+                </span>
+              )
+            )}
+          </div>
+        </div>
+
+        <h3 id="h-6-2-p3-1">1. Sand Cone: Rate of Increase of Height</h3>
+        <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+          <div className="border-b border-border px-4 py-3 sm:px-5">
+            <span className="t-micro">Sand cone · Related rates</span>
+          </div>
+          <div className="px-4 py-4 sm:px-5">
+            <p>
+              Sand pours from a pipe at <Formula>{String.raw`12\ \text{cm}^3/\text{s}`}</Formula> and
+              forms a cone whose height is always one-sixth of its base radius. Find the rate at
+              which the height increases when <Formula>{String.raw`h=4\ \text{cm}`}</Formula>.
+            </p>
+            <div className="mt-4 grid gap-5 sm:grid-cols-[minmax(0,190px)_minmax(0,1fr)]">
+              <div className="flex flex-col items-center gap-2">
+                <SandConeDiagram />
+                <span className="t-micro text-center">Cone of radius r and height h</span>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="rounded-md border border-border bg-muted/40 p-3 [&>div]:my-0">
+                  <span className="t-micro mb-2 block">Given</span>
+                  <FormulaBlock latex={String.raw`\frac{dV}{dt}=12\ \text{cm}^3/\text{s}`} />
+                </div>
+                <div className="rounded-md border border-border bg-muted/40 p-3 [&>div]:my-0">
+                  <span className="t-micro mb-2 block">Fixed relationship</span>
+                  <FormulaBlock latex={String.raw`h=\frac{r}{6}\ \Rightarrow\ r=6h`} />
+                </div>
+              </div>
+            </div>
+            <Expandable
+              title="Show solution"
+              variant="example"
+              subjectColor="var(--subject-mathematics)"
+            >
+              <EquationLadder
+                steps={[
+                  { label: "Geometry relation", equation: String.raw`r=6h` },
+                  { label: "Volume of a cone", equation: String.raw`V=\frac13\pi r^2h` },
+                  { label: "Substitute r = 6h", equation: String.raw`V=\frac13\pi(6h)^2h` },
+                  { label: "Simplify", equation: String.raw`V=12\pi h^3` },
+                  {
+                    label: "Differentiate with respect to time",
+                    equation: String.raw`\frac{dV}{dt}=36\pi h^2\frac{dh}{dt}`,
+                  },
+                  {
+                    label: "Substitute the pouring rate",
+                    equation: String.raw`12=36\pi h^2\frac{dh}{dt}`,
+                  },
+                  {
+                    label: "Solve for dh/dt",
+                    equation: String.raw`\frac{dh}{dt}=\frac{1}{3\pi h^2}`,
+                  },
+                  {
+                    label: "At h = 4 cm",
+                    equation: String.raw`\frac{dh}{dt}=\frac{1}{3\pi(4)^2}`,
+                  },
+                ]}
+              />
+              <div className="[&>div]:my-0">
+                <FormulaCard label="Result" subjectColor="var(--subject-mathematics)">
+                  <FormulaBlock
+                    latex={String.raw`\boxed{\frac{dh}{dt}=\frac{1}{48\pi}\ \text{cm/s}}`}
+                    important
+                  />
+                </FormulaCard>
+              </div>
+            </Expandable>
+          </div>
+        </div>
+
+        <h3 id="h-6-2-p3-2">2. Curve: Comparing Rates of Change</h3>
+        <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+          <div className="border-b border-border px-4 py-3 sm:px-5">
+            <span className="t-micro">Motion along a curve</span>
+          </div>
+          <div className="px-4 py-4 sm:px-5">
+            <p>
+              A particle moves along the curve <Formula>{String.raw`6y=x^3+2`}</Formula>. Find the
+              points where the <Formula>y</Formula>-coordinate changes eight times as fast as the{" "}
+              <Formula>x</Formula>-coordinate.
+            </p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-md border border-border p-3 [&>div]:my-0">
+                <span className="t-micro mb-2 block">Curve</span>
+                <FormulaBlock latex={String.raw`6y=x^3+2`} />
+              </div>
+              <div className="rounded-md border border-border p-3 [&>div]:my-0">
+                <span className="t-micro mb-2 block">Rate condition</span>
+                <FormulaBlock latex={String.raw`\frac{dy}{dt}=8\frac{dx}{dt}`} />
+              </div>
+            </div>
+            <Expandable
+              title="Show solution"
+              variant="example"
+              subjectColor="var(--subject-mathematics)"
+            >
+              <SolutionStep label="Differentiate with respect to time">
+                <FormulaBlock latex={String.raw`6\frac{dy}{dt}=3x^2\frac{dx}{dt}`} />
+              </SolutionStep>
+              <SolutionStep label="Substitute the rate condition">
+                <FormulaBlock latex={String.raw`6\left(8\frac{dx}{dt}\right)=3x^2\frac{dx}{dt}`} />
+              </SolutionStep>
+              <SolutionStep label="Cancel dx/dt">
+                <FormulaBlock latex={String.raw`48=3x^2`} />
+                <FormulaBlock latex={String.raw`x^2=16`} />
+                <FormulaBlock latex={String.raw`x=\pm4`} />
+              </SolutionStep>
+              <SolutionStep label="Find the corresponding y-coordinates">
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-md border border-border p-3 [&>div]:my-0">
+                    <span className="t-micro mb-2 block">When x = 4</span>
+                    <FormulaBlock latex={String.raw`6y=4^3+2=66`} />
+                    <FormulaBlock latex={String.raw`y=11`} />
+                    <FormulaBlock latex={String.raw`\boxed{(4,11)}`} important />
+                  </div>
+                  <div className="rounded-md border border-border p-3 [&>div]:my-0">
+                    <span className="t-micro mb-2 block">When x = −4</span>
+                    <FormulaBlock latex={String.raw`6y=(-4)^3+2=-62`} />
+                    <FormulaBlock latex={String.raw`y=-\frac{31}{3}`} />
+                    <FormulaBlock
+                      latex={String.raw`\boxed{\left(-4,-\frac{31}{3}\right)}`}
+                      important
+                    />
+                  </div>
+                </div>
+              </SolutionStep>
+              <div className="[&>aside]:my-0">
+                <KeyPoint title="Points on the curve">
+                  <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
+                    <Formula>{String.raw`(4,11)`}</Formula>
+                    <Formula>{String.raw`\left(-4,-\frac{31}{3}\right)`}</Formula>
+                  </div>
+                </KeyPoint>
+              </div>
+            </Expandable>
+          </div>
+        </div>
+
+        <h3 id="h-6-2-p3-3">3. Marginal Revenue and Marginal Cost</h3>
+        <p>Derivatives measure how revenue and cost change as the number of units changes.</p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <FormulaCard label="Marginal Revenue (MR)" subjectColor="var(--subject-mathematics)">
+            <p className="text-sm text-muted-foreground">
+              If <Formula>R(x)</Formula> represents total revenue:
+            </p>
+            <FormulaBlock latex={String.raw`\boxed{MR=\frac{dR(x)}{dx}}`} important />
+          </FormulaCard>
+          <FormulaCard label="Marginal Cost (MC)" subjectColor="var(--subject-mathematics)">
+            <p className="text-sm text-muted-foreground">
+              If <Formula>C(x)</Formula> represents total cost:
+            </p>
+            <FormulaBlock latex={String.raw`\boxed{MC=\frac{dC(x)}{dx}}`} important />
+          </FormulaCard>
+        </div>
+
+        <h3 id="h-6-2-p3-4">4. Marginal Revenue Problem</h3>
+        <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+          <div className="border-b border-border px-4 py-3 sm:px-5">
+            <span className="t-micro">Marginal revenue · Worked example</span>
+          </div>
+          <div className="px-4 py-4 sm:px-5">
+            <p>
+              Total revenue from selling <Formula>x</Formula> units is{" "}
+              <Formula>{String.raw`R(x)=13x^2+26x+15`}</Formula>. Find the marginal revenue when{" "}
+              <Formula>{String.raw`x=7`}</Formula>.
+            </p>
+            <Expandable
+              title="Show solution"
+              variant="example"
+              subjectColor="var(--subject-mathematics)"
+            >
+              <Stepper
+                steps={[
+                  {
+                    label: "Revenue function",
+                    description: (
+                      <div className="[&>div]:my-0">
+                        <FormulaBlock latex={String.raw`R(x)=13x^2+26x+15`} />
+                      </div>
+                    ),
+                  },
+                  {
+                    label: "Differentiate",
+                    description: (
+                      <div className="[&>div]:my-0">
+                        <FormulaBlock latex={String.raw`MR=\frac{dR(x)}{dx}`} />
+                        <FormulaBlock latex={String.raw`MR=26x+26`} />
+                      </div>
+                    ),
+                  },
+                  {
+                    label: "Evaluate at x = 7",
+                    description: (
+                      <div className="[&>div]:my-0">
+                        <FormulaBlock latex={String.raw`MR=26(7)+26`} />
+                        <div className="rounded-md border border-border bg-muted px-3 py-2 [&>div]:my-0">
+                          <FormulaBlock
+                            latex={String.raw`\boxed{MR=208\ \text{Rupees}}`}
+                            important
+                          />
+                        </div>
+                      </div>
+                    ),
+                  },
+                ]}
+              />
+            </Expandable>
+          </div>
+        </div>
+
+        <h3 id="h-6-2-p3-5">5. Marginal Cost Problem</h3>
+        <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+          <div className="border-b border-border px-4 py-3 sm:px-5">
+            <span className="t-micro">Marginal cost · Worked example</span>
+          </div>
+          <div className="px-4 py-4 sm:px-5">
+            <p>
+              Total production cost is{" "}
+              <Formula>{String.raw`C(x)=0.007x^3-0.003x^2+15x+4000`}</Formula>. Find the marginal
+              cost when <Formula>17</Formula> units are produced.
+            </p>
+            <Expandable
+              title="Show solution"
+              variant="example"
+              subjectColor="var(--subject-mathematics)"
+            >
+              <SolutionStep label="Differentiate the cost function">
+                <FormulaBlock latex={String.raw`MC=\frac{dC(x)}{dx}`} />
+                <FormulaBlock latex={String.raw`MC=0.021x^2-0.006x+15`} />
+              </SolutionStep>
+              <SolutionStep label="Substitute x = 17">
+                <FormulaBlock latex={String.raw`MC=0.021(17)^2-0.006(17)+15`} />
+              </SolutionStep>
+              <SolutionStep label="Calculation breakdown">
+                <TableCard
+                  headers={["Term", "Value"]}
+                  rows={[
+                    {
+                      cells: [
+                        <Formula key="mc-term-1">{String.raw`0.021(17)^2`}</Formula>,
+                        <Formula key="mc-value-1">{String.raw`6.069`}</Formula>,
+                      ],
+                    },
+                    {
+                      cells: [
+                        <Formula key="mc-term-2">{String.raw`-0.006(17)`}</Formula>,
+                        <Formula key="mc-value-2">{String.raw`-0.102`}</Formula>,
+                      ],
+                    },
+                    {
+                      cells: ["Constant", <Formula key="mc-value-3">{String.raw`15`}</Formula>],
+                    },
+                  ]}
+                />
+                <FormulaBlock latex={String.raw`=6.069-0.102+15`} />
+                <FormulaBlock latex={String.raw`\boxed{MC=20.967\ \text{Rupees}}`} important />
+              </SolutionStep>
+            </Expandable>
+          </div>
+        </div>
+
+        <h3 id="h-6-2-p3-6">6. Rate-Type Reference</h3>
+        <PocketGrid
+          title="Choose the shape, then choose the rate"
+          columns={3}
+          items={[
+            {
+              id: "rate-type-core",
+              icon: "📐",
+              label: "Core Principles & Definitions",
+              note: "Single-variable and parametric rates",
+              content: (
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">
+                      1 · Direct rate w.r.t. a single variable
+                    </p>
+                    <ul className="mt-1.5 list-disc space-y-1.5 pl-5 text-sm">
+                      <li>
+                        <strong>Concept:</strong> evaluate{" "}
+                        <Formula>{String.raw`\frac{dy}{dx}=f'(x)`}</Formula> at{" "}
+                        <Formula>{String.raw`x=x_0`}</Formula>.
+                      </li>
+                      <li>
+                        <strong>Sign rule:</strong> <Formula>{String.raw`\frac{dy}{dx}>0`}</Formula>{" "}
+                        means <Formula>y</Formula> increases as <Formula>x</Formula> increases;{" "}
+                        <Formula>{String.raw`\frac{dy}{dx}<0`}</Formula> means it decreases.
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">
+                      2 · Parametric rates (chain rule)
+                    </p>
+                    <ul className="mt-1.5 list-disc space-y-1.5 pl-5 text-sm">
+                      <li>
+                        <strong>Concept:</strong> both <Formula>{String.raw`x=f(t)`}</Formula> and{" "}
+                        <Formula>{String.raw`y=g(t)`}</Formula> depend on time <Formula>t</Formula>.
+                      </li>
+                      <li>
+                        <strong>Formula:</strong>{" "}
+                        <Formula>{String.raw`\frac{dy}{dx}=\frac{dy/dt}{dx/dt}`}</Formula>, provided{" "}
+                        <Formula>{String.raw`\frac{dx}{dt}\neq0`}</Formula>.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              ),
+            },
+            {
+              id: "rate-type-geometry",
+              icon: "📏",
+              label: "Geometric & Physical Rate Types",
+              note: "Circles, cubes, spheres, rectangles, vessels, ladders, shadows, curves",
+              content: (
+                <TableCard
+                  headers={["Type", "Relationship / rate"]}
+                  rows={[
+                    {
+                      cells: [
+                        "2A · Circles & ripples",
+                        <div key="type-2a" className="flex flex-wrap gap-x-4 gap-y-1.5">
+                          <Formula>{String.raw`\frac{dA}{dr}=2\pi r`}</Formula>
+                          <Formula>{String.raw`\frac{dA}{dt}=2\pi r\frac{dr}{dt}`}</Formula>
+                          <Formula>{String.raw`\frac{dC}{dt}=2\pi\frac{dr}{dt}`}</Formula>
+                        </div>,
+                      ],
+                    },
+                    {
+                      cells: [
+                        "2B · Cubes",
+                        <div key="type-2b" className="flex flex-wrap gap-x-4 gap-y-1.5">
+                          <Formula>{String.raw`\frac{dV}{dt}=3x^2\frac{dx}{dt}`}</Formula>
+                          <Formula>{String.raw`\frac{dS}{dt}=12x\frac{dx}{dt}`}</Formula>
+                          <Formula>{String.raw`\frac{dx}{dt}=\frac{1}{3x^2}\frac{dV}{dt}`}</Formula>
+                          <span className="w-full text-xs text-muted-foreground">
+                            Inter-variable elimination: solve for the edge rate, then substitute
+                            into <Formula>{String.raw`\frac{dS}{dt}`}</Formula>.
+                          </span>
+                        </div>,
+                      ],
+                    },
+                    {
+                      cells: [
+                        "2C · Spheres & bubbles",
+                        <div key="type-2c" className="flex flex-wrap gap-x-4 gap-y-1.5">
+                          <Formula>{String.raw`\frac{dV}{dt}=4\pi r^2\frac{dr}{dt}`}</Formula>
+                          <Formula>{String.raw`\frac{dS}{dt}=8\pi r\frac{dr}{dt}`}</Formula>
+                          <Formula>{String.raw`d=2r=f(x)\ \Rightarrow\ \frac{dV}{dx}`}</Formula>
+                        </div>,
+                      ],
+                    },
+                    {
+                      cells: [
+                        "2D · Rectangles",
+                        <div key="type-2d" className="flex flex-wrap gap-x-4 gap-y-1.5">
+                          <Formula>{String.raw`\frac{dP}{dt}=2\left(\frac{dx}{dt}+\frac{dy}{dt}\right)`}</Formula>
+                          <Formula>{String.raw`\frac{dA}{dt}=\frac{dx}{dt}y+x\frac{dy}{dt}`}</Formula>
+                        </div>,
+                      ],
+                    },
+                    {
+                      cells: [
+                        "2E · Vessels & sand cones",
+                        <ul key="type-2e" className="list-disc space-y-1.5 pl-5">
+                          <li>
+                            <strong>Sand cones:</strong> <Formula>{String.raw`h=\frac{r}{6}`}</Formula>,{" "}
+                            <Formula>{String.raw`V=12\pi h^3`}</Formula> → <Formula>{String.raw`\frac{dh}{dt}`}</Formula>.
+                          </li>
+                          <li>
+                            <strong>Conical tanks:</strong>{" "}
+                            <Formula>{String.raw`\alpha=\tan^{-1}(0.5)`}</Formula>,{" "}
+                            <Formula>{String.raw`r=0.5h`}</Formula>,{" "}
+                            <Formula>{String.raw`V=\frac{\pi h^3}{12}`}</Formula> →{" "}
+                            <Formula>{String.raw`\frac{dh}{dt}`}</Formula>.
+                          </li>
+                          <li>
+                            <strong>Cylindrical tanks:</strong>{" "}
+                            <Formula>{String.raw`\frac{dV}{dt}=\pi r^2\frac{dh}{dt}`}</Formula>.
+                          </li>
+                        </ul>,
+                      ],
+                    },
+                    {
+                      cells: [
+                        "2F · Leaning ladders",
+                        <div key="type-2f" className="flex flex-wrap gap-x-4 gap-y-1.5">
+                          <Formula>{String.raw`x^2+y^2=L^2`}</Formula>
+                          <Formula>{String.raw`2x\frac{dx}{dt}+2y\frac{dy}{dt}=0`}</Formula>
+                          <Formula>{String.raw`\frac{dy}{dt}=-\frac{x}{y}\frac{dx}{dt}`}</Formula>
+                        </div>,
+                      ],
+                    },
+                    {
+                      cells: [
+                        "2G · Shadows",
+                        <div key="type-2g" className="flex flex-wrap gap-x-4 gap-y-1.5">
+                          <span className="w-full text-xs text-muted-foreground">
+                            By similar triangles:
+                          </span>
+                          <Formula>{String.raw`\frac{s}{s+l}=\frac{\text{height of man}}{\text{height of lamp-post}}`}</Formula>
+                          <Formula>{String.raw`l=2s\ \Rightarrow\ \frac{dl}{dt}=2\frac{ds}{dt}`}</Formula>
+                        </div>,
+                      ],
+                    },
+                    {
+                      cells: [
+                        "2H · Motion along curves",
+                        <Formula key="type-2h">
+                          {String.raw`\frac{dy}{dt}=k\cdot\frac{dx}{dt}\ \Rightarrow\ \text{find }(x,y)\text{ on }y=f(x)`}
+                        </Formula>,
+                      ],
+                    },
+                  ]}
+                />
+              ),
+            },
+            {
+              id: "rate-type-economics",
+              icon: "💼",
+              label: "Economic Applications",
+              note: "Marginal cost and marginal revenue",
+              content: (
+                <TableCard
+                  headers={["Type", "Definition", "Rate"]}
+                  rows={[
+                    {
+                      cells: [
+                        "3A · Marginal cost",
+                        "Instantaneous rate of change of total cost w.r.t. production units.",
+                        <Formula key="type-3a">
+                          {String.raw`MC=\frac{dC}{dx}\ \text{at}\ x=x_0`}
+                        </Formula>,
+                      ],
+                    },
+                    {
+                      cells: [
+                        "3B · Marginal revenue",
+                        "Instantaneous rate of change of total revenue w.r.t. units sold.",
+                        <Formula key="type-3b">
+                          {String.raw`MR=\frac{dR}{dx}\ \text{at}\ x=x_0`}
+                        </Formula>,
+                      ],
+                    },
+                  ]}
+                />
+              ),
+            },
+          ]}
+        />
       </div>
 
       <h2 id="h-6-3">6.3 Increasing and Decreasing Functions</h2>
