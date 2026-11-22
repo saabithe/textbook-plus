@@ -1818,6 +1818,186 @@
     "renderable": true
   },
   {
+    "id": "content/mathematics/DerivativeSignGraphs.tsx#CubicSignNumberLine",
+    "name": "CubicSignNumberLine",
+    "path": "content/mathematics/DerivativeSignGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/DerivativeSignGraphs.tsx#DerivativeGraphRoots",
+    "name": "DerivativeGraphRoots",
+    "path": "content/mathematics/DerivativeSignGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/DerivativeSignGraphs.tsx#NegativeToNegativeSignLine",
+    "name": "NegativeToNegativeSignLine",
+    "path": "content/mathematics/DerivativeSignGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/DerivativeSignGraphs.tsx#NegativeToPositiveSignLine",
+    "name": "NegativeToPositiveSignLine",
+    "path": "content/mathematics/DerivativeSignGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/DerivativeSignGraphs.tsx#PositiveToNegativeSignLine",
+    "name": "PositiveToNegativeSignLine",
+    "path": "content/mathematics/DerivativeSignGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/DerivativeSignGraphs.tsx#PositiveToPositiveSignLine",
+    "name": "PositiveToPositiveSignLine",
+    "path": "content/mathematics/DerivativeSignGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ExtremaIntervalGraphs.tsx#ExtremeValueTheoremGraph",
+    "name": "ExtremeValueTheoremGraph",
+    "path": "content/mathematics/ExtremaIntervalGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ExtremaIntervalGraphs.tsx#LocalExtremaGraph",
+    "name": "LocalExtremaGraph",
+    "path": "content/mathematics/ExtremaIntervalGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ExtremaIntervalGraphs.tsx#MonotonicEndpointGraphs",
+    "name": "MonotonicEndpointGraphs",
+    "path": "content/mathematics/ExtremaIntervalGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ExtremaIntervalGraphs.tsx#OpenClosedIntervalsDiagram",
+    "name": "OpenClosedIntervalsDiagram",
+    "path": "content/mathematics/ExtremaIntervalGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ExtremaIntervalGraphs.tsx#OpenIntervalLineGraph",
+    "name": "OpenIntervalLineGraph",
+    "path": "content/mathematics/ExtremaIntervalGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ExtremaIntervalGraphs.tsx#SmoothSharpMinima",
+    "name": "SmoothSharpMinima",
+    "path": "content/mathematics/ExtremaIntervalGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ExtremaShapeGraphs.tsx#InvertedModulusGraph",
+    "name": "InvertedModulusGraph",
+    "path": "content/mathematics/ExtremaShapeGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ExtremaShapeGraphs.tsx#MaximumPointPanel",
+    "name": "MaximumPointPanel",
+    "path": "content/mathematics/ExtremaShapeGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ExtremaShapeGraphs.tsx#MinimumPointPanel",
+    "name": "MinimumPointPanel",
+    "path": "content/mathematics/ExtremaShapeGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ExtremaShapeGraphs.tsx#ModulusGraph",
+    "name": "ModulusGraph",
+    "path": "content/mathematics/ExtremaShapeGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ExtremaShapeGraphs.tsx#RaisedModulusGraph",
+    "name": "RaisedModulusGraph",
+    "path": "content/mathematics/ExtremaShapeGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ExtremaShapeGraphs.tsx#ShiftedModulusGraph",
+    "name": "ShiftedModulusGraph",
+    "path": "content/mathematics/ExtremaShapeGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ExtremaShapeGraphs.tsx#SineBandGraph",
+    "name": "SineBandGraph",
+    "path": "content/mathematics/ExtremaShapeGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ExtremaShapeGraphs.tsx#SquareFunctionGraph",
+    "name": "SquareFunctionGraph",
+    "path": "content/mathematics/ExtremaShapeGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/mathematics/RateDiagrams.tsx#CircleRadiusDiagram",
     "name": "CircleRadiusDiagram",
     "path": "content/mathematics/RateDiagrams.tsx",
@@ -1902,6 +2082,42 @@
     "id": "content/mathematics/RateDiagramsPart3.tsx#SandConeDiagram",
     "name": "SandConeDiagram",
     "path": "content/mathematics/RateDiagramsPart3.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/SecondDerivativeGraphs.tsx#ConcaveDownGraph",
+    "name": "ConcaveDownGraph",
+    "path": "content/mathematics/SecondDerivativeGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/SecondDerivativeGraphs.tsx#ConcaveUpGraph",
+    "name": "ConcaveUpGraph",
+    "path": "content/mathematics/SecondDerivativeGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/SecondDerivativeGraphs.tsx#InconclusiveSecondDerivativeGraph",
+    "name": "InconclusiveSecondDerivativeGraph",
+    "path": "content/mathematics/SecondDerivativeGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/SecondDerivativeGraphs.tsx#StationaryInflectionGraph",
+    "name": "StationaryInflectionGraph",
+    "path": "content/mathematics/SecondDerivativeGraphs.tsx",
     "category": "content",
     "props": null,
     "shell": false,

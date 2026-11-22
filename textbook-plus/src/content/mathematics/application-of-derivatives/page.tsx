@@ -49,6 +49,38 @@ import {
   WavyCurveProcess,
   CosDecreasingStrip,
 } from "@/components/content/mathematics/SignDiagrams";
+import {
+  MaximumPointPanel,
+  MinimumPointPanel,
+  SquareFunctionGraph,
+  ModulusGraph,
+  ShiftedModulusGraph,
+  InvertedModulusGraph,
+  RaisedModulusGraph,
+  SineBandGraph,
+} from "@/components/content/mathematics/ExtremaShapeGraphs";
+import {
+  OpenClosedIntervalsDiagram,
+  OpenIntervalLineGraph,
+  MonotonicEndpointGraphs,
+  ExtremeValueTheoremGraph,
+  LocalExtremaGraph,
+  SmoothSharpMinima,
+} from "@/components/content/mathematics/ExtremaIntervalGraphs";
+import {
+  PositiveToNegativeSignLine,
+  NegativeToPositiveSignLine,
+  PositiveToPositiveSignLine,
+  NegativeToNegativeSignLine,
+  CubicSignNumberLine,
+  DerivativeGraphRoots,
+} from "@/components/content/mathematics/DerivativeSignGraphs";
+import {
+  ConcaveDownGraph,
+  ConcaveUpGraph,
+  InconclusiveSecondDerivativeGraph,
+  StationaryInflectionGraph,
+} from "@/components/content/mathematics/SecondDerivativeGraphs";
 import { PocketGrid } from "@/components/content/PocketGrid";
 
 /** One labelled stage inside a worked solution. */
@@ -78,6 +110,35 @@ function WorkedExample({
         {children}
       </div>
     </Expandable>
+  );
+}
+
+/** A worked problem whose question, givens and diagrams stay visible above the collapsed solution. */
+function SolvedProblem({
+  title,
+  question,
+  children,
+}: {
+  title: string;
+  question: React.ReactNode;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+      <div className="border-b border-border px-4 py-3 sm:px-5">
+        <span className="t-micro">{title}</span>
+      </div>
+      <div className="px-4 py-4 sm:px-5">
+        <SolutionStep label="Question">{question}</SolutionStep>
+        <Expandable
+          title="Show solution"
+          variant="example"
+          subjectColor="var(--subject-mathematics)"
+        >
+          <div className="space-y-3">{children}</div>
+        </Expandable>
+      </div>
+    </div>
   );
 }
 
@@ -3010,1052 +3071,1084 @@ export default function ApplicationOfDerivativesChapter() {
         ]}
       />
 
-      <h2 id="h-6-4">6.4 Maxima and Minima</h2>
+      <h2 id="h-6-4">6.4 Maxima and Minima of Functions</h2>
       <p>
-        Here we use the derivative to find the <strong>maximum or minimum values</strong> of a
-        function. Geometrically we are hunting for the &lsquo;turning points&rsquo; of the graph —
-        points where the graph reaches its highest or lowest value locally. Such points are what
-        make a sketch of a function possible, and they are what every optimisation problem in
-        science, business and engineering is really asking for.
+        This chapter is organized into four connected units. Each unit builds on the previous one.
       </p>
-      <Callout type="tip">
-        <p>Three everyday problems that all have the same mathematical shape:</p>
-        <ol className="mt-2 space-y-1.5">
+      <ol className="list-decimal space-y-1.5 pl-5">
+        <li>
+          <strong>Maximum and Minimum Values</strong> — definitions, graphs, domain and range
+          considerations.
+        </li>
+        <li>
+          <strong>Critical Points</strong> — stationary points and non-differentiable points.
+        </li>
+        <li>
+          <strong>First Derivative Test</strong> — identifying local maxima and minima through sign
+          changes.
+        </li>
+        <li>
+          <strong>Second Derivative Test</strong> — classifying critical points using the second
+          derivative.
+        </li>
+      </ol>
+      <Callout type="note" title="About the working">
+        <ul className="list-disc space-y-1.5 pl-5">
+          <li>The original question sequence is retained.</li>
           <li>
-            (i) The profit from a grove of orange trees is{" "}
-            <Formula>{String.raw`P(x) = ax + bx^2`}</Formula>, where <Formula>x</Formula> is the
-            number of trees per acre. How many trees per acre maximise the profit?
+            Mathematical corrections are incorporated where the supplied working contains clear
+            errors.
           </li>
           <li>
-            (ii) A ball thrown from a building 60 m high travels along{" "}
-            <Formula>{String.raw`h(x) = 60 + \frac{x}{60} - x^2`}</Formula>. What is the maximum
-            height it reaches?
-          </li>
-          <li>
-            (iii) An Apache helicopter flies along{" "}
-            <Formula>{String.raw`f(x) = x^2 + 7`}</Formula>. A soldier at{" "}
-            <Formula>{String.raw`(1,2)`}</Formula> wants to shoot when it is nearest. What is the
-            nearest distance?
-          </li>
-        </ol>
-      </Callout>
-      <KeyPoint title="Definition 3 — maximum / minimum value on an interval I">
-        <p>
-          (a) <Formula>f</Formula> has a <strong>maximum value</strong> in{" "}
-          <Formula>I</Formula> if there is <Formula>{String.raw`c \in I`}</Formula> with{" "}
-          <Formula>{String.raw`f(c) \ge f(x)`}</Formula> for all{" "}
-          <Formula>{String.raw`x \in I`}</Formula>. Then <Formula>f(c)</Formula> is the maximum
-          value and <Formula>c</Formula> a point of maximum value.
-        </p>
-        <p>
-          (b) <Formula>f</Formula> has a <strong>minimum value</strong> in{" "}
-          <Formula>I</Formula> if there is <Formula>{String.raw`c \in I`}</Formula> with{" "}
-          <Formula>{String.raw`f(c) \le f(x)`}</Formula> for all{" "}
-          <Formula>{String.raw`x \in I`}</Formula>; <Formula>f(c)</Formula> is the minimum value.
-        </p>
-        <p>
-          (c) <Formula>f</Formula> has an <strong>extreme value</strong> in{" "}
-          <Formula>I</Formula> if <Formula>f(c)</Formula> is either a maximum or a minimum value;
-          then <Formula>c</Formula> is an <strong>extreme point</strong>.
-        </p>
-      </KeyPoint>
-
-      <Expandable title="Examples 14 to 16 — NCERT">
-        <KeyPoint title="Example 14">
-          <p>
-            Find the maximum and minimum values, if any, of{" "}
-            <Formula>{String.raw`f(x) = x^2`}</Formula>,{" "}
-            <Formula>{String.raw`x \in \mathbb{R}`}</Formula>.
-          </p>
-          <p>
-            <strong>Solution.</strong> From the graph, <Formula>{String.raw`f(x) = 0`}</Formula>{" "}
-            only at <Formula>{String.raw`x = 0`}</Formula>, and{" "}
-            <Formula>{String.raw`f(x) \ge 0`}</Formula> for all <Formula>x</Formula>. So the
-            minimum value is <Formula>0</Formula> at <Formula>{String.raw`x = 0`}</Formula>. The
-            graph rises without bound, so there is no maximum value and no point of maximum value
-            in <Formula>{String.raw`\mathbb{R}`}</Formula>.
-          </p>
-          <p>
-            <strong>Note.</strong> If the domain is restricted to{" "}
-            <Formula>{String.raw`[-2,1]`}</Formula>, then{" "}
-            <Formula>f</Formula> has maximum value{" "}
-            <Formula>{String.raw`(-2)^2 = 4`}</Formula> at{" "}
-            <Formula>{String.raw`x = -2`}</Formula>.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 15">
-          <p>
-            Find the maximum and minimum values, if any, of{" "}
-            <Formula>{String.raw`f(x) = |x|`}</Formula>,{" "}
-            <Formula>{String.raw`x \in \mathbb{R}`}</Formula>.
-          </p>
-          <p>
-            <strong>Solution.</strong> Here{" "}
-            <Formula>{String.raw`f(x) \ge 0`}</Formula> always and{" "}
-            <Formula>{String.raw`f(x) = 0`}</Formula> at <Formula>{String.raw`x = 0`}</Formula>.
-            The minimum value is <Formula>0</Formula> at{" "}
-            <Formula>{String.raw`x = 0`}</Formula>; there is no maximum value.
-          </p>
-          <p>
-            <strong>Note.</strong> On <Formula>{String.raw`[-2,1]`}</Formula> the maximum value is{" "}
-            <Formula>{String.raw`|-2| = 2`}</Formula>. Also{" "}
-            <Formula>f</Formula> is <em>not differentiable</em> at{" "}
-            <Formula>{String.raw`x = 0`}</Formula> — an extreme point need not be a smooth point.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 16">
-          <p>
-            Find the maximum and minimum values, if any, of{" "}
-            <Formula>{String.raw`f(x) = x`}</Formula>,{" "}
-            <Formula>{String.raw`x \in (0,1)`}</Formula>.
-          </p>
-          <p>
-            <strong>Solution.</strong> This is a strictly increasing function on the open
-            interval. It seems the minimum should be at a point closest to{" "}
-            <Formula>0</Formula> on the right and the maximum at a point closest to{" "}
-            <Formula>1</Formula> on the left — but no such points exist. If{" "}
-            <Formula>{String.raw`x_0 > 0`}</Formula> were closest to 0, then{" "}
-            <Formula>{String.raw`\frac{x_0}{2} < x_0`}</Formula> lies in{" "}
-            <Formula>{String.raw`(0,1)`}</Formula> too; similarly{" "}
-            <Formula>{String.raw`\frac{x_1+1}{2} > x_1`}</Formula>. Hence{" "}
-            <Formula>f</Formula> has neither a maximum nor a minimum value in{" "}
-            <Formula>{String.raw`(0,1)`}</Formula>.
-          </p>
-          <p>
-            <strong>Remark.</strong> Extending the domain to{" "}
-            <Formula>{String.raw`[0,1]`}</Formula> gives minimum{" "}
-            <Formula>0</Formula> at <Formula>{String.raw`x = 0`}</Formula> and maximum{" "}
-            <Formula>1</Formula> at <Formula>{String.raw`x = 1`}</Formula>.
-          </p>
-        </KeyPoint>
-      </Expandable>
-
-      <Callout type="important">
-        <p>
-          Two results (stated without proof) explain the examples above:
-        </p>
-        <ul className="mt-2 space-y-1.5">
-          <li>
-            Every <strong>monotonic</strong> function (increasing on <Formula>I</Formula>, or
-            decreasing on <Formula>I</Formula>) assumes its maximum and minimum values at the{" "}
-            <Highlight color="yellow">end points</Highlight> of its domain.
-          </li>
-          <li>
-            Every <strong>continuous</strong> function on a closed interval{" "}
-            <Formula>{String.raw`[a,b]`}</Formula> has both a maximum and a minimum value.
+            Missing source working is identified rather than silently treated as original content.
           </li>
         </ul>
       </Callout>
 
+      <h3 id="h-6-4-1">Unit 1 — Maximum and Minimum Values</h3>
+      <h4 id="h-6-4-1-1">1. Definitions and Graphical Concepts</h4>
       <p>
-        Now look at a graph that changes direction. At the points marked on a typical curve the
-        function changes from decreasing to increasing or vice-versa — these are the{" "}
-        <strong>turning points</strong>, where the graph has a little valley or a little hill. The
-        bottom of a valley gives a <strong>local minimum</strong>, the top of a hill a{" "}
-        <strong>local maximum</strong>.
+        A function may attain its highest or lowest value at particular points in its domain.
       </p>
-      <KeyPoint title="Definition 4 — local maxima and local minima">
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro mb-3 block">Point of maximum</span>
+          <MaximumPointPanel />
+          <div className="mt-3 grid gap-2 sm:grid-cols-2">
+            <div className="rounded-md border border-border p-3">
+              <span className="t-micro block">Point</span>
+              <Formula>{String.raw`x=c_1`}</Formula>
+            </div>
+            <div className="rounded-md border border-border p-3">
+              <span className="t-micro block">Value</span>
+              <Formula>{String.raw`f(c_1)`}</Formula>
+            </div>
+          </div>
+          <p className="mt-3 text-sm text-muted-foreground">
+            At the maximum point, the function reaches a peak relative to nearby values.
+          </p>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro mb-3 block">Point of minimum</span>
+          <MinimumPointPanel />
+          <div className="mt-3 grid gap-2 sm:grid-cols-2">
+            <div className="rounded-md border border-border p-3">
+              <span className="t-micro block">Point</span>
+              <Formula>{String.raw`x=c_2`}</Formula>
+            </div>
+            <div className="rounded-md border border-border p-3">
+              <span className="t-micro block">Value</span>
+              <Formula>{String.raw`f(c_2)`}</Formula>
+            </div>
+          </div>
+          <p className="mt-3 text-sm text-muted-foreground">
+            At the minimum point, the function reaches a valley relative to nearby values.
+          </p>
+        </div>
+      </div>
+      <KeyPoint title="Point versus value">
         <p>
-          Let <Formula>f</Formula> be a real valued function and{" "}
-          <Formula>c</Formula> an interior point of its domain.
+          <strong>c</strong> is the <strong>point</strong> — an input value on the x-axis.
         </p>
         <p>
-          (a) <Formula>c</Formula> is a point of <strong>local maxima</strong> if there is{" "}
-          <Formula>{String.raw`h > 0`}</Formula> such that{" "}
-          <Formula>{String.raw`f(c) \ge f(x)`}</Formula> for all{" "}
-          <Formula>{String.raw`x \in (c-h,\ c+h)`}</Formula>,{" "}
-          <Formula>{String.raw`x \neq c`}</Formula>. The value <Formula>f(c)</Formula> is the local
-          maximum value.
-        </p>
-        <p>
-          (b) <Formula>c</Formula> is a point of <strong>local minima</strong> if there is{" "}
-          <Formula>{String.raw`h > 0`}</Formula> such that{" "}
-          <Formula>{String.raw`f(c) \le f(x)`}</Formula> for all{" "}
-          <Formula>{String.raw`x \in (c-h,\ c+h)`}</Formula>. The value <Formula>f(c)</Formula> is
-          the local minimum value.
-        </p>
-      </KeyPoint>
-      <p>
-        At a local maximum the function is increasing just to the left of <Formula>c</Formula>{" "}
-        (<Formula>{String.raw`f'(x) > 0`}</Formula>) and decreasing just to the right
-        (<Formula>{String.raw`f'(x) < 0`}</Formula>); at a local minimum the pattern reverses.
-        Either way the derivative must vanish — or fail to exist.
-      </p>
-      <KeyPoint title="Theorem 2 — where can an extreme value occur?">
-        <p>
-          Let <Formula>f</Formula> be defined on an open interval{" "}
-          <Formula>I</Formula> and let <Formula>{String.raw`c \in I`}</Formula>. If{" "}
-          <Formula>f</Formula> has a local maximum or local minimum at{" "}
-          <Formula>{String.raw`x = c`}</Formula>, then either{" "}
-          <Formula>{String.raw`f'(c) = 0`}</Formula> or <Formula>f</Formula> is not differentiable
-          at <Formula>c</Formula>.
-        </p>
-      </KeyPoint>
-      <Callout type="warning">
-        <p>
-          The converse is <strong>false</strong>: a point where the derivative vanishes need not
-          be an extreme point. For <Formula>{String.raw`f(x) = x^3`}</Formula> we have{" "}
-          <Formula>{String.raw`f'(x) = 3x^2`}</Formula> and so{" "}
-          <Formula>{String.raw`f'(0) = 0`}</Formula>, yet <Formula>{String.raw`x = 0`}</Formula> is
-          neither a local maximum nor a local minimum. Such a point is a{" "}
-          <Highlight color="blue">point of inflexion</Highlight>.
-        </p>
-      </Callout>
-      <p>
-        A point <Formula>c</Formula> in the domain of <Formula>f</Formula> at which either{" "}
-        <Formula>{String.raw`f'(c) = 0`}</Formula> or <Formula>f</Formula> is not differentiable is
-        called a <strong>critical point</strong> of <Formula>f</Formula>. Only critical points can
-        be extreme points — but not every critical point is one.
-      </p>
-      <KeyPoint title="Theorem 3 — First Derivative Test">
-        <p>
-          Let <Formula>f</Formula> be continuous at a critical point{" "}
-          <Formula>{String.raw`c \in I`}</Formula>.
-        </p>
-        <p>
-          (i) If <Formula>{String.raw`f'(x)`}</Formula> changes sign from{" "}
-          <strong>positive to negative</strong> as <Formula>x</Formula> increases through{" "}
-          <Formula>c</Formula>, then <Formula>c</Formula> is a point of{" "}
-          <strong>local maxima</strong>.
-        </p>
-        <p>
-          (ii) If <Formula>{String.raw`f'(x)`}</Formula> changes sign from{" "}
-          <strong>negative to positive</strong> as <Formula>x</Formula> increases through{" "}
-          <Formula>c</Formula>, then <Formula>c</Formula> is a point of{" "}
-          <strong>local minima</strong>.
-        </p>
-        <p>
-          (iii) If <Formula>{String.raw`f'(x)`}</Formula> does <strong>not change sign</strong>,
-          then <Formula>c</Formula> is neither a local maximum nor a local minimum — it is a point
-          of <strong>inflexion</strong>.
-        </p>
-      </KeyPoint>
-      <KeyPoint title="Theorem 4 — Second Derivative Test">
-        <p>
-          Let <Formula>f</Formula> be twice differentiable at <Formula>{String.raw`c \in I`}</Formula>{" "}
-          with <Formula>{String.raw`f'(c) = 0`}</Formula>. Then
-        </p>
-        <p>
-          (i) <Formula>{String.raw`f''(c) < 0`}</Formula> gives a{" "}
-          <strong>local maximum</strong> at <Formula>c</Formula>, with local maximum value{" "}
-          <Formula>f(c)</Formula>;
-        </p>
-        <p>
-          (ii) <Formula>{String.raw`f''(c) > 0`}</Formula> gives a{" "}
-          <strong>local minimum</strong> at <Formula>c</Formula>, with local minimum value{" "}
-          <Formula>f(c)</Formula>;
-        </p>
-        <p>
-          (iii) the test <strong>fails</strong> if{" "}
-          <Formula>{String.raw`f''(c) = 0`}</Formula> — then go back to the first derivative test.
+          <strong>f(c)</strong> is the <strong>value</strong> — the corresponding output on the
+          y-axis.
         </p>
       </KeyPoint>
 
-      <Expandable title="Examples 17 to 21 — NCERT">
-        <KeyPoint title="Example 17">
-          <p>
-            Find all points of local maxima and local minima of{" "}
-            <Formula>{String.raw`f(x) = x^3 - 3x + 3`}</Formula>.
-          </p>
-          <p>
-            <strong>Solution.</strong>
-          </p>
-          <p>
-            <Formula>{String.raw`f'(x) = 3x^2 - 3 = 3(x-1)(x+1)`}</Formula>, so{" "}
-            <Formula>{String.raw`f'(x) = 0`}</Formula> at{" "}
-            <Formula>{String.raw`x = 1`}</Formula> and{" "}
-            <Formula>{String.raw`x = -1`}</Formula>. These are the only critical points.
-          </p>
-          <TableCard
-            headers={["Value of x", "Sign of f'(x)", "Conclusion"]}
-            rows={[
-              {
-                cells: [
-                  "just right of 1",
-                  <span key="e1">
-                    <Formula>{String.raw`> 0`}</Formula>
-                  </span>,
-                  "f increases",
-                ],
-              },
-              {
-                cells: [
-                  "just left of 1",
-                  <span key="e2">
-                    <Formula>{String.raw`< 0`}</Formula>
-                  </span>,
-                  "f decreases",
-                ],
-              },
-              {
-                cells: [
-                  "just left of -1",
-                  <span key="e3">
-                    <Formula>{String.raw`> 0`}</Formula>
-                  </span>,
-                  "f increases",
-                ],
-              },
-              {
-                cells: [
-                  "just right of -1",
-                  <span key="e4">
-                    <Formula>{String.raw`< 0`}</Formula>
-                  </span>,
-                  "f decreases",
-                ],
-              },
-            ]}
-          />
-          <p>
-            <Formula>{String.raw`f'`}</Formula> changes from negative to positive at{" "}
-            <Formula>{String.raw`x = 1`}</Formula>: local minimum, value{" "}
-            <Formula>{String.raw`f(1) = 1 - 3 + 3 = 1`}</Formula>. It changes from positive to
-            negative at <Formula>{String.raw`x = -1`}</Formula>: local maximum, value{" "}
-            <Formula>{String.raw`f(-1) = -1 + 3 + 3 = 5`}</Formula>.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 18">
-          <p>
-            Find all points of local maxima and local minima of{" "}
-            <Formula>{String.raw`f(x) = 2x^3 - 6x^2 + 6x + 5`}</Formula>.
-          </p>
-          <p>
-            <strong>Solution.</strong>
-          </p>
-          <p>
-            <Formula>{String.raw`f'(x) = 6x^2 - 12x + 6 = 6(x-1)^2`}</Formula>, so{" "}
-            <Formula>{String.raw`f'(x) = 0`}</Formula> only at{" "}
-            <Formula>{String.raw`x = 1`}</Formula>. But{" "}
-            <Formula>{String.raw`f'(x) \ge 0`}</Formula> for every{" "}
-            <Formula>{String.raw`x \in \mathbb{R}`}</Formula>: the derivative is positive on both
-            sides of <Formula>1</Formula> and never changes sign.
-          </p>
-          <p>
-            By the first derivative test, <Formula>{String.raw`x = 1`}</Formula> is{" "}
-            <strong>neither</strong> a local maximum nor a local minimum. It is a point of
-            inflexion, and the graph has no turning point at all.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 19">
-          <p>
-            Find the local minimum value of{" "}
-            <Formula>{String.raw`f(x) = 3 + |x|`}</Formula>,{" "}
-            <Formula>{String.raw`x \in \mathbb{R}`}</Formula>.
-          </p>
-          <p>
-            <strong>Solution.</strong> The function is not differentiable at{" "}
-            <Formula>{String.raw`x = 0`}</Formula>, so the second derivative test is unavailable.
-            Use the first derivative: to the left of 0,{" "}
-            <Formula>{String.raw`f(x) = 3 - x`}</Formula> and{" "}
-            <Formula>{String.raw`f'(x) = -1 < 0`}</Formula>; to the right,{" "}
-            <Formula>{String.raw`f(x) = 3 + x`}</Formula> and{" "}
-            <Formula>{String.raw`f'(x) = 1 > 0`}</Formula>.
-          </p>
-          <p>
-            The sign changes from negative to positive at{" "}
-            <Formula>{String.raw`x = 0`}</Formula>, so <Formula>0</Formula> is a point of local
-            minima with local minimum value <Formula>{String.raw`f(0) = 3`}</Formula>.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 20">
-          <p>
-            Find the local maximum and local minimum values of{" "}
-            <Formula>{String.raw`f(x) = 3x^4 + 4x^3 - 12x^2 + 12`}</Formula>.
-          </p>
-          <p>
-            <strong>Solution.</strong>
-          </p>
-          <p>
-            <Formula>{String.raw`f'(x) = 12x^3 + 12x^2 - 24x = 12x(x-1)(x+2)`}</Formula>, so{" "}
-            <Formula>{String.raw`f'(x) = 0`}</Formula> at{" "}
-            <Formula>{String.raw`x = 0,\ 1,\ -2`}</Formula>. Next,
-          </p>
-          <p>
-            <Formula>{String.raw`f''(x) = 36x^2 + 24x - 24 = 12\left(3x^2 + 2x - 2\right)`}</Formula>
-          </p>
-          <p>
-            so <Formula>{String.raw`f''(0) = -24 < 0`}</Formula>,{" "}
-            <Formula>{String.raw`f''(1) = 36 > 0`}</Formula>,{" "}
-            <Formula>{String.raw`f''(-2) = 72 > 0`}</Formula>. By the second derivative test:
-          </p>
-          <p>
-            <Formula>{String.raw`x = 0`}</Formula> — local maximum,{" "}
-            <Formula>{String.raw`f(0) = 12`}</Formula>;
-          </p>
-          <p>
-            <Formula>{String.raw`x = 1`}</Formula> — local minimum,{" "}
-            <Formula>{String.raw`f(1) = 3 + 4 - 12 + 12 = 7`}</Formula>;
-          </p>
-          <p>
-            <Formula>{String.raw`x = -2`}</Formula> — local minimum,{" "}
-            <Formula>{String.raw`f(-2) = 48 - 32 - 48 + 12 = -20`}</Formula>.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 21">
-          <p>
-            Find all points of local maxima and local minima of{" "}
-            <Formula>{String.raw`f(x) = 2x^3 - 6x^2 + 6x + 5`}</Formula> using the second
-            derivative test.
-          </p>
-          <p>
-            <strong>Solution.</strong>
-          </p>
-          <p>
-            <Formula>{String.raw`f'(x) = 6x^2 - 12x + 6 = 6(x-1)^2`}</Formula> and{" "}
-            <Formula>{String.raw`f''(x) = 12(x-1)`}</Formula>. Now{" "}
-            <Formula>{String.raw`f'(x) = 0`}</Formula> gives{" "}
-            <Formula>{String.raw`x = 1`}</Formula>, and{" "}
-            <Formula>{String.raw`f''(1) = 0`}</Formula> — the second derivative test{" "}
-            <strong>fails</strong>.
-          </p>
-          <p>
-            Returning to the first derivative test (Example 18),{" "}
-            <Formula>{String.raw`x = 1`}</Formula> is neither a local maximum nor a local minimum:
-            it is a point of inflexion.
-          </p>
-        </KeyPoint>
-      </Expandable>
+      <h4 id="h-6-4-1-2">2. Solved Problems — Maximum and Minimum Values</h4>
 
-      <Expandable title="Examples 22 to 26 — NCERT">
-        <KeyPoint title="Example 22">
-          <p>
-            Find two positive numbers whose sum is 15 and the sum of whose squares is minimum.
+      <SolvedProblem
+        title="Question 1 — Square Function"
+        question={
+          <>
+            <p>
+              Find the maximum and minimum values, if any, of{" "}
+              <Formula>{String.raw`f(x)=x^2,\qquad x\in\mathbb{R}`}</Formula>.
+            </p>
+            <SquareFunctionGraph />
+          </>
+        }
+      >
+        <SolutionStep label="Non-negative square">
+          <FormulaBlock latex={String.raw`x^2\geq0`} />
+          <p className="text-sm text-muted-foreground">
+            Since the square of every real number is non-negative, the function cannot fall below
+            zero.
           </p>
-          <p>
-            <strong>Solution.</strong> Let one number be <Formula>x</Formula>; the other is{" "}
-            <Formula>{String.raw`15 - x`}</Formula>. Then
+          <FormulaBlock latex={String.raw`\boxed{\text{Minimum value}=0}`} important />
+          <p className="text-sm">This occurs at <Formula>{String.raw`x=0`}</Formula>.</p>
+        </SolutionStep>
+        <SolutionStep label="No upper bound">
+          <p className="text-sm text-muted-foreground">
+            As <Formula>x</Formula> increases or decreases without bound,{" "}
+            <Formula>{String.raw`x^2`}</Formula> increases without bound.
           </p>
-          <p>
-            <Formula>{String.raw`S(x) = x^2 + (15-x)^2 = 2x^2 - 30x + 225`}</Formula>
-          </p>
-          <p>
-            <Formula>{String.raw`S'(x) = 4x - 30,\qquad S''(x) = 4`}</Formula>
-          </p>
-          <p>
-            <Formula>{String.raw`S'(x) = 0`}</Formula> gives{" "}
-            <Formula>{String.raw`x = \frac{15}{2}`}</Formula>, and{" "}
-            <Formula>{String.raw`S''\left(\frac{15}{2}\right) = 4 > 0`}</Formula>, so this is a
-            point of local minima. The numbers are{" "}
-            <Formula>{String.raw`\frac{15}{2}`}</Formula> and{" "}
-            <Formula>{String.raw`\frac{15}{2}`}</Formula>.
-          </p>
-          <p>
-            <strong>Remark.</strong> In general, two positive numbers with sum{" "}
-            <Formula>k</Formula> have minimum sum of squares when both equal{" "}
-            <Formula>{String.raw`\frac{k}{2}`}</Formula>.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 23">
-          <p>
-            Find the shortest distance of the point <Formula>{String.raw`(0,c)`}</Formula> from
-            the parabola <Formula>{String.raw`y = x^2`}</Formula>, where{" "}
-            <Formula>{String.raw`\frac{1}{2} \le c \le 5`}</Formula>.
-          </p>
-          <p>
-            <strong>Solution.</strong> Let <Formula>{String.raw`(h,k)`}</Formula> be a point on the
-            parabola. Then <Formula>{String.raw`k = h^2`}</Formula> and
-          </p>
-          <p>
-            <Formula>{String.raw`D^2 = h^2 + (k-c)^2 = k + (k-c)^2`}</Formula>
-          </p>
-          <p>
-            Write <Formula>{String.raw`D \equiv D(k) = \sqrt{k + (k-c)^2}`}</Formula>. Then
-          </p>
-          <p>
-            <Formula>{String.raw`D'(k) = \frac{1 + 2(k-c)}{2\sqrt{k + (k-c)^2}}`}</Formula>
-          </p>
-          <p>
-            <Formula>{String.raw`D'(k) = 0`}</Formula> gives{" "}
-            <Formula>{String.raw`k = \frac{2c-1}{2}`}</Formula>. For{" "}
-            <Formula>{String.raw`k < \frac{2c-1}{2}`}</Formula> the numerator{" "}
-            <Formula>{String.raw`1 + 2(k-c) < 0`}</Formula> and{" "}
-            <Formula>{String.raw`D'(k) < 0`}</Formula>; for{" "}
-            <Formula>{String.raw`k > \frac{2c-1}{2}`}</Formula> we get{" "}
-            <Formula>{String.raw`D'(k) > 0`}</Formula>. By the first derivative test{" "}
-            <Formula>D</Formula> is minimum there.
-          </p>
-          <p>
-            Hence the shortest distance is
-          </p>
-          <p>
-            <Formula>{String.raw`D = \sqrt{\frac{2c-1}{2} + \left(\frac{2c-1}{2} - c\right)^2} = \sqrt{\frac{2c-1}{2} + \frac{1}{4}} = \frac{1}{2}\sqrt{4c-1}`}</Formula>
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 24">
-          <p>
-            <Formula>AP</Formula> and <Formula>BQ</Formula> are vertical poles at{" "}
-            <Formula>A</Formula> and <Formula>B</Formula> with{" "}
-            <Formula>{String.raw`AP = 16`}</Formula> m,{" "}
-            <Formula>{String.raw`BQ = 22`}</Formula> m and{" "}
-            <Formula>{String.raw`AB = 20`}</Formula> m. Find the distance of a point{" "}
-            <Formula>R</Formula> on <Formula>AB</Formula> from <Formula>A</Formula> such that{" "}
-            <Formula>{String.raw`RP^2 + RQ^2`}</Formula> is minimum.
-          </p>
-          <p>
-            <strong>Solution.</strong> Let <Formula>{String.raw`AR = x`}</Formula> m; then{" "}
-            <Formula>{String.raw`RB = 20 - x`}</Formula> m. By Pythagoras,
-          </p>
-          <p>
-            <Formula>{String.raw`RP^2 + RQ^2 = \left(x^2 + 16^2\right) + \left((20-x)^2 + 22^2\right)`}</Formula>
-          </p>
-          <p>
-            <Formula>{String.raw`S(x) = 2x^2 - 40x + 1140,\qquad S'(x) = 4x - 40,\qquad S''(x) = 4 > 0`}</Formula>
-          </p>
-          <p>
-            <Formula>{String.raw`S'(x) = 0`}</Formula> gives{" "}
-            <Formula>{String.raw`x = 10`}</Formula>, and{" "}
-            <Formula>{String.raw`S''(10) > 0`}</Formula> confirms a local minimum. So{" "}
-            <Formula>{String.raw`AR = 10`}</Formula> m.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 25">
-          <p>
-            If three sides of a trapezium other than the base are each 10 cm, find the area of the
-            trapezium when it is maximum.
-          </p>
-          <p>
-            <strong>Solution.</strong> Drop perpendiculars <Formula>DP</Formula> and{" "}
-            <Formula>CQ</Formula> on the base <Formula>AB</Formula> and let{" "}
-            <Formula>{String.raw`AP = x`}</Formula> cm. Since{" "}
-            <Formula>{String.raw`\triangle APD \sim \triangle BQC`}</Formula>, we get{" "}
-            <Formula>{String.raw`QB = x`}</Formula>, and by Pythagoras{" "}
-            <Formula>{String.raw`DP = QC = \sqrt{100 - x^2}`}</Formula>. The base is{" "}
-            <Formula>{String.raw`2x + 10`}</Formula>, so
-          </p>
-          <p>
-            <Formula>{String.raw`A(x) = \frac{1}{2}(2x + 10 + 10)\sqrt{100-x^2} = (x + 10)\sqrt{100-x^2}`}</Formula>
-          </p>
-          <p>
-            <Formula>{String.raw`A'(x) = \sqrt{100-x^2} + (x+10)\cdot\frac{-x}{\sqrt{100-x^2}} = \frac{(100 - x^2) - x^2 - 10x}{\sqrt{100-x^2}} = \frac{-2x^2 - 10x + 100}{\sqrt{100-x^2}}`}</Formula>
-          </p>
-          <p>
-            <Formula>{String.raw`A'(x) = 0`}</Formula> gives{" "}
-            <Formula>{String.raw`2x^2 + 10x - 100 = 0`}</Formula>, i.e.{" "}
-            <Formula>{String.raw`x = 5`}</Formula> or{" "}
-            <Formula>{String.raw`x = -10`}</Formula>. A distance cannot be negative, so{" "}
-            <Formula>{String.raw`x = 5`}</Formula>. Differentiating again and simplifying,
-          </p>
-          <p>
-            <Formula>{String.raw`A''(x) = \frac{-2x^3 - 300x - 1000}{(100-x^2)^{3/2}}`}</Formula>
-          </p>
-          <p>
-            <Formula>{String.raw`A''(5) = \frac{-250 - 1500 - 1000}{75\sqrt{75}} = \frac{-2750}{75\sqrt{75}}`}</Formula>{" "}
-            which is negative, so the area is maximum at{" "}
-            <Formula>{String.raw`x = 5`}</Formula>. The maximum area is
-          </p>
-          <p>
-            <Formula>{String.raw`A(5) = 15\sqrt{75} = 75\sqrt{3}\ \text{cm}^2`}</Formula>
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 26">
-          <p>
-            Prove that the radius of the right circular cylinder of greatest curved surface area
-            that can be inscribed in a given cone is half the radius of the cone.
-          </p>
-          <p>
-            <strong>Solution.</strong> Let <Formula>r</Formula> be the cone&rsquo;s radius and{" "}
-            <Formula>h</Formula> its height; let the inscribed cylinder have radius{" "}
-            <Formula>{String.raw`OE = x`}</Formula>. Since{" "}
-            <Formula>{String.raw`\triangle QEC \sim \triangle AOC`}</Formula>,
-          </p>
-          <p>
-            <Formula>{String.raw`\frac{QE}{h} = \frac{r-x}{r}\quad\Rightarrow\quad QE = \frac{h(r-x)}{r}`}</Formula>
-          </p>
-          <p>
-            The curved surface area is{" "}
-            <Formula>{String.raw`S(x) = 2\pi x\cdot\frac{h(r-x)}{r} = \frac{2\pi h}{r}\left(rx - x^2\right)`}</Formula>.
-            Hence
-          </p>
-          <p>
-            <Formula>{String.raw`S'(x) = \frac{2\pi h}{r}(r - 2x),\qquad S''(x) = -\frac{4\pi h}{r} < 0`}</Formula>
-          </p>
-          <p>
-            <Formula>{String.raw`S'(x) = 0`}</Formula> gives{" "}
-            <Formula>{String.raw`x = \frac{r}{2}`}</Formula>, and{" "}
-            <Formula>{String.raw`S''\left(\frac{r}{2}\right) < 0`}</Formula>, so this is the point
-            of maximum curved surface area. The cylinder&rsquo;s radius is half that of the cone.
-          </p>
-        </KeyPoint>
-      </Expandable>
+          <FormulaBlock latex={String.raw`\boxed{\text{No maximum}}`} important />
+        </SolutionStep>
+      </SolvedProblem>
 
-      <h3 id="h-6-4-1">6.4.1 Maximum and Minimum Values in a Closed Interval</h3>
+      <SolvedProblem
+        title="Question 2 — Modulus Function"
+        question={
+          <>
+            <p>
+              Find the maximum and minimum values, if any, of{" "}
+              <Formula>{String.raw`f(x)=|x|,\qquad x\in\mathbb{R}`}</Formula>.
+            </p>
+            <ModulusGraph />
+          </>
+        }
+      >
+        <SolutionStep label="Reference property">
+          <FormulaBlock latex={String.raw`|x|\geq0`} />
+        </SolutionStep>
+        <SolutionStep label="Minimum">
+          <FormulaBlock latex={String.raw`\boxed{\text{Minimum value}=0}`} important />
+          <p className="text-sm">This occurs at <Formula>{String.raw`x=0`}</Formula>.</p>
+        </SolutionStep>
+        <SolutionStep label="No maximum">
+          <p className="text-sm text-muted-foreground">
+            The function increases without bound as <Formula>{String.raw`|x|`}</Formula> increases.
+          </p>
+          <FormulaBlock latex={String.raw`\boxed{\text{No maximum}}`} important />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <SolvedProblem
+        title="Question 3 — Open and Closed Intervals"
+        question={
+          <>
+            <p>
+              Find the maximum and minimum values, if any, of{" "}
+              <Formula>{String.raw`f(x)=x,\qquad x\in(0,1)`}</Formula>.
+            </p>
+            <OpenClosedIntervalsDiagram />
+          </>
+        }
+      >
+        <SolutionStep label="Open interval">
+          <p className="text-sm text-muted-foreground">
+            The function is increasing throughout <Formula>{String.raw`(0,1)`}</Formula>, but
+            neither endpoint belongs to the domain.
+          </p>
+          <ul className="list-disc space-y-1 pl-5 text-sm">
+            <li>
+              The function approaches <Formula>0</Formula> but never attains it.
+            </li>
+            <li>
+              The function approaches <Formula>1</Formula> but never attains it.
+            </li>
+          </ul>
+          <FormulaBlock latex={String.raw`\boxed{\text{No minimum and no maximum}}`} important />
+        </SolutionStep>
+        <SolutionStep label="Closed interval comparison">
+          <p className="text-sm text-muted-foreground">
+            If the domain is instead <Formula>{String.raw`x\in[0,1]`}</Formula>, both endpoints are
+            included.
+          </p>
+          <FormulaBlock latex={String.raw`\boxed{\text{Minimum}=0}`} important />
+          <FormulaBlock latex={String.raw`\boxed{\text{Maximum}=1}`} important />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <SolvedProblem
+        title="Question 4 — Work · Linear Function on an Open Interval"
+        question={
+          <>
+            <p>
+              Find the local maxima and local minima, if any, of{" "}
+              <Formula>{String.raw`h(x)=x+1,\qquad x\in(-1,1)`}</Formula>.
+            </p>
+            <OpenIntervalLineGraph />
+          </>
+        }
+      >
+        <SolutionStep label="Behaviour on the domain">
+          <p className="text-sm text-muted-foreground">
+            The function is strictly increasing throughout its domain. Neither endpoint belongs to
+            the interval, and the function has no interior turning point.
+          </p>
+          <FormulaBlock latex={String.raw`\boxed{\text{No maximum and no minimum}}`} important />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <SolvedProblem
+        title="Question 5 — Modulus Function Shifted Downward"
+        question={
+          <>
+            <p>
+              Find the maximum and minimum values, if any, of{" "}
+              <Formula>{String.raw`f(x)=|x+2|-1`}</Formula>.
+            </p>
+            <ShiftedModulusGraph />
+          </>
+        }
+      >
+        <SolutionStep label="Reference property">
+          <FormulaBlock latex={String.raw`|x|\geq0`} />
+        </SolutionStep>
+        <SolutionStep label="Subtract 1">
+          <FormulaBlock latex={String.raw`|x+2|\geq0`} />
+          <FormulaBlock latex={String.raw`|x+2|-1\geq-1`} />
+          <FormulaBlock latex={String.raw`f(x)\geq-1`} />
+        </SolutionStep>
+        <SolutionStep label="Equality and conclusion">
+          <FormulaBlock latex={String.raw`x+2=0\Rightarrow x=-2`} />
+          <FormulaBlock latex={String.raw`\boxed{\text{Minimum value}=-1}`} important />
+          <FormulaBlock latex={String.raw`\boxed{\text{No maximum}}`} important />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <SolvedProblem
+        title="Question 6 — Negative Modulus Function"
+        question={
+          <>
+            <p>
+              Find the maximum and minimum values, if any, of{" "}
+              <Formula>{String.raw`g(x)=-|x+1|+3`}</Formula>.
+            </p>
+            <InvertedModulusGraph />
+          </>
+        }
+      >
+        <SolutionStep label="Reverse the inequality">
+          <FormulaBlock latex={String.raw`|x+1|\geq0`} />
+          <FormulaBlock latex={String.raw`-|x+1|\leq0`} />
+          <p className="text-sm text-muted-foreground">
+            Multiplication by <Formula>{String.raw`-1`}</Formula> reverses the inequality.
+          </p>
+        </SolutionStep>
+        <SolutionStep label="Add 3">
+          <FormulaBlock latex={String.raw`-|x+1|+3\leq3`} />
+          <FormulaBlock latex={String.raw`g(x)\leq3`} />
+          <FormulaBlock latex={String.raw`x+1=0\Rightarrow x=-1`} />
+        </SolutionStep>
+        <SolutionStep label="Conclusion">
+          <FormulaBlock latex={String.raw`\boxed{\text{Maximum value}=3}`} important />
+          <FormulaBlock latex={String.raw`\boxed{\text{No minimum}}`} important />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <SolvedProblem
+        title="Question 7 — Work · Local Minimum of a Modulus Function"
+        question={
+          <>
+            <p>
+              Find the local minimum value of{" "}
+              <Formula>{String.raw`f(x)=3+|x|,\qquad x\in\mathbb{R}`}</Formula>.
+            </p>
+            <RaisedModulusGraph />
+          </>
+        }
+      >
+        <SolutionStep label="Bound and equality">
+          <FormulaBlock latex={String.raw`|x|\geq0`} />
+          <FormulaBlock latex={String.raw`3+|x|\geq3`} />
+          <p className="text-sm text-muted-foreground">Equality occurs at{" "}
+          <Formula>{String.raw`x=0`}</Formula>.</p>
+          <FormulaBlock latex={String.raw`f(0)=3+|0|=3`} />
+        </SolutionStep>
+        <SolutionStep label="Point and value">
+          <ul className="list-disc space-y-1 pl-5 text-sm">
+            <li>
+              <Formula>{String.raw`x=0`}</Formula> is the point of local minimum.
+            </li>
+            <li>
+              <Formula>{String.raw`f(0)=3`}</Formula> is the local minimum value.
+            </li>
+          </ul>
+          <FormulaBlock latex={String.raw`\boxed{\text{Local minimum value}=3}`} important />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <SolvedProblem
+        title="Question 8 — Shifted Sine Function"
+        question={
+          <>
+            <p>
+              Find the maximum and minimum values, if any, of{" "}
+              <Formula>{String.raw`h(x)=\sin(2x)+5`}</Formula>.
+            </p>
+            <SineBandGraph low={4} high={6} cycles={1.5} title="y = sin 2x + 5" />
+          </>
+        }
+      >
+        <SolutionStep label="Reference property">
+          <FormulaBlock latex={String.raw`-1\leq\sin x\leq1`} />
+        </SolutionStep>
+        <SolutionStep label="Shift the bounds">
+          <FormulaBlock latex={String.raw`-1\leq\sin(2x)\leq1`} />
+          <FormulaBlock latex={String.raw`-1+5\leq\sin(2x)+5\leq1+5`} />
+          <FormulaBlock latex={String.raw`4\leq h(x)\leq6`} />
+        </SolutionStep>
+        <SolutionStep label="Conclusion">
+          <FormulaBlock latex={String.raw`\boxed{\text{Minimum value}=4}`} important />
+          <FormulaBlock latex={String.raw`\boxed{\text{Maximum value}=6}`} important />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <SolvedProblem
+        title="Question 9 — Modulus of a Shifted Sine Function"
+        question={
+          <>
+            <p>
+              Find the maximum and minimum values, if any, of{" "}
+              <Formula>{String.raw`f(x)=|\sin4x+3|`}</Formula>.
+            </p>
+            <SineBandGraph low={2} high={4} cycles={2} title="y = |sin 4x + 3|" />
+          </>
+        }
+      >
+        <SolutionStep label="Shift the sine bounds">
+          <FormulaBlock latex={String.raw`-1\leq\sin(4x)\leq1`} />
+          <FormulaBlock latex={String.raw`2\leq\sin(4x)+3\leq4`} />
+        </SolutionStep>
+        <SolutionStep label="The modulus changes nothing">
+          <div className="[&>div]:my-0">
+            <KeyPoint title="Why the absolute value is redundant">
+              <FormulaBlock
+                latex={String.raw`\sin 4x+3\geq2>0\;\Rightarrow\;|\sin4x+3|=\sin4x+3`}
+              />
+            </KeyPoint>
+          </div>
+          <FormulaBlock latex={String.raw`2\leq f(x)\leq4`} />
+        </SolutionStep>
+        <SolutionStep label="Conclusion">
+          <FormulaBlock latex={String.raw`\boxed{\text{Minimum value}=2}`} important />
+          <FormulaBlock latex={String.raw`\boxed{\text{Maximum value}=4}`} important />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <h4 id="h-6-4-1-3">3. Important Theorems</h4>
+      <div className="grid gap-4 lg:grid-cols-2">
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro block">3.1 Monotonic function and endpoints</span>
+          <p className="mt-2 text-sm">
+            A monotonic function on a closed interval attains its maximum and minimum values at the
+            endpoints.
+          </p>
+          <MonotonicEndpointGraphs />
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro block">3.2 Extreme Value Theorem</span>
+          <p className="mt-2 text-sm">
+            Every continuous function on a closed and bounded interval has both a maximum and a
+            minimum value.
+          </p>
+          <div className="mt-3 [&>div]:my-0">
+            <KeyPoint title="Extreme Value Theorem">
+              <Highlight>continuous + closed and bounded interval = extrema exist</Highlight>
+              <p className="mt-2 text-sm">
+                The theorem guarantees existence. It does not give the points where the extrema
+                occur.
+              </p>
+            </KeyPoint>
+          </div>
+          <ExtremeValueTheoremGraph />
+        </div>
+      </div>
+
+      <h4 id="h-6-4-1-4">4. Local Maxima and Local Minima</h4>
       <p>
-        Consider <Formula>{String.raw`f(x) = x + 2`}</Formula> on{" "}
-        <Formula>{String.raw`(0,1)`}</Formula>. It is continuous there, yet it has neither a
-        maximum nor a minimum value, and no local maximum or minimum either. Extend the domain to{" "}
-        <Formula>{String.raw`[0,1]`}</Formula> and the picture changes: the maximum value is{" "}
-        <Formula>{String.raw`3 = f(1)`}</Formula> and the minimum value is{" "}
-        <Formula>{String.raw`2 = f(0)`}</Formula>, even though there is still no <em>local</em>{" "}
-        turning point.
+        A function can have several local maximum and minimum points. Each one is judged only
+        against nearby values.
       </p>
+      <LocalExtremaGraph />
+      <TableCard
+        headers={["Feature", "Local maxima", "Local minima"]}
+        rows={[
+          {
+            cells: [
+              "Points",
+              <Formula key="lm-p">{String.raw`c_1,\ c_2`}</Formula>,
+              <Formula key="mn-p">{String.raw`c_3`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Values",
+              <Formula key="lm-v">{String.raw`f(c_1),\ f(c_2)`}</Formula>,
+              <Formula key="mn-v">{String.raw`f(c_3)`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Meaning",
+              "Highest among nearby values",
+              "Lowest among nearby values",
+            ],
+          },
+        ]}
+      />
+
+      <p className="mt-6 font-semibold">Critical points</p>
       <p>
-        The value <Formula>3</Formula> at <Formula>{String.raw`x = 1`}</Formula> is the{" "}
-        <strong>absolute maximum value</strong> (global maximum, greatest value) of{" "}
-        <Formula>f</Formula> on <Formula>{String.raw`[0,1]`}</Formula>; the value{" "}
-        <Formula>2</Formula> at <Formula>{String.raw`x = 0`}</Formula> is the{" "}
-        <strong>absolute minimum value</strong> (global minimum, least value).
+        A critical point is a point in the domain where the derivative is zero or where the
+        derivative does not exist.
       </p>
-      <Callout type="important">
-        <p>
-          A <Highlight color="yellow">local</Highlight> maximum is the largest value in some small
-          neighbourhood; an <Highlight color="yellow">absolute</Highlight> maximum is the largest
-          value on the whole interval. They are different ideas, and on a closed interval the
-          absolute extreme value very often occurs at an <strong>end point</strong>, where the
-          derivative need not vanish.
-        </p>
-      </Callout>
-      <KeyPoint title="Theorem 5 and Theorem 6">
-        <p>
-          <strong>Theorem 5.</strong> If <Formula>f</Formula> is continuous on{" "}
-          <Formula>{String.raw`I = [a,b]`}</Formula>, then <Formula>f</Formula> has an absolute
-          maximum value and attains it at least once in <Formula>I</Formula>; likewise it has an
-          absolute minimum value and attains it at least once in <Formula>I</Formula>.
-        </p>
-        <p>
-          <strong>Theorem 6.</strong> Let <Formula>f</Formula> be differentiable on the closed
-          interval <Formula>I</Formula> and <Formula>c</Formula> an interior point of{" "}
-          <Formula>I</Formula>. Then <Formula>{String.raw`f'(c) = 0`}</Formula> if{" "}
-          <Formula>f</Formula> attains its absolute maximum value at <Formula>c</Formula>, and also
-          if it attains its absolute minimum value at <Formula>c</Formula>.
-        </p>
-      </KeyPoint>
+      <FormulaBlock
+        latex={String.raw`\boxed{f'(c)=0\quad\text{or}\quad f'(c)\text{ does not exist}}`}
+        important
+      />
+      <SmoothSharpMinima />
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="rounded-md border border-border p-3">
+          <span className="t-micro block">Smooth minimum</span>
+          <FormulaBlock latex={String.raw`f'(c)=0`} />
+          <p className="text-sm text-muted-foreground">A horizontal tangent exists at the bottom.</p>
+        </div>
+        <div className="rounded-md border border-border p-3">
+          <span className="t-micro block">Sharp minimum</span>
+          <Formula>{String.raw`f(x)=|x|`}</Formula>
+          <p className="text-sm text-muted-foreground">
+            At <Formula>{String.raw`x=0`}</Formula>, the graph has a corner and{" "}
+            <Formula>{String.raw`f'(0)`}</Formula> does not exist. This is still a critical point and
+            a local minimum.
+          </p>
+        </div>
+      </div>
+
+      <h4 id="h-6-4-1-5">5. Solved Problem — Functions Without Maxima or Minima</h4>
+      <p>Prove that the following functions do not have maxima or minima:</p>
+      <ol className="list-decimal space-y-1 pl-5">
+        <li><Formula>{String.raw`f(x)=e^x`}</Formula></li>
+        <li><Formula>{String.raw`g(x)=\log x`}</Formula></li>
+        <li><Formula>{String.raw`h(x)=x^3+x^2+x+1`}</Formula></li>
+      </ol>
+
+      <SolvedProblem
+        title="Question 10(i) — Exponential Function"
+        question={
+          <>
+            <FormulaBlock latex={String.raw`f(x)=e^x`} />
+            <ExponentialCurveDiagram />
+          </>
+        }
+      >
+        <SolutionStep label="Stationary point test">
+          <FormulaBlock latex={String.raw`f'(x)=e^x`} />
+          <FormulaBlock latex={String.raw`f'(x)=0\Rightarrow e^x=0`} />
+          <p className="text-sm text-muted-foreground">
+            But <Formula>{String.raw`e^x`}</Formula> is always positive, so no stationary point
+            exists.
+          </p>
+        </SolutionStep>
+        <SolutionStep label="Monotonicity">
+          <FormulaBlock latex={String.raw`f'(x)>0\quad\text{on }\mathbb{R}`} />
+          <p className="text-sm text-muted-foreground">
+            The function is strictly increasing throughout <Formula>{String.raw`\mathbb{R}`}</Formula>.
+          </p>
+          <FormulaBlock latex={String.raw`\boxed{\text{No maximum or minimum on }\mathbb{R}}`} important />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <SolvedProblem
+        title="Question 10(ii) — Logarithmic Function"
+        question={
+          <>
+            <FormulaBlock latex={String.raw`g(x)=\log x`} />
+            <LogCurveDiagram />
+          </>
+        }
+      >
+        <SolutionStep label="Domain and derivative">
+          <FormulaBlock latex={String.raw`x>0`} />
+          <FormulaBlock latex={String.raw`g'(x)=\frac1x`} />
+          <FormulaBlock latex={String.raw`\frac1x=0`} />
+          <p className="text-sm text-muted-foreground">This is impossible.</p>
+        </SolutionStep>
+        <SolutionStep label="Monotonicity">
+          <FormulaBlock latex={String.raw`\frac1x>0\qquad(x>0)`} />
+          <p className="text-sm text-muted-foreground">
+            The function is strictly increasing throughout its domain.
+          </p>
+          <FormulaBlock latex={String.raw`\boxed{\text{No maximum or minimum on }(0,\infty)}`} important />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
+        <div className="border-b border-border px-4 py-3 sm:px-5">
+          <span className="t-micro">Question 10(iii) — Source working incomplete</span>
+        </div>
+        <div className="px-4 py-4 sm:px-5">
+          <FormulaBlock latex={String.raw`h(x)=x^3+x^2+x+1`} />
+          <Callout type="note" title="Working not supplied">
+            <ul className="list-disc space-y-1.5 pl-5">
+              <li>The supplied material contains this question but does not include its working.</li>
+              <li>No solution has been fabricated.</li>
+              <li>
+                A solution can be added once the remaining source working is available.
+              </li>
+            </ul>
+          </Callout>
+        </div>
+      </div>
+
+      <h3 id="h-6-4-2">Unit 2 — First Derivative Test</h3>
+      <h4 id="h-6-4-2-1">6. Identifying Local Maxima and Minima</h4>
+      <p>
+        The First Derivative Test determines the nature of a critical point by observing how the
+        sign of <Formula>{String.raw`f'(x)`}</Formula> changes around it.
+      </p>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro block">6.1 Local maximum</span>
+          <p className="mt-2 text-sm">
+            Sign changes from positive to negative through{" "}
+            <Formula>{String.raw`x=c`}</Formula>.
+          </p>
+          <PositiveToNegativeSignLine />
+          <p className="text-sm">
+            <Formula>{String.raw`c`}</Formula> is the point;{" "}
+            <Formula>{String.raw`f(c)`}</Formula> is the local maximum value.
+          </p>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro block">6.2 Local minimum</span>
+          <p className="mt-2 text-sm">
+            Sign changes from negative to positive through{" "}
+            <Formula>{String.raw`x=c`}</Formula>.
+          </p>
+          <NegativeToPositiveSignLine />
+          <p className="text-sm">
+            <Formula>{String.raw`c`}</Formula> is the point;{" "}
+            <Formula>{String.raw`f(c)`}</Formula> is the local minimum value.
+          </p>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro block">No sign change · positive</span>
+          <PositiveToPositiveSignLine />
+          <p className="text-sm">Neither a maximum nor a minimum.</p>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro block">No sign change · negative</span>
+          <NegativeToNegativeSignLine />
+          <p className="text-sm">Neither a maximum nor a minimum.</p>
+        </div>
+      </div>
+      <TableCard
+        headers={["Sign change", "Conclusion"]}
+        rows={[
+          {
+            cells: [
+              <Formula key="fd1">{String.raw`+\longrightarrow-`}</Formula>,
+              "Local maximum",
+            ],
+          },
+          {
+            cells: [
+              <Formula key="fd2">{String.raw`-\longrightarrow+`}</Formula>,
+              "Local minimum",
+            ],
+          },
+          {
+            cells: [
+              <Formula key="fd3">{String.raw`+\longrightarrow+`}</Formula>,
+              "Neither",
+            ],
+          },
+          {
+            cells: [
+              <Formula key="fd4">{String.raw`-\longrightarrow-`}</Formula>,
+              "Neither",
+            ],
+          },
+        ]}
+      />
+
+      <h4 id="h-6-4-2-2">7. Solved Problems — First Derivative Test</h4>
+
+      <SolvedProblem
+        title="Question 1 — Cubic Function"
+        question={
+          <>
+            <p>
+              Find all points of local maxima and local minima of{" "}
+              <Formula>{String.raw`f(x)=x^3-3x+3`}</Formula>.
+            </p>
+            <CubicSignNumberLine />
+          </>
+        }
+      >
+        <SolutionStep label="Step 1 — Differentiate">
+          <FormulaBlock latex={String.raw`f'(x)=3x^2-3`} />
+        </SolutionStep>
+        <SolutionStep label="Step 2 — Critical points">
+          <FormulaBlock latex={String.raw`3x^2-3=0`} />
+          <FormulaBlock latex={String.raw`x^2=1`} />
+          <FormulaBlock latex={String.raw`\boxed{x=-1,\ 1}`} important />
+        </SolutionStep>
+        <SolutionStep label="Step 3 — Sign evaluation">
+          <FormulaBlock latex={String.raw`f'(-2)=3(4)-3=9>0`} />
+          <FormulaBlock latex={String.raw`f'(0)=-3<0`} />
+          <FormulaBlock latex={String.raw`f'(2)=3(4)-3=9>0`} />
+        </SolutionStep>
+        <SolutionStep label="Step 4 — Apply the First Derivative Test">
+          <ul className="list-disc space-y-1.5 pl-5 text-sm">
+            <li>
+              At <Formula>{String.raw`x=-1`}</Formula>:{" "}
+              <Formula>{String.raw`+\longrightarrow-`}</Formula>, so a local maximum.
+            </li>
+            <li>
+              At <Formula>{String.raw`x=1`}</Formula>:{" "}
+              <Formula>{String.raw`-\longrightarrow+`}</Formula>, so a local minimum.
+            </li>
+          </ul>
+          <FormulaBlock latex={String.raw`\boxed{\text{Local maximum point: }x=-1}`} important />
+          <FormulaBlock latex={String.raw`\boxed{\text{Local minimum point: }x=1}`} important />
+          <FormulaBlock latex={String.raw`f(-1)=5,\qquad f(1)=1`} />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <SolvedProblem
+        title="Question 2 — Given Graph of the Derivative"
+        question={
+          <>
+            <p>
+              Observe the graph of <Formula>{String.raw`f'(x)`}</Formula> and answer:
+            </p>
+            <ul className="list-disc space-y-1 pl-5 text-sm">
+              <li>Write the intervals in which <Formula>f(x)</Formula> is increasing and decreasing.</li>
+              <li>Find the local maximum and local minimum points.</li>
+            </ul>
+            <DerivativeGraphRoots />
+            <div className="rounded-md border border-border bg-muted/40 p-3 text-sm">
+              <span className="t-micro block">Graph information from the source</span>
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                <li>
+                  <Formula>{String.raw`f'(x)=0`}</Formula> at <Formula>{String.raw`x=1`}</Formula> and{" "}
+                  <Formula>{String.raw`x=5`}</Formula>.
+                </li>
+                <li>
+                  <Formula>{String.raw`f'(x)>0`}</Formula> for <Formula>{String.raw`x<1`}</Formula>.
+                </li>
+                <li>
+                  <Formula>{String.raw`f'(x)<0`}</Formula> for <Formula>{String.raw`1<x<5`}</Formula>.
+                </li>
+                <li>
+                  <Formula>{String.raw`f'(x)>0`}</Formula> for <Formula>{String.raw`x>5`}</Formula>.
+                </li>
+              </ul>
+            </div>
+          </>
+        }
+      >
+        <SolutionStep label="(a) Increasing and decreasing intervals">
+          <p className="text-sm text-muted-foreground">
+            The function is increasing where <Formula>{String.raw`f'(x)>0`}</Formula>.
+          </p>
+          <FormulaBlock latex={String.raw`\boxed{(-\infty,1)\cup(5,\infty)}`} important />
+          <p className="text-sm text-muted-foreground">
+            It is decreasing where <Formula>{String.raw`f'(x)<0`}</Formula>.
+          </p>
+          <FormulaBlock latex={String.raw`\boxed{(1,5)}`} important />
+        </SolutionStep>
+        <SolutionStep label="(b) Local extrema">
+          <ul className="list-disc space-y-1.5 pl-5 text-sm">
+            <li>
+              At <Formula>{String.raw`x=1`}</Formula>:{" "}
+              <Formula>{String.raw`+\longrightarrow-`}</Formula>, so a local maximum.
+            </li>
+            <li>
+              At <Formula>{String.raw`x=5`}</Formula>:{" "}
+              <Formula>{String.raw`-\longrightarrow+`}</Formula>, so a local minimum.
+            </li>
+          </ul>
+          <FormulaBlock latex={String.raw`\boxed{\text{Local maximum point: }x=1}`} important />
+          <FormulaBlock latex={String.raw`\boxed{\text{Local minimum point: }x=5}`} important />
+        </SolutionStep>
+        <SolutionStep label="What the graph cannot show">
+          <Callout type="note" title="Derivative sign only">
+            <p>
+              The actual values <Formula>{String.raw`f(1)`}</Formula> and{" "}
+              <Formula>{String.raw`f(5)`}</Formula> cannot be determined from the derivative sign
+              graph alone.
+            </p>
+          </Callout>
+        </SolutionStep>
+      </SolvedProblem>
+
+      <h3 id="h-6-4-3">Unit 3 — Second Derivative Test</h3>
+      <h4 id="h-6-4-3-1">8. The Second Derivative Test</h4>
+      <p>
+        This test classifies a stationary point using the sign of the second derivative at that
+        point. Let <Formula>f</Formula> be defined on an interval <Formula>I</Formula>, let{" "}
+        <Formula>{String.raw`c\in I`}</Formula>, and suppose <Formula>f</Formula> is twice
+        differentiable at <Formula>c</Formula>.
+      </p>
+      <TableCard
+        headers={["Condition", "Shape", "Conclusion"]}
+        rows={[
+          {
+            cells: [
+              <div key="sd1" className="[&>div]:my-0">
+                <FormulaBlock latex={String.raw`f'(c)=0,\quad f''(c)<0`} />
+              </div>,
+              <ConcaveDownGraph key="sd1g" />,
+              "Local maximum",
+            ],
+          },
+          {
+            cells: [
+              <div key="sd2" className="[&>div]:my-0">
+                <FormulaBlock latex={String.raw`f'(c)=0,\quad f''(c)>0`} />
+              </div>,
+              <ConcaveUpGraph key="sd2g" />,
+              "Local minimum",
+            ],
+          },
+          {
+            cells: [
+              <div key="sd3" className="[&>div]:my-0">
+                <FormulaBlock latex={String.raw`f'(c)=0,\quad f''(c)=0`} />
+              </div>,
+              <InconclusiveSecondDerivativeGraph key="sd3g" />,
+              "Test inconclusive — use the First Derivative Test",
+            ],
+          },
+        ]}
+      />
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="rounded-md border border-border p-3">
+          <span className="t-micro block">Local maximum</span>
+          <p className="mt-1 text-sm">
+            <Formula>{String.raw`x=c`}</Formula> is the point;{" "}
+            <Formula>{String.raw`f(c)`}</Formula> is the local maximum value.
+          </p>
+        </div>
+        <div className="rounded-md border border-border p-3">
+          <span className="t-micro block">Local minimum</span>
+          <p className="mt-1 text-sm">
+            <Formula>{String.raw`x=c`}</Formula> is the point;{" "}
+            <Formula>{String.raw`f(c)`}</Formula> is the local minimum value.
+          </p>
+        </div>
+      </div>
       <Stepper
         steps={[
           {
-            label: <>Step 1 — Collect the critical points</>,
-            description: (
-              <>
-                Find every <Formula>x</Formula> in the interval where{" "}
-                <Formula>{String.raw`f'(x) = 0`}</Formula> or where <Formula>f</Formula> is not
-                differentiable.
-              </>
-            ),
+            label: <>Find the first derivative <Formula>{String.raw`f'(x)`}</Formula>.</>,
           },
           {
-            label: <>Step 2 — Add the end points</>,
-            description: (
-              <>
-                Take the end points <Formula>a</Formula> and <Formula>b</Formula> of the interval
-                as candidates. An absolute extreme value may live only there.
-              </>
-            ),
+            label: <>Solve <Formula>{String.raw`f'(x)=0`}</Formula> to find critical points.</>,
           },
           {
-            label: <>Step 3 — Evaluate f at every candidate</>,
-            description: (
-              <>
-                Compute <Formula>f</Formula> at all the points listed in Steps 1 and 2.
-              </>
-            ),
+            label: <>Find the second derivative <Formula>{String.raw`f''(x)`}</Formula>.</>,
           },
           {
-            label: <>Step 4 — Compare the values</>,
+            label: <>Substitute each critical point <Formula>c</Formula>.</>,
             description: (
-              <>
-                The largest value is the absolute maximum, the smallest is the absolute minimum.
-                No derivative sign analysis is needed once the table of values is complete.
-              </>
+              <ul className="list-disc space-y-1 pl-5">
+                <li>
+                  <Formula>{String.raw`f''(c)<0`}</Formula> → local maximum.
+                </li>
+                <li>
+                  <Formula>{String.raw`f''(c)>0`}</Formula> → local minimum.
+                </li>
+                <li>
+                  <Formula>{String.raw`f''(c)=0`}</Formula> → inconclusive; use the First Derivative
+                  Test.
+                </li>
+              </ul>
             ),
           },
         ]}
       />
 
-      <Expandable title="Examples 27 to 29 — NCERT">
-        <KeyPoint title="Example 27">
-          <p>
-            Find the absolute maximum and minimum values of{" "}
-            <Formula>{String.raw`f(x) = 2x^3 - 15x^2 + 36x + 1`}</Formula> on{" "}
-            <Formula>{String.raw`[1,5]`}</Formula>.
-          </p>
-          <p>
-            <strong>Solution.</strong>{" "}
-            <Formula>{String.raw`f'(x) = 6x^2 - 30x + 36 = 6(x-3)(x-2)`}</Formula>, so the critical
-            points in the interval are <Formula>{String.raw`x = 2`}</Formula> and{" "}
-            <Formula>{String.raw`x = 3`}</Formula>. Evaluate at these and at the end points:
-          </p>
+      <h4 id="h-6-4-3-2">9. Solved Problems — Second Derivative Test</h4>
+
+      <SolvedProblem
+        title="Question 1 — Cubic Function"
+        question={
+          <>
+            <p>
+              Find the local maxima and local minima, if any, of{" "}
+              <Formula>{String.raw`g(x)=x^3-3x`}</Formula>. Also find their corresponding values.
+            </p>
+          </>
+        }
+      >
+        <SolutionStep label="Step 1 — First and second derivatives">
+          <FormulaBlock latex={String.raw`g'(x)=3x^2-3`} />
+          <FormulaBlock latex={String.raw`g''(x)=6x`} />
+        </SolutionStep>
+        <SolutionStep label="Step 2 — Critical points">
+          <FormulaBlock latex={String.raw`3x^2-3=0\Rightarrow x^2=1`} />
+          <FormulaBlock latex={String.raw`\boxed{x=1,\ -1}`} important />
+        </SolutionStep>
+        <SolutionStep label="Step 3 — Two-column evaluation">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-md border border-border p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">At x = 1</span>
+              <FormulaBlock latex={String.raw`g''(1)=6(1)=6>0`} />
+              <p className="text-sm">Local minimum.</p>
+              <FormulaBlock latex={String.raw`g(1)=1^3-3(1)`} />
+              <FormulaBlock latex={String.raw`\boxed{g(1)=-2}`} important />
+            </div>
+            <div className="rounded-md border border-border p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">At x = −1</span>
+              <FormulaBlock latex={String.raw`g''(-1)=6(-1)=-6<0`} />
+              <p className="text-sm">Local maximum.</p>
+              <FormulaBlock latex={String.raw`g(-1)=(-1)^3-3(-1)`} />
+              <FormulaBlock latex={String.raw`\boxed{g(-1)=2}`} important />
+            </div>
+          </div>
+        </SolutionStep>
+        <SolutionStep label="Final results">
           <TableCard
-            headers={["x", "f(x)"]}
+            headers={["Type", "Point", "Value"]}
             rows={[
-              { cells: ["1 (end point)", "24"] },
-              { cells: ["2 (critical)", "29"] },
-              { cells: ["3 (critical)", "28"] },
-              { cells: ["5 (end point)", "56"] },
+              {
+                cells: [
+                  "Local maximum",
+                  <Formula key="q1a">{String.raw`x=-1`}</Formula>,
+                  <Formula key="q1b">{String.raw`2`}</Formula>,
+                ],
+              },
+              {
+                cells: [
+                  "Local minimum",
+                  <Formula key="q1c">{String.raw`x=1`}</Formula>,
+                  <Formula key="q1d">{String.raw`-2`}</Formula>,
+                ],
+              },
             ]}
           />
-          <p>
-            The absolute maximum value on <Formula>{String.raw`[1,5]`}</Formula> is{" "}
-            <Formula>56</Formula> at <Formula>{String.raw`x = 5`}</Formula>; the absolute minimum
-            value is <Formula>24</Formula> at <Formula>{String.raw`x = 1`}</Formula>. Notice that
-            both extreme values occur at <strong>end points</strong>.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 28">
-          <p>
-            Find the absolute maximum and minimum values of{" "}
-            <Formula>{String.raw`f(x) = 12x^{4/3} - 6x^{1/3}`}</Formula> on{" "}
-            <Formula>{String.raw`[-1,1]`}</Formula>.
-          </p>
-          <p>
-            <strong>Solution.</strong>
-          </p>
-          <p>
-            <Formula>{String.raw`f'(x) = 16x^{1/3} - 2x^{-2/3} = \frac{2\left(8x - 1\right)}{x^{2/3}}`}</Formula>
-          </p>
-          <p>
-            So <Formula>{String.raw`f'(x) = 0`}</Formula> at{" "}
-            <Formula>{String.raw`x = \frac{1}{8}`}</Formula>, and{" "}
-            <Formula>{String.raw`f'`}</Formula> is not defined at{" "}
-            <Formula>{String.raw`x = 0`}</Formula>. The critical points are{" "}
-            <Formula>0</Formula> and <Formula>{String.raw`\frac{1}{8}`}</Formula>. Now:
-          </p>
-          <p>
-            <Formula>{String.raw`f(-1) = 12 + 6 = 18`}</Formula>
-          </p>
-          <p>
-            <Formula>{String.raw`f(0) = 0`}</Formula>
-          </p>
-          <p>
-            <Formula>{String.raw`f\left(\frac{1}{8}\right) = 12\left(\frac{1}{16}\right) - 6\left(\frac{1}{2}\right) = \frac{3}{4} - 3 = -\frac{9}{4}`}</Formula>
-          </p>
-          <p>
-            <Formula>{String.raw`f(1) = 12 - 6 = 6`}</Formula>
-          </p>
-          <p>
-            Hence the absolute maximum value is <Formula>18</Formula> at{" "}
-            <Formula>{String.raw`x = -1`}</Formula>, and the absolute minimum value is{" "}
-            <Formula>{String.raw`-\frac{9}{4}`}</Formula> at{" "}
-            <Formula>{String.raw`x = \frac{1}{8}`}</Formula>.
-          </p>
-        </KeyPoint>
-        <KeyPoint title="Example 29">
-          <p>
-            A helicopter flies along <Formula>{String.raw`y = x^2 + 7`}</Formula>. A soldier at{" "}
-            <Formula>{String.raw`(3,7)`}</Formula> wants to shoot when it is nearest. Find the
-            nearest distance.
-          </p>
-          <p>
-            <strong>Solution.</strong> At abscissa <Formula>x</Formula> the helicopter is at{" "}
-            <Formula>{String.raw`(x,\ x^2+7)`}</Formula>, so the square of the distance is{" "}
-            <Formula>{String.raw`(x-3)^2 + x^4`}</Formula>. Let
-          </p>
-          <p>
-            <Formula>{String.raw`f(x) = (x-3)^2 + x^4`}</Formula>
-          </p>
-          <p>
-            <Formula>{String.raw`f'(x) = 2(x-3) + 4x^3 = 2(x-1)\left(2x^2 + 2x + 3\right)`}</Formula>
-          </p>
-          <p>
-            The quadratic factor has discriminant <Formula>{String.raw`4 - 24 < 0`}</Formula> and
-            so no real root. Thus <Formula>{String.raw`x = 1`}</Formula> is the only critical point
-            and there are no end points. Now{" "}
-            <Formula>{String.raw`f(1) = 4 + 1 = 5`}</Formula>.
-          </p>
-          <p>
-            To decide whether <Formula>5</Formula> is the minimum, compare:{" "}
-            <Formula>{String.raw`f(0) = 9 > 5`}</Formula>, and{" "}
-            <Formula>{String.raw`f(x) \to \infty`}</Formula> as{" "}
-            <Formula>{String.raw`x \to \pm\infty`}</Formula>. Hence{" "}
-            <Formula>5</Formula> is the minimum value of <Formula>{String.raw`f`}</Formula>, and
-            the nearest distance is <Formula>{String.raw`\sqrt{5}`}</Formula>.
-          </p>
-        </KeyPoint>
-      </Expandable>
+        </SolutionStep>
+      </SolvedProblem>
 
-      <Expandable title="Exercise 6.3 — Maxima and Minima">
-        <ExerciseQa
-          questions={[
-            <>
-              Find the maximum and minimum values, if any, of (i){" "}
-              <Formula>{String.raw`f(x) = (2x-1)^2 + 3`}</Formula> (ii){" "}
-              <Formula>{String.raw`f(x) = 9x^2 + 12x + 2`}</Formula> (iii){" "}
-              <Formula>{String.raw`f(x) = -(x-1)^2 + 10`}</Formula> (iv){" "}
-              <Formula>{String.raw`g(x) = x^3 + 1`}</Formula>.
-            </>,
-            <>
-              Find the maximum and minimum values, if any, of (i){" "}
-              <Formula>{String.raw`f(x) = |x+2| - 1`}</Formula> (ii){" "}
-              <Formula>{String.raw`g(x) = -|x+1| + 3`}</Formula> (iii){" "}
-              <Formula>{String.raw`h(x) = \sin(2x) + 5`}</Formula> (iv){" "}
-              <Formula>{String.raw`f(x) = |\sin 4x + 3|`}</Formula> (v){" "}
-              <Formula>{String.raw`h(x) = x + 1,\ x \in (-1,1)`}</Formula>.
-            </>,
-            <>
-              Find the local maxima and local minima, if any, and the corresponding local maximum
-              and local minimum values: (i) <Formula>{String.raw`f(x) = x^2`}</Formula> (ii){" "}
-              <Formula>{String.raw`g(x) = x^3 - 3x`}</Formula> (iii){" "}
-              <Formula>{String.raw`h(x) = \sin x + \cos x,\ 0 < x < \frac{\pi}{2}`}</Formula> (iv){" "}
-              <Formula>{String.raw`f(x) = \sin x - \cos x,\ 0 < x < 2\pi`}</Formula> (v){" "}
-              <Formula>{String.raw`f(x) = x^3 - 6x^2 + 9x + 15`}</Formula> (vi){" "}
-              <Formula>{String.raw`g(x) = \frac{x}{2} + \frac{2}{x},\ x > 0`}</Formula> (vii){" "}
-              <Formula>{String.raw`g(x) = \frac{1}{x^2+2}`}</Formula> (viii){" "}
-              <Formula>{String.raw`f(x) = x\sqrt{1-x},\ 0 < x < 1`}</Formula>.
-            </>,
-            <>
-              Prove that the following functions do not have maxima or minima: (i){" "}
-              <Formula>{String.raw`f(x) = e^x`}</Formula> (ii){" "}
-              <Formula>{String.raw`g(x) = \log x`}</Formula> (iii){" "}
-              <Formula>{String.raw`h(x) = x^3 + x^2 + x + 1`}</Formula>.
-            </>,
-            <>
-              Find the absolute maximum and absolute minimum values in the given intervals: (i){" "}
-              <Formula>{String.raw`f(x) = x^3,\ x \in [-2,2]`}</Formula> (ii){" "}
-              <Formula>{String.raw`f(x) = \sin x + \cos x,\ x \in [0,\pi]`}</Formula> (iii){" "}
-              <Formula>{String.raw`f(x) = 4x - \frac{1}{2}x^2,\ x \in \left[-2,\frac{9}{2}\right]`}</Formula>{" "}
-              (iv) <Formula>{String.raw`f(x) = (x-1)^2 + 3,\ x \in [-3,1]`}</Formula>.
-            </>,
-            <>
-              Find the maximum profit that a company can make if the profit function is{" "}
-              <Formula>{String.raw`p(x) = 41 - 72x - 18x^2`}</Formula>.
-            </>,
-            <>
-              Find both the maximum and the minimum value of{" "}
-              <Formula>{String.raw`3x^4 - 8x^3 + 12x^2 - 48x + 25`}</Formula> on{" "}
-              <Formula>{String.raw`[0,3]`}</Formula>.
-            </>,
-            <>
-              At what points in <Formula>{String.raw`[0,2\pi]`}</Formula> does{" "}
-              <Formula>{String.raw`\sin 2x`}</Formula> attain its maximum value?
-            </>,
-            <>
-              What is the maximum value of <Formula>{String.raw`\sin x + \cos x`}</Formula>?
-            </>,
-            <>
-              Find the maximum value of{" "}
-              <Formula>{String.raw`2x^3 - 24x + 107`}</Formula> in{" "}
-              <Formula>{String.raw`[1,3]`}</Formula>, and also in{" "}
-              <Formula>{String.raw`[-3,-1]`}</Formula>.
-            </>,
-            <>
-              It is given that at <Formula>{String.raw`x = 1`}</Formula> the function{" "}
-              <Formula>{String.raw`x^4 - 62x^2 + ax + 9`}</Formula> attains its maximum value on{" "}
-              <Formula>{String.raw`[0,2]`}</Formula>. Find <Formula>a</Formula>.
-            </>,
-            <>
-              Find the maximum and minimum values of{" "}
-              <Formula>{String.raw`x + \sin 2x`}</Formula> on{" "}
-              <Formula>{String.raw`[0,2\pi]`}</Formula>.
-            </>,
-            <>Find two numbers whose sum is 24 and whose product is as large as possible.</>,
-            <>
-              Find two positive numbers <Formula>x</Formula> and <Formula>y</Formula> such that{" "}
-              <Formula>{String.raw`x + y = 60`}</Formula> and{" "}
-              <Formula>{String.raw`xy^3`}</Formula> is maximum.
-            </>,
-            <>
-              Find two positive numbers <Formula>x</Formula> and <Formula>y</Formula> such that
-              their sum is 35 and <Formula>{String.raw`x^2y^5`}</Formula> is maximum.
-            </>,
-            <>
-              Find two positive numbers whose sum is 16 and the sum of whose cubes is minimum.
-            </>,
-            <>
-              A square piece of tin of side 18 cm is made into a box without top by cutting a
-              square from each corner and folding up the flaps. What should be the side of the
-              square cut off so that the volume is maximum?
-            </>,
-            <>
-              A rectangular sheet of tin 45 cm by 24 cm is made into a box without top in the same
-              way. What should be the side of the square cut off for maximum volume?
-            </>,
-            <>
-              Show that of all rectangles inscribed in a given fixed circle, the square has the
-              maximum area.
-            </>,
-            <>
-              Show that the right circular cylinder of given surface and maximum volume is such
-              that its height equals the diameter of the base.
-            </>,
-            <>
-              Of all closed cylindrical cans of a given volume of 100 cm³, find the dimensions of
-              the can with minimum surface area.
-            </>,
-            <>
-              A wire of length 28 m is cut into two pieces, one made into a square and the other
-              into a circle. What should be the lengths of the pieces so that the combined area is
-              minimum?
-            </>,
-            <>
-              Prove that the volume of the largest cone that can be inscribed in a sphere of radius{" "}
-              <Formula>R</Formula> is <Formula>{String.raw`\frac{8}{27}`}</Formula> of the volume of
-              the sphere.
-            </>,
-            <>
-              Show that the right circular cone of least curved surface and given volume has an
-              altitude equal to <Formula>{String.raw`\sqrt{2}`}</Formula> times the radius of the
-              base.
-            </>,
-            <>
-              Show that the semi-vertical angle of the cone of maximum volume and of given slant
-              height is <Formula>{String.raw`\tan^{-1}\sqrt{2}`}</Formula>.
-            </>,
-            <>
-              Show that the semi-vertical angle of a right circular cone of given surface area and
-              maximum volume is <Formula>{String.raw`\sin^{-1}\left(\frac{1}{3}\right)`}</Formula>.
-            </>,
-            <>
-              The point on the curve <Formula>{String.raw`x^2 = 2y`}</Formula> nearest to{" "}
-              <Formula>{String.raw`(0,5)`}</Formula> is (A){" "}
-              <Formula>{String.raw`(2\sqrt{2},4)`}</Formula> (B){" "}
-              <Formula>{String.raw`(2\sqrt{2},0)`}</Formula> (C){" "}
-              <Formula>{String.raw`(0,0)`}</Formula> (D){" "}
-              <Formula>{String.raw`(2,2)`}</Formula>
-            </>,
-            <>
-              For all real <Formula>x</Formula>, the minimum value of{" "}
-              <Formula>{String.raw`\frac{x^2 - x + 1}{x^2 + x + 1}`}</Formula> is (A) 0 (B) 1 (C) 3
-              (D) <Formula>{String.raw`\frac{1}{3}`}</Formula>
-            </>,
-            <>
-              The maximum value of{" "}
-              <Formula>{String.raw`\left[x(x-1)+1\right]^{1/3}`}</Formula>,{" "}
-              <Formula>{String.raw`0 \le x \le 1`}</Formula>, is (A){" "}
-              <Formula>{String.raw`\left(\frac{1}{3}\right)^{1/3}`}</Formula> (B){" "}
-              <Formula>{String.raw`\frac{1}{2}`}</Formula> (C) 1 (D) 0
-            </>,
-          ]}
-          answers={[
-            <>
-              (i) minimum 3, no maximum (ii) minimum{" "}
-              <Formula>{String.raw`-2`}</Formula>, no maximum (iii) maximum 10, no minimum (iv)
-              neither
-            </>,
-            <>
-              (i) minimum <Formula>{String.raw`-1`}</Formula>, no maximum (ii) maximum 3, no
-              minimum (iii) maximum 6, minimum 4 (iv) maximum 4, minimum 2 (v) neither (open
-              interval)
-            </>,
-            <>
-              (i) local minimum 0 at <Formula>{String.raw`x = 0`}</Formula> (ii) local maximum 2 at{" "}
-              <Formula>{String.raw`x = -1`}</Formula>, local minimum{" "}
-              <Formula>{String.raw`-2`}</Formula> at <Formula>{String.raw`x = 1`}</Formula> (iii)
-              local maximum <Formula>{String.raw`\sqrt{2}`}</Formula> at{" "}
-              <Formula>{String.raw`x = \frac{\pi}{4}`}</Formula> (iv) local maximum{" "}
-              <Formula>{String.raw`\sqrt{2}`}</Formula> at{" "}
-              <Formula>{String.raw`x = \frac{3\pi}{4}`}</Formula>, local minimum{" "}
-              <Formula>{String.raw`-\sqrt{2}`}</Formula> at{" "}
-              <Formula>{String.raw`x = \frac{7\pi}{4}`}</Formula> (v) local maximum 19 at{" "}
-              <Formula>{String.raw`x = 1`}</Formula>, local minimum 15 at{" "}
-              <Formula>{String.raw`x = 3`}</Formula> (vi) local minimum 2 at{" "}
-              <Formula>{String.raw`x = 2`}</Formula> (vii) local maximum{" "}
-              <Formula>{String.raw`\frac{1}{2}`}</Formula> at{" "}
-              <Formula>{String.raw`x = 0`}</Formula> (viii) local maximum{" "}
-              <Formula>{String.raw`\frac{2}{3\sqrt{3}}`}</Formula> at{" "}
-              <Formula>{String.raw`x = \frac{2}{3}`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`f'(x) = e^x > 0`}</Formula>;{" "}
-              <Formula>{String.raw`g'(x) = \frac{1}{x} > 0`}</Formula> for{" "}
-              <Formula>{String.raw`x > 0`}</Formula>;{" "}
-              <Formula>{String.raw`h'(x) = 3x^2 + 2x + 1 > 0`}</Formula> since its discriminant is
-              negative. No critical points, so no extrema.
-            </>,
-            <>
-              (i) maximum 8 at <Formula>{String.raw`x = 2`}</Formula>, minimum{" "}
-              <Formula>{String.raw`-8`}</Formula> at <Formula>{String.raw`x = -2`}</Formula> (ii)
-              maximum <Formula>{String.raw`\sqrt{2}`}</Formula>, minimum{" "}
-              <Formula>{String.raw`-1`}</Formula> (iii) maximum 8 at{" "}
-              <Formula>{String.raw`x = 4`}</Formula>, minimum{" "}
-              <Formula>{String.raw`-10`}</Formula> at <Formula>{String.raw`x = -2`}</Formula> (iv)
-              maximum 19 at <Formula>{String.raw`x = -3`}</Formula>, minimum 3 at{" "}
-              <Formula>{String.raw`x = 1`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`\text{Rs }113`}</Formula>
-            </>,
-            <>
-              maximum 25 at <Formula>{String.raw`x = 0`}</Formula>, minimum{" "}
-              <Formula>{String.raw`-39`}</Formula> at <Formula>{String.raw`x = 2`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`x = \frac{\pi}{4}`}</Formula> and{" "}
-              <Formula>{String.raw`x = \frac{5\pi}{4}`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`\sqrt{2}`}</Formula>
-            </>,
-            <>
-              89 at <Formula>{String.raw`x = 3`}</Formula> on{" "}
-              <Formula>{String.raw`[1,3]`}</Formula>; 139 at{" "}
-              <Formula>{String.raw`x = -2`}</Formula> on{" "}
-              <Formula>{String.raw`[-3,-1]`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`a = 120`}</Formula>
-            </>,
-            <>
-              maximum <Formula>{String.raw`2\pi`}</Formula> at{" "}
-              <Formula>{String.raw`x = 2\pi`}</Formula>, minimum 0 at{" "}
-              <Formula>{String.raw`x = 0`}</Formula>
-            </>,
-            <>12 and 12</>,
-            <>
-              <Formula>{String.raw`x = 15`}</Formula> and{" "}
-              <Formula>{String.raw`y = 45`}</Formula>
-            </>,
-            <>
-              <Formula>{String.raw`x = 10`}</Formula> and{" "}
-              <Formula>{String.raw`y = 25`}</Formula>
-            </>,
-            <>8 and 8</>,
-            <>
-              3 cm
-            </>,
-            <>
-              5 cm
-            </>,
-            <>
-              If the sides are <Formula>{String.raw`2x`}</Formula> and{" "}
-              <Formula>{String.raw`2y`}</Formula> with{" "}
-              <Formula>{String.raw`x^2 + y^2 = r^2`}</Formula>, area{" "}
-              <Formula>{String.raw`A = 4xy`}</Formula> is maximum when{" "}
-              <Formula>{String.raw`x = y`}</Formula> — a square.
-            </>,
-            <>
-              With <Formula>{String.raw`S = 2\pi r^2 + 2\pi rh`}</Formula>, volume{" "}
-              <Formula>{String.raw`V = \pi r^2 h`}</Formula> is maximum when{" "}
-              <Formula>{String.raw`h = 2r`}</Formula>, i.e. height = diameter.
-            </>,
-            <>
-              <Formula>{String.raw`r = \left(\frac{50}{\pi}\right)^{1/3}`}</Formula> cm and{" "}
-              <Formula>{String.raw`h = 2\left(\frac{50}{\pi}\right)^{1/3}`}</Formula> cm
-            </>,
-            <>
-              <Formula>{String.raw`\frac{112}{4+\pi}`}</Formula> m for the square and{" "}
-              <Formula>{String.raw`\frac{28\pi}{4+\pi}`}</Formula> m for the circle
-            </>,
-            <>
-              Take the cone of height <Formula>{String.raw`R + x`}</Formula> from the centre of the
-              sphere; the volume <Formula>{String.raw`\frac{\pi}{3}(R+x)(R^2 - x^2)`}</Formula> is
-              maximum at <Formula>{String.raw`x = \frac{R}{3}`}</Formula>, giving{" "}
-              <Formula>{String.raw`\frac{8}{27}`}</Formula> of the sphere&rsquo;s volume.
-            </>,
-            <>
-              With <Formula>{String.raw`l^2 = r^2 + h^2`}</Formula> and{" "}
-              <Formula>{String.raw`V`}</Formula> fixed, <Formula>{String.raw`S = \pi r l`}</Formula>{" "}
-              is least when <Formula>{String.raw`h = \sqrt{2}\,r`}</Formula>.
-            </>,
-            <>
-              Maximising <Formula>{String.raw`V = \frac{\pi}{3}l^3\sin^2\alpha\cos\alpha`}</Formula>{" "}
-              gives <Formula>{String.raw`\tan\alpha = \sqrt{2}`}</Formula>.
-            </>,
-            <>
-              Maximising <Formula>{String.raw`V`}</Formula> subject to{" "}
-              <Formula>{String.raw`S = \pi r(r+l)`}</Formula> gives{" "}
-              <Formula>{String.raw`\sin\alpha = \frac{1}{3}`}</Formula>.
-            </>,
-            <>
-              (A)
-            </>,
-            <>
-              (D)
-            </>,
-            <>
-              (C)
-            </>,
-          ]}
-        />
-      </Expandable>
+      <SolvedProblem
+        title="Question 2 — Second Derivative Test Fails"
+        question={
+          <>
+            <p>
+              Find all points of local maxima and local minima of{" "}
+              <Formula>{String.raw`f(x)=2x^3-6x^2+6x+5`}</Formula>.
+            </p>
+          </>
+        }
+      >
+        <SolutionStep label="Step 1 — First derivative and critical point">
+          <FormulaBlock latex={String.raw`f'(x)=6x^2-12x+6`} />
+          <FormulaBlock latex={String.raw`=6(x^2-2x+1)`} />
+          <FormulaBlock latex={String.raw`\boxed{f'(x)=6(x-1)^2}`} important />
+          <FormulaBlock latex={String.raw`6(x-1)^2=0\Rightarrow x=1`} />
+        </SolutionStep>
+        <SolutionStep label="Step 2 — Second derivative is inconclusive">
+          <FormulaBlock latex={String.raw`f''(x)=12x-12`} />
+          <FormulaBlock latex={String.raw`f''(1)=12-12=0`} />
+          <p className="text-sm font-semibold">The test is inconclusive.</p>
+        </SolutionStep>
+        <SolutionStep label="Step 3 — First Derivative Test">
+          <FormulaBlock latex={String.raw`f'(0)=6>0`} />
+          <FormulaBlock latex={String.raw`f'(2)=6>0`} />
+          <SignNumberLine points={["1"]} signs={["+", "+"]} note="no sign change at x = 1" />
+          <p className="text-sm text-muted-foreground">
+            The derivative remains positive on both sides of{" "}
+            <Formula>{String.raw`x=1`}</Formula>.
+          </p>
+          <FormulaBlock latex={String.raw`+\longrightarrow+`} />
+          <FormulaBlock
+            latex={String.raw`\boxed{\text{No local maximum or minimum}}`}
+            important
+          />
+        </SolutionStep>
+        <SolutionStep label="Stationary inflection point">
+          <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_230px] sm:items-center">
+            <div>
+              <p className="text-sm text-muted-foreground">
+                The point is a stationary point of inflection, not an extremum.
+              </p>
+              <FormulaBlock latex={String.raw`f(1)=2-6+6+5=7`} />
+              <FormulaBlock latex={String.raw`\boxed{\text{Stationary inflection point }(1,7)}`} important />
+            </div>
+            <StationaryInflectionGraph />
+          </div>
+        </SolutionStep>
+      </SolvedProblem>
+
+      <SolvedProblem
+        title="Question 3 — Work · Cubic Function"
+        question={
+          <>
+            <p>
+              Find the local maxima and local minima, if any, of{" "}
+              <Formula>{String.raw`f(x)=x^3-6x^2+9x+15`}</Formula>. Also find the corresponding local
+              maximum and minimum values.
+            </p>
+          </>
+        }
+      >
+        <SolutionStep label="Stage 1 — Critical-point calculation">
+          <FormulaBlock latex={String.raw`f'(x)=3x^2-12x+9`} />
+          <FormulaBlock latex={String.raw`=3(x^2-4x+3)`} />
+          <FormulaBlock latex={String.raw`\boxed{f'(x)=3(x-1)(x-3)}`} important />
+          <FormulaBlock latex={String.raw`3(x-1)(x-3)=0\Rightarrow x=1,\ 3`} />
+        </SolutionStep>
+        <SolutionStep label="Stage 2 — Second-derivative classification">
+          <FormulaBlock latex={String.raw`f''(x)=6x-12`} />
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-md border border-border p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">At x = 1</span>
+              <FormulaBlock latex={String.raw`f''(1)=6-12=-6<0`} />
+              <p className="text-sm">Local maximum.</p>
+              <FormulaBlock latex={String.raw`f(1)=1-6+9+15`} />
+              <FormulaBlock latex={String.raw`\boxed{f(1)=19}`} important />
+            </div>
+            <div className="rounded-md border border-border p-3 [&>div]:my-0">
+              <span className="t-micro mb-2 block">At x = 3</span>
+              <FormulaBlock latex={String.raw`f''(3)=18-12=6>0`} />
+              <p className="text-sm">Local minimum.</p>
+              <FormulaBlock latex={String.raw`f(3)=27-54+27+15`} />
+              <FormulaBlock latex={String.raw`\boxed{f(3)=15}`} important />
+            </div>
+          </div>
+        </SolutionStep>
+        <SolutionStep label="Final results">
+          <TableCard
+            headers={["Type", "Point", "Value"]}
+            rows={[
+              {
+                cells: [
+                  "Local maximum",
+                  <Formula key="q3a">{String.raw`x=1`}</Formula>,
+                  <Formula key="q3b">{String.raw`19`}</Formula>,
+                ],
+              },
+              {
+                cells: [
+                  "Local minimum",
+                  <Formula key="q3c">{String.raw`x=3`}</Formula>,
+                  <Formula key="q3d">{String.raw`15`}</Formula>,
+                ],
+              },
+            ]}
+          />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <h3 id="h-6-4-4">Unit 4 — Quick Revision</h3>
+      <h4 id="h-6-4-4-1">10. Comparison of the Two Tests</h4>
+      <TableCard
+        headers={["Feature", "First Derivative Test", "Second Derivative Test"]}
+        rows={[
+          {
+            cells: [
+              "Uses",
+              <Formula key="cmp1a">{String.raw`f'(x)`}</Formula>,
+              <Formula key="cmp1b">{String.raw`f'(x),\ f''(x)`}</Formula>,
+            ],
+          },
+          { cells: ["First step", "Find critical points", "Find critical points"] },
+          {
+            cells: [
+              "Local maximum",
+              <Formula key="cmp2a">{String.raw`+\longrightarrow-`}</Formula>,
+              <Formula key="cmp2b">{String.raw`f''(c)<0`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Local minimum",
+              <Formula key="cmp3a">{String.raw`-\longrightarrow+`}</Formula>,
+              <Formula key="cmp3b">{String.raw`f''(c)>0`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Inconclusive case",
+              "No sign change",
+              <Formula key="cmp4">{String.raw`f''(c)=0`}</Formula>,
+            ],
+          },
+        ]}
+      />
+
+      <h4 id="h-6-4-4-2">11. Formula and Concept Reference</h4>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro block">Critical points</span>
+          <div className="mt-2 [&>div]:my-0">
+            <FormulaBlock latex={String.raw`f'(c)=0`} />
+            <p className="text-sm">
+              or <Formula>{String.raw`f'(c)`}</Formula> does not exist, provided{" "}
+              <Formula>c</Formula> belongs to the domain.
+            </p>
+          </div>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-4">
+          <span className="t-micro block">Extreme Value Theorem</span>
+          <p className="mt-2 text-sm">
+            A continuous function on a closed and bounded interval has both a maximum and a minimum
+            value.
+          </p>
+        </div>
+      </div>
+      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <div className="rounded-md border border-border p-3">
+          <span className="t-micro block">First Derivative Test</span>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+            <li>
+              <Formula>{String.raw`+\rightarrow-`}</Formula> ⇒ local maximum.
+            </li>
+            <li>
+              <Formula>{String.raw`-\rightarrow+`}</Formula> ⇒ local minimum.
+            </li>
+            <li>
+              <Formula>{String.raw`+\rightarrow+`}</Formula> ⇒ neither.
+            </li>
+            <li>
+              <Formula>{String.raw`-\rightarrow-`}</Formula> ⇒ neither.
+            </li>
+          </ul>
+        </div>
+        <div className="rounded-md border border-border p-3">
+          <span className="t-micro block">Second Derivative Test</span>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+            <li>
+              <Formula>{String.raw`f'(c)=0,\ f''(c)<0`}</Formula> ⇒ local maximum.
+            </li>
+            <li>
+              <Formula>{String.raw`f'(c)=0,\ f''(c)>0`}</Formula> ⇒ local minimum.
+            </li>
+            <li>
+              <Formula>{String.raw`f'(c)=0,\ f''(c)=0`}</Formula> ⇒ inconclusive.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <TableCard
+        headers={["Term", "Meaning"]}
+        rows={[
+          {
+            cells: [
+              "Point of maximum",
+              <>Input <Formula>{String.raw`x=c`}</Formula></>,
+            ],
+          },
+          {
+            cells: [
+              "Maximum value",
+              <>Output <Formula>{String.raw`f(c)`}</Formula></>,
+            ],
+          },
+          {
+            cells: [
+              "Point of minimum",
+              <>Input <Formula>{String.raw`x=c`}</Formula></>,
+            ],
+          },
+          {
+            cells: [
+              "Minimum value",
+              <>Output <Formula>{String.raw`f(c)`}</Formula></>,
+            ],
+          },
+          { cells: ["Local extremum", "Highest or lowest relative to nearby points"] },
+          { cells: ["Absolute extremum", "Highest or lowest over the entire domain"] },
+        ]}
+      />
 
       <h2 id="h-6-5">6.5 Tangents and Normals</h2>
       <Callout type="note">
