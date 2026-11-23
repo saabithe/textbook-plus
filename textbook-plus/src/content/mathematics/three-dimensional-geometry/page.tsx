@@ -360,7 +360,7 @@ export default function ThreeDimensionalGeometryChapter() {
         />
       </Expandable>
 
-      <h2 id="h-11-2">11.2 Direction Cosines of a Line Passing Through Two Points</h2>
+      <h3 id="h-11-1-4">2. Direction Cosines of a Line Passing Through Two Points</h3>
       <p>
         Consider a line passing through{" "}
         <Formula>{String.raw`P(x_1,y_1,z_1),\quad Q(x_2,y_2,z_2)`}</Formula>.
@@ -445,9 +445,9 @@ export default function ThreeDimensionalGeometryChapter() {
         </SolutionStep>
       </SolvedProblem>
 
-      <h2 id="h-11-3">11.3 Important Questions</h2>
+      <h3 id="h-11-1-5">3. Important Questions</h3>
 
-      <h3 id="h-11-3-1">Q1. Find the Direction Cosines of the Coordinate Axes</h3>
+      <h4 id="h-11-1-5-1">Q1. Find the Direction Cosines of the Coordinate Axes</h4>
       <p>
         Each coordinate axis makes an angle of <Formula>{String.raw`0^\circ`}</Formula> with
         itself and <Formula>{String.raw`90^\circ`}</Formula> with the other two axes.
@@ -585,140 +585,84 @@ export default function ThreeDimensionalGeometryChapter() {
         </SolutionStep>
       </SolvedProblem>
 
-      <h2 id="h-11-4">11.4 Quick Revision Sheet</h2>
-      <TableCard
-        headers={["Concept", "Formula / Result"]}
-        rows={[
-          {
-            cells: [
-              "Direction cosines",
-              <Formula key="r1">{String.raw`l=\cos\alpha,\ m=\cos\beta,\ n=\cos\gamma`}</Formula>,
-            ],
-          },
-          {
-            cells: [
-              "Fundamental identity",
-              <Formula key="r2">{String.raw`l^2+m^2+n^2=1`}</Formula>,
-            ],
-          },
-          {
-            cells: [
-              "DR–DC relationship",
-              <Formula key="r3">{String.raw`a=kl,\ b=km,\ c=kn`}</Formula>,
-            ],
-          },
-          {
-            cells: [
-              "DR to DC denominator",
-              <Formula key="r4">{String.raw`\sqrt{a^2+b^2+c^2}`}</Formula>,
-            ],
-          },
-          {
-            cells: [
-              "Direction ratios through two points",
-              <Formula key="r5">
-                {String.raw`(x_2-x_1,\ y_2-y_1,\ z_2-z_1)`}
-              </Formula>,
-            ],
-          },
-          {
-            cells: [
-              "X-axis direction cosines",
-              <Formula key="r6">{String.raw`(1,0,0)`}</Formula>,
-            ],
-          },
-          {
-            cells: [
-              "Y-axis direction cosines",
-              <Formula key="r7">{String.raw`(0,1,0)`}</Formula>,
-            ],
-          },
-          {
-            cells: [
-              "Z-axis direction cosines",
-              <Formula key="r8">{String.raw`(0,0,1)`}</Formula>,
-            ],
-          },
-          {
-            cells: [
-              "Collinearity condition",
-              "Direction ratios of connecting vectors are proportional",
-            ],
-          },
-        ]}
-      />
+      <Expandable title="Quick Revision Sheet" variant="recall" id="h-11-1-6">
+        <TableCard
+          headers={["Concept", "Formula / Result"]}
+          rows={[
+            {
+              cells: [
+                "Direction cosines",
+                <Formula key="r1">{String.raw`l=\cos\alpha,\ m=\cos\beta,\ n=\cos\gamma`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "Fundamental identity",
+                <Formula key="r2">{String.raw`l^2+m^2+n^2=1`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "DR–DC relationship",
+                <Formula key="r3">{String.raw`a=kl,\ b=km,\ c=kn`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "DR to DC denominator",
+                <Formula key="r4">{String.raw`\sqrt{a^2+b^2+c^2}`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "Direction ratios through two points",
+                <Formula key="r5">
+                  {String.raw`(x_2-x_1,\ y_2-y_1,\ z_2-z_1)`}
+                </Formula>,
+              ],
+            },
+            {
+              cells: [
+                "X-axis direction cosines",
+                <Formula key="r6">{String.raw`(1,0,0)`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "Y-axis direction cosines",
+                <Formula key="r7">{String.raw`(0,1,0)`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "Z-axis direction cosines",
+                <Formula key="r8">{String.raw`(0,0,1)`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "Collinearity condition",
+                "Direction ratios of connecting vectors are proportional",
+              ],
+            },
+          ]}
+        />
 
-      <p className="mt-6 font-semibold">Important Sign Rules</p>
-      <ul className="list-disc space-y-1.5 pl-5">
-        <li>
-          <strong>Acute angle</strong> with an axis → corresponding direction cosine is positive.
-        </li>
-        <li>
-          <strong>Obtuse angle</strong> with an axis → corresponding direction cosine is negative.
-        </li>
-        <li>
-          <strong>Right angle</strong> with an axis → corresponding direction cosine is zero.
-        </li>
-      </ul>
+        <p className="mt-6 font-semibold">Important Sign Rules</p>
+        <ul className="list-disc space-y-1.5 pl-5">
+          <li>
+            <strong>Acute angle</strong> with an axis → corresponding direction cosine is positive.
+          </li>
+          <li>
+            <strong>Obtuse angle</strong> with an axis → corresponding direction cosine is negative.
+          </li>
+          <li>
+            <strong>Right angle</strong> with an axis → corresponding direction cosine is zero.
+          </li>
+        </ul>
+      </Expandable>
 
-      <h2 id="h-11-5">11.5 Source Corrections &amp; Uncertainties</h2>
-      <Callout type="warning" title="Notes awaiting final confirmation">
-        <p>The following points need attention before treating the notes as final:</p>
-        <ol className="list-decimal space-y-2 pl-5">
-          <li>
-            <strong>Example 1 OCR.</strong> The source says the first angle may have been
-            transcribed as <Formula>{String.raw`20^\circ`}</Formula>, but the working uses{" "}
-            <Formula>{String.raw`90^\circ`}</Formula>. The solution above follows{" "}
-            <Formula>{String.raw`90^\circ`}</Formula>.
-          </li>
-          <li>
-            <p>
-              <strong>Example 2 direction ratios.</strong> The problem statement says{" "}
-              <Formula>{String.raw`(-2,-1,-2)`}</Formula>, while the working uses{" "}
-              <Formula>{String.raw`(2,-1,-2)`}</Formula>.
-            </p>
-            <p>The answer follows the working.</p>
-            <p>
-              If the original first ratio is actually <Formula>{String.raw`-2`}</Formula>, the
-              first direction cosine must be <Formula>{String.raw`-2/3`}</Formula>.
-            </p>
-          </li>
-          <li>
-            <strong>Reference trigonometric values.</strong> The handwritten margin values are
-            unclear. Use the standard values:
-            <ul className="mt-1 list-disc space-y-1 pl-5">
-              <li><Formula>{String.raw`\cos30^\circ=\sqrt3/2`}</Formula></li>
-              <li><Formula>{String.raw`\cos45^\circ=1/\sqrt2`}</Formula></li>
-              <li><Formula>{String.raw`\cos60^\circ=1/2`}</Formula></li>
-              <li><Formula>{String.raw`\cos90^\circ=0`}</Formula></li>
-            </ul>
-          </li>
-          <li>
-            <p>
-              <strong>Equal-angle question.</strong> The original working gives independent{" "}
-              <Formula>{String.raw`\pm`}</Formula> signs.
-            </p>
-            <p>
-              Those signs cannot be chosen independently when all three angles are equal. The two
-              valid triples are shown above.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong>Ratio question with <Formula>m=0</Formula>.</strong> The supplied answer
-              assumes an acute angle with the Z-axis.
-            </p>
-            <p>
-              Without that assumption, <Formula>n</Formula> could also be negative, giving{" "}
-              <Formula>{String.raw`150^\circ`}</Formula> instead of{" "}
-              <Formula>{String.raw`30^\circ`}</Formula>. The listed options support{" "}
-              <Formula>{String.raw`30^\circ`}</Formula>.
-            </p>
-          </li>
-        </ol>
-      </Callout>
-
-      <h2 id="h-11-6">11.6 Equation of a Line in Space</h2>
+      <h2 id="h-11-2">11.2 Equation of a Line in Space</h2>
       <p>Vector form through a point <Formula>{String.raw`A`}</Formula> with position vector{" "}
       <Formula>{String.raw`\vec a`}</Formula> parallel to <Formula>{String.raw`\vec b`}</Formula>:</p>
       <FormulaBlock latex={String.raw`\vec r=\vec a+\lambda\vec b`} important label="Vector form" />
@@ -729,7 +673,7 @@ export default function ThreeDimensionalGeometryChapter() {
       <Formula>{String.raw`(x_2,y_2,z_2)`}</Formula>:</p>
       <FormulaBlock latex={String.raw`\frac{x-x_1}{x_2-x_1}=\frac{y-y_1}{y_2-y_1}=\frac{z-z_1}{z_2-z_1}`} />
 
-      <h2 id="h-11-7">11.7 Angle between Two Lines</h2>
+      <h2 id="h-11-3">11.3 Angle between Two Lines</h2>
       <p>
         If two lines have dr’s <Formula>{String.raw`(a_1,b_1,c_1)`}</Formula> and{" "}
         <Formula>{String.raw`(a_2,b_2,c_2)`}</Formula>, the acute angle between them is given by
@@ -741,7 +685,7 @@ export default function ThreeDimensionalGeometryChapter() {
         <strong>perpendicular</strong> iff the dot product of dr’s is 0.
       </p>
 
-      <h2 id="h-11-8">11.8 Shortest Distance between Two Lines</h2>
+      <h2 id="h-11-4">11.4 Shortest Distance between Two Lines</h2>
       <p>
         Two (non-parallel) lines in 3-D are either intersecting or skew. The shortest
         distance between skew lines
