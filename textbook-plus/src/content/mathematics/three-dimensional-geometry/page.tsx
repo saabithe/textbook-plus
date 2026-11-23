@@ -30,7 +30,7 @@ function SolutionStep({ label, children }: { label: string; children: React.Reac
   );
 }
 
-/** A worked problem whose question, givens and diagrams stay visible above the collapsed solution. */
+/** A worked problem: question and full solution sit behind one collapsible. */
 function SolvedProblem({
   title,
   question,
@@ -41,21 +41,16 @@ function SolvedProblem({
   children: React.ReactNode;
 }) {
   return (
-    <div className="my-6 overflow-hidden rounded-lg border border-border bg-card">
-      <div className="border-b border-border px-4 py-3 sm:px-5">
-        <span className="t-micro">{title}</span>
-      </div>
-      <div className="px-4 py-4 sm:px-5">
+    <Expandable
+      title={title}
+      variant="example"
+      subjectColor="var(--subject-mathematics)"
+    >
+      <div className="space-y-3">
         <SolutionStep label="Question">{question}</SolutionStep>
-        <Expandable
-          title="Show solution"
-          variant="example"
-          subjectColor="var(--subject-mathematics)"
-        >
-          <div className="space-y-3">{children}</div>
-        </Expandable>
+        {children}
       </div>
-    </div>
+    </Expandable>
   );
 }
 
@@ -447,42 +442,43 @@ export default function ThreeDimensionalGeometryChapter() {
 
       <h3 id="h-11-1-5">3. Important Questions</h3>
 
-      <h4 id="h-11-1-5-1">Q1. Find the Direction Cosines of the Coordinate Axes</h4>
-      <p>
-        Each coordinate axis makes an angle of <Formula>{String.raw`0^\circ`}</Formula> with
-        itself and <Formula>{String.raw`90^\circ`}</Formula> with the other two axes.
-      </p>
-      <TableCard
-        headers={[
-          "Axis",
-          <Formula key="angles">{String.raw`(\alpha,\beta,\gamma)`}</Formula>,
-          "Direction cosines",
-        ]}
-        rows={[
-          {
-            cells: [
-              "X-axis",
-              <Formula key="xa">{String.raw`(0^\circ,90^\circ,90^\circ)`}</Formula>,
-              <Formula key="xd">{String.raw`(1,0,0)`}</Formula>,
-            ],
-          },
-          {
-            cells: [
-              "Y-axis",
-              <Formula key="ya">{String.raw`(90^\circ,0^\circ,90^\circ)`}</Formula>,
-              <Formula key="yd">{String.raw`(0,1,0)`}</Formula>,
-            ],
-          },
-          {
-            cells: [
-              "Z-axis",
-              <Formula key="za">{String.raw`(90^\circ,90^\circ,0^\circ)`}</Formula>,
-              <Formula key="zd">{String.raw`(0,0,1)`}</Formula>,
-            ],
-          },
-        ]}
-      />
-      <AxisCosinesDiagrams />
+      <Expandable title="Q1. Find the Direction Cosines of the Coordinate Axes" variant="example" id="h-11-1-5-1">
+        <p>
+          Each coordinate axis makes an angle of <Formula>{String.raw`0^\circ`}</Formula> with
+          itself and <Formula>{String.raw`90^\circ`}</Formula> with the other two axes.
+        </p>
+        <TableCard
+          headers={[
+            "Axis",
+            <Formula key="angles">{String.raw`(\alpha,\beta,\gamma)`}</Formula>,
+            "Direction cosines",
+          ]}
+          rows={[
+            {
+              cells: [
+                "X-axis",
+                <Formula key="xa">{String.raw`(0^\circ,90^\circ,90^\circ)`}</Formula>,
+                <Formula key="xd">{String.raw`(1,0,0)`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "Y-axis",
+                <Formula key="ya">{String.raw`(90^\circ,0^\circ,90^\circ)`}</Formula>,
+                <Formula key="yd">{String.raw`(0,1,0)`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "Z-axis",
+                <Formula key="za">{String.raw`(90^\circ,90^\circ,0^\circ)`}</Formula>,
+                <Formula key="zd">{String.raw`(0,0,1)`}</Formula>,
+              ],
+            },
+          ]}
+        />
+        <AxisCosinesDiagrams />
+      </Expandable>
 
       <SolvedProblem
         title="Q2. Angles 90°, 135°, 45° with the X, Y and Z Axes"
