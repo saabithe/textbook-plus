@@ -1,12 +1,10 @@
 import { Callout } from "@/components/content/Callout";
-import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { TableCard } from "@/components/content/data/TableCard";
 import { Comparison } from "@/components/content/Comparison";
-import { SpeedTricks } from "@/components/content/SpeedTricks";
 import {
   DirectionAnglesDiagram,
   AxisCosinesDiagrams,
@@ -19,6 +17,11 @@ import {
   TwoStepFlowDiagram,
   ProportionalTriplesDiagram,
 } from "@/components/content/mathematics/DirectionCosinesSignDiagrams";
+import { LineEquationForms } from "@/components/content/mathematics/LineEquationForms";
+import {
+  IntersectingLinesAngleDiagram,
+  ParallelLinesDistanceDiagram,
+} from "@/components/content/mathematics/LineGeometry3D";
 
 /** One labelled stage inside a worked solution. */
 function SolutionStep({ label, children }: { label: string; children: React.ReactNode }) {
@@ -51,6 +54,16 @@ function SolvedProblem({
         {children}
       </div>
     </Expandable>
+  );
+}
+
+/** One numbered question or illustration with its own working. */
+function QuestionBlock({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="border-t border-border pt-4 first:border-t-0 first:pt-0">
+      <p className="t-micro mb-3">{title}</p>
+      <div className="space-y-3">{children}</div>
+    </div>
   );
 }
 
@@ -659,138 +672,533 @@ export default function ThreeDimensionalGeometryChapter() {
       </Expandable>
 
       <h2 id="h-11-2">11.2 Equation of a Line in Space</h2>
-      <p>Vector form through a point <Formula>{String.raw`A`}</Formula> with position vector{" "}
-      <Formula>{String.raw`\vec a`}</Formula> parallel to <Formula>{String.raw`\vec b`}</Formula>:</p>
-      <FormulaBlock latex={String.raw`\vec r=\vec a+\lambda\vec b`} important label="Vector form" />
-      <p>Cartesian form through <Formula>{String.raw`(x_1,y_1,z_1)`}</Formula> with dr’s{" "}
-      <Formula>{String.raw`(a,b,c)`}</Formula>:</p>
-      <FormulaBlock latex={String.raw`\frac{x-x_1}{a}=\frac{y-y_1}{b}=\frac{z-z_1}{c}=\lambda`} important label="Cartesian form" />
-      <p>Through two points <Formula>{String.raw`(x_1,y_1,z_1)`}</Formula> and{" "}
-      <Formula>{String.raw`(x_2,y_2,z_2)`}</Formula>:</p>
-      <FormulaBlock latex={String.raw`\frac{x-x_1}{x_2-x_1}=\frac{y-y_1}{y_2-y_1}=\frac{z-z_1}{z_2-z_1}`} />
+      <p>A line in 3D space is determined by two components:</p>
+      <ol className="list-decimal space-y-1.5 pl-5">
+        <li><strong>Passing point:</strong> A point through which the line passes.</li>
+        <li><strong>Parallel vector:</strong> A vector that gives the direction of the line.</li>
+      </ol>
 
-      <h2 id="h-11-3">11.3 Angle between Two Lines</h2>
-      <p>
-        If two lines have dr’s <Formula>{String.raw`(a_1,b_1,c_1)`}</Formula> and{" "}
-        <Formula>{String.raw`(a_2,b_2,c_2)`}</Formula>, the acute angle between them is given by
-      </p>
-      <FormulaBlock latex={String.raw`\cos\theta=\frac{|a_1a_2+b_1b_2+c_1c_2|}{\sqrt{a_1^2+b_1^2+c_1^2}\,\sqrt{a_2^2+b_2^2+c_2^2}}`} important />
-      <p>
-        (drop the absolute value for the directed angle) and the lines are{" "}
-        <strong>parallel</strong> iff the dr’s are proportional, and{" "}
-        <strong>perpendicular</strong> iff the dot product of dr’s is 0.
-      </p>
+      <TableCard
+        title="Required components"
+        headers={["Component", "Form"]}
+        rows={[
+          {
+            cells: [
+              "Passing point",
+              <Formula key="pc">{String.raw`\left(x_1,y_1,z_1\right)`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Parallel vector",
+              <Formula key="vc">{String.raw`a\hat i+b\hat j+c\hat k`}</Formula>,
+            ],
+          },
+        ]}
+      />
 
-      <h2 id="h-11-4">11.4 Shortest Distance between Two Lines</h2>
-      <p>
-        Two (non-parallel) lines in 3-D are either intersecting or skew. The shortest
-        distance between skew lines
-      </p>
-      <FormulaBlock latex={String.raw`\vec r=\vec a+\lambda\vec b,\qquad \vec r=\vec c+\mu\vec d`} />
-      <p>is</p>
+      <h3 id="h-11-2-1">1.1 Vector Form</h3>
+      <p>Let:</p>
+      <ul className="list-disc space-y-1.5 pl-5">
+        <li>
+          <strong>Position vector of passing point:</strong>{" "}
+          <Formula>{String.raw`\vec a=x_1\hat i+y_1\hat j+z_1\hat k`}</Formula>
+        </li>
+        <li>
+          <strong>Parallel vector:</strong>{" "}
+          <Formula>{String.raw`\vec b=a\hat i+b\hat j+c\hat k`}</Formula>
+        </li>
+        <li><strong>Scalar parameter:</strong> <Formula>{String.raw`\lambda`}</Formula></li>
+      </ul>
+      <p>The vector equation is:</p>
+      <FormulaBlock latex={String.raw`\boxed{\vec r=\vec a+\lambda\vec b}`} important />
+      <p>Expanded form:</p>
       <FormulaBlock
-        latex={String.raw`d=\frac{|(\vec c-\vec a)\cdot(\vec b\times\vec d)|}{|\vec b\times\vec d|}`}
+        latex={String.raw`\boxed{\vec r=x_1\hat i+y_1\hat j+z_1\hat k+\lambda(a\hat i+b\hat j+c\hat k)}`}
         important
-        label="Skew lines — shortest distance"
+      />
+
+      <h3 id="h-11-2-2">1.2 Cartesian Form</h3>
+      <FormulaBlock
+        latex={String.raw`\boxed{\frac{x-x_1}{a}=\frac{y-y_1}{b}=\frac{z-z_1}{c}}`}
+        important
       />
       <p>
-        If the lines are parallel with direction vector <Formula>{String.raw`\vec b`}</Formula>:
+        Here, <Formula>{String.raw`a,b,c`}</Formula> are the direction ratios of the line.
       </p>
-      <FormulaBlock latex={String.raw`d=\frac{|(\vec a-\vec c)\times\vec b|}{|\vec b|}`} label="Parallel lines" />
-      <KeyPoint>
-        Two lines intersect iff their shortest distance is 0 — use the skew-line formula
-        and check whether the numerator vanishes.
-      </KeyPoint>
+      <LineEquationForms />
 
-      <Expandable title="Examples 5 to 9 — Lines and distance">
-        <div className="space-y-4">
-          <div>
-            <p><strong>Example 5.</strong> Find the angle between the lines <Formula>{String.raw`\frac{x-2}{2}=\frac{y+1}{1}=\frac{z-3}{3}`}</Formula> and <Formula>{String.raw`\frac{x-1}{3}=\frac{y-2}{4}=\frac{z-4}{5}`}</Formula>.</p>
-            <p><strong>Solution.</strong></p>
+      <h3 id="h-11-2-3">1.3 Numerical Illustrations</h3>
+      <Expandable
+        title="Numerical illustrations — equation of a line"
+        variant="example"
+        subjectColor="var(--subject-mathematics)"
+      >
+        <QuestionBlock title="Illustration 1 — Given a point and parallel vector">
+          <SolutionStep label="Passing point">
+            <FormulaBlock latex={String.raw`\left(3,2,5\right)`} />
+          </SolutionStep>
+          <SolutionStep label="Parallel vector">
+            <FormulaBlock latex={String.raw`5\hat i-2\hat j+3\hat k`} />
+          </SolutionStep>
+          <SolutionStep label="Required equation">
+            <p><strong>Vector form:</strong></p>
+            <FormulaBlock
+              latex={String.raw`\boxed{\vec r=\left(3\hat i+2\hat j+5\hat k\right)+\lambda(5\hat i-2\hat j+3\hat k)}`}
+              important
+            />
+            <p><strong>Cartesian form:</strong></p>
+            <FormulaBlock
+              latex={String.raw`\boxed{\frac{x-3}{5}=\frac{y-2}{-2}=\frac{z-5}{3}}`}
+              important
+            />
+          </SolutionStep>
+        </QuestionBlock>
+
+        <QuestionBlock title="Illustration 2 — Given vector equation">
+          <SolutionStep label="Given">
+            <FormulaBlock latex={String.raw`\vec r=2\hat i+3\hat j+7\hat k+\lambda(3\hat i-2\hat j+\hat k)`} />
+          </SolutionStep>
+          <SolutionStep label="Extract the components">
             <ul className="list-disc space-y-1 pl-5">
-              <li>First line: dr’s (2,1,3).</li>
-              <li>Second line: dr’s (3,4,5).</li>
-              <li>Dot = 6 + 4 + 15 = 25.</li>
-              <li>Magnitudes √14 and √50.</li>
-              <li>cosθ = 25/(5√14) = 5/√14, θ ≈ 19.1°.</li>
+              <li>
+                <strong>Passing point:</strong> <Formula>{String.raw`(2,3,7)`}</Formula>
+              </li>
+              <li>
+                <strong>Parallel vector:</strong> <Formula>{String.raw`(3,-2,1)`}</Formula>
+              </li>
             </ul>
-          </div>
-          <div>
-            <p><strong>Example 6.</strong> Show that the lines <Formula>{String.raw`\vec r=(\hat i+2\hat j-4\hat k)+\lambda(2\hat i+3\hat j+6\hat k)`}</Formula> and <Formula>{String.raw`\vec r=(2\hat i+4\hat j+5\hat k)+\mu(6\hat i+3\hat j+2\hat k)`}</Formula> meet at a point.</p>
-            <p><strong>Solution.</strong> Equate components to find λ and μ.</p>
+          </SolutionStep>
+          <SolutionStep label="Required equation">
+            <p><strong>Cartesian form:</strong></p>
+            <FormulaBlock
+              latex={String.raw`\boxed{\frac{x-2}{3}=\frac{y-3}{-2}=\frac{z-7}{1}}`}
+              important
+            />
+          </SolutionStep>
+        </QuestionBlock>
+
+        <QuestionBlock title="Illustration 3 — Given Cartesian equation">
+          <SolutionStep label="Given">
+            <FormulaBlock latex={String.raw`\frac{x-5}{2}=\frac{y+3}{5}=\frac{z-3}{8}`} />
+          </SolutionStep>
+          <SolutionStep label="Extract the components">
             <ul className="list-disc space-y-1 pl-5">
-              <li>The three equations are consistent.</li>
-              <li>They give λ = 2, μ = −1.</li>
-              <li>The lines meet at the point (3,5,8).</li>
+              <li>
+                <strong>Passing point:</strong> <Formula>{String.raw`(5,-3,3)`}</Formula>
+              </li>
+              <li>
+                <strong>Parallel vector:</strong>{" "}
+                <Formula>{String.raw`2\hat i+5\hat j+8\hat k`}</Formula>
+              </li>
             </ul>
-          </div>
-          <div>
-            <p><strong>Example 7.</strong> Find the distance between skew lines <Formula>{String.raw`\vec r=(\hat i+2\hat j)+(3\hat k)+\lambda(2\hat i+\hat j+3\hat k)`}</Formula> and <Formula>{String.raw`\vec r=(\hat i+4\hat j+5\hat k)+\mu(2\hat i+3\hat j+2\hat k)`}</Formula> using the skew formula.</p>
-            <p><strong>Solution.</strong> Compute <Formula>{String.raw`(\vec c-\vec a)`}</Formula>, cross product <Formula>{String.raw`\vec b\times\vec d`}</Formula>, and substitute; the distance comes out to a specific value.</p>
-          </div>
-          <div>
-            <p><strong>Example 8.</strong> Find the distance between parallel lines passing through <Formula>{String.raw`(1,1,1)`}</Formula> and <Formula>{String.raw`(1,2,0)`}</Formula> with direction <Formula>{String.raw`(1,0,1)`}</Formula>.</p>
-            <p><strong>Solution.</strong> Use <Formula>{String.raw`d=|(\vec a-\vec c)\times\vec b|/|\vec b|`}</Formula>.</p>
-          </div>
-          <div>
-            <p><strong>Example 9.</strong> Find the equation of the plane through (0,0,0) perpendicular to <Formula>{String.raw`2\hat i-3\hat j+4\hat k`}</Formula>.</p>
-            <p><strong>Solution.</strong> Normal form: <Formula>{String.raw`2x-3y+4z=0`}</Formula>.</p>
-          </div>
-        </div>
+          </SolutionStep>
+        </QuestionBlock>
       </Expandable>
 
-      <Expandable title="Exercise 11.2">
-        <ExerciseQa
-          questions={[
-            <span key="q1">
-              Find the angle between the lines with direction ratios <Formula>{String.raw`(1,2,3)`}</Formula> and <Formula>{String.raw`(-2,3,-6)`}</Formula>.
-            </span>,
-            <span key="q2">
-              Determine whether the lines <Formula>{String.raw`\frac{x+1}{2}=\frac{y-3}{4}=\frac{z}{6}`}</Formula> and <Formula>{String.raw`\frac{x-1}{3}=\frac{y-2}{5}=\frac{z+1}{10}`}</Formula> are coplanar.
-            </span>,
-            <span key="q3">
-              Find the shortest distance between the lines <Formula>{String.raw`\vec r=(\hat i+2\hat j-4\hat k)+\lambda(2\hat i+3\hat j+6\hat k)`}</Formula> and <Formula>{String.raw`\vec r=(2\hat j+2\hat k)+\mu(3\hat i+4\hat j-\hat k)`}</Formula>.
-            </span>,
-            <span key="q4">
-              Show that the two lines <Formula>{String.raw`\frac{x+1}{2}=\frac{y}{3}=\frac{z-3}{4}`}</Formula> and <Formula>{String.raw`\frac{x-2}{1}=\frac{y-2}{2}=\frac{z-1}{3}`}</Formula> meet, and find their point of intersection.
-            </span>,
-            <span key="q5">
-              Find the distance of the point (1, −2, 3) from the plane <Formula>{String.raw`2x - y + 2z + 3 = 0`}</Formula>.
-            </span>,
-            <span key="q6">
-              Find the angle between the planes <Formula>{String.raw`x+2y+2z=1`}</Formula> and <Formula>{String.raw`3x+2y+z=0`}</Formula>.
-            </span>,
-            <span key="q7">
-              Find the equation of the plane through (1, 2, 3) perpendicular to the vector <Formula>{String.raw`(2,-1,3)`}</Formula>.
-            </span>,
-            <span key="q8">
-              Find the foot of the perpendicular from (1, 2, 3) to the plane <Formula>{String.raw`2x + y - z = 0`}</Formula>.
-            </span>,
-          ]}
-          answers={[
-            <span key="a1"><Formula>{String.raw`\cos\theta = \frac{|-2+6-18|}{\sqrt{14}\sqrt{49}} = \frac{14}{\sqrt{686}}`}</Formula> → θ ≈ 78°.</span>,
-            <span key="a2">Check the scalar triple product of the connecting vector and the two direction vectors; if zero, coplanar.</span>,
-            <span key="a3">Use the skew-line formula; the numerator simplifies to a number, distance is a rational multiple of 1/√(some).</span>,
-            <span key="a4">Solve <Formula>{String.raw`\frac{x+1}{2}=\frac{x-2}{1}`}</Formula> giving x = −5; substitute back to get the point (−5, −12, −17).</span>,
-            <span key="a5"><Formula>{String.raw`\frac{|2(1)+(-1)(-2)+2(3)+3|}{\sqrt{4+1+4}}=\frac{13}{3}`}</Formula>.</span>,
-            <span key="a6"><Formula>{String.raw`\cos\theta=\frac{3\cdot1+2\cdot2+1\cdot2}{\sqrt{14}\sqrt{9}}=\frac{9}{3\sqrt{14}}`}</Formula> → θ ≈ 56°.</span>,
-            <span key="a7"><Formula>{String.raw`2(x-1)-1(y-2)+3(z-3)=0`}</Formula> → <Formula>{String.raw`2x-y+3z=9`}</Formula>.</span>,
-            <span key="a8">Use <Formula>{String.raw`x/2 = y/1 = z/(-1)`}</Formula>; foot lies on line through the point parallel to the normal; answer (−1, 0, 5).</span>,
+      <h3 id="h-11-2-4">1.4 Practice Problems</h3>
+      <Expandable
+        title="Practice problems — equation of a line"
+        variant="exercise"
+        subjectColor="var(--subject-mathematics)"
+      >
+        <QuestionBlock title="Problem 1">
+          <p>
+            Find the vector and Cartesian equations of the line passing through{" "}
+            <Formula>{String.raw`(5,2,-4)`}</Formula> and parallel to{" "}
+            <Formula>{String.raw`3\hat i+2\hat j-8\hat k`}</Formula>.
+          </p>
+          <SolutionStep label="Given">
+            <FormulaBlock latex={String.raw`\vec a=5\hat i+2\hat j-4\hat k`} />
+            <FormulaBlock latex={String.raw`\vec b=3\hat i+2\hat j-8\hat k`} />
+          </SolutionStep>
+          <SolutionStep label="Vector form">
+            <FormulaBlock
+              latex={String.raw`\boxed{\vec r=5\hat i+2\hat j-4\hat k+\lambda(3\hat i+2\hat j-8\hat k)}`}
+              important
+            />
+          </SolutionStep>
+          <SolutionStep label="Cartesian form">
+            <FormulaBlock
+              latex={String.raw`\boxed{\frac{x-5}{3}=\frac{y-2}{2}=\frac{z+4}{-8}}`}
+              important
+            />
+          </SolutionStep>
+        </QuestionBlock>
+
+        <QuestionBlock title="Problem 2 — Cartesian to vector">
+          <p>Convert the following Cartesian equation into vector form.</p>
+          <SolutionStep label="Given">
+            <FormulaBlock latex={String.raw`\frac{x-5}{3}=\frac{y+4}{7}=\frac{z-6}{2}`} />
+          </SolutionStep>
+          <SolutionStep label="Extracted components">
+            <ul className="list-disc space-y-1 pl-5">
+              <li>
+                <strong>Passing point:</strong> <Formula>{String.raw`(5,-4,6)`}</Formula>
+              </li>
+              <li>
+                <strong>Parallel vector:</strong>{" "}
+                <Formula>{String.raw`3\hat i+7\hat j+2\hat k`}</Formula>
+              </li>
+            </ul>
+          </SolutionStep>
+          <SolutionStep label="Answer">
+            <FormulaBlock
+              latex={String.raw`\boxed{\vec r=5\hat i-4\hat j+6\hat k+\lambda(3\hat i+7\hat j+2\hat k)}`}
+              important
+            />
+          </SolutionStep>
+        </QuestionBlock>
+
+        <QuestionBlock title="Problem 3 — Vector to Cartesian">
+          <p>Convert the following vector equation into Cartesian form.</p>
+          <SolutionStep label="Given">
+            <FormulaBlock latex={String.raw`\vec r=2\hat i-5\hat j+\hat k+\lambda(3\hat i+2\hat j+6\hat k)`} />
+          </SolutionStep>
+          <SolutionStep label="Extracted components">
+            <ul className="list-disc space-y-1 pl-5">
+              <li>
+                <strong>Passing point:</strong> <Formula>{String.raw`(2,-5,1)`}</Formula>
+              </li>
+              <li>
+                <strong>Parallel vector:</strong> <Formula>{String.raw`(3,2,6)`}</Formula>
+              </li>
+            </ul>
+          </SolutionStep>
+          <SolutionStep label="Answer">
+            <FormulaBlock
+              latex={String.raw`\boxed{\frac{x-2}{3}=\frac{y+5}{2}=\frac{z-1}{6}}`}
+              important
+            />
+          </SolutionStep>
+        </QuestionBlock>
+      </Expandable>
+
+      <h2 id="h-11-3">11.3 Angle Between Two Lines</h2>
+      <p>
+        The angle between two lines is calculated using their parallel (direction) vectors.
+      </p>
+      <p>Let the direction vectors be:</p>
+      <ul className="list-disc space-y-1.5 pl-5">
+        <li>
+          <Formula>{String.raw`\vec b_1=a_1\hat i+b_1\hat j+c_1\hat k`}</Formula>
+        </li>
+        <li>
+          <Formula>{String.raw`\vec b_2=a_2\hat i+b_2\hat j+c_2\hat k`}</Formula>
+        </li>
+      </ul>
+      <p><strong>Formula:</strong></p>
+      <FormulaBlock
+        latex={String.raw`\boxed{\cos\theta=\left|\frac{\vec b_1\cdot\vec b_2}{|\vec b_1||\vec b_2|}\right|}`}
+        important
+      />
+      <p>
+        The absolute value gives the acute angle between the two lines (or{" "}
+        <Formula>{String.raw`90^\circ`}</Formula> if perpendicular).
+      </p>
+      <p><strong>Expanded formula:</strong></p>
+      <FormulaBlock
+        latex={String.raw`\boxed{\cos\theta=\frac{|a_1a_2+b_1b_2+c_1c_2|}{\sqrt{a_1^2+b_1^2+c_1^2}\sqrt{a_2^2+b_2^2+c_2^2}}}`}
+        important
+      />
+      <IntersectingLinesAngleDiagram />
+
+      <h3 id="h-11-3-1">2.1 Numerical Illustration</h3>
+      <Expandable
+        title="Numerical illustration — angle between lines"
+        variant="example"
+        subjectColor="var(--subject-mathematics)"
+      >
+        <QuestionBlock title="Worked example — perpendicular lines">
+          <SolutionStep label="Given">
+            <FormulaBlock latex={String.raw`\vec r=7\hat i+2\hat j+8\hat k+\lambda_1(5\hat i+2\hat j-3\hat k)`} />
+            <FormulaBlock latex={String.raw`\vec r=3\hat i+3\hat j-2\hat k+\lambda_2(5\hat i-2\hat j+7\hat k)`} />
+          </SolutionStep>
+          <SolutionStep label="Step 1 — Extract parallel vectors">
+            <FormulaBlock latex={String.raw`\vec b_1=(5,2,-3)`} />
+            <FormulaBlock latex={String.raw`\vec b_2=(5,-2,7)`} />
+          </SolutionStep>
+          <SolutionStep label="Step 2 — Dot product">
+            <FormulaBlock latex={String.raw`\vec b_1\cdot\vec b_2=25-4-21=0`} />
+          </SolutionStep>
+          <SolutionStep label="Step 3 — Magnitudes">
+            <FormulaBlock latex={String.raw`|\vec b_1|=\sqrt{25+4+9}=\sqrt{38}`} />
+            <FormulaBlock latex={String.raw`|\vec b_2|=\sqrt{25+4+49}=\sqrt{78}`} />
+          </SolutionStep>
+          <SolutionStep label="Step 4 — Calculate angle">
+            <FormulaBlock latex={String.raw`\cos\theta=\left|\frac{0}{\sqrt{38}\sqrt{78}}\right|=0`} />
+            <FormulaBlock latex={String.raw`\boxed{\theta=90^\circ}`} important />
+            <p><strong>Conclusion:</strong> Perpendicular lines</p>
+          </SolutionStep>
+        </QuestionBlock>
+      </Expandable>
+
+      <h3 id="h-11-3-2">2.2 Practice Problems</h3>
+      <Expandable
+        title="Practice problems — angle between lines"
+        variant="exercise"
+        subjectColor="var(--subject-mathematics)"
+      >
+        <QuestionBlock title="Problem 1">
+          <p>Find the angle between:</p>
+          <SolutionStep label="Given">
+            <FormulaBlock latex={String.raw`\vec r=3\hat i+2\hat j-4\hat k+\lambda(\hat i+2\hat j+2\hat k)`} />
+            <FormulaBlock latex={String.raw`\vec r=5\hat i-2\hat j+\mu(3\hat i+2\hat j+6\hat k)`} />
+          </SolutionStep>
+          <SolutionStep label="Step 1 — Parallel vectors">
+            <FormulaBlock latex={String.raw`\vec b_1=(1,2,2),\qquad \vec b_2=(3,2,6)`} />
+          </SolutionStep>
+          <SolutionStep label="Step 2 — Dot product">
+            <FormulaBlock latex={String.raw`\vec b_1\cdot\vec b_2=3+4+12=19`} />
+          </SolutionStep>
+          <SolutionStep label="Step 3 — Magnitudes">
+            <FormulaBlock latex={String.raw`|\vec b_1|=\sqrt9=3`} />
+            <FormulaBlock latex={String.raw`|\vec b_2|=\sqrt{49}=7`} />
+          </SolutionStep>
+          <SolutionStep label="Step 4 — Angle">
+            <FormulaBlock latex={String.raw`\cos\theta=\frac{19}{3\times7}=\frac{19}{21}`} />
+            <FormulaBlock latex={String.raw`\boxed{\theta=\cos^{-1}\left(\frac{19}{21}\right)}`} important />
+          </SolutionStep>
+        </QuestionBlock>
+
+        <QuestionBlock title="Problem 2">
+          <p>Find the angle between:</p>
+          <SolutionStep label="Given">
+            <FormulaBlock latex={String.raw`\frac{x+3}{3}=\frac{y-1}{5}=\frac{z+3}{4}`} />
+            <FormulaBlock latex={String.raw`\frac{x+1}{1}=\frac{y-4}{1}=\frac{z-5}{2}`} />
+          </SolutionStep>
+          <SolutionStep label="Parallel vectors">
+            <FormulaBlock latex={String.raw`\vec b_1=(3,5,4)`} />
+            <FormulaBlock latex={String.raw`\vec b_2=(1,1,2)`} />
+          </SolutionStep>
+          <SolutionStep label="Dot product">
+            <FormulaBlock latex={String.raw`\vec b_1\cdot\vec b_2=3+5+8=16`} />
+          </SolutionStep>
+          <SolutionStep label="Magnitudes">
+            <FormulaBlock latex={String.raw`|\vec b_1|=\sqrt{50}`} />
+            <FormulaBlock latex={String.raw`|\vec b_2|=\sqrt6`} />
+          </SolutionStep>
+          <SolutionStep label="Angle">
+            <FormulaBlock latex={String.raw`\cos\theta=\frac{16}{\sqrt{50}\sqrt6}`} />
+            <FormulaBlock
+              latex={String.raw`\boxed{\theta=\cos^{-1}\left(\frac{16}{\sqrt{300}}\right)}`}
+              important
+            />
+          </SolutionStep>
+        </QuestionBlock>
+      </Expandable>
+
+      <h3 id="h-11-3-3">2.3 Multiple-Choice Questions</h3>
+      <Expandable
+        title="Multiple-choice questions — angle between lines"
+        variant="exercise"
+        subjectColor="var(--subject-mathematics)"
+      >
+        <QuestionBlock title="Q1. Direction ratios (1, 2, 3) and (2, −1, 2)">
+          <p>Find the angle between lines with direction ratios{" "}
+            <Formula>{String.raw`(1,2,3)`}</Formula> and <Formula>{String.raw`(2,-1,2)`}</Formula>.
+          </p>
+          <SolutionStep label="Working">
+            <FormulaBlock latex={String.raw`\vec b_1\cdot\vec b_2=2-2+6=6`} />
+            <FormulaBlock latex={String.raw`|\vec b_1|=\sqrt{14},\qquad |\vec b_2|=3`} />
+            <FormulaBlock latex={String.raw`\cos\theta=\frac6{3\sqrt{14}}=\frac2{\sqrt{14}}`} />
+          </SolutionStep>
+          <SolutionStep label="Answer">
+            <p><strong>Answer: A</strong></p>
+            <FormulaBlock latex={String.raw`\boxed{\theta=\cos^{-1}\left(\frac2{\sqrt{14}}\right)}`} important />
+          </SolutionStep>
+        </QuestionBlock>
+
+        <QuestionBlock title="Q2. Direction ratios (2, 1, −1) and (1, 1, 1)">
+          <p>
+            Direction ratios of two lines are <Formula>{String.raw`(2,1,-1)`}</Formula> and{" "}
+            <Formula>{String.raw`(1,1,1)`}</Formula>. Find the angle.
+          </p>
+          <SolutionStep label="Working">
+            <FormulaBlock latex={String.raw`\vec b_1\cdot\vec b_2=2+1-1=2`} />
+            <FormulaBlock latex={String.raw`|\vec b_1|=\sqrt6,\qquad |\vec b_2|=\sqrt3`} />
+            <FormulaBlock latex={String.raw`\cos\theta=\frac2{\sqrt6\sqrt3}=\frac2{3\sqrt2}`} />
+          </SolutionStep>
+          <SolutionStep label="Answer">
+            <p><strong>Answer: A (exact), B (approximate)</strong></p>
+            <FormulaBlock
+              latex={String.raw`\boxed{\theta=\cos^{-1}\left(\frac2{3\sqrt2}\right)\approx61.87^\circ}`}
+              important
+            />
+          </SolutionStep>
+        </QuestionBlock>
+      </Expandable>
+
+      <h2 id="h-11-4">11.4 Distance Between Parallel Lines</h2>
+      <p>Two lines are parallel when their direction vectors are proportional.</p>
+      <p>For the given vector forms:</p>
+      <FormulaBlock latex={String.raw`L_1:\vec r=\vec a_1+\lambda\vec b`} />
+      <FormulaBlock latex={String.raw`L_2:\vec r=\vec a_2+\mu\vec b`} />
+      <p>where:</p>
+      <ul className="list-disc space-y-1.5 pl-5">
+        <li>
+          <strong><Formula>{String.raw`\vec a_1`}</Formula></strong> = position vector of a point on
+          the first line.
+        </li>
+        <li>
+          <strong><Formula>{String.raw`\vec a_2`}</Formula></strong> = position vector of a point on
+          the second line.
+        </li>
+        <li>
+          <strong><Formula>{String.raw`\vec b`}</Formula></strong> = common parallel vector.
+        </li>
+      </ul>
+
+      <h3 id="h-11-4-1">3.1 Shortest Distance Formula</h3>
+      <FormulaBlock
+        latex={String.raw`\boxed{d=\frac{|\vec b\times(\vec a_2-\vec a_1)|}{|\vec b|}}`}
+        important
+      />
+      <p>
+        The cross product gives a vector perpendicular to both the parallel direction and the
+        displacement between the lines.
+      </p>
+      <ParallelLinesDistanceDiagram />
+
+      <h3 id="h-11-4-2">3.2 Step-by-Step Procedure</h3>
+      <ol className="list-decimal space-y-2 pl-5">
+        <li><strong>Identify</strong> <Formula>{String.raw`\vec a_1,\vec a_2,\vec b`}</Formula>.</li>
+        <li>
+          <strong>Calculate the difference:</strong>
+          <FormulaBlock latex={String.raw`\vec a_2-\vec a_1`} />
+        </li>
+        <li>
+          <strong>Calculate the cross product:</strong>
+          <FormulaBlock latex={String.raw`\vec b\times(\vec a_2-\vec a_1)`} />
+        </li>
+        <li>
+          <strong>Calculate both magnitudes:</strong>
+          <ul className="mt-1 list-disc space-y-1 pl-5">
+            <li><Formula>{String.raw`|\vec b|`}</Formula></li>
+            <li><Formula>{String.raw`|\vec b\times(\vec a_2-\vec a_1)|`}</Formula></li>
+          </ul>
+        </li>
+        <li><strong>Substitute</strong> into the shortest-distance formula.</li>
+      </ol>
+
+      <h3 id="h-11-4-3">3.3 Component Extraction Illustration</h3>
+      <Expandable
+        title="Component extraction — parallel lines"
+        variant="example"
+        subjectColor="var(--subject-mathematics)"
+      >
+        <QuestionBlock title="Extract the vectors">
+          <SolutionStep label="Given">
+            <FormulaBlock latex={String.raw`\vec r=5\hat i+3\hat j+7\hat k+\lambda(5\hat i+4\hat j+8\hat k)`} />
+            <FormulaBlock latex={String.raw`\vec r=2\hat i+3\hat j-8\hat k+\lambda(5\hat i+4\hat j+8\hat k)`} />
+          </SolutionStep>
+          <SolutionStep label="Extracted vectors">
+            <FormulaBlock latex={String.raw`\vec a_1=(5,3,7)`} />
+            <FormulaBlock latex={String.raw`\vec a_2=(2,3,-8)`} />
+            <FormulaBlock latex={String.raw`\vec b=(5,4,8)`} />
+          </SolutionStep>
+          <SolutionStep label="Observation">
+            <p>
+              <Highlight>Both lines have the same direction vector.</Highlight>
+            </p>
+          </SolutionStep>
+        </QuestionBlock>
+      </Expandable>
+
+      <h3 id="h-11-4-4">3.4 Practice Problem — Shortest Distance</h3>
+      <Expandable
+        title="Practice problem — shortest distance between parallel lines"
+        variant="exercise"
+        subjectColor="var(--subject-mathematics)"
+      >
+        <QuestionBlock title="Find the distance">
+          <p>Find the distance between:</p>
+          <SolutionStep label="Given">
+            <FormulaBlock latex={String.raw`L_1:\vec r=\hat i+2\hat j-4\hat k+\lambda(2\hat i+3\hat j+6\hat k)`} />
+            <FormulaBlock latex={String.raw`L_2:\vec r=3\hat i+3\hat j-5\hat k+\mu(2\hat i+3\hat j+6\hat k)`} />
+          </SolutionStep>
+          <SolutionStep label="Step 1 — Identify vectors">
+            <FormulaBlock latex={String.raw`\vec a_1=(1,2,-4)`} />
+            <FormulaBlock latex={String.raw`\vec a_2=(3,3,-5)`} />
+            <FormulaBlock latex={String.raw`\vec b=(2,3,6)`} />
+          </SolutionStep>
+          <SolutionStep label="Step 2 — Find the difference">
+            <FormulaBlock latex={String.raw`\vec a_2-\vec a_1=(3-1,3-2,-5+4)`} />
+            <FormulaBlock latex={String.raw`=(2,1,-1)`} />
+          </SolutionStep>
+          <SolutionStep label="Step 3 — Calculate cross product">
+            <FormulaBlock
+              latex={String.raw`\vec b\times(\vec a_2-\vec a_1)=\begin{vmatrix} \hat i&\hat j&\hat k\\ 2&3&6\\ 2&1&-1 \end{vmatrix}`}
+            />
+            <FormulaBlock latex={String.raw`=\hat i(-3-6)-\hat j(-2-12)+\hat k(2-6)`} />
+            <FormulaBlock latex={String.raw`=-9\hat i+14\hat j-4\hat k`} />
+          </SolutionStep>
+          <SolutionStep label="Step 4 — Calculate magnitudes">
+            <FormulaBlock latex={String.raw`|\vec b|=\sqrt{2^2+3^2+6^2}=\sqrt{49}=7`} />
+            <FormulaBlock latex={String.raw`|\vec b\times(\vec a_2-\vec a_1)|=\sqrt{(-9)^2+14^2+(-4)^2}`} />
+            <FormulaBlock latex={String.raw`=\sqrt{81+196+16}=\sqrt{293}`} />
+          </SolutionStep>
+          <SolutionStep label="Step 5 — Calculate shortest distance">
+            <FormulaBlock latex={String.raw`d=\frac{\sqrt{293}}7`} />
+          </SolutionStep>
+          <SolutionStep label="Final Answer">
+            <FormulaBlock latex={String.raw`\boxed{d=\frac{\sqrt{293}}7\text{ units}}`} important />
+          </SolutionStep>
+        </QuestionBlock>
+      </Expandable>
+
+      <Expandable title="Formula Revision Sheet" variant="recall" id="h-11-5">
+        <TableCard
+          headers={["Topic", "Formula"]}
+          rows={[
+            {
+              cells: [
+                "Vector equation of a line",
+                <Formula key="f1">{String.raw`\vec r=\vec a+\lambda\vec b`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "Cartesian equation",
+                <Formula key="f2">{String.raw`\frac{x-x_1}{a}=\frac{y-y_1}{b}=\frac{z-z_1}{c}`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "Direction vector",
+                <Formula key="f3">{String.raw`(a,b,c)`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "Dot product",
+                <Formula key="f4">{String.raw`a_1a_2+b_1b_2+c_1c_2`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "Vector magnitude",
+                <Formula key="f5">{String.raw`\sqrt{a^2+b^2+c^2}`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "Angle between lines",
+                <Formula key="f6">{String.raw`\cos\theta=\frac{\|\vec b_1\cdot\vec b_2\|}{\|\vec b_1\|\|\vec b_2\|}`}</Formula>,
+              ],
+            },
+            {
+              cells: ["Parallel lines", "Direction vectors proportional"],
+            },
+            {
+              cells: [
+                "Shortest distance between parallel lines",
+                <Formula key="f8">{String.raw`\frac{\|\vec b\times(\vec a_2-\vec a_1)\|}{\|\vec b\|}`}</Formula>,
+              ],
+            },
           ]}
         />
       </Expandable>
-
-      <SpeedTricks>
-        <ul className="list-disc pl-5 space-y-2">
-          <li><strong>dc’s identity:</strong> <Formula>{String.raw`l^2+m^2+n^2=1`}</Formula>. Use it to find missing cosines.</li>
-          <li><strong>dr’s → dc’s:</strong> divide by <Formula>{String.raw`\sqrt{a^2+b^2+c^2}`}</Formula>.</li>
-          <li><strong>Line in space:</strong> <Formula>{String.raw`\vec r=\vec a+\lambda\vec b`}</Formula> or <Formula>{String.raw`(x-x_1)/a=\dots`}</Formula>.</li>
-          <li><strong>Angle between lines:</strong> cosine uses <Formula>{String.raw`|a_1a_2+b_1b_2+c_1c_2|`}</Formula> in the numerator (acute).</li>
-          <li><strong>Skew distance:</strong> <Formula>{String.raw`d=|(\vec c-\vec a)\cdot(\vec b\times\vec d)|/|\vec b\times\vec d|`}</Formula>. If numerator = 0, the lines intersect.</li>
-          <li><strong>Distance, point to plane:</strong> <Formula>{String.raw`|Ax_1+By_1+Cz_1+D|/\sqrt{A^2+B^2+C^2}`}</Formula>.</li>
-          <li><strong>Plane:</strong> general form <Formula>{String.raw`Ax+By+Cz+D=0`}</Formula>; normal <Formula>{String.raw`(A,B,C)`}</Formula>; angle between planes is angle between normals.</li>
-        </ul>
-      </SpeedTricks>
     </>
   );
 }

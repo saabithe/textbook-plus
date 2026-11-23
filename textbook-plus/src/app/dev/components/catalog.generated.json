@@ -2070,6 +2070,33 @@
     "renderable": true
   },
   {
+    "id": "content/mathematics/LineEquationForms.tsx#LineEquationForms",
+    "name": "LineEquationForms",
+    "path": "content/mathematics/LineEquationForms.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/LineGeometry3D.tsx#IntersectingLinesAngleDiagram",
+    "name": "IntersectingLinesAngleDiagram",
+    "path": "content/mathematics/LineGeometry3D.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/LineGeometry3D.tsx#ParallelLinesDistanceDiagram",
+    "name": "ParallelLinesDistanceDiagram",
+    "path": "content/mathematics/LineGeometry3D.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/mathematics/RateDiagrams.tsx#CircleRadiusDiagram",
     "name": "CircleRadiusDiagram",
     "path": "content/mathematics/RateDiagrams.tsx",
