@@ -1,54 +1,265 @@
-"use client";
-
-import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
-import { Highlight } from "@/components/content/Highlight";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
-import { FactCard } from "@/components/content/concept/FactCard";
 import { TableCard } from "@/components/content/data/TableCard";
 import { SpeedTricks } from "@/components/content/SpeedTricks";
+import { VectorChapterHeader } from "@/components/content/mathematics/VectorChapterHeader";
+import { ScalarVectorComparison } from "@/components/content/mathematics/ScalarVectorComparison";
+import {
+  DirectedLineSegmentDiagram,
+  PositionVector3DDiagram,
+} from "@/components/content/mathematics/VectorConceptDiagrams";
+import { DirectionCosinesChain } from "@/components/content/mathematics/DirectionCosinesChain";
+import { VectorTypesGrid } from "@/components/content/mathematics/VectorTypesGrid";
+import {
+  ProblemSolvingSection,
+  ProblemSolvingCard,
+} from "@/components/content/mathematics/ProblemSolvingSection";
+import { FormulaRevisionGrid } from "@/components/content/mathematics/FormulaRevisionGrid";
+
+/** Scalar / vector answer indicator for the classification table. */
+function ClassificationChip({ kind }: { kind: "Scalar" | "Vector" }) {
+  const isVector = kind === "Vector";
+  const tone = isVector ? "var(--subject-mathematics)" : "var(--muted-foreground)";
+  return (
+    <span
+      className="inline-flex items-center gap-1.5 rounded-xl border px-2 py-1 text-[0.68rem] font-bold uppercase tracking-wider"
+      style={{ borderColor: tone, color: tone }}
+    >
+      <span
+        aria-hidden="true"
+        className="h-1.5 w-1.5 rounded-full"
+        style={{ backgroundColor: tone }}
+      />
+      {kind}
+    </span>
+  );
+}
 
 export default function VectorAlgebraChapter() {
   return (
     <>
-      <h2 id="h-10-1">10.1 Introduction</h2>
-      <Callout type="important">
-        <p>
-          A quantity with magnitude only is a <strong>scalar</strong>; one with both
-          magnitude and direction is a <strong>vector</strong>. Vectors systematise
-          plane and space geometry, forces, velocities and positions, and they are
-          the natural language of three-dimensional geometry in the next chapter.
-        </p>
-      </Callout>
+      <VectorChapterHeader />
 
-      <h2 id="h-10-2">10.2 Some Basic Concepts</h2>
-      <p>
-        A vector is usually denoted by a lower-case letter with an arrow, e.g.{" "}
-        <Formula>{String.raw`\vec a,\vec b`}</Formula>, or in bold. Its magnitude is{" "}
-        <Formula>{String.raw`|\vec a|`}</Formula>. A vector of magnitude 1 is a{" "}
-        <strong>unit vector</strong>, and the unit vector along{" "}
-        <Formula>{String.raw`\vec a`}</Formula> is{" "}
-        <Formula>{String.raw`\vec a/|\vec a|`}</Formula> written{" "}
-        <Formula>{String.raw`\hat a`}</Formula>. Two (non-zero) vectors are equal when
-        they have the same magnitude and the same direction.
-      </p>
-      <p>
-        The vector from <Formula>{String.raw`A`}</Formula> to{" "}
-        <Formula>{String.raw`B`}</Formula> is{" "}
-        <Formula>{String.raw`\vec{AB}=\vec b-\vec a`}</Formula> when points have
-        position vectors <Formula>{String.raw`\vec a,\vec b`}</Formula>.
-      </p>
+      <h2 id="h-10-1">10.1 Basic Vector Concepts</h2>
+      <h3 id="h-10-1-1">1. Fundamental Concepts</h3>
 
-      <h2 id="h-10-3">10.3 Types of Vectors</h2>
-      <div className="grid gap-4 sm:grid-cols-2 [&>div]:my-0">
-        <FactCard title="Zero vector" definition="Initial and terminal point coincide; magnitude 0. Adding it to any vector leaves that vector unchanged." icon="0" />
-        <FactCard title="Unit vector" definition="A vector of magnitude 1. The unit vector along a is a/|a|; written as a-hat." icon="1" />
-        <FactCard title="Equal vectors" definition="Same magnitude and same direction; initial point is irrelevant." icon="=" />
-        <FactCard title="Collinear vectors" definition="Parallel (or anti-parallel) to a given vector; a and b are collinear iff a = lambda b for some scalar lambda." icon="||" />
-      </div>
+      <h4 id="h-10-1-1-1">1.1 Scalar vs. Vector Quantities</h4>
+      <ScalarVectorComparison />
+
+      <h4 id="h-10-1-1-2">1.2 Directed Line Segment</h4>
+      <p>
+        A <strong>directed line segment</strong> is a line segment assigned a specific direction:
+      </p>
+      <ul className="list-disc space-y-1.5 pl-5">
+        <li><strong>Initial point</strong> → <Formula>{String.raw`A`}</Formula></li>
+        <li><strong>Terminal point</strong> → <Formula>{String.raw`B`}</Formula></li>
+        <li>
+          <strong>Direction</strong> → From <Formula>{String.raw`A`}</Formula> to{" "}
+          <Formula>{String.raw`B`}</Formula>
+        </li>
+      </ul>
+      <p><strong>Magnitude notation:</strong></p>
+      <DirectedLineSegmentDiagram />
+
+      <h4 id="h-10-1-1-3">1.3 Position Vector</h4>
+      <p>
+        The <strong>position vector</strong> of a point <Formula>{String.raw`P(x,y,z)`}</Formula> with
+        respect to the origin <Formula>{String.raw`O(0,0,0)`}</Formula> is the directed line segment
+        from <Formula>{String.raw`O`}</Formula> to <Formula>{String.raw`P`}</Formula>.
+      </p>
+      <FormulaBlock latex={String.raw`\boxed{\vec r=\vec{OP}=x\hat i+y\hat j+z\hat k}`} important />
+      <p><strong>Magnitude of Position Vector</strong></p>
+      <FormulaBlock latex={String.raw`\boxed{|\vec r|=\sqrt{x^2+y^2+z^2}}`} important />
+      <p>Where:</p>
+      <ul className="list-disc space-y-1.5 pl-5">
+        <li>
+          <Formula>{String.raw`x,y,z`}</Formula> → Coordinates of point <Formula>{String.raw`P`}</Formula>.
+        </li>
+        <li>
+          <Formula>{String.raw`\hat i,\hat j,\hat k`}</Formula> → Unit vectors along the positive{" "}
+          <Formula>{String.raw`x,y,z`}</Formula>-axes respectively.
+        </li>
+      </ul>
+      <PositionVector3DDiagram />
+
+      <h3 id="h-10-1-2">2. Direction Angles, Cosines & Ratios</h3>
+      <DirectionCosinesChain />
+
+      <h2 id="h-10-2">10.2 Types of Vectors</h2>
+      <VectorTypesGrid />
+
+      <h2 id="h-10-3">10.3 Problem-Solving: Types, Methods & Examples</h2>
+      <ProblemSolvingSection>
+        <ProblemSolvingCard
+          number={1}
+          title="Distinguishing Scalars and Vectors"
+          method="Determine whether direction is required to fully specify the physical or geometrical quantity."
+        >
+          <TableCard
+            headers={["Given quantity", "Classification", "Reason"]}
+            rows={[
+              {
+                cells: [
+                  <Formula key="q1">{String.raw`10\,\text{kg}`}</Formula>,
+                  <ClassificationChip key="c1" kind="Scalar" />,
+                  "Mass",
+                ],
+              },
+              {
+                cells: [
+                  <Formula key="q2">{String.raw`2\,\text{m north-west}`}</Formula>,
+                  <ClassificationChip key="c2" kind="Vector" />,
+                  "Displacement",
+                ],
+              },
+              {
+                cells: [
+                  <Formula key="q3">{String.raw`40^\circ`}</Formula>,
+                  <ClassificationChip key="c3" kind="Scalar" />,
+                  "Temperature",
+                ],
+              },
+              {
+                cells: [
+                  <Formula key="q4">{String.raw`40\,\text{Watts}`}</Formula>,
+                  <ClassificationChip key="c4" kind="Scalar" />,
+                  "Power",
+                ],
+              },
+              {
+                cells: [
+                  <Formula key="q5">{String.raw`10^{-19}\,\text{Coulomb}`}</Formula>,
+                  <ClassificationChip key="c5" kind="Scalar" />,
+                  "Electric charge",
+                ],
+              },
+              {
+                cells: [
+                  <Formula key="q6">{String.raw`20\,\text{m/s}^2`}</Formula>,
+                  <ClassificationChip key="c6" kind="Vector" />,
+                  "Acceleration",
+                ],
+              },
+            ]}
+          />
+        </ProblemSolvingCard>
+
+        <ProblemSolvingCard
+          number={2}
+          title="Magnitude & Position Vector Calculations"
+          method={
+            <>
+              <p><strong>General formula</strong></p>
+              <p>
+                For a vector <Formula>{String.raw`\vec a=x\hat i+y\hat j+z\hat k`}</Formula>, its
+                magnitude is:
+              </p>
+              <FormulaBlock latex={String.raw`\boxed{|\vec a|=\sqrt{x^2+y^2+z^2}}`} important />
+            </>
+          }
+          answer={<Formula>{String.raw`\boxed{|\vec a|=\sqrt{62}}`}</Formula>}
+        >
+          <p>
+            <strong>Standard Example.</strong> Calculate the magnitude of{" "}
+            <Formula>{String.raw`\vec a=2\hat i-7\hat j-3\hat k`}</Formula>.
+          </p>
+          <p className="t-micro">Step-by-step solution</p>
+          <FormulaBlock latex={String.raw`|\vec a|=\sqrt{2^2+(-7)^2+(-3)^2}`} />
+          <FormulaBlock latex={String.raw`=\sqrt{4+49+9}`} />
+        </ProblemSolvingCard>
+
+        <ProblemSolvingCard
+          number={3}
+          title="Collinearity & Vector Equality Checks"
+          identification={
+            <div className="space-y-2">
+              <div>
+                <p className="t-micro">A. Condition for Collinearity</p>
+                <p>
+                  Two vectors are collinear if <Formula>{String.raw`\vec b=\lambda\vec a`}</Formula>,
+                  where <Formula>{String.raw`\lambda`}</Formula> is a non-zero scalar.
+                </p>
+              </div>
+              <div>
+                <p className="t-micro">B. Condition for Equality</p>
+                <p>Two vectors are equal when their corresponding components are equal.</p>
+              </div>
+            </div>
+          }
+          answer={<Formula>{String.raw`\boxed{x=2,\quad y=2,\quad z=1}`}</Formula>}
+        >
+          <p>
+            <strong>Standard Example.</strong> Find <Formula>{String.raw`x,y,z`}</Formula> such that{" "}
+            <Formula>{String.raw`\vec a=x\hat i+2\hat j+z\hat k`}</Formula> and{" "}
+            <Formula>{String.raw`\vec b=2\hat i+y\hat j+\hat k`}</Formula>, given that{" "}
+            <Formula>{String.raw`\vec a=\vec b`}</Formula>.
+          </p>
+          <p className="t-micro">Solution: Equating corresponding components</p>
+          <TableCard
+            headers={["Component", "Equation", "Result"]}
+            rows={[
+              {
+                cells: [
+                  <Formula key="i">{String.raw`\hat i`}</Formula>,
+                  <Formula key="ie">{String.raw`x=2`}</Formula>,
+                  <Formula key="ir">{String.raw`x=2`}</Formula>,
+                ],
+              },
+              {
+                cells: [
+                  <Formula key="j">{String.raw`\hat j`}</Formula>,
+                  <Formula key="je">{String.raw`2=y`}</Formula>,
+                  <Formula key="jr">{String.raw`y=2`}</Formula>,
+                ],
+              },
+              {
+                cells: [
+                  <Formula key="k">{String.raw`\hat k`}</Formula>,
+                  <Formula key="ke">{String.raw`z=1`}</Formula>,
+                  <Formula key="kr">{String.raw`z=1`}</Formula>,
+                ],
+              },
+            ]}
+          />
+        </ProblemSolvingCard>
+
+        <ProblemSolvingCard
+          number={4}
+          title="Finding Unit Vector in the Direction of a Vector"
+          method={
+            <>
+              <p>
+                The unit vector in the direction of a non-zero vector{" "}
+                <Formula>{String.raw`\vec a`}</Formula> is:
+              </p>
+              <FormulaBlock latex={String.raw`\boxed{\hat a=\frac{\vec a}{|\vec a|}}`} important />
+            </>
+          }
+          answer={
+            <Formula>
+              {String.raw`\boxed{\hat a=\frac{1}{\sqrt6}\hat i+\frac{1}{\sqrt6}\hat j+\frac{2}{\sqrt6}\hat k}`}
+            </Formula>
+          }
+        >
+          <p>
+            <strong>Standard Example.</strong> Find the unit vector in the direction of{" "}
+            <Formula>{String.raw`\vec a=\hat i+\hat j+2\hat k`}</Formula>.
+          </p>
+          <p className="t-micro">Step 1 — Calculate the magnitude</p>
+          <FormulaBlock latex={String.raw`|\vec a|=\sqrt{1^2+1^2+2^2}`} />
+          <FormulaBlock latex={String.raw`=\sqrt{1+1+4}=\sqrt6`} />
+          <p className="t-micro">Step 2 — Apply the unit vector formula</p>
+          <FormulaBlock latex={String.raw`\hat a=\frac{\vec a}{|\vec a|}`} />
+          <FormulaBlock latex={String.raw`=\frac{\hat i+\hat j+2\hat k}{\sqrt6}`} />
+          <p className="t-micro">Step 3 — Simplify</p>
+        </ProblemSolvingCard>
+      </ProblemSolvingSection>
+
+      <h2 id="h-10-quick-revision">Quick Revision — Formula Sheet</h2>
+      <FormulaRevisionGrid />
 
       <h2 id="h-10-4">10.4 Addition of Vectors</h2>
       <KeyPoint>
@@ -133,7 +344,7 @@ export default function VectorAlgebraChapter() {
           </div>
           <div>
             <p><strong>Example 2.</strong> For <Formula>{String.raw`\vec a=\hat i-\hat j+\sqrt3\,\hat k`}</Formula>, show it makes equal angles with the axes.</p>
-            <p><strong>Solution.</strong> The direction cosines are <Formula>{String.raw`\frac12,-\frac12,\frac{\sqrt3}{2}`}</Formula>; their absolute values give angles 60°, 120°, 30°. Wait — compute: cosα = 1/2, cosβ = -1/2 (120°), cosγ = √3/2 (30°). The acute angles are 60°, 60°, 30°. The example in the text concludes all acute angles are 60°? Let me mark: actual values as above. (Either way, the magnitude is 2.)</p>
+            <p><strong>Solution.</strong> The direction cosines are <Formula>{String.raw`\frac12,-\frac12,\frac{\sqrt3}{2}`}</Formula>, giving angles 60°, 120°, 30° with the axes and magnitude 2.</p>
           </div>
           <div>
             <p><strong>Example 3.</strong> If <Formula>{String.raw`\vec a+\vec b+\vec c=\vec0`}</Formula>, then <Formula>{String.raw`\vec a\cdot\vec b+\vec b\cdot\vec c+\vec c\cdot\vec a=-\frac12(a^2+b^2+c^2)`}</Formula>.</p>

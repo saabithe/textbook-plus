@@ -1963,6 +1963,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/mathematics/DirectionCosinesChain.tsx#DirectionCosinesChain",
+    "name": "DirectionCosinesChain",
+    "path": "content/mathematics/DirectionCosinesChain.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/mathematics/DirectionCosinesSignDiagrams.tsx#AstcQuadrantDiagram",
     "name": "AstcQuadrantDiagram",
     "path": "content/mathematics/DirectionCosinesSignDiagrams.tsx",
@@ -2116,6 +2125,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/mathematics/FormulaRevisionGrid.tsx#FormulaRevisionGrid",
+    "name": "FormulaRevisionGrid",
+    "path": "content/mathematics/FormulaRevisionGrid.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/mathematics/LineEquationForms.tsx#LineEquationForms",
     "name": "LineEquationForms",
     "path": "content/mathematics/LineEquationForms.tsx",
@@ -2139,6 +2157,24 @@ export const CATALOG: CatalogEntry[] = [
     "path": "content/mathematics/LineGeometry3D.tsx",
     "category": "content",
     "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ProblemSolvingSection.tsx#ProblemSolvingCard",
+    "name": "ProblemSolvingCard",
+    "path": "content/mathematics/ProblemSolvingSection.tsx",
+    "category": "content",
+    "props": "number?: number; title: string; identification?: ReactNode; method?: ReactNode; answer?: ReactNode; children: ReactNode;",
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ProblemSolvingSection.tsx#ProblemSolvingSection",
+    "name": "ProblemSolvingSection",
+    "path": "content/mathematics/ProblemSolvingSection.tsx",
+    "category": "content",
+    "props": "number?: number; title: string; identification?: ReactNode; method?: ReactNode; answer?: ReactNode; children: ReactNode;",
     "shell": false,
     "renderable": true
   },
@@ -2227,6 +2263,15 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/mathematics/RateDiagramsPart3.tsx#SandConeDiagram",
     "name": "SandConeDiagram",
     "path": "content/mathematics/RateDiagramsPart3.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/ScalarVectorComparison.tsx#ScalarVectorComparison",
+    "name": "ScalarVectorComparison",
+    "path": "content/mathematics/ScalarVectorComparison.tsx",
     "category": "content",
     "props": null,
     "shell": false,
@@ -2362,6 +2407,42 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/mathematics/TrigGraphs.tsx#UnitCircleTanDiagram",
     "name": "UnitCircleTanDiagram",
     "path": "content/mathematics/TrigGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/VectorChapterHeader.tsx#VectorChapterHeader",
+    "name": "VectorChapterHeader",
+    "path": "content/mathematics/VectorChapterHeader.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/VectorConceptDiagrams.tsx#DirectedLineSegmentDiagram",
+    "name": "DirectedLineSegmentDiagram",
+    "path": "content/mathematics/VectorConceptDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/VectorConceptDiagrams.tsx#PositionVector3DDiagram",
+    "name": "PositionVector3DDiagram",
+    "path": "content/mathematics/VectorConceptDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/VectorTypesGrid.tsx#VectorTypesGrid",
+    "name": "VectorTypesGrid",
+    "path": "content/mathematics/VectorTypesGrid.tsx",
     "category": "content",
     "props": null,
     "shell": false,
