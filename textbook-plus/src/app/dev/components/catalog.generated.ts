@@ -1918,6 +1918,78 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/mathematics/DirectionCosines3D.tsx#AxisCosinesDiagrams",
+    "name": "AxisCosinesDiagrams",
+    "path": "content/mathematics/DirectionCosines3D.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/DirectionCosines3D.tsx#CollinearPointsDiagram",
+    "name": "CollinearPointsDiagram",
+    "path": "content/mathematics/DirectionCosines3D.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/DirectionCosines3D.tsx#DirectionAnglesDiagram",
+    "name": "DirectionAnglesDiagram",
+    "path": "content/mathematics/DirectionCosines3D.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/DirectionCosines3D.tsx#EqualAnglesDiagram",
+    "name": "EqualAnglesDiagram",
+    "path": "content/mathematics/DirectionCosines3D.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/DirectionCosines3D.tsx#TwoPointsSegmentDiagram",
+    "name": "TwoPointsSegmentDiagram",
+    "path": "content/mathematics/DirectionCosines3D.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/DirectionCosinesSignDiagrams.tsx#AstcQuadrantDiagram",
+    "name": "AstcQuadrantDiagram",
+    "path": "content/mathematics/DirectionCosinesSignDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/DirectionCosinesSignDiagrams.tsx#ProportionalTriplesDiagram",
+    "name": "ProportionalTriplesDiagram",
+    "path": "content/mathematics/DirectionCosinesSignDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/DirectionCosinesSignDiagrams.tsx#TwoStepFlowDiagram",
+    "name": "TwoStepFlowDiagram",
+    "path": "content/mathematics/DirectionCosinesSignDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/mathematics/ExtremaIntervalGraphs.tsx#ExtremeValueTheoremGraph",
     "name": "ExtremeValueTheoremGraph",
     "path": "content/mathematics/ExtremaIntervalGraphs.tsx",
