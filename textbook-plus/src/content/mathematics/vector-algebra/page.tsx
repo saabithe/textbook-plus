@@ -1,4 +1,3 @@
-import { KeyPoint } from "@/components/content/KeyPoint";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
@@ -14,29 +13,21 @@ import {
 import { DirectionCosinesChain } from "@/components/content/mathematics/DirectionCosinesChain";
 import { VectorTypesGrid } from "@/components/content/mathematics/VectorTypesGrid";
 import {
-  ProblemSolvingSection,
-  ProblemSolvingCard,
-} from "@/components/content/mathematics/ProblemSolvingSection";
-import { FormulaRevisionGrid } from "@/components/content/mathematics/FormulaRevisionGrid";
-
-/** Scalar / vector answer indicator for the classification table. */
-function ClassificationChip({ kind }: { kind: "Scalar" | "Vector" }) {
-  const isVector = kind === "Vector";
-  const tone = isVector ? "var(--subject-mathematics)" : "var(--muted-foreground)";
-  return (
-    <span
-      className="inline-flex items-center gap-1.5 rounded-xl border px-2 py-1 text-[0.68rem] font-bold uppercase tracking-wider"
-      style={{ borderColor: tone, color: tone }}
-    >
-      <span
-        aria-hidden="true"
-        className="h-1.5 w-1.5 rounded-full"
-        style={{ backgroundColor: tone }}
-      />
-      {kind}
-    </span>
-  );
-}
+  TriangleLawPanel,
+  ParallelogramLawPanel,
+} from "@/components/content/mathematics/VectorAdditionLawPanels";
+import { VectorAdditionPropertiesGrid } from "@/components/content/mathematics/VectorAdditionPropertiesGrid";
+import { ScalarMultiplicationVisual } from "@/components/content/mathematics/ScalarMultiplicationVisual";
+import { VectorComponentsDiagram } from "@/components/content/mathematics/VectorComponentsDiagram";
+import { VectorJoiningPointsDiagram } from "@/components/content/mathematics/VectorJoiningPointsDiagram";
+import {
+  SectionFormulaIllustration,
+  InternalDivisionCard,
+  ExternalDivisionCard,
+  MidpointCard,
+} from "@/components/content/mathematics/SectionFormulaPanels";
+import { VectorProblemCards } from "@/components/content/mathematics/VectorProblemCards";
+import { VectorFormulaSheetDashboard } from "@/components/content/mathematics/VectorFormulaSheetDashboard";
 
 export default function VectorAlgebraChapter() {
   return (
@@ -91,279 +82,181 @@ export default function VectorAlgebraChapter() {
       <h2 id="h-10-2">10.2 Types of Vectors</h2>
       <VectorTypesGrid />
 
-      <h2 id="h-10-3">10.3 Problem-Solving: Types, Methods & Examples</h2>
-      <ProblemSolvingSection>
-        <ProblemSolvingCard
-          number={1}
-          title="Distinguishing Scalars and Vectors"
-          method="Determine whether direction is required to fully specify the physical or geometrical quantity."
-        >
-          <TableCard
-            headers={["Given quantity", "Classification", "Reason"]}
-            rows={[
-              {
-                cells: [
-                  <Formula key="q1">{String.raw`10\,\text{kg}`}</Formula>,
-                  <ClassificationChip key="c1" kind="Scalar" />,
-                  "Mass",
-                ],
-              },
-              {
-                cells: [
-                  <Formula key="q2">{String.raw`2\,\text{m north-west}`}</Formula>,
-                  <ClassificationChip key="c2" kind="Vector" />,
-                  "Displacement",
-                ],
-              },
-              {
-                cells: [
-                  <Formula key="q3">{String.raw`40^\circ`}</Formula>,
-                  <ClassificationChip key="c3" kind="Scalar" />,
-                  "Temperature",
-                ],
-              },
-              {
-                cells: [
-                  <Formula key="q4">{String.raw`40\,\text{Watts}`}</Formula>,
-                  <ClassificationChip key="c4" kind="Scalar" />,
-                  "Power",
-                ],
-              },
-              {
-                cells: [
-                  <Formula key="q5">{String.raw`10^{-19}\,\text{Coulomb}`}</Formula>,
-                  <ClassificationChip key="c5" kind="Scalar" />,
-                  "Electric charge",
-                ],
-              },
-              {
-                cells: [
-                  <Formula key="q6">{String.raw`20\,\text{m/s}^2`}</Formula>,
-                  <ClassificationChip key="c6" kind="Vector" />,
-                  "Acceleration",
-                ],
-              },
-            ]}
-          />
-        </ProblemSolvingCard>
+      <h2 id="h-10-3">10.3 — Vector Addition, Component Operations &amp; Section Formula</h2>
 
-        <ProblemSolvingCard
-          number={2}
-          title="Magnitude & Position Vector Calculations"
-          method={
-            <>
-              <p><strong>General formula</strong></p>
-              <p>
-                For a vector <Formula>{String.raw`\vec a=x\hat i+y\hat j+z\hat k`}</Formula>, its
-                magnitude is:
-              </p>
-              <FormulaBlock latex={String.raw`\boxed{|\vec a|=\sqrt{x^2+y^2+z^2}}`} important />
-            </>
-          }
-          answer={<Formula>{String.raw`\boxed{|\vec a|=\sqrt{62}}`}</Formula>}
-        >
+      <h3 id="h-10-3-1">1. Vector Addition</h3>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <h4 id="h-10-3-1-1">1.1 Triangle Law of Vector Addition</h4>
           <p>
-            <strong>Standard Example.</strong> Calculate the magnitude of{" "}
-            <Formula>{String.raw`\vec a=2\hat i-7\hat j-3\hat k`}</Formula>.
+            If two vectors <Formula>{String.raw`\vec a`}</Formula> and{" "}
+            <Formula>{String.raw`\vec b`}</Formula> are represented in magnitude and direction by two
+            sides of a triangle taken in order, their sum{" "}
+            <Formula>{String.raw`\vec a+\vec b`}</Formula> is represented by the third side, directed
+            from the initial point of <Formula>{String.raw`\vec a`}</Formula> to the terminal point
+            of <Formula>{String.raw`\vec b`}</Formula>.
           </p>
-          <p className="t-micro">Step-by-step solution</p>
-          <FormulaBlock latex={String.raw`|\vec a|=\sqrt{2^2+(-7)^2+(-3)^2}`} />
-          <FormulaBlock latex={String.raw`=\sqrt{4+49+9}`} />
-        </ProblemSolvingCard>
-
-        <ProblemSolvingCard
-          number={3}
-          title="Collinearity & Vector Equality Checks"
-          identification={
-            <div className="space-y-2">
-              <div>
-                <p className="t-micro">A. Condition for Collinearity</p>
-                <p>
-                  Two vectors are collinear if <Formula>{String.raw`\vec b=\lambda\vec a`}</Formula>,
-                  where <Formula>{String.raw`\lambda`}</Formula> is a non-zero scalar.
-                </p>
-              </div>
-              <div>
-                <p className="t-micro">B. Condition for Equality</p>
-                <p>Two vectors are equal when their corresponding components are equal.</p>
-              </div>
-            </div>
-          }
-          answer={<Formula>{String.raw`\boxed{x=2,\quad y=2,\quad z=1}`}</Formula>}
-        >
-          <p>
-            <strong>Standard Example.</strong> Find <Formula>{String.raw`x,y,z`}</Formula> such that{" "}
-            <Formula>{String.raw`\vec a=x\hat i+2\hat j+z\hat k`}</Formula> and{" "}
-            <Formula>{String.raw`\vec b=2\hat i+y\hat j+\hat k`}</Formula>, given that{" "}
-            <Formula>{String.raw`\vec a=\vec b`}</Formula>.
-          </p>
-          <p className="t-micro">Solution: Equating corresponding components</p>
-          <TableCard
-            headers={["Component", "Equation", "Result"]}
-            rows={[
-              {
-                cells: [
-                  <Formula key="i">{String.raw`\hat i`}</Formula>,
-                  <Formula key="ie">{String.raw`x=2`}</Formula>,
-                  <Formula key="ir">{String.raw`x=2`}</Formula>,
-                ],
-              },
-              {
-                cells: [
-                  <Formula key="j">{String.raw`\hat j`}</Formula>,
-                  <Formula key="je">{String.raw`2=y`}</Formula>,
-                  <Formula key="jr">{String.raw`y=2`}</Formula>,
-                ],
-              },
-              {
-                cells: [
-                  <Formula key="k">{String.raw`\hat k`}</Formula>,
-                  <Formula key="ke">{String.raw`z=1`}</Formula>,
-                  <Formula key="kr">{String.raw`z=1`}</Formula>,
-                ],
-              },
-            ]}
-          />
-        </ProblemSolvingCard>
-
-        <ProblemSolvingCard
-          number={4}
-          title="Finding Unit Vector in the Direction of a Vector"
-          method={
-            <>
-              <p>
-                The unit vector in the direction of a non-zero vector{" "}
-                <Formula>{String.raw`\vec a`}</Formula> is:
-              </p>
-              <FormulaBlock latex={String.raw`\boxed{\hat a=\frac{\vec a}{|\vec a|}}`} important />
-            </>
-          }
-          answer={
-            <Formula>
-              {String.raw`\boxed{\hat a=\frac{1}{\sqrt6}\hat i+\frac{1}{\sqrt6}\hat j+\frac{2}{\sqrt6}\hat k}`}
-            </Formula>
-          }
-        >
-          <p>
-            <strong>Standard Example.</strong> Find the unit vector in the direction of{" "}
-            <Formula>{String.raw`\vec a=\hat i+\hat j+2\hat k`}</Formula>.
-          </p>
-          <p className="t-micro">Step 1 — Calculate the magnitude</p>
-          <FormulaBlock latex={String.raw`|\vec a|=\sqrt{1^2+1^2+2^2}`} />
-          <FormulaBlock latex={String.raw`=\sqrt{1+1+4}=\sqrt6`} />
-          <p className="t-micro">Step 2 — Apply the unit vector formula</p>
-          <FormulaBlock latex={String.raw`\hat a=\frac{\vec a}{|\vec a|}`} />
-          <FormulaBlock latex={String.raw`=\frac{\hat i+\hat j+2\hat k}{\sqrt6}`} />
-          <p className="t-micro">Step 3 — Simplify</p>
-        </ProblemSolvingCard>
-      </ProblemSolvingSection>
-
-      <h2 id="h-10-quick-revision">Quick Revision — Formula Sheet</h2>
-      <FormulaRevisionGrid />
-
-      <h2 id="h-10-4">10.4 Addition of Vectors</h2>
-      <KeyPoint>
-        Triangle law: place the initial point of{" "}
-        <Formula>{String.raw`\vec b`}</Formula> at the terminal point of{" "}
-        <Formula>{String.raw`\vec a`}</Formula>; the resultant is from the start to
-        the finish. Parallelogram law: the diagonal through the common initial point
-        is the sum. Vector addition is commutative, associative and has identity{" "}
-        <Formula>{String.raw`\vec 0`}</Formula>:
-      </KeyPoint>
-      <FormulaCard>
-        <div className="space-y-2">
-          <div><Formula>{String.raw`\vec a+\vec b=\vec b+\vec a`}</Formula></div>
-          <div><Formula>{String.raw`(\vec a+\vec b)+\vec c=\vec a+(\vec b+\vec c)`}</Formula></div>
-          <div><Formula>{String.raw`\vec a+\vec 0=\vec a,\quad \vec a+(-\vec a)=\vec 0`}</Formula></div>
-          <div><Formula>{String.raw`|\vec a+\vec b|^2=|\vec a|^2+|\vec b|^2+2\,\vec a\cdot\vec b`}</Formula></div>
+          <TriangleLawPanel />
         </div>
-      </FormulaCard>
-
-      <h2 id="h-10-5">10.5 Multiplication of a Vector by a Scalar</h2>
-      <p>
-        For a real scalar <Formula>{String.raw`\lambda`}</Formula> and vector{" "}
-        <Formula>{String.raw`\vec a`}</Formula>,{" "}
-        <Formula>{String.raw`\lambda\vec a`}</Formula> is parallel to{" "}
-        <Formula>{String.raw`\vec a`}</Formula> of magnitude{" "}
-        <Formula>{String.raw`|\lambda|\,|\vec a|`}</Formula>, with direction
-        preserved if <Formula>{String.raw`\lambda>0`}</Formula> and reversed if{" "}
-        <Formula>{String.raw`\lambda<0`}</Formula>. Two non-zero vectors are
-        collinear iff one is a scalar multiple of the other.
-      </p>
-      <FormulaCard>
-        <div className="space-y-2">
-          <div><Formula>{String.raw`(\lambda+\mu)\vec a=\lambda\vec a+\mu\vec a`}</Formula></div>
-          <div><Formula>{String.raw`\lambda(\vec a+\vec b)=\lambda\vec a+\lambda\vec b`}</Formula></div>
-          <div><Formula>{String.raw`\lambda(\mu\vec a)=(\lambda\mu)\vec a`}</Formula></div>
+        <div>
+          <h4 id="h-10-3-1-2">1.2 Parallelogram Law of Vector Addition</h4>
+          <p>
+            If two coinitial vectors <Formula>{String.raw`\vec a`}</Formula> and{" "}
+            <Formula>{String.raw`\vec b`}</Formula> form adjacent sides of a parallelogram, their
+            sum is represented by the diagonal passing through their common initial point.
+          </p>
+          <ParallelogramLawPanel />
         </div>
-      </FormulaCard>
+      </div>
 
-      <h3 id="h-10-5-1">10.5.1 Components of a vector</h3>
+      <h4 id="h-10-3-1-3">1.3 Properties of Vector Addition</h4>
+      <VectorAdditionPropertiesGrid />
+
+      <h3 id="h-10-3-2">2. Multiplication of a Vector by a Scalar</h3>
       <p>
-        In 3-D every vector decomposes uniquely as
+        Multiplying a vector <Formula>{String.raw`\vec a`}</Formula> by a scalar{" "}
+        <Formula>{String.raw`\lambda`}</Formula> produces a scaled vector{" "}
+        <Formula>{String.raw`\lambda\vec a`}</Formula>.
       </p>
       <FormulaBlock
-        latex={String.raw`\vec a=a_1\hat i+a_2\hat j+a_3\hat k`}
+        latex={String.raw`\boxed{|\lambda\vec a|=|\lambda||\vec a|}`}
         important
-        label="Components / rectangular form"
+        label="Magnitude:"
       />
-      <p>
-        where <Formula>{String.raw`\hat i,\hat j,\hat k`}</Formula> are the unit
-        vectors along <Formula>{String.raw`x,y,z`}</Formula>. Its magnitude:
-      </p>
-      <FormulaBlock latex={String.raw`|\vec a|=\sqrt{a_1^2+a_2^2+a_3^2}`} />
-      <FormulaCard>
-        <div className="space-y-2">
-          <div><Formula>{String.raw`\vec a\pm\vec b=(a_1\pm b_1)\hat i+(a_2\pm b_2)\hat j+(a_3\pm b_3)\hat k`}</Formula></div>
-          <div><Formula>{String.raw`\lambda\vec a=\lambda a_1\hat i+\lambda a_2\hat j+\lambda a_3\hat k`}</Formula></div>
-        </div>
-      </FormulaCard>
+      <p><strong>Effect on direction:</strong></p>
+      <ul className="list-disc space-y-1.5 pl-5">
+        <li>
+          <Formula>{String.raw`\lambda>0`}</Formula> → Direction remains unchanged.
+        </li>
+        <li>
+          <Formula>{String.raw`\lambda<0`}</Formula> → Direction reverses.
+        </li>
+      </ul>
+      <ScalarMultiplicationVisual />
 
-      <h3 id="h-10-5-2">10.5.2 Vector joining two points</h3>
+      <h4 id="h-10-3-2-1">Distributive Laws</h4>
       <FormulaBlock
-        latex={String.raw`\vec{AB}=(x_2-x_1)\hat i+(y_2-y_1)\hat j+(z_2-z_1)\hat k`}
+        latex={String.raw`\boxed{k(\vec a+\vec b)=k\vec a+k\vec b}`}
         important
       />
-      <p>
-        Midpoint of <Formula>{String.raw`AB`}</Formula> is{" "}
-        <Formula>{String.raw`\left(\frac{x_1+x_2}{2},\frac{y_1+y_2}{2},\frac{z_1+z_2}{2}\right)`}</Formula>.
-      </p>
+      <FormulaBlock
+        latex={String.raw`\boxed{(k+m)\vec a=k\vec a+m\vec a}`}
+        important
+      />
 
-      <h3 id="h-10-5-3">10.5.3 Section formula</h3>
+      <h3 id="h-10-3-3">3. Vector Representation in Components</h3>
+      <h4 id="h-10-3-3-1">3.1 Three-Dimensional Component Form</h4>
       <p>
-        If <Formula>{String.raw`P`}</Formula> divides <Formula>{String.raw`AB`}</Formula>{" "}
-        internally in the ratio <Formula>{String.raw`m:n`}</Formula>:
+        Any vector <Formula>{String.raw`\vec a`}</Formula> can be expressed using the orthogonal
+        unit vectors <Formula>{String.raw`\hat i,\hat j,\hat k`}</Formula> along the{" "}
+        <Formula>{String.raw`x,y,z`}</Formula>-axes.
       </p>
-      <FormulaBlock latex={String.raw`\vec p=\frac{n\vec a+m\vec b}{m+n}`} important />
+      <VectorComponentsDiagram />
 
-      <Expandable title="Examples 1 to 6 — NCERT">
-        <div className="space-y-4">
-          <div>
-            <p><strong>Example 1.</strong> Find the magnitude and unit vector of <Formula>{String.raw`\vec a=\hat i+\hat j+\sqrt2\,\hat k`}</Formula>.</p>
-            <p><strong>Solution.</strong> <Formula>{String.raw`|\vec a|=\sqrt{1+1+2}=2`}</Formula>, so <Formula>{String.raw`\hat a=\frac12(\hat i+\hat j+\sqrt2\,\hat k)`}</Formula>.</p>
-          </div>
-          <div>
-            <p><strong>Example 2.</strong> For <Formula>{String.raw`\vec a=\hat i-\hat j+\sqrt3\,\hat k`}</Formula>, show it makes equal angles with the axes.</p>
-            <p><strong>Solution.</strong> The direction cosines are <Formula>{String.raw`\frac12,-\frac12,\frac{\sqrt3}{2}`}</Formula>, giving angles 60°, 120°, 30° with the axes and magnitude 2.</p>
-          </div>
-          <div>
-            <p><strong>Example 3.</strong> If <Formula>{String.raw`\vec a+\vec b+\vec c=\vec0`}</Formula>, then <Formula>{String.raw`\vec a\cdot\vec b+\vec b\cdot\vec c+\vec c\cdot\vec a=-\frac12(a^2+b^2+c^2)`}</Formula>.</p>
-            <p><strong>Solution.</strong> Square the zero-sum: <Formula>{String.raw`a^2+b^2+c^2+2(\vec a\cdot\vec b+\vec b\cdot\vec c+\vec c\cdot\vec a)=0`}</Formula>, rearrange.</p>
-          </div>
-          <div>
-            <p><strong>Example 4.</strong> In a parallelogram <Formula>{String.raw`OABC`}</Formula>, <Formula>{String.raw`\vec{OC}=\vec{OA}+\vec{OB}`}</Formula>.</p>
-            <p><strong>Solution.</strong> The diagonal is the sum of the adjacent sides.</p>
-          </div>
-          <div>
-            <p><strong>Example 5.</strong> Unit vectors parallel to the line of intersection of the planes <Formula>{String.raw`x+y+z=1`}</Formula> and <Formula>{String.raw`x+2y+3z=1`}</Formula>.</p>
-            <p><strong>Solution.</strong> Normals <Formula>{String.raw`\vec n_1=(1,1,1),\ \vec n_2=(1,2,3)`}</Formula>; direction <Formula>{String.raw`\vec n_1\times\vec n_2=(-1,2,-1)`}</Formula>, so unit vectors are <Formula>{String.raw`\pm\frac{1}{\sqrt6}(-1,2,-1)`}</Formula>.</p>
-          </div>
-          <div>
-            <p><strong>Example 6.</strong> Find the position vector of <Formula>{String.raw`R`}</Formula> dividing <Formula>{String.raw`PQ`}</Formula> internally in <Formula>{String.raw`m:n`}</Formula>.</p>
-            <p><strong>Solution.</strong> <Formula>{String.raw`\vec r=\frac{n\vec p+m\vec q}{m+n}`}</Formula>, as in 10.5.3.</p>
-          </div>
-        </div>
-      </Expandable>
+      <h4 id="h-10-3-3-2">3.2 Algebraic Operations on Vector Components</h4>
+      <p>Given two vectors:</p>
+      <FormulaBlock latex={String.raw`\vec a=a_1\hat i+a_2\hat j+a_3\hat k`} />
+      <FormulaBlock latex={String.raw`\vec b=b_1\hat i+b_2\hat j+b_3\hat k`} />
+      <p>Their operations are performed by operating on corresponding components.</p>
+      <TableCard
+        title="Component operations"
+        headers={["Operation", "Result"]}
+        rows={[
+          {
+            cells: [
+              "Addition",
+              <Formula key="add">{String.raw`(a_1+b_1)\hat i+(a_2+b_2)\hat j+(a_3+b_3)\hat k`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Subtraction",
+              <Formula key="sub">{String.raw`(a_1-b_1)\hat i+(a_2-b_2)\hat j+(a_3-b_3)\hat k`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Scalar multiplication",
+              <Formula key="scalar">{String.raw`(\lambda a_1)\hat i+(\lambda a_2)\hat j+(\lambda a_3)\hat k`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Equality",
+              <Formula key="equal">{String.raw`a_1=b_1,\ a_2=b_2,\ a_3=b_3`}</Formula>,
+            ],
+          },
+        ]}
+      />
+      <p><strong>Condition for Equality:</strong></p>
+      <FormulaBlock
+        latex={String.raw`\boxed{ \vec a=\vec b \iff a_1=b_1,\quad a_2=b_2,\quad a_3=b_3 }`}
+        important
+      />
+
+      <h4 id="h-10-3-3-3">3.3 Vector Joining Two Points</h4>
+      <p>For two points:</p>
+      <ul className="list-disc space-y-1.5 pl-5">
+        <li>
+          Initial point: <Formula>{String.raw`P(x_1,y_1,z_1)`}</Formula>
+        </li>
+        <li>
+          Terminal point: <Formula>{String.raw`Q(x_2,y_2,z_2)`}</Formula>
+        </li>
+      </ul>
+      <p>The vector joining <Formula>{String.raw`P`}</Formula> to{" "}
+        <Formula>{String.raw`Q`}</Formula> is:</p>
+      <VectorJoiningPointsDiagram />
+
+      <h3 id="h-10-3-4">4. Section Formula</h3>
+      <p>
+        The section formula gives the position vector of a point <Formula>{String.raw`R`}</Formula>{" "}
+        dividing the line segment joining two points <Formula>{String.raw`P(\vec a)`}</Formula> and{" "}
+        <Formula>{String.raw`Q(\vec b)`}</Formula> in the ratio{" "}
+        <Formula>{String.raw`m:n`}</Formula>.
+      </p>
+      <SectionFormulaIllustration />
+
+      <h4 id="h-10-3-4-1">4.1 Internal Division</h4>
+      <InternalDivisionCard />
+
+      <h4 id="h-10-3-4-2">4.2 External Division</h4>
+      <ExternalDivisionCard />
+
+      <h4 id="h-10-3-4-3">4.3 Midpoint Formula</h4>
+      <MidpointCard />
+
+      <p><strong>Quick comparison</strong></p>
+      <TableCard
+        title="Section formula comparison"
+        headers={["Division", "Formula"]}
+        rows={[
+          {
+            cells: [
+              "Internal",
+              <Formula key="internal">{String.raw`\dfrac{m\vec b+n\vec a}{m+n}`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "External",
+              <Formula key="external">{String.raw`\dfrac{m\vec b-n\vec a}{m-n}`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Midpoint",
+              <Formula key="midpoint">{String.raw`\dfrac{\vec a+\vec b}{2}`}</Formula>,
+            ],
+          },
+        ]}
+      />
+
+      <h3 id="h-10-3-problem-solving">5. Problem-Solving: Types, Methods &amp; Examples</h3>
+      <VectorProblemCards />
+
+      <h3 id="h-10-quick-revision">6. Quick Revision — Formula Sheet</h3>
+      <VectorFormulaSheetDashboard />
 
       <Expandable title="Exercise 10.1">
         <ExerciseQa

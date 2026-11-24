@@ -2269,6 +2269,15 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/mathematics/ScalarMultiplicationVisual.tsx#ScalarMultiplicationVisual",
+    "name": "ScalarMultiplicationVisual",
+    "path": "content/mathematics/ScalarMultiplicationVisual.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/mathematics/ScalarVectorComparison.tsx#ScalarVectorComparison",
     "name": "ScalarVectorComparison",
     "path": "content/mathematics/ScalarVectorComparison.tsx",
@@ -2308,6 +2317,42 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/mathematics/SecondDerivativeGraphs.tsx#StationaryInflectionGraph",
     "name": "StationaryInflectionGraph",
     "path": "content/mathematics/SecondDerivativeGraphs.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/SectionFormulaPanels.tsx#ExternalDivisionCard",
+    "name": "ExternalDivisionCard",
+    "path": "content/mathematics/SectionFormulaPanels.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/SectionFormulaPanels.tsx#InternalDivisionCard",
+    "name": "InternalDivisionCard",
+    "path": "content/mathematics/SectionFormulaPanels.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/SectionFormulaPanels.tsx#MidpointCard",
+    "name": "MidpointCard",
+    "path": "content/mathematics/SectionFormulaPanels.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/SectionFormulaPanels.tsx#SectionFormulaIllustration",
+    "name": "SectionFormulaIllustration",
+    "path": "content/mathematics/SectionFormulaPanels.tsx",
     "category": "content",
     "props": null,
     "shell": false,
@@ -2413,9 +2458,45 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/mathematics/VectorAdditionLawPanels.tsx#ParallelogramLawPanel",
+    "name": "ParallelogramLawPanel",
+    "path": "content/mathematics/VectorAdditionLawPanels.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/VectorAdditionLawPanels.tsx#TriangleLawPanel",
+    "name": "TriangleLawPanel",
+    "path": "content/mathematics/VectorAdditionLawPanels.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/VectorAdditionPropertiesGrid.tsx#VectorAdditionPropertiesGrid",
+    "name": "VectorAdditionPropertiesGrid",
+    "path": "content/mathematics/VectorAdditionPropertiesGrid.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/mathematics/VectorChapterHeader.tsx#VectorChapterHeader",
     "name": "VectorChapterHeader",
     "path": "content/mathematics/VectorChapterHeader.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/VectorComponentsDiagram.tsx#VectorComponentsDiagram",
+    "name": "VectorComponentsDiagram",
+    "path": "content/mathematics/VectorComponentsDiagram.tsx",
     "category": "content",
     "props": null,
     "shell": false,
@@ -2434,6 +2515,33 @@ export const CATALOG: CatalogEntry[] = [
     "id": "content/mathematics/VectorConceptDiagrams.tsx#PositionVector3DDiagram",
     "name": "PositionVector3DDiagram",
     "path": "content/mathematics/VectorConceptDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/VectorFormulaSheetDashboard.tsx#VectorFormulaSheetDashboard",
+    "name": "VectorFormulaSheetDashboard",
+    "path": "content/mathematics/VectorFormulaSheetDashboard.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/VectorJoiningPointsDiagram.tsx#VectorJoiningPointsDiagram",
+    "name": "VectorJoiningPointsDiagram",
+    "path": "content/mathematics/VectorJoiningPointsDiagram.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/VectorProblemCards.tsx#VectorProblemCards",
+    "name": "VectorProblemCards",
+    "path": "content/mathematics/VectorProblemCards.tsx",
     "category": "content",
     "props": null,
     "shell": false,
