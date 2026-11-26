@@ -8,80 +8,73 @@ import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
 import { Highlight } from "@/components/content/Highlight";
 import { CollapsibleSection } from "@/components/content/CollapsibleSection";
+import { Expandable } from "@/components/content/Expandable";
 import { TableCard } from "@/components/content/data/TableCard";
 
 const QA_ITEMS = [
   {
-    question: "Of all the memories of his homeland, the narrator thinks of 'rice' first. What does this show?",
+    question:
+      "Of all the memories of his homeland, the narrator thinks of 'rice' first. What does this show?",
     answer: (
       <>
-        Rice represents the narrator&rsquo;s{" "}
-        <Highlight color="yellow">deepest connection to home</Highlight>.
-        After four years of eating chapaties in North India, his first desire
-        is for a meal of athikira rice. This shows that food is intertwined
-        with identity, belonging, and the sensory memories of childhood.
+        Rice stands for{" "}
+        <Highlight color="yellow">home, love and tradition</Highlight> &mdash; a
+        deep attachment to the family life and the paddy culture he grew up in.
       </>
     ),
   },
   {
     question: "What are the memories of the narrator about the paddy cultivating season?",
     answer: (
-      <>
-        Part I paints a vivid picture: his father in a mud-stained dhoti,
-        excited about canal waters, greeting him from the fields amidst the
-        shouts of ploughing. His little brother carries tender saplings. His
-        mother drains well-cooked rice. These are{" "}
-        <Highlight color="green">warm, active memories</Highlight> of a
-        community engaged in rice cultivation.
-      </>
+      <ul>
+        <li>His father in a mud-stained dhoti</li>
+        <li>Oxen ploughing</li>
+        <li>Water in the canal</li>
+        <li>His brother carrying tender saplings</li>
+        <li>
+          His mother draining <em>athikira</em> rice
+        </li>
+      </ul>
     ),
   },
   {
-    question: "The narrator wants the train to move a little faster. What does this tell us about his feeling for his native village?",
+    question:
+      "The narrator wants the train to move a little faster. What does this tell us about his feeling for his native village?",
     answer: (
       <>
-        The plea &ldquo;O train, will you run a little faster&rdquo; reveals{" "}
-        <Highlight color="yellow">deep longing and impatience</Highlight>.
-        After years away, the narrator cannot wait to reach home and eat his
-        fill of athikira rice. The urgency is emotional &mdash; home is not
-        just a place but a sensory experience he craves.
+        <Highlight color="yellow">Homesick and excited</Highlight> &mdash; eager
+        to reach his family and taste home food, with a strong longing for the
+        village.
       </>
     ),
   },
   {
     question: "What changes in the native village does the narrator notice on his return?",
     answer: (
-      <>
-        Rubber plants have replaced paddy fields. Arecanut palms and dealwood
-        trees stand where rice was once grown. There is no bustle of men, no
-        shouts of ploughing. The village has{" "}
-        <Highlight color="pink">shifted from rice to cash crops</Highlight>{" "}
-        &mdash; a transformation that fills the narrator with a sense of loss.
-      </>
+      <ul>
+        <li>Paddy fields disappeared</li>
+        <li>Rubber, arecanut and dealwood replaced them</li>
+        <li>Father sets up a rubber-sheeting machine</li>
+        <li>Family brings ration wheat</li>
+      </ul>
     ),
   },
   {
     question: "Rubber plants have taken the place of paddy. What does this imply?",
     answer: (
       <>
-        The replacement of paddy with rubber implies the{" "}
-        <Highlight color="blue">commercialization of agriculture</Highlight>{" "}
-        &mdash; farmers have abandoned food crops for more profitable cash
-        crops. It signals the erosion of self-sufficiency and traditional
-        farming, and the growing dependence on government rations.
+        Cash crops replaced food crops for profit, which{" "}
+        <Highlight color="pink">lowers self-sufficiency</Highlight> and raises
+        dependence on outside grain.
       </>
     ),
   },
   {
-    question: "'Only fools turn to rice-farming for gain'. Why does the father say so?",
+    question: "'Only fools turn to rice-farming for gain.' Why does the father say so?",
     answer: (
       <>
-        The father&rsquo;s statement is{" "}
-        <Highlight color="yellow">bitter irony</Highlight>. Rice farming has
-        become economically unviable &mdash; the government itself distributes
-        rice to those without paddy fields. The father has proudly shifted to
-        rubber, but the narrator recognizes the tragedy: a community that once
-        fed itself now depends on handouts.
+        Paddy meant hard work and low returns; rubber meant better, easier
+        income, so the family abandoned rice farming.
       </>
     ),
   },
@@ -89,31 +82,26 @@ const QA_ITEMS = [
     question: "What does 'ship of the sky' represent?",
     answer: (
       <>
-        The &ldquo;ship of the sky&rdquo; is an{" "}
-        <Highlight color="blue">airplane</Highlight> &mdash; carrying the Chief
-        Minister to the Centre to &ldquo;clamour for more grains.&rdquo; It
-        symbolizes the disconnect between political power and the reality of
-        farming communities. The farmer flies above the cash crops while the
-        people below go hungry.
+        An <Highlight color="blue">airplane</Highlight> carrying the Chief
+        Minister to the Centre to request more grain.
       </>
     ),
   },
   {
-    question: "'Can we get some husk from the Centre, too, to make toys with it?' Bring out the satire in these lines?",
+    question:
+      "'Can we get some husk from the Centre, too, to make toys with it?' Bring out the satire in these lines.",
     answer: (
       <>
-        This closing line is the poem&rsquo;s{" "}
-        <Highlight color="yellow">sharpest satirical stroke</Highlight>. The
-        narrator&rsquo;s doctoral research was on making toys with rice husk
-        &mdash; a topic now irrelevant because rice is no longer grown.
-        The question mocks a system where the Centre supplies rice (not
-        self-grown) and where education leads to skills that the changing
-        landscape makes useless.
+        It mocks the total dependence that followed the abandonment of rice
+        &mdash;{" "}
+        <Highlight color="yellow">
+          even cheap husk may have to be begged for
+        </Highlight>{" "}
+        &mdash; and exposes misplaced priorities and policy failure.
       </>
     ),
   },
 ];
-
 const DISCOURSES = [
   {
     id: "poetic-devices",
@@ -202,6 +190,320 @@ const DISCOURSES = [
           brother scatters imported wheat in a household that once harvested
           abundant rice.
         </KeyPoint>
+      </>
+    ),
+  },
+  {
+    id: "examples-of-satire",
+    title: "Examples of Satire",
+    content: (
+      <>
+        <p>
+          The question asks you to cite the instances of satire that surround the
+          shift from paddy cultivation to rubber planting.
+        </p>
+        <p>
+          Chemmanam Chacko uses sharp satire throughout the poem to expose
+          societal hypocrisy.
+        </p>
+        <TableCard
+          title="Four instances of satire"
+          headers={["Instance", "In the poem", "The satire"]}
+          rows={[
+            {
+              cells: [
+                "Father's pride in quitting rice farming",
+                "He calls rice farming \u201cinconvenient\u201d and says \u201conly fools turn to rice-farming for gain.\u201d",
+                "Pride in abandoning food independence.",
+              ],
+            },
+            {
+              cells: [
+                "Ration wheat instead of native rice",
+                "The narrator craves athikira rice; his brother trips and spills government ration wheat across the yard.",
+                "Home-grown food replaced by government charity.",
+              ],
+            },
+            {
+              cells: [
+                "The flying Chief Minister",
+                "His plane, the \u201cship of the sky\u201d, crosses tall cash-crop fields to beg New Delhi for grain.",
+                "A state that cannot feed itself still flies to ask.",
+              ],
+            },
+            {
+              cells: [
+                "The irony of the Ph.D. degree",
+                "Four years of research on toys from rice husk, but no paddy is grown to supply husk.",
+                "Higher education outlives its own subject.",
+              ],
+            },
+          ]}
+          caption="Each instance pairs a proud claim with the loss it hides."
+        />
+      </>
+    ),
+  },
+  {
+    id: "appreciation",
+    title: "Poem Appreciation",
+    content: (
+      <>
+        <p>
+          A model appreciation written to the single-poem format on the
+          Discourses page.
+        </p>
+        <p>
+          It moves through four parts: poet and title; summary and central idea;
+          devices and style; message and personal response.
+        </p>
+
+        <h3
+          id="app-introduction"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          I. Introduction &mdash; Poet, Title, Mood and Theme
+        </h3>
+        <p>
+          <em>Rice</em> is a beautiful, thought-provoking and inspiring poem.
+        </p>
+        <p>
+          It was written by{" "}
+          <Highlight color="yellow">Chemmanam Chacko</Highlight> and translated
+          by K. Ayyappa Paniker.
+        </p>
+        <p>
+          Through it the poet presents a <strong>deep insight</strong> into the
+          shift from paddy cultivation to cash crops, and the loss of food
+          self-reliance that follows.
+        </p>
+        <p>
+          The <strong>title</strong> is a gateway to that idea: rice is the food
+          at the centre of memory and the crop that has vanished from the fields.
+        </p>
+        <p>
+          The <strong>mood</strong> is warm nostalgia in Part I and
+          disillusionment in Part II, and the tone stays soft yet sharply ironic.
+        </p>
+
+        <h3
+          id="app-summary-theme"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          II. Summary and Central Idea
+        </h3>
+        <p>
+          The poem revolves around a narrator who returns to his village after
+          four years of doctoral research in North India, dreaming of a hot meal
+          of <Highlight color="green">athikira rice</Highlight>.
+        </p>
+        <p>He remembers the planting season:</p>
+        <ul>
+          <li>His father in a mud-stained dhoti, directing canal water</li>
+          <li>Oxen ploughing</li>
+          <li>His little brother running with tender paddy saplings</li>
+          <li>His mother draining freshly cooked rice</li>
+        </ul>
+        <p>
+          Instead he finds rubber rows where paddy once grew, a rubber-sheeting
+          machine in the yard, and ration wheat in his brother&rsquo;s hands.
+        </p>
+        <p>
+          The <strong>central idea</strong> is that chasing profit can erode food
+          security, culture and the taste of home.
+        </p>
+
+        <h3
+          id="app-devices"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          III. Poetic Devices, Language, Tone and Style
+        </h3>
+        <p>
+          The poem works through <strong>contrast</strong>: the expected world of
+          food crops and community work against the actual world of cash crops
+          and machines.
+        </p>
+        <p>
+          Its humour is gentle and its irony sharp. The father&rsquo;s
+          &ldquo;only fools turn to rice-farming for gain&rdquo; sounds funny and
+          reveals the sad shift to easy money in rubber.
+        </p>
+        <p>
+          The &ldquo;ship of the sky&rdquo; has leaders flying to ask for grain
+          because no one grows rice locally, and the closing plea for husk from
+          the Centre pushes dependence to an absurd limit.
+        </p>
+        <p>
+          The <strong>language</strong> is simple and plain, the village pictures
+          are vivid, and the irony is soft yet powerful.
+        </p>
+        <p>
+          The <strong>tone</strong> is warm with love for home and painful with
+          the loss of old ways.
+        </p>
+
+        <h3
+          id="app-critical"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          IV. Conclusion &mdash; Message, Personal Response and Favourite Lines
+        </h3>
+        <p>
+          In conclusion, <em>Rice</em> is a meaningful and memorable poem whose
+          message is timeless: chasing profit can erode food security, culture
+          and the taste of home.
+        </p>
+        <p>
+          The poem asks readers to weigh what a village gains in cash against
+          what it loses in the taste of home rice, the rhythm of seasons and the
+          dignity of feeding oneself.
+        </p>
+        <p>
+          My <strong>favourite lines</strong> are &ldquo;only fools turn to
+          rice-farming for gain&rdquo; because the father&rsquo;s pride makes the
+          loss of food independence sting.
+        </p>
+        <p>
+          Overall, the poem is an inspiring and worthwhile piece of literature
+          that deserves appreciation.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "write-up",
+    title: "Write-Up",
+    content: (
+      <>
+        <p>
+          Activity II asks for a write-up on <em>Rice</em> as a satire on farmers
+          forced to switch to cash crops when the market for food crops fell.
+        </p>
+
+        <h3
+          id="write-up-question"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          The Question
+        </h3>
+        <blockquote className="my-6 rounded-r-xl border-l-2 border-border bg-muted/20 py-3 pl-4 pr-4">
+          <p>
+            Chemmanam Chacko is a master satirist who has fought many a battle
+            with the system through his writings, laced with scorn and sarcasm.
+          </p>
+          <p>
+            He says, &ldquo;Socio-political sphere is much meek and limited
+            compared with earlier times.&rdquo;
+          </p>
+          <p>
+            &ldquo;Society has changed and, with it, have the mass
+            sensibilities.&rdquo;
+          </p>
+          <p>
+            Consider his poem &ldquo;Rice&rdquo; as a satire on the farmers who
+            are forced to switch to cash crops when the market for food crops
+            fell. Prepare a write-up.
+          </p>
+        </blockquote>
+
+        <h3
+          id="write-up-model"
+          className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+        >
+          Model Write-Up
+        </h3>
+        <p className="t-micro">About 250 words · title, information, significance</p>
+        <Expandable
+          title="Model write-up — a biting satire on commercialised farming"
+          variant="example"
+        >
+          <p className="text-base font-bold tracking-tight text-foreground">
+            Rice: A Biting Satire on Commercialized Farming and Lost
+            Self-Reliance
+          </p>
+          <p>
+            Chemmanam Chacko is a master satirist in Malayalam literature.
+          </p>
+          <p>
+            His poem <em>Rice</em>, translated by K. Ayyappa Paniker, delivers a
+            sharp socio-political critique of how commercial market forces have
+            destroyed traditional agriculture in Kerala.
+          </p>
+          <p>
+            Through humour, irony and sarcasm, he exposes the tragic shift from
+            sustainable food crops to lucrative cash crops.
+          </p>
+
+          <h4>1. Market realities versus agrarian tradition</h4>
+          <p>
+            The narrator returns to his native village after four years of
+            doctoral research in North India, dreaming of a warm home-cooked
+            meal of native <em>athikira</em> rice.
+          </p>
+          <p>
+            He is shocked to find the paddy fields (<em>modan</em> and{" "}
+            <em>vellaran</em>) gone, replaced by tall rows of rubber trees and
+            arecanut palms.
+          </p>
+          <p>
+            The farmer father proudly justifies the shift: rice farming is
+            financially inconvenient, and &ldquo;only fools turn to rice-farming
+            for gain.&rdquo;
+          </p>
+          <p>
+            Driven by market demand and quick profit, farmers voluntarily abandon
+            essential food production for cash crops.
+          </p>
+
+          <h4>2. The irony of dependency</h4>
+          <p>
+            Chacko satirizes the absurdity of a society that gives up its food
+            security for commercial convenience.
+          </p>
+          <p>
+            The family that once harvested abundant native rice now relies on{" "}
+            <Highlight color="pink">government ration wheat</Highlight> brought
+            home by the little brother.
+          </p>
+          <p>
+            The lively sounds of ploughing give way to machines, and communal
+            work gives way to plantation routines.
+          </p>
+          <p>
+            The satire reaches its peak with the Chief Minister&rsquo;s airplane,
+            the &ldquo;ship of the sky&rdquo;. It flies over tall cash-crop fields
+            to beg the Central Government in New Delhi for food grains.
+          </p>
+
+          <h4>3. The final satirical punchline</h4>
+          <p>
+            The poem closes on the ultimate irony. The narrator spent four years
+            earning a doctorate on making toys from rice husk, only to find that
+            no paddy is left, and therefore no husk.
+          </p>
+          <p>
+            He wonders sarcastically whether the Chief Minister can request husk
+            from the Centre too.
+          </p>
+          <p>
+            The tone is not cruel. It understands why families chose profit, but
+            it asks what is lost: the taste of home rice, the rhythm of seasons
+            and the dignity of feeding oneself.
+          </p>
+
+          <h4>Conclusion</h4>
+          <p>
+            Through <em>Rice</em>, Chemmanam Chacko warns society about the
+            dangers of prioritizing short-term market profits over sustainable
+            food production.
+          </p>
+          <p>
+            The poem is a powerful reminder that a society which trades its food
+            security for cash crops ultimately surrenders its independence and
+            cultural heritage.
+          </p>
+        </Expandable>
       </>
     ),
   },
