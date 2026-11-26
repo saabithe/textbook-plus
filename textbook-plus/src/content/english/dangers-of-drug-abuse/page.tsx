@@ -300,31 +300,156 @@ const AIDER = (
     />
 
     <h3 className="text-base font-bold mt-6 mb-2 scroll-mt-24 text-foreground">
-      Effects on health and society
+      Hippocrates and drug use
     </h3>
+    <p>
+      Hippocrates, the father of medicine, established four core medical
+      principles regarding drug use.
+    </p>
     <TableCard
-      headers={["Area", "What happens"]}
+      title="The four principles"
+      headers={["Principle", "What it requires"]}
       rows={[
         {
           cells: [
-            "Mental and neurological",
-            "Depression, personality change, paranoia, damage to brain and nose tissue",
+            "Individual suitability",
+            "A remedy must consider not only the symptoms of a disease, but also the patient’s individual constitution and habits.",
           ],
         },
         {
           cells: [
-            "Physical",
-            "Damaged liver, malnutrition, weight loss, loss of appetite, death",
+            "Specific action",
+            "A drug should only be used if it specifically mitigates a particular bodily disorder.",
           ],
         },
         {
           cells: [
-            "Society",
-            "Higher crime, lost productivity, broken families, ruined relationships",
+            "Restorative effect",
+            "Medicine must have restorative properties so that it does not unbalance the healthy functions of the brain and body.",
+          ],
+        },
+        {
+          cells: [
+            "No benefit to the healthy",
+            "A person in good health cannot benefit from taking drugs; in fact, healthy individuals lose their natural strength by taking unnecessary medicines.",
           ],
         },
       ]}
     />
+
+    <h3 className="text-base font-bold mt-6 mb-2 scroll-mt-24 text-foreground">
+      Effects on health and society
+    </h3>
+    <p>
+      The damage begins in the brain and spreads to the body and to the
+      addict&rsquo;s relations with others.
+    </p>
+    <TableCard
+      title="On the brain and mind"
+      headers={["Area", "What happens"]}
+      rows={[
+        {
+          cells: [
+            "Chemically regulated controls",
+            "Sensual drugs disrupt the controls over sensations, moods, thoughts and actions.",
+          ],
+        },
+        {
+          cells: [
+            "Pleasure and craving",
+            "The user feels less satisfaction, yet the craving continues.",
+          ],
+        },
+        {
+          cells: [
+            "Severe addiction",
+            "Pleasure mechanisms stop responding; the drug only suspends withdrawal.",
+          ],
+        },
+        {
+          cells: [
+            "Sensory deprivation",
+            "Sunshine and flowers no longer bring emotional pleasure; the addict feels dead inside.",
+          ],
+        },
+        {
+          cells: [
+            "Mental disturbance",
+            "Depression, personality changes and paranoia make the addict suspect everything outside himself.",
+          ],
+        },
+        {
+          cells: [
+            "Sense of reality",
+            "He presses his fingers into his arms or legs to reassure himself that he is alive.",
+          ],
+        },
+      ]}
+    />
+    <TableCard
+      title="On the body"
+      headers={["Cause", "Disorder"]}
+      rows={[
+        {
+          cells: [
+            "Dirty needles and solutions",
+            "Abscesses, liver disease, venereal disease, kidney and brain infections",
+          ],
+        },
+        {
+          cells: ["Sniffing cocaine or amphetamines", "Damage to the tissue of the nose"],
+        },
+        {
+          cells: ["Smoking marijuana or tobacco", "Lung diseases and cell damage"],
+        },
+        {
+          cells: [
+            "Heavy use of alcohol, solvents, amphetamines or marijuana",
+            "Permanent liver damage",
+          ],
+        },
+        {
+          cells: [
+            "Opiate addiction in women",
+            "Babies born addicted, with withdrawal symptoms",
+          ],
+        },
+        {
+          cells: ["Cocaine and amphetamines", "Hair loss"],
+        },
+        {
+          cells: [
+            "The addict&rsquo;s way of life",
+            "Pneumonia, tuberculosis, malnutrition and weight loss",
+          ],
+        },
+        {
+          cells: ["Overdose", "Respiratory or cardiac failure and death"],
+        },
+      ]}
+    />
+    <TableCard
+      title="On society"
+      headers={["Area", "What happens"]}
+      rows={[
+        {
+          cells: [
+            "Spread of abuse",
+            "Drug abuse spreads when people expect a pill to solve every problem.",
+          ],
+        },
+        {
+          cells: ["Crime and work", "Higher crime and lost productivity follow dependence."],
+        },
+        {
+          cells: ["Relationships", "Families break and relationships are ruined."],
+        },
+      ]}
+    />
+    <KeyPoint title="Exam trap">
+      Brain damage is the most subtle, most often unrecognized and least understood
+      consequence of drug abuse.
+    </KeyPoint>
 
     <h3 className="text-base font-bold mt-6 mb-2 scroll-mt-24 text-foreground">
       How to overcome
@@ -551,48 +676,6 @@ const DISCOURSES = [
             least understood</Highlight> consequence of drug abuse.
           </p>
         </Callout>
-      </>
-    ),
-  },
-  {
-    id: "hippocrates",
-    title: "Hippocrates and Drug Use",
-    content: (
-      <>
-        <p>
-          Hippocrates, the father of medicine, established four core medical
-          principles regarding drug use.
-        </p>
-        <TableCard
-          title="The four principles"
-          headers={["Principle", "What it requires"]}
-          rows={[
-            {
-              cells: [
-                "Individual suitability",
-                "A remedy must consider not only the symptoms of a disease, but also the patient\u2019s individual constitution and habits.",
-              ],
-            },
-            {
-              cells: [
-                "Specific action",
-                "A drug should only be used if it specifically mitigates a particular bodily disorder.",
-              ],
-            },
-            {
-              cells: [
-                "Restorative effect",
-                "Medicine must have restorative properties so that it does not unbalance the healthy functions of the brain and body.",
-              ],
-            },
-            {
-              cells: [
-                "No benefit to the healthy",
-                "A person in good health cannot benefit from taking drugs; in fact, healthy individuals lose their natural strength by taking unnecessary medicines.",
-              ],
-            },
-          ]}
-        />
       </>
     ),
   },
