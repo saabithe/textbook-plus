@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { ChapterIntro } from "@/components/content/ChapterIntro";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
@@ -9,82 +8,7 @@ import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
 import { Highlight } from "@/components/content/Highlight";
 import { CollapsibleSection } from "@/components/content/CollapsibleSection";
-
-const POEM_LINES_PART1 = [
-  "I come home at the end of four years of research",
-  "in North India, having earned a doctoral degree",
-  "and generous praise for my work on making toys with husk;",
-  "bored with eating chapaties day after day,",
-  "I'm eager to eat a meal of athikira rice.",
-  "",
-  "It will be the planting season when I get there,",
-  "and my father—his handloom dhoti stained with yellow mud,",
-  "excited about the waters of the Varanganal canal—",
-  "will greet me from the fields below our house,",
-  "amidst the shouts of ploughing with several oxen.",
-  "",
-  "The oxen will stop when they see me",
-  "walking with my suitcase, and my father,",
-  "without smiling the smile slowly forming on his lips,",
-  "will call from the field: 'And when did you start from there?'",
-  "",
-  "My little brother, carrying the tender saplings",
-  "to be planted in the field where the ploughing is done,",
-  "will run when he sees me, and call out loud",
-  "within earshot of the house: 'Mother, brother's arrived!'",
-  "",
-  "Walking cautiously along the dyke",
-  "so as not to upset the baskets full of seed,",
-  "I'll reach home in good time, at last,",
-  "just as my mother drains the well-cooked rice.",
-  "",
-  "O train, will you run a little faster—",
-  "let me get home quickly and eat my fill.",
-];
-
-const POEM_LINES_PART2 = [
-  "The bus stops on the road across from the house.",
-  "When I left this place, palm-thatched houses could be seen",
-  "in the distance on the right--but now there's nothing,",
-  "except for trees. How the place has changed!",
-  "",
-  "Rubber plants, twice my height,",
-  "now stand in rows around me on the ridge",
-  "where modan and vellaran used to be sown,",
-  "and confuse my path as I walk home.",
-  "",
-  "There's no bustle of men below,",
-  "no shouts of ploughing; and when I look,",
-  "the whole field is planted over with arecanut palms,",
-  "and in the corner, along the canal, stand the dealwood trees.",
-  "",
-  "I enter the house. Beyond the southern wing,",
-  "my father's watching them fix up the machine",
-  "for making rubber sheets--how happy",
-  "and contented the look on his face!",
-  "",
-  "My father says, with obvious pride:",
-  "'Son, we've stopped working on all the rice.",
-  "It was quite inconvenient. The farmer gained nothing-",
-  "only fools turn to rice-farming for gain.",
-  "This is better money--what good times!",
-  "The government gives rice to those who don't have paddy fields.'",
-  "",
-  "My little brother runs in to meet me--",
-  "I, eager to have a full meal of athikira rice.",
-  "He's carrying the rations for the whole household--",
-  "He trips over something and scatters the wheat all over the yard.",
-  "",
-  "Above us, a 'ship of the sky' roars northwards,",
-  "drowning my brother's loud cries--",
-  "the Chief Minister's off like an arrow to the Centre",
-  "to clamour for more grains, now flying high",
-  "above the cash crops, now growing tall like the trees,",
-  "since no one here promotes the farming of rice.",
-  "",
-  "Can we get some husk from the Centre, too,",
-  "to make toys with it? I don't know.",
-];
+import { TableCard } from "@/components/content/data/TableCard";
 
 const QA_ITEMS = [
   {
@@ -192,37 +116,6 @@ const QA_ITEMS = [
 
 const DISCOURSES = [
   {
-    id: "the-poem",
-    title: "The Poem",
-    content: (
-      <div className="rounded-xl border border-border/40 bg-muted/20 p-6">
-        <p className="text-sm text-muted-foreground mb-4 italic">
-          Chemmanam Chacko (translated by Prof. K. Ayyappa Paniker)
-        </p>
-        <h4 className="text-foreground font-semibold mb-3">Part I</h4>
-        <div className="space-y-1 text-foreground/90 text-[1.0625rem] leading-[1.85] mb-6">
-          {POEM_LINES_PART1.map((line, i) =>
-            line === "" ? (
-              <div key={i} className="h-3" />
-            ) : (
-              <p key={i}>{line}</p>
-            )
-          )}
-        </div>
-        <h4 className="text-foreground font-semibold mb-3">Part II</h4>
-        <div className="space-y-1 text-foreground/90 text-[1.0625rem] leading-[1.85]">
-          {POEM_LINES_PART2.map((line, i) =>
-            line === "" ? (
-              <div key={i} className="h-3" />
-            ) : (
-              <p key={i}>{line}</p>
-            )
-          )}
-        </div>
-      </div>
-    ),
-  },
-  {
     id: "poetic-devices",
     title: "Poetic Devices",
     content: (
@@ -274,27 +167,41 @@ const DISCOURSES = [
     ),
   },
   {
-    id: "appreciation",
-    title: "Poem Appreciation",
+    id: "symbolism",
+    title: "Symbolism",
     content: (
       <>
-        <Callout type="important">
-          <p>
-            <em>Rice</em> by Chemmanam Chacko is a satirical poem about the
-            decline of traditional rice farming in Kerala. Written in Malayalam
-            and translated by Prof. K. Ayyappa Paniker, the poem uses personal
-            memory and social commentary to expose the tragedy of agricultural
-            commercialization.
-          </p>
-        </Callout>
-        <p>
-          The poem&rsquo;s power lies in its restraint. The narrator never
-          explicitly criticizes the shift from paddy to cash crops &mdash; he
-          simply presents the contrast between memory and reality, letting the
-          reader feel the loss. The father&rsquo;s pride, the scattered wheat,
-          the airplane roaring overhead &mdash; each image carries its own
-          quiet indictment.
-        </p>
+        <TableCard
+          title="What each symbol stands for"
+          headers={["Symbol", "What it represents"]}
+          rows={[
+            {
+              cells: [
+                <em key="athikira">Athikira rice</em>,
+                "Cultural identity, indigenous heritage, health and native warmth.",
+              ],
+            },
+            {
+              cells: [
+                "Rubber sheets and machines",
+                "Commercial greed, capitalist convenience and the death of traditional farming culture.",
+              ],
+            },
+            {
+              cells: [
+                <span key="ship">
+                  &ldquo;Ship of the sky&rdquo; (aeroplane)
+                </span>,
+                "Political hypocrisy: the Chief Minister flies over cash crop fields to beg the Centre for grain instead of encouraging local rice farming.",
+              ],
+            },
+          ]}
+        />
+        <KeyPoint title="Irony and satire">
+          The father calls rice farming &ldquo;fools&rsquo; work&rdquo; while the
+          brother scatters imported wheat in a household that once harvested
+          abundant rice.
+        </KeyPoint>
       </>
     ),
   },
@@ -325,19 +232,23 @@ export default function RicePage() {
           <p>
             <em>Rice</em> is a poem by{" "}
             <Highlight color="yellow">Chemmanam Chacko</Highlight>, a master
-            satirist of Malayalam poetry, translated into English by Prof. K.
-            Ayyappa Paniker. Born in 1926 in Mulakulam, Kerala, Chacko is known
-            for pungent verse that reacts to his surroundings with sharp
-            observation.
+            satirist of Malayalam poetry, translated into English by K. Ayyappa
+            Paniker.
+          </p>
+          <p>
+            Chacko is known for pungent verse that reacts to his surroundings
+            with sharp observation.
           </p>
           <p>
             The poem is divided into two parts. Part I is a nostalgic
             imagination of returning home during planting season, eager for a
-            meal of{" "}
-            <Highlight color="green">athikira rice</Highlight> (a native
-            Kerala variety). Part II is the disillusioning reality &mdash;
-            paddy fields have been replaced by rubber and cash crops, and the
-            community has lost its agricultural identity.
+            meal of <Highlight color="green">athikira rice</Highlight> (a native
+            Kerala variety).
+          </p>
+          <p>
+            Part II is the disillusioning reality &mdash; paddy fields have been
+            replaced by rubber and cash crops, and the community has lost its
+            agricultural identity.
           </p>
 
           {/* Summary */}
@@ -417,101 +328,186 @@ export default function RicePage() {
               </ul>
             }
             detailed={
-              <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
-                <li>
-                  <strong>Part I &mdash; nostalgic longing</strong>: The
-                  narrator imagines returning home with a doctoral degree and
-                  &ldquo;generous praise for my work on making toys with
-                  husk.&rdquo; His first desire is athikira rice. The
-                  imagery is warm and specific: father in a mud-stained dhoti,
-                  excited about canal waters; brother carrying tender saplings;
-                  mother draining rice. The plea &ldquo;O train, will you run
-                  a little faster&rdquo; reveals the urgency of{" "}
-                  <Highlight color="yellow">emotional homecoming</Highlight>.
-                </li>
-                <li>
-                  <strong>Part II &mdash; disillusionment</strong>: The
-                  reality is devastating. Rubber plants have replaced paddy.
-                  Arecanut palms and dealwood trees stand where rice grew.
-                  No bustle of men, no shouts of ploughing. The narrator
-                  enters the house to find his father watching workers fix
-                  a rubber sheet machine &ldquo;with obvious pride.&rdquo;
-                </li>
-                <li>
-                  <strong>The father&rsquo;s declaration</strong>: &ldquo;We&rsquo;ve
-                  stopped working on all the rice. It was quite inconvenient.
-                  The farmer gained nothing &mdash; only fools turn to
-                  rice-farming for gain.&rdquo; This is{" "}
-                  <Highlight color="yellow">bitter irony</Highlight> &mdash;
-                  the father speaks with pride, but the narrator hears loss.
-                  The government gives rice to those without paddy fields,
-                  creating a system of dependency.
-                </li>
-                <li>
-                  <strong>Satirical images</strong>: The little brother
-                  scatters wheat &mdash; a domestic image of waste. The
-                  &ldquo;ship of the sky&rdquo; roars northwards, carrying
-                  the Chief Minister to &ldquo;clamour for more grains.&rdquo;
-                  He flies above the cash crops, now growing tall like trees,
-                  since no one promotes rice farming.
-                </li>
-                <li>
-                  <strong>Closing satire</strong>: The narrator&rsquo;s
-                  doctoral research was on making toys with rice husk &mdash;
-                  a skill rendered useless by the shift from paddy to cash
-                  crops. &ldquo;Can we get some husk from the Centre, too,
-                  to make toys with it? I don&rsquo;t know.&rdquo; The line
-                  is the poem&rsquo;s sharpest stroke:{" "}
-                  <Highlight color="blue">education, self-sufficiency, and
-                  identity</Highlight> have all been traded for dependency.
-                </li>
-              </ul>
+              <>
+                <h3 className="text-base font-bold mt-6 mb-2 scroll-mt-24 text-foreground">
+                  1. What He Expected (His Dream)
+                </h3>
+                <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+                  <li>
+                    <strong>Returning home.</strong> The narrator comes back to
+                    his village in Kerala after completing four years of
+                    doctoral research (Ph.D.) in North India. Ironically, his
+                    research topic was &ldquo;making toys out of rice
+                    husk&rdquo;.
+                  </li>
+                  <li>
+                    <strong>Craving native food.</strong> Tired of eating wheat
+                    chapaties every day in the North, he eagerly looks forward
+                    to a hot meal of native{" "}
+                    <Highlight color="green">athikira rice</Highlight> cooked by
+                    his mother.
+                  </li>
+                  <li>
+                    <strong>Happy farming memories.</strong> He imagines
+                    arriving during the planting season:
+                    <ul className="mt-2 space-y-1.5">
+                      <li>
+                        His <strong>father</strong> standing in the muddy field
+                        in a dhoti, directing canal water amidst the shouts of
+                        oxen ploughing.
+                      </li>
+                      <li>
+                        His <strong>little brother</strong> running happily with
+                        tender paddy saplings to plant.
+                      </li>
+                      <li>
+                        His <strong>mother</strong> draining freshly cooked rice
+                        just as he walks into the house.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    He urges the train to run faster so that he can reach home
+                    quickly and eat his fill.
+                  </li>
+                </ul>
+
+                <h3 className="text-base font-bold mt-6 mb-2 scroll-mt-24 text-foreground">
+                  2. What He Actually Found (The Reality)
+                </h3>
+                <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+                  <li>
+                    <strong>No paddy fields.</strong> When he gets off the bus
+                    he is shocked to see that the village has completely
+                    changed. The old paddy fields (<em>modan</em> and{" "}
+                    <em>vellaran</em>) are gone.
+                  </li>
+                  <li>
+                    <strong>Cash crops everywhere.</strong> Instead of rice, the
+                    land is covered with rubber plants, arecanut palms and
+                    dealwood trees.
+                  </li>
+                  <li>
+                    <strong>The father&rsquo;s explanation.</strong> He finds
+                    his father happily setting up a machine to make rubber
+                    sheets. His father proudly tells him that they stopped
+                    growing rice because it brings no profit &mdash;{" "}
+                    <Highlight color="yellow">
+                      &ldquo;only fools turn to rice-farming for gain&rdquo;
+                    </Highlight>
+                    . Growing cash crops makes better money, and the government
+                    gives ration rice anyway.
+                  </li>
+                  <li>
+                    <strong>Ration wheat.</strong> While the narrator waits for
+                    athikira rice, his little brother runs in carrying{" "}
+                    <Highlight color="pink">government ration wheat</Highlight>,
+                    trips, and spills the grains across the yard.
+                  </li>
+                  <li>
+                    <strong>The Chief Minister in the airplane.</strong> An
+                    airplane, the &ldquo;ship of the sky&rdquo;, roars overhead.
+                    It carries the Chief Minister to New Delhi to ask the
+                    Central Government for food grains, flying right above the
+                    cash crop fields below.
+                  </li>
+                  <li>
+                    <strong>The final satiric joke.</strong> Realising that no
+                    one grows paddy any more, the narrator wonders sarcastically
+                    whether he can get some husk from the Central Government to
+                    make his toys.
+                  </li>
+                </ul>
+              </>
             }
           />
 
           {/* Themes */}
           <div id="themes">
+            <p>
+              The poem turns on five ideas, and each one carries a part of its
+              argument.
+            </p>
+
             <h3
-              id="loss-of-identity"
+              id="theme-expectation"
               className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
             >
-              Loss of Agricultural Identity
+              1. Expectation versus Reality
             </h3>
             <p>
-              The poem mourns the displacement of rice farming by cash crops.
-              Rubber plants, arecanut palms, and dealwood trees have replaced
-              paddy fields. The community that once grew its own food now depends
-              on{" "}
-              <Highlight color="pink">government rations</Highlight> &mdash;
-              a loss of self-sufficiency and cultural identity.
+              The narrator&rsquo;s warm, traditional memories of an agricultural
+              society meet the stark, commercialised reality that awaits him.
             </p>
+            <p>
+              On the train he begs for speed; off the bus he steps into a village
+              he no longer recognises.
+            </p>
+
             <h3
-              id="satire-on-governance"
+              id="theme-crops"
               className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
             >
-              Satire on Governance
+              2. Food Crops versus Cash Crops
+            </h3>
+            <p>
+              Farmers abandon sustainable food production &mdash;{" "}
+              <em>athikira</em>, <em>modan</em> and <em>vellaran</em> paddy
+              &mdash; for quick commercial gain from rubber and arecanut palms.
+            </p>
+            <p>
+              The father states the trade plainly: rice gave the farmer nothing,
+              and the new crops give better money.
+            </p>
+
+            <h3
+              id="theme-self-reliance"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              3. Loss of Self-Reliance and Identity
+            </h3>
+            <p>
+              By abandoning paddy cultivation, the state turns from a
+              self-sufficient producer of food into a consumer dependent on
+              ration shops and central aid.
+            </p>
+            <p>
+              Rubber plants, arecanut palms and dealwood trees now stand where
+              the fields were, so the community that once grew its own food waits
+              for <Highlight color="pink">government rations</Highlight>.
+            </p>
+
+            <h3
+              id="theme-governance"
+              className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
+            >
+              4. Satire on Governance
             </h3>
             <p>
               The Chief Minister flying to the Centre to &ldquo;clamour for more
               grains&rdquo; is a sharp critique of{" "}
-              <Highlight color="yellow">political dependency</Highlight>. The
-              government distributes rice to those without paddy fields &mdash;
-              but the real question is why paddy fields were abandoned in the
-              first place.
+              <Highlight color="yellow">political dependency</Highlight>.
             </p>
+            <p>
+              The government distributes rice to those without paddy fields
+              &mdash; but the real question is why the fields were abandoned in
+              the first place.
+            </p>
+
             <h3
-              id="education-irrelevance"
+              id="theme-education"
               className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
             >
-              Education and Irrelevance
+              5. Satire on Higher Education
             </h3>
             <p>
-              The narrator earned a doctoral degree for &ldquo;making toys with
-              husk&rdquo; &mdash; a skill now useless because rice is no longer
-              grown. The closing question &ldquo;Can we get some husk from the
-              Centre, too?&rdquo; is a bitter joke about{" "}
-              <Highlight color="blue">education disconnected from ground
-              reality</Highlight>.
+              The narrator spends four years earning a doctorate on making toys
+              out of rice husk, and returns to find that no one grows paddy any
+              more.
+            </p>
+            <p>
+              There is no husk left for the research, so the degree he was
+              praised for has outlived its own subject.
             </p>
           </div>
 
