@@ -18,11 +18,16 @@ const QA_ITEMS = [
     question: "Why do people believe in drugs?",
     answer: (
       <>
-        Excitement over what drugs can do has led people to believe that any
-        ailment, infective or psychic, can be relieved by taking a pill. At the
-        first sign of nervousness they try{" "}
-        <Highlight color="yellow">pep pills</Highlight>, and the habit spreads
-        because journals advertise such drugs and doctors prescribe them.
+        <p>
+          People believe in drugs because scientific advances have proven that
+          drugs can prevent and cure physical illnesses and reverse mental
+          disturbances.
+        </p>
+        <p>
+          Excitement over these capabilities has created a widespread belief
+          that any physical, infective, or psychological discomfort can be
+          instantly relieved by taking a pill.
+        </p>
       </>
     ),
   },
@@ -30,11 +35,20 @@ const QA_ITEMS = [
     question: "What is the danger of over-dependence on drugs?",
     answer: (
       <>
-        A person who depends on drugs to solve his problems loses the capacity to
-        deal with life through{" "}
-        <Highlight color="pink">perseverance, self-discipline and mental
-        effort</Highlight>. Working at a problem then looks naive beside the easy
-        way out.
+        <p>
+          When people become dependent on drugs to solve their problems, they
+          lose the ability to handle life&rsquo;s challenges through:
+        </p>
+        <ul>
+          <li>perseverance</li>
+          <li>self-discipline</li>
+          <li>mental effort</li>
+        </ul>
+        <p>
+          It fosters a mindset where expending personal energy to solve a
+          problem is viewed as unnecessary when an easy chemical escape is
+          available.
+        </p>
       </>
     ),
   },
@@ -42,11 +56,16 @@ const QA_ITEMS = [
     question: "What is Hippocrates' chief contribution?",
     answer: (
       <>
-        Hippocrates saw that a remedy must account for the symptoms of the
-        disease and also for the{" "}
-        <Highlight color="blue">constitution and habits of the patient</Highlight>.
-        From this came the rule that a medicine must suit the disease and the
-        patient, and that a healthy person gains nothing from a drug.
+        <p>Hippocrates is known as the father of medicine.</p>
+        <p>
+          He contributed the principle that a medical remedy must take into
+          account not only the symptoms of a disease, but also the
+          patient&rsquo;s individual constitution and habits.
+        </p>
+        <p>
+          His dictum dictates that medicine must specifically suit both the
+          disease and the patient.
+        </p>
       </>
     ),
   },
@@ -54,9 +73,15 @@ const QA_ITEMS = [
     question: "What is the distinction between medicines and sensual drugs?",
     answer: (
       <>
-        Medicines treat a specific disorder and restore health. Sensual drugs are
-        substances the body has no need for, taken for the strong sense of{" "}
-        <Highlight color="yellow">pleasure</Highlight> they give.
+        <p>
+          Medicines are substances used to treat specific bodily disorders and
+          restore health, offering no benefit to a healthy person.
+        </p>
+        <p>
+          Sensual drugs are substances that the body has no medical need for,
+          but which artificially activate the brain&rsquo;s pleasure mechanisms
+          to give the user a strong sense of pleasure.
+        </p>
       </>
     ),
   },
@@ -64,11 +89,20 @@ const QA_ITEMS = [
     question: "How do sensual drugs act on the human body?",
     answer: (
       <>
-        They activate the brain&rsquo;s{" "}
-        <Highlight color="blue">pleasure centres</Highlight>, either directly or
-        through chemical mimicry. The brain governs sensations, moods, thoughts
-        and actions through chemically regulated controls, and these controls are
-        easily upset.
+        <p>
+          Sensual drugs act by stimulating the brain&rsquo;s pleasure centres
+          directly or through chemical mimicry.
+        </p>
+        <p>
+          In doing so, they disrupt the chemically regulated control systems
+          that govern:
+        </p>
+        <ul>
+          <li>sensations</li>
+          <li>moods</li>
+          <li>thoughts</li>
+          <li>actions</li>
+        </ul>
       </>
     ),
   },
@@ -76,10 +110,15 @@ const QA_ITEMS = [
     question: "What is the danger of severe addiction?",
     answer: (
       <>
-        In severe addiction the pleasure mechanisms stop responding to the drug.
-        What remains is{" "}
-        <Highlight color="pink">relative relief from misery</Highlight> and a
-        temporary suspension of withdrawal.
+        <p>
+          In severe addiction, the brain&rsquo;s pleasure mechanisms stop
+          responding to drug stimulation altogether.
+        </p>
+        <p>
+          The drug no longer provides pleasure and only serves to provide
+          temporary relief from misery and suspend the painful symptoms of
+          withdrawal.
+        </p>
       </>
     ),
   },
@@ -87,25 +126,127 @@ const QA_ITEMS = [
     question: "Why does the craving for sensual drugs persist in an addict?",
     answer: (
       <>
-        The senses still send information, but the brain can no longer read it as
-        pleasure. The addict keeps seeking drug-induced sensation because the
-        ordinary kind has gone.
+        <p>
+          The craving persists because artificial stimulation weakens the
+          brain&rsquo;s natural pleasure reflexes, causing the user to feel less
+          satisfaction over time.
+        </p>
+        <p>
+          Addicts continue seeking drugs to regain lost sensations and escape
+          the illness of withdrawal.
+        </p>
       </>
+    ),
+  },
+  {
+    question: "How does the brain govern sensations, moods, actions and thoughts?",
+    answer: (
+      <>
+        <p>
+          The brain governs four things through an extraordinarily complex
+          series of chemically regulated controls:
+        </p>
+        <ul>
+          <li>sensations</li>
+          <li>moods</li>
+          <li>actions</li>
+          <li>thoughts</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    question: "Why does the addict suspect everything external?",
+    answer: (
+      <>
+        <p>
+          An addict suffers from mental disturbances similar to paranoia and is
+          unable to understand the real cause of his distress.
+        </p>
+        <p>
+          Because he blames everything except himself, everything in the
+          external world becomes suspect, driving him further into isolation.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "What are symptoms of the addict's sensory deprivation?",
+    answer: (
+      <>
+        <p>Symptoms of sensory deprivation include:</p>
+        <ul>
+          <li>general physical discomfort</li>
+          <li>personality changes</li>
+          <li>depression</li>
+          <li>paranoia</li>
+          <li>
+            an inability to feel emotional pleasure from pleasant sights like
+            sunshine or blooming flowers (&ldquo;feeling dead inside&rdquo;)
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    question: "Why do addicts habitually press their fingers deep into their bodies?",
+    answer: (
+      <p>
+        Addicts press their fingers deep into their arms or legs to reassure
+        themselves of their own physical reality, as sensory deprivation makes
+        them lose the sense of being alive.
+      </p>
     ),
   },
   {
     question: "Name some drug-related health disorders.",
     answer: (
+      <ul>
+        <li>
+          Abscesses in veins, liver disease, venereal disease, and kidney or
+          brain infections from dirty needles.
+        </li>
+        <li>Nasal tissue damage from sniffing cocaine or amphetamines.</li>
+        <li>Lung diseases and cell damage from smoking marijuana or tobacco.</li>
+        <li>
+          Permanent liver damage from alcohol, volatile solvents, or
+          amphetamines.
+        </li>
+        <li>
+          Hair loss, malnutrition, weight loss, and increased risk of pneumonia
+          and tuberculosis.
+        </li>
+        <li>
+          Cardiac or respiratory failure leading to death from an overdose.
+        </li>
+      </ul>
+    ),
+  },
+  {
+    question: "How do drugs affect women addicts?",
+    answer: (
+      <p>
+        Babies born to women addicted to opiates are likely to be born addicted
+        themselves and suffer from withdrawal symptoms.
+      </p>
+    ),
+  },
+  {
+    question: "How do sensual drugs affect brain cells?",
+    answer: (
       <>
-        Dirty needles cause abscesses and liver disease. Sniffing damages the
-        nose, smoking damages the lungs, and heavy use damages the liver. Babies
-        of addicted women are born addicted, and an overdose can cause{" "}
-        <Highlight color="pink">respiratory or cardiac failure</Highlight>.
+        <p>
+          Sensual drugs alter the chemical balance of brain cells by disrupting
+          enzyme functions.
+        </p>
+        <p>
+          Toxic chemicals disturb the brain&rsquo;s communication pathways and
+          can cause temporary or permanent damage to cell tissue.
+        </p>
       </>
     ),
   },
 ];
-
 const AIDER = (
   <>
     <p className="mt-4 text-[0.95rem] text-muted-foreground">
@@ -410,6 +551,108 @@ const DISCOURSES = [
             least understood</Highlight> consequence of drug abuse.
           </p>
         </Callout>
+      </>
+    ),
+  },
+  {
+    id: "hippocrates",
+    title: "Hippocrates and Drug Use",
+    content: (
+      <>
+        <p>
+          Hippocrates, the father of medicine, established four core medical
+          principles regarding drug use.
+        </p>
+        <TableCard
+          title="The four principles"
+          headers={["Principle", "What it requires"]}
+          rows={[
+            {
+              cells: [
+                "Individual suitability",
+                "A remedy must consider not only the symptoms of a disease, but also the patient\u2019s individual constitution and habits.",
+              ],
+            },
+            {
+              cells: [
+                "Specific action",
+                "A drug should only be used if it specifically mitigates a particular bodily disorder.",
+              ],
+            },
+            {
+              cells: [
+                "Restorative effect",
+                "Medicine must have restorative properties so that it does not unbalance the healthy functions of the brain and body.",
+              ],
+            },
+            {
+              cells: [
+                "No benefit to the healthy",
+                "A person in good health cannot benefit from taking drugs; in fact, healthy individuals lose their natural strength by taking unnecessary medicines.",
+              ],
+            },
+          ]}
+        />
+      </>
+    ),
+  },
+  {
+    id: "giving-advice",
+    title: "Giving Advice",
+    content: (
+      <>
+        <p>
+          Advice tells someone what they should do. The form sets the strength:{" "}
+          <Highlight>should</Highlight> advises,{" "}
+          <Highlight color="pink">had better</Highlight> warns, and the
+          conditional form helps gently.
+        </p>
+        <TableCard
+          title="Five dos and don'ts"
+          headers={["Advice form", "Do", "Don't"]}
+          rows={[
+            {
+              cells: [
+                "should / should not + base verb",
+                "You should seek medical help at the first sign of dependence.",
+                "You should not hide your dependence from your family.",
+              ],
+            },
+            {
+              cells: [
+                "had better / had better not + base verb",
+                "You\u2019d better stay away from drug usage to avoid permanent physical and mental damage.",
+                "You\u2019d better not ignore the warning signs of addiction.",
+              ],
+            },
+            {
+              cells: [
+                "If I were you, I would / would not + base verb",
+                "If I were you, I would seek immediate medical counselling to overcome this addiction.",
+                "If I were you, I would not rely on a pill to escape every problem.",
+              ],
+            },
+            {
+              cells: [
+                "must / must not + base verb",
+                "You must finish the full course of treatment.",
+                "You must not share needles or unclean equipment.",
+              ],
+            },
+            {
+              cells: [
+                "advise / advise against + -ing",
+                "I advise joining a rehabilitation programme.",
+                "I advise against taking drugs without a prescription.",
+              ],
+            },
+          ]}
+          caption="Keep the verb pattern of each form: the base verb after the modals, -ing after advise."
+        />
+        <KeyPoint title="Grammar rule">
+          Use the base verb after <em>should, had better, must</em> and{" "}
+          <em>would</em>. After <em>advise</em>, use the <em>-ing</em> form.
+        </KeyPoint>
       </>
     ),
   },
