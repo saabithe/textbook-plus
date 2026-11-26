@@ -1,7 +1,6 @@
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
-import { FormulaCard } from "@/components/content/FormulaCard";
 import { TableCard } from "@/components/content/data/TableCard";
 import { SpeedTricks } from "@/components/content/SpeedTricks";
 import { VectorChapterHeader } from "@/components/content/mathematics/VectorChapterHeader";
@@ -32,6 +31,12 @@ import {
   DotProductGeometryDiagram,
   TriangleAngleDiagram,
 } from "@/components/content/mathematics/DotProductDiagrams";
+import {
+  CrossProductDirectionDiagram,
+  TriangleAreaDiagram,
+  ParallelogramAreaDiagram,
+  RectangleAreaDiagram,
+} from "@/components/content/mathematics/CrossProductDiagrams";
 
 /** One labelled stage inside a worked solution. */
 function SolutionStep({ label, children }: { label: string; children: React.ReactNode }) {
@@ -447,7 +452,7 @@ export default function VectorAlgebraChapter() {
         label="Scalar projection"
       />
 
-      <h3 id="h-10-4-2">2. Solved Problems</h3>
+      <h4 id="h-10-4-1-6">1.6 Solved Problems</h4>
       <p>
         Twelve problems follow. Each one is collapsed; open it to see the full working.
       </p>
@@ -916,27 +921,496 @@ export default function VectorAlgebraChapter() {
         </SolutionStep>
       </SolvedProblem>
 
-      <h3 id="h-10-4-3">3. Vector (Cross) Product</h3>
-      <p>A vector perpendicular to both, whose magnitude is the parallelogram area:</p>
-      <FormulaBlock latex={String.raw`\vec a\times\vec b=|\vec a|\,|\vec b|\sin\theta\,\hat n`} important label="Cross product (magnitude, direction)" />
+      <h3 id="h-10-4-2">2. Vector (Cross) Product</h3>
+      <p>
+        The <strong>vector product</strong> of two vectors gives a vector, not a number. It is also
+        called the cross product.
+      </p>
+
+      <h4 id="h-10-4-2-1">2.1 Definition and Direction</h4>
+      <p>
+        For two non-zero vectors <Formula>{String.raw`\vec a`}</Formula> and{" "}
+        <Formula>{String.raw`\vec b`}</Formula>, the product carries the sine of the angle between
+        them.
+      </p>
       <FormulaBlock
-        latex={String.raw`\vec a\times\vec b=\begin{vmatrix}\hat i&\hat j&\hat k\\ a_1&a_2&a_3\\ b_1&b_2&b_3\end{vmatrix}`}
+        latex={String.raw`\boxed{\vec a\times\vec b=|\vec a|\,|\vec b|\sin\theta\,\hat n}`}
+        important
+        label="Vector product"
+      />
+      <FormulaBlock latex={String.raw`0\le\theta\le\pi`} label="Range of the angle" />
+      <p>
+        <Formula>{String.raw`\hat n`}</Formula> is a unit vector perpendicular to both{" "}
+        <Formula>{String.raw`\vec a`}</Formula> and <Formula>{String.raw`\vec b`}</Formula>, chosen
+        so that <Formula>{String.raw`\vec a,\vec b,\hat n`}</Formula> form a right-handed system.
+      </p>
+      <CrossProductDirectionDiagram />
+
+      <h4 id="h-10-4-2-2">2.2 Properties</h4>
+      <TableCard
+        title="Properties of the cross product"
+        headers={["Property", "Statement"]}
+        rows={[
+          {
+            cells: [
+              "Anti-commutativity",
+              <span key="anti">
+                <Formula>{String.raw`\vec a\times\vec b=-(\vec b\times\vec a)`}</Formula>
+              </span>,
+            ],
+          },
+          {
+            cells: [
+              "Parallelism",
+              <span key="par">
+                For non-zero vectors, <Formula>{String.raw`\vec a\times\vec b=\vec 0`}</Formula>{" "}
+                if and only if <Formula>{String.raw`\vec a\parallel\vec b`}</Formula>, since{" "}
+                <Formula>{String.raw`\sin 0^\circ=0`}</Formula>.
+              </span>,
+            ],
+          },
+        ]}
+        caption="A zero cross product means the two vectors lie along one line."
+      />
+      <p>For the orthonormal base vectors, a vector crossed with itself gives the zero vector.</p>
+      <FormulaBlock
+        latex={String.raw`\hat i\times\hat i=\hat j\times\hat j=\hat k\times\hat k=\vec 0`}
+      />
+      <p>Two different base vectors, taken in cyclic order, give the third.</p>
+      <FormulaBlock
+        latex={String.raw`\hat i\times\hat j=\hat k,\qquad \hat j\times\hat k=\hat i,\qquad \hat k\times\hat i=\hat j`}
+      />
+
+      <h4 id="h-10-4-2-3">2.3 Determinant Component Form</h4>
+      <p>
+        For two vectors in components, the product is the determinant with the base vectors in the
+        first row.
+      </p>
+      <FormulaBlock latex={String.raw`\vec a=a_1\hat i+a_2\hat j+a_3\hat k`} />
+      <FormulaBlock latex={String.raw`\vec b=b_1\hat i+b_2\hat j+b_3\hat k`} />
+      <FormulaBlock
+        latex={String.raw`\boxed{\vec a\times\vec b=\begin{vmatrix}\hat i&\hat j&\hat k\\ a_1&a_2&a_3\\ b_1&b_2&b_3\end{vmatrix}}`}
+        important
+        label="Component form"
+      />
+
+      <h4 id="h-10-4-2-4">2.4 Unit Vector Perpendicular to Both</h4>
+      <p>Dividing the product by its own magnitude gives a unit vector, with either sign.</p>
+      <FormulaBlock
+        latex={String.raw`\boxed{\hat n=\pm\frac{\vec a\times\vec b}{|\vec a\times\vec b|}}`}
         important
       />
-      <FormulaCard>
-        <div className="space-y-2">
-          <div><Formula>{String.raw`\vec a\times\vec b=-\vec b\times\vec a`}</Formula> (anti-commutative)</div>
-          <div><Formula>{String.raw`\vec a\times(\vec b+\vec c)=\vec a\times\vec b+\vec a\times\vec c`}</Formula></div>
-          <div><Formula>{String.raw`(\lambda\vec a)\times\vec b=\lambda(\vec a\times\vec b)`}</Formula></div>
-          <div><Formula>{String.raw`\vec a\times\vec a=\vec 0,\quad |\vec a\times\vec b|=|\vec a||\vec b|\sin\theta`}</Formula></div>
-          <div><Formula>{String.raw`\vec a\times\vec b=\text{area of parallelogram};\ \text{triangle area}=\frac12|\vec a\times\vec b|`}</Formula></div>
-          <div><Formula>{String.raw`\vec a,\vec b,\vec c\ \text{coplanar}\iff(\vec a\times\vec b)\cdot\vec c=0`}</Formula></div>
-        </div>
-      </FormulaCard>
+
+      <h4 id="h-10-4-2-5">2.5 Sine of the Angle Between Two Vectors</h4>
+      <p>Rearranging the definition gives the sine of the angle.</p>
+      <FormulaBlock
+        latex={String.raw`\boxed{\sin\theta=\frac{|\vec a\times\vec b|}{|\vec a|\,|\vec b|}}`}
+        important
+      />
+
+      <h4 id="h-10-4-2-6">2.6 Geometric Area Applications</h4>
+      <TableCard
+        title="Areas from the cross product"
+        headers={["Figure", "Given", "Area"]}
+        rows={[
+          {
+            cells: [
+              "Parallelogram",
+              <span key="p1">
+                Adjacent sides <Formula>{String.raw`\vec a`}</Formula> and{" "}
+                <Formula>{String.raw`\vec b`}</Formula>
+              </span>,
+              <Formula key="p1a">{String.raw`|\vec a\times\vec b|`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Parallelogram",
+              <span key="p2">
+                Diagonals <Formula>{String.raw`\vec d_1`}</Formula> and{" "}
+                <Formula>{String.raw`\vec d_2`}</Formula>
+              </span>,
+              <Formula key="p2a">{String.raw`\frac12|\vec d_1\times\vec d_2|`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Triangle",
+              <span key="p3">
+                Adjacent sides <Formula>{String.raw`\vec a`}</Formula> and{" "}
+                <Formula>{String.raw`\vec b`}</Formula>
+              </span>,
+              <Formula key="p3a">{String.raw`\frac12|\vec a\times\vec b|`}</Formula>,
+            ],
+          },
+        ]}
+        caption="A triangle is half the parallelogram built on the same two sides."
+      />
+
+      <h3 id="h-10-4-3">3. Integrated Problem Types &amp; Applications</h3>
+      <p>Each type below states the method, then works one example.</p>
+
+      <h4 id="h-10-4-3-1">Type 1 — Projection of a Vector</h4>
       <p>
-        The scalar triple product gives the parallelepiped volume:
+        <strong>Method.</strong> Compute{" "}
+        <Formula>{String.raw`\frac{\vec a\cdot\vec b}{|\vec b|}`}</Formula>.
       </p>
-      <FormulaBlock latex={String.raw`\vec a\cdot(\vec b\times\vec c)=\begin{vmatrix}a_1&a_2&a_3\\ b_1&b_2&b_3\\ c_1&c_2&c_3\end{vmatrix}`} important />
+      <SolvedProblem
+        title="Example — projection of î + 3ĵ + 7k̂ on 7î − ĵ + 8k̂"
+        question={
+          <p>
+            Find the projection of <Formula>{String.raw`\vec a=\hat i+3\hat j+7\hat k`}</Formula>{" "}
+            on <Formula>{String.raw`\vec b=7\hat i-\hat j+8\hat k`}</Formula>.
+          </p>
+        }
+      >
+        <SolutionStep label="Dot product">
+          <FormulaBlock latex={String.raw`\vec a\cdot\vec b=(1)(7)+(3)(-1)+(7)(8)`} />
+          <FormulaBlock latex={String.raw`=7-3+56=60`} />
+        </SolutionStep>
+        <SolutionStep label="Magnitude of b">
+          <FormulaBlock
+            latex={String.raw`|\vec b|=\sqrt{7^2+(-1)^2+8^2}=\sqrt{49+1+64}=\sqrt{114}`}
+          />
+        </SolutionStep>
+        <SolutionStep label="Projection">
+          <FormulaBlock
+            latex={String.raw`\boxed{\text{Projection}=\frac{60}{\sqrt{114}}}`}
+            important
+          />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <h4 id="h-10-4-3-2">Type 2 — Parameter Determination via Orthogonality</h4>
+      <p>
+        <strong>Method.</strong> Set <Formula>{String.raw`\vec a\cdot\vec b=0`}</Formula> and
+        solve for the unknown parameter.
+      </p>
+      <SolvedProblem
+        title="Example — find λ when a = 2î + λĵ + k̂ is perpendicular to b = î − 2ĵ + 3k̂"
+        question={
+          <p>
+            Find <Formula>{String.raw`\lambda`}</Formula> if{" "}
+            <Formula>{String.raw`\vec a=2\hat i+\lambda\hat j+\hat k`}</Formula> and{" "}
+            <Formula>{String.raw`\vec b=\hat i-2\hat j+3\hat k`}</Formula> are perpendicular.
+          </p>
+        }
+      >
+        <SolutionStep label="Dot product">
+          <FormulaBlock latex={String.raw`\vec a\cdot\vec b=2(1)+\lambda(-2)+1(3)`} />
+          <FormulaBlock latex={String.raw`=5-2\lambda=0`} />
+        </SolutionStep>
+        <SolutionStep label="Solve for λ">
+          <FormulaBlock latex={String.raw`\boxed{\lambda=\frac52}`} important />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <h4 id="h-10-4-3-3">Type 3 — Unit Normal Vector</h4>
+      <p>
+        <strong>Method.</strong> Compute <Formula>{String.raw`\vec a\times\vec b`}</Formula>, then
+        divide by its magnitude.
+      </p>
+      <SolvedProblem
+        title="Example — unit vector perpendicular to î + ĵ + k̂ and î + 2ĵ + 3k̂"
+        question={
+          <p>
+            Find a unit vector perpendicular to{" "}
+            <Formula>{String.raw`\vec a=\hat i+\hat j+\hat k`}</Formula> and{" "}
+            <Formula>{String.raw`\vec b=\hat i+2\hat j+3\hat k`}</Formula>.
+          </p>
+        }
+      >
+        <SolutionStep label="Cross product">
+          <FormulaBlock
+            latex={String.raw`\vec a\times\vec b=\begin{vmatrix}\hat i&\hat j&\hat k\\ 1&1&1\\ 1&2&3\end{vmatrix}`}
+          />
+          <FormulaBlock
+            latex={String.raw`=\hat i(3-2)-\hat j(3-1)+\hat k(2-1)`}
+          />
+          <FormulaBlock latex={String.raw`=\hat i-2\hat j+\hat k`} />
+        </SolutionStep>
+        <SolutionStep label="Magnitude">
+          <FormulaBlock
+            latex={String.raw`|\vec a\times\vec b|=\sqrt{1^2+(-2)^2+1^2}=\sqrt6`}
+          />
+        </SolutionStep>
+        <SolutionStep label="Unit vector">
+          <FormulaBlock
+            latex={String.raw`\boxed{\hat n=\frac{1}{\sqrt6}\hat i-\frac{2}{\sqrt6}\hat j+\frac{1}{\sqrt6}\hat k}`}
+            important
+          />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <h4 id="h-10-4-3-4">Type 4 — Area of Parallelogram and Triangle</h4>
+      <SolvedProblem
+        title="Example — area of the triangle A(1, 1, 1), B(1, 2, 3), C(2, 3, 1)"
+        question={
+          <p>
+            Find the area of the triangle with vertices{" "}
+            <Formula>{String.raw`A(1,1,1)`}</Formula>,{" "}
+            <Formula>{String.raw`B(1,2,3)`}</Formula>,{" "}
+            <Formula>{String.raw`C(2,3,1)`}</Formula>.
+          </p>
+        }
+      >
+        <SolutionStep label="Two sides as vectors">
+          <FormulaBlock
+            latex={String.raw`\overrightarrow{AB}=(1-1)\hat i+(2-1)\hat j+(3-1)\hat k=\hat j+2\hat k`}
+          />
+          <FormulaBlock
+            latex={String.raw`\overrightarrow{AC}=(2-1)\hat i+(3-1)\hat j+(1-1)\hat k=\hat i+2\hat j`}
+          />
+        </SolutionStep>
+        <SolutionStep label="Cross product">
+          <FormulaBlock
+            latex={String.raw`\overrightarrow{AB}\times\overrightarrow{AC}=\begin{vmatrix}\hat i&\hat j&\hat k\\ 0&1&2\\ 1&2&0\end{vmatrix}`}
+          />
+          <FormulaBlock
+            latex={String.raw`=\hat i(0-4)-\hat j(0-2)+\hat k(0-1)`}
+          />
+          <FormulaBlock latex={String.raw`=-4\hat i+2\hat j-\hat k`} />
+        </SolutionStep>
+        <SolutionStep label="Magnitude and area">
+          <FormulaBlock
+            latex={String.raw`|\overrightarrow{AB}\times\overrightarrow{AC}|=\sqrt{(-4)^2+2^2+(-1)^2}=\sqrt{21}`}
+          />
+          <FormulaBlock
+            latex={String.raw`\boxed{\text{Area of triangle}=\frac12\sqrt{21}\text{ sq. units}}`}
+            important
+          />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <h3 id="h-10-4-4">4. Area of Triangle and Parallelogram</h3>
+
+      <h4 id="h-10-4-4-1">4.1 Area of a Triangle</h4>
+      <p>
+        The two vectors are adjacent sides drawn from one vertex of the triangle.
+      </p>
+      <TriangleAreaDiagram />
+      <FormulaBlock
+        latex={String.raw`\boxed{\text{Area}=\frac12|\vec a\times\vec b|}`}
+        important
+        label="Triangle"
+      />
+
+      <h4 id="h-10-4-4-2">4.2 Area of a Parallelogram</h4>
+      <p>
+        The same two vectors are the adjacent sides of the parallelogram.
+      </p>
+      <ParallelogramAreaDiagram />
+      <FormulaBlock
+        latex={String.raw`\boxed{\text{Area}=|\vec a\times\vec b|}`}
+        important
+        label="Parallelogram"
+      />
+
+      <h4 id="h-10-4-4-3">4.3 Solved Problems</h4>
+      <SolvedProblem
+        title="Area problem 1 — triangle A(1, 1, 2), B(2, 3, 5), C(1, 5, 5)"
+        question={
+          <p>
+            Find the area of the triangle with vertices{" "}
+            <Formula>{String.raw`A(1,1,2)`}</Formula>,{" "}
+            <Formula>{String.raw`B(2,3,5)`}</Formula> and{" "}
+            <Formula>{String.raw`C(1,5,5)`}</Formula>.
+          </p>
+        }
+      >
+        <SolutionStep label="Sides as vectors">
+          <TriangleAreaDiagram vertices={["A(1, 1, 2)", "B(2, 3, 5)", "C(1, 5, 5)"]} />
+          <FormulaBlock
+            latex={String.raw`\overrightarrow{AB}=\vec a=\hat i+2\hat j+3\hat k`}
+          />
+          <FormulaBlock
+            latex={String.raw`\overrightarrow{AC}=\vec b=0\hat i+4\hat j+3\hat k`}
+          />
+          <FormulaBlock
+            latex={String.raw`\text{Area of }\triangle=\frac12|\vec a\times\vec b|`}
+          />
+        </SolutionStep>
+        <SolutionStep label="Cross product">
+          <FormulaBlock
+            latex={String.raw`\vec a\times\vec b=\begin{vmatrix}\hat i&\hat j&\hat k\\ 1&2&3\\ 0&4&3\end{vmatrix}`}
+          />
+          <FormulaBlock
+            latex={String.raw`=\hat i(6-12)-\hat j(3-0)+\hat k(4-0)`}
+          />
+          <FormulaBlock latex={String.raw`=-6\hat i-3\hat j+4\hat k`} />
+        </SolutionStep>
+        <SolutionStep label="Magnitude and area">
+          <FormulaBlock
+            latex={String.raw`|\vec a\times\vec b|=\sqrt{(-6)^2+(-3)^2+4^2}`}
+          />
+          <FormulaBlock latex={String.raw`=\sqrt{36+9+16}=\sqrt{61}`} />
+          <FormulaBlock
+            latex={String.raw`\boxed{\text{Area of }\triangle=\frac12\sqrt{61}\text{ sq. units}}`}
+            important
+          />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <SolvedProblem
+        title="Area problem 2 [Imp] — parallelogram with sides î − ĵ + 3k̂ and 2î − 7ĵ + k̂"
+        question={
+          <p>
+            Find the area of the parallelogram whose adjacent sides are determined by the vectors{" "}
+            <Formula>{String.raw`\vec a=\hat i-\hat j+3\hat k`}</Formula> and{" "}
+            <Formula>{String.raw`\vec b=2\hat i-7\hat j+\hat k`}</Formula>.
+          </p>
+        }
+      >
+        <SolutionStep label="The two sides">
+          <ParallelogramAreaDiagram />
+          <FormulaBlock latex={String.raw`\vec a=\hat i-\hat j+3\hat k`} />
+          <FormulaBlock latex={String.raw`\vec b=2\hat i-7\hat j+\hat k`} />
+        </SolutionStep>
+        <SolutionStep label="Cross product">
+          <FormulaBlock
+            latex={String.raw`\vec a\times\vec b=\begin{vmatrix}\hat i&\hat j&\hat k\\ 1&-1&3\\ 2&-7&1\end{vmatrix}`}
+          />
+          <FormulaBlock
+            latex={String.raw`=\hat i(-1-(-21))-\hat j(1-6)+\hat k(-7-(-2))`}
+          />
+          <FormulaBlock latex={String.raw`=20\hat i+5\hat j-5\hat k`} />
+        </SolutionStep>
+        <SolutionStep label="Magnitude and area">
+          <FormulaBlock
+            latex={String.raw`|\vec a\times\vec b|=\sqrt{20^2+5^2+(-5)^2}=\sqrt{450}`}
+          />
+          <FormulaBlock
+            latex={String.raw`\boxed{\text{Area}=\sqrt{450}\text{ sq. units}}`}
+            important
+          />
+        </SolutionStep>
+      </SolvedProblem>
+
+      <SolvedProblem
+        title="Area problem 3 (MCQ) — when a × b is a unit vector"
+        question={
+          <>
+            <p>
+              Let the vectors <Formula>{String.raw`\vec a`}</Formula> and{" "}
+              <Formula>{String.raw`\vec b`}</Formula> be such that{" "}
+              <Formula>{String.raw`|\vec a|=3`}</Formula> and{" "}
+              <Formula>{String.raw`|\vec b|=\frac{\sqrt2}{3}`}</Formula>. Then{" "}
+              <Formula>{String.raw`\vec a\times\vec b`}</Formula> is a unit vector if the angle
+              between <Formula>{String.raw`\vec a`}</Formula> and{" "}
+              <Formula>{String.raw`\vec b`}</Formula> is
+            </p>
+            <p className="mt-2">
+              (A) <Formula>{String.raw`\pi/6`}</Formula> &nbsp;&nbsp; (B){" "}
+              <Formula>{String.raw`\pi/4`}</Formula> &nbsp;&nbsp; (C){" "}
+              <Formula>{String.raw`\pi/3`}</Formula> &nbsp;&nbsp; (D){" "}
+              <Formula>{String.raw`\pi/2`}</Formula>
+            </p>
+          </>
+        }
+      >
+        <SolutionStep label="Magnitude of the product">
+          <FormulaBlock latex={String.raw`|\vec a\times\vec b|=1`} />
+        </SolutionStep>
+        <SolutionStep label="Sine of the angle">
+          <FormulaBlock
+            latex={String.raw`\sin\theta=\frac{|\vec a\times\vec b|}{|\vec a|\,|\vec b|}`}
+          />
+          <FormulaBlock
+            latex={String.raw`\sin\theta=\frac{1}{3\times\frac{\sqrt2}{3}}`}
+          />
+        </SolutionStep>
+        <SolutionStep label="Angle">
+          <FormulaBlock
+            latex={String.raw`\theta=\sin^{-1}\left(\frac{1}{\sqrt2}\right)`}
+          />
+          <FormulaBlock latex={String.raw`\theta=\frac{\pi}{4}`} />
+          <p>
+            <strong>Correct option:</strong> (B){" "}
+            <Formula>{String.raw`\pi/4`}</Formula>.
+          </p>
+        </SolutionStep>
+      </SolvedProblem>
+
+      <SolvedProblem
+        title="Area problem 4 (MCQ) — area of the rectangle ABCD"
+        question={
+          <>
+            <p>
+              The area of the rectangle <Formula>{String.raw`ABCD`}</Formula> is asked. Its four
+              corners have these position vectors:
+            </p>
+            <TableCard
+              headers={["Corner", "Position vector"]}
+              rows={[
+                {
+                  cells: [
+                    <Formula key="a">A</Formula>,
+                    <Formula key="av">{String.raw`-\hat i+\frac12\hat j+4\hat k`}</Formula>,
+                  ],
+                },
+                {
+                  cells: [
+                    <Formula key="b">B</Formula>,
+                    <Formula key="bv">{String.raw`\hat i+\frac12\hat j+4\hat k`}</Formula>,
+                  ],
+                },
+                {
+                  cells: [
+                    <Formula key="c">C</Formula>,
+                    <Formula key="cv">{String.raw`\hat i-\frac12\hat j+4\hat k`}</Formula>,
+                  ],
+                },
+                {
+                  cells: [
+                    <Formula key="d">D</Formula>,
+                    <Formula key="dv">{String.raw`-\hat i-\frac12\hat j+4\hat k`}</Formula>,
+                  ],
+                },
+              ]}
+            />
+            <p className="mt-2">The area of the rectangle is</p>
+            <p className="mt-2">
+              (A) <Formula>{String.raw`\frac12`}</Formula> &nbsp;&nbsp; (B){" "}
+              <Formula>{String.raw`1`}</Formula> &nbsp;&nbsp; (C){" "}
+              <Formula>{String.raw`2`}</Formula> &nbsp;&nbsp; (D){" "}
+              <Formula>{String.raw`4`}</Formula>
+            </p>
+          </>
+        }
+      >
+        <SolutionStep label="The rectangle">
+          <RectangleAreaDiagram
+            labels={["A(−1, ½, 4)", "B(1, ½, 4)", "C(1, −½, 4)", "D(−1, −½, 4)"]}
+          />
+          <FormulaBlock
+            latex={String.raw`\text{Area of rectangle}=l\times b=|\overrightarrow{AB}|\times|\overrightarrow{AD}|`}
+          />
+        </SolutionStep>
+        <SolutionStep label="The two sides">
+          <FormulaBlock
+            latex={String.raw`\overrightarrow{AB}=2\hat i+0\hat j+0\hat k`}
+          />
+          <FormulaBlock
+            latex={String.raw`\overrightarrow{AD}=0\hat i-\hat j+0\hat k`}
+          />
+        </SolutionStep>
+        <SolutionStep label="Lengths">
+          <FormulaBlock
+            latex={String.raw`|\overrightarrow{AB}|=\sqrt{2^2+0^2+0^2}=2`}
+          />
+          <FormulaBlock
+            latex={String.raw`|\overrightarrow{AD}|=\sqrt{0^2+(-1)^2+0^2}=1`}
+          />
+        </SolutionStep>
+        <SolutionStep label="Area">
+          <FormulaBlock
+            latex={String.raw`\text{Area of rectangle}=2\times1=2`}
+          />
+          <p>
+            <strong>Correct option:</strong> (C) <Formula>{String.raw`2`}</Formula>.
+          </p>
+        </SolutionStep>
+      </SolvedProblem>
 
       <Expandable title="Exercise 10.3">
         <ExerciseQa
