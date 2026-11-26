@@ -11,6 +11,7 @@ import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
 import { Highlight } from "@/components/content/Highlight";
 import { CollapsibleSection } from "@/components/content/CollapsibleSection";
+import { TableCard } from "@/components/content/data/TableCard";
 
 const QA_ITEMS = [
   {
@@ -299,6 +300,328 @@ const DISCOURSES = [
       />
     ),
   },
+  {
+    id: "conflict-study",
+    title: "Key Aspects of the Conflict",
+    content: (
+      <>
+        <p>
+          Antonio Cruz and Felix Vargas are best friends who consider themselves
+          brothers. After winning elimination bouts, they are scheduled to fight
+          each other in the division finals.
+        </p>
+
+        <h3 className="text-base font-bold mt-6 mb-2 scroll-mt-24 text-foreground">
+          Key aspects
+        </h3>
+        <ul className="space-y-1.5 text-[0.95rem] leading-[1.7]">
+          <li>
+            <strong>Rivalry for a single title:</strong> Only one winner can
+            represent the Boys&rsquo; Club in the Golden Gloves Championship
+            Tournament.
+          </li>
+          <li>
+            <strong>&ldquo;The rising wall&rdquo;:</strong> As the match approaches,
+            both boys feel a psychological wall rising between them. They worry
+            about how fighting each other will affect their relationship.
+          </li>
+          <li>
+            <strong>Duty against affection:</strong> They agree to act like
+            &ldquo;two heavy strangers&rdquo; in the ring and refuse to pull
+            punches. This creates a mental struggle between the desire to win and
+            affection for each other.
+          </li>
+        </ul>
+
+        <h3 className="text-base font-bold mt-6 mb-2 scroll-mt-24 text-foreground">
+          Resolution of the conflict
+        </h3>
+        <ul className="space-y-1.5 text-[0.95rem] leading-[1.7]">
+          <li>
+            <strong>Three fierce rounds:</strong> The conflict is resolved in the
+            ring after three fierce rounds.
+          </li>
+          <li>
+            <strong>The exit:</strong> Once the final bell rings, both boys
+            immediately embrace and walk out arm-in-arm before the announcer
+            declares the official winner.
+          </li>
+          <li>
+            <strong>The proof:</strong> Their unbreakable bond of friendship is
+            far more valuable than any medal or title.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "write-up",
+    title: "Write-Up: Triumph of Brotherhood",
+    content: (
+      <>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Essay / paragraph write-up &middot; 6 marks &middot; about 200 words
+        </p>
+        <h3 className="text-base font-bold mt-3 mb-2 scroll-mt-24 text-foreground">
+          Triumph of Brotherhood: Friendship Portrayed in <em>Amigo Brothers</em>
+        </h3>
+        <p>
+          Piri Thomas&rsquo;s short story <em>Amigo Brothers</em> presents an
+          inspiring portrayal of genuine friendship, mutual respect and
+          sportsmanship between two seventeen-year-old Puerto Rican youths,
+          Antonio Cruz and Felix Vargas.
+        </p>
+        <p>
+          Growing up in the same building on the Lower East Side of Manhattan,
+          their bond is so deep that they feel themselves to be true brothers.
+        </p>
+        <p>
+          Unlike many youths who fall into negative street habits, Antonio and
+          Felix keep their focus on a positive path. They share a passionate
+          dream of becoming the lightweight champion of the world.
+        </p>
+        <ul className="space-y-1.5 text-[0.95rem] leading-[1.7]">
+          <li>
+            <strong>Shared discipline:</strong> They &ldquo;slept, ate, rapped,
+            and dreamt positive.&rdquo; They train rigorously at the Boys&rsquo;
+            Club and run together along the East River Drive at sunrise.
+          </li>
+          <li>
+            <strong>The test:</strong> They are scheduled to fight each other in
+            the division finals for the Golden Gloves Championship Tournament.
+          </li>
+          <li>
+            <strong>Their response:</strong> Sensing a rising psychological wall,
+            they agree to act like &ldquo;two heavy strangers,&rdquo; give their
+            absolute best without pulling punches and separate until match day.
+          </li>
+        </ul>
+        <p>
+          During the bout at Tompkins Square Park, both boys fight with fierce
+          dedication across three punishing rounds. However, the moment the final
+          bell rings, all rivalry disappears.
+        </p>
+        <p>
+          The two boys rush into a warm embrace and walk out of the arena
+          arm-in-arm before the official winner is declared. Through their
+          actions, they prove that true friendship and mutual love are far more
+          valuable than any personal title or championship trophy.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "debate",
+    title: "Activity IV: Debate on the Real Spirit of a Competition",
+    content: (
+      <>
+        <h3 className="text-base font-bold mb-2 scroll-mt-24 text-foreground">
+          Textual context
+        </h3>
+        <p>
+          <em>
+            &ldquo;The announcer turned to point to the winner and found himself
+            alone. Arm in arm, the champions had already left the ring.&rdquo;
+          </em>
+        </p>
+
+        <h3 className="text-base font-bold mt-6 mb-2 scroll-mt-24 text-foreground">
+          Should champions leave without receiving the prize?
+        </h3>
+        <TableCard
+          headers={["Against leaving the prize", "Supporting their exit"]}
+          rows={[
+            {
+              cells: [
+                "Violation of rules: departing before the official announcement breaches tournament regulations and decorum.",
+                "Higher value of friendship: human relationships and mutual respect are far superior to a physical medal or trophy.",
+              ],
+            },
+            {
+              cells: [
+                "Audience and official confusion: organizers, judges, sponsors and spectators are left uninformed about who advances to the Golden Gloves Tournament.",
+                "Rejection of artificial division: an arbitrary judges&rsquo; decision cannot divide two friends who gave 100% honesty in the ring.",
+              ],
+            },
+            {
+              cells: [
+                "Denying recognition: it fails to formally honour the athletic effort and victory earned through three grueling rounds.",
+                "True sportsmanship: victory lies in mutual love rather than public applause.",
+              ],
+            },
+          ]}
+        />
+
+        <h3 className="text-base font-bold mt-6 mb-2 scroll-mt-24 text-foreground">
+          Model speech for the motion
+        </h3>
+        <div className="italic">
+          &ldquo;Respected Chairperson, panel of judges, and dear friends,
+        </div>
+        <p>
+          <em>
+            I stand FOR the motion that leaving a competition without accepting
+            the award violates the fundamental decorum of sports.
+          </em>
+        </p>
+        <p>
+          <em>Rules and regulations are the backbone of any organized game.</em>
+        </p>
+        <p>
+          <em>
+            When Antonio and Felix walked out before the announcement, they
+            disrupted the valedictory protocol and left thousands of fans and
+            officials in confusion.
+          </em>
+        </p>
+        <p>
+          <em>
+            While their friendship is admirable, respecting tournament rules is
+            an essential duty of a true athlete. Accepting victory or defeat
+            gracefully and honouring the organizers matter just as much.
+          </em>
+        </p>
+        <p>
+          <em>Therefore, rules must never be bypassed.&rdquo;</em>
+        </p>
+
+        <h3 className="text-base font-bold mt-6 mb-2 scroll-mt-24 text-foreground">
+          Model speech against the motion
+        </h3>
+        <div className="italic">
+          &ldquo;Respected Chairperson, panel of judges, and dear friends,
+        </div>
+        <p>
+          <em>I stand AGAINST the motion. The real spirit of competition lies not
+          in a brass medal or a title, but in integrity, maximum effort and mutual
+          respect.</em>
+        </p>
+        <p>
+          <em>
+            Antonio and Felix fought three fierce rounds without holding back a
+            single punch. By walking out arm-in-arm, they proved that their bond
+            was unsullied by commercial glory.
+          </em>
+        </p>
+        <p>
+          <em>
+            They did not disrespect the game; rather, they elevated it by showing
+            the world that true brotherhood is the greatest championship prize of
+            all.&rdquo;
+          </em>
+        </p>
+        <KeyPoint title="The real spirit of competition">
+          True brotherhood is the greatest championship prize of all.
+        </KeyPoint>
+      </>
+    ),
+  },
+  {
+    id: "newspaper-report",
+    title: "Newspaper Report: Friendship Triumphs Over Title",
+    content: (
+      <>
+        <h3 className="text-base font-bold mb-1 scroll-mt-24 text-foreground">
+          FRIENDSHIP TRIUMPHS OVER TITLE AT GOLDEN GLOVES FINALS
+        </h3>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          By Staff Reporter &middot; New York, August 8
+        </p>
+        <p>
+          In an extraordinary display of boxing skill and sportsmanship,
+          seventeen-year-old local fighters Antonio Cruz and Felix Vargas turned
+          yesterday&rsquo;s division final into an unforgettable event at Tompkins
+          Square Park.
+        </p>
+        <p>
+          The outdoor venue was packed to capacity with thousands of Lower East
+          Side residents who gathered to watch the two close friends compete for
+          a spot in the Golden Gloves Tournament.
+        </p>
+        <p>
+          From the opening bell, both athletes fought with complete honesty and
+          determination.
+        </p>
+        <p>
+          Antonio used his height and long reach to land swift jabs, while Felix
+          relied on his raw power, bobbing and weaving to deliver heavy body
+          punches.
+        </p>
+        <p>
+          The bout escalated through three intense rounds, with neither fighter
+          giving ground. The action became so ferocious in the final round that
+          both boys kept punching even after the final bell rang, requiring the
+          referee and trainers to physically pry them apart.
+        </p>
+        <p>
+          However, as soon as cold water was poured over them, all hostility
+          melted away.
+        </p>
+        <p>
+          Antonio and Felix threw their arms around each other in a warm embrace,
+          drawing a standing ovation from the crowd.
+        </p>
+        <p>
+          In a surprising turn of events, as the announcer stepped up to the
+          microphone to declare the official winner, he found the ring empty.
+        </p>
+        <p>Antonio and Felix had already walked off together, arm-in-arm.</p>
+        <p>
+          Their decision showed the community that while only one fighter could
+          officially advance, both young men walked away as true champions of
+          brotherhood.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "announcement-script",
+    title: "Sports Day / Boxing Match Announcement Script",
+    content: (
+      <>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Based on Activity II &middot; 4 marks &middot; live public address
+          announcement for the 100m Super Sprint / Championship Match at the
+          School Annual Sports Meet
+        </p>
+        <p className="font-semibold text-foreground/70">
+          [Sound effect: chime / mic check]
+        </p>
+        <div className="space-y-2 italic text-foreground/90">
+          <div>&ldquo;Good morning, students, teachers, and sports enthusiasts!</div>
+          <div>May I have your attention, please!</div>
+          <div>
+            We have finally arrived at the most anticipated event of today&rsquo;s
+            Annual Sports Meet &mdash; the Senior Boys&rsquo; 100-Metre Super Sprint
+            Final!
+          </div>
+          <div>
+            In just a few minutes, eight of our finest athletes will take their
+            positions on the tracks. These young runners have worked tirelessly
+            through months of early morning practice to reach this grand stage.
+          </div>
+          <div>
+            Track 3: Rahul Sharma from Blue House &mdash; our defending champion
+            with lightning speed.
+          </div>
+          <div>
+            Track 4: Kevin Joseph from Red House &mdash; known for his powerful
+            acceleration off the blocks.
+          </div>
+          <div>
+            Only one runner will take home the gold today and qualify for the
+            District Championship!
+          </div>
+          <div>
+            Spectators are requested to clear the track borders and move behind
+            the gallery ropes. Let&rsquo;s make some noise and cheer on our athletes
+            as they push their limits!
+          </div>
+          <div>Runners, to your marks... Get set...&rdquo;</div>
+        </div>
+      </>
+    ),
+  },
 ];
 
 export default function AmigoBrothersPage() {
@@ -464,6 +787,43 @@ export default function AmigoBrothersPage() {
                   &mdash; it shapes who they are.
                 </li>
                 <li>
+                  <strong>Shared life and dream</strong>: Antonio Cruz and Felix
+                  Vargas are seventeen-year-old best friends who have known each
+                  other since childhood in the same building on the Lower East Side
+                  of Manhattan. They feel like brothers and share the dream of
+                  becoming the lightweight champion of the world.
+                </li>
+                <li>
+                  <strong>Training routine</strong>: While other street youths fall
+                  into negative habits, they work out at the Boys&rsquo; Club and
+                  local gyms, run along the East River Drive at sunrise, collect
+                  fight magazines, and keep scrapbooks of tickets and clippings.
+                </li>
+                <li>
+                  <strong>The division final</strong>: After the elimination bouts,
+                  they are set to fight each other on the 7th of August. The winner
+                  will represent the Boys&rsquo; Club in the Golden Gloves
+                  Championship Tournament.
+                </li>
+                <li>
+                  <strong>The rising wall</strong>: As the fight approaches, both boys
+                  feel a psychological wall rising between them. They worry about how
+                  competing against each other will affect their friendship.
+                </li>
+                <li>
+                  <strong>The pact on the run</strong>: During a workout run along the
+                  East River Drive, they confront the issue openly. In the ring they
+                  must act like &ldquo;two heavy strangers&rdquo; and fight without
+                  holding back &mdash; &ldquo;no pulling punches.&rdquo; They decide not
+                  to see each other until match day.
+                </li>
+                <li>
+                  <strong>Separate preparations</strong>: Felix stays at his Aunt
+                  Lucy&rsquo;s apartment to clear his mind. Antonio spends time on his
+                  rooftop trying to overcome his doubts. Both try to treat the match
+                  as professional duty, with no place for friendship in the ring.
+                </li>
+                <li>
                   <strong>Physical contrast</strong>: Antonio is fair, lean, long reach;
                   Felix is dark, short, powerful. The descriptions establish them as{" "}
                   <Highlight color="blue">opposites who complete each other</Highlight>
@@ -503,6 +863,30 @@ export default function AmigoBrothersPage() {
                   is private: can they survive being each other&rsquo;s enemy? The public
                   sees a boxing match. The reader sees two friends trying to preserve
                   something fragile under impossible pressure.
+                </li>
+                <li>
+                  <strong>The venue</strong>: Massive public interest moves the bout to
+                  Tompkins Square Park, which can accommodate the large crowd.
+                </li>
+                <li>
+                  <strong>Round 1</strong>: The bell sounds and both charge aggressively.
+                  Antonio uses his long reach; Felix counters with powerful body hits.
+                  Neither holds back.
+                </li>
+                <li>
+                  <strong>Round 2</strong>: The exchanges grow rapid. Both fighters are
+                  bruised and hurting, yet neither yields ground.
+                </li>
+                <li>
+                  <strong>Round 3</strong>: The crowd grows mute at blows exchanged like
+                  hailstones. When the final bell rings repeatedly
+                  (&ldquo;Bong! Bong! Bong!&rdquo;), neither hears it. They keep punching
+                  until the referee and trainers physically pry them apart.
+                </li>
+                <li>
+                  <strong>Cold water and cheers</strong>: Cold water brings them to their
+                  senses. They look at each other and rush into a warm embrace. The crowd
+                  erupts into loud cheers as their unbreakable bond is restored.
                 </li>
                 <li>
                   <strong>The embrace</strong>: Rushing toward each other after three

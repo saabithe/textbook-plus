@@ -8,6 +8,7 @@ import { ContentTabs } from "@/components/content/ContentTabs";
 import { ReadRespond } from "@/components/content/ReadRespond";
 import { Highlight } from "@/components/content/Highlight";
 import { CollapsibleSection } from "@/components/content/CollapsibleSection";
+import { TableCard } from "@/components/content/data/TableCard";
 
 const THEMES = [
   {
@@ -19,6 +20,8 @@ const THEMES = [
         <li>Gresham was Robert&apos;s employer for 35 years, making the betrayal feel personal.</li>
         <li>The family argues loyalty should override legal duty, but Robert sees truth as non-negotiable.</li>
         <li>The title refers to the moment when truth is tested against personal relationships.</li>
+        <li>The title points to the hour after the bribe offer, which reveals the truth about the Baldwin family.</li>
+        <li>Robert is considered honest by everyone and also thinks himself upright.</li>
       </ul>
     ),
   },
@@ -59,82 +62,6 @@ const THEMES = [
       </ul>
     ),
   },
-];
-
-const CHARACTER_SKETCHES = [
-  {
-    id: "robert-baldwin",
-    name: "Robert Baldwin",
-    role: "Protagonist",
-    traits: ["Principled", "Honourable", "Resolute", "Morally upright"],
-    description: (
-      <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
-        <li>Robert Baldwin is the moral centre of the play, a man who has worked faithfully for 35 years as John Gresham&apos;s secretary.</li>
-        <li>He discovered Gresham&apos;s fraud only a day before the bank collapsed and forced Gresham to close the bank.</li>
-        <li>Despite being offered $100,000 to lie on the stand, he refuses, saying those three words would choke him.</li>
-        <li>He values his conscience above money, saying he&apos;ll live his remaining years as he&apos;s lived the rest.</li>
-        <li>His confrontation with his family exposes their moral weakness, but he still loves them.</li>
-        <li>He represents the idea that integrity is worth any price, even when everyone around you compromises.</li>
-      </ul>
-    ),
-  },
-  {
-    id: "john-baldwin",
-    name: "John Baldwin",
-    role: "Robert&apos;s Son",
-    traits: ["Pragmatic", "Self-interested", "Cynical", "Eventually honest"],
-    description: (
-      <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
-        <li>John is Robert&apos;s 27-year-old son, named after John Gresham, which adds personal significance to the case.</li>
-        <li>He initially seems indifferent, smoking his pipe while the family worries, but reveals strong opinions when Robert arrives.</li>
-        <li>He argues that since nobody lost money, punishing Gresham is just a technicality.</li>
-        <li>He sees the $100,000 as practical — it would help the family since Robert is unemployed.</li>
-        <li>He admits he was afraid of what the family would say if Robert refused, showing his moral weakness.</li>
-        <li>His eventual honesty when facing Robert&apos;s eyes suggests he can still be reached by integrity.</li>
-      </ul>
-    ),
-  },
-  {
-    id: "martha-baldwin",
-    name: "Martha Baldwin",
-    role: "Robert&apos;s Wife",
-    traits: ["Emotional", "Manipulative", "Sentimental", "Practical"],
-    description: (
-      <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
-        <li>Martha is Robert&apos;s wife, who tries to compose herself with knitting but makes little progress.</li>
-        <li>She admits she withdrew her money from the bank against Robert&apos;s wishes when she suspected trouble.</li>
-        <li>She uses sentiment to pressure Robert, reminding him that Gresham was their son&apos;s godfather.</li>
-        <li>She appeals to family honour, saying it would be sad if the name came to grief through Robert.</li>
-        <li>She adds practical concerns, noting that $100,000 would mean a great deal since Robert is out of work.</li>
-        <li>Her final plea to Marshall — &ldquo;Can&apos;t you see he&apos;s crying?&rdquo; — shows she does love Robert despite pressuring him.</li>
-      </ul>
-    ),
-  },
-  {
-    id: "evie-baldwin",
-    name: "Evie Baldwin",
-    role: "Robert&apos;s Daughter",
-    traits: ["Nervous", "Emotional", "Suggestible", "Young"],
-    description: (
-      <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
-        <li>Evie is Robert&apos;s daughter, who takes no pains to conceal her nervousness.</li>
-        <li>She is the first to suggest that Robert could let Gresham off since he&apos;s the only witness.</li>
-        <li>She cries when the pressure on Robert intensifies, using emotion to sway him.</li>
-        <li>She argues that Gresham hasn&apos;t done anything really wrong, echoing John&apos;s pragmatism.</li>
-        <li>She represents the younger generation&apos;s willingness to compromise principles for convenience.</li>
-        <li>Her character is less developed than the others, serving as a voice of the family&apos;s collective pressure.</li>
-      </ul>
-    ),
-  },
-];
-
-const CHARACTER_COMPARISON = [
-  { aspect: "Core Value", robert: "Truth and integrity", john: "Practical advantage", martha: "Family harmony", evie: "Emotional comfort" },
-  { aspect: "View of Gresham", robert: "Old friend who committed a crime", john: "Named after, owes him gratitude", martha: "Son&apos;s godfather, family friend", evie: "Hasn&apos;t done anything really wrong" },
-  { aspect: "Reaction to Bribe", robert: "Outright refusal", john: "Sees practical benefits", martha: "Tempted by the money", evie: "Suggests it&apos;s not so bad" },
-  { aspect: "Moral Courage", robert: "High — faces family opposition", john: "Low — swayed by money", martha: "Low — uses sentiment over principle", evie: "Low — cries to manipulate" },
-  { aspect: "Honesty", robert: "Completely honest with family", john: "Admits he was afraid", martha: "Avoids direct questions", evie: "Follows the family line" },
-  { aspect: "Final Position", robert: "Maintains integrity, offered new job", john: "Admits weakness, still loves father", martha: "Rushed to defend Robert at end", evie: "Sides with family pressure" },
 ];
 
 const READ_RESPOND = [
@@ -200,37 +127,253 @@ const READ_RESPOND = [
 ];
 
 const DISCOURSES = [
-  ...CHARACTER_SKETCHES.map((cs) => ({
-    id: `character-sketch-${cs.id}`,
-    title: <>Character Sketch: {cs.name}</>,
-    content: (
-      <>
-        <p className="text-sm text-muted-foreground mb-4">{cs.role}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {cs.traits.map((t) => (
-            <span key={t} className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">{t}</span>
-          ))}
-        </div>
-        {cs.description}
-      </>
-    ),
-  })),
   {
-    id: "character-comparison",
-    title: "Character Comparison",
+    id: "character-study",
+    title: "Character Study",
+    content: (
+      <div className="space-y-6">
+        <TableCard
+          title="Cast at a glance"
+          headers={["Character", "Role", "Traits"]}
+          rows={[
+            {
+              cells: [
+                "Robert Baldwin",
+                "Protagonist",
+                "Principled · Honourable · Resolute · Morally upright",
+              ],
+            },
+            {
+              cells: [
+                "John Baldwin",
+                "Robert's son",
+                "Pragmatic · Self-interested · Cynical · Eventually honest",
+              ],
+            },
+            {
+              cells: [
+                "Martha Baldwin",
+                "Robert's wife",
+                "Emotional · Manipulative · Sentimental · Practical",
+              ],
+            },
+            {
+              cells: [
+                "Evie Baldwin",
+                "Robert's daughter",
+                "Nervous · Emotional · Suggestible · Young",
+              ],
+            },
+          ]}
+        />
+
+        <div>
+          <h3 className="text-lg font-bold mb-3">Robert Baldwin</h3>
+          <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            <li><strong>Moral centre:</strong> Robert is the moral centre of the play, a man who has worked faithfully for 35 years as John Gresham&apos;s secretary.</li>
+            <li><strong>Discovery:</strong> He found Gresham&apos;s fraud only a day before the bank collapsed and forced Gresham to close the bank.</li>
+            <li><strong>Bribe:</strong> Offered $100,000 to lie on the stand, he refuses, saying those three words would choke him.</li>
+            <li><strong>Conscience:</strong> He values his conscience above money, saying he&apos;ll live his remaining years as he&apos;s lived the rest.</li>
+            <li><strong>Family:</strong> His confrontation exposes their moral weakness, but he still loves them.</li>
+            <li><strong>Truth and justice:</strong> He is good, honest and bold; he stood for truth and justice, was ready to speak against Gresham in court, and never supported Gresham in the Bank wreck case.</li>
+            <li><strong>Integrity:</strong> He represents the idea that integrity is worth any price, even when everyone around you compromises.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-bold mb-3">John Baldwin</h3>
+          <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            <li><strong>Age and name:</strong> John is Robert&apos;s 27-year-old son, named after John Gresham, which adds personal significance to the case.</li>
+            <li><strong>First impression:</strong> He initially seems indifferent, smoking his pipe while the family worries, but reveals strong opinions when Robert arrives.</li>
+            <li><strong>His argument:</strong> He argues that since nobody lost money, punishing Gresham is just a technicality.</li>
+            <li><strong>The money:</strong> He sees the $100,000 as practical — it would help the family since Robert is unemployed.</li>
+            <li><strong>His fear:</strong> He admits he was afraid of what the family would say if Robert refused, showing his moral weakness.</li>
+            <li><strong>Final honesty:</strong> His eventual honesty when facing Robert&apos;s eyes suggests he can still be reached by integrity.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-bold mb-3">Martha Baldwin</h3>
+          <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            <li><strong>Knitting:</strong> Martha is Robert&apos;s wife, who tries to compose herself with knitting but makes little progress.</li>
+            <li><strong>Withdrawal:</strong> She admits she withdrew her money from the bank against Robert&apos;s wishes when she suspected trouble.</li>
+            <li><strong>Sentiment:</strong> She uses sentiment to pressure Robert, reminding him that Gresham was their son&apos;s godfather.</li>
+            <li><strong>Family honour:</strong> She appeals to family honour, saying it would be sad if the name came to grief through Robert.</li>
+            <li><strong>Practical worry:</strong> She adds practical concerns, noting that $100,000 would mean a great deal since Robert is out of work.</li>
+            <li><strong>Love under pressure:</strong> Her final plea to Marshall — &ldquo;Can&apos;t you see he&apos;s crying?&rdquo; — shows she does love Robert despite pressuring him.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-bold mb-3">Evie Baldwin</h3>
+          <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            <li><strong>Nervousness:</strong> Evie is Robert&apos;s daughter, who takes no pains to conceal her nervousness.</li>
+            <li><strong>First to suggest:</strong> She is the first to suggest that Robert could let Gresham off since he&apos;s the only witness.</li>
+            <li><strong>Tears:</strong> She cries when the pressure on Robert intensifies, using emotion to sway him.</li>
+            <li><strong>Echo of John:</strong> She argues that Gresham hasn&apos;t done anything really wrong, echoing John&apos;s pragmatism.</li>
+            <li><strong>Younger generation:</strong> She represents the younger generation&apos;s willingness to compromise principles for convenience.</li>
+            <li><strong>A family voice:</strong> Her character is less developed than the others, serving as a voice of the family&apos;s collective pressure.</li>
+          </ul>
+        </div>
+
+        <TableCard
+          title="Where they stand"
+          headers={["Aspect", "Robert", "John", "Martha", "Evie"]}
+          rows={[
+            {
+              cells: [
+                "Core Value",
+                "Truth and integrity",
+                "Practical advantage",
+                "Family harmony",
+                "Emotional comfort",
+              ],
+            },
+            {
+              cells: [
+                "View of Gresham",
+                "Old friend who committed a crime",
+                "Named after, owes him gratitude",
+                "Son's godfather, family friend",
+                "Hasn't done anything really wrong",
+              ],
+            },
+            {
+              cells: [
+                "Reaction to Bribe",
+                "Outright refusal",
+                "Sees practical benefits",
+                "Tempted by the money",
+                "Suggests it's not so bad",
+              ],
+            },
+            {
+              cells: [
+                "Moral Courage",
+                "High — faces family opposition",
+                "Low — swayed by money",
+                "Low — uses sentiment over principle",
+                "Low — cries to manipulate",
+              ],
+            },
+            {
+              cells: [
+                "Honesty",
+                "Completely honest with family",
+                "Admits he was afraid",
+                "Avoids direct questions",
+                "Follows the family line",
+              ],
+            },
+            {
+              cells: [
+                "Final Position",
+                "Maintains integrity, offered new job",
+                "Admits weakness, still loves father",
+                "Rushed to defend Robert at end",
+                "Sides with family pressure",
+              ],
+            },
+          ]}
+        />
+      </div>
+    ),
+  },
+  {
+    id: "corruption-curtails-development",
+    title: "Corruption Curtails the Development of a Country",
     content: (
       <div className="space-y-4">
-        {CHARACTER_COMPARISON.map((row) => (
-          <div key={row.aspect} className="border border-border/60 rounded-xl p-4">
-            <h3 className="font-semibold text-sm mb-3 text-primary">{row.aspect}</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[0.95rem] text-foreground/85">
-              <div><span className="font-medium text-foreground">Robert:</span> {row.robert}</div>
-              <div><span className="font-medium text-foreground">John:</span> {row.john}</div>
-              <div><span className="font-medium text-foreground">Martha:</span> {row.martha}</div>
-              <div><span className="font-medium text-foreground">Evie:</span> {row.evie}</div>
-            </div>
-          </div>
-        ))}
+        <div>
+          <h3 className="text-lg font-bold mb-3">The play and the bank crash</h3>
+          <p><strong>The play:</strong> Percival Wilde&apos;s one-act play <em>The Hour of Truth</em> is a psychological study of money&apos;s corrupting influence.</p>
+          <p className="mt-2"><strong>The bank crash:</strong> President John Gresham caused it by misappropriating depositors&apos; funds and offering cashier Robert Baldwin $100,000 to perjure himself by saying &ldquo;I don&rsquo;t remember&rdquo;.</p>
+          <p className="mt-2"><strong>The lesson:</strong> Corruption undermines social trust and national progress.</p>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-bold mb-3">Core causes</h3>
+          <TableCard
+            title="Why corruption takes hold"
+            headers={["Cause", "What the play shows"]}
+            rows={[
+              {
+                cells: [
+                  "Greed and insincerity",
+                  "People chase quick wealth and compromise public duty. Gresham underpaid workers and stole from depositors.",
+                ],
+              },
+              {
+                cells: [
+                  "Extravagant family demands",
+                  "Martha, John and Evie hear the sum; their moral foundation crumbles and they push Baldwin to accept.",
+                ],
+              },
+              {
+                cells: [
+                  "Lack of social commitment",
+                  "They betray the confidence of ordinary citizens.",
+                ],
+              },
+            ]}
+          />
+        </div>
+
+        <div>
+          <h3 className="text-lg font-bold mb-3">Evil effects</h3>
+          <TableCard
+            title="What corruption costs a country"
+            headers={["Effect", "What it does"]}
+            rows={[
+              {
+                cells: [
+                  "Blocks national development",
+                  "It drains public assets, curtails infrastructure and halts progress.",
+                ],
+              },
+              {
+                cells: [
+                  "Destroys public trust",
+                  "Depositors and employees are ruined, bringing socio-economic instability.",
+                ],
+              },
+              {
+                cells: [
+                  "Moral degradation and hypocrisy",
+                  "Honest people become “shams, liars, hypocrites, and thieves” who justify crime by technicalities.",
+                ],
+              },
+            ]}
+          />
+        </div>
+
+        <div>
+          <h3 className="text-lg font-bold mb-3">Measures</h3>
+          <TableCard
+            title="How to resist corruption"
+            headers={["Measure", "What it asks for"]}
+            rows={[
+              {
+                cells: [
+                  "Strict legal action",
+                  "Stringent punishment and swift legal penalties.",
+                ],
+              },
+              {
+                cells: [
+                  "Public awareness",
+                  "Education to reject bribes and demand accountability.",
+                ],
+              },
+              {
+                cells: [
+                  "Individual integrity",
+                  "Uncompromising individual integrity; Robert Baldwin is the model who resolves to “go to their grave clean”.",
+                ],
+              },
+            ]}
+          />
+        </div>
       </div>
     ),
   },
@@ -256,11 +399,14 @@ export default function TheHourOfTruthPage() {
             Introduction
           </h2>
           <div className="space-y-3 text-[0.95rem] text-foreground/85 leading-relaxed">
-            <p><Highlight color="blue">The Hour of Truth</Highlight> is a one-act play by Percival Wilde that explores the conflict between truth and loyalty, integrity and self-interest.</p>
+            <p><Highlight color="blue">The Hour of Truth</Highlight> is a one-act play by Percival Wilde and an intense psychological study of the corrupting influence of money.</p>
+            <p>It explores the conflict between truth and loyalty, integrity and self-interest.</p>
             <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
               <li><strong>Setting:</strong> A hot Sunday afternoon.</li>
-              <li><strong>Conflict:</strong> Robert Baldwin must choose between testifying truthfully against his lifelong friend and employer John Gresham.</li>
+              <li><strong>Conflict:</strong> The protagonist, Robert Baldwin, must choose between testifying truthfully against his lifelong friend and employer John Gresham.</li>
               <li><strong>Temptation:</strong> Gresham offers him a $100,000 bribe to lie on the stand.</li>
+              <li><strong>Greed:</strong> The play analyses greed from different viewpoints.</li>
+              <li><strong>Values:</strong> People forget morals and values before fortune.</li>
             </ul>
             <p>The play examines how the prospect of easy money can corrupt even the closest family bonds, and how true integrity reveals itself when tested.</p>
           </div>
@@ -477,36 +623,11 @@ export default function TheHourOfTruthPage() {
       {/* ======================== CREATIONS TAB ======================== */}
       {activeTab === "creations" && (
         <div className="animate-fade-in space-y-4">
-          {(() => {
-            const characters = DISCOURSES.filter((s) => s.id.startsWith("character-"));
-            const others = DISCOURSES.filter((s) => !s.id.startsWith("character-"));
-            return (
-              <>
-                {characters.length >= 2 && (
-                  <div className="rounded-xl border border-border/50 bg-card/30 p-4 mt-2 mb-4">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
-                      Characters
-                    </p>
-                    {characters.map((section) => (
-                      <CollapsibleSection key={section.id} id={section.id} title={section.title}>
-                        {section.content}
-                      </CollapsibleSection>
-                    ))}
-                  </div>
-                )}
-                {characters.length < 2 && characters.map((section) => (
-                  <CollapsibleSection key={section.id} id={section.id} title={section.title}>
-                    {section.content}
-                  </CollapsibleSection>
-                ))}
-                {others.map((section) => (
-                  <CollapsibleSection key={section.id} id={section.id} title={section.title}>
-                    {section.content}
-                  </CollapsibleSection>
-                ))}
-              </>
-            );
-          })()}
+          {DISCOURSES.map((section) => (
+            <CollapsibleSection key={section.id} id={section.id} title={section.title}>
+              {section.content}
+            </CollapsibleSection>
+          ))}
         </div>
       )}
     </div>
