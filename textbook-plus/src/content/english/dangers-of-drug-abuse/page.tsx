@@ -602,52 +602,52 @@ const DISCOURSES = [
     content: (
       <>
         <p>
-          Advice tells someone what they should do. The form sets the strength:{" "}
-          <Highlight>should</Highlight> advises,{" "}
+          Advice about drug abuse tells a reader what to do and what to avoid.
+          The form sets the strength: <Highlight>should</Highlight> advises,{" "}
           <Highlight color="pink">had better</Highlight> warns, and the
           conditional form helps gently.
         </p>
         <TableCard
-          title="Five dos and don'ts"
+          title="Five dos and don'ts about drug abuse"
           headers={["Advice form", "Do", "Don't"]}
           rows={[
             {
               cells: [
                 "should / should not + base verb",
-                "You should seek medical help at the first sign of dependence.",
-                "You should not hide your dependence from your family.",
+                "You should meet challenges with perseverance and self-discipline.",
+                "You should not take a pill for every discomfort.",
               ],
             },
             {
               cells: [
                 "had better / had better not + base verb",
-                "You\u2019d better stay away from drug usage to avoid permanent physical and mental damage.",
-                "You\u2019d better not ignore the warning signs of addiction.",
+                "You’d better avoid sensual drugs that activate the brain’s pleasure centres.",
+                "You’d better not mistake them for medicines that restore health.",
               ],
             },
             {
               cells: [
                 "If I were you, I would / would not + base verb",
-                "If I were you, I would seek immediate medical counselling to overcome this addiction.",
-                "If I were you, I would not rely on a pill to escape every problem.",
+                "If I were you, I would turn to naturally attained pleasures.",
+                "If I were you, I would not chase drug-induced sensations.",
               ],
             },
             {
               cells: [
                 "must / must not + base verb",
-                "You must finish the full course of treatment.",
-                "You must not share needles or unclean equipment.",
+                "You must keep needles and solutions clean.",
+                "You must not share dirty needles or solutions.",
               ],
             },
             {
               cells: [
                 "advise / advise against + -ing",
-                "I advise joining a rehabilitation programme.",
-                "I advise against taking drugs without a prescription.",
+                "I advise avoiding heavy use of alcohol, solvents or marijuana.",
+                "I advise against sniffing cocaine or amphetamines.",
               ],
             },
           ]}
-          caption="Keep the verb pattern of each form: the base verb after the modals, -ing after advise."
+          caption="Keep the verb pattern: the base verb after the modals, -ing after advise."
         />
         <KeyPoint title="Grammar rule">
           Use the base verb after <em>should, had better, must</em> and{" "}
