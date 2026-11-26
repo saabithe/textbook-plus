@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChapterIntro } from "@/components/content/ChapterIntro";
+import { KeyPoint } from "@/components/content/KeyPoint";
 import { SummaryLevels } from "@/components/content/SummaryLevels";
 import { ContentTabs } from "@/components/content/ContentTabs";
 import { Highlight } from "@/components/content/Highlight";
@@ -124,6 +125,102 @@ const DISCOURSES = [
             },
           ]}
         />
+      </>
+    ),
+  },
+  {
+    id: "good-fences",
+    title: "Good Fences Make Good Neighbours",
+    content: (
+      <>
+        <p>
+          The neighbour repeats the proverb twice in Frost&rsquo;s <em>Mending Wall</em>.
+          It defends clear boundaries as the basis of peaceful relationships.
+        </p>
+
+        <h3 className="text-base font-bold mt-6 mb-2 scroll-mt-24 text-foreground">
+          The traditional view
+        </h3>
+        <ul className="space-y-1.5 text-[0.95rem] leading-[1.7]">
+          <li>
+            <strong>Clear boundaries.</strong> When everyone knows what belongs to
+            them and what belongs to others, fights and misunderstandings become
+            less likely.
+          </li>
+          <li>
+            <strong>Respect for space.</strong> Fences or walls create respect for
+            each other&rsquo;s space and privacy.
+          </li>
+          <li>
+            <strong>Property lines.</strong> They prevent disputes over trespassing
+            animals or territorial intrusion.
+          </li>
+          <li>
+            <strong>Harmony.</strong> The neighbour trusts that boundaries bring
+            harmony, even when the two men do not always talk.
+          </li>
+        </ul>
+
+        <h3 className="text-base font-bold mt-6 mb-2 scroll-mt-24 text-foreground">
+          Frost&rsquo;s challenge
+        </h3>
+        <TableCard
+          headers={["Observation", "What it reveals"]}
+          rows={[
+            {
+              cells: [
+                "No cows to contain",
+                "Frost questions a wall where there are no cows or overlapping interests to protect.",
+              ],
+            },
+            {
+              cells: [
+                "Apple trees and pines",
+                "His apple trees will never cross over to eat the cones under his neighbour’s pines.",
+              ],
+            },
+            {
+              cells: [
+                "An inherited saying",
+                "Blind tradition turns practical privacy into psychological barriers.",
+              ],
+            },
+            {
+              cells: [
+                "The social cost",
+                "Rigid walls of isolation replace mutual trust, open communication and social harmony.",
+              ],
+            },
+          ]}
+          caption="The poem does not deny that boundaries can help; it asks whether this wall still has a purpose."
+        />
+
+        <h3 className="text-base font-bold mt-6 mb-2 scroll-mt-24 text-foreground">
+          The deeper paradox
+        </h3>
+        <ul className="space-y-1.5 text-[0.95rem] leading-[1.7]">
+          <li>
+            <strong>From tool to barrier.</strong> Followed blindly, &ldquo;good
+            fences&rdquo; change from practical tools of privacy into{" "}
+            <Highlight color="pink">psychological barriers</Highlight>.
+          </li>
+          <li>
+            <strong>What those barriers carry.</strong> They become prejudice,
+            suspicion and emotional detachment.
+          </li>
+          <li>
+            <strong>What builds neighbourliness.</strong>{" "}
+            <Highlight color="yellow">Mutual trust</Highlight>,{" "}
+            <Highlight color="green">open communication</Highlight> and{" "}
+            <Highlight color="blue">social harmony</Highlight> matter more than
+            rigid walls of isolation.
+          </li>
+        </ul>
+
+        <KeyPoint title="In one line">
+          Setting limits can help people stay friendly and avoid conflicts, but Frost
+          asks whether those limits have hardened into walls of isolation.
+        </KeyPoint>
       </>
     ),
   },
