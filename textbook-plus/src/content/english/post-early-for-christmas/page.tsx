@@ -324,17 +324,24 @@ const DISCOURSES = [
         <p>
           The Assistant is the play&rsquo;s{" "}
           <Highlight color="blue">central figure</Highlight> &mdash; patient,
-          professional, and increasingly exasperated. She deals with an absurd
-          parade of customers with remarkable composure, from the confused Deaf
-          Gentleman to the Fussy Old Lady who mistakes the post office for an
-          animal clinic.
+          professional, and increasingly exasperated.
         </p>
         <p>
-          Her patience is tested to its limits. She calmly explains, corrects, and
-          serves &mdash; only to face escalating chaos. When the bomb scare erupts,
-          she tries to take sensible action (fetching water) but is overruled by
-          the Farmer and the Policeman. Her final decision to quit for the animal
-          dispensary is the play&rsquo;s comic climax.
+          She deals with an absurd parade of customers with remarkable
+          composure, from the confused Deaf Gentleman to the Fussy Old Lady who
+          mistakes the post office for an animal clinic.
+        </p>
+        <p>
+          Her patience is tested to its limits: she calmly explains, corrects,
+          and serves &mdash; only to face escalating chaos.
+        </p>
+        <p>
+          When the bomb scare erupts, she tries to take sensible action
+          (fetching water) but is overruled by the Farmer and the Policeman.
+        </p>
+        <p>
+          Her final decision to quit for the animal dispensary is the
+          play&rsquo;s comic climax.
         </p>
       </CharacterSketch>
     ),
@@ -353,10 +360,14 @@ const DISCOURSES = [
         <p>
           His deafness creates a chain of{" "}
           <Highlight color="yellow">comic misunderstandings</Highlight>.
+        </p>
+        <p>
           &ldquo;Book&rdquo; becomes &ldquo;cook,&rdquo; &ldquo;did you bring
           your book&rdquo; becomes &ldquo;you want me to cook.&rdquo; He accuses
-          the Assistant of being impudent, then says <em>she</em> is deaf. The
-          reversal is the scene&rsquo;s sharpest comic moment.
+          the Assistant of being impudent, then says <em>she</em> is deaf.
+        </p>
+        <p>
+          The reversal is the scene&rsquo;s sharpest comic moment.
         </p>
         <h3
           id="fussy-old-lady"
@@ -422,10 +433,16 @@ const DISCOURSES = [
             <strong>School Auditorium</strong>. Our amazing Literary Club student
             actors will be performing the roles.
           </p>
+          <p>We warmly invite:</p>
+          <ul className="space-y-1.5">
+            <li>all students</li>
+            <li>teachers</li>
+            <li>parents</li>
+            <li>guests</li>
+          </ul>
           <p>
-            We warmly invite all students, teachers, parents, and guests to watch
-            the programme and encourage our performers. We request everyone to be
-            seated <strong>10 minutes before the play begins</strong>.
+            Watch the programme and encourage our performers. We request everyone
+            to be seated <strong>10 minutes before the play begins</strong>.
           </p>
           <p>
             <strong>Thank you. Have a great anniversary celebration!</strong>
@@ -543,19 +560,39 @@ export default function PostEarlyForChristmasPage() {
           >
             Introduction
           </h2>
-          <p>
-            <em>Post Early for Christmas</em> is a one-act play by{" "}
-            <Highlight color="yellow">R. H. Wood</Highlight>, a British
-            dramatist known for his simplicity of language, dramatic settings,
-            and subtle presentation of stock characters. The action takes place
-            inside a small post office in an English village during the
-            Christmas rush.
-          </p>
+          <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            <li>
+              <strong>Play</strong>: <em>Post Early for Christmas</em>, a one-act
+              play.
+            </li>
+            <li>
+              <strong>Author</strong>:{" "}
+              <Highlight color="yellow">R. H. Wood</Highlight>, a British
+              dramatist known for his simplicity of language, dramatic settings,
+              and subtle presentation of stock characters.
+            </li>
+            <li>
+              <strong>Setting</strong>: a small post office in an English village
+              during the Christmas rush.
+            </li>
+          </ul>
           <p>
             A cast of ten comic figures converges on a single post office
             counter. What begins as a busy December day escalates into a{" "}
             <Highlight color="pink">bomb scare</Highlight> when a ticking parcel,
             a newspaper report, and a chain of misunderstandings collide.
+          </p>
+
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
+          <p>
+            At the centre of the play is the clash between the Assistant&rsquo;s
+            patient, sensible work and a rush of customers whose misunderstandings
+            turn a ticking clock into a bomb scare.
           </p>
 
           {/* Summary */}
@@ -645,11 +682,16 @@ export default function PostEarlyForChristmasPage() {
                 <h3>Opening Chaos at the Post Office</h3>
                 <p>
                   The play opens with the Assistant reflecting on her busy days
-                  dealing with eccentric customers during the Christmas rush. Mrs
-                  Smith arrives to buy a postal order and stamps, remarking on the
-                  wisdom of posting early. Shortly after, Mrs Jones enters with
-                  heavy parcels and demands careful handling, curtly telling the
-                  Assistant that when she posts is her own affair.
+                  dealing with eccentric customers during the Christmas rush.
+                </p>
+                <p>
+                  Mrs Smith arrives to buy a postal order and stamps, remarking on
+                  the wisdom of posting early.
+                </p>
+                <p>
+                  Shortly after, Mrs Jones enters with heavy parcels and demands
+                  careful handling, curtly telling the Assistant that when she
+                  posts is her own affair.
                 </p>
                 <p>
                   The humour continues when the Deaf Old Gentleman (Sam) enters to
@@ -662,48 +704,80 @@ export default function PostEarlyForChristmasPage() {
                 <h3>The Bomb Warning</h3>
                 <p>
                   Farmer Brown enters to weigh a parcel and brings up a morning
-                  newspaper article. He reads aloud that Scotland Yard issued a
-                  warning after a time-bomb disguised as a Christmas parcel was
-                  discovered in a London post office. When asked how to identify
-                  one, the farmer notes that time-bombs usually start ticking
-                  before exploding. Meanwhile, Mrs Higgins arrives with her young
-                  son Bertie, who continually interrupts her by begging for a toy
-                  engine or ice cream.
+                  newspaper article.
+                </p>
+                <p>
+                  He reads aloud that Scotland Yard issued a warning after a
+                  time-bomb disguised as a Christmas parcel was discovered in a
+                  London post office.
+                </p>
+                <p>
+                  When asked how to identify one, the farmer notes that
+                  time-bombs usually start ticking before exploding.
+                </p>
+                <p>
+                  Meanwhile, Mrs Higgins arrives with her young son Bertie, who
+                  continually interrupts her by begging for a toy engine or ice
+                  cream.
                 </p>
 
                 <h3>The Suspicious Tourist and the Ticking Parcel</h3>
                 <p>
                   A Foreign Tourist — described as dark, sinister, and wearing
-                  black — enters carrying a heavy package. He pays five shillings
-                  to post it to a friend, anxiously asking if the package will be
-                  handled carefully, kept unopened, and protected from theft.
+                  black — enters carrying a heavy package.
+                </p>
+                <p>
+                  He pays five shillings to post it to a friend, anxiously asking
+                  if the package will be:
+                </p>
+                <ul className="space-y-1.5">
+                  <li>handled carefully</li>
+                  <li>kept unopened</li>
+                  <li>protected from theft</li>
+                </ul>
+                <p>
                   After receiving assurances, he leaves, accidentally forgetting
                   his gloves on the counter.
                 </p>
                 <p>
-                  Curious, young Bertie wanders over to inspect the Tourist&rsquo;s
-                  heavy parcel and notices a distinct ticking noise coming from
-                  inside. As the ticking grows louder, Farmer Brown shouts for
-                  everyone to take cover, causing the customers and the Assistant
-                  to dive and hide under the counter in panic.
+                  Curious, young Bertie wanders over to inspect the
+                  Tourist&rsquo;s heavy parcel and notices a distinct ticking
+                  noise coming from inside.
+                </p>
+                <p>
+                  As the ticking grows louder, Farmer Brown shouts for everyone
+                  to take cover, causing the customers and the Assistant to dive
+                  and hide under the counter in panic.
                 </p>
 
                 <h3>The Climax and Comic Resolution</h3>
                 <p>
                   Bertie fetches a Policeman, who arrives to inspect the
-                  situation. Convinced that an infernal machine is about to
-                  detonate, the Assistant fetches a bucket of water. To neutralize
-                  the threat, the Policeman promptly throws the ticking parcel
-                  straight into the bucket.
+                  situation.
+                </p>
+                <p>
+                  Convinced that an infernal machine is about to detonate, the
+                  Assistant fetches a bucket of water.
+                </p>
+                <p>
+                  To neutralize the threat, the Policeman promptly throws the
+                  ticking parcel straight into the bucket.
                 </p>
                 <p>
                   At that exact moment, the Foreign Tourist returns to collect his
-                  forgotten gloves. Horrified, he watches the Policeman submerge
-                  his package. Reaching into the water, the Tourist pulls out a
-                  valuable Swiss clock, now completely ruined. Furious, he screams
-                  at them for destroying a clock he brought all the way from
-                  Switzerland, threatening to sue them and report the post office
-                  to the Postmaster General before storming out.
+                  forgotten gloves.
+                </p>
+                <p>
+                  Horrified, he watches the Policeman submerge his package.
+                </p>
+                <p>
+                  Reaching into the water, the Tourist pulls out a valuable Swiss
+                  clock, now completely ruined.
+                </p>
+                <p>
+                  Furious, he screams at them for destroying a clock he brought
+                  all the way from Switzerland, threatening to sue them and report
+                  the post office to the Postmaster General before storming out.
                 </p>
                 <p>
                   Realizing the absurdity of the situation, the Assistant puts on
@@ -726,12 +800,18 @@ export default function PostEarlyForChristmasPage() {
             </h3>
             <p>
               The play is built on a chain of{" "}
-              <Highlight color="yellow">misunderstandings</Highlight>. The Deaf
-              Gentleman mishears, the Old Lady mistakes the post office, the
-              Farmer&rsquo;s bomb joke triggers panic, and the Tourist&rsquo;s
-              heavy parcel says nothing at all — only its ticking does. Every
-              character exists in their own linguistic bubble.
+              <Highlight color="yellow">misunderstandings</Highlight>:
             </p>
+            <ul className="space-y-1.5">
+              <li>The Deaf Gentleman mishears.</li>
+              <li>The Old Lady mistakes the post office.</li>
+              <li>The Farmer&rsquo;s bomb joke triggers panic.</li>
+              <li>
+                The Tourist&rsquo;s heavy parcel says nothing at all — only its
+                ticking does.
+              </li>
+            </ul>
+            <p>Every character exists in their own linguistic bubble.</p>
             <h3
               id="panic-and-crowd"
               className="text-lg font-semibold mt-10 mb-3 scroll-mt-24 text-foreground"
@@ -740,10 +820,15 @@ export default function PostEarlyForChristmasPage() {
             </h3>
             <p>
               The bomb scare demonstrates how quickly{" "}
-              <Highlight color="pink">collective fear</Highlight> escalates. One
-              person hears a tick, others agree, and suddenly everyone is hiding
-              under counters. The Policeman arrives to find them all cowering
-              &mdash; a satire on how easily rational people are swept into panic.
+              <Highlight color="pink">collective fear</Highlight> escalates.
+            </p>
+            <p>
+              One person hears a tick, others agree, and suddenly everyone is
+              hiding under counters.
+            </p>
+            <p>
+              The Policeman arrives to find them all cowering &mdash; a satire on
+              how easily rational people are swept into panic.
             </p>
           </div>
 

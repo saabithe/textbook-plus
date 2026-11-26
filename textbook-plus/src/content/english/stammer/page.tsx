@@ -185,19 +185,24 @@ const DISCOURSES = [
         <Callout type="important">
           <p>
             <em>Stammer</em> by K. Satchidanandan is a powerful free-verse poem
-            that redefines stammering as a legitimate form of expression. Written
-            in accessible language, the poem challenges the reader to reconsider
-            what constitutes &ldquo;normal&rdquo; speech.
+            that redefines stammering as a legitimate form of expression.
+          </p>
+          <p>
+            Written in accessible language, the poem challenges the reader to
+            reconsider what constitutes &ldquo;normal&rdquo; speech.
           </p>
         </Callout>
+        <p>The poem&rsquo;s argument progresses through four stages:</p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>stammer as natural silence (stanza 1)</li>
+          <li>stammer as philosophical mystery (stanza 2)</li>
+          <li>stammer as sacrifice (stanza 3)</li>
+          <li>stammer as universal human condition (stanzas 4-5)</li>
+        </ul>
         <p>
-          The poem&rsquo;s argument progresses through four stages: stammer as
-          natural silence (stanza 1), stammer as philosophical mystery (stanza
-          2), stammer as sacrifice (stanza 3), and stammer as universal human
-          condition (stanzas 4-5). The final stanza&rsquo;s reference to God
-          stammering when creating man is a{" "}
-          <Highlight color="yellow">bold theological claim</Highlight> &mdash;
-          if God stammered, then all human language carries the seed of
+          The final stanza&rsquo;s reference to God stammering when creating man
+          is a <Highlight color="yellow">bold theological claim</Highlight>
+          &mdash; if God stammered, then all human language carries the seed of
           imperfection.
         </p>
       </>
@@ -231,6 +236,8 @@ export default function StammerPage() {
             <em>Stammer</em> is a short but philosophically rich poem by{" "}
             <Highlight color="yellow">K. Satchidanandan</Highlight>, one of
             India&rsquo;s most respected poets, writing in Malayalam and English.
+          </p>
+          <p>
             A pioneer of modern Malayalam poetry, he was shortlisted for the
             Nobel Prize for Literature in 2011.
           </p>
@@ -240,6 +247,16 @@ export default function StammerPage() {
             <Highlight color="blue">legitimate mode of expression</Highlight>.
             The poem builds from a personal observation to a universal claim:
             all human language is a form of stammering.
+          </p>
+
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
+          <p>
+            The poem redefines stammer not as a handicap but as a legitimate mode of speech &mdash; the silence that falls between the word and its meaning. It extends this into a universal claim: a whole people&rsquo;s stammer becomes their mother tongue, God must have stammered when creating man and everything humans utter stammers like poetry.
           </p>
 
           {/* Summary */}
@@ -412,9 +429,15 @@ export default function StammerPage() {
             </h3>
             <p>
               The poem&rsquo;s closing word &mdash; &ldquo;like poetry&rdquo; &mdash;
-              draws a startling parallel. Poetry, with its ambiguity, layered
-              meanings, and deliberate pauses, is itself a form of stammering. The
-              poem thus argues that{" "}
+              draws a startling parallel. Poetry, with its:
+            </p>
+            <ul className="list-disc space-y-1.5 ps-5">
+              <li>ambiguity</li>
+              <li>layered meanings</li>
+              <li>deliberate pauses</li>
+            </ul>
+            <p>
+              Poetry is itself a form of stammering. The poem thus argues that{" "}
               <Highlight color="green">all great expression</Highlight> embraces
               imperfection.
             </p>

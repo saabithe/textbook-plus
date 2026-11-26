@@ -97,11 +97,14 @@ const DISCOURSES = [
           a single &ldquo;like&rdquo; or &ldquo;as&rdquo;: the speaker does not
           resemble the house, she <em>is</em> it.
         </p>
-        <p>
-          Stanza by stanza she becomes the pillars and keystone (structure), the
-          fire, sun and heat (warmth), the twist and knot (binding), the house
-          from floor to roof (the whole), and the wall and door (protection).
-        </p>
+        <p>Stanza by stanza she becomes:</p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>The pillars and keystone (structure).</li>
+          <li>The fire, sun and heat (warmth).</li>
+          <li>The twist and knot (binding).</li>
+          <li>The house from floor to roof (the whole).</li>
+          <li>The wall and door (protection).</li>
+        </ul>
         <p>
           Because the comparison never relaxes, the mother is not compared to a
           home &mdash; she is the home, and each stanza removes one more thing
@@ -219,9 +222,14 @@ const DISCOURSES = [
       <>
         <p>
           A model appreciation written to the single-poem format on the
-          Discourses page: poet and title, summary and central idea, devices and
-          style, then message and personal response.
+          Discourses page:
         </p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>Poet and title.</li>
+          <li>Summary and central idea.</li>
+          <li>Devices and style.</li>
+          <li>Then message and personal response.</li>
+        </ul>
 
         <KeyPoint title="Exam note — prepare the comparison too">
           This poem has a high chance of being paired with an unseen poem of a
@@ -239,10 +247,18 @@ const DISCOURSES = [
         </h3>
         <p>
           <em>Any Woman</em>, written by{" "}
-          <Highlight color="yellow">Katharine Tynan</Highlight>, is a beautiful,
-          thought-provoking and inspiring poem. Through it the poet presents a{" "}
-          <strong>deep insight</strong> into the all-embracing power of a woman
-          and her indispensable role in the family.
+          <Highlight color="yellow">Katharine Tynan</Highlight>, is a poem that
+          is:
+        </p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>Beautiful.</li>
+          <li>Thought-provoking.</li>
+          <li>Inspiring.</li>
+        </ul>
+        <p>
+          Through it the poet presents a <strong>deep insight</strong> into the
+          all-embracing power of a woman and her indispensable role in the
+          family.
         </p>
         <p>
           The poem explores the self-effacing love of a mother who is the pillar
@@ -264,11 +280,15 @@ const DISCOURSES = [
         </h3>
         <p>
           The poem revolves around a mother who names herself as everything her
-          family depends on. In six quatrains she is the pillars and keystone of
-          the house, the fire, sun and heat, the twist that binds her children,
-          the house from floor to roof, and the wall and door against wind and
-          snow.
+          family depends on. In six quatrains she is:
         </p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>The pillars and keystone of the house.</li>
+          <li>The fire, sun and heat.</li>
+          <li>The twist that binds her children.</li>
+          <li>The house from floor to roof.</li>
+          <li>The wall and door against wind and snow.</li>
+        </ul>
         <p>
           The poet portrays the ordinary work of a home &mdash; spreading the
           board, spinning curtains, shaking down for beds &mdash; to convey the
@@ -290,18 +310,25 @@ const DISCOURSES = [
         </h3>
         <p>
           The poet uses one sustained literary device, the extended metaphor,
-          and lets it carry the whole poem. Vivid <strong>imagery</strong> of the
-          house &mdash; pillars, keystone, hearth, curtains, bed &mdash; helps
-          readers see the family as a building that stands only while she is
-          inside it.
+          and lets it carry the whole poem.
+        </p>
+        <p>
+          Vivid <strong>imagery</strong> of the house &mdash; pillars, keystone,
+          hearth, curtains, bed &mdash; helps readers see the family as a
+          building that stands only while she is inside it.
         </p>
         <p>
           <strong>Anaphora</strong> in &ldquo;I am&rdquo; gives the lines a
-          litany-like rhythm, and the single <strong>simile</strong>,
-          &ldquo;colder than a stone&rdquo;, hardens the contrast between a home
-          with her and a house without her. <strong>Hyperbole</strong> in
-          &ldquo;roof and wall / Would fall to ruin me utterly&rdquo; states the
-          emotional truth of collapse.
+          litany-like rhythm.
+        </p>
+        <p>
+          The single <strong>simile</strong>, &ldquo;colder than a
+          stone&rdquo;, hardens the contrast between a home with her and a house
+          without her.
+        </p>
+        <p>
+          <strong>Hyperbole</strong> in &ldquo;roof and wall / Would fall to ruin
+          me utterly&rdquo; states the emotional truth of collapse.
         </p>
         <p>
           <strong>Alliteration</strong> in &ldquo;light of love alive&rdquo; and
@@ -311,9 +338,11 @@ const DISCOURSES = [
         </p>
         <p>
           The <strong>language</strong> is simple yet expressive, and the{" "}
-          <strong>tone</strong> is proud, tender and finally pleading. The poem
-          is organised into six quatrains in strict abab rhyme, and its regular
-          rhythm supports the steadiness the mother gives her family.
+          <strong>tone</strong> is proud, tender and finally pleading.
+        </p>
+        <p>
+          The poem is organised into six quatrains in strict abab rhyme, and its
+          regular rhythm supports the steadiness the mother gives her family.
         </p>
 
         <h3
@@ -416,9 +445,9 @@ const DISCOURSES = [
           girls the same lesson early: that their first purpose is sacrifice for
           husband and children.
         </p>
+        <p>Health, nutrition, dreams and happiness are quietly placed last.</p>
         <p>
-          Health, nutrition, dreams and happiness are quietly placed last. The
-          love is noble, but in this setting it can become emotional
+          The love is noble, but in this setting it can become emotional
           exploitation, and a woman&rsquo;s individual identity is subsumed
           under her roles.
         </p>
@@ -513,7 +542,10 @@ export default function AnyWomanPage() {
           <p>
             <em>Any Woman</em> is a poem by{" "}
             <Highlight color="yellow">Katharine Tynan</Highlight>, an Irish-born
-            writer known for her novels and poetry. The poem presents the{" "}
+            writer known for her novels and poetry.
+          </p>
+          <p>
+            The poem presents the{" "}
             <Highlight color="green">all-embracing power of a woman</Highlight>{" "}
             to hold a family together &mdash; she is the pillar, the fire, the
             wall, the house itself.
@@ -523,12 +555,17 @@ export default function AnyWomanPage() {
             be read as a mother or as any woman &mdash; one voice for a role
             that every household depends on.
           </p>
+          {/* Central Theme */}
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
           <p>
-            <Highlight color="yellow">
-              <strong>Central theme:</strong> the all-embracing power,
-              indispensable role and self-effacing love of a woman as the
-              ultimate pillar and backbone of the family.
-            </Highlight>
+            The poem presents a woman as the all-embracing power that holds a
+            family together &mdash; its pillar, fire and light. It closes with
+            her self-effacing plea not to be taken until the children are grown.
           </p>
 
           {/* Summary */}
@@ -623,12 +660,9 @@ export default function AnyWomanPage() {
             detailed={
               <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
                 <li>
-                  <strong>Central theme</strong>: the all-embracing power,
-                  indispensable role and{" "}
-                  <Highlight color="yellow">self-effacing love</Highlight> of a
-                  woman as the ultimate pillar and backbone of the family. The
-                  poem does not romanticise motherhood; it presents it as labour,
-                  as architecture, as survival.
+                  <strong>The poem&rsquo;s method</strong>: it does not
+                  romanticise motherhood; it presents it as labour, as
+                  architecture, as survival.
                 </li>
                 <li>
                   <strong>Title &mdash; &ldquo;Any Woman&rdquo;</strong>: the

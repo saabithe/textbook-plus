@@ -818,12 +818,17 @@ export default function HoregalluPage() {
           <p>
             Neither offered solutions, and neither was paid for it.
           </p>
+
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
           <p>
-            <Highlight color="yellow">
-              <strong>Central theme:</strong> the vital necessity of empathy,
-              active and unjudgemental listening, and quiet social service in
-              relieving human suffering and emotional strain.
-            </Highlight>
+            The horegallu becomes a metaphor for patient listening: people set
+            down their burdens with someone who hears them out without judgement
+            and go on their way refreshed.
           </p>
 
           {/* Summary */}

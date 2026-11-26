@@ -265,6 +265,16 @@ export default function TheHourOfTruthPage() {
             <p>The play examines how the prospect of easy money can corrupt even the closest family bonds, and how true integrity reveals itself when tested.</p>
           </div>
 
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
+          <p>
+            The play tests Robert Baldwin&apos;s duty to tell the truth against loyalty to his old friend Gresham and pressure from his family. He refuses a hundred thousand dollars to lie on the stand and chooses to go to his grave clean rather than live a lie.
+          </p>
+
           <h2 id="summary" className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground">
             Summary
           </h2>

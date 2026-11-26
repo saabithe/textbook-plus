@@ -1194,6 +1194,19 @@ export default function CrimeAndPunishmentPage() {
             teacher finally falls at the teacher&rsquo;s mercy.
           </p>
 
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
+          <p>
+            The story&rsquo;s central irony is a reversal of power: a
+            teacher&rsquo;s single slap gives his pampered student a weapon of
+            blackmail, and the &ldquo;crime&rdquo; brings its own comic
+            punishment.
+          </p>
+
           {/* Summary */}
           <h2
             id="summary"

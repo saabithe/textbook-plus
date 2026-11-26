@@ -20,9 +20,12 @@ const DISCOURSES = [
             Irfan Alam showed entrepreneurial instinct from a remarkably young
             age. At <Highlight color="yellow">13</Highlight>, he started a
             portfolio management firm after advising his father&rsquo;s friends
-            through the 1992 stock market scam. His thirst for water in a
-            rickshaw at age 17 sparked the idea that became SammaaN &mdash; the
-            very first day he earned <strong>eight rupees</strong> in profit.
+            through the 1992 stock market scam.
+          </p>
+          <p>
+            His thirst for water in a rickshaw at age 17 sparked the idea that
+            became SammaaN &mdash; the very first day he earned{" "}
+            <strong>eight rupees</strong> in profit.
           </p>
         </Callout>
         <p>
@@ -30,6 +33,8 @@ const DISCOURSES = [
           teenager in a rickshaw &mdash; can become the seed of a transformative
           enterprise. Irfan&rsquo;s early experience taught him to{" "}
           <Highlight color="blue">see opportunity where others saw nothing</Highlight>.
+        </p>
+        <p>
           His parents wanted him to focus on studies, but his interest in the
           rickshaw sector never waned. He kept researching throughout his college
           years in Pondicherry.
@@ -51,10 +56,18 @@ const DISCOURSES = [
         <p>
           SammaaN&rsquo;s model is built on{" "}
           <Highlight color="green">dignity and empowerment</Highlight>. When a
-          rickshaw puller joins, he receives verification, training on etiquette
-          and traffic rules, bank loans for a new rickshaw, accident and health
-          insurance, an ID card, and a uniform. SammaaN acts as guarantor,
-          opening credit access for people the banks previously refused.
+          rickshaw puller joins, he receives:
+        </p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>Verification.</li>
+          <li>Training on etiquette and traffic rules.</li>
+          <li>Bank loans for a new rickshaw.</li>
+          <li>Accident and health insurance.</li>
+          <li>An ID card and a uniform.</li>
+        </ul>
+        <p>
+          SammaaN acts as guarantor, opening credit access for people the banks
+          previously refused.
         </p>
         <h3
           id="revenue-model"
@@ -64,11 +77,20 @@ const DISCOURSES = [
         </h3>
         <p>
           SammaaN rickshaws display advertisements; revenue is split 50-50
-          between the company and the puller. Pullers can also sell water, juice,
-          prepaid cards, and newspapers to passengers. Passenger fares belong
-          entirely to the puller. Revenues increased{" "}
-          <Highlight color="yellow">30 to 40%</Highlight> for operators. Children
-          and spouses attend free evening classes called SammaaN Gyaan.
+          between the company and the puller. Passenger fares belong entirely to
+          the puller.
+        </p>
+        <p>Pullers can also sell to passengers:</p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>Water.</li>
+          <li>Juice.</li>
+          <li>Prepaid cards.</li>
+          <li>Newspapers.</li>
+        </ul>
+        <p>
+          Revenues increased <Highlight color="yellow">30 to 40%</Highlight> for
+          operators. Children and spouses attend free evening classes called
+          SammaaN Gyaan.
         </p>
       </>
     ),
@@ -81,19 +103,28 @@ const DISCOURSES = [
         <p>
           Irfan initially refused the TV show&rsquo;s seed capital because the
           organizers did not agree to his not-for-profit model. He wanted to
-          provide insurance, ID cards, and uniforms &mdash; not for social
-          reasons at first, but because he believed it was the{" "}
-          <Highlight color="blue">best way to sustain the business</Highlight>.
+          provide:
+        </p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>Insurance.</li>
+          <li>ID cards.</li>
+          <li>Uniforms.</li>
+        </ul>
+        <p>
+          This was not for social reasons at first, but because he believed it
+          was the <Highlight color="blue">best way to sustain the business</Highlight>.
           Only later, as he understood the plight of rickshaw pullers, did it
           become a social cause.
         </p>
         <p>
           There are about <strong>ten million rickshaws</strong> in India. Most
           pullers do not own their vehicles but rent them at 30 to 40 rupees per
-          day &mdash; barely enough to sustain their families. Irfan drew on{" "}
-          <strong>C.K. Prahalad&rsquo;s</strong> idea that businesses can succeed
-          by targeting the bottom of the pyramid. SammaaN was founded in 2007
-          with seed money from family and friends.
+          day &mdash; barely enough to sustain their families.
+        </p>
+        <p>
+          Irfan drew on <strong>C.K. Prahalad&rsquo;s</strong> idea that
+          businesses can succeed by targeting the bottom of the pyramid.
+          SammaaN was founded in 2007 with seed money from family and friends.
         </p>
       </>
     ),
@@ -135,8 +166,26 @@ export default function AThreeWheelSolutionPage() {
             unable to carry water bottles &mdash; led him to create an
             enterprise that has empowered over{" "}
             <strong>100,000 rickshaw operators</strong> across nine states in
-            India. He also reveals how a reality TV show, a Nobel Laureate, and
+            India.
+          </p>
+          <p>
+            He also reveals how a reality TV show, a Nobel Laureate, and
             President Obama all played a role in his journey.
+          </p>
+
+          {/* Central Theme */}
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
+          <p>
+            The interview traces how Irfan Alam turned a rickshaw
+            puller&rsquo;s inability to carry water into SammaaN, an enterprise
+            that organizes the sector to empower pullers. It shows a business
+            at the bottom of the pyramid raising incomes and restoring dignity
+            while staying profitable.
           </p>
 
           {/* Summary */}
@@ -290,11 +339,13 @@ export default function AThreeWheelSolutionPage() {
               Youth as Change-Makers
             </h3>
             <p>
-              The interview demonstrates that age is not a barrier to impact. Irfan
-              started his first firm at 13 and conceived SammaaN at 17. His advice to
-              students: entrepreneurship is an important tool to tackle{" "}
-              <Highlight color="yellow">unemployment</Highlight> and young people
-              should think of it as a career.
+              The interview demonstrates that age is not a barrier to impact.
+              Irfan started his first firm at 13 and conceived SammaaN at 17.
+            </p>
+            <p>
+              His advice to students: entrepreneurship is an important tool to
+              tackle <Highlight color="yellow">unemployment</Highlight> and young
+              people should think of it as a career.
             </p>
             <h3
               id="dignity-of-labour"
@@ -303,12 +354,17 @@ export default function AThreeWheelSolutionPage() {
               Dignity of Labour
             </h3>
             <p>
-              SammaaN brought dignity and inclusion to people previously considered{" "}
-              <Highlight color="pink">menial labourers</Highlight>. By providing
-              uniforms, ID cards, insurance, and education, the organization
-              transformed how rickshaw pullers see themselves and how society sees
-              them.
+              SammaaN brought dignity and inclusion to people previously
+              considered <Highlight color="pink">menial labourers</Highlight>. By
+              providing the following, the organization transformed how rickshaw
+              pullers see themselves and how society sees them:
             </p>
+            <ul className="list-disc space-y-1.5 ps-5">
+              <li>Uniforms.</li>
+              <li>ID cards.</li>
+              <li>Insurance.</li>
+              <li>Education.</li>
+            </ul>
           </div>
 
           {/* Key Takeaway */}

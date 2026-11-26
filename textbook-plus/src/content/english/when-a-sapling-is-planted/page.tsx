@@ -647,6 +647,16 @@ export default function WhenASaplingIsPlantedPage() {
             and a global call to action.
           </p>
 
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
+          <p>
+            Maathai presents environmental restoration as the work of healing both the Earth and the communities whose survival depends on it, inseparable from democracy and peace. The speech calls for a shift in consciousness so that humanity stops threatening its life-support system and restores &ldquo;the home of the tadpoles&rdquo; for future generations.
+          </p>
+
           {/* Summary */}
           <h2
             id="summary"

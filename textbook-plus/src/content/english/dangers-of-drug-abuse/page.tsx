@@ -1290,6 +1290,16 @@ export default function DangersOfDrugAbusePage() {
             see.
           </p>
 
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
+          <p>
+            The essay warns that sensual drugs taken for pleasure upset the brain&rsquo;s chemically regulated controls and damage mind and body before any warning appears. It sets them against Hippocrates&rsquo; rules for proper medicine and insists that the harm to the brain is the most subtle consequence of abuse.
+          </p>
+
           {/* Summary */}
           <h2
             id="summary"

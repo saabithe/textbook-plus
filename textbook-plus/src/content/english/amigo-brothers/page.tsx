@@ -135,10 +135,14 @@ const DISCOURSES = [
         <p>
           <Highlight color="blue">Antonio</Highlight> was a{" "}
           <strong>seventeen-year-old</strong> Puerto Rican from the Lower East
-          Side of Manhattan. He was{" "}
-          <Highlight color="yellow">fair, lean, and lanky</Highlight>, with
-          long hair that was always falling over his eyes.
+          Side of Manhattan. His defining features:
         </p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>
+            <Highlight color="yellow">Fair, lean, and lanky</Highlight>.
+          </li>
+          <li>Long hair that was always falling over his eyes.</li>
+        </ul>
         <p>
           A <strong>natural fighter</strong>, Antonio relied on his{" "}
           <strong>reach advantage</strong> and left hand. His left jab was
@@ -171,26 +175,35 @@ const DISCOURSES = [
         <p>
           <Highlight color="green">Felix</Highlight> was also a{" "}
           <strong>seventeen-year-old</strong> Puerto Rican from the same
-          building on the Lower East Side. He was{" "}
-          <Highlight color="yellow">dark, short, and husky</Highlight>, with
-          his black hair worn in a natural Afro style.
+          building on the Lower East Side. His defining features:
         </p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>
+            <Highlight color="yellow">Dark, short, and husky</Highlight>.
+          </li>
+          <li>His black hair worn in a natural Afro style.</li>
+        </ul>
         <p>
           Felix was a <strong>powerful inside fighter</strong>. He needed to
           get in close &mdash; only by coming in close could he achieve the
-          dreamed-of knockout. He &ldquo;bored in&rdquo; relentlessly,
-          bobbed and weaved, and &ldquo;rushed like a bull&rdquo; with
-          devastating rights and lefts. His{" "}
-          <strong>dynamite-packed fists</strong> kept even the longer-armed
+          dreamed-of knockout.
+        </p>
+        <p>
+          He &ldquo;bored in&rdquo; relentlessly, bobbed and weaved, and
+          &ldquo;rushed like a bull&rdquo; with devastating rights and lefts.
+          His <strong>dynamite-packed fists</strong> kept even the longer-armed
           Antonio wary.
         </p>
         <p>
-          On the eve of the fight, Felix went to see{" "}
-          <em>The Champion</em> (Kirk Douglas) to keep Antonio&rsquo;s face
-          away from his fists, but it only stirred him up. He walked dark
-          streets and went to bed. He told Antonio: &ldquo;It&rsquo;s cooler if
-          we split right here. After the fight, we can get it together again
-          like nothing ever happened.&rdquo;
+          On the eve of the fight, Felix went to see <em>The Champion</em>{" "}
+          (Kirk Douglas) to keep Antonio&rsquo;s face away from his fists, but
+          it only stirred him up.
+        </p>
+        <p>He walked dark streets and went to bed.</p>
+        <p>
+          He told Antonio: &ldquo;It&rsquo;s cooler if we split right here.
+          After the fight, we can get it together again like nothing ever
+          happened.&rdquo;
         </p>
         <p>
           Felix embodied{" "}
@@ -261,7 +274,11 @@ const DISCOURSES = [
             label: "Round 3",
             values: [
               <p key="a-r3">Came out fast this time, charging across the ring. Neither gave an inch.</p>,
-              <p key="f-r3">Tapped gloves, attacked anew. Toe to toe. Past hearing the bell.</p>,
+              <ul key="f-r3" className="list-disc space-y-1 ps-4">
+                <li>Tapped gloves, attacked anew.</li>
+                <li>Toe to toe.</li>
+                <li>Past hearing the bell.</li>
+              </ul>,
             ],
           },
           {
@@ -311,6 +328,8 @@ export default function AmigoBrothersPage() {
             <Highlight color="blue">Antonio Cruz</Highlight> and{" "}
             <Highlight color="green">Felix Vargas</Highlight>, who grew up together
             on the <Highlight color="blue">Lower East Side of Manhattan</Highlight>.
+          </p>
+          <p>
             Though not related by blood, their bond was so{" "}
             <strong>deep and sincere</strong> that they considered themselves
             brothers.
@@ -322,6 +341,20 @@ export default function AmigoBrothersPage() {
             <strong>boxing elimination bout</strong>, and how they navigate the
             tension between <strong>friendship</strong> and{" "}
             <strong>ambition</strong>.
+          </p>
+
+          {/* Central Theme */}
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
+          <p>
+            The story centres on two close friends and fellow boxers who must
+            fight each other in the division finals, where only one can win. It
+            asks whether their friendship can survive the competition that
+            forces them to become opponents.
           </p>
 
           {/* Summary */}
@@ -555,12 +588,15 @@ export default function AmigoBrothersPage() {
               Brotherhood Above Victory
             </h3>
             <p>
-              The story&rsquo;s ending is its moral centre. Before the announcer can
-              name the winner, the two{" "}
-              <Highlight color="green">amigos leave together</Highlight> &mdash; arm
-              in arm. The decision never matters.{" "}
-              <strong>No matter what the result, they would always be champions to
-              each other.</strong>
+              The story&rsquo;s ending is its moral centre. Before the announcer
+              can name the winner, the two{" "}
+              <Highlight color="green">amigos leave together</Highlight> &mdash;
+              arm in arm.
+            </p>
+            <p>
+              The decision never matters.{" "}
+              <strong>No matter what the result, they would always be champions
+              to each other.</strong>
             </p>
 
             <h3
@@ -572,7 +608,10 @@ export default function AmigoBrothersPage() {
             <p>
               The referee&rsquo;s words &ldquo;May the best man win&rdquo; capture
               the story&rsquo;s ethic. Neither boy <strong>pulls punches</strong>,
-              holds back, or resents the other. To fight with{" "}
+              holds back, or resents the other.
+            </p>
+            <p>
+              To fight with{" "}
               <Highlight color="yellow">complete honesty</Highlight> is the truest
               act of sportsmanship &mdash; and the deepest expression of mutual
               respect.

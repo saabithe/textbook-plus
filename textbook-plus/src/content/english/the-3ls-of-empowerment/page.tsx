@@ -66,13 +66,23 @@ const DISCOURSES = [
       <>
         <Callout type="important">
           <p>
-            Lagarde&rsquo;s central argument: women&rsquo;s economic empowerment
-            rests on three pillars &mdash;{" "}
-            <Highlight color="blue">Learning</Highlight>,{" "}
-            <Highlight color="green">Labour</Highlight>, and{" "}
-            <Highlight color="yellow">Leadership</Highlight>. Together, they
-            open the door to a world where all women meet their potential
-            without impediment or prejudice.
+            <strong>Lagarde&rsquo;s central argument:</strong> women&rsquo;s
+            economic empowerment rests on three pillars &mdash;
+          </p>
+          <ul className="list-disc space-y-1.5 ps-5">
+            <li>
+              <Highlight color="blue">Learning</Highlight>
+            </li>
+            <li>
+              <Highlight color="green">Labour</Highlight>
+            </li>
+            <li>
+              <Highlight color="yellow">Leadership</Highlight>
+            </li>
+          </ul>
+          <p>
+            Together, they open the door to a world where all women meet their
+            potential without impediment or prejudice.
           </p>
         </Callout>
 
@@ -83,10 +93,14 @@ const DISCOURSES = [
           What Emancipation Means Here
         </h3>
         <p>
-          Emancipation is the act of setting someone free from legal, social,
-          political or economic restrictions, bondage or control, so that they
-          gain independence and equal rights.
+          <strong>Emancipation:</strong> the act of setting someone free from
         </p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>legal, social, political or economic restrictions;</li>
+          <li>
+            bondage or control, so that they gain independence and equal rights.
+          </li>
+        </ul>
         <p>
           In this speech it means breaking the{" "}
           <Highlight color="pink">shackles of social exclusion</Highlight>{" "}
@@ -126,10 +140,15 @@ const DISCOURSES = [
           Labour
         </h3>
         <p>
-          Labour lets women flourish, earn for themselves and reach their true
-          potential. At present they stay confined to{" "}
-          <strong>low-paying, low-status, low-security</strong> jobs, and
-          globally they earn only{" "}
+          <strong>Labour</strong> lets women flourish, earn for themselves and
+          reach their true potential.
+        </p>
+        <p>
+          At present they stay confined to{" "}
+          <strong>low-paying, low-status, low-security</strong> jobs.
+        </p>
+        <p>
+          Globally they earn only{" "}
           <Highlight color="pink">three-quarters</Highlight> of what men earn in
           the same occupation with the same education.
         </p>
@@ -231,6 +250,8 @@ const DISCOURSES = [
             Although women constitute half the global population, they
             contribute far less than 50 per cent of economic activity, causing
             per capita income in several nations to lag significantly.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
             Overcoming these socio-cultural barriers requires opening the doors
             of opportunity, and education is the primary key to that liberation.
           </p>
@@ -282,13 +303,18 @@ const DISCOURSES = [
             men can be rewritten, and access to credit can turn a dependent
             woman into an employer.
           </p>
-          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
-            Health care and education policies matter just as much, because a
-            woman who is unwell or unschooled cannot compete for skilled work.
-            Training completes the work, moving her out of low-paying,
-            low-status, low-security jobs and into work that matches her
-            ability.
-          </p>
+          <ul className="list-disc space-y-1.5 ps-5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            <li>
+              <strong>Health care and education policies</strong> matter just as
+              much, because a woman who is unwell or unschooled cannot compete
+              for skilled work.
+            </li>
+            <li>
+              <strong>Training</strong> completes the work, moving her out of
+              low-paying, low-status, low-security jobs and into work that
+              matches her ability.
+            </li>
+          </ul>
           <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
             Eliminating these gaps in economic participation directly boosts a
             nation&rsquo;s per capita income.
@@ -299,17 +325,22 @@ const DISCOURSES = [
           </h4>
           <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
             Beyond literacy, education fosters leadership, enabling women to
-            rise and fulfil their innate talents. Educated women leaders
-            prioritise decisions grounded in consensus-building, inclusion,
-            compassion and long-term sustainability.
+            rise and fulfil their innate talents.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            Educated women leaders prioritise decisions grounded in
+            consensus-building, inclusion, compassion and long-term
+            sustainability.
           </p>
           <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
             Confidence is the hinge, because Lagarde observes that women
             sometimes{" "}
             <Highlight color="yellow">lack the confidence to match their
-            competence</Highlight>. That is a comment on the world, not on women
-            &mdash; the ability is already there, and only the belief in it is
-            missing.
+            competence</Highlight>.
+          </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            That is a comment on the world, not on women &mdash; the ability is
+            already there, and only the belief in it is missing.
           </p>
           <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
             So how is that belief built? Education builds it by giving a woman
@@ -328,11 +359,17 @@ const DISCOURSES = [
           </h4>
           <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
             The argument does not stop at the individual woman, because an
-            educated and empowered woman builds a strong nation. When half the
-            population is schooled, employed and heard, a country gains a
-            workforce, a tax base and a pool of leaders it would otherwise have
-            lost.
+            educated and empowered woman builds a strong nation.
           </p>
+          <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            When half the population is schooled, employed and heard, a country
+            gains:
+          </p>
+          <ul className="list-disc space-y-1.5 ps-5 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+            <li>a workforce;</li>
+            <li>a tax base;</li>
+            <li>a pool of leaders it would otherwise have lost.</li>
+          </ul>
           <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
             Her influence reaches past her own household as well. Educated
             mothers raise healthier, better-schooled children, so one
@@ -425,7 +462,7 @@ const DISCOURSES = [
           />
 
           <p>
-            <strong>Opening, spoken:</strong> Respected Principal, teachers and
+            <strong>Opening (spoken):</strong> Respected Principal, teachers and
             my dear friends, good morning.
           </p>
           <p>
@@ -441,7 +478,7 @@ const DISCOURSES = [
             keep one girl in school.
           </p>
           <p>
-            When we educate our daughters, we train a village, and if we dare
+            When we educate our daughters, we train a village and if we dare
             the difference, the difference will deliver.
           </p>
           <p>Thank you.</p>
@@ -494,6 +531,16 @@ export default function The3LsOfEmpowermentPage() {
             income lags in countries that deny women equal opportunity. She calls
             for a <strong>concerted effort</strong> to open doors through the{" "}
             <strong>3 Ls</strong>.
+          </p>
+
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
+          <p>
+            Women are half the world&rsquo;s population but remain blocked from contributing their true potential, and this denial of equal opportunity carries an economic cost. The speech argues that a concerted effort through learning, labour and leadership can open the door to opportunity.
           </p>
 
           {/* Summary */}
@@ -674,7 +721,10 @@ export default function The3LsOfEmpowermentPage() {
             <p>
               The speech exposes the{" "}
               <Highlight color="pink">persistent gap</Highlight> between men and
-              women in the workplace. Despite equal education, women are trapped in{" "}
+              women in the workplace.
+            </p>
+            <p>
+              Despite equal education, women are trapped in{" "}
               <strong>low-paying, low-status, low-security jobs</strong>.
             </p>
             <p>
@@ -709,10 +759,16 @@ export default function The3LsOfEmpowermentPage() {
             <p>
               The speech&rsquo;s closing call to action:{" "}
               <strong>&ldquo;If we dare the difference, the difference will
-              deliver.&rdquo;</strong> Empowerment requires both individual courage
-              &mdash; taking risks, stepping outside comfort zones &mdash; and
-              systemic change &mdash; laws, policies, and cultural shifts.
+              deliver.&rdquo;</strong>
             </p>
+            <p>Empowerment requires both</p>
+            <ul className="list-disc space-y-1.5 ps-5">
+              <li>
+                individual courage &mdash; taking risks, stepping outside comfort
+                zones;
+              </li>
+              <li>systemic change &mdash; laws, policies, and cultural shifts.</li>
+            </ul>
           </div>
 
           {/* Key Takeaway */}

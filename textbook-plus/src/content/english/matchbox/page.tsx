@@ -343,8 +343,9 @@ const DISCOURSES = [
         <p>
           From preparing meals to shielding the family as &ldquo;their wall
           against all danger&rdquo;, her presence keeps the household functional,
-          warm and secure. The ideal is real, but it is only half the picture.
+          warm and secure.
         </p>
+        <p>The ideal is real, but it is only half the picture.</p>
 
         <h3
           id="space-restricted"
@@ -493,10 +494,16 @@ const DISCOURSES = [
           Script 1: The Moderator&rsquo;s Welcome
         </h3>
         <blockquote className="my-6 rounded-r-xl border-l-2 border-border bg-muted/20 py-3 pl-4 pr-4">
+          <p>&ldquo;Good morning,</p>
+          <ul className="list-disc space-y-1.5 ps-5">
+            <li>respected Principal</li>
+            <li>teachers</li>
+            <li>guests</li>
+            <li>dear students</li>
+          </ul>
           <p>
-            &ldquo;Good morning, respected Principal, teachers, guests and dear
-            students. I am extremely happy to welcome you all to today&rsquo;s
-            panel discussion on a crucial and timely theme: &lsquo;Indian women
+            I am extremely happy to welcome you all to today&rsquo;s panel
+            discussion on a crucial and timely theme: &lsquo;Indian women
             &mdash; finding a space in the socio-cultural milieu&rsquo;.
           </p>
           <p>
@@ -585,9 +592,9 @@ const DISCOURSES = [
           <p>
             On behalf of the organisers, I extend my sincere vote of thanks to our
             panellists for sharing their valuable insights, and to the audience
-            for their active participation. Thank you, and have a wonderful
-            day!&rdquo;
+            for their active participation.
           </p>
+          <p>Thank you, and have a wonderful day!&rdquo;</p>
         </blockquote>
       </>
     ),
@@ -611,9 +618,16 @@ const DISCOURSES = [
           1. Inner Gunpowder, Outer Meekness
         </h3>
         <p>
-          On the outside a matchbox looks small, humble and harmless, sitting in a
-          kitchen, a pantry or a bedroom. Inside it holds enough gunpowder to
-          &ldquo;set a hundred Lankas aflame&rdquo;.
+          On the outside a matchbox looks small, humble and harmless, sitting in:
+        </p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>a kitchen</li>
+          <li>a pantry</li>
+          <li>a bedroom</li>
+        </ul>
+        <p>
+          Inside it holds enough gunpowder to &ldquo;set a hundred Lankas
+          aflame&rdquo;.
         </p>
         <p>
           Women sit in the same domestic spaces, enduring insults and
@@ -726,12 +740,14 @@ export default function MatchboxPage() {
             them. Her answer is small, domestic and frightening &mdash; she
             picks up his matchbox.
           </p>
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
           <p>
-            <Highlight color="yellow">
-              <strong>Central theme:</strong> privacy is power &mdash; whoever
-              controls a woman&rsquo;s letters controls her world, and the
-              quietest rebellion can still burn.
-            </Highlight>
+            Women are like matchboxes: they have enough gunpowder to set a hundred Lankas aflame, yet sit meek and innocent. They never flare up and burn away the mask of men&rsquo;s &ldquo;high-mindedness&rdquo;, and men put matchboxes in their pockets without fear because they know this.
           </p>
 
           {/* Summary */}
@@ -966,8 +982,16 @@ export default function MatchboxPage() {
             <p>
               The matchbox represents{" "}
               <Highlight color="yellow">women&rsquo;s suppressed power</Highlight>.
-              It holds gunpowder, fire and rebellion, yet is kept &ldquo;meek and
-              innocent&rdquo; in kitchens, pantries and bedrooms.
+              It holds:
+            </p>
+            <ul className="list-disc space-y-1.5 ps-5">
+              <li>gunpowder</li>
+              <li>fire</li>
+              <li>rebellion</li>
+            </ul>
+            <p>
+              Yet it is kept &ldquo;meek and innocent&rdquo; in kitchens, pantries
+              and bedrooms.
             </p>
             <p>
               Nomita grabs it and strikes a match, but the fire is{" "}

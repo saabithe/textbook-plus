@@ -478,6 +478,16 @@ export default function ThisIsGoingToHurtPage() {
             , Nash transforms a universal dread into comic art.
           </p>
 
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
+          <p>
+            The poem turns the fear, discomfort and helplessness of a dental visit into comedy through exaggeration and wit. Its closing image is the &ldquo;most vicious circle&rdquo; &mdash; we keep our teeth healthy only so that we need not go to the dentist.
+          </p>
+
           {/* Summary */}
           <h2
             id="summary"

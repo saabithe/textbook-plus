@@ -31,6 +31,8 @@ const DISCOURSES = [
           ran up to her taxi at a Mumbai traffic signal. In that{" "}
           <Highlight color="blue">flash of introspection</Highlight>, she
           realized her life would have more meaning if she stayed in India.
+        </p>
+        <p>
           India was answering the search for purpose she had felt since
           childhood.
         </p>
@@ -47,18 +49,24 @@ const DISCOURSES = [
           Father D&rsquo;Cruz:{" "}
           <em>&ldquo;Father, my life is in your hands. I want to do something
           for the children of India. I don&rsquo;t know how, only that I
-          must.&rdquo;</em> He granted her admission.
+          must.&rdquo;</em>
         </p>
+        <p>He granted her admission.</p>
         <p>
           She began visiting a low-income community &mdash; a maze of tiny
           alleyways where 10,000 people lived with no running water and six
-          shared toilets. There she met{" "}
+          shared toilets.
+        </p>
+        <p>
+          There she met{" "}
           <Highlight color="green">Sandhya</Highlight>, an eighteen-year-old
           who didn&rsquo;t speak English, and whose home was smaller than
-          Shaheen&rsquo;s bathroom. Children gradually formed the first
-          class Shaheen would teach. They called her{" "}
-          <strong>&ldquo;Didi, Didi&rdquo;</strong> &mdash; and Akanksha
-          was born.
+          Shaheen&rsquo;s bathroom.
+        </p>
+        <p>
+          Children gradually formed the first class Shaheen would teach. They
+          called her <strong>&ldquo;Didi, Didi&rdquo;</strong> &mdash; and
+          Akanksha was born.
         </p>
       </>
     ),
@@ -70,26 +78,39 @@ const DISCOURSES = [
       <>
         <p>
           The idea was simple: India had people who could teach, spaces for
-          classrooms, and funds to educate children. Everything existed &mdash;
-          it just needed bringing together. But finding a physical space was
-          the hardest part.
+          classrooms, and funds to educate children.
+        </p>
+        <p>
+          Everything existed &mdash; it just needed bringing together. But
+          finding a physical space was the hardest part.
         </p>
         <p>
           Shaheen approached{" "}
           <Highlight color="yellow">twenty schools</Highlight> requesting one
-          classroom for three hours each evening. All refused. Some claimed
-          teaching underprivileged children was too &ldquo;revolutionary.&rdquo;
+          classroom for three hours each evening. All refused.
+        </p>
+        <p>
+          Some claimed teaching underprivileged children was too
+          &ldquo;revolutionary.&rdquo;
+        </p>
+        <p>
           Others worried about disease. One principal said the glass bangles of
-          fishermen&rsquo;s daughters would scratch her desks. Finally, the
-          principal of Holy Name High School in Colaba agreed. That became the
-          first Akanksha centre.
+          fishermen&rsquo;s daughters would scratch her desks.
+        </p>
+        <p>
+          Finally, the principal of Holy Name High School in Colaba agreed.
+          That became the first Akanksha centre.
         </p>
         <p>
           From a single class with 15 children, Akanksha grew to{" "}
           <strong>58 centres and 6 schools</strong> with over 3,500 children.
-          The program developed organically &mdash; basic English and Math, mixed
-          with values, self-esteem, and confidence.
         </p>
+        <p>The program developed organically &mdash; basic English and Math, mixed with:</p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>values</li>
+          <li>self-esteem</li>
+          <li>confidence</li>
+        </ul>
       </>
     ),
   },
@@ -132,6 +153,16 @@ export default function DhyanChandPage() {
             warmth and belonging than any formal title. The extract traces
             her journey from childhood awareness of inequity to the founding
             of Akanksha in 1991.
+          </p>
+
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
+          <p>
+            Shaheen Mistri&rsquo;s account traces how a childhood search for purpose and a growing awareness of inequity led her to leave a privileged international life and build Akanksha for Mumbai&rsquo;s underprivileged children. It shows that meaningful success comes from reaching out to the community and making a difference rather than from money or popularity.
           </p>
 
           {/* Summary */}
@@ -292,9 +323,11 @@ export default function DhyanChandPage() {
               Shaheen&rsquo;s story is fundamentally about finding{" "}
               <Highlight color="yellow">purpose</Highlight>. From watching ants
               as a child to the traffic-signal moment with three beggars, she
-              constantly sought meaning. India gave her that purpose &mdash; not
-              through wealth or comfort, but through the children who needed
-              her.
+              constantly sought meaning.
+            </p>
+            <p>
+              India gave her that purpose &mdash; not through wealth or comfort,
+              but through the children who needed her.
             </p>
             <h3
               id="seeing-inequity"
@@ -306,9 +339,11 @@ export default function DhyanChandPage() {
               Growing up in privilege across multiple countries gave Shaheen a
               unique lens. She could see{" "}
               <Highlight color="pink">disparity</Highlight> clearly because she
-              moved between worlds. The slums of Mumbai became &ldquo;the fabric
-              of the city&rdquo; &mdash; suddenly everywhere once she learned to
-              look.
+              moved between worlds.
+            </p>
+            <p>
+              The slums of Mumbai became &ldquo;the fabric of the city&rdquo;
+              &mdash; suddenly everywhere once she learned to look.
             </p>
             <h3
               id="small-beginnings"

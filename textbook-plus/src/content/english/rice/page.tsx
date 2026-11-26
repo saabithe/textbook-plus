@@ -553,6 +553,16 @@ export default function RicePage() {
             agricultural identity.
           </p>
 
+          <h2
+            id="central-theme"
+            className="text-2xl font-bold tracking-tight mt-14 mb-5 scroll-mt-24 text-foreground"
+          >
+            Central Theme
+          </h2>
+          <p>
+            The poem contrasts a homecoming imagined in warmth and abundance with a village where paddy has given way to cash crops and food must be begged from the Centre. Through that contrast it satirises the abandonment of food self-reliance for profit.
+          </p>
+
           {/* Summary */}
           <h2
             id="summary"
