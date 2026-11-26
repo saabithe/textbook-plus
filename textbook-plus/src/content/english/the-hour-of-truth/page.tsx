@@ -139,32 +139,63 @@ const CHARACTER_COMPARISON = [
 
 const READ_RESPOND = [
   {
-    question: "Why does Robert Baldwin refuse the $100,000 bribe?",
-    answer: "Robert refuses because his conscience won’t allow him to lie. He says those three words — “I don’t remember” — would choke him. His entire identity is built on being honourable, and accepting the bribe would mean everything he’s believed about himself was a lie. He’d rather go to his grave clean than live with the knowledge that he’d been bought.",
+    question: "Why was Mr. Gresham arrested?",
+    answer: (
+      <ul className="space-y-2 text-foreground/90 leading-[1.7]">
+        <li><strong>Charge:</strong> He was arrested for misappropriating the bank&apos;s funds.</li>
+        <li><strong>Timing:</strong> The trial was due to begin the next day, and Baldwin was the only witness against him.</li>
+        <li><strong>No loss:</strong> Baldwin tells the family that the depositors will not lose a cent.</li>
+      </ul>
+    ),
   },
   {
-    question: "How does John justify his father accepting the bribe?",
-    answer: "John argues that nobody lost any money, so it’s just a technicality. He says Gresham hasn’t done anything really wrong and that punishing him would be unfair. He also points out practical benefits: Gresham would start business again, offer Robert a partnership, and the $100,000 would help the family since Robert is unemployed.",
+    question: "Why didn’t Baldwin explain his position to the papers?",
+    answer: (
+      <ul className="space-y-2 text-foreground/90 leading-[1.7]">
+        <li><strong>No compulsion:</strong> &ldquo;Nothing forced me to answer, John.&rdquo; The papers had asked him often enough.</li>
+        <li><strong>Left to Gresham:</strong> He left the truth about the depositors for Gresham. It would come out the next day.</li>
+        <li><strong>Cleared in court:</strong> He let his name rest under a cloud because it would be cleared tomorrow.</li>
+      </ul>
+    ),
   },
   {
-    question: "What role does the family’s son being named after Gresham play?",
-    answer: "Martha uses the name as emotional leverage, reminding Robert that Gresham was their son’s godfather. She says it would be sad if the name “John Gresham” came to grief through Robert’s testimony. This adds personal significance to the legal case, making it about family honour as well as money.",
+    question: "What was the change in the attitude of the members of the family when they came to know the amount of the bribe?",
+    answer: (
+      <ul className="space-y-2 text-foreground/90 leading-[1.7]">
+        <li><strong>Before the offer:</strong> John says his father will tell the truth and would never lie.</li>
+        <li><strong>Evie&apos;s awe:</strong> She repeats the sum as if hypnotised.</li>
+        <li><strong>John&apos;s calculation:</strong> He points to a partnership and Gresham&apos;s debt of gratitude.</li>
+        <li><strong>Martha&apos;s worry:</strong> She says the money would mean a great deal while Robert is out of work.</li>
+        <li><strong>No answer:</strong> Asked to say &ldquo;Yes&rdquo; or &ldquo;No&rdquo;, the family stays silent.</li>
+      </ul>
+    ),
   },
   {
-    question: "Why does Robert call his family liars and hypocrites?",
-    answer: "Robert sees through their self-serving arguments. They all know taking the money is wrong, but they avoid saying so directly. When Robert asks them directly whether they want him to take it, they remain silent. He calls them shams and hypocrites because they’re pretending to have reasons when really they just want the money.",
+    question: "How did Baldwin react to the opinion of his family?",
+    answer: (
+      <ul className="space-y-2 text-foreground/90 leading-[1.7]">
+        <li><strong>Refusal to profit:</strong> He could not go into partnership with Gresham because people would not trust him.</li>
+        <li><strong>Moral challenge:</strong> He says that taking the money would be a dishonourable thing and that they all know it.</li>
+        <li><strong>Blame:</strong> He calls them &ldquo;Shams! Liars! Hypocrites! Thieves!&rdquo; and includes himself in the blame.</li>
+        <li><strong>Self-knowledge:</strong> He admits to John that he refused partly because he was afraid of what his family would say.</li>
+        <li><strong>Right and wrong:</strong> He insists &ldquo;It&apos;s not right&rdquo; when Martha says it is not wrong.</li>
+      </ul>
+    ),
   },
   {
-    question: "What is the significance of Gresham’s confession?",
-    answer: "Gresham confesses rather than face Robert’s testimony, which proves two things: that Robert’s integrity was real and not just stubbornness, and that even Gresham recognised the power of truth. Marshall says Gresham paid Robert the supreme compliment by confessing, and the Third National Bank offers Robert a position because of his demonstrated character.",
-  },
-  {
-    question: "How does the play explore the corrupting influence of money?",
-    answer: "Every character except Robert is influenced by the $100,000. John sees it as practical, Martha sees it as necessary for the family, and Evie sees it as harmless. The play shows how money can make people rationalise dishonesty, turning a clear moral issue into a grey area. Only Robert’s lifelong habit of integrity resists the temptation.",
-  },
-  {
-    question: "What is the irony of Robert’s final position?",
-    answer: "Robert is offered a position at the Third National Bank because of his integrity, which is exactly what the money could have bought him through Gresham. The irony is that by refusing the dishonest path, Robert gets a better outcome than if he’d accepted — he gets both the job and his self-respect, while the family who pressured him ends up ashamed.",
+    question: "Was Baldwin disloyal to Mr. Gresham? Quote the relevant sentences to support your answer.",
+    answer: (
+      <>
+        <p><strong>No.</strong> He refused the bribe, yet his words show friendship and pity, not betrayal.</p>
+        <ul className="mt-2 space-y-2 text-foreground/90 leading-[1.7]">
+          <li><strong>Old friendship:</strong> &ldquo;He&apos;s too old a friend of mine for that.&rdquo;</li>
+          <li><strong>Understanding:</strong> &ldquo;He is desperate — he doesn&apos;t know what he is doing — or he wouldn&apos;t have offered me money.&rdquo;</li>
+          <li><strong>Trust:</strong> &ldquo;He never lied to me, John.&rdquo; Marshall calls the confession &ldquo;the supreme compliment&rdquo;.</li>
+          <li><strong>Sympathy:</strong> &ldquo;I think that I&apos;m sorry for John Gresham — terribly sorry.&rdquo;</li>
+          <li><strong>Loyalty in silence:</strong> &ldquo;I left that for Gresham. It will come out tomorrow.&rdquo;</li>
+        </ul>
+      </>
+    ),
   },
 ];
 
@@ -226,7 +257,11 @@ export default function TheHourOfTruthPage() {
           </h2>
           <div className="space-y-3 text-[0.95rem] text-foreground/85 leading-relaxed">
             <p><Highlight color="blue">The Hour of Truth</Highlight> is a one-act play by Percival Wilde that explores the conflict between truth and loyalty, integrity and self-interest.</p>
-            <p>Set on a hot Sunday afternoon, the play centres on Robert Baldwin, who must decide whether to testify truthfully against his lifelong friend and employer John Gresham, or accept a $100,000 bribe to lie on the stand.</p>
+            <ul className="space-y-2 text-foreground/90 text-[1.0625rem] leading-[1.75]">
+              <li><strong>Setting:</strong> A hot Sunday afternoon.</li>
+              <li><strong>Conflict:</strong> Robert Baldwin must choose between testifying truthfully against his lifelong friend and employer John Gresham.</li>
+              <li><strong>Temptation:</strong> Gresham offers him a $100,000 bribe to lie on the stand.</li>
+            </ul>
             <p>The play examines how the prospect of easy money can corrupt even the closest family bonds, and how true integrity reveals itself when tested.</p>
           </div>
 

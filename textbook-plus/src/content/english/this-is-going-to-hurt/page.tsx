@@ -76,6 +76,9 @@ const QA_ITEMS = [
       </>
     ),
   },
+];
+
+const THINK_WRITE_ITEMS = [
   {
     question: "Comment on the aptness of the title of the poem.",
     answer: (
@@ -97,13 +100,15 @@ const QA_ITEMS = [
       "The poet compares the mouth to a section of road that is being repaired. Do you feel any exaggeration in it? Find more such instances in the poem.",
     answer: (
       <>
+        <p>Yes, it is an exaggeration.</p>
         <p>
-          Yes, it is an exaggeration. A mouth being drilled is not really a road
-          under repair, but the comparison is deliberately stretched so that the
-          situation seems far worse than it is &mdash; and that is exactly what
-          creates the humour. The image also works: stone crushers, concrete
-          mixers, drills and steam rollers describe what the patient thinks he
-          can hear and feel.
+          A mouth being drilled is not really a road under repair, but the
+          comparison is deliberately stretched so that the situation seems far
+          worse than it is &mdash; and that is exactly what creates the humour.
+        </p>
+        <p>
+          The image also works: stone crushers, concrete mixers, drills and
+          steam rollers describe what the patient thinks he can hear and feel.
         </p>
         <p>Other exaggerations in the poem:</p>
         <ul>
@@ -124,9 +129,12 @@ const QA_ITEMS = [
       <>
         <p>
           Similes make the poem funnier and help us imagine the discomfort
-          clearly. They give the reader a familiar picture &mdash; a road under
-          repair, a horse&rsquo;s hoof, a bow tie &mdash; for an experience that
-          is otherwise hard to describe, so the exaggeration lands instead of
+          clearly.
+        </p>
+        <p>
+          They give the reader a familiar picture &mdash; a road under repair, a
+          horse&rsquo;s hoof, a bow tie &mdash; for an experience that is
+          otherwise hard to describe, so the exaggeration lands instead of
           merely sounding like complaint.
         </p>
         <p>Other similes and comparisons in the poem:</p>
@@ -148,33 +156,6 @@ const QA_ITEMS = [
             as the Romans used to say.
           </li>
         </ul>
-      </>
-    ),
-  },
-  {
-    question:
-      "Nash plays with language throughout the poem. Point out his deliberate misspellings and puns, and say what they add to the poem.",
-    answer: (
-      <>
-        <p>
-          Nash uses{" "}
-          <Highlight color="blue">deliberate misspellings and puns</Highlight>{" "}
-          to keep the tone comic: &ldquo;hopen&rdquo; for <em>hoping</em>,
-          &ldquo;monce&rdquo; for <em>months</em>, and &ldquo;ursa&rdquo; for the
-          Latin word for a bear, which he turns into a joke about a feminine
-          bear.
-        </p>
-        <p>
-          The aside about the Romans is a comic digression: the dentist may be
-          &ldquo;a bear,&rdquo; and the Romans, Nash says, used <em>ursa</em> only
-          for a she-bear. It lightens the poem&rsquo;s tone while the
-          argument &mdash; that the whole business is torture &mdash; quietly
-          carries on.
-        </p>
-        <p>
-          These small jokes matter because they turn complaint into comedy: the
-          reader laughs at the language itself, not only at the situation.
-        </p>
       </>
     ),
   },
@@ -224,16 +205,32 @@ const DISCOURSES = [
         </h3>
         <p>
           <em>This Is Going to Hurt Just a Little Bit</em> by Ogden Nash is a
-          humorous poem about a visit to the dentist. The title is the
-          poem&rsquo;s first joke: the cheerful assurance that it will hurt
-          &ldquo;just a little bit&rdquo; is exactly what the patient dreads, and
-          the whole poem measures that little bit against what actually happens
-          in the chair. The mood is{" "}
-          <Highlight color="yellow">light and playful</Highlight> throughout,
-          and the theme is the fear, discomfort and helplessness a person feels
-          during dental treatment &mdash; turned into comedy through exaggeration
-          and wit.
+          humorous poem about a visit to the dentist.
         </p>
+        <p>The title is the poem&rsquo;s first joke:</p>
+        <ul>
+          <li>
+            <strong>The assurance:</strong> the cheerful promise that it will
+            hurt &ldquo;just a little bit&rdquo; is exactly what the patient
+            dreads.
+          </li>
+          <li>
+            <strong>The measure:</strong> the whole poem measures that little
+            bit against what actually happens in the chair.
+          </li>
+        </ul>
+        <p>The mood and theme:</p>
+        <ul>
+          <li>
+            <strong>Mood:</strong>{" "}
+            <Highlight color="yellow">light and playful</Highlight> throughout.
+          </li>
+          <li>
+            <strong>Theme:</strong> the fear, discomfort and helplessness a
+            person feels during dental treatment &mdash; turned into comedy
+            through exaggeration and wit.
+          </li>
+        </ul>
 
         <h3
           id="appreciation-summary"
@@ -243,26 +240,76 @@ const DISCOURSES = [
         </h3>
         <p>
           The poet declares that sitting in a dentist&rsquo;s chair with his
-          mouth wide open is one thing he likes less than most things. Some
-          tortures, he says, are physical and some are mental, but the dental one
-          is both. He cannot stay composed: his jaw digs into his chest, his
-          fingernails make &ldquo;serious alterations&rdquo; in his palm lines,
-          and he cannot keep up his usual &ldquo;cheery benignity&rdquo; in a
-          position &ldquo;most lacking in dignity.&rdquo;
+          mouth wide open is one thing he likes less than most things.
         </p>
+        <p>Some tortures, he says, fall into two kinds:</p>
+        <ul>
+          <li>
+            <strong>Physical:</strong> some tortures are physical.
+          </li>
+          <li>
+            <strong>Mental:</strong> some are mental.
+          </li>
+          <li>
+            <strong>Both:</strong> the dental one is both.
+          </li>
+        </ul>
+        <p>He cannot stay composed:</p>
+        <ul>
+          <li>
+            <strong>The jaw:</strong> digs into his chest.
+          </li>
+          <li>
+            <strong>The fingernails:</strong> make &ldquo;serious
+            alterations&rdquo; in his palm lines.
+          </li>
+          <li>
+            <strong>The composure:</strong> he cannot keep up his usual
+            &ldquo;cheery benignity&rdquo; in a position &ldquo;most lacking in
+            dignity.&rdquo;
+          </li>
+        </ul>
+        <p>The mouth then becomes a section of road being worked on:</p>
+        <ul>
+          <li>
+            <strong>The clutter:</strong> stone crushers, concrete mixers,
+            drills and steam rollers.
+          </li>
+          <li>
+            <strong>The nerves:</strong> every nerve in his head is being irked.
+          </li>
+        </ul>
         <p>
-          The mouth then becomes a section of road being worked on &mdash;
-          cluttered with stone crushers, concrete mixers, drills and steam
-          rollers &mdash; and every nerve in his head is being irked. The teeth
-          are supposed to be polished but feel as if they are being demolished.
-          Worst of all, it is all done with a mirror, so the dentist &mdash; who
-          may be &ldquo;a bear,&rdquo; an <em>ursa</em> &mdash; holds a crowbar in
-          one hand and a mirror in the other and might confuse left and right,
-          the way one does when tying a bow tie in a mirror. When it is
-          &ldquo;all over,&rdquo; he coats the mouth with something the poet
-          suspects is used to put a shine on a horse&rsquo;s hoof, and says
-          &ldquo;come back in three monce.&rdquo;
+          The teeth are supposed to be polished but feel as if they are being
+          demolished.
         </p>
+        <p>Worst of all, it is all done with a mirror:</p>
+        <ul>
+          <li>
+            <strong>The dentist:</strong> may be &ldquo;a bear,&rdquo; an{" "}
+            <em>ursa</em>.
+          </li>
+          <li>
+            <strong>The tools:</strong> a crowbar in one hand and a mirror in
+            the other.
+          </li>
+          <li>
+            <strong>The risk:</strong> he might confuse left and right, the way
+            one does when tying a bow tie in a mirror.
+          </li>
+        </ul>
+        <p>After the treatment:</p>
+        <ul>
+          <li>
+            <strong>The coating:</strong> when it is &ldquo;all over,&rdquo; he
+            coats the mouth with something the poet suspects is used to put a
+            shine on a horse&rsquo;s hoof.
+          </li>
+          <li>
+            <strong>The parting line:</strong> he says &ldquo;come back in three
+            monce.&rdquo;
+          </li>
+        </ul>
         <p>
           The central idea arrives in the last lines: this is the most vicious
           circle Fate ever devised &mdash; a man must go continually to the
@@ -277,27 +324,65 @@ const DISCOURSES = [
         >
           III. Poetic Devices, Language, Tone and Style
         </h3>
+        <p>The poem runs on hyperbole:</p>
+        <ul>
+          <li>
+            <strong>The drill:</strong> becomes a steam roller.
+          </li>
+          <li>
+            <strong>The probe:</strong> becomes a crowbar.
+          </li>
+          <li>
+            <strong>Polishing:</strong> becomes a demolition.
+          </li>
+          <li>
+            <strong>The mouth:</strong> becomes a road under repair.
+          </li>
+        </ul>
+        <p>The comparisons are what make the terror funny:</p>
+        <ul>
+          <li>
+            <strong>The mouth:</strong> is &ldquo;like a section of road that is
+            being worked on.&rdquo;
+          </li>
+          <li>
+            <strong>The coating:</strong> is &ldquo;generally used to put a shine
+            on a horse&rsquo;s hoof.&rdquo;
+          </li>
+          <li>
+            <strong>The mirror:</strong> the confusion is &ldquo;like trying to
+            tie a bow tie with the aid of a mirror.&rdquo;
+          </li>
+        </ul>
         <p>
-          The poem runs on hyperbole. A dentist&rsquo;s drill becomes a steam
-          roller, a probe a crowbar, polishing a demolition, and a mouth a road
-          under repair. The comparisons are what make the terror funny: the mouth
-          is &ldquo;like a section of road that is being worked on,&rdquo; the
-          coating is &ldquo;generally used to put a shine on a horse&rsquo;s
-          hoof,&rdquo; and the confusion of the mirror is &ldquo;like trying to
-          tie a bow tie with the aid of a mirror.&rdquo; Nash&rsquo;s irony
-          works from the title downwards &mdash; the promise of &ldquo;just a
-          little bit&rdquo; against the demolition in the chair, and the closing
-          circle in which the cure is also the cause.
+          Nash&rsquo;s irony works from the title downwards &mdash; the promise
+          of &ldquo;just a little bit&rdquo; against the demolition in the chair.
         </p>
         <p>
-          The language is colloquial and conversational, with Nash&rsquo;s
-          deliberate misspellings &mdash; &ldquo;hopen&rdquo; for hoping,
-          &ldquo;monce&rdquo; for months, &ldquo;sentest&rdquo; for sent &mdash;
-          and comic Latin (&ldquo;ursa&rdquo;). The lines are long and loosely
-          rhymed, running on the way a nervous patient&rsquo;s thoughts run on,
-          and the second person (&ldquo;your jaw,&rdquo; &ldquo;your mouth&rdquo;)
-          pulls the reader into the chair. The tone is playful and self-mocking:
-          the poet never complains seriously, he laughs at the whole experience.
+          The closing circle is one in which the cure is also the cause.
+        </p>
+        <p>The language is colloquial and conversational:</p>
+        <ul>
+          <li>
+            <strong>Nash&rsquo;s deliberate misspellings:</strong>{" "}
+            &ldquo;hopen&rdquo; for hoping, &ldquo;monce&rdquo; for months,
+            &ldquo;sentest&rdquo; for sent.
+          </li>
+          <li>
+            <strong>Comic Latin:</strong> &ldquo;ursa.&rdquo;
+          </li>
+          <li>
+            <strong>Long, loosely rhymed lines:</strong> they run on the way a
+            nervous patient&rsquo;s thoughts run on.
+          </li>
+          <li>
+            <strong>The second person:</strong> &ldquo;your jaw,&rdquo;
+            &ldquo;your mouth&rdquo; pulls the reader into the chair.
+          </li>
+        </ul>
+        <p>
+          The tone is playful and self-mocking: the poet never complains
+          seriously, he laughs at the whole experience.
         </p>
 
         <h3
@@ -309,17 +394,44 @@ const DISCOURSES = [
         <p>
           In conclusion, <em>This Is Going to Hurt Just a Little Bit</em> is a
           memorable poem because it turns a genuinely painful experience into an
-          entertaining one. Its message &mdash; that{" "}
-          <Highlight color="pink">
-            humour helps us face fear and pain
-          </Highlight>
-          , and that laughing at an uncomfortable situation makes it easier to
-          bear &mdash; is as useful as it is funny. My favourite lines are
-          &ldquo;And your mouth is like a section of road that is being worked
-          on,&rdquo; because in one image they hold the whole method of the poem:
-          the ordinary mouth, the heavy machinery and the patient&rsquo;s
-          helplessness at once. Overall, the poem is an effective and enjoyable
-          piece of comic verse that deserves appreciation.
+          entertaining one.
+        </p>
+        <p>Its message:</p>
+        <ul>
+          <li>
+            <strong>Fear and pain:</strong>{" "}
+            <Highlight color="pink">
+              humour helps us face fear and pain
+            </Highlight>
+            .
+          </li>
+          <li>
+            <strong>Uncomfortable situations:</strong> laughing at them makes
+            them easier to bear.
+          </li>
+          <li>
+            <strong>The value:</strong> the message is as useful as it is funny.
+          </li>
+        </ul>
+        <p>
+          My favourite lines are &ldquo;And your mouth is like a section of road
+          that is being worked on,&rdquo; because in one image they hold the
+          whole method of the poem:
+        </p>
+        <ul>
+          <li>
+            <strong>The ordinary mouth.</strong>
+          </li>
+          <li>
+            <strong>The heavy machinery.</strong>
+          </li>
+          <li>
+            <strong>The patient&rsquo;s helplessness</strong> &mdash; all at once.
+          </li>
+        </ul>
+        <p>
+          Overall, the poem is an effective and enjoyable piece of comic verse
+          that deserves appreciation.
         </p>
       </>
     ),
@@ -528,9 +640,19 @@ export default function ThisIsGoingToHurtPage() {
             </h3>
             <p>
               The closing &ldquo;vicious circle&rdquo; extends beyond dentistry.
-              We maintain things to avoid maintaining them. We take medicine to
-              avoid taking medicine. The poem uses dental anxiety as a metaphor
-              for life&rsquo;s{" "}
+            </p>
+            <ul>
+              <li>
+                <strong>Maintenance:</strong> we maintain things to avoid
+                maintaining them.
+              </li>
+              <li>
+                <strong>Medicine:</strong> we take medicine to avoid taking
+                medicine.
+              </li>
+            </ul>
+            <p>
+              The poem uses dental anxiety as a metaphor for life&rsquo;s{" "}
               <Highlight color="blue">self-defeating routines</Highlight>.
             </p>
           </div>
@@ -555,8 +677,12 @@ export default function ThisIsGoingToHurtPage() {
               Read &amp; Respond
             </h2>
 
-            <Expandable title="Read and Respond — 9 textbook questions">
+            <Expandable title="Read and Respond — 5 textbook questions">
               <ReadRespond title="Textbook questions" items={QA_ITEMS} collapsible={false} />
+            </Expandable>
+
+            <Expandable title="Think and Write — 3 questions">
+              <ReadRespond title="Think and Write" items={THINK_WRITE_ITEMS} collapsible={false} />
             </Expandable>
 
             <Expandable title="Discussion & Analysis — the poet's attitude">

@@ -32,6 +32,152 @@ function SummaryPart({ title, children }: { title: string; children: ReactNode }
 const QA_ITEMS = [
   {
     question:
+      "What, according to Wangari Maathai, is the primary role of the women of Africa?",
+    answer: (
+      <>
+        <ul className="list-disc space-y-2 ps-5">
+          <li>
+            <strong>Primary caretakers</strong>: women till the land and feed
+            their families.
+          </li>
+          <li>
+            <strong>First to notice damage</strong>: as resources become
+            scarce, they are the first to become aware of environmental damage
+            and are incapable of sustaining their families.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    question: "Why did the African women fail to meet their basic needs?",
+    answer: (
+      <>
+        <ul className="list-disc space-y-2 ps-5">
+          <li>
+            <strong>Degraded environment</strong>: their immediate environment
+            had deteriorated.
+          </li>
+          <li>
+            <strong>Commercial farming</strong>: it replaced the growing of
+            household food crops.
+          </li>
+          <li>
+            <strong>Controlled prices</strong>: international trade controlled
+            the price of small-scale farmers&rsquo; exports, so a reasonable
+            and just income could not be guaranteed.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    question:
+      "How does environmental disruption and mismanagement affect life?",
+    answer: (
+      <>
+        <ul className="list-disc space-y-2 ps-5">
+          <li>
+            <strong>Quality of life</strong>: when the environment is
+            destroyed, plundered or mismanaged, our quality of life is
+            undermined.
+          </li>
+          <li>
+            <strong>Future generations</strong>: their quality of life is
+            undermined too.
+          </li>
+          <li>
+            <strong>Scarce resources</strong>: degradation leads to a scramble
+            for scarce resources, which may culminate in poverty and even
+            conflict.
+          </li>
+          <li>
+            <strong>Ecosystems</strong>: widespread destruction of ecosystems
+            contributed to excruciating poverty and subsequent riots.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    question:
+      "How does the tree become a symbol for peace and conflict resolution?",
+    answer: (
+      <>
+        <ul className="list-disc space-y-2 ps-5">
+          <li>
+            <strong>African tradition</strong>: using trees as a symbol of
+            peace follows a widespread African tradition.
+          </li>
+          <li>
+            <strong>Kikuyu example</strong>: elders carried a staff from the
+            thigi tree.
+          </li>
+          <li>
+            <strong>Reconciliation</strong>: placed between two disputing
+            sides, the staff caused them to stop fighting and seek
+            reconciliation.
+          </li>
+          <li>
+            <strong>Cultural heritage</strong>: such practices contribute to
+            the conservation of habitats and to cultures of peace.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    question:
+      "What is the merit of having a feeling that we belong to a larger family?",
+    answer: (
+      <>
+        <ul className="list-disc space-y-2 ps-5">
+          <li>
+            <strong>Shared life</strong>: the larger family of life is one with
+            which we have shared our evolutionary process.
+          </li>
+          <li>
+            <strong>Healing</strong>: seeing this belonging lets us assist the
+            Earth to heal her wounds and heal our own in the process.
+          </li>
+          <li>
+            <strong>Embrace</strong>: it lets us embrace the whole of creation.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    question:
+      "What, according to Wangari Maathai, is the challenge of our generation?",
+    answer: (
+      <>
+        <ul className="list-disc space-y-2 ps-5">
+          <li>
+            <strong>The stream</strong>: the stream near her childhood home
+            has dried up.
+          </li>
+          <li>
+            <strong>Water</strong>: women walk long distances for water which
+            is not always clean.
+          </li>
+          <li>
+            <strong>Children</strong>: they will never know what they have
+            lost.
+          </li>
+          <li>
+            <strong>The challenge</strong>: restore the home of the tadpoles
+            and give back to our children a world of beauty and wonder.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+];
+
+const THINK_WRITE_ITEMS = [
+  {
+    question:
       "What is the role of bio-diversity in maintaining environmental balance?",
     answer: (
       <>
@@ -82,11 +228,26 @@ const QA_ITEMS = [
       <>
         <p>
           This is true, particularly in rural societies where women are the{" "}
-          <strong>primary caretakers</strong> responsible for tilling the soil,
-          gathering firewood, fetching water and feeding their families. Because
-          their daily duties depend directly on natural resources, any
-          deforestation, soil erosion or drying up of streams affects them
-          immediately.
+          <strong>primary caretakers</strong>. Their duties include:
+        </p>
+        <ul className="list-disc space-y-2 ps-5">
+          <li>
+            <strong>Tilling the soil</strong>.
+          </li>
+          <li>
+            <strong>Gathering firewood</strong>.
+          </li>
+          <li>
+            <strong>Fetching water</strong>.
+          </li>
+          <li>
+            <strong>Feeding their families</strong>.
+          </li>
+        </ul>
+        <p>
+          Their daily duties depend directly on natural resources. Any{" "}
+          <strong>deforestation</strong>, <strong>soil erosion</strong> or{" "}
+          <strong>drying up of streams</strong> affects them immediately.
         </p>
       </>
     ),
@@ -203,9 +364,23 @@ const DISCOURSES = [
             <li>women&rsquo;s rights.</li>
           </ul>
           <p>
-            Together they planted over <strong>30 million trees</strong>, which
-            provide fuel, food, shelter and income to support families.
+            Together they planted over <strong>30 million trees</strong>. The
+            trees support families with:
           </p>
+          <ul className="list-disc space-y-1.5 ps-5">
+            <li>
+              <strong>Fuel</strong>.
+            </li>
+            <li>
+              <strong>Food</strong>.
+            </li>
+            <li>
+              <strong>Shelter</strong>.
+            </li>
+            <li>
+              <strong>Income</strong>.
+            </li>
+          </ul>
         </Callout>
         <p>
           The movement began because women in rural Kenya could no longer meet
@@ -214,9 +389,21 @@ const DISCOURSES = [
           survival difficult.
         </p>
         <p>
-          Tree planting was chosen because it was{" "}
-          <Highlight color="yellow">simple, attainable, and guaranteed quick
-          results</Highlight>, sustaining interest and commitment.
+          Tree planting was chosen for three reasons:
+        </p>
+        <ul className="list-disc space-y-1.5 ps-5">
+          <li>
+            <Highlight color="yellow">Simple</Highlight>.
+          </li>
+          <li>
+            <strong>Attainable</strong>.
+          </li>
+          <li>
+            <strong>Guaranteed quick results</strong>.
+          </li>
+        </ul>
+        <p>
+          This sustained interest and commitment.
         </p>
       </>
     ),
@@ -274,10 +461,25 @@ const DISCOURSES = [
           Eco-Club.
         </p>
         <div className="mt-6 space-y-4 border-l-2 border-border/70 pl-5">
+          <ul className="list-disc space-y-1 text-foreground/90 text-[1.0625rem] leading-[1.75] ps-5">
+            <li>
+              <strong>Respected Governor of the State</strong>,
+            </li>
+            <li>
+              <strong>Honourable Chief Minister</strong>,
+            </li>
+            <li>
+              <strong>Distinguished dignitaries on and off the stage</strong>,
+            </li>
+            <li>
+              <strong>teachers</strong>, and
+            </li>
+            <li>
+              <strong>my dear friends</strong>.
+            </li>
+          </ul>
           <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
-            Respected Governor of the State, Honourable Chief Minister,
-            distinguished dignitaries on and off the stage, teachers, and my dear
-            friends. Good morning to one and all.
+            Good morning to one and all.
           </p>
           <p className="text-foreground/90 text-[1.0625rem] leading-[1.75]">
             It is with profound humility, immense joy and deep gratitude that I
@@ -423,10 +625,20 @@ export default function WhenASaplingIsPlantedPage() {
           <p>
             <em>When a Sapling is Planted</em> is the{" "}
             <Highlight color="yellow">Nobel Peace Prize Acceptance Speech</Highlight>{" "}
-            by Wangari Maathai. Maathai was the first African woman to receive
-            this prestigious award, in recognition of her contribution to
-            sustainable development, democracy, and peace.
+            by Wangari Maathai. She was the first African woman to receive this
+            prestigious award, in recognition of her contribution to:
           </p>
+          <ul className="list-disc space-y-2 ps-5">
+            <li>
+              <strong>Sustainable development</strong>.
+            </li>
+            <li>
+              <strong>Democracy</strong>.
+            </li>
+            <li>
+              <strong>Peace</strong>.
+            </li>
+          </ul>
           <p>
             The speech traces her journey from founding the Green Belt Movement
             in Kenya to addressing world leaders about the{" "}
@@ -676,10 +888,29 @@ export default function WhenASaplingIsPlantedPage() {
             <p>
               By organising community tree planting through the Green Belt
               Movement, rural communities planted{" "}
-              <Highlight color="green">over 30 million trees</Highlight>,
-              providing fuel, food, shelter and income. That simple, practical
-              effort restored degraded soil and watersheds while empowering local
-              women with <strong>sustainable livelihoods</strong> and a{" "}
+              <Highlight color="green">over 30 million trees</Highlight>.
+            </p>
+            <p>
+              The trees provided:
+            </p>
+            <ul className="list-disc space-y-2 ps-5">
+              <li>
+                <strong>Fuel</strong>.
+              </li>
+              <li>
+                <strong>Food</strong>.
+              </li>
+              <li>
+                <strong>Shelter</strong>.
+              </li>
+              <li>
+                <strong>Income</strong>.
+              </li>
+            </ul>
+            <p>
+              That simple, practical effort restored degraded soil and
+              watersheds. It empowered local women with{" "}
+              <strong>sustainable livelihoods</strong> and a{" "}
               <strong>sense of agency</strong>.
             </p>
 
@@ -745,6 +976,13 @@ export default function WhenASaplingIsPlantedPage() {
 
           <div id="read-and-respond-section" className="mt-14">
             <ReadRespond items={QA_ITEMS} />
+            <Expandable title="Think and Write — 6 questions">
+              <ReadRespond
+                title="Think and Write"
+                items={THINK_WRITE_ITEMS}
+                collapsible={false}
+              />
+            </Expandable>
             <Expandable title="Grammar Practice — Adverbs, Adverb Phrases, Adverb Clauses">
               <p>
                 The passage below is the textbook exercise for this unit. Pick
