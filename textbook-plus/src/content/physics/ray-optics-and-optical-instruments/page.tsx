@@ -34,6 +34,18 @@ import {
   TakeawayBlock,
 } from "@/components/content/physics/RefractionPanels";
 import {
+  AngleProgression,
+  AngleResultStrip,
+  ApplicationFigureCard,
+  BoundaryPair,
+  CaseCard,
+  ConditionCards,
+  ReferenceCard,
+  RevisionDashboard,
+  SplitRayPanel,
+  TIRHero,
+} from "@/components/content/physics/TIRPanels";
+import {
   cassegrain,
   compoundMicroscope,
   concaveLensRays,
@@ -43,7 +55,6 @@ import {
   convexMirrorTerms,
   deviationCurve,
   mirrorEquationGeometry,
-  opticalFibre,
   planeReflection,
   prismPath,
   rayAndBeam,
@@ -64,7 +75,19 @@ import {
   signConventionConcave,
   signConventionConvex,
   simpleMicroscope,
-  totalInternalReflection,
+  tirCaseAbove,
+  tirCaseBelow,
+  tirCaseCritical,
+  tirCriticalAngle,
+  tirEndoscope,
+  tirFibreCrossSection,
+  tirFibreLongitudinal,
+  tirFocused,
+  tirHeaderBounces,
+  tirPartialSplit,
+  tirPureReflection,
+  tirPureRefraction,
+  tirTelecomSignal,
 } from "./figures";
 
 /** One answer-key row: the result on top, the working underneath. */
@@ -1506,251 +1529,529 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
 
       <h2 id="h-9-4">9.4 Total Internal Reflection</h2>
 
-      <h3 id="h-9-4-internal">The reflection inside the denser medium</h3>
-      <p>
-        When light travels from an optically denser medium to a rarer one, the interface splits it: part is reflected
-        back into the same medium, and part is refracted into the second.
-      </p>
-      <Callout type="note" title="Internal reflection">
-        <p>
-          <strong>Internal reflection</strong> is that reflection back into the medium the light came from, at the
-          interface with the rarer medium.
-        </p>
-      </Callout>
+      <TIRHero
+        figure={
+          <PhysicsFigure
+            spec={tirHeaderBounces}
+            showCaption={false}
+            labelScale={1.2}
+            className="my-0"
+          />
+        }
+        blocks={["Critical Angle", "Total Internal Reflection", "Applications"]}
+      />
 
-      <h3 id="h-9-4-angle">What happens as the angle of incidence grows</h3>
+      <h3 id="h-9-4-boundary">Reflection and Refraction at a Boundary</h3>
+      <h4>Pure reflection vs. pure refraction</h4>
+      <BoundaryPair
+        first={{
+          title: "Pure Reflection",
+          accent: "var(--warning)",
+          figure: (
+            <PhysicsFigure
+              spec={tirPureReflection}
+              showCaption={false}
+              labelScale={1.2}
+              className="my-0"
+            />
+          ),
+          points: [
+            "Incident ray strikes the boundary.",
+            "Entire ray reflects back into Medium 1.",
+            "No refracted ray enters Medium 2.",
+          ],
+        }}
+        second={{
+          title: "Pure Refraction",
+          accent: "var(--ok)",
+          figure: (
+            <PhysicsFigure
+              spec={tirPureRefraction}
+              showCaption={false}
+              labelScale={1.2}
+              className="my-0"
+            />
+          ),
+          points: [
+            "Incident ray strikes the boundary.",
+            "Ray bends into Medium 2.",
+            "No reflected ray is shown.",
+          ],
+        }}
+      />
+
+      <h4>What happens in real life?</h4>
       <p>
-        Entering the rarer medium the ray bends away from the normal, so <Formula>{String.raw`r > i`}</Formula> from
-        the start. Increase the angle of incidence, and the angle of refraction grows with it (Fig. 9.11).
+        In most cases, when light travels from a <strong>denser medium to a rarer medium</strong>, both phenomena occur
+        simultaneously:
       </p>
+      <SplitRayPanel
+        figure={
+          <PhysicsFigure
+            spec={tirPartialSplit}
+            showCaption={false}
+            labelScale={1.2}
+            className="my-0"
+          />
+        }
+      />
+
+      <h3 id="h-9-4-critical-angle">Critical Angle</h3>
+      <h4>Definition</h4>
+      <p>
+        The <strong>critical angle</strong> is the angle of incidence in the denser medium when the angle of refraction
+        in the rarer medium becomes <Formula>{String.raw`90^\circ`}</Formula>.
+      </p>
+      <FormulaStrip>
+        <FormulaBlock important label="Condition" latex={String.raw`r=90^\circ`} />
+      </FormulaStrip>
+
+      <h4>Critical angle — ray diagram</h4>
+      <PhysicsFigure spec={tirCriticalAngle} />
+
+      <h4>Formula for critical angle (rarer medium = air)</h4>
+      <Callout type="note" title="Given setup — rarer medium = air">
+        <ul className="my-0 list-none space-y-2 pl-0">
+          <li>
+            <strong>Denser medium</strong> → <Formula>{String.raw`n_1=n`}</Formula>
+          </li>
+          <li>
+            <strong>Air</strong> → <Formula>{String.raw`n_2=1`}</Formula>
+          </li>
+          <li>
+            <strong>Angle of incidence</strong> → <Formula>{String.raw`i=i_c`}</Formula>
+          </li>
+          <li>
+            <strong>Angle of refraction</strong> → <Formula>{String.raw`r=90^\circ`}</Formula>
+          </li>
+        </ul>
+      </Callout>
       <Stepper
         steps={[
           {
-            label: "A small angle — the ray splits",
-            description: (
-              <p>
-                Part of the ray is reflected back into the denser medium; the rest is transmitted, or refracted, into
-                the rarer one.
-              </p>
-            ),
+            label: "Step 1 — Apply Snell’s law",
+            description: <FormulaBlock latex={String.raw`\frac{\sin i}{\sin r}=\frac{n_2}{n_1}`} />,
           },
           {
-            label: "A larger angle — the refracted ray swings further out",
-            description: <p>The angle of refraction grows as the angle of incidence grows.</p>,
+            label: "Step 2 — Substitute critical-angle conditions",
+            description: <FormulaBlock latex={String.raw`\frac{\sin i_c}{\sin90^\circ}=\frac{1}{n}`} />,
           },
           {
-            label: "The critical angle — r reaches 90°",
+            label: "Step 3 — Simplify",
             description: (
-              <p>
-                The refracted ray is bent so far away from the normal that it grazes the surface between the two
-                media.
-              </p>
-            ),
-          },
-          {
-            label: "Past the critical angle — refraction stops",
-            description: (
-              <p>
-                Refraction is not possible, so the incident ray is <strong>totally reflected</strong>. That is total
-                internal reflection.
-              </p>
+              <div className="space-y-2">
+                <p>Since:</p>
+                <FormulaBlock latex={String.raw`\sin90^\circ=1`} />
+                <FormulaBlock latex={String.raw`\sin i_c=\frac{1}{n}`} />
+              </div>
             ),
           },
         ]}
       />
-      <PhysicsFigure spec={totalInternalReflection} />
+      <FormulaCard label="Important formula" subjectColor="var(--subject-physics)">
+        <FormulaBlock important latex={String.raw`\sin i_c=\frac{1}{n}`} />
+        <FormulaBlock important latex={String.raw`i_c=\sin^{-1}\left(\frac{1}{n}\right)`} />
+      </FormulaCard>
 
-      <h3 id="h-9-4-total">Why &ldquo;total&rdquo; is the operative word</h3>
+      <h3 id="h-9-4-behavior">Behavior of Light at a Denser-to-Rarer Interface</h3>
       <p>
-        When light is reflected by a surface, normally some fraction of it is transmitted. The reflected ray is
-        therefore always less intense than the incident ray, however smooth the reflecting surface.
+        <strong>Basic condition:</strong>
       </p>
-      <KeyPoint title="The difference total internal reflection makes">
+      <FormulaStrip>
+        <FormulaBlock important latex={String.raw`n_1>n_2`} />
+      </FormulaStrip>
+      <p>Light travels from Medium 1 (denser) to Medium 2 (rarer).</p>
+
+      <h4>Three cases of incidence</h4>
+      <div className="my-6 grid gap-4 md:grid-cols-3">
+        <CaseCard
+          title="Case 1 — Angle of Incidence Less Than Critical Angle"
+          condition={
+            <FormulaStrip>
+              <div className="w-full space-y-1 [&>div]:my-0">
+                <FormulaBlock latex={String.raw`i<i_c`} />
+                <FormulaBlock latex={String.raw`r<90^\circ`} />
+              </div>
+            </FormulaStrip>
+          }
+          figure={
+            <PhysicsFigure
+              spec={tirCaseBelow}
+              showCaption={false}
+              labelScale={1.2}
+              className="my-0"
+            />
+          }
+          points={["Light refracts into the rarer medium.", "Refracted ray bends away from the normal."]}
+        />
+        <CaseCard
+          title="Case 2 — Angle of Incidence Equal to Critical Angle"
+          condition={
+            <FormulaStrip>
+              <div className="w-full space-y-1 [&>div]:my-0">
+                <FormulaBlock latex={String.raw`i=i_c`} />
+                <FormulaBlock latex={String.raw`r=90^\circ`} />
+              </div>
+            </FormulaStrip>
+          }
+          figure={
+            <PhysicsFigure
+              spec={tirCaseCritical}
+              showCaption={false}
+              labelScale={1.2}
+              className="my-0"
+            />
+          }
+          points={["Refracted ray travels along the boundary.", "Ray grazes the interface."]}
+        />
+        <CaseCard
+          title="Case 3 — Angle of Incidence Greater Than Critical Angle"
+          condition={
+            <FormulaStrip>
+              <FormulaBlock latex={String.raw`i>i_c`} />
+            </FormulaStrip>
+          }
+          figure={
+            <PhysicsFigure
+              spec={tirCaseAbove}
+              showCaption={false}
+              labelScale={1.2}
+              className="my-0"
+            />
+          }
+          points={[
+            "No refracted ray enters the rarer medium.",
+            "Entire incident ray reflects into the denser medium.",
+            "Angle of reflection equals angle of incidence.",
+          ]}
+          featured
+        />
+      </div>
+      <AngleProgression
+        items={[
+          <Formula key="less">{String.raw`i<i_c`}</Formula>,
+          <Formula key="equal">{String.raw`i=i_c`}</Formula>,
+          <Formula key="greater">{String.raw`i>i_c`}</Formula>,
+        ]}
+      />
+
+      <h3 id="h-9-4-definition">Total Internal Reflection (TIR)</h3>
+      <h4>Definition</h4>
+      <p>
+        When light travels from a denser medium to a rarer medium and the angle of incidence exceeds the critical angle,
+        the light is reflected completely back into the denser medium. This phenomenon is called{" "}
+        <strong>Total Internal Reflection (TIR)</strong>.
+      </p>
+
+      <h4>Diagram — Total Internal Reflection</h4>
+      <PhysicsFigure spec={tirFocused} />
+
+      <h4>Two mandatory conditions for TIR</h4>
+      <ConditionCards
+        items={[
+          {
+            title: "Condition 1 — Direction of travel",
+            formula: <FormulaBlock important latex={String.raw`n_1>n_2`} />,
+            description: "Light must travel from an optically denser medium to an optically rarer medium.",
+          },
+          {
+            title: "Condition 2 — Angle of incidence",
+            formula: <FormulaBlock important latex={String.raw`i>i_c`} />,
+            description: "The angle of incidence must be greater than the critical angle.",
+          },
+        ]}
+      />
+      <p className="text-center text-sm font-extrabold uppercase tracking-wide text-foreground/75">
+        Both conditions are necessary
+      </p>
+
+      <h4>Phenomenon of TIR — key points</h4>
+      <AngleResultStrip
+        items={[
+          {
+            condition: <Formula>{String.raw`i<i_c`}</Formula>,
+            result: "Refraction occurs along with partial reflection.",
+          },
+          {
+            condition: <Formula>{String.raw`i=i_c`}</Formula>,
+            result: "Refracted ray grazes the interface.",
+          },
+          {
+            condition: <Formula>{String.raw`i>i_c`}</Formula>,
+            result: "Total internal reflection occurs.",
+          },
+        ]}
+      />
+      <KeyPoint title="TIR takeaway">
         <p>
-          In total internal reflection, <Highlight>no transmission of light takes place</Highlight> at all.
+          In TIR → 100% of incident light is reflected back into the denser medium, with zero transmission.
+        </p>
+        <p>
+          <Highlight>
+            Unlike ordinary mirror reflection, TIR involves no light energy loss, according to the supplied notes.
+          </Highlight>
         </p>
       </KeyPoint>
 
-      <h3 id="h-9-4-critical">The critical angle</h3>
-      <Callout type="note" title="Critical angle — definition">
-        <p>
-          The <strong>critical angle</strong> <Formula>{String.raw`i_c`}</Formula> of a given pair of media is the
-          angle of incidence for which the angle of refraction is 90°.
-        </p>
-      </Callout>
+      <h3 id="h-9-4-common-media">Critical Angles of Common Media</h3>
+      <ReferenceCard
+        medium="Water"
+        index={<Formula>{String.raw`1.33`}</Formula>}
+        angle={<Formula>{String.raw`48.75^\circ`}</Formula>}
+      />
+
+      <h3 id="h-9-4-applications">Applications of Total Internal Reflection</h3>
+      <h4>Optical Fibre Cable (OFC)</h4>
+      <h5>Principle</h5>
       <p>
-        Snell&rsquo;s law can only be satisfied while <Formula>{String.raw`\sin r`}</Formula> stays within its
-        maximum value of unity.
+        When light travels through an optical fibre and strikes the core–cladding boundary at an angle greater than the
+        critical angle (<Formula>{String.raw`i>i_c`}</Formula>), it undergoes repeated{" "}
+        <strong>Total Internal Reflection</strong>.
       </p>
-      <EquationLadder
-        title="Where the ceiling comes from"
+
+      <h5>Structure of optical fibre</h5>
+      <p>An optical fibre is a cylindrical waveguide consisting of:</p>
+      <div className="my-6 grid items-center gap-4 md:grid-cols-2">
+        <PhysicsFigure
+          spec={tirFibreCrossSection}
+          showCaption={false}
+          labelScale={1.2}
+          className="my-0"
+        />
+        <TableCard
+          headers={["Component", "Description"]}
+          rows={[
+            {
+              cells: [
+                <strong key="core">Core</strong>,
+                <>
+                  Inner part of the optical fibre; refractive index <Formula>{String.raw`n_1`}</Formula>
+                </>,
+              ],
+            },
+            {
+              cells: [
+                <strong key="cladding">Cladding</strong>,
+                <>
+                  Outer surrounding layer; refractive index <Formula>{String.raw`n_2`}</Formula>
+                </>,
+              ],
+            },
+          ]}
+        />
+      </div>
+      <FormulaStrip>
+        <FormulaBlock important label="Refractive index condition" latex={String.raw`n_1>n_2`} />
+      </FormulaStrip>
+
+      <h5>Working of optical fibre</h5>
+      <PhysicsFigure spec={tirFibreLongitudinal} />
+      <p>
+        <strong>Ray path:</strong>
+      </p>
+      <Stepper
         steps={[
+          { label: "Light enters the core obliquely." },
           {
-            label: "Snell's law, denser to rarer",
-            equation: String.raw`n_{21} = \frac{\sin i}{\sin r}`,
-            tag: "Eq. 9.10",
+            label: "It strikes the core–cladding boundary at an angle greater than the critical angle.",
           },
-          {
-            label: "The largest value sin r can take",
-            equation: String.raw`\sin r \le 1`,
-            note: "So there is an upper limit to the value of sin i for which the law can be satisfied.",
-          },
-          {
-            label: "At the critical angle, sin r is exactly 1",
-            equation: String.raw`\sin i_c = n_{21}`,
-            tag: "Eq. 9.12",
-            final: true,
-          },
+          { label: "Total internal reflection occurs." },
+          { label: "Repeated reflections guide light forward along the core." },
+          { label: "Light does not escape into the cladding." },
         ]}
       />
       <p>
-        For values of <Formula>{String.raw`i`}</Formula> larger than <Formula>{String.raw`i_c`}</Formula>, Snell&rsquo;s
-        law cannot be satisfied — and hence no refraction is possible.
+        <strong>Governing condition:</strong>
       </p>
-      <FormulaBlock
-        label="Index of the denser medium with respect to the rarer one"
-        latex={String.raw`n_{12} = \frac{1}{\sin i_c}`}
-      />
+      <FormulaStrip>
+        <div className="w-full space-y-1 [&>div]:my-0">
+          <FormulaBlock important latex={String.raw`n_1>n_2`} />
+          <FormulaBlock important latex={String.raw`i>i_c`} />
+        </div>
+      </FormulaStrip>
+
+      <h5>Uses of optical fibre cable</h5>
+      <div className="my-6 grid gap-4 md:grid-cols-2">
+        <ApplicationFigureCard
+          title="Telecommunications"
+          description="Carries signals in the form of light."
+          figure={
+            <PhysicsFigure
+              spec={tirTelecomSignal}
+              showCaption={false}
+              labelScale={1.2}
+              className="my-0"
+            />
+          }
+        />
+        <ApplicationFigureCard
+          title="Medical Diagnosis"
+          description="Used in endoscopy."
+          figure={
+            <PhysicsFigure
+              spec={tirEndoscope}
+              showCaption={false}
+              labelScale={1.2}
+              className="my-0"
+            />
+          }
+        />
+      </div>
+
+      <h3 id="h-9-4-merits">Merits of Optical Fibre Cable Over Coaxial Cable</h3>
+      <p>
+        <strong>Question:</strong> What are the advantages of optical fibre cable over coaxial cable for signal
+        transmission?
+      </p>
       <TableCard
-        title="Critical angle of some transparent media with respect to air"
-        headers={["Substance (medium)", "Refractive index", "Critical angle (°)"]}
+        headers={["Merit", "Key point"]}
         rows={[
-          { cells: ["Water", "1.33", "48.75"] },
-          { cells: ["Crown glass", "1.52", "41.14"] },
-          { cells: ["Dense flint glass", "1.62", "37.31"] },
-          { cells: ["Diamond", "2.42", "24.41"] },
-        ]}
-      />
-
-      <h3 id="h-9-4-demo">Seeing it: a beaker, a little milk and a laser</h3>
-      <p>All optical phenomena can be demonstrated very easily with a laser torch or pointer.</p>
-      <Stepper
-        steps={[
+          { cells: [<strong key="fast">Fast</strong>, "Fast signal transmission"] },
+          { cells: [<strong key="cheaper">Cheaper</strong>, "Lower cost"] },
+          { cells: [<strong key="loss">Low energy loss</strong>, "Less energy loss"] },
           {
-            label: "Make the beam visible",
-            description: (
-              <p>
-                A glass beaker of clear water, a few drops of milk or another suspension stirred in until the water is
-                a little turbid. Shine the laser through it: the path of the beam inside the water shines brightly.
-              </p>
-            ),
-          },
-          {
-            label: "Partial reflection and partial refraction",
-            description: (
-              <p>
-                Shine the beam from below the beaker so that it strikes the upper water surface at the far end. Part is
-                reflected — a spot on the table below — and part is refracted out into the air — a spot on the roof.
-              </p>
-            ),
-          },
-          {
-            label: "Total internal reflection",
-            description: (
-              <p>
-                Direct the beam from the side so that it strikes the upper surface more obliquely, and adjust the
-                direction until the refraction above the water is totally absent and the beam is totally reflected
-                back into the water.
-              </p>
-            ),
-          },
-          {
-            label: "The same thing in a test tube",
-            description: (
-              <p>
-                Pour the water into a long test tube and shine the laser from the top, adjusting until the beam is
-                totally internally reflected every time it strikes the walls of the tube. This is similar to what
-                happens in optical fibres.
-              </p>
-            ),
+            cells: [
+              <strong key="signals">Multiple signals</strong>,
+              "Many signals can be transmitted simultaneously",
+            ],
           },
         ]}
       />
-      <Callout type="warning" title="Laser safety">
-        <p>Never look into the laser beam directly, and never point it at anybody&rsquo;s face.</p>
-      </Callout>
 
-      <h3 id="h-9-4-prism">Prisms that turn a ray by 90° or 180°</h3>
-      <ul className="my-6 list-none space-y-2 pl-0">
-        <li>
-          <strong>Bending the beam.</strong> Prisms designed to bend light by 90° or by 180° make use of total internal
-          reflection.
-        </li>
-        <li>
-          <strong>Inverting an image.</strong> Such a prism is also used to invert images without changing their size.
-        </li>
-        <li>
-          <strong>The condition on the glass.</strong> For the 90° and 180° bends, the critical angle for the material
-          of the prism must be less than 45° — true of both crown glass and dense flint glass.
-        </li>
-      </ul>
+      <h3 id="h-9-4-revision">Quick Revision — Total Internal Reflection</h3>
+      <RevisionDashboard
+        critical={
+          <div className="space-y-2">
+            <FormulaBlock latex={String.raw`r=90^\circ`} />
+            <FormulaBlock important latex={String.raw`\sin i_c=\frac{1}{n}`} />
+            <FormulaBlock important latex={String.raw`i_c=\sin^{-1}\left(\frac1n\right)`} />
+            <p className="t-micro">Applicable when the rarer medium is air.</p>
+          </div>
+        }
+        conditions={
+          <div className="space-y-2">
+            <FormulaBlock important latex={String.raw`n_1>n_2`} />
+            <FormulaBlock important latex={String.raw`i>i_c`} />
+          </div>
+        }
+        cases={
+          <TableCard
+            headers={["Condition", "Result"]}
+            rows={[
+              { cells: [<Formula key="less">{String.raw`i<i_c`}</Formula>, "Refraction"] },
+              { cells: [<Formula key="equal">{String.raw`i=i_c`}</Formula>, "Grazing refraction"] },
+              {
+                cells: [
+                  <Formula key="greater">{String.raw`i>i_c`}</Formula>,
+                  "Total internal reflection",
+                ],
+              },
+            ]}
+          />
+        }
+        fibre={
+          <div className="space-y-2">
+            <FormulaBlock important latex={String.raw`n_{\text{core}}>n_{\text{cladding}}`} />
+            <ul className="list-none space-y-2 pl-0 text-sm text-foreground/80">
+              <li>
+                <strong>Principle</strong> → Repeated TIR.
+              </li>
+              <li>
+                <strong>Uses</strong> → Telecommunications, Endoscopy.
+              </li>
+            </ul>
+          </div>
+        }
+      />
 
-      <h3 id="h-9-4-fibre">Optical fibres</h3>
-      <p>
-        Optical fibres are used extensively for transmitting audio and video signals over long distances, and they too
-        rest on total internal reflection (Fig. 9.14).
-      </p>
-      <ul className="my-6 list-none space-y-2 pl-0">
-        <li>
-          <strong>Built from glass or quartz.</strong> High-quality composite glass/quartz fibres.
-        </li>
-        <li>
-          <strong>Core and cladding.</strong> Each fibre consists of a core and a cladding, and the refractive index of
-          the core is higher than that of the cladding.
-        </li>
-        <li>
-          <strong>Launched at a suitable angle.</strong> A signal directed at one end undergoes repeated total internal
-          reflections along the length of the fibre and finally comes out at the other end.
-        </li>
-        <li>
-          <strong>No appreciable loss.</strong> Because every stage is total, the intensity of the light signal is not
-          appreciably reduced.
-        </li>
-      </ul>
-      <p>
-        The fibre is fabricated so that light reflected at one side of the inner surface strikes the other side at an
-        angle larger than the critical angle. Even if the fibre is bent, light travels easily along its length.
-      </p>
-      <KeyPoint title="An optical pipe">
-        <p>An optical fibre can act as an optical pipe.</p>
-      </KeyPoint>
-      <PhysicsFigure spec={opticalFibre} />
+      <h3 id="h-9-4-practice">Practice Problems — Critical Angle</h3>
+      <div className="my-6 grid gap-4 md:grid-cols-2 [&>div]:my-0">
+        <Expandable
+          title="Problem 1 — Critical angle 45°"
+          variant="example"
+          subjectColor="var(--subject-physics)"
+        >
+          <p>
+            <strong>Question:</strong> The critical angle of a medium is <Formula>{String.raw`45^\circ`}</Formula>. Find
+            its refractive index.
+          </p>
+          <Stepper
+            steps={[
+              {
+                label: "Given",
+                description: <FormulaBlock latex={String.raw`i_c=45^\circ,\qquad n=?`} />,
+              },
+              {
+                label: "Formula",
+                description: (
+                  <div className="space-y-2">
+                    <FormulaBlock latex={String.raw`\sin i_c=\frac1n`} />
+                    <p>Rearranging:</p>
+                    <FormulaBlock latex={String.raw`n=\frac1{\sin i_c}`} />
+                  </div>
+                ),
+              },
+              {
+                label: "Substitution",
+                description: (
+                  <div className="space-y-2">
+                    <FormulaBlock latex={String.raw`n=\frac1{\sin45^\circ}`} />
+                    <FormulaBlock latex={String.raw`=\frac1{1/\sqrt2}`} />
+                  </div>
+                ),
+              },
+              {
+                label: "Final Answer",
+                description: (
+                  <FormulaCard label="Final answer" subjectColor="var(--subject-physics)">
+                    <FormulaBlock important latex={String.raw`n=\sqrt2`} />
+                  </FormulaCard>
+                ),
+              },
+            ]}
+          />
+        </Expandable>
 
-      <h3 id="h-9-4-uses">What a bundle of fibres is used for</h3>
-      <ul className="my-6 list-none space-y-2 pl-0">
-        <li>
-          <strong>Signals, not just light.</strong> A bundle of optical fibres is used for transmitting and receiving
-          electrical signals, which are converted to light by suitable transducers.
-        </li>
-        <li>
-          <strong>Optical signals too.</strong> The same fibres can transmit optical signals directly.
-        </li>
-        <li>
-          <strong>A light pipe into the body.</strong> Used to make visual examination of internal organs — the
-          esophagus, the stomach, the intestines — possible.
-        </li>
-        <li>
-          <strong>Decorative lamps.</strong> Fine plastic fibres with their free ends forming a fountain-like structure,
-          the other end fixed over an electric lamp. Switch the lamp on and the light travels from the bottom of each
-          fibre and appears at the tip of its free end as a dot of light.
-        </li>
-      </ul>
-
-      <h3 id="h-9-4-absorption">What a fibre must not do: absorb</h3>
-      <p>
-        The main requirement in fabricating an optical fibre is that there should be very little absorption of light as
-        it travels the long distances inside it.
-      </p>
-      <ul className="my-6 list-none space-y-2 pl-0">
-        <li>
-          <strong>How it is met.</strong> By purification and special preparation of materials such as quartz.
-        </li>
-        <li>
-          <strong>How well it is met.</strong> In silica glass fibres, more than 95% of the light can be transmitted
-          over a fibre length of 1 km.
-        </li>
-      </ul>
-      <p>Compare that with what you would expect for a block of ordinary window glass 1 km thick.</p>
+        <Expandable
+          title="Problem 2 — Refractive index 2"
+          variant="example"
+          subjectColor="var(--subject-physics)"
+        >
+          <p>
+            <strong>Question:</strong> The refractive index of a medium is <Formula>{String.raw`2`}</Formula>. Find its
+            critical angle with air.
+          </p>
+          <Stepper
+            steps={[
+              {
+                label: "Given",
+                description: <FormulaBlock latex={String.raw`n=2,\qquad i_c=?`} />,
+              },
+              {
+                label: "Formula",
+                description: <FormulaBlock latex={String.raw`\sin i_c=\frac1n`} />,
+              },
+              {
+                label: "Substitution",
+                description: (
+                  <div className="space-y-2">
+                    <FormulaBlock latex={String.raw`\sin i_c=\frac12`} />
+                    <FormulaBlock latex={String.raw`i_c=\sin^{-1}\left(\frac12\right)`} />
+                  </div>
+                ),
+              },
+              {
+                label: "Final Answer",
+                description: (
+                  <FormulaCard label="Final answer" subjectColor="var(--subject-physics)">
+                    <FormulaBlock important latex={String.raw`i_c=30^\circ`} />
+                  </FormulaCard>
+                ),
+              },
+            ]}
+          />
+        </Expandable>
+      </div>
 
       <h2 id="h-9-5">9.5 Refraction at Spherical Surfaces and by Lenses</h2>
 

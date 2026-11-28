@@ -4132,6 +4132,105 @@ export const CATALOG: CatalogEntry[] = [
     "renderable": true
   },
   {
+    "id": "content/physics/TIRPanels.tsx#AngleProgression",
+    "name": "AngleProgression",
+    "path": "content/physics/TIRPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/TIRPanels.tsx#AngleResultStrip",
+    "name": "AngleResultStrip",
+    "path": "content/physics/TIRPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/TIRPanels.tsx#ApplicationFigureCard",
+    "name": "ApplicationFigureCard",
+    "path": "content/physics/TIRPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/TIRPanels.tsx#BoundaryPair",
+    "name": "BoundaryPair",
+    "path": "content/physics/TIRPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/TIRPanels.tsx#CaseCard",
+    "name": "CaseCard",
+    "path": "content/physics/TIRPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/TIRPanels.tsx#ConditionCards",
+    "name": "ConditionCards",
+    "path": "content/physics/TIRPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/TIRPanels.tsx#RayLegend",
+    "name": "RayLegend",
+    "path": "content/physics/TIRPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/TIRPanels.tsx#ReferenceCard",
+    "name": "ReferenceCard",
+    "path": "content/physics/TIRPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/TIRPanels.tsx#RevisionDashboard",
+    "name": "RevisionDashboard",
+    "path": "content/physics/TIRPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/TIRPanels.tsx#SplitRayPanel",
+    "name": "SplitRayPanel",
+    "path": "content/physics/TIRPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/TIRPanels.tsx#TIRHero",
+    "name": "TIRHero",
+    "path": "content/physics/TIRPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/physics/TransverseLongitudinal.tsx#TransverseLongitudinal",
     "name": "TransverseLongitudinal",
     "path": "content/physics/TransverseLongitudinal.tsx",

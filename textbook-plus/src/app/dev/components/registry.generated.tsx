@@ -323,65 +323,66 @@ import * as m320 from "@/components/content/physics/RefractionPanels";
 import * as m321 from "@/components/content/physics/SpectrumExplorer";
 import * as m322 from "@/components/content/physics/SpectrumTable";
 import * as m323 from "@/components/content/physics/SpeedLayers";
-import * as m324 from "@/components/content/physics/TransverseLongitudinal";
-import * as m325 from "@/components/content/physics/WaveAnatomyDiagram";
-import * as m326 from "@/components/content/physics/WaveTypesPanels";
-import * as m327 from "@/components/content/physics/diagram/PhysicsFigure";
-import * as m328 from "@/components/content/process/CycleDiagram";
-import * as m329 from "@/components/content/process/EquationLadder";
-import * as m330 from "@/components/content/process/ProblemInsightSolutionCard";
-import * as m331 from "@/components/content/process/ProcessCard";
-import * as m332 from "@/components/content/process/RevealAnswer";
-import * as m333 from "@/components/content/process/Timeline";
-import * as m334 from "@/components/content/study/MetricCard";
-import * as m335 from "@/components/content/study/MistakeCard";
-import * as m336 from "@/components/flashcard/FlashcardCard";
-import * as m337 from "@/components/flashcard/FlashcardDeck";
-import * as m338 from "@/components/flashcard/FlashcardProgress";
-import * as m339 from "@/components/grammar/GrammarQuiz";
-import * as m340 from "@/components/grammar/GrammarSection";
-import * as m341 from "@/components/grammar/GrammarTabs";
-import * as m342 from "@/components/grammar/GrammarTopicLayout";
-import * as m343 from "@/components/layout/CreditFooter";
-import * as m344 from "@/components/layout/UpdateBanner";
-import * as m345 from "@/components/practice/DifficultyFilter";
-import * as m346 from "@/components/practice/PracticeSession";
-import * as m347 from "@/components/practice/QuestionCard";
-import * as m348 from "@/components/subject/ChapterList";
-import * as m349 from "@/components/subject/SubjectCard";
-import * as m350 from "@/components/ui/accordion";
-import * as m351 from "@/components/ui/alert";
-import * as m352 from "@/components/ui/badge";
-import * as m353 from "@/components/ui/breadcrumb";
-import * as m354 from "@/components/ui/button-group";
-import * as m355 from "@/components/ui/button";
-import * as m356 from "@/components/ui/card";
-import * as m357 from "@/components/ui/carousel";
-import * as m358 from "@/components/ui/chart";
-import * as m359 from "@/components/ui/checkbox";
-import * as m360 from "@/components/ui/code-block";
-import * as m361 from "@/components/ui/collapsible";
-import * as m362 from "@/components/ui/command";
-import * as m363 from "@/components/ui/context-menu";
-import * as m364 from "@/components/ui/dialog";
-import * as m365 from "@/components/ui/dropdown-menu";
-import * as m366 from "@/components/ui/empty";
-import * as m367 from "@/components/ui/input-group";
-import * as m368 from "@/components/ui/input";
-import * as m369 from "@/components/ui/kbd";
-import * as m370 from "@/components/ui/label";
-import * as m371 from "@/components/ui/menubar";
-import * as m372 from "@/components/ui/navigation-menu";
-import * as m373 from "@/components/ui/progress";
-import * as m374 from "@/components/ui/separator";
-import * as m375 from "@/components/ui/sidebar";
-import * as m376 from "@/components/ui/skeleton";
-import * as m377 from "@/components/ui/sonner";
-import * as m378 from "@/components/ui/table";
-import * as m379 from "@/components/ui/tabs";
-import * as m380 from "@/components/ui/textarea";
-import * as m381 from "@/components/ui/toggle-group";
-import * as m382 from "@/components/ui/toggle";
+import * as m324 from "@/components/content/physics/TIRPanels";
+import * as m325 from "@/components/content/physics/TransverseLongitudinal";
+import * as m326 from "@/components/content/physics/WaveAnatomyDiagram";
+import * as m327 from "@/components/content/physics/WaveTypesPanels";
+import * as m328 from "@/components/content/physics/diagram/PhysicsFigure";
+import * as m329 from "@/components/content/process/CycleDiagram";
+import * as m330 from "@/components/content/process/EquationLadder";
+import * as m331 from "@/components/content/process/ProblemInsightSolutionCard";
+import * as m332 from "@/components/content/process/ProcessCard";
+import * as m333 from "@/components/content/process/RevealAnswer";
+import * as m334 from "@/components/content/process/Timeline";
+import * as m335 from "@/components/content/study/MetricCard";
+import * as m336 from "@/components/content/study/MistakeCard";
+import * as m337 from "@/components/flashcard/FlashcardCard";
+import * as m338 from "@/components/flashcard/FlashcardDeck";
+import * as m339 from "@/components/flashcard/FlashcardProgress";
+import * as m340 from "@/components/grammar/GrammarQuiz";
+import * as m341 from "@/components/grammar/GrammarSection";
+import * as m342 from "@/components/grammar/GrammarTabs";
+import * as m343 from "@/components/grammar/GrammarTopicLayout";
+import * as m344 from "@/components/layout/CreditFooter";
+import * as m345 from "@/components/layout/UpdateBanner";
+import * as m346 from "@/components/practice/DifficultyFilter";
+import * as m347 from "@/components/practice/PracticeSession";
+import * as m348 from "@/components/practice/QuestionCard";
+import * as m349 from "@/components/subject/ChapterList";
+import * as m350 from "@/components/subject/SubjectCard";
+import * as m351 from "@/components/ui/accordion";
+import * as m352 from "@/components/ui/alert";
+import * as m353 from "@/components/ui/badge";
+import * as m354 from "@/components/ui/breadcrumb";
+import * as m355 from "@/components/ui/button-group";
+import * as m356 from "@/components/ui/button";
+import * as m357 from "@/components/ui/card";
+import * as m358 from "@/components/ui/carousel";
+import * as m359 from "@/components/ui/chart";
+import * as m360 from "@/components/ui/checkbox";
+import * as m361 from "@/components/ui/code-block";
+import * as m362 from "@/components/ui/collapsible";
+import * as m363 from "@/components/ui/command";
+import * as m364 from "@/components/ui/context-menu";
+import * as m365 from "@/components/ui/dialog";
+import * as m366 from "@/components/ui/dropdown-menu";
+import * as m367 from "@/components/ui/empty";
+import * as m368 from "@/components/ui/input-group";
+import * as m369 from "@/components/ui/input";
+import * as m370 from "@/components/ui/kbd";
+import * as m371 from "@/components/ui/label";
+import * as m372 from "@/components/ui/menubar";
+import * as m373 from "@/components/ui/navigation-menu";
+import * as m374 from "@/components/ui/progress";
+import * as m375 from "@/components/ui/separator";
+import * as m376 from "@/components/ui/sidebar";
+import * as m377 from "@/components/ui/skeleton";
+import * as m378 from "@/components/ui/sonner";
+import * as m379 from "@/components/ui/table";
+import * as m380 from "@/components/ui/tabs";
+import * as m381 from "@/components/ui/textarea";
+import * as m382 from "@/components/ui/toggle-group";
+import * as m383 from "@/components/ui/toggle";
 
 export const MODULES: Record<string, Record<string, unknown>> = {
   "app/ChapterRow.tsx": m0 as unknown as Record<string, unknown>,
@@ -708,63 +709,64 @@ export const MODULES: Record<string, Record<string, unknown>> = {
   "content/physics/SpectrumExplorer.tsx": m321 as unknown as Record<string, unknown>,
   "content/physics/SpectrumTable.tsx": m322 as unknown as Record<string, unknown>,
   "content/physics/SpeedLayers.tsx": m323 as unknown as Record<string, unknown>,
-  "content/physics/TransverseLongitudinal.tsx": m324 as unknown as Record<string, unknown>,
-  "content/physics/WaveAnatomyDiagram.tsx": m325 as unknown as Record<string, unknown>,
-  "content/physics/WaveTypesPanels.tsx": m326 as unknown as Record<string, unknown>,
-  "content/physics/diagram/PhysicsFigure.tsx": m327 as unknown as Record<string, unknown>,
-  "content/process/CycleDiagram.tsx": m328 as unknown as Record<string, unknown>,
-  "content/process/EquationLadder.tsx": m329 as unknown as Record<string, unknown>,
-  "content/process/ProblemInsightSolutionCard.tsx": m330 as unknown as Record<string, unknown>,
-  "content/process/ProcessCard.tsx": m331 as unknown as Record<string, unknown>,
-  "content/process/RevealAnswer.tsx": m332 as unknown as Record<string, unknown>,
-  "content/process/Timeline.tsx": m333 as unknown as Record<string, unknown>,
-  "content/study/MetricCard.tsx": m334 as unknown as Record<string, unknown>,
-  "content/study/MistakeCard.tsx": m335 as unknown as Record<string, unknown>,
-  "flashcard/FlashcardCard.tsx": m336 as unknown as Record<string, unknown>,
-  "flashcard/FlashcardDeck.tsx": m337 as unknown as Record<string, unknown>,
-  "flashcard/FlashcardProgress.tsx": m338 as unknown as Record<string, unknown>,
-  "grammar/GrammarQuiz.tsx": m339 as unknown as Record<string, unknown>,
-  "grammar/GrammarSection.tsx": m340 as unknown as Record<string, unknown>,
-  "grammar/GrammarTabs.tsx": m341 as unknown as Record<string, unknown>,
-  "grammar/GrammarTopicLayout.tsx": m342 as unknown as Record<string, unknown>,
-  "layout/CreditFooter.tsx": m343 as unknown as Record<string, unknown>,
-  "layout/UpdateBanner.tsx": m344 as unknown as Record<string, unknown>,
-  "practice/DifficultyFilter.tsx": m345 as unknown as Record<string, unknown>,
-  "practice/PracticeSession.tsx": m346 as unknown as Record<string, unknown>,
-  "practice/QuestionCard.tsx": m347 as unknown as Record<string, unknown>,
-  "subject/ChapterList.tsx": m348 as unknown as Record<string, unknown>,
-  "subject/SubjectCard.tsx": m349 as unknown as Record<string, unknown>,
-  "ui/accordion.tsx": m350 as unknown as Record<string, unknown>,
-  "ui/alert.tsx": m351 as unknown as Record<string, unknown>,
-  "ui/badge.tsx": m352 as unknown as Record<string, unknown>,
-  "ui/breadcrumb.tsx": m353 as unknown as Record<string, unknown>,
-  "ui/button-group.tsx": m354 as unknown as Record<string, unknown>,
-  "ui/button.tsx": m355 as unknown as Record<string, unknown>,
-  "ui/card.tsx": m356 as unknown as Record<string, unknown>,
-  "ui/carousel.tsx": m357 as unknown as Record<string, unknown>,
-  "ui/chart.tsx": m358 as unknown as Record<string, unknown>,
-  "ui/checkbox.tsx": m359 as unknown as Record<string, unknown>,
-  "ui/code-block.tsx": m360 as unknown as Record<string, unknown>,
-  "ui/collapsible.tsx": m361 as unknown as Record<string, unknown>,
-  "ui/command.tsx": m362 as unknown as Record<string, unknown>,
-  "ui/context-menu.tsx": m363 as unknown as Record<string, unknown>,
-  "ui/dialog.tsx": m364 as unknown as Record<string, unknown>,
-  "ui/dropdown-menu.tsx": m365 as unknown as Record<string, unknown>,
-  "ui/empty.tsx": m366 as unknown as Record<string, unknown>,
-  "ui/input-group.tsx": m367 as unknown as Record<string, unknown>,
-  "ui/input.tsx": m368 as unknown as Record<string, unknown>,
-  "ui/kbd.tsx": m369 as unknown as Record<string, unknown>,
-  "ui/label.tsx": m370 as unknown as Record<string, unknown>,
-  "ui/menubar.tsx": m371 as unknown as Record<string, unknown>,
-  "ui/navigation-menu.tsx": m372 as unknown as Record<string, unknown>,
-  "ui/progress.tsx": m373 as unknown as Record<string, unknown>,
-  "ui/separator.tsx": m374 as unknown as Record<string, unknown>,
-  "ui/sidebar.tsx": m375 as unknown as Record<string, unknown>,
-  "ui/skeleton.tsx": m376 as unknown as Record<string, unknown>,
-  "ui/sonner.tsx": m377 as unknown as Record<string, unknown>,
-  "ui/table.tsx": m378 as unknown as Record<string, unknown>,
-  "ui/tabs.tsx": m379 as unknown as Record<string, unknown>,
-  "ui/textarea.tsx": m380 as unknown as Record<string, unknown>,
-  "ui/toggle-group.tsx": m381 as unknown as Record<string, unknown>,
-  "ui/toggle.tsx": m382 as unknown as Record<string, unknown>,
+  "content/physics/TIRPanels.tsx": m324 as unknown as Record<string, unknown>,
+  "content/physics/TransverseLongitudinal.tsx": m325 as unknown as Record<string, unknown>,
+  "content/physics/WaveAnatomyDiagram.tsx": m326 as unknown as Record<string, unknown>,
+  "content/physics/WaveTypesPanels.tsx": m327 as unknown as Record<string, unknown>,
+  "content/physics/diagram/PhysicsFigure.tsx": m328 as unknown as Record<string, unknown>,
+  "content/process/CycleDiagram.tsx": m329 as unknown as Record<string, unknown>,
+  "content/process/EquationLadder.tsx": m330 as unknown as Record<string, unknown>,
+  "content/process/ProblemInsightSolutionCard.tsx": m331 as unknown as Record<string, unknown>,
+  "content/process/ProcessCard.tsx": m332 as unknown as Record<string, unknown>,
+  "content/process/RevealAnswer.tsx": m333 as unknown as Record<string, unknown>,
+  "content/process/Timeline.tsx": m334 as unknown as Record<string, unknown>,
+  "content/study/MetricCard.tsx": m335 as unknown as Record<string, unknown>,
+  "content/study/MistakeCard.tsx": m336 as unknown as Record<string, unknown>,
+  "flashcard/FlashcardCard.tsx": m337 as unknown as Record<string, unknown>,
+  "flashcard/FlashcardDeck.tsx": m338 as unknown as Record<string, unknown>,
+  "flashcard/FlashcardProgress.tsx": m339 as unknown as Record<string, unknown>,
+  "grammar/GrammarQuiz.tsx": m340 as unknown as Record<string, unknown>,
+  "grammar/GrammarSection.tsx": m341 as unknown as Record<string, unknown>,
+  "grammar/GrammarTabs.tsx": m342 as unknown as Record<string, unknown>,
+  "grammar/GrammarTopicLayout.tsx": m343 as unknown as Record<string, unknown>,
+  "layout/CreditFooter.tsx": m344 as unknown as Record<string, unknown>,
+  "layout/UpdateBanner.tsx": m345 as unknown as Record<string, unknown>,
+  "practice/DifficultyFilter.tsx": m346 as unknown as Record<string, unknown>,
+  "practice/PracticeSession.tsx": m347 as unknown as Record<string, unknown>,
+  "practice/QuestionCard.tsx": m348 as unknown as Record<string, unknown>,
+  "subject/ChapterList.tsx": m349 as unknown as Record<string, unknown>,
+  "subject/SubjectCard.tsx": m350 as unknown as Record<string, unknown>,
+  "ui/accordion.tsx": m351 as unknown as Record<string, unknown>,
+  "ui/alert.tsx": m352 as unknown as Record<string, unknown>,
+  "ui/badge.tsx": m353 as unknown as Record<string, unknown>,
+  "ui/breadcrumb.tsx": m354 as unknown as Record<string, unknown>,
+  "ui/button-group.tsx": m355 as unknown as Record<string, unknown>,
+  "ui/button.tsx": m356 as unknown as Record<string, unknown>,
+  "ui/card.tsx": m357 as unknown as Record<string, unknown>,
+  "ui/carousel.tsx": m358 as unknown as Record<string, unknown>,
+  "ui/chart.tsx": m359 as unknown as Record<string, unknown>,
+  "ui/checkbox.tsx": m360 as unknown as Record<string, unknown>,
+  "ui/code-block.tsx": m361 as unknown as Record<string, unknown>,
+  "ui/collapsible.tsx": m362 as unknown as Record<string, unknown>,
+  "ui/command.tsx": m363 as unknown as Record<string, unknown>,
+  "ui/context-menu.tsx": m364 as unknown as Record<string, unknown>,
+  "ui/dialog.tsx": m365 as unknown as Record<string, unknown>,
+  "ui/dropdown-menu.tsx": m366 as unknown as Record<string, unknown>,
+  "ui/empty.tsx": m367 as unknown as Record<string, unknown>,
+  "ui/input-group.tsx": m368 as unknown as Record<string, unknown>,
+  "ui/input.tsx": m369 as unknown as Record<string, unknown>,
+  "ui/kbd.tsx": m370 as unknown as Record<string, unknown>,
+  "ui/label.tsx": m371 as unknown as Record<string, unknown>,
+  "ui/menubar.tsx": m372 as unknown as Record<string, unknown>,
+  "ui/navigation-menu.tsx": m373 as unknown as Record<string, unknown>,
+  "ui/progress.tsx": m374 as unknown as Record<string, unknown>,
+  "ui/separator.tsx": m375 as unknown as Record<string, unknown>,
+  "ui/sidebar.tsx": m376 as unknown as Record<string, unknown>,
+  "ui/skeleton.tsx": m377 as unknown as Record<string, unknown>,
+  "ui/sonner.tsx": m378 as unknown as Record<string, unknown>,
+  "ui/table.tsx": m379 as unknown as Record<string, unknown>,
+  "ui/tabs.tsx": m380 as unknown as Record<string, unknown>,
+  "ui/textarea.tsx": m381 as unknown as Record<string, unknown>,
+  "ui/toggle-group.tsx": m382 as unknown as Record<string, unknown>,
+  "ui/toggle.tsx": m383 as unknown as Record<string, unknown>,
 };

@@ -2382,7 +2382,484 @@ export const refractionApparentDepth: FigureSpec = {
   ],
 };
 
+/* ────────────────────────────────────────────────────────────────────────
+ * 0g. TIR note: solved diagrams for the rebuilt 9.4 section
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const TIR_N_DENSE = 1.5;
+const TIR_N_RARE = 1;
+const TIR_IC = criticalAngleDeg(TIR_N_DENSE, TIR_N_RARE)!;
+const TIR_IN = INCIDENT;
+const TIR_REFRACT = EMERGENT;
+const TIR_REFLECT = s("warn", 0.9);
+
+const TH_TOP = 44;
+const TH_BOT = 24;
+const TH_START: Vec = vec(8, 34);
+const TH_PTS: Vec[] = [TH_START];
+(() => {
+  let p = TH_START;
+  let d = dir(22);
+  for (let bounce = 0; bounce < 4; bounce += 1) {
+    const wall = d.y > 0 ? TH_TOP : TH_BOT;
+    const t = (wall - p.y) / d.y;
+    const hit = add(p, mul(d, t));
+    if (hit.x > 142) break;
+    TH_PTS.push(hit);
+    p = hit;
+    d = reflect(d, vec(0, 1));
+  }
+  TH_PTS.push(add(p, mul(d, 6)));
+})();
+
+export const tirHeaderBounces: FigureSpec = {
+  id: "tir-header-repeated-reflection",
+  title: "A ray reflecting repeatedly inside a denser medium",
+  alt: "A ray zig-zags inside a denser strip, reflecting at each boundary with the rarer medium; no ray escapes into the rarer medium.",
+  caption: "Repeated total internal reflection keeps the ray inside the denser medium.",
+  frame: { width: 150, height: 64 },
+  labelSize: 2.8,
+  elements: [
+    body([vec(0, TH_BOT), vec(150, TH_BOT), vec(150, TH_TOP), vec(0, TH_TOP)], "glassStrong"),
+    line(vec(0, TH_TOP), vec(150, TH_TOP), s("ink", 1)),
+    line(vec(0, TH_BOT), vec(150, TH_BOT), s("ink", 1)),
+    ...TH_PTS.slice(0, -1).map((p, i) => arrow(p, TH_PTS[i + 1], i === 0 ? TIR_IN : TIR_REFLECT)),
+    ...TH_PTS.slice(1, -1).map((p) => point(p, 0.9, "warn")),
+    label(vec(8, 58), "rarer medium", { anchor: "start", size: 2.6, color: "muted" }),
+    label(vec(8, 11), "denser medium", { anchor: "start", size: 2.6, color: "muted" }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "every bounce is past the critical angle",
+      actual: TIR_IC < 68 ? 1 : 0,
+      expected: 1,
+      tol: 0,
+    },
+    {
+      kind: "value",
+      label: "the ray stays inside the denser strip",
+      actual: TH_PTS.every((p) => p.y >= TH_BOT - 0.01 && p.y <= TH_TOP + 0.01) ? 1 : 0,
+      expected: 1,
+      tol: 0,
+    },
+  ],
+};
+
+const PB_I = 30;
+const pbRay = (p: Vec) => {
+  const d = dir(-(90 - PB_I));
+  const from = sub(p, mul(d, 24));
+  const out = refract(d, vec(0, 1), TIR_N_DENSE, TIR_N_RARE);
+  const back = reflect(d, vec(0, 1));
+  return { p, d, from, out, back };
+};
+const PB1 = pbRay(vec(70, 50));
+const PB2 = pbRay(vec(70, 50));
+const PB3 = pbRay(vec(74, 50));
+
+export const tirPureReflection: FigureSpec = {
+  id: "tir-pure-reflection",
+  title: "Pure reflection at a boundary",
+  alt: "An incident ray reaches a horizontal boundary and the entire ray reflects back into the first medium; no refracted ray is drawn.",
+  caption: "Pure reflection: the entire ray returns to Medium 1.",
+  frame: { width: 140, height: 92 },
+  labelSize: 2.8,
+  elements: [
+    line(vec(4, 50), vec(136, 50), s("ink", 1)),
+    ...normal(PB1.p, 90, 22, { text: "N" }),
+    arrow(PB1.from, PB1.p, TIR_IN),
+    arrow(PB1.p, add(PB1.p, mul(PB1.back, 26)), TIR_REFLECT),
+    ...angleMark(PB1.p, 90, 120, { r: 7, label: "i", labelR: 10, color: "hot" }),
+    label(vec(6, 86), "Medium 1", { anchor: "start", size: 2.6, color: "muted" }),
+    label(vec(6, 8), "Medium 2", { anchor: "start", size: 2.6, color: "muted" }),
+    label(vec(134, 30), "no refracted ray", { anchor: "end", size: 2.4, color: "muted" }),
+  ],
+  checks: [
+    {
+      kind: "reflect",
+      i: PB_I,
+      r: PB_I,
+      tolDeg: 0.2,
+    },
+    {
+      kind: "value",
+      label: "reflected ray follows the solved direction",
+      actual: angleBetween(sub(add(PB1.p, mul(PB1.back, 26)), PB1.p), PB1.back),
+      expected: 0,
+      tol: 1e-4,
+    },
+  ],
+};
+
+export const tirPureRefraction: FigureSpec = {
+  id: "tir-pure-refraction",
+  title: "Pure refraction at a boundary",
+  alt: "An incident ray reaches a horizontal boundary and bends into the second medium; no reflected ray is drawn.",
+  caption: "Pure refraction: the ray bends into Medium 2.",
+  frame: { width: 140, height: 92 },
+  labelSize: 2.8,
+  elements: [
+    line(vec(4, 50), vec(136, 50), s("ink", 1)),
+    ...normal(PB2.p, 90, 22, { text: "N" }),
+    arrow(PB2.from, PB2.p, TIR_IN),
+    arrow(PB2.p, add(PB2.p, mul(PB2.out.dir!, 28)), TIR_REFRACT),
+    ...angleMark(PB2.p, 90, 120, { r: 7, label: "i", labelR: 10, color: "hot" }),
+    ...angleMark(PB2.p, 270, angleOf(PB2.p, add(PB2.p, mul(PB2.out.dir!, 28))) + 360, {
+      r: 7,
+      label: "r",
+      labelR: 10,
+      color: "ok",
+    }),
+    label(vec(6, 86), "Medium 1", { anchor: "start", size: 2.6, color: "muted" }),
+    label(vec(6, 8), "Medium 2", { anchor: "start", size: 2.6, color: "muted" }),
+  ],
+  checks: [
+    { kind: "snell", i: PB_I, r: PB2.out.angleOfRefraction, n1: TIR_N_DENSE, n2: TIR_N_RARE },
+    {
+      kind: "value",
+      label: "refracted ray follows the solved direction",
+      actual: angleBetween(sub(add(PB2.p, mul(PB2.out.dir!, 28)), PB2.p), PB2.out.dir!),
+      expected: 0,
+      tol: 1e-4,
+    },
+  ],
+};
+
+export const tirPartialSplit: FigureSpec = {
+  id: "tir-partial-split",
+  title: "Partial reflection and partial refraction together",
+  alt: "At a denser-to-rarer boundary an incident ray divides into a reflected ray in the denser medium and a refracted ray in the rarer medium.",
+  caption: "In most real cases both partial reflection and refraction occur together.",
+  frame: { width: 148, height: 90 },
+  labelSize: 2.8,
+  elements: [
+    body([vec(0, 0), vec(148, 0), vec(148, 50), vec(0, 50)], "glassStrong"),
+    line(vec(0, 50), vec(148, 50), s("ink", 1)),
+    ...normal(PB3.p, 90, 22, { text: "N" }),
+    arrow(PB3.from, PB3.p, TIR_IN),
+    arrow(PB3.p, add(PB3.p, mul(PB3.back, 26)), TIR_REFLECT),
+    arrow(PB3.p, add(PB3.p, mul(PB3.out.dir!, 28)), TIR_REFRACT),
+    label(vec(6, 82), "Medium 1 (denser)", { anchor: "start", size: 2.5, color: "muted" }),
+    label(vec(6, 8), "Medium 2 (rarer)", { anchor: "start", size: 2.5, color: "muted" }),
+    label(vec(104, 72), "reflected", { anchor: "start", size: 2.4, color: "warn" }),
+    label(vec(104, 30), "refracted", { anchor: "start", size: 2.4, color: "ok" }),
+  ],
+  checks: [
+    { kind: "snell", i: PB_I, r: PB3.out.angleOfRefraction, n1: TIR_N_DENSE, n2: TIR_N_RARE },
+    {
+      kind: "value",
+      label: "both branches are drawn",
+      actual: PB3.out.dir && PB3.back ? 1 : 0,
+      expected: 1,
+      tol: 0,
+    },
+  ],
+};
+
+const CA_P: Vec = vec(70, 46);
+const CA_IN = dir(90 - TIR_IC);
+const CA_FROM = sub(CA_P, mul(CA_IN, 26));
+const CA_OUT = refract(CA_IN, vec(0, -1), TIR_N_DENSE, TIR_N_RARE);
+const CA_GLIDE = add(CA_P, mul(CA_OUT.dir ?? dir(0), 48));
+
+export const tirCriticalAngle: FigureSpec = {
+  id: "tir-critical-angle-grazing",
+  title: "Critical angle: the refracted ray grazes the boundary",
+  alt: "From the denser lower medium a ray hits the boundary at the critical angle; the refracted ray runs exactly along the interface.",
+  caption: "At i = i_c the refracted ray travels along the boundary: r = 90°.",
+  frame: { width: 140, height: 88 },
+  labelSize: 2.8,
+  elements: [
+    body([vec(0, 0), vec(140, 0), vec(140, 46), vec(0, 46)], "glassStrong"),
+    line(vec(0, 46), vec(140, 46), s("ink", 1.2)),
+    ...normal(CA_P, 90, 22, { text: "N" }),
+    arrow(CA_FROM, CA_P, TIR_IN),
+    arrow(CA_P, CA_GLIDE, TIR_REFRACT),
+    ...angleMark(CA_P, 270 - TIR_IC, 270, { r: 8, label: "i_c", labelR: 12, color: "hot" }),
+    ...angleMark(CA_P, 0, 90, { r: 6, label: "90°", labelR: 11, color: "ok" }),
+    label(vec(6, 82), "rarer medium (n₂)", { anchor: "start", size: 2.5, color: "muted" }),
+    label(vec(6, 8), "denser medium (n₁)", { anchor: "start", size: 2.5, color: "muted" }),
+    label(vec(132, 56), "grazes the interface", { anchor: "end", size: 2.4, color: "ok" }),
+  ],
+  checks: [
+    { kind: "snell", i: TIR_IC, r: CA_OUT.angleOfRefraction, n1: TIR_N_DENSE, n2: TIR_N_RARE },
+    {
+      kind: "value",
+      label: "refracted ray is along the boundary",
+      actual: Math.abs(CA_OUT.dir!.y),
+      expected: 0,
+      tol: 1e-4,
+    },
+    {
+      kind: "value",
+      label: "incidence is the critical angle",
+      actual: CA_OUT.angleOfIncidence,
+      expected: TIR_IC,
+      tol: 1e-4,
+    },
+  ],
+};
+
+const TC_I = [30, TIR_IC, 55] as const;
+const TC_CASES = TC_I.map((i) => {
+  const p: Vec = vec(50, 52);
+  const d = dir(90 - i);
+  const from = sub(p, mul(d, 20));
+  const out = refract(d, vec(0, -1), TIR_N_DENSE, TIR_N_RARE);
+  const back = reflect(d, vec(0, -1));
+  return { i, p, from, out, back };
+});
+
+/** One of the three incidence cases, drawn with the same boundary and normal. */
+function tirCaseSpec(index: 0 | 1 | 2): FigureSpec {
+  const c = TC_CASES[index];
+  const refractedEnd = c.out.dir ? add(c.p, mul(c.out.dir, 20)) : null;
+  const reflectedEnd = add(c.p, mul(c.back, 20));
+  const condition = index === 0 ? "i < i_c" : index === 1 ? "i = i_c" : "i > i_c";
+  const checks: FigureSpec["checks"] =
+    index === 2
+      ? [
+          { kind: "value", label: "case 3 has no refracted ray", actual: c.out.tir ? 1 : 0, expected: 1, tol: 0 },
+          { kind: "reflect", i: c.i, r: c.i, tolDeg: 0.2 },
+        ]
+      : [
+          { kind: "snell", i: c.i, r: c.out.angleOfRefraction, n1: TIR_N_DENSE, n2: TIR_N_RARE },
+          ...(index === 1
+            ? [
+                {
+                  kind: "value" as const,
+                  label: "case 2 grazes the interface",
+                  actual: Math.abs(c.out.dir!.y),
+                  expected: 0,
+                  tol: 1e-4,
+                },
+              ]
+            : []),
+        ];
+
+  return {
+    id: `tir-case-${index + 1}`,
+    title: `Incidence case ${index + 1}: ${condition}`,
+    alt:
+      index === 2
+        ? "A ray above the critical angle reflects completely back into the denser medium, with no transmitted ray drawn."
+        : `A ray in the denser medium meets the boundary at ${condition}; the solved refracted ray is drawn into the rarer medium.`,
+    caption:
+      index === 2
+        ? "i > i_c: no refracted ray enters the rarer medium."
+        : index === 1
+          ? "i = i_c: the refracted ray grazes the boundary."
+          : "i < i_c: the ray refracts into the rarer medium.",
+    frame: { width: 100, height: 92 },
+    labelSize: 2.8,
+    elements: [
+      body([vec(0, 0), vec(100, 0), vec(100, 52), vec(0, 52)], "glassStrong"),
+      line(vec(0, 52), vec(100, 52), s("ink", 1.1)),
+      ...normal(c.p, 90, 18, { text: "N" }),
+      arrow(c.from, c.p, TIR_IN),
+      arrow(c.p, reflectedEnd, TIR_REFLECT),
+      ...(refractedEnd ? [arrow(c.p, refractedEnd, TIR_REFRACT)] : []),
+      ...angleMark(c.p, 270 - c.i, 270, { r: 6, label: "i", labelR: 9, color: "hot" }),
+      ...angleMark(c.p, 270, 270 + c.i, { r: 5, label: "r", labelR: 8, color: "warn" }),
+      ...(index === 0 && refractedEnd
+        ? [...angleMark(c.p, angleOf(c.p, refractedEnd), 90, { r: 5.5, label: "r", labelR: 9, color: "ok" })]
+        : []),
+      ...(index === 1 && refractedEnd
+        ? [...angleMark(c.p, 0, 90, { r: 5.5, label: "90°", labelR: 9, color: "ok" })]
+        : []),
+      label(vec(4, 86), "rarer medium (n₂)", { anchor: "start", size: 2.3, color: "muted" }),
+      label(vec(4, 8), "denser medium (n₁)", { anchor: "start", size: 2.3, color: "muted" }),
+      ...(index === 2
+        ? [label(vec(76, 78), "no refracted ray", { anchor: "middle", size: 2.3, color: "warn" })]
+        : []),
+    ],
+    checks,
+  };
+}
+
+export const tirCaseBelow = tirCaseSpec(0);
+export const tirCaseCritical = tirCaseSpec(1);
+export const tirCaseAbove = tirCaseSpec(2);
+
+const TF_P: Vec = vec(70, 50);
+const TF_I = 60;
+const TF_IN = dir(90 - TF_I);
+const TF_FROM = sub(TF_P, mul(TF_IN, 30));
+const TF_OUT = refract(TF_IN, vec(0, -1), TIR_N_DENSE, TIR_N_RARE);
+const TF_BACK = reflect(TF_IN, vec(0, -1));
+const TF_BACK_END = add(TF_P, mul(TF_BACK, 30));
+
+export const tirFocused: FigureSpec = {
+  id: "tir-focused-diagram",
+  title: "Total internal reflection: no transmitted ray",
+  alt: "A ray in the denser medium strikes the boundary above the critical angle and is reflected completely back; the rarer medium above is empty of rays.",
+  caption: "i > i_c: the entire ray returns to the denser medium.",
+  frame: { width: 140, height: 92 },
+  labelSize: 2.9,
+  elements: [
+    body([vec(0, 0), vec(140, 0), vec(140, 50), vec(0, 50)], "glassStrong"),
+    line(vec(0, 50), vec(140, 50), s("ink", 1.2)),
+    ...normal(TF_P, 90, 24, { text: "N" }),
+    arrow(TF_FROM, TF_P, TIR_IN),
+    arrow(TF_P, TF_BACK_END, TIR_REFLECT),
+    point(TF_P, 1.1, "warn"),
+    ...angleMark(TF_P, 270 - TF_I, 270, { r: 9, label: "i", labelR: 13, color: "hot" }),
+    ...angleMark(TF_P, 270, 270 + TF_I, { r: 7, label: "i", labelR: 12, color: "warn" }),
+    label(vec(6, 86), "rarer medium (n₂)", { anchor: "start", size: 2.5, color: "muted" }),
+    label(vec(6, 8), "denser medium (n₁)", { anchor: "start", size: 2.5, color: "muted" }),
+    label(vec(134, 72), "no refracted ray", { anchor: "end", size: 2.5, color: "warn" }),
+    label(vec(134, 30), "100% reflected", { anchor: "end", size: 2.5, color: "warn" }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "incidence exceeds the critical angle",
+      actual: TF_I > TIR_IC ? 1 : 0,
+      expected: 1,
+      tol: 0,
+    },
+    {
+      kind: "value",
+      label: "Snell returns total internal reflection",
+      actual: TF_OUT.tir ? 1 : 0,
+      expected: 1,
+      tol: 0,
+    },
+    {
+      kind: "reflect",
+      i: TF_I,
+      r: TF_I,
+      tolDeg: 0.2,
+    },
+  ],
+};
+
+export const tirFibreCrossSection: FigureSpec = {
+  id: "tir-fibre-cross-section",
+  title: "Optical fibre cross-section: core and cladding",
+  alt: "A concentric cross-section shows the inner core with refractive index n1 inside the outer cladding with refractive index n2.",
+  caption: "Core (n₁) inside cladding (n₂), with n₁ > n₂.",
+  frame: { width: 130, height: 84 },
+  labelSize: 2.9,
+  elements: [
+    circle(vec(62, 42), 30, { fill: "glass", stroke: INK }),
+    circle(vec(62, 42), 16, { fill: "glassStrong", stroke: s("ok", 0.8) }),
+    line(vec(30, 58), vec(14, 70), THIN),
+    label(vec(12, 76), "cladding (n₂)", { anchor: "start", size: 2.6, color: "muted" }),
+    line(vec(74, 32), vec(100, 22), THIN),
+    label(vec(102, 22), "core (n₁)", { anchor: "start", size: 2.6, color: "ok" }),
+    label(vec(62, 8), "n₁ > n₂", { anchor: "middle", size: 3, color: "warn" }),
+  ],
+  checks: [
+    { kind: "value", label: "core sits inside cladding", actual: 16 < 30 ? 1 : 0, expected: 1, tol: 0 },
+  ],
+};
+
+const FL_TOP = 44;
+const FL_BOT = 26;
+const FL_START: Vec = vec(10, 35);
+const FL_PTS: Vec[] = [FL_START];
+(() => {
+  let p = FL_START;
+  let d = dir(25);
+  for (let bounce = 0; bounce < 6; bounce += 1) {
+    const wall = d.y > 0 ? FL_TOP : FL_BOT;
+    const t = (wall - p.y) / d.y;
+    const hit = add(p, mul(d, t));
+    if (hit.x > 142) break;
+    FL_PTS.push(hit);
+    p = hit;
+    d = reflect(d, vec(0, 1));
+  }
+  FL_PTS.push(add(p, mul(d, 10)));
+})();
+
+export const tirFibreLongitudinal: FigureSpec = {
+  id: "tir-fibre-longitudinal",
+  title: "Repeated total internal reflection along an optical fibre",
+  alt: "A ray zig-zags down the core of an optical fibre, reflecting at each core-cladding boundary with marked reflection points; it does not escape into the cladding.",
+  caption: "Repeated reflections guide the ray forward inside the core (n₁ > n₂, i > i_c).",
+  frame: { width: 150, height: 70 },
+  labelSize: 2.7,
+  elements: [
+    body([vec(0, 16), vec(150, 16), vec(150, 54), vec(0, 54)], "glass"),
+    body([vec(0, FL_BOT), vec(150, FL_BOT), vec(150, FL_TOP), vec(0, FL_TOP)], "glassStrong"),
+    line(vec(0, FL_TOP), vec(150, FL_TOP), s("ok", 0.8)),
+    line(vec(0, FL_BOT), vec(150, FL_BOT), s("ok", 0.8)),
+    ...FL_PTS.slice(0, -1).map((p, i) => arrow(p, FL_PTS[i + 1], i === 0 ? TIR_IN : TIR_REFLECT)),
+    ...FL_PTS.slice(1, -1).map((p) => point(p, 1, "warn")),
+    label(vec(6, 22), "cladding (n₂)", { anchor: "start", size: 2.4, color: "muted" }),
+    label(vec(6, 39), "core (n₁)", { anchor: "start", size: 2.4, color: "ok" }),
+    label(vec(144, 62), "repeated TIR", { anchor: "end", size: 2.5, color: "warn" }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "each bounce is past the critical angle",
+      actual: 65 > TIR_IC ? 1 : 0,
+      expected: 1,
+      tol: 0,
+    },
+    {
+      kind: "value",
+      label: "the ray stays in the core",
+      actual: FL_PTS.every((p) => p.y >= FL_BOT - 0.01 && p.y <= FL_TOP + 0.01) ? 1 : 0,
+      expected: 1,
+      tol: 0,
+    },
+  ],
+};
+
+export const tirTelecomSignal: FigureSpec = {
+  id: "tir-telecom-signal",
+  title: "Optical fibre carrying light signals",
+  alt: "A straight optical fibre with a ray and signal dots travelling along it, representing telecommunications.",
+  caption: "Signals travel in the form of light.",
+  frame: { width: 100, height: 42 },
+  labelSize: 2.5,
+  elements: [
+    body([vec(4, 10), vec(96, 10), vec(96, 30), vec(4, 30)], "glassStrong"),
+    arrow(vec(8, 20), vec(88, 20), TIR_IN),
+    point(vec(28, 20), 1.2, "ok"),
+    point(vec(48, 20), 1.2, "ok"),
+    point(vec(68, 20), 1.2, "ok"),
+    label(vec(50, 38), "light signals", { anchor: "middle", size: 2.4, color: "hot" }),
+  ],
+  checks: [],
+};
+
+export const tirEndoscope: FigureSpec = {
+  id: "tir-endoscopy-fibre",
+  title: "Optical fibre used in endoscopy",
+  alt: "A slender fibre with a viewing tip, representing the medical use of optical fibres in endoscopy.",
+  caption: "Used in endoscopy.",
+  frame: { width: 100, height: 46 },
+  labelSize: 2.5,
+  elements: [
+    body([vec(6, 16), vec(72, 16), vec(72, 26), vec(6, 26)], "glassStrong"),
+    line(vec(72, 21), vec(86, 21), s("ok", 0.9)),
+    circle(vec(88, 21), 6, { stroke: s("ok", 0.9), fill: null }),
+    arrow(vec(12, 21), vec(66, 21), TIR_IN),
+    label(vec(50, 40), "endoscope tip", { anchor: "middle", size: 2.4, color: "ok" }),
+  ],
+  checks: [],
+};
+
 export const RAY_OPTICS_FIGURES: readonly FigureSpec[] = [
+  tirHeaderBounces,
+  tirPureReflection,
+  tirPureRefraction,
+  tirPartialSplit,
+  tirCriticalAngle,
+  tirCaseBelow,
+  tirCaseCritical,
+  tirCaseAbove,
+  tirFocused,
+  tirFibreCrossSection,
+  tirFibreLongitudinal,
+  tirTelecomSignal,
+  tirEndoscope,
   rayAndBeam,
   refractionAtSurface,
   apparentDepth,
