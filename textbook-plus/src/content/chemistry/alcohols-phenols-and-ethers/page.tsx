@@ -1068,8 +1068,19 @@ export default function AlcoholsPhenolsEthersChapter() {
         Acetone is obtained as a valuable by-product in large quantities.
       </Callout>
 
-      <h3 id="h-7-4-revision">Quick revision — preparation methods</h3>
-
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4"
+        label="Quick revision — preparation methods"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h3 id="h-7-4-revision" className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!">
+              Quick revision — preparation methods
+            </h3>
+          </div>
+        }
+      >
+        <div className="space-y-4 [&>div]:my-0">
       <TableCard
         title="Alcohols"
         headers={["Preparation method", "Key reagent / condition", "Product"]}
@@ -1143,6 +1154,8 @@ export default function AlcoholsPhenolsEthersChapter() {
           },
         ]}
       />
+        </div>
+      </CollapsibleRevision>
 
       <h3 id="h-7-4-3">7.4.3 Physical Properties</h3>
 

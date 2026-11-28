@@ -1,3 +1,4 @@
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
@@ -298,8 +299,20 @@ export default function VectorAlgebraChapter() {
       <h3 id="h-10-3-problem-solving">5. Problem-Solving: Types, Methods &amp; Examples</h3>
       <VectorProblemCards />
 
-      <h3 id="h-10-quick-revision">6. Quick Revision — Formula Sheet</h3>
-      <VectorFormulaSheetDashboard />
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4"
+        label="Quick Revision — Formula Sheet"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h3 id="h-10-quick-revision" className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!">
+              6. Quick Revision — Formula Sheet
+            </h3>
+          </div>
+        }
+      >
+        <VectorFormulaSheetDashboard />
+      </CollapsibleRevision>
 
       <Expandable title="Exercise 10.1">
         <ExerciseQa

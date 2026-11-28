@@ -14,6 +14,7 @@ import { Expandable } from "@/components/content/Expandable";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
 import { Stepper } from "@/components/content/Stepper";
 import { Callout } from "@/components/content/Callout";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import { EquationLadder } from "@/components/content/process/EquationLadder";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
 import { FormulaCard } from "@/components/content/FormulaCard";
@@ -1481,51 +1482,66 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         ]}
       />
 
-      <h3 id="h-9-3-formula-sheet">Quick revision — refraction formula sheet</h3>
-      <div className="my-6 grid gap-3 sm:grid-cols-2">
-        <FormulaCard label="Absolute refractive index" subjectColor="var(--subject-physics)">
-          <FormulaBlock latex={String.raw`n=\frac{c}{v}`} />
-        </FormulaCard>
-        <FormulaCard label="Snell’s law" subjectColor="var(--subject-physics)">
-          <FormulaBlock latex={String.raw`\frac{\sin i}{\sin r}=\frac{n_2}{n_1}`} />
-        </FormulaCard>
-        <FormulaCard label="Relative refractive index — absolute form" subjectColor="var(--subject-physics)">
-          <FormulaBlock latex={String.raw`n_{21}=\frac{n_2}{n_1}`} />
-          <FormulaBlock latex={String.raw`n_{12}=\frac{n_1}{n_2}`} />
-        </FormulaCard>
-        <FormulaCard label="Relative refractive index — velocity form" subjectColor="var(--subject-physics)">
-          <FormulaBlock latex={String.raw`n_{21}=\frac{v_1}{v_2}`} />
-          <FormulaBlock latex={String.raw`n_{12}=\frac{v_2}{v_1}`} />
-          <FormulaBlock latex={String.raw`n_{12}=\frac{1}{n_{21}}`} />
-        </FormulaCard>
-        <div className="sm:col-span-2">
-          <FormulaCard label="Applications" subjectColor="var(--subject-physics)">
-            <TableCard
-              headers={["Concept", "Key result"]}
-              rows={[
-                {
-                  cells: [
-                    "Parallel-sided slab",
-                    <Formula key="slab">{String.raw`i_1=r_2`}</Formula>,
-                  ],
-                },
-                {
-                  cells: [
-                    "Apparent depth",
-                    <Formula key="ad">{String.raw`n_{21}=\frac{d}{d'}`}</Formula>,
-                  ],
-                },
-                {
-                  cells: [
-                    "Apparent depth formula",
-                    <Formula key="adf">{String.raw`d'=\frac{d}{n_{21}}`}</Formula>,
-                  ],
-                },
-              ]}
-            />
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4 [&>div]:my-0"
+        label="Quick revision — refraction formula sheet"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h3
+              id="h-9-3-formula-sheet"
+              className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!"
+            >
+              Quick revision — refraction formula sheet
+            </h3>
+          </div>
+        }
+      >
+        <div className="grid gap-3 sm:grid-cols-2">
+          <FormulaCard label="Absolute refractive index" subjectColor="var(--subject-physics)">
+            <FormulaBlock latex={String.raw`n=\frac{c}{v}`} />
           </FormulaCard>
+          <FormulaCard label="Snell’s law" subjectColor="var(--subject-physics)">
+            <FormulaBlock latex={String.raw`\frac{\sin i}{\sin r}=\frac{n_2}{n_1}`} />
+          </FormulaCard>
+          <FormulaCard label="Relative refractive index — absolute form" subjectColor="var(--subject-physics)">
+            <FormulaBlock latex={String.raw`n_{21}=\frac{n_2}{n_1}`} />
+            <FormulaBlock latex={String.raw`n_{12}=\frac{n_1}{n_2}`} />
+          </FormulaCard>
+          <FormulaCard label="Relative refractive index — velocity form" subjectColor="var(--subject-physics)">
+            <FormulaBlock latex={String.raw`n_{21}=\frac{v_1}{v_2}`} />
+            <FormulaBlock latex={String.raw`n_{12}=\frac{v_2}{v_1}`} />
+            <FormulaBlock latex={String.raw`n_{12}=\frac{1}{n_{21}}`} />
+          </FormulaCard>
+          <div className="sm:col-span-2">
+            <FormulaCard label="Applications" subjectColor="var(--subject-physics)">
+              <TableCard
+                headers={["Concept", "Key result"]}
+                rows={[
+                  {
+                    cells: [
+                      "Parallel-sided slab",
+                      <Formula key="slab">{String.raw`i_1=r_2`}</Formula>,
+                    ],
+                  },
+                  {
+                    cells: [
+                      "Apparent depth",
+                      <Formula key="ad">{String.raw`n_{21}=\frac{d}{d'}`}</Formula>,
+                    ],
+                  },
+                  {
+                    cells: [
+                      "Apparent depth formula",
+                      <Formula key="adf">{String.raw`d'=\frac{d}{n_{21}}`}</Formula>,
+                    ],
+                  },
+                ]}
+              />
+            </FormulaCard>
+          </div>
         </div>
-      </div>
+      </CollapsibleRevision>
 
       <h2 id="h-9-4">9.4 Total Internal Reflection</h2>
 
@@ -1918,8 +1934,22 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         ]}
       />
 
-      <h3 id="h-9-4-revision">Quick Revision — Total Internal Reflection</h3>
-      <RevisionDashboard
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4 [&>div]:my-0"
+        label="Quick Revision — Total Internal Reflection"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h3
+              id="h-9-4-revision"
+              className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!"
+            >
+              Quick Revision — Total Internal Reflection
+            </h3>
+          </div>
+        }
+      >
+        <RevisionDashboard
         critical={
           <div className="space-y-2">
             <FormulaBlock latex={String.raw`r=90^\circ`} />
@@ -1962,7 +1992,8 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
             </ul>
           </div>
         }
-      />
+        />
+      </CollapsibleRevision>
 
       <h3 id="h-9-4-practice">Practice Problems — Critical Angle</h3>
       <div className="my-6 grid gap-4 md:grid-cols-2 [&>div]:my-0">

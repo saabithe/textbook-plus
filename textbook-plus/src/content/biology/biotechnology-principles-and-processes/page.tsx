@@ -1,3 +1,4 @@
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { BiotechDefinitionCard } from "@/components/content/biology/BiotechDefinition";
@@ -282,8 +283,20 @@ export default function BiotechnologyPrinciplesAndProcessesChapter() {
       <h5 id="h-9-3-8-elution">Elution</h5>
       <Elution />
 
-      <h5 id="h-9-3-8-workflow">Complete AGE workflow — quick revision</h5>
-      <AgeWorkflow />
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4"
+        label="Complete AGE workflow — quick revision"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h5 id="h-9-3-8-workflow" className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!">
+              Complete AGE workflow — quick revision
+            </h5>
+          </div>
+        }
+      >
+        <AgeWorkflow />
+      </CollapsibleRevision>
 
       <h3 id="h-9-3-9">9. Polymerase Chain Reaction (PCR)</h3>
 

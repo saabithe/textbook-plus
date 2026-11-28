@@ -1,4 +1,5 @@
 import { Callout } from "@/components/content/Callout";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import { TableCard } from "@/components/content/data/TableCard";
 import { FormulaBlock } from "@/components/content/Formula";
 import { AgePyramidsFigure11_1 } from "@/components/content/biology/AgePyramidsFigure11_1";
@@ -700,12 +701,24 @@ export default function OrganismsAndPopulationsChapter() {
       <h4>Examples</h4>
       <AmensalismExamples />
 
-      <h2 id="h-11-8">Chapter revision — the six interactions</h2>
-      <p>
-        One row per interaction: the sign combination, who gains or loses, and the defining relationship. Filter by sign
-        combination to revise a single pattern at a time.
-      </p>
-      <InteractionDashboard />
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4"
+        label="Chapter revision — the six interactions"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h2 id="h-11-8" className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!">
+              Chapter revision — the six interactions
+            </h2>
+          </div>
+        }
+      >
+        <p>
+          One row per interaction: the sign combination, who gains or loses, and the defining relationship. Filter by sign
+          combination to revise a single pattern at a time.
+        </p>
+        <InteractionDashboard />
+      </CollapsibleRevision>
 
       <p className="mt-6 text-sm text-muted-foreground">
         <strong>Chapter 11 — Organisms and Populations</strong>

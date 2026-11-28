@@ -3,6 +3,7 @@
 import { Callout } from "@/components/content/Callout";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { Highlight } from "@/components/content/Highlight";
+import { CollapsibleRevision } from "@/components/content/CollapsibleRevision";
 import { Expandable } from "@/components/content/Expandable";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
@@ -2926,7 +2927,18 @@ export default function ApplicationOfDerivativesChapter() {
         ]}
       />
 
-      <h3 id="h-6-3b-11">11. Quick Revision Sheets</h3>
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4"
+        label="Quick Revision Sheets"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h3 id="h-6-3b-11" className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!">
+              11. Quick Revision Sheets
+            </h3>
+          </div>
+        }
+      >
       <p>Open one pocket at a time for a compact revision table.</p>
       <PocketGrid
         title="Revision sheets"
@@ -3070,6 +3082,7 @@ export default function ApplicationOfDerivativesChapter() {
           },
         ]}
       />
+      </CollapsibleRevision>
 
       <h2 id="h-6-4">6.4 Maxima and Minima of Functions</h2>
       <p>
@@ -4028,7 +4041,18 @@ export default function ApplicationOfDerivativesChapter() {
         </SolutionStep>
       </SolvedProblem>
 
-      <h3 id="h-6-4-4">Unit 4 — Quick Revision</h3>
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4"
+        label="Unit 4 — Quick Revision"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h3 id="h-6-4-4" className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!">
+              Unit 4 — Quick Revision
+            </h3>
+          </div>
+        }
+      >
       <h4 id="h-6-4-4-1">10. Comparison of the Two Tests</h4>
       <TableCard
         headers={["Feature", "First Derivative Test", "Second Derivative Test"]}
@@ -4149,6 +4173,7 @@ export default function ApplicationOfDerivativesChapter() {
           { cells: ["Absolute extremum", "Highest or lowest over the entire domain"] },
         ]}
       />
+      </CollapsibleRevision>
 
       <h2 id="h-6-5">6.5 Tangents and Normals</h2>
       <Callout type="note">
