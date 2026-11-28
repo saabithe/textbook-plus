@@ -4149,6 +4149,69 @@
     "renderable": true
   },
   {
+    "id": "content/physics/SphericalLensPanels.tsx#ApproximationBlock",
+    "name": "ApproximationBlock",
+    "path": "content/physics/SphericalLensPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/SphericalLensPanels.tsx#ComparisonPair",
+    "name": "ComparisonPair",
+    "path": "content/physics/SphericalLensPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/SphericalLensPanels.tsx#LensRayLegend",
+    "name": "LensRayLegend",
+    "path": "content/physics/SphericalLensPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/SphericalLensPanels.tsx#ProminentFormula",
+    "name": "ProminentFormula",
+    "path": "content/physics/SphericalLensPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/SphericalLensPanels.tsx#RayRuleList",
+    "name": "RayRuleList",
+    "path": "content/physics/SphericalLensPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/SphericalLensPanels.tsx#SignCard",
+    "name": "SignCard",
+    "path": "content/physics/SphericalLensPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/SphericalLensPanels.tsx#SphericalLensHero",
+    "name": "SphericalLensHero",
+    "path": "content/physics/SphericalLensPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/physics/TIRPanels.tsx#AngleProgression",
     "name": "AngleProgression",
     "path": "content/physics/TIRPanels.tsx",

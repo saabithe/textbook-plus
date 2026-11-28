@@ -9,6 +9,7 @@
  * The retired NCERT-based version is frozen in the tag
  * `backup/ray-optics-full-2026-11-04`.
  */
+import type { ReactNode } from "react";
 import { ExerciseQa } from "@/components/content/ExerciseQa";
 import { Expandable } from "@/components/content/Expandable";
 import { ProblemSolution } from "@/components/content/ProblemSolution";
@@ -54,6 +55,14 @@ import {
   PrismRevisionGrid,
   SpectrumSequence,
 } from "@/components/content/physics/PrismPanels";
+import {
+  ApproximationBlock,
+  ComparisonPair,
+  LensRayLegend,
+  ProminentFormula,
+  SphericalLensHero,
+  SignCard,
+} from "@/components/content/physics/SphericalLensPanels";
 import {
   cassegrain,
   compoundMicroscope,
@@ -102,6 +111,21 @@ import {
   tirPureRefraction,
   tirTelecomSignal,
 } from "./figures";
+import {
+  concaveLensPrincipalRays,
+  concavePowerRay,
+  convexLensObjectAtCentre,
+  convexLensThreePrincipalRays,
+  convexPowerRay,
+  lensSignConventionPair,
+  lensTypesPair,
+  sphericalSurfaceLensHeader,
+  sphericalSurfaceRefractionGeometry,
+  thinLensTwoSurfaceSetup,
+} from "./sphericalLensFigures";
+
+const POSITIVE = "var(--ok)";
+const NEGATIVE = "var(--destructive)";
 
 /** One answer-key row: the result on top, the working underneath. */
 function AnswerQa({ result, work }: { result: string; work: string }) {
@@ -109,6 +133,47 @@ function AnswerQa({ result, work }: { result: string; work: string }) {
     <div>
       <p className="text-[0.9375rem] font-semibold leading-[1.5] tracking-[-0.01em] text-foreground">{result}</p>
       <p className="mt-1 text-[0.875rem] leading-[1.75] text-foreground/75">{work}</p>
+    </div>
+  );
+}
+
+type DerivationRow = {
+  label: string;
+  latex: string;
+  tag?: string;
+  important?: boolean;
+};
+
+type DerivationStage = {
+  title: string;
+  rows: DerivationRow[];
+};
+
+/** Keeps the solved diagram beside the staged equations on desktop. */
+function FigureBesideStages({ figure, stages }: { figure: ReactNode; stages: DerivationStage[] }) {
+  return (
+    <div className="my-6 grid gap-4 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-start">
+      <div className="min-w-0 rounded-2xl border border-border/60 bg-card p-2 shadow-sm lg:sticky lg:top-4">{figure}</div>
+      <div className="space-y-3">
+        {stages.map((stage, index) => (
+          <section key={stage.title} className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+            <div className="flex items-center gap-3 border-b border-border/40 bg-muted/25 px-4 py-2.5">
+              <span className="t-micro tabular-nums">{String(index + 1).padStart(2, "0")}</span>
+              <p className="text-sm font-extrabold leading-snug tracking-tight text-foreground">{stage.title}</p>
+            </div>
+            <div className="space-y-2 px-3 py-3 sm:px-4">
+              {stage.rows.map((row) => (
+                <div key={row.label} className="min-w-0 [&>div]:my-0">
+                  <p className="text-[0.7rem] font-bold uppercase tracking-widest text-muted-foreground">{row.label}</p>
+                  <div className="mt-1">
+                    <FormulaBlock latex={row.latex} tag={row.tag} important={row.important} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
     </div>
   );
 }
@@ -2097,555 +2162,1008 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
       </div>
 
       <h2 id="h-9-5">9.5 Refraction at Spherical Surfaces and by Lenses</h2>
-
-      <h3 id="h-9-5-surface">Refraction at a single spherical surface</h3>
-      <p>So far the interface has been plane. Now it curves — a spherical interface between two transparent media.</p>
-      <p>
-        An infinitesimal part of a spherical surface can be regarded as planar, so the same laws of refraction apply at
-        every point on it.
-      </p>
-      <p>
-        As with a spherical mirror, the normal at the point of incidence is perpendicular to the tangent plane there,
-        and therefore passes through the centre of curvature.
-      </p>
-      <Callout type="note" title="What a thin lens is">
-        <p>
-          A <strong>thin lens</strong> is a transparent optical medium bounded by two surfaces, at least one of which is
-          spherical.
-        </p>
-      </Callout>
-      <p>
-        Take the aperture of the surface to be small compared with the other distances involved, so that the small-angle
-        approximation holds, and take <Formula>{String.raw`NM`}</Formula> to be nearly equal to the perpendicular from{" "}
-        <Formula>{String.raw`N`}</Formula> to the principal axis.
-      </p>
-      <Expandable title="Derivation — the relation between object and image distance">
-        <p className="mb-3 text-sm text-foreground/75">
-          <Formula>{String.raw`O`}</Formula> is the object, <Formula>{String.raw`I`}</Formula> its image,{" "}
-          <Formula>{String.raw`C`}</Formula> the centre of curvature and <Formula>{String.raw`M`}</Formula> the foot of
-          the perpendicular from <Formula>{String.raw`N`}</Formula>. The light goes from a medium of index{" "}
-          <Formula>{String.raw`n_1`}</Formula> into one of index <Formula>{String.raw`n_2`}</Formula>.
-        </p>
-        <EquationLadder
-          steps={[
-            {
-              label: "The three tangents, small angles",
-              equation: String.raw`\tan\angle NOM = \frac{MN}{OM},\quad \tan\angle NCM = \frac{MN}{MC},\quad \tan\angle NIM = \frac{MN}{MI}`,
-              note: "For small angles the tangent is the angle itself.",
-            },
-            {
-              label: "i is the exterior angle of triangle NOC",
-              equation: String.raw`i = \angle NOM + \angle NCM = \frac{MN}{OM} + \frac{MN}{MC}`,
-              tag: "Eq. 9.13",
-            },
-            {
-              label: "r from the second triangle",
-              equation: String.raw`r = \angle NCM - \angle NIM = \frac{MN}{MC} - \frac{MN}{MI}`,
-              tag: "Eq. 9.14",
-            },
-            {
-              label: "Snell's law, small angles",
-              equation: String.raw`n_1 i = n_2 r`,
-            },
-            {
-              label: "Substitute i and r",
-              equation: String.raw`\frac{n_1}{OM} + \frac{n_2}{MI} = \frac{n_2 - n_1}{MC}`,
-              tag: "Eq. 9.15",
-            },
-            {
-              label: "Cartesian signs: OM = −u, MI = +v, MC = +R",
-              equation: String.raw`\frac{n_2}{v} - \frac{n_1}{u} = \frac{n_2 - n_1}{R}`,
-              tag: "Eq. 9.16",
-              final: true,
-            },
-          ]}
-        />
-      </Expandable>
-      <FormulaBlock
-        important
-        label="Refraction at any curved spherical surface"
-        tag="Eq. 9.16"
-        latex={String.raw`\frac{n_2}{v} - \frac{n_1}{u} = \frac{n_2 - n_1}{R}`}
+      <SphericalLensHero
+        parts={[
+          "Spherical Surface Refraction",
+          "Lens Maker's Formula",
+          "Image Formation by Lenses",
+          "Lens Magnification & Power",
+        ]}
+        figure={<PhysicsFigure spec={sphericalSurfaceLensHeader} showCaption={false} labelScale={1.15} />}
       />
-      <p>
-        It ties the object distance and the image distance to the refractive indices and the radius of curvature, and it
-        holds for any curved spherical surface.
-      </p>
-      <Expandable title="Example 9.5 — a point source in air meets a glass surface" variant="example">
+
+      <h3 id="h-9-5-part-1">Part 1 — Refraction at Spherical Surfaces</h3>
+      <h4 id="h-9-5-surface">1. Refraction at a Spherical Surface</h4>
+      <p>A spherical refracting surface separates two transparent media having different refractive indices.</p>
+      <p className="t-micro">Medium conditions</p>
+      <FormulaBlock latex={String.raw`n_2>n_1`} />
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          Medium 1 → Rarer medium (<Formula>{String.raw`n_1`}</Formula>).
+        </li>
+        <li>
+          Medium 2 → Denser medium (<Formula>{String.raw`n_2`}</Formula>).
+        </li>
+      </ul>
+
+      <h4 id="h-9-5-approximations">1.2 Important Approximations</h4>
+      <p>For the derivation, the following angles are assumed to be very small:</p>
+      <ApproximationBlock
+        items={[
+          { label: "Small angles", value: <Formula>{String.raw`i,r,\alpha,\beta,\theta\ll1`}</Formula> },
+          { label: "Tangent", value: <Formula>{String.raw`\tan\phi\approx\phi`}</Formula> },
+          { label: "Sine", value: <Formula>{String.raw`\sin\phi\approx\phi`}</Formula> },
+          { label: "Near the pole", value: <Formula>{String.raw`PN\approx0`}</Formula> },
+        ]}
+        note="Small-angle approximations are used throughout the derivation."
+      />
+
+      <h4 id="h-9-5-surface-derivation">2. Refraction at a Spherical Surface — Derivation</h4>
+      <p className="t-micro">Important derivation</p>
+      <FigureBesideStages
+        figure={<PhysicsFigure spec={sphericalSurfaceRefractionGeometry} showCaption={false} labelScale={0.95} />}
+        stages={[
+          {
+            title: "Step 1 — Small-Angle Geometrical Relations",
+            rows: [
+              { label: "Right triangle at O", latex: String.raw`\tan\alpha\approx\alpha=\frac{MP}{-u}` },
+              { label: "Right triangle at C", latex: String.raw`\tan\beta\approx\beta=\frac{MP}{R}` },
+              { label: "Right triangle at I", latex: String.raw`\tan\theta\approx\theta=\frac{MP}{v}` },
+            ],
+          },
+          {
+            title: "Step 2 — Geometrical Relationships",
+            rows: [
+              { label: "From triangle OCM", latex: String.raw`i=\alpha+\beta` },
+              { label: "From triangle MIC", latex: String.raw`\beta=r+\theta` },
+              { label: "Therefore", latex: String.raw`r=\beta-\theta` },
+            ],
+          },
+          {
+            title: "Step 3 — Apply Snell's Law",
+            rows: [
+              { label: "Snell's law", latex: String.raw`\frac{\sin i}{\sin r}=\frac{n_2}{n_1}` },
+              { label: "Small-angle form", latex: String.raw`\frac{i}{r}=\frac{n_2}{n_1}` },
+              { label: "Therefore", latex: String.raw`n_1i=n_2r` },
+            ],
+          },
+          {
+            title: "Step 4 — Substitute Geometrical Relationships",
+            rows: [{ label: "Using i = α + β and r = β − θ", latex: String.raw`n_1(\alpha+\beta)=n_2(\beta-\theta)` }],
+          },
+          {
+            title: "Step 5 — Substitute Small-Angle Expressions",
+            rows: [
+              {
+                label: "Substitute the three ratios",
+                latex: String.raw`n_1\left(\frac{MP}{-u}+\frac{MP}{R}\right)=n_2\left(\frac{MP}{R}-\frac{MP}{v}\right)`,
+              },
+              {
+                label: "Divide both sides by MP",
+                latex: String.raw`-\frac{n_1}{u}+\frac{n_1}{R}=\frac{n_2}{R}-\frac{n_2}{v}`,
+              },
+            ],
+          },
+          {
+            title: "Step 6 — Rearrange",
+            rows: [
+              {
+                label: "Collect the object and image terms",
+                latex: String.raw`-\frac{n_1}{u}+\frac{n_2}{v}=\frac{n_2}{R}-\frac{n_1}{R}`,
+              },
+            ],
+          },
+        ]}
+      />
+      <ProminentFormula
+        label="Refraction at a Spherical Surface"
+        tag="Final formula"
+        latex={String.raw`\frac{n_2}{v}-\frac{n_1}{u}=\frac{n_2-n_1}{R}`}
+      />
+
+      <h4 id="h-9-5-surface-numerical">3. Numerical Problem — Spherical Surface Refraction</h4>
+      <p className="t-micro">NCERT Problem</p>
+      <Expandable title="NCERT Problem — Spherical Surface Refraction" variant="example">
         <ProblemSolution.Problem>
-          <p>
-            Light from a point source in air falls on a spherical glass surface with <Formula>{String.raw`n = 1.5`}</Formula>{" "}
-            and radius of curvature 20 cm. The source is 100 cm from the surface.
-          </p>
-          <p className="mt-3">Where is the image formed?</p>
+          <p>A point source in air sends light towards a spherical glass surface.</p>
+          <p className="mt-3">Find the position of the image.</p>
         </ProblemSolution.Problem>
         <ProblemSolution.Solution>
+          <p className="t-micro">Given</p>
+          <TableCard
+            headers={["Quantity", "Value"]}
+            rows={[
+              { cells: ["Air refractive index", <Formula key="n1">{String.raw`n_1=1`}</Formula>] },
+              { cells: ["Glass refractive index", <Formula key="n2">{String.raw`n_2=1.5`}</Formula>] },
+              { cells: ["Object distance", <Formula key="u">{String.raw`u=-100\ \text{cm}`}</Formula>] },
+              { cells: ["Radius of curvature", <Formula key="R">{String.raw`R=+20\ \text{cm}`}</Formula>] },
+              { cells: ["Image distance", <Formula key="v">{String.raw`v=?`}</Formula>] },
+            ]}
+          />
           <Stepper
             steps={[
               {
-                label: "Write down what is given",
+                label: "Formula",
                 description: (
-                  <p>
-                    <Formula>{String.raw`u = -100\ \text{cm}`}</Formula>,{" "}
-                    <Formula>{String.raw`R = +20\ \text{cm}`}</Formula>,{" "}
-                    <Formula>{String.raw`n_1 = 1`}</Formula>, <Formula>{String.raw`n_2 = 1.5`}</Formula>, and{" "}
-                    <Formula>{String.raw`v`}</Formula> is wanted.
-                  </p>
+                  <div className="space-y-2 [&>div]:my-0">
+                    <FormulaBlock latex={String.raw`\frac{n_2}{v}-\frac{n_1}{u}=\frac{n_2-n_1}{R}`} />
+                  </div>
                 ),
               },
               {
-                label: "Put them into Eq. 9.16",
+                label: "Substitution",
                 description: (
-                  <p>
-                    <Formula>{String.raw`\frac{1.5}{v} + \frac{1}{100} = \frac{0.5}{20}`}</Formula>
-                  </p>
+                  <div className="space-y-2 [&>div]:my-0">
+                    <FormulaBlock latex={String.raw`\frac{1.5}{v}-\frac{1}{-100}=\frac{1.5-1}{20}`} />
+                    <FormulaBlock latex={String.raw`\frac{1.5}{v}+\frac{1}{100}=\frac{0.5}{20}`} />
+                    <FormulaBlock latex={String.raw`\frac{1.5}{v}+\frac{1}{100}=\frac{1}{40}`} />
+                  </div>
                 ),
               },
               {
-                label: "Isolate the v term",
+                label: "Simplification",
                 description: (
-                  <p>
-                    <Formula>{String.raw`\frac{1.5}{v} = 0.025 - 0.01 = 0.015`}</Formula>
-                  </p>
+                  <div className="space-y-2 [&>div]:my-0">
+                    <FormulaBlock latex={String.raw`\frac{1.5}{v}=\frac{1}{40}-\frac{1}{100}`} />
+                    <FormulaBlock latex={String.raw`\frac{1.5}{v}=\frac{100-40}{4000}`} />
+                    <FormulaBlock latex={String.raw`\frac{1.5}{v}=\frac{60}{4000}`} />
+                  </div>
                 ),
               },
               {
                 label: "Solve for v",
                 description: (
-                  <p>
-                    <Formula>{String.raw`v = +100\ \text{cm}`}</Formula>.
-                  </p>
+                  <div className="space-y-2 [&>div]:my-0">
+                    <FormulaBlock latex={String.raw`v=\frac{1.5\times4000}{60}`} />
+                  </div>
                 ),
               },
             ]}
           />
-          <FormulaBlock important latex={String.raw`v = +100\ \text{cm}`} />
-          <p className="mt-3 text-sm text-foreground/75">
-            The image forms 100 cm from the glass surface, in the direction of the incident light.
-          </p>
+          <ProminentFormula
+            label="Final answer"
+            latex={String.raw`v=+100\ \text{cm}`}
+            note={
+              <span>
+                Image is formed{" "}
+                <Highlight>
+                  <Formula>{String.raw`+100\ \text{cm}`}</Formula>
+                </Highlight>{" "}
+                inside the glass medium, in the direction of incident light.
+              </span>
+            }
+          />
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h3 id="h-9-5-lens">Refraction by a lens</h3>
-      <p>A lens is handled as two refractions in a row. The first surface forms an image, and that image becomes the object for the second surface.</p>
+      <h3 id="h-9-5-part-2">Part 2 — Lenses</h3>
+      <h4 id="h-9-5-lens-geometry">4. Basic Geometry of Lenses</h4>
+      <p className="t-micro">4.1 Types of Lenses</p>
+      <p>Lenses are represented by two spherical surfaces.</p>
+      <PhysicsFigure spec={lensTypesPair} />
+      <ComparisonPair
+        first={{
+          title: "Convex Lens",
+          children: (
+            <ul className="my-0 list-none space-y-2 pl-0">
+              <li>Formed by the overlapping intersection of two circles (spheres).</li>
+              <li>
+                Principal foci → <Formula>{String.raw`F,F'`}</Formula>.
+              </li>
+              <li>
+                Centres of curvature → <Formula>{String.raw`C,C'`}</Formula>.
+              </li>
+            </ul>
+          ),
+        }}
+        second={{
+          title: "Concave Lens",
+          children: (
+            <ul className="my-0 list-none space-y-2 pl-0">
+              <li>Formed by the inward-curving region bounded between two non-overlapping circles (spheres).</li>
+              <li>
+                Principal foci → <Formula>{String.raw`F,F'`}</Formula>.
+              </li>
+              <li>
+                Centres of curvature → <Formula>{String.raw`C,C'`}</Formula>.
+              </li>
+            </ul>
+          ),
+        }}
+      />
+      <p className="t-micro">Common geometrical elements</p>
+      <TableCard
+        headers={["Element", "Symbol"]}
+        rows={[
+          { cells: ["Optical centre", <Formula key="o">{String.raw`O\ /\ P`}</Formula>] },
+          { cells: ["Principal foci", <Formula key="f">{String.raw`F,F'`}</Formula>] },
+          { cells: ["Centres of curvature", <Formula key="c">{String.raw`C,C'`}</Formula>] },
+          { cells: ["Focal length", <Formula key="fl">{String.raw`f`}</Formula>] },
+          { cells: ["Radii of curvature", <Formula key="r">{String.raw`R_1,R_2`}</Formula>] },
+          { cells: ["Principal axis", "Horizontal axis through optical centre"] },
+        ]}
+      />
+
+      <h4 id="h-9-5-sign-convention">5. Sign Convention for Lenses</h4>
+      <p className="t-micro">5.1 Direction of Measurement</p>
+      <p>Incident light travels from left to right.</p>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>Distance measured in the direction of incident light → Positive.</li>
+        <li>Distance measured opposite to incident light → Negative.</li>
+      </ul>
+      <p className="t-micro">5.2 Radii of Curvature and Focal Length</p>
+      <PhysicsFigure spec={lensSignConventionPair} />
+      <p className="t-micro">5.3 Sign Convention — Quick Comparison</p>
+      <TableCard
+        headers={[
+          "Lens type",
+          <Formula key="r1">{String.raw`R_1`}</Formula>,
+          <Formula key="r2">{String.raw`R_2`}</Formula>,
+          <Formula key="f">{String.raw`f`}</Formula>,
+        ]}
+        rows={[
+          {
+            cells: [
+              "Convex",
+              <span key="r1" style={{ color: POSITIVE }}><Formula>{String.raw`+`}</Formula></span>,
+              <span key="r2" style={{ color: NEGATIVE }}><Formula>{String.raw`-`}</Formula></span>,
+              <span key="f" style={{ color: POSITIVE }}><Formula>{String.raw`+`}</Formula></span>,
+            ],
+          },
+          {
+            cells: [
+              "Concave",
+              <span key="r1" style={{ color: NEGATIVE }}><Formula>{String.raw`-`}</Formula></span>,
+              <span key="r2" style={{ color: POSITIVE }}><Formula>{String.raw`+`}</Formula></span>,
+              <span key="f" style={{ color: NEGATIVE }}><Formula>{String.raw`-`}</Formula></span>,
+            ],
+          },
+        ]}
+      />
+      <ComparisonPair
+        first={{
+          title: "A. Biconvex Lens",
+          children: (
+            <>
+              <ul className="my-0 list-none space-y-2 pl-0">
+                <li>First surface curves rightward.</li>
+                <li>Centre of curvature of first surface lies to the right.</li>
+              </ul>
+              <div className="mt-3 [&>div]:my-0">
+                <FormulaBlock latex={String.raw`R_1=+\text{ve}`} />
+              </div>
+              <ul className="my-0 list-none space-y-2 pl-0">
+                <li>Second surface curves leftward.</li>
+                <li>Centre of curvature of second surface lies to the left.</li>
+              </ul>
+              <div className="mt-3 [&>div]:my-0">
+                <FormulaBlock latex={String.raw`R_2=-\text{ve}`} />
+              </div>
+              <p className="t-micro mt-4">Focal length</p>
+              <div className="[&>div]:my-0">
+                <FormulaBlock latex={String.raw`f=+\text{ve}`} />
+              </div>
+            </>
+          ),
+        }}
+        second={{
+          title: "B. Biconcave Lens",
+          children: (
+            <>
+              <ul className="my-0 list-none space-y-2 pl-0">
+                <li>First surface curves leftward.</li>
+                <li>Centre of curvature of first surface lies to the left.</li>
+              </ul>
+              <div className="mt-3 [&>div]:my-0">
+                <FormulaBlock latex={String.raw`R_1=-\text{ve}`} />
+              </div>
+              <ul className="my-0 list-none space-y-2 pl-0">
+                <li>Second surface curves rightward.</li>
+                <li>Centre of curvature of second surface lies to the right.</li>
+              </ul>
+              <div className="mt-3 [&>div]:my-0">
+                <FormulaBlock latex={String.raw`R_2=+\text{ve}`} />
+              </div>
+              <p className="t-micro mt-4">Focal length</p>
+              <div className="[&>div]:my-0">
+                <FormulaBlock latex={String.raw`f=-\text{ve}`} />
+              </div>
+            </>
+          ),
+        }}
+      />
+
+      <h4 id="h-9-5-lens-maker">6. Lens Maker's Formula — 4-Mark Derivation</h4>
+      <p className="t-micro">Important derivation</p>
+      <p className="t-micro">6.1 Basic Setup</p>
+      <p>
+        A thin biconvex lens <Formula>{String.raw`ABCD`}</Formula> is placed in a surrounding medium.
+      </p>
+      <p className="t-micro">Refractive indices</p>
+      <FormulaBlock latex={String.raw`n_2>n_1`} />
       <ul className="my-6 list-none space-y-2 pl-0">
         <li>
-          <strong>First surface.</strong> It forms the image <Formula>{String.raw`I_1`}</Formula> of the object{" "}
-          <Formula>{String.raw`O`}</Formula>.
+          Lens medium → <Formula>{String.raw`n_2`}</Formula>.
         </li>
         <li>
-          <strong>Second surface.</strong> <Formula>{String.raw`I_1`}</Formula> acts as a virtual object for it, and it
-          forms the image at <Formula>{String.raw`I`}</Formula>.
+          Surrounding medium → <Formula>{String.raw`n_1`}</Formula>.
         </li>
       </ul>
-      <Expandable title="Derivation — from one surface to the lens maker's formula">
-        <EquationLadder
-          steps={[
+      <PhysicsFigure spec={thinLensTwoSurfaceSetup} />
+      <p className="t-micro">6.2 Step-by-Step Derivation</p>
+      <div className="my-6 space-y-3">
+        <section className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+          <div className="flex items-center gap-3 border-b border-border/40 bg-muted/25 px-4 py-2.5">
+            <span className="t-micro tabular-nums">01</span>
+            <p className="text-sm font-extrabold leading-snug tracking-tight text-foreground">
+              Step 1 — Refraction at the First Surface (<Formula>{String.raw`ABC`}</Formula>)
+            </p>
+          </div>
+          <div className="px-4 py-3">
+            <ul className="my-0 list-none space-y-1.5 pl-0 text-sm text-foreground/80">
+              <li>
+                Object → <Formula>{String.raw`O`}</Formula> (Real).
+              </li>
+              <li>
+                Image → <Formula>{String.raw`I'`}</Formula> (Virtual).
+              </li>
+              <li>
+                Object distance → <Formula>{String.raw`u`}</Formula>.
+              </li>
+              <li>
+                Image distance → <Formula>{String.raw`v'`}</Formula>.
+              </li>
+              <li>
+                Radius of curvature → <Formula>{String.raw`R_1`}</Formula>.
+              </li>
+              <li>
+                Medium transition → <Formula>{String.raw`n_1\rightarrow n_2`}</Formula>.
+              </li>
+            </ul>
+            <p className="t-micro mt-3">Using the spherical surface formula</p>
+            <div className="mt-1 [&>div]:my-0">
+              <FormulaBlock
+                latex={String.raw`\frac{n_2}{v'}-\frac{n_1}{u}=\frac{n_2-n_1}{R_1}`}
+                tag="(1)"
+                important
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+          <div className="flex items-center gap-3 border-b border-border/40 bg-muted/25 px-4 py-2.5">
+            <span className="t-micro tabular-nums">02</span>
+            <p className="text-sm font-extrabold leading-snug tracking-tight text-foreground">
+              Step 2 — Refraction at the Second Surface (<Formula>{String.raw`ADC`}</Formula>)
+            </p>
+          </div>
+          <div className="px-4 py-3">
+            <ul className="my-0 list-none space-y-1.5 pl-0 text-sm text-foreground/80">
+              <li>
+                Object → <Formula>{String.raw`I'`}</Formula> (Virtual).
+              </li>
+              <li>
+                Image → <Formula>{String.raw`I`}</Formula> (Real).
+              </li>
+              <li>
+                Object distance → <Formula>{String.raw`v'`}</Formula>.
+              </li>
+              <li>
+                Image distance → <Formula>{String.raw`v`}</Formula>.
+              </li>
+              <li>
+                Radius of curvature → <Formula>{String.raw`R_2`}</Formula>.
+              </li>
+              <li>
+                Medium transition → <Formula>{String.raw`n_2\rightarrow n_1`}</Formula>.
+              </li>
+            </ul>
+            <p className="t-micro mt-3">Applying the spherical surface formula</p>
+            <div className="mt-1 space-y-2 [&>div]:my-0">
+              <FormulaBlock latex={String.raw`\frac{n_1}{v}-\frac{n_2}{v'}=\frac{n_1-n_2}{R_2}`} />
+              <FormulaBlock
+                latex={String.raw`\frac{n_1}{v}-\frac{n_2}{v'}=-\frac{n_2-n_1}{R_2}`}
+                tag="(2)"
+                important
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="overflow-hidden rounded-2xl border border-[var(--ok)]/50 bg-card shadow-sm">
+          <div className="flex items-center gap-3 border-b border-[var(--ok)]/40 bg-muted/25 px-4 py-2.5">
+            <span className="t-micro tabular-nums">03</span>
+            <p className="text-sm font-extrabold leading-snug tracking-tight text-foreground">
+              Step 3 — Add Equations (1) and (2)
+            </p>
+          </div>
+          <div className="space-y-2 px-4 py-3 [&>div]:my-0">
+            <FormulaBlock
+              latex={String.raw`\left(\frac{n_2}{v'}-\frac{n_1}{u}\right)+\left(\frac{n_1}{v}-\frac{n_2}{v'}\right)`}
+            />
+            <FormulaBlock latex={String.raw`=\frac{n_2-n_1}{R_1}-\frac{n_2-n_1}{R_2}`} />
+            <Callout type="important" title="The intermediate-image terms cancel">
+              <FormulaBlock
+                latex={String.raw`\frac{n_1}{v}-\frac{n_1}{u}=(n_2-n_1)\left[\frac1{R_1}-\frac1{R_2}\right]`}
+                important
+              />
+            </Callout>
+          </div>
+        </section>
+
+        <section className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+          <div className="flex items-center gap-3 border-b border-border/40 bg-muted/25 px-4 py-2.5">
+            <span className="t-micro tabular-nums">04</span>
+            <p className="text-sm font-extrabold leading-snug tracking-tight text-foreground">
+              Step 4 — Divide Both Sides by <Formula>{String.raw`n_1`}</Formula>
+            </p>
+          </div>
+          <div className="space-y-2 px-4 py-3 [&>div]:my-0">
+            <FormulaBlock
+              latex={String.raw`\frac1v-\frac1u=\frac{n_2-n_1}{n_1}\left[\frac1{R_1}-\frac1{R_2}\right]`}
+            />
+            <p className="t-micro">Since</p>
+            <FormulaBlock latex={String.raw`n_{21}=\frac{n_2}{n_1}`} />
+            <p className="t-micro">Therefore</p>
+            <FormulaBlock
+              latex={String.raw`\frac1v-\frac1u=(n_{21}-1)\left[\frac1{R_1}-\frac1{R_2}\right]`}
+              tag="(3)"
+              important
+            />
+          </div>
+        </section>
+
+        <section className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+          <div className="flex items-center gap-3 border-b border-border/40 bg-muted/25 px-4 py-2.5">
+            <span className="t-micro tabular-nums">05</span>
+            <p className="text-sm font-extrabold leading-snug tracking-tight text-foreground">
+              Step 5 — Apply Principal Focus Condition
+            </p>
+          </div>
+          <div className="space-y-2 px-4 py-3 [&>div]:my-0">
+            <p className="t-micro">For an object at infinity</p>
+            <FormulaBlock latex={String.raw`u=\infty`} />
+            <p className="t-micro">The image is formed at the principal focus</p>
+            <FormulaBlock latex={String.raw`v=f`} />
+            <p className="t-micro">Substituting into equation (3)</p>
+            <FormulaBlock
+              latex={String.raw`\frac1f-\frac1\infty=(n_{21}-1)\left[\frac1{R_1}-\frac1{R_2}\right]`}
+            />
+            <p className="t-micro">Since</p>
+            <FormulaBlock latex={String.raw`\frac1\infty=0`} />
+          </div>
+        </section>
+      </div>
+      <ProminentFormula
+        label="Lens Maker's Formula"
+        tag="(4)"
+        latex={String.raw`\frac1f=(n_{21}-1)\left[\frac1{R_1}-\frac1{R_2}\right]`}
+        note={
+          <span>
+            Where <Formula>{String.raw`n_{21}=\frac{n_2}{n_1}`}</Formula>. Applicable to lenses under the stated
+            thin-lens and surrounding-medium conditions.
+          </span>
+        }
+      />
+
+      <h4 id="h-9-5-thin-lens">7. Thin Lens Formula</h4>
+      <p className="t-micro">7.1 Derivation from Lens Maker's Formula</p>
+      <div className="my-6 grid gap-3 md:grid-cols-2">
+        <section className="rounded-2xl border border-border/60 bg-card p-4 shadow-sm">
+          <p className="t-micro">From equation (3)</p>
+          <div className="mt-2 [&>div]:my-0">
+            <FormulaBlock latex={String.raw`\frac1v-\frac1u=(n_{21}-1)\left[\frac1{R_1}-\frac1{R_2}\right]`} />
+          </div>
+        </section>
+        <section className="rounded-2xl border border-border/60 bg-card p-4 shadow-sm">
+          <p className="t-micro">From equation (4)</p>
+          <div className="mt-2 [&>div]:my-0">
+            <FormulaBlock latex={String.raw`\frac1f=(n_{21}-1)\left[\frac1{R_1}-\frac1{R_2}\right]`} />
+          </div>
+        </section>
+      </div>
+      <p className="t-micro">Common right-hand expression</p>
+      <div
+        className="my-3 rounded-xl border px-3 py-2 [&>div]:my-0"
+        style={{ borderColor: "var(--subject-physics)", backgroundColor: "color-mix(in oklab, var(--subject-physics) 8%, var(--card))" }}
+      >
+        <FormulaBlock latex={String.raw`(n_{21}-1)\left[\frac1{R_1}-\frac1{R_2}\right]`} important />
+      </div>
+      <p>Equating both expressions:</p>
+      <ProminentFormula label="Thin Lens Formula" latex={String.raw`\frac1f=\frac1v-\frac1u`} />
+
+      <h4 id="h-9-5-lens-maker-numerical">8. Numerical Problem — Lens Maker's Formula</h4>
+      <Expandable title="Numerical Problem — Lens Maker's Formula" variant="example">
+        <ProblemSolution.Problem>
+          <p>
+            The radii of curvature of the faces of a double-convex lens are <Formula>{String.raw`10\ \text{cm}`}</Formula>{" "}
+            and <Formula>{String.raw`15\ \text{cm}`}</Formula>.
+          </p>
+          <p className="mt-3">Its focal length is <Formula>{String.raw`12\ \text{cm}`}</Formula>.</p>
+          <p className="mt-3">Find the refractive index of glass.</p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <p className="t-micro">Given</p>
+          <TableCard
+            headers={["Quantity", "Value"]}
+            rows={[
+              { cells: ["Surrounding medium (Air)", <Formula key="n1">{String.raw`n_1=1`}</Formula>] },
+              { cells: ["Glass refractive index", <Formula key="n2">{String.raw`n_2=n=?`}</Formula>] },
+              { cells: ["First radius", <Formula key="r1">{String.raw`R_1=+10\ \text{cm}`}</Formula>] },
+              { cells: ["Second radius", <Formula key="r2">{String.raw`R_2=-15\ \text{cm}`}</Formula>] },
+              { cells: ["Focal length", <Formula key="f">{String.raw`f=+12\ \text{cm}`}</Formula>] },
+            ]}
+          />
+          <Callout type="important" title="The sign of R₂">
+            <p>
+              The negative sign of <Formula>{String.raw`R_2`}</Formula> changes subtraction into addition.
+            </p>
+          </Callout>
+          <Stepper
+            steps={[
+              {
+                label: "Formula",
+                description: (
+                  <div className="space-y-2 [&>div]:my-0">
+                    <FormulaBlock latex={String.raw`\frac1f=(n_{21}-1)\left[\frac1{R_1}-\frac1{R_2}\right]`} />
+                    <p className="t-micro">Since</p>
+                    <FormulaBlock latex={String.raw`n_{21}=\frac{n_2}{n_1}`} />
+                    <p className="t-micro">And n₁ = 1</p>
+                    <FormulaBlock latex={String.raw`\frac1f=(n-1)\left[\frac1{R_1}-\frac1{R_2}\right]`} />
+                  </div>
+                ),
+              },
+              {
+                label: "Substitution",
+                description: (
+                  <div className="space-y-2 [&>div]:my-0">
+                    <FormulaBlock latex={String.raw`\frac1{12}=(n-1)\left[\frac1{10}-\frac1{-15}\right]`} />
+                    <FormulaBlock latex={String.raw`\frac1{12}=(n-1)\left[\frac1{10}+\frac1{15}\right]`} />
+                    <FormulaBlock latex={String.raw`\frac1{12}=(n-1)\left[\frac{15+10}{150}\right]`} />
+                    <FormulaBlock latex={String.raw`\frac1{12}=(n-1)\frac{25}{150}`} />
+                    <FormulaBlock latex={String.raw`\frac1{12}=\frac{n-1}{6}`} />
+                  </div>
+                ),
+              },
+              {
+                label: "Simplification",
+                description: (
+                  <div className="space-y-2 [&>div]:my-0">
+                    <FormulaBlock latex={String.raw`6=12n-12`} />
+                    <FormulaBlock latex={String.raw`12n=18`} />
+                  </div>
+                ),
+              },
+            ]}
+          />
+          <ProminentFormula
+            label="Final answer"
+            latex={String.raw`n=\frac{18}{12}=\frac32=1.5`}
+            note={<span>Refractive index of glass.</span>}
+          />
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <h3 id="h-9-5-part-3">Part 3 — Image Formation by Lenses</h3>
+      <h4 id="h-9-5-ray-rules">9. Fundamental Ray Rules for Lenses</h4>
+      <p>Ray diagrams are constructed using the fundamental rules of refraction through lenses.</p>
+      <p className="t-micro">9.1 Convex Lens — Three Principal Rays</p>
+      <div className="my-6 grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-start">
+        <div className="min-w-0 rounded-2xl border border-border/60 bg-card p-2 shadow-sm">
+          <PhysicsFigure spec={convexLensThreePrincipalRays} showCaption={false} labelScale={0.95} />
+          <LensRayLegend
+            items={[
+              { label: "1 — Parallel to axis", color: NEGATIVE },
+              { label: "2 — Through optical centre", color: "var(--subject-physics)" },
+              { label: "3 — Through focus", color: POSITIVE },
+            ]}
+          />
+        </div>
+        <div className="space-y-3">
+          <section className="rounded-2xl border border-border/60 bg-card p-4 shadow-sm">
+            <div className="flex items-center gap-3">
+              <span
+                aria-hidden
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-extrabold text-white"
+                style={{ backgroundColor: NEGATIVE }}
+              >
+                1
+              </span>
+              <p className="text-sm font-extrabold tracking-tight text-foreground">Parallel to Principal Axis</p>
+            </div>
+            <p className="mt-2 text-sm leading-relaxed text-foreground/80">
+              An incident ray travelling parallel to the principal axis refracts through the principal focus{" "}
+              <Formula>{String.raw`F'`}</Formula> on the opposite side.
+            </p>
+          </section>
+          <section className="rounded-2xl border border-border/60 bg-card p-4 shadow-sm">
+            <div className="flex items-center gap-3">
+              <span
+                aria-hidden
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-extrabold text-white"
+                style={{ backgroundColor: "var(--subject-physics)" }}
+              >
+                2
+              </span>
+              <p className="text-sm font-extrabold tracking-tight text-foreground">Through Optical Centre</p>
+            </div>
+            <p className="mt-2 text-sm leading-relaxed text-foreground/80">
+              An incident ray passing through the optical centre <Formula>{String.raw`O`}</Formula> continues undeviated
+              along a straight path.
+            </p>
+          </section>
+          <section className="rounded-2xl border border-border/60 bg-card p-4 shadow-sm">
+            <div className="flex items-center gap-3">
+              <span
+                aria-hidden
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-extrabold text-white"
+                style={{ backgroundColor: POSITIVE }}
+              >
+                3
+              </span>
+              <p className="text-sm font-extrabold tracking-tight text-foreground">Through Principal Focus</p>
+            </div>
+            <p className="mt-2 text-sm leading-relaxed text-foreground/80">
+              An incident ray passing through the principal focus <Formula>{String.raw`F`}</Formula> on the object side
+              emerges parallel to the principal axis.
+            </p>
+          </section>
+        </div>
+      </div>
+
+      <p className="t-micro">9.2 Concave Lens — Principal Rays</p>
+      <PhysicsFigure spec={concaveLensPrincipalRays} />
+      <LensRayLegend
+        items={[
+          { label: "1 — Incident parallel ray", color: NEGATIVE },
+          { label: "Actual refracted ray", color: NEGATIVE },
+          { label: "Backward extension", color: NEGATIVE, dashed: true },
+          { label: "2 — Through optical centre", color: "var(--subject-physics)" },
+        ]}
+      />
+      <ComparisonPair
+        first={{
+          title: "Ray 1 — Parallel to Principal Axis",
+          children: (
+            <ul className="my-0 list-none space-y-2 pl-0">
+              <li>Incident ray travels parallel to the principal axis.</li>
+              <li>After refraction, it diverges away from the principal axis.</li>
+              <li>
+                Its backward dashed extension passes through the principal focus <Formula>{String.raw`F`}</Formula> on
+                the same side.
+              </li>
+            </ul>
+          ),
+        }}
+        second={{
+          title: "Ray 2 — Through Optical Centre",
+          children: (
+            <ul className="my-0 list-none space-y-2 pl-0">
+              <li>
+                Incident ray passes through optical centre <Formula>{String.raw`O`}</Formula>.
+              </li>
+              <li>Continues undeviated along a straight path.</li>
+            </ul>
+          ),
+        }}
+      />
+
+      <h4 id="h-9-5-image-formation">10. Image Formation — Convex Lens</h4>
+      <p className="t-micro">Practice Question</p>
+      <p>
+        <strong>
+          Draw the ray diagram for image formation when an object is placed at the centre of curvature of a
+          double-convex lens.
+        </strong>
+      </p>
+      <div className="my-6 grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-start">
+        <div className="min-w-0 rounded-2xl border border-border/60 bg-card p-2 shadow-sm">
+          <PhysicsFigure spec={convexLensObjectAtCentre} showCaption={false} labelScale={0.95} />
+        </div>
+        <div>
+          <p className="t-micro">Diagram requirements</p>
+          <ul className="my-3 list-none space-y-2 pl-0 text-sm leading-relaxed text-foreground/80">
+            <li>Biconvex lens at the centre.</li>
+            <li>Horizontal principal axis.</li>
+            <li>
+              Left side → <Formula>{String.raw`C,F`}</Formula>.
+            </li>
+            <li>
+              Right side → <Formula>{String.raw`F',C'`}</Formula>.
+            </li>
+            <li>
+              Object arrow placed upright at <Formula>{String.raw`C`}</Formula> on the left.
+            </li>
+            <li>
+              Ray 1 → From the top of the object, parallel to the principal axis; after refraction, passes through{" "}
+              <Formula>{String.raw`F'`}</Formula>.
+            </li>
+            <li>
+              Ray 2 → From the top of the object through optical centre <Formula>{String.raw`O`}</Formula>; continues
+              undeviated.
+            </li>
+            <li>
+              Image → Formed at <Formula>{String.raw`C'`}</Formula>, below the principal axis.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p className="t-micro">Image characteristics</p>
+      <TableCard
+        headers={["Property", "Result"]}
+        rows={[
+          { cells: ["Position", <Formula key="pos">{String.raw`C'`}</Formula>] },
+          { cells: ["Nature", "Real"] },
+          { cells: ["Orientation", "Inverted"] },
+          { cells: ["Size", "Same as object"] },
+        ]}
+      />
+
+      <h3 id="h-9-5-part-4">Part 4 — Lens Magnification &amp; Power</h3>
+      <h4 id="h-9-5-magnification">11. Linear Magnification of a Lens (<Formula>{String.raw`m`}</Formula>)</h4>
+      <p className="t-micro">11.1 Definition</p>
+      <p>Linear magnification is the ratio of the size of the image to the size of the object.</p>
+      <p className="t-micro">11.2 Magnification Formula</p>
+      <ProminentFormula label="Linear magnification" latex={String.raw`m=\frac{h_i}{h_o}=\frac vu`} />
+      <TableCard
+        headers={["Symbol", "Meaning"]}
+        rows={[
+          { cells: [<Formula key="m">{String.raw`m`}</Formula>, "Linear magnification"] },
+          { cells: [<Formula key="hi">{String.raw`h_i`}</Formula>, "Height of image"] },
+          { cells: [<Formula key="ho">{String.raw`h_o`}</Formula>, "Height of object"] },
+          { cells: [<Formula key="v">{String.raw`v`}</Formula>, "Image distance"] },
+          { cells: [<Formula key="u">{String.raw`u`}</Formula>, "Object distance"] },
+        ]}
+      />
+      <p className="t-micro">Lens vs. Mirror</p>
+      <ComparisonPair
+        first={{
+          title: "Lens",
+          children: <FormulaBlock latex={String.raw`m=\frac{h_i}{h_o}=\frac vu`} />,
+        }}
+        second={{
+          title: "Mirror",
+          children: (
+            <FormulaBlock
+              latex={String.raw`m=\frac{h_i}{h_o}=-\frac vu`}
+              label={<Highlight color="pink">the minus sign is the difference</Highlight>}
+            />
+          ),
+        }}
+      />
+      <p>Unit → Dimensionless.</p>
+
+      <p className="t-micro">11.3 Interpretation of Magnification</p>
+      <p>Magnification is interpreted using two aspects:</p>
+      <div className="my-6 grid gap-3 sm:grid-cols-2">
+        <SignCard title="A. Sign of magnification" sign="+ ve" tone="positive">
+          Virtual, Erect
+        </SignCard>
+        <SignCard title="A. Sign of magnification" sign="− ve" tone="negative">
+          Real, Inverted
+        </SignCard>
+      </div>
+      <TableCard
+        title="B. Magnitude of magnification — image size"
+        headers={["Condition", "Image size"]}
+        rows={[
+          {
+            cells: [
+              <Formula key="gt">{String.raw`|m|>1`}</Formula>,
+              <span key="gt-r">
+                <Formula>{String.raw`h_i>h_o`}</Formula> → Magnified
+              </span>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="eq">{String.raw`|m|=1`}</Formula>,
+              <span key="eq-r">
+                <Formula>{String.raw`h_i=h_o`}</Formula> → Same size
+              </span>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="lt">{String.raw`|m|<1`}</Formula>,
+              <span key="lt-r">
+                <Formula>{String.raw`h_i<h_o`}</Formula> → Diminished
+              </span>,
+            ],
+          },
+        ]}
+      />
+
+      <p className="t-micro">11.4 Example — Interpreting Magnification</p>
+      <Expandable title="Example — Interpreting m = −0.5" variant="example">
+        <div className="my-0 rounded-2xl border border-border/60 bg-card p-4 shadow-sm">
+          <p className="t-micro">Given</p>
+          <div className="mt-2 [&>div]:my-0">
+            <FormulaBlock latex={String.raw`m=-0.5`} />
+          </div>
+          <Stepper
+            steps={[
+              {
+                label: "Step 1 — Sign",
+                description: (
+                  <div className="space-y-2 [&>div]:my-0">
+                    <FormulaBlock latex={String.raw`m<0`} />
+                    <p>→ Real and inverted.</p>
+                  </div>
+                ),
+              },
+              {
+                label: "Step 2 — Magnitude",
+                description: (
+                  <div className="space-y-2 [&>div]:my-0">
+                    <FormulaBlock latex={String.raw`|m|=0.5<1`} />
+                    <p>→ Image is diminished.</p>
+                  </div>
+                ),
+              },
+            ]}
+          />
+          <p className="t-micro">Final interpretation</p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {["Nature → Real", "Orientation → Inverted", "Size → Diminished"].map((item) => (
+              <span
+                key={item}
+                className="rounded-xl border border-border/60 bg-muted/30 px-3 py-2 text-sm font-bold text-foreground/85"
+              >
+                <Highlight>{item}</Highlight>
+              </span>
+            ))}
+          </div>
+        </div>
+      </Expandable>
+
+      <h4 id="h-9-5-power">12. Power of a Lens (<Formula>{String.raw`P`}</Formula>)</h4>
+      <p className="t-micro">12.1 Definition</p>
+      <p>The power of a lens is the reciprocal of its focal length expressed in metres.</p>
+      <ProminentFormula
+        label="Power of a lens"
+        tag="Dioptre (D)"
+        latex={String.raw`P=\frac1f`}
+        note={
+          <span>
+            Where <Formula>{String.raw`f`}</Formula> must be expressed in metres. Unit →{" "}
+            <Highlight>Dioptre (D)</Highlight>.
+          </span>
+        }
+      />
+      <Callout type="important" title="Before calculating">
+        <p>
+          Convert focal length into metres first: <Highlight><Formula>{String.raw`f`}</Formula> in metres</Highlight>.
+        </p>
+      </Callout>
+      <p className="t-micro">12.2 Sign Convention — Power &amp; Focal Length</p>
+      <ComparisonPair
+        first={{
+          title: "Convex lens",
+          children: (
+            <>
+              <div className="mx-auto w-full max-w-[16rem] [&>figure]:my-0">
+                <PhysicsFigure spec={convexPowerRay} showCaption={false} />
+              </div>
+              <p className="mt-3">Converges parallel rays</p>
+              <div className="mt-2 grid gap-2 text-sm font-extrabold">
+                <span style={{ color: POSITIVE }}>Focal length → +</span>
+                <span style={{ color: POSITIVE }}>Power → +</span>
+              </div>
+            </>
+          ),
+        }}
+        second={{
+          title: "Concave lens",
+          children: (
+            <>
+              <div className="mx-auto w-full max-w-[16rem] [&>figure]:my-0">
+                <PhysicsFigure spec={concavePowerRay} showCaption={false} />
+              </div>
+              <p className="mt-3">Diverges parallel rays</p>
+              <div className="mt-2 grid gap-2 text-sm font-extrabold">
+                <span style={{ color: NEGATIVE }}>Focal length → −</span>
+                <span style={{ color: NEGATIVE }}>Power → −</span>
+              </div>
+            </>
+          ),
+        }}
+      />
+      <p className="t-micro">12.3 Numerical Problem — Power of a Convex Lens</p>
+      <Expandable title="Numerical Problem — Power of a Convex Lens" variant="example">
+        <div className="my-0 rounded-2xl border border-border/60 bg-card p-4 shadow-sm">
+          <p className="t-micro">Question</p>
+          <p>
+            If <Formula>{String.raw`f=20\ \text{cm}`}</Formula> for a convex lens, calculate its power.
+          </p>
+          <p className="t-micro mt-4">Given</p>
+          <div className="mt-2 [&>div]:my-0">
+            <FormulaBlock latex={String.raw`f=+20\ \text{cm}`} />
+          </div>
+          <Stepper
+            steps={[
+              {
+                label: "Step 1 — Convert into metres",
+                description: (
+                  <div className="space-y-2 [&>div]:my-0">
+                    <FormulaBlock latex={String.raw`f=\frac{+20}{100}`} />
+                    <FormulaBlock latex={String.raw`f=+0.2\ \text{m}`} />
+                  </div>
+                ),
+              },
+              {
+                label: "Step 2 — Apply power formula",
+                description: (
+                  <div className="space-y-2 [&>div]:my-0">
+                    <FormulaBlock latex={String.raw`P=\frac1f`} />
+                    <FormulaBlock latex={String.raw`P=\frac1{0.2}`} />
+                  </div>
+                ),
+              },
+            ]}
+          />
+          <ProminentFormula
+            label="Final answer"
+            latex={String.raw`P=+5\ \text{D}`}
+            note={<span>The positive sign is retained.</span>}
+          />
+        </div>
+      </Expandable>
+
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4 [&>div]:my-0"
+        label="Quick Revision — Spherical Surfaces & Lenses"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h3
+              id="h-9-5-revision"
+              className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!"
+            >
+              13. Quick Revision — Spherical Surfaces &amp; Lenses
+            </h3>
+          </div>
+        }
+      >
+        <PrismRevisionGrid
+          sections={[
             {
-              label: "First interface ABC",
-              equation: String.raw`\frac{n_1}{OB} + \frac{n_2}{BI_1} = \frac{n_2 - n_1}{BC_1}`,
-              tag: "Eq. 9.17",
+              title: "A. Refraction at Spherical Surfaces",
+              rows: [
+                <FormulaBlock
+                  key="surface"
+                  latex={String.raw`\frac{n_2}{v}-\frac{n_1}{u}=\frac{n_2-n_1}{R}`}
+                  important
+                />,
+              ],
             },
             {
-              label: "Second interface ADC",
-              equation: String.raw`-\frac{n_2}{DI_1} + \frac{n_1}{DI} = \frac{n_1 - n_2}{DC_2}`,
-              tag: "Eq. 9.18",
-              note: "On the right of ADC the index is n₁ and on its left n₂; DI₁ is negative, being measured against the incident light.",
+              title: "B. Lens Maker's Formula",
+              rows: [
+                <FormulaBlock
+                  key="maker"
+                  latex={String.raw`\frac1f=(n_{21}-1)\left[\frac1{R_1}-\frac1{R_2}\right]`}
+                  important
+                />,
+                <FormulaBlock key="n21" latex={String.raw`n_{21}=\frac{n_2}{n_1}`} />,
+              ],
             },
             {
-              label: "Thin lens: BI₁ = DI₁, so add the two",
-              equation: String.raw`\frac{n_1}{OB} + \frac{n_1}{DI} = (n_2 - n_1)\left(\frac{1}{BC_1} - \frac{1}{DC_2}\right)`,
-              tag: "Eq. 9.19",
+              title: "C. Thin Lens Formula",
+              rows: [<FormulaBlock key="thin" latex={String.raw`\frac1f=\frac1v-\frac1u`} important />],
             },
             {
-              label: "Object at infinity: OB → ∞, DI = f",
-              equation: String.raw`\frac{n_1}{f} = (n_2 - n_1)\left(\frac{1}{BC_1} - \frac{1}{DC_2}\right)`,
-              tag: "Eq. 9.20",
-            },
-            {
-              label: "Apply the sign convention to both surfaces",
-              equation: String.raw`\frac{1}{f} = (n_{21} - 1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right)`,
-              tag: "Eq. 9.21",
-              final: true,
+              title: "D. Magnification & Power",
+              rows: [
+                <FormulaBlock key="m" latex={String.raw`m=\frac{h_i}{h_o}=\frac vu`} important />,
+                <FormulaBlock key="p" latex={String.raw`P=\frac1f`} important />,
+              ],
             },
           ]}
         />
-      </Expandable>
-      <FormulaBlock
-        important
-        label="The lens maker's formula"
-        tag="Eq. 9.21"
-        latex={String.raw`\frac{1}{f} = (n_{21} - 1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right)`}
-      />
-      <p>
-        It is what lets a lens of a wanted focal length be designed, from surfaces of suitable radii of curvature.
-      </p>
-      <p>
-        The formula is true for a concave lens also. In that case <Formula>{String.raw`R_1`}</Formula> is negative and{" "}
-        <Formula>{String.raw`R_2`}</Formula> positive, and therefore <Formula>{String.raw`f`}</Formula> is negative.
-      </p>
-      <Callout type="note" title="Focus of a lens">
-        <ul className="my-3 list-none space-y-2 pl-0">
-          <li>
-            <strong>Focus.</strong> The point where the image of an object placed at infinity is formed is the focus{" "}
-            <Formula>{String.raw`F`}</Formula>.
-          </li>
-          <li>
-            <strong>Focal length.</strong> The distance <Formula>{String.raw`f`}</Formula> is the focal length.
-          </li>
-          <li>
-            <strong>Two foci.</strong> A lens has <Formula>{String.raw`F`}</Formula> and{" "}
-            <Formula>{String.raw`F'`}</Formula>, one on either side.
-          </li>
-        </ul>
-      </Callout>
+      </CollapsibleRevision>
 
-      <h3 id="h-9-5-formula">The thin lens formula</h3>
-      <EquationLadder
-        steps={[
-          {
-            label: "From Eqs. 9.19 and 9.20",
-            equation: String.raw`\frac{1}{OB} + \frac{1}{DI} = \frac{1}{f}`,
-            tag: "Eq. 9.22",
-            note: "In the thin lens approximation B and D are both close to the optical centre.",
-          },
-          {
-            label: "Sign convention: BO = −u, DI = +v",
-            equation: String.raw`\frac{1}{v} - \frac{1}{u} = \frac{1}{f}`,
-            tag: "Eq. 9.23",
-            final: true,
-          },
-        ]}
-      />
-      <p>
-        Derived for a real image from a convex lens, but valid for convex and concave lenses alike, and for real and
-        virtual images.
-      </p>
-      <p>
-        The two foci of a double convex or concave lens are equidistant from the optical centre. The focus on the side of
-        the source is the <strong>first focal point</strong>; the other is the <strong>second focal point</strong>.
-      </p>
-
-      <h3 id="h-9-5-rays">The three construction rays</h3>
-      <p>
-        In principle any two rays from a point on the object can be traced by the laws of refraction, and their meeting
-        point is the image. In practice two of these three are used (Fig. 9.17).
-      </p>
-      <ul className="my-6 list-none space-y-2 pl-0">
-        <li>
-          <strong>Parallel to the axis.</strong> After refraction it passes through the second principal focus{" "}
-          <Formula>{String.raw`F'`}</Formula> of a convex lens, or appears to diverge from the first principal focus{" "}
-          <Formula>{String.raw`F`}</Formula> of a concave one.
-        </li>
-        <li>
-          <strong>Through the optical centre.</strong> It emerges without any deviation.
-        </li>
-        <li>
-          <strong>Through the first focus.</strong> A ray through the first principal focus of a convex lens emerges
-          parallel to the axis; a ray incident on a concave lens as if it were meeting the axis at the second focus
-          emerges parallel to the axis.
-        </li>
-      </ul>
-      <PhysicsFigure spec={convexLensRays} />
-      <PhysicsFigure spec={concaveLensRays} />
-      <p>
-        Each point on an object gives out an infinite number of rays — and all of them pass through the same image point
-        after refraction at the lens.
-      </p>
-
-      <h3 id="h-9-5-magnification">Magnification by a lens</h3>
-      <p>Defined as for a mirror: the ratio of the size of the image to that of the object.</p>
-      <FormulaBlock
-        important
-        label="Linear magnification, lens"
-        tag="Eq. 9.24"
-        latex={String.raw`m = \frac{h'}{h} = \frac{v}{u}`}
-      />
-      <p>
-        With the sign convention, an erect and virtual image gives <Formula>{String.raw`m`}</Formula> positive, while an
-        inverted and real image gives it negative.
-      </p>
-      <Expandable title="Example 9.6 — the vanishing lens" variant="example">
-        <ProblemSolution.Problem>
-          <p>
-            A magician makes a glass lens of <Formula>{String.raw`n = 1.47`}</Formula> disappear in a trough of liquid.
-          </p>
-          <p className="mt-3">What is the refractive index of the liquid? Could the liquid be water?</p>
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <Stepper
-            steps={[
-              {
-                label: "The condition for disappearing",
-                description: (
-                  <p>
-                    The liquid must bend light exactly as the glass does, so its refractive index must be{" "}
-                    <Formula>{String.raw`1.47`}</Formula>: that is, <Formula>{String.raw`n_1 = n_2`}</Formula>.
-                  </p>
-                ),
-              },
-              {
-                label: "What that does to the lens",
-                description: (
-                  <p>
-                    The lens maker&apos;s formula gives <Formula>{String.raw`\frac{1}{f} = 0`}</Formula>, so{" "}
-                    <Formula>{String.raw`f \to \infty`}</Formula>. The lens acts like a plane sheet of glass.
-                  </p>
-                ),
-              },
-              {
-                label: "Could it be water?",
-                description: (
-                  <p>
-                    No — water is not 1.47. Glycerine could be.
-                  </p>
-                ),
-              },
-            ]}
-          />
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <h3 id="h-9-5-power">Power of a lens</h3>
-      <p>
-        Power measures the convergence or divergence a lens introduces in the light falling on it. A lens of shorter
-        focal length bends the incident light more.
-      </p>
-      <Callout type="note" title="Power — definition">
-        <p>
-          The power <Formula>{String.raw`P`}</Formula> of a lens is the tangent of the angle by which it converges or
-          diverges a beam parallel to the principal axis, falling at unit distance from the optical centre.
-        </p>
-      </Callout>
-      <p>
-        With the beam at height <Formula>{String.raw`h`}</Formula>, <Formula>{String.raw`\tan\delta = h/f`}</Formula>.
-        For <Formula>{String.raw`h = 1`}</Formula> and small <Formula>{String.raw`\delta`}</Formula>,{" "}
-        <Formula>{String.raw`\delta = 1/f`}</Formula>.
-      </p>
-      <FormulaBlock important label="Power of a lens" tag="Eq. 9.25" latex={String.raw`P = \frac{1}{f}`} />
-      <p>
-        The SI unit is the <strong>dioptre</strong>, <Formula>{String.raw`1\ \text{D} = 1\ \text{m}^{-1}`}</Formula>: a
-        lens of focal length 1 metre has a power of one dioptre.
-      </p>
-      <ul className="my-6 list-none space-y-2 pl-0">
-        <li>
-          <strong>Positive</strong> for a converging lens.
-        </li>
-        <li>
-          <strong>Negative</strong> for a diverging lens.
-        </li>
-      </ul>
-      <TableCard
-        title="Reading a prescription"
-        headers={["Prescribed power", "Lens", "Focal length"]}
-        rows={[
-          { cells: ["+2.5 D", "convex", "+40 cm"] },
-          { cells: ["−4.0 D", "concave", "−25 cm"] },
-        ]}
-      />
-      <Expandable title="Example 9.7 — power, index and focal length in water" variant="example">
-        <ProblemSolution.Problem>
-          <p>
-            (i) If <Formula>{String.raw`f = 0.5\ \text{m}`}</Formula> for a glass lens, what is its power?
-          </p>
-          <p>
-            (ii) The radii of curvature of the faces of a double convex lens are 10 cm and 15 cm, and its focal length is
-            12 cm. What is the refractive index of the glass?
-          </p>
-          <p>
-            (iii) A convex lens has a 20 cm focal length in air. What is its focal length in water? (Index of
-            air–water = 1.33, of air–glass = 1.5.)
-          </p>
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <p className="t-micro">Part (i)</p>
-          <FormulaBlock latex={String.raw`P = \frac{1}{0.5} = +2\ \text{D}`} />
-          <p className="t-micro mt-6">Part (ii)</p>
-          <Stepper
-            steps={[
-              {
-                label: "Lens maker's formula, with the signs in",
-                description: (
-                  <p>
-                    <Formula>{String.raw`f = +12\ \text{cm}`}</Formula>,{" "}
-                    <Formula>{String.raw`R_1 = +10\ \text{cm}`}</Formula>,{" "}
-                    <Formula>{String.raw`R_2 = -15\ \text{cm}`}</Formula>, air taken as unity.
-                  </p>
-                ),
-              },
-              {
-                label: "Substitute",
-                description: (
-                  <p>
-                    <Formula>{String.raw`\frac{1}{12} = (n - 1)\left(\frac{1}{10} - \frac{1}{-15}\right) = (n - 1)\frac{1}{6}`}</Formula>
-                  </p>
-                ),
-              },
-              {
-                label: "Solve",
-                description: (
-                  <p>
-                    <Formula>{String.raw`n = 1.5`}</Formula>
-                  </p>
-                ),
-              },
-            ]}
-          />
-          <p className="t-micro mt-6">Part (iii)</p>
-          <Stepper
-            steps={[
-              {
-                label: "In air",
-                description: (
-                  <p>
-                    <Formula>{String.raw`\frac{1}{20} = (1.5 - 1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right)`}</Formula>
-                  </p>
-                ),
-              },
-              {
-                label: "The same lens in water",
-                description: (
-                  <p>
-                    <Formula>{String.raw`\frac{1}{f} = \left(\frac{1.5 - 1.33}{1.33}\right)\left(\frac{1}{R_1} - \frac{1}{R_2}\right)`}</Formula>
-                  </p>
-                ),
-              },
-              {
-                label: "Combine the two",
-                description: (
-                  <p>
-                    <Formula>{String.raw`f = +78.2\ \text{cm}`}</Formula>
-                  </p>
-                ),
-              },
-            ]}
-          />
-          <FormulaBlock important latex={String.raw`P = +2\ \text{D},\quad n = 1.5,\quad f_{\text{water}} = +78.2\ \text{cm}`} />
-        </ProblemSolution.Solution>
-      </Expandable>
-
-      <h3 id="h-9-5-combination">Two thin lenses in contact</h3>
-      <p>
-        Take lenses <Formula>{String.raw`A`}</Formula> and <Formula>{String.raw`B`}</Formula> of focal lengths{" "}
-        <Formula>{String.raw`f_1`}</Formula> and <Formula>{String.raw`f_2`}</Formula> in contact, with the object beyond
-        the focus of the first.
-      </p>
-      <p>
-        The first lens forms an image at <Formula>{String.raw`I_1`}</Formula>. Being real, that image serves as a virtual
-        object for the second lens, which forms the final image at <Formula>{String.raw`I`}</Formula>.
-      </p>
-      <Callout type="important" title="What the intermediate image is">
-        <p>
-          The image formed by the first lens is presumed only to fix the position of the final image. The rays actually
-          leave the first lens and are modified at the angle at which they strike the second.
-        </p>
-      </Callout>
-      <p>
-        Both lenses are thin, so their optical centres are taken to coincide; call that point{" "}
-        <Formula>{String.raw`P`}</Formula>.
-      </p>
-      <EquationLadder
-        steps={[
-          {
-            label: "Image formed by the first lens",
-            equation: String.raw`\frac{1}{v_1} - \frac{1}{u} = \frac{1}{f_1}`,
-            tag: "Eq. 9.27",
-          },
-          {
-            label: "Image formed by the second lens",
-            equation: String.raw`\frac{1}{v} - \frac{1}{v_1} = \frac{1}{f_2}`,
-            tag: "Eq. 9.28",
-          },
-          {
-            label: "Add the two",
-            equation: String.raw`\frac{1}{v} - \frac{1}{u} = \frac{1}{f_1} + \frac{1}{f_2}`,
-            tag: "Eq. 9.29",
-          },
-          {
-            label: "Read the pair as one lens of focal length f",
-            equation: String.raw`\frac{1}{f} = \frac{1}{f_1} + \frac{1}{f_2}`,
-            tag: "Eq. 9.30",
-          },
-          {
-            label: "Any number of thin lenses in contact",
-            equation: String.raw`\frac{1}{f} = \frac{1}{f_1} + \frac{1}{f_2} + \frac{1}{f_3} + \cdots`,
-            tag: "Eq. 9.31",
-          },
-          {
-            label: "The same statement in powers",
-            equation: String.raw`P = P_1 + P_2 + P_3 + \cdots`,
-            tag: "Eq. 9.32",
-            note: "An algebraic sum: the terms may be positive (convex) or negative (concave).",
-          },
-          {
-            label: "And the magnification is a product",
-            equation: String.raw`m = m_1 m_2 m_3 \cdots`,
-            tag: "Eq. 9.33",
-            final: true,
-          },
-        ]}
-      />
-      <p>
-        A combination helps obtain diverging or converging lenses of the magnification wanted, and it enhances the
-        sharpness of the image.
-      </p>
-      <p>Such combinations are used in designing lenses for cameras, microscopes, telescopes and other optical instruments.</p>
-      <Expandable title="Example 9.8 — three lenses in a row" variant="example">
-        <ProblemSolution.Problem>
-          <p>
-            Find the position of the image formed by the lens combination of Fig. 9.20: a lens of{" "}
-            <Formula>{String.raw`f_1 = +10\ \text{cm}`}</Formula> with the object 30 cm in front of it, a second lens of{" "}
-            <Formula>{String.raw`f_2 = -10\ \text{cm}`}</Formula> 5 cm behind the first, and a third of{" "}
-            <Formula>{String.raw`f_3 = +30\ \text{cm}`}</Formula> behind that.
-          </p>
-        </ProblemSolution.Problem>
-        <ProblemSolution.Solution>
-          <Stepper
-            steps={[
-              {
-                label: "Image formed by the first lens",
-                description: (
-                  <p>
-                    <Formula>{String.raw`\frac{1}{v_1} - \frac{1}{-30} = \frac{1}{10}`}</Formula>, so{" "}
-                    <Formula>{String.raw`v_1 = 15\ \text{cm}`}</Formula>.
-                  </p>
-                ),
-              },
-              {
-                label: "That image becomes the object for the second lens",
-                description: (
-                  <p>
-                    It lies <Formula>{String.raw`15 - 5 = 10\ \text{cm}`}</Formula> to the right of the second lens. Real,
-                    but a <em>virtual object</em> for the second lens: the rays only appear to come from it.
-                  </p>
-                ),
-              },
-              {
-                label: "Image formed by the second lens",
-                description: (
-                  <p>
-                    <Formula>{String.raw`\frac{1}{v_2} - \frac{1}{10} = \frac{1}{-10}`}</Formula>, so{" "}
-                    <Formula>{String.raw`v_2 = \infty`}</Formula> — a virtual image at infinity to the left.
-                  </p>
-                ),
-              },
-              {
-                label: "The third lens takes an object at infinity",
-                description: (
-                  <p>
-                    <Formula>{String.raw`\frac{1}{v_3} - \frac{1}{\infty} = \frac{1}{30}`}</Formula>, so{" "}
-                    <Formula>{String.raw`v_3 = 30\ \text{cm}`}</Formula>.
-                  </p>
-                ),
-              },
-            ]}
-          />
-          <FormulaBlock important latex={String.raw`v_3 = +30\ \text{cm}`} />
-          <p className="mt-3 text-sm text-foreground/75">
-            The final image forms 30 cm to the right of the third lens.
-          </p>
-        </ProblemSolution.Solution>
-      </Expandable>
 
       <h2 id="h-9-6">9.6 Refraction Through a Prism</h2>
 

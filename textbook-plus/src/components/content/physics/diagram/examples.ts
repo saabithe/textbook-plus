@@ -39,6 +39,7 @@ import {
   type FigureSpec,
 } from "./scene.ts";
 import { RAY_OPTICS_FIGURES } from "../../../../content/physics/ray-optics-and-optical-instruments/figures.ts";
+import { SPHERICAL_LENS_FIGURES } from "../../../../content/physics/ray-optics-and-optical-instruments/sphericalLensFigures.ts";
 
 /* ────────────────────────────────────────────────────────────────────────
  * 1. Refraction at a plane surface: air → glass, 45° incidence
@@ -221,4 +222,5 @@ export const FIGURES: readonly FigureSpec[] = [
   slabLateralShift,
   prismMinimumDeviation,
   ...RAY_OPTICS_FIGURES,
+  ...SPHERICAL_LENS_FIGURES,
 ];
