@@ -43,6 +43,7 @@ import {
   INK,
   RAY,
   REFLECTED,
+  SPECTRUM,
   THIN,
   VIRTUAL,
   angleMark,
@@ -59,6 +60,7 @@ import {
   tick,
   type Element,
   type FigureSpec,
+  type LawCheck,
 } from "../../../components/content/physics/diagram/scene.ts";
 
 /* ── mirror helpers ──────────────────────────────────────────────────── */
@@ -2846,6 +2848,376 @@ export const tirEndoscope: FigureSpec = {
   checks: [],
 };
 
+/* ────────────────────────────────────────────────────────────────────────
+ * 0l. Prism & dispersion — from the supplied note.
+ *
+ * The prism is equilateral and every ray is traced with Snell's law. The
+ * dispersion fan uses a monotonic illustrative index spread only to place the
+ * seven emergent rays; no index values are printed in the chapter.
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const PX_BASE_Y = 16;
+const PX_HALF_BASE = 36;
+const PX_A = vec(50, PX_BASE_Y + PX_HALF_BASE * Math.sqrt(3));
+const PX_B = vec(50 - PX_HALF_BASE, PX_BASE_Y);
+const PX_C = vec(50 + PX_HALF_BASE, PX_BASE_Y);
+const PX_N = 1.5;
+const PX_BODY: RefractingBody = { polygon: [PX_A, PX_B, PX_C], n: PX_N, id: "prism-note" };
+const PX_CENTRE = mul(add(add(PX_A, PX_B), PX_C), 1 / 3);
+
+function pxFaceNormalDeg(at: Vec, faceDirDeg: number): number {
+  const a = faceDirDeg + 90;
+  const b = faceDirDeg - 90;
+  return dot(dir(a), sub(at, PX_CENTRE)) > 0 ? a : b;
+}
+
+function pxMeet(p: Vec, aDeg: number, q: Vec, bDeg: number): Vec | null {
+  const u = dir(aDeg);
+  const w = dir(bDeg);
+  const det = u.x * w.y - u.y * w.x;
+  if (Math.abs(det) < 1e-9) return null;
+  const t = ((q.x - p.x) * w.y - (q.y - p.y) * w.x) / det;
+  return add(p, mul(u, t));
+}
+
+const PX_START = vec(4, 42);
+const PX_INCIDENT_DEG = 10;
+const PX_PATH = traceRay({
+  from: PX_START,
+  angleDeg: PX_INCIDENT_DEG,
+  bodies: [PX_BODY],
+  tail: 46,
+});
+const PX_P = PX_PATH.points[1];
+const PX_R = PX_PATH.points[2];
+const PX_S = PX_PATH.points[3];
+const PX_EV_P = PX_PATH.events[0];
+const PX_EV_R = PX_PATH.events[1];
+const PX_I = PX_EV_P.angleOfIncidence;
+const PX_R1 = PX_EV_P.angleAfter;
+const PX_R2 = PX_EV_R.angleOfIncidence;
+const PX_E = PX_EV_R.angleAfter;
+const PX_APEX = angleBetween(sub(PX_B, PX_A), sub(PX_C, PX_A));
+const PX_DEV = PX_I + PX_E - PX_APEX;
+const PX_NP = pxFaceNormalDeg(PX_P, angleOf(PX_A, PX_B));
+const PX_NR = pxFaceNormalDeg(PX_R, angleOf(PX_A, PX_C));
+const PX_NPT = pxMeet(PX_P, PX_NP, PX_R, PX_NR + 180) ?? mul(add(PX_B, PX_C), 0.5);
+const PX_M = intersectLines(PX_P, dir(PX_EV_P.inDeg), PX_R, dir(PX_EV_R.outDeg)) ?? PX_NPT;
+const PX_ARC_I = arcPair(PX_NP, PX_EV_P.inDeg + 180);
+const PX_ARC_R1 = arcPair(PX_NP + 180, PX_EV_P.outDeg);
+const PX_ARC_R2 = arcPair(PX_EV_R.inDeg + 180, PX_NR + 180);
+const PX_ARC_E = arcPair(PX_EV_R.outDeg, PX_NR);
+const PX_ARC_D = arcPair(PX_EV_P.inDeg, PX_EV_R.outDeg);
+const PX_ARC_X = arcPair(PX_EV_P.outDeg, PX_EV_P.inDeg);
+const PX_ARC_Y = arcPair(PX_EV_R.outDeg + 180, PX_EV_R.inDeg + 180);
+const pxMid = (a: [number, number]) => (a[0] + a[1]) / 2;
+
+const PX_SNELL_CHECKS: LawCheck[] = [
+  {
+    kind: "value",
+    label: "first face: sin i = n sin r₁",
+    actual: Math.sin(PX_I * RS_DEG),
+    expected: PX_N * Math.sin(PX_R1 * RS_DEG),
+    tol: 1e-9,
+  },
+  {
+    kind: "value",
+    label: "second face: n sin r₂ = sin e",
+    actual: PX_N * Math.sin(PX_R2 * RS_DEG),
+    expected: Math.sin(PX_E * RS_DEG),
+    tol: 1e-9,
+  },
+  {
+    kind: "value",
+    label: "r₁ + r₂ = A",
+    actual: PX_R1 + PX_R2,
+    expected: PX_APEX,
+    tol: 1e-9,
+  },
+  {
+    kind: "value",
+    label: "deviation between incident and emergent directions is d = i + e − A",
+    actual: angleBetween(dir(PX_EV_P.inDeg), dir(PX_EV_R.outDeg)),
+    expected: PX_DEV,
+    tol: 1e-6,
+  },
+];
+
+/** Compact chapter header: a prism and one incoming ray, no labels. */
+const PH_A = vec(42, 12 + 18 * Math.sqrt(3));
+const PH_B = vec(24, 12);
+const PH_C = vec(60, 12);
+const PH_BODY: RefractingBody = { polygon: [PH_A, PH_B, PH_C], n: PX_N, id: "prism-header" };
+const PH_PATH = traceRay({ from: vec(4, 27), angleDeg: PX_INCIDENT_DEG, bodies: [PH_BODY], tail: 22 });
+
+export const prismHeader: FigureSpec = {
+  id: "prism-header-ray",
+  title: "Prism header — an incoming ray",
+  alt: "A triangular glass prism with a ray entering the left face, travelling through the glass and leaving the right face.",
+  caption: "A triangular prism has two refracting faces; the ray enters one and leaves the other.",
+  frame: { width: 82, height: 56 },
+  elements: [
+    body(PH_BODY.polygon, "glassStrong"),
+    arrow(PH_PATH.points[0], PH_PATH.points[1], INCIDENT),
+    arrow(PH_PATH.points[1], PH_PATH.points[2], RAY),
+    arrow(PH_PATH.points[2], PH_PATH.points[3], EMERGENT),
+    point(PH_PATH.points[1], 0.9, "hot"),
+    point(PH_PATH.points[2], 0.9, "ok"),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "header first face obeys Snell",
+      actual: Math.sin(PH_PATH.events[0].angleOfIncidence * RS_DEG),
+      expected: PX_N * Math.sin(PH_PATH.events[0].angleAfter * RS_DEG),
+      tol: 1e-9,
+    },
+    {
+      kind: "value",
+      label: "header second face obeys Snell",
+      actual: PX_N * Math.sin(PH_PATH.events[1].angleOfIncidence * RS_DEG),
+      expected: Math.sin(PH_PATH.events[1].angleAfter * RS_DEG),
+      tol: 1e-9,
+    },
+  ],
+};
+
+/** The full labelled ray path, with the incident and emergent extensions. */
+export const prismRayPath: FigureSpec = {
+  id: "prism-ray-path-labelled",
+  title: "Refraction through a prism: i, r₁, r₂, e and d",
+  alt:
+    "An equilateral prism with a ray entering face AB at P, travelling to R inside the glass and emerging from face AC. The normals at P and R are dashed. The incident ray is extended forward and the emergent ray backward until they meet, enclosing the deviation d.",
+  caption:
+    "The incident, internal and emergent rays use fixed colours throughout the section. The dashed extensions meet at the deviation d.",
+  frame: { width: 118, height: 92 },
+  elements: [
+    body([PX_A, PX_B, PX_C], "glass"),
+    arrow(PX_START, PX_P, INCIDENT),
+    arrow(PX_P, PX_R, RAY),
+    arrow(PX_R, PX_S, EMERGENT),
+    line(PX_P, PX_M, GUIDE),
+    line(PX_S, PX_M, GUIDE),
+    line(add(PX_P, mul(dir(PX_NP), 13)), add(PX_P, mul(dir(PX_NP + 180), 13)), GUIDE),
+    line(add(PX_R, mul(dir(PX_NR), 13)), add(PX_R, mul(dir(PX_NR + 180), 13)), GUIDE),
+    rightAngle(PX_P, angleOf(PX_A, PX_B), PX_NP, 2.6),
+    rightAngle(PX_R, angleOf(PX_A, PX_C), PX_NR, 2.6),
+    ...angleMark(PX_P, ...PX_ARC_I, { r: 6.2, label: "i", labelR: 9.4 }),
+    ...angleMark(PX_P, ...PX_ARC_R1, { r: 7.4 }),
+    label(polar(PX_P, pxMid(PX_ARC_R1), 10.6), "r", { sub: "1", anchor: "middle", math: true, size: 2.9 }),
+    ...angleMark(PX_R, ...PX_ARC_R2, { r: 6.2 }),
+    label(polar(PX_R, pxMid(PX_ARC_R2), 9.4), "r", { sub: "2", anchor: "middle", math: true, size: 2.9 }),
+    ...angleMark(PX_R, ...PX_ARC_E, { r: 7.8, label: "e", labelR: 11 }),
+    ...angleMark(PX_M, ...PX_ARC_D, { r: 6.6, label: "d", labelR: 10, color: "warn" }),
+    point(PX_P, 0.85, "hot"),
+    point(PX_R, 0.85, "ok"),
+    label({ x: PX_A.x, y: PX_A.y + 3.2 }, "A", { anchor: "middle", math: true, size: 3 }),
+    label({ x: PX_B.x - 2.4, y: PX_B.y - 2.8 }, "B", { anchor: "end", math: true, size: 3 }),
+    label({ x: PX_C.x + 2.4, y: PX_C.y - 2.8 }, "C", { anchor: "start", math: true, size: 3 }),
+    label({ x: PX_P.x - 2.4, y: PX_P.y + 2.8 }, "P", { anchor: "end", math: true, size: 2.8 }),
+    label({ x: PX_R.x + 2.6, y: PX_R.y + 2.8 }, "R", { anchor: "start", math: true, size: 2.8 }),
+    label({ x: PX_M.x + 2, y: PX_M.y + 2.4 }, "M", { anchor: "start", math: true, size: 2.6, color: "muted" }),
+  ],
+  checks: PX_SNELL_CHECKS,
+};
+
+/** Equilateral prism inset: all three angles marked 60°. */
+const EQ_A = vec(48, 14 + 25 * Math.sqrt(3));
+const EQ_B = vec(23, 14);
+const EQ_C = vec(73, 14);
+
+export const equilateralPrism: FigureSpec = {
+  id: "equilateral-prism-angles",
+  title: "Equilateral prism — A = 60°",
+  alt: "An equilateral triangular prism with 60 degrees marked at all three vertices.",
+  caption: "An equilateral prism has A = 60°.",
+  frame: { width: 96, height: 72 },
+  elements: [
+    body([EQ_A, EQ_B, EQ_C], "glass"),
+    ...angleMark(EQ_A, -120, -60, { r: 8, label: "60°", labelR: 12 }),
+    ...angleMark(EQ_B, 0, 60, { r: 8, label: "60°", labelR: 12 }),
+    ...angleMark(EQ_C, 120, 180, { r: 8, label: "60°", labelR: 12 }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "apex angle of an equilateral prism",
+      actual: angleBetween(sub(EQ_B, EQ_A), sub(EQ_C, EQ_A)),
+      expected: 60,
+      tol: 1e-9,
+    },
+  ],
+};
+
+/** Smooth i–d curve sampled from prismDeviation, with D marked. */
+const PZ_APEX = 60;
+const PZ_N = 1.5;
+const PZ_I0 = 30;
+const PZ_I1 = 80;
+const PZ_X0 = 16;
+const PZ_X1 = 90;
+const PZ_Y0 = 12;
+const PZ_Y1 = 46;
+const PZ_D0 = 36;
+const PZ_D1 = 50;
+const pzX = (i: number) => PZ_X0 + ((i - PZ_I0) / (PZ_I1 - PZ_I0)) * (PZ_X1 - PZ_X0);
+const pzY = (d: number) => PZ_Y0 + ((d - PZ_D0) / (PZ_D1 - PZ_D0)) * (PZ_Y1 - PZ_Y0);
+const PZ_SAMPLES = Array.from({ length: 101 }, (_, k) => PZ_I0 + ((PZ_I1 - PZ_I0) * k) / 100)
+  .map((i) => ({ i, d: prismDeviation(PZ_APEX, PZ_N, i) }))
+  .filter((p): p is { i: number; d: number } => p.d !== null);
+const PZ_D = minimumDeviation(PZ_APEX, PZ_N) ?? 37.2;
+const PZ_I = minimumDeviationIncidence(PZ_APEX, PZ_N) ?? 48.6;
+const PZ_MIN = vec(pzX(PZ_I), pzY(PZ_D));
+
+export const prismDeviationGraph: FigureSpec = {
+  id: "prism-i-d-curve",
+  title: "Angle of incidence–deviation curve",
+  alt:
+    "A smooth U-shaped graph of deviation d against incidence i. The lowest point is marked D and dashed guides show where it lies.",
+  caption: "As i increases, d falls to its minimum D and then rises again.",
+  frame: { width: 96, height: 58 },
+  elements: [
+    line({ x: PZ_X0 - 2, y: PZ_Y0 }, { x: 92, y: PZ_Y0 }, AXIS),
+    line({ x: PZ_X0, y: PZ_Y0 - 2 }, { x: PZ_X0, y: PZ_Y1 + 4 }, AXIS),
+    { kind: "poly", points: PZ_SAMPLES.map((p) => vec(pzX(p.i), pzY(p.d))), stroke: s("ray", 0.85) },
+    line(PZ_MIN, { x: PZ_MIN.x, y: PZ_Y0 }, GUIDE),
+    line(PZ_MIN, { x: PZ_X0, y: PZ_MIN.y }, GUIDE),
+    point(PZ_MIN, 1.05, "ok"),
+    label({ x: PZ_MIN.x + 2.6, y: PZ_MIN.y + 3.2 }, "D", { math: true, size: 3.1, color: "ok" }),
+    label({ x: PZ_MIN.x + 2.8, y: PZ_MIN.y - 2.2 }, "minimum", { size: 2.4, color: "muted" }),
+    label({ x: PZ_X0 - 3.4, y: PZ_Y1 + 3.2 }, "d", { anchor: "middle", math: true, size: 3 }),
+    label({ x: 91, y: PZ_Y0 - 3.2 }, "i", { anchor: "middle", math: true, size: 3 }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "the lowest sampled deviation is D",
+      actual: Math.min(...PZ_SAMPLES.map((p) => p.d)),
+      expected: PZ_D,
+      tol: 0.02,
+    },
+    {
+      kind: "value",
+      label: "deviation rises to both sides of the minimum",
+      actual: Math.min(
+        (prismDeviation(PZ_APEX, PZ_N, PZ_I - 8) ?? 0) - PZ_D,
+        (prismDeviation(PZ_APEX, PZ_N, PZ_I + 8) ?? 0) - PZ_D,
+      ),
+      expected: Math.abs((prismDeviation(PZ_APEX, PZ_N, PZ_I + 8) ?? 0) - PZ_D),
+      tol: 1e-9,
+    },
+  ],
+};
+
+/** Derivation geometry: normals meet at Q; extensions meet at M. */
+export const prismDerivationGeometry: FigureSpec = {
+  id: "prism-derivation-geometry",
+  title: "Prism geometry for the derivation",
+  alt:
+    "Prism ABC with incident ray at P on face AB, internal ray PR, emergent ray at R on face AC. Normals at P and R meet at Q; the incident and emergent extensions meet at M. Angles i, r₁, r₂, e, d, x and y are marked.",
+  caption:
+    "The normals meet at Q and the ray extensions meet at M. These two auxiliary triangles give A = r₁ + r₂ and d = i + e − A.",
+  frame: { width: 118, height: 92 },
+  elements: [
+    body([PX_A, PX_B, PX_C], "glass"),
+    arrow(PX_START, PX_P, INCIDENT),
+    arrow(PX_P, PX_R, RAY),
+    arrow(PX_R, PX_S, EMERGENT),
+    line(PX_P, PX_M, GUIDE),
+    line(PX_R, PX_M, GUIDE),
+    line(add(PX_P, mul(dir(PX_NP), 15)), add(PX_P, mul(dir(PX_NP + 180), 15)), GUIDE),
+    line(add(PX_R, mul(dir(PX_NR), 15)), add(PX_R, mul(dir(PX_NR + 180), 15)), GUIDE),
+    rightAngle(PX_P, angleOf(PX_A, PX_B), PX_NP, 2.4),
+    rightAngle(PX_R, angleOf(PX_A, PX_C), PX_NR, 2.4),
+    ...angleMark(PX_P, ...PX_ARC_I, { r: 6.2, label: "i", labelR: 9.2 }),
+    ...angleMark(PX_P, ...PX_ARC_R1, { r: 7.2 }),
+    label(polar(PX_P, pxMid(PX_ARC_R1), 10), "r", { sub: "1", anchor: "middle", math: true, size: 2.7 }),
+    ...angleMark(PX_P, ...PX_ARC_X, { r: 4.2, label: "x", labelR: 6.6, color: "warn" }),
+    ...angleMark(PX_R, ...PX_ARC_R2, { r: 6.2 }),
+    label(polar(PX_R, pxMid(PX_ARC_R2), 9.2), "r", { sub: "2", anchor: "middle", math: true, size: 2.7 }),
+    ...angleMark(PX_R, ...PX_ARC_E, { r: 7.6, label: "e", labelR: 10.6 }),
+    ...angleMark(PX_R, ...PX_ARC_Y, { r: 4.2, label: "y", labelR: 6.5, color: "warn" }),
+    ...angleMark(PX_M, ...PX_ARC_D, { r: 6.4, label: "d", labelR: 9.6, color: "warn" }),
+    point(PX_P, 0.85, "hot"),
+    point(PX_R, 0.85, "ok"),
+    point(PX_NPT, 0.8, "muted"),
+    point(PX_M, 0.8, "muted"),
+    label({ x: PX_A.x, y: PX_A.y + 3.2 }, "A", { anchor: "middle", math: true, size: 3 }),
+    label({ x: PX_B.x - 2.4, y: PX_B.y - 2.8 }, "B", { anchor: "end", math: true, size: 3 }),
+    label({ x: PX_C.x + 2.4, y: PX_C.y - 2.8 }, "C", { anchor: "start", math: true, size: 3 }),
+    label({ x: PX_P.x - 2.4, y: PX_P.y + 3 }, "P", { anchor: "end", math: true, size: 2.8 }),
+    label({ x: PX_R.x + 2.6, y: PX_R.y + 3 }, "R", { anchor: "start", math: true, size: 2.8 }),
+    label({ x: PX_NPT.x - 2.4, y: PX_NPT.y - 1.4 }, "Q", { anchor: "end", math: true, size: 2.8, color: "muted" }),
+    label({ x: PX_M.x + 2, y: PX_M.y + 2.2 }, "M", { anchor: "start", math: true, size: 2.8, color: "muted" }),
+  ],
+  checks: [
+    ...PX_SNELL_CHECKS,
+    {
+      kind: "value",
+      label: "x = i − r₁",
+      actual: angleBetween(dir(PX_EV_P.outDeg), dir(PX_EV_P.inDeg)),
+      expected: PX_I - PX_R1,
+      tol: 1e-9,
+    },
+    {
+      kind: "value",
+      label: "y = e − r₂",
+      actual: angleBetween(dir(PX_EV_R.outDeg + 180), dir(PX_EV_R.inDeg + 180)),
+      expected: PX_E - PX_R2,
+      tol: 1e-9,
+    },
+  ],
+};
+
+/** Seven emergent rays, red least deviated at the top, violet most at the bottom. */
+const PZ_INTERNAL_DIR = unit(sub(PX_R, PX_P));
+const PZ_EXIT_NORMAL = PX_NR;
+const PZ_SPECTRUM_RAYS = SPECTRUM.map((entry, index) => {
+  const illustrativeN = 1.5 + index * 0.016;
+  const solved = refract(PZ_INTERNAL_DIR, dir(PZ_EXIT_NORMAL), illustrativeN, 1);
+  const outDeg = angleOf(PX_R, add(PX_R, solved.dir ?? PZ_INTERNAL_DIR));
+  return {
+    ...entry,
+    n: illustrativeN,
+    outDeg,
+    refraction: solved,
+    tip: add(PX_R, mul(dir(outDeg), 50)),
+  };
+});
+
+export const prismDispersion: FigureSpec = {
+  id: "prism-dispersion-vibgyor",
+  title: "Dispersion of white light through a prism",
+  alt:
+    "A narrow white beam enters the left face of a triangular prism and leaves the right face as seven diverging coloured rays. From top to bottom they are red, orange, yellow, green, blue, indigo and violet.",
+  caption:
+    "VIBGYOR from top to bottom: red is least deviated, violet is most deviated.",
+  frame: { width: 132, height: 92 },
+  elements: [
+    body([PX_A, PX_B, PX_C], "glass"),
+    arrow(PX_START, PX_P, s("ink", 1.05)),
+    arrow(PX_P, PX_R, s("ink", 1.05)),
+    label({ x: 24, y: 48 }, "white light", { size: 2.8, color: "muted" }),
+    ...PZ_SPECTRUM_RAYS.map((ray) => arrow(PX_R, ray.tip, s(ray.token, 0.85))),
+  ],
+  checks: [
+    ...PZ_SPECTRUM_RAYS.map((ray) => ({
+      kind: "value" as const,
+      label: `${ray.name}: Snell at the exit face`,
+      actual: ray.n * Math.sin(ray.refraction.angleOfIncidence * RS_DEG),
+      expected: Math.sin(ray.refraction.angleOfRefraction * RS_DEG),
+      tol: 1e-9,
+    })),
+    {
+      kind: "value",
+      label: "red is less deviated than violet",
+      actual: PZ_SPECTRUM_RAYS[0].outDeg - PZ_SPECTRUM_RAYS[6].outDeg,
+      expected: Math.abs(PZ_SPECTRUM_RAYS[0].outDeg - PZ_SPECTRUM_RAYS[6].outDeg),
+      tol: 1e-9,
+    },
+  ],
+};
+
 export const RAY_OPTICS_FIGURES: readonly FigureSpec[] = [
   tirHeaderBounces,
   tirPureReflection,
@@ -2879,6 +3251,12 @@ export const RAY_OPTICS_FIGURES: readonly FigureSpec[] = [
   concaveLensRays,
   prismPath,
   deviationCurve,
+  prismHeader,
+  prismRayPath,
+  equilateralPrism,
+  prismDeviationGraph,
+  prismDerivationGeometry,
+  prismDispersion,
   simpleMicroscope,
   compoundMicroscope,
   refractingTelescope,

@@ -127,6 +127,15 @@
   --subject-english-light: #f3e8ff;
   --subject-arabic: #be123c;
   --subject-arabic-light: #ffe4e6;
+
+  /* VIBGYOR ray colours — shared by dispersion figures and legends. */
+  --spectrum-red: #dc2626;
+  --spectrum-orange: #ea580c;
+  --spectrum-yellow: #ca8a04;
+  --spectrum-green: #16a34a;
+  --spectrum-blue: #2563eb;
+  --spectrum-indigo: #4f46e5;
+  --spectrum-violet: #9333ea;
 }
 
 .dark {
@@ -182,6 +191,14 @@
   --subject-english-light: oklch(0.25 0.05 300);
   --subject-arabic: #fb7185;
   --subject-arabic-light: oklch(0.25 0.05 10);
+
+  --spectrum-red: #f87171;
+  --spectrum-orange: #fb923c;
+  --spectrum-yellow: #facc15;
+  --spectrum-green: #4ade80;
+  --spectrum-blue: #60a5fa;
+  --spectrum-indigo: #818cf8;
+  --spectrum-violet: #c084fc;
 }
 
 @layer base {

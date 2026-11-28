@@ -3960,6 +3960,69 @@
     "renderable": true
   },
   {
+    "id": "content/physics/PrismPanels.tsx#DefinitionGrid",
+    "name": "DefinitionGrid",
+    "path": "content/physics/PrismPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/PrismPanels.tsx#DerivationStages",
+    "name": "DerivationStages",
+    "path": "content/physics/PrismPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/PrismPanels.tsx#GraphConditions",
+    "name": "GraphConditions",
+    "path": "content/physics/PrismPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/PrismPanels.tsx#PrismHero",
+    "name": "PrismHero",
+    "path": "content/physics/PrismPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/PrismPanels.tsx#PrismRayLegend",
+    "name": "PrismRayLegend",
+    "path": "content/physics/PrismPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/PrismPanels.tsx#PrismRevisionGrid",
+    "name": "PrismRevisionGrid",
+    "path": "content/physics/PrismPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/PrismPanels.tsx#SpectrumSequence",
+    "name": "SpectrumSequence",
+    "path": "content/physics/PrismPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/physics/PropagationExplorer.tsx#PropagationExplorer",
     "name": "PropagationExplorer",
     "path": "content/physics/PropagationExplorer.tsx",

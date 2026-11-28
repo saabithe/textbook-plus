@@ -47,6 +47,14 @@ import {
   TIRHero,
 } from "@/components/content/physics/TIRPanels";
 import {
+  DefinitionGrid,
+  DerivationStages,
+  GraphConditions,
+  PrismHero,
+  PrismRevisionGrid,
+  SpectrumSequence,
+} from "@/components/content/physics/PrismPanels";
+import {
   cassegrain,
   compoundMicroscope,
   concaveLensRays,
@@ -54,10 +62,14 @@ import {
   concaveRealImage,
   convexLensRays,
   convexMirrorTerms,
-  deviationCurve,
+  equilateralPrism,
   mirrorEquationGeometry,
   planeReflection,
-  prismPath,
+  prismDerivationGeometry,
+  prismDeviationGraph,
+  prismDispersion,
+  prismHeader,
+  prismRayPath,
   rayAndBeam,
   refractingTelescope,
   refractionApparentConcept,
@@ -2637,155 +2649,382 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
 
       <h2 id="h-9-6">9.6 Refraction Through a Prism</h2>
 
-      <h3 id="h-9-6-angles">The prism and its angles</h3>
-      <p>
-        Fig. 9.21 shows the passage of light through a triangular prism <Formula>{String.raw`ABC`}</Formula>.
-      </p>
-      <PhysicsFigure spec={prismPath} />
-      <TableCard
-        title="The angles of Fig. 9.21"
-        headers={["Symbol", "What it measures"]}
-        rows={[
-          { cells: ["i", "angle of incidence at the first face AB"] },
-          { cells: ["r₁", "angle of refraction at the first face AB"] },
-          { cells: ["r₂", "angle of incidence at the second face AC — glass to air"] },
-          { cells: ["e", "angle of refraction, or emergence, at the second face AC"] },
-          { cells: ["d", "angle between the emergent ray RS and the direction of the incident ray PQ"] },
+      <PrismHero
+        blocks={[
+          "1. Refraction Through a Prism",
+          "2. Refractive Index of a Prism",
+          "3. Dispersion of Light",
         ]}
+        figure={<PhysicsFigure spec={prismHeader} />}
       />
-      <p>
-        The angle <Formula>{String.raw`d`}</Formula> is the <strong>angle of deviation</strong>: the angle through which
-        the emergent ray has been turned away from where the incident ray was going.
-      </p>
 
-      <h3 id="h-9-6-sum">Why r₁ + r₂ = A</h3>
-      <p>
-        In the quadrilateral <Formula>{String.raw`AQNR`}</Formula>, two of the angles — at the vertices{" "}
-        <Formula>{String.raw`Q`}</Formula> and <Formula>{String.raw`R`}</Formula> — are right angles. The sum of the
-        other two angles of the quadrilateral is therefore 180°.
-      </p>
-      <EquationLadder
-        steps={[
-          {
-            label: "Quadrilateral AQNR",
-            equation: String.raw`A + \angle QNR = 180^\circ`,
-          },
-          {
-            label: "Triangle QNR",
-            equation: String.raw`r_1 + r_2 + \angle QNR = 180^\circ`,
-          },
-          {
-            label: "Compare the two",
-            equation: String.raw`r_1 + r_2 = A`,
-            tag: "Eq. 9.34",
-            final: true,
-          },
-        ]}
-      />
-      <p>
-        So the two angles inside the prism at the two faces always add up to the apex angle <Formula>{String.raw`A`}</Formula>.
-      </p>
+      <h3 id="h-9-6-refraction">1. Refraction Through a Prism</h3>
 
-      <h3 id="h-9-6-deviation">The angle of deviation</h3>
+      <h4 id="h-9-6-basic">1.1 Basic Structure &amp; Ray Path</h4>
       <p>
-        The total deviation <Formula>{String.raw`d`}</Formula> is the sum of the deviations at the two faces.
+        A prism is represented by a triangular transparent medium through which light enters and exits via two
+        refracting faces.
       </p>
-      <EquationLadder
-        steps={[
-          {
-            label: "Deviations at the two faces",
-            equation: String.raw`d = (i - r_1) + (e - r_2)`,
-          },
-          {
-            label: "Use Eq. 9.34",
-            equation: String.raw`d = i + e - A`,
-            tag: "Eq. 9.35",
-            final: true,
-          },
-        ]}
-      />
-      <p>
-        So the angle of deviation depends on the angle of incidence — the ray is not simply turned by a fixed amount.
-      </p>
-
-      <h3 id="h-9-6-curve">Deviation against incidence</h3>
-      <p>
-        Fig. 9.22 plots the angle of deviation against the angle of incidence. What the plot shows is a curve with a
-        single lowest point, <Formula>{String.raw`D_m`}</Formula>.
-      </p>
-      <PhysicsFigure spec={deviationCurve} />
+      <p className="t-micro">Medium conditions</p>
+      <FormulaBlock latex={String.raw`n_2>n_1`} />
       <ul className="my-6 list-none space-y-2 pl-0">
         <li>
-          <strong>Two incidences, one deviation.</strong> Any given <Formula>{String.raw`d`}</Formula>, except at{" "}
-          <Formula>{String.raw`i = e`}</Formula>, corresponds to two values of <Formula>{String.raw`i`}</Formula> and
-          hence of <Formula>{String.raw`e`}</Formula>.
+          <strong>Prism.</strong> Denser medium <Formula>{String.raw`n_2`}</Formula>.
         </li>
         <li>
-          <strong>It is the symmetry of Eq. 9.35.</strong> The deviation stays the same if{" "}
-          <Formula>{String.raw`i`}</Formula> and <Formula>{String.raw`e`}</Formula> are interchanged.
-        </li>
-        <li>
-          <strong>Physically, the path can be traced back.</strong> Run the ray backwards through Fig. 9.21 and it leaves
-          along the original incident line, through the same deviation.
+          <strong>Surrounding medium (Air).</strong> Rarer medium <Formula>{String.raw`n_1`}</Formula>.
         </li>
       </ul>
+      <PhysicsFigure spec={prismRayPath} />
 
-      <h3 id="h-9-6-minimum">Minimum deviation</h3>
-      <p>
-        At the minimum deviation <Formula>{String.raw`D_m`}</Formula>, the refracted ray inside the prism becomes
-        parallel to its base. That is the same as <Formula>{String.raw`d = D_m`}</Formula> and{" "}
-        <Formula>{String.raw`i = e`}</Formula>, which implies <Formula>{String.raw`r_1 = r_2`}</Formula>.
-      </p>
-      <EquationLadder
-        steps={[
+      <h4 id="h-9-6-definitions">1.2 Key Definitions</h4>
+      <DefinitionGrid
+        items={[
           {
-            label: "Eq. 9.34, with the two refractions equal",
-            equation: String.raw`2r = A \quad \text{or} \quad r = \frac{A}{2}`,
-            tag: "Eq. 9.36",
+            tag: "A",
+            title: (
+              <>
+                Angle of Prism (<Formula>{String.raw`A`}</Formula>)
+              </>
+            ),
+            body: (
+              <p>
+                The angle between the two plane surfaces (refracting faces) of the prism.
+              </p>
+            ),
           },
           {
-            label: "Eq. 9.35, the same way",
-            equation: String.raw`D_m = 2i - A \quad \text{or} \quad i = \frac{A + D_m}{2}`,
-            tag: "Eq. 9.37",
-            final: true,
+            tag: "B",
+            title: "Equilateral Prism",
+            body: <p>A prism with all three angles equal to 60°.</p>,
+            figure: <PhysicsFigure spec={equilateralPrism} />,
+            formula: <FormulaBlock important latex={String.raw`A=60^\circ`} />,
+          },
+          {
+            tag: "C",
+            title: (
+              <>
+                Angle of Deviation (<Formula>{String.raw`d`}</Formula>)
+              </>
+            ),
+            body: (
+              <p>
+                The angle between the original direction of the incident ray and the emergent ray is called the{" "}
+                <strong>angle of deviation</strong>.
+              </p>
+            ),
+          },
+          {
+            tag: "D",
+            title: (
+              <>
+                Angle of Minimum Deviation (<Formula>{String.raw`D`}</Formula>)
+              </>
+            ),
+            body: (
+              <>
+                <p>The minimum value of the angle of deviation is called the angle of minimum deviation.</p>
+                <p>
+                  At minimum deviation, the refracted ray inside the prism becomes parallel to its base.
+                </p>
+              </>
+            ),
+            formula: <FormulaBlock important latex={String.raw`d=D`} />,
+            featured: true,
           },
         ]}
       />
-      <p>
-        The refractive index of the material of the prism is then given by Snell&apos;s law at either face.
-      </p>
-      <FormulaBlock
-        important
-        label="Refractive index of the prism"
-        tag="Eq. 9.38"
-        latex={String.raw`n_{21} = \frac{n_2}{n_1} = \frac{\sin[(A + D_m)/2]}{\sin[A/2]}`}
-      />
-      <Callout type="note" title="A measurement method">
+      <Callout type="note" title="Source clarification">
         <p>
-          The angles <Formula>{String.raw`A`}</Formula> and <Formula>{String.raw`D_m`}</Formula> can be measured
-          experimentally, so Eq. 9.38 provides a method of determining the refractive index of the material of the prism.
+          The supplied handwritten note about an &quot;Unequal Prism&quot; is unclear. Its meaning cannot be
+          established reliably, so it is not included as a factual definition.
         </p>
       </Callout>
 
-      <h3 id="h-9-6-thin">The thin prism</h3>
+      <h4 id="h-9-6-curve">2. Angle of Incidence–Deviation Curve (<Formula>{String.raw`i-d`}</Formula> Curve)</h4>
+      <p className="t-micro">2.1 Graph &amp; Behaviour</p>
       <p>
-        For a small-angle prism — a thin prism — <Formula>{String.raw`D_m`}</Formula> is also very small, and the sines
-        in Eq. 9.38 can be replaced by the angles themselves.
+        The graph represents the relationship between the angle of incidence (<Formula>{String.raw`i`}</Formula>) and
+        the angle of deviation (<Formula>{String.raw`d`}</Formula>).
       </p>
-      <EquationLadder
+      <GraphConditions
+        graph={<PhysicsFigure spec={prismDeviationGraph} />}
+        conditions={[
+          <FormulaBlock important latex={String.raw`i=e`} />,
+          <FormulaBlock important latex={String.raw`r_1=r_2=r`} />,
+          <FormulaBlock important latex={String.raw`d=D`} />,
+        ]}
+      />
+      <p className="t-micro">2.2 Variation of Deviation</p>
+      <Stepper
         steps={[
           {
-            label: "Small angles: sin θ ≈ θ",
-            equation: String.raw`n_{21} \simeq \frac{(A + D_m)/2}{A/2}`,
+            label: "Stage 1 — Deviation decreases",
+            description: <Formula>{String.raw`i\uparrow\quad\Rightarrow\quad d\downarrow`}</Formula>,
           },
           {
-            label: "Rearrange",
-            equation: String.raw`D_m = (n_{21} - 1)A`,
-            final: true,
+            label: "Stage 2 — Minimum deviation",
+            description: <Formula>{String.raw`d=D`}</Formula>,
+          },
+          {
+            label: "Stage 3 — Deviation increases",
+            description: <Formula>{String.raw`i\uparrow\quad\Rightarrow\quad d\uparrow`}</Formula>,
           },
         ]}
       />
-      <p>It follows that thin prisms do not deviate light much.</p>
+
+      <h3 id="h-9-6-refractive-index">3. Refractive Index of a Prism — 4-Mark Derivation</h3>
+      <p className="t-micro">Important derivation</p>
+      <p className="t-micro">3.1 Required Diagram — Prism Geometry</p>
+      <PhysicsFigure spec={prismDerivationGeometry} />
+      <p className="t-micro">3.2 Step-by-Step Derivation</p>
+      <DerivationStages
+        stages={[
+          {
+            title: "From quadrilateral APQR",
+            rows: [
+              { label: "Angles of the quadrilateral", latex: String.raw`\angle A+\angle Q=180^\circ`, tag: "(1)" },
+            ],
+          },
+          {
+            title: "From triangle PQR",
+            rows: [
+              { label: "Angles of the triangle", latex: String.raw`r_1+r_2+\angle Q=180^\circ`, tag: "(2)" },
+            ],
+          },
+          {
+            title: "Comparing (1) and (2)",
+            rows: [{ label: "Apex angle", latex: String.raw`A=r_1+r_2`, tag: "(3)", important: true }],
+          },
+          {
+            title: "From triangle PMR",
+            wide: true,
+            rows: [
+              { label: "Exterior-angle property", latex: String.raw`d=x+y` },
+              { label: "Vertically opposite angles", latex: String.raw`i=x+r_1` },
+              { label: "First deviation", latex: String.raw`x=i-r_1` },
+              { label: "Similarly", latex: String.raw`e=r_2+y` },
+              { label: "Second deviation", latex: String.raw`y=e-r_2` },
+              { label: "Substitute", latex: String.raw`d=(i-r_1)+(e-r_2)` },
+              { label: "Combine", latex: String.raw`d=(i+e)-(r_1+r_2)` },
+              { label: "Using equation (3)", latex: String.raw`d=i+e-A`, tag: "(4)", important: true },
+            ],
+          },
+          {
+            title: "At minimum deviation",
+            wide: true,
+            rows: [
+              { label: "First condition", latex: String.raw`i=e` },
+              { label: "Second condition", latex: String.raw`r_1=r_2=r` },
+              { label: "Third condition", latex: String.raw`d=D` },
+              { label: "From equation (3)", latex: String.raw`A=r+r` },
+              { label: "Half the apex angle", latex: String.raw`r=\frac A2`, tag: "(5)" },
+              { label: "From equation (4)", latex: String.raw`D=i+i-A` },
+              { label: "Simplify", latex: String.raw`D=2i-A` },
+              { label: "Therefore", latex: String.raw`2i=A+D` },
+              { label: "Incidence at minimum", latex: String.raw`i=\frac{A+D}{2}`, tag: "(6)", important: true },
+            ],
+          },
+          {
+            title: "Apply Snell's Law",
+            wide: true,
+            rows: [
+              { label: "Relative refractive index", latex: String.raw`n_{21}=\frac{n_2}{n_1}=\frac{\sin i}{\sin r}` },
+              {
+                label: "Substitute equations (5) and (6)",
+                latex: String.raw`n_{21}= \frac{ \sin\left(\frac{A+D}{2}\right) }{ \sin\left(\frac A2\right) }`,
+              },
+            ],
+          },
+          {
+            title: "When the Surrounding Medium is Air",
+            wide: true,
+            rows: [
+              { label: "Rarer medium", latex: String.raw`n_1=1` },
+              { label: "Prism medium", latex: String.raw`n_2=n` },
+            ],
+          },
+        ]}
+      />
+      <p>The refractive index of the prism becomes:</p>
+      <FormulaCard label="Final derivation formula" subjectColor="var(--subject-physics)">
+        <FormulaBlock
+          important
+          latex={String.raw`n= \frac{ \sin\left(\frac{A+D}{2}\right) }{ \sin\left(\frac A2\right) }`}
+        />
+      </FormulaCard>
+      <p>Refractive index of prism when the surrounding medium is air.</p>
+
+      <h4 id="h-9-6-numerical">4. Numerical Problem — Refractive Index of a Prism</h4>
+      <Expandable
+        title="Numerical — refractive index of a prism"
+        variant="example"
+        subjectColor="var(--subject-physics)"
+      >
+        <ProblemSolution.Problem>
+          <p>
+            Calculate the refractive index of a prism if the angle of prism is <Formula>{String.raw`60^\circ`}</Formula>{" "}
+            and the angle of minimum deviation is <Formula>{String.raw`30^\circ`}</Formula>.
+          </p>
+        </ProblemSolution.Problem>
+        <ProblemSolution.Solution>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-xl border border-border/60 bg-muted/20 px-3 py-3">
+              <p className="t-micro">Given</p>
+              <div className="mt-1 [&>div]:my-0">
+                <FormulaBlock latex={String.raw`A=60^\circ,\qquad D=30^\circ`} />
+              </div>
+            </div>
+            <div className="rounded-xl border border-border/60 bg-muted/20 px-3 py-3">
+              <p className="t-micro">Formula</p>
+              <div className="mt-1 [&>div]:my-0">
+                <FormulaBlock
+                  latex={String.raw`n= \frac{ \sin\left(\frac{A+D}{2}\right) }{ \sin\left(\frac A2\right) }`}
+                />
+              </div>
+            </div>
+          </div>
+          <p className="t-micro mt-4">Substitution</p>
+          <div className="[&>div]:my-0">
+            <FormulaBlock
+              latex={String.raw`n= \frac{ \sin\left(\frac{60^\circ+30^\circ}{2}\right) }{ \sin\left(\frac{60^\circ}{2}\right) }`}
+            />
+            <FormulaBlock latex={String.raw`=\frac{\sin45^\circ}{\sin30^\circ}`} />
+            <FormulaBlock latex={String.raw`=\frac{1/\sqrt2}{1/2}`} />
+          </div>
+          <p className="mt-2 text-sm text-foreground/75">
+            Used values: <Highlight><Formula>{String.raw`\sin45^\circ=\frac{1}{\sqrt2}`}</Formula></Highlight> and{" "}
+            <Highlight><Formula>{String.raw`\sin30^\circ=\frac12`}</Formula></Highlight>.
+          </p>
+          <FormulaBlock
+            important
+            label="FINAL ANSWER"
+            latex={String.raw`\boxed{n=\sqrt2\approx1.414}`}
+          />
+        </ProblemSolution.Solution>
+      </Expandable>
+
+      <h3 id="h-9-6-dispersion">5. Dispersion of Light</h3>
+
+      <h4 id="h-9-6-dispersion-definition">5.1 Definition</h4>
+      <p>
+        <strong>Dispersion</strong> is the splitting of white light into its constituent seven colours, known as{" "}
+        <strong>VIBGYOR</strong>.
+      </p>
+      <FormulaCard label="Dispersion" subjectColor="var(--subject-physics)">
+        <FormulaBlock important latex={String.raw`\boxed{\text{White Light}\rightarrow\text{Seven Colours}}`} />
+      </FormulaCard>
+
+      <h4 id="h-9-6-dispersion-prism">5.2 Dispersion Through a Prism</h4>
+      <PhysicsFigure spec={prismDispersion} />
+      <SpectrumSequence />
+
+      <h4 id="h-9-6-dispersion-properties">5.3 Key Properties of Dispersion</h4>
+      <p className="t-micro">A. Deviation</p>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Minimum deviation.</strong> Red.
+        </li>
+        <li>
+          <strong>Maximum deviation.</strong> Violet.
+        </li>
+      </ul>
+      <FormulaBlock important latex={String.raw`\boxed{\text{Deviation}\propto\frac1\lambda}`} />
+      <p className="t-micro">B. Wavelength (<Formula>{String.raw`\lambda`}</Formula>)</p>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Maximum wavelength.</strong> Red.
+        </li>
+        <li>
+          <strong>Minimum wavelength.</strong> Violet.
+        </li>
+      </ul>
+      <p className="t-micro">C. Relationship Between Wavelength and Deviation</p>
+      <div className="[&>div]:my-0">
+        <FormulaBlock latex={String.raw`\text{Longer wavelength} \Rightarrow \text{Less deviation}`} />
+        <FormulaBlock latex={String.raw`\text{Shorter wavelength} \Rightarrow \text{More deviation}`} />
+      </div>
+      <TableCard
+        title="Red vs. Violet"
+        headers={[
+          "Property",
+          <span key="red" style={{ color: "var(--spectrum-red)" }}>
+            Red
+          </span>,
+          <span key="violet" style={{ color: "var(--spectrum-violet)" }}>
+            Violet
+          </span>,
+        ]}
+        rows={[
+          { cells: ["Wavelength", "Maximum", "Minimum"] },
+          { cells: ["Deviation", "Minimum", "Maximum"] },
+          { cells: ["Position in spectrum", "Top", "Bottom"] },
+        ]}
+      />
+
+      <CollapsibleRevision
+        className="my-6 rounded-xl border border-border bg-card"
+        contentClassName="p-4 [&>div]:my-0"
+        label="Quick Revision — Prism & Dispersion"
+        header={
+          <div className="border-b border-border bg-muted/25 px-4 py-3 pr-12">
+            <h3
+              id="h-9-6-revision"
+              className="m-0! border-0! p-0! text-base! font-semibold! tracking-tight!"
+            >
+              6. Quick Revision — Prism &amp; Dispersion
+            </h3>
+          </div>
+        }
+      >
+        <PrismRevisionGrid
+          sections={[
+            {
+              title: "1. Prism Angle",
+              rows: [
+                <FormulaBlock key="meaning" latex={String.raw`A=\text{Angle between refracting faces}`} />,
+                <FormulaBlock key="equilateral" latex={String.raw`A=60^\circ`} />,
+              ],
+            },
+            {
+              title: "2. Angle of Deviation",
+              rows: [<FormulaBlock key="deviation" important latex={String.raw`d=i+e-A`} />],
+            },
+            {
+              title: "3. Minimum Deviation Conditions",
+              rows: [
+                <FormulaBlock key="ie" latex={String.raw`i=e`} />,
+                <FormulaBlock key="rr" latex={String.raw`r_1=r_2=\frac A2`} />,
+                <FormulaBlock key="dD" latex={String.raw`d=D`} />,
+              ],
+            },
+            {
+              title: "4. Refractive Index of Prism",
+              featured: true,
+              full: true,
+              rows: [
+                <FormulaBlock
+                  key="index"
+                  important
+                  latex={String.raw`\boxed{ n= \frac{\sin\left(\frac{A+D}{2}\right)} {\sin\left(\frac A2\right)} }`}
+                />,
+              ],
+            },
+            {
+              title: "5. Dispersion",
+              full: true,
+              list: [
+                "White light → Seven colours.",
+                "Colour sequence → VIBGYOR.",
+                "Minimum deviation → Red.",
+                "Maximum deviation → Violet.",
+                "Maximum wavelength → Red.",
+                "Minimum wavelength → Violet.",
+              ],
+            },
+          ]}
+        />
+      </CollapsibleRevision>
 
       <h2 id="h-9-7">9.7 Optical Instruments</h2>
 

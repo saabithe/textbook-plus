@@ -32,7 +32,35 @@ import {
 
 /* ── style tokens ────────────────────────────────────────────────────── */
 
-export type ColorToken = "ink" | "muted" | "rule" | "ray" | "hot" | "ok" | "warn";
+export type SpectrumToken =
+  | "spectrumRed"
+  | "spectrumOrange"
+  | "spectrumYellow"
+  | "spectrumGreen"
+  | "spectrumBlue"
+  | "spectrumIndigo"
+  | "spectrumViolet";
+
+/** VIBGYOR — top (least deviated) to bottom (most deviated). */
+export const SPECTRUM = [
+  { token: "spectrumRed", letter: "R", name: "Red", color: "var(--spectrum-red)" },
+  { token: "spectrumOrange", letter: "O", name: "Orange", color: "var(--spectrum-orange)" },
+  { token: "spectrumYellow", letter: "Y", name: "Yellow", color: "var(--spectrum-yellow)" },
+  { token: "spectrumGreen", letter: "G", name: "Green", color: "var(--spectrum-green)" },
+  { token: "spectrumBlue", letter: "B", name: "Blue", color: "var(--spectrum-blue)" },
+  { token: "spectrumIndigo", letter: "I", name: "Indigo", color: "var(--spectrum-indigo)" },
+  { token: "spectrumViolet", letter: "V", name: "Violet", color: "var(--spectrum-violet)" },
+] as const satisfies readonly { token: SpectrumToken; letter: string; name: string; color: string }[];
+
+export type ColorToken =
+  | "ink"
+  | "muted"
+  | "rule"
+  | "ray"
+  | "hot"
+  | "ok"
+  | "warn"
+  | SpectrumToken;
 export type Dash = "dash" | "dot" | "dashdot";
 export type Fill = ColorToken | "glass" | "glassStrong" | null;
 

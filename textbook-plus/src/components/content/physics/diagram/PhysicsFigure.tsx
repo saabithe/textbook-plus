@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { round, type Vec } from "./geometry.ts";
-import type { ColorToken, Element, FigureSpec, Fill, Stroke } from "./scene.ts";
+import type { ColorToken, Element, FigureSpec, Fill, SpectrumToken, Stroke } from "./scene.ts";
 
 /**
  * PhysicsFigure — renders a `FigureSpec` to inline SVG.
@@ -10,6 +10,16 @@ import type { ColorToken, Element, FigureSpec, Fill, Stroke } from "./scene.ts";
  * light and dark mode and costs the PWA nothing at runtime.
  */
 
+const SPECTRUM_COLORS: Record<SpectrumToken, string> = {
+  spectrumRed: "var(--spectrum-red)",
+  spectrumOrange: "var(--spectrum-orange)",
+  spectrumYellow: "var(--spectrum-yellow)",
+  spectrumGreen: "var(--spectrum-green)",
+  spectrumBlue: "var(--spectrum-blue)",
+  spectrumIndigo: "var(--spectrum-indigo)",
+  spectrumViolet: "var(--spectrum-violet)",
+};
+
 const COLORS: Record<ColorToken, string> = {
   ink: "var(--foreground)",
   muted: "var(--muted-foreground)",
@@ -18,6 +28,7 @@ const COLORS: Record<ColorToken, string> = {
   hot: "var(--destructive)",
   ok: "var(--ok)",
   warn: "var(--warning)",
+  ...SPECTRUM_COLORS,
 };
 
 const FILLS: Record<Exclude<Fill, null>, string> = {
@@ -28,6 +39,12 @@ const FILLS: Record<Exclude<Fill, null>, string> = {
   hot: "color-mix(in oklab, var(--destructive) 16%, transparent)",
   ok: "color-mix(in oklab, var(--ok) 16%, transparent)",
   warn: "color-mix(in oklab, var(--warning) 16%, transparent)",
+  ...(Object.fromEntries(
+    Object.entries(SPECTRUM_COLORS).map(([token, color]) => [
+      token,
+      `color-mix(in oklab, ${color} 18%, transparent)`,
+    ]),
+  ) as Record<SpectrumToken, string>),
   glass: "color-mix(in oklab, var(--subject-physics) 12%, transparent)",
   glassStrong: "color-mix(in oklab, var(--subject-physics) 22%, transparent)",
 };
