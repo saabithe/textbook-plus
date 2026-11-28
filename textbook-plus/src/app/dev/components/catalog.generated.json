@@ -1818,6 +1818,42 @@
     "renderable": true
   },
   {
+    "id": "content/mathematics/CrossProductDiagrams.tsx#CrossProductDirectionDiagram",
+    "name": "CrossProductDirectionDiagram",
+    "path": "content/mathematics/CrossProductDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/CrossProductDiagrams.tsx#ParallelogramAreaDiagram",
+    "name": "ParallelogramAreaDiagram",
+    "path": "content/mathematics/CrossProductDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/CrossProductDiagrams.tsx#RectangleAreaDiagram",
+    "name": "RectangleAreaDiagram",
+    "path": "content/mathematics/CrossProductDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/CrossProductDiagrams.tsx#TriangleAreaDiagram",
+    "name": "TriangleAreaDiagram",
+    "path": "content/mathematics/CrossProductDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
     "id": "content/mathematics/DerivativeSignGraphs.tsx#CubicSignNumberLine",
     "name": "CubicSignNumberLine",
     "path": "content/mathematics/DerivativeSignGraphs.tsx",
@@ -1947,6 +1983,24 @@
     "id": "content/mathematics/DirectionCosinesSignDiagrams.tsx#TwoStepFlowDiagram",
     "name": "TwoStepFlowDiagram",
     "path": "content/mathematics/DirectionCosinesSignDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/DotProductDiagrams.tsx#DotProductGeometryDiagram",
+    "name": "DotProductGeometryDiagram",
+    "path": "content/mathematics/DotProductDiagrams.tsx",
+    "category": "content",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/mathematics/DotProductDiagrams.tsx#TriangleAngleDiagram",
+    "name": "TriangleAngleDiagram",
+    "path": "content/mathematics/DotProductDiagrams.tsx",
     "category": "content",
     "props": null,
     "shell": false,
@@ -3909,6 +3963,96 @@
     "id": "content/physics/PropagationExplorer.tsx#PropagationExplorer",
     "name": "PropagationExplorer",
     "path": "content/physics/PropagationExplorer.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/RefractionPanels.tsx#ApplicationCard",
+    "name": "ApplicationCard",
+    "path": "content/physics/RefractionPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/RefractionPanels.tsx#ConditionStrip",
+    "name": "ConditionStrip",
+    "path": "content/physics/RefractionPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/RefractionPanels.tsx#ConnectedCards",
+    "name": "ConnectedCards",
+    "path": "content/physics/RefractionPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/RefractionPanels.tsx#DerivationPair",
+    "name": "DerivationPair",
+    "path": "content/physics/RefractionPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/RefractionPanels.tsx#DirectionPair",
+    "name": "DirectionPair",
+    "path": "content/physics/RefractionPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/RefractionPanels.tsx#FormulaStrip",
+    "name": "FormulaStrip",
+    "path": "content/physics/RefractionPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/RefractionPanels.tsx#RankStrip",
+    "name": "RankStrip",
+    "path": "content/physics/RefractionPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/RefractionPanels.tsx#RefractionHero",
+    "name": "RefractionHero",
+    "path": "content/physics/RefractionPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/RefractionPanels.tsx#ResultCard",
+    "name": "ResultCard",
+    "path": "content/physics/RefractionPanels.tsx",
+    "category": "physics",
+    "props": null,
+    "shell": false,
+    "renderable": true
+  },
+  {
+    "id": "content/physics/RefractionPanels.tsx#TakeawayBlock",
+    "name": "TakeawayBlock",
+    "path": "content/physics/RefractionPanels.tsx",
     "category": "physics",
     "props": null,
     "shell": false,

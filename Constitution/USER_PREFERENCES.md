@@ -165,6 +165,7 @@ This file tracks ALL user preferences, design decisions, and customization choic
 | Prose → shape | **A paragraph that enumerates is a presentation failure.** One short lead-in sentence, then a bullet list (or `TableCard`/`Comparison`/`Stepper`) with parallel grammar and optional bold lead phrases. Applies to lists of places, kinds, conditions, examples, parts, or steps — including lists buried inside a `Callout`. | Oct 2026 |
 | Polish the duplicate | When the user's note repeats content already on the page, **do not skip or refuse it** — fold it into the existing block and upgrade that block's presentation (same facts, better shape). "Already covered" never cancels presentation work. | Oct 2026 |
 | Textbook figures | Every NCERT figure the text points at becomes a **figure table** (`TableCard`, columns `Figure` / `What it shows`) carrying the **printed figure number** (8.1, 8.2, …) and a concrete description of what the figure shows — so the reader can open the physical textbook and check it. Never paraphrase the number away, never write "see figure". | Oct 2026 |
+| Subtopic headings | **No numbering on subtopics under a main heading.** Main `<h2>` section numbers stay; `<h3>` subtopic headings carry the title only. All chapters, all subjects — no reminder needed. | Nov 2026 |
 
 ### 11.1 The canonical structural edit (Oct 2026)
 

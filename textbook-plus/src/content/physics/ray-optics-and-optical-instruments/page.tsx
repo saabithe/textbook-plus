@@ -16,13 +16,24 @@ import { Stepper } from "@/components/content/Stepper";
 import { Callout } from "@/components/content/Callout";
 import { EquationLadder } from "@/components/content/process/EquationLadder";
 import { Formula, FormulaBlock } from "@/components/content/Formula";
+import { FormulaCard } from "@/components/content/FormulaCard";
 import { Highlight } from "@/components/content/Highlight";
 import { KeyPoint } from "@/components/content/KeyPoint";
 import { TableCard } from "@/components/content/data/TableCard";
-import { MistakeCard } from "@/components/content/study/MistakeCard";
 import { PhysicsFigure } from "@/components/content/physics/diagram/PhysicsFigure";
 import {
-  apparentDepth,
+  ApplicationCard,
+  ConditionStrip,
+  ConnectedCards,
+  DerivationPair,
+  DirectionPair,
+  FormulaStrip,
+  RankStrip,
+  RefractionHero,
+  ResultCard,
+  TakeawayBlock,
+} from "@/components/content/physics/RefractionPanels";
+import {
   cassegrain,
   compoundMicroscope,
   concaveLensRays,
@@ -37,7 +48,15 @@ import {
   prismPath,
   rayAndBeam,
   refractingTelescope,
-  refractionAtSurface,
+  refractionApparentConcept,
+  refractionApparentDepth,
+  refractionDenserToRarer,
+  refractionHeaderCrossing,
+  refractionParallelEmergence,
+  refractionPlaneBoundary,
+  refractionRarerToDenser,
+  refractionSlabFourAngles,
+  refractionSnellDiagram,
   ruleCentre,
   ruleFocus,
   ruleParallel,
@@ -45,7 +64,6 @@ import {
   signConventionConcave,
   signConventionConvex,
   simpleMicroscope,
-  slabShift,
   totalInternalReflection,
 } from "./figures";
 
@@ -64,7 +82,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
     <>
       <h2 id="h-9-1">9.1 Introduction</h2>
 
-      <h3 id="h-9-1-light">9.1.1 Light, and the sense of vision</h3>
+      <h3 id="h-9-1-light">Light, and the sense of vision</h3>
       <p>
         Nature has endowed the human eye — the retina — with the sensitivity to detect electromagnetic waves within a
         small range of the electromagnetic spectrum.
@@ -77,7 +95,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
       </Callout>
       <p>It is mainly through light and the sense of vision that we know and interpret the world around us.</p>
 
-      <h3 id="h-9-1-facts">9.1.2 Two facts common experience gives</h3>
+      <h3 id="h-9-1-facts">Two facts common experience gives</h3>
       <p>Two things about light can be stated from common experience alone.</p>
       <ul className="my-6 list-none space-y-2 pl-0">
         <li>
@@ -89,7 +107,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </li>
       </ul>
 
-      <h3 id="h-9-1-speed">9.1.3 The speed of light</h3>
+      <h3 id="h-9-1-speed">The speed of light</h3>
       <p>Its presently accepted value in vacuum is</p>
       <FormulaBlock
         important
@@ -104,7 +122,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         <p>Light in vacuum has no faster traveller to compete with: this is the highest speed attainable in nature.</p>
       </KeyPoint>
 
-      <h3 id="h-9-1-ray">9.1.4 Why the straight line is still the right picture</h3>
+      <h3 id="h-9-1-ray">Why the straight line is still the right picture</h3>
       <p>
         Chapter 8 called light an electromagnetic wave. On its own, that description seems to contradict a
         straight-line path.
@@ -131,7 +149,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </div>
       </div>
 
-      <h3 id="h-9-1-ahead">9.1.5 The chapter ahead</h3>
+      <h3 id="h-9-1-ahead">The chapter ahead</h3>
       <ul className="my-6 list-none space-y-2 pl-0">
         <li>
           <strong>Mirrors.</strong> Image formation by spherical mirrors, and the mirror equation.
@@ -146,7 +164,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
 
       <h2 id="h-9-2">9.2 Reflection of Light by Spherical Mirrors</h2>
 
-      <h3 id="h-9-2-reflection">9.2.1 Reflection and its laws</h3>
+      <h3 id="h-9-2-reflection">Reflection and its laws</h3>
       <p>
         <strong>Reflection</strong> is the process in which a ray of light approaches a smooth polished surface and
         bounces back into the same medium.
@@ -172,7 +190,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </p>
       </Callout>
 
-      <h3 id="h-9-2-deviation">9.2.2 Angle of deviation</h3>
+      <h3 id="h-9-2-deviation">Angle of deviation</h3>
       <p>
         The <strong>angle of deviation</strong> δ is the angle between the incident ray produced and the reflected
         ray.
@@ -191,7 +209,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         <Formula>{String.raw`\delta = 180^\circ`}</Formula>: the ray returns along the path it came on.
       </p>
 
-      <h3 id="h-9-2-types">9.2.3 Types of mirrors</h3>
+      <h3 id="h-9-2-types">Types of mirrors</h3>
       <p>Every mirror is named by the shape of its reflecting surface.</p>
       <div className="my-6 grid gap-3 sm:grid-cols-3">
         <div className="rounded-lg border border-border bg-card p-4">
@@ -215,7 +233,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
       <PhysicsFigure spec={concaveMirrorTerms} />
       <PhysicsFigure spec={convexMirrorTerms} />
 
-      <h3 id="h-9-2-terms">9.2.4 Terms related to spherical mirrors</h3>
+      <h3 id="h-9-2-terms">Terms related to spherical mirrors</h3>
       <TableCard
         title="The points and distances that describe a spherical mirror"
         headers={["Term", "Meaning"]}
@@ -250,7 +268,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         ]}
       />
 
-      <h3 id="h-9-2-focus">9.2.5 Focus and focal length</h3>
+      <h3 id="h-9-2-focus">Focus and focal length</h3>
       <p>For a mirror of small aperture the focus sits halfway from the pole to the centre of curvature.</p>
       <FormulaBlock
         important
@@ -327,7 +345,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         />
       </Expandable>
 
-      <h3 id="h-9-2-paraxial">9.2.6 Paraxial rays</h3>
+      <h3 id="h-9-2-paraxial">Paraxial rays</h3>
       <p>
         <strong>Paraxial rays</strong> are rays incident close to the pole P, making small angles with the principal
         axis.
@@ -338,7 +356,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         spherical aberration.
       </p>
 
-      <h3 id="h-9-2-rules">9.2.7 Rules for image formation</h3>
+      <h3 id="h-9-2-rules">Rules for image formation</h3>
       <p>
         Any two of these four rays are enough to locate an image. Each one leaves the mirror along a path fixed by the
         laws of reflection.
@@ -380,7 +398,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </div>
       </div>
 
-      <h3 id="h-9-2-convention">9.2.8 Sign convention</h3>
+      <h3 id="h-9-2-convention">Sign convention</h3>
       <PhysicsFigure spec={signConventionConcave} />
       <PhysicsFigure spec={signConventionConvex} />
       <p>
@@ -388,7 +406,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         ; an inverted image below it has a negative <Formula>{String.raw`h_i`}</Formula>.
       </p>
 
-      <h3 id="h-9-2-symbols">9.2.9 Symbols</h3>
+      <h3 id="h-9-2-symbols">Symbols</h3>
       <TableCard
         title="The six quantities a mirror problem uses"
         headers={["Symbol", "Stands for"]}
@@ -402,7 +420,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         ]}
       />
 
-      <h3 id="h-9-2-reading">9.2.10 Reading the signs off a problem</h3>
+      <h3 id="h-9-2-reading">Reading the signs off a problem</h3>
       <p>Before any substitution, decide which side of the pole each point lies on.</p>
       <TableCard
         title="Three statements translated into signs"
@@ -437,7 +455,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         Read these rows for the signs alone — a real convex mirror always gives a diminished image.
       </p>
 
-      <h3 id="h-9-2-real-image">9.2.11 The image of a real object</h3>
+      <h3 id="h-9-2-real-image">The image of a real object</h3>
       <p>An object standing between F and C of a concave mirror sends back rays that meet beyond C.</p>
       <PhysicsFigure spec={concaveRealImage} />
       <p>
@@ -474,7 +492,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </ul>
       </KeyPoint>
 
-      <h3 id="h-9-2-at-a-glance">9.2.12 Signs at a glance</h3>
+      <h3 id="h-9-2-at-a-glance">Signs at a glance</h3>
       <TableCard
         title="The sign of every quantity, by mirror"
         headers={["Mirror", "f", "u", "v", "h_o", "h_i"]}
@@ -485,7 +503,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
       />
       <p>The object is real in every problem here, which is why u stays negative.</p>
 
-      <h3 id="h-9-2-magnification">9.2.13 Linear magnification</h3>
+      <h3 id="h-9-2-magnification">Linear magnification</h3>
       <p>The size of the image compared with the size of the object is the linear magnification.</p>
       <FormulaBlock
         important
@@ -514,7 +532,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         ]}
       />
 
-      <h3 id="h-9-2-mirror-equation">9.2.14 The mirror equation</h3>
+      <h3 id="h-9-2-mirror-equation">The mirror equation</h3>
       <p>
         Object distance, image distance and focal length are tied by one relation, and it drops out of two pairs of
         similar triangles.
@@ -562,11 +580,11 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         />
       </Expandable>
       <p>
-        <strong>The mirror equation</strong> is the last line. With the signs of 9.2.8 in place it covers every case —
+        <strong>The mirror equation</strong> is the last line. With the sign convention in place it covers every case —
         real or virtual, concave or convex.
       </p>
 
-      <h3 id="h-9-2-worked">9.2.15 Worked examples</h3>
+      <h3 id="h-9-2-worked">Worked examples</h3>
       <Expandable title="Example — object 6 cm from a concave mirror of focal length 12 cm" variant="example">
         <ProblemSolution.Problem>
           <p>
@@ -695,133 +713,800 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
 
       <h2 id="h-9-3">9.3 Refraction</h2>
 
-      <h3 id="h-9-3-what">9.3.1 What refraction is</h3>
-      <p>
-        When a beam of light meets another transparent medium, part of it is reflected back into the first medium and
-        the rest enters the second.
-      </p>
-      <p>
-        The part that enters changes direction at the interface, provided the ray is obliquely incident —{" "}
-        <Formula>{String.raw`0^\circ < i < 90^\circ`}</Formula>.
-      </p>
-      <Callout type="note" title="Refraction — definition">
-        <p>
-          <strong>Refraction</strong> is the change in direction of a ray when it passes obliquely from one
-          transparent medium into another.
-        </p>
-      </Callout>
-      <PhysicsFigure spec={refractionAtSurface} />
-
-      <h3 id="h-9-3-laws">9.3.2 Snell&rsquo;s laws of refraction</h3>
-      <p>Snell obtained two laws experimentally.</p>
-      <KeyPoint title="Laws of refraction">
-        <ol className="mt-1 list-decimal space-y-2 pl-5">
-          <li>
-            <strong>One plane.</strong> The incident ray, the refracted ray and the normal to the interface at the
-            point of incidence all lie in the same plane.
-          </li>
-          <li>
-            <strong>Constant ratio.</strong> The ratio of the sine of the angle of incidence to the sine of the angle
-            of refraction is a constant.
-          </li>
-        </ol>
-      </KeyPoint>
-      <Callout type="important" title="Which angles">
-        <p>
-          <Formula>{String.raw`i`}</Formula> and <Formula>{String.raw`r`}</Formula> are measured from the{" "}
-          <strong>normal</strong>, never from the surface.
-        </p>
-      </Callout>
-      <FormulaBlock
-        important
-        label="Snell&rsquo;s law of refraction"
-        tag="Eq. 9.10"
-        latex={String.raw`n_{21} = \frac{\sin i}{\sin r}`}
+      <RefractionHero
+        blocks={["Refractive Index", "Laws of Refraction", "Applications of Refraction"]}
+        figure={
+          <PhysicsFigure
+            spec={refractionHeaderCrossing}
+            showCaption={false}
+            labelScale={1.1}
+            className="my-0"
+          />
+        }
       />
+
+      <h3 id="h-9-3-speed">Speed of light in different media</h3>
       <p>
-        The constant <Formula>{String.raw`n_{21}`}</Formula> is the{" "}
-        <strong>refractive index of the second medium with respect to the first</strong>.
+        <strong>No.</strong> The speed of light changes when it travels through different media.
       </p>
       <ul className="my-6 list-none space-y-2 pl-0">
         <li>
-          <strong>It belongs to the pair.</strong> It is a characteristic of the two media together.
+          <strong>Maximum speed → Vacuum.</strong>
         </li>
         <li>
-          <strong>The wavelength matters.</strong> The value depends on the wavelength of the light used.
-        </li>
-        <li>
-          <strong>The angle does not.</strong> It is independent of the angle of incidence.
+          <strong>Minimum speed → Diamond.</strong>
         </li>
       </ul>
+      <RankStrip
+        title="Relative order of speed"
+        direction="descending"
+        items={[
+          { label: <Formula>{String.raw`v_{\text{Vacuum}}`}</Formula>, extreme: true },
+          { label: <Formula>{String.raw`v_{\text{Air}}`}</Formula> },
+          { label: <Formula>{String.raw`v_{\text{Glass}}`}</Formula> },
+          { label: <Formula>{String.raw`v_{\text{Diamond}}`}</Formula>, extreme: true },
+        ]}
+      />
+      <RankStrip
+        title="Corresponding refractive index order"
+        direction="ascending"
+        items={[
+          { label: <Formula>{String.raw`n_{\text{Vacuum}}`}</Formula>, extreme: true },
+          { label: <Formula>{String.raw`n_{\text{Air}}`}</Formula> },
+          { label: <Formula>{String.raw`n_{\text{Glass}}`}</Formula> },
+          { label: <Formula>{String.raw`n_{\text{Diamond}}`}</Formula>, extreme: true },
+        ]}
+      />
 
-      <h3 id="h-9-3-bend">9.3.3 Which way the ray bends</h3>
-      <p>The size of <Formula>{String.raw`n_{21}`}</Formula> against 1 decides the direction of the bend.</p>
+      <h3 id="h-9-3-index">Refractive index (n)</h3>
+      <FormulaCard label="Definition — refractive index" subjectColor="var(--subject-physics)">
+        <p>
+          The <strong>refractive index</strong> of a medium is the ratio of the velocity of light in vacuum to the
+          velocity of light in that medium.
+        </p>
+        <FormulaBlock label="Vacuum to medium" latex={String.raw`\text{Vacuum}\xrightarrow{c}\text{Medium}\xrightarrow{v}`} />
+        <FormulaBlock important latex={String.raw`n=\frac{c}{v}`} />
+      </FormulaCard>
       <TableCard
-        title="Bending towards or away from the normal"
-        headers={["Refractive index", "The ray", "The media"]}
+        title="Symbols"
+        headers={["Symbol", "Meaning"]}
         rows={[
+          { cells: [<Formula key="n">{String.raw`n`}</Formula>, "Absolute refractive index of the medium"] },
+          { cells: [<Formula key="c">{String.raw`c`}</Formula>, "Speed of light in vacuum"] },
+          { cells: [<Formula key="v">{String.raw`v`}</Formula>, "Speed of light in the medium"] },
+        ]}
+      />
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Unit → No unit.</strong>
+        </li>
+        <li>
+          <strong>Dimension → Dimensionless.</strong>
+        </li>
+      </ul>
+      <h4>Vacuum / air</h4>
+      <FormulaStrip>
+        <FormulaBlock latex={String.raw`n_{\text{Vacuum/Air}}=\frac{c}{c}=1`} />
+      </FormulaStrip>
+      <FormulaStrip>
+        <FormulaBlock important label="Minimum refractive index" latex={String.raw`n_{\min}=1`} />
+      </FormulaStrip>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Minimum refractive index → Vacuum / Air.</strong>
+        </li>
+        <li>
+          <strong>Condition →</strong> <Formula>{String.raw`n<1`}</Formula> is not possible in the stated real-life
+          context of these notes.
+        </li>
+      </ul>
+      <h4>Important relationship</h4>
+      <ConnectedCards
+        top={<FormulaBlock latex={String.raw`n=\frac{c}{v}`} />}
+        bottom={
+          <>
+            <FormulaBlock important latex={String.raw`v\downarrow\quad\Longrightarrow\quad n\uparrow`} />
+            <p>Lower speed in a medium corresponds to a higher refractive index.</p>
+          </>
+        }
+      />
+
+      <h3 id="h-9-3-absolute-examples">Numerical problems — absolute refractive index</h3>
+      <p>
+        <strong>General method.</strong> Use <Formula>{String.raw`n=\frac{c}{v}`}</Formula>.
+      </p>
+      <p>
+        <strong>Use.</strong> <Formula>{String.raw`c=3\times10^8\ \text{m/s}`}</Formula>.
+      </p>
+      <div className="my-6 grid gap-4 lg:grid-cols-2">
+        <Expandable
+          title="Example A — speed 2×10⁸ m/s"
+          variant="example"
+          subjectColor="var(--subject-physics)"
+        >
+          <Stepper
+            steps={[
+              {
+                label: "Given",
+                description: <Formula>{String.raw`v=2\times10^8\ \text{m/s}`}</Formula>,
+              },
+              {
+                label: "Formula",
+                description: <Formula>{String.raw`n=\frac{c}{v}`}</Formula>,
+              },
+              {
+                label: "Substitution",
+                description: <Formula>{String.raw`n=\frac{3\times10^8}{2\times10^8}`}</Formula>,
+              },
+              {
+                label: "Answer",
+                description: <Formula>{String.raw`n=1.5`}</Formula>,
+              },
+            ]}
+          />
+        </Expandable>
+        <Expandable
+          title="Example B — speed 0.5×10⁸ m/s"
+          variant="example"
+          subjectColor="var(--subject-physics)"
+        >
+          <Stepper
+            steps={[
+              {
+                label: "Given",
+                description: <Formula>{String.raw`v=0.5\times10^8\ \text{m/s}`}</Formula>,
+              },
+              {
+                label: "Formula",
+                description: <Formula>{String.raw`n=\frac{c}{v}`}</Formula>,
+              },
+              {
+                label: "Substitution",
+                description: <Formula>{String.raw`n=\frac{3\times10^8}{0.5\times10^8}`}</Formula>,
+              },
+              {
+                label: "Answer",
+                description: (
+                  <div className="space-y-2">
+                    <p>
+                      <Highlight>
+                        <Formula>{String.raw`n=6`}</Formula>
+                      </Highlight>
+                    </p>
+                    <p>
+                      The speed of light in the medium is <Formula>{String.raw`1/6`}</Formula> of its speed in vacuum.
+                    </p>
+                  </div>
+                ),
+              },
+            ]}
+          />
+        </Expandable>
+      </div>
+
+      <h3 id="h-9-3-boundary">Refraction at a plane boundary</h3>
+      <Callout type="note" title="Refraction — definition">
+        <p>
+          <Highlight>
+            <strong>Refraction</strong>
+          </Highlight>{" "}
+          is the bending or deviation of the path of light when it travels obliquely from one medium to another.
+        </p>
+      </Callout>
+      <PhysicsFigure spec={refractionPlaneBoundary} />
+      <TableCard
+        title="Important terminology"
+        headers={["Term", "Meaning"]}
+        rows={[
+          { cells: ["Incident ray", "Ray approaching the boundary"] },
+          { cells: ["Refracted ray", "Ray entering the second medium"] },
+          { cells: ["Normal", "Perpendicular to the boundary"] },
           {
             cells: [
-              "n₂₁ > 1",
-              "r < i — bends towards the normal",
-              "medium 2 is optically denser than medium 1",
+              <>Angle of incidence (<Formula>{String.raw`i`}</Formula>)</>,
+              "Angle between incident ray and normal",
             ],
           },
           {
             cells: [
-              "n₂₁ < 1",
-              "r > i — bends away from the normal",
-              "the light passes from a denser to a rarer medium",
+              <>Angle of refraction (<Formula>{String.raw`r`}</Formula>)</>,
+              "Angle between refracted ray and normal",
+            ],
+          },
+        ]}
+      />
+      <Callout type="tip" title="Special case — normal incidence">
+        <p>
+          When light strikes the boundary perpendicularly (along the normal), it passes into the second medium without
+          bending.
+        </p>
+      </Callout>
+
+      <h3 id="h-9-3-bending">Bending between rarer and denser media</h3>
+      <div className="my-6 grid gap-5 lg:grid-cols-2">
+        <div className="min-w-0">
+          <h4>Rarer medium → denser medium</h4>
+          <PhysicsFigure spec={refractionRarerToDenser} showCaption={false} labelScale={1.15} className="my-3" />
+          <ConditionStrip
+            items={[
+              <Formula key="n">{String.raw`n_1<n_2`}</Formula>,
+              <Formula key="v">{String.raw`v_1>v_2`}</Formula>,
+              <Formula key="i">{String.raw`i>r`}</Formula>,
+            ]}
+          />
+          <p>
+            Light bends <Highlight>towards the normal</Highlight> when travelling from a rarer medium to a denser
+            medium.
+          </p>
+        </div>
+        <div className="min-w-0">
+          <h4>Denser medium → rarer medium</h4>
+          <PhysicsFigure spec={refractionDenserToRarer} showCaption={false} labelScale={1.15} className="my-3" />
+          <ConditionStrip
+            items={[
+              <Formula key="n">{String.raw`n_1>n_2`}</Formula>,
+              <Formula key="v">{String.raw`v_1<v_2`}</Formula>,
+              <Formula key="i">{String.raw`i<r`}</Formula>,
+            ]}
+          />
+          <p>
+            Light bends <Highlight>away from the normal</Highlight> when travelling from a denser medium to a rarer
+            medium.
+          </p>
+        </div>
+      </div>
+      <TableCard
+        title="Comparison — direction of bending"
+        headers={["Property", "Rarer → denser", "Denser → rarer"]}
+        rows={[
+          {
+            cells: [
+              "Refractive index",
+              <Formula key="a">{String.raw`n_1<n_2`}</Formula>,
+              <Formula key="b">{String.raw`n_1>n_2`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Speed",
+              <Formula key="a">{String.raw`v_1>v_2`}</Formula>,
+              <Formula key="b">{String.raw`v_1<v_2`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              "Angles",
+              <Formula key="a">{String.raw`i>r`}</Formula>,
+              <Formula key="b">{String.raw`i<r`}</Formula>,
+            ],
+          },
+          { cells: ["Bending", "Towards normal", "Away from normal"] },
+        ]}
+      />
+      <p className="t-micro">Remember</p>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Denser medium → Towards normal.</strong>
+        </li>
+        <li>
+          <strong>Rarer medium → Away from normal.</strong>
+        </li>
+      </ul>
+
+      <h3 id="h-9-3-snell">Snell&rsquo;s law</h3>
+      <ConnectedCards
+        top={
+          <>
+            <p className="t-micro">Statement</p>
+            <p>
+              The ratio of the sine of the angle of incidence to the sine of the angle of refraction is constant for a
+              given pair of media.
+            </p>
+            <FormulaStrip>
+              <FormulaBlock
+                important
+                label="Mathematical expression"
+                latex={String.raw`\frac{\sin i}{\sin r}=\text{constant}`}
+              />
+            </FormulaStrip>
+          </>
+        }
+        bottom={
+          <>
+            <p className="t-micro">Refractive-index form</p>
+            <p>When light travels from Medium 1 to Medium 2:</p>
+            <FormulaStrip>
+              <FormulaBlock
+                important
+                latex={String.raw`\frac{\sin i}{\sin r}=\frac{n_2}{n_1}=n_{21}`}
+              />
+            </FormulaStrip>
+            <ul className="my-3 list-none space-y-2 pl-0">
+              <li>
+                <strong>i → Angle of incidence.</strong>
+              </li>
+              <li>
+                <strong>r → Angle of refraction.</strong>
+              </li>
+              <li>
+                <strong>n₁ → Absolute refractive index of Medium 1.</strong>
+              </li>
+              <li>
+                <strong>n₂ → Absolute refractive index of Medium 2.</strong>
+              </li>
+            </ul>
+          </>
+        }
+      />
+      <div className="mx-auto max-w-xs">
+        <PhysicsFigure spec={refractionSnellDiagram} showCaption={false} labelScale={1.2} className="my-0" />
+      </div>
+
+      <h3 id="h-9-3-relative-index">Relative refractive index</h3>
+      <DirectionPair
+        first={{
+          direction: <>Medium 1 → Medium 2</>,
+          formula: (
+            <>
+              <FormulaBlock latex={String.raw`\frac{\sin i}{\sin r}=\frac{n_2}{n_1}`} />
+              <FormulaBlock important latex={String.raw`n_{21}=\frac{n_2}{n_1}`} />
+            </>
+          ),
+          meaning: "This is the refractive index of Medium 2 with respect to Medium 1.",
+        }}
+        second={{
+          direction: <>Medium 2 → Medium 1</>,
+          formula: (
+            <>
+              <FormulaBlock latex={String.raw`\frac{\sin i}{\sin r}=\frac{n_1}{n_2}`} />
+              <FormulaBlock important latex={String.raw`n_{12}=\frac{n_1}{n_2}`} />
+            </>
+          ),
+          meaning: "This is the refractive index of Medium 1 with respect to Medium 2.",
+        }}
+        reciprocal={<FormulaBlock important latex={String.raw`n_{12}=\frac{1}{n_{21}}`} />}
+      />
+      <p>
+        <strong>Combining both.</strong> The two relative indices are reciprocals.
+      </p>
+
+      <h3 id="h-9-3-relative-velocity">Relative refractive index in terms of velocity</h3>
+      <p>
+        <strong>Using the absolute refractive index formula</strong> <Formula>{String.raw`n=\frac{c}{v}`}</Formula>.
+      </p>
+      <DerivationPair
+        columns={[
+          {
+            title: "Medium 2 with respect to Medium 1",
+            rows: [
+              {
+                label: "Absolute R.I. ratio",
+                formula: <FormulaBlock latex={String.raw`n_{21}=\frac{n_2}{n_1}`} />,
+              },
+              {
+                label: "Substitute c / v",
+                formula: <FormulaBlock latex={String.raw`=\frac{c/v_2}{c/v_1}`} />,
+              },
+              {
+                label: "Simplify",
+                formula: <FormulaBlock important latex={String.raw`n_{21}=\frac{v_1}{v_2}`} />,
+                final: true,
+              },
+            ],
+          },
+          {
+            title: "Medium 1 with respect to Medium 2",
+            rows: [
+              {
+                label: "Absolute R.I. ratio",
+                formula: <FormulaBlock latex={String.raw`n_{12}=\frac{n_1}{n_2}`} />,
+              },
+              {
+                label: "Substitute c / v",
+                formula: <FormulaBlock latex={String.raw`=\frac{c/v_1}{c/v_2}`} />,
+              },
+              {
+                label: "Simplify",
+                formula: <FormulaBlock important latex={String.raw`n_{12}=\frac{v_2}{v_1}`} />,
+                final: true,
+              },
+            ],
+          },
+        ]}
+      />
+      <TableCard
+        title="Complete formula comparison"
+        headers={["Relative refractive index", "In terms of absolute R.I.", "In terms of velocity"]}
+        rows={[
+          {
+            cells: [
+              <Formula key="n21">{String.raw`n_{21}`}</Formula>,
+              <Formula key="a">{String.raw`\frac{n_2}{n_1}`}</Formula>,
+              <Formula key="b">{String.raw`\frac{v_1}{v_2}`}</Formula>,
+            ],
+          },
+          {
+            cells: [
+              <Formula key="n12">{String.raw`n_{12}`}</Formula>,
+              <Formula key="a">{String.raw`\frac{n_1}{n_2}`}</Formula>,
+              <Formula key="b">{String.raw`\frac{v_2}{v_1}`}</Formula>,
+            ],
+          },
+        ]}
+      />
+      <FormulaStrip>
+        <FormulaBlock important label="Reciprocal relationship" latex={String.raw`n_{12}=\frac{1}{n_{21}}`} />
+      </FormulaStrip>
+
+      <h3 id="h-9-3-laws-answer">Laws of refraction — 2 marks</h3>
+      <KeyPoint title="Exam-answer block">
+        <ol className="mt-1 list-decimal space-y-3 pl-5">
+          <li>
+            <strong>First law.</strong> The incident ray, refracted ray and normal at the point of incidence lie in the
+            same plane.
+          </li>
+          <li>
+            <strong>Second law (Snell&rsquo;s law).</strong> The ratio of the sine of the angle of incidence to the
+            sine of the angle of refraction is constant.
+          </li>
+        </ol>
+      </KeyPoint>
+      <FormulaStrip>
+        <FormulaBlock
+          important
+          label="Second law — highlighted strip"
+          latex={String.raw`\frac{\sin i}{\sin r}=\text{constant}`}
+        />
+      </FormulaStrip>
+
+      <h3 id="h-9-3-relative-problem">Worked problem — relative refractive index</h3>
+      <Expandable
+        title="Worked problem — relative refractive index"
+        variant="example"
+        subjectColor="var(--subject-physics)"
+      >
+        <TableCard
+          headers={["Quantity", "Medium 1", "Medium 2"]}
+          rows={[
+            {
+              cells: [
+                "Velocity",
+                <Formula key="m1">{String.raw`2\times10^8\ \text{m/s}`}</Formula>,
+                <Formula key="m2">{String.raw`0.5\times10^8\ \text{m/s}`}</Formula>,
+              ],
+            },
+            {
+              cells: [
+                "Absolute R.I.",
+                <Formula key="m1">{String.raw`n_1=?`}</Formula>,
+                <Formula key="m2">{String.raw`n_2=?`}</Formula>,
+              ],
+            },
+          ]}
+        />
+        <FormulaStrip>
+          <FormulaBlock important label="Direction of travel" latex={String.raw`1\rightarrow2`} />
+        </FormulaStrip>
+        <p>
+          Since <Formula>{String.raw`n_1<n_2`}</Formula>, light travels from a rarer medium to a denser medium.
+        </p>
+        <Stepper
+          steps={[
+            {
+              label: "Step 1 — Find absolute refractive indices",
+              description: (
+                <div className="space-y-2">
+                  <p>
+                    Using <Formula>{String.raw`n=\frac{c}{v}`}</Formula>.
+                  </p>
+                  <p>
+                    For Medium 1: <Formula>{String.raw`n_1=\frac{3\times10^8}{2\times10^8}`}</Formula>
+                  </p>
+                  <p>
+                    <Formula>{String.raw`n_1=1.5`}</Formula>
+                  </p>
+                  <p>
+                    For Medium 2: <Formula>{String.raw`n_2=\frac{3\times10^8}{0.5\times10^8}`}</Formula>
+                  </p>
+                  <p>
+                    <Formula>{String.raw`n_2=6`}</Formula>
+                  </p>
+                </div>
+              ),
+            },
+            {
+              label: "Step 2 — Find n₁₂",
+              description: (
+                <div className="space-y-2">
+                  <p>
+                    Refractive index of Medium 1 with respect to Medium 2:{" "}
+                    <Formula>{String.raw`n_{12}=\frac{n_1}{n_2}=\frac{v_2}{v_1}`}</Formula>
+                  </p>
+                  <p>
+                    Substitution: <Formula>{String.raw`n_{12}=\frac{1.5}{6}`}</Formula>
+                  </p>
+                  <p>
+                    <Formula>{String.raw`=\frac{0.5\times10^8}{2\times10^8}`}</Formula>
+                  </p>
+                  <p>
+                    <Formula>{String.raw`n_{12}=0.25`}</Formula>
+                  </p>
+                </div>
+              ),
+            },
+            {
+              label: "Step 3 — Find n₂₁",
+              description: (
+                <div className="space-y-2">
+                  <p>
+                    Refractive index of Medium 2 with respect to Medium 1:{" "}
+                    <Formula>{String.raw`n_{21}=\frac{n_2}{n_1}=\frac{v_1}{v_2}`}</Formula>
+                  </p>
+                  <p>
+                    Substitution: <Formula>{String.raw`n_{21}=\frac{6}{1.5}`}</Formula>
+                  </p>
+                  <p>
+                    <Formula>{String.raw`=\frac{2\times10^8}{0.5\times10^8}`}</Formula>
+                  </p>
+                  <p>
+                    <Formula>{String.raw`n_{21}=4`}</Formula>
+                  </p>
+                </div>
+              ),
+            },
+            {
+              label: "Step 4 — Verify reciprocal relationship",
+              description: (
+                <div className="space-y-2 [&>div]:my-0">
+                  <FormulaBlock latex={String.raw`n_{12}=\frac{1}{n_{21}}`} />
+                  <FormulaBlock latex={String.raw`=\frac14`} />
+                  <FormulaBlock important latex={String.raw`n_{12}=0.25`} />
+                </div>
+              ),
+            },
+          ]}
+        />
+        <p className="t-micro">Final Results</p>
+        <div className="my-4 grid gap-3 sm:grid-cols-2">
+          <ResultCard
+            label="Medium 1 w.r.t. Medium 2"
+            value="0.25"
+            symbol={<Formula>{String.raw`n_{12}`}</Formula>}
+          />
+          <ResultCard
+            label="Medium 2 w.r.t. Medium 1"
+            value="4"
+            symbol={<Formula>{String.raw`n_{21}`}</Formula>}
+          />
+        </div>
+        <p>Reciprocal relationship verified.</p>
+      </Expandable>
+
+      <h3 id="h-9-3-applications">Applications of refraction in real life</h3>
+      <p>Two applications covered:</p>
+      <ol className="my-6 list-decimal space-y-2 pl-5">
+        <li>Lateral Shift of a Ray Refracted Through a Parallel-Sided Slab.</li>
+        <li>Apparent Depth.</li>
+      </ol>
+      <div className="my-6 grid gap-4 sm:grid-cols-2">
+        <ApplicationCard
+          title="Lateral Shift of a Ray Refracted Through a Parallel-Sided Slab"
+          href="#h-9-3-lateral-shift"
+          figure={
+            <PhysicsFigure
+              spec={refractionSlabFourAngles}
+              showCaption={false}
+              labelScale={1.2}
+              className="my-0"
+            />
+          }
+        />
+        <ApplicationCard
+          title="Apparent Depth"
+          href="#h-9-3-apparent-depth"
+          figure={
+            <PhysicsFigure
+              spec={refractionApparentConcept}
+              showCaption={false}
+              labelScale={1.2}
+              className="my-0"
+            />
+          }
+        />
+      </div>
+
+      <h3 id="h-9-3-lateral-shift">Lateral shift through a parallel-sided glass slab</h3>
+      <h4>Refraction through a parallel-sided slab</h4>
+      <p>A parallel-sided slab represents Medium 2, surrounded by Medium 1.</p>
+      <FormulaStrip>
+        <FormulaBlock important label="Medium condition" latex={String.raw`n_2>n_1`} />
+      </FormulaStrip>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Medium 1 → Surrounding medium.</strong>
+        </li>
+        <li>
+          <strong>Medium 2 → Slab medium.</strong>
+        </li>
+      </ul>
+      <h4>Ray diagram and terminology</h4>
+      <PhysicsFigure spec={refractionSlabFourAngles} />
+      <h4>Important geometrical relationship</h4>
+      <p>
+        Since <Formula>{String.raw`N_1`}</Formula> and <Formula>{String.raw`N_2`}</Formula> are parallel:
+      </p>
+      <FormulaStrip>
+        <FormulaBlock important latex={String.raw`r_1=i_2`} />
+      </FormulaStrip>
+      <p>This follows from alternate interior angles.</p>
+      <h4>Key result</h4>
+      <p>The emergent ray is parallel to the incident ray.</p>
+      <TakeawayBlock
+        formula={<FormulaStrip><FormulaBlock important latex={String.raw`i_1=r_2`} /></FormulaStrip>}
+        figure={
+          <PhysicsFigure
+            spec={refractionParallelEmergence}
+            showCaption={false}
+            labelScale={1.2}
+            className="my-0"
+          />
+        }
+      />
+      <p>
+        <Highlight>Angle of incidence = Angle of emergence</Highlight>
+      </p>
+      <h4>Proof — emergent ray is parallel to incident ray</h4>
+      <Stepper
+        steps={[
+          {
+            label: "At the first interface (Medium 1 → Medium 2)",
+            description: (
+              <div className="space-y-2">
+                <p>By Snell&rsquo;s law:</p>
+                <FormulaBlock tag="(1)" latex={String.raw`\frac{\sin i_1}{\sin r_1}=\frac{n_2}{n_1}`} />
+              </div>
+            ),
+          },
+          {
+            label: "At the second interface (Medium 2 → Medium 1)",
+            description: (
+              <div className="space-y-2">
+                <p>By Snell&rsquo;s law:</p>
+                <FormulaBlock latex={String.raw`\frac{\sin i_2}{\sin r_2}=\frac{n_1}{n_2}`} />
+                <p>Taking the reciprocal:</p>
+                <FormulaBlock tag="(2)" latex={String.raw`\frac{\sin r_2}{\sin i_2}=\frac{n_2}{n_1}`} />
+              </div>
+            ),
+          },
+          {
+            label: "Equating (1) and (2)",
+            description: (
+              <div className="space-y-2">
+                <FormulaBlock latex={String.raw`\frac{\sin i_1}{\sin r_1}=\frac{\sin r_2}{\sin i_2}`} />
+                <p>From the slab diagram, since the normals are parallel:</p>
+                <FormulaBlock latex={String.raw`r_1=i_2`} />
+                <p>Therefore:</p>
+                <FormulaBlock latex={String.raw`\sin r_1=\sin i_2`} />
+                <p>Substituting:</p>
+                <FormulaBlock latex={String.raw`\sin i_1=\sin r_2`} />
+                <p>Hence:</p>
+                <FormulaBlock important latex={String.raw`i_1=r_2`} />
+              </div>
+            ),
+          },
+        ]}
+      />
+      <p>
+        <strong>Conclusion.</strong> The emergent ray is parallel to the incident ray.
+      </p>
+
+      <h3 id="h-9-3-apparent-depth">Apparent depth</h3>
+      <h4>Principle</h4>
+      <p>
+        When an object in a denser medium is viewed from a rarer medium, its image appears to be raised towards the
+        surface.
+      </p>
+      <PhysicsFigure spec={refractionApparentConcept} />
+      <h4>Apparent depth vs. real depth</h4>
+      <ul className="my-6 list-none space-y-2 pl-0">
+        <li>
+          <strong>Upper medium → Rarer medium (Air),</strong> <Formula>{String.raw`n_1`}</Formula>.
+        </li>
+        <li>
+          <strong>Lower medium → Denser medium (Water),</strong> <Formula>{String.raw`n_2`}</Formula>.
+        </li>
+        <li>
+          <strong>Eye → Above the surface</strong> in the rarer medium.
+        </li>
+        <li>
+          <strong>Rays → Bend away from the normal</strong> on entering the rarer medium.
+        </li>
+        <li>
+          <strong>Backward extensions → Locate the virtual image</strong> above the actual object.
+        </li>
+      </ul>
+      <PhysicsFigure spec={refractionApparentDepth} />
+      <h4>Relationship between real depth and apparent depth</h4>
+      <p>
+        The refractive index of Medium 2 (denser) with respect to Medium 1 (rarer) is:
+      </p>
+      <FormulaStrip>
+        <div className="w-full space-y-2 [&>div]:my-0">
+          <FormulaBlock latex={String.raw`n_{21}=\frac{\text{Real depth}}{\text{Apparent depth}}`} />
+          <FormulaBlock important label="Substituting" latex={String.raw`n_{21}=\frac{d}{d'}`} />
+        </div>
+      </FormulaStrip>
+      <h4>Formula for apparent depth</h4>
+      <ConnectedCards
+        top={<FormulaBlock latex={String.raw`n_{21}=\frac{d}{d'}`} />}
+        bottom={
+          <FormulaBlock important label="Primary calculation formula" latex={String.raw`d'=\frac{d}{n_{21}}`} />
+        }
+      />
+      <TableCard
+        title="Symbols"
+        headers={["Symbol", "Meaning"]}
+        rows={[
+          { cells: [<Formula key="d">{String.raw`d`}</Formula>, "Real depth"] },
+          { cells: [<Formula key="dp">{String.raw`d'`}</Formula>, "Apparent depth"] },
+          {
+            cells: [
+              <Formula key="n21">{String.raw`n_{21}`}</Formula>,
+              "Refractive index of denser medium with respect to rarer medium",
             ],
           },
         ]}
       />
 
-      <h3 id="h-9-3-density">9.3.4 Optical density is not mass density</h3>
-      <p>
-        Optical density is the ratio of the speed of light in the two media. Mass density is mass per unit volume.
-      </p>
-      <MistakeCard
-        mistake="A liquid with a higher mass density must be the optically denser medium."
-        correction="The two densities measure different things and need not agree. An optically denser medium can have the lower mass density."
-        example="Turpentine has a lower mass density than water, but a higher optical density."
-      />
-
-      <h3 id="h-9-3-chain">9.3.5 Reversing the pair, and adding a third medium</h3>
-      <ul className="my-6 list-none space-y-2 pl-0">
-        <li>
-          <strong>Reverse the pair.</strong> <Formula>{String.raw`n_{12} = \frac{1}{n_{21}}`}</Formula>
-        </li>
-        <li>
-          <strong>Insert a third medium.</strong>{" "}
-          <Formula>{String.raw`n_{32} = n_{31} \times n_{12}`}</Formula>, where{" "}
-          <Formula>{String.raw`n_{31}`}</Formula> is the index of medium 3 with respect to medium 1.
-        </li>
-      </ul>
-
-      <h3 id="h-9-3-slab">9.3.6 A slab: no deviation, only a side-step</h3>
-      <p>A rectangular slab refracts twice — air to glass at the first face, glass to air at the second.</p>
-      <p>The faces are parallel, so the angles repeat:</p>
-      <FormulaBlock label="The emergent angle repeats the incident one" latex={String.raw`r_2 = i_1`} />
-      <p>
-        The emergent ray is therefore parallel to the incident ray. It suffers no deviation, but it is displaced
-        sideways (Fig. 9.9).
-      </p>
-      <PhysicsFigure spec={slabShift} />
-
-      <h3 id="h-9-3-depth">9.3.7 The bottom of the tank looks raised</h3>
-      <p>A familiar consequence: a tank full of water looks shallower than it is (Fig. 9.10).</p>
-      <p>For viewing near the normal direction, the apparent depth is the real depth divided by the refractive index:</p>
-      <FormulaBlock
-        important
-        label="Apparent depth"
-        latex={String.raw`h' = \frac{h}{n}`}
-      />
-      <PhysicsFigure spec={apparentDepth} />
+      <h3 id="h-9-3-formula-sheet">Quick revision — refraction formula sheet</h3>
+      <div className="my-6 grid gap-3 sm:grid-cols-2">
+        <FormulaCard label="Absolute refractive index" subjectColor="var(--subject-physics)">
+          <FormulaBlock latex={String.raw`n=\frac{c}{v}`} />
+        </FormulaCard>
+        <FormulaCard label="Snell’s law" subjectColor="var(--subject-physics)">
+          <FormulaBlock latex={String.raw`\frac{\sin i}{\sin r}=\frac{n_2}{n_1}`} />
+        </FormulaCard>
+        <FormulaCard label="Relative refractive index — absolute form" subjectColor="var(--subject-physics)">
+          <FormulaBlock latex={String.raw`n_{21}=\frac{n_2}{n_1}`} />
+          <FormulaBlock latex={String.raw`n_{12}=\frac{n_1}{n_2}`} />
+        </FormulaCard>
+        <FormulaCard label="Relative refractive index — velocity form" subjectColor="var(--subject-physics)">
+          <FormulaBlock latex={String.raw`n_{21}=\frac{v_1}{v_2}`} />
+          <FormulaBlock latex={String.raw`n_{12}=\frac{v_2}{v_1}`} />
+          <FormulaBlock latex={String.raw`n_{12}=\frac{1}{n_{21}}`} />
+        </FormulaCard>
+        <div className="sm:col-span-2">
+          <FormulaCard label="Applications" subjectColor="var(--subject-physics)">
+            <TableCard
+              headers={["Concept", "Key result"]}
+              rows={[
+                {
+                  cells: [
+                    "Parallel-sided slab",
+                    <Formula key="slab">{String.raw`i_1=r_2`}</Formula>,
+                  ],
+                },
+                {
+                  cells: [
+                    "Apparent depth",
+                    <Formula key="ad">{String.raw`n_{21}=\frac{d}{d'}`}</Formula>,
+                  ],
+                },
+                {
+                  cells: [
+                    "Apparent depth formula",
+                    <Formula key="adf">{String.raw`d'=\frac{d}{n_{21}}`}</Formula>,
+                  ],
+                },
+              ]}
+            />
+          </FormulaCard>
+        </div>
+      </div>
 
       <h2 id="h-9-4">9.4 Total Internal Reflection</h2>
 
-      <h3 id="h-9-4-internal">9.4.1 The reflection inside the denser medium</h3>
+      <h3 id="h-9-4-internal">The reflection inside the denser medium</h3>
       <p>
         When light travels from an optically denser medium to a rarer one, the interface splits it: part is reflected
         back into the same medium, and part is refracted into the second.
@@ -833,7 +1518,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </p>
       </Callout>
 
-      <h3 id="h-9-4-angle">9.4.2 What happens as the angle of incidence grows</h3>
+      <h3 id="h-9-4-angle">What happens as the angle of incidence grows</h3>
       <p>
         Entering the rarer medium the ray bends away from the normal, so <Formula>{String.raw`r > i`}</Formula> from
         the start. Increase the angle of incidence, and the angle of refraction grows with it (Fig. 9.11).
@@ -875,7 +1560,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
       />
       <PhysicsFigure spec={totalInternalReflection} />
 
-      <h3 id="h-9-4-total">9.4.3 Why &ldquo;total&rdquo; is the operative word</h3>
+      <h3 id="h-9-4-total">Why &ldquo;total&rdquo; is the operative word</h3>
       <p>
         When light is reflected by a surface, normally some fraction of it is transmitted. The reflected ray is
         therefore always less intense than the incident ray, however smooth the reflecting surface.
@@ -886,7 +1571,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </p>
       </KeyPoint>
 
-      <h3 id="h-9-4-critical">9.4.4 The critical angle</h3>
+      <h3 id="h-9-4-critical">The critical angle</h3>
       <Callout type="note" title="Critical angle — definition">
         <p>
           The <strong>critical angle</strong> <Formula>{String.raw`i_c`}</Formula> of a given pair of media is the
@@ -937,7 +1622,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         ]}
       />
 
-      <h3 id="h-9-4-demo">9.4.5 Seeing it: a beaker, a little milk and a laser</h3>
+      <h3 id="h-9-4-demo">Seeing it: a beaker, a little milk and a laser</h3>
       <p>All optical phenomena can be demonstrated very easily with a laser torch or pointer.</p>
       <Stepper
         steps={[
@@ -985,7 +1670,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         <p>Never look into the laser beam directly, and never point it at anybody&rsquo;s face.</p>
       </Callout>
 
-      <h3 id="h-9-4-prism">9.4.6 Prisms that turn a ray by 90° or 180°</h3>
+      <h3 id="h-9-4-prism">Prisms that turn a ray by 90° or 180°</h3>
       <ul className="my-6 list-none space-y-2 pl-0">
         <li>
           <strong>Bending the beam.</strong> Prisms designed to bend light by 90° or by 180° make use of total internal
@@ -1000,7 +1685,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </li>
       </ul>
 
-      <h3 id="h-9-4-fibre">9.4.7 Optical fibres</h3>
+      <h3 id="h-9-4-fibre">Optical fibres</h3>
       <p>
         Optical fibres are used extensively for transmitting audio and video signals over long distances, and they too
         rest on total internal reflection (Fig. 9.14).
@@ -1031,7 +1716,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
       </KeyPoint>
       <PhysicsFigure spec={opticalFibre} />
 
-      <h3 id="h-9-4-uses">9.4.8 What a bundle of fibres is used for</h3>
+      <h3 id="h-9-4-uses">What a bundle of fibres is used for</h3>
       <ul className="my-6 list-none space-y-2 pl-0">
         <li>
           <strong>Signals, not just light.</strong> A bundle of optical fibres is used for transmitting and receiving
@@ -1051,7 +1736,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </li>
       </ul>
 
-      <h3 id="h-9-4-absorption">9.4.9 What a fibre must not do: absorb</h3>
+      <h3 id="h-9-4-absorption">What a fibre must not do: absorb</h3>
       <p>
         The main requirement in fabricating an optical fibre is that there should be very little absorption of light as
         it travels the long distances inside it.
@@ -1069,7 +1754,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
 
       <h2 id="h-9-5">9.5 Refraction at Spherical Surfaces and by Lenses</h2>
 
-      <h3 id="h-9-5-surface">9.5.1 Refraction at a single spherical surface</h3>
+      <h3 id="h-9-5-surface">Refraction at a single spherical surface</h3>
       <p>So far the interface has been plane. Now it curves — a spherical interface between two transparent media.</p>
       <p>
         An infinitesimal part of a spherical surface can be regarded as planar, so the same laws of refraction apply at
@@ -1197,7 +1882,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h3 id="h-9-5-lens">9.5.2 Refraction by a lens</h3>
+      <h3 id="h-9-5-lens">Refraction by a lens</h3>
       <p>A lens is handled as two refractions in a row. The first surface forms an image, and that image becomes the object for the second surface.</p>
       <ul className="my-6 list-none space-y-2 pl-0">
         <li>
@@ -1271,7 +1956,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </ul>
       </Callout>
 
-      <h3 id="h-9-5-formula">9.5.3 The thin lens formula</h3>
+      <h3 id="h-9-5-formula">The thin lens formula</h3>
       <EquationLadder
         steps={[
           {
@@ -1297,7 +1982,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         the source is the <strong>first focal point</strong>; the other is the <strong>second focal point</strong>.
       </p>
 
-      <h3 id="h-9-5-rays">9.5.4 The three construction rays</h3>
+      <h3 id="h-9-5-rays">The three construction rays</h3>
       <p>
         In principle any two rays from a point on the object can be traced by the laws of refraction, and their meeting
         point is the image. In practice two of these three are used (Fig. 9.17).
@@ -1324,7 +2009,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         after refraction at the lens.
       </p>
 
-      <h3 id="h-9-5-magnification">9.5.5 Magnification by a lens</h3>
+      <h3 id="h-9-5-magnification">Magnification by a lens</h3>
       <p>Defined as for a mirror: the ratio of the size of the image to that of the object.</p>
       <FormulaBlock
         important
@@ -1377,7 +2062,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h3 id="h-9-5-power">9.5.6 Power of a lens</h3>
+      <h3 id="h-9-5-power">Power of a lens</h3>
       <p>
         Power measures the convergence or divergence a lens introduces in the light falling on it. A lens of shorter
         focal length bends the incident light more.
@@ -1495,7 +2180,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </ProblemSolution.Solution>
       </Expandable>
 
-      <h3 id="h-9-5-combination">9.5.7 Two thin lenses in contact</h3>
+      <h3 id="h-9-5-combination">Two thin lenses in contact</h3>
       <p>
         Take lenses <Formula>{String.raw`A`}</Formula> and <Formula>{String.raw`B`}</Formula> of focal lengths{" "}
         <Formula>{String.raw`f_1`}</Formula> and <Formula>{String.raw`f_2`}</Formula> in contact, with the object beyond
@@ -1620,7 +2305,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
 
       <h2 id="h-9-6">9.6 Refraction Through a Prism</h2>
 
-      <h3 id="h-9-6-angles">9.6.1 The prism and its angles</h3>
+      <h3 id="h-9-6-angles">The prism and its angles</h3>
       <p>
         Fig. 9.21 shows the passage of light through a triangular prism <Formula>{String.raw`ABC`}</Formula>.
       </p>
@@ -1641,7 +2326,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         the emergent ray has been turned away from where the incident ray was going.
       </p>
 
-      <h3 id="h-9-6-sum">9.6.2 Why r₁ + r₂ = A</h3>
+      <h3 id="h-9-6-sum">Why r₁ + r₂ = A</h3>
       <p>
         In the quadrilateral <Formula>{String.raw`AQNR`}</Formula>, two of the angles — at the vertices{" "}
         <Formula>{String.raw`Q`}</Formula> and <Formula>{String.raw`R`}</Formula> — are right angles. The sum of the
@@ -1669,7 +2354,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         So the two angles inside the prism at the two faces always add up to the apex angle <Formula>{String.raw`A`}</Formula>.
       </p>
 
-      <h3 id="h-9-6-deviation">9.6.3 The angle of deviation</h3>
+      <h3 id="h-9-6-deviation">The angle of deviation</h3>
       <p>
         The total deviation <Formula>{String.raw`d`}</Formula> is the sum of the deviations at the two faces.
       </p>
@@ -1691,7 +2376,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         So the angle of deviation depends on the angle of incidence — the ray is not simply turned by a fixed amount.
       </p>
 
-      <h3 id="h-9-6-curve">9.6.4 Deviation against incidence</h3>
+      <h3 id="h-9-6-curve">Deviation against incidence</h3>
       <p>
         Fig. 9.22 plots the angle of deviation against the angle of incidence. What the plot shows is a curve with a
         single lowest point, <Formula>{String.raw`D_m`}</Formula>.
@@ -1713,7 +2398,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </li>
       </ul>
 
-      <h3 id="h-9-6-minimum">9.6.5 Minimum deviation</h3>
+      <h3 id="h-9-6-minimum">Minimum deviation</h3>
       <p>
         At the minimum deviation <Formula>{String.raw`D_m`}</Formula>, the refracted ray inside the prism becomes
         parallel to its base. That is the same as <Formula>{String.raw`d = D_m`}</Formula> and{" "}
@@ -1750,7 +2435,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         </p>
       </Callout>
 
-      <h3 id="h-9-6-thin">9.6.6 The thin prism</h3>
+      <h3 id="h-9-6-thin">The thin prism</h3>
       <p>
         For a small-angle prism — a thin prism — <Formula>{String.raw`D_m`}</Formula> is also very small, and the sines
         in Eq. 9.38 can be replaced by the angles themselves.
@@ -1795,7 +2480,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
       </Callout>
       <p>We now go on to describe the principles of working of the microscope and the telescope.</p>
 
-      <h3 id="h-9-7-microscope">9.7.1 The microscope</h3>
+      <h3 id="h-9-7-microscope">The microscope</h3>
 
       <p className="t-micro">The simple magnifier</p>
       <p>
@@ -2089,7 +2774,7 @@ export default function RayOpticsAndOpticalInstrumentsChapter() {
         improve image quality by minimising various optical aberrations (defects) in lenses.
       </p>
 
-      <h3 id="h-9-7-telescope">9.7.2 The telescope</h3>
+      <h3 id="h-9-7-telescope">The telescope</h3>
 
       <p>
         The telescope is used to provide <strong>angular magnification of distant objects</strong> (Fig. 9.25). It also

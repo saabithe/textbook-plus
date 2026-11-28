@@ -13,7 +13,9 @@ import {
   angleOf,
   arcPoints,
   dir,
+  dist,
   dot,
+  intersectLines,
   mul,
   polar,
   sub,
@@ -22,12 +24,14 @@ import {
   type Vec,
 } from "../../../components/content/physics/diagram/geometry.ts";
 import {
+  apparentDepth as apparentDepthOf,
   criticalAngleDeg,
   minimumDeviation,
   minimumDeviationIncidence,
   prismDeviation,
   reflect,
   refract,
+  slabLateralShift,
   traceRay,
   type RefractingBody,
 } from "../../../components/content/physics/diagram/optics.ts";
@@ -44,6 +48,7 @@ import {
   angleMark,
   arrow,
   body,
+  circle,
   dot as point,
   label,
   lensOutline,
@@ -51,6 +56,7 @@ import {
   normal,
   rightAngle,
   s,
+  tick,
   type Element,
   type FigureSpec,
 } from "../../../components/content/physics/diagram/scene.ts";
@@ -1903,11 +1909,493 @@ export const cassegrain: FigureSpec = {
   ],
 };
 
+/* ────────────────────────────────────────────────────────────────────────
+ * 0f. Refraction note: solved diagrams for the rebuilt 9.3 section
+ * ──────────────────────────────────────────────────────────────────────── */
+
+const RF_HEADER_P: Vec = vec(60, 26);
+const RF_HEADER_I = 35;
+const RF_HEADER = refract(dir(-(90 - RF_HEADER_I)), vec(0, 1), 1, 1.5);
+const RF_HEADER_FROM = add(RF_HEADER_P, mul(dir(90 + RF_HEADER_I), 24));
+const RF_HEADER_TO = add(RF_HEADER_P, mul(RF_HEADER.dir!, 24));
+
+export const refractionHeaderCrossing: FigureSpec = {
+  id: "refraction-header-crossing",
+  title: "A ray crossing between two transparent media",
+  alt: "An incident ray crosses a horizontal boundary and bends into the second transparent medium.",
+  caption: "A ray changes direction when it crosses the boundary between two transparent media.",
+  frame: { width: 120, height: 52 },
+  labelSize: 2.8,
+  elements: [
+    body([vec(0, 0), vec(120, 0), vec(120, 26), vec(0, 26)], "glass"),
+    line(vec(0, 26), vec(120, 26), s("ink", 1)),
+    arrow(RF_HEADER_FROM, RF_HEADER_P, INCIDENT),
+    arrow(RF_HEADER_P, RF_HEADER_TO, EMERGENT),
+    label(vec(6, 47), "transparent medium 1", { anchor: "start", size: 2.5, color: "muted" }),
+    label(vec(6, 5), "transparent medium 2", { anchor: "start", size: 2.5, color: "muted" }),
+  ],
+  checks: [
+    { kind: "snell", i: RF_HEADER.angleOfIncidence, r: RF_HEADER.angleOfRefraction, n1: 1, n2: 1.5 },
+    {
+      kind: "value",
+      label: "header ray follows the solved refracted direction",
+      actual: angleBetween(sub(RF_HEADER_TO, RF_HEADER_P), RF_HEADER.dir!),
+      expected: 0,
+      tol: 1e-9,
+    },
+  ],
+};
+
+const RF_PLANE_P: Vec = vec(72, 46);
+const RF_PLANE_I = 45;
+const RF_PLANE = refract(dir(-(90 - RF_PLANE_I)), vec(0, 1), 1, 1.5);
+const RF_PLANE_FROM = add(RF_PLANE_P, mul(dir(90 + RF_PLANE_I), 32));
+const RF_PLANE_TO = add(RF_PLANE_P, mul(RF_PLANE.dir!, 32));
+const RF_PLANE_STRAIGHT = add(RF_PLANE_P, mul(dir(-(90 - RF_PLANE_I)), 40));
+
+export const refractionPlaneBoundary: FigureSpec = {
+  id: "refraction-plane-boundary",
+  title: "Refraction at a plane boundary",
+  alt:
+    "At a horizontal boundary, an oblique incident ray bends towards the dashed normal; its dotted undeviated continuation is shown, and a second ray falls normally and passes straight through.",
+  caption:
+    "The oblique ray bends at the boundary; a ray along the normal passes straight through without deviation.",
+  frame: { width: 144, height: 92 },
+  labelSize: 3,
+  elements: [
+    body([vec(0, 0), vec(144, 0), vec(144, 46), vec(0, 46)], "glass"),
+    line(vec(0, 46), vec(144, 46), s("ink", 1.2)),
+    ...normal(RF_PLANE_P, 90, 26, { text: "N" }),
+    arrow(RF_PLANE_FROM, RF_PLANE_P, INCIDENT),
+    arrow(RF_PLANE_P, RF_PLANE_TO, EMERGENT),
+    line(RF_PLANE_P, RF_PLANE_STRAIGHT, s("muted", 0.4, "dot")),
+    arrow(vec(112, 76), vec(112, 16), RAY),
+    ...angleMark(RF_PLANE_P, 90, 90 + RF_PLANE_I, {
+      r: 9,
+      label: "i",
+      labelR: 12.5,
+      color: "hot",
+    }),
+    ...angleMark(RF_PLANE_P, 270, angleOf(RF_PLANE_P, RF_PLANE_TO) + 360, {
+      r: 8,
+      label: "r",
+      labelR: 12,
+      color: "ok",
+    }),
+    label(vec(6, 86), "Medium 1 (n₁, v₁)", { anchor: "start", size: 2.8, color: "muted" }),
+    label(vec(6, 6), "Medium 2 (n₂, v₂)", { anchor: "start", size: 2.8, color: "muted" }),
+    label(vec(40, 80), "incident ray", { anchor: "end", size: 2.6, color: "hot" }),
+    label(vec(92, 16), "refracted ray", { anchor: "start", size: 2.6, color: "ok" }),
+    label(vec(104, 28), "undeviated path", { anchor: "start", size: 2.5, color: "muted" }),
+    label(vec(122, 76), "normal incidence", { anchor: "end", size: 2.5, color: "muted" }),
+  ],
+  checks: [
+    { kind: "snell", i: RF_PLANE.angleOfIncidence, r: RF_PLANE.angleOfRefraction, n1: 1, n2: 1.5 },
+    {
+      kind: "value",
+      label: "refracted ray follows the solved direction",
+      actual: angleBetween(sub(RF_PLANE_TO, RF_PLANE_P), RF_PLANE.dir!),
+      expected: 0,
+      tol: 1e-4,
+    },
+  ],
+};
+
+const RF_RD_P: Vec = vec(66, 38);
+const RF_RD_I = 45;
+const RF_RD_N1 = 1;
+const RF_RD_N2 = 1.5;
+const RF_RD = refract(dir(-(90 - RF_RD_I)), vec(0, 1), RF_RD_N1, RF_RD_N2);
+const RF_RD_FROM = add(RF_RD_P, mul(dir(90 + RF_RD_I), 30));
+const RF_RD_TO = add(RF_RD_P, mul(RF_RD.dir!, 32));
+
+export const refractionRarerToDenser: FigureSpec = {
+  id: "refraction-rarer-to-denser",
+  title: "Rarer medium to denser medium: bending towards the normal",
+  alt:
+    "A ray passes from a rarer upper medium into a denser lower medium; the refracted angle r is smaller than the incident angle i.",
+  caption: "The refracted ray bends towards the normal: i > r.",
+  frame: { width: 132, height: 76 },
+  labelSize: 3,
+  elements: [
+    body([vec(0, 0), vec(132, 0), vec(132, 38), vec(0, 38)], "glass"),
+    line(vec(0, 38), vec(132, 38), s("ink", 1.2)),
+    ...normal(RF_RD_P, 90, 22, { text: "N" }),
+    arrow(RF_RD_FROM, RF_RD_P, INCIDENT),
+    arrow(RF_RD_P, RF_RD_TO, EMERGENT),
+    ...angleMark(RF_RD_P, 90, 90 + RF_RD_I, { r: 8, label: "i", labelR: 11.5, color: "hot" }),
+    ...angleMark(RF_RD_P, 270, angleOf(RF_RD_P, RF_RD_TO) + 360, {
+      r: 7,
+      label: "r",
+      labelR: 10.5,
+      color: "ok",
+    }),
+    label(vec(6, 70), "rarer medium", { anchor: "start", size: 2.7, color: "muted" }),
+    label(vec(6, 7), "denser medium", { anchor: "start", size: 2.7, color: "muted" }),
+  ],
+  checks: [
+    {
+      kind: "snell",
+      i: RF_RD.angleOfIncidence,
+      r: RF_RD.angleOfRefraction,
+      n1: RF_RD_N1,
+      n2: RF_RD_N2,
+    },
+    {
+      kind: "value",
+      label: "r < i",
+      actual: RF_RD.angleOfRefraction < RF_RD.angleOfIncidence ? 1 : 0,
+      expected: 1,
+      tol: 0,
+    },
+    {
+      kind: "value",
+      label: "drawn ray follows the solved direction",
+      actual: angleBetween(sub(RF_RD_TO, RF_RD_P), RF_RD.dir!),
+      expected: 0,
+      tol: 1e-4,
+    },
+  ],
+};
+
+const RF_DR_P: Vec = vec(66, 38);
+const RF_DR_I = 30;
+const RF_DR_N1 = 1.5;
+const RF_DR_N2 = 1;
+const RF_DR_IN = dir(-(90 - RF_DR_I));
+const RF_DR = refract(RF_DR_IN, vec(0, 1), RF_DR_N1, RF_DR_N2);
+const RF_DR_FROM = add(RF_DR_P, mul(dir(90 + RF_DR_I), 30));
+const RF_DR_TO = add(RF_DR_P, mul(RF_DR.dir!, 32));
+
+export const refractionDenserToRarer: FigureSpec = {
+  id: "refraction-denser-to-rarer",
+  title: "Denser medium to rarer medium: bending away from the normal",
+  alt:
+    "A ray passes from a denser upper medium into a rarer lower medium; the refracted angle r is larger than the incident angle i.",
+  caption: "The refracted ray bends away from the normal: i < r.",
+  frame: { width: 132, height: 76 },
+  labelSize: 3,
+  elements: [
+    body([vec(0, 0), vec(132, 0), vec(132, 38), vec(0, 38)], "glass"),
+    line(vec(0, 38), vec(132, 38), s("ink", 1.2)),
+    ...normal(RF_DR_P, 90, 22, { text: "N" }),
+    arrow(RF_DR_FROM, RF_DR_P, INCIDENT),
+    arrow(RF_DR_P, RF_DR_TO, EMERGENT),
+    ...angleMark(RF_DR_P, 90, 90 + RF_DR_I, { r: 8, label: "i", labelR: 11.5, color: "hot" }),
+    ...angleMark(RF_DR_P, 270, angleOf(RF_DR_P, RF_DR_TO) + 360, {
+      r: 8,
+      label: "r",
+      labelR: 12,
+      color: "ok",
+    }),
+    label(vec(6, 70), "denser medium", { anchor: "start", size: 2.7, color: "muted" }),
+    label(vec(6, 7), "rarer medium", { anchor: "start", size: 2.7, color: "muted" }),
+  ],
+  checks: [
+    {
+      kind: "snell",
+      i: RF_DR.angleOfIncidence,
+      r: RF_DR.angleOfRefraction,
+      n1: RF_DR_N1,
+      n2: RF_DR_N2,
+    },
+    {
+      kind: "value",
+      label: "r > i",
+      actual: RF_DR.angleOfRefraction > RF_DR.angleOfIncidence ? 1 : 0,
+      expected: 1,
+      tol: 0,
+    },
+    {
+      kind: "value",
+      label: "drawn ray follows the solved direction",
+      actual: angleBetween(sub(RF_DR_TO, RF_DR_P), RF_DR.dir!),
+      expected: 0,
+      tol: 1e-9,
+    },
+  ],
+};
+
+const RF_SN_P: Vec = vec(36, 24);
+const RF_SN_I = 40;
+const RF_SN = refract(dir(-(90 - RF_SN_I)), vec(0, 1), 1, 1.5);
+const RF_SN_FROM = add(RF_SN_P, mul(dir(90 + RF_SN_I), 20));
+const RF_SN_TO = add(RF_SN_P, mul(RF_SN.dir!, 20));
+
+export const refractionSnellDiagram: FigureSpec = {
+  id: "refraction-snell-diagram",
+  title: "Angles for Snell’s law",
+  alt: "A ray crosses a boundary; i and r are measured from the dashed normal at the point of incidence.",
+  caption: "Media 1 and 2 with the incident angle i, refracted angle r and normal N.",
+  frame: { width: 72, height: 48 },
+  labelSize: 2.8,
+  elements: [
+    body([vec(0, 0), vec(72, 0), vec(72, 24), vec(0, 24)], "glass"),
+    line(vec(0, 24), vec(72, 24), s("ink", 1)),
+    ...normal(RF_SN_P, 90, 15),
+    arrow(RF_SN_FROM, RF_SN_P, INCIDENT),
+    arrow(RF_SN_P, RF_SN_TO, EMERGENT),
+    ...angleMark(RF_SN_P, 90, 90 + RF_SN_I, { r: 5.5, label: "i", labelR: 8.5, color: "hot" }),
+    ...angleMark(RF_SN_P, 270, angleOf(RF_SN_P, RF_SN_TO) + 360, {
+      r: 5.5,
+      label: "r",
+      labelR: 8.5,
+      color: "ok",
+    }),
+    label(vec(5, 42), "Medium 1", { anchor: "start", size: 2.5, color: "muted" }),
+    label(vec(5, 6), "Medium 2", { anchor: "start", size: 2.5, color: "muted" }),
+    label(vec(40, 44), "N", { anchor: "start", size: 2.5, color: "muted" }),
+  ],
+  checks: [
+    { kind: "snell", i: RF_SN.angleOfIncidence, r: RF_SN.angleOfRefraction, n1: 1, n2: 1.5 },
+    {
+      kind: "value",
+      label: "Snell ray follows the solved direction",
+      actual: angleBetween(sub(RF_SN_TO, RF_SN_P), RF_SN.dir!),
+      expected: 0,
+      tol: 1e-9,
+    },
+  ],
+};
+
+const RF_DS_I1 = SLAB_TRACE.events[0].angleOfIncidence;
+const RF_DS_R1 = SLAB_TRACE.events[0].angleAfter;
+const RF_DS_R2 = SLAB_TRACE.events[1].angleOfIncidence;
+const RF_DS_I2 = SLAB_TRACE.events[1].angleAfter;
+const RF_DS_D = dir(SLAB_INCIDENCE);
+const RF_DS_Q = add(SLAB_TRACE.points[2], mul(RF_DS_D, 12));
+const RF_DS_FOOT = add(
+  SLAB_TRACE.points[1],
+  mul(RF_DS_D, dot(sub(RF_DS_Q, SLAB_TRACE.points[1]), RF_DS_D)),
+);
+const RF_DS_SHIFT = slabLateralShift(40, RF_DS_I1, 1.5)!;
+
+export const refractionSlabFourAngles: FigureSpec = {
+  id: "refraction-slab-four-angles",
+  title: "Parallel-sided slab: four angles and lateral shift",
+  alt:
+    "A ray enters a rectangular slab at i₁, refracts at r₁, meets the second face at i₂ and emerges at r₂; the emergent ray is parallel to the incident ray and shifted sideways.",
+  caption:
+    "The parallel faces give r₁ = i₂; Snell’s law at both faces then gives i₁ = r₂. The emergent ray is parallel to the incident ray.",
+  frame: { width: 132, height: 84 },
+  labelSize: 3,
+  elements: [
+    body(SLAB.polygon, "glassStrong"),
+    arrow(SLAB_TRACE.points[0], SLAB_TRACE.points[1], INCIDENT),
+    arrow(SLAB_TRACE.points[1], SLAB_TRACE.points[2], RAY),
+    arrow(SLAB_TRACE.points[2], SLAB_TRACE.points[3], EMERGENT),
+    line(SLAB_TRACE.points[1], add(SLAB_TRACE.points[1], mul(RF_DS_D, 58)), s("muted", 0.4, "dot")),
+    ...normal(SLAB_TRACE.points[1], 0, 12),
+    ...normal(SLAB_TRACE.points[2], 0, 10),
+    ...angleMark(SLAB_TRACE.points[1], 150, 180, { r: 8, label: "i₁", labelR: 11.5, color: "hot" }),
+    ...angleMark(SLAB_TRACE.points[1], SLAB_INSIDE + 360, 360, {
+      r: 5.5,
+      label: "r₁",
+      labelR: 10,
+      color: "ray",
+    }),
+    ...angleMark(SLAB_TRACE.points[2], SLAB_INSIDE + 180, 180, {
+      r: 5.5,
+      label: "r₂",
+      labelR: 9.5,
+      color: "ray",
+    }),
+    ...angleMark(SLAB_TRACE.points[2], SLAB_OUT.outDeg + 360, 360, {
+      r: 7,
+      label: "i₂",
+      labelR: 10.5,
+      color: "ok",
+    }),
+    line(RF_DS_FOOT, RF_DS_Q, s("ok", 0.5, "dash")),
+    label(vec(102, 33), "lateral shift", { anchor: "start", size: 2.4, color: "ok" }),
+    label(vec(35, 54), "N₁", { anchor: "end", size: 2.7, color: "muted" }),
+    label(vec(93, 40), "N₂", { anchor: "start", size: 2.7, color: "muted" }),
+    label(vec(6, 78), "Medium 1 (n₁)", { anchor: "start", size: 2.6, color: "muted" }),
+    label(vec(68, 27), "Medium 2 (n₂)", { anchor: "middle", size: 2.6, color: "muted" }),
+  ],
+  checks: [
+    { kind: "snell", i: RF_DS_I1, r: RF_DS_R1, n1: 1, n2: 1.5 },
+    { kind: "snell", i: RF_DS_R2, r: RF_DS_I2, n1: 1.5, n2: 1 },
+    { kind: "value", label: "r₂ = r₁", actual: RF_DS_R2, expected: RF_DS_R1, tol: 1e-9 },
+    { kind: "value", label: "i₂ = i₁", actual: RF_DS_I2, expected: RF_DS_I1, tol: 1e-9 },
+    {
+      kind: "value",
+      label: "emergent ray parallel to incident ray",
+      actual: Math.abs(SLAB_OUT.outDeg - SLAB_IN.inDeg),
+      expected: 0,
+      tol: 1e-9,
+    },
+    {
+      kind: "value",
+      label: "marked separation equals slabLateralShift()",
+      actual: dist(RF_DS_FOOT, RF_DS_Q),
+      expected: RF_DS_SHIFT,
+      tol: 1e-6,
+    },
+  ],
+};
+
+export const refractionParallelEmergence: FigureSpec = {
+  id: "refraction-parallel-emergence",
+  title: "Incident and emergent rays are parallel",
+  alt: "Two separated arrows point in the same direction, showing that the emergent ray is parallel to the incident ray.",
+  caption: "The emergent ray is parallel to the incident ray.",
+  frame: { width: 100, height: 44 },
+  labelSize: 2.8,
+  elements: [
+    arrow(vec(8, 36), vec(48, 12.94), INCIDENT),
+    arrow(vec(54, 30), vec(94, 6.94), EMERGENT),
+    label(vec(8, 41), "incident ray", { anchor: "start", size: 2.5, color: "hot" }),
+    label(vec(94, 15), "emergent ray", { anchor: "end", size: 2.5, color: "ok" }),
+  ],
+  checks: [
+    {
+      kind: "value",
+      label: "drawn rays are parallel",
+      actual: angleBetween(sub(vec(48, 12.94), vec(8, 36)), sub(vec(94, 6.94), vec(54, 30))),
+      expected: 0,
+      tol: 1e-3,
+    },
+  ],
+};
+
+const RF_AC_O: Vec = vec(48, 12);
+const RF_AC_SURFACE = 44;
+const RF_AC_I = 20;
+const RF_AC_N = 4 / 3;
+const RF_AC_P: Vec = vec(RF_AC_O.x + (RF_AC_SURFACE - RF_AC_O.y) * Math.tan(RF_AC_I * RS_DEG), RF_AC_SURFACE);
+const RF_AC = refract(dir(90 - RF_AC_I), vec(0, 1), RF_AC_N, 1);
+const RF_AC_EYE = add(RF_AC_P, mul(RF_AC.dir!, 24));
+const RF_AC_IMAGE = intersectLines(RF_AC_P, RF_AC.dir!, vec(RF_AC_O.x, 0), vec(0, 1))!;
+
+export const refractionApparentConcept: FigureSpec = {
+  id: "refraction-apparent-concept",
+  title: "An object in a denser medium appears raised",
+  alt:
+    "An object in the lower denser medium is seen by an eye above; a dashed back-extension places its virtual image closer to the surface.",
+  caption: "The virtual image appears closer to the surface than the actual object.",
+  frame: { width: 120, height: 74 },
+  labelSize: 3,
+  elements: [
+    body([vec(0, 0), vec(120, 0), vec(120, RF_AC_SURFACE), vec(0, RF_AC_SURFACE)], "glass"),
+    line(vec(0, RF_AC_SURFACE), vec(120, RF_AC_SURFACE), s("ink", 1.1)),
+    arrow(RF_AC_O, RF_AC_P, RAY),
+    arrow(RF_AC_P, RF_AC_EYE, EMERGENT),
+    line(RF_AC_P, RF_AC_IMAGE, VIRTUAL),
+    point(RF_AC_O, 1.1),
+    point(RF_AC_IMAGE, 1.1, "warn"),
+    circle(RF_AC_EYE, 3, { stroke: INK, fill: null }),
+    label(vec(43, 11), "O", { anchor: "end", size: 3, math: true }),
+    label(vec(43, 23), "O′", { anchor: "end", size: 3, math: true, color: "warn" }),
+    label(vec(76, 68), "eye", { anchor: "start", size: 2.6, color: "muted" }),
+    label(vec(76, 24), "virtual image", { anchor: "start", size: 2.5, color: "warn" }),
+    label(vec(6, 69), "rarer medium", { anchor: "start", size: 2.5, color: "muted" }),
+    label(vec(6, 6), "denser medium", { anchor: "start", size: 2.5, color: "muted" }),
+  ],
+  checks: [
+    { kind: "snell", i: RF_AC.angleOfIncidence, r: RF_AC.angleOfRefraction, n1: RF_AC_N, n2: 1 },
+    {
+      kind: "value",
+      label: "virtual image is above the object",
+      actual: RF_AC_IMAGE.y > RF_AC_O.y ? 1 : 0,
+      expected: 1,
+      tol: 0,
+    },
+  ],
+};
+
+const RF_AD_O: Vec = vec(54, 14);
+const RF_AD_N = 4 / 3;
+const RF_AD_SURFACE = 52;
+const RF_AD_ANGLES: readonly number[] = [4, 7];
+const RF_AD_RAYS = RF_AD_ANGLES.map((i) => {
+  const p: Vec = vec(RF_AD_O.x + (RF_AD_SURFACE - RF_AD_O.y) * Math.tan(i * RS_DEG), RF_AD_SURFACE);
+  const solved = refract(dir(90 - i), vec(0, 1), RF_AD_N, 1);
+  const end = add(p, mul(solved.dir!, 24));
+  const image = intersectLines(p, solved.dir!, vec(RF_AD_O.x, 0), vec(0, 1))!;
+  return { i, p, solved, end, image };
+});
+const RF_AD_IMAGE = RF_AD_RAYS[0].image;
+const RF_AD_EYE: Vec = vec(
+  (RF_AD_RAYS[0].end.x + RF_AD_RAYS[1].end.x) / 2,
+  (RF_AD_RAYS[0].end.y + RF_AD_RAYS[1].end.y) / 2,
+);
+const RF_AD_REAL_DEPTH = RF_AD_SURFACE - RF_AD_O.y;
+
+export const refractionApparentDepth: FigureSpec = {
+  id: "refraction-apparent-depth-n21",
+  title: "Apparent depth and real depth",
+  alt:
+    "Rays from an object in a denser medium refract into the rarer medium; their backward extensions meet at a virtual image above the object, with real depth d and apparent depth d prime marked separately.",
+  caption: "The backward extensions locate the virtual image: d′ = d / n₂₁.",
+  frame: { width: 120, height: 88 },
+  labelSize: 3,
+  elements: [
+    body([vec(0, 0), vec(120, 0), vec(120, RF_AD_SURFACE), vec(0, RF_AD_SURFACE)], "glass"),
+    line(vec(0, RF_AD_SURFACE), vec(120, RF_AD_SURFACE), s("ink", 1.1)),
+    ...normal(RF_AD_RAYS[0].p, 90, 18),
+    ...RF_AD_RAYS.flatMap((ray) => [
+      arrow(RF_AD_O, ray.p, RAY),
+      arrow(ray.p, ray.end, EMERGENT),
+      line(ray.p, ray.image, VIRTUAL),
+    ]),
+    point(RF_AD_O, 1.1),
+    point(RF_AD_IMAGE, 1.1, "warn"),
+    circle(RF_AD_EYE, 3, { stroke: INK, fill: null }),
+    line(vec(38, RF_AD_O.y), vec(38, RF_AD_SURFACE), s("muted", 0.45)),
+    tick(vec(38, RF_AD_O.y), 90, 1.8),
+    tick(vec(38, RF_AD_SURFACE), 90, 1.8),
+    line(vec(70, RF_AD_IMAGE.y), vec(70, RF_AD_SURFACE), s("warn", 0.45, "dash")),
+    tick(vec(70, RF_AD_IMAGE.y), 90, 1.8),
+    tick(vec(70, RF_AD_SURFACE), 90, 1.8),
+    label(vec(34, 33), "d", { anchor: "end", size: 3, math: true, color: "muted" }),
+    label(vec(74, 38), "d′", { anchor: "start", size: 3, math: true, color: "warn" }),
+    label(vec(50, 11), "O", { anchor: "end", size: 3, math: true }),
+    label(vec(50, 26), "O′", { anchor: "end", size: 3, math: true, color: "warn" }),
+    label(vec(76, 27), "virtual image", { anchor: "start", size: 2.5, color: "warn" }),
+    label(vec(66, 83), "eye", { anchor: "start", size: 2.6, color: "muted" }),
+    label(vec(6, 84), "rarer medium", { anchor: "start", size: 2.5, color: "muted" }),
+    label(vec(6, 6), "denser medium", { anchor: "start", size: 2.5, color: "muted" }),
+  ],
+  checks: [
+    {
+      kind: "snell",
+      i: RF_AD_RAYS[0].solved.angleOfIncidence,
+      r: RF_AD_RAYS[0].solved.angleOfRefraction,
+      n1: RF_AD_N,
+      n2: 1,
+    },
+    {
+      kind: "value",
+      label: "virtual image is above the object",
+      actual: RF_AD_IMAGE.y > RF_AD_O.y ? 1 : 0,
+      expected: 1,
+      tol: 0,
+    },
+    {
+      kind: "value",
+      label: "paraxial apparent depth follows d / n₂₁",
+      actual: RF_AD_SURFACE - RF_AD_IMAGE.y,
+      expected: apparentDepthOf(RF_AD_REAL_DEPTH, RF_AD_N),
+      tol: 0.5,
+    },
+  ],
+};
+
 export const RAY_OPTICS_FIGURES: readonly FigureSpec[] = [
   rayAndBeam,
   refractionAtSurface,
   apparentDepth,
   slabShift,
+  refractionHeaderCrossing,
+  refractionPlaneBoundary,
+  refractionRarerToDenser,
+  refractionDenserToRarer,
+  refractionSnellDiagram,
+  refractionSlabFourAngles,
+  refractionParallelEmergence,
+  refractionApparentConcept,
+  refractionApparentDepth,
   totalInternalReflection,
   opticalFibre,
   convexLensRays,
